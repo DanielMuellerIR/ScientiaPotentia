@@ -53,37 +53,34 @@ const geodbMock = {
   }
 };
 
-// Mock specific test questions catalog
-vi.mock('../data/quiz_questions.json', () => {
-  return {
-    default: [
-      {
-        id: "q_city_FR_paris_river",
-        entityId: "city_FR_paris",
-        entityType: "city",
-        type: "city-river",
-        difficulty: 1,
-        prompt: "Welcher Fluss fließt direkt durch die Stadt Paris?",
-        correctAnswer: "Seine",
-        options: ["Amazonas", "Ebro", "Seine", "Tigris"],
-        silhouetteSvgPath: null,
-        mapTargetId: "FR"
-      },
-      {
-        id: "q_country_FR_click",
-        entityId: "FR",
-        entityType: "country",
-        type: "click-map",
-        difficulty: 1,
-        prompt: "Klicke auf Frankreich!",
-        correctAnswer: "Frankreich",
-        options: [],
-        silhouetteSvgPath: null,
-        mapTargetId: "FR"
-      }
-    ]
-  };
-});
+// Fragenkatalog für den Test. Wird jetzt als questionPool-Prop übergeben
+// (Quiz importiert quiz_questions.json nicht mehr statisch).
+const questionPoolMock = [
+  {
+    id: "q_city_FR_paris_river",
+    entityId: "city_FR_paris",
+    entityType: "city",
+    type: "city-river",
+    difficulty: 1,
+    prompt: "Welcher Fluss fließt direkt durch die Stadt Paris?",
+    correctAnswer: "Seine",
+    options: ["Amazonas", "Ebro", "Seine", "Tigris"],
+    silhouetteSvgPath: null,
+    mapTargetId: "FR"
+  },
+  {
+    id: "q_country_FR_click",
+    entityId: "FR",
+    entityType: "country",
+    type: "click-map",
+    difficulty: 1,
+    prompt: "Klicke auf Frankreich!",
+    correctAnswer: "Frankreich",
+    options: [],
+    silhouetteSvgPath: null,
+    mapTargetId: "FR"
+  }
+];
 
 // Stable array references to prevent infinite React rendering loop in test environment
 const dueEntitiesMock = [];
@@ -119,8 +116,10 @@ function QuizMapTestWrapper({ quizMode = 'all', difficulty = 1, onFinished = () 
         showSubdivisions={mapState.showSubdivisions}
         zoomToEntityId={mapState.zoomToEntityId}
       />
-      <Quiz 
+      <Quiz
         geodb={geodbMock}
+        questionPool={questionPoolMock}
+        domainId="terra"
         dueEntities={dueEntitiesMock}
         newEntities={newEntitiesMock}
         difficulty={difficulty}

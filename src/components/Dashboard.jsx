@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Flame, Compass, Calendar, Award, BookOpen, AlertCircle, BarChart3, Trophy } from 'lucide-react';
-import quizQuestions from '../data/quiz_questions.json';
 
-export default function Dashboard({ 
-  geodb, 
-  srsProgress = {}, 
-  dueCount = 0, 
+export default function Dashboard({
+  geodb,
+  questionPool = [],
+  srsProgress = {},
+  dueCount = 0,
   streakCount = 0,
   highScore = 0,
   onStartDailyReview
@@ -90,7 +90,7 @@ export default function Dashboard({
           Geografie-Lernkontrolle
         </h2>
         <div style={{ fontSize: '12.5px', color: 'var(--text-muted)', fontWeight: 500 }}>
-          Fragen-Pool: <span style={{ color: 'var(--color-secondary)', fontWeight: 700 }}>{quizQuestions.length.toLocaleString('de-DE')} Fragen</span> | Karteikarten: <span style={{ color: 'var(--color-primary)', fontWeight: 700 }}>{totalEntitiesCount.toLocaleString('de-DE')} Orte</span>
+          Fragen-Pool: <span style={{ color: 'var(--color-secondary)', fontWeight: 700 }}>{questionPool.length.toLocaleString('de-DE')} Fragen</span> | Karteikarten: <span style={{ color: 'var(--color-primary)', fontWeight: 700 }}>{totalEntitiesCount.toLocaleString('de-DE')} Orte</span>
         </div>
       </div>
 

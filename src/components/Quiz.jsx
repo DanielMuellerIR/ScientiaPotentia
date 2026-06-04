@@ -3,10 +3,11 @@ import { calculateSRS, mapBinaryToQuality } from '../utils/srs';
 import { saveProgress, addHistoryLog, getProgress } from '../utils/db';
 import { playClick, playCorrectChime, playErrorBuzzer } from '../utils/audio';
 import { Check, X, HelpCircle, ArrowRight, Award, RotateCcw, MapPin } from 'lucide-react';
-import quizQuestions from '../data/quiz_questions.json';
 
 export default function Quiz({ 
   geodb, 
+  questionPool = [],
+  domainId = 'terra',
   dueEntities = [], 
   newEntities = [], 
   difficulty = 1,
@@ -30,6 +31,7 @@ export default function Quiz({
   const [statusMessage, setStatusMessage] = useState('');
   const [wrongClickIds, setWrongClickIds] = useState([]);
   const [correctClickIds, setCorrectClickIds] = useState([]);
+  const quizQuestions = Array.isArray(questionPool) ? questionPool : [];
 
   // Load GeoJSON geometries for isolated outline projections
   useEffect(() => {
@@ -47,7 +49,7 @@ export default function Quiz({
   // Generate quiz questions on mount or pool change
   useEffect(() => {
     generateQuizSession();
-  }, [dueEntities, newEntities, difficulty, quizMode]);
+  }, [dueEntities, newEntities, difficulty, quizMode, questionPool]);
 
   // Set map layer configurations when entering new question
   useEffect(() => {
@@ -184,6 +186,18 @@ export default function Quiz({
   };
 
   const generateQuizSession = () => {
+    if (quizQuestions.length === 0) {
+      setQuestions([]);
+      setCurrentIdx(0);
+      setAttempts(0);
+      setSelectedOption(null);
+      setIsAnswered(false);
+      setScore(0);
+      setPoints(0);
+      setSessionFinished(false);
+      return;
+    }
+
     const dueIds = new Set(dueEntities.map(d => d.id));
     const newIds = new Set(newEntities.map(n => n.id));
 
@@ -448,6 +462,7 @@ export default function Quiz({
     await saveProgress(entityId, nextState, entityType);
     await addHistoryLog({
       entityId,
+      domain: domainId,
       type: entityType,
       correct: isCorrect,
       attempts: attemptCount,

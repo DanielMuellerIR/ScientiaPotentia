@@ -3,7 +3,19 @@
  */
 
 const DB_NAME = 'GeoAtlasDB';
-const DB_VERSION = 1;
+const DB_VERSION = 2;
+
+/**
+ * Derives the domain from a concept key.
+ * Old Terra records do not have a prefix, so missing ":" always means Terra.
+ * New domains use keys like "astra:mars" to avoid collisions.
+ */
+function getDomainFromEntityId(entityId) {
+  if (typeof entityId !== 'string' || !entityId.includes(':')) {
+    return 'terra';
+  }
+  return entityId.split(':')[0];
+}
 
 /**
  * Initializes the IndexedDB instance.
@@ -25,12 +37,18 @@ export function initDB() {
     request.onupgradeneeded = (event) => {
       const db = event.target.result;
       
-      // Store for SRS Progress of geographic entities
-      // Key: entityId (e.g. 'DE' for Germany country, 'Q64' for Berlin city)
+      // Store for SRS progress of concepts.
+      // Key: entityId. Old Terra keys stay unprefixed; new domains are prefixed.
       if (!db.objectStoreNames.contains('progress')) {
         const progressStore = db.createObjectStore('progress', { keyPath: 'entityId' });
         progressStore.createIndex('nextDueDate', 'nextDueDate', { unique: false });
         progressStore.createIndex('type', 'type', { unique: false }); // country, city, river, etc.
+        progressStore.createIndex('domain', 'domain', { unique: false });
+      } else if (event.oldVersion < 2) {
+        const progressStore = event.target.transaction.objectStore('progress');
+        if (!progressStore.indexNames.contains('domain')) {
+          progressStore.createIndex('domain', 'domain', { unique: false });
+        }
       }
 
       // Store for detailed history logs
@@ -88,9 +106,10 @@ export async function getAllProgress() {
  * @param {string} entityId 
  * @param {Object} srsData - { repetitions, interval, easiness, nextDueDate }
  * @param {string} type - type of entity (e.g. 'country', 'city', 'river', 'mountain', 'landmark')
+ * @param {string} domain - knowledge domain, derived from entityId if omitted
  * @returns {Promise<void>}
  */
-export async function saveProgress(entityId, srsData, type) {
+export async function saveProgress(entityId, srsData, type, domain = getDomainFromEntityId(entityId)) {
   const db = await initDB();
   return new Promise((resolve, reject) => {
     const transaction = db.transaction(['progress'], 'readwrite');
@@ -98,6 +117,7 @@ export async function saveProgress(entityId, srsData, type) {
     
     const record = {
       entityId,
+      domain,
       type,
       ...srsData,
       lastUpdated: Date.now()
@@ -122,6 +142,7 @@ export async function addHistoryLog(logEntry) {
     
     const record = {
       ...logEntry,
+      domain: logEntry.domain || getDomainFromEntityId(logEntry.entityId),
       timestamp: Date.now()
     };
 

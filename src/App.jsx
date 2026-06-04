@@ -4,6 +4,7 @@ import Atlas from './components/Atlas';
 import Quiz from './components/Quiz';
 import Dashboard from './components/Dashboard';
 import geodb from './data/geodb.json';
+import { getDomainById } from './domains';
 import { getAllProgress, getSetting, saveSetting } from './utils/db';
 import { playClick, isAudioMuted, setAudioMuted } from './utils/audio';
 import { Globe, BarChart3, HelpCircle, Compass, Flame, Trophy, Volume2, VolumeX } from 'lucide-react';
@@ -15,6 +16,13 @@ export default function App() {
   const [quizMode, setQuizMode] = useState('all'); // 'all' | 'countries' | 'cities' | 'rivers' | 'stadt-land-fluss'
   const [clickedMapId, setClickedMapId] = useState(null);
   const [isMuted, setIsMuted] = useState(isAudioMuted());
+
+  // Aktive Wissens-Domain. Phase 0: nur Terra. Spätere Phasen schalten hier
+  // weitere Bereiche frei (Astra, Homo, …) über den DomainSwitcher.
+  const activeDomain = getDomainById('terra');
+  // Fragenkatalog der aktiven Domain. Wird nicht mehr statisch gebündelt,
+  // sondern zur Laufzeit aus public/data/ geladen (entlastet das JS-Bundle).
+  const [questionPool, setQuestionPool] = useState([]);
 
   const handleToggleMute = () => {
     const newMuted = !isMuted;
@@ -51,6 +59,20 @@ export default function App() {
     loadStreak();
     loadHighScore();
   }, []);
+
+  // Fragenkatalog der aktiven Domain laden (Lazy-Fetch statt statischem Import).
+  useEffect(() => {
+    let cancelled = false;
+    activeDomain.loadQuestions()
+      .then(questions => {
+        if (!cancelled) setQuestionPool(Array.isArray(questions) ? questions : []);
+      })
+      .catch(e => {
+        console.error('Error loading question pool:', e);
+        if (!cancelled) setQuestionPool([]);
+      });
+    return () => { cancelled = true; };
+  }, [activeDomain]);
 
   // Update map state mode based on active tab
   useEffect(() => {
@@ -343,8 +365,9 @@ export default function App() {
           flexShrink: 0
         }}>
           {activeTab === 'dashboard' && (
-            <Dashboard 
+            <Dashboard
               geodb={geodb}
+              questionPool={questionPool}
               srsProgress={srsProgress}
               dueCount={dueEntities.length}
               streakCount={streakCount}
@@ -364,8 +387,10 @@ export default function App() {
           )}
 
           {activeTab === 'quiz' && (
-            <Quiz 
+            <Quiz
               geodb={geodb}
+              questionPool={questionPool}
+              domainId={activeDomain.id}
               dueEntities={dueEntities}
               newEntities={newEntities}
               difficulty={quizDifficulty}
