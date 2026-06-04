@@ -91,6 +91,50 @@ function hexToRgbStr(hex) {
   return `${(hex >> 16) & 255},${(hex >> 8) & 255},${hex & 255}`;
 }
 
+/**
+ * Prozedurale Stern-Oberfläche als Graustufen-Canvas-Textur: feine Granulation
+ * (Konvektionszellen) + ein paar dunklere Sternflecken. Wird per
+ * MeshBasicMaterial mit `color: starColor` multipliziert -> getönte, lebendige
+ * Oberfläche statt flacher Einzelfarbe (Antares & Co. wirkten sonst wie eine
+ * Scheibe). EINE Textur genügt für alle Sterne — die Spektralfarbe liefert das
+ * Material, nicht die Textur. Grundton ist absichtlich hell (~0.9), damit die
+ * Multiplikation den Stern kaum abdunkelt.
+ */
+function makeStarSurfaceTexture() {
+  const w = 1024, h = 512;
+  const cv = document.createElement('canvas');
+  cv.width = w; cv.height = h;
+  const ctx = cv.getContext('2d');
+  ctx.fillStyle = 'rgb(232,232,232)';
+  ctx.fillRect(0, 0, w, h);
+
+  // Weicher Helligkeitsfleck (Granule). lum 0..255, a = Deckkraft.
+  const blob = (cx, cy, r, lum, a) => {
+    const g = ctx.createRadialGradient(cx, cy, 0, cx, cy, r);
+    g.addColorStop(0, `rgba(${lum},${lum},${lum},${a})`);
+    g.addColorStop(1, `rgba(${lum},${lum},${lum},0)`);
+    ctx.fillStyle = g;
+    ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2); ctx.fill();
+  };
+
+  // Granulation: viele kleine Flecken, abwechselnd heller/dunkler als der Grund.
+  for (let i = 0; i < 1400; i++) {
+    const r = 6 + Math.random() * 22;
+    const lighter = Math.random() < 0.5;
+    const lum = lighter ? 255 : 170 + Math.random() * 40;
+    blob(Math.random() * w, Math.random() * h, r, lum, 0.06 + Math.random() * 0.10);
+  }
+  // Wenige größere, dunklere Sternflecken für grobe Struktur.
+  for (let i = 0; i < 6; i++) {
+    blob(Math.random() * w, Math.random() * h, 30 + Math.random() * 50, 120 + Math.random() * 40, 0.18);
+  }
+
+  const tex = new THREE.CanvasTexture(cv);
+  tex.colorSpace = THREE.SRGBColorSpace;
+  tex.wrapS = THREE.RepeatWrapping;
+  return tex;
+}
+
 // Deutscher Planetenname -> Position von der Sonne (für die Bahn-Hervorhebung).
 const PLANET_ORDER = { merkur: 1, venus: 2, erde: 3, mars: 4, jupiter: 5, saturn: 6, uranus: 7, neptun: 8 };
 
@@ -253,7 +297,11 @@ export default function AstraVisual({ domain, activeConcept, testedAttribute, an
     glow.visible = false;
     scene.add(glow);
 
-    Object.assign(ctx.current, { scene, camera, renderer, loader, body, starfield, glow, texCache: {} });
+    // Eine wiederverwendbare Stern-Oberflächentextur (Granulation) für alle
+    // Sterne ohne echte Textur; die Spektralfarbe kommt vom Material.
+    const starSurface = makeStarSurfaceTexture();
+
+    Object.assign(ctx.current, { scene, camera, renderer, loader, body, starfield, glow, starSurface, texCache: {} });
 
     // Größe an Container koppeln.
     const resize = () => {
@@ -283,6 +331,7 @@ export default function AstraVisual({ domain, activeConcept, testedAttribute, an
       cancelAnimationFrame(raf);
       ro.disconnect();
       Object.values(ctx.current.texCache || {}).forEach(t => t.dispose());
+      starSurface.dispose();
       starTex.dispose();
       bodyGeo.dispose();
       body.material.dispose();
@@ -300,7 +349,7 @@ export default function AstraVisual({ domain, activeConcept, testedAttribute, an
   useEffect(() => {
     const c = ctx.current;
     if (!ready || !c.body) return;
-    const { body, glow, loader, texCache } = c;
+    const { body, glow, loader, texCache, starSurface } = c;
 
     if (!activeConcept) {
       body.visible = false;
@@ -360,8 +409,11 @@ export default function AstraVisual({ domain, activeConcept, testedAttribute, an
         ? starColor
         : (BODY_COLORS[id] || (cat === 'dwarf_planet' ? 0xb8a98f : 0x9b9286));
       body.material.dispose();
+      // Stern: Granulationstextur, vom Material in der Spektral-/Neutralfarbe getönt
+      // (map * color). So wirkt die Oberfläche lebendig statt flach einfarbig. Der
+      // Glow-Halo bleibt davon unberührt. Andere Körper unverändert prozedural.
       body.material = isStar
-        ? new THREE.MeshBasicMaterial({ color })
+        ? new THREE.MeshBasicMaterial({ map: starSurface, color })
         : new THREE.MeshStandardMaterial({ color, roughness: 1, metalness: 0 });
     }
 
