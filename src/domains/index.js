@@ -4,6 +4,7 @@ import { Globe2, Sparkles, PersonStanding } from 'lucide-react';
 // Spezialisierte Visualisierungen lazy laden, damit schwere Abhaengigkeiten
 // (z.B. three.js fuer Astra) nur ins Bundle kommen, wenn die Domain aktiv ist.
 const AstraVisual = lazy(() => import('../components/AstraVisual'));
+const HomoVisual = lazy(() => import('../components/HomoVisual'));
 
 /**
  * Zentrale Registry aller Wissensbereiche ("Domains").
@@ -55,8 +56,9 @@ export const DOMAINS = [
     description: 'Knochen, Muskeln, Organe, physiologische Eckwerte und menschliche Arten.',
     Icon: PersonStanding,
     accent: '#A14D5A',
-    // Phase 3: reine Multiple-Choice-Fragen, keine interaktive Anatomie-Grafik.
+    // Phase 2: gemeinfreie Anatomiegrafiken (Wikimedia PD) je Konzept-Kategorie.
     hasMap: false,
+    Visual: HomoVisual,
     loadConcepts: () => fetch('data/concepts_homo.json').then(handleJson),
     loadQuestions: () => fetch('data/questions_homo.json').then(handleJson)
   }
