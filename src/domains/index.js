@@ -1,4 +1,9 @@
+import { lazy } from 'react';
 import { Globe2, Sparkles, PersonStanding } from 'lucide-react';
+
+// Spezialisierte Visualisierungen lazy laden, damit schwere Abhaengigkeiten
+// (z.B. three.js fuer Astra) nur ins Bundle kommen, wenn die Domain aktiv ist.
+const AstraVisual = lazy(() => import('../components/AstraVisual'));
 
 /**
  * Zentrale Registry aller Wissensbereiche ("Domains").
@@ -36,8 +41,9 @@ export const DOMAINS = [
     description: 'Planeten, Monde, Sterne, Galaxien und kosmische Konstanten.',
     Icon: Sparkles,
     accent: '#5B4B8A',
-    // Phase 1: reine Multiple-Choice-Fragen, noch keine interaktive Karte.
+    // Phase 2: 3D-Himmelskörper (three.js) statt statischer Übersicht.
     hasMap: false,
+    Visual: AstraVisual,
     loadConcepts: () => fetch('data/concepts_astra.json').then(handleJson),
     loadQuestions: () => fetch('data/questions_astra.json').then(handleJson)
   },
