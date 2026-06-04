@@ -686,10 +686,10 @@
     "type": "astra-dwarf-location",
     "difficulty": 3,
     "prompt": "In welcher Region des Sonnensystems befindet sich der Zwergplanet Pluto?",
-    "correctAnswer": "Kuiperguertel",
+    "correctAnswer": "Kuipergürtel",
     "options": [
-      "Kuiperguertel",
-      "Asteroidenguertel",
+      "Kuipergürtel",
+      "Asteroidengürtel",
       "Oortsche Wolke",
       "Streuscheibe"
     ],
@@ -703,10 +703,10 @@
     "type": "astra-dwarf-location",
     "difficulty": 3,
     "prompt": "In welcher Region des Sonnensystems befindet sich der Zwergplanet Ceres?",
-    "correctAnswer": "Asteroidenguertel",
+    "correctAnswer": "Asteroidengürtel",
     "options": [
-      "Asteroidenguertel",
-      "Kuiperguertel",
+      "Asteroidengürtel",
+      "Kuipergürtel",
       "Oortsche Wolke",
       "Streuscheibe"
     ],
@@ -720,10 +720,10 @@
     "type": "astra-dwarf-location",
     "difficulty": 3,
     "prompt": "In welcher Region des Sonnensystems befindet sich der Zwergplanet Eris?",
-    "correctAnswer": "Kuiperguertel",
+    "correctAnswer": "Kuipergürtel",
     "options": [
-      "Kuiperguertel",
-      "Asteroidenguertel",
+      "Kuipergürtel",
+      "Asteroidengürtel",
       "Oortsche Wolke",
       "Streuscheibe"
     ],
@@ -737,10 +737,10 @@
     "type": "astra-dwarf-location",
     "difficulty": 3,
     "prompt": "In welcher Region des Sonnensystems befindet sich der Zwergplanet Makemake?",
-    "correctAnswer": "Kuiperguertel",
+    "correctAnswer": "Kuipergürtel",
     "options": [
-      "Kuiperguertel",
-      "Asteroidenguertel",
+      "Kuipergürtel",
+      "Asteroidengürtel",
       "Oortsche Wolke",
       "Streuscheibe"
     ],
@@ -754,12 +754,80 @@
     "type": "astra-dwarf-location",
     "difficulty": 3,
     "prompt": "In welcher Region des Sonnensystems befindet sich der Zwergplanet Haumea?",
-    "correctAnswer": "Kuiperguertel",
+    "correctAnswer": "Kuipergürtel",
     "options": [
-      "Kuiperguertel",
-      "Asteroidenguertel",
+      "Kuipergürtel",
+      "Asteroidengürtel",
       "Oortsche Wolke",
       "Streuscheibe"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sedna_astra-dwarf-location",
+    "entityId": "astra:sedna",
+    "entityType": "dwarf_planet",
+    "type": "astra-dwarf-location",
+    "difficulty": 3,
+    "prompt": "In welcher Region des Sonnensystems befindet sich der Zwergplanet Sedna?",
+    "correctAnswer": "Oortsche Wolke",
+    "options": [
+      "Oortsche Wolke",
+      "Kuipergürtel",
+      "Asteroidengürtel",
+      "Streuscheibe"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_quaoar_astra-dwarf-location",
+    "entityId": "astra:quaoar",
+    "entityType": "dwarf_planet",
+    "type": "astra-dwarf-location",
+    "difficulty": 3,
+    "prompt": "In welcher Region des Sonnensystems befindet sich der Zwergplanet Quaoar?",
+    "correctAnswer": "Kuipergürtel",
+    "options": [
+      "Kuipergürtel",
+      "Asteroidengürtel",
+      "Oortsche Wolke",
+      "Streuscheibe"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_orcus_astra-dwarf-location",
+    "entityId": "astra:orcus",
+    "entityType": "dwarf_planet",
+    "type": "astra-dwarf-location",
+    "difficulty": 3,
+    "prompt": "In welcher Region des Sonnensystems befindet sich der Zwergplanet Orcus?",
+    "correctAnswer": "Kuipergürtel",
+    "options": [
+      "Kuipergürtel",
+      "Asteroidengürtel",
+      "Oortsche Wolke",
+      "Streuscheibe"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_gonggong_astra-dwarf-location",
+    "entityId": "astra:gonggong",
+    "entityType": "dwarf_planet",
+    "type": "astra-dwarf-location",
+    "difficulty": 3,
+    "prompt": "In welcher Region des Sonnensystems befindet sich der Zwergplanet Gonggong?",
+    "correctAnswer": "Streuscheibe",
+    "options": [
+      "Streuscheibe",
+      "Kuipergürtel",
+      "Asteroidengürtel",
+      "Oortsche Wolke"
     ],
     "silhouetteSvgPath": null,
     "mapTargetId": null
@@ -774,9 +842,9 @@
     "correctAnswer": "1930",
     "options": [
       "1930",
-      "2004",
-      "2005",
-      "1801"
+      "2002",
+      "2003",
+      "2004"
     ],
     "silhouetteSvgPath": null,
     "mapTargetId": null
@@ -792,8 +860,8 @@
     "options": [
       "1801",
       "1930",
-      "2004",
-      "2005"
+      "2002",
+      "2003"
     ],
     "silhouetteSvgPath": null,
     "mapTargetId": null
@@ -809,8 +877,8 @@
     "options": [
       "2005",
       "2004",
-      "1930",
-      "1801"
+      "2003",
+      "2007"
     ],
     "silhouetteSvgPath": null,
     "mapTargetId": null
@@ -826,8 +894,8 @@
     "options": [
       "2005",
       "2004",
-      "1930",
-      "1801"
+      "2003",
+      "2007"
     ],
     "silhouetteSvgPath": null,
     "mapTargetId": null
@@ -843,8 +911,76 @@
     "options": [
       "2004",
       "2005",
-      "1930",
-      "1801"
+      "2003",
+      "2002"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sedna_astra-dwarf-year",
+    "entityId": "astra:sedna",
+    "entityType": "dwarf_planet",
+    "type": "astra-dwarf-year",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr wurde der Zwergplanet Sedna entdeckt?",
+    "correctAnswer": "2003",
+    "options": [
+      "2003",
+      "2004",
+      "2002",
+      "2005"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_quaoar_astra-dwarf-year",
+    "entityId": "astra:quaoar",
+    "entityType": "dwarf_planet",
+    "type": "astra-dwarf-year",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr wurde der Zwergplanet Quaoar entdeckt?",
+    "correctAnswer": "2002",
+    "options": [
+      "2002",
+      "2003",
+      "2004",
+      "2005"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_orcus_astra-dwarf-year",
+    "entityId": "astra:orcus",
+    "entityType": "dwarf_planet",
+    "type": "astra-dwarf-year",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr wurde der Zwergplanet Orcus entdeckt?",
+    "correctAnswer": "2004",
+    "options": [
+      "2004",
+      "2005",
+      "2003",
+      "2002"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_gonggong_astra-dwarf-year",
+    "entityId": "astra:gonggong",
+    "entityType": "dwarf_planet",
+    "type": "astra-dwarf-year",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr wurde der Zwergplanet Gonggong entdeckt?",
+    "correctAnswer": "2007",
+    "options": [
+      "2007",
+      "2005",
+      "2004",
+      "2003"
     ],
     "silhouetteSvgPath": null,
     "mapTargetId": null
@@ -1088,6 +1224,244 @@
     "mapTargetId": null
   },
   {
+    "id": "q_astra_amalthea_astra-moon-parent",
+    "entityId": "astra:amalthea",
+    "entityType": "moon",
+    "type": "astra-moon-parent",
+    "difficulty": 2,
+    "prompt": "Um welchen Himmelskoerper kreist der Mond Amalthea?",
+    "correctAnswer": "Jupiter",
+    "options": [
+      "Jupiter",
+      "Erde",
+      "Mars",
+      "Saturn"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_iapetus_astra-moon-parent",
+    "entityId": "astra:iapetus",
+    "entityType": "moon",
+    "type": "astra-moon-parent",
+    "difficulty": 2,
+    "prompt": "Um welchen Himmelskoerper kreist der Mond Iapetus (Japetus)?",
+    "correctAnswer": "Saturn",
+    "options": [
+      "Saturn",
+      "Erde",
+      "Mars",
+      "Jupiter"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_dione_astra-moon-parent",
+    "entityId": "astra:dione",
+    "entityType": "moon",
+    "type": "astra-moon-parent",
+    "difficulty": 2,
+    "prompt": "Um welchen Himmelskoerper kreist der Mond Dione?",
+    "correctAnswer": "Saturn",
+    "options": [
+      "Saturn",
+      "Erde",
+      "Mars",
+      "Jupiter"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_tethys_astra-moon-parent",
+    "entityId": "astra:tethys",
+    "entityType": "moon",
+    "type": "astra-moon-parent",
+    "difficulty": 2,
+    "prompt": "Um welchen Himmelskoerper kreist der Mond Tethys?",
+    "correctAnswer": "Saturn",
+    "options": [
+      "Saturn",
+      "Erde",
+      "Mars",
+      "Jupiter"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_hyperion_astra-moon-parent",
+    "entityId": "astra:hyperion",
+    "entityType": "moon",
+    "type": "astra-moon-parent",
+    "difficulty": 2,
+    "prompt": "Um welchen Himmelskoerper kreist der Mond Hyperion?",
+    "correctAnswer": "Saturn",
+    "options": [
+      "Saturn",
+      "Erde",
+      "Mars",
+      "Jupiter"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_oberon_astra-moon-parent",
+    "entityId": "astra:oberon",
+    "entityType": "moon",
+    "type": "astra-moon-parent",
+    "difficulty": 2,
+    "prompt": "Um welchen Himmelskoerper kreist der Mond Oberon?",
+    "correctAnswer": "Uranus",
+    "options": [
+      "Uranus",
+      "Erde",
+      "Mars",
+      "Jupiter"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_umbriel_astra-moon-parent",
+    "entityId": "astra:umbriel",
+    "entityType": "moon",
+    "type": "astra-moon-parent",
+    "difficulty": 2,
+    "prompt": "Um welchen Himmelskoerper kreist der Mond Umbriel?",
+    "correctAnswer": "Uranus",
+    "options": [
+      "Uranus",
+      "Erde",
+      "Mars",
+      "Jupiter"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_ariel_astra-moon-parent",
+    "entityId": "astra:ariel",
+    "entityType": "moon",
+    "type": "astra-moon-parent",
+    "difficulty": 2,
+    "prompt": "Um welchen Himmelskoerper kreist der Mond Ariel?",
+    "correctAnswer": "Uranus",
+    "options": [
+      "Uranus",
+      "Erde",
+      "Mars",
+      "Jupiter"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_miranda_astra-moon-parent",
+    "entityId": "astra:miranda",
+    "entityType": "moon",
+    "type": "astra-moon-parent",
+    "difficulty": 2,
+    "prompt": "Um welchen Himmelskoerper kreist der Mond Miranda?",
+    "correctAnswer": "Uranus",
+    "options": [
+      "Uranus",
+      "Erde",
+      "Mars",
+      "Jupiter"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_nereid_astra-moon-parent",
+    "entityId": "astra:nereid",
+    "entityType": "moon",
+    "type": "astra-moon-parent",
+    "difficulty": 2,
+    "prompt": "Um welchen Himmelskoerper kreist der Mond Nereid?",
+    "correctAnswer": "Neptun",
+    "options": [
+      "Neptun",
+      "Erde",
+      "Mars",
+      "Jupiter"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_proteus_astra-moon-parent",
+    "entityId": "astra:proteus",
+    "entityType": "moon",
+    "type": "astra-moon-parent",
+    "difficulty": 2,
+    "prompt": "Um welchen Himmelskoerper kreist der Mond Proteus?",
+    "correctAnswer": "Neptun",
+    "options": [
+      "Neptun",
+      "Erde",
+      "Mars",
+      "Jupiter"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_nix_astra-moon-parent",
+    "entityId": "astra:nix",
+    "entityType": "moon",
+    "type": "astra-moon-parent",
+    "difficulty": 2,
+    "prompt": "Um welchen Himmelskoerper kreist der Mond Nix?",
+    "correctAnswer": "Pluto",
+    "options": [
+      "Pluto",
+      "Erde",
+      "Mars",
+      "Jupiter"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_pandora-saturn_astra-moon-parent",
+    "entityId": "astra:pandora-saturn",
+    "entityType": "moon",
+    "type": "astra-moon-parent",
+    "difficulty": 2,
+    "prompt": "Um welchen Himmelskoerper kreist der Mond Pandora?",
+    "correctAnswer": "Saturn",
+    "options": [
+      "Saturn",
+      "Erde",
+      "Mars",
+      "Jupiter"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_prometheus-saturn_astra-moon-parent",
+    "entityId": "astra:prometheus-saturn",
+    "entityType": "moon",
+    "type": "astra-moon-parent",
+    "difficulty": 2,
+    "prompt": "Um welchen Himmelskoerper kreist der Mond Prometheus?",
+    "correctAnswer": "Saturn",
+    "options": [
+      "Saturn",
+      "Erde",
+      "Mars",
+      "Jupiter"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_astra_sirius_astra-star-constellation",
     "entityId": "astra:sirius",
     "entityType": "star",
@@ -1267,6 +1641,210 @@
     "correctAnswer": "Bärenhüter",
     "options": [
       "Bärenhüter",
+      "Großer Hund",
+      "Orion",
+      "Zentaur"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_kanopus_astra-star-constellation",
+    "entityId": "astra:kanopus",
+    "entityType": "star",
+    "type": "astra-star-constellation",
+    "difficulty": 3,
+    "prompt": "In welchem Sternbild liegt Kanopus (Canopus)?",
+    "correctAnswer": "Kiel des Schiffs",
+    "options": [
+      "Kiel des Schiffs",
+      "Großer Hund",
+      "Orion",
+      "Zentaur"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_achernar_astra-star-constellation",
+    "entityId": "astra:achernar",
+    "entityType": "star",
+    "type": "astra-star-constellation",
+    "difficulty": 3,
+    "prompt": "In welchem Sternbild liegt Achernar?",
+    "correctAnswer": "Eridanus",
+    "options": [
+      "Eridanus",
+      "Großer Hund",
+      "Orion",
+      "Zentaur"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_prokyon_astra-star-constellation",
+    "entityId": "astra:prokyon",
+    "entityType": "star",
+    "type": "astra-star-constellation",
+    "difficulty": 3,
+    "prompt": "In welchem Sternbild liegt Prokyon (Procyon)?",
+    "correctAnswer": "Kleiner Hund",
+    "options": [
+      "Kleiner Hund",
+      "Großer Hund",
+      "Orion",
+      "Zentaur"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_atair_astra-star-constellation",
+    "entityId": "astra:atair",
+    "entityType": "star",
+    "type": "astra-star-constellation",
+    "difficulty": 3,
+    "prompt": "In welchem Sternbild liegt Atair (Altair)?",
+    "correctAnswer": "Adler",
+    "options": [
+      "Adler",
+      "Großer Hund",
+      "Orion",
+      "Zentaur"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_spica_astra-star-constellation",
+    "entityId": "astra:spica",
+    "entityType": "star",
+    "type": "astra-star-constellation",
+    "difficulty": 3,
+    "prompt": "In welchem Sternbild liegt Spica?",
+    "correctAnswer": "Jungfrau",
+    "options": [
+      "Jungfrau",
+      "Großer Hund",
+      "Orion",
+      "Zentaur"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_pollux_astra-star-constellation",
+    "entityId": "astra:pollux",
+    "entityType": "star",
+    "type": "astra-star-constellation",
+    "difficulty": 3,
+    "prompt": "In welchem Sternbild liegt Pollux?",
+    "correctAnswer": "Zwillinge",
+    "options": [
+      "Zwillinge",
+      "Großer Hund",
+      "Orion",
+      "Zentaur"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_fomalhaut_astra-star-constellation",
+    "entityId": "astra:fomalhaut",
+    "entityType": "star",
+    "type": "astra-star-constellation",
+    "difficulty": 3,
+    "prompt": "In welchem Sternbild liegt Fomalhaut?",
+    "correctAnswer": "Südlicher Fisch",
+    "options": [
+      "Südlicher Fisch",
+      "Großer Hund",
+      "Orion",
+      "Zentaur"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_deneb_astra-star-constellation",
+    "entityId": "astra:deneb",
+    "entityType": "star",
+    "type": "astra-star-constellation",
+    "difficulty": 3,
+    "prompt": "In welchem Sternbild liegt Deneb?",
+    "correctAnswer": "Schwan",
+    "options": [
+      "Schwan",
+      "Großer Hund",
+      "Orion",
+      "Zentaur"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_regulus_astra-star-constellation",
+    "entityId": "astra:regulus",
+    "entityType": "star",
+    "type": "astra-star-constellation",
+    "difficulty": 3,
+    "prompt": "In welchem Sternbild liegt Regulus?",
+    "correctAnswer": "Löwe",
+    "options": [
+      "Löwe",
+      "Großer Hund",
+      "Orion",
+      "Zentaur"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_castor_astra-star-constellation",
+    "entityId": "astra:castor",
+    "entityType": "star",
+    "type": "astra-star-constellation",
+    "difficulty": 3,
+    "prompt": "In welchem Sternbild liegt Castor?",
+    "correctAnswer": "Zwillinge",
+    "options": [
+      "Zwillinge",
+      "Großer Hund",
+      "Orion",
+      "Zentaur"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_bellatrix_astra-star-constellation",
+    "entityId": "astra:bellatrix",
+    "entityType": "star",
+    "type": "astra-star-constellation",
+    "difficulty": 3,
+    "prompt": "In welchem Sternbild liegt Bellatrix?",
+    "correctAnswer": "Orion",
+    "options": [
+      "Orion",
+      "Großer Hund",
+      "Zentaur",
+      "Kleiner Bär"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_algol_astra-star-constellation",
+    "entityId": "astra:algol",
+    "entityType": "star",
+    "type": "astra-star-constellation",
+    "difficulty": 3,
+    "prompt": "In welchem Sternbild liegt Algol?",
+    "correctAnswer": "Perseus",
+    "options": [
+      "Perseus",
       "Großer Hund",
       "Orion",
       "Zentaur"
@@ -1479,6 +2057,210 @@
     "mapTargetId": null
   },
   {
+    "id": "q_astra_kanopus_astra-star-type",
+    "entityId": "astra:kanopus",
+    "entityType": "star",
+    "type": "astra-star-type",
+    "difficulty": 3,
+    "prompt": "Welcher Sterntyp ist Kanopus (Canopus)?",
+    "correctAnswer": "Heller Riese",
+    "options": [
+      "Heller Riese",
+      "Gelber Zwerg",
+      "Weißer Hauptreihenstern",
+      "Roter Überriese"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_achernar_astra-star-type",
+    "entityId": "astra:achernar",
+    "entityType": "star",
+    "type": "astra-star-type",
+    "difficulty": 3,
+    "prompt": "Welcher Sterntyp ist Achernar?",
+    "correctAnswer": "Blauer Hauptreihenstern",
+    "options": [
+      "Blauer Hauptreihenstern",
+      "Gelber Zwerg",
+      "Weißer Hauptreihenstern",
+      "Roter Überriese"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_prokyon_astra-star-type",
+    "entityId": "astra:prokyon",
+    "entityType": "star",
+    "type": "astra-star-type",
+    "difficulty": 3,
+    "prompt": "Welcher Sterntyp ist Prokyon (Procyon)?",
+    "correctAnswer": "Weißer Hauptreihen-/Unterriesenstern",
+    "options": [
+      "Weißer Hauptreihen-/Unterriesenstern",
+      "Gelber Zwerg",
+      "Weißer Hauptreihenstern",
+      "Roter Überriese"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_atair_astra-star-type",
+    "entityId": "astra:atair",
+    "entityType": "star",
+    "type": "astra-star-type",
+    "difficulty": 3,
+    "prompt": "Welcher Sterntyp ist Atair (Altair)?",
+    "correctAnswer": "Weißer Hauptreihenstern",
+    "options": [
+      "Weißer Hauptreihenstern",
+      "Gelber Zwerg",
+      "Roter Überriese",
+      "Blauer Überriese"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_spica_astra-star-type",
+    "entityId": "astra:spica",
+    "entityType": "star",
+    "type": "astra-star-type",
+    "difficulty": 3,
+    "prompt": "Welcher Sterntyp ist Spica?",
+    "correctAnswer": "Blauer Riese",
+    "options": [
+      "Blauer Riese",
+      "Gelber Zwerg",
+      "Weißer Hauptreihenstern",
+      "Roter Überriese"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_pollux_astra-star-type",
+    "entityId": "astra:pollux",
+    "entityType": "star",
+    "type": "astra-star-type",
+    "difficulty": 3,
+    "prompt": "Welcher Sterntyp ist Pollux?",
+    "correctAnswer": "Oranger Riese",
+    "options": [
+      "Oranger Riese",
+      "Gelber Zwerg",
+      "Weißer Hauptreihenstern",
+      "Roter Überriese"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_fomalhaut_astra-star-type",
+    "entityId": "astra:fomalhaut",
+    "entityType": "star",
+    "type": "astra-star-type",
+    "difficulty": 3,
+    "prompt": "Welcher Sterntyp ist Fomalhaut?",
+    "correctAnswer": "Weißer Hauptreihenstern",
+    "options": [
+      "Weißer Hauptreihenstern",
+      "Gelber Zwerg",
+      "Roter Überriese",
+      "Blauer Überriese"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_deneb_astra-star-type",
+    "entityId": "astra:deneb",
+    "entityType": "star",
+    "type": "astra-star-type",
+    "difficulty": 3,
+    "prompt": "Welcher Sterntyp ist Deneb?",
+    "correctAnswer": "Blauweißer Überriese",
+    "options": [
+      "Blauweißer Überriese",
+      "Gelber Zwerg",
+      "Weißer Hauptreihenstern",
+      "Roter Überriese"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_regulus_astra-star-type",
+    "entityId": "astra:regulus",
+    "entityType": "star",
+    "type": "astra-star-type",
+    "difficulty": 3,
+    "prompt": "Welcher Sterntyp ist Regulus?",
+    "correctAnswer": "Blauweißer Unterriese",
+    "options": [
+      "Blauweißer Unterriese",
+      "Gelber Zwerg",
+      "Weißer Hauptreihenstern",
+      "Roter Überriese"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_castor_astra-star-type",
+    "entityId": "astra:castor",
+    "entityType": "star",
+    "type": "astra-star-type",
+    "difficulty": 3,
+    "prompt": "Welcher Sterntyp ist Castor?",
+    "correctAnswer": "Weißer Hauptreihenstern",
+    "options": [
+      "Weißer Hauptreihenstern",
+      "Gelber Zwerg",
+      "Roter Überriese",
+      "Blauer Überriese"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_bellatrix_astra-star-type",
+    "entityId": "astra:bellatrix",
+    "entityType": "star",
+    "type": "astra-star-type",
+    "difficulty": 3,
+    "prompt": "Welcher Sterntyp ist Bellatrix?",
+    "correctAnswer": "Blauer Riese",
+    "options": [
+      "Blauer Riese",
+      "Gelber Zwerg",
+      "Weißer Hauptreihenstern",
+      "Roter Überriese"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_algol_astra-star-type",
+    "entityId": "astra:algol",
+    "entityType": "star",
+    "type": "astra-star-type",
+    "difficulty": 3,
+    "prompt": "Welcher Sterntyp ist Algol?",
+    "correctAnswer": "Bedeckungsveränderlicher",
+    "options": [
+      "Bedeckungsveränderlicher",
+      "Gelber Zwerg",
+      "Weißer Hauptreihenstern",
+      "Roter Überriese"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_astra_sirius_astra-star-distance",
     "entityId": "astra:sirius",
     "entityType": "star",
@@ -1666,6 +2448,210 @@
     "mapTargetId": null
   },
   {
+    "id": "q_astra_kanopus_astra-star-distance",
+    "entityId": "astra:kanopus",
+    "entityType": "star",
+    "type": "astra-star-distance",
+    "difficulty": 4,
+    "prompt": "Wie weit ist Kanopus (Canopus) ungefaehr von der Erde entfernt?",
+    "correctAnswer": "310 Lichtjahre",
+    "options": [
+      "310 Lichtjahre",
+      "8,6 Lichtjahre",
+      "640 Lichtjahre",
+      "860 Lichtjahre"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_achernar_astra-star-distance",
+    "entityId": "astra:achernar",
+    "entityType": "star",
+    "type": "astra-star-distance",
+    "difficulty": 4,
+    "prompt": "Wie weit ist Achernar ungefaehr von der Erde entfernt?",
+    "correctAnswer": "139 Lichtjahre",
+    "options": [
+      "139 Lichtjahre",
+      "8,6 Lichtjahre",
+      "640 Lichtjahre",
+      "860 Lichtjahre"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_prokyon_astra-star-distance",
+    "entityId": "astra:prokyon",
+    "entityType": "star",
+    "type": "astra-star-distance",
+    "difficulty": 4,
+    "prompt": "Wie weit ist Prokyon (Procyon) ungefaehr von der Erde entfernt?",
+    "correctAnswer": "11,46 Lichtjahre",
+    "options": [
+      "11,46 Lichtjahre",
+      "8,6 Lichtjahre",
+      "640 Lichtjahre",
+      "860 Lichtjahre"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_atair_astra-star-distance",
+    "entityId": "astra:atair",
+    "entityType": "star",
+    "type": "astra-star-distance",
+    "difficulty": 4,
+    "prompt": "Wie weit ist Atair (Altair) ungefaehr von der Erde entfernt?",
+    "correctAnswer": "16,7 Lichtjahre",
+    "options": [
+      "16,7 Lichtjahre",
+      "8,6 Lichtjahre",
+      "640 Lichtjahre",
+      "860 Lichtjahre"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_spica_astra-star-distance",
+    "entityId": "astra:spica",
+    "entityType": "star",
+    "type": "astra-star-distance",
+    "difficulty": 4,
+    "prompt": "Wie weit ist Spica ungefaehr von der Erde entfernt?",
+    "correctAnswer": "250 Lichtjahre",
+    "options": [
+      "250 Lichtjahre",
+      "8,6 Lichtjahre",
+      "640 Lichtjahre",
+      "860 Lichtjahre"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_pollux_astra-star-distance",
+    "entityId": "astra:pollux",
+    "entityType": "star",
+    "type": "astra-star-distance",
+    "difficulty": 4,
+    "prompt": "Wie weit ist Pollux ungefaehr von der Erde entfernt?",
+    "correctAnswer": "33,8 Lichtjahre",
+    "options": [
+      "33,8 Lichtjahre",
+      "8,6 Lichtjahre",
+      "640 Lichtjahre",
+      "860 Lichtjahre"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_fomalhaut_astra-star-distance",
+    "entityId": "astra:fomalhaut",
+    "entityType": "star",
+    "type": "astra-star-distance",
+    "difficulty": 4,
+    "prompt": "Wie weit ist Fomalhaut ungefaehr von der Erde entfernt?",
+    "correctAnswer": "25,1 Lichtjahre",
+    "options": [
+      "25,1 Lichtjahre",
+      "8,6 Lichtjahre",
+      "640 Lichtjahre",
+      "860 Lichtjahre"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_deneb_astra-star-distance",
+    "entityId": "astra:deneb",
+    "entityType": "star",
+    "type": "astra-star-distance",
+    "difficulty": 4,
+    "prompt": "Wie weit ist Deneb ungefaehr von der Erde entfernt?",
+    "correctAnswer": "2.600 Lichtjahre",
+    "options": [
+      "2.600 Lichtjahre",
+      "8,6 Lichtjahre",
+      "640 Lichtjahre",
+      "860 Lichtjahre"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_regulus_astra-star-distance",
+    "entityId": "astra:regulus",
+    "entityType": "star",
+    "type": "astra-star-distance",
+    "difficulty": 4,
+    "prompt": "Wie weit ist Regulus ungefaehr von der Erde entfernt?",
+    "correctAnswer": "79 Lichtjahre",
+    "options": [
+      "79 Lichtjahre",
+      "8,6 Lichtjahre",
+      "640 Lichtjahre",
+      "860 Lichtjahre"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_castor_astra-star-distance",
+    "entityId": "astra:castor",
+    "entityType": "star",
+    "type": "astra-star-distance",
+    "difficulty": 4,
+    "prompt": "Wie weit ist Castor ungefaehr von der Erde entfernt?",
+    "correctAnswer": "51,6 Lichtjahre",
+    "options": [
+      "51,6 Lichtjahre",
+      "8,6 Lichtjahre",
+      "640 Lichtjahre",
+      "860 Lichtjahre"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_bellatrix_astra-star-distance",
+    "entityId": "astra:bellatrix",
+    "entityType": "star",
+    "type": "astra-star-distance",
+    "difficulty": 4,
+    "prompt": "Wie weit ist Bellatrix ungefaehr von der Erde entfernt?",
+    "correctAnswer": "250 Lichtjahre",
+    "options": [
+      "250 Lichtjahre",
+      "8,6 Lichtjahre",
+      "640 Lichtjahre",
+      "860 Lichtjahre"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_algol_astra-star-distance",
+    "entityId": "astra:algol",
+    "entityType": "star",
+    "type": "astra-star-distance",
+    "difficulty": 4,
+    "prompt": "Wie weit ist Algol ungefaehr von der Erde entfernt?",
+    "correctAnswer": "90 Lichtjahre",
+    "options": [
+      "90 Lichtjahre",
+      "8,6 Lichtjahre",
+      "640 Lichtjahre",
+      "860 Lichtjahre"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_astra_milky_way_astra-galaxy-type",
     "entityId": "astra:milky_way",
     "entityType": "galaxy",
@@ -1677,7 +2663,7 @@
       "Balkenspiralgalaxie",
       "Spiralgalaxie",
       "Zwerggalaxie",
-      "Elliptische Galaxie"
+      "Starburst-Galaxie"
     ],
     "silhouetteSvgPath": null,
     "mapTargetId": null
@@ -1694,7 +2680,7 @@
       "Spiralgalaxie",
       "Balkenspiralgalaxie",
       "Zwerggalaxie",
-      "Elliptische Galaxie"
+      "Starburst-Galaxie"
     ],
     "silhouetteSvgPath": null,
     "mapTargetId": null
@@ -1711,7 +2697,7 @@
       "Spiralgalaxie",
       "Balkenspiralgalaxie",
       "Zwerggalaxie",
-      "Elliptische Galaxie"
+      "Starburst-Galaxie"
     ],
     "silhouetteSvgPath": null,
     "mapTargetId": null
@@ -1728,7 +2714,7 @@
       "Zwerggalaxie",
       "Balkenspiralgalaxie",
       "Spiralgalaxie",
-      "Elliptische Galaxie"
+      "Starburst-Galaxie"
     ],
     "silhouetteSvgPath": null,
     "mapTargetId": null
@@ -1745,7 +2731,7 @@
       "Zwerggalaxie",
       "Balkenspiralgalaxie",
       "Spiralgalaxie",
-      "Elliptische Galaxie"
+      "Starburst-Galaxie"
     ],
     "silhouetteSvgPath": null,
     "mapTargetId": null
@@ -1762,7 +2748,7 @@
       "Spiralgalaxie",
       "Balkenspiralgalaxie",
       "Zwerggalaxie",
-      "Elliptische Galaxie"
+      "Starburst-Galaxie"
     ],
     "silhouetteSvgPath": null,
     "mapTargetId": null
@@ -1779,7 +2765,109 @@
       "Spiralgalaxie",
       "Balkenspiralgalaxie",
       "Zwerggalaxie",
-      "Elliptische Galaxie"
+      "Starburst-Galaxie"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_bode_m81_astra-galaxy-type",
+    "entityId": "astra:bode_m81",
+    "entityType": "galaxy",
+    "type": "astra-galaxy-type",
+    "difficulty": 3,
+    "prompt": "Welcher Galaxientyp ist Bode-Galaxie (M81)?",
+    "correctAnswer": "Spiralgalaxie",
+    "options": [
+      "Spiralgalaxie",
+      "Balkenspiralgalaxie",
+      "Zwerggalaxie",
+      "Starburst-Galaxie"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_centaurus_a_astra-galaxy-type",
+    "entityId": "astra:centaurus_a",
+    "entityType": "galaxy",
+    "type": "astra-galaxy-type",
+    "difficulty": 3,
+    "prompt": "Welcher Galaxientyp ist Centaurus A (NGC 5128)?",
+    "correctAnswer": "Elliptische Galaxie",
+    "options": [
+      "Elliptische Galaxie",
+      "Balkenspiralgalaxie",
+      "Spiralgalaxie",
+      "Zwerggalaxie"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_bildhauer_ngc253_astra-galaxy-type",
+    "entityId": "astra:bildhauer_ngc253",
+    "entityType": "galaxy",
+    "type": "astra-galaxy-type",
+    "difficulty": 3,
+    "prompt": "Welcher Galaxientyp ist Bildhauer-Galaxie (NGC 253)?",
+    "correctAnswer": "Spiralgalaxie",
+    "options": [
+      "Spiralgalaxie",
+      "Balkenspiralgalaxie",
+      "Zwerggalaxie",
+      "Starburst-Galaxie"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_feuerrad_m101_astra-galaxy-type",
+    "entityId": "astra:feuerrad_m101",
+    "entityType": "galaxy",
+    "type": "astra-galaxy-type",
+    "difficulty": 3,
+    "prompt": "Welcher Galaxientyp ist Feuerrad-Galaxie (M101)?",
+    "correctAnswer": "Spiralgalaxie",
+    "options": [
+      "Spiralgalaxie",
+      "Balkenspiralgalaxie",
+      "Zwerggalaxie",
+      "Starburst-Galaxie"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sonnenblume_m63_astra-galaxy-type",
+    "entityId": "astra:sonnenblume_m63",
+    "entityType": "galaxy",
+    "type": "astra-galaxy-type",
+    "difficulty": 3,
+    "prompt": "Welcher Galaxientyp ist Sonnenblumengalaxie (M63)?",
+    "correctAnswer": "Spiralgalaxie",
+    "options": [
+      "Spiralgalaxie",
+      "Balkenspiralgalaxie",
+      "Zwerggalaxie",
+      "Starburst-Galaxie"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_schwarzauge_m64_astra-galaxy-type",
+    "entityId": "astra:schwarzauge_m64",
+    "entityType": "galaxy",
+    "type": "astra-galaxy-type",
+    "difficulty": 3,
+    "prompt": "Welcher Galaxientyp ist Schwarzauge-Galaxie (M64)?",
+    "correctAnswer": "Spiralgalaxie",
+    "options": [
+      "Spiralgalaxie",
+      "Balkenspiralgalaxie",
+      "Zwerggalaxie",
+      "Starburst-Galaxie"
     ],
     "silhouetteSvgPath": null,
     "mapTargetId": null
@@ -1879,6 +2967,125 @@
     "correctAnswer": "28.000.000 Lichtjahre",
     "options": [
       "28.000.000 Lichtjahre",
+      "2.500.000 Lichtjahre",
+      "2.730.000 Lichtjahre",
+      "160.000 Lichtjahre"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_bode_m81_astra-galaxy-distance",
+    "entityId": "astra:bode_m81",
+    "entityType": "galaxy",
+    "type": "astra-galaxy-distance",
+    "difficulty": 4,
+    "prompt": "Wie weit ist Bode-Galaxie (M81) ungefaehr von der Erde entfernt?",
+    "correctAnswer": "11.600.000 Lichtjahre",
+    "options": [
+      "11.600.000 Lichtjahre",
+      "2.500.000 Lichtjahre",
+      "2.730.000 Lichtjahre",
+      "160.000 Lichtjahre"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_zigarren_m82_astra-galaxy-distance",
+    "entityId": "astra:zigarren_m82",
+    "entityType": "galaxy",
+    "type": "astra-galaxy-distance",
+    "difficulty": 4,
+    "prompt": "Wie weit ist Zigarrengalaxie (M82) ungefaehr von der Erde entfernt?",
+    "correctAnswer": "12.000.000 Lichtjahre",
+    "options": [
+      "12.000.000 Lichtjahre",
+      "2.500.000 Lichtjahre",
+      "2.730.000 Lichtjahre",
+      "160.000 Lichtjahre"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_centaurus_a_astra-galaxy-distance",
+    "entityId": "astra:centaurus_a",
+    "entityType": "galaxy",
+    "type": "astra-galaxy-distance",
+    "difficulty": 4,
+    "prompt": "Wie weit ist Centaurus A (NGC 5128) ungefaehr von der Erde entfernt?",
+    "correctAnswer": "12.000.000 Lichtjahre",
+    "options": [
+      "12.000.000 Lichtjahre",
+      "2.500.000 Lichtjahre",
+      "2.730.000 Lichtjahre",
+      "160.000 Lichtjahre"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_bildhauer_ngc253_astra-galaxy-distance",
+    "entityId": "astra:bildhauer_ngc253",
+    "entityType": "galaxy",
+    "type": "astra-galaxy-distance",
+    "difficulty": 4,
+    "prompt": "Wie weit ist Bildhauer-Galaxie (NGC 253) ungefaehr von der Erde entfernt?",
+    "correctAnswer": "11.400.000 Lichtjahre",
+    "options": [
+      "11.400.000 Lichtjahre",
+      "2.500.000 Lichtjahre",
+      "2.730.000 Lichtjahre",
+      "160.000 Lichtjahre"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_feuerrad_m101_astra-galaxy-distance",
+    "entityId": "astra:feuerrad_m101",
+    "entityType": "galaxy",
+    "type": "astra-galaxy-distance",
+    "difficulty": 4,
+    "prompt": "Wie weit ist Feuerrad-Galaxie (M101) ungefaehr von der Erde entfernt?",
+    "correctAnswer": "21.000.000 Lichtjahre",
+    "options": [
+      "21.000.000 Lichtjahre",
+      "2.500.000 Lichtjahre",
+      "2.730.000 Lichtjahre",
+      "160.000 Lichtjahre"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sonnenblume_m63_astra-galaxy-distance",
+    "entityId": "astra:sonnenblume_m63",
+    "entityType": "galaxy",
+    "type": "astra-galaxy-distance",
+    "difficulty": 4,
+    "prompt": "Wie weit ist Sonnenblumengalaxie (M63) ungefaehr von der Erde entfernt?",
+    "correctAnswer": "27.000.000 Lichtjahre",
+    "options": [
+      "27.000.000 Lichtjahre",
+      "2.500.000 Lichtjahre",
+      "2.730.000 Lichtjahre",
+      "160.000 Lichtjahre"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_schwarzauge_m64_astra-galaxy-distance",
+    "entityId": "astra:schwarzauge_m64",
+    "entityType": "galaxy",
+    "type": "astra-galaxy-distance",
+    "difficulty": 4,
+    "prompt": "Wie weit ist Schwarzauge-Galaxie (M64) ungefaehr von der Erde entfernt?",
+    "correctAnswer": "17.000.000 Lichtjahre",
+    "options": [
+      "17.000.000 Lichtjahre",
       "2.500.000 Lichtjahre",
       "2.730.000 Lichtjahre",
       "160.000 Lichtjahre"
@@ -2049,6 +3256,125 @@
     "correctAnswer": "Mittlere Entfernung Erde-Sonne",
     "options": [
       "Mittlere Entfernung Erde-Sonne",
+      "Lichtgeschwindigkeit",
+      "Astronomische Einheit (AE)",
+      "Lichtjahr"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_gravitationskonstante_astra-constant-value",
+    "entityId": "astra:gravitationskonstante",
+    "entityType": "constant",
+    "type": "astra-constant-value",
+    "difficulty": 3,
+    "prompt": "Welche astronomische Groesse hat ungefaehr den Wert von 6.67430e-11 m^3 kg^-1 s^-2?",
+    "correctAnswer": "Gravitationskonstante (G)",
+    "options": [
+      "Gravitationskonstante (G)",
+      "Lichtgeschwindigkeit",
+      "Astronomische Einheit (AE)",
+      "Lichtjahr"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sonnenmasse_astra-constant-value",
+    "entityId": "astra:sonnenmasse",
+    "entityType": "constant",
+    "type": "astra-constant-value",
+    "difficulty": 3,
+    "prompt": "Welche astronomische Groesse hat ungefaehr den Wert von 1.98847e30 kg?",
+    "correctAnswer": "Sonnenmasse (M_Sonne)",
+    "options": [
+      "Sonnenmasse (M_Sonne)",
+      "Lichtgeschwindigkeit",
+      "Astronomische Einheit (AE)",
+      "Lichtjahr"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_erdmasse_astra-constant-value",
+    "entityId": "astra:erdmasse",
+    "entityType": "constant",
+    "type": "astra-constant-value",
+    "difficulty": 3,
+    "prompt": "Welche astronomische Groesse hat ungefaehr den Wert von 5.97217e24 kg?",
+    "correctAnswer": "Erdmasse (M_Erde)",
+    "options": [
+      "Erdmasse (M_Erde)",
+      "Lichtgeschwindigkeit",
+      "Astronomische Einheit (AE)",
+      "Lichtjahr"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_mondmasse_astra-constant-value",
+    "entityId": "astra:mondmasse",
+    "entityType": "constant",
+    "type": "astra-constant-value",
+    "difficulty": 3,
+    "prompt": "Welche astronomische Groesse hat ungefaehr den Wert von 7.346e22 kg?",
+    "correctAnswer": "Mondmasse (M_Mond)",
+    "options": [
+      "Mondmasse (M_Mond)",
+      "Lichtgeschwindigkeit",
+      "Astronomische Einheit (AE)",
+      "Lichtjahr"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_mittlere-mondentfernung_astra-constant-value",
+    "entityId": "astra:mittlere-mondentfernung",
+    "entityType": "constant",
+    "type": "astra-constant-value",
+    "difficulty": 3,
+    "prompt": "Welche astronomische Groesse hat ungefaehr den Wert von 384399 km?",
+    "correctAnswer": "Mittlere Mondentfernung",
+    "options": [
+      "Mittlere Mondentfernung",
+      "Lichtgeschwindigkeit",
+      "Astronomische Einheit (AE)",
+      "Lichtjahr"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_solarkonstante_astra-constant-value",
+    "entityId": "astra:solarkonstante",
+    "entityType": "constant",
+    "type": "astra-constant-value",
+    "difficulty": 3,
+    "prompt": "Welche astronomische Groesse hat ungefaehr den Wert von 1361 W/m^2?",
+    "correctAnswer": "Solarkonstante",
+    "options": [
+      "Solarkonstante",
+      "Lichtgeschwindigkeit",
+      "Astronomische Einheit (AE)",
+      "Lichtjahr"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_hubble-konstante_astra-constant-value",
+    "entityId": "astra:hubble-konstante",
+    "entityType": "constant",
+    "type": "astra-constant-value",
+    "difficulty": 3,
+    "prompt": "Welche astronomische Groesse hat ungefaehr den Wert von 67.4 km/s/Mpc?",
+    "correctAnswer": "Hubble-Konstante (H0)",
+    "options": [
+      "Hubble-Konstante (H0)",
       "Lichtgeschwindigkeit",
       "Astronomische Einheit (AE)",
       "Lichtjahr"
@@ -2550,6 +3876,74 @@
     "mapTargetId": null
   },
   {
+    "id": "q_astra_sedna_astra-dwarf-diameter",
+    "entityId": "astra:sedna",
+    "entityType": "dwarf_planet",
+    "type": "astra-dwarf-diameter",
+    "difficulty": 4,
+    "prompt": "Welchen ungefaehren Durchmesser hat der Zwergplanet Sedna?",
+    "correctAnswer": "906 km",
+    "options": [
+      "906 km",
+      "2.377 km",
+      "939 km",
+      "2.326 km"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_quaoar_astra-dwarf-diameter",
+    "entityId": "astra:quaoar",
+    "entityType": "dwarf_planet",
+    "type": "astra-dwarf-diameter",
+    "difficulty": 4,
+    "prompt": "Welchen ungefaehren Durchmesser hat der Zwergplanet Quaoar?",
+    "correctAnswer": "1.098 km",
+    "options": [
+      "1.098 km",
+      "2.377 km",
+      "939 km",
+      "2.326 km"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_orcus_astra-dwarf-diameter",
+    "entityId": "astra:orcus",
+    "entityType": "dwarf_planet",
+    "type": "astra-dwarf-diameter",
+    "difficulty": 4,
+    "prompt": "Welchen ungefaehren Durchmesser hat der Zwergplanet Orcus?",
+    "correctAnswer": "910 km",
+    "options": [
+      "910 km",
+      "2.377 km",
+      "939 km",
+      "2.326 km"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_gonggong_astra-dwarf-diameter",
+    "entityId": "astra:gonggong",
+    "entityType": "dwarf_planet",
+    "type": "astra-dwarf-diameter",
+    "difficulty": 4,
+    "prompt": "Welchen ungefaehren Durchmesser hat der Zwergplanet Gonggong?",
+    "correctAnswer": "1.230 km",
+    "options": [
+      "1.230 km",
+      "2.377 km",
+      "939 km",
+      "2.326 km"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_astra_pluto_astra-dwarf-year-len",
     "entityId": "astra:pluto",
     "entityType": "dwarf_planet",
@@ -2627,6 +4021,74 @@
     "correctAnswer": "285 Erdjahre",
     "options": [
       "285 Erdjahre",
+      "248 Erdjahre",
+      "4,6 Erdjahre",
+      "559 Erdjahre"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sedna_astra-dwarf-year-len",
+    "entityId": "astra:sedna",
+    "entityType": "dwarf_planet",
+    "type": "astra-dwarf-year-len",
+    "difficulty": 4,
+    "prompt": "Wie lange braucht Sedna fuer einen Sonnenumlauf?",
+    "correctAnswer": "11.400 Erdjahre",
+    "options": [
+      "11.400 Erdjahre",
+      "248 Erdjahre",
+      "4,6 Erdjahre",
+      "559 Erdjahre"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_quaoar_astra-dwarf-year-len",
+    "entityId": "astra:quaoar",
+    "entityType": "dwarf_planet",
+    "type": "astra-dwarf-year-len",
+    "difficulty": 4,
+    "prompt": "Wie lange braucht Quaoar fuer einen Sonnenumlauf?",
+    "correctAnswer": "288,83 Erdjahre",
+    "options": [
+      "288,83 Erdjahre",
+      "248 Erdjahre",
+      "4,6 Erdjahre",
+      "559 Erdjahre"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_orcus_astra-dwarf-year-len",
+    "entityId": "astra:orcus",
+    "entityType": "dwarf_planet",
+    "type": "astra-dwarf-year-len",
+    "difficulty": 4,
+    "prompt": "Wie lange braucht Orcus fuer einen Sonnenumlauf?",
+    "correctAnswer": "245,19 Erdjahre",
+    "options": [
+      "245,19 Erdjahre",
+      "248 Erdjahre",
+      "4,6 Erdjahre",
+      "559 Erdjahre"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_gonggong_astra-dwarf-year-len",
+    "entityId": "astra:gonggong",
+    "entityType": "dwarf_planet",
+    "type": "astra-dwarf-year-len",
+    "difficulty": 4,
+    "prompt": "Wie lange braucht Gonggong fuer einen Sonnenumlauf?",
+    "correctAnswer": "547,13 Erdjahre",
+    "options": [
+      "547,13 Erdjahre",
       "248 Erdjahre",
       "4,6 Erdjahre",
       "559 Erdjahre"
@@ -2873,6 +4335,244 @@
     "mapTargetId": null
   },
   {
+    "id": "q_astra_amalthea_astra-moon-diameter",
+    "entityId": "astra:amalthea",
+    "entityType": "moon",
+    "type": "astra-moon-diameter",
+    "difficulty": 3,
+    "prompt": "Welchen ungefaehren Durchmesser hat der Mond Amalthea?",
+    "correctAnswer": "167 km",
+    "options": [
+      "167 km",
+      "3.475 km",
+      "22,5 km",
+      "12,4 km"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_iapetus_astra-moon-diameter",
+    "entityId": "astra:iapetus",
+    "entityType": "moon",
+    "type": "astra-moon-diameter",
+    "difficulty": 3,
+    "prompt": "Welchen ungefaehren Durchmesser hat der Mond Iapetus (Japetus)?",
+    "correctAnswer": "1.469 km",
+    "options": [
+      "1.469 km",
+      "3.475 km",
+      "22,5 km",
+      "12,4 km"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_dione_astra-moon-diameter",
+    "entityId": "astra:dione",
+    "entityType": "moon",
+    "type": "astra-moon-diameter",
+    "difficulty": 3,
+    "prompt": "Welchen ungefaehren Durchmesser hat der Mond Dione?",
+    "correctAnswer": "1.123 km",
+    "options": [
+      "1.123 km",
+      "3.475 km",
+      "22,5 km",
+      "12,4 km"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_tethys_astra-moon-diameter",
+    "entityId": "astra:tethys",
+    "entityType": "moon",
+    "type": "astra-moon-diameter",
+    "difficulty": 3,
+    "prompt": "Welchen ungefaehren Durchmesser hat der Mond Tethys?",
+    "correctAnswer": "1.062 km",
+    "options": [
+      "1.062 km",
+      "3.475 km",
+      "22,5 km",
+      "12,4 km"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_hyperion_astra-moon-diameter",
+    "entityId": "astra:hyperion",
+    "entityType": "moon",
+    "type": "astra-moon-diameter",
+    "difficulty": 3,
+    "prompt": "Welchen ungefaehren Durchmesser hat der Mond Hyperion?",
+    "correctAnswer": "270 km",
+    "options": [
+      "270 km",
+      "3.475 km",
+      "22,5 km",
+      "12,4 km"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_oberon_astra-moon-diameter",
+    "entityId": "astra:oberon",
+    "entityType": "moon",
+    "type": "astra-moon-diameter",
+    "difficulty": 3,
+    "prompt": "Welchen ungefaehren Durchmesser hat der Mond Oberon?",
+    "correctAnswer": "1.523 km",
+    "options": [
+      "1.523 km",
+      "3.475 km",
+      "22,5 km",
+      "12,4 km"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_umbriel_astra-moon-diameter",
+    "entityId": "astra:umbriel",
+    "entityType": "moon",
+    "type": "astra-moon-diameter",
+    "difficulty": 3,
+    "prompt": "Welchen ungefaehren Durchmesser hat der Mond Umbriel?",
+    "correctAnswer": "1.169 km",
+    "options": [
+      "1.169 km",
+      "3.475 km",
+      "22,5 km",
+      "12,4 km"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_ariel_astra-moon-diameter",
+    "entityId": "astra:ariel",
+    "entityType": "moon",
+    "type": "astra-moon-diameter",
+    "difficulty": 3,
+    "prompt": "Welchen ungefaehren Durchmesser hat der Mond Ariel?",
+    "correctAnswer": "1.158 km",
+    "options": [
+      "1.158 km",
+      "3.475 km",
+      "22,5 km",
+      "12,4 km"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_miranda_astra-moon-diameter",
+    "entityId": "astra:miranda",
+    "entityType": "moon",
+    "type": "astra-moon-diameter",
+    "difficulty": 3,
+    "prompt": "Welchen ungefaehren Durchmesser hat der Mond Miranda?",
+    "correctAnswer": "472 km",
+    "options": [
+      "472 km",
+      "3.475 km",
+      "22,5 km",
+      "12,4 km"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_nereid_astra-moon-diameter",
+    "entityId": "astra:nereid",
+    "entityType": "moon",
+    "type": "astra-moon-diameter",
+    "difficulty": 3,
+    "prompt": "Welchen ungefaehren Durchmesser hat der Mond Nereid?",
+    "correctAnswer": "357 km",
+    "options": [
+      "357 km",
+      "3.475 km",
+      "22,5 km",
+      "12,4 km"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_proteus_astra-moon-diameter",
+    "entityId": "astra:proteus",
+    "entityType": "moon",
+    "type": "astra-moon-diameter",
+    "difficulty": 3,
+    "prompt": "Welchen ungefaehren Durchmesser hat der Mond Proteus?",
+    "correctAnswer": "420 km",
+    "options": [
+      "420 km",
+      "3.475 km",
+      "22,5 km",
+      "12,4 km"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_nix_astra-moon-diameter",
+    "entityId": "astra:nix",
+    "entityType": "moon",
+    "type": "astra-moon-diameter",
+    "difficulty": 3,
+    "prompt": "Welchen ungefaehren Durchmesser hat der Mond Nix?",
+    "correctAnswer": "37 km",
+    "options": [
+      "37 km",
+      "3.475 km",
+      "22,5 km",
+      "12,4 km"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_pandora-saturn_astra-moon-diameter",
+    "entityId": "astra:pandora-saturn",
+    "entityType": "moon",
+    "type": "astra-moon-diameter",
+    "difficulty": 3,
+    "prompt": "Welchen ungefaehren Durchmesser hat der Mond Pandora?",
+    "correctAnswer": "80 km",
+    "options": [
+      "80 km",
+      "3.475 km",
+      "22,5 km",
+      "12,4 km"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_prometheus-saturn_astra-moon-diameter",
+    "entityId": "astra:prometheus-saturn",
+    "entityType": "moon",
+    "type": "astra-moon-diameter",
+    "difficulty": 3,
+    "prompt": "Welchen ungefaehren Durchmesser hat der Mond Prometheus?",
+    "correctAnswer": "86 km",
+    "options": [
+      "86 km",
+      "3.475 km",
+      "22,5 km",
+      "12,4 km"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_astra_sun_astra-star-magnitude",
     "entityId": "astra:sun",
     "entityType": "star",
@@ -3077,6 +4777,210 @@
     "mapTargetId": null
   },
   {
+    "id": "q_astra_kanopus_astra-star-magnitude",
+    "entityId": "astra:kanopus",
+    "entityType": "star",
+    "type": "astra-star-magnitude",
+    "difficulty": 4,
+    "prompt": "Welche scheinbare Helligkeit (Magnitude) hat Kanopus (Canopus) ungefaehr?",
+    "correctAnswer": "-0,74 mag",
+    "options": [
+      "-0,74 mag",
+      "-26,74 mag",
+      "-1,46 mag",
+      "0,42 mag"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_achernar_astra-star-magnitude",
+    "entityId": "astra:achernar",
+    "entityType": "star",
+    "type": "astra-star-magnitude",
+    "difficulty": 4,
+    "prompt": "Welche scheinbare Helligkeit (Magnitude) hat Achernar ungefaehr?",
+    "correctAnswer": "0,46 mag",
+    "options": [
+      "0,46 mag",
+      "-26,74 mag",
+      "-1,46 mag",
+      "0,42 mag"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_prokyon_astra-star-magnitude",
+    "entityId": "astra:prokyon",
+    "entityType": "star",
+    "type": "astra-star-magnitude",
+    "difficulty": 4,
+    "prompt": "Welche scheinbare Helligkeit (Magnitude) hat Prokyon (Procyon) ungefaehr?",
+    "correctAnswer": "0,34 mag",
+    "options": [
+      "0,34 mag",
+      "-26,74 mag",
+      "-1,46 mag",
+      "0,42 mag"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_atair_astra-star-magnitude",
+    "entityId": "astra:atair",
+    "entityType": "star",
+    "type": "astra-star-magnitude",
+    "difficulty": 4,
+    "prompt": "Welche scheinbare Helligkeit (Magnitude) hat Atair (Altair) ungefaehr?",
+    "correctAnswer": "0,76 mag",
+    "options": [
+      "0,76 mag",
+      "-26,74 mag",
+      "-1,46 mag",
+      "0,42 mag"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_spica_astra-star-magnitude",
+    "entityId": "astra:spica",
+    "entityType": "star",
+    "type": "astra-star-magnitude",
+    "difficulty": 4,
+    "prompt": "Welche scheinbare Helligkeit (Magnitude) hat Spica ungefaehr?",
+    "correctAnswer": "0,98 mag",
+    "options": [
+      "0,98 mag",
+      "-26,74 mag",
+      "-1,46 mag",
+      "0,42 mag"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_pollux_astra-star-magnitude",
+    "entityId": "astra:pollux",
+    "entityType": "star",
+    "type": "astra-star-magnitude",
+    "difficulty": 4,
+    "prompt": "Welche scheinbare Helligkeit (Magnitude) hat Pollux ungefaehr?",
+    "correctAnswer": "1,14 mag",
+    "options": [
+      "1,14 mag",
+      "-26,74 mag",
+      "-1,46 mag",
+      "0,42 mag"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_fomalhaut_astra-star-magnitude",
+    "entityId": "astra:fomalhaut",
+    "entityType": "star",
+    "type": "astra-star-magnitude",
+    "difficulty": 4,
+    "prompt": "Welche scheinbare Helligkeit (Magnitude) hat Fomalhaut ungefaehr?",
+    "correctAnswer": "1,17 mag",
+    "options": [
+      "1,17 mag",
+      "-26,74 mag",
+      "-1,46 mag",
+      "0,42 mag"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_deneb_astra-star-magnitude",
+    "entityId": "astra:deneb",
+    "entityType": "star",
+    "type": "astra-star-magnitude",
+    "difficulty": 4,
+    "prompt": "Welche scheinbare Helligkeit (Magnitude) hat Deneb ungefaehr?",
+    "correctAnswer": "1,25 mag",
+    "options": [
+      "1,25 mag",
+      "-26,74 mag",
+      "-1,46 mag",
+      "0,42 mag"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_regulus_astra-star-magnitude",
+    "entityId": "astra:regulus",
+    "entityType": "star",
+    "type": "astra-star-magnitude",
+    "difficulty": 4,
+    "prompt": "Welche scheinbare Helligkeit (Magnitude) hat Regulus ungefaehr?",
+    "correctAnswer": "1,35 mag",
+    "options": [
+      "1,35 mag",
+      "-26,74 mag",
+      "-1,46 mag",
+      "0,42 mag"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_castor_astra-star-magnitude",
+    "entityId": "astra:castor",
+    "entityType": "star",
+    "type": "astra-star-magnitude",
+    "difficulty": 4,
+    "prompt": "Welche scheinbare Helligkeit (Magnitude) hat Castor ungefaehr?",
+    "correctAnswer": "1,58 mag",
+    "options": [
+      "1,58 mag",
+      "-26,74 mag",
+      "-1,46 mag",
+      "0,42 mag"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_bellatrix_astra-star-magnitude",
+    "entityId": "astra:bellatrix",
+    "entityType": "star",
+    "type": "astra-star-magnitude",
+    "difficulty": 4,
+    "prompt": "Welche scheinbare Helligkeit (Magnitude) hat Bellatrix ungefaehr?",
+    "correctAnswer": "1,64 mag",
+    "options": [
+      "1,64 mag",
+      "-26,74 mag",
+      "-1,46 mag",
+      "0,42 mag"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_algol_astra-star-magnitude",
+    "entityId": "astra:algol",
+    "entityType": "star",
+    "type": "astra-star-magnitude",
+    "difficulty": 4,
+    "prompt": "Welche scheinbare Helligkeit (Magnitude) hat Algol ungefaehr?",
+    "correctAnswer": "2,12 mag",
+    "options": [
+      "2,12 mag",
+      "-26,74 mag",
+      "-1,46 mag",
+      "0,42 mag"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_astra_speed_of_light_astra-constant-name",
     "entityId": "astra:speed_of_light",
     "entityType": "constant",
@@ -3239,6 +5143,125 @@
     "correctAnswer": "149600000 km",
     "options": [
       "149600000 km",
+      "299792458 m/s",
+      "149597870.7 km",
+      "9460730472580.8 km"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_gravitationskonstante_astra-constant-name",
+    "entityId": "astra:gravitationskonstante",
+    "entityType": "constant",
+    "type": "astra-constant-name",
+    "difficulty": 2,
+    "prompt": "Welchen Wert hat Gravitationskonstante (G) ungefaehr?",
+    "correctAnswer": "6.67430e-11 m^3 kg^-1 s^-2",
+    "options": [
+      "6.67430e-11 m^3 kg^-1 s^-2",
+      "299792458 m/s",
+      "149597870.7 km",
+      "9460730472580.8 km"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sonnenmasse_astra-constant-name",
+    "entityId": "astra:sonnenmasse",
+    "entityType": "constant",
+    "type": "astra-constant-name",
+    "difficulty": 2,
+    "prompt": "Welchen Wert hat Sonnenmasse (M_Sonne) ungefaehr?",
+    "correctAnswer": "1.98847e30 kg",
+    "options": [
+      "1.98847e30 kg",
+      "299792458 m/s",
+      "149597870.7 km",
+      "9460730472580.8 km"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_erdmasse_astra-constant-name",
+    "entityId": "astra:erdmasse",
+    "entityType": "constant",
+    "type": "astra-constant-name",
+    "difficulty": 2,
+    "prompt": "Welchen Wert hat Erdmasse (M_Erde) ungefaehr?",
+    "correctAnswer": "5.97217e24 kg",
+    "options": [
+      "5.97217e24 kg",
+      "299792458 m/s",
+      "149597870.7 km",
+      "9460730472580.8 km"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_mondmasse_astra-constant-name",
+    "entityId": "astra:mondmasse",
+    "entityType": "constant",
+    "type": "astra-constant-name",
+    "difficulty": 2,
+    "prompt": "Welchen Wert hat Mondmasse (M_Mond) ungefaehr?",
+    "correctAnswer": "7.346e22 kg",
+    "options": [
+      "7.346e22 kg",
+      "299792458 m/s",
+      "149597870.7 km",
+      "9460730472580.8 km"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_mittlere-mondentfernung_astra-constant-name",
+    "entityId": "astra:mittlere-mondentfernung",
+    "entityType": "constant",
+    "type": "astra-constant-name",
+    "difficulty": 2,
+    "prompt": "Welchen Wert hat Mittlere Mondentfernung ungefaehr?",
+    "correctAnswer": "384399 km",
+    "options": [
+      "384399 km",
+      "299792458 m/s",
+      "149597870.7 km",
+      "9460730472580.8 km"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_solarkonstante_astra-constant-name",
+    "entityId": "astra:solarkonstante",
+    "entityType": "constant",
+    "type": "astra-constant-name",
+    "difficulty": 2,
+    "prompt": "Welchen Wert hat Solarkonstante ungefaehr?",
+    "correctAnswer": "1361 W/m^2",
+    "options": [
+      "1361 W/m^2",
+      "299792458 m/s",
+      "149597870.7 km",
+      "9460730472580.8 km"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_hubble-konstante_astra-constant-name",
+    "entityId": "astra:hubble-konstante",
+    "entityType": "constant",
+    "type": "astra-constant-name",
+    "difficulty": 2,
+    "prompt": "Welchen Wert hat Hubble-Konstante (H0) ungefaehr?",
+    "correctAnswer": "67.4 km/s/Mpc",
+    "options": [
+      "67.4 km/s/Mpc",
       "299792458 m/s",
       "149597870.7 km",
       "9460730472580.8 km"

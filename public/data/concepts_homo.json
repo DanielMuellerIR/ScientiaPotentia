@@ -798,5 +798,728 @@
       "name": "Smithsonian National Museum of Natural History - Human Origins",
       "url": "https://humanorigins.si.edu/evidence/human-fossils/species/australopithecus-afarensis"
     }
+  },
+  "homo:atlas_c1": {
+    "id": "homo:atlas_c1",
+    "name": "Atlas (Atlas, C1)",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Rumpf",
+      "latinName": "Atlas (C1)",
+      "notableFor": "Erster Halswirbel, trägt den Schädel; besitzt weder Wirbelkörper noch Dornfortsatz"
+    },
+    "funFact": "Der Atlas ist nach dem Titanen der griechischen Mythologie benannt, der den Himmel trug - so wie dieser Wirbel den Kopf trägt.",
+    "source": {
+      "name": "Wikipedia - Atlas (anatomy)",
+      "url": "https://en.wikipedia.org/wiki/Atlas_(anatomy)"
+    }
+  },
+  "homo:axis_c2": {
+    "id": "homo:axis_c2",
+    "name": "Axis (Axis, C2)",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Rumpf",
+      "latinName": "Axis (C2)",
+      "notableFor": "Zweiter Halswirbel mit zahnförmigem Fortsatz (Dens), um den sich der Atlas dreht"
+    },
+    "funFact": "Der zahnartige Dens des Axis bildet die Drehachse, um die wir den Kopf nach links und rechts wenden.",
+    "source": {
+      "name": "Wikipedia - Axis (anatomy)",
+      "url": "https://en.wikipedia.org/wiki/Axis_(anatomy)"
+    }
+  },
+  "homo:os_sacrum": {
+    "id": "homo:os_sacrum",
+    "name": "Kreuzbein (Os sacrum)",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Rumpf",
+      "latinName": "Os sacrum",
+      "notableFor": "Aus 5 verschmolzenen Wirbeln gebildet, verbindet Wirbelsaeule mit dem Becken"
+    },
+    "funFact": "Das Kreuzbein entsteht aus fünf einzelnen Wirbeln, die im Erwachsenenalter zu einem keilförmigen Knochen verschmelzen.",
+    "source": {
+      "name": "StatPearls (NCBI) - Sacral Vertebrae",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK551653/"
+    }
+  },
+  "homo:os_coccygis": {
+    "id": "homo:os_coccygis",
+    "name": "Steißbein (Os coccygis)",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Rumpf",
+      "latinName": "Os coccygis",
+      "notableFor": "Unterstes Ende der Wirbelsaeule, aus 3-5 (meist 4) verschmolzenen Wirbeln"
+    },
+    "funFact": "Das Steißbein gilt als Überrest eines Schwanzes und besteht meist aus vier zusammengewachsenen Restwirbeln.",
+    "source": {
+      "name": "Wikipedia - Coccyx / Axial skeleton",
+      "url": "https://en.wikipedia.org/wiki/Axial_skeleton"
+    }
+  },
+  "homo:costa_rib": {
+    "id": "homo:costa_rib",
+    "name": "Rippe (Costa)",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Rumpf",
+      "latinName": "Costa",
+      "notableFor": "12 Paare bilden den Brustkorb; die oberen 7 Paare sind 'echte Rippen'"
+    },
+    "funFact": "Der Mensch besitzt 12 Rippenpaare, von denen die oberen sieben über Knorpel direkt mit dem Brustbein verbunden sind.",
+    "source": {
+      "name": "Wikipedia - Axial skeleton",
+      "url": "https://en.wikipedia.org/wiki/Axial_skeleton"
+    }
+  },
+  "homo:malleus": {
+    "id": "homo:malleus",
+    "name": "Hammer (Malleus)",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Kopf",
+      "latinName": "Malleus",
+      "notableFor": "Größtes der drei Gehoerknoechelchen, sitzt am Trommelfell"
+    },
+    "funFact": "Der Hammer (Malleus) ist das größte der drei winzigen Gehoerknoechelchen und überträgt die Schwingungen direkt vom Trommelfell.",
+    "source": {
+      "name": "Kenhub - Auditory ossicles",
+      "url": "https://www.kenhub.com/en/library/anatomy/auditory-ossicles"
+    }
+  },
+  "homo:incus": {
+    "id": "homo:incus",
+    "name": "Amboss (Incus)",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Kopf",
+      "latinName": "Incus",
+      "notableFor": "Mittleres Gehoerknoechelchen zwischen Hammer und Steigbuegel"
+    },
+    "funFact": "Der Amboss (Incus) liegt als Bindeglied zwischen Hammer und Steigbuegel und ist nach der Schmiedeunterlage benannt.",
+    "source": {
+      "name": "Kenhub - Auditory ossicles",
+      "url": "https://www.kenhub.com/en/library/anatomy/auditory-ossicles"
+    }
+  },
+  "homo:talus": {
+    "id": "homo:talus",
+    "name": "Sprungbein (Talus)",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Fuss",
+      "latinName": "Talus",
+      "notableFor": "Bildet das obere Sprunggelenk und überträgt das Körpergewicht aufs Fersenbein"
+    },
+    "funFact": "Das Sprungbein trägt nahezu das gesamte Körpergewicht und besitzt keine direkten Muskelansaetze - es wird nur über Baender gehalten.",
+    "source": {
+      "name": "TeachMeAnatomy - Bones of the Foot",
+      "url": "https://teachmeanatomy.info/lower-limb/bones/bones-of-the-foot-tarsals-metatarsals-and-phalanges/"
+    }
+  },
+  "homo:calcaneus": {
+    "id": "homo:calcaneus",
+    "name": "Fersenbein (Calcaneus)",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Fuss",
+      "latinName": "Calcaneus",
+      "notableFor": "Größter Fusswurzelknochen, bildet die Ferse und Ansatz der Achillessehne"
+    },
+    "funFact": "Das Fersenbein ist der größte Knochen des Fusses und dient der kraeftigen Achillessehne als Ansatzpunkt.",
+    "source": {
+      "name": "Wikipedia - Calcaneus",
+      "url": "https://en.wikipedia.org/wiki/Calcaneus"
+    }
+  },
+  "homo:os_naviculare": {
+    "id": "homo:os_naviculare",
+    "name": "Kahnbein (Os naviculare)",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Fuss",
+      "latinName": "Os naviculare",
+      "notableFor": "Kahnförmiger Fusswurzelknochen zwischen Sprungbein und Keilbeinen"
+    },
+    "funFact": "Das Kahnbein des Fusses verdankt seinen Namen seiner bootsförmigen, ausgehoehlten Gestalt.",
+    "source": {
+      "name": "TeachMeAnatomy - Bones of the Foot",
+      "url": "https://teachmeanatomy.info/lower-limb/bones/bones-of-the-foot-tarsals-metatarsals-and-phalanges/"
+    }
+  },
+  "homo:os_zygomaticum": {
+    "id": "homo:os_zygomaticum",
+    "name": "Jochbein (Os zygomaticum)",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Kopf",
+      "latinName": "Os zygomaticum",
+      "notableFor": "Paariger Gesichtsknochen, bildet die Wangenvorwoelbung"
+    },
+    "funFact": "Das Jochbein formt die markante Wangenpartie und bildet einen Teil des knoechernen Augenhöhlenrands.",
+    "source": {
+      "name": "Wikipedia - Zygomatic bone",
+      "url": "https://en.wikipedia.org/wiki/Zygomatic_bone"
+    }
+  },
+  "homo:os_frontale": {
+    "id": "homo:os_frontale",
+    "name": "Stirnbein (Os frontale)",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Kopf",
+      "latinName": "Os frontale",
+      "notableFor": "Bildet die Stirn und das Dach der Augenhöhlen"
+    },
+    "funFact": "Das Stirnbein ist beim Neugeborenen noch zweigeteilt und verschmilzt erst in der fruehen Kindheit zu einem einzigen Knochen.",
+    "source": {
+      "name": "StatPearls (NCBI) - Skull",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK499834/"
+    }
+  },
+  "homo:os_occipitale": {
+    "id": "homo:os_occipitale",
+    "name": "Hinterhauptbein (Os occipitale)",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Kopf",
+      "latinName": "Os occipitale",
+      "notableFor": "Bildet Schädelhinterseite und das große Hinterhauptloch fuer das Rueckenmark"
+    },
+    "funFact": "Im Hinterhauptbein liegt das große Hinterhauptloch, durch das das Rueckenmark in den Schädel übergeht.",
+    "source": {
+      "name": "StatPearls (NCBI) - Skull",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK499834/"
+    }
+  },
+  "homo:os_temporale": {
+    "id": "homo:os_temporale",
+    "name": "Schläfenbein (Os temporale)",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Kopf",
+      "latinName": "Os temporale",
+      "notableFor": "Paariger Schädelknochen, beherbergt Innenohr und Gehoerknoechelchen"
+    },
+    "funFact": "Im Felsenbeinteil des Schläfenbeins liegen das Innenohr und die drei winzigen Gehoerknoechelchen geschuetzt eingebettet.",
+    "source": {
+      "name": "StatPearls (NCBI) - Skull",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK499834/"
+    }
+  },
+  "homo:os_metacarpale": {
+    "id": "homo:os_metacarpale",
+    "name": "Mittelhandknochen (Os metacarpale)",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Hand",
+      "latinName": "Os metacarpale",
+      "notableFor": "Fünf Roehrenknochen bilden das Skelett der Mittelhand"
+    },
+    "funFact": "Jede Hand besitzt fünf Mittelhandknochen, die das Handgewoelbe zwischen Handwurzel und Fingern bilden.",
+    "source": {
+      "name": "TeachMeAnatomy - Bones of the Hand",
+      "url": "https://teachmeanatomy.info/upper-limb/bones/hand/"
+    }
+  },
+  "homo:pectoralis_major": {
+    "id": "homo:pectoralis_major",
+    "name": "Großer Brustmuskel (Musculus pectoralis major)",
+    "type": "muscle",
+    "category": "muscle",
+    "attributes": {
+      "location": "Vordere Brustwand",
+      "latinName": "Musculus pectoralis major",
+      "notableFor": "Fächerförmiger Muskel, der den Oberarm adduziert und nach innen rotiert"
+    },
+    "funFact": "Sein clavikulärer und sternokostaler Anteil können gegensätzlich wirken: Der eine beugt den Arm, der andere streckt ihn.",
+    "source": {
+      "name": "Kenhub – Pectoralis major",
+      "url": "https://www.kenhub.com/en/library/anatomy/major-pectoralis-muscle"
+    }
+  },
+  "homo:latissimus_dorsi": {
+    "id": "homo:latissimus_dorsi",
+    "name": "Breiter Rückenmuskel (Musculus latissimus dorsi)",
+    "type": "muscle",
+    "category": "muscle",
+    "attributes": {
+      "location": "Unterer hinterer Rumpf",
+      "latinName": "Musculus latissimus dorsi",
+      "notableFor": "Breitester Muskel des menschlichen Körpers, zieht den Arm nach unten und hinten"
+    },
+    "funFact": "Der Name bedeutet wörtlich „breitester Muskel des Rückens“, und er ist tatsächlich der breiteste Muskel des Körpers.",
+    "source": {
+      "name": "StatPearls (NCBI) – Anatomy, Back, Latissimus Dorsi",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK448120/"
+    }
+  },
+  "homo:trapezius": {
+    "id": "homo:trapezius",
+    "name": "Trapezmuskel / Kapuzenmuskel (Musculus trapezius)",
+    "type": "muscle",
+    "category": "muscle",
+    "attributes": {
+      "location": "Oberer Rücken und Nacken",
+      "latinName": "Musculus trapezius",
+      "notableFor": "Trapezförmiger Muskel, der das Schulterblatt stabilisiert und bewegt"
+    },
+    "funFact": "Seine Form ähnelt einem Trapez, daher der Name; motorisch wird er vom elften Hirnnerv (Nervus accessorius) versorgt.",
+    "source": {
+      "name": "StatPearls (NCBI) – Anatomy, Back, Trapezius",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK518994/"
+    }
+  },
+  "homo:sternocleidomastoid": {
+    "id": "homo:sternocleidomastoid",
+    "name": "Kopfwender (Musculus sternocleidomastoideus)",
+    "type": "muscle",
+    "category": "muscle",
+    "attributes": {
+      "location": "Seitlicher Hals",
+      "latinName": "Musculus sternocleidomastoideus",
+      "notableFor": "Dreht den Kopf zur Gegenseite und beugt den Hals"
+    },
+    "funFact": "Sein Name beschreibt zugleich Ursprung und Ansatz: Brustbein (sterno-), Schlüsselbein (cleido-) und Warzenfortsatz (mastoid).",
+    "source": {
+      "name": "StatPearls (NCBI) – Anatomy, Head and Neck: Sternocleidomastoid Muscle",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK532881/"
+    }
+  },
+  "homo:rectus_abdominis": {
+    "id": "homo:rectus_abdominis",
+    "name": "Gerader Bauchmuskel (Musculus rectus abdominis)",
+    "type": "muscle",
+    "category": "muscle",
+    "attributes": {
+      "location": "Vordere Bauchwand",
+      "latinName": "Musculus rectus abdominis",
+      "notableFor": "Bildet durch Zwischensehnen das sichtbare „Sixpack“"
+    },
+    "funFact": "Die drei queren Zwischensehnen (Intersectiones tendineae) unterteilen den Muskel und erzeugen bei niedrigem Körperfett das typische Sixpack.",
+    "source": {
+      "name": "Wikipedia – Rectus abdominis muscle",
+      "url": "https://en.wikipedia.org/wiki/Rectus_abdominis_muscle"
+    }
+  },
+  "homo:quadriceps_femoris": {
+    "id": "homo:quadriceps_femoris",
+    "name": "Vierköpfiger Schenkelmuskel (Musculus quadriceps femoris)",
+    "type": "muscle",
+    "category": "muscle",
+    "attributes": {
+      "location": "Vorderseite des Oberschenkels",
+      "latinName": "Musculus quadriceps femoris",
+      "notableFor": "Streckt das Knie; besteht aus vier Muskelköpfen"
+    },
+    "funFact": "Von seinen vier Köpfen überzieht nur der Rectus femoris zugleich Hüft- und Kniegelenk, die übrigen drei kreuzen nur das Knie.",
+    "source": {
+      "name": "StatPearls (NCBI) – Anatomy, Thigh Quadriceps Muscle",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK513334/"
+    }
+  },
+  "homo:soleus": {
+    "id": "homo:soleus",
+    "name": "Schollenmuskel (Musculus soleus)",
+    "type": "muscle",
+    "category": "muscle",
+    "attributes": {
+      "location": "Hintere Unterschenkelloge",
+      "latinName": "Musculus soleus",
+      "notableFor": "Tiefer Wadenmuskel, der den Fuß plantarflektiert"
+    },
+    "funFact": "Zusammen mit dem zweiköpfigen Gastrocnemius bildet er den dreiköpfigen Wadenmuskel (Triceps surae), der in die Achillessehne mündet.",
+    "source": {
+      "name": "Kenhub – Quadriceps femoris muscle (Lower-limb-Atlas)",
+      "url": "https://www.kenhub.com/en/library/anatomy/the-quadriceps-femoris-muscle"
+    }
+  },
+  "homo:tibialis_anterior": {
+    "id": "homo:tibialis_anterior",
+    "name": "Vorderer Schienbeinmuskel (Musculus tibialis anterior)",
+    "type": "muscle",
+    "category": "muscle",
+    "attributes": {
+      "location": "Vordere Unterschenkelloge",
+      "latinName": "Musculus tibialis anterior",
+      "notableFor": "Hebt den Fuß (Dorsalextension) und supiniert ihn"
+    },
+    "funFact": "Er ist der Gegenspieler der Wadenmuskeln: Während diese den Fuß senken, hebt er die Fußspitze und verhindert beim Gehen das Hängenbleiben.",
+    "source": {
+      "name": "Kenhub – Tibialis anterior",
+      "url": "https://www.kenhub.com/en/library/anatomy/tibialis-anterior-muscle"
+    }
+  },
+  "homo:orbicularis_oculi": {
+    "id": "homo:orbicularis_oculi",
+    "name": "Augenringmuskel (Musculus orbicularis oculi)",
+    "type": "muscle",
+    "category": "muscle",
+    "attributes": {
+      "location": "Rund um die Augenhöhle und Lider",
+      "latinName": "Musculus orbicularis oculi",
+      "notableFor": "Ringmuskel, der die Augenlider schließt"
+    },
+    "funFact": "Er unterstützt zusätzlich den Tränenabfluss und wird von Ästen des Gesichtsnervs (N. facialis) gesteuert.",
+    "source": {
+      "name": "StatPearls (NCBI) – Orbicularis Oculi Muscle",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK441907/"
+    }
+  },
+  "homo:orbicularis_oris": {
+    "id": "homo:orbicularis_oris",
+    "name": "Mundringmuskel (Musculus orbicularis oris)",
+    "type": "muscle",
+    "category": "muscle",
+    "attributes": {
+      "location": "Rund um die Mundöffnung",
+      "latinName": "Musculus orbicularis oris",
+      "notableFor": "Ringmuskel, der die Lippen schließt und vorstülpt"
+    },
+    "funFact": "Er ist die zentrale Ansatzstelle vieler mimischer Muskeln und damit unentbehrlich für Sprechen, Pfeifen und Küssen.",
+    "source": {
+      "name": "StatPearls (NCBI) – Orbicularis Oris Muscle",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK545169/"
+    }
+  },
+  "homo:genioglossus": {
+    "id": "homo:genioglossus",
+    "name": "Kinn-Zungen-Muskel (Musculus genioglossus)",
+    "type": "muscle",
+    "category": "muscle",
+    "attributes": {
+      "location": "Zunge",
+      "latinName": "Musculus genioglossus",
+      "notableFor": "Wichtigster Zungenmuskel, der die Zunge herausstreckt"
+    },
+    "funFact": "Er hält den oberen Atemweg offen, indem er ein Zurückfallen der Zunge verhindert – relevant etwa bei der Schlafapnoe.",
+    "source": {
+      "name": "StatPearls (NCBI) – Genioglossus Muscle",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK545141/"
+    }
+  },
+  "homo:psoas_major": {
+    "id": "homo:psoas_major",
+    "name": "Großer Lendenmuskel (Musculus psoas major)",
+    "type": "muscle",
+    "category": "muscle",
+    "attributes": {
+      "location": "Lendenregion",
+      "latinName": "Musculus psoas major",
+      "notableFor": "Kräftiger Hüftbeuger, zieht vom Lendenwirbel zum Oberschenkel"
+    },
+    "funFact": "Gemeinsam mit dem Darmbeinmuskel bildet er den Hüftbeuger Iliopsoas, einen der stärksten Beuger des Hüftgelenks.",
+    "source": {
+      "name": "StatPearls (NCBI) – Anatomy, Psoas Major",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK535418/"
+    }
+  },
+  "homo:intercostales_externi": {
+    "id": "homo:intercostales_externi",
+    "name": "Äußere Zwischenrippenmuskeln (Musculi intercostales externi)",
+    "type": "muscle",
+    "category": "muscle",
+    "attributes": {
+      "location": "Zwischen den Rippen",
+      "latinName": "Musculi intercostales externi",
+      "notableFor": "Heben die Rippen und unterstützen die Einatmung"
+    },
+    "funFact": "Ihre elf Muskelpaare verlaufen schräg von Rippe zu Rippe und erweitern beim Anheben der Rippen den Brustkorb.",
+    "source": {
+      "name": "Wikipedia – Intercostal muscles",
+      "url": "https://en.wikipedia.org/wiki/Intercostal_muscles"
+    }
+  },
+  "homo:schilddruese": {
+    "id": "homo:schilddruese",
+    "name": "Schilddrüse (Glandula thyroidea)",
+    "type": "organ",
+    "category": "organ",
+    "attributes": {
+      "system": "Endokrines System (Hormonsystem)",
+      "approxWeightGrams": 20,
+      "location": "Vorderer Hals, unterhalb des Kehlkopfs, schmetterlingsförmig um die Luftröhre"
+    },
+    "funFact": "Die Schilddrüse speichert als einziges Organ des Körpers größere Mengen Jod und nutzt es zur Bildung der Hormone Thyroxin (T4) und Trijodthyronin (T3).",
+    "source": {
+      "name": "Wikipedia (Thyroid) / Britannica",
+      "url": "https://en.wikipedia.org/wiki/Thyroid"
+    }
+  },
+  "homo:gallenblase": {
+    "id": "homo:gallenblase",
+    "name": "Gallenblase (Vesica biliaris)",
+    "type": "organ",
+    "category": "organ",
+    "attributes": {
+      "system": "Verdauungssystem",
+      "approxWeightGrams": 40,
+      "location": "Unterseite der Leber im rechten Oberbauch"
+    },
+    "funFact": "Die Gallenblase produziert keine Galle selbst, sondern speichert und konzentriert die in der Leber gebildete Galle und fasst dabei nur etwa 50 ml.",
+    "source": {
+      "name": "Cleveland Clinic / Liv Hospital (Gallbladder anatomy)",
+      "url": "https://my.clevelandclinic.org/health/body/21690-gallbladder"
+    }
+  },
+  "homo:nebenniere": {
+    "id": "homo:nebenniere",
+    "name": "Nebenniere (Glandula suprarenalis)",
+    "type": "organ",
+    "category": "organ",
+    "attributes": {
+      "system": "Endokrines System (Hormonsystem)",
+      "approxWeightGrams": 5,
+      "location": "Auf dem oberen Pol jeder Niere im hinteren Oberbauch (jeweils eine links und rechts)"
+    },
+    "funFact": "Die Nebenniere bildet im Mark das Stresshormon Adrenalin und in der Rinde Cortisol und Aldosteron - trotz nur etwa 5 Gramm Gewicht steuert sie lebenswichtige Kreislauf- und Stressreaktionen.",
+    "source": {
+      "name": "Wikipedia (Adrenal gland) / NCBI StatPearls",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK482264/"
+    }
+  },
+  "homo:thymus": {
+    "id": "homo:thymus",
+    "name": "Thymus (Bries)",
+    "type": "organ",
+    "category": "organ",
+    "attributes": {
+      "system": "Lymphatisches System (Immunsystem)",
+      "approxWeightGrams": 25,
+      "location": "Oberer vorderer Brustkorb im vorderen oberen Mediastinum, hinter dem Brustbein und vor dem Herzen"
+    },
+    "funFact": "Im Thymus reifen die T-Lymphozyten heran - das Organ erreicht in der Pubertät mit etwa 40-50 g sein Höchstgewicht und schrumpft danach lebenslang durch Verfettung.",
+    "source": {
+      "name": "Wikipedia (Thymus)",
+      "url": "https://en.wikipedia.org/wiki/Thymus"
+    }
+  },
+  "homo:zunge": {
+    "id": "homo:zunge",
+    "name": "Zunge (Lingua)",
+    "type": "organ",
+    "category": "organ",
+    "attributes": {
+      "system": "Verdauungssystem (Geschmacks- und Schluckorgan)",
+      "approxWeightGrams": 70,
+      "location": "Mundhöhle, am Mundboden verankert"
+    },
+    "funFact": "Die Zunge ist ein muskulärer Hydrostat ohne Knochen - ähnlich einem Tintenfischarm bewegen ineinander verwobene Muskelfasern sie in nahezu jede Richtung.",
+    "source": {
+      "name": "Sanders et al. 2013, The Anatomical Record / Wikipedia (Tongue)",
+      "url": "https://anatomypubs.onlinelibrary.wiley.com/doi/10.1002/ar.22755"
+    }
+  },
+  "homo:skelettmuskeln_600": {
+    "id": "homo:skelettmuskeln_600",
+    "name": "Skelettmuskeln im Körper",
+    "type": "body_fact",
+    "category": "body_fact",
+    "attributes": {
+      "value": 600,
+      "unit": "Muskeln"
+    },
+    "funFact": "Skelettmuskeln machen bei gesunden jungen Erwachsenen rund 40 Prozent des Körpergewichts aus.",
+    "source": {
+      "name": "Wikipedia: Skeletal muscle (mit Lehrbuchbelegen)",
+      "url": "https://en.wikipedia.org/wiki/Skeletal_muscle"
+    }
+  },
+  "homo:neuronen_gehirn_86mrd": {
+    "id": "homo:neuronen_gehirn_86mrd",
+    "name": "Neuronen im menschlichen Gehirn",
+    "type": "body_fact",
+    "category": "body_fact",
+    "attributes": {
+      "value": 86000000000,
+      "unit": "Neuronen"
+    },
+    "funFact": "Etwa 80 Prozent aller Neuronen sitzen im Kleinhirn, das nur einen kleinen Teil des Gehirnvolumens ausmacht.",
+    "source": {
+      "name": "Herculano-Houzel et al., J. Comp. Neurol. (2009), via NCBI/PMC",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2776484/"
+    }
+  },
+  "homo:körperwasser_60": {
+    "id": "homo:körperwasser_60",
+    "name": "Wasseranteil des Körpers (Mann)",
+    "type": "body_fact",
+    "category": "body_fact",
+    "attributes": {
+      "value": 60,
+      "unit": "%"
+    },
+    "funFact": "Säuglinge bestehen zu einem deutlich höheren Anteil aus Wasser als Erwachsene, der Anteil sinkt mit dem Alter.",
+    "source": {
+      "name": "Wikipedia: Body water / Medical News Today",
+      "url": "https://en.wikipedia.org/wiki/Body_water"
+    }
+  },
+  "homo:dünndarm_länge": {
+    "id": "homo:dünndarm_länge",
+    "name": "Länge des Dünndarms",
+    "type": "body_fact",
+    "category": "body_fact",
+    "attributes": {
+      "value": 7,
+      "unit": "m"
+    },
+    "funFact": "Trotz seiner Länge passt der Dünndarm dank enger Schlingen vollständig in den Bauchraum.",
+    "source": {
+      "name": "Wikipedia: Small intestine (mit anatomischen Belegen)",
+      "url": "https://en.wikipedia.org/wiki/Small_intestine"
+    }
+  },
+  "homo:wirbel_33": {
+    "id": "homo:wirbel_33",
+    "name": "Wirbel der Wirbelsäule",
+    "type": "body_fact",
+    "category": "body_fact",
+    "attributes": {
+      "value": 33,
+      "unit": "Wirbel"
+    },
+    "funFact": "Beim Erwachsenen verschmelzen die unteren neun Wirbel zu Kreuzbein und Steißbein, sodass nur noch 24 frei beweglich sind.",
+    "source": {
+      "name": "NIH StatPearls: Anatomy, Back, Vertebral Column",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK525969/"
+    }
+  },
+  "homo:atemzuege_pro_minute": {
+    "id": "homo:atemzuege_pro_minute",
+    "name": "Atemzüge pro Minute (Ruhe)",
+    "type": "body_fact",
+    "category": "body_fact",
+    "attributes": {
+      "value": 16,
+      "unit": "Atemzüge/min"
+    },
+    "funFact": "Die Atemfrequenz zählt zu den vier klassischen Vitalzeichen neben Puls, Blutdruck und Körpertemperatur.",
+    "source": {
+      "name": "Johns Hopkins Medicine: Vital Signs / American Lung Association",
+      "url": "https://www.hopkinsmedicine.org/health/conditions-and-diseases/vital-signs-body-temperature-pulse-rate-respiration-rate-blood-pressure"
+    }
+  },
+  "homo:geschmacksknospen": {
+    "id": "homo:geschmacksknospen",
+    "name": "Geschmacksknospen der Zunge",
+    "type": "body_fact",
+    "category": "body_fact",
+    "attributes": {
+      "value": 8000,
+      "unit": "Geschmacksknospen"
+    },
+    "funFact": "Die Zahl der Geschmacksknospen nimmt mit dem Alter tendenziell ab, was den Geschmackssinn im Alter abschwächen kann.",
+    "source": {
+      "name": "Encyclopaedia Britannica: Taste bud",
+      "url": "https://www.britannica.com/science/taste-bud"
+    }
+  },
+  "homo:homo_floresiensis": {
+    "id": "homo:homo_floresiensis",
+    "name": "Homo floresiensis",
+    "type": "species",
+    "category": "species",
+    "attributes": {
+      "epoch": "Mittel- bis Spaetpleistozaen, ca. 100.000 bis 60.000 Jahre vor heute (Steinwerkzeuge bis ca. 190.000 Jahre)",
+      "region": "Insel Flores, Indonesien (Südostasien); Fundort Liang-Bua-Höhle"
+    },
+    "funFact": "Wegen ihrer Körpergroesse von nur etwa 1,06 m bekam diese Art den Spitznamen 'Hobbit'.",
+    "source": {
+      "name": "Smithsonian Human Origins Program / Natural History Museum London",
+      "url": "https://humanorigins.si.edu/evidence/human-fossils/species/homo-floresiensis"
+    }
+  },
+  "homo:homo_naledi": {
+    "id": "homo:homo_naledi",
+    "name": "Homo naledi",
+    "type": "species",
+    "category": "species",
+    "attributes": {
+      "epoch": "Mittelpleistozaen, ca. 335.000 bis 236.000 Jahre vor heute",
+      "region": "Südafrika; Dinaledi-Kammer im Höhlensystem Rising Star (Cradle of Humankind)"
+    },
+    "funFact": "Trotz eines sehr kleinen Gehirns lebte diese Art gleichzeitig mit den fruehen modernen Menschen in Afrika.",
+    "source": {
+      "name": "eLife (Dirks et al. 2017) / NIH PMC",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5423772/"
+    }
+  },
+  "homo:homo_heidelbergensis": {
+    "id": "homo:homo_heidelbergensis",
+    "name": "Homo heidelbergensis",
+    "type": "species",
+    "category": "species",
+    "attributes": {
+      "epoch": "Mittelpleistozaen, ca. 700.000 bis 200.000 Jahre vor heute (Typusexemplar Mauer datiert auf 609.000 +/- 40.000 Jahre)",
+      "region": "Afrika und Europa; Typusfundort Mauer bei Heidelberg, Deutschland"
+    },
+    "funFact": "Der namensgebende Unterkiefer 'Mauer 1' wurde 1907 von einem Sandgrubenarbeiter bei Heidelberg gefunden.",
+    "source": {
+      "name": "Natural History Museum / Wagner et al. 2010 (PubMed)",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/21041630/"
+    }
+  },
+  "homo:denisova_mensch": {
+    "id": "homo:denisova_mensch",
+    "name": "Denisova-Mensch (Denisovaner)",
+    "type": "species",
+    "category": "species",
+    "attributes": {
+      "epoch": "Mittel- bis Spaetpleistozaen, ca. 200.000 bis 50.000 Jahre vor heute",
+      "region": "Sibirien (Altai-Gebirge, Russland); namensgebende Denisova-Höhle"
+    },
+    "funFact": "Diese Menschenform wurde 2010 vor allem anhand der DNA aus einem winzigen Fingerknochen-Fragment identifiziert.",
+    "source": {
+      "name": "Nature (Jacobs et al. 2019, Timing of archaic hominin occupation of Denisova Cave)",
+      "url": "https://www.nature.com/articles/s41586-018-0843-2"
+    }
+  },
+  "homo:paranthropus_boisei": {
+    "id": "homo:paranthropus_boisei",
+    "name": "Paranthropus boisei",
+    "type": "species",
+    "category": "species",
+    "attributes": {
+      "epoch": "Pleistozaen, ca. 2,3 bis 1,2 Millionen Jahre vor heute",
+      "region": "Ostafrika (Tansania, Kenia, Aethiopien); Typusfund Olduvai-Schlucht"
+    },
+    "funFact": "Wegen seiner riesigen Backenzaehne und kraeftigen Kaumuskulatur trug der 1959 gefundene Schädel den Spitznamen 'Nutcracker Man' (Nussknacker-Mensch).",
+    "source": {
+      "name": "Australian Museum / Britannica",
+      "url": "https://australian.museum/learn/science/human-evolution/paranthropus-species/"
+    }
+  },
+  "homo:australopithecus_africanus": {
+    "id": "homo:australopithecus_africanus",
+    "name": "Australopithecus africanus",
+    "type": "species",
+    "category": "species",
+    "attributes": {
+      "epoch": "Spaetes Pliozaen bis fruehes Pleistozaen, ca. 3,3 bis 2,1 Millionen Jahre vor heute",
+      "region": "Südafrika; Fundorte u.a. Taung, Sterkfontein, Makapansgat"
+    },
+    "funFact": "Das 1924 entdeckte 'Kind von Taung' war einer der ersten Belege dafuer, dass die Menschheit ihren Ursprung in Afrika hat.",
+    "source": {
+      "name": "Smithsonian Human Origins Program / Britannica",
+      "url": "https://humanorigins.si.edu/evidence/human-fossils/fossils/taung-child"
+    }
   }
 }

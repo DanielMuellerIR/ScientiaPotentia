@@ -1,158 +1,5 @@
 [
   {
-    "id": "q_homo_femur_homo-bone-region",
-    "entityId": "homo:femur",
-    "entityType": "bone",
-    "type": "homo-bone-region",
-    "difficulty": 1,
-    "prompt": "In welcher Körperregion liegt der Knochen „Oberschenkelknochen\"?",
-    "correctAnswer": "Bein",
-    "options": [
-      "Bein",
-      "Arm",
-      "Kopf",
-      "Rumpf"
-    ],
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_homo_tibia_homo-bone-region",
-    "entityId": "homo:tibia",
-    "entityType": "bone",
-    "type": "homo-bone-region",
-    "difficulty": 1,
-    "prompt": "In welcher Körperregion liegt der Knochen „Schienbein\"?",
-    "correctAnswer": "Bein",
-    "options": [
-      "Bein",
-      "Arm",
-      "Kopf",
-      "Rumpf"
-    ],
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_homo_fibula_homo-bone-region",
-    "entityId": "homo:fibula",
-    "entityType": "bone",
-    "type": "homo-bone-region",
-    "difficulty": 1,
-    "prompt": "In welcher Körperregion liegt der Knochen „Wadenbein\"?",
-    "correctAnswer": "Bein",
-    "options": [
-      "Bein",
-      "Arm",
-      "Kopf",
-      "Rumpf"
-    ],
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_homo_humerus_homo-bone-region",
-    "entityId": "homo:humerus",
-    "entityType": "bone",
-    "type": "homo-bone-region",
-    "difficulty": 1,
-    "prompt": "In welcher Körperregion liegt der Knochen „Oberarmknochen\"?",
-    "correctAnswer": "Arm",
-    "options": [
-      "Arm",
-      "Bein",
-      "Kopf",
-      "Rumpf"
-    ],
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_homo_ulna_homo-bone-region",
-    "entityId": "homo:ulna",
-    "entityType": "bone",
-    "type": "homo-bone-region",
-    "difficulty": 1,
-    "prompt": "In welcher Körperregion liegt der Knochen „Elle\"?",
-    "correctAnswer": "Arm",
-    "options": [
-      "Arm",
-      "Bein",
-      "Kopf",
-      "Rumpf"
-    ],
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_homo_radius_homo-bone-region",
-    "entityId": "homo:radius",
-    "entityType": "bone",
-    "type": "homo-bone-region",
-    "difficulty": 1,
-    "prompt": "In welcher Körperregion liegt der Knochen „Speiche\"?",
-    "correctAnswer": "Arm",
-    "options": [
-      "Arm",
-      "Bein",
-      "Kopf",
-      "Rumpf"
-    ],
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_homo_cranium_homo-bone-region",
-    "entityId": "homo:cranium",
-    "entityType": "bone",
-    "type": "homo-bone-region",
-    "difficulty": 1,
-    "prompt": "In welcher Körperregion liegt der Knochen „Schädel\"?",
-    "correctAnswer": "Kopf",
-    "options": [
-      "Kopf",
-      "Bein",
-      "Arm",
-      "Rumpf"
-    ],
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_homo_patella_homo-bone-region",
-    "entityId": "homo:patella",
-    "entityType": "bone",
-    "type": "homo-bone-region",
-    "difficulty": 1,
-    "prompt": "In welcher Körperregion liegt der Knochen „Kniescheibe\"?",
-    "correctAnswer": "Bein",
-    "options": [
-      "Bein",
-      "Arm",
-      "Kopf",
-      "Rumpf"
-    ],
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_homo_clavicula_homo-bone-region",
-    "entityId": "homo:clavicula",
-    "entityType": "bone",
-    "type": "homo-bone-region",
-    "difficulty": 1,
-    "prompt": "In welcher Körperregion liegt der Knochen „Schlüsselbein\"?",
-    "correctAnswer": "Rumpf",
-    "options": [
-      "Rumpf",
-      "Bein",
-      "Arm",
-      "Kopf"
-    ],
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
     "id": "q_homo_stapes_homo-bone-region",
     "entityId": "homo:stapes",
     "entityType": "bone",
@@ -170,12 +17,12 @@
     "mapTargetId": null
   },
   {
-    "id": "q_homo_pelvis_homo-bone-region",
-    "entityId": "homo:pelvis",
+    "id": "q_homo_atlas_c1_homo-bone-region",
+    "entityId": "homo:atlas_c1",
     "entityType": "bone",
     "type": "homo-bone-region",
     "difficulty": 1,
-    "prompt": "In welcher Körperregion liegt der Knochen „Becken\"?",
+    "prompt": "In welcher Körperregion liegt der Knochen „Atlas (Atlas, C1)\"?",
     "correctAnswer": "Rumpf",
     "options": [
       "Rumpf",
@@ -187,12 +34,12 @@
     "mapTargetId": null
   },
   {
-    "id": "q_homo_sternum_homo-bone-region",
-    "entityId": "homo:sternum",
+    "id": "q_homo_axis_c2_homo-bone-region",
+    "entityId": "homo:axis_c2",
     "entityType": "bone",
     "type": "homo-bone-region",
     "difficulty": 1,
-    "prompt": "In welcher Körperregion liegt der Knochen „Brustbein\"?",
+    "prompt": "In welcher Körperregion liegt der Knochen „Axis (Axis, C2)\"?",
     "correctAnswer": "Rumpf",
     "options": [
       "Rumpf",
@@ -204,29 +51,12 @@
     "mapTargetId": null
   },
   {
-    "id": "q_homo_scapula_homo-bone-region",
-    "entityId": "homo:scapula",
+    "id": "q_homo_malleus_homo-bone-region",
+    "entityId": "homo:malleus",
     "entityType": "bone",
     "type": "homo-bone-region",
     "difficulty": 1,
-    "prompt": "In welcher Körperregion liegt der Knochen „Schulterblatt\"?",
-    "correctAnswer": "Rumpf",
-    "options": [
-      "Rumpf",
-      "Bein",
-      "Arm",
-      "Kopf"
-    ],
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_homo_mandibula_homo-bone-region",
-    "entityId": "homo:mandibula",
-    "entityType": "bone",
-    "type": "homo-bone-region",
-    "difficulty": 1,
-    "prompt": "In welcher Körperregion liegt der Knochen „Unterkiefer\"?",
+    "prompt": "In welcher Körperregion liegt der Knochen „Hammer (Malleus)\"?",
     "correctAnswer": "Kopf",
     "options": [
       "Kopf",
@@ -238,15 +68,32 @@
     "mapTargetId": null
   },
   {
-    "id": "q_homo_vertebra_homo-bone-region",
-    "entityId": "homo:vertebra",
+    "id": "q_homo_incus_homo-bone-region",
+    "entityId": "homo:incus",
     "entityType": "bone",
     "type": "homo-bone-region",
     "difficulty": 1,
-    "prompt": "In welcher Körperregion liegt der Knochen „Wirbel\"?",
-    "correctAnswer": "Rumpf",
+    "prompt": "In welcher Körperregion liegt der Knochen „Amboss (Incus)\"?",
+    "correctAnswer": "Kopf",
     "options": [
-      "Rumpf",
+      "Kopf",
+      "Bein",
+      "Arm",
+      "Rumpf"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_naviculare_homo-bone-region",
+    "entityId": "homo:os_naviculare",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 1,
+    "prompt": "In welcher Körperregion liegt der Knochen „Kahnbein (Os naviculare)\"?",
+    "correctAnswer": "Fuss",
+    "options": [
+      "Fuss",
       "Bein",
       "Arm",
       "Kopf"
@@ -510,23 +357,6 @@
     "mapTargetId": null
   },
   {
-    "id": "q_homo_gluteus_maximus_homo-muscle-location",
-    "entityId": "homo:gluteus_maximus",
-    "entityType": "muscle",
-    "type": "homo-muscle-location",
-    "difficulty": 2,
-    "prompt": "In welcher Körperregion liegt der Muskel „Großer Gesäßmuskel (Gluteus maximus)\"?",
-    "correctAnswer": "Gesäß / Hüfte",
-    "options": [
-      "Gesäß / Hüfte",
-      "Kiefer / Wange",
-      "Mittelohr",
-      "Herz / Brustkorb"
-    ],
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
     "id": "q_homo_masseter_homo-muscle-location",
     "entityId": "homo:masseter",
     "entityType": "muscle",
@@ -556,23 +386,6 @@
       "Gesäß / Hüfte",
       "Kiefer / Wange",
       "Herz / Brustkorb"
-    ],
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_homo_myocardium_homo-muscle-location",
-    "entityId": "homo:myocardium",
-    "entityType": "muscle",
-    "type": "homo-muscle-location",
-    "difficulty": 2,
-    "prompt": "In welcher Körperregion liegt der Muskel „Herzmuskel (Myokard)\"?",
-    "correctAnswer": "Herz / Brustkorb",
-    "options": [
-      "Herz / Brustkorb",
-      "Gesäß / Hüfte",
-      "Kiefer / Wange",
-      "Mittelohr"
     ],
     "silhouetteSvgPath": null,
     "mapTargetId": null
@@ -629,23 +442,6 @@
     "mapTargetId": null
   },
   {
-    "id": "q_homo_gastrocnemius_homo-muscle-location",
-    "entityId": "homo:gastrocnemius",
-    "entityType": "muscle",
-    "type": "homo-muscle-location",
-    "difficulty": 2,
-    "prompt": "In welcher Körperregion liegt der Muskel „Wadenmuskel (Musculus gastrocnemius)\"?",
-    "correctAnswer": "Unterschenkel (Wade)",
-    "options": [
-      "Unterschenkel (Wade)",
-      "Gesäß / Hüfte",
-      "Kiefer / Wange",
-      "Mittelohr"
-    ],
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
     "id": "q_homo_sartorius_homo-muscle-location",
     "entityId": "homo:sartorius",
     "entityType": "muscle",
@@ -680,18 +476,171 @@
     "mapTargetId": null
   },
   {
-    "id": "q_homo_herz_homo-organ-system",
-    "entityId": "homo:herz",
-    "entityType": "organ",
-    "type": "homo-organ-system",
+    "id": "q_homo_pectoralis_major_homo-muscle-location",
+    "entityId": "homo:pectoralis_major",
+    "entityType": "muscle",
+    "type": "homo-muscle-location",
     "difficulty": 2,
-    "prompt": "Zu welchem Organsystem gehört „Herz\" hauptsächlich?",
-    "correctAnswer": "Herz-Kreislauf",
+    "prompt": "In welcher Körperregion liegt der Muskel „Großer Brustmuskel (Musculus pectoralis major)\"?",
+    "correctAnswer": "Vordere Brustwand",
     "options": [
-      "Herz-Kreislauf",
-      "Verdauung",
-      "Atmung",
-      "Nervensystem"
+      "Vordere Brustwand",
+      "Gesäß / Hüfte",
+      "Kiefer / Wange",
+      "Mittelohr"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_latissimus_dorsi_homo-muscle-location",
+    "entityId": "homo:latissimus_dorsi",
+    "entityType": "muscle",
+    "type": "homo-muscle-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt der Muskel „Breiter Rückenmuskel (Musculus latissimus dorsi)\"?",
+    "correctAnswer": "Unterer hinterer Rumpf",
+    "options": [
+      "Unterer hinterer Rumpf",
+      "Gesäß / Hüfte",
+      "Kiefer / Wange",
+      "Mittelohr"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_trapezius_homo-muscle-location",
+    "entityId": "homo:trapezius",
+    "entityType": "muscle",
+    "type": "homo-muscle-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt der Muskel „Trapezmuskel / Kapuzenmuskel (Musculus trapezius)\"?",
+    "correctAnswer": "Oberer Rücken und Nacken",
+    "options": [
+      "Oberer Rücken und Nacken",
+      "Gesäß / Hüfte",
+      "Kiefer / Wange",
+      "Mittelohr"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_sternocleidomastoid_homo-muscle-location",
+    "entityId": "homo:sternocleidomastoid",
+    "entityType": "muscle",
+    "type": "homo-muscle-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt der Muskel „Kopfwender (Musculus sternocleidomastoideus)\"?",
+    "correctAnswer": "Seitlicher Hals",
+    "options": [
+      "Seitlicher Hals",
+      "Gesäß / Hüfte",
+      "Kiefer / Wange",
+      "Mittelohr"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_rectus_abdominis_homo-muscle-location",
+    "entityId": "homo:rectus_abdominis",
+    "entityType": "muscle",
+    "type": "homo-muscle-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt der Muskel „Gerader Bauchmuskel (Musculus rectus abdominis)\"?",
+    "correctAnswer": "Vordere Bauchwand",
+    "options": [
+      "Vordere Bauchwand",
+      "Gesäß / Hüfte",
+      "Kiefer / Wange",
+      "Mittelohr"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_quadriceps_femoris_homo-muscle-location",
+    "entityId": "homo:quadriceps_femoris",
+    "entityType": "muscle",
+    "type": "homo-muscle-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt der Muskel „Vierköpfiger Schenkelmuskel (Musculus quadriceps femoris)\"?",
+    "correctAnswer": "Vorderseite des Oberschenkels",
+    "options": [
+      "Vorderseite des Oberschenkels",
+      "Gesäß / Hüfte",
+      "Kiefer / Wange",
+      "Mittelohr"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_soleus_homo-muscle-location",
+    "entityId": "homo:soleus",
+    "entityType": "muscle",
+    "type": "homo-muscle-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt der Muskel „Schollenmuskel (Musculus soleus)\"?",
+    "correctAnswer": "Hintere Unterschenkelloge",
+    "options": [
+      "Hintere Unterschenkelloge",
+      "Gesäß / Hüfte",
+      "Kiefer / Wange",
+      "Mittelohr"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_orbicularis_oculi_homo-muscle-location",
+    "entityId": "homo:orbicularis_oculi",
+    "entityType": "muscle",
+    "type": "homo-muscle-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt der Muskel „Augenringmuskel (Musculus orbicularis oculi)\"?",
+    "correctAnswer": "Rund um die Augenhöhle und Lider",
+    "options": [
+      "Rund um die Augenhöhle und Lider",
+      "Gesäß / Hüfte",
+      "Kiefer / Wange",
+      "Mittelohr"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_orbicularis_oris_homo-muscle-location",
+    "entityId": "homo:orbicularis_oris",
+    "entityType": "muscle",
+    "type": "homo-muscle-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt der Muskel „Mundringmuskel (Musculus orbicularis oris)\"?",
+    "correctAnswer": "Rund um die Mundöffnung",
+    "options": [
+      "Rund um die Mundöffnung",
+      "Gesäß / Hüfte",
+      "Kiefer / Wange",
+      "Mittelohr"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psoas_major_homo-muscle-location",
+    "entityId": "homo:psoas_major",
+    "entityType": "muscle",
+    "type": "homo-muscle-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt der Muskel „Großer Lendenmuskel (Musculus psoas major)\"?",
+    "correctAnswer": "Lendenregion",
+    "options": [
+      "Lendenregion",
+      "Gesäß / Hüfte",
+      "Kiefer / Wange",
+      "Mittelohr"
     ],
     "silhouetteSvgPath": null,
     "mapTargetId": null
@@ -842,6 +791,91 @@
     "correctAnswer": "Ausscheidung",
     "options": [
       "Ausscheidung",
+      "Herz-Kreislauf",
+      "Verdauung",
+      "Atmung"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_schilddruese_homo-organ-system",
+    "entityId": "homo:schilddruese",
+    "entityType": "organ",
+    "type": "homo-organ-system",
+    "difficulty": 2,
+    "prompt": "Zu welchem Organsystem gehört „Schilddrüse (Glandula thyroidea)\" hauptsächlich?",
+    "correctAnswer": "Endokrines System (Hormonsystem)",
+    "options": [
+      "Endokrines System (Hormonsystem)",
+      "Herz-Kreislauf",
+      "Verdauung",
+      "Atmung"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_gallenblase_homo-organ-system",
+    "entityId": "homo:gallenblase",
+    "entityType": "organ",
+    "type": "homo-organ-system",
+    "difficulty": 2,
+    "prompt": "Zu welchem Organsystem gehört „Gallenblase (Vesica biliaris)\" hauptsächlich?",
+    "correctAnswer": "Verdauungssystem",
+    "options": [
+      "Verdauungssystem",
+      "Herz-Kreislauf",
+      "Verdauung",
+      "Atmung"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_nebenniere_homo-organ-system",
+    "entityId": "homo:nebenniere",
+    "entityType": "organ",
+    "type": "homo-organ-system",
+    "difficulty": 2,
+    "prompt": "Zu welchem Organsystem gehört „Nebenniere (Glandula suprarenalis)\" hauptsächlich?",
+    "correctAnswer": "Endokrines System (Hormonsystem)",
+    "options": [
+      "Endokrines System (Hormonsystem)",
+      "Herz-Kreislauf",
+      "Verdauung",
+      "Atmung"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_thymus_homo-organ-system",
+    "entityId": "homo:thymus",
+    "entityType": "organ",
+    "type": "homo-organ-system",
+    "difficulty": 2,
+    "prompt": "Zu welchem Organsystem gehört „Thymus (Bries)\" hauptsächlich?",
+    "correctAnswer": "Lymphatisches System (Immunsystem)",
+    "options": [
+      "Lymphatisches System (Immunsystem)",
+      "Herz-Kreislauf",
+      "Verdauung",
+      "Atmung"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_zunge_homo-organ-system",
+    "entityId": "homo:zunge",
+    "entityType": "organ",
+    "type": "homo-organ-system",
+    "difficulty": 2,
+    "prompt": "Zu welchem Organsystem gehört „Zunge (Lingua)\" hauptsächlich?",
+    "correctAnswer": "Verdauungssystem (Geschmacks- und Schluckorgan)",
+    "options": [
+      "Verdauungssystem (Geschmacks- und Schluckorgan)",
       "Herz-Kreislauf",
       "Verdauung",
       "Atmung"
@@ -1020,69 +1054,86 @@
     "mapTargetId": null
   },
   {
-    "id": "q_homo_knochen_erwachsener_homo-bodyfact-value",
-    "entityId": "homo:knochen_erwachsener",
-    "entityType": "body_fact",
-    "type": "homo-bodyfact-value",
-    "difficulty": 2,
-    "prompt": "Welche Angabe gehört zu: „Anzahl Knochen beim Erwachsenen\"?",
-    "correctAnswer": "206 Knochen",
+    "id": "q_homo_schilddruese_homo-organ-weight",
+    "entityId": "homo:schilddruese",
+    "entityType": "organ",
+    "type": "homo-organ-weight",
+    "difficulty": 3,
+    "prompt": "Welches ungefähre Gewicht hat „Schilddrüse (Glandula thyroidea)\" beim Erwachsenen?",
+    "correctAnswer": "20 g",
     "options": [
-      "206 Knochen",
-      "ca. 300 Knochen",
-      "32 Zaehne",
-      "46 Chromosomen (23 Paare)"
+      "20 g",
+      "300 g",
+      "1.500 g",
+      "1.000 g"
     ],
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
   {
-    "id": "q_homo_knochen_neugeborenes_homo-bodyfact-value",
-    "entityId": "homo:knochen_neugeborenes",
-    "entityType": "body_fact",
-    "type": "homo-bodyfact-value",
-    "difficulty": 2,
-    "prompt": "Welche Angabe gehört zu: „Anzahl Knochen beim Neugeborenen\"?",
-    "correctAnswer": "ca. 300 Knochen",
+    "id": "q_homo_gallenblase_homo-organ-weight",
+    "entityId": "homo:gallenblase",
+    "entityType": "organ",
+    "type": "homo-organ-weight",
+    "difficulty": 3,
+    "prompt": "Welches ungefähre Gewicht hat „Gallenblase (Vesica biliaris)\" beim Erwachsenen?",
+    "correctAnswer": "40 g",
     "options": [
-      "ca. 300 Knochen",
-      "206 Knochen",
-      "32 Zaehne",
-      "46 Chromosomen (23 Paare)"
+      "40 g",
+      "300 g",
+      "1.500 g",
+      "1.000 g"
     ],
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
   {
-    "id": "q_homo_zaehne_erwachsener_homo-bodyfact-value",
-    "entityId": "homo:zaehne_erwachsener",
-    "entityType": "body_fact",
-    "type": "homo-bodyfact-value",
-    "difficulty": 2,
-    "prompt": "Welche Angabe gehört zu: „Anzahl Zaehne beim Erwachsenen\"?",
-    "correctAnswer": "32 Zaehne",
+    "id": "q_homo_nebenniere_homo-organ-weight",
+    "entityId": "homo:nebenniere",
+    "entityType": "organ",
+    "type": "homo-organ-weight",
+    "difficulty": 3,
+    "prompt": "Welches ungefähre Gewicht hat „Nebenniere (Glandula suprarenalis)\" beim Erwachsenen?",
+    "correctAnswer": "5 g",
     "options": [
-      "32 Zaehne",
-      "206 Knochen",
-      "ca. 300 Knochen",
-      "46 Chromosomen (23 Paare)"
+      "5 g",
+      "300 g",
+      "1.500 g",
+      "1.000 g"
     ],
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
   {
-    "id": "q_homo_chromosomen_homo-bodyfact-value",
-    "entityId": "homo:chromosomen",
-    "entityType": "body_fact",
-    "type": "homo-bodyfact-value",
-    "difficulty": 2,
-    "prompt": "Welche Angabe gehört zu: „Anzahl Chromosomen des Menschen\"?",
-    "correctAnswer": "46 Chromosomen (23 Paare)",
+    "id": "q_homo_thymus_homo-organ-weight",
+    "entityId": "homo:thymus",
+    "entityType": "organ",
+    "type": "homo-organ-weight",
+    "difficulty": 3,
+    "prompt": "Welches ungefähre Gewicht hat „Thymus (Bries)\" beim Erwachsenen?",
+    "correctAnswer": "25 g",
     "options": [
-      "46 Chromosomen (23 Paare)",
-      "206 Knochen",
-      "ca. 300 Knochen",
-      "32 Zaehne"
+      "25 g",
+      "300 g",
+      "1.500 g",
+      "1.000 g"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_zunge_homo-organ-weight",
+    "entityId": "homo:zunge",
+    "entityType": "organ",
+    "type": "homo-organ-weight",
+    "difficulty": 3,
+    "prompt": "Welches ungefähre Gewicht hat „Zunge (Lingua)\" beim Erwachsenen?",
+    "correctAnswer": "70 g",
+    "options": [
+      "70 g",
+      "300 g",
+      "1.500 g",
+      "1.000 g"
     ],
     "silhouetteSvgPath": null,
     "mapTargetId": null
@@ -1139,15 +1190,32 @@
     "mapTargetId": null
   },
   {
-    "id": "q_homo_rippenpaare_homo-bodyfact-value",
-    "entityId": "homo:rippenpaare",
+    "id": "q_homo_körperwasser_60_homo-bodyfact-value",
+    "entityId": "homo:körperwasser_60",
     "entityType": "body_fact",
     "type": "homo-bodyfact-value",
     "difficulty": 2,
-    "prompt": "Welche Angabe gehört zu: „Anzahl Rippenpaare\"?",
-    "correctAnswer": "12 Rippenpaare (24 Rippen)",
+    "prompt": "Welche Angabe gehört zu: „Wasseranteil des Körpers (Mann)\"?",
+    "correctAnswer": "60 %",
     "options": [
-      "12 Rippenpaare (24 Rippen)",
+      "60 %",
+      "206 Knochen",
+      "ca. 300 Knochen",
+      "32 Zaehne"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_dünndarm_länge_homo-bodyfact-value",
+    "entityId": "homo:dünndarm_länge",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-value",
+    "difficulty": 2,
+    "prompt": "Welche Angabe gehört zu: „Länge des Dünndarms\"?",
+    "correctAnswer": "7 m",
+    "options": [
+      "7 m",
       "206 Knochen",
       "ca. 300 Knochen",
       "32 Zaehne"
@@ -1233,6 +1301,108 @@
     "correctAnswer": "ca. 3,9 bis 2,9 Millionen Jahre vor heute",
     "options": [
       "ca. 3,9 bis 2,9 Millionen Jahre vor heute",
+      "seit ca. 300.000 Jahren",
+      "ca. 400.000 bis 40.000 Jahre vor heute",
+      "ca. 1,9 Millionen bis 110.000 Jahre vor heute"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_homo_floresiensis_homo-species-epoch",
+    "entityId": "homo:homo_floresiensis",
+    "entityType": "species",
+    "type": "homo-species-epoch",
+    "difficulty": 3,
+    "prompt": "In welchen Zeitraum fällt „Homo floresiensis\"?",
+    "correctAnswer": "Mittel- bis Spaetpleistozaen, ca. 100.000 bis 60.000 Jahre vor heute (Steinwerkzeuge bis ca. 190.000 Jahre)",
+    "options": [
+      "Mittel- bis Spaetpleistozaen, ca. 100.000 bis 60.000 Jahre vor heute (Steinwerkzeuge bis ca. 190.000 Jahre)",
+      "seit ca. 300.000 Jahren",
+      "ca. 400.000 bis 40.000 Jahre vor heute",
+      "ca. 1,9 Millionen bis 110.000 Jahre vor heute"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_homo_naledi_homo-species-epoch",
+    "entityId": "homo:homo_naledi",
+    "entityType": "species",
+    "type": "homo-species-epoch",
+    "difficulty": 3,
+    "prompt": "In welchen Zeitraum fällt „Homo naledi\"?",
+    "correctAnswer": "Mittelpleistozaen, ca. 335.000 bis 236.000 Jahre vor heute",
+    "options": [
+      "Mittelpleistozaen, ca. 335.000 bis 236.000 Jahre vor heute",
+      "seit ca. 300.000 Jahren",
+      "ca. 400.000 bis 40.000 Jahre vor heute",
+      "ca. 1,9 Millionen bis 110.000 Jahre vor heute"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_homo_heidelbergensis_homo-species-epoch",
+    "entityId": "homo:homo_heidelbergensis",
+    "entityType": "species",
+    "type": "homo-species-epoch",
+    "difficulty": 3,
+    "prompt": "In welchen Zeitraum fällt „Homo heidelbergensis\"?",
+    "correctAnswer": "Mittelpleistozaen, ca. 700.000 bis 200.000 Jahre vor heute (Typusexemplar Mauer datiert auf 609.000 +/- 40.000 Jahre)",
+    "options": [
+      "Mittelpleistozaen, ca. 700.000 bis 200.000 Jahre vor heute (Typusexemplar Mauer datiert auf 609.000 +/- 40.000 Jahre)",
+      "seit ca. 300.000 Jahren",
+      "ca. 400.000 bis 40.000 Jahre vor heute",
+      "ca. 1,9 Millionen bis 110.000 Jahre vor heute"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_denisova_mensch_homo-species-epoch",
+    "entityId": "homo:denisova_mensch",
+    "entityType": "species",
+    "type": "homo-species-epoch",
+    "difficulty": 3,
+    "prompt": "In welchen Zeitraum fällt „Denisova-Mensch (Denisovaner)\"?",
+    "correctAnswer": "Mittel- bis Spaetpleistozaen, ca. 200.000 bis 50.000 Jahre vor heute",
+    "options": [
+      "Mittel- bis Spaetpleistozaen, ca. 200.000 bis 50.000 Jahre vor heute",
+      "seit ca. 300.000 Jahren",
+      "ca. 400.000 bis 40.000 Jahre vor heute",
+      "ca. 1,9 Millionen bis 110.000 Jahre vor heute"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_paranthropus_boisei_homo-species-epoch",
+    "entityId": "homo:paranthropus_boisei",
+    "entityType": "species",
+    "type": "homo-species-epoch",
+    "difficulty": 3,
+    "prompt": "In welchen Zeitraum fällt „Paranthropus boisei\"?",
+    "correctAnswer": "Pleistozaen, ca. 2,3 bis 1,2 Millionen Jahre vor heute",
+    "options": [
+      "Pleistozaen, ca. 2,3 bis 1,2 Millionen Jahre vor heute",
+      "seit ca. 300.000 Jahren",
+      "ca. 400.000 bis 40.000 Jahre vor heute",
+      "ca. 1,9 Millionen bis 110.000 Jahre vor heute"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_australopithecus_africanus_homo-species-epoch",
+    "entityId": "homo:australopithecus_africanus",
+    "entityType": "species",
+    "type": "homo-species-epoch",
+    "difficulty": 3,
+    "prompt": "In welchen Zeitraum fällt „Australopithecus africanus\"?",
+    "correctAnswer": "Spaetes Pliozaen bis fruehes Pleistozaen, ca. 3,3 bis 2,1 Millionen Jahre vor heute",
+    "options": [
+      "Spaetes Pliozaen bis fruehes Pleistozaen, ca. 3,3 bis 2,1 Millionen Jahre vor heute",
       "seit ca. 300.000 Jahren",
       "ca. 400.000 bis 40.000 Jahre vor heute",
       "ca. 1,9 Millionen bis 110.000 Jahre vor heute"
@@ -1581,69 +1751,52 @@
     "mapTargetId": null
   },
   {
-    "id": "q_homo_knochen_erwachsener_homo-bodyfact-name",
-    "entityId": "homo:knochen_erwachsener",
-    "entityType": "body_fact",
-    "type": "homo-bodyfact-name",
-    "difficulty": 3,
-    "prompt": "Welche Körperangabe beträgt ungefähr 206 Knochen?",
-    "correctAnswer": "Anzahl Knochen beim Erwachsenen",
+    "id": "q_homo_homo_naledi_homo-species-region",
+    "entityId": "homo:homo_naledi",
+    "entityType": "species",
+    "type": "homo-species-region",
+    "difficulty": 2,
+    "prompt": "In welcher Region liegt der Ursprung von „Homo naledi\"?",
+    "correctAnswer": "Südafrika; Dinaledi-Kammer im Höhlensystem Rising Star (Cradle of Humankind)",
     "options": [
-      "Anzahl Knochen beim Erwachsenen",
-      "Anzahl Knochen beim Neugeborenen",
-      "Anzahl Zaehne beim Erwachsenen",
-      "Anzahl Chromosomen des Menschen"
+      "Südafrika; Dinaledi-Kammer im Höhlensystem Rising Star (Cradle of Humankind)",
+      "Afrika (Ursprung)",
+      "Europa und Westasien",
+      "Afrika und Asien"
     ],
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
   {
-    "id": "q_homo_knochen_neugeborenes_homo-bodyfact-name",
-    "entityId": "homo:knochen_neugeborenes",
-    "entityType": "body_fact",
-    "type": "homo-bodyfact-name",
-    "difficulty": 3,
-    "prompt": "Welche Körperangabe beträgt ungefähr ca. 300 Knochen?",
-    "correctAnswer": "Anzahl Knochen beim Neugeborenen",
+    "id": "q_homo_paranthropus_boisei_homo-species-region",
+    "entityId": "homo:paranthropus_boisei",
+    "entityType": "species",
+    "type": "homo-species-region",
+    "difficulty": 2,
+    "prompt": "In welcher Region liegt der Ursprung von „Paranthropus boisei\"?",
+    "correctAnswer": "Ostafrika (Tansania, Kenia, Aethiopien); Typusfund Olduvai-Schlucht",
     "options": [
-      "Anzahl Knochen beim Neugeborenen",
-      "Anzahl Knochen beim Erwachsenen",
-      "Anzahl Zaehne beim Erwachsenen",
-      "Anzahl Chromosomen des Menschen"
+      "Ostafrika (Tansania, Kenia, Aethiopien); Typusfund Olduvai-Schlucht",
+      "Afrika (Ursprung)",
+      "Europa und Westasien",
+      "Afrika und Asien"
     ],
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
   {
-    "id": "q_homo_zaehne_erwachsener_homo-bodyfact-name",
-    "entityId": "homo:zaehne_erwachsener",
-    "entityType": "body_fact",
-    "type": "homo-bodyfact-name",
-    "difficulty": 3,
-    "prompt": "Welche Körperangabe beträgt ungefähr 32 Zaehne?",
-    "correctAnswer": "Anzahl Zaehne beim Erwachsenen",
+    "id": "q_homo_australopithecus_africanus_homo-species-region",
+    "entityId": "homo:australopithecus_africanus",
+    "entityType": "species",
+    "type": "homo-species-region",
+    "difficulty": 2,
+    "prompt": "In welcher Region liegt der Ursprung von „Australopithecus africanus\"?",
+    "correctAnswer": "Südafrika; Fundorte u.a. Taung, Sterkfontein, Makapansgat",
     "options": [
-      "Anzahl Zaehne beim Erwachsenen",
-      "Anzahl Knochen beim Erwachsenen",
-      "Anzahl Knochen beim Neugeborenen",
-      "Anzahl Chromosomen des Menschen"
-    ],
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_homo_chromosomen_homo-bodyfact-name",
-    "entityId": "homo:chromosomen",
-    "entityType": "body_fact",
-    "type": "homo-bodyfact-name",
-    "difficulty": 3,
-    "prompt": "Welche Körperangabe beträgt ungefähr 46 Chromosomen (23 Paare)?",
-    "correctAnswer": "Anzahl Chromosomen des Menschen",
-    "options": [
-      "Anzahl Chromosomen des Menschen",
-      "Anzahl Knochen beim Erwachsenen",
-      "Anzahl Knochen beim Neugeborenen",
-      "Anzahl Zaehne beim Erwachsenen"
+      "Südafrika; Fundorte u.a. Taung, Sterkfontein, Makapansgat",
+      "Afrika (Ursprung)",
+      "Europa und Westasien",
+      "Afrika und Asien"
     ],
     "silhouetteSvgPath": null,
     "mapTargetId": null
@@ -1700,15 +1853,49 @@
     "mapTargetId": null
   },
   {
-    "id": "q_homo_rippenpaare_homo-bodyfact-name",
-    "entityId": "homo:rippenpaare",
+    "id": "q_homo_skelettmuskeln_600_homo-bodyfact-name",
+    "entityId": "homo:skelettmuskeln_600",
     "entityType": "body_fact",
     "type": "homo-bodyfact-name",
     "difficulty": 3,
-    "prompt": "Welche Körperangabe beträgt ungefähr 12 Rippenpaare (24 Rippen)?",
-    "correctAnswer": "Anzahl Rippenpaare",
+    "prompt": "Welche Körperangabe beträgt ungefähr 600 Muskeln?",
+    "correctAnswer": "Skelettmuskeln im Körper",
     "options": [
-      "Anzahl Rippenpaare",
+      "Skelettmuskeln im Körper",
+      "Anzahl Knochen beim Erwachsenen",
+      "Anzahl Knochen beim Neugeborenen",
+      "Anzahl Zaehne beim Erwachsenen"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_körperwasser_60_homo-bodyfact-name",
+    "entityId": "homo:körperwasser_60",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-name",
+    "difficulty": 3,
+    "prompt": "Welche Körperangabe beträgt ungefähr 60 %?",
+    "correctAnswer": "Wasseranteil des Körpers (Mann)",
+    "options": [
+      "Wasseranteil des Körpers (Mann)",
+      "Anzahl Knochen beim Erwachsenen",
+      "Anzahl Knochen beim Neugeborenen",
+      "Anzahl Zaehne beim Erwachsenen"
+    ],
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_dünndarm_länge_homo-bodyfact-name",
+    "entityId": "homo:dünndarm_länge",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-name",
+    "difficulty": 3,
+    "prompt": "Welche Körperangabe beträgt ungefähr 7 m?",
+    "correctAnswer": "Länge des Dünndarms",
+    "options": [
+      "Länge des Dünndarms",
       "Anzahl Knochen beim Erwachsenen",
       "Anzahl Knochen beim Neugeborenen",
       "Anzahl Zaehne beim Erwachsenen"

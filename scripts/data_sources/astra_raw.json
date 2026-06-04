@@ -156,7 +156,7 @@
     "name": "Pluto",
     "category": "dwarf_planet",
     "attributes": {
-      "location": "Kuiperguertel",
+      "location": "Kuipergürtel",
       "diameterKm": 2377,
       "numMoons": 5,
       "yearLengthEarthYears": 248,
@@ -172,7 +172,7 @@
     "name": "Ceres",
     "category": "dwarf_planet",
     "attributes": {
-      "location": "Asteroidenguertel",
+      "location": "Asteroidengürtel",
       "diameterKm": 939,
       "numMoons": 0,
       "yearLengthEarthYears": 4.6,
@@ -188,7 +188,7 @@
     "name": "Eris",
     "category": "dwarf_planet",
     "attributes": {
-      "location": "Kuiperguertel",
+      "location": "Kuipergürtel",
       "diameterKm": 2326,
       "numMoons": 1,
       "yearLengthEarthYears": 559,
@@ -204,7 +204,7 @@
     "name": "Makemake",
     "category": "dwarf_planet",
     "attributes": {
-      "location": "Kuiperguertel",
+      "location": "Kuipergürtel",
       "diameterKm": 1430,
       "numMoons": 1,
       "yearLengthEarthYears": 305,
@@ -220,7 +220,7 @@
     "name": "Haumea",
     "category": "dwarf_planet",
     "attributes": {
-      "location": "Kuiperguertel",
+      "location": "Kuipergürtel",
       "diameterKm": 1740,
       "numMoons": 2,
       "yearLengthEarthYears": 285,
@@ -434,7 +434,7 @@
     "attributes": {
       "constellation": "",
       "type": "Gelber Zwerg",
-      "distanceLy": 1.58e-05,
+      "distanceLy": 0.0000158,
       "apparentMagnitude": -26.74,
       "notableFor": "Zentralstern unseres Sonnensystems und Quelle allen Lebens auf der Erde"
     },
@@ -856,5 +856,609 @@
     "sourceName": "NASA Earth Fact Sheet",
     "sourceUrl": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html",
     "verifyNote": "149600000 km (mittlere Entfernung, ~1 AE) korrekt. Lichtlaufzeit 8 min 20 s passt."
+  },
+  {
+    "id": "amalthea",
+    "name": "Amalthea",
+    "category": "moon",
+    "attributes": {
+      "parentPlanet": "Jupiter",
+      "diameterKm": 167
+    },
+    "funFact": "Amalthea ist tiefrot gefaerbt - vermutlich durch Schwefel von Ios Vulkanen - und gibt mehr Wärme ab, als sie von der Sonne empfaengt.",
+    "sourceName": "NASA Science / Wikipedia (JPL-Daten)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Amalthea_(moon)",
+    "verifyNote": "Mittlerer Durchmesser ca. 167 km berechnet als geometrisches Mittel der Achsen 252x146x126 km (Wikipedia, JPL/Galileo-Daten); Mutterplanet Jupiter gegen NASA Science bestaetigt."
+  },
+  {
+    "id": "iapetus",
+    "name": "Iapetus (Japetus)",
+    "category": "moon",
+    "attributes": {
+      "parentPlanet": "Saturn",
+      "diameterKm": 1469
+    },
+    "funFact": "Iapetus hat eine pechschwarze und eine schneeweiße Hemisphaere und trägt einen 13 km hohen Äquatorgrat, der ihn wie eine Walnuss aussehen laesst.",
+    "sourceName": "NASA Science (Saturn Moons)",
+    "sourceUrl": "https://science.nasa.gov/saturn/moons/iapetus/",
+    "verifyNote": "NASA gibt mittleren Radius 736 km an -> Durchmesser ca. 1472 km; Umlauf um Saturn laut NASA bestaetigt."
+  },
+  {
+    "id": "dione",
+    "name": "Dione",
+    "category": "moon",
+    "attributes": {
+      "parentPlanet": "Saturn",
+      "diameterKm": 1123
+    },
+    "funFact": "Dione zeigt helle Eisklippen ('wispy terrain'), die fruehere Cassini-Bilder erst als Wolken fehldeuteten.",
+    "sourceName": "NASA Science (Saturn Moons)",
+    "sourceUrl": "https://science.nasa.gov/saturn/moons/dione/",
+    "verifyNote": "NASA gibt mittleren Radius 562 km an -> Durchmesser ca. 1123 km; Umlauf um Saturn laut NASA bestaetigt."
+  },
+  {
+    "id": "tethys",
+    "name": "Tethys",
+    "category": "moon",
+    "attributes": {
+      "parentPlanet": "Saturn",
+      "diameterKm": 1062
+    },
+    "funFact": "Tethys trägt mit Odysseus einen Einschlagkrater von rund 400 km Durchmesser - fast zwei Fünftel des gesamten Monddurchmessers.",
+    "sourceName": "NASA Science (Saturn Moons)",
+    "sourceUrl": "https://science.nasa.gov/saturn/moons/tethys/",
+    "verifyNote": "NASA nennt Abmessungen 1076,8 x 1057,4 x 1052,6 km (mittlerer Radius 533 km), mittlerer Durchmesser ca. 1062 km; Umlauf um Saturn bestaetigt."
+  },
+  {
+    "id": "hyperion",
+    "name": "Hyperion",
+    "category": "moon",
+    "attributes": {
+      "parentPlanet": "Saturn",
+      "diameterKm": 270
+    },
+    "funFact": "Hyperion sieht durch seine schwammartige Kraterstruktur aus wie ein Badeschwamm und taumelt chaotisch ohne feste Rotationsachse.",
+    "sourceName": "NASA Science (Saturn Moons)",
+    "sourceUrl": "https://science.nasa.gov/saturn/moons/hyperion/",
+    "verifyNote": "NASA gibt mittleren Radius 135 km (Achsen 410x260x220 km) an -> mittlerer Durchmesser ca. 270 km; Umlauf um Saturn bestaetigt."
+  },
+  {
+    "id": "oberon",
+    "name": "Oberon",
+    "category": "moon",
+    "attributes": {
+      "parentPlanet": "Uranus",
+      "diameterKm": 1523
+    },
+    "funFact": "Oberon ist der aeusserste der großen Uranusmonde und trägt einen Berg von rund 6 km Höhe über der Oberflaeche.",
+    "sourceName": "Wikipedia (Moons of Uranus, IAU/Voyager-Daten)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Moons_of_Uranus",
+    "verifyNote": "Wikipedia-Tabelle: mittlerer Durchmesser 1522,8 km (Radius 761,4 km); Umlauf um Uranus gegen NASA Science bestaetigt."
+  },
+  {
+    "id": "umbriel",
+    "name": "Umbriel",
+    "category": "moon",
+    "attributes": {
+      "parentPlanet": "Uranus",
+      "diameterKm": 1169
+    },
+    "funFact": "Umbriel ist der dunkelste der großen Uranusmonde, trägt aber den hellen Ringkrater 'Wunda' nahe seinem Äquator.",
+    "sourceName": "Wikipedia (Moons of Uranus, IAU/Voyager-Daten)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Moons_of_Uranus",
+    "verifyNote": "Wikipedia-Tabelle: mittlerer Durchmesser 1169,4 km; Umlauf um Uranus gegen NASA Science bestaetigt."
+  },
+  {
+    "id": "ariel",
+    "name": "Ariel",
+    "category": "moon",
+    "attributes": {
+      "parentPlanet": "Uranus",
+      "diameterKm": 1158
+    },
+    "funFact": "Ariel hat die hellste und juengste Oberflaeche aller Uranusmonde, durchzogen von tiefen Graebenbruchtaelern.",
+    "sourceName": "Wikipedia (Moons of Uranus, IAU/Voyager-Daten)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Moons_of_Uranus",
+    "verifyNote": "Wikipedia-Tabelle: mittlerer Durchmesser 1157,8 km (Achsen 1162x1156x1155 km); Umlauf um Uranus gegen NASA Science bestaetigt."
+  },
+  {
+    "id": "miranda",
+    "name": "Miranda",
+    "category": "moon",
+    "attributes": {
+      "parentPlanet": "Uranus",
+      "diameterKm": 472
+    },
+    "funFact": "Miranda besitzt mit der Verona Rupes eine Steilwand von bis zu 20 km Höhe - die hoechste bekannte Klippe im Sonnensystem.",
+    "sourceName": "Wikipedia (Moons of Uranus, IAU/Voyager-Daten)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Moons_of_Uranus",
+    "verifyNote": "Wikipedia-Tabelle: mittlerer Durchmesser 471,6 km (Achsen 481x468x466 km); Umlauf um Uranus gegen NASA Science bestaetigt."
+  },
+  {
+    "id": "nereid",
+    "name": "Nereid",
+    "category": "moon",
+    "attributes": {
+      "parentPlanet": "Neptun",
+      "diameterKm": 357
+    },
+    "funFact": "Nereid hat eine der exzentrischsten Umlaufbahnen aller Monde: Ihr Abstand zu Neptun schwankt zwischen rund 1,4 und 9,7 Millionen Kilometern.",
+    "sourceName": "Wikipedia (Nereid moon)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Nereid_(moon)",
+    "verifyNote": "Wikipedia: mittlerer Durchmesser 357 km; drittgrößter Neptunmond, Umlauf um Neptun bestaetigt."
+  },
+  {
+    "id": "proteus",
+    "name": "Proteus",
+    "category": "moon",
+    "attributes": {
+      "parentPlanet": "Neptun",
+      "diameterKm": 420
+    },
+    "funFact": "Proteus ist trotz seiner Groesse (zweitgrößter Neptunmond) so dunkel, dass er von der Erde aus übersehen wurde und erst 1989 von Voyager 2 entdeckt wurde - obwohl er größer ist als der länger bekannte Mond Nereid.",
+    "sourceName": "Wikipedia (Proteus moon)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Proteus_(moon)",
+    "verifyNote": "Wikipedia: mittlerer Radius ca. 210 km -> Durchmesser ca. 420 km; zweitgrößter Neptunmond, Umlauf um Neptun bestaetigt."
+  },
+  {
+    "id": "nix",
+    "name": "Nix",
+    "category": "moon",
+    "attributes": {
+      "parentPlanet": "Pluto",
+      "diameterKm": 37
+    },
+    "funFact": "Nix taumelt so chaotisch um Pluto, dass auf ihr nicht vorhersehbar ist, wann und wo die Sonne aufgeht.",
+    "sourceName": "Wikipedia (Nix moon, New-Horizons-Daten)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Nix_(moon)",
+    "verifyNote": "Wikipedia: Achsen 49,8x33,2x31,1 km, geometrischer Mittel-Durchmesser ca. 37 km; umlaeuft das Pluto-Charon-Baryzentrum (Mutterkörper Pluto)."
+  },
+  {
+    "id": "pandora-saturn",
+    "name": "Pandora",
+    "category": "moon",
+    "attributes": {
+      "parentPlanet": "Saturn",
+      "diameterKm": 80
+    },
+    "funFact": "Pandora ist ein Schaefermond, der zusammen mit Prometheus die Aussenkante von Saturns schmalem F-Ring formt.",
+    "sourceName": "Wikipedia (Pandora moon, Cassini-Daten)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Pandora_(moon)",
+    "verifyNote": "Wikipedia: mittlerer Durchmesser 80,0 km (Achsen 103x79x63 km); innerer Saturnmond, Umlauf um Saturn bestaetigt."
+  },
+  {
+    "id": "prometheus-saturn",
+    "name": "Prometheus",
+    "category": "moon",
+    "attributes": {
+      "parentPlanet": "Saturn",
+      "diameterKm": 86
+    },
+    "funFact": "Prometheus reisst mit seiner Schwerkraft regelmaessig dunkle Kanaele und Schlieren in den benachbarten F-Ring des Saturn.",
+    "sourceName": "Wikipedia (Prometheus moon, Cassini-Daten)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Prometheus_(moon)",
+    "verifyNote": "Wikipedia: mittlerer Durchmesser 85,6 km (Achsen 137x81x56 km); innerer Saturnmond, Umlauf um Saturn bestaetigt."
+  },
+  {
+    "id": "kanopus",
+    "name": "Kanopus (Canopus)",
+    "category": "star",
+    "attributes": {
+      "constellation": "Kiel des Schiffs",
+      "type": "Heller Riese",
+      "distanceLy": 310,
+      "apparentMagnitude": -0.74
+    },
+    "funFact": "Kanopus ist nach Sirius der zweithellste Stern am Nachthimmel und wird wegen seiner Helligkeit von Raumsonden als Navigationsreferenz genutzt.",
+    "sourceName": "Wikipedia (Canopus)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Canopus",
+    "verifyNote": "Spektraltyp A9 II, Distanz 310 +/- 20 Lj und scheinbare Helligkeit -0.74 aus der Wikipedia-Infobox bestaetigt; Helligkeitsrang (2. hellster) auch via star-facts.com gegengeprueft."
+  },
+  {
+    "id": "achernar",
+    "name": "Achernar",
+    "category": "star",
+    "attributes": {
+      "constellation": "Eridanus",
+      "type": "Blauer Hauptreihenstern",
+      "distanceLy": 139,
+      "apparentMagnitude": 0.46
+    },
+    "funFact": "Durch seine extrem schnelle Rotation ist Achernar der abgeplattetste bekannte helle Stern: sein Äquatordurchmesser ist deutlich größer als der Poldurchmesser.",
+    "sourceName": "Wikipedia (Achernar)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Achernar",
+    "verifyNote": "Spektraltyp B3-6Vpe (hier B6), Distanz ca. 139 Lj (43 pc) und Helligkeit 0.40-0.46 gegen Wikipedia und star-facts.com geprueft; helle Variation als Mittelwert 0.46 genommen."
+  },
+  {
+    "id": "prokyon",
+    "name": "Prokyon (Procyon)",
+    "category": "star",
+    "attributes": {
+      "constellation": "Kleiner Hund",
+      "type": "Weißer Hauptreihen-/Unterriesenstern",
+      "distanceLy": 11.46,
+      "apparentMagnitude": 0.34
+    },
+    "funFact": "Prokyon ist mit nur 11,46 Lichtjahren einer der naechsten Nachbarsterne der Sonne und besitzt einen Weißen Zwerg als Begleiter.",
+    "sourceName": "Wikipedia (Procyon)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Procyon",
+    "verifyNote": "Spektraltyp F5 IV-V, Distanz 11.46 Lj (3.51 pc) und Helligkeit 0.34 gegen Wikipedia und universeguide.com bestaetigt."
+  },
+  {
+    "id": "atair",
+    "name": "Atair (Altair)",
+    "category": "star",
+    "attributes": {
+      "constellation": "Adler",
+      "type": "Weißer Hauptreihenstern",
+      "distanceLy": 16.7,
+      "apparentMagnitude": 0.76
+    },
+    "funFact": "Atair rotiert so schnell (rund 9 Stunden je Umdrehung), dass er messbar abgeplattet ist, und bildet zusammen mit Wega und Deneb das Sommerdreieck.",
+    "sourceName": "Wikipedia (Altair)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Altair",
+    "verifyNote": "Spektraltyp A7V, Distanz 16.7 Lj (5.13 pc) und Helligkeit 0.76 gegen Wikipedia, universeguide.com und astropixels.com geprueft."
+  },
+  {
+    "id": "spica",
+    "name": "Spica",
+    "category": "star",
+    "attributes": {
+      "constellation": "Jungfrau",
+      "type": "Blauer Riese",
+      "distanceLy": 250,
+      "apparentMagnitude": 0.98
+    },
+    "funFact": "Spica ist in Wahrheit ein enges Doppelsternsystem, dessen beide Sterne sich in nur etwa vier Tagen umkreisen und durch die Gezeitenkraefte eiförmig verformt sind.",
+    "sourceName": "Wikipedia (Spica)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Spica",
+    "verifyNote": "Spektraltyp B1III-IV (Primaerstern), Distanz 250 +/- 10 Lj und Helligkeit 0.98 gegen Wikipedia bestaetigt; Doppelstern-Natur (Periode 4 Tage) ebenfalls dort belegt."
+  },
+  {
+    "id": "pollux",
+    "name": "Pollux",
+    "category": "star",
+    "attributes": {
+      "constellation": "Zwillinge",
+      "type": "Oranger Riese",
+      "distanceLy": 33.8,
+      "apparentMagnitude": 1.14
+    },
+    "funFact": "Pollux ist der naechste Riesenstern zur Sonne und besitzt mit Thestias (Pollux b) einen bestaetigten Exoplaneten von mindestens etwa 2,3-facher Jupitermasse.",
+    "sourceName": "Wikipedia (Pollux)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Pollux_(star)",
+    "verifyNote": "Spektraltyp K0IIIb, Distanz 33.8 Lj und Helligkeit 1.14 gegen Wikipedia bestaetigt; Exoplanet Pollux b/Thestias dort belegt."
+  },
+  {
+    "id": "fomalhaut",
+    "name": "Fomalhaut",
+    "category": "star",
+    "attributes": {
+      "constellation": "Südlicher Fisch",
+      "type": "Weißer Hauptreihenstern",
+      "distanceLy": 25.1,
+      "apparentMagnitude": 1.17
+    },
+    "funFact": "Fomalhaut ist von einer markanten Trummerscheibe umgeben und gehoert zu den ersten Sternen, bei denen ein Planetenkandidat direkt fotografiert wurde.",
+    "sourceName": "Wikipedia (Fomalhaut)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Fomalhaut",
+    "verifyNote": "Spektraltyp A3V, Distanz 25.1 Lj und Helligkeit 1.17 gegen astropixels.com und universeguide.com geprueft."
+  },
+  {
+    "id": "deneb",
+    "name": "Deneb",
+    "category": "star",
+    "attributes": {
+      "constellation": "Schwan",
+      "type": "Blauweißer Überriese",
+      "distanceLy": 2600,
+      "apparentMagnitude": 1.25
+    },
+    "funFact": "Deneb ist der entfernteste und leuchtkraeftigste Stern erster Groesse am Himmel und strahlt rund 200.000-mal heller als die Sonne.",
+    "sourceName": "Wikipedia (Deneb)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Deneb",
+    "verifyNote": "Spektraltyp A2 Ia und Helligkeit 1.25 sicher; Distanz nur grob bestimmbar (Schaetzungen 1400-2600 Lj), hier gerundeter Wert ca. 2600 Lj entsprechend Wikipedia/star-facts.com angegeben."
+  },
+  {
+    "id": "regulus",
+    "name": "Regulus",
+    "category": "star",
+    "attributes": {
+      "constellation": "Löwe",
+      "type": "Blauweißer Unterriese",
+      "distanceLy": 79,
+      "apparentMagnitude": 1.35
+    },
+    "funFact": "Regulus rotiert in nur etwa 16 Stunden einmal um sich selbst und ist dadurch so stark abgeplattet, dass er eine deutlich eiförmige Gestalt hat.",
+    "sourceName": "Wikipedia (Regulus)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Regulus",
+    "verifyNote": "Spektraltyp B8 IVn, Distanz ca. 79 Lj und Helligkeit 1.35 gegen Wikipedia, earthsky.org und star-facts.com geprueft."
+  },
+  {
+    "id": "castor",
+    "name": "Castor",
+    "category": "star",
+    "attributes": {
+      "constellation": "Zwillinge",
+      "type": "Weißer Hauptreihenstern",
+      "distanceLy": 51.6,
+      "apparentMagnitude": 1.58
+    },
+    "funFact": "Was mit blossem Auge wie ein Stern wirkt, ist in Wahrheit ein Sechsfach-Sternsystem aus drei eng gebundenen Doppelsternen.",
+    "sourceName": "Wikipedia (Castor)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Castor_(star)",
+    "verifyNote": "Spektraltyp A1V (hellste Komponente Castor Aa), Distanz 51.55 Lj (15.81 pc) und kombinierte Helligkeit 1.58 gegen universeguide.com/star-facts.com geprueft; Sechsfachsystem dort belegt."
+  },
+  {
+    "id": "bellatrix",
+    "name": "Bellatrix",
+    "category": "star",
+    "attributes": {
+      "constellation": "Orion",
+      "type": "Blauer Riese",
+      "distanceLy": 250,
+      "apparentMagnitude": 1.64
+    },
+    "funFact": "Bellatrix markiert die linke Schulter des Orion und ist als 'Kriegerin' bekannt; trotz ihrer Hitze ist sie der dritthellste Stern des Sternbilds.",
+    "sourceName": "Wikipedia (Bellatrix)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Bellatrix",
+    "verifyNote": "Spektraltyp B2III, Distanz 250 Lj und Helligkeit 1.64 (leicht variabel 1.59-1.64) gegen Wikipedia und universeguide.com geprueft."
+  },
+  {
+    "id": "algol",
+    "name": "Algol",
+    "category": "star",
+    "attributes": {
+      "constellation": "Perseus",
+      "type": "Bedeckungsveränderlicher",
+      "distanceLy": 90,
+      "apparentMagnitude": 2.12
+    },
+    "funFact": "Algol, der 'Teufelsstern', verdunkelt sich alle 2,87 Tage deutlich, weil ein dunklerer Begleiter ihn periodisch bedeckt - der Prototyp der bedeckungsveränderlichen Sterne.",
+    "sourceName": "Wikipedia (Algol)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Algol",
+    "verifyNote": "Kombinierter Spektraltyp B8V, Distanz ca. 90 Lj und Helligkeit (Maximum 2.12, schwankt bis 3.4) gegen Wikipedia und star-facts.com geprueft; bedeckungsveränderliche Periode 2.87 Tage belegt."
+  },
+  {
+    "id": "bode_m81",
+    "name": "Bode-Galaxie (M81)",
+    "category": "galaxy",
+    "attributes": {
+      "type": "Spiralgalaxie",
+      "distanceLy": 11600000
+    },
+    "funFact": "Die 1774 von Johann Elert Bode entdeckte Galaxie ist eine der hellsten am Nordhimmel und bei guten Bedingungen schon im Fernglas zu erkennen.",
+    "sourceName": "NASA Science (Hubble Messier Catalog)",
+    "sourceUrl": "https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-81/",
+    "verifyNote": "Distanz 11,6 Mio. Lichtjahre und Typ Spiralgalaxie gegen die NASA-Messier-81-Seite geprueft."
+  },
+  {
+    "id": "zigarren_m82",
+    "name": "Zigarrengalaxie (M82)",
+    "category": "galaxy",
+    "attributes": {
+      "type": "Starburst-Galaxie",
+      "distanceLy": 12000000
+    },
+    "funFact": "Im Zentrum von M82 entstehen rund zehnmal so schnell neue Sterne wie in der gesamten Milchstrasse, weshalb sie als Prototyp der Starburst-Galaxien gilt.",
+    "sourceName": "NASA Science (Hubble Messier Catalog)",
+    "sourceUrl": "https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-82/",
+    "verifyNote": "Distanz 12 Mio. Lichtjahre gegen NASA-Messier-82-Seite geprueft; Starburst-Klassifikation (10-fache Sternentstehungsrate) ebenfalls dort belegt."
+  },
+  {
+    "id": "centaurus_a",
+    "name": "Centaurus A (NGC 5128)",
+    "category": "galaxy",
+    "attributes": {
+      "type": "Elliptische Galaxie",
+      "distanceLy": 12000000
+    },
+    "funFact": "Centaurus A ist die uns naechste Radiogalaxie und schiesst aus ihrem zentralen supermassereichen Schwarzen Loch einen relativistischen Jet ins All.",
+    "sourceName": "Wikipedia (Centaurus A, mit Literaturquellen)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Centaurus_A",
+    "verifyNote": "Infobox-Distanz 11-13 Mio. Lichtjahre (3-5 Mpc); als Wert ~12 Mio. (Mittel) gewaehlt. Typ S0 pec / elliptisch-lentikular laut Infobox; NASA nennt naechste aktive Galaxie."
+  },
+  {
+    "id": "bildhauer_ngc253",
+    "name": "Bildhauer-Galaxie (NGC 253)",
+    "category": "galaxy",
+    "attributes": {
+      "type": "Spiralgalaxie",
+      "distanceLy": 11400000
+    },
+    "funFact": "Wegen ihres silbrigen Glanzes wird die Bildhauer-Galaxie auch Silberdollar- oder Silbermuenzen-Galaxie genannt und ist nach Andromeda eine der am leichtesten sichtbaren Spiralgalaxien.",
+    "sourceName": "Wikipedia (Sculptor Galaxy, mit Literaturquellen)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Sculptor_Galaxy",
+    "verifyNote": "Infobox-Distanz 11,4 +/- 0,7 Mio. Lichtjahre und Klassifikation SAB(s)c (intermediaere Spirale, Starburst) gegen Wikipedia-Infobox geprueft."
+  },
+  {
+    "id": "feuerrad_m101",
+    "name": "Feuerrad-Galaxie (M101)",
+    "category": "galaxy",
+    "attributes": {
+      "type": "Spiralgalaxie",
+      "distanceLy": 21000000
+    },
+    "funFact": "Mit rund 170.000 Lichtjahren Durchmesser ist die Feuerrad-Galaxie fast doppelt so groß wie die Milchstrasse und enthaelt schaetzungsweise über eine Billion Sterne.",
+    "sourceName": "NASA Science (Hubble Messier Catalog)",
+    "sourceUrl": "https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-101/",
+    "verifyNote": "Distanz 25 Mio. Lichtjahre und Typ Spiralgalaxie (face-on Pinwheel) gegen NASA-Messier-101-Seite geprueft; Durchmesser 170.000 Lj dort ebenfalls genannt."
+  },
+  {
+    "id": "sonnenblume_m63",
+    "name": "Sonnenblumengalaxie (M63)",
+    "category": "galaxy",
+    "attributes": {
+      "type": "Spiralgalaxie",
+      "distanceLy": 27000000
+    },
+    "funFact": "Statt klar gezeichneter Spiralarme zeigt die Sonnenblumengalaxie viele kurze, fransige Armstuecke - ein Musterbeispiel einer flockig-spiraligen (flocculent) Galaxie.",
+    "sourceName": "NASA Science (Hubble Messier Catalog)",
+    "sourceUrl": "https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-63/",
+    "verifyNote": "Distanz 27 Mio. Lichtjahre und Typ flockige Spiralgalaxie gegen NASA-Messier-63-Seite geprueft."
+  },
+  {
+    "id": "schwarzauge_m64",
+    "name": "Schwarzauge-Galaxie (M64)",
+    "category": "galaxy",
+    "attributes": {
+      "type": "Spiralgalaxie",
+      "distanceLy": 17000000
+    },
+    "funFact": "Ein dunkles Staubband vor dem hellen Kern gab ihr den Namen Schwarzauge; im Aussenbereich rotiert das Gas sogar entgegengesetzt zum inneren Teil - Folge einer alten Verschmelzung.",
+    "sourceName": "NASA Science (Hubble Messier Catalog)",
+    "sourceUrl": "https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-64/",
+    "verifyNote": "Distanz 17 Mio. Lichtjahre und Typ Spiralgalaxie gegen NASA-Messier-64-Seite geprueft; gegenlaeufige Gasrotation dort beschrieben."
+  },
+  {
+    "id": "gravitationskonstante",
+    "name": "Gravitationskonstante (G)",
+    "category": "constant",
+    "attributes": {
+      "value": "6.67430e-11",
+      "unit": "m^3 kg^-1 s^-2"
+    },
+    "funFact": "G ist die am ungenauesten bekannte Fundamentalkonstante der Physik, weil sich die Gravitation im Labor kaum von Stoerungen abschirmen laesst.",
+    "sourceName": "NIST/CODATA 2022",
+    "sourceUrl": "https://physics.nist.gov/cgi-bin/cuu/Value?bg",
+    "verifyNote": "Wert 6.67430e-11 m^3 kg^-1 s^-2 direkt gegen die NIST-CODATA-Seite geprueft (Standardunsicherheit 0.00015e-11); identisch zur CODATA-2018-Empfehlung."
+  },
+  {
+    "id": "sonnenmasse",
+    "name": "Sonnenmasse (M_Sonne)",
+    "category": "constant",
+    "attributes": {
+      "value": "1.98847e30",
+      "unit": "kg"
+    },
+    "funFact": "Die Sonne vereint rund 99,86 Prozent der gesamten Masse des Sonnensystems auf sich.",
+    "sourceName": "Wikipedia (Sun), zitiert NASA-Werte",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Sun",
+    "verifyNote": "Wert 1.988475e30 kg (gerundet 1.98847e30) aus dem Wikipedia-Infobox geprueft; konsistent mit NASA Sun Fact Sheet (1.9884e30 kg)."
+  },
+  {
+    "id": "erdmasse",
+    "name": "Erdmasse (M_Erde)",
+    "category": "constant",
+    "attributes": {
+      "value": "5.97217e24",
+      "unit": "kg"
+    },
+    "funFact": "Man brauchte rund 333000 Erden, um die Masse der Sonne aufzuwiegen.",
+    "sourceName": "Wikipedia (Earth), zitiert NASA-Werte",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Earth",
+    "verifyNote": "Wert (5.97217 +/- 0.00028)e24 kg aus dem Wikipedia-Infobox geprueft; deckt sich mit NASA Earth Fact Sheet (5.9722e24 kg)."
+  },
+  {
+    "id": "mondmasse",
+    "name": "Mondmasse (M_Mond)",
+    "category": "constant",
+    "attributes": {
+      "value": "7.346e22",
+      "unit": "kg"
+    },
+    "funFact": "Der Erdmond ist mit gut einem Achtzigstel der Erdmasse einer der massereichsten Monde relativ zu seinem Planeten im gesamten Sonnensystem.",
+    "sourceName": "Wikipedia (Moon), zitiert NASA-Werte",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Moon",
+    "verifyNote": "Wert 7.346e22 kg (0.0123 Erdmassen) aus dem Wikipedia-Infobox geprueft; konsistent mit NASA Moon Fact Sheet (0.07346e24 kg)."
+  },
+  {
+    "id": "mittlere-mondentfernung",
+    "name": "Mittlere Mondentfernung",
+    "category": "constant",
+    "attributes": {
+      "value": 384399,
+      "unit": "km"
+    },
+    "funFact": "Der Mond entfernt sich pro Jahr um rund 3,8 Zentimeter von der Erde, gemessen über Laserreflektoren der Apollo-Missionen.",
+    "sourceName": "Wikipedia (Moon), zitiert NASA-Werte",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Moon",
+    "verifyNote": "Große Bahnhalbachse 384399 km aus dem Wikipedia-Infobox geprueft; entspricht dem mittleren Abstand Erde-Mond (NASA: 0.3844e6 km)."
+  },
+  {
+    "id": "solarkonstante",
+    "name": "Solarkonstante",
+    "category": "constant",
+    "attributes": {
+      "value": 1361,
+      "unit": "W/m^2"
+    },
+    "funFact": "Die Solarkonstante schwankt mit dem elfjaehrigen Sonnenzyklus nur um etwa 0,1 Prozent und ist trotz ihres Namens nicht voellig konstant.",
+    "sourceName": "Wikipedia (Solar constant) / IAU 2015 Resolution B3",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Solar_constant",
+    "verifyNote": "Nominalwert 1361 W/m^2 gegen Wikipedia geprueft; entspricht dem von IAU 2015 Resolution B3 festgelegten nominalen Gesamtsolarstrahlungswert."
+  },
+  {
+    "id": "hubble-konstante",
+    "name": "Hubble-Konstante (H0)",
+    "category": "constant",
+    "attributes": {
+      "value": 67.4,
+      "unit": "km/s/Mpc"
+    },
+    "funFact": "Messungen aus dem fruehen Universum (Planck) und aus nahen Galaxien liefern systematisch verschiedene H0-Werte - die ungeloeste 'Hubble-Spannung'.",
+    "sourceName": "Planck 2018 results VI (arXiv:1807.06209)",
+    "sourceUrl": "https://arxiv.org/abs/1807.06209",
+    "verifyNote": "Wert (67.4 +/- 0.5) km/s/Mpc aus der Planck-2018-Endmessung (Basis-LambdaCDM) geprueft; Quelle Planck Collaboration 2018."
+  },
+  {
+    "id": "sedna",
+    "name": "Sedna",
+    "category": "dwarf_planet",
+    "attributes": {
+      "location": "Oortsche Wolke",
+      "discoveredYear": 2003,
+      "diameterKm": 906,
+      "yearLengthEarthYears": 11400
+    },
+    "funFact": "Sedna braucht rund 11.400 Jahre fuer einen Sonnenumlauf und entfernt sich dabei so weit, dass ein einziges Sedna-Jahr fast doppelt so lang ist wie die gesamte bisherige Menschheitsgeschichte seit der Erfindung der Schrift.",
+    "sourceName": "Wikipedia (englisch): Sedna (dwarf planet)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Sedna_(dwarf_planet)",
+    "verifyNote": "Entdeckungsjahr 2003, mittlerer Durchmesser ~906 km und Umlaufzeit ~11.400 Jahre gegen die englische Wikipedia (Infobox) geprueft; als 'detached object'/innere Oortsche Wolke klassifiziert (Prototyp der Sednoiden)."
+  },
+  {
+    "id": "quaoar",
+    "name": "Quaoar",
+    "category": "dwarf_planet",
+    "attributes": {
+      "location": "Kuipergürtel",
+      "discoveredYear": 2002,
+      "diameterKm": 1098,
+      "yearLengthEarthYears": 288.83
+    },
+    "funFact": "Quaoar besitzt ein Ringsystem, das sich in ungewoehnlich großer Entfernung weit ausserhalb der klassischen Roche-Grenze befindet und damit die Theorien zur Ringbildung herausfordert.",
+    "sourceName": "Wikipedia (englisch): Quaoar",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Quaoar",
+    "verifyNote": "Entdeckungsjahr 2002, volumenaequivalenter Durchmesser ~1.098 km (1.097,6 +/- 2,2 km aus Sternbedeckungen) und Umlaufzeit 288,83 Jahre gegen die englische Wikipedia (Infobox) geprueft; klassisches Kuipergueertel-Objekt."
+  },
+  {
+    "id": "orcus",
+    "name": "Orcus",
+    "category": "dwarf_planet",
+    "attributes": {
+      "location": "Kuipergürtel",
+      "discoveredYear": 2004,
+      "diameterKm": 910,
+      "yearLengthEarthYears": 245.19
+    },
+    "funFact": "Orcus wird oft als 'Anti-Pluto' bezeichnet, weil er die gleiche Bahnform und Umlaufzeit wie Pluto hat, sich aber stets auf der gegenüberliegenden Seite seiner Bahn befindet.",
+    "sourceName": "Wikipedia (englisch): Orcus (dwarf planet)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Orcus_(dwarf_planet)",
+    "verifyNote": "Entdeckungsjahr 2004, mittlerer Durchmesser ~910 km (910 +50/-40 km) und Umlaufzeit 245,19 Jahre gegen die englische Wikipedia (Infobox) geprueft; Plutino in 2:3-Resonanz mit Neptun."
+  },
+  {
+    "id": "gonggong",
+    "name": "Gonggong",
+    "category": "dwarf_planet",
+    "attributes": {
+      "location": "Streuscheibe",
+      "discoveredYear": 2007,
+      "diameterKm": 1230,
+      "yearLengthEarthYears": 547.13
+    },
+    "funFact": "Gonggong (frueher '2007 OR10') ist der fünftgrößte bekannte Zwergplanet jenseits von Neptun und besitzt mit Xiangliu einen eigenen Mond, ist also kein Einzelgaenger.",
+    "sourceName": "Wikipedia (englisch): Gonggong (dwarf planet)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Gonggong_(dwarf_planet)",
+    "verifyNote": "Entdeckungsjahr 2007, Durchmesser ~1.230 km (radiometrische Messung 2018) und Umlaufzeit 547,13 Jahre gegen die englische Wikipedia (Infobox) geprueft; Objekt der Streuscheibe (scattered disc)."
   }
 ]

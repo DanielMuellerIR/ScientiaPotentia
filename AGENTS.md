@@ -27,8 +27,8 @@ Geplante Bereiche: **Terra** (Geografie), **Astra** (Astronomie), **Homo** (Mens
 | Phase 2a | Visual-Backbone: linkes Panel zeigt pro Frage das gefragte Konzept (`VisualPanel`/`ConceptVisual`) | ✅ erledigt (v1.7.0) |
 | Phase 2b | Astra 3D-Himmelskörper (three.js + NASA/SSS-Texturen) | ✅ erledigt (v1.8.0) |
 | Phase 2c | Homo Anatomiegrafiken (Wikimedia PD) pro Frage | ✅ erledigt (v1.9.0) |
-| Phase 2d | Konzeptgenaue Hervorhebung (Astra Click-Map, Homo Struktur-Highlight) | offen |
-| Phase 5 | **Content-Ausbau auf 5000 Fragen/Bereich** (mehr Fragetypen + Konzeptausbau) | offen, laufend |
+| Phase 2d | Konzeptgenaue Hervorhebung (Astra Kontext-Karte, Homo Struktur-Marker) | ✅ erledigt (v1.11.0) |
+| Phase 5 | **Content-Ausbau auf 5000 Fragen/Bereich** (mehr Fragetypen + Konzeptausbau) | offen, laufend (v1.11.0: Astra 100K/310F, Homo 96K/112F) |
 | Phase 4–6 | Natura, Lingua, Cultura | offen (Reihenfolge: Natura → Lingua → Cultura) |
 
 **Neue verbindliche Anforderungen (Stand 2026-06-04, Nutzer-Vorgabe):**
@@ -47,7 +47,14 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 > `node scripts/generate_<domain>.js` → `node scripts/verify_facts.js <domain>` → Browser-Run.
 > **Integritätsregel bleibt hart:** jeder Fakt mit Quelle, keine erfundenen Zahlen — bei
 > LLM-Recherche adversarialer Faktencheck **plus** manuelle Stichprobe vor Commit.
-> Aktueller Stand: Astra 56 Konzepte/191 Fragen, Homo 50/101.
+> Aktueller Stand (v1.11.0): Astra 100 Konzepte/310 Fragen, Homo 96/112.
+>
+> **Phase-5-Runde 1 (2026-06-04, Multi-Agent-Workflow):** `scripts/merge_phase5.js` dokumentiert
+> Dedup + Daten-Putz der Recherche. Gelernt: Recherche-Agents liefern (a) Dubletten zum Bestand
+> trotz Vorgabe (id- + semantische Kollisionen → per Kategorie deduppen, NIE kategorieübergreifend),
+> (b) ASCII-Deutsch (ue/ss statt ü/ß) → Wort-Wörterbuch-Putz, (c) verbose Antwort-Felder
+> (Sternbild/Typ/Lage mit Klammern) → kürzen, sonst Längen-Giveaway in MCQ. Manuelle Stichprobe
+> fand 5 semantische Dubletten, die kein Algorithmus sah → Pflicht bleibt.
 
 ### Domain-Abstraktion (das tragende Konzept)
 - **Registry `src/domains/index.js`** — Liste aller Domains. Jede liefert `loadConcepts()`
@@ -87,10 +94,11 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 | Domain | Konzepte | Fragen | Quellen | Visualisierung |
 | :----- | :------- | :----- | :------ | :------------- |
 | Terra  | 1852 | 5217 | Natural Earth / GeoNames / Wikidata | Weltkarte (MapLibre), pro Frage Highlight |
-| Astra  | 56 | 121 | NASA / IAU / ESA | **3D-Himmelskörper (three.js)**, Texturen Solar System Scope (CC BY 4.0) |
-| Homo   | 50 | 73 | Gray's Anatomy / Prometheus / NIH | **Anatomiegrafiken (Wikimedia, Public Domain)** je Kategorie |
+| Astra  | 100 | 310 | NASA / IAU / ESA | **3D-Himmelskörper (three.js)** + Kontext-Karte (Bahn/Distanz), Texturen Solar System Scope (CC BY 4.0) |
+| Homo   | 96 | 112 | Gray's Anatomy / Prometheus / NIH | **Anatomiegrafiken (Wikimedia, PD)** + konzeptgenauer Struktur-Marker je Frage |
 
-> Fragenzahlen Astra/Homo sind noch weit vom 5000-Ziel — Content-Ausbau (Phase 5) ausstehend.
+> Fragenzahlen Astra/Homo sind noch weit vom 5000-Ziel — Content-Ausbau (Phase 5) läuft weiter.
+> Homo hat wenig Fragen/Konzept (112/96): Hebel = mehr Fragetypen je Kategorie (Astra: 310/100).
 
 ### Visualisierung pro Frage (Stand 2026-06-04)
 - **`src/components/VisualPanel.jsx`** wählt: Terra→`Map`, Domain mit `domain.Visual`→diese (lazy),
@@ -99,7 +107,13 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
   `activeConceptKey` und reicht es an `VisualPanel`.
 - **`AstraVisual.jsx`** (three.js): rotierende Kugel mit echter Textur (Sonne/8 Planeten/Erdmond) bzw.
   prozedural (Zwergplaneten/Monde/Sterne/Galaxien), Konstanten als Wertanzeige; Sternenfeld-Hintergrund.
+  **Phase 2d:** `AstraContextMap` (Inset unten links) verortet das Konzept — Planet/Zwergplanet/Mond
+  im Bahn-Schema (zugehörige Bahn leuchtet), Stern/Galaxie auf log. Entfernungsskala (Erde→Objekt).
 - **`HomoVisual.jsx`**: gemeinfreie Anatomiegrafik je Kategorie + Konzept-Overlay + Lizenzzeile.
+  **Phase 2d:** pulsierender Marker genau auf der gefragten Struktur. Da die PD-Grafiken keine
+  Struktur-IDs tragen, kalibrierte Koordinaten: `MARKER_BY_ID` (bekannte Konzepte exakt) +
+  Region/Lage/System-Zonen (neue Konzepte automatisch). Ganzkörper-Fakten ohne Marker. 100% Abdeckung
+  für Knochen/Muskel/Organ. Bild im aspektgenauen Rahmen (height:100%/width:auto), damit Marker passen.
 - **Asset-Ablage:** `public/assets/<domain>/…` inkl. `CREDITS.md` (Quelle+Lizenz je Datei).
 
 ### Inhaltsregeln (verbindlich)
@@ -112,17 +126,22 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 - Copyright: keine geschützten Texte/langen Zitate, keine namentlichen Rekorde lebender Personen.
 - Homo: keine Krankheiten, keine Kultur. Natura: Klimawandel nach IPCC-Konsens. Cultura zuletzt.
 
-> **TODO (Folge-Session) — Schwierigkeit & Selbstverräter-Fragen:** Alle bestehenden Fragen gegen
-> den Selbstverräter-Test prüfen (deutscher Name enthält Region/Antwort). Befund: aussortieren
-> oder Stufe korrigieren. Wo die deutsche Frage trivial ist, **lateinischen Fachbegriff** abfragen
-> (z.B. „In welcher Region liegt die *Fibula*?") — schwerer, Stufe je nach Bekanntheit bis 4.
-> Schwierigkeits-Heuristik im Generator überdenken: aktuell starr per Template, sollte
-> Wortverrat + Bekanntheitsgrad berücksichtigen. Betrifft v.a. Homo (`bone-region`,
-> `muscle-location`), prüfen aber alle Domains.
+> **✅ Selbstverräter-Guard (v1.11.0):** Beide Generatoren verwerfen jetzt automatisch Fragen, deren
+> Antwort schon im Hinweis steckt (`revealsAnswer()` + `impliedRegions()` für dt. Körperteil-Stämme).
+> Effekt Homo: `bone-region` 15→1 (nur „Steigbügel" bleibt, kein Wortverrat). Guard greift auch auf
+> neue Phase-5-Konzepte. Generisch sicher: gemeinsame Stamm-Wörter (z.B. „Galaxie" in „Spiralgalaxie")
+> schlagen NICHT an (Token-Mindestlänge, keine Hinweis→Antwort-Richtung).
+>
+> **TODO (offen) — Schwierigkeit & lateinische Fachbegriffe:** Wo die deutsche Frage trivial bleibt
+> (Name impliziert Region, aber kein literaler Treffer, z.B. „Oberschenkelknochen"→Bein wird vom
+> Stamm-Check erfasst, „Schädel"→Kopf nicht), zusätzlich den **lateinischen Fachbegriff** abfragen
+> („In welcher Region liegt die *Fibula*?") — schwerer, Stufe nach Bekanntheit bis 4. Schwierigkeits-
+> Heuristik im Generator ist weiter starr per Template; sollte Bekanntheitsgrad berücksichtigen.
 
 ### Befehle
 `npm run dev` (Port 3000) · `npm run build` · `node scripts/generate_<domain>.js` ·
-`node scripts/verify_facts.js <domain>` · `node scripts/verify_quiz.js` (Terra).
+`node scripts/verify_facts.js <domain>` · `node scripts/verify_quiz.js` (Terra) ·
+`node scripts/merge_phase5.js [--write]` (Einmal-Helfer: Recherche-Konzepte deduppen+putzen+anhängen).
 Browser-Preview-Config: `.claude/launch.json` (Server „dev", Port 3000; nicht eingecheckt).
 
 ---

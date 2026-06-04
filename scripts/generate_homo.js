@@ -39,6 +39,41 @@ function pickDistractors(correct, pool, numeric) {
   return unique.slice(0, 3);
 }
 
+// --- Selbstverraeter-Schutz ----------------------------------------------
+// Wirft Fragen weg, deren Antwort schon im Fragetext/Konzeptnamen steckt.
+// Beispiel: „In welcher Region liegt der Oberarmknochen?" -> Antwort „Arm"
+// (steckt buchstaeblich im Namen). Solche Fragen sind wertlos.
+function norm(s) {
+  return String(s ?? '').toLowerCase()
+    .replace(/ß/g, 'ss').replace(/ä/g, 'a').replace(/ö/g, 'o').replace(/ü/g, 'u')
+    .replace(/[^a-z0-9]+/g, ' ').trim();
+}
+// Deutsche Koerperteil-Wortstaemme -> implizierte Region. Damit faellt auch
+// „Oberschenkelknochen" -> „Bein" auf, obwohl das Wort „Bein" nicht im Namen steht.
+const REGION_STEMS = [
+  [/schenkel|wade|schien|knie|ferse|sprung|zeh/, 'bein fuss'],
+  [/oberarm|unterarm|ellbogen|\bhand\b|finger|speiche|\belle\b/, 'arm hand'],
+  [/schadel|kiefer|stirn|hinterhaupt|schlafe|nasen|joch|wange|kau|zahn/, 'kopf'],
+  [/rippe|brust|becken|wirbel|kreuz|steiss|schulterblatt|schlussel|sitzbein/, 'rumpf'],
+  [/gesass|huft/, 'gesass hufte']
+];
+function impliedRegions(name) {
+  const n = norm(name);
+  return REGION_STEMS.filter(([re]) => re.test(n)).map(([, r]) => r).join(' ');
+}
+// true, wenn die Antwort (oder ein markantes Wort daraus) bereits im Hinweis steht.
+function revealsAnswer(subject, answer) {
+  const S = norm(subject), A = norm(answer);
+  const sNo = S.replace(/ /g, ''), aNo = A.replace(/ /g, '');
+  if (!sNo || !aNo) return false;
+  if (aNo.length >= 3 && sNo.includes(aNo)) return true; // ganze Antwort im Hinweis
+  if (sNo.length >= 3 && aNo.includes(sNo)) return true; // ganzer Name in der Antwort
+  // markantes Antwort-Wort steckt im Hinweis (>=4, damit nicht generische Stämme
+  // wie „Galaxie" in „Spiralgalaxie" fälschlich anschlagen)
+  for (const t of A.split(' ').filter(t => t.length >= 4)) if (sNo.includes(t)) return true;
+  return false;
+}
+
 const raw = JSON.parse(readFileSync(RAW_PATH, 'utf8'));
 
 const byCategory = {};
@@ -63,7 +98,7 @@ for (const c of raw) {
 const templates = [
   // ---- Knochen --------------------------------------------------------
   {
-    category: 'bone', attr: 'region', type: 'homo-bone-region', difficulty: 1,
+    category: 'bone', attr: 'region', type: 'homo-bone-region', difficulty: 1, regionAnswer: true,
     prompt: c => `In welcher Körperregion liegt der Knochen „${c.name}"?`,
     format: v => v
   },
@@ -74,7 +109,7 @@ const templates = [
   },
   // ---- Muskeln --------------------------------------------------------
   {
-    category: 'muscle', attr: 'location', type: 'homo-muscle-location', difficulty: 2,
+    category: 'muscle', attr: 'location', type: 'homo-muscle-location', difficulty: 2, regionAnswer: true,
     prompt: c => `In welcher Körperregion liegt der Muskel „${c.name}"?`,
     format: v => v
   },
@@ -111,6 +146,7 @@ const templates = [
   // ---- Knochen: lateinischer Name -> deutscher Name (Gegenrichtung) ---
   {
     category: 'bone', attr: 'latinName', type: 'homo-bone-latin-rev', difficulty: 3, nameAnswer: true,
+    subject: c => c.attributes.latinName, // Hinweis ist der lat. Name, nicht der dt. Name
     prompt: c => `Welcher Knochen trägt den lateinischen Namen „${c.attributes.latinName}"?`
   },
   // ---- Menschenarten: Ursprungsregion ---------------------------------
@@ -122,6 +158,7 @@ const templates = [
   // ---- Körperwerte: Wert -> Bezeichnung (Gegenrichtung) ---------------
   {
     category: 'body_fact', attr: 'value', type: 'homo-bodyfact-name', difficulty: 3, nameAnswer: true,
+    subject: c => `${c.attributes.value} ${c.attributes.unit || ''}`, // Hinweis ist der Wert
     prompt: c => `Welche Körperangabe beträgt ungefähr ${c.attributes.value}${c.attributes.unit ? ' ' + c.attributes.unit : ''}?`,
     skip: c => !/\d/.test(String(c.attributes.value)) // nur numerische Werte
   }
@@ -146,6 +183,10 @@ for (const tpl of templates) {
     if (rawValue === undefined || rawValue === null || rawValue === '') continue;
 
     const correct = tpl.nameAnswer ? c.name : (tpl.valueUnit ? tpl.format(null, c) : tpl.format(rawValue, c));
+
+    // Selbstverraeter: steckt die Antwort schon im Hinweis (Name/Wert), Frage verwerfen.
+    const subject = (tpl.subject ? tpl.subject(c) : c.name) + (tpl.regionAnswer ? ' ' + impliedRegions(c.name) : '');
+    if (revealsAnswer(subject, correct)) continue;
 
     let pool = valuePool.slice();
     if (tpl.extraDistractors) pool = pool.concat(tpl.extraDistractors);

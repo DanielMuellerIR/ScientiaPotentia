@@ -50,6 +50,26 @@ function pickDistractors(correct, pool, numeric) {
   return unique.slice(0, 3);
 }
 
+// --- Selbstverraeter-Schutz ----------------------------------------------
+// Verwirft Fragen, deren Antwort schon im Hinweis steckt (Antwort = Wort aus
+// dem Konzeptnamen). Hier seltener als bei Homo, aber als gleiche Qualitaets-
+// schranke. Generische Stamm-Woerter (z.B. „Galaxie" in „Spiralgalaxie")
+// schlagen bewusst NICHT an (Token-Mindestlaenge + kein Hinweis->Antwort-Match).
+function norm(s) {
+  return String(s ?? '').toLowerCase()
+    .replace(/ß/g, 'ss').replace(/ä/g, 'a').replace(/ö/g, 'o').replace(/ü/g, 'u')
+    .replace(/[^a-z0-9]+/g, ' ').trim();
+}
+function revealsAnswer(subject, answer) {
+  const S = norm(subject), A = norm(answer);
+  const sNo = S.replace(/ /g, ''), aNo = A.replace(/ /g, '');
+  if (!sNo || !aNo) return false;
+  if (aNo.length >= 3 && sNo.includes(aNo)) return true;
+  if (sNo.length >= 3 && aNo.includes(sNo)) return true;
+  for (const t of A.split(' ').filter(t => t.length >= 4)) if (sNo.includes(t)) return true;
+  return false;
+}
+
 // --- Faktenbasis laden ---------------------------------------------------
 
 const raw = JSON.parse(readFileSync(RAW_PATH, 'utf8'));
@@ -164,6 +184,7 @@ const templates = [
   // andere Konstanten-Namen (gleiche Kategorie) -> sauber und eindeutig.
   {
     category: 'constant', attr: '__name__', type: 'astra-constant-value', difficulty: 3,
+    subject: c => `${c.attributes.value} ${c.attributes.unit}`, // Hinweis ist der Wert
     prompt: c => `Welche astronomische Groesse hat ungefaehr den Wert von ${c.attributes.value} ${c.attributes.unit}?`,
     format: (_v, c) => c.name,
     nameAnswer: true
@@ -176,6 +197,7 @@ const templates = [
   // ---- Planeten: Tag/Jahr + Reverse-Position --------------------------
   {
     category: 'planet', attr: 'orderFromSun', type: 'astra-planet-order-rev', difficulty: 2,
+    subject: c => `${c.attributes.orderFromSun}.`, // Hinweis ist die Position, nicht der Name
     prompt: c => `Welcher Planet ist der ${c.attributes.orderFromSun}. von der Sonne?`,
     format: (_v, c) => c.name, nameAnswer: true
   },
@@ -240,6 +262,10 @@ for (const tpl of templates) {
     if (rawValue === undefined || rawValue === null || rawValue === '') continue;
 
     const correct = tpl.nameAnswer ? c.name : tpl.format(rawValue, c);
+
+    // Selbstverraeter: steckt die Antwort schon im Hinweis, Frage verwerfen.
+    const subject = tpl.subject ? tpl.subject(c) : c.name;
+    if (revealsAnswer(subject, correct)) continue;
 
     // Distraktoren aus dem Kategorie-Pool ziehen, optional feste Extras ergaenzen
     let pool = valuePool.slice();
