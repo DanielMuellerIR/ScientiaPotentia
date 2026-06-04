@@ -23,8 +23,9 @@ Geplante Bereiche: **Terra** (Geografie), **Astra** (Astronomie), **Homo** (Mens
 | :---- | :----- | :---- |
 | Phase 0 | Domain-Abstraktion, Terra unverändert | ✅ erledigt (v1.4.0) |
 | Phase 1 | Astra (MCQ-only) + DomainSwitcher | ✅ erledigt (v1.5.0) |
+| Phase 3 | Homo (MCQ-only) | ✅ erledigt (v1.6.0) |
 | Phase 2 | Visualisierungs-Panel generalisieren + Astra-Click-Map | offen |
-| Phase 3–6 | Homo, Natura, Lingua, Cultura | Homo-Faktenbasis in Recherche |
+| Phase 4–6 | Natura, Lingua, Cultura | offen (Reihenfolge: Natura → Lingua → Cultura) |
 
 Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 
@@ -67,7 +68,7 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 | :----- | :------- | :----- | :------ | :------------- |
 | Terra  | 1852 | 5217 | Natural Earth / GeoNames / Wikidata | Weltkarte (MapLibre) |
 | Astra  | 56 | 121 | NASA / IAU / ESA | Übersichts-Panel (Click-Map: Phase 2) |
-| Homo   | (Recherche läuft) | – | Anatomie-Lehrbücher / NIH | MCQ-only geplant |
+| Homo   | 50 | 73 | Gray's Anatomy / Prometheus / NIH | Übersichts-Panel (MCQ-only) |
 
 ### Inhaltsregeln (verbindlich)
 - Keine erfundenen Fakten; Quelle pro Fakt. Fairness: keine obskuren Objekte.
