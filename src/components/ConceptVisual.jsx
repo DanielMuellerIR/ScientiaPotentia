@@ -61,10 +61,21 @@ const ATTR_LABELS = {
   gravity: 'Schwerkraft',
   hostStar: 'Zentralstern',
   constellation: 'Sternbild',
-  distanceLy: 'Entfernung (Lj)'
+  distanceLy: 'Entfernung (Lj)',
+  // Weitere Astra/Homo-Schluessel, damit keine rohen englischen Keys leaken.
+  apparentMagnitude: 'Magnitude',
+  parentPlanet: 'Zentralplanet',
+  yearLengthEarthYears: 'Jahr (Erdjahre)',
+  distanceFromSunAU: 'Entfernung (AE)',
+  hasRings: 'Ringe',
+  discoveredYear: 'Entdeckt',
+  definition: 'Definition',
+  function: 'Funktion'
 };
 
-export default function ConceptVisual({ domain, concept }) {
+// testedAttribute/answerIsName: Selbstverraeter-Guard (siehe Quiz.jsx). Default
+// so, dass sich die Komponente ohne diese Props exakt wie bisher verhaelt.
+export default function ConceptVisual({ domain, concept, testedAttribute = null, answerIsName = false }) {
   const Icon = domain.Icon;
   const accent = domain.accent || 'var(--color-primary)';
 
@@ -72,9 +83,12 @@ export default function ConceptVisual({ domain, concept }) {
   const categoryLabel = CATEGORY_LABELS[categoryKey] || categoryKey;
 
   // Attribute als Liste aufbereiten; rein technische Schluessel ausblenden.
+  // Selbstverraeter-Guard: das getestete Attribut nicht zeigen (es waere die
+  // Antwort). Ist die Antwort der Konzeptname (answerIsName), gar keine Chips —
+  // sie identifizieren das Konzept und verrieten so die Antwort.
   const attrs = concept?.attributes || {};
-  const attrEntries = Object.entries(attrs).filter(
-    ([k, v]) => v !== undefined && v !== null && v !== '' && k !== 'unit'
+  const attrEntries = answerIsName ? [] : Object.entries(attrs).filter(
+    ([k, v]) => v !== undefined && v !== null && v !== '' && k !== 'unit' && k !== testedAttribute
   );
 
   return (
@@ -137,7 +151,8 @@ export default function ConceptVisual({ domain, concept }) {
             margin: 0, letterSpacing: '0.5px', lineHeight: 1.15, maxWidth: '460px'
           }}
         >
-          {concept?.name || '—'}
+          {/* Bei Reverse-Fragen (Antwort = Name) den Namen verbergen. */}
+          {answerIsName ? '?' : (concept?.name || '—')}
         </h2>
 
         {/* Kennwerte */}
@@ -169,8 +184,8 @@ export default function ConceptVisual({ domain, concept }) {
           </div>
         ) : null}
 
-        {/* Fun-Fact */}
-        {concept?.funFact ? (
+        {/* Fun-Fact (bei Reverse-Fragen verborgen — nennt oft den Namen) */}
+        {concept?.funFact && !answerIsName ? (
           <p
             style={{
               fontSize: '13px', maxWidth: '440px', opacity: 0.85,

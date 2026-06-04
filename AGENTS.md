@@ -132,6 +132,25 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 > neue Phase-5-Konzepte. Generisch sicher: gemeinsame Stamm-Wörter (z.B. „Galaxie" in „Spiralgalaxie")
 > schlagen NICHT an (Token-Mindestlänge, keine Hinweis→Antwort-Richtung).
 >
+> **✅ Visueller Selbstverräter-Guard + i18n (v1.12.0):** Das linke Visual verriet bislang die
+> Antwort — Chip „apparentMagnitude: 1.06" neben der Magnitude-Frage; Sternfarbe = Sterntyp;
+> Kontextkarte = Bahn/Position; Organ-Marker = Körperlage; Reverse-Frage „Welcher Planet ist der
+> 3.?" zeigte den Namen im Header. Behoben über zwei neue Frage-Felder `testedAttribute` +
+> `answerIsName` (in beiden Generatoren geschrieben, deterministisch — Diff nur +Felder) →
+> durchgereicht Quiz→App→VisualPanel→AstraVisual/HomoVisual/ConceptVisual. Die Visuals blenden den
+> getesteten Attribut-Chip aus, neutralisieren Sternfarbe/Kontextkarte/Marker für die abgefragte
+> Dimension und verbergen Name/Chips/FunFact bei Reverse-Namensfragen. Zudem: rohe englische
+> Attribut-Keys (`apparentMagnitude`→„Magnitude", `function`→„Funktion", `parentPlanet`→
+> „Zentralplanet" …) in `ATTR_LABELS` aller Visuals deutsch belabelt. **Rest-Schwäche:** der FunFact
+> kann bei Vorwärtsfragen beiläufig die Antwort andeuten (z.B. „äußerste Planet" → Position 8) —
+> nicht generisch erkannt; ggf. FunFact erst nach dem Antworten zeigen.
+>
+> **✅ Homo-Anatomiegrafiken entschärft (v1.12.0):** `organs.svg`/`body.svg` (Häggström-Serie
+> „Man shadow") trugen englische bzw. „Example text"-Platzhalter-Labels samt Leader-Lines. Per
+> Skript alle `<text>`-Elemente + geraden Leader-Pfade (thin stroke, keine Kurven) entfernt; die
+> Organ-Rastergrafiken blieben unverändert → `MARKER_BY_ID` bleibt kalibriert (verifiziert:
+> Marker sitzt exakt auf Bruchteilsposition). `CREDITS.md` dokumentiert die Bearbeitung.
+>
 > **TODO (offen) — Schwierigkeit & lateinische Fachbegriffe:** Wo die deutsche Frage trivial bleibt
 > (Name impliziert Region, aber kein literaler Treffer, z.B. „Oberschenkelknochen"→Bein wird vom
 > Stamm-Check erfasst, „Schädel"→Kopf nicht), zusätzlich den **lateinischen Fachbegriff** abfragen

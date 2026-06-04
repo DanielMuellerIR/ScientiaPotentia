@@ -47,7 +47,10 @@ const CATEGORY_LABELS = {
 const ATTR_LABELS = {
   region: 'Region', latinName: 'Lateinisch', notableFor: 'Bekannt für',
   location: 'Lage', system: 'Organsystem', approxWeightGrams: 'Gewicht (g)',
-  value: 'Wert', epoch: 'Zeitraum'
+  value: 'Wert', epoch: 'Zeitraum',
+  // Phase-5-Keys, die sonst als rohe englische Schlüssel ('function',
+  // 'definition') im Chip durchsickern würden.
+  function: 'Funktion', definition: 'Definition'
 };
 
 // --- Marker-Koordinaten ---------------------------------------------------
@@ -151,19 +154,39 @@ function resolveMarker(concept) {
   return null; // body_fact, species, Haut -> Ganzkörper, kein Einzelpunkt
 }
 
-export default function HomoVisual({ domain, concepts = {}, srsProgress = {}, activeConcept }) {
+export default function HomoVisual({ domain, concepts = {}, srsProgress = {}, activeConcept, testedAttribute, answerIsName }) {
   const accent = domain.accent || '#A14D5A';
 
   // Ohne aktive Frage: ruhige Themen-Darstellung (Skelett) als Standbild.
   const cat = activeConcept?.category || activeConcept?.type;
   const asset = (cat && CATEGORY_ASSET[cat]) || DEFAULT_ASSET;
   const catLabel = CATEGORY_LABELS[cat] || cat || '';
-  const marker = resolveMarker(activeConcept);
+
+  // Selbstverräter-Schutz: Bei Reverse-Fragen (die Antwort IST der Name) bzw.
+  // bei Fragen nach Lage/Region/System würde der pulsierende Marker die Stelle
+  // — und damit die Antwort — verraten. In diesen Fällen Marker unterdrücken.
+  // Defensiver Default: sind die neuen Props undefined, greift nichts und der
+  // Marker verhält sich exakt wie bisher.
+  const markerLeaks =
+    answerIsName ||
+    testedAttribute === 'region' ||
+    testedAttribute === 'location' ||
+    testedAttribute === 'system';
+  const marker = markerLeaks ? null : resolveMarker(activeConcept);
 
   const attrs = activeConcept?.attributes || {};
-  const attrEntries = Object.entries(attrs)
-    .filter(([k, v]) => v !== undefined && v !== null && v !== '' && k !== 'unit')
-    .slice(0, 4);
+  // Chip-Auswahl mit Verräter-Schutz:
+  //  - answerIsName -> gar keine Chips (jeder Wert könnte zum Namen führen).
+  //  - sonst das aktuell gefragte Attribut (testedAttribute) herausfiltern,
+  //    damit der Chip die Antwort nicht direkt anzeigt.
+  // Erst filtern, dann auf max. 4 Chips kürzen.
+  const attrEntries = answerIsName
+    ? []
+    : Object.entries(attrs)
+        .filter(([k, v]) =>
+          v !== undefined && v !== null && v !== '' &&
+          k !== 'unit' && k !== testedAttribute)
+        .slice(0, 4);
 
   return (
     <div
@@ -249,10 +272,13 @@ export default function HomoVisual({ domain, concepts = {}, srsProgress = {}, ac
                 background: accent, marginBottom: '8px'
               }}>{catLabel}</div>
             )}
+            {/* Bei Reverse-Fragen (answerIsName) ist der Konzeptname die gesuchte
+                Antwort -> statt des Namens nur einen neutralen Platzhalter „?"
+                zeigen. Default (Prop undefined/falsy): Name normal anzeigen. */}
             <h2 style={{
               fontFamily: 'var(--font-title)', fontSize: '28px', fontWeight: 700,
               margin: 0, color: 'var(--color-primary)', letterSpacing: '0.3px'
-            }}>{activeConcept.name}</h2>
+            }}>{answerIsName ? '?' : activeConcept.name}</h2>
           </div>
 
           {/* Fuß: Kennwerte + Fun-Fact */}
@@ -275,7 +301,10 @@ export default function HomoVisual({ domain, concepts = {}, srsProgress = {}, ac
                 ))}
               </div>
             )}
-            {activeConcept.funFact && (
+            {/* Fun-Fact bei Reverse-Fragen ausblenden — er nennt oft den
+                Konzeptnamen oder umschreibt ihn so deutlich, dass er die
+                gesuchte Antwort verrät. Default (Prop falsy): normal zeigen. */}
+            {!answerIsName && activeConcept.funFact && (
               <p style={{
                 fontSize: '12.5px', color: 'var(--text-muted)', maxWidth: '460px',
                 margin: '0 auto', textAlign: 'center', fontStyle: 'italic'

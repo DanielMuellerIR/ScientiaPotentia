@@ -22,6 +22,18 @@ export default function App() {
   // Aktuell im Quiz gefragtes Konzept (Key, z.B. "astra:mars"). Steuert die
   // linke Visualisierung (VisualPanel) frageweise. null = keine aktive Frage.
   const [activeConceptKey, setActiveConceptKey] = useState(null);
+  // Selbstverraeter-Guard: welches Attribut prueft die aktive Frage und ist die
+  // Antwort der Konzeptname selbst? Das Visual blendet damit den verraeterischen
+  // Chip/Marker/Namen aus, damit die Antwort nicht schon links sichtbar ist.
+  const [activeTestedAttribute, setActiveTestedAttribute] = useState(null);
+  const [activeAnswerIsName, setActiveAnswerIsName] = useState(false);
+
+  // Setzt alle drei Felder aus der Quiz-Meldung (key + Verraeter-Infos) zugleich.
+  const handleActiveConceptChange = ({ key, testedAttribute, answerIsName } = {}) => {
+    setActiveConceptKey(key ?? null);
+    setActiveTestedAttribute(testedAttribute ?? null);
+    setActiveAnswerIsName(Boolean(answerIsName));
+  };
 
   // Aktive Wissens-Domain, per DomainSwitcher umschaltbar (Terra, Astra, …).
   const [activeDomainId, setActiveDomainId] = useState('terra');
@@ -94,7 +106,11 @@ export default function App() {
   // Update map state mode based on active tab
   useEffect(() => {
     // Verlaesst man das Quiz, gibt es keine aktive Frage -> Konzept-Visual zuruecksetzen.
-    if (activeTab !== 'quiz') setActiveConceptKey(null);
+    if (activeTab !== 'quiz') {
+      setActiveConceptKey(null);
+      setActiveTestedAttribute(null);
+      setActiveAnswerIsName(false);
+    }
     setMapState(prev => ({
       ...prev,
       mode: activeTab,
@@ -390,6 +406,8 @@ export default function App() {
             concepts={concepts}
             srsProgress={srsProgress}
             activeConceptKey={activeConceptKey}
+            testedAttribute={activeTestedAttribute}
+            answerIsName={activeAnswerIsName}
             mapProps={{
               selectedId: selectedEntityId,
               onSelectEntity: handleSelectEntityFromMap,
@@ -447,7 +465,7 @@ export default function App() {
               resetClickedMapId={() => setClickedMapId(null)}
               onQuizFinished={handleQuizFinished}
               onSetQuizState={setMapState}
-              onActiveConceptChange={setActiveConceptKey}
+              onActiveConceptChange={handleActiveConceptChange}
               onAddScore={handleAddScorePoints}
             />
           )}

@@ -63,7 +63,16 @@ export default function Quiz({
       // Aktuell gefragtes Konzept ans linke Panel melden, damit dieses pro Frage
       // eine passende Visualisierung zeigt (3D-Planet, Anatomie-Grafik, …). Der
       // entityId ist zugleich der Konzept-Key (z.B. "astra:mars").
-      if (onActiveConceptChange) onActiveConceptChange(q.entityId || null);
+      //
+      // Zusaetzlich melden wir, WELCHES Attribut die Frage prueft (testedAttribute)
+      // und ob die Antwort der Konzeptname selbst ist (answerIsName, Reverse-Frage).
+      // Damit blendet das Visual den verraeterischen Chip / Marker / Namen aus
+      // (Selbstverraeter-Guard) — sonst stuende die Antwort schon links im Bild.
+      if (onActiveConceptChange) onActiveConceptChange({
+        key: q.entityId || null,
+        testedAttribute: q.testedAttribute ?? null,
+        answerIsName: Boolean(q.answerIsName)
+      });
 
       // Determine what to highlight or overlay on Map. If city, highlight/zoom to its parent country.
       const mapHighlightId = q.entityType === 'city' ? geodb.entities[q.entityId]?.metadata?.countryId : q.entityId;

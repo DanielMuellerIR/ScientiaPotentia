@@ -25,6 +25,8 @@ export default function VisualPanel({
   concepts = {},
   srsProgress = {},
   activeConceptKey = null,
+  testedAttribute = null,
+  answerIsName = false,
   mapProps = {}
 }) {
   // --- Terra: bestehende Weltkarte -------------------------------------
@@ -60,6 +62,8 @@ export default function VisualPanel({
           srsProgress={srsProgress}
           activeConcept={activeConcept}
           activeConceptKey={activeConceptKey}
+          testedAttribute={testedAttribute}
+          answerIsName={answerIsName}
         />
       </Suspense>
     );
@@ -67,7 +71,14 @@ export default function VisualPanel({
 
   // --- Generische Konzeptkarte waehrend einer Quizrunde ----------------
   if (activeConcept) {
-    return <ConceptVisual domain={domain} concept={activeConcept} />;
+    return (
+      <ConceptVisual
+        domain={domain}
+        concept={activeConcept}
+        testedAttribute={testedAttribute}
+        answerIsName={answerIsName}
+      />
+    );
   }
 
   // --- Themen-Uebersicht (Dashboard/Atlas, keine aktive Frage) ---------

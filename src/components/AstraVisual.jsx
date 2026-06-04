@@ -62,7 +62,12 @@ const ATTR_LABELS = {
   orderFromSun: 'Position v. Sonne', type: 'Typ', numMoons: 'Monde',
   diameterKm: 'Durchmesser (km)', dayLengthHours: 'Tageslänge (h)',
   yearLengthEarthDays: 'Jahr (Erdtage)', distanceLy: 'Entfernung (Lj)',
-  constellation: 'Sternbild', hostStar: 'Zentralstern', value: 'Wert'
+  constellation: 'Sternbild', hostStar: 'Zentralstern', value: 'Wert',
+  // Ergänzte deutsche Labels, damit keine rohen englischen Keys mehr durchsickern.
+  apparentMagnitude: 'Magnitude', parentPlanet: 'Zentralplanet',
+  notableFor: 'Bekannt für', location: 'Lage',
+  yearLengthEarthYears: 'Jahr (Erdjahre)', distanceFromSunAU: 'Entfernung (AE)',
+  hasRings: 'Ringe', discoveredYear: 'Entdeckt', definition: 'Definition'
 };
 
 /** Weiches radiales Glow-Sprite (für Sterne/Galaxien) als Canvas-Textur. */
@@ -185,7 +190,17 @@ function AstraContextMap({ concept, accent }) {
   return null; // Konstante -> kein Schema
 }
 
-export default function AstraVisual({ domain, activeConcept }) {
+/*
+ * Selbstverräter-Guard (Phase 6):
+ *   - testedAttribute (string|null): Attribut-Key, den die aktuelle Frage abfragt
+ *     (z.B. 'type', 'orderFromSun'). null bei Reverse-Fragen / keinem Attribut.
+ *   - answerIsName (boolean): true, wenn die Antwort der Konzeptname selbst ist
+ *     ("Welcher Planet ist der 3.?"). Dann verrät schon der Name-Header die Antwort.
+ *
+ * Beide Props sind defensiv: Sind sie undefined (Plumbing noch nicht durchgereicht),
+ * verhält sich die Komponente exakt wie zuvor — nichts wird ausgeblendet.
+ */
+export default function AstraVisual({ domain, activeConcept, testedAttribute, answerIsName }) {
   const mountRef = useRef(null);
   // three-Objekte über Renders hinweg halten, ohne Re-Render auszulösen.
   const ctx = useRef({});
@@ -316,8 +331,18 @@ export default function AstraVisual({ domain, activeConcept }) {
     const isStar = cat === 'star';
     const texFile = TEXTURES[id];
 
-    if (texFile) {
+    // Selbstverräter-Guard für die Stern-Erscheinung: Die spektraltypische Farbe
+    // (warm = K/M, weiß = A, bläulich = B) verrät den Sterntyp. Wenn die Frage
+    // genau den Typ abfragt ODER der Name die Antwort ist, neutralisieren wir die
+    // Farbe (dezentes Weißgrau) statt typ-spezifisch einzufärben.
+    const neutralizeStar = isStar && (testedAttribute === 'type' || answerIsName);
+    const NEUTRAL_STAR = 0xdcdce0; // dezentes Weißgrau
+    const starColor = neutralizeStar ? NEUTRAL_STAR : (STAR_COLORS[id] || 0xfff2cc);
+
+    if (texFile && !neutralizeStar) {
       // Echte Oberflächentextur laden (gecached).
+      // Hinweis: Bei neutralizeStar überspringen wir die Textur, weil aktuell nur
+      // die Sonne eine Stern-Textur hat — und deren Anblick ist ohnehin eindeutig.
       let tex = texCache[id];
       if (!tex) {
         tex = loader.load(`${TEX_BASE}${texFile}`);
@@ -330,8 +355,9 @@ export default function AstraVisual({ domain, activeConcept }) {
         : new THREE.MeshStandardMaterial({ map: tex, roughness: 1, metalness: 0 });
     } else {
       // Prozedural: plausible Farbe je Körper/Kategorie.
+      // Stern: ggf. neutralisierte Farbe (siehe oben), sonst Spektralfarbe.
       const color = isStar
-        ? (STAR_COLORS[id] || 0xfff2cc)
+        ? starColor
         : (BODY_COLORS[id] || (cat === 'dwarf_planet' ? 0xb8a98f : 0x9b9286));
       body.material.dispose();
       body.material = isStar
@@ -339,26 +365,40 @@ export default function AstraVisual({ domain, activeConcept }) {
         : new THREE.MeshStandardMaterial({ color, roughness: 1, metalness: 0 });
     }
 
-    // Sterne mit Glow-Halo in Spektralfarbe.
+    // Sterne mit Glow-Halo. Farbe richtet sich nach starColor, also auch hier
+    // neutralisiert, damit der Halo den Sterntyp nicht über die Hintertür verrät.
     if (isStar) {
       glow.material.map?.dispose();
-      glow.material.map = makeGlowTexture(hexToRgbStr(STAR_COLORS[id] || 0xfff2cc));
+      glow.material.map = makeGlowTexture(hexToRgbStr(starColor));
       glow.scale.set(3.6, 3.6, 1);
       glow.visible = true;
     } else {
       glow.visible = false;
     }
-  }, [activeConcept, ready]);
+  }, [activeConcept, ready, testedAttribute, answerIsName]);
 
   // --- HTML-Overlay (Infos + Lizenz) über dem Canvas --------------------
   const accent = domain.accent || '#5B4B8A';
   const cat = activeConcept?.category || activeConcept?.type;
   const catLabel = CATEGORY_LABELS[cat] || cat || '';
   const attrs = activeConcept?.attributes || {};
-  const attrEntries = Object.entries(attrs)
-    .filter(([k, v]) => v !== undefined && v !== null && v !== '' && k !== 'unit')
-    .slice(0, 4);
+  // Selbstverräter-Guard für die Attribut-Chips:
+  //   - answerIsName: gar keine Chips zeigen (jeder Chip identifiziert das Konzept).
+  //   - sonst: den Chip mit dem abgefragten Attribut herausfiltern (vor slice(0,4),
+  //     damit weiterhin bis zu 4 andere Chips übrig bleiben).
+  const attrEntries = answerIsName
+    ? []
+    : Object.entries(attrs)
+        .filter(([k, v]) => v !== undefined && v !== null && v !== '' && k !== 'unit')
+        .filter(([k]) => k !== testedAttribute)
+        .slice(0, 4);
   const hasTexture = activeConcept && TEXTURES[(activeConcept.id || '').replace(/^astra:/, '')];
+
+  // Verrät die Positions-/Lage-Kontextkarte die Antwort? Das ist der Fall, wenn die
+  // Frage eine Positions-/Lage-Größe abfragt (Reihenfolge/Entfernung/Lage) oder der
+  // Name selbst die Antwort ist. Dann wird die Karte ganz weggelassen.
+  const POSITION_ATTRS = ['orderFromSun', 'distanceFromSunAU', 'location'];
+  const hideContextMap = answerIsName || POSITION_ATTRS.includes(testedAttribute);
 
   return (
     <div
@@ -373,8 +413,10 @@ export default function AstraVisual({ domain, activeConcept }) {
 
       {/* Kontext-Schema (Phase 2d): verortet das Konzept zusätzlich zum 3D-Körper.
           Unten links, über dem Canvas, oberhalb der Fuß-Leiste. Gibt für
-          Konstanten/Sonne null zurück und ist dann unsichtbar. */}
-      {activeConcept && (
+          Konstanten/Sonne null zurück und ist dann unsichtbar.
+          Selbstverräter-Guard: Bei Positions-/Lage-Fragen oder Reverse-Fragen
+          (hideContextMap) ganz weglassen, da das Schema Bahn/Position verrät. */}
+      {activeConcept && !hideContextMap && (
         <div style={{
           position: 'absolute', left: '16px', bottom: '92px',
           width: '140px', height: '140px', pointerEvents: 'none', zIndex: 2
@@ -399,10 +441,12 @@ export default function AstraVisual({ domain, activeConcept }) {
                 border: `1px solid ${accent}aa`, background: `${accent}33`, marginBottom: '8px'
               }}>{catLabel}</div>
             )}
+            {/* Selbstverräter-Guard: Bei Reverse-Fragen (answerIsName) ist der Name
+                selbst die gesuchte Antwort -> statt Name nur ein neutrales "?". */}
             <h2 style={{
               fontFamily: 'var(--font-title)', fontSize: '30px', fontWeight: 700,
               margin: 0, letterSpacing: '0.5px', textShadow: '0 2px 12px rgba(0,0,0,0.8)'
-            }}>{activeConcept.name}</h2>
+            }}>{answerIsName ? '?' : activeConcept.name}</h2>
           </div>
 
           {/* Fuß: Konstante prominent, sonst Kennwerte + Fun-Fact */}
@@ -416,7 +460,9 @@ export default function AstraVisual({ domain, activeConcept }) {
                 <div style={{ fontSize: '34px', fontWeight: 800, fontFamily: 'var(--font-title)' }}>
                   {String(attrs.value ?? '')}{attrs.unit ? ` ${attrs.unit}` : ''}
                 </div>
-                {activeConcept.funFact && (
+                {/* Selbstverräter-Guard: funFact nennt oft den Namen -> bei
+                    Reverse-Fragen (answerIsName) ausblenden. */}
+                {!answerIsName && activeConcept.funFact && (
                   <p style={{ fontSize: '13px', opacity: 0.85, maxWidth: '440px', margin: '8px auto 0', fontStyle: 'italic' }}>
                     {activeConcept.funFact}
                   </p>
@@ -437,7 +483,9 @@ export default function AstraVisual({ domain, activeConcept }) {
                     ))}
                   </div>
                 )}
-                {activeConcept.funFact && (
+                {/* Selbstverräter-Guard: funFact nennt oft den Namen -> bei
+                    Reverse-Fragen (answerIsName) ausblenden. */}
+                {!answerIsName && activeConcept.funFact && (
                   <p style={{ fontSize: '12.5px', opacity: 0.82, maxWidth: '460px', margin: '0 auto', textAlign: 'center', fontStyle: 'italic' }}>
                     {activeConcept.funFact}
                   </p>

@@ -289,6 +289,13 @@ for (const tpl of templates) {
       prompt: tpl.prompt(c),
       correctAnswer: correct,
       options, // Quiz mischt die Reihenfolge zur Laufzeit
+      // Selbstverraeter-Guard im Visual: das Frontend muss wissen, welches
+      // Attribut die Antwort prueft. Bei Reverse-Templates (Antwort = Konzeptname,
+      // nameAnswer) gibt es kein geprueftes Attribut -> null. Bei Vorwaerts-
+      // Templates ist es tpl.attr (z.B. 'orderFromSun', 'value').
+      testedAttribute: tpl.nameAnswer ? null : tpl.attr,
+      // answerIsName: true, wenn die korrekte Antwort der Konzeptname ist (Reverse).
+      answerIsName: Boolean(tpl.nameAnswer),
       silhouetteSvgPath: null,
       mapTargetId: null
     });

@@ -202,6 +202,14 @@ for (const tpl of templates) {
       prompt: tpl.prompt(c),
       correctAnswer: correct,
       options: [correct, ...distractors],
+      // Selbstverraeter-Guard im Visual: das Frontend muss wissen, welches
+      // Attribut die Antwort prueft. Bei Reverse-Templates (Antwort = Konzeptname,
+      // nameAnswer) gibt es kein geprueftes Attribut -> null. Sonst tpl.attr;
+      // beim valueUnit-Template ist '__valueUnit__' nur ein Platzhalter -> das
+      // real gepruefte Attribut ist 'value'.
+      testedAttribute: tpl.nameAnswer ? null : (tpl.valueUnit ? 'value' : tpl.attr),
+      // answerIsName: true, wenn die korrekte Antwort der Konzeptname ist (Reverse).
+      answerIsName: Boolean(tpl.nameAnswer),
       silhouetteSvgPath: null,
       mapTargetId: null
     });
