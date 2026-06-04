@@ -68,8 +68,9 @@ Diese Fakten sind aus dem Code verifiziert und tragen den ganzen Plan:
 ## 3. Leitprinzipien
 
 - **Architektur vor Content.** Die Domain-Abstraktion ist das Deliverable; Content wächst danach.
-- **Qualität vor Quote.** „≥ 5000 Fragen/Bereich" ist **Roadmap-Ziel, kein Launch-Gate.** Reines
-  kombinatorisches Templating zum Quoten-Erreichen erzeugt repetitive/unfaire Fragen — verboten.
+- **5000 Fragen/Bereich = hartes Ziel** (Nutzer-Vorgabe 2026-06-04). Weg: **mehr distinkte Fragetypen
+  je Konzept + Konzeptbasis ausbauen**, kontrolliert auf Repetitivität geprüft. Plumpes
+  kombinatorisches Quoten-Templating bleibt verboten — Varianten müssen echte Lernwinkel sein.
 - **Eine Domain end-to-end vor Replikation.** Jede Phase ist für sich launchfähig.
 - **Jeder Fakt mit Quelle.** Provenance-Pflicht (`source`-Feld). Faktenkorrektheit nie aus
   Struktur-Tests behaupten.
@@ -167,14 +168,16 @@ Beweist Multi-Domain ohne Visualisierungs-Risiko.
 **Verifikation:** strukturell **+ Faktencheck.** Neues `scripts/verify_facts.js`: prüft `source`-Feld
 und Schema, Stichprobe manuell gegen Quelle. Browser-Run einer Astra-Runde. → Commit + Launch (2 Domains).
 
-### Phase 2 — Visualisierungs-Panel generalisieren + Astra-Click-Map
-Erst jetzt das aufwändige Stück, isoliert.
-1. `VisualPanel.jsx` als Switch über `activeDomain.Visual`; Map = Terra-Visual.
-2. Klick-Flow generalisieren: `onSelectEntity(domainConceptId)` statt geo-spezifisch
-   (entkoppelt `App ↔ Map ↔ Quiz`).
-3. Interaktives Sonnensystem-SVG mit validierten Hotspots, lizenzsauber (selbst erzeugt/CC0).
+### Phase 2 — Visualisierung pro Frage  *(Nutzer-Vorgabe: jede Frage zeigt links etwas)*
+1. ✅ **2a Backbone (v1.7.0):** `VisualPanel.jsx` als Switch über `domain.Visual` (lazy); Quiz meldet
+   aktives Konzept hoch (`onActiveConceptChange`), App hält `activeConceptKey`. Fallback `ConceptVisual`.
+2. ✅ **2b Astra (v1.8.0):** `AstraVisual.jsx` — 3D-Himmelskörper (three.js@0.180), echte Texturen
+   (Solar System Scope, CC BY 4.0) für Sonne/8 Planeten/Erdmond, sonst prozedural. Sternenfeld.
+3. ✅ **2c Homo (v1.9.0):** `HomoVisual.jsx` — gemeinfreie Anatomiegrafiken (Wikimedia PD) je Kategorie.
+4. ⏳ **2d offen:** konzeptgenaue Hervorhebung (Astra-Click-Map mit Hotspots; Homo Einzelstruktur-
+   Highlight via SVG-Element-IDs). Klick-Flow generalisieren: `onSelectEntity(domainConceptId)`.
 
-**Verifikation:** Klick auf z.B. Neptun wird grün/rot markiert, exakt wie Terra-Karte.
+**Verifikation:** Browser-Run je Domain bestätigt (Astra Jupiter texturiert, Homo Skelett) — erledigt.
 
 ### Phasen 3–6 — Homo, Natura, Cultura, Lingua *(je einzeln, je Launch)*
 Pro Domain dieselbe Sequenz: verifizierte Faktenbasis (`source`) → MCQ-Generator → Launch →

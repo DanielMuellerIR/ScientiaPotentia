@@ -24,8 +24,20 @@ Geplante Bereiche: **Terra** (Geografie), **Astra** (Astronomie), **Homo** (Mens
 | Phase 0 | Domain-Abstraktion, Terra unverändert | ✅ erledigt (v1.4.0) |
 | Phase 1 | Astra (MCQ-only) + DomainSwitcher | ✅ erledigt (v1.5.0) |
 | Phase 3 | Homo (MCQ-only) | ✅ erledigt (v1.6.0) |
-| Phase 2 | Visualisierungs-Panel generalisieren + Astra-Click-Map | offen |
+| Phase 2a | Visual-Backbone: linkes Panel zeigt pro Frage das gefragte Konzept (`VisualPanel`/`ConceptVisual`) | ✅ erledigt (v1.7.0) |
+| Phase 2b | Astra 3D-Himmelskörper (three.js + NASA/SSS-Texturen) | ✅ erledigt (v1.8.0) |
+| Phase 2c | Homo Anatomiegrafiken (Wikimedia PD) pro Frage | ✅ erledigt (v1.9.0) |
+| Phase 2d | Konzeptgenaue Hervorhebung (Astra Click-Map, Homo Struktur-Highlight) | offen |
+| Phase 5 | **Content-Ausbau auf 5000 Fragen/Bereich** (mehr Fragetypen + Konzeptausbau) | offen, laufend |
 | Phase 4–6 | Natura, Lingua, Cultura | offen (Reihenfolge: Natura → Lingua → Cultura) |
+
+**Neue verbindliche Anforderungen (Stand 2026-06-04, Nutzer-Vorgabe):**
+- **Jede Quizfrage MUSS links eine passende Visualisierung zeigen** (sonst „todlangweilig"). Umgesetzt
+  über `VisualPanel` → `domain.Visual` (lazy). Terra=Karte, Astra=3D, Homo=Anatomie, Rest=`ConceptVisual`.
+- **Ziel 5000 Fragen/Bereich** ist jetzt hartes Ziel. Weg: **mehr distinkte Fragetypen je Konzept +
+  Konzeptbasis ausbauen**, kontrolliert auf Repetitivität geprüft (ersetzt die alte „kein Templating"-Regel).
+- **Bildmaterial:** copyright-frei (PD/CC0) oder wissenschaftlich korrekt prozedural; CC-BY mit
+  sichtbarer Attribution. **Lizenz jedes Assets klein im Panel anzeigen.** Assets gebündelt (offline).
 
 Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 
@@ -66,9 +78,21 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 ### Bereichs-Content (Stand)
 | Domain | Konzepte | Fragen | Quellen | Visualisierung |
 | :----- | :------- | :----- | :------ | :------------- |
-| Terra  | 1852 | 5217 | Natural Earth / GeoNames / Wikidata | Weltkarte (MapLibre) |
-| Astra  | 56 | 121 | NASA / IAU / ESA | Übersichts-Panel (Click-Map: Phase 2) |
-| Homo   | 50 | 73 | Gray's Anatomy / Prometheus / NIH | Übersichts-Panel (MCQ-only) |
+| Terra  | 1852 | 5217 | Natural Earth / GeoNames / Wikidata | Weltkarte (MapLibre), pro Frage Highlight |
+| Astra  | 56 | 121 | NASA / IAU / ESA | **3D-Himmelskörper (three.js)**, Texturen Solar System Scope (CC BY 4.0) |
+| Homo   | 50 | 73 | Gray's Anatomy / Prometheus / NIH | **Anatomiegrafiken (Wikimedia, Public Domain)** je Kategorie |
+
+> Fragenzahlen Astra/Homo sind noch weit vom 5000-Ziel — Content-Ausbau (Phase 5) ausstehend.
+
+### Visualisierung pro Frage (Stand 2026-06-04)
+- **`src/components/VisualPanel.jsx`** wählt: Terra→`Map`, Domain mit `domain.Visual`→diese (lazy),
+  sonst aktives Konzept→`ConceptVisual` (generische Karte), sonst→`DomainVisual` (Übersicht).
+- **`Quiz.jsx`** meldet je Frage das gefragte Konzept hoch (`onActiveConceptChange`), **`App.jsx`** hält
+  `activeConceptKey` und reicht es an `VisualPanel`.
+- **`AstraVisual.jsx`** (three.js): rotierende Kugel mit echter Textur (Sonne/8 Planeten/Erdmond) bzw.
+  prozedural (Zwergplaneten/Monde/Sterne/Galaxien), Konstanten als Wertanzeige; Sternenfeld-Hintergrund.
+- **`HomoVisual.jsx`**: gemeinfreie Anatomiegrafik je Kategorie + Konzept-Overlay + Lizenzzeile.
+- **Asset-Ablage:** `public/assets/<domain>/…` inkl. `CREDITS.md` (Quelle+Lizenz je Datei).
 
 ### Inhaltsregeln (verbindlich)
 - Keine erfundenen Fakten; Quelle pro Fakt. Fairness: keine obskuren Objekte.
