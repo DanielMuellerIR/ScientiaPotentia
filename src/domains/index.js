@@ -1,4 +1,4 @@
-import { Globe2, Sparkles } from 'lucide-react';
+import { Globe2, Sparkles, PersonStanding } from 'lucide-react';
 
 /**
  * Zentrale Registry aller Wissensbereiche ("Domains").
@@ -40,6 +40,19 @@ export const DOMAINS = [
     hasMap: false,
     loadConcepts: () => fetch('data/concepts_astra.json').then(handleJson),
     loadQuestions: () => fetch('data/questions_astra.json').then(handleJson)
+  },
+  {
+    id: 'homo',
+    latinName: 'Homo',
+    label: 'Mensch & Körper',
+    shortLabel: 'Anatomie',
+    description: 'Knochen, Muskeln, Organe, physiologische Eckwerte und menschliche Arten.',
+    Icon: PersonStanding,
+    accent: '#A14D5A',
+    // Phase 3: reine Multiple-Choice-Fragen, keine interaktive Anatomie-Grafik.
+    hasMap: false,
+    loadConcepts: () => fetch('data/concepts_homo.json').then(handleJson),
+    loadQuestions: () => fetch('data/questions_homo.json').then(handleJson)
   }
 ];
 

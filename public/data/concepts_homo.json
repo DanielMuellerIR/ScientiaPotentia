@@ -1,0 +1,802 @@
+{
+  "homo:femur": {
+    "id": "homo:femur",
+    "name": "Oberschenkelknochen",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Bein",
+      "latinName": "Femur",
+      "notableFor": "längster und stärkster Knochen des menschlichen Körpers"
+    },
+    "funFact": "Der Femur kann in Längsrichtung das Mehrfache des Körpergewichts tragen und ist stabiler als Beton gleicher Masse.",
+    "source": {
+      "name": "Gray's Anatomy (Standard-Anatomie-Lehrbuch)",
+      "url": ""
+    }
+  },
+  "homo:tibia": {
+    "id": "homo:tibia",
+    "name": "Schienbein",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Bein",
+      "latinName": "Tibia",
+      "notableFor": "zweitlängster Knochen und tragender Knochen des Unterschenkels"
+    },
+    "funFact": "Das Schienbein trägt nahezu das gesamte Körpergewicht beim Stehen, während das Wadenbein kaum Last aufnimmt.",
+    "source": {
+      "name": "Prometheus LernAtlas der Anatomie",
+      "url": ""
+    }
+  },
+  "homo:fibula": {
+    "id": "homo:fibula",
+    "name": "Wadenbein",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Bein",
+      "latinName": "Fibula",
+      "notableFor": "dünner Unterschenkelknochen neben dem Schienbein"
+    },
+    "funFact": "Das Wadenbein wird häufig als Knochentransplantat entnommen, da der Körper auch ohne einen Teil davon stabil bleibt.",
+    "source": {
+      "name": "Gray's Anatomy (Standard-Anatomie-Lehrbuch)",
+      "url": ""
+    }
+  },
+  "homo:humerus": {
+    "id": "homo:humerus",
+    "name": "Oberarmknochen",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Arm",
+      "latinName": "Humerus",
+      "notableFor": "längster Knochen der oberen Extremität"
+    },
+    "funFact": "Am Humerus verläuft der Nervus ulnaris, dessen Reizung das bekannte Kribbeln am Ellbogen auslöst.",
+    "source": {
+      "name": "Prometheus LernAtlas der Anatomie",
+      "url": ""
+    }
+  },
+  "homo:ulna": {
+    "id": "homo:ulna",
+    "name": "Elle",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Arm",
+      "latinName": "Ulna",
+      "notableFor": "innerer Unterarmknochen auf der Kleinfingerseite"
+    },
+    "funFact": "Die Elle bildet mit ihrem Olecranon die knöcherne Spitze des Ellenbogens.",
+    "source": {
+      "name": "Gray's Anatomy (Standard-Anatomie-Lehrbuch)",
+      "url": ""
+    }
+  },
+  "homo:radius": {
+    "id": "homo:radius",
+    "name": "Speiche",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Arm",
+      "latinName": "Radius",
+      "notableFor": "äußerer Unterarmknochen auf der Daumenseite"
+    },
+    "funFact": "Die Speiche dreht sich beim Umwenden der Hand um die Elle und ermöglicht so die Drehbewegung des Unterarms.",
+    "source": {
+      "name": "Prometheus LernAtlas der Anatomie",
+      "url": ""
+    }
+  },
+  "homo:cranium": {
+    "id": "homo:cranium",
+    "name": "Schädel",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Kopf",
+      "latinName": "Cranium",
+      "notableFor": "knöcherne Kapsel zum Schutz des Gehirns"
+    },
+    "funFact": "Der menschliche Schädel besteht aus 22 Knochen, die größtenteils durch unbewegliche Nähte fest verbunden sind.",
+    "source": {
+      "name": "Gray's Anatomy (Standard-Anatomie-Lehrbuch)",
+      "url": ""
+    }
+  },
+  "homo:patella": {
+    "id": "homo:patella",
+    "name": "Kniescheibe",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Bein",
+      "latinName": "Patella",
+      "notableFor": "größter Sesambein-Knochen des Körpers"
+    },
+    "funFact": "Die Kniescheibe ist in die Sehne des Oberschenkelmuskels eingebettet und vergrößert dessen Hebelkraft.",
+    "source": {
+      "name": "Prometheus LernAtlas der Anatomie",
+      "url": ""
+    }
+  },
+  "homo:clavicula": {
+    "id": "homo:clavicula",
+    "name": "Schlüsselbein",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Rumpf",
+      "latinName": "Clavicula",
+      "notableFor": "Verbindung zwischen Brustbein und Schulterblatt"
+    },
+    "funFact": "Das Schlüsselbein ist der am häufigsten gebrochene Knochen des Menschen.",
+    "source": {
+      "name": "Gray's Anatomy (Standard-Anatomie-Lehrbuch)",
+      "url": ""
+    }
+  },
+  "homo:stapes": {
+    "id": "homo:stapes",
+    "name": "Steigbügel",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Kopf",
+      "latinName": "Stapes",
+      "notableFor": "kleinster Knochen des menschlichen Körpers"
+    },
+    "funFact": "Der Steigbügel im Mittelohr ist nur wenige Millimeter groß und überträgt Schallschwingungen ans Innenohr.",
+    "source": {
+      "name": "Gray's Anatomy (Standard-Anatomie-Lehrbuch)",
+      "url": ""
+    }
+  },
+  "homo:pelvis": {
+    "id": "homo:pelvis",
+    "name": "Becken",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Rumpf",
+      "latinName": "Pelvis",
+      "notableFor": "knöcherner Ring, der Wirbelsäule und Beine verbindet"
+    },
+    "funFact": "Das Becken besteht aus den verschmolzenen Hüftbeinen und überträgt das Gewicht des Oberkörpers auf die Beine.",
+    "source": {
+      "name": "Prometheus LernAtlas der Anatomie",
+      "url": ""
+    }
+  },
+  "homo:sternum": {
+    "id": "homo:sternum",
+    "name": "Brustbein",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Rumpf",
+      "latinName": "Sternum",
+      "notableFor": "flacher Knochen in der Mitte des Brustkorbs"
+    },
+    "funFact": "Am Brustbein setzen die meisten Rippen über Knorpel an; es enthält zudem aktives blutbildendes Knochenmark.",
+    "source": {
+      "name": "Gray's Anatomy (Standard-Anatomie-Lehrbuch)",
+      "url": ""
+    }
+  },
+  "homo:scapula": {
+    "id": "homo:scapula",
+    "name": "Schulterblatt",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Rumpf",
+      "latinName": "Scapula",
+      "notableFor": "flacher dreieckiger Knochen der Schulter"
+    },
+    "funFact": "Das Schulterblatt ist nur über Muskeln am Rumpf aufgehängt und gleitet frei über den Brustkorb.",
+    "source": {
+      "name": "Prometheus LernAtlas der Anatomie",
+      "url": ""
+    }
+  },
+  "homo:mandibula": {
+    "id": "homo:mandibula",
+    "name": "Unterkiefer",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Kopf",
+      "latinName": "Mandibula",
+      "notableFor": "einziger beweglicher Knochen des Schädels"
+    },
+    "funFact": "Der Unterkiefer ist der kräftigste Knochen des Gesichts und der einzige frei bewegliche Schädelknochen.",
+    "source": {
+      "name": "Gray's Anatomy (Standard-Anatomie-Lehrbuch)",
+      "url": ""
+    }
+  },
+  "homo:vertebra": {
+    "id": "homo:vertebra",
+    "name": "Wirbel",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Rumpf",
+      "latinName": "Vertebra",
+      "notableFor": "Bauelement der Wirbelsäule zum Schutz des Rückenmarks"
+    },
+    "funFact": "Die Wirbelsäule besteht aus 33 Wirbeln, von denen die unteren neun beim Erwachsenen zu Kreuz- und Steißbein verschmelzen.",
+    "source": {
+      "name": "Prometheus LernAtlas der Anatomie",
+      "url": ""
+    }
+  },
+  "homo:gluteus_maximus": {
+    "id": "homo:gluteus_maximus",
+    "name": "Großer Gesäßmuskel (Gluteus maximus)",
+    "type": "muscle",
+    "category": "muscle",
+    "attributes": {
+      "location": "Gesäß / Hüfte",
+      "function": "Streckt das Hüftgelenk, richtet den Rumpf auf und stabilisiert beim Aufstehen und Treppensteigen",
+      "notableFor": "Größter und voluminösester Muskel des menschlichen Körpers"
+    },
+    "funFact": "Der Gluteus maximus ist beim aufrechten Gang und Treppensteigen besonders aktiv und gibt dem Menschen seine markante Gesäßform.",
+    "source": {
+      "name": "Gray's Anatomy / Prometheus Lernatlas der Anatomie",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK538193/"
+    }
+  },
+  "homo:masseter": {
+    "id": "homo:masseter",
+    "name": "Kaumuskel (Masseter)",
+    "type": "muscle",
+    "category": "muscle",
+    "attributes": {
+      "location": "Kiefer / Wange",
+      "function": "Schließt den Unterkiefer und erzeugt die Kraft zum Kauen und Zerkleinern der Nahrung",
+      "notableFor": "Im Verhältnis zu seiner Größe stärkster Muskel des Körpers (höchste Kaukraft)"
+    },
+    "funFact": "Der Masseter kann auf den Backenzähnen eine Beißkraft von mehreren Hundert Newton erzeugen.",
+    "source": {
+      "name": "Prometheus Lernatlas der Anatomie / NIH",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK539869/"
+    }
+  },
+  "homo:stapedius": {
+    "id": "homo:stapedius",
+    "name": "Steigbügelmuskel (Musculus stapedius)",
+    "type": "muscle",
+    "category": "muscle",
+    "attributes": {
+      "location": "Mittelohr",
+      "function": "Dämpft die Bewegung des Steigbügels und schützt das Innenohr vor zu lauten Schallreizen",
+      "notableFor": "Kleinster Skelettmuskel des menschlichen Körpers"
+    },
+    "funFact": "Der Stapedius ist nur etwa einen Millimeter lang und schützt das Ohr reflexartig vor lauten Geräuschen.",
+    "source": {
+      "name": "Gray's Anatomy / NIH",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK544324/"
+    }
+  },
+  "homo:myocardium": {
+    "id": "homo:myocardium",
+    "name": "Herzmuskel (Myokard)",
+    "type": "muscle",
+    "category": "muscle",
+    "attributes": {
+      "location": "Herz / Brustkorb",
+      "function": "Pumpt durch rhythmische Kontraktion das Blut durch den Körper- und Lungenkreislauf",
+      "notableFor": "Einziger Muskel, der ein Leben lang ununterbrochen und ohne willkürliche Steuerung arbeitet"
+    },
+    "funFact": "Der Herzmuskel schlägt im Ruhezustand etwa 60- bis 80-mal pro Minute und pumpt täglich rund 7000 Liter Blut.",
+    "source": {
+      "name": "Gray's Anatomy / NIH",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK553159/"
+    }
+  },
+  "homo:diaphragma": {
+    "id": "homo:diaphragma",
+    "name": "Zwerchfell (Diaphragma)",
+    "type": "muscle",
+    "category": "muscle",
+    "attributes": {
+      "location": "Zwischen Brust- und Bauchhöhle",
+      "function": "Wichtigster Atemmuskel: senkt sich beim Einatmen und vergrößert so das Brustraumvolumen",
+      "notableFor": "Wichtigster Atemmuskel des Körpers, trennt Brust- von Bauchhöhle"
+    },
+    "funFact": "Das Zwerchfell ist eine kuppelförmige Muskelplatte und sorgt für rund 70 Prozent der Atemarbeit.",
+    "source": {
+      "name": "Prometheus Lernatlas der Anatomie / NIH",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK519558/"
+    }
+  },
+  "homo:biceps_brachii": {
+    "id": "homo:biceps_brachii",
+    "name": "Bizeps (Musculus biceps brachii)",
+    "type": "muscle",
+    "category": "muscle",
+    "attributes": {
+      "location": "Oberarm (Vorderseite)",
+      "function": "Beugt den Unterarm im Ellenbogen und dreht die Hand nach außen (Supination)",
+      "notableFor": "Bekanntester Beugemuskel des Oberarms, namensgebend durch zwei Muskelköpfe"
+    },
+    "funFact": "Der Name Bizeps bedeutet zweiköpfig, weil der Muskel mit zwei Sehnen am Schulterblatt entspringt.",
+    "source": {
+      "name": "Gray's Anatomy / Prometheus Lernatlas der Anatomie",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK519538/"
+    }
+  },
+  "homo:triceps_brachii": {
+    "id": "homo:triceps_brachii",
+    "name": "Trizeps (Musculus triceps brachii)",
+    "type": "muscle",
+    "category": "muscle",
+    "attributes": {
+      "location": "Oberarm (Rückseite)",
+      "function": "Streckt den Unterarm im Ellenbogengelenk und ist Gegenspieler des Bizeps",
+      "notableFor": "Wichtigster Streckmuskel des Oberarms, Antagonist des Bizeps"
+    },
+    "funFact": "Der Trizeps ist dreiköpfig und der einzige Muskel auf der Rückseite des Oberarms.",
+    "source": {
+      "name": "Gray's Anatomy / Prometheus Lernatlas der Anatomie",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK536996/"
+    }
+  },
+  "homo:gastrocnemius": {
+    "id": "homo:gastrocnemius",
+    "name": "Wadenmuskel (Musculus gastrocnemius)",
+    "type": "muscle",
+    "category": "muscle",
+    "attributes": {
+      "location": "Unterschenkel (Wade)",
+      "function": "Beugt den Fuß nach unten (Plantarflexion) und ermöglicht Abstoßen beim Gehen, Laufen und Springen",
+      "notableFor": "Auffälligster Muskel der Wade, bildet die sichtbare Wadenwölbung"
+    },
+    "funFact": "Der Gastrocnemius geht in die Achillessehne über, die kräftigste Sehne des menschlichen Körpers.",
+    "source": {
+      "name": "Gray's Anatomy / Prometheus Lernatlas der Anatomie",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK532946/"
+    }
+  },
+  "homo:sartorius": {
+    "id": "homo:sartorius",
+    "name": "Schneidermuskel (Musculus sartorius)",
+    "type": "muscle",
+    "category": "muscle",
+    "attributes": {
+      "location": "Oberschenkel (Vorderseite)",
+      "function": "Beugt Hüfte und Knie und ermöglicht das Übereinanderschlagen der Beine",
+      "notableFor": "Längster Muskel des menschlichen Körpers"
+    },
+    "funFact": "Der Sartorius zieht spiralförmig über den Oberschenkel und ist der längste Muskel des Körpers.",
+    "source": {
+      "name": "Gray's Anatomy / Prometheus Lernatlas der Anatomie",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK537340/"
+    }
+  },
+  "homo:deltoideus": {
+    "id": "homo:deltoideus",
+    "name": "Deltamuskel (Musculus deltoideus)",
+    "type": "muscle",
+    "category": "muscle",
+    "attributes": {
+      "location": "Schulter",
+      "function": "Hebt den Arm zur Seite (Abduktion) und gibt der Schulter ihre runde Form",
+      "notableFor": "Bestimmt die runde Kontur der Schulter und ist Hauptmuskel der Armhebung"
+    },
+    "funFact": "Der Deltamuskel ist nach dem griechischen Buchstaben Delta benannt, dessen Dreiecksform er ähnelt.",
+    "source": {
+      "name": "Gray's Anatomy / Prometheus Lernatlas der Anatomie",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK537056/"
+    }
+  },
+  "homo:herz": {
+    "id": "homo:herz",
+    "name": "Herz",
+    "type": "organ",
+    "category": "organ",
+    "attributes": {
+      "system": "Herz-Kreislauf",
+      "function": "Pumpt Blut durch den Koerper und versorgt Gewebe mit Sauerstoff und Naehrstoffen.",
+      "approxWeightGrams": 300
+    },
+    "funFact": "Das Herz eines Erwachsenen schlaegt im Ruhezustand rund 60- bis 80-mal pro Minute und pumpt taeglich etwa 7000 Liter Blut.",
+    "source": {
+      "name": "Gray's Anatomy / NIH MedlinePlus",
+      "url": "https://medlineplus.gov/ency/anatomyvideos/000016.htm"
+    }
+  },
+  "homo:leber": {
+    "id": "homo:leber",
+    "name": "Leber",
+    "type": "organ",
+    "category": "organ",
+    "attributes": {
+      "system": "Verdauung",
+      "function": "Entgiftet das Blut, speichert Naehrstoffe und bildet Galle fuer die Fettverdauung.",
+      "approxWeightGrams": 1500
+    },
+    "funFact": "Die Leber ist das groesste innere Organ und das einzige menschliche Organ, das nach Teilverlust wieder nachwachsen kann.",
+    "source": {
+      "name": "Prometheus Anatomie / NIH NIDDK",
+      "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/liver-disease"
+    }
+  },
+  "homo:lunge": {
+    "id": "homo:lunge",
+    "name": "Lunge",
+    "type": "organ",
+    "category": "organ",
+    "attributes": {
+      "system": "Atmung",
+      "function": "Nimmt Sauerstoff aus der Atemluft auf und gibt Kohlendioxid an die Ausatemluft ab.",
+      "approxWeightGrams": 1000
+    },
+    "funFact": "Die rechte Lunge hat drei Lungenlappen, die linke nur zwei, weil dort Platz fuer das Herz bleibt.",
+    "source": {
+      "name": "Gray's Anatomy / NIH NHLBI",
+      "url": "https://www.nhlbi.nih.gov/health/lungs"
+    }
+  },
+  "homo:gehirn": {
+    "id": "homo:gehirn",
+    "name": "Gehirn",
+    "type": "organ",
+    "category": "organ",
+    "attributes": {
+      "system": "Nervensystem",
+      "function": "Steuert Denken, Bewegung, Sinneswahrnehmung und lebenswichtige Koerperfunktionen.",
+      "approxWeightGrams": 1400
+    },
+    "funFact": "Das Gehirn macht nur etwa zwei Prozent des Koerpergewichts aus, verbraucht aber rund ein Fuenftel der gesamten Energie.",
+    "source": {
+      "name": "Gray's Anatomy / NIH NINDS",
+      "url": "https://www.ninds.nih.gov/health-information/public-education/brain-basics"
+    }
+  },
+  "homo:nieren": {
+    "id": "homo:nieren",
+    "name": "Nieren",
+    "type": "organ",
+    "category": "organ",
+    "attributes": {
+      "system": "Ausscheidung",
+      "function": "Filtern das Blut, bilden Harn und regeln den Wasser- und Salzhaushalt.",
+      "approxWeightGrams": 150
+    },
+    "funFact": "Die beiden Nieren filtern taeglich rund 180 Liter Blutfluessigkeit, von der fast alles wieder rueckresorbiert wird.",
+    "source": {
+      "name": "Prometheus Anatomie / NIH NIDDK",
+      "url": "https://www.niddk.nih.gov/health-information/kidney-disease/kidneys-how-they-work"
+    }
+  },
+  "homo:haut": {
+    "id": "homo:haut",
+    "name": "Haut",
+    "type": "organ",
+    "category": "organ",
+    "attributes": {
+      "system": "Sinnesorgan",
+      "function": "Schuetzt den Koerper vor Umwelteinfluessen, reguliert die Temperatur und vermittelt den Tastsinn.",
+      "approxWeightGrams": 10000
+    },
+    "funFact": "Die Haut ist das groesste Organ des Menschen und bedeckt beim Erwachsenen eine Flaeche von rund zwei Quadratmetern.",
+    "source": {
+      "name": "Gray's Anatomy / NIH MedlinePlus",
+      "url": "https://medlineplus.gov/skinconditions.html"
+    }
+  },
+  "homo:magen": {
+    "id": "homo:magen",
+    "name": "Magen",
+    "type": "organ",
+    "category": "organ",
+    "attributes": {
+      "system": "Verdauung",
+      "function": "Speichert Nahrung und zersetzt sie mit Magensaeure und Enzymen zu Speisebrei.",
+      "approxWeightGrams": 150
+    },
+    "funFact": "Der Magen produziert taeglich rund zwei Liter Magensaft, dessen Salzsaeure stark genug ist, um Metall anzugreifen.",
+    "source": {
+      "name": "Prometheus Anatomie / NIH NIDDK",
+      "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/digestive-system-how-it-works"
+    }
+  },
+  "homo:milz": {
+    "id": "homo:milz",
+    "name": "Milz",
+    "type": "organ",
+    "category": "organ",
+    "attributes": {
+      "system": "Herz-Kreislauf",
+      "function": "Filtert das Blut, baut alte rote Blutkoerperchen ab und ist Teil der Immunabwehr.",
+      "approxWeightGrams": 150
+    },
+    "funFact": "Die Milz dient als Blutspeicher und kann bei Bedarf zusaetzliche rote Blutkoerperchen in den Kreislauf abgeben.",
+    "source": {
+      "name": "Gray's Anatomy / NIH MedlinePlus",
+      "url": "https://medlineplus.gov/ency/article/002270.htm"
+    }
+  },
+  "homo:pankreas": {
+    "id": "homo:pankreas",
+    "name": "Bauchspeicheldruese",
+    "type": "organ",
+    "category": "organ",
+    "attributes": {
+      "system": "Verdauung",
+      "function": "Bildet Verdauungsenzyme und die Hormone Insulin und Glukagon zur Blutzuckerregelung.",
+      "approxWeightGrams": 80
+    },
+    "funFact": "Die Bauchspeicheldruese vereint zwei Funktionen: Sie gibt Enzyme in den Darm ab und Hormone direkt ins Blut.",
+    "source": {
+      "name": "Prometheus Anatomie / NIH NIDDK",
+      "url": "https://www.niddk.nih.gov/health-information/diabetes/overview/what-is-diabetes"
+    }
+  },
+  "homo:blase": {
+    "id": "homo:blase",
+    "name": "Harnblase",
+    "type": "organ",
+    "category": "organ",
+    "attributes": {
+      "system": "Ausscheidung",
+      "function": "Speichert den von den Nieren gebildeten Harn bis zur Entleerung.",
+      "approxWeightGrams": 50
+    },
+    "funFact": "Die Harnblase ist ein dehnbarer Muskelhohlkoerper und kann beim Erwachsenen etwa 400 bis 500 Milliliter Harn fassen.",
+    "source": {
+      "name": "Gray's Anatomy / NIH NIDDK",
+      "url": "https://www.niddk.nih.gov/health-information/urologic-diseases/urinary-tract-how-it-works"
+    }
+  },
+  "homo:knochen_erwachsener": {
+    "id": "homo:knochen_erwachsener",
+    "name": "Anzahl Knochen beim Erwachsenen",
+    "type": "body_fact",
+    "category": "body_fact",
+    "attributes": {
+      "value": "206",
+      "unit": "Knochen",
+      "definition": "Das ausgewachsene menschliche Skelett besteht aus 206 einzelnen Knochen."
+    },
+    "funFact": "Mehr als die Haelfte aller Knochen steckt in Haenden und Fuessen.",
+    "source": {
+      "name": "NCBI StatPearls / Anatomie-Lehrbuch (Gray's Anatomy)",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK470204/"
+    }
+  },
+  "homo:knochen_neugeborenes": {
+    "id": "homo:knochen_neugeborenes",
+    "name": "Anzahl Knochen beim Neugeborenen",
+    "type": "body_fact",
+    "category": "body_fact",
+    "attributes": {
+      "value": "ca. 300",
+      "unit": "Knochen",
+      "definition": "Ein Neugeborenes hat etwa 300 Knochen, von denen viele spaeter zu groesseren Knochen verschmelzen."
+    },
+    "funFact": "Beim Heranwachsen verschmelzen die Knochen, bis im Erwachsenenalter nur noch 206 uebrig bleiben.",
+    "source": {
+      "name": "Cleveland Clinic Health Essentials",
+      "url": "https://health.clevelandclinic.org/how-many-bones-does-a-baby-have"
+    }
+  },
+  "homo:zaehne_erwachsener": {
+    "id": "homo:zaehne_erwachsener",
+    "name": "Anzahl Zaehne beim Erwachsenen",
+    "type": "body_fact",
+    "category": "body_fact",
+    "attributes": {
+      "value": "32",
+      "unit": "Zaehne",
+      "definition": "Das vollstaendige bleibende Gebiss eines Erwachsenen umfasst 32 Zaehne inklusive der vier Weisheitszaehne."
+    },
+    "funFact": "Milchgebiss eines Kindes besteht dagegen nur aus 20 Zaehnen.",
+    "source": {
+      "name": "NCBI StatPearls (Anatomy, Head and Neck, Teeth)",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK538475/"
+    }
+  },
+  "homo:chromosomen": {
+    "id": "homo:chromosomen",
+    "name": "Anzahl Chromosomen des Menschen",
+    "type": "body_fact",
+    "category": "body_fact",
+    "attributes": {
+      "value": "46",
+      "unit": "Chromosomen (23 Paare)",
+      "definition": "Jede menschliche Koerperzelle enthaelt 46 Chromosomen, die in 23 Paaren angeordnet sind."
+    },
+    "funFact": "Ein Paar davon bestimmt das Geschlecht (XX oder XY).",
+    "source": {
+      "name": "NIH National Human Genome Research Institute",
+      "url": "https://www.genome.gov/genetics-glossary/Chromosome"
+    }
+  },
+  "homo:koerpertemperatur": {
+    "id": "homo:koerpertemperatur",
+    "name": "Normale Koerpertemperatur",
+    "type": "body_fact",
+    "category": "body_fact",
+    "attributes": {
+      "value": "37",
+      "unit": "Grad Celsius",
+      "definition": "Die durchschnittliche normale Koerperkerntemperatur des Menschen liegt bei rund 37 Grad Celsius."
+    },
+    "funFact": "Die Temperatur schwankt im Tagesverlauf, morgens ist sie typischerweise am niedrigsten.",
+    "source": {
+      "name": "NCBI StatPearls (Physiology, Temperature Regulation)",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK507838/"
+    }
+  },
+  "homo:blutvolumen": {
+    "id": "homo:blutvolumen",
+    "name": "Blutvolumen eines Erwachsenen",
+    "type": "body_fact",
+    "category": "body_fact",
+    "attributes": {
+      "value": "ca. 5",
+      "unit": "Liter",
+      "definition": "Ein erwachsener Mensch hat etwa 5 Liter Blut, was rund 7 bis 8 Prozent des Koerpergewichts entspricht."
+    },
+    "funFact": "Das Herz pumpt diese gesamte Blutmenge etwa einmal pro Minute durch den Koerper.",
+    "source": {
+      "name": "NCBI StatPearls (Physiology, Blood Volume)",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK526077/"
+    }
+  },
+  "homo:ruhepuls": {
+    "id": "homo:ruhepuls",
+    "name": "Ruhepuls eines Erwachsenen",
+    "type": "body_fact",
+    "category": "body_fact",
+    "attributes": {
+      "value": "60-100",
+      "unit": "Schlaege pro Minute",
+      "definition": "Der normale Ruhepuls eines gesunden Erwachsenen liegt zwischen 60 und 100 Schlaegen pro Minute."
+    },
+    "funFact": "Gut trainierte Ausdauersportler haben oft einen Ruhepuls deutlich unter 60.",
+    "source": {
+      "name": "Mayo Clinic",
+      "url": "https://www.mayoclinic.org/healthy-lifestyle/fitness/expert-answers/heart-rate/faq-20057979"
+    }
+  },
+  "homo:ischiasnerv": {
+    "id": "homo:ischiasnerv",
+    "name": "Laengster Nerv (Ischiasnerv)",
+    "type": "body_fact",
+    "category": "body_fact",
+    "attributes": {
+      "value": "Ischiasnerv (Nervus ischiadicus)",
+      "unit": "",
+      "definition": "Der Ischiasnerv ist der laengste und dickste Nerv des menschlichen Koerpers und verlaeuft vom unteren Ruecken bis ins Bein."
+    },
+    "funFact": "An seiner dicksten Stelle ist er etwa so breit wie ein kleiner Finger.",
+    "source": {
+      "name": "Encyclopaedia Britannica / NCBI StatPearls",
+      "url": "https://www.britannica.com/science/sciatic-nerve"
+    }
+  },
+  "homo:largest_organ": {
+    "id": "homo:largest_organ",
+    "name": "Groesstes Organ (Haut)",
+    "type": "body_fact",
+    "category": "body_fact",
+    "attributes": {
+      "value": "Haut",
+      "unit": "ca. 1,5-2 m2 Flaeche",
+      "definition": "Die Haut ist das groesste Organ des Menschen und bedeckt mit rund 1,5 bis 2 Quadratmetern die gesamte Koerperoberflaeche."
+    },
+    "funFact": "Die Haut macht etwa 16 Prozent des gesamten Koerpergewichts aus.",
+    "source": {
+      "name": "NCBI StatPearls (Anatomy, Skin)",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK470464/"
+    }
+  },
+  "homo:rippenpaare": {
+    "id": "homo:rippenpaare",
+    "name": "Anzahl Rippenpaare",
+    "type": "body_fact",
+    "category": "body_fact",
+    "attributes": {
+      "value": "12",
+      "unit": "Rippenpaare (24 Rippen)",
+      "definition": "Der menschliche Brustkorb besitzt 12 Rippenpaare, also insgesamt 24 Rippen."
+    },
+    "funFact": "Die untersten zwei Paare heissen freie Rippen, weil sie vorne nicht mit dem Brustbein verbunden sind.",
+    "source": {
+      "name": "NCBI StatPearls (Anatomy, Thorax, Ribs)",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK547638/"
+    }
+  },
+  "homo:homo_sapiens": {
+    "id": "homo:homo_sapiens",
+    "name": "Homo sapiens (Moderner Mensch)",
+    "type": "species",
+    "category": "species",
+    "attributes": {
+      "epoch": "seit ca. 300.000 Jahren",
+      "region": "Afrika (Ursprung)",
+      "notableFor": "Einzige heute noch lebende Menschenart"
+    },
+    "funFact": "Die ältesten bekannten Funde stammen aus Jebel Irhoud in Marokko und sind rund 300.000 Jahre alt.",
+    "source": {
+      "name": "Smithsonian National Museum of Natural History - Human Origins",
+      "url": "https://humanorigins.si.edu/evidence/human-fossils/species/homo-sapiens"
+    }
+  },
+  "homo:homo_neanderthalensis": {
+    "id": "homo:homo_neanderthalensis",
+    "name": "Neandertaler (Homo neanderthalensis)",
+    "type": "species",
+    "category": "species",
+    "attributes": {
+      "epoch": "ca. 400.000 bis 40.000 Jahre vor heute",
+      "region": "Europa und Westasien",
+      "notableFor": "Naher Verwandter des modernen Menschen, an Kälte angepasst"
+    },
+    "funFact": "Menschen außerhalb Afrikas tragen noch heute einen kleinen Anteil an Neandertaler-DNA in ihrem Erbgut.",
+    "source": {
+      "name": "Smithsonian National Museum of Natural History - Human Origins",
+      "url": "https://humanorigins.si.edu/evidence/human-fossils/species/homo-neanderthalensis"
+    }
+  },
+  "homo:homo_erectus": {
+    "id": "homo:homo_erectus",
+    "name": "Homo erectus",
+    "type": "species",
+    "category": "species",
+    "attributes": {
+      "epoch": "ca. 1,9 Millionen bis 110.000 Jahre vor heute",
+      "region": "Afrika und Asien",
+      "notableFor": "Erste Art mit klar menschlichen Körperproportionen und weiter Verbreitung"
+    },
+    "funFact": "Homo erectus war die am längsten existierende Menschenart und besiedelte als erste große Teile Asiens.",
+    "source": {
+      "name": "Smithsonian National Museum of Natural History - Human Origins",
+      "url": "https://humanorigins.si.edu/evidence/human-fossils/species/homo-erectus"
+    }
+  },
+  "homo:homo_habilis": {
+    "id": "homo:homo_habilis",
+    "name": "Homo habilis",
+    "type": "species",
+    "category": "species",
+    "attributes": {
+      "epoch": "ca. 2,4 bis 1,4 Millionen Jahre vor heute",
+      "region": "Ostafrika",
+      "notableFor": "Frühe Steinwerkzeuge, daher der Name 'geschickter Mensch'"
+    },
+    "funFact": "Der Artname 'habilis' bedeutet 'geschickt' und verweist auf die mit dieser Art verbundenen frühen Steinwerkzeuge.",
+    "source": {
+      "name": "Smithsonian National Museum of Natural History - Human Origins",
+      "url": "https://humanorigins.si.edu/evidence/human-fossils/species/homo-habilis"
+    }
+  },
+  "homo:australopithecus_afarensis": {
+    "id": "homo:australopithecus_afarensis",
+    "name": "Australopithecus afarensis",
+    "type": "species",
+    "category": "species",
+    "attributes": {
+      "epoch": "ca. 3,9 bis 2,9 Millionen Jahre vor heute",
+      "region": "Ostafrika",
+      "notableFor": "Aufrechter Gang bei noch kleinem Gehirn, bekannt durch das Fossil 'Lucy'"
+    },
+    "funFact": "Das berühmte Skelett 'Lucy' gehört zu dieser Art und belegt den aufrechten Gang vor über drei Millionen Jahren.",
+    "source": {
+      "name": "Smithsonian National Museum of Natural History - Human Origins",
+      "url": "https://humanorigins.si.edu/evidence/human-fossils/species/australopithecus-afarensis"
+    }
+  }
+}

@@ -38,7 +38,12 @@ export default function DomainVisual({ domain, concepts = {}, srsProgress = {} }
     moon: 'Monde',
     star: 'Sterne',
     galaxy: 'Galaxien',
-    constant: 'Konstanten'
+    constant: 'Konstanten',
+    bone: 'Knochen',
+    muscle: 'Muskeln',
+    organ: 'Organe',
+    body_fact: 'Körperwerte',
+    species: 'Menschenarten'
   };
 
   return (

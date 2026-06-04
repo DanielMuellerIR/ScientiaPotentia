@@ -15,7 +15,12 @@ const TYPE_LABELS = {
   moon: 'Monde',
   star: 'Sterne',
   galaxy: 'Galaxien',
-  constant: 'Konstanten'
+  constant: 'Konstanten',
+  bone: 'Knochen',
+  muscle: 'Muskeln',
+  organ: 'Organe',
+  body_fact: 'Körperwerte',
+  species: 'Menschenarten'
 };
 
 export default function Dashboard({
