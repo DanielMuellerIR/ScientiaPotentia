@@ -105,8 +105,20 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 ### Inhaltsregeln (verbindlich)
 - Keine erfundenen Fakten; Quelle pro Fakt. Fairness: keine obskuren Objekte.
 - Distraktoren plausibel, gleiche Kategorie, nicht trivial ausschließbar.
+- **Antwort darf nicht im Fragewortlaut stecken (Selbstverräter-Test).** Wenn der deutsche
+  Name die Antwort verrät, ist die Frage schlecht bzw. höchstens Stufe 1. Beispiele:
+  „In welcher Region liegt der **Wade**nbein?" → „Bein" steckt drin. „…der **Kau**knochen?"
+  → Kopf trivial. Schwierigkeit muss den **Bekanntheitsgrad** widerspiegeln, nicht das Template.
 - Copyright: keine geschützten Texte/langen Zitate, keine namentlichen Rekorde lebender Personen.
 - Homo: keine Krankheiten, keine Kultur. Natura: Klimawandel nach IPCC-Konsens. Cultura zuletzt.
+
+> **TODO (Folge-Session) — Schwierigkeit & Selbstverräter-Fragen:** Alle bestehenden Fragen gegen
+> den Selbstverräter-Test prüfen (deutscher Name enthält Region/Antwort). Befund: aussortieren
+> oder Stufe korrigieren. Wo die deutsche Frage trivial ist, **lateinischen Fachbegriff** abfragen
+> (z.B. „In welcher Region liegt die *Fibula*?") — schwerer, Stufe je nach Bekanntheit bis 4.
+> Schwierigkeits-Heuristik im Generator überdenken: aktuell starr per Template, sollte
+> Wortverrat + Bekanntheitsgrad berücksichtigen. Betrifft v.a. Homo (`bone-region`,
+> `muscle-location`), prüfen aber alle Domains.
 
 ### Befehle
 `npm run dev` (Port 3000) · `npm run build` · `node scripts/generate_<domain>.js` ·
