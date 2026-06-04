@@ -1,0 +1,705 @@
+import React, { useEffect, useRef, useState } from 'react';
+import maplibregl from 'maplibre-gl';
+import { Protocol } from 'pmtiles';
+
+// Initialize PMTiles protocol globally
+const protocol = new Protocol();
+maplibregl.addProtocol('pmtiles', protocol.tile);
+
+// Helper to compute bounding box of a GeoJSON geometry
+function getBoundingBox(geometry) {
+  let minLng = Infinity, maxLng = -Infinity;
+  let minLat = Infinity, maxLat = -Infinity;
+
+  const processCoordinates = (coords) => {
+    if (typeof coords[0] === 'number') {
+      const [lng, lat] = coords;
+      if (lng < minLng) minLng = lng;
+      if (lng > maxLng) maxLng = lng;
+      if (lat < minLat) minLat = lat;
+      if (lat > maxLat) maxLat = lat;
+    } else {
+      coords.forEach(processCoordinates);
+    }
+  };
+
+  processCoordinates(geometry.coordinates);
+  return [[minLng, minLat], [maxLng, maxLat]];
+}
+
+export default function Map({
+  selectedId,
+  onSelectEntity,
+  highlightedIds = [],
+  wrongIds = [],
+  correctIds = [],
+  progressHeatmap = {},
+  mode = 'atlas', // 'atlas' | 'quiz' | 'dashboard'
+  showSubdivisions = false,
+  zoomToEntityId = null
+}) {
+  const mapContainerRef = useRef(null);
+  const mapRef = useRef(null);
+  const [mapLoaded, setMapLoaded] = useState(false);
+  const [countriesGeoJSON, setCountriesGeoJSON] = useState(null);
+  const [subdivisionsGeoJSON, setSubdivisionsGeoJSON] = useState(null);
+  const [riversGeoJSON, setRiversGeoJSON] = useState(null);
+
+  const stateRef = useRef();
+  stateRef.current = { mode, highlightedIds, correctIds, wrongIds, showSubdivisions, onSelectEntity };
+
+  // Load countries, subdivisions and rivers geometries for bounding box calculations
+  useEffect(() => {
+    fetch('data/countries.json')
+      .then(res => res.json())
+      .then(data => setCountriesGeoJSON(data))
+      .catch(err => console.error('Failed to load countries geometry in Map:', err));
+
+    fetch('data/subdivisions.json')
+      .then(res => res.json())
+      .then(data => setSubdivisionsGeoJSON(data))
+      .catch(err => console.error('Failed to load subdivisions geometry in Map:', err));
+
+    fetch('data/rivers.json')
+      .then(res => res.json())
+      .then(data => setRiversGeoJSON(data))
+      .catch(err => console.error('Failed to load rivers geometry in Map:', err));
+  }, []);
+
+  // Helper to toggle place/label layers
+  const toggleMapLabels = (map, visible) => {
+    try {
+      const style = map.getStyle();
+      if (!style || !style.layers) return;
+      
+      const visibilityValue = visible ? 'visible' : 'none';
+      style.layers.forEach(layer => {
+        // Find text label layers
+        if (layer.type === 'symbol' || 
+            layer.id.includes('label') || 
+            layer.id.includes('place') || 
+            layer.id.includes('poi') || 
+            layer.id.includes('town') || 
+            layer.id.includes('city') || 
+            layer.id.includes('country')) {
+          map.setLayoutProperty(layer.id, 'visibility', visibilityValue);
+        }
+      });
+    } catch (e) {
+      console.warn('Could not toggle map labels:', e);
+    }
+  };
+
+  // Initialize Map
+  useEffect(() => {
+    if (mapRef.current) return;
+
+    console.log('Initializing MapLibre GL JS...');
+    const map = new maplibregl.Map({
+      container: mapContainerRef.current,
+      style: 'https://tiles.openfreemap.org/styles/positron', // Clean vintage paper-like positron style
+      center: [10, 30],
+      zoom: 1.5,
+      maxZoom: 9,
+      minZoom: 1
+    });
+
+    mapRef.current = map;
+
+    map.on('load', () => {
+      // Find the first symbol layer in the style so we can insert custom layers beneath labels
+      const style = map.getStyle();
+      let firstLabelLayerId = undefined;
+      if (style && style.layers) {
+        for (const layer of style.layers) {
+          if (layer.type === 'symbol') {
+            firstLabelLayerId = layer.id;
+            break;
+          }
+        }
+      }
+
+      // 1. Add Countries source and layers
+      map.addSource('countries', {
+        type: 'geojson',
+        data: 'data/countries.json',
+        promoteId: 'id'
+      });
+
+      // Default transparent fill layer for country interaction
+      map.addLayer({
+        id: 'countries-fill',
+        type: 'fill',
+        source: 'countries',
+        paint: {
+          'fill-color': '#FAF6EE',
+          'fill-opacity': 0.0 // Start transparent
+        }
+      }, firstLabelLayerId);
+
+      // Country borderlines
+      map.addLayer({
+        id: 'countries-borders',
+        type: 'line',
+        source: 'countries',
+        paint: {
+          'line-color': '#A6A192',
+          'line-width': 1,
+          'line-opacity': 0.0 // Hide initially
+        }
+      }, firstLabelLayerId);
+
+      // 2. Add Subdivisions source and layers (DE, US, GB)
+      map.addSource('subdivisions', {
+        type: 'geojson',
+        data: 'data/subdivisions.json',
+        promoteId: 'id'
+      });
+
+      // Subdivision fills (invisible by default, visible on zoom or quiz selection)
+      map.addLayer({
+        id: 'subdivisions-fill',
+        type: 'fill',
+        source: 'subdivisions',
+        paint: {
+          'fill-color': '#EFECE3',
+          'fill-opacity': 0.0
+        }
+      }, firstLabelLayerId);
+
+      // Subdivision borderlines (finer dashed lines)
+      map.addLayer({
+        id: 'subdivisions-borders',
+        type: 'line',
+        source: 'subdivisions',
+        paint: {
+          'line-color': '#C7C2B4',
+          'line-width': 0.8,
+          'line-dasharray': [2, 2],
+          'line-opacity': 0.0
+        }
+      }, firstLabelLayerId);
+
+      // Selected outlines glow
+      map.addLayer({
+        id: 'countries-hover-outline',
+        type: 'line',
+        source: 'countries',
+        paint: {
+          'line-color': '#1B305B',
+          'line-width': 2.5,
+          'line-opacity': [
+            'case',
+            ['boolean', ['feature-state', 'hover'], false],
+            1,
+            0
+          ]
+        }
+      }, firstLabelLayerId);
+
+      // 3. Add Rivers source and layer
+      map.addSource('rivers', {
+        type: 'geojson',
+        data: 'data/rivers.json',
+        promoteId: 'id'
+      });
+
+      // Rivers line layer (rendered beneath text labels)
+      map.addLayer({
+        id: 'rivers-line',
+        type: 'line',
+        source: 'rivers',
+        layout: {
+          'line-cap': 'round',
+          'line-join': 'round'
+        },
+        paint: {
+          'line-color': '#879BB3',
+          'line-width': 1.5,
+          'line-opacity': 0.0
+        }
+      }, firstLabelLayerId);
+
+      setMapLoaded(true);
+
+      // Mouse Move Hover effect on countries
+      let hoveredFeatureId = null;
+      map.on('mousemove', 'countries-fill', (e) => {
+        if (e.features.length > 0) {
+          map.getCanvas().style.cursor = 'pointer';
+          
+          if (hoveredFeatureId !== null) {
+            map.setFeatureState(
+              { source: 'countries', id: hoveredFeatureId },
+              { hover: false }
+            );
+          }
+          
+          hoveredFeatureId = e.features[0].id;
+          map.setFeatureState(
+            { source: 'countries', id: hoveredFeatureId },
+            { hover: true }
+          );
+        }
+      });
+
+      map.on('mouseleave', 'countries-fill', () => {
+        map.getCanvas().style.cursor = '';
+        if (hoveredFeatureId !== null) {
+          map.setFeatureState(
+            { source: 'countries', id: hoveredFeatureId },
+            { hover: false }
+          );
+          hoveredFeatureId = null;
+        }
+      });
+
+      // Click Event - Handles clicks on countries or subdivisions. Query features to prevent double click triggers.
+      map.on('click', (e) => {
+        const { mode, highlightedIds, correctIds, wrongIds, showSubdivisions, onSelectEntity } = stateRef.current;
+        const currentZoom = map.getZoom();
+        
+        const isSubdivisionActive = showSubdivisions ||
+                                    highlightedIds.some(id => id && typeof id === 'string' && id.includes('-')) || 
+                                    correctIds.some(id => id && typeof id === 'string' && id.includes('-')) || 
+                                    wrongIds.some(id => id && typeof id === 'string' && id.includes('-'));
+                                    
+        const areSubdivisionsVisible = (mode === 'quiz' && isSubdivisionActive) || (mode !== 'quiz' && currentZoom > 3);
+
+        const features = map.queryRenderedFeatures(e.point);
+        if (!features || features.length === 0) return;
+
+        if (areSubdivisionsVisible) {
+          const subFeat = features.find(f => f.layer.id === 'subdivisions-fill');
+          if (subFeat) {
+            const clickedId = subFeat.properties?.id || subFeat.id;
+            if (onSelectEntity) onSelectEntity(clickedId);
+            return;
+          }
+        }
+
+        const countryFeat = features.find(f => f.layer.id === 'countries-fill');
+        if (countryFeat) {
+          const clickedId = countryFeat.properties?.id || countryFeat.id;
+          if (onSelectEntity) onSelectEntity(clickedId);
+          return;
+        }
+      });
+    });
+
+    return () => {
+      if (mapRef.current) {
+        mapRef.current.remove();
+        mapRef.current = null;
+      }
+    };
+  }, []);
+
+  // Update styles based on tab mode and active entities
+  useEffect(() => {
+    if (!mapLoaded || !mapRef.current) return;
+    const map = mapRef.current;
+
+    // Toggle text labels: Hide during Quiz mode, Show in Atlas/Dashboard
+    toggleMapLabels(map, mode !== 'quiz');
+
+    if (mode === 'dashboard') {
+      // 1. Dashboard Mode: "Keine Länder einzeichnen" (Keep start screen clean)
+      map.setPaintProperty('countries-fill', 'fill-opacity', 0.0);
+      map.setPaintProperty('countries-borders', 'line-opacity', 0.0);
+      map.setPaintProperty('countries-borders', 'line-color', '#A6A192');
+      map.setPaintProperty('countries-borders', 'line-width', 1);
+      map.setPaintProperty('subdivisions-fill', 'fill-opacity', 0.0);
+      map.setPaintProperty('subdivisions-borders', 'line-opacity', 0.0);
+
+    } else if (mode === 'quiz') {
+      // 2. Quiz Mode: Show unlabelled borders, color-code correct/wrong selections
+      map.setPaintProperty('countries-borders', 'line-opacity', 0.8);
+      map.setPaintProperty('countries-borders', 'line-color', '#A6A192');
+      map.setPaintProperty('countries-borders', 'line-width', 1);
+      
+      const isSubdivisionActive = showSubdivisions ||
+                                  highlightedIds.some(id => id && typeof id === 'string' && id.includes('-')) || 
+                                  correctIds.some(id => id && typeof id === 'string' && id.includes('-')) || 
+                                  wrongIds.some(id => id && typeof id === 'string' && id.includes('-'));
+      
+      if (isSubdivisionActive) {
+        map.setPaintProperty('subdivisions-borders', 'line-opacity', 0.8);
+        map.setPaintProperty('subdivisions-fill', 'fill-opacity', 0.5);
+      }
+
+      // Quiz dynamic colors expression
+      const buildColorExpression = (sourceId) => {
+        const colorExpression = ['match', ['get', 'id']];
+        correctIds.forEach(id => {
+          if (id && typeof id === 'string') {
+            colorExpression.push(id, '#2C5E43'); // Success Forest Green
+          }
+        });
+        wrongIds.forEach(id => {
+          if (id && typeof id === 'string') {
+            colorExpression.push(id, '#842029'); // Error Crimson
+          }
+        });
+        highlightedIds.forEach(id => {
+          if (id && typeof id === 'string') {
+            colorExpression.push(id, '#B58900'); // Outline / Hint Gold
+          }
+        });
+        colorExpression.push('#FAF6EE'); // Standard parchment
+        return colorExpression;
+      };
+
+      map.setPaintProperty('countries-fill', 'fill-color', buildColorExpression('countries'));
+      map.setPaintProperty('countries-fill', 'fill-opacity', 0.7);
+
+      if (isSubdivisionActive) {
+        map.setPaintProperty('subdivisions-fill', 'fill-color', buildColorExpression('subdivisions'));
+        map.setPaintProperty('subdivisions-fill', 'fill-opacity', 0.8);
+      }
+
+    } else {
+      // 3. Atlas / Exploration Mode: Highlight selected item, color-code by mastery heatmaps
+      map.setPaintProperty('countries-borders', 'line-opacity', 0.6);
+      
+      // Make subnational boundaries visible when zoomed in or when a subdivision is selected
+      const currentZoom = map.getZoom();
+      const isSubdivisionSelected = selectedId && typeof selectedId === 'string' && selectedId.includes('-');
+      const areSubdivisionsVisible = currentZoom > 3 || isSubdivisionSelected;
+      
+      map.setPaintProperty('subdivisions-borders', 'line-opacity', areSubdivisionsVisible ? 0.6 : 0.0);
+      map.setPaintProperty('subdivisions-fill', 'fill-opacity', areSubdivisionsVisible ? 0.35 : 0.0);
+
+      // Style subdivision fill color: highlight selected subdivision, default for others
+      const subColorExpression = ['match', ['get', 'id']];
+      if (isSubdivisionSelected) {
+        subColorExpression.push(selectedId, '#D1DCD4'); // soft green tint
+      }
+      subColorExpression.push('#FAF6EE'); // default subdivision background
+      map.setPaintProperty('subdivisions-fill', 'fill-color', subColorExpression);
+
+      // Border outline for active subdivision
+      const subBorderExpression = ['match', ['get', 'id']];
+      if (isSubdivisionSelected) {
+        subBorderExpression.push(selectedId, '#1B305B'); // deep slate blue border
+      }
+      subBorderExpression.push('#C7C2B4'); // default subdivision border
+      map.setPaintProperty('subdivisions-borders', 'line-color', subBorderExpression);
+
+      const subBorderWidthExpression = ['match', ['get', 'id']];
+      if (isSubdivisionSelected) {
+        subBorderWidthExpression.push(selectedId, 2);
+      }
+      subBorderWidthExpression.push(0.8);
+      map.setPaintProperty('subdivisions-borders', 'line-width', subBorderWidthExpression);
+
+      // Style fill color based on SRS progress (Heatmap)
+      const colorExpression = ['match', ['get', 'id']];
+      
+      Object.keys(progressHeatmap).forEach(entityId => {
+        const stats = progressHeatmap[entityId];
+        let color = '#FAF6EE';
+        
+        if (stats.repetitions > 0) {
+          if (stats.interval >= 30) {
+            color = '#C5B595'; // Mastered: Antique Gold/Bronze
+          } else if (stats.interval >= 7) {
+            color = '#A4B4CC'; // Familiar: Vintage Light Blue
+          } else {
+            color = '#DCE0D5'; // Learning: Soft Grey-Green
+          }
+        }
+        
+        // Highlight active country selection differently (only if it's a country)
+        if (entityId === selectedId && !isSubdivisionSelected) {
+          color = '#D1DCD4'; // Highlight selected country in soft pastel green tint
+        }
+        
+        colorExpression.push(entityId, color);
+      });
+      
+      if (selectedId && !isSubdivisionSelected && !progressHeatmap[selectedId]) {
+        colorExpression.push(selectedId, '#D1DCD4');
+      }
+
+      colorExpression.push('#FAF6EE'); // default parchment fill
+      map.setPaintProperty('countries-fill', 'fill-color', colorExpression);
+      map.setPaintProperty('countries-fill', 'fill-opacity', 0.85);
+
+      // Border outline for active country
+      const borderExpression = ['match', ['get', 'id']];
+      if (selectedId && !isSubdivisionSelected) {
+        borderExpression.push(selectedId, '#1B305B'); // Deep Slate Blue border for selected country
+      }
+      borderExpression.push('#A6A192');
+      map.setPaintProperty('countries-borders', 'line-color', borderExpression);
+      
+      const borderWidthExpression = ['match', ['get', 'id']];
+      if (selectedId && !isSubdivisionSelected) {
+        borderWidthExpression.push(selectedId, 2);
+      }
+      borderWidthExpression.push(1);
+      map.setPaintProperty('countries-borders', 'line-width', borderWidthExpression);
+    }
+
+    // Update rivers layer styling dynamically
+    if (map.getLayer('rivers-line')) {
+      const activeRiverId = (selectedId && typeof selectedId === 'string' && selectedId.startsWith('river_')) ? selectedId :
+                            (zoomToEntityId && typeof zoomToEntityId === 'string' && zoomToEntityId.startsWith('river_')) ? zoomToEntityId :
+                            highlightedIds.find(id => id && typeof id === 'string' && id.startsWith('river_')) ||
+                            correctIds.find(id => id && typeof id === 'string' && id.startsWith('river_')) ||
+                            wrongIds.find(id => id && typeof id === 'string' && id.startsWith('river_'));
+
+      if (mode === 'dashboard') {
+        map.setPaintProperty('rivers-line', 'line-opacity', 0.0);
+      } else if (mode === 'quiz') {
+        if (activeRiverId) {
+          // Highlight the active river prominently, hide others during quiz
+          map.setPaintProperty('rivers-line', 'line-opacity', [
+            'case',
+            ['==', ['get', 'id'], activeRiverId],
+            0.9,
+            0.0
+          ]);
+          map.setPaintProperty('rivers-line', 'line-width', [
+            'case',
+            ['==', ['get', 'id'], activeRiverId],
+            4.0, // Thicker visible stroke
+            0.0
+          ]);
+          map.setPaintProperty('rivers-line', 'line-color', [
+            'case',
+            ['==', ['get', 'id'], activeRiverId],
+            '#1D4ED8', // Accent blue
+            'transparent'
+          ]);
+        } else {
+          map.setPaintProperty('rivers-line', 'line-opacity', 0.0);
+        }
+      } else {
+        // Atlas Mode
+        if (activeRiverId) {
+          map.setPaintProperty('rivers-line', 'line-opacity', [
+            'case',
+            ['==', ['get', 'id'], activeRiverId],
+            0.9,
+            0.3
+          ]);
+          map.setPaintProperty('rivers-line', 'line-width', [
+            'case',
+            ['==', ['get', 'id'], activeRiverId],
+            4.5, // Thicker active river
+            1.5  // Subtler other rivers
+          ]);
+          map.setPaintProperty('rivers-line', 'line-color', [
+            'case',
+            ['==', ['get', 'id'], activeRiverId],
+            '#1D4ED8', // Highlighted blue
+            '#879BB3'  // Soft grey-blue for others
+          ]);
+        } else {
+          map.setPaintProperty('rivers-line', 'line-opacity', 0.35);
+          map.setPaintProperty('rivers-line', 'line-width', 1.5);
+          map.setPaintProperty('rivers-line', 'line-color', '#879BB3');
+        }
+      }
+    }
+  }, [mapLoaded, selectedId, highlightedIds, wrongIds, correctIds, progressHeatmap, mode, showSubdivisions]);
+
+  // Handle map center panning/zooming to country or subdivision context
+  useEffect(() => {
+    if (!mapLoaded || !mapRef.current || !countriesGeoJSON) return;
+    
+    let targetEntityId = null;
+    if (mode === 'quiz') {
+      if (zoomToEntityId) {
+        targetEntityId = zoomToEntityId;
+      }
+    } else {
+      if (selectedId) {
+        targetEntityId = selectedId;
+      }
+    }
+
+    if (!targetEntityId) return;
+
+    const map = mapRef.current;
+    const isSubdivision = typeof targetEntityId === 'string' && targetEntityId.includes('-');
+    const isRiver = typeof targetEntityId === 'string' && targetEntityId.startsWith('river_');
+
+    if (isSubdivision) {
+      if (!subdivisionsGeoJSON) return;
+      const subFeature = subdivisionsGeoJSON.features.find(
+        f => f.id === targetEntityId || (f.properties && f.properties.id === targetEntityId)
+      );
+      if (subFeature && subFeature.geometry) {
+        const bbox = getBoundingBox(subFeature.geometry);
+        if (
+          bbox &&
+          isFinite(bbox[0][0]) && isFinite(bbox[0][1]) &&
+          isFinite(bbox[1][0]) && isFinite(bbox[1][1])
+        ) {
+          // Calculate bounding box dimensions to determine dynamic maxZoom
+          const lngSpan = Math.abs(bbox[1][0] - bbox[0][0]);
+          const latSpan = Math.abs(bbox[1][1] - bbox[0][1]);
+          const maxSpan = Math.max(lngSpan, latSpan);
+          
+          let dynamicMaxZoom = 5.5;
+          if (maxSpan < 1.0) {
+            dynamicMaxZoom = 7.5;
+          } else if (maxSpan < 3.0) {
+            dynamicMaxZoom = 6.2;
+          }
+
+          map.fitBounds(bbox, {
+            padding: mode === 'quiz' ? 150 : 80,
+            maxZoom: dynamicMaxZoom,
+            duration: 1200,
+            essential: true
+          });
+        }
+      }
+    } else if (isRiver) {
+      if (!riversGeoJSON) return;
+      const riverFeature = riversGeoJSON.features.find(
+        f => f.id === targetEntityId || (f.properties && f.properties.id === targetEntityId)
+      );
+      if (riverFeature && riverFeature.geometry) {
+        const bbox = getBoundingBox(riverFeature.geometry);
+        if (
+          bbox &&
+          isFinite(bbox[0][0]) && isFinite(bbox[0][1]) &&
+          isFinite(bbox[1][0]) && isFinite(bbox[1][1])
+        ) {
+          const lngSpan = Math.abs(bbox[1][0] - bbox[0][0]);
+          const latSpan = Math.abs(bbox[1][1] - bbox[0][1]);
+          const maxSpan = Math.max(lngSpan, latSpan);
+          
+          let dynamicMaxZoom = 5.0;
+          if (maxSpan < 4.0) {
+            dynamicMaxZoom = 6.5;
+          } else if (maxSpan < 10.0) {
+            dynamicMaxZoom = 5.2;
+          }
+
+          map.fitBounds(bbox, {
+            padding: mode === 'quiz' ? 180 : 100,
+            maxZoom: dynamicMaxZoom,
+            duration: 1200,
+            essential: true
+          });
+        }
+      }
+    } else {
+      const countryId = targetEntityId;
+      const countryFeature = countriesGeoJSON.features.find(
+        f => f.id === countryId || (f.properties && f.properties.id === countryId)
+      );
+
+      if (countryFeature && countryFeature.geometry) {
+        let bbox;
+        if (countryId === 'US') {
+          // Special override for USA contiguous coordinates to avoid Alaska/Hawaii mapping sprawl
+          bbox = [[-125, 24], [-66, 50]];
+        } else if (countryId === 'FJ') {
+          // Special override for Fiji to avoid antimeridian crossing zoom-out
+          bbox = [[177, -19.5], [180.5, -15.5]];
+        } else if (countryId === 'RU') {
+          // Special override for Russia to avoid antimeridian crossing zoom-out
+          bbox = [[20, 41], [180, 82]];
+        } else {
+          bbox = getBoundingBox(countryFeature.geometry);
+        }
+
+        if (
+          bbox &&
+          isFinite(bbox[0][0]) && isFinite(bbox[0][1]) &&
+          isFinite(bbox[1][0]) && isFinite(bbox[1][1])
+        ) {
+          const isQuiz = mode === 'quiz';
+          
+          // Calculate bounding box dimensions to determine dynamic maxZoom
+          const lngSpan = Math.abs(bbox[1][0] - bbox[0][0]);
+          const latSpan = Math.abs(bbox[1][1] - bbox[0][1]);
+          const maxSpan = Math.max(lngSpan, latSpan);
+          
+          let dynamicMaxZoom = 5;
+          if (isQuiz) {
+            if (maxSpan < 2.0) {
+              dynamicMaxZoom = 7.0; // Tiny countries/islands (Lubembourg, Montenegro)
+            } else if (maxSpan < 6.0) {
+              dynamicMaxZoom = 5.2; // Small countries (Switzerland, Fiji, Belgium)
+            } else if (maxSpan < 15.0) {
+              dynamicMaxZoom = 4.0; // Medium countries (Germany, France, UK, Poland)
+            } else {
+              dynamicMaxZoom = 3.2; // Huge countries (USA, Russia, Canada, Brazil)
+            }
+          } else {
+            // Atlas mode: allow deeper zoom for detailed exploration
+            dynamicMaxZoom = maxSpan < 6.0 ? 6.5 : 5.0;
+          }
+
+          map.fitBounds(bbox, {
+            padding: isQuiz ? 150 : 80,
+            maxZoom: dynamicMaxZoom,
+            duration: 1200,
+            essential: true
+          });
+        }
+      }
+    }
+  }, [selectedId, zoomToEntityId, countriesGeoJSON, subdivisionsGeoJSON, mapLoaded, mode]);
+
+  return (
+    <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+      <div ref={mapContainerRef} style={{ width: '100%', height: '100%', borderRadius: 'inherit' }} />
+      
+      {/* Visual map legend overlay */}
+      <div style={{
+        position: 'absolute',
+        bottom: '12px',
+        left: '12px',
+        zIndex: 10,
+        pointerEvents: 'none'
+      }}>
+        <div className="terra-panel" style={{
+          padding: '8px 14px',
+          fontSize: '14px',
+          color: 'var(--text-muted)',
+          display: 'flex',
+          gap: '12px',
+          background: 'rgba(250, 248, 242, 0.9)',
+          boxShadow: '0 2px 5px rgba(0,0,0,0.05)'
+        }}>
+          {mode === 'dashboard' ? (
+            <div>Willkommen. Wähle eine Übersicht oder starte ein Quiz.</div>
+          ) : mode === 'quiz' ? (
+            <>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <span style={{ width: '10px', height: '10px', backgroundColor: 'var(--color-success)', display: 'inline-block' }}></span> Richtig
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <span style={{ width: '10px', height: '10px', backgroundColor: 'var(--color-error)', display: 'inline-block' }}></span> Falsch
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <span style={{ width: '10px', height: '10px', backgroundColor: 'var(--color-warning)', display: 'inline-block' }}></span> Hinweis
+              </div>
+            </>
+          ) : (
+            <>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <span style={{ width: '10px', height: '10px', backgroundColor: '#C5B595', display: 'inline-block' }}></span> Gemeistert
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <span style={{ width: '10px', height: '10px', backgroundColor: '#A4B4CC', display: 'inline-block' }}></span> Vertraut
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <span style={{ width: '10px', height: '10px', backgroundColor: '#DCE0D5', display: 'inline-block' }}></span> Lernen
+              </div>
+            </>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}

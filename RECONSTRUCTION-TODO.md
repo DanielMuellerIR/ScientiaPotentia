@@ -20,22 +20,24 @@ im Manifest `~/git-corrupt-backups/scientia-recover-m5/RECOVERY-MANIFEST.md`.
   bei Gelegenheit aufhübschen
 - **src/main.jsx**: neu erstellt (triviale Vite/React-18-Boilerplate)
 
-## NOCH OFFEN ⚠️ — App baut erst, wenn erledigt
-1. **`src/components/Map.jsx`** — maplibre-Karte. Quelle: deploytes JS-Bundle
-   (`~/git-corrupt-backups/scientia-recover-m5/_live_bundle/index-i4Su8rID.js`, minifiziert,
-   kein Sourcemap; 132× maplibre, addLayer/addSource/fitBounds/flyTo vorhanden). Props laut
-   `App.jsx`: `onSelectEntity`, `mapState`/`onSetQuizState`, `clickedMapId`/`resetClickedMapId`.
-   Entweder aus Bundle-Verhalten neu bauen oder im Zuge der geplanten Erweiterung frisch.
-2. **`src/data/quiz_questions.json`** — ~5.267 Fragen, ins JS-Bundle eingebacken
-   (`entityId`/`prompt` ~5.300×). Aus dem gesicherten Bundle extrahierbar; alternativ via
-   `scripts/generate_questions.js` (Punkt 3) neu generieren.
-3. **`scripts/generate_questions.js`** — fehlt (generierte quiz_questions aus geodb + data).
-   `scripts/prepare_data.js` (vorhanden) erzeugt countries/rivers/subdivisions/geodb, **nicht**
-   die Fragen.
-4. Klein: `src/data/wikidata_cities_raw.json` (Roh-Cache, via scripts regenerierbar),
-   `src/setupTests.js`, `src/__tests__/QuizIntegration.test.jsx`, `codex_research_raw/*`.
+## GELÖST ✅ (2026-06-04, Update) — Residuen im M3-`scientia_potentia`-Arbeitsbaum gefunden
+Die zunächst als verloren geglaubten Dateien lagen als **echte Files** im M3-Ordner
+`scientia_potentia` (Arbeitsbaum, nicht in git) und wurden nach game_geo übernommen:
+- **`src/components/Map.jsx`** (26 KB) ✅
+- **`src/data/quiz_questions.json`** (2,9 MB, ~5.267 Fragen) ✅
+- **`scripts/generate_questions.js`** (32 KB) ✅
+- **`src/setupTests.js`**, **`src/__tests__/QuizIntegration.test.jsx`** ✅
 
-## Quellen für die offenen Punkte
-- **Gesichertes Live-Bundle**: `~/git-corrupt-backups/scientia-recover-m5/_live_bundle/`
-- **Time Machine**: lief auf M1/Schwermetall seit Wochen nicht; evtl. auf M5/M-128 (TM-Platte
-  wieder am Dock). Nur falls Bundle-/Neubau-Weg nicht reicht.
+Damit ist game_geo **vollständig + baubar** (alle `App.jsx`-Imports erfüllt). Belt-and-suspenders-
+Kopie inkl. `dist/` + Roh-Geodaten (`ne_10m_rivers_*`, `ne_50m_admin_1_*`) in
+`~/git-corrupt-backups/scientia-recover-m5/_m3_scientia_uniques/`.
+
+## Rest-Kleinkram (optional)
+- `src/data/wikidata_cities_raw.json` (Roh-Cache, via `scripts/` regenerierbar)
+- `codex_research_raw/*` (6 Recherche-Notizen) — nicht aufgetaucht, niedriger Wert
+- Build-Verifikation noch ausstehend: `npm install && npm run build` (war wegen parallelem
+  Nextcloud-Sync verschoben).
+
+## Quellen (Archiv)
+- Live-Bundle: `~/git-corrupt-backups/scientia-recover-m5/_live_bundle/`
+- M3-scientia-Funde: `~/git-corrupt-backups/scientia-recover-m5/_m3_scientia_uniques/`
