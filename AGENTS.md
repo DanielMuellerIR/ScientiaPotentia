@@ -41,6 +41,14 @@ Geplante Bereiche: **Terra** (Geografie), **Astra** (Astronomie), **Homo** (Mens
 
 Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 
+> **Nächste Session — Phase 5 (5000 Fragen/Bereich):** Hebel = Konzept-Ausbau (nicht Templating).
+> Ziel ~500 faire, **belegte** Konzepte/Bereich × ~10 Fragetypen. Mehrere Recherche-Runden.
+> Pipeline steht: `scripts/data_sources/<domain>_raw.json` (Konzept + `sourceName` + `verifyNote`) →
+> `node scripts/generate_<domain>.js` → `node scripts/verify_facts.js <domain>` → Browser-Run.
+> **Integritätsregel bleibt hart:** jeder Fakt mit Quelle, keine erfundenen Zahlen — bei
+> LLM-Recherche adversarialer Faktencheck **plus** manuelle Stichprobe vor Commit.
+> Aktueller Stand: Astra 56 Konzepte/191 Fragen, Homo 50/101.
+
 ### Domain-Abstraktion (das tragende Konzept)
 - **Registry `src/domains/index.js`** — Liste aller Domains. Jede liefert `loadConcepts()`
   (Map `conceptKey -> Konzept`) und `loadQuestions()` (Array MCQ-Fragen), lazy per fetch/import.
