@@ -1,8 +1,26 @@
 import React, { useState } from 'react';
 import { Flame, Compass, Calendar, Award, BookOpen, AlertCircle, BarChart3, Trophy } from 'lucide-react';
 
+// Deutsche Labels für Konzept-Typen über alle Domains hinweg.
+// Unbekannte Typen werden unverändert angezeigt.
+const TYPE_LABELS = {
+  country: 'Staaten',
+  state: 'Bundesländer / Provinzen',
+  city: 'Städte',
+  river: 'Flüsse',
+  mountain: 'Gebirge',
+  landmark: 'Sehenswürdigkeiten',
+  planet: 'Planeten',
+  dwarf_planet: 'Zwergplaneten',
+  moon: 'Monde',
+  star: 'Sterne',
+  galaxy: 'Galaxien',
+  constant: 'Konstanten'
+};
+
 export default function Dashboard({
   geodb,
+  domain = { id: 'terra', latinName: 'Terra', label: 'Geografie' },
   questionPool = [],
   srsProgress = {},
   dueCount = 0,
@@ -12,6 +30,7 @@ export default function Dashboard({
 }) {
   const [selectedLevel, setSelectedLevel] = useState(1); // 1 | 2 | 3 | 4
   const [selectedMode, setSelectedMode] = useState('all'); // 'all' | 'countries' | 'cities' | 'rivers' | 'stadt-land-fluss'
+  const isTerra = domain.id === 'terra';
   const totalEntitiesCount = Object.keys(geodb.entities).length;
   
   // Calculate status counts
@@ -45,19 +64,15 @@ export default function Dashboard({
   const learningPercent = getPercent(learningCount);
   const unseenPercent = 100 - (masteredPercent + familiarPercent + learningPercent);
 
-  // Group entities by type
-  const entityTypes = {
-    country: { label: 'Staaten', count: 0, studied: 0 },
-    state: { label: 'Bundesländer / Provinzen', count: 0, studied: 0 },
-    river: { label: 'Flüsse', count: 0, studied: 0 }
-  };
-
+  // Konzepte generisch nach Typ gruppieren (domain-unabhängig).
+  const entityTypes = {};
   Object.values(geodb.entities).forEach(entity => {
-    if (entityTypes[entity.type]) {
-      entityTypes[entity.type].count++;
-      if (srsProgress[entity.id] && srsProgress[entity.id].repetitions > 0) {
-        entityTypes[entity.type].studied++;
-      }
+    const type = entity.type;
+    if (!type) return;
+    entityTypes[type] ||= { label: TYPE_LABELS[type] || type, count: 0, studied: 0 };
+    entityTypes[type].count++;
+    if (srsProgress[entity.id] && srsProgress[entity.id].repetitions > 0) {
+      entityTypes[type].studied++;
     }
   });
 
@@ -83,11 +98,11 @@ export default function Dashboard({
       }}>
       {/* Top Banner: Welcome */}
       <div style={{ marginBottom: '14px' }}>
-        <span style={{ fontSize: '12px', color: 'var(--text-muted)', fontWeight: 600, letterSpacing: '1px' }}>
-          TERRA WELTATLAS
+        <span style={{ fontSize: '12px', color: 'var(--text-muted)', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase' }}>
+          {domain.latinName} · {domain.label}
         </span>
         <h2 style={{ fontFamily: 'var(--font-title)', fontSize: '24px', color: 'var(--color-primary)', fontWeight: 700, marginBottom: '2px' }}>
-          Geografie-Lernkontrolle
+          Lernkontrolle
         </h2>
         <div style={{ fontSize: '12.5px', color: 'var(--text-muted)', fontWeight: 500 }}>
           Fragen-Pool: <span style={{ color: 'var(--color-secondary)', fontWeight: 700 }}>{questionPool.length.toLocaleString('de-DE')} Fragen</span> | Karteikarten: <span style={{ color: 'var(--color-primary)', fontWeight: 700 }}>{totalEntitiesCount.toLocaleString('de-DE')} Orte</span>
@@ -180,6 +195,8 @@ export default function Dashboard({
           {levelInfo[selectedLevel].desc}
         </div>
 
+        {/* Spielmodi sind geografiespezifisch (Stadt/Land/Fluss) -> nur bei Terra */}
+        {isTerra && (<>
         <h4 style={{ fontFamily: 'var(--font-title)', color: 'var(--color-primary)', fontSize: '16px', fontWeight: 600, marginBottom: '8px' }}>
           Spielmodus wählen
         </h4>
@@ -216,10 +233,11 @@ export default function Dashboard({
             </label>
           ))}
         </div>
+        </>)}
 
-        <button 
+        <button
           className="btn-terra-primary"
-          onClick={() => onStartDailyReview(selectedLevel, selectedMode)}
+          onClick={() => onStartDailyReview(selectedLevel, isTerra ? selectedMode : 'all')}
           style={{ width: '100%', justifyContent: 'center' }}
         >
           <Compass size={18} />
@@ -315,11 +333,13 @@ export default function Dashboard({
         </div>
       </div>
       
-      {/* Help info */}
+      {/* Help info (geografiespezifisch) */}
+      {isTerra && (
       <div style={{ display: 'flex', gap: '8px', alignItems: 'flex-start', color: 'var(--text-muted)', fontSize: '13px', marginTop: '16px', lineHeight: 1.4 }}>
         <AlertCircle size={16} style={{ color: 'var(--color-primary)', flexShrink: 0, marginTop: '1px' }} />
         <span>Klicke auf den Tab "Weltatlas" oben, um die Weltkarte frei zu studieren. Der Startbildschirm zeigt absichtlich keine Grenzen, um den Globus clean zu halten.</span>
       </div>
+      )}
       </div>
     </div>
   );

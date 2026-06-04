@@ -1,13 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import Map from './components/Map';
 import Atlas from './components/Atlas';
 import Quiz from './components/Quiz';
 import Dashboard from './components/Dashboard';
+import DomainSwitcher from './components/DomainSwitcher';
+import DomainVisual from './components/DomainVisual';
 import geodb from './data/geodb.json';
-import { getDomainById } from './domains';
+import { DOMAINS, getDomainById } from './domains';
+import pkg from '../package.json';
 import { getAllProgress, getSetting, saveSetting } from './utils/db';
 import { playClick, isAudioMuted, setAudioMuted } from './utils/audio';
-import { Globe, BarChart3, HelpCircle, Compass, Flame, Trophy, Volume2, VolumeX } from 'lucide-react';
+import { BarChart3, HelpCircle, Compass, Flame, Trophy, Volume2, VolumeX } from 'lucide-react';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('dashboard'); // 'dashboard' | 'atlas' | 'quiz'
@@ -17,12 +20,20 @@ export default function App() {
   const [clickedMapId, setClickedMapId] = useState(null);
   const [isMuted, setIsMuted] = useState(isAudioMuted());
 
-  // Aktive Wissens-Domain. Phase 0: nur Terra. Spätere Phasen schalten hier
-  // weitere Bereiche frei (Astra, Homo, …) über den DomainSwitcher.
-  const activeDomain = getDomainById('terra');
-  // Fragenkatalog der aktiven Domain. Wird nicht mehr statisch gebündelt,
-  // sondern zur Laufzeit aus public/data/ geladen (entlastet das JS-Bundle).
+  // Aktive Wissens-Domain, per DomainSwitcher umschaltbar (Terra, Astra, …).
+  const [activeDomainId, setActiveDomainId] = useState('terra');
+  const activeDomain = getDomainById(activeDomainId);
+
+  // Konzeptspeicher der aktiven Domain (Map conceptKey -> Konzept). Startwert
+  // sind die Terra-Entities, damit der erste Render sofort Daten hat.
+  const [concepts, setConcepts] = useState(geodb.entities);
+  // Fragenkatalog der aktiven Domain. Wird zur Laufzeit aus public/data/ geladen
+  // (entlastet das JS-Bundle, ermöglicht beliebig viele Domains).
   const [questionPool, setQuestionPool] = useState([]);
+
+  // db-artiges Objekt für Komponenten, die geodb.entities erwarten (Quiz,
+  // Dashboard, Atlas) — domain-agnostisch über den Konzeptspeicher.
+  const domainDb = useMemo(() => ({ entities: concepts }), [concepts]);
 
   const handleToggleMute = () => {
     const newMuted = !isMuted;
@@ -60,19 +71,22 @@ export default function App() {
     loadHighScore();
   }, []);
 
-  // Fragenkatalog der aktiven Domain laden (Lazy-Fetch statt statischem Import).
+  // Konzepte + Fragen der aktiven Domain laden (Lazy-Fetch je Domain-Wechsel).
   useEffect(() => {
     let cancelled = false;
-    activeDomain.loadQuestions()
-      .then(questions => {
-        if (!cancelled) setQuestionPool(Array.isArray(questions) ? questions : []);
+    Promise.all([activeDomain.loadConcepts(), activeDomain.loadQuestions()])
+      .then(([loadedConcepts, questions]) => {
+        if (cancelled) return;
+        setConcepts(loadedConcepts || {});
+        setQuestionPool(Array.isArray(questions) ? questions : []);
       })
       .catch(e => {
-        console.error('Error loading question pool:', e);
-        if (!cancelled) setQuestionPool([]);
+        console.error('Error loading domain data:', e);
+        if (!cancelled) { setConcepts({}); setQuestionPool([]); }
       });
     return () => { cancelled = true; };
-  }, [activeDomain]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeDomainId]);
 
   // Update map state mode based on active tab
   useEffect(() => {
@@ -87,6 +101,7 @@ export default function App() {
     }));
   }, [activeTab]);
 
+  // Lädt den (domainübergreifenden) Lernfortschritt aus IndexedDB.
   const loadProgressData = async () => {
     try {
       const progressList = await getAllProgress();
@@ -95,28 +110,32 @@ export default function App() {
         progressMap[item.entityId] = item;
       });
       setSrsProgress(progressMap);
-
-      const now = Date.now();
-      const due = [];
-      const unused = [];
-
-      Object.keys(geodb.entities).forEach(id => {
-        const entity = geodb.entities[id];
-        const progress = progressMap[id];
-
-        if (!progress || progress.repetitions === 0) {
-          unused.push(entity);
-        } else if (progress.nextDueDate <= now) {
-          due.push(entity);
-        }
-      });
-
-      setDueEntities(due);
-      setNewEntities(unused);
     } catch (e) {
       console.error('Error loading progress data:', e);
     }
   };
+
+  // Fällige/neue Konzepte werden aus den Konzepten der AKTIVEN Domain plus dem
+  // Fortschritt abgeleitet — neu berechnet bei Domain-Wechsel oder Fortschritt.
+  useEffect(() => {
+    const now = Date.now();
+    const due = [];
+    const unused = [];
+
+    Object.keys(concepts).forEach(id => {
+      const entity = concepts[id];
+      const progress = srsProgress[id];
+
+      if (!progress || progress.repetitions === 0) {
+        unused.push(entity);
+      } else if (progress.nextDueDate <= now) {
+        due.push(entity);
+      }
+    });
+
+    setDueEntities(due);
+    setNewEntities(unused);
+  }, [concepts, srsProgress]);
 
   const loadStreak = async () => {
     try {
@@ -180,7 +199,7 @@ export default function App() {
     }
 
     playClick();
-    const entity = geodb.entities[entityId];
+    const entity = concepts[entityId];
     if (entity) {
       setSelectedEntityId(entityId);
       setActiveTab('atlas');
@@ -189,7 +208,7 @@ export default function App() {
 
   const handleStartQuickQuiz = (entityId) => {
     playClick();
-    const targetEntity = geodb.entities[entityId];
+    const targetEntity = concepts[entityId];
     if (targetEntity) {
       setDueEntities([targetEntity]);
       setNewEntities([]);
@@ -228,6 +247,25 @@ export default function App() {
     setActiveTab(tab);
   };
 
+  // Wechsel des Wissensbereichs: aktive Domain setzen und Ansicht zurücksetzen.
+  // Konzepte/Fragen werden vom Lade-Effekt (Abhängigkeit activeDomainId) geholt.
+  const handleDomainChange = (domainId) => {
+    if (domainId === activeDomainId) return;
+    playClick();
+    setActiveDomainId(domainId);
+    setActiveTab('dashboard');
+    setSelectedEntityId(null);
+    setClickedMapId(null);
+    setMapState({
+      mode: 'dashboard',
+      highlightedIds: [],
+      correctIds: [],
+      wrongIds: [],
+      showSubdivisions: false,
+      zoomToEntityId: null
+    });
+  };
+
   return (
     <div style={{
       display: 'flex',
@@ -250,18 +288,20 @@ export default function App() {
         border: '1px solid var(--border-light)',
         zIndex: 100
       }}>
-        {/* Title logo area */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <Globe size={24} style={{ color: 'var(--color-primary)' }} />
-          <h1 style={{
-            fontFamily: 'var(--font-title)',
-            fontSize: '22px',
-            fontWeight: 700,
-            color: 'var(--color-primary)',
-            letterSpacing: '0.5px'
-          }}>
-            Terra Weltatlas v1.3.0
-          </h1>
+        {/* Bereichsauswahl + App-Wortmarke (ersetzt die frühere statische Kopfzeile) */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+          <DomainSwitcher
+            domains={DOMAINS}
+            activeId={activeDomainId}
+            onSelect={handleDomainChange}
+            srsProgress={srsProgress}
+          />
+          <span
+            title="Scientia potentia est — Wissen ist Macht"
+            style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, letterSpacing: '0.5px', whiteSpace: 'nowrap' }}
+          >
+            Scientia potentia · v{pkg.version}
+          </span>
         </div>
 
         {/* Tab Selectors */}
@@ -274,14 +314,16 @@ export default function App() {
             <BarChart3 size={16} />
             Übersicht
           </button>
-          <button 
-            className={activeTab === 'atlas' ? 'btn-terra-primary' : 'btn-terra'}
-            onClick={() => handleTabChange('atlas')}
-            style={{ fontSize: '15px', padding: '8px 14px' }}
-          >
-            <Compass size={16} />
-            Weltatlas
-          </button>
+          {activeDomain.hasMap && (
+            <button
+              className={activeTab === 'atlas' ? 'btn-terra-primary' : 'btn-terra'}
+              onClick={() => handleTabChange('atlas')}
+              style={{ fontSize: '15px', padding: '8px 14px' }}
+            >
+              <Compass size={16} />
+              Weltatlas
+            </button>
+          )}
           <button 
             className={activeTab === 'quiz' ? 'btn-terra-primary' : 'btn-terra'}
             onClick={() => handleTabChange('quiz')}
@@ -335,26 +377,35 @@ export default function App() {
         overflow: 'hidden',
         position: 'relative'
       }}>
-        {/* Map Container */}
-        <div className="terra-panel" style={{
-          flex: 1,
-          height: '100%',
-          overflow: 'hidden',
-          position: 'relative',
-          border: '1px solid var(--border-light)',
-          background: '#EAE6DC'
-        }}>
-          <Map 
-            selectedId={selectedEntityId}
-            onSelectEntity={handleSelectEntityFromMap}
-            highlightedIds={mapState.highlightedIds}
-            correctIds={mapState.correctIds}
-            wrongIds={mapState.wrongIds}
-            progressHeatmap={srsProgress}
-            mode={mapState.mode}
-            showSubdivisions={mapState.showSubdivisions}
-            zoomToEntityId={mapState.zoomToEntityId}
-          />
+        {/* Linkes Visualisierungs-Panel: Weltkarte bei Terra, sonst Domain-Übersicht */}
+        <div style={{ flex: 1, height: '100%', minWidth: 0 }}>
+          {activeDomain.hasMap ? (
+            <div className="terra-panel" style={{
+              height: '100%',
+              overflow: 'hidden',
+              position: 'relative',
+              border: '1px solid var(--border-light)',
+              background: '#EAE6DC'
+            }}>
+              <Map
+                selectedId={selectedEntityId}
+                onSelectEntity={handleSelectEntityFromMap}
+                highlightedIds={mapState.highlightedIds}
+                correctIds={mapState.correctIds}
+                wrongIds={mapState.wrongIds}
+                progressHeatmap={srsProgress}
+                mode={mapState.mode}
+                showSubdivisions={mapState.showSubdivisions}
+                zoomToEntityId={mapState.zoomToEntityId}
+              />
+            </div>
+          ) : (
+            <DomainVisual
+              domain={activeDomain}
+              concepts={concepts}
+              srsProgress={srsProgress}
+            />
+          )}
         </div>
 
         {/* Floating Sidebar panel */}
@@ -366,7 +417,8 @@ export default function App() {
         }}>
           {activeTab === 'dashboard' && (
             <Dashboard
-              geodb={geodb}
+              geodb={domainDb}
+              domain={activeDomain}
               questionPool={questionPool}
               srsProgress={srsProgress}
               dueCount={dueEntities.length}
@@ -377,18 +429,18 @@ export default function App() {
           )}
 
           {activeTab === 'atlas' && (
-            <Atlas 
-              selectedEntity={geodb.entities[selectedEntityId]}
+            <Atlas
+              selectedEntity={concepts[selectedEntityId]}
               srsProgress={srsProgress[selectedEntityId]}
               onStartQuickQuiz={handleStartQuickQuiz}
-              geodb={geodb}
+              geodb={domainDb}
               onSelectEntity={handleSelectEntityFromMap}
             />
           )}
 
           {activeTab === 'quiz' && (
             <Quiz
-              geodb={geodb}
+              geodb={domainDb}
               questionPool={questionPool}
               domainId={activeDomain.id}
               dueEntities={dueEntities}

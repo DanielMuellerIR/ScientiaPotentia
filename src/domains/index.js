@@ -1,12 +1,18 @@
-import { Globe2 } from 'lucide-react';
+import { Globe2, Sparkles } from 'lucide-react';
 
 /**
- * Central registry for all knowledge domains.
+ * Zentrale Registry aller Wissensbereiche ("Domains").
  *
- * A domain owns its concepts and its question pool. Terra still reuses the
- * existing geodb format, but the rest of the app no longer needs to know where
- * that data comes from. Future domains can add their own loaders here without
- * touching the quiz engine again.
+ * Jede Domain besitzt ihren eigenen Konzeptspeicher und Fragenkatalog. Terra
+ * nutzt weiterhin das bestehende geodb-Format; alle anderen Domains liefern
+ * concepts_<id>.json (Map conceptKey -> Konzept) + questions_<id>.json.
+ *
+ * loadConcepts/loadQuestions werden lazy geladen (import/fetch), damit nur die
+ * Daten der gerade aktiven Domain im Speicher landen (kein Bundle-Bloat).
+ *
+ * Konvention der Konzept-Keys (siehe Plan 4.1):
+ *   - Terra: unpraefixt (z.B. "FJ", "Q64") -> keine IndexedDB-Migration noetig
+ *   - alle anderen: "<id>:<conceptId>" (z.B. "astra:mars")
  */
 export const DOMAINS = [
   {
@@ -16,27 +22,46 @@ export const DOMAINS = [
     shortLabel: 'Weltatlas',
     description: 'Länder, Städte, Flüsse und Regionen der Erde.',
     Icon: Globe2,
+    accent: '#1B305B',
+    // Terra wird visuell von der bestehenden Weltkarte (Map.jsx) dargestellt.
+    hasMap: true,
     loadConcepts: () => import('../data/geodb.json').then(module => module.default.entities),
-    loadQuestions: () => fetch('data/questions_terra.json').then(response => {
-      if (!response.ok) {
-        throw new Error(`Fragenkatalog konnte nicht geladen werden: ${response.status}`);
-      }
-      return response.json();
-    })
+    loadQuestions: () => fetch('data/questions_terra.json').then(handleJson)
+  },
+  {
+    id: 'astra',
+    latinName: 'Astra',
+    label: 'Astronomie',
+    shortLabel: 'Sternenhimmel',
+    description: 'Planeten, Monde, Sterne, Galaxien und kosmische Konstanten.',
+    Icon: Sparkles,
+    accent: '#5B4B8A',
+    // Phase 1: reine Multiple-Choice-Fragen, noch keine interaktive Karte.
+    hasMap: false,
+    loadConcepts: () => fetch('data/concepts_astra.json').then(handleJson),
+    loadQuestions: () => fetch('data/questions_astra.json').then(handleJson)
   }
 ];
 
+/** Gemeinsamer fetch-Handler: wirft bei HTTP-Fehlern statt still leer zu laden. */
+function handleJson(response) {
+  if (!response.ok) {
+    throw new Error(`Daten konnten nicht geladen werden: ${response.status}`);
+  }
+  return response.json();
+}
+
 /**
- * Finds a domain definition by ID and falls back to Terra.
- * The fallback keeps old settings safe if a future domain gets removed.
+ * Sucht eine Domain per ID und faellt auf Terra zurueck.
+ * Der Fallback haelt alte Einstellungen sicher, falls eine Domain mal entfernt wird.
  */
 export function getDomainById(domainId) {
   return DOMAINS.find(domain => domain.id === domainId) || DOMAINS[0];
 }
 
 /**
- * Existing Terra keys are intentionally unprefixed. Every new domain uses
- * "<domain>:<conceptId>", so a missing prefix always means Terra.
+ * Bestehende Terra-Keys sind bewusst unpraefixt. Jede andere Domain nutzt
+ * "<domain>:<conceptId>", ein fehlendes Praefix bedeutet daher immer Terra.
  */
 export function getDomainIdFromConceptKey(conceptKey) {
   if (typeof conceptKey !== 'string' || !conceptKey.includes(':')) {
