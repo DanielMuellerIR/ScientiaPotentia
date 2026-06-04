@@ -14,8 +14,9 @@ export default function Quiz({
   quizMode = 'all',
   clickedMapId = null,
   resetClickedMapId,
-  onQuizFinished, 
+  onQuizFinished,
   onSetQuizState,
+  onActiveConceptChange,
   onAddScore
 }) {
   const [questions, setQuestions] = useState([]);
@@ -58,7 +59,12 @@ export default function Quiz({
       setStatusMessage('');
       setWrongClickIds([]);
       setCorrectClickIds([]);
-      
+
+      // Aktuell gefragtes Konzept ans linke Panel melden, damit dieses pro Frage
+      // eine passende Visualisierung zeigt (3D-Planet, Anatomie-Grafik, …). Der
+      // entityId ist zugleich der Konzept-Key (z.B. "astra:mars").
+      if (onActiveConceptChange) onActiveConceptChange(q.entityId || null);
+
       // Determine what to highlight or overlay on Map. If city, highlight/zoom to its parent country.
       const mapHighlightId = q.entityType === 'city' ? geodb.entities[q.entityId]?.metadata?.countryId : q.entityId;
 
@@ -478,6 +484,7 @@ export default function Quiz({
       setIsAnswered(false);
     } else {
       setSessionFinished(true);
+      if (onActiveConceptChange) onActiveConceptChange(null);
       onSetQuizState({
         mode: 'dashboard',
         highlightedIds: [],

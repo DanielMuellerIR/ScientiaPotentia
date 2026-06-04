@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import Map from './components/Map';
 import Atlas from './components/Atlas';
 import Quiz from './components/Quiz';
 import Dashboard from './components/Dashboard';
 import DomainSwitcher from './components/DomainSwitcher';
-import DomainVisual from './components/DomainVisual';
+import VisualPanel from './components/VisualPanel';
 import geodb from './data/geodb.json';
 import { DOMAINS, getDomainById } from './domains';
 import pkg from '../package.json';
@@ -19,6 +18,10 @@ export default function App() {
   const [quizMode, setQuizMode] = useState('all'); // 'all' | 'countries' | 'cities' | 'rivers' | 'stadt-land-fluss'
   const [clickedMapId, setClickedMapId] = useState(null);
   const [isMuted, setIsMuted] = useState(isAudioMuted());
+
+  // Aktuell im Quiz gefragtes Konzept (Key, z.B. "astra:mars"). Steuert die
+  // linke Visualisierung (VisualPanel) frageweise. null = keine aktive Frage.
+  const [activeConceptKey, setActiveConceptKey] = useState(null);
 
   // Aktive Wissens-Domain, per DomainSwitcher umschaltbar (Terra, Astra, …).
   const [activeDomainId, setActiveDomainId] = useState('terra');
@@ -90,6 +93,8 @@ export default function App() {
 
   // Update map state mode based on active tab
   useEffect(() => {
+    // Verlaesst man das Quiz, gibt es keine aktive Frage -> Konzept-Visual zuruecksetzen.
+    if (activeTab !== 'quiz') setActiveConceptKey(null);
     setMapState(prev => ({
       ...prev,
       mode: activeTab,
@@ -377,35 +382,26 @@ export default function App() {
         overflow: 'hidden',
         position: 'relative'
       }}>
-        {/* Linkes Visualisierungs-Panel: Weltkarte bei Terra, sonst Domain-Übersicht */}
+        {/* Linkes Visualisierungs-Panel: Weltkarte bei Terra, sonst pro Frage
+            das gefragte Konzept (3D/Vektor bzw. generische Konzeptkarte). */}
         <div style={{ flex: 1, height: '100%', minWidth: 0 }}>
-          {activeDomain.hasMap ? (
-            <div className="terra-panel" style={{
-              height: '100%',
-              overflow: 'hidden',
-              position: 'relative',
-              border: '1px solid var(--border-light)',
-              background: '#EAE6DC'
-            }}>
-              <Map
-                selectedId={selectedEntityId}
-                onSelectEntity={handleSelectEntityFromMap}
-                highlightedIds={mapState.highlightedIds}
-                correctIds={mapState.correctIds}
-                wrongIds={mapState.wrongIds}
-                progressHeatmap={srsProgress}
-                mode={mapState.mode}
-                showSubdivisions={mapState.showSubdivisions}
-                zoomToEntityId={mapState.zoomToEntityId}
-              />
-            </div>
-          ) : (
-            <DomainVisual
-              domain={activeDomain}
-              concepts={concepts}
-              srsProgress={srsProgress}
-            />
-          )}
+          <VisualPanel
+            domain={activeDomain}
+            concepts={concepts}
+            srsProgress={srsProgress}
+            activeConceptKey={activeConceptKey}
+            mapProps={{
+              selectedId: selectedEntityId,
+              onSelectEntity: handleSelectEntityFromMap,
+              highlightedIds: mapState.highlightedIds,
+              correctIds: mapState.correctIds,
+              wrongIds: mapState.wrongIds,
+              progressHeatmap: srsProgress,
+              mode: mapState.mode,
+              showSubdivisions: mapState.showSubdivisions,
+              zoomToEntityId: mapState.zoomToEntityId
+            }}
+          />
         </div>
 
         {/* Floating Sidebar panel */}
@@ -451,6 +447,7 @@ export default function App() {
               resetClickedMapId={() => setClickedMapId(null)}
               onQuizFinished={handleQuizFinished}
               onSetQuizState={setMapState}
+              onActiveConceptChange={setActiveConceptKey}
               onAddScore={handleAddScorePoints}
             />
           )}
