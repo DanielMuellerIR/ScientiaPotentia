@@ -6,6 +6,19 @@ import { Protocol } from 'pmtiles';
 const protocol = new Protocol();
 maplibregl.addProtocol('pmtiles', protocol.tile);
 
+/**
+ * MapLibre-'match'-Ausdruecke brauchen mindestens ein (Label, Output)-Paar
+ * plus einen Fallback. Wird ein match ohne Paare gebaut (z.B. frische Quiz-Frage
+ * ohne markierte Laender, leere Heatmap), ist er ungueltig:
+ * "Expected at least 4 arguments, but found only 2". In dem Fall geben wir nur
+ * den Fallback (das zuletzt angehaengte Element) als konstanten Wert zurueck,
+ * der von setPaintProperty ebenfalls akzeptiert wird.
+ */
+function matchOrConstant(expression) {
+  // ['match', ['get','id'], fallback] -> Laenge 3 bedeutet: keine Paare vorhanden
+  return expression.length > 3 ? expression : expression[expression.length - 1];
+}
+
 // Helper to compute bounding box of a GeoJSON geometry
 function getBoundingBox(geometry) {
   let minLng = Infinity, maxLng = -Infinity;
@@ -347,7 +360,7 @@ export default function Map({
           }
         });
         colorExpression.push('#FAF6EE'); // Standard parchment
-        return colorExpression;
+        return matchOrConstant(colorExpression);
       };
 
       map.setPaintProperty('countries-fill', 'fill-color', buildColorExpression('countries'));
@@ -376,7 +389,7 @@ export default function Map({
         subColorExpression.push(selectedId, '#D1DCD4'); // soft green tint
       }
       subColorExpression.push('#FAF6EE'); // default subdivision background
-      map.setPaintProperty('subdivisions-fill', 'fill-color', subColorExpression);
+      map.setPaintProperty('subdivisions-fill', 'fill-color', matchOrConstant(subColorExpression));
 
       // Border outline for active subdivision
       const subBorderExpression = ['match', ['get', 'id']];
@@ -384,14 +397,14 @@ export default function Map({
         subBorderExpression.push(selectedId, '#1B305B'); // deep slate blue border
       }
       subBorderExpression.push('#C7C2B4'); // default subdivision border
-      map.setPaintProperty('subdivisions-borders', 'line-color', subBorderExpression);
+      map.setPaintProperty('subdivisions-borders', 'line-color', matchOrConstant(subBorderExpression));
 
       const subBorderWidthExpression = ['match', ['get', 'id']];
       if (isSubdivisionSelected) {
         subBorderWidthExpression.push(selectedId, 2);
       }
       subBorderWidthExpression.push(0.8);
-      map.setPaintProperty('subdivisions-borders', 'line-width', subBorderWidthExpression);
+      map.setPaintProperty('subdivisions-borders', 'line-width', matchOrConstant(subBorderWidthExpression));
 
       // Style fill color based on SRS progress (Heatmap)
       const colorExpression = ['match', ['get', 'id']];
@@ -423,7 +436,7 @@ export default function Map({
       }
 
       colorExpression.push('#FAF6EE'); // default parchment fill
-      map.setPaintProperty('countries-fill', 'fill-color', colorExpression);
+      map.setPaintProperty('countries-fill', 'fill-color', matchOrConstant(colorExpression));
       map.setPaintProperty('countries-fill', 'fill-opacity', 0.85);
 
       // Border outline for active country
@@ -432,14 +445,14 @@ export default function Map({
         borderExpression.push(selectedId, '#1B305B'); // Deep Slate Blue border for selected country
       }
       borderExpression.push('#A6A192');
-      map.setPaintProperty('countries-borders', 'line-color', borderExpression);
+      map.setPaintProperty('countries-borders', 'line-color', matchOrConstant(borderExpression));
       
       const borderWidthExpression = ['match', ['get', 'id']];
       if (selectedId && !isSubdivisionSelected) {
         borderWidthExpression.push(selectedId, 2);
       }
       borderWidthExpression.push(1);
-      map.setPaintProperty('countries-borders', 'line-width', borderWidthExpression);
+      map.setPaintProperty('countries-borders', 'line-width', matchOrConstant(borderWidthExpression));
     }
 
     // Update rivers layer styling dynamically
