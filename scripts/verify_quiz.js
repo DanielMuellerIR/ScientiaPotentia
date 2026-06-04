@@ -3,7 +3,8 @@ import path from 'path';
 
 const DATA_DIR = path.resolve('src/data');
 const PUBLIC_DIR = path.resolve('public/data');
-const QUESTIONS_PATH = path.join(DATA_DIR, 'quiz_questions.json');
+// Terra-Fragen liegen seit Phase 0 in public/data/ (aus dem JS-Bundle ausgelagert).
+const QUESTIONS_PATH = path.join(PUBLIC_DIR, 'questions_terra.json');
 const COUNTRIES_GEOJSON_PATH = path.join(PUBLIC_DIR, 'countries.json');
 const SUBDIVISIONS_GEOJSON_PATH = path.join(PUBLIC_DIR, 'subdivisions.json');
 

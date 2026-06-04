@@ -1,0 +1,972 @@
+{
+  "astra:mercury": {
+    "id": "astra:mercury",
+    "name": "Merkur",
+    "type": "planet",
+    "category": "planet",
+    "attributes": {
+      "orderFromSun": 1,
+      "type": "Gesteinsplanet",
+      "numMoons": 0,
+      "diameterKm": 4879,
+      "dayLengthHours": 4222.6,
+      "yearLengthEarthDays": 88,
+      "hasRings": false,
+      "distanceFromSunAU": 0.39
+    },
+    "funFact": "Merkur ist der kleinste Planet des Sonnensystems und hat den kuerzesten Umlauf um die Sonne.",
+    "source": {
+      "name": "NASA Planetary Fact Sheet",
+      "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/mercuryfact.html"
+    }
+  },
+  "astra:venus": {
+    "id": "astra:venus",
+    "name": "Venus",
+    "type": "planet",
+    "category": "planet",
+    "attributes": {
+      "orderFromSun": 2,
+      "type": "Gesteinsplanet",
+      "numMoons": 0,
+      "diameterKm": 12104,
+      "dayLengthHours": 2802,
+      "yearLengthEarthDays": 224.7,
+      "hasRings": false,
+      "distanceFromSunAU": 0.72
+    },
+    "funFact": "Die Venus dreht sich rueckwaerts und so langsam, dass ein Tag dort laenger dauert als ein Venusjahr.",
+    "source": {
+      "name": "NASA Planetary Fact Sheet",
+      "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/venusfact.html"
+    }
+  },
+  "astra:earth": {
+    "id": "astra:earth",
+    "name": "Erde",
+    "type": "planet",
+    "category": "planet",
+    "attributes": {
+      "orderFromSun": 3,
+      "type": "Gesteinsplanet",
+      "numMoons": 1,
+      "diameterKm": 12756,
+      "dayLengthHours": 24,
+      "yearLengthEarthDays": 365.2,
+      "hasRings": false,
+      "distanceFromSunAU": 1
+    },
+    "funFact": "Die Erde ist der einzige bekannte Himmelskoerper, auf dem fluessiges Wasser dauerhaft an der Oberflaeche existiert.",
+    "source": {
+      "name": "NASA Planetary Fact Sheet",
+      "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html"
+    }
+  },
+  "astra:mars": {
+    "id": "astra:mars",
+    "name": "Mars",
+    "type": "planet",
+    "category": "planet",
+    "attributes": {
+      "orderFromSun": 4,
+      "type": "Gesteinsplanet",
+      "numMoons": 2,
+      "diameterKm": 6792,
+      "dayLengthHours": 24.7,
+      "yearLengthEarthDays": 687,
+      "hasRings": false,
+      "distanceFromSunAU": 1.52
+    },
+    "funFact": "Auf dem Mars steht mit dem Olympus Mons der hoechste bekannte Vulkan des Sonnensystems.",
+    "source": {
+      "name": "NASA Planetary Fact Sheet",
+      "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/marsfact.html"
+    }
+  },
+  "astra:jupiter": {
+    "id": "astra:jupiter",
+    "name": "Jupiter",
+    "type": "planet",
+    "category": "planet",
+    "attributes": {
+      "orderFromSun": 5,
+      "type": "Gasriese",
+      "numMoons": 95,
+      "diameterKm": 142984,
+      "dayLengthHours": 9.9,
+      "yearLengthEarthDays": 4331,
+      "hasRings": true,
+      "distanceFromSunAU": 5.2
+    },
+    "funFact": "Jupiter ist so massereich wie alle anderen Planeten des Sonnensystems zusammen mehr als doppelt aufgewogen.",
+    "source": {
+      "name": "NASA Planetary Fact Sheet",
+      "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/jupiterfact.html"
+    }
+  },
+  "astra:saturn": {
+    "id": "astra:saturn",
+    "name": "Saturn",
+    "type": "planet",
+    "category": "planet",
+    "attributes": {
+      "orderFromSun": 6,
+      "type": "Gasriese",
+      "numMoons": 146,
+      "diameterKm": 120536,
+      "dayLengthHours": 10.7,
+      "yearLengthEarthDays": 10747,
+      "hasRings": true,
+      "distanceFromSunAU": 9.5
+    },
+    "funFact": "Saturns ausgepraegtes Ringsystem besteht groesstenteils aus Eisbrocken und ist von der Erde aus schon im kleinen Teleskop sichtbar.",
+    "source": {
+      "name": "NASA Planetary Fact Sheet",
+      "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/saturnfact.html"
+    }
+  },
+  "astra:uranus": {
+    "id": "astra:uranus",
+    "name": "Uranus",
+    "type": "planet",
+    "category": "planet",
+    "attributes": {
+      "orderFromSun": 7,
+      "type": "Eisriese",
+      "numMoons": 28,
+      "diameterKm": 51118,
+      "dayLengthHours": 17.2,
+      "yearLengthEarthDays": 30589,
+      "hasRings": true,
+      "distanceFromSunAU": 19.2
+    },
+    "funFact": "Uranus ist so stark gekippt, dass er quasi auf der Seite liegend um die Sonne rollt.",
+    "source": {
+      "name": "NASA Planetary Fact Sheet",
+      "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/uranusfact.html"
+    }
+  },
+  "astra:neptune": {
+    "id": "astra:neptune",
+    "name": "Neptun",
+    "type": "planet",
+    "category": "planet",
+    "attributes": {
+      "orderFromSun": 8,
+      "type": "Eisriese",
+      "numMoons": 16,
+      "diameterKm": 49528,
+      "dayLengthHours": 16.1,
+      "yearLengthEarthDays": 59800,
+      "hasRings": true,
+      "distanceFromSunAU": 30.1
+    },
+    "funFact": "Neptun ist der aeusserste Planet und wurde 1846 zuerst mathematisch berechnet, bevor man ihn am Teleskop fand.",
+    "source": {
+      "name": "NASA Planetary Fact Sheet",
+      "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/neptunefact.html"
+    }
+  },
+  "astra:pluto": {
+    "id": "astra:pluto",
+    "name": "Pluto",
+    "type": "dwarf_planet",
+    "category": "dwarf_planet",
+    "attributes": {
+      "location": "Kuiperguertel",
+      "diameterKm": 2377,
+      "numMoons": 5,
+      "yearLengthEarthYears": 248,
+      "discoveredYear": 1930
+    },
+    "funFact": "Pluto war von 1930 bis 2006 der neunte Planet, bis die IAU ihn zum Zwergplaneten herabstufte.",
+    "source": {
+      "name": "NASA Science - Pluto Facts",
+      "url": "https://science.nasa.gov/dwarf-planets/pluto/facts/"
+    }
+  },
+  "astra:ceres": {
+    "id": "astra:ceres",
+    "name": "Ceres",
+    "type": "dwarf_planet",
+    "category": "dwarf_planet",
+    "attributes": {
+      "location": "Asteroidenguertel",
+      "diameterKm": 939,
+      "numMoons": 0,
+      "yearLengthEarthYears": 4.6,
+      "discoveredYear": 1801
+    },
+    "funFact": "Ceres ist der einzige Zwergplanet im Asteroidenguertel und wurde 2015 von der NASA-Sonde Dawn umkreist.",
+    "source": {
+      "name": "NASA Science - Ceres Facts",
+      "url": "https://science.nasa.gov/dwarf-planets/ceres/facts/"
+    }
+  },
+  "astra:eris": {
+    "id": "astra:eris",
+    "name": "Eris",
+    "type": "dwarf_planet",
+    "category": "dwarf_planet",
+    "attributes": {
+      "location": "Kuiperguertel",
+      "diameterKm": 2326,
+      "numMoons": 1,
+      "yearLengthEarthYears": 559,
+      "discoveredYear": 2005
+    },
+    "funFact": "Die Entdeckung von Eris, fast so gross wie Pluto, loeste die Debatte aus, die 2006 zur Definition des Begriffs Zwergplanet fuehrte.",
+    "source": {
+      "name": "NASA Science - Eris Facts",
+      "url": "https://science.nasa.gov/dwarf-planets/eris/facts/"
+    }
+  },
+  "astra:makemake": {
+    "id": "astra:makemake",
+    "name": "Makemake",
+    "type": "dwarf_planet",
+    "category": "dwarf_planet",
+    "attributes": {
+      "location": "Kuiperguertel",
+      "diameterKm": 1430,
+      "numMoons": 1,
+      "yearLengthEarthYears": 305,
+      "discoveredYear": 2005
+    },
+    "funFact": "Makemake ist nach dem Schoepfergott der Rapa Nui der Osterinsel benannt und wurde kurz nach Ostern 2005 entdeckt.",
+    "source": {
+      "name": "NASA Science - Makemake Facts",
+      "url": "https://science.nasa.gov/dwarf-planets/makemake/facts/"
+    }
+  },
+  "astra:haumea": {
+    "id": "astra:haumea",
+    "name": "Haumea",
+    "type": "dwarf_planet",
+    "category": "dwarf_planet",
+    "attributes": {
+      "location": "Kuiperguertel",
+      "diameterKm": 1740,
+      "numMoons": 2,
+      "yearLengthEarthYears": 285,
+      "discoveredYear": 2004
+    },
+    "funFact": "Haumea rotiert so schnell, dass sie eine stark eifoermige Gestalt hat und sogar von einem Ring umgeben ist.",
+    "source": {
+      "name": "NASA Science - Haumea Facts",
+      "url": "https://science.nasa.gov/dwarf-planets/haumea/facts/"
+    }
+  },
+  "astra:luna": {
+    "id": "astra:luna",
+    "name": "Erdmond (Luna)",
+    "type": "moon",
+    "category": "moon",
+    "attributes": {
+      "parentPlanet": "Erde",
+      "diameterKm": 3475,
+      "notableFor": "Einziger natürlicher Satellit der Erde und einziger von Menschen betretener Himmelskörper"
+    },
+    "funFact": "Der Mond entfernt sich pro Jahr rund 3,8 Zentimeter von der Erde.",
+    "source": {
+      "name": "NASA Moon Fact Sheet",
+      "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/moonfact.html"
+    }
+  },
+  "astra:phobos": {
+    "id": "astra:phobos",
+    "name": "Phobos",
+    "type": "moon",
+    "category": "moon",
+    "attributes": {
+      "parentPlanet": "Mars",
+      "diameterKm": 22.5,
+      "notableFor": "Größerer und innerer der beiden kleinen, unregelmäßig geformten Marsmonde"
+    },
+    "funFact": "Phobos umkreist den Mars so schnell, dass er von der Oberfläche aus zweimal täglich aufgeht.",
+    "source": {
+      "name": "NASA Mars Fact Sheet",
+      "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/marsfact.html"
+    }
+  },
+  "astra:deimos": {
+    "id": "astra:deimos",
+    "name": "Deimos",
+    "type": "moon",
+    "category": "moon",
+    "attributes": {
+      "parentPlanet": "Mars",
+      "diameterKm": 12.4,
+      "notableFor": "Kleinerer und äußerer der beiden Marsmonde"
+    },
+    "funFact": "Deimos ist so klein, dass er von der Marsoberfläche aus eher wie ein heller Stern als wie ein Mond erscheint.",
+    "source": {
+      "name": "NASA Mars Fact Sheet",
+      "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/marsfact.html"
+    }
+  },
+  "astra:io": {
+    "id": "astra:io",
+    "name": "Io",
+    "type": "moon",
+    "category": "moon",
+    "attributes": {
+      "parentPlanet": "Jupiter",
+      "diameterKm": 3643,
+      "notableFor": "Vulkanisch aktivster Körper des Sonnensystems"
+    },
+    "funFact": "Io hat hunderte aktive Vulkane, die Schwefel kilometerhoch ins All schleudern.",
+    "source": {
+      "name": "NASA Jovian Satellite Fact Sheet",
+      "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/joviansatfact.html"
+    }
+  },
+  "astra:europa": {
+    "id": "astra:europa",
+    "name": "Europa",
+    "type": "moon",
+    "category": "moon",
+    "attributes": {
+      "parentPlanet": "Jupiter",
+      "diameterKm": 3122,
+      "notableFor": "Eisbedeckter Mond mit vermutetem flüssigem Ozean unter der Oberfläche"
+    },
+    "funFact": "Unter Europas Eiskruste wird mehr flüssiges Wasser vermutet als in allen Ozeanen der Erde zusammen.",
+    "source": {
+      "name": "NASA Jovian Satellite Fact Sheet",
+      "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/joviansatfact.html"
+    }
+  },
+  "astra:ganymede": {
+    "id": "astra:ganymede",
+    "name": "Ganymed",
+    "type": "moon",
+    "category": "moon",
+    "attributes": {
+      "parentPlanet": "Jupiter",
+      "diameterKm": 5268,
+      "notableFor": "Größter Mond des Sonnensystems, größer als der Planet Merkur"
+    },
+    "funFact": "Ganymed ist der einzige Mond mit einem eigenen Magnetfeld.",
+    "source": {
+      "name": "NASA Jovian Satellite Fact Sheet",
+      "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/joviansatfact.html"
+    }
+  },
+  "astra:callisto": {
+    "id": "astra:callisto",
+    "name": "Kallisto",
+    "type": "moon",
+    "category": "moon",
+    "attributes": {
+      "parentPlanet": "Jupiter",
+      "diameterKm": 4821,
+      "notableFor": "Einer der am stärksten verkraterten Körper des Sonnensystems"
+    },
+    "funFact": "Kallistos Oberfläche ist so alt und unverändert, dass sie als eine der am dichtesten verkraterten überhaupt gilt.",
+    "source": {
+      "name": "NASA Jovian Satellite Fact Sheet",
+      "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/joviansatfact.html"
+    }
+  },
+  "astra:titan": {
+    "id": "astra:titan",
+    "name": "Titan",
+    "type": "moon",
+    "category": "moon",
+    "attributes": {
+      "parentPlanet": "Saturn",
+      "diameterKm": 5150,
+      "notableFor": "Größter Saturnmond und einziger Mond mit dichter Atmosphäre"
+    },
+    "funFact": "Auf Titan gibt es Seen und Flüsse aus flüssigem Methan und Ethan.",
+    "source": {
+      "name": "NASA Saturnian Satellite Fact Sheet",
+      "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/saturniansatfact.html"
+    }
+  },
+  "astra:enceladus": {
+    "id": "astra:enceladus",
+    "name": "Enceladus",
+    "type": "moon",
+    "category": "moon",
+    "attributes": {
+      "parentPlanet": "Saturn",
+      "diameterKm": 504,
+      "notableFor": "Eismond mit Wasserfontänen aus einem unterirdischen Ozean"
+    },
+    "funFact": "Enceladus speist mit seinen Eisfontänen den äußeren E-Ring des Saturn.",
+    "source": {
+      "name": "NASA Saturnian Satellite Fact Sheet",
+      "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/saturniansatfact.html"
+    }
+  },
+  "astra:rhea": {
+    "id": "astra:rhea",
+    "name": "Rhea",
+    "type": "moon",
+    "category": "moon",
+    "attributes": {
+      "parentPlanet": "Saturn",
+      "diameterKm": 1528,
+      "notableFor": "Zweitgrößter Mond des Saturn, überwiegend aus Wassereis"
+    },
+    "funFact": "Rhea besteht zu etwa drei Vierteln aus Wassereis und nur zu einem Viertel aus Gestein.",
+    "source": {
+      "name": "NASA Saturnian Satellite Fact Sheet",
+      "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/saturniansatfact.html"
+    }
+  },
+  "astra:mimas": {
+    "id": "astra:mimas",
+    "name": "Mimas",
+    "type": "moon",
+    "category": "moon",
+    "attributes": {
+      "parentPlanet": "Saturn",
+      "diameterKm": 396,
+      "notableFor": "Bekannt durch den riesigen Krater Herschel, der ihm ein todessternartiges Aussehen gibt"
+    },
+    "funFact": "Wegen des Kraters Herschel wird Mimas oft mit dem Todesstern aus Star Wars verglichen.",
+    "source": {
+      "name": "NASA Saturnian Satellite Fact Sheet",
+      "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/saturniansatfact.html"
+    }
+  },
+  "astra:triton": {
+    "id": "astra:triton",
+    "name": "Triton",
+    "type": "moon",
+    "category": "moon",
+    "attributes": {
+      "parentPlanet": "Neptun",
+      "diameterKm": 2707,
+      "notableFor": "Größter Neptunmond mit rückläufigem Umlauf und aktiven Geysiren"
+    },
+    "funFact": "Triton ist der einzige große Mond, der seinen Planeten entgegen dessen Rotationsrichtung umkreist.",
+    "source": {
+      "name": "NASA Neptunian Satellite Fact Sheet",
+      "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/neptuniansatfact.html"
+    }
+  },
+  "astra:titania": {
+    "id": "astra:titania",
+    "name": "Titania",
+    "type": "moon",
+    "category": "moon",
+    "attributes": {
+      "parentPlanet": "Uranus",
+      "diameterKm": 1577,
+      "notableFor": "Größter Mond des Uranus mit ausgedehnten Bruchtälern"
+    },
+    "funFact": "Titanias Oberfläche ist von gewaltigen Canyons durchzogen, die auf eine frühere Ausdehnung des Mondes hindeuten.",
+    "source": {
+      "name": "NASA Uranian Satellite Fact Sheet",
+      "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/uraniansatfact.html"
+    }
+  },
+  "astra:charon": {
+    "id": "astra:charon",
+    "name": "Charon",
+    "type": "moon",
+    "category": "moon",
+    "attributes": {
+      "parentPlanet": "Pluto",
+      "diameterKm": 1212,
+      "notableFor": "Größter Mond Plutos, fast halb so groß wie Pluto selbst"
+    },
+    "funFact": "Charon ist im Verhältnis zu seinem Zwergplaneten so groß, dass beide um einen gemeinsamen Schwerpunkt außerhalb Plutos kreisen.",
+    "source": {
+      "name": "NASA Pluto Fact Sheet",
+      "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/plutofact.html"
+    }
+  },
+  "astra:sun": {
+    "id": "astra:sun",
+    "name": "Sonne",
+    "type": "star",
+    "category": "star",
+    "attributes": {
+      "constellation": "",
+      "type": "Gelber Zwerg",
+      "distanceLy": 0.0000158,
+      "apparentMagnitude": -26.74,
+      "notableFor": "Zentralstern unseres Sonnensystems und Quelle allen Lebens auf der Erde"
+    },
+    "funFact": "Das Licht der Sonne braucht rund acht Minuten bis zur Erde.",
+    "source": {
+      "name": "NASA Sun Fact Sheet",
+      "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/sunfact.html"
+    }
+  },
+  "astra:sirius": {
+    "id": "astra:sirius",
+    "name": "Sirius",
+    "type": "star",
+    "category": "star",
+    "attributes": {
+      "constellation": "Großer Hund",
+      "type": "Weißer Hauptreihenstern",
+      "distanceLy": 8.6,
+      "apparentMagnitude": -1.46,
+      "notableFor": "Hellster Stern am gesamten Nachthimmel"
+    },
+    "funFact": "Sirius hat einen Weißen Zwerg als Begleiter, der erst 1862 entdeckt wurde.",
+    "source": {
+      "name": "NASA / SIMBAD",
+      "url": "https://simbad.cds.unistra.fr/simbad/"
+    }
+  },
+  "astra:betelgeuse": {
+    "id": "astra:betelgeuse",
+    "name": "Beteigeuze",
+    "type": "star",
+    "category": "star",
+    "attributes": {
+      "constellation": "Orion",
+      "type": "Roter Überriese",
+      "distanceLy": 640,
+      "apparentMagnitude": 0.42,
+      "notableFor": "Markante rötliche Schulter im Sternbild Orion und Kandidat für eine künftige Supernova"
+    },
+    "funFact": "Beteigeuze ist so groß, dass sie an Stelle der Sonne bis über die Marsbahn reichen würde.",
+    "source": {
+      "name": "ESA / SIMBAD",
+      "url": "https://simbad.cds.unistra.fr/simbad/"
+    }
+  },
+  "astra:rigel": {
+    "id": "astra:rigel",
+    "name": "Rigel",
+    "type": "star",
+    "category": "star",
+    "attributes": {
+      "constellation": "Orion",
+      "type": "Blauer Überriese",
+      "distanceLy": 860,
+      "apparentMagnitude": 0.13,
+      "notableFor": "Hellster Stern im Orion und einer der leuchtkräftigsten Sterne unserer Umgebung"
+    },
+    "funFact": "Rigel strahlt rund 100.000-mal heller als die Sonne.",
+    "source": {
+      "name": "ESA / SIMBAD",
+      "url": "https://simbad.cds.unistra.fr/simbad/"
+    }
+  },
+  "astra:proxima_centauri": {
+    "id": "astra:proxima_centauri",
+    "name": "Proxima Centauri",
+    "type": "star",
+    "category": "star",
+    "attributes": {
+      "constellation": "Zentaur",
+      "type": "Roter Zwerg",
+      "distanceLy": 4.24,
+      "apparentMagnitude": 11.13,
+      "notableFor": "Der uns nächstgelegene Stern nach der Sonne"
+    },
+    "funFact": "Trotz ihrer Nähe ist Proxima Centauri so lichtschwach, dass sie mit bloßem Auge nicht sichtbar ist.",
+    "source": {
+      "name": "ESA Gaia / SIMBAD",
+      "url": "https://simbad.cds.unistra.fr/simbad/"
+    }
+  },
+  "astra:alpha_centauri_a": {
+    "id": "astra:alpha_centauri_a",
+    "name": "Alpha Centauri A",
+    "type": "star",
+    "category": "star",
+    "attributes": {
+      "constellation": "Zentaur",
+      "type": "Gelber Zwerg",
+      "distanceLy": 4.37,
+      "apparentMagnitude": -0.01,
+      "notableFor": "Sonnenähnlicher Hauptstern des nächstgelegenen Sternsystems"
+    },
+    "funFact": "Alpha Centauri A ist ein naher Zwilling unserer Sonne und bildet mit B und Proxima ein Dreifachsystem.",
+    "source": {
+      "name": "ESA / SIMBAD",
+      "url": "https://simbad.cds.unistra.fr/simbad/"
+    }
+  },
+  "astra:polaris": {
+    "id": "astra:polaris",
+    "name": "Polaris (Polarstern)",
+    "type": "star",
+    "category": "star",
+    "attributes": {
+      "constellation": "Kleiner Bär",
+      "type": "Gelber Überriese",
+      "distanceLy": 433,
+      "apparentMagnitude": 1.98,
+      "notableFor": "Steht nahe dem nördlichen Himmelspol und dient seit jeher der Orientierung"
+    },
+    "funFact": "Der Polarstern ist ein pulsierender Cepheiden-Veränderlicher und ändert leicht seine Helligkeit.",
+    "source": {
+      "name": "ESA / SIMBAD",
+      "url": "https://simbad.cds.unistra.fr/simbad/"
+    }
+  },
+  "astra:vega": {
+    "id": "astra:vega",
+    "name": "Wega",
+    "type": "star",
+    "category": "star",
+    "attributes": {
+      "constellation": "Leier",
+      "type": "Weißer Hauptreihenstern",
+      "distanceLy": 25,
+      "apparentMagnitude": 0.03,
+      "notableFor": "Hellster Stern der Leier und einst Eichpunkt der Helligkeitsskala"
+    },
+    "funFact": "In rund 12.000 Jahren wird die Wega durch die Präzession der Erdachse zum Polarstern.",
+    "source": {
+      "name": "ESA / SIMBAD",
+      "url": "https://simbad.cds.unistra.fr/simbad/"
+    }
+  },
+  "astra:aldebaran": {
+    "id": "astra:aldebaran",
+    "name": "Aldebaran",
+    "type": "star",
+    "category": "star",
+    "attributes": {
+      "constellation": "Stier",
+      "type": "Roter Riese",
+      "distanceLy": 65,
+      "apparentMagnitude": 0.86,
+      "notableFor": "Auffälliger rötlicher Hauptstern im Sternbild Stier (Auge des Stiers)"
+    },
+    "funFact": "Aldebaran erscheint im Sternbild nahe den Hyaden, gehört aber als Vordergrundstern gar nicht zu diesem Sternhaufen.",
+    "source": {
+      "name": "ESA / SIMBAD",
+      "url": "https://simbad.cds.unistra.fr/simbad/"
+    }
+  },
+  "astra:antares": {
+    "id": "astra:antares",
+    "name": "Antares",
+    "type": "star",
+    "category": "star",
+    "attributes": {
+      "constellation": "Skorpion",
+      "type": "Roter Überriese",
+      "distanceLy": 550,
+      "apparentMagnitude": 1.06,
+      "notableFor": "Rötlicher Hauptstern im Skorpion, dessen Name Gegen-Mars bedeutet"
+    },
+    "funFact": "Wegen seiner roten Farbe galt Antares in der Antike als Rivale des Planeten Mars.",
+    "source": {
+      "name": "ESA / SIMBAD",
+      "url": "https://simbad.cds.unistra.fr/simbad/"
+    }
+  },
+  "astra:capella": {
+    "id": "astra:capella",
+    "name": "Kapella",
+    "type": "star",
+    "category": "star",
+    "attributes": {
+      "constellation": "Fuhrmann",
+      "type": "Gelber Riese",
+      "distanceLy": 43,
+      "apparentMagnitude": 0.08,
+      "notableFor": "Hellster Stern im Fuhrmann und einer der hellsten am Nordhimmel"
+    },
+    "funFact": "Was wie ein einzelner Stern aussieht, ist in Wahrheit ein System aus zwei gelben Riesensternen.",
+    "source": {
+      "name": "ESA / SIMBAD",
+      "url": "https://simbad.cds.unistra.fr/simbad/"
+    }
+  },
+  "astra:arcturus": {
+    "id": "astra:arcturus",
+    "name": "Arktur",
+    "type": "star",
+    "category": "star",
+    "attributes": {
+      "constellation": "Bärenhüter",
+      "type": "Roter Riese",
+      "distanceLy": 37,
+      "apparentMagnitude": -0.05,
+      "notableFor": "Hellster Stern am Nordhimmel und vierthellster Stern überhaupt"
+    },
+    "funFact": "Arktur findet man, indem man den Bogen der Deichsel des Großen Wagens verlängert.",
+    "source": {
+      "name": "ESA / SIMBAD",
+      "url": "https://simbad.cds.unistra.fr/simbad/"
+    }
+  },
+  "astra:milky_way": {
+    "id": "astra:milky_way",
+    "name": "Milchstraße",
+    "type": "galaxy",
+    "category": "galaxy",
+    "attributes": {
+      "type": "Balkenspiralgalaxie",
+      "distanceLy": 0,
+      "notableFor": "Unsere Heimatgalaxie, in der sich das Sonnensystem befindet."
+    },
+    "funFact": "Unser Sonnensystem braucht rund 225 bis 250 Millionen Jahre für einen Umlauf um das Zentrum der Milchstraße.",
+    "source": {
+      "name": "NASA",
+      "url": "https://science.nasa.gov/resource/the-milky-way-galaxy/"
+    }
+  },
+  "astra:andromeda": {
+    "id": "astra:andromeda",
+    "name": "Andromedagalaxie",
+    "type": "galaxy",
+    "category": "galaxy",
+    "attributes": {
+      "type": "Spiralgalaxie",
+      "distanceLy": 2500000,
+      "notableFor": "Die der Milchstraße am nächsten gelegene große Spiralgalaxie und auf der Nordhalbkugel mit bloßem Auge sichtbar."
+    },
+    "funFact": "Die Andromedagalaxie (M31) bewegt sich auf die Milchstraße zu und wird in etwa 4 bis 5 Milliarden Jahren mit ihr verschmelzen.",
+    "source": {
+      "name": "NASA",
+      "url": "https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-31/"
+    }
+  },
+  "astra:triangulum": {
+    "id": "astra:triangulum",
+    "name": "Dreiecksgalaxie",
+    "type": "galaxy",
+    "category": "galaxy",
+    "attributes": {
+      "type": "Spiralgalaxie",
+      "distanceLy": 2730000,
+      "notableFor": "Drittgrößtes Mitglied der Lokalen Gruppe nach Andromeda und Milchstraße."
+    },
+    "funFact": "Die Dreiecksgalaxie (M33) ist unter sehr dunklem Himmel das am weitesten entfernte Objekt, das man noch mit bloßem Auge erkennen kann.",
+    "source": {
+      "name": "NASA",
+      "url": "https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-33/"
+    }
+  },
+  "astra:large_magellanic_cloud": {
+    "id": "astra:large_magellanic_cloud",
+    "name": "Große Magellansche Wolke",
+    "type": "galaxy",
+    "category": "galaxy",
+    "attributes": {
+      "type": "Zwerggalaxie",
+      "distanceLy": 160000,
+      "notableFor": "Eine der nächsten Begleitgalaxien der Milchstraße, gut von der Südhalbkugel sichtbar."
+    },
+    "funFact": "In der Großen Magellanschen Wolke leuchtete 1987 die Supernova SN 1987A auf, die hellste seit fast 400 Jahren.",
+    "source": {
+      "name": "ESA/Hubble",
+      "url": "https://esahubble.org/wordbank/large-magellanic-cloud/"
+    }
+  },
+  "astra:small_magellanic_cloud": {
+    "id": "astra:small_magellanic_cloud",
+    "name": "Kleine Magellansche Wolke",
+    "type": "galaxy",
+    "category": "galaxy",
+    "attributes": {
+      "type": "Zwerggalaxie",
+      "distanceLy": 200000,
+      "notableFor": "Begleitgalaxie der Milchstraße und mit bloßem Auge am Südhimmel sichtbar."
+    },
+    "funFact": "Die Kleine Magellansche Wolke ist über die Magellansche Brücke aus Gas mit der Großen Magellanschen Wolke verbunden.",
+    "source": {
+      "name": "ESA/Hubble",
+      "url": "https://esahubble.org/wordbank/small-magellanic-cloud/"
+    }
+  },
+  "astra:whirlpool": {
+    "id": "astra:whirlpool",
+    "name": "Whirlpool-Galaxie",
+    "type": "galaxy",
+    "category": "galaxy",
+    "attributes": {
+      "type": "Spiralgalaxie",
+      "distanceLy": 23000000,
+      "notableFor": "Klassische Grand-Design-Spirale, die in Wechselwirkung mit einer kleinen Begleitgalaxie steht."
+    },
+    "funFact": "Die Whirlpool-Galaxie (M51) war die erste Galaxie, an der ihre Spiralstruktur erkannt wurde (1845 durch Lord Rosse).",
+    "source": {
+      "name": "NASA",
+      "url": "https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-51/"
+    }
+  },
+  "astra:sombrero": {
+    "id": "astra:sombrero",
+    "name": "Sombrero-Galaxie",
+    "type": "galaxy",
+    "category": "galaxy",
+    "attributes": {
+      "type": "Spiralgalaxie",
+      "distanceLy": 28000000,
+      "notableFor": "Bekannt für ihr markantes dunkles Staubband und den hellen Zentralbereich, die an einen Sombrero erinnern."
+    },
+    "funFact": "Die Sombrero-Galaxie (M104) beherbergt in ihrem Zentrum eines der massereichsten bekannten Schwarzen Löcher mit rund einer Milliarde Sonnenmassen.",
+    "source": {
+      "name": "NASA",
+      "url": "https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-104/"
+    }
+  },
+  "astra:speed_of_light": {
+    "id": "astra:speed_of_light",
+    "name": "Lichtgeschwindigkeit",
+    "type": "constant",
+    "category": "constant",
+    "attributes": {
+      "value": "299792458",
+      "unit": "m/s",
+      "definition": "Ausbreitungsgeschwindigkeit des Lichts im Vakuum, eine fundamentale Naturkonstante mit exakt festgelegtem Wert."
+    },
+    "funFact": "Seit 1983 ist das Meter ueber die Lichtgeschwindigkeit definiert, weshalb deren Wert exakt und nicht mehr messfehlerbehaftet ist.",
+    "source": {
+      "name": "CODATA / SI-Einheitensystem (BIPM)",
+      "url": "https://physics.nist.gov/cgi-bin/cuu/Value?c"
+    }
+  },
+  "astra:astronomical_unit": {
+    "id": "astra:astronomical_unit",
+    "name": "Astronomische Einheit (AE)",
+    "type": "constant",
+    "category": "constant",
+    "attributes": {
+      "value": "149597870.7",
+      "unit": "km",
+      "definition": "Exakt festgelegte Laengeneinheit, die ungefaehr dem mittleren Abstand zwischen Erde und Sonne entspricht."
+    },
+    "funFact": "Die IAU legte 2012 die AE als exakten festen Wert in Metern fest, sodass sie nicht mehr von Messungen der Erdbahn abhaengt.",
+    "source": {
+      "name": "IAU Resolution B2 (2012)",
+      "url": "https://www.iau.org/static/resolutions/IAU2012_English.pdf"
+    }
+  },
+  "astra:light_year": {
+    "id": "astra:light_year",
+    "name": "Lichtjahr",
+    "type": "constant",
+    "category": "constant",
+    "attributes": {
+      "value": "9460730472580.8",
+      "unit": "km",
+      "definition": "Strecke, die das Licht im Vakuum in einem julianischen Jahr (365,25 Tage) zuruecklegt; rund 9,46 Billionen km."
+    },
+    "funFact": "Trotz des Wortteils Jahr ist das Lichtjahr eine Laengeneinheit, keine Zeiteinheit.",
+    "source": {
+      "name": "IAU (Definition Laengeneinheiten)",
+      "url": "https://www.iau.org/public/themes/measuring/"
+    }
+  },
+  "astra:parsec": {
+    "id": "astra:parsec",
+    "name": "Parsec",
+    "type": "constant",
+    "category": "constant",
+    "attributes": {
+      "value": "3.0857e13",
+      "unit": "km",
+      "definition": "Distanz, aus der eine Astronomische Einheit unter einem Winkel von einer Bogensekunde erscheint; rund 3,26 Lichtjahre."
+    },
+    "funFact": "Der Name Parsec ist eine Verschmelzung aus Parallaxe und Sekunde und verweist auf das zugrunde liegende Messprinzip.",
+    "source": {
+      "name": "IAU (Definition Parsec)",
+      "url": "https://www.iau.org/public/themes/measuring/"
+    }
+  },
+  "astra:age_of_universe": {
+    "id": "astra:age_of_universe",
+    "name": "Alter des Universums",
+    "type": "constant",
+    "category": "constant",
+    "attributes": {
+      "value": "13.8",
+      "unit": "Milliarden Jahre",
+      "definition": "Zeitspanne seit dem Urknall, bestimmt aus Messungen der kosmischen Hintergrundstrahlung durch die Planck-Mission."
+    },
+    "funFact": "Die ESA-Raumsonde Planck praezisierte das Alter auf rund 13,8 Milliarden Jahre, etwa 100 Millionen Jahre mehr als zuvor angenommen.",
+    "source": {
+      "name": "ESA Planck Mission",
+      "url": "https://www.esa.int/Science_Exploration/Space_Science/Planck/Planck_reveals_an_almost_perfect_Universe"
+    }
+  },
+  "astra:age_of_earth": {
+    "id": "astra:age_of_earth",
+    "name": "Alter der Erde",
+    "type": "constant",
+    "category": "constant",
+    "attributes": {
+      "value": "4.54",
+      "unit": "Milliarden Jahre",
+      "definition": "Zeit seit der Entstehung der Erde, bestimmt vor allem durch radiometrische Datierung von Meteoriten und Gestein."
+    },
+    "funFact": "Die aeltesten datierten Mineralien der Erde, Zirkonkristalle aus Australien, sind ueber 4,3 Milliarden Jahre alt.",
+    "source": {
+      "name": "USGS / NASA",
+      "url": "https://pubs.usgs.gov/gip/geotime/age.html"
+    }
+  },
+  "astra:age_of_sun": {
+    "id": "astra:age_of_sun",
+    "name": "Alter der Sonne",
+    "type": "constant",
+    "category": "constant",
+    "attributes": {
+      "value": "4.6",
+      "unit": "Milliarden Jahre",
+      "definition": "Zeit seit der Entstehung der Sonne aus einer kollabierenden Gas- und Staubwolke am Beginn des Sonnensystems."
+    },
+    "funFact": "Die Sonne hat etwa die Haelfte ihrer Lebensdauer als Hauptreihenstern hinter sich und wird noch rund 5 Milliarden Jahre stabil leuchten.",
+    "source": {
+      "name": "NASA Sun Fact Sheet",
+      "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/sunfact.html"
+    }
+  },
+  "astra:sun_diameter": {
+    "id": "astra:sun_diameter",
+    "name": "Durchmesser der Sonne",
+    "type": "constant",
+    "category": "constant",
+    "attributes": {
+      "value": "1392700",
+      "unit": "km",
+      "definition": "Aequatorialer Durchmesser der Sonne; etwa das 109-fache des Erddurchmessers."
+    },
+    "funFact": "In das Volumen der Sonne wuerden rund 1,3 Millionen Erden hineinpassen.",
+    "source": {
+      "name": "NASA Sun Fact Sheet",
+      "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/sunfact.html"
+    }
+  },
+  "astra:sun_surface_temperature": {
+    "id": "astra:sun_surface_temperature",
+    "name": "Oberflaechentemperatur der Sonne",
+    "type": "constant",
+    "category": "constant",
+    "attributes": {
+      "value": "5772",
+      "unit": "K",
+      "definition": "Effektive Temperatur der sichtbaren Sonnenoberflaeche (Photosphaere) in Kelvin; entspricht rund 5500 Grad Celsius."
+    },
+    "funFact": "Die Korona, die aeussere Atmosphaere der Sonne, ist mit ueber einer Million Kelvin weit heisser als die Oberflaeche selbst.",
+    "source": {
+      "name": "NASA Sun Fact Sheet",
+      "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/sunfact.html"
+    }
+  },
+  "astra:earth_sun_distance": {
+    "id": "astra:earth_sun_distance",
+    "name": "Mittlere Entfernung Erde-Sonne",
+    "type": "constant",
+    "category": "constant",
+    "attributes": {
+      "value": "149600000",
+      "unit": "km",
+      "definition": "Mittlerer Abstand zwischen Erde und Sonne; entspricht naeherungsweise einer Astronomischen Einheit (1 AE)."
+    },
+    "funFact": "Das Licht der Sonne braucht fuer diese Strecke etwa 8 Minuten und 20 Sekunden bis zur Erde.",
+    "source": {
+      "name": "NASA Earth Fact Sheet",
+      "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html"
+    }
+  }
+}
