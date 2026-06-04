@@ -1,8 +1,84 @@
-# Geografie-Quiz & Interaktiver Weltatlas
+# Scientia potentia — Multi-Domain-Wissensquiz
 
-Ein interaktives Geografie-Lernspiel und Entdecker-Atlas, optimiert für macOS und moderne Webbrowser. 
+> **Stand: 2026-06-04.** Lebendes Dokument, zentrale Quelle für Projektfakten.
 
-Dieses Dokument wurde als zentrale Quelle für Projektfakten, Rechercheergebnisse und Todos erstellt und wird von zukünftigen Entwicklungs-Sessions fortgeführt.
+Aus dem ursprünglichen Geografie-Quiz („Terra Weltatlas") entsteht ein mehrteiliges
+Wissensspiel **Scientia potentia** mit eigenständigen Wissensbereichen (Domains), je mit
+eigenem Lernfortschritt (Spaced Repetition / SM-2). Terra (Geografie) ist der erste, voll
+ausgebaute Bereich; weitere folgen je einzeln und launchfähig.
+
+Geplante Bereiche: **Terra** (Geografie), **Astra** (Astronomie), **Homo** (Mensch & Körper),
+**Natura** (Natur & Umwelt), **Cultura** (Kultur), **Lingua** (Sprachen).
+
+- **Zielplattform:** Web-App (responsive), optional Desktop-Wrapper (Tauri).
+- **Philosophie:** werbefrei, visuell hochwertig (Glassmorphic Dark / Karten-Rendering),
+  datenschutzfreundlich, offline-fähig. Qualität vor Mengen-Quote; jeder Fakt mit Quelle.
+
+---
+
+## 🧭 Aktueller Stand & Architektur (Stand 2026-06-04)
+
+### Status
+| Phase | Inhalt | Stand |
+| :---- | :----- | :---- |
+| Phase 0 | Domain-Abstraktion, Terra unverändert | ✅ erledigt (v1.4.0) |
+| Phase 1 | Astra (MCQ-only) + DomainSwitcher | ✅ erledigt (v1.5.0) |
+| Phase 2 | Visualisierungs-Panel generalisieren + Astra-Click-Map | offen |
+| Phase 3–6 | Homo, Natura, Lingua, Cultura | Homo-Faktenbasis in Recherche |
+
+Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
+
+### Domain-Abstraktion (das tragende Konzept)
+- **Registry `src/domains/index.js`** — Liste aller Domains. Jede liefert `loadConcepts()`
+  (Map `conceptKey -> Konzept`) und `loadQuestions()` (Array MCQ-Fragen), lazy per fetch/import.
+  Felder: `id, latinName, label, description, Icon, accent, hasMap`.
+- **Konzept-Key-Schema:** Terra unpräfixt (`FJ`, `Q64`), alle anderen `"<domain>:<id>"`
+  (z. B. `astra:mars`). Ein fehlendes `:` bedeutet immer Terra → keine IndexedDB-Migration
+  bestehender Terra-Fortschritte nötig.
+- **`App.jsx`** hält `activeDomainId`; Konzepte + Fragen werden je Wechsel geladen. Fällige/neue
+  Konzepte und alle Panels arbeiten über den domain-agnostischen Speicher (`domainDb = {entities}`),
+  nicht mehr fix über `geodb`.
+- **`DomainSwitcher.jsx`** (Header-Dropdown), **`DomainVisual.jsx`** (linkes Panel für Domains
+  ohne Karte; Terra zeigt `Map.jsx`). **`Dashboard.jsx`** ist domain-aware (generische Kategorie-
+  Aufschlüsselung; geografiespezifische Spielmodi nur bei Terra).
+- **DB v2 (`src/utils/db.js`):** `progress`-Records haben Feld `domain` (aus Key abgeleitet) +
+  Index `domain`. Additiv abwärtskompatibel, migriert keine Keys.
+- **SRS trackt Konzepte, nicht Fragen.** Mastery = Anteil Konzepte mit `repetitions > 0` je Domain.
+
+### Datendateien
+- `public/data/questions_terra.json` (5217 Fragen) + `geodb.json` (Terra-Konzepte, statisch).
+- `public/data/concepts_<domain>.json` + `questions_<domain>.json` je neuer Domain.
+- `scripts/data_sources/<domain>_raw.json` — verifizierte Faktenbasis mit `source` je Konzept.
+
+### Eine neue Domain hinzufügen (erprobter Ablauf)
+1. **Faktenbasis recherchieren** (Multi-Agent-Workflow): Kategorien fächern, je Konzept
+   `attributes` + `sourceName`. Adversarialer Verify-Pass korrigiert Zahlen. Ergebnis nach
+   `scripts/data_sources/<domain>_raw.json`. Werte manuell stichprobenprüfen.
+2. **Generator `scripts/generate_<domain>.js`** schreiben (Frage-Templates je Kategorie;
+   Distraktoren aus derselben Kategorie/demselben Attribut) → erzeugt `concepts_<domain>.json`
+   + `questions_<domain>.json` in `public/data/`.
+3. **`node scripts/verify_facts.js <domain>`** (Struktur + Provenance; 0 Fehler).
+4. **Registry-Eintrag** in `src/domains/index.js` ergänzen (`hasMap:false` für MCQ-only).
+   Dashboard/Switcher/Visual sind bereits generisch — keine weiteren UI-Änderungen nötig.
+5. **Browser-Run** der neuen Domain (Wechsel, Quizrunde, keine Konsolenfehler).
+
+### Bereichs-Content (Stand)
+| Domain | Konzepte | Fragen | Quellen | Visualisierung |
+| :----- | :------- | :----- | :------ | :------------- |
+| Terra  | 1852 | 5217 | Natural Earth / GeoNames / Wikidata | Weltkarte (MapLibre) |
+| Astra  | 56 | 121 | NASA / IAU / ESA | Übersichts-Panel (Click-Map: Phase 2) |
+| Homo   | (Recherche läuft) | – | Anatomie-Lehrbücher / NIH | MCQ-only geplant |
+
+### Inhaltsregeln (verbindlich)
+- Keine erfundenen Fakten; Quelle pro Fakt. Fairness: keine obskuren Objekte.
+- Distraktoren plausibel, gleiche Kategorie, nicht trivial ausschließbar.
+- Copyright: keine geschützten Texte/langen Zitate, keine namentlichen Rekorde lebender Personen.
+- Homo: keine Krankheiten, keine Kultur. Natura: Klimawandel nach IPCC-Konsens. Cultura zuletzt.
+
+### Befehle
+`npm run dev` (Port 3000) · `npm run build` · `node scripts/generate_<domain>.js` ·
+`node scripts/verify_facts.js <domain>` · `node scripts/verify_quiz.js` (Terra).
+Browser-Preview-Config: `.claude/launch.json` (Server „dev", Port 3000; nicht eingecheckt).
 
 ---
 
@@ -28,10 +104,10 @@ Das Ziel ist ein Geografie-Spiel, das über ein reines Trivia-Quiz hinausgeht. E
 
 ## 🔍 Rechercheergebnisse (Codex-Subagents)
 
-Die Rohdaten der Recherche befinden sich in den exportierten Sitzungsprotokollen unter [codex_research_raw/](file:///Users/danielmuller/Nextcloud/Arbeit/Viben/game_geo/codex_research_raw/).
+Die Rohdaten der Recherche befinden sich in den exportierten Sitzungsprotokollen unter [codex_research_raw/](codex_research_raw/).
 
 ### 1. Marktanalyse & Wettbewerb (Herschel)
-*Zusammenfassung basierend auf [Herschel_ad1a-d13a7be4757d.md](file:///Users/danielmuller/Nextcloud/Arbeit/Viben/game_geo/codex_research_raw/2026-06-03_Herschel_ad1a-d13a7be4757d.md)*
+*Zusammenfassung basierend auf [Herschel_ad1a-d13a7be4757d.md](codex_research_raw/2026-06-03_Herschel_ad1a-d13a7be4757d.md)*
 
 | Wettbewerber | Plattform | Preis | Stärken / UX | Lücke für unser Projekt |
 | :--- | :--- | :--- | :--- | :--- |
@@ -47,7 +123,7 @@ Die Rohdaten der Recherche befinden sich in den exportierten Sitzungsprotokollen
 ---
 
 ### 2. Geodaten & Quellen (Parfit)
-*Zusammenfassung basierend auf [Parfit_aa63-4942f79b0f78.md](file:///Users/danielmuller/Nextcloud/Arbeit/Viben/game_geo/codex_research_raw/2026-06-03_Parfit_aa63-4942f79b0f78.md)*
+*Zusammenfassung basierend auf [Parfit_aa63-4942f79b0f78.md](codex_research_raw/2026-06-03_Parfit_aa63-4942f79b0f78.md)*
 
 - **Natural Earth:** Der Grundpfeiler für alle Basiskarten. Enthält administrative Grenzen (Admin-0, Admin-1), Städte, Flüsse, Seen, Autobahnen und physische Strukturen. Vektor- und Rasterdaten in Skalierungen 1:10m, 1:50m und 1:110m.
 - **GeoNames:** Für weltweite geografische Eigennamen, Koordinaten und Klassifizierungen. Sehr gut geeignet für Städte (`cities15000.zip` enthält alle Städte >15.000 Einwohner) und Alternativnamen (Übersetzungen).
@@ -64,7 +140,7 @@ Die Rohdaten der Recherche befinden sich in den exportierten Sitzungsprotokollen
 ---
 
 ### 3. Rechtliches & Lizenzen (Avicenna)
-*Zusammenfassung basierend auf [Avicenna_9331-9b585604a0b4.md](file:///Users/danielmuller/Nextcloud/Arbeit/Viben/game_geo/codex_research_raw/2026-06-03_Avicenna_9331-9b585604a0b4.md)*
+*Zusammenfassung basierend auf [Avicenna_9331-9b585604a0b4.md](codex_research_raw/2026-06-03_Avicenna_9331-9b585604a0b4.md)*
 
 - **Natural Earth:** Public Domain. Kommerziell uneingeschränkt nutzbar, keine Attribution zwingend (aber empfohlen).
 - **Wikidata:** CC0. Völlig freie Nutzung, keine Nennungspflicht.
@@ -78,7 +154,7 @@ Die Rohdaten der Recherche befinden sich in den exportierten Sitzungsprotokollen
 ---
 
 ### 4. Rendering- & Kartentechnik (Einstein)
-*Zusammenfassung basierend auf [Einstein_8e84-e953af8b2bfc.md](file:///Users/danielmuller/Nextcloud/Arbeit/Viben/game_geo/codex_research_raw/2026-06-03_Einstein_8e84-e953af8b2bfc.md)*
+*Zusammenfassung basierend auf [Einstein_8e84-e953af8b2bfc.md](codex_research_raw/2026-06-03_Einstein_8e84-e953af8b2bfc.md)*
 
 - **Option A (MapLibre GL JS + PMTiles):** *Beste Langzeitspur.* WebGL-basiertes, hochperformantes Vektorkacheln-Rendering. PMTiles (Protomaps) erlaubt das Lesen von Vektorkacheln direkt aus einer einzelnen Archiv-Datei (z. B. auf Cloudflare R2 gehostet) via HTTP Range Requests. Egress-Kosten sind dadurch fast null. Ein Low-Zoom-Planet bis Z6 ist ca. 60 MB groß und lässt sich offline bündeln.
 - **Option B (D3.js / SVG + TopoJSON):** *Beste MVP-Spur für statische Karten.* Perfekt für rein politische Quizze (Grenzen anklicken, Regionen einfärben). Keine Tileserver nötig, extrem leichtgewichtig, unkompliziert offline-fähig.
@@ -87,7 +163,7 @@ Die Rohdaten der Recherche befinden sich in den exportierten Sitzungsprotokollen
 ---
 
 ### 5. Quizdesign & Progression (Maxwell)
-*Zusammenfassung basierend auf [Maxwell_ab51-fbb569c3ded4.md](file:///Users/danielmuller/Nextcloud/Arbeit/Viben/game_geo/codex_research_raw/2026-06-03_Maxwell_ab51-fbb569c3ded4.md)*
+*Zusammenfassung basierend auf [Maxwell_ab51-fbb569c3ded4.md](codex_research_raw/2026-06-03_Maxwell_ab51-fbb569c3ded4.md)*
 
 - **Fragetypen:**
   - *Finde auf der Karte:* Ort, Land oder Fluss auf der Karte anklicken.
@@ -131,7 +207,7 @@ Die Rohdaten der Recherche befinden sich in den exportierten Sitzungsprotokollen
 
 ## 📂 Projektstruktur
 ```
-game_geo/
+ScientiaPotentia/
 ├── AGENTS.md                 # Dieses Dokument (Zentraler Einstieg)
 └── codex_research_raw/       # Rohe, exportierte Markdown-Logs der Codex-Recherche
     ├── 2026-06-03_9369-3da8198a98f7_9369-3da8198a98f7.md  # Hauptthread
