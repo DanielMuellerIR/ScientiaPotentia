@@ -28,8 +28,9 @@ const concepts = JSON.parse(readFileSync(conceptsPath, 'utf8'));
 const questions = JSON.parse(readFileSync(questionsPath, 'utf8'));
 
 // Verbreitete englische Wortreste, die in deutschen Quiz-Texten nichts verloren
-// haben. Bewusst eng gehalten, um Fehlalarme zu vermeiden.
-const ENGLISH_LEAK = /\b(the|moon|planet|star|distance|diameter|orbit|galaxy)\b/i;
+// haben. Bewusst eng gehalten, um Fehlalarme zu vermeiden. "planet" ist im
+// Deutschen identisch ("Planet") und daher KEIN Leak -> nicht aufnehmen.
+const ENGLISH_LEAK = /\b(the|moon|star|distance|diameter|orbit|galaxy)\b/i;
 
 const errors = [];
 const warnings = [];

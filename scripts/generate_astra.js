@@ -167,6 +167,57 @@ const templates = [
     prompt: c => `Welche astronomische Groesse hat ungefaehr den Wert von ${c.attributes.value} ${c.attributes.unit}?`,
     format: (_v, c) => c.name,
     nameAnswer: true
+  },
+
+  // ==== Erweiterte Fragetypen (Stand 2026-06-04, Richtung 5000) ============
+  // Nutzen ausschliesslich bereits verifizierte Attribute -> keine neuen Fakten,
+  // nur zusaetzliche, echte Lernwinkel je Konzept.
+
+  // ---- Planeten: Tag/Jahr + Reverse-Position --------------------------
+  {
+    category: 'planet', attr: 'orderFromSun', type: 'astra-planet-order-rev', difficulty: 2,
+    prompt: c => `Welcher Planet ist der ${c.attributes.orderFromSun}. von der Sonne?`,
+    format: (_v, c) => c.name, nameAnswer: true
+  },
+  {
+    category: 'planet', attr: 'dayLengthHours', type: 'astra-planet-day', difficulty: 3,
+    prompt: c => `Wie lang dauert ein Tag (Rotation) auf ${c.name} ungefaehr?`,
+    format: v => `${deNum(v)} Stunden`, numeric: true
+  },
+  {
+    category: 'planet', attr: 'yearLengthEarthDays', type: 'astra-planet-year', difficulty: 3,
+    prompt: c => `Wie lang dauert ein Jahr (Sonnenumlauf) auf ${c.name} in Erdtagen?`,
+    format: v => `${deNum(v)} Erdtage`, numeric: true
+  },
+  // ---- Zwergplaneten: Durchmesser + Umlaufzeit ------------------------
+  {
+    category: 'dwarf_planet', attr: 'diameterKm', type: 'astra-dwarf-diameter', difficulty: 4,
+    prompt: c => `Welchen ungefaehren Durchmesser hat der Zwergplanet ${c.name}?`,
+    format: v => `${deNum(v)} km`, numeric: true
+  },
+  {
+    category: 'dwarf_planet', attr: 'yearLengthEarthYears', type: 'astra-dwarf-year-len', difficulty: 4,
+    prompt: c => `Wie lange braucht ${c.name} fuer einen Sonnenumlauf?`,
+    format: v => `${deNum(v)} Erdjahre`, numeric: true
+  },
+  // ---- Monde: Durchmesser ---------------------------------------------
+  {
+    category: 'moon', attr: 'diameterKm', type: 'astra-moon-diameter', difficulty: 3,
+    prompt: c => `Welchen ungefaehren Durchmesser hat der Mond ${c.name}?`,
+    format: v => `${deNum(v)} km`, numeric: true
+  },
+  // ---- Sterne: scheinbare Helligkeit ----------------------------------
+  {
+    category: 'star', attr: 'apparentMagnitude', type: 'astra-star-magnitude', difficulty: 4,
+    prompt: c => `Welche scheinbare Helligkeit (Magnitude) hat ${c.name} ungefaehr?`,
+    format: v => `${deNum(v)} mag`, numeric: true,
+    skip: c => c.attributes.apparentMagnitude === undefined
+  },
+  // ---- Konstanten: Name -> Wert (Gegenrichtung zur bestehenden Frage) -
+  {
+    category: 'constant', attr: 'value', type: 'astra-constant-name', difficulty: 2,
+    prompt: c => `Welchen Wert hat ${c.name} ungefaehr?`,
+    format: (_v, c) => `${c.attributes.value} ${c.attributes.unit}`
   }
 ];
 
@@ -202,7 +253,9 @@ for (const tpl of templates) {
     const options = [correct, ...distractors];
 
     questions.push({
-      id: `q_${DOMAIN}_${c.id}_${tpl.attr.replace(/__/g, '')}`,
+      // type im id -> eindeutig, auch wenn zwei Templates dasselbe Attribut nutzen
+      // (z.B. Position vorwaerts/rueckwaerts).
+      id: `q_${DOMAIN}_${c.id}_${tpl.type}`,
       entityId: `${DOMAIN}:${c.id}`,
       entityType: c.category,
       type: tpl.type,

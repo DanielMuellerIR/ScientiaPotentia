@@ -102,6 +102,28 @@ const templates = [
     category: 'species', attr: 'epoch', type: 'homo-species-epoch', difficulty: 3,
     prompt: c => `In welchen Zeitraum fällt „${c.name}"?`,
     format: v => v
+  },
+
+  // ==== Erweiterte Fragetypen (Stand 2026-06-04, Richtung 5000) ============
+  // Nutzen nur bereits verifizierte Attribute -> keine neuen Fakten, nur echte
+  // zusaetzliche Lernwinkel.
+
+  // ---- Knochen: lateinischer Name -> deutscher Name (Gegenrichtung) ---
+  {
+    category: 'bone', attr: 'latinName', type: 'homo-bone-latin-rev', difficulty: 3, nameAnswer: true,
+    prompt: c => `Welcher Knochen trägt den lateinischen Namen „${c.attributes.latinName}"?`
+  },
+  // ---- Menschenarten: Ursprungsregion ---------------------------------
+  {
+    category: 'species', attr: 'region', type: 'homo-species-region', difficulty: 2,
+    prompt: c => `In welcher Region liegt der Ursprung von „${c.name}"?`,
+    format: v => v
+  },
+  // ---- Körperwerte: Wert -> Bezeichnung (Gegenrichtung) ---------------
+  {
+    category: 'body_fact', attr: 'value', type: 'homo-bodyfact-name', difficulty: 3, nameAnswer: true,
+    prompt: c => `Welche Körperangabe beträgt ungefähr ${c.attributes.value}${c.attributes.unit ? ' ' + c.attributes.unit : ''}?`,
+    skip: c => !/\d/.test(String(c.attributes.value)) // nur numerische Werte
   }
 ];
 
@@ -110,16 +132,20 @@ const questions = [];
 
 for (const tpl of templates) {
   const conceptsInCat = byCategory[tpl.category] || [];
+  // nameAnswer: korrekte Antwort ist der Konzeptname (Reverse-Fragen), Distraktoren
+  // sind andere Namen derselben Kategorie. Das im Prompt genannte Attribut muss da sein.
   const valuePool = conceptsInCat
     .filter(c => !(tpl.skip && tpl.skip(c)))
-    .map(c => (tpl.valueUnit ? tpl.format(null, c) : tpl.format(c.attributes[tpl.attr], c)));
+    .map(c => (tpl.nameAnswer ? c.name : tpl.valueUnit ? tpl.format(null, c) : tpl.format(c.attributes[tpl.attr], c)));
 
   for (const c of conceptsInCat) {
     if (tpl.skip && tpl.skip(c)) continue;
-    const rawValue = tpl.valueUnit ? c.attributes.value : c.attributes[tpl.attr];
+    const rawValue = tpl.nameAnswer
+      ? c.attributes[tpl.attr]
+      : (tpl.valueUnit ? c.attributes.value : c.attributes[tpl.attr]);
     if (rawValue === undefined || rawValue === null || rawValue === '') continue;
 
-    const correct = tpl.valueUnit ? tpl.format(null, c) : tpl.format(rawValue, c);
+    const correct = tpl.nameAnswer ? c.name : (tpl.valueUnit ? tpl.format(null, c) : tpl.format(rawValue, c));
 
     let pool = valuePool.slice();
     if (tpl.extraDistractors) pool = pool.concat(tpl.extraDistractors);
@@ -127,7 +153,7 @@ for (const tpl of templates) {
     if (distractors.length < 1) continue;
 
     questions.push({
-      id: `q_${DOMAIN}_${c.id}_${tpl.attr.replace(/__/g, '')}`,
+      id: `q_${DOMAIN}_${c.id}_${tpl.type}`,
       entityId: `${DOMAIN}:${c.id}`,
       entityType: c.category,
       type: tpl.type,
