@@ -86,6 +86,105 @@ function hexToRgbStr(hex) {
   return `${(hex >> 16) & 255},${(hex >> 8) & 255},${hex & 255}`;
 }
 
+// Deutscher Planetenname -> Position von der Sonne (für die Bahn-Hervorhebung).
+const PLANET_ORDER = { merkur: 1, venus: 2, erde: 3, mars: 4, jupiter: 5, saturn: 6, uranus: 7, neptun: 8 };
+
+/**
+ * Phase 2d — konzeptgenaue Hervorhebung als kleines Kontext-Schema (Inset).
+ * Der 3D-Körper zeigt das Objekt selbst; dieses Schema zeigt zusätzlich, WO es
+ * im Größeren sitzt:
+ *   - Planet/Zwergplanet/Mond -> schematisches Sonnensystem (Bahnen), die zum
+ *     Konzept gehörende Bahn leuchtet auf (Mond an der Bahn seines Planeten).
+ *   - Stern/Galaxie           -> logarithmische Entfernungsskala (Erde -> Objekt).
+ *   - Konstante / Sonne       -> kein Schema.
+ * Reines SVG, keine zusätzliche Abhängigkeit.
+ */
+function AstraContextMap({ concept, accent }) {
+  if (!concept) return null;
+  const cat = concept.category || concept.type;
+  const a = concept.attributes || {};
+
+  // --- Sonnensystem-Schema (Aufsicht) ----------------------------------
+  if (cat === 'planet' || cat === 'dwarf_planet' || cat === 'moon') {
+    const cx = 50, cy = 50;
+    const ringR = o => 8 + o * 4.6; // schematischer Bahnradius je Position
+    const dwarfR = 49;              // gestrichelte Bahn jenseits Neptun
+
+    let hiOrder = null;   // hervorgehobene Planetenbahn (1..8)
+    let onDwarf = false;  // Objekt sitzt auf der Zwergplaneten-Bahn
+    let moon = false;     // zusätzlicher Mond-Punkt außerhalb der Planetenbahn
+    if (cat === 'planet') {
+      hiOrder = Number(a.orderFromSun) || null;
+    } else if (cat === 'moon') {
+      const p = String(a.parentPlanet || '').toLowerCase();
+      const key = Object.keys(PLANET_ORDER).find(k => p.includes(k));
+      hiOrder = key ? PLANET_ORDER[key] : null;
+      onDwarf = !hiOrder; // z.B. Charon (Mond eines Zwergplaneten) -> äußere Bahn
+      moon = true;
+    } else {
+      onDwarf = true; // Zwergplanet
+    }
+
+    // Punkt auf der betonten Bahn (fester Winkel, gut sichtbar unten-links).
+    const ang = (220 * Math.PI) / 180;
+    const r = onDwarf ? dwarfR : (hiOrder ? ringR(hiOrder) : null);
+    const dot = r != null ? { x: cx + r * Math.cos(ang), y: cy + r * Math.sin(ang) } : null;
+    const moonDot = moon && dot ? { x: cx + (r + 3.5) * Math.cos(ang), y: cy + (r + 3.5) * Math.sin(ang) } : null;
+
+    return (
+      <svg viewBox="0 0 100 100" style={{ width: '100%', height: '100%', overflow: 'visible' }}>
+        {/* acht Planetenbahnen */}
+        {[1, 2, 3, 4, 5, 6, 7, 8].map(o => (
+          <circle key={o} cx={cx} cy={cy} r={ringR(o)} fill="none"
+            stroke={o === hiOrder ? accent : 'rgba(255,255,255,0.18)'}
+            strokeWidth={o === hiOrder ? 1.4 : 0.5} />
+        ))}
+        {/* Zwergplaneten-Bahn (gestrichelt) */}
+        <circle cx={cx} cy={cy} r={dwarfR} fill="none"
+          stroke={onDwarf ? accent : 'rgba(255,255,255,0.14)'}
+          strokeWidth={onDwarf ? 1.2 : 0.5} strokeDasharray="2 2.5" />
+        {/* Sonne */}
+        <circle cx={cx} cy={cy} r={3.4} fill="#ffcf6b" />
+        <circle cx={cx} cy={cy} r={5.5} fill="none" stroke="#ffcf6b55" strokeWidth={2} />
+        {/* hervorgehobenes Objekt */}
+        {dot && (
+          <>
+            <circle cx={dot.x} cy={dot.y} r={4.6} fill="none" stroke={accent} strokeWidth={0.8} opacity={0.5} />
+            <circle cx={dot.x} cy={dot.y} r={2.4} fill={accent}
+              stroke="#fff" strokeWidth={0.7} style={{ filter: `drop-shadow(0 0 3px ${accent})` }} />
+          </>
+        )}
+        {moonDot && <circle cx={moonDot.x} cy={moonDot.y} r={1.2} fill="#fff" />}
+      </svg>
+    );
+  }
+
+  // --- Entfernungsskala für Sterne/Galaxien ----------------------------
+  if (cat === 'star' || cat === 'galaxy') {
+    const d = Number(a.distanceLy);
+    if (!isFinite(d) || d <= 0.1) return null; // Sonne (≈0) braucht keine Skala
+    const lmax = Math.log10(5e7); // Skala bis ~50 Mio. Lichtjahre
+    const t = Math.max(0.02, Math.min(1, Math.log10(Math.max(d, 1)) / lmax));
+    const x0 = 8, x1 = 116, y = 22;
+    const px = x0 + (x1 - x0) * t;
+    const distLabel = d >= 1000 ? `${(d / 1000).toLocaleString('de-DE', { maximumFractionDigits: 1 })} Tsd. Lj` : `${d.toLocaleString('de-DE', { maximumFractionDigits: 1 })} Lj`;
+    return (
+      <svg viewBox="0 0 124 30" style={{ width: '100%', height: '100%', overflow: 'visible' }}>
+        <line x1={x0} y1={y} x2={x1} y2={y} stroke="rgba(255,255,255,0.3)" strokeWidth={1} />
+        {/* Erde links */}
+        <circle cx={x0} cy={y} r={2.2} fill="#6fb6ff" />
+        <text x={x0} y={y + 7} fill="#cdd7ff" fontSize="5" textAnchor="middle">Erde</text>
+        {/* Objekt auf der Log-Skala */}
+        <circle cx={px} cy={y} r={2.8} fill={accent} stroke="#fff" strokeWidth={0.7}
+          style={{ filter: `drop-shadow(0 0 3px ${accent})` }} />
+        <text x={Math.min(px, 108)} y={y - 4} fill="#EAE6DC" fontSize="5.5" textAnchor="middle">{distLabel}</text>
+      </svg>
+    );
+  }
+
+  return null; // Konstante -> kein Schema
+}
+
 export default function AstraVisual({ domain, activeConcept }) {
   const mountRef = useRef(null);
   // three-Objekte über Renders hinweg halten, ohne Re-Render auszulösen.
@@ -271,6 +370,18 @@ export default function AstraVisual({ domain, activeConcept }) {
     >
       {/* 3D-Canvas-Mount füllt das Panel */}
       <div ref={mountRef} style={{ position: 'absolute', inset: 0 }} />
+
+      {/* Kontext-Schema (Phase 2d): verortet das Konzept zusätzlich zum 3D-Körper.
+          Unten links, über dem Canvas, oberhalb der Fuß-Leiste. Gibt für
+          Konstanten/Sonne null zurück und ist dann unsichtbar. */}
+      {activeConcept && (
+        <div style={{
+          position: 'absolute', left: '16px', bottom: '92px',
+          width: '140px', height: '140px', pointerEvents: 'none', zIndex: 2
+        }}>
+          <AstraContextMap concept={activeConcept} accent={accent} />
+        </div>
+      )}
 
       {activeConcept && (
         <>

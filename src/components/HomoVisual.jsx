@@ -11,23 +11,31 @@ import React from 'react';
  *   Körperwert-> Körperschema
  *   Menschenart-> Skelett (Fallback)
  *
- * Die konkrete gefragte Struktur wird im Overlay benannt (Name, Kategorie,
- * Kennwerte, Fun-Fact); eine konzeptgenaue Hervorhebung einzelner Knochen/
- * Muskeln ist als spätere Erweiterung vorgesehen. Eine kleine Lizenzzeile
- * weist Quelle und Lizenz jedes Assets aus.
+ * Phase 2d — konzeptgenaue Hervorhebung: Liegt die gefragte Struktur an einer
+ * bekannten Körperstelle, blendet ein pulsierender Ring genau dort auf der Grafik
+ * ein (z.B. Femur am Oberschenkel, Herz im Brustkorb). Die Skizzen aus Wikimedia
+ * tragen leider keine maschinenlesbaren Struktur-IDs, darum arbeiten wir mit einer
+ * kalibrierten Koordinatentabelle: bekannte Konzepte exakt (MARKER_BY_ID), neue
+ * Konzepte fallen automatisch auf das Zentrum ihrer Region/Lage zurück (ZONES).
+ * Ganzkörper-Fakten (Körperwerte, Menschenarten, Haut) bekommen bewusst keinen
+ * Punkt — sie haben keine einzelne Stelle.
+ *
+ * Eine kleine Lizenzzeile weist Quelle und Lizenz jedes Assets aus.
  *
  * Props (von VisualPanel): domain, concepts, srsProgress, activeConcept.
  */
 
 const ASSET_BASE = 'assets/homo/';
 
-// Kategorie -> Grafik + Provenienz (alle Public Domain, Wikimedia Commons).
+// Kategorie -> Grafik + Provenienz (alle Public Domain, Wikimedia Commons) +
+// Seitenverhältnis (Breite/Höhe) der Originaldatei (zur Doku; die Marker sitzen
+// passgenau, weil das Bild selbst per height:100%/width:auto sein Verhältnis vorgibt).
 const CATEGORY_ASSET = {
-  bone:      { file: 'skeleton.svg',  author: 'Mikael Häggström' },
-  muscle:    { file: 'muscles.png',   author: 'nach Bouglé' },
-  organ:     { file: 'organs.svg',    author: 'Mikael Häggström' },
-  body_fact: { file: 'body.svg',      author: 'Mikael Häggström' },
-  species:   { file: 'skeleton.svg',  author: 'Mikael Häggström' }
+  bone:      { file: 'skeleton.svg',  author: 'Mikael Häggström', aspect: 435.687 / 841.89 },
+  muscle:    { file: 'muscles.png',   author: 'nach Bouglé',      aspect: 1014 / 3006 },
+  organ:     { file: 'organs.svg',    author: 'Mikael Häggström', aspect: 1363 / 1212 },
+  body_fact: { file: 'body.svg',      author: 'Mikael Häggström', aspect: 1363 / 1234 },
+  species:   { file: 'skeleton.svg',  author: 'Mikael Häggström', aspect: 435.687 / 841.89 }
 };
 const DEFAULT_ASSET = CATEGORY_ASSET.body_fact;
 
@@ -42,6 +50,107 @@ const ATTR_LABELS = {
   value: 'Wert', epoch: 'Zeitraum'
 };
 
+// --- Marker-Koordinaten ---------------------------------------------------
+// Normierte Position (0..1) IM JEWEILIGEN GRAFIK-RAHMEN: x = links->rechts,
+// y = oben->unten. Pro Kategorie-Grafik ein eigenes Koordinatensystem.
+
+// Exakte Treffer für die bekannten Konzepte (id ohne "homo:"-Präfix).
+const MARKER_BY_ID = {
+  // Knochen auf dem Skelett (stehende Figur, Kopf oben, Füße unten)
+  cranium:    { x: 0.50, y: 0.06 }, mandibula: { x: 0.50, y: 0.10 },
+  stapes:     { x: 0.56, y: 0.07 }, clavicula: { x: 0.40, y: 0.16 },
+  scapula:    { x: 0.37, y: 0.20 }, sternum:   { x: 0.50, y: 0.24 },
+  vertebra:   { x: 0.50, y: 0.30 }, humerus:   { x: 0.31, y: 0.28 },
+  ulna:       { x: 0.27, y: 0.40 }, radius:    { x: 0.31, y: 0.40 },
+  pelvis:     { x: 0.50, y: 0.42 }, femur:     { x: 0.44, y: 0.54 },
+  patella:    { x: 0.45, y: 0.66 }, tibia:     { x: 0.46, y: 0.78 },
+  fibula:     { x: 0.42, y: 0.78 },
+  // Muskeln auf der Muskelfigur (anterior, sehr hochformatig)
+  masseter:        { x: 0.50, y: 0.085 }, stapedius:      { x: 0.54, y: 0.065 },
+  deltoideus:      { x: 0.36, y: 0.175 }, myocardium:     { x: 0.47, y: 0.235 },
+  biceps_brachii:  { x: 0.32, y: 0.245 }, triceps_brachii:{ x: 0.30, y: 0.245 },
+  diaphragma:      { x: 0.50, y: 0.275 }, gluteus_maximus:{ x: 0.50, y: 0.40 },
+  sartorius:       { x: 0.45, y: 0.52 },  gastrocnemius:  { x: 0.44, y: 0.75 },
+  // Organe auf dem Organ-Torso (beschriftetes Schema, fast quadratisch)
+  gehirn: { x: 0.50, y: 0.13 }, herz:    { x: 0.50, y: 0.42 },
+  lunge:  { x: 0.42, y: 0.40 }, leber:   { x: 0.41, y: 0.55 },
+  magen:  { x: 0.56, y: 0.55 }, milz:    { x: 0.60, y: 0.50 },
+  pankreas:{ x: 0.57, y: 0.60 }, nieren: { x: 0.50, y: 0.63 },
+  blase:  { x: 0.50, y: 0.83 },
+  // Phase-5-Organe (Lage im Organ-Torso)
+  schilddruese: { x: 0.50, y: 0.22 }, gallenblase: { x: 0.43, y: 0.57 },
+  nebenniere:   { x: 0.50, y: 0.58 }, thymus:      { x: 0.50, y: 0.33 },
+  zunge:        { x: 0.50, y: 0.16 }
+  // haut: bewusst ohne Marker (ganzer Körper, keine einzelne Stelle)
+};
+
+// Region/Lage-Zentren als Rückfall für NEUE Konzepte ohne id-Eintrag.
+// Knochen: exakte Regionswerte (Kopf/Rumpf/Arm/Bein/Hand/Fuss) -> Skelett.
+const BONE_ZONES = {
+  kopf:  { x: 0.50, y: 0.07 }, rumpf: { x: 0.50, y: 0.30 },
+  arm:   { x: 0.30, y: 0.34 }, hand:  { x: 0.22, y: 0.50 },
+  bein:  { x: 0.45, y: 0.66 }, fuss:  { x: 0.46, y: 0.95 }
+};
+// Muskeln: freie Lage-Texte per Stichwort -> Muskelfigur.
+const MUSCLE_ZONES = [
+  [/auge|lid/,                      { x: 0.50, y: 0.065 }],
+  [/mund|lippe/,                    { x: 0.50, y: 0.10 }],
+  [/zunge|mundboden/,               { x: 0.50, y: 0.115 }],
+  [/kopf|kiefer|wange|gesicht|kau/, { x: 0.50, y: 0.085 }],
+  [/ohr/,                           { x: 0.54, y: 0.065 }],
+  [/hals|nacken/,                   { x: 0.47, y: 0.135 }],
+  [/schulter/,                      { x: 0.36, y: 0.175 }],
+  [/rippe|interkostal|intercostal/, { x: 0.50, y: 0.26 }],
+  [/brust|herz/,                    { x: 0.46, y: 0.23 }],
+  [/zwischen brust|zwerchfell/,     { x: 0.50, y: 0.275 }],
+  [/lende|psoas/,                   { x: 0.50, y: 0.345 }],
+  [/bauch|rumpf/,                   { x: 0.50, y: 0.30 }],
+  [/rücken|rueck/,                  { x: 0.50, y: 0.27 }],
+  [/gesäß|gesaess|hüfte|huefte/,    { x: 0.50, y: 0.40 }],
+  [/oberarm/,                       { x: 0.32, y: 0.245 }],
+  [/unterarm/,                      { x: 0.27, y: 0.34 }],
+  [/hand/,                          { x: 0.20, y: 0.40 }],
+  [/oberschenkel/,                  { x: 0.45, y: 0.52 }],
+  [/unterschenkel|wade|schienbein/, { x: 0.44, y: 0.74 }],
+  [/fuß|fuss/,                      { x: 0.46, y: 0.96 }]
+];
+// Organe: Organsystem per Stichwort -> grobe Lage im Torso (neue Systeme der
+// Phase 5 weichen im Wortlaut ab, z.B. „Verdauungssystem" statt „Verdauung").
+const ORGAN_ZONES = [
+  [/nerven|gehirn/,            { x: 0.50, y: 0.13 }],
+  [/sinnes|sehen|auge/,        { x: 0.50, y: 0.13 }],
+  [/atmung|atem|respirat/,     { x: 0.46, y: 0.38 }],
+  [/herz|kreislauf|blut/,      { x: 0.50, y: 0.45 }],
+  [/endokrin|hormon|drüse|druese/, { x: 0.50, y: 0.30 }],
+  [/lymph|immun/,              { x: 0.55, y: 0.42 }],
+  [/verdau|gastro/,            { x: 0.50, y: 0.60 }],
+  [/ausscheid|harn|uro|niere/, { x: 0.50, y: 0.70 }]
+];
+
+/** Bestimmt die Marker-Position für das aktive Konzept (oder null = kein Punkt). */
+function resolveMarker(concept) {
+  if (!concept) return null;
+  const id = (concept.id || '').replace(/^homo:/, '');
+  if (MARKER_BY_ID[id]) return MARKER_BY_ID[id];
+
+  const cat = concept.category || concept.type;
+  const a = concept.attributes || {};
+  if (cat === 'bone') {
+    return BONE_ZONES[String(a.region || '').toLowerCase().replace(/ß/g, 'ss')] || null;
+  }
+  if (cat === 'muscle') {
+    const loc = String(a.location || '').toLowerCase();
+    const hit = MUSCLE_ZONES.find(([re]) => re.test(loc));
+    return hit ? hit[1] : null;
+  }
+  if (cat === 'organ') {
+    const sys = String(a.system || '').toLowerCase();
+    const hit = ORGAN_ZONES.find(([re]) => re.test(sys));
+    return hit ? hit[1] : null;
+  }
+  return null; // body_fact, species, Haut -> Ganzkörper, kein Einzelpunkt
+}
+
 export default function HomoVisual({ domain, concepts = {}, srsProgress = {}, activeConcept }) {
   const accent = domain.accent || '#A14D5A';
 
@@ -49,6 +158,7 @@ export default function HomoVisual({ domain, concepts = {}, srsProgress = {}, ac
   const cat = activeConcept?.category || activeConcept?.type;
   const asset = (cat && CATEGORY_ASSET[cat]) || DEFAULT_ASSET;
   const catLabel = CATEGORY_LABELS[cat] || cat || '';
+  const marker = resolveMarker(activeConcept);
 
   const attrs = activeConcept?.attributes || {};
   const attrEntries = Object.entries(attrs)
@@ -65,19 +175,62 @@ export default function HomoVisual({ domain, concepts = {}, srsProgress = {}, ac
         background: `radial-gradient(circle at 50% 35%, #fbf7f1, #e7ddd4 70%, #d8cdc4)`
       }}
     >
-      {/* Anatomiegrafik zentriert (hochformatige Figuren -> contain) */}
+      {/* Pulsier-Animation für den Marker (einmal als Stylesheet eingebettet). */}
+      <style>{`
+        @keyframes homoPulse {
+          0%   { transform: translate(-50%, -50%) scale(0.6); opacity: 0.9; }
+          70%  { transform: translate(-50%, -50%) scale(2.2); opacity: 0; }
+          100% { transform: translate(-50%, -50%) scale(2.2); opacity: 0; }
+        }
+      `}</style>
+
+      {/* Anatomiegrafik im aspektgenauen Rahmen (damit Marker passgenau sitzen) */}
       <div style={{
-        position: 'absolute', inset: 0, display: 'flex',
-        alignItems: 'center', justifyContent: 'center', padding: '64px 24px 56px'
+        position: 'absolute', inset: '64px 24px 56px', display: 'flex',
+        alignItems: 'center', justifyContent: 'center'
       }}>
-        <img
-          src={`${ASSET_BASE}${asset.file}`}
-          alt={catLabel || 'Anatomie'}
-          style={{
-            maxHeight: '100%', maxWidth: '70%', objectFit: 'contain',
-            filter: 'drop-shadow(0 6px 18px rgba(0,0,0,0.25))'
-          }}
-        />
+        {/* Wrapper schrumpft exakt auf das Bild: das Bild gibt per height:100% +
+            width:auto sein Seitenverhältnis vor, der Wrapper (Flex-Item) wird
+            genau so breit. Dadurch ist die Marker-Position (% des Wrappers)
+            deckungsgleich mit der Grafik — kein Letterboxing dazwischen. */}
+        <div style={{ position: 'relative', height: '100%', display: 'flex' }}>
+          <img
+            src={`${ASSET_BASE}${asset.file}`}
+            alt={catLabel || 'Anatomie'}
+            style={{
+              display: 'block', height: '100%', width: 'auto', maxWidth: '100%',
+              objectFit: 'contain',
+              filter: 'drop-shadow(0 6px 18px rgba(0,0,0,0.25))'
+            }}
+          />
+
+          {/* Konzeptgenaue Hervorhebung: pulsierender Ring genau auf der Struktur */}
+          {marker && (
+            <div style={{
+              position: 'absolute', left: `${marker.x * 100}%`, top: `${marker.y * 100}%`,
+              width: 0, height: 0, pointerEvents: 'none'
+            }}>
+              {/* aufsteigende Pulswelle */}
+              <span style={{
+                position: 'absolute', left: 0, top: 0, width: '34px', height: '34px',
+                borderRadius: '50%', border: `2px solid ${accent}`,
+                animation: 'homoPulse 1.8s ease-out infinite'
+              }} />
+              {/* fester Ring + Kern */}
+              <span style={{
+                position: 'absolute', left: 0, top: 0, transform: 'translate(-50%, -50%)',
+                width: '24px', height: '24px', borderRadius: '50%',
+                border: `2.5px solid ${accent}`, boxShadow: `0 0 12px ${accent}, inset 0 0 6px ${accent}aa`,
+                background: `${accent}22`
+              }} />
+              <span style={{
+                position: 'absolute', left: 0, top: 0, transform: 'translate(-50%, -50%)',
+                width: '7px', height: '7px', borderRadius: '50%', background: accent,
+                boxShadow: `0 0 6px ${accent}`
+              }} />
+            </div>
+          )}
+        </div>
       </div>
 
       {activeConcept && (
