@@ -43,6 +43,10 @@ const MIN_R = 1.3, MIN_SUN_R = 2.6, MIN_MOON_R = 1.1, HIT_R = 12;
 // Bogen ohnehin praktisch eine Gerade weit außerhalb.
 const MAX_RING_PX = 7000;
 
+// Ab welcher Planeten-Scheibengröße (px Radius am Bildschirm) seine Monde
+// automatisch erscheinen — sobald man nah genug herangezoomt ist, auch ohne Klick.
+const MOON_REVEAL_PX = 7;
+
 // Körperradius in Weltkoordinaten (= km), maßstabsgetreu aus dem Durchmesser.
 const bodyWorldRadius = diameterKm => (Number(diameterKm) || 0) / 2;
 
@@ -240,7 +244,23 @@ export default function SolarSystemExplorer({ domain, concepts = {} }) {
   const px = wx => (wx - cam.cx) * cam.scale + W / 2;
   const py = wy => (wy - cam.cy) * cam.scale + H / 2;
 
-  const shownMoons = expandedPlanet ? expandedPlanet.moons : [];
+  // Auto-Aufklappen: in welchen Planeten ist gerade nah genug hineingezoomt?
+  // Sobald sein Scheibchen groß genug ist (MOON_REVEAL_PX) und er im Bild liegt,
+  // zeigen wir seine Monde — auch ohne Klick. Bei mehreren der am stärksten
+  // herangezoomte. Ein expliziter Fokus (Klick) gewinnt sonst.
+  let zoomReveal = null, bestR = MOON_REVEAL_PX;
+  for (const p of [...model.planets, ...model.dwarfs]) {
+    if (!p.moons.length) continue;
+    const r = p.worldR * cam.scale;
+    if (r < bestR) continue;
+    const sx = px(p.x), sy = py(p.y);
+    if (sx < -80 || sx > W + 80 || sy < -80 || sy > H + 80) continue;
+    bestR = r; zoomReveal = p;
+  }
+  // Welcher Planet zeigt gerade seine Monde: der herangezoomte, sonst der fokussierte.
+  const displayPlanet = zoomReveal || expandedPlanet;
+
+  const shownMoons = displayPlanet ? displayPlanet.moons : [];
   const moonsAsList = shownMoons.length > MOON_LABEL_LIMIT;
   const allBodies = [model.sun, ...model.planets, ...model.dwarfs];
 
@@ -318,10 +338,10 @@ export default function SolarSystemExplorer({ domain, concepts = {} }) {
         )}
 
         {/* Mondbahnen des aufgeklappten Planeten (große Ringe übersprungen) */}
-        {expandedPlanet && shownMoons.map(m => {
-          const orbit = Math.hypot(m.x - expandedPlanet.x, m.y - expandedPlanet.y) * cam.scale;
+        {displayPlanet && shownMoons.map(m => {
+          const orbit = Math.hypot(m.x - displayPlanet.x, m.y - displayPlanet.y) * cam.scale;
           if (orbit > MAX_RING_PX) return null;
-          return <circle key={`mo-${m.id}`} cx={px(expandedPlanet.x)} cy={py(expandedPlanet.y)} r={orbit}
+          return <circle key={`mo-${m.id}`} cx={px(displayPlanet.x)} cy={py(displayPlanet.y)} r={orbit}
             fill="none" stroke="rgba(255,255,255,0.16)" strokeWidth={0.8} />;
         })}
 
@@ -353,7 +373,7 @@ export default function SolarSystemExplorer({ domain, concepts = {} }) {
         })}
 
         {/* Monde des aufgeklappten Planeten */}
-        {expandedPlanet && shownMoons.map(m => {
+        {displayPlanet && shownMoons.map(m => {
           const sx = px(m.x), sy = py(m.y), r = Math.max(MIN_MOON_R, m.worldR * cam.scale);
           return <BodyDisc key={m.id} b={m} sx={sx} sy={sy} r={r} accent={accent}
             selected={focusId === m.id} onClick={() => focusBody(m.id)} />;
@@ -369,9 +389,9 @@ export default function SolarSystemExplorer({ domain, concepts = {} }) {
             highlight={focusId === b.id} onClick={() => focusBody(b.id)} />;
         })}
         {/* Mondlabel nur wenn nicht als Liste */}
-        {expandedPlanet && !moonsAsList && shownMoons.map(m => {
+        {displayPlanet && !moonsAsList && shownMoons.map(m => {
           const sx = px(m.x), sy = py(m.y), r = Math.max(MIN_MOON_R, m.worldR * cam.scale);
-          const L = labelFor(sx, sy, px(expandedPlanet.x), py(expandedPlanet.y), r);
+          const L = labelFor(sx, sy, px(displayPlanet.x), py(displayPlanet.y), r);
           return <BodyLabel key={`lm-${m.id}`} text={m.name} x={L.x} y={L.y} anchor={L.anchor} small
             highlight={focusId === m.id} onClick={() => focusBody(m.id)} />;
         })}
@@ -421,7 +441,7 @@ export default function SolarSystemExplorer({ domain, concepts = {} }) {
       </div>
 
       {/* Mondliste rechts, wenn zu viele Monde für Label im Bild */}
-      {expandedPlanet && moonsAsList && (
+      {displayPlanet && moonsAsList && (
         <div style={{ position: 'absolute', top: 60, right: 14, bottom: 120, width: 188,
           background: 'rgba(7,9,20,0.82)', border: '1px solid rgba(255,255,255,0.14)',
           borderRadius: 10, padding: '10px 8px', overflowY: 'auto', backdropFilter: 'blur(3px)' }}>
