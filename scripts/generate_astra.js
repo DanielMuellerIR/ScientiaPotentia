@@ -240,6 +240,32 @@ const templates = [
     category: 'constant', attr: 'value', type: 'astra-constant-name', difficulty: 2,
     prompt: c => `Welchen Wert hat ${c.name} ungefaehr?`,
     format: (_v, c) => `${c.attributes.value} ${c.attributes.unit}`
+  },
+
+  // ==== Phase-5-Erweiterung (Stand 2026-06-05, Richtung 5000/Domain) =======
+  // Nutzen ausschliesslich bereits verifizierte Attribute -> keine neuen Fakten.
+  // (a) Zwergplaneten-Mondzahl als eigener Vorwaerts-Typ (Spiegel zu astra-planet-moons),
+  // (b)+(c) Reverse-Recall von vorhandenen numerischen Planeten-Attributen auf den Namen.
+
+  // ---- Zwergplaneten: Mondzahl ----------------------------------------
+  {
+    category: 'dwarf_planet', attr: 'numMoons', type: 'astra-dwarf-moons', difficulty: 3,
+    prompt: c => `Wie viele Monde hat der Zwergplanet ${c.name} (nach gaengiger Zaehlung)?`,
+    format: v => `${deNum(v)}`, numeric: true
+  },
+  // ---- Planeten: Durchmesser -> Name (Gegenrichtung) ------------------
+  {
+    category: 'planet', attr: 'diameterKm', type: 'astra-planet-diameter-rev', difficulty: 4, nameAnswer: true,
+    subject: c => `${deNum(c.attributes.diameterKm)} km`, // Hinweis ist der Durchmesser, nicht der Name
+    format: (_v, c) => c.name,
+    prompt: c => `Welcher Planet hat einen ungefaehren Durchmesser von ${deNum(c.attributes.diameterKm)} km?`
+  },
+  // ---- Planeten: Jahreslaenge -> Name (Gegenrichtung) -----------------
+  {
+    category: 'planet', attr: 'yearLengthEarthDays', type: 'astra-planet-year-rev', difficulty: 4, nameAnswer: true,
+    subject: c => `${deNum(c.attributes.yearLengthEarthDays)} Erdtage`, // Hinweis ist die Jahreslaenge, nicht der Name
+    format: (_v, c) => c.name,
+    prompt: c => `Welcher Planet umrundet die Sonne in etwa ${deNum(c.attributes.yearLengthEarthDays)} Erdtagen?`
   }
 ];
 
@@ -254,7 +280,10 @@ for (const tpl of templates) {
   // der Kategorie (bzw. alle Namen, bei der Konstanten-Frage).
   const valuePool = conceptsInCat
     .filter(c => !(tpl.skip && tpl.skip(c)))
-    .map(c => (tpl.nameAnswer ? c.name : tpl.format(c.attributes[tpl.attr], c)));
+    .map(c => (tpl.nameAnswer ? c.name : tpl.format(c.attributes[tpl.attr], c)))
+    // Duenn besetzte Attribute (z.B. dwarf_planet.numMoons nur bei einigen
+    // Zwergplaneten) wuerden sonst „undefined" als Distraktor liefern. Leere raus.
+    .filter(v => v !== undefined && v !== null && v !== '');
 
   for (const c of conceptsInCat) {
     if (tpl.skip && tpl.skip(c)) continue;

@@ -5888,5 +5888,404 @@
     "answerIsName": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
+  },
+  {
+    "id": "q_astra_pluto_astra-dwarf-moons",
+    "entityId": "astra:pluto",
+    "entityType": "dwarf_planet",
+    "type": "astra-dwarf-moons",
+    "difficulty": 3,
+    "prompt": "Wie viele Monde hat der Zwergplanet Pluto (nach gaengiger Zaehlung)?",
+    "correctAnswer": "5",
+    "options": [
+      "5",
+      "2",
+      "1",
+      "0"
+    ],
+    "testedAttribute": "numMoons",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_ceres_astra-dwarf-moons",
+    "entityId": "astra:ceres",
+    "entityType": "dwarf_planet",
+    "type": "astra-dwarf-moons",
+    "difficulty": 3,
+    "prompt": "Wie viele Monde hat der Zwergplanet Ceres (nach gaengiger Zaehlung)?",
+    "correctAnswer": "0",
+    "options": [
+      "0",
+      "1",
+      "2",
+      "5"
+    ],
+    "testedAttribute": "numMoons",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_eris_astra-dwarf-moons",
+    "entityId": "astra:eris",
+    "entityType": "dwarf_planet",
+    "type": "astra-dwarf-moons",
+    "difficulty": 3,
+    "prompt": "Wie viele Monde hat der Zwergplanet Eris (nach gaengiger Zaehlung)?",
+    "correctAnswer": "1",
+    "options": [
+      "1",
+      "0",
+      "2",
+      "5"
+    ],
+    "testedAttribute": "numMoons",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_makemake_astra-dwarf-moons",
+    "entityId": "astra:makemake",
+    "entityType": "dwarf_planet",
+    "type": "astra-dwarf-moons",
+    "difficulty": 3,
+    "prompt": "Wie viele Monde hat der Zwergplanet Makemake (nach gaengiger Zaehlung)?",
+    "correctAnswer": "1",
+    "options": [
+      "1",
+      "0",
+      "2",
+      "5"
+    ],
+    "testedAttribute": "numMoons",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_haumea_astra-dwarf-moons",
+    "entityId": "astra:haumea",
+    "entityType": "dwarf_planet",
+    "type": "astra-dwarf-moons",
+    "difficulty": 3,
+    "prompt": "Wie viele Monde hat der Zwergplanet Haumea (nach gaengiger Zaehlung)?",
+    "correctAnswer": "2",
+    "options": [
+      "2",
+      "1",
+      "0",
+      "5"
+    ],
+    "testedAttribute": "numMoons",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_mercury_astra-planet-diameter-rev",
+    "entityId": "astra:mercury",
+    "entityType": "planet",
+    "type": "astra-planet-diameter-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Planet hat einen ungefaehren Durchmesser von 4.879 km?",
+    "correctAnswer": "Merkur",
+    "options": [
+      "Merkur",
+      "Venus",
+      "Erde",
+      "Mars"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_venus_astra-planet-diameter-rev",
+    "entityId": "astra:venus",
+    "entityType": "planet",
+    "type": "astra-planet-diameter-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Planet hat einen ungefaehren Durchmesser von 12.104 km?",
+    "correctAnswer": "Venus",
+    "options": [
+      "Venus",
+      "Merkur",
+      "Erde",
+      "Mars"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_earth_astra-planet-diameter-rev",
+    "entityId": "astra:earth",
+    "entityType": "planet",
+    "type": "astra-planet-diameter-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Planet hat einen ungefaehren Durchmesser von 12.756 km?",
+    "correctAnswer": "Erde",
+    "options": [
+      "Erde",
+      "Merkur",
+      "Venus",
+      "Mars"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_mars_astra-planet-diameter-rev",
+    "entityId": "astra:mars",
+    "entityType": "planet",
+    "type": "astra-planet-diameter-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Planet hat einen ungefaehren Durchmesser von 6.792 km?",
+    "correctAnswer": "Mars",
+    "options": [
+      "Mars",
+      "Merkur",
+      "Venus",
+      "Erde"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_jupiter_astra-planet-diameter-rev",
+    "entityId": "astra:jupiter",
+    "entityType": "planet",
+    "type": "astra-planet-diameter-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Planet hat einen ungefaehren Durchmesser von 142.984 km?",
+    "correctAnswer": "Jupiter",
+    "options": [
+      "Jupiter",
+      "Merkur",
+      "Venus",
+      "Erde"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_saturn_astra-planet-diameter-rev",
+    "entityId": "astra:saturn",
+    "entityType": "planet",
+    "type": "astra-planet-diameter-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Planet hat einen ungefaehren Durchmesser von 120.536 km?",
+    "correctAnswer": "Saturn",
+    "options": [
+      "Saturn",
+      "Merkur",
+      "Venus",
+      "Erde"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_uranus_astra-planet-diameter-rev",
+    "entityId": "astra:uranus",
+    "entityType": "planet",
+    "type": "astra-planet-diameter-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Planet hat einen ungefaehren Durchmesser von 51.118 km?",
+    "correctAnswer": "Uranus",
+    "options": [
+      "Uranus",
+      "Merkur",
+      "Venus",
+      "Erde"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_neptune_astra-planet-diameter-rev",
+    "entityId": "astra:neptune",
+    "entityType": "planet",
+    "type": "astra-planet-diameter-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Planet hat einen ungefaehren Durchmesser von 49.528 km?",
+    "correctAnswer": "Neptun",
+    "options": [
+      "Neptun",
+      "Merkur",
+      "Venus",
+      "Erde"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_mercury_astra-planet-year-rev",
+    "entityId": "astra:mercury",
+    "entityType": "planet",
+    "type": "astra-planet-year-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Planet umrundet die Sonne in etwa 88 Erdtagen?",
+    "correctAnswer": "Merkur",
+    "options": [
+      "Merkur",
+      "Venus",
+      "Erde",
+      "Mars"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_venus_astra-planet-year-rev",
+    "entityId": "astra:venus",
+    "entityType": "planet",
+    "type": "astra-planet-year-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Planet umrundet die Sonne in etwa 224,7 Erdtagen?",
+    "correctAnswer": "Venus",
+    "options": [
+      "Venus",
+      "Merkur",
+      "Erde",
+      "Mars"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_earth_astra-planet-year-rev",
+    "entityId": "astra:earth",
+    "entityType": "planet",
+    "type": "astra-planet-year-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Planet umrundet die Sonne in etwa 365,2 Erdtagen?",
+    "correctAnswer": "Erde",
+    "options": [
+      "Erde",
+      "Merkur",
+      "Venus",
+      "Mars"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_mars_astra-planet-year-rev",
+    "entityId": "astra:mars",
+    "entityType": "planet",
+    "type": "astra-planet-year-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Planet umrundet die Sonne in etwa 687 Erdtagen?",
+    "correctAnswer": "Mars",
+    "options": [
+      "Mars",
+      "Merkur",
+      "Venus",
+      "Erde"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_jupiter_astra-planet-year-rev",
+    "entityId": "astra:jupiter",
+    "entityType": "planet",
+    "type": "astra-planet-year-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Planet umrundet die Sonne in etwa 4.331 Erdtagen?",
+    "correctAnswer": "Jupiter",
+    "options": [
+      "Jupiter",
+      "Merkur",
+      "Venus",
+      "Erde"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_saturn_astra-planet-year-rev",
+    "entityId": "astra:saturn",
+    "entityType": "planet",
+    "type": "astra-planet-year-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Planet umrundet die Sonne in etwa 10.747 Erdtagen?",
+    "correctAnswer": "Saturn",
+    "options": [
+      "Saturn",
+      "Merkur",
+      "Venus",
+      "Erde"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_uranus_astra-planet-year-rev",
+    "entityId": "astra:uranus",
+    "entityType": "planet",
+    "type": "astra-planet-year-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Planet umrundet die Sonne in etwa 30.589 Erdtagen?",
+    "correctAnswer": "Uranus",
+    "options": [
+      "Uranus",
+      "Merkur",
+      "Venus",
+      "Erde"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_neptune_astra-planet-year-rev",
+    "entityId": "astra:neptune",
+    "entityType": "planet",
+    "type": "astra-planet-year-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Planet umrundet die Sonne in etwa 59.800 Erdtagen?",
+    "correctAnswer": "Neptun",
+    "options": [
+      "Neptun",
+      "Merkur",
+      "Venus",
+      "Erde"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
   }
 ]
