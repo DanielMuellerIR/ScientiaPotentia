@@ -73,23 +73,44 @@ const ATTR_LABELS = {
   function: 'Funktion'
 };
 
-// testedAttribute/answerIsName: Selbstverraeter-Guard (siehe Quiz.jsx). Default
-// so, dass sich die Komponente ohne diese Props exakt wie bisher verhaelt.
-export default function ConceptVisual({ domain, concept, testedAttribute = null, answerIsName = false }) {
+// Diese Freitext-Attribute beschreiben das Konzept so konkret, dass sie vor der
+// Antwort oft indirekt die Loesung verraten. Sie werden erst als Erklaerung nach
+// der Antwort gezeigt.
+const POST_ANSWER_ATTRS = new Set(['notableFor', 'definition', 'function']);
+
+// testedAttribute/answerIsName/hideConceptIdentity/isQuestionAnswered:
+// Selbstverraeter-Guard (siehe Quiz.jsx). Vor der Antwort werden Identitaet,
+// getestete Attribute und Freitext-Details konservativ verborgen; nach der
+// Antwort darf das Visual erklaeren.
+export default function ConceptVisual({
+  domain,
+  concept,
+  testedAttribute = null,
+  answerIsName = false,
+  hideConceptIdentity = false,
+  isQuestionAnswered = false
+}) {
   const Icon = domain.Icon;
   const accent = domain.accent || 'var(--color-primary)';
+  const detailsUnlocked = Boolean(isQuestionAnswered);
+  const hideIdentity = (answerIsName || hideConceptIdentity) && !detailsUnlocked;
 
   const categoryKey = concept?.category || concept?.type || '';
   const categoryLabel = CATEGORY_LABELS[categoryKey] || categoryKey;
 
   // Attribute als Liste aufbereiten; rein technische Schluessel ausblenden.
-  // Selbstverraeter-Guard: das getestete Attribut nicht zeigen (es waere die
-  // Antwort). Ist die Antwort der Konzeptname (answerIsName), gar keine Chips —
-  // sie identifizieren das Konzept und verrieten so die Antwort.
+  // Selbstverraeter-Guard: Vor der Antwort weder den Namen identifizierende
+  // Chips (Reverse-Fragen) noch das getestete Attribut oder Freitext-Details
+  // zeigen. Nach der Antwort werden sie als Erklaerung freigeschaltet.
   const attrs = concept?.attributes || {};
-  const attrEntries = answerIsName ? [] : Object.entries(attrs).filter(
-    ([k, v]) => v !== undefined && v !== null && v !== '' && k !== 'unit' && k !== testedAttribute
-  );
+  const attrEntries = hideIdentity
+    ? []
+    : Object.entries(attrs).filter(
+      ([k, v]) =>
+        v !== undefined && v !== null && v !== '' &&
+        k !== 'unit' &&
+        (detailsUnlocked || (k !== testedAttribute && !POST_ANSWER_ATTRS.has(k)))
+    );
 
   return (
     <div
@@ -151,8 +172,8 @@ export default function ConceptVisual({ domain, concept, testedAttribute = null,
             margin: 0, letterSpacing: '0.5px', lineHeight: 1.15, maxWidth: '460px'
           }}
         >
-          {/* Bei Reverse-Fragen (Antwort = Name) den Namen verbergen. */}
-          {answerIsName ? '?' : (concept?.name || '—')}
+          {/* Bei unbeantworteten Reverse-/Fachbegriff-Fragen den Namen verbergen. */}
+          {hideIdentity ? '?' : (concept?.name || '—')}
         </h2>
 
         {/* Kennwerte */}
@@ -184,8 +205,8 @@ export default function ConceptVisual({ domain, concept, testedAttribute = null,
           </div>
         ) : null}
 
-        {/* Fun-Fact (bei Reverse-Fragen verborgen — nennt oft den Namen) */}
-        {concept?.funFact && !answerIsName ? (
+        {/* Fun-Fact erst nach der Antwort zeigen: Freitext kann Hinweise enthalten. */}
+        {detailsUnlocked && concept?.funFact ? (
           <p
             style={{
               fontSize: '13px', maxWidth: '440px', opacity: 0.85,

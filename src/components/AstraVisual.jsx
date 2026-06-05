@@ -70,6 +70,10 @@ const ATTR_LABELS = {
   hasRings: 'Ringe', discoveredYear: 'Entdeckt', definition: 'Definition'
 };
 
+// Freitext-Chips beschreiben das Objekt oft so eindeutig, dass sie vor der
+// Antwort indirekt helfen. Darum erst nach Antwort anzeigen.
+const POST_ANSWER_ATTRS = new Set(['notableFor', 'definition', 'function']);
+
 /** Weiches radiales Glow-Sprite (für Sterne/Galaxien) als Canvas-Textur. */
 function makeGlowTexture(rgb = '255,240,200') {
   const size = 256;
@@ -240,15 +244,25 @@ function AstraContextMap({ concept, accent }) {
  *     (z.B. 'type', 'orderFromSun'). null bei Reverse-Fragen / keinem Attribut.
  *   - answerIsName (boolean): true, wenn die Antwort der Konzeptname selbst ist
  *     ("Welcher Planet ist der 3.?"). Dann verrät schon der Name-Header die Antwort.
+ *   - isQuestionAnswered (boolean): Nach der Antwort darf das Visual erklärende
+ *     Details, Kontextkarten und FunFacts wieder zeigen.
  *
- * Beide Props sind defensiv: Sind sie undefined (Plumbing noch nicht durchgereicht),
- * verhält sich die Komponente exakt wie zuvor — nichts wird ausgeblendet.
+ * Die Guards greifen nur vor der Antwort; danach wird das Panel zur Erklärung.
  */
-export default function AstraVisual({ domain, activeConcept, testedAttribute, answerIsName }) {
+export default function AstraVisual({
+  domain,
+  activeConcept,
+  testedAttribute = null,
+  answerIsName = false,
+  hideConceptIdentity = false,
+  isQuestionAnswered = false
+}) {
   const mountRef = useRef(null);
   // three-Objekte über Renders hinweg halten, ohne Re-Render auszulösen.
   const ctx = useRef({});
   const [ready, setReady] = useState(false);
+  const detailsUnlocked = Boolean(isQuestionAnswered);
+  const hideIdentity = (answerIsName || hideConceptIdentity) && !detailsUnlocked;
 
   // --- Szene einmalig aufbauen ------------------------------------------
   useEffect(() => {
@@ -384,7 +398,7 @@ export default function AstraVisual({ domain, activeConcept, testedAttribute, an
     // (warm = K/M, weiß = A, bläulich = B) verrät den Sterntyp. Wenn die Frage
     // genau den Typ abfragt ODER der Name die Antwort ist, neutralisieren wir die
     // Farbe (dezentes Weißgrau) statt typ-spezifisch einzufärben.
-    const neutralizeStar = isStar && (testedAttribute === 'type' || answerIsName);
+    const neutralizeStar = isStar && !detailsUnlocked && (testedAttribute === 'type' || hideIdentity);
     const NEUTRAL_STAR = 0xdcdce0; // dezentes Weißgrau
     const starColor = neutralizeStar ? NEUTRAL_STAR : (STAR_COLORS[id] || 0xfff2cc);
 
@@ -427,7 +441,7 @@ export default function AstraVisual({ domain, activeConcept, testedAttribute, an
     } else {
       glow.visible = false;
     }
-  }, [activeConcept, ready, testedAttribute, answerIsName]);
+  }, [activeConcept, ready, testedAttribute, hideIdentity, detailsUnlocked]);
 
   // --- HTML-Overlay (Infos + Lizenz) über dem Canvas --------------------
   const accent = domain.accent || '#5B4B8A';
@@ -435,22 +449,24 @@ export default function AstraVisual({ domain, activeConcept, testedAttribute, an
   const catLabel = CATEGORY_LABELS[cat] || cat || '';
   const attrs = activeConcept?.attributes || {};
   // Selbstverräter-Guard für die Attribut-Chips:
-  //   - answerIsName: gar keine Chips zeigen (jeder Chip identifiziert das Konzept).
-  //   - sonst: den Chip mit dem abgefragten Attribut herausfiltern (vor slice(0,4),
-  //     damit weiterhin bis zu 4 andere Chips übrig bleiben).
-  const attrEntries = answerIsName
+  //   - unbeantwortete Reverse-Frage: gar keine Chips (Identitaet verborgen).
+  //   - unbeantwortete Vorwaertsfrage: getestetes Attribut und Freitextdetails
+  //     ausblenden; nach der Antwort sind sie als Erklaerung sichtbar.
+  const attrEntries = hideIdentity
     ? []
     : Object.entries(attrs)
         .filter(([k, v]) => v !== undefined && v !== null && v !== '' && k !== 'unit')
-        .filter(([k]) => k !== testedAttribute)
+        .filter(([k]) => detailsUnlocked || (k !== testedAttribute && !POST_ANSWER_ATTRS.has(k)))
         .slice(0, 4);
   const hasTexture = activeConcept && TEXTURES[(activeConcept.id || '').replace(/^astra:/, '')];
 
   // Verrät die Positions-/Lage-Kontextkarte die Antwort? Das ist der Fall, wenn die
   // Frage eine Positions-/Lage-Größe abfragt (Reihenfolge/Entfernung/Lage) oder der
-  // Name selbst die Antwort ist. Dann wird die Karte ganz weggelassen.
+  // Name selbst die Antwort ist. Vor der Antwort wird die Karte dann weggelassen;
+  // danach darf sie die Einordnung erklaeren.
   const POSITION_ATTRS = ['orderFromSun', 'distanceFromSunAU', 'location'];
-  const hideContextMap = answerIsName || POSITION_ATTRS.includes(testedAttribute);
+  const hideContextMap = hideIdentity || (!detailsUnlocked && POSITION_ATTRS.includes(testedAttribute));
+  const hideConstantValue = !detailsUnlocked && testedAttribute === 'value';
 
   return (
     <div
@@ -493,12 +509,12 @@ export default function AstraVisual({ domain, activeConcept, testedAttribute, an
                 border: `1px solid ${accent}aa`, background: `${accent}33`, marginBottom: '8px'
               }}>{catLabel}</div>
             )}
-            {/* Selbstverräter-Guard: Bei Reverse-Fragen (answerIsName) ist der Name
-                selbst die gesuchte Antwort -> statt Name nur ein neutrales "?". */}
+            {/* Selbstverräter-Guard: Bei unbeantworteten Reverse-Fragen ist der
+                Name selbst die gesuchte Antwort -> neutraler Platzhalter. */}
             <h2 style={{
               fontFamily: 'var(--font-title)', fontSize: '30px', fontWeight: 700,
               margin: 0, letterSpacing: '0.5px', textShadow: '0 2px 12px rgba(0,0,0,0.8)'
-            }}>{answerIsName ? '?' : activeConcept.name}</h2>
+            }}>{hideIdentity ? '?' : activeConcept.name}</h2>
           </div>
 
           {/* Fuß: Konstante prominent, sonst Kennwerte + Fun-Fact */}
@@ -510,11 +526,11 @@ export default function AstraVisual({ domain, activeConcept, testedAttribute, an
             {cat === 'constant' ? (
               <div style={{ textAlign: 'center' }}>
                 <div style={{ fontSize: '34px', fontWeight: 800, fontFamily: 'var(--font-title)' }}>
-                  {String(attrs.value ?? '')}{attrs.unit ? ` ${attrs.unit}` : ''}
+                  {hideConstantValue ? '?' : String(attrs.value ?? '')}{!hideConstantValue && attrs.unit ? ` ${attrs.unit}` : ''}
                 </div>
-                {/* Selbstverräter-Guard: funFact nennt oft den Namen -> bei
-                    Reverse-Fragen (answerIsName) ausblenden. */}
-                {!answerIsName && activeConcept.funFact && (
+                {/* Freitext erst nach der Antwort zeigen: FunFacts enthalten oft
+                    indirekte Hinweise auf Position, Typ oder Namen. */}
+                {detailsUnlocked && activeConcept.funFact && (
                   <p style={{ fontSize: '13px', opacity: 0.85, maxWidth: '440px', margin: '8px auto 0', fontStyle: 'italic' }}>
                     {activeConcept.funFact}
                   </p>
@@ -535,9 +551,9 @@ export default function AstraVisual({ domain, activeConcept, testedAttribute, an
                     ))}
                   </div>
                 )}
-                {/* Selbstverräter-Guard: funFact nennt oft den Namen -> bei
-                    Reverse-Fragen (answerIsName) ausblenden. */}
-                {!answerIsName && activeConcept.funFact && (
+                {/* Freitext erst nach der Antwort zeigen: FunFacts enthalten oft
+                    indirekte Hinweise auf Position, Typ oder Namen. */}
+                {detailsUnlocked && activeConcept.funFact && (
                   <p style={{ fontSize: '12.5px', opacity: 0.82, maxWidth: '460px', margin: '0 auto', textAlign: 'center', fontStyle: 'italic' }}>
                     {activeConcept.funFact}
                   </p>

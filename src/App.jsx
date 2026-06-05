@@ -27,12 +27,20 @@ export default function App() {
   // Chip/Marker/Namen aus, damit die Antwort nicht schon links sichtbar ist.
   const [activeTestedAttribute, setActiveTestedAttribute] = useState(null);
   const [activeAnswerIsName, setActiveAnswerIsName] = useState(false);
+  const [activeHideConceptIdentity, setActiveHideConceptIdentity] = useState(false);
+  // Wird die Frage beantwortet, darf das linke Visual erklaerende Details wie
+  // FunFacts wieder zeigen. Vorher bleiben sie verborgen, weil Freitext oft
+  // indirekte Hinweise auf die richtige Antwort enthaelt.
+  const [activeQuestionAnswered, setActiveQuestionAnswered] = useState(false);
 
-  // Setzt alle drei Felder aus der Quiz-Meldung (key + Verraeter-Infos) zugleich.
-  const handleActiveConceptChange = ({ key, testedAttribute, answerIsName } = {}) => {
+  // Setzt Konzept + Verraeter-Infos aus der Quiz-Meldung zugleich.
+  const handleActiveConceptChange = (payload = {}) => {
+    const { key, testedAttribute, answerIsName, hideConceptIdentity, isAnswered } = payload || {};
     setActiveConceptKey(key ?? null);
     setActiveTestedAttribute(testedAttribute ?? null);
     setActiveAnswerIsName(Boolean(answerIsName));
+    setActiveHideConceptIdentity(Boolean(hideConceptIdentity));
+    setActiveQuestionAnswered(Boolean(isAnswered));
   };
 
   // Aktive Wissens-Domain, per DomainSwitcher umschaltbar (Terra, Astra, …).
@@ -110,6 +118,8 @@ export default function App() {
       setActiveConceptKey(null);
       setActiveTestedAttribute(null);
       setActiveAnswerIsName(false);
+      setActiveHideConceptIdentity(false);
+      setActiveQuestionAnswered(false);
     }
     setMapState(prev => ({
       ...prev,
@@ -277,6 +287,11 @@ export default function App() {
     setActiveTab('dashboard');
     setSelectedEntityId(null);
     setClickedMapId(null);
+    setActiveConceptKey(null);
+    setActiveTestedAttribute(null);
+    setActiveAnswerIsName(false);
+    setActiveHideConceptIdentity(false);
+    setActiveQuestionAnswered(false);
     setMapState({
       mode: 'dashboard',
       highlightedIds: [],
@@ -408,6 +423,8 @@ export default function App() {
             activeConceptKey={activeConceptKey}
             testedAttribute={activeTestedAttribute}
             answerIsName={activeAnswerIsName}
+            hideConceptIdentity={activeHideConceptIdentity}
+            isQuestionAnswered={activeQuestionAnswered}
             mapProps={{
               selectedId: selectedEntityId,
               onSelectEntity: handleSelectEntityFromMap,

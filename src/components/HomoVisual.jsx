@@ -53,6 +53,10 @@ const ATTR_LABELS = {
   function: 'Funktion', definition: 'Definition'
 };
 
+// Freitext-Chips sind oft erklaerend statt reine Kennwerte. Vor der Antwort
+// koennen sie aber Lage, Funktion oder Namen indirekt verraten.
+const POST_ANSWER_ATTRS = new Set(['notableFor', 'definition', 'function']);
+
 // --- Marker-Koordinaten ---------------------------------------------------
 // Normierte Position (0..1) IM JEWEILIGEN GRAFIK-RAHMEN: x = links->rechts,
 // y = oben->unten. Pro Kategorie-Grafik ein eigenes Koordinatensystem.
@@ -154,38 +158,50 @@ function resolveMarker(concept) {
   return null; // body_fact, species, Haut -> Ganzkörper, kein Einzelpunkt
 }
 
-export default function HomoVisual({ domain, concepts = {}, srsProgress = {}, activeConcept, testedAttribute, answerIsName }) {
+export default function HomoVisual({
+  domain,
+  concepts = {},
+  srsProgress = {},
+  activeConcept,
+  testedAttribute = null,
+  answerIsName = false,
+  hideConceptIdentity = false,
+  isQuestionAnswered = false
+}) {
   const accent = domain.accent || '#A14D5A';
+  const detailsUnlocked = Boolean(isQuestionAnswered);
+  const hideIdentity = (answerIsName || hideConceptIdentity) && !detailsUnlocked;
 
   // Ohne aktive Frage: ruhige Themen-Darstellung (Skelett) als Standbild.
   const cat = activeConcept?.category || activeConcept?.type;
   const asset = (cat && CATEGORY_ASSET[cat]) || DEFAULT_ASSET;
   const catLabel = CATEGORY_LABELS[cat] || cat || '';
 
-  // Selbstverräter-Schutz: Bei Reverse-Fragen (die Antwort IST der Name) bzw.
-  // bei Fragen nach Lage/Region/System würde der pulsierende Marker die Stelle
-  // — und damit die Antwort — verraten. In diesen Fällen Marker unterdrücken.
-  // Defensiver Default: sind die neuen Props undefined, greift nichts und der
-  // Marker verhält sich exakt wie bisher.
+  // Selbstverräter-Schutz: Bei unbeantworteten Reverse-/Fachbegriff-Fragen bzw.
+  // Fragen nach Lage/Region/System würde der pulsierende Marker die Stelle und
+  // damit die Antwort verraten. Nach Antwort wird er zur Erklaerung.
   const markerLeaks =
-    answerIsName ||
-    testedAttribute === 'region' ||
-    testedAttribute === 'location' ||
-    testedAttribute === 'system';
+    hideIdentity ||
+    (!detailsUnlocked && (
+      testedAttribute === 'region' ||
+      testedAttribute === 'location' ||
+      testedAttribute === 'system'
+    ));
   const marker = markerLeaks ? null : resolveMarker(activeConcept);
 
   const attrs = activeConcept?.attributes || {};
   // Chip-Auswahl mit Verräter-Schutz:
-  //  - answerIsName -> gar keine Chips (jeder Wert könnte zum Namen führen).
-  //  - sonst das aktuell gefragte Attribut (testedAttribute) herausfiltern,
-  //    damit der Chip die Antwort nicht direkt anzeigt.
-  // Erst filtern, dann auf max. 4 Chips kürzen.
-  const attrEntries = answerIsName
+  //  - unbeantwortete Reverse-Frage -> gar keine Chips (Identitaet verborgen).
+  //  - unbeantwortete Vorwaertsfrage -> getestetes Attribut und Freitextdetails
+  //    ausblenden. Nach Antwort erscheinen sie als Erklaerung.
+  // Erst filtern, dann auf max. 4 Chips kuerzen.
+  const attrEntries = hideIdentity
     ? []
     : Object.entries(attrs)
         .filter(([k, v]) =>
           v !== undefined && v !== null && v !== '' &&
-          k !== 'unit' && k !== testedAttribute)
+          k !== 'unit' &&
+          (detailsUnlocked || (k !== testedAttribute && !POST_ANSWER_ATTRS.has(k))))
         .slice(0, 4);
 
   return (
@@ -272,13 +288,11 @@ export default function HomoVisual({ domain, concepts = {}, srsProgress = {}, ac
                 background: accent, marginBottom: '8px'
               }}>{catLabel}</div>
             )}
-            {/* Bei Reverse-Fragen (answerIsName) ist der Konzeptname die gesuchte
-                Antwort -> statt des Namens nur einen neutralen Platzhalter „?"
-                zeigen. Default (Prop undefined/falsy): Name normal anzeigen. */}
+            {/* Bei unbeantworteten Reverse-/Fachbegriff-Fragen den Namen verbergen. */}
             <h2 style={{
               fontFamily: 'var(--font-title)', fontSize: '28px', fontWeight: 700,
               margin: 0, color: 'var(--color-primary)', letterSpacing: '0.3px'
-            }}>{answerIsName ? '?' : activeConcept.name}</h2>
+            }}>{hideIdentity ? '?' : activeConcept.name}</h2>
           </div>
 
           {/* Fuß: Kennwerte + Fun-Fact */}
@@ -301,10 +315,9 @@ export default function HomoVisual({ domain, concepts = {}, srsProgress = {}, ac
                 ))}
               </div>
             )}
-            {/* Fun-Fact bei Reverse-Fragen ausblenden — er nennt oft den
-                Konzeptnamen oder umschreibt ihn so deutlich, dass er die
-                gesuchte Antwort verrät. Default (Prop falsy): normal zeigen. */}
-            {!answerIsName && activeConcept.funFact && (
+            {/* Freitext erst nach der Antwort zeigen: FunFacts nennen oft den
+                Konzeptnamen oder umschreiben Lage/Funktion zu deutlich. */}
+            {detailsUnlocked && activeConcept.funFact && (
               <p style={{
                 fontSize: '12.5px', color: 'var(--text-muted)', maxWidth: '460px',
                 margin: '0 auto', textAlign: 'center', fontStyle: 'italic'

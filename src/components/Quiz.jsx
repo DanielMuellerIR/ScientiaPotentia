@@ -52,6 +52,34 @@ export default function Quiz({
     generateQuizSession();
   }, [dueEntities, newEntities, difficulty, quizMode, questionPool]);
 
+  // Meldet die aktive Frage ans linke Visual-Panel. Dieser Effekt ist bewusst
+  // vom Karten-Setup getrennt: Der Antwortzustand aendert sich nach einem Klick,
+  // soll aber nicht die Map-Highlights der Antwortauswertung zuruecksetzen.
+  useEffect(() => {
+    if (!onActiveConceptChange) return;
+
+    if (questions.length > 0 && currentIdx < questions.length && !sessionFinished) {
+      const q = questions[currentIdx];
+
+      // Der entityId ist zugleich der Konzept-Key (z.B. "astra:mars").
+      //
+      // Zusaetzlich melden wir, WELCHES Attribut die Frage prueft (testedAttribute),
+      // ob die Antwort der Konzeptname selbst ist (answerIsName, Reverse-Frage),
+      // ob die Konzeptidentitaet verborgen bleiben muss und ob die Frage bereits
+      // beantwortet wurde. Damit blendet das Visual vor der Antwort verraeterische
+      // Chips / Marker / FunFacts aus und darf sie danach als Erklaerung zeigen.
+      onActiveConceptChange({
+        key: q.entityId || null,
+        testedAttribute: q.testedAttribute ?? null,
+        answerIsName: Boolean(q.answerIsName),
+        hideConceptIdentity: Boolean(q.hideConceptIdentity),
+        isAnswered
+      });
+    } else {
+      onActiveConceptChange(null);
+    }
+  }, [currentIdx, questions, sessionFinished, isAnswered]);
+
   // Set map layer configurations when entering new question
   useEffect(() => {
     if (questions.length > 0 && currentIdx < questions.length && !sessionFinished) {
@@ -59,20 +87,6 @@ export default function Quiz({
       setStatusMessage('');
       setWrongClickIds([]);
       setCorrectClickIds([]);
-
-      // Aktuell gefragtes Konzept ans linke Panel melden, damit dieses pro Frage
-      // eine passende Visualisierung zeigt (3D-Planet, Anatomie-Grafik, …). Der
-      // entityId ist zugleich der Konzept-Key (z.B. "astra:mars").
-      //
-      // Zusaetzlich melden wir, WELCHES Attribut die Frage prueft (testedAttribute)
-      // und ob die Antwort der Konzeptname selbst ist (answerIsName, Reverse-Frage).
-      // Damit blendet das Visual den verraeterischen Chip / Marker / Namen aus
-      // (Selbstverraeter-Guard) — sonst stuende die Antwort schon links im Bild.
-      if (onActiveConceptChange) onActiveConceptChange({
-        key: q.entityId || null,
-        testedAttribute: q.testedAttribute ?? null,
-        answerIsName: Boolean(q.answerIsName)
-      });
 
       // Determine what to highlight or overlay on Map. If city, highlight/zoom to its parent country.
       const mapHighlightId = q.entityType === 'city' ? geodb.entities[q.entityId]?.metadata?.countryId : q.entityId;

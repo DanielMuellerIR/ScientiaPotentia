@@ -27,6 +27,8 @@ export default function VisualPanel({
   activeConceptKey = null,
   testedAttribute = null,
   answerIsName = false,
+  hideConceptIdentity = false,
+  isQuestionAnswered = false,
   mapProps = {}
 }) {
   // --- Terra: bestehende Weltkarte -------------------------------------
@@ -64,6 +66,8 @@ export default function VisualPanel({
           activeConceptKey={activeConceptKey}
           testedAttribute={testedAttribute}
           answerIsName={answerIsName}
+          hideConceptIdentity={hideConceptIdentity}
+          isQuestionAnswered={isQuestionAnswered}
         />
       </Suspense>
     );
@@ -77,6 +81,8 @@ export default function VisualPanel({
         concept={activeConcept}
         testedAttribute={testedAttribute}
         answerIsName={answerIsName}
+        hideConceptIdentity={hideConceptIdentity}
+        isQuestionAnswered={isQuestionAnswered}
       />
     );
   }
