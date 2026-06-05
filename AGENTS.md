@@ -28,7 +28,7 @@ Geplante Bereiche: **Terra** (Geografie), **Astra** (Astronomie), **Homo** (Mens
 | Phase 2b | Astra 3D-Himmelskörper (three.js + NASA/SSS-Texturen) | ✅ erledigt (v1.8.0) |
 | Phase 2c | Homo Anatomiegrafiken (Wikimedia PD) pro Frage | ✅ erledigt (v1.9.0) |
 | Phase 2d | Konzeptgenaue Hervorhebung (Astra Kontext-Karte, Homo Struktur-Marker) | ✅ erledigt (v1.11.0) |
-| Phase 5 | **Content-Ausbau auf 5000 Fragen/Bereich** (mehr Fragetypen + Konzeptausbau) | offen, laufend (v1.12.3: Astra 100K/331F, Homo 96K/164F) |
+| Phase 5 | **Content-Ausbau auf 5000 Fragen/Bereich** (mehr Fragetypen + Konzeptausbau) | offen, laufend (v1.12.4: Astra 100K/331F, Homo 96K/174F) |
 | Phase 4–6 | Natura, Lingua, Cultura | offen (Reihenfolge: Natura → Lingua → Cultura) |
 
 **Neue verbindliche Anforderungen (Stand 2026-06-04, Nutzer-Vorgabe):**
@@ -47,7 +47,7 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 > `node scripts/generate_<domain>.js` → `node scripts/verify_facts.js <domain>` → Browser-Run.
 > **Integritätsregel bleibt hart:** jeder Fakt mit Quelle, keine erfundenen Zahlen — bei
 > LLM-Recherche adversarialer Faktencheck **plus** manuelle Stichprobe vor Commit.
-> Aktueller Stand (v1.12.3): Astra 100 Konzepte/331 Fragen, Homo 96/164.
+> Aktueller Stand (v1.12.4): Astra 100 Konzepte/331 Fragen, Homo 96/174.
 >
 > **Phase-5-Runde 1 (2026-06-04, Multi-Agent-Workflow):** `scripts/merge_phase5.js` dokumentiert
 > Dedup + Daten-Putz der Recherche. Gelernt: Recherche-Agents liefern (a) Dubletten zum Bestand
@@ -77,6 +77,8 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 - `public/data/questions_terra.json` (5217 Fragen) + `geodb.json` (Terra-Konzepte, statisch).
 - `public/data/concepts_<domain>.json` + `questions_<domain>.json` je neuer Domain.
 - `scripts/data_sources/<domain>_raw.json` — verifizierte Faktenbasis mit `source` je Konzept.
+- `docs/wissensquellen.md` — kuratierte, lizenz-verifizierte freie Wissensquellen je Bereich
+  (Recherche-Input für manuelle Fragenentwicklung; Fakten frei, Lizenzen nur bei Textübernahme).
 
 ### Eine neue Domain hinzufügen (erprobter Ablauf)
 1. **Faktenbasis recherchieren** (Multi-Agent-Workflow): Kategorien fächern, je Konzept
@@ -95,10 +97,10 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 | :----- | :------- | :----- | :------ | :------------- |
 | Terra  | 1852 | 5217 | Natural Earth / GeoNames / Wikidata | Weltkarte (MapLibre), pro Frage Highlight |
 | Astra  | 100 | 331 | NASA / IAU / ESA | **3D-Himmelskörper (three.js)** + Kontext-Karte (Bahn/Distanz), Texturen Solar System Scope (CC BY 4.0) |
-| Homo   | 96 | 164 | Gray's Anatomy / Prometheus / NIH | **Anatomiegrafiken (Wikimedia, PD)** + konzeptgenauer Struktur-Marker je Frage |
+| Homo   | 96 | 174 | Gray's Anatomy / Prometheus / NIH | **Anatomiegrafiken (Wikimedia, PD)** + konzeptgenauer Struktur-Marker je Frage |
 
 > Fragenzahlen Astra/Homo sind noch weit vom 5000-Ziel — Content-Ausbau (Phase 5) läuft weiter.
-> Homo hat wenig Fragen/Konzept (164/96): Hebel = mehr Fragetypen je Kategorie (Astra: 331/100).
+> Homo hat wenig Fragen/Konzept (174/96): Hebel = mehr Fragetypen je Kategorie (Astra: 331/100).
 
 ### Visualisierung pro Frage (Stand 2026-06-04)
 - **`src/components/VisualPanel.jsx`** wählt: Terra→`Map`, Domain mit `domain.Visual`→diese (lazy),
@@ -118,7 +120,16 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 
 ### Inhaltsregeln (verbindlich)
 - Keine erfundenen Fakten; Quelle pro Fakt. Fairness: keine obskuren Objekte.
-- Distraktoren plausibel, gleiche Kategorie, nicht trivial ausschließbar.
+- **Echte Umlaute Pflicht (ä ö ü ß), niemals ASCII-Ersatz (ue/ae/oe/ss) im ganzen Spiel.**
+  Gilt für alle angezeigten Inhalte (Prompts, Antworten, Konzeptnamen, FunFacts, Attribute).
+  Recherche-/LLM-Output liefert oft ASCII-Deutsch → vor dem Generieren bereinigen.
+  Helfer: `node scripts/fix_umlauts.js` (handkuratierte Wort-Liste, Ersatz nur als ganzes Token;
+  korrekte ss-Wörter, Eigennamen und lat. Begriffe bleiben unberührt). **Kein blindes
+  Suchen-Ersetzen** — ue/ae/oe/ss stecken in vielen korrekten Wörtern (Masse, Wasser, Fluss …).
+- Distraktoren plausibel, gleiche Kategorie, nicht trivial ausschließbar. **Gleiche Dimension/
+  Einheit:** zu „Blutvolumen → ca. 5 Liter" niemals „32 Zähne"/„206 Knochen" als Distraktor.
+  Numerische Eckwerte streuen um den korrekten Wert mit gleicher Einheit (siehe
+  `bodyFactDistractors` in `generate_homo.js`).
 - **Antwort darf nicht im Fragewortlaut stecken (Selbstverräter-Test).** Wenn der deutsche
   Name die Antwort verrät, ist die Frage schlecht bzw. höchstens Stufe 1. Beispiele:
   „In welcher Region liegt der **Wade**nbein?" → „Bein" steckt drin. „…der **Kau**knochen?"
