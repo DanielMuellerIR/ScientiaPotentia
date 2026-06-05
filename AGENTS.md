@@ -55,6 +55,20 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 > (b) ASCII-Deutsch (ue/ss statt ü/ß) → Wort-Wörterbuch-Putz, (c) verbose Antwort-Felder
 > (Sternbild/Typ/Lage mit Klammern) → kürzen, sonst Längen-Giveaway in MCQ. Manuelle Stichprobe
 > fand 5 semantische Dubletten, die kein Algorithmus sah → Pflicht bleibt.
+>
+> **Phase-5-Runde 2 (2026-06-05, Krisensitzung — Sammeln + Pipeline-Redesign):** Ablaufplan,
+> Effizienz-Hebel, Hochrechnung und Stolpersteine jetzt zentral in **`docs/content_pipeline.md`**.
+> Ergebnis dieser Session: **≈390 neue, belegte Konzepte** für Astra/Homo/Natura/Cultura/Lingua
+> gesammelt (2× 8 Sonnet-Finder parallel), abgelegt in `scripts/data_sources/harvest/`
+> (Stand + Bild-Status: `harvest/README.md`). **Fakten stichprobengeprüft (gut), aber noch
+> NICHT gemerged.** Vereinbarte Entscheidungen: (1) **Generator-Hebel zuerst** — Fragen/Konzept
+> von ~2–3 auf ~10 (token-frei per Templating), erst dann Konzeptmenge skalieren; (2) Pipeline
+> Phase A–E übernehmen; (3) **gestufte Verifikation** (autoritative Quellen — Wikidata, NASA
+> Fact Sheets, JPL, Gray's 1918, USGS — gelten als belegt, nur schwächere voll prüfen);
+> (4) Quelle Pflicht je Fakt UND Bild; (5) wenn eine Entscheidung viele Fragen invalidiert,
+> erst Daniel fragen. **Gelernt:** Sammel-LLMs erfinden Bild-URLs (3/16 Finder, 54 Fake-Dateien)
+> → Bilder nur deterministisch (Phase C); Copyright-Landmine Foto-eines-geschützten-Werks
+> (Guernica) → `harvest/BLACKLIST.md`.
 
 ### Domain-Abstraktion (das tragende Konzept)
 - **Registry `src/domains/index.js`** — Liste aller Domains. Jede liefert `loadConcepts()`

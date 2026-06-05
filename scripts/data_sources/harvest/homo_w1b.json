@@ -1,0 +1,504 @@
+[
+  {
+    "id": "hypophyse",
+    "name": "Hypophyse (Hirnanhangdrüse)",
+    "category": "organ",
+    "attributes": {
+      "groesse": "erbsengross",
+      "lage": "Sella turcica (Türkensattel), Schädelbasis",
+      "druesentypen": "Adenohypophyse, Neurohypophyse",
+      "hormone_anzahl": "mind. 8 (Vorderlappen allein)"
+    },
+    "funFact": "Die Hypophyse ist kaum so groß wie eine Erbse — und trotzdem das Steuerungszentrum des gesamten Hormonsystems: Sie koordiniert Wachstum, Stress, Sexualhormone, Schilddrüse und Wasserhaushalt.",
+    "sourceName": "Wikipedia: Hypophyse",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Hypophyse",
+    "verifyNote": "Lage (Sella turcica), Hormonnamen aus Wikipedia-Artikel; Größenangabe 'erbsengross' ist Lehrbuch-Standard (OpenStax A&P Kap. 17).",
+    "imageSearchTerm": "pituitary pineal glands anatomy diagram",
+    "imageFile": "https://commons.wikimedia.org/wiki/File%3AIllu_pituitary_pineal_glands_ja.JPG",
+    "imageLicense": "Public domain",
+    "imageAttribution": "Wikimedia Commons"
+  },
+  {
+    "id": "zirbeldrüse",
+    "name": "Zirbeldrüse (Epiphyse)",
+    "category": "organ",
+    "attributes": {
+      "gewicht": "ca. 100 mg",
+      "laenge": "5–8 mm",
+      "lage": "Mittelhirn, Hinterwand 3. Hirnventrikel",
+      "hormon": "Melatonin"
+    },
+    "funFact": "Die Zirbeldrüse wiegt nur etwa 100 Milligramm — so viel wie ein paar Reiskörner — und produziert nachts Melatonin, das dem Körper signalisiert, wann es Zeit zum Schlafen ist.",
+    "sourceName": "Wikipedia: Zirbeldrüse",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Zirbeldrüse",
+    "verifyNote": "Gewicht 80–500 mg (Durchschnitt 100 mg), Maße und Lage aus Wikipedia-Artikel; Melatonin-Funktion bestätigt durch Wikipedia: Melatonin.",
+    "imageSearchTerm": "pineal gland circadian melatonin",
+    "imageFile": "https://commons.wikimedia.org/wiki/File%3ACircadian_rhythm.svg",
+    "imageLicense": "CC BY-SA 4.0",
+    "imageAttribution": "Srruhh / Own work"
+  },
+  {
+    "id": "melatonin",
+    "name": "Melatonin (Schlafhormon)",
+    "category": "body_fact",
+    "attributes": {
+      "produziert_von": "Zirbeldrüse (Epiphyse)",
+      "ausschuettung": "bei Dunkelheit, Maximum ca. 3 Uhr morgens",
+      "funktion": "Steuerung des Tag-Nacht-Rhythmus",
+      "gehemmt_durch": "Tageslicht (blaues Licht)"
+    },
+    "funFact": "Melatonin wird erst ausgeschüttet, wenn es dunkel wird — helles Licht stoppt die Produktion sofort. Das erklärt, warum Bildschirmlicht am Abend das Einschlafen erschwert.",
+    "sourceName": "Wikipedia: Melatonin",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Melatonin",
+    "verifyNote": "Ausschüttungszeit, Dunkelheits-Trigger und Maximum um 3 Uhr aus Wikipedia-Artikel; bestätigt durch de.wikipedia.org/wiki/Zirbeldrüse.",
+    "imageSearchTerm": "circadian rhythm melatonin pineal gland",
+    "imageFile": "https://commons.wikimedia.org/wiki/File%3ACircadian_rhythm.svg",
+    "imageLicense": "CC BY-SA 4.0",
+    "imageAttribution": "Srruhh / Own work"
+  },
+  {
+    "id": "nebenniere-adrenalin",
+    "name": "Nebenniere & Adrenalin",
+    "category": "organ",
+    "attributes": {
+      "gewicht": "5–15 g",
+      "abmessung": "ca. 4 × 4 × 2 cm",
+      "lage": "obere Pole der Nieren",
+      "hormon_typ": "Katecholamin (Kampf-oder-Flucht)"
+    },
+    "funFact": "Die Nebenniere ist kaum so groß wie ein Walnusskern — in Sekundenbruchteilen schüttet ihr Mark Adrenalin aus, das Herzfrequenz, Blutdruck und Muskelversorgung hochfährt: die klassische Kampf-oder-Flucht-Reaktion.",
+    "sourceName": "Wikipedia: Nebenniere",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Nebenniere",
+    "verifyNote": "Gewicht 5–15 g, Maße ca. 4×4×2 cm und Lage aus Wikipedia-Artikel; Adrenalin-Funktion bestätigt durch de.wikipedia.org/wiki/Adrenalin.",
+    "imageSearchTerm": "adrenal gland anatomy diagram",
+    "imageFile": "https://commons.wikimedia.org/wiki/File%3AAdrenal_gland_az.jpg",
+    "imageLicense": "Public domain",
+    "imageAttribution": "MrArifnajafov / The image i made myself using adobe ilustrator using this images as source: [1]"
+  },
+  {
+    "id": "insulin-pankreas",
+    "name": "Insulin & Bauchspeicheldrüse",
+    "category": "organ",
+    "attributes": {
+      "pankreas_gewicht": "40–120 g",
+      "pankreas_laenge": "16–20 cm",
+      "langerhans_inseln_anzahl": "ca. 1 Million",
+      "inselzell_anteil": "1–2 % der Pankreasmasse",
+      "insulin_produziert_von": "Beta-Zellen (65–80 % der Inselzellen)"
+    },
+    "funFact": "Das Pankreas enthält rund eine Million winziger Langerhans-Inseln — zusammen kaum 1–2 % des Organs. Deren Beta-Zellen produzieren Insulin, das den Blutzucker reguliert und 1921 erstmals isoliert wurde.",
+    "sourceName": "Wikipedia: Langerhans-Insel",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Langerhans-Insel",
+    "verifyNote": "1 Million Inseln, 1–2 % Anteil, Beta-Zell-Anteil 65–80 % aus Wikipedia; Pankreasmaße aus de.wikipedia.org/wiki/Pankreas; Insulin 1921 aus de.wikipedia.org/wiki/Insulin.",
+    "imageSearchTerm": "pancreas islets langerhans anatomy",
+    "imageFile": "https://commons.wikimedia.org/wiki/File%3A2424_Exocrine_and_Endocrine_Pancreas-ar.jpg",
+    "imageLicense": "CC BY 3.0",
+    "imageAttribution": "Original: OpenStax College Derivative: علاء / Derivative from File:2424 Exocrine and Endocrine Pancreas.jpg"
+  },
+  {
+    "id": "synapse",
+    "name": "Synapse (Nervenverbindung)",
+    "category": "body_fact",
+    "attributes": {
+      "anzahl_im_gehirn": "über 100 Billionen",
+      "uebertragungszeit": "wenige Millisekunden",
+      "übertragungsmechanismus": "chemisch (Neurotransmitter)"
+    },
+    "funFact": "Das menschliche Gehirn enthält mehr als 100 Billionen Synapsen — mehr Verbindungspunkte als es Sterne in der Milchstraße gibt. Diese Verbindungen übermitteln Signale in wenigen Millisekunden.",
+    "sourceName": "Wikipedia: Synapse",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Synapse",
+    "verifyNote": "100 Billionen Synapsen aus Wikipedia-Artikel; übliche Lehrbuchzahl, bestätigt durch koerper_fakten_prozess.md Quellenliste (dasgehirn.info / Helmholtz).",
+    "imageSearchTerm": "synapse diagram neurotransmitter",
+    "imageFile": "https://commons.wikimedia.org/wiki/File%3AA_synapse_between_two_neurons.png",
+    "imageLicense": "CC BY-SA 3.0",
+    "imageAttribution": "Laura Guerin / https://commons.wikimedia.org/wiki/File:A_synapse_between_neurons.png"
+  },
+  {
+    "id": "hirnnerven",
+    "name": "Hirnnerven",
+    "category": "body_fact",
+    "attributes": {
+      "anzahl_paare": "12",
+      "nummerierung": "I–XII (römisch)",
+      "erster_hirnnerv": "Nervus olfactorius (Geruch)",
+      "laengster_hirnnerv": "Nervus vagus (X)"
+    },
+    "funFact": "Der Mensch besitzt 12 Paare von Hirnnerven (I–XII), die direkt aus dem Gehirn entspringen — nicht aus dem Rückenmark. Der längste davon, der Vagusnerv (X), zieht bis in den Bauch und reguliert Herz, Lunge und Darm.",
+    "sourceName": "Wikipedia: Hirnnerv",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Hirnnerv",
+    "verifyNote": "12 Paare, Nummerierung I–XII und Namen aus Wikipedia-Artikel; bestätigt durch OpenStax A&P Kap. 13.",
+    "imageSearchTerm": "cranial nerves human brain inferior view",
+    "imageFile": "https://commons.wikimedia.org/wiki/File%3ABrain_human_normal_inferior_view_with_labels_ar.png",
+    "imageLicense": "CC BY 2.5",
+    "imageAttribution": "Brain_human_normal_inferior_view.svg: Patrick J. Lynch, medical illustrator derivative work: Helmoony (talk) / Brain_human_normal_inferior_view.svg"
+  },
+  {
+    "id": "rueckenmark-segmente",
+    "name": "Rückenmark & Spinalnerven",
+    "category": "body_fact",
+    "attributes": {
+      "segmente_gesamt": "31",
+      "spinalnerven_paare": "31",
+      "abschnitte": "Halsmark (8), Brustmark (12), Lendenmark (5), Kreuzbein (5), Steiß (1)",
+      "reicht_bis": "Lendenwirbel L2"
+    },
+    "funFact": "Das Rückenmark endet beim Erwachsenen bereits auf Höhe des zweiten Lendenwirbels — unterhalb sind nur noch Nervenwurzeln ('Cauda equina'). Von seinen 31 Segmenten gehen 31 Spinalnerven-Paare ab, die den gesamten Rumpf und die Gliedmaßen versorgen.",
+    "sourceName": "Wikipedia: Rückenmark",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Rückenmark",
+    "verifyNote": "31 Segmente, 31 Nervenpaare, Endpunkt L2 aus Wikipedia-Artikel; bestätigt durch OpenStax A&P Kap. 14.",
+    "imageSearchTerm": "spinal cord anatomy sectional diagram",
+    "imageFile": "https://commons.wikimedia.org/wiki/File%3ASpinal_Cord_Sectional_Anatomy.png",
+    "imageLicense": "CC BY-SA 4.0",
+    "imageAttribution": "BruceBlaus / Own work"
+  },
+  {
+    "id": "reaktionszeit",
+    "name": "Reaktionszeit (menschlich)",
+    "category": "body_fact",
+    "attributes": {
+      "einfache_reaktion_licht": "ca. 200 ms",
+      "einfache_reaktion_schall": "ca. 150 ms",
+      "untere_grenze_trainiert": "ca. 100 ms",
+      "einheit": "Millisekunden (ms)"
+    },
+    "funFact": "Auf einen Lichtreiz reagiert ein Mensch im Schnitt nach rund 200 Millisekunden — auf einen Schallreiz bereits nach 150 ms. Das Gehirn braucht diese Zeit, um Sinneseindruck, Entscheidung und Muskelbefehl zu verarbeiten.",
+    "sourceName": "Wikipedia: Reaktionszeit (Neurologie / Psychologie)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Reaktionszeit",
+    "verifyNote": "Standardwerte 150 ms (Schall) / 200 ms (Licht) sind Lehrbuch-Konsens (OpenStax A&P Kap. 15); Wikipedia-Begriffsklärungsseite nennt 'einige Zehntelsekunden', genaue Werte aus Primärquelle OpenStax entnommen.",
+    "imageSearchTerm": "spinal cord anatomy sectional diagram",
+    "imageFile": "https://commons.wikimedia.org/wiki/File%3ASpinal_Cord_Sectional_Anatomy.png",
+    "imageLicense": "CC BY-SA 4.0",
+    "imageAttribution": "BruceBlaus / Own work"
+  },
+  {
+    "id": "herzschlaege-tag",
+    "name": "Herzschläge pro Tag und Leben",
+    "category": "body_fact",
+    "attributes": {
+      "ruhepuls_pro_minute": "50–100/min (Normwert)",
+      "schlaege_pro_tag": "ca. 100.000",
+      "schlaege_pro_leben": "ca. 3–4 Milliarden",
+      "neugeborene_puls": "ca. 120/min"
+    },
+    "funFact": "Das Herz schlägt täglich rund 100.000-mal — ohne Pause, ohne Urlaub. Im Laufe eines Lebens kommt es auf 3 bis 4 Milliarden Schläge, während die meisten anderen Säugetiere nur rund eine Milliarde erreichen.",
+    "sourceName": "Wikipedia: Herzfrequenz",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Herzfrequenz",
+    "verifyNote": "Normwert 50–100/min, Neugeborene 120/min und 'fast vier Milliarden' aus Wikipedia-Artikel; 100.000/Tag bei 72/min × 1.440 min berechnet.",
+    "imageSearchTerm": "heart rate cardiac output factors",
+    "imageFile": "https://commons.wikimedia.org/wiki/File%3A2031_Factors_in_Cardiac_Output.jpg",
+    "imageLicense": "CC BY 3.0",
+    "imageAttribution": "OpenStax College / Anatomy &amp; Physiology, Connexions Web site. http://cnx.org/content/col11496/1.6/, Jun 19, 2013."
+  },
+  {
+    "id": "herzzeitvolumen",
+    "name": "Herzauswurf (Herzzeitvolumen)",
+    "category": "body_fact",
+    "attributes": {
+      "ruhe_liter_pro_minute": "4,9",
+      "belastung_liter_pro_minute": "20–25",
+      "schlagvolumen": "70 ml pro Schlag",
+      "herzgewicht_mann": "280–340 g",
+      "herzgewicht_frau": "230–280 g"
+    },
+    "funFact": "In Ruhe pumpt das Herz knapp 5 Liter Blut pro Minute durch den Körper — das ist das gesamte Blutvolumen eines Erwachsenen. Bei körperlicher Höchstbelastung steigt der Auswurf auf 20–25 Liter pro Minute.",
+    "sourceName": "Wikipedia: Herz",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Herz",
+    "verifyNote": "4,9 L/min Ruhe, 20–25 L/min Belastung, 70 ml Schlagvolumen, Herzgewicht aus Wikipedia-Artikel; bestätigt durch OpenStax A&P Kap. 19.",
+    "imageSearchTerm": "human heart diagram anatomy multilingual",
+    "imageFile": "https://commons.wikimedia.org/wiki/File%3ADiagram_of_the_human_heart_(multilingual).svg",
+    "imageLicense": "CC BY-SA 3.0",
+    "imageAttribution": "MesserWoland / Own work (Original text: own work created in Inkscape, Own work based on: Diagram of the human heart (cropped).svg by Yaddah and Image by Yaddah)"
+  },
+  {
+    "id": "aorta",
+    "name": "Aorta (Hauptschlagader)",
+    "category": "organ",
+    "attributes": {
+      "durchmesser": "2,5–3,5 cm",
+      "gesamtlaenge": "30–40 cm",
+      "absteigende_aorta_laenge": "ca. 30 cm",
+      "funktion": "größtes Blutgefäß des Körpers"
+    },
+    "funFact": "Die Aorta ist mit 2,5 bis 3,5 cm Durchmesser das dickste Blutgefäß des Körpers und rund 30–40 cm lang. Sie verlässt das Herz, verläuft wie ein Bogen und steigt dann entlang der Wirbelsäule hinab.",
+    "sourceName": "Wikipedia: Aorta",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Aorta",
+    "verifyNote": "Durchmesser 2,5–3,5 cm, Länge 30–40 cm aus Wikipedia-Artikel; bestätigt durch Gray's Anatomy 1918 Kap. Arteries.",
+    "imageSearchTerm": "aorta anatomy diagram branches",
+    "imageFile": "https://commons.wikimedia.org/wiki/File%3AAorta_scheme_noTags.svg",
+    "imageLicense": "CC BY-SA 3.0",
+    "imageAttribution": "Edoarado / Own work based on:Arterial System en.svg, Coronary arteries.svg."
+  },
+  {
+    "id": "blutdruck-normwert",
+    "name": "Blutdruck (Normwert)",
+    "category": "body_fact",
+    "attributes": {
+      "systolisch_normal": "100–130 mmHg",
+      "diastolisch_normal": "60–85 mmHg",
+      "richtwert_optimal": "120/80 mmHg",
+      "hypertonie_ab": "140/90 mmHg",
+      "einheit": "mmHg (Millimeter Quecksilbersäule)"
+    },
+    "funFact": "Ein normaler Blutdruck liegt bei etwa 120/80 mmHg — die erste Zahl ist der Druck während des Herzschlags, die zweite in der Herzpause. Ab 140/90 mmHg spricht man von Bluthochdruck (Hypertonie).",
+    "sourceName": "Wikipedia: Blutdruck",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Blutdruck",
+    "verifyNote": "Normalbereich, Richtwert 120/80, Hypertonie-Grenze 140/90 aus Wikipedia-Artikel; ESC-Leitlinie 2024 bestätigt 140/90 mmHg.",
+    "imageSearchTerm": "blood pressure measurement sphygmomanometer",
+    "imageFile": "https://commons.wikimedia.org/wiki/File%3AOscillometric_Blood_Pressure_Waveform.jpg",
+    "imageLicense": "CC BY-SA 4.0",
+    "imageAttribution": "Amirhossein Ashrafzadeh / Own work"
+  },
+  {
+    "id": "niere-nephrone",
+    "name": "Niere & Nephrone",
+    "category": "organ",
+    "attributes": {
+      "nephrone_pro_niere": "1–1,4 Millionen",
+      "filtrationsmenge_pro_tag": "ca. 180 Liter (Primärharn)",
+      "urin_pro_tag": "ca. 1,5–2 Liter",
+      "gewicht_pro_niere": "120–200 g",
+      "maße": "10–12 × 5–6,5 × 3–5 cm"
+    },
+    "funFact": "Jede Niere filtert täglich rund 180 Liter Blut zu Primärharn — das ist das 25-fache des gesamten Körperblutvolumens. Davon werden 99 % rückresorbiert; übrig bleiben 1,5 bis 2 Liter Urin.",
+    "sourceName": "Wikipedia: Niere",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Niere",
+    "verifyNote": "1–1,4 Mio. Nephrone, 180 Liter Primärharn, 2 Liter Urin, Gewicht und Maße aus Wikipedia-Artikel; bestätigt durch OpenStax A&P Kap. 25.",
+    "imageSearchTerm": "nephron kidney anatomy cross section",
+    "imageFile": "https://commons.wikimedia.org/wiki/File%3ALarge_nephron.png",
+    "imageLicense": "Public domain",
+    "imageAttribution": "Henry Vandyke Carter / Henry Gray (1918) Anatomy of the Human Body (See \"Book\" section below) Bartleby.com: Gray's Anatomy, Plate 1127"
+  },
+  {
+    "id": "grundumsatz",
+    "name": "Grundumsatz (Energiebedarf in Ruhe)",
+    "category": "body_fact",
+    "attributes": {
+      "grundumsatz_mann_kcal_tag": "ca. 1.680 kcal",
+      "grundumsatz_frau_kcal_tag": "ca. 1.512 kcal",
+      "anteil_am_gesamtenergiebedarf": "50–75 %",
+      "groesster_verbraucher": "Leber (26 %)"
+    },
+    "funFact": "Ein Erwachsener verbrennt selbst im völligen Ruhezustand täglich rund 1.500–1.700 kcal — allein für Herzschlag, Atmung und Wärme. Die Leber trägt dazu 26 % bei, das Gehirn 18 %.",
+    "sourceName": "Wikipedia: Grundumsatz",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Grundumsatz",
+    "verifyNote": "Werte 1.680/1.512 kcal (Faustformel 70 kg), 50–75 % Anteil und Organverteilung aus Wikipedia-Artikel; Leber- und Hirnanteil dort tabellarisch belegt.",
+    "imageSearchTerm": "human body energy metabolism organs",
+    "imageFile": "https://commons.wikimedia.org/wiki/File%3AEnergy_and_life.svg",
+    "imageLicense": "Public domain",
+    "imageAttribution": "Mikael Häggström / All images are of Public Domain license. File:Pikilia.JPG"
+  },
+  {
+    "id": "körpertemperatur",
+    "name": "Körperkerntemperatur",
+    "category": "body_fact",
+    "attributes": {
+      "normalbereich": "35,7–37,3 °C",
+      "mittelwert": "36,6 °C",
+      "fieber_ab": "38,1 °C",
+      "hypothermie_ab": "unter 33 °C",
+      "letale_obergrenze": "ca. 44 °C"
+    },
+    "funFact": "Der Körper hält seine Kerntemperatur in einem winzigen Bereich um 36,6 °C — bereits ab 38,1 °C spricht man von Fieber. Eine Überhitzung auf 44 °C ist tödlich; Unterkühlung unter 20 °C ebenso.",
+    "sourceName": "Wikipedia: Körpertemperatur",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Körpertemperatur",
+    "verifyNote": "Normalbereich, Mittelwert, Fieber- und Hypothermiegrenze, letale Grenze aus Wikipedia-Artikel; bestätigt durch OpenStax A&P Kap. 24.",
+    "imageSearchTerm": "body temperature thermoregulation negative feedback",
+    "imageFile": "https://commons.wikimedia.org/wiki/File%3ANegative_Feedback_Loop_Diagram_for_Human_Body_Temperature_Regulation.svg",
+    "imageLicense": "CC BY-SA 4.0",
+    "imageAttribution": "Lexicunningham1 / Own work"
+  },
+  {
+    "id": "riechzellen",
+    "name": "Riechzellen & Geruchsrezeptoren",
+    "category": "body_fact",
+    "attributes": {
+      "riechzellen_anzahl": "20–30 Millionen",
+      "rezeptortypen": "ca. 350",
+      "flaeche_riechschleimhaut": "ca. 5 cm²",
+      "zum_vergleich_hund": "ca. 250 Millionen Riechzellen"
+    },
+    "funFact": "Die Riechschleimhaut des Menschen ist nur etwa 5 cm² groß und enthält 20–30 Millionen Riechzellen mit rund 350 verschiedenen Rezeptortypen. Ein Hund hat zehnmal so viele Riechzellen — deshalb erschnüffelt er, was wir nicht wahrnehmen.",
+    "sourceName": "Wikipedia: Riechschleimhaut",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Riechschleimhaut",
+    "verifyNote": "20–30 Mio. Riechzellen, 350 Rezeptortypen, 5 cm² Fläche, Hundevergleich 250 Mio. aus Wikipedia-Artikel; bestätigt durch OpenStax A&P Kap. 14.",
+    "imageSearchTerm": "olfactory epithelium nose anatomy diagram",
+    "imageFile": "",
+    "imageLicense": "",
+    "imageAttribution": "kein freies Einzelbild gefunden — Riechschleimhaut selten illustriert",
+    "_imgProblem": "kein freies Commons-Bild gefunden"
+  },
+  {
+    "id": "geschmacksrichtungen",
+    "name": "Grundgeschmacksrichtungen",
+    "category": "body_fact",
+    "attributes": {
+      "anerkannte_richtungen": "5 (süß, salzig, sauer, bitter, umami)",
+      "strittig": "Fett (6. Richtung, noch nicht endgültig anerkannt)",
+      "sinneszellen_pro_geschmacksknospe": "50–150",
+      "hauptlokalisation": "Zunge (Papillen)"
+    },
+    "funFact": "Lange galten nur 4 Grundgeschmacksrichtungen als anerkannt — heute sind es mindestens 5: süß, salzig, sauer, bitter und umami (herzhaft). Eine sechste Kategorie 'Fett' wird noch erforscht.",
+    "sourceName": "Wikipedia: Geschmackssinn",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Geschmackssinn",
+    "verifyNote": "5 Grundqualitäten (süß/salzig/sauer/bitter/umami), Fett als 6. umstritten, 50–150 Sinneszellen pro Knospe aus Wikipedia-Artikel.",
+    "imageSearchTerm": "taste buds tongue anatomy gustatory",
+    "imageFile": "",
+    "imageLicense": "",
+    "imageAttribution": "kein freies Diagramm gefunden — Zungen-Anatomie meist NC-lizenziert",
+    "_imgProblem": "kein freies Commons-Bild gefunden"
+  },
+  {
+    "id": "gleichgewichtsorgan-bogengänge",
+    "name": "Gleichgewichtsorgan & Bogengänge",
+    "category": "organ",
+    "attributes": {
+      "bogengaenge_anzahl": "3 (pro Seite)",
+      "lage": "Innenohr (Vestibularapparat)",
+      "otolithen_material": "Kalziumkarbonatkristalle",
+      "funktion": "Dreh- und Linearbeschleunigung"
+    },
+    "funFact": "Das Gleichgewichtsorgan im Innenohr besitzt drei halbkreisförmige Bogengänge — je einer für Drehbewegungen in einer der drei Raumebenen. Winzige Kalziumkristalle (Otolithen) messen dabei die Schwerkraft und lineare Beschleunigung.",
+    "sourceName": "Wikipedia: Gleichgewichtsorgan",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Gleichgewichtsorgan",
+    "verifyNote": "3 Bogengänge, Innenohr-Lage, Otolithen-Material aus Wikipedia-Artikel; bestätigt durch de.wikipedia.org/wiki/Cochlea (Nachbarorgan im Innenohr).",
+    "imageSearchTerm": "vestibular semicircular canals balance inner ear",
+    "imageFile": "https://commons.wikimedia.org/wiki/File%3AVestibular_system's_semicircular_canal-_a_cross-section.jpg",
+    "imageLicense": "Public domain",
+    "imageAttribution": "United States government / http://www.cami.jccbi.gov/aam-400/phys_intro.htm."
+  },
+  {
+    "id": "kapillaren",
+    "name": "Kapillaren (kleinste Blutgefäße)",
+    "category": "body_fact",
+    "attributes": {
+      "durchmesser": "5–10 µm",
+      "laenge_einzeln": "ca. 0,5 mm",
+      "wand": "einlagige Endothelzellen",
+      "funktion": "Austausch von O₂, CO₂, Nährstoffen"
+    },
+    "funFact": "Kapillaren sind mit 5–10 µm Durchmesser so eng, dass rote Blutkörperchen sich verformen müssen, um hindurchzupassen. Ihre Wand besteht aus nur einer einzigen Zellschicht — ideal für den direkten Stoff- und Gasaustausch.",
+    "sourceName": "Wikipedia: Kapillare",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Kapillare",
+    "verifyNote": "Durchmesser 5–10 µm, Länge ca. 0,5 mm und einlagige Endothelwand aus Wikipedia-Artikel; bestätigt durch OpenStax A&P Kap. 20.",
+    "imageSearchTerm": "capillary blood vessel anatomy diagram",
+    "imageFile": "https://commons.wikimedia.org/wiki/File%3AIllu_capillary_en.jpg",
+    "imageLicense": "Public domain",
+    "imageAttribution": "Unknown authorUnknown author / http://training.seer.cancer.gov/anatomy/cardiovascular/blood/classification.h"
+  },
+  {
+    "id": "hirnnerv-vagus",
+    "name": "Vagusnerv (X. Hirnnerv)",
+    "category": "body_fact",
+    "attributes": {
+      "nummer": "X (10. Hirnnerv)",
+      "verlauf": "Hirnstamm → Hals → Brust → Bauch",
+      "innerviert": "Herz, Lunge, Magen, Darm",
+      "anteil_parasympathikus": "ca. 75 % aller parasympathischen Fasern"
+    },
+    "funFact": "Der Vagusnerv ist der längste und weitverzweigteste Hirnnerv: Er entspringt im Hirnstamm und zieht bis in den Bauch, wo er Herz, Lunge und Verdauungsorgane steuert. Er trägt ca. 75 % aller parasympathischen Nervenfasern des Körpers.",
+    "sourceName": "Wikipedia: Hirnnerv",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Hirnnerv",
+    "verifyNote": "Verlauf und Innervation aus Wikipedia-Artikel; 75 % parasympathische Fasern ist Lehrbuch-Standardangabe (OpenStax A&P Kap. 15); bestätigt durch de.wikipedia.org/wiki/Nervus_vagus.",
+    "imageSearchTerm": "vagus nerve cranial nerve anatomy",
+    "imageFile": "https://commons.wikimedia.org/wiki/File%3ACranial_nerves.jpg",
+    "imageLicense": "CC BY-SA 4.0",
+    "imageAttribution": "Patchamalla divya / Own work"
+  },
+  {
+    "id": "koerperzellen-anzahl",
+    "name": "Anzahl der Körperzellen",
+    "category": "body_fact",
+    "attributes": {
+      "menschliche_koerperzellen": "ca. 37 Billionen",
+      "bakterien_im_körper": "ca. 38 Billionen",
+      "zellen_pro_kg_körpergewicht": "ca. 500 Milliarden",
+      "hauptzelltyp_nach_anzahl": "Erythrozyten (70 % aller Zellen)"
+    },
+    "funFact": "Der menschliche Körper besteht aus rund 37 Billionen eigenen Zellen — und wird von etwa 38 Billionen Bakterien besiedelt, hauptsächlich im Darm. Das Verhältnis Mensch-zu-Mikrobe ist also fast 1:1.",
+    "sourceName": "Wikipedia: Menschlicher Körper",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Mensch",
+    "verifyNote": "37 Billionen menschliche Zellen und 38 Billionen Bakterien (Sender et al. 2016, Cell) sind wissenschaftlicher Konsens; Erythrozyten als häufigster Zelltyp aus de.wikipedia.org/wiki/Erythrozyt.",
+    "imageSearchTerm": "human body cells anatomy diagram",
+    "imageFile": "https://commons.wikimedia.org/wiki/File%3AAnatomy_of_the_Human_Body_(Part_1).djvu",
+    "imageLicense": "Public domain",
+    "imageAttribution": "Henry Gray (1825-1861) / Internet Archive identifier: anatomyofhumanbo00grayrich"
+  },
+  {
+    "id": "gehirn-energieverbrauch",
+    "name": "Gehirn-Energieverbrauch",
+    "category": "body_fact",
+    "attributes": {
+      "anteil_am_grundumsatz": "18–20 %",
+      "energiequelle": "fast ausschließlich Glucose",
+      "leistung": "ca. 12–20 Watt",
+      "gewicht_prozent_körper": "ca. 2 %"
+    },
+    "funFact": "Das Gehirn wiegt nur etwa 2 % des Körpergewichts — verbraucht aber rund 18–20 % der gesamten Körperenergie. Es bezieht seine Energie fast ausschließlich aus Glucose und kann kaum auf Fettreserven zurückgreifen.",
+    "sourceName": "Wikipedia: Grundumsatz",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Grundumsatz",
+    "verifyNote": "18 % Gehirnanteil am Grundumsatz aus Wikipedia-Tabelle; 2 % Körpergewicht und Glucose-Abhängigkeit aus de.wikipedia.org/wiki/Gehirn; bestätigt durch dasgehirn.info.",
+    "imageSearchTerm": "human brain anatomy lateral view",
+    "imageFile": "https://commons.wikimedia.org/wiki/File%3AHuman_brain_lateral_view_description.JPG",
+    "imageLicense": "CC BY 2.5",
+    "imageAttribution": "John A Beal, PhD Dep't. of Cellular Biology &amp; Anatomy, Louisiana State University Health Sciences Center Shreveport / http://www.healcentral.org/healapp/showMetadata?metadataId=40566 (Internet Arc"
+  },
+  {
+    "id": "blutgefaesse-gesamtlaenge",
+    "name": "Blutgefäße: Gesamtlänge",
+    "category": "body_fact",
+    "attributes": {
+      "gesamtlaenge_alle_gefaesse": "ca. 100.000 km",
+      "davon_kapillaren": "Großteil (sehr fein verteilt)",
+      "abstand_erde_mond": "ca. 384.400 km (Vergleich)",
+      "gefaesstypen": "Arterien, Venen, Kapillaren"
+    },
+    "funFact": "Alle Blutgefäße des Menschen zusammen — Arterien, Venen und Kapillaren — ergeben aufeinandergelegt eine Länge von rund 100.000 Kilometern. Das entspricht dem 2,5-fachen Erdumfang.",
+    "sourceName": "OpenStax Anatomy and Physiology (1. Aufl.)",
+    "sourceUrl": "https://openstax.org/books/anatomy-and-physiology/pages/20-1-structure-and-function-of-blood-vessels",
+    "verifyNote": "100.000 km ist weit verbreiteter Lehrbuch-Wert (OpenStax A&P Kap. 20, Herzstiftung, Uniklinikum Aachen); Wert nicht im Wikipedia-Kapillare-Artikel, daher OpenStax als Primärquelle.",
+    "imageSearchTerm": "aorta anatomy diagram branches",
+    "imageFile": "https://commons.wikimedia.org/wiki/File%3AAorta_scheme_noTags.svg",
+    "imageLicense": "CC BY-SA 3.0",
+    "imageAttribution": "Edoarado / Own work based on:Arterial System en.svg, Coronary arteries.svg."
+  },
+  {
+    "id": "meissner-koerperchen",
+    "name": "Tastsinn: Mechanorezeptoren",
+    "category": "body_fact",
+    "attributes": {
+      "rezeptortypen_haut": "4 (Meissner, Merkel, Ruffini, Vater-Pacini)",
+      "zweipunkt_fingerkuppe": "2–3 mm",
+      "zweipunkt_ruecken": "ca. 40–70 mm",
+      "feinste_auflösung": "Fingerkuppe und Zungenspitze"
+    },
+    "funFact": "An der Fingerkuppe kann das Gehirn zwei Berührungspunkte schon ab 2–3 mm Abstand unterscheiden — am Rücken sind es erst 40–70 mm. Das liegt an der 10-fach höheren Rezeptordichte an den Fingern.",
+    "sourceName": "OpenStax Anatomy and Physiology (1. Aufl.)",
+    "sourceUrl": "https://openstax.org/books/anatomy-and-physiology/pages/14-1-sensory-perception",
+    "verifyNote": "4 Mechanorezeptortypen aus de.wikipedia.org/wiki/Tastsinn; Zweipunktschwellen 2–3 mm (Finger) vs. 40–70 mm (Rücken) sind Lehrbuch-Standardwert (OpenStax A&P Kap. 14).",
+    "imageSearchTerm": "skin receptors touch meissner pacini merkel",
+    "imageFile": "",
+    "imageLicense": "",
+    "imageAttribution": "",
+    "_imgProblem": "kein freies Commons-Bild gefunden"
+  },
+  {
+    "id": "kniereflex",
+    "name": "Kniescheibenreflex (monosynaptisch)",
+    "category": "body_fact",
+    "attributes": {
+      "reflextyp": "monosynaptisch (nur 1 Synapse)",
+      "reflexzeit": "ca. 20–40 ms",
+      "bogen": "Rezeptor → Rückenmark → Muskel",
+      "beteiligter_muskel": "Musculus quadriceps femoris"
+    },
+    "funFact": "Der Kniescheibenreflex ist einer der schnellsten Reflexe des Körpers: Mit nur einer Synapse im Rückenmark läuft der Bogen in 20–40 Millisekunden ab — das Gehirn erfährt erst danach davon.",
+    "sourceName": "OpenStax Anatomy and Physiology (1. Aufl.)",
+    "sourceUrl": "https://openstax.org/books/anatomy-and-physiology/pages/13-4-somatic-reflexes",
+    "verifyNote": "Monosynaptisch, 20–40 ms Reflexzeit aus OpenStax A&P Kap. 13; de.wikipedia.org/wiki/Reflexbogen (Physiologie) bestätigt Grundprinzip.",
+    "imageSearchTerm": "spinal cord reflex arc anatomy diagram",
+    "imageFile": "",
+    "imageLicense": "",
+    "imageAttribution": "",
+    "_imgProblem": "kein freies Commons-Bild gefunden"
+  }
+]
