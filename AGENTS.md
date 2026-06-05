@@ -28,7 +28,7 @@ Geplante Bereiche: **Terra** (Geografie), **Astra** (Astronomie), **Homo** (Mens
 | Phase 2b | Astra 3D-Himmelskörper (three.js + NASA/SSS-Texturen) | ✅ erledigt (v1.8.0) |
 | Phase 2c | Homo Anatomiegrafiken (Wikimedia PD) pro Frage | ✅ erledigt (v1.9.0) |
 | Phase 2d | Konzeptgenaue Hervorhebung (Astra Kontext-Karte, Homo Struktur-Marker) | ✅ erledigt (v1.11.0) |
-| Phase 5 | **Content-Ausbau auf 5000 Fragen/Bereich** (mehr Fragetypen + Konzeptausbau) | offen, laufend (v1.12.2: Astra 100K/310F, Homo 96K/142F) |
+| Phase 5 | **Content-Ausbau auf 5000 Fragen/Bereich** (mehr Fragetypen + Konzeptausbau) | offen, laufend (v1.12.3: Astra 100K/331F, Homo 96K/164F) |
 | Phase 4–6 | Natura, Lingua, Cultura | offen (Reihenfolge: Natura → Lingua → Cultura) |
 
 **Neue verbindliche Anforderungen (Stand 2026-06-04, Nutzer-Vorgabe):**
@@ -47,7 +47,7 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 > `node scripts/generate_<domain>.js` → `node scripts/verify_facts.js <domain>` → Browser-Run.
 > **Integritätsregel bleibt hart:** jeder Fakt mit Quelle, keine erfundenen Zahlen — bei
 > LLM-Recherche adversarialer Faktencheck **plus** manuelle Stichprobe vor Commit.
-> Aktueller Stand (v1.12.2): Astra 100 Konzepte/310 Fragen, Homo 96/142.
+> Aktueller Stand (v1.12.3): Astra 100 Konzepte/331 Fragen, Homo 96/164.
 >
 > **Phase-5-Runde 1 (2026-06-04, Multi-Agent-Workflow):** `scripts/merge_phase5.js` dokumentiert
 > Dedup + Daten-Putz der Recherche. Gelernt: Recherche-Agents liefern (a) Dubletten zum Bestand
@@ -94,11 +94,11 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 | Domain | Konzepte | Fragen | Quellen | Visualisierung |
 | :----- | :------- | :----- | :------ | :------------- |
 | Terra  | 1852 | 5217 | Natural Earth / GeoNames / Wikidata | Weltkarte (MapLibre), pro Frage Highlight |
-| Astra  | 100 | 310 | NASA / IAU / ESA | **3D-Himmelskörper (three.js)** + Kontext-Karte (Bahn/Distanz), Texturen Solar System Scope (CC BY 4.0) |
-| Homo   | 96 | 142 | Gray's Anatomy / Prometheus / NIH | **Anatomiegrafiken (Wikimedia, PD)** + konzeptgenauer Struktur-Marker je Frage |
+| Astra  | 100 | 331 | NASA / IAU / ESA | **3D-Himmelskörper (three.js)** + Kontext-Karte (Bahn/Distanz), Texturen Solar System Scope (CC BY 4.0) |
+| Homo   | 96 | 164 | Gray's Anatomy / Prometheus / NIH | **Anatomiegrafiken (Wikimedia, PD)** + konzeptgenauer Struktur-Marker je Frage |
 
 > Fragenzahlen Astra/Homo sind noch weit vom 5000-Ziel — Content-Ausbau (Phase 5) läuft weiter.
-> Homo hat wenig Fragen/Konzept (142/96): Hebel = mehr Fragetypen je Kategorie (Astra: 310/100).
+> Homo hat wenig Fragen/Konzept (164/96): Hebel = mehr Fragetypen je Kategorie (Astra: 331/100).
 
 ### Visualisierung pro Frage (Stand 2026-06-04)
 - **`src/components/VisualPanel.jsx`** wählt: Terra→`Map`, Domain mit `domain.Visual`→diese (lazy),
