@@ -51,10 +51,14 @@ function norm(s) {
 // Deutsche Koerperteil-Wortstaemme -> implizierte Region. Damit faellt auch
 // „Oberschenkelknochen" -> „Bein" auf, obwohl das Wort „Bein" nicht im Namen steht.
 const REGION_STEMS = [
-  [/schenkel|wade|schien|knie|ferse|sprung|zeh/, 'bein fuss'],
+  [/schenkel|wade|schien|knie|ferse|sprung|zeh/, 'bein fuss oberschenkel unterschenkel wade knie fuss'],
   [/oberarm|unterarm|ellbogen|\bhand\b|finger|speiche|\belle\b/, 'arm hand'],
-  [/schadel|kiefer|stirn|hinterhaupt|schlafe|nasen|joch|wange|kau|zahn/, 'kopf'],
-  [/rippe|brust|becken|wirbel|kreuz|steiss|schulterblatt|schlussel|sitzbein/, 'rumpf'],
+  [/schadel|kiefer|stirn|hinterhaupt|schlafe|nasen|joch|wange|kau|zahn/, 'kopf kiefer wange mund'],
+  [/auge|lid/, 'kopf auge augenhohle lider'],
+  [/mund|lippe/, 'kopf mund mundoffnung lippe'],
+  [/zunge/, 'kopf mund zunge'],
+  [/herz/, 'rumpf herz brustkorb brust'],
+  [/rippe|brust|becken|wirbel|kreuz|steiss|schulterblatt|schlussel|sitzbein|rucken|rueck|lende|bauch/, 'rumpf brust brustwand rucken ruecken lendenregion bauch rippen'],
   [/gesass|huft/, 'gesass hufte']
 ];
 function impliedRegions(name) {
@@ -70,8 +74,112 @@ function revealsAnswer(subject, answer) {
   if (sNo.length >= 3 && aNo.includes(sNo)) return true; // ganzer Name in der Antwort
   // markantes Antwort-Wort steckt im Hinweis (>=4, damit nicht generische Stämme
   // wie „Galaxie" in „Spiralgalaxie" fälschlich anschlagen)
-  for (const t of A.split(' ').filter(t => t.length >= 4)) if (sNo.includes(t)) return true;
+  for (const t of A.split(' ').filter(t => t.length >= 4)) {
+    if (sNo.includes(t)) return true;
+    // Kleine deutsche Flexionsglättung: "Oberschenkels" soll "Oberschenkel"
+    // treffen, ohne kurze/generische Tokens zu aggressiv zu kuerzen.
+    const stem = t.length >= 7 ? t.replace(/(ern|en|em|er|es|e|n|s)$/u, '') : t;
+    if (stem.length >= 5 && sNo.includes(stem)) return true;
+  }
   return false;
+}
+
+/** Klemmt berechnete Schwierigkeit auf die im Quiz genutzten Stufen 1..4. */
+function clampDifficulty(value) {
+  return Math.max(1, Math.min(4, value));
+}
+
+/**
+ * Anatomische Begriffe sind nicht gleich bekannt: "Femur" ist vielen Nutzern
+ * eher vertraut als "Os zygomaticum". Diese Offsets justieren die Template-
+ * Schwierigkeit pro Konzept, ohne neue Fakten in die Datenbasis zu schreiben.
+ * -1 = bekannter/alltagsnaher Begriff, +1/+2 = eher fachsprachlich.
+ */
+const FAMILIARITY_OFFSET = {
+  // Bekannt aus Schule, Sport, Alltag oder Grundwissen.
+  femur: -1, tibia: -1, humerus: -1, cranium: -1, patella: -1,
+  pelvis: -1, sternum: -1, vertebra: -1,
+  herz: -1, gehirn: -1, lunge: -1, leber: -1, magen: -1, haut: -1,
+  biceps_brachii: -1, triceps_brachii: -1, quadriceps_femoris: -1,
+
+  // Fachsprachlicher oder anatomisch genauer, aber noch gut lernbar.
+  fibula: 1, ulna: 1, radius: 1, clavicula: 1, scapula: 1, mandibula: 1,
+  atlas_c1: 1, axis_c2: 1, os_sacrum: 1, os_coccygis: 1,
+  diaphragma: 1, masseter: 1, myocardium: 1, deltoideus: 1,
+  pectoralis_major: 1, latissimus_dorsi: 1, trapezius: 1,
+  sternocleidomastoid: 1, rectus_abdominis: 1, sartorius: 1,
+  soleus: 1, psoas_major: 1,
+
+  // Eher Spezialwissen: kleine Knochen, exakte Os-/Musculus-Bezeichnungen.
+  stapes: 2, malleus: 2, incus: 2, talus: 2, calcaneus: 2,
+  os_naviculare: 2, os_zygomaticum: 2, os_frontale: 2,
+  os_occipitale: 2, os_temporale: 2, os_metacarpale: 2,
+  stapedius: 2, gastrocnemius: 2, tibialis_anterior: 2,
+  orbicularis_oculi: 2, orbicularis_oris: 2, genioglossus: 2,
+  intercostales_externi: 2
+};
+
+function conceptDifficultyOffset(c) {
+  return FAMILIARITY_OFFSET[c.id] || 0;
+}
+
+/** Holt einen sauberen lateinischen Fachbegriff aus Attribut oder Namensklammer. */
+function latinTerm(c) {
+  if (c.attributes?.latinName) return String(c.attributes.latinName).trim();
+  const matches = [...String(c.name || '').matchAll(/\(([^()]+)\)/g)]
+    .map(m => m[1].trim())
+    .filter(Boolean);
+  return matches.at(-1) || '';
+}
+
+/**
+ * Fuer Lage-/Region-Fragen waehlt der Generator den Hinweis bewusst:
+ * - normal: deutscher Name, solange er die Antwort nicht verraet
+ * - sonst: lateinischer Fachbegriff, wenn vorhanden und selbst nicht verraeterisch
+ *
+ * Das Visual muss bei lateinischem Hinweis den deutschen Konzeptnamen verbergen,
+ * weil sonst links wieder "Wadenbein" stehen wuerde, waehrend rechts "Fibula"
+ * abgefragt wird.
+ */
+function resolveSubject(c, tpl, correct) {
+  const germanSubject = (tpl.subject ? tpl.subject(c) : c.name) +
+    (tpl.regionAnswer ? ' ' + impliedRegions(c.name) : '');
+  const germanReveals = revealsAnswer(germanSubject, correct);
+
+  if (tpl.regionAnswer && germanReveals) {
+    const latin = latinTerm(c);
+    if (latin && !revealsAnswer(latin, correct)) {
+      return {
+        label: latin,
+        guardSubject: latin,
+        usesLatinHint: true,
+        hideConceptIdentity: true,
+        germanReveals
+      };
+    }
+  }
+
+  return {
+    label: tpl.subject ? tpl.subject(c) : c.name,
+    guardSubject: germanSubject,
+    usesLatinHint: false,
+    hideConceptIdentity: false,
+    germanReveals
+  };
+}
+
+function resolveDifficulty(tpl, c, subjectInfo) {
+  let difficulty = tpl.difficulty + conceptDifficultyOffset(c);
+
+  // Lateinische Hinweise sind absichtlich schwerer als deutsche Alltagsnamen.
+  if (subjectInfo.usesLatinHint) difficulty += 1;
+
+  // Zahlenwerte und exakte Fachnamen sollen nicht in die sehr leichte Stufe fallen.
+  if (tpl.numeric || tpl.attr === 'approxWeightGrams') difficulty = Math.max(difficulty, 3);
+  if (tpl.attr === 'latinName' || subjectInfo.usesLatinHint) difficulty = Math.max(difficulty, 2);
+  if (tpl.minDifficulty) difficulty = Math.max(difficulty, tpl.minDifficulty);
+
+  return clampDifficulty(difficulty);
 }
 
 const raw = JSON.parse(readFileSync(RAW_PATH, 'utf8'));
@@ -83,12 +191,20 @@ for (const c of raw) (byCategory[c.category] ||= []).push(c);
 const concepts = {};
 for (const c of raw) {
   const key = `${DOMAIN}:${c.id}`;
+  const attributes = { ...c.attributes };
+  // Einige aeltere Muskel-Eintraege tragen den Fachbegriff nur in Klammern im
+  // Namen. Fuer konsistente Visuals und Fragen speichern wir ihn abgeleitet mit.
+  const latin = latinTerm(c);
+  if (latin && !attributes.latinName && (c.category === 'bone' || c.category === 'muscle')) {
+    attributes.latinName = latin;
+  }
+
   concepts[key] = {
     id: key,
     name: c.name,
     type: c.category,
     category: c.category,
-    attributes: c.attributes,
+    attributes,
     funFact: c.funFact || '',
     source: { name: c.sourceName, url: c.sourceUrl || '' }
   };
@@ -99,7 +215,9 @@ const templates = [
   // ---- Knochen --------------------------------------------------------
   {
     category: 'bone', attr: 'region', type: 'homo-bone-region', difficulty: 1, regionAnswer: true,
-    prompt: c => `In welcher Körperregion liegt der Knochen „${c.name}"?`,
+    prompt: (c, subject) => subject.usesLatinHint
+      ? `In welcher Körperregion liegt der Knochen mit dem lateinischen Namen „${subject.label}"?`
+      : `In welcher Körperregion liegt der Knochen „${subject.label}"?`,
     format: v => v
   },
   {
@@ -109,8 +227,10 @@ const templates = [
   },
   // ---- Muskeln --------------------------------------------------------
   {
-    category: 'muscle', attr: 'location', type: 'homo-muscle-location', difficulty: 2, regionAnswer: true,
-    prompt: c => `In welcher Körperregion liegt der Muskel „${c.name}"?`,
+    category: 'muscle', attr: 'location', type: 'homo-muscle-location', difficulty: 2, minDifficulty: 2, regionAnswer: true,
+    prompt: (c, subject) => subject.usesLatinHint
+      ? `Wo liegt der Muskel mit dem anatomischen Fachbegriff „${subject.label}"?`
+      : `In welcher Körperregion liegt der Muskel „${subject.label}"?`,
     format: v => v
   },
   // ---- Organe ---------------------------------------------------------
@@ -183,10 +303,10 @@ for (const tpl of templates) {
     if (rawValue === undefined || rawValue === null || rawValue === '') continue;
 
     const correct = tpl.nameAnswer ? c.name : (tpl.valueUnit ? tpl.format(null, c) : tpl.format(rawValue, c));
+    const subjectInfo = resolveSubject(c, tpl, correct);
 
     // Selbstverraeter: steckt die Antwort schon im Hinweis (Name/Wert), Frage verwerfen.
-    const subject = (tpl.subject ? tpl.subject(c) : c.name) + (tpl.regionAnswer ? ' ' + impliedRegions(c.name) : '');
-    if (revealsAnswer(subject, correct)) continue;
+    if (revealsAnswer(subjectInfo.guardSubject, correct)) continue;
 
     let pool = valuePool.slice();
     if (tpl.extraDistractors) pool = pool.concat(tpl.extraDistractors);
@@ -198,8 +318,8 @@ for (const tpl of templates) {
       entityId: `${DOMAIN}:${c.id}`,
       entityType: c.category,
       type: tpl.type,
-      difficulty: tpl.difficulty,
-      prompt: tpl.prompt(c),
+      difficulty: resolveDifficulty(tpl, c, subjectInfo),
+      prompt: tpl.prompt(c, subjectInfo),
       correctAnswer: correct,
       options: [correct, ...distractors],
       // Selbstverraeter-Guard im Visual: das Frontend muss wissen, welches
@@ -210,6 +330,9 @@ for (const tpl of templates) {
       testedAttribute: tpl.nameAnswer ? null : (tpl.valueUnit ? 'value' : tpl.attr),
       // answerIsName: true, wenn die korrekte Antwort der Konzeptname ist (Reverse).
       answerIsName: Boolean(tpl.nameAnswer),
+      // hideConceptIdentity: true, wenn der Prompt absichtlich nur den Fachbegriff
+      // nennt. Dann darf das linke Visual nicht den deutschen Namen/Fun-Fact zeigen.
+      hideConceptIdentity: Boolean(subjectInfo.hideConceptIdentity),
       silhouetteSvgPath: null,
       mapTargetId: null
     });

@@ -1,10 +1,190 @@
 [
   {
+    "id": "q_homo_femur_homo-bone-region",
+    "entityId": "homo:femur",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt der Knochen mit dem lateinischen Namen „Femur\"?",
+    "correctAnswer": "Bein",
+    "options": [
+      "Bein",
+      "Arm",
+      "Kopf",
+      "Rumpf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_tibia_homo-bone-region",
+    "entityId": "homo:tibia",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt der Knochen mit dem lateinischen Namen „Tibia\"?",
+    "correctAnswer": "Bein",
+    "options": [
+      "Bein",
+      "Arm",
+      "Kopf",
+      "Rumpf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_fibula_homo-bone-region",
+    "entityId": "homo:fibula",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 3,
+    "prompt": "In welcher Körperregion liegt der Knochen mit dem lateinischen Namen „Fibula\"?",
+    "correctAnswer": "Bein",
+    "options": [
+      "Bein",
+      "Arm",
+      "Kopf",
+      "Rumpf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_humerus_homo-bone-region",
+    "entityId": "homo:humerus",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt der Knochen mit dem lateinischen Namen „Humerus\"?",
+    "correctAnswer": "Arm",
+    "options": [
+      "Arm",
+      "Bein",
+      "Kopf",
+      "Rumpf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_ulna_homo-bone-region",
+    "entityId": "homo:ulna",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 3,
+    "prompt": "In welcher Körperregion liegt der Knochen mit dem lateinischen Namen „Ulna\"?",
+    "correctAnswer": "Arm",
+    "options": [
+      "Arm",
+      "Bein",
+      "Kopf",
+      "Rumpf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_radius_homo-bone-region",
+    "entityId": "homo:radius",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 3,
+    "prompt": "In welcher Körperregion liegt der Knochen mit dem lateinischen Namen „Radius\"?",
+    "correctAnswer": "Arm",
+    "options": [
+      "Arm",
+      "Bein",
+      "Kopf",
+      "Rumpf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_cranium_homo-bone-region",
+    "entityId": "homo:cranium",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt der Knochen mit dem lateinischen Namen „Cranium\"?",
+    "correctAnswer": "Kopf",
+    "options": [
+      "Kopf",
+      "Bein",
+      "Arm",
+      "Rumpf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_patella_homo-bone-region",
+    "entityId": "homo:patella",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt der Knochen mit dem lateinischen Namen „Patella\"?",
+    "correctAnswer": "Bein",
+    "options": [
+      "Bein",
+      "Arm",
+      "Kopf",
+      "Rumpf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_clavicula_homo-bone-region",
+    "entityId": "homo:clavicula",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 3,
+    "prompt": "In welcher Körperregion liegt der Knochen mit dem lateinischen Namen „Clavicula\"?",
+    "correctAnswer": "Rumpf",
+    "options": [
+      "Rumpf",
+      "Bein",
+      "Arm",
+      "Kopf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_homo_stapes_homo-bone-region",
     "entityId": "homo:stapes",
     "entityType": "bone",
     "type": "homo-bone-region",
-    "difficulty": 1,
+    "difficulty": 3,
     "prompt": "In welcher Körperregion liegt der Knochen „Steigbügel\"?",
     "correctAnswer": "Kopf",
     "options": [
@@ -15,6 +195,107 @@
     ],
     "testedAttribute": "region",
     "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_pelvis_homo-bone-region",
+    "entityId": "homo:pelvis",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt der Knochen mit dem lateinischen Namen „Pelvis\"?",
+    "correctAnswer": "Rumpf",
+    "options": [
+      "Rumpf",
+      "Bein",
+      "Arm",
+      "Kopf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_sternum_homo-bone-region",
+    "entityId": "homo:sternum",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt der Knochen mit dem lateinischen Namen „Sternum\"?",
+    "correctAnswer": "Rumpf",
+    "options": [
+      "Rumpf",
+      "Bein",
+      "Arm",
+      "Kopf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_scapula_homo-bone-region",
+    "entityId": "homo:scapula",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 3,
+    "prompt": "In welcher Körperregion liegt der Knochen mit dem lateinischen Namen „Scapula\"?",
+    "correctAnswer": "Rumpf",
+    "options": [
+      "Rumpf",
+      "Bein",
+      "Arm",
+      "Kopf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_mandibula_homo-bone-region",
+    "entityId": "homo:mandibula",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 3,
+    "prompt": "In welcher Körperregion liegt der Knochen mit dem lateinischen Namen „Mandibula\"?",
+    "correctAnswer": "Kopf",
+    "options": [
+      "Kopf",
+      "Bein",
+      "Arm",
+      "Rumpf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_vertebra_homo-bone-region",
+    "entityId": "homo:vertebra",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt der Knochen mit dem lateinischen Namen „Vertebra\"?",
+    "correctAnswer": "Rumpf",
+    "options": [
+      "Rumpf",
+      "Bein",
+      "Arm",
+      "Kopf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -23,7 +304,7 @@
     "entityId": "homo:atlas_c1",
     "entityType": "bone",
     "type": "homo-bone-region",
-    "difficulty": 1,
+    "difficulty": 2,
     "prompt": "In welcher Körperregion liegt der Knochen „Atlas (Atlas, C1)\"?",
     "correctAnswer": "Rumpf",
     "options": [
@@ -34,6 +315,7 @@
     ],
     "testedAttribute": "region",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -42,7 +324,7 @@
     "entityId": "homo:axis_c2",
     "entityType": "bone",
     "type": "homo-bone-region",
-    "difficulty": 1,
+    "difficulty": 2,
     "prompt": "In welcher Körperregion liegt der Knochen „Axis (Axis, C2)\"?",
     "correctAnswer": "Rumpf",
     "options": [
@@ -53,6 +335,67 @@
     ],
     "testedAttribute": "region",
     "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_sacrum_homo-bone-region",
+    "entityId": "homo:os_sacrum",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 3,
+    "prompt": "In welcher Körperregion liegt der Knochen mit dem lateinischen Namen „Os sacrum\"?",
+    "correctAnswer": "Rumpf",
+    "options": [
+      "Rumpf",
+      "Bein",
+      "Arm",
+      "Kopf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_coccygis_homo-bone-region",
+    "entityId": "homo:os_coccygis",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 3,
+    "prompt": "In welcher Körperregion liegt der Knochen mit dem lateinischen Namen „Os coccygis\"?",
+    "correctAnswer": "Rumpf",
+    "options": [
+      "Rumpf",
+      "Bein",
+      "Arm",
+      "Kopf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_costa_rib_homo-bone-region",
+    "entityId": "homo:costa_rib",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt der Knochen mit dem lateinischen Namen „Costa\"?",
+    "correctAnswer": "Rumpf",
+    "options": [
+      "Rumpf",
+      "Bein",
+      "Arm",
+      "Kopf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -61,7 +404,7 @@
     "entityId": "homo:malleus",
     "entityType": "bone",
     "type": "homo-bone-region",
-    "difficulty": 1,
+    "difficulty": 3,
     "prompt": "In welcher Körperregion liegt der Knochen „Hammer (Malleus)\"?",
     "correctAnswer": "Kopf",
     "options": [
@@ -72,6 +415,7 @@
     ],
     "testedAttribute": "region",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -80,7 +424,7 @@
     "entityId": "homo:incus",
     "entityType": "bone",
     "type": "homo-bone-region",
-    "difficulty": 1,
+    "difficulty": 3,
     "prompt": "In welcher Körperregion liegt der Knochen „Amboss (Incus)\"?",
     "correctAnswer": "Kopf",
     "options": [
@@ -91,6 +435,47 @@
     ],
     "testedAttribute": "region",
     "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_talus_homo-bone-region",
+    "entityId": "homo:talus",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 4,
+    "prompt": "In welcher Körperregion liegt der Knochen mit dem lateinischen Namen „Talus\"?",
+    "correctAnswer": "Fuss",
+    "options": [
+      "Fuss",
+      "Bein",
+      "Arm",
+      "Kopf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_calcaneus_homo-bone-region",
+    "entityId": "homo:calcaneus",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 4,
+    "prompt": "In welcher Körperregion liegt der Knochen mit dem lateinischen Namen „Calcaneus\"?",
+    "correctAnswer": "Fuss",
+    "options": [
+      "Fuss",
+      "Bein",
+      "Arm",
+      "Kopf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -99,7 +484,7 @@
     "entityId": "homo:os_naviculare",
     "entityType": "bone",
     "type": "homo-bone-region",
-    "difficulty": 1,
+    "difficulty": 3,
     "prompt": "In welcher Körperregion liegt der Knochen „Kahnbein (Os naviculare)\"?",
     "correctAnswer": "Fuss",
     "options": [
@@ -110,6 +495,107 @@
     ],
     "testedAttribute": "region",
     "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_zygomaticum_homo-bone-region",
+    "entityId": "homo:os_zygomaticum",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 4,
+    "prompt": "In welcher Körperregion liegt der Knochen mit dem lateinischen Namen „Os zygomaticum\"?",
+    "correctAnswer": "Kopf",
+    "options": [
+      "Kopf",
+      "Bein",
+      "Arm",
+      "Rumpf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_frontale_homo-bone-region",
+    "entityId": "homo:os_frontale",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 4,
+    "prompt": "In welcher Körperregion liegt der Knochen mit dem lateinischen Namen „Os frontale\"?",
+    "correctAnswer": "Kopf",
+    "options": [
+      "Kopf",
+      "Bein",
+      "Arm",
+      "Rumpf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_occipitale_homo-bone-region",
+    "entityId": "homo:os_occipitale",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 4,
+    "prompt": "In welcher Körperregion liegt der Knochen mit dem lateinischen Namen „Os occipitale\"?",
+    "correctAnswer": "Kopf",
+    "options": [
+      "Kopf",
+      "Bein",
+      "Arm",
+      "Rumpf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_temporale_homo-bone-region",
+    "entityId": "homo:os_temporale",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 4,
+    "prompt": "In welcher Körperregion liegt der Knochen mit dem lateinischen Namen „Os temporale\"?",
+    "correctAnswer": "Kopf",
+    "options": [
+      "Kopf",
+      "Bein",
+      "Arm",
+      "Rumpf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_metacarpale_homo-bone-region",
+    "entityId": "homo:os_metacarpale",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 4,
+    "prompt": "In welcher Körperregion liegt der Knochen mit dem lateinischen Namen „Os metacarpale\"?",
+    "correctAnswer": "Hand",
+    "options": [
+      "Hand",
+      "Bein",
+      "Arm",
+      "Kopf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -118,7 +604,7 @@
     "entityId": "homo:femur",
     "entityType": "bone",
     "type": "homo-bone-latin",
-    "difficulty": 3,
+    "difficulty": 2,
     "prompt": "Wie lautet der lateinische (anatomische) Name des Knochens „Oberschenkelknochen\"?",
     "correctAnswer": "Femur",
     "options": [
@@ -129,6 +615,7 @@
     ],
     "testedAttribute": "latinName",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -137,7 +624,7 @@
     "entityId": "homo:tibia",
     "entityType": "bone",
     "type": "homo-bone-latin",
-    "difficulty": 3,
+    "difficulty": 2,
     "prompt": "Wie lautet der lateinische (anatomische) Name des Knochens „Schienbein\"?",
     "correctAnswer": "Tibia",
     "options": [
@@ -148,6 +635,7 @@
     ],
     "testedAttribute": "latinName",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -156,7 +644,7 @@
     "entityId": "homo:fibula",
     "entityType": "bone",
     "type": "homo-bone-latin",
-    "difficulty": 3,
+    "difficulty": 4,
     "prompt": "Wie lautet der lateinische (anatomische) Name des Knochens „Wadenbein\"?",
     "correctAnswer": "Fibula",
     "options": [
@@ -167,6 +655,7 @@
     ],
     "testedAttribute": "latinName",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -175,7 +664,7 @@
     "entityId": "homo:humerus",
     "entityType": "bone",
     "type": "homo-bone-latin",
-    "difficulty": 3,
+    "difficulty": 2,
     "prompt": "Wie lautet der lateinische (anatomische) Name des Knochens „Oberarmknochen\"?",
     "correctAnswer": "Humerus",
     "options": [
@@ -186,6 +675,7 @@
     ],
     "testedAttribute": "latinName",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -194,7 +684,7 @@
     "entityId": "homo:ulna",
     "entityType": "bone",
     "type": "homo-bone-latin",
-    "difficulty": 3,
+    "difficulty": 4,
     "prompt": "Wie lautet der lateinische (anatomische) Name des Knochens „Elle\"?",
     "correctAnswer": "Ulna",
     "options": [
@@ -205,6 +695,7 @@
     ],
     "testedAttribute": "latinName",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -213,7 +704,7 @@
     "entityId": "homo:radius",
     "entityType": "bone",
     "type": "homo-bone-latin",
-    "difficulty": 3,
+    "difficulty": 4,
     "prompt": "Wie lautet der lateinische (anatomische) Name des Knochens „Speiche\"?",
     "correctAnswer": "Radius",
     "options": [
@@ -224,6 +715,7 @@
     ],
     "testedAttribute": "latinName",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -232,7 +724,7 @@
     "entityId": "homo:cranium",
     "entityType": "bone",
     "type": "homo-bone-latin",
-    "difficulty": 3,
+    "difficulty": 2,
     "prompt": "Wie lautet der lateinische (anatomische) Name des Knochens „Schädel\"?",
     "correctAnswer": "Cranium",
     "options": [
@@ -243,6 +735,7 @@
     ],
     "testedAttribute": "latinName",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -251,7 +744,7 @@
     "entityId": "homo:patella",
     "entityType": "bone",
     "type": "homo-bone-latin",
-    "difficulty": 3,
+    "difficulty": 2,
     "prompt": "Wie lautet der lateinische (anatomische) Name des Knochens „Kniescheibe\"?",
     "correctAnswer": "Patella",
     "options": [
@@ -262,6 +755,7 @@
     ],
     "testedAttribute": "latinName",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -270,7 +764,7 @@
     "entityId": "homo:clavicula",
     "entityType": "bone",
     "type": "homo-bone-latin",
-    "difficulty": 3,
+    "difficulty": 4,
     "prompt": "Wie lautet der lateinische (anatomische) Name des Knochens „Schlüsselbein\"?",
     "correctAnswer": "Clavicula",
     "options": [
@@ -281,6 +775,7 @@
     ],
     "testedAttribute": "latinName",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -289,7 +784,7 @@
     "entityId": "homo:stapes",
     "entityType": "bone",
     "type": "homo-bone-latin",
-    "difficulty": 3,
+    "difficulty": 4,
     "prompt": "Wie lautet der lateinische (anatomische) Name des Knochens „Steigbügel\"?",
     "correctAnswer": "Stapes",
     "options": [
@@ -300,6 +795,7 @@
     ],
     "testedAttribute": "latinName",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -308,7 +804,7 @@
     "entityId": "homo:pelvis",
     "entityType": "bone",
     "type": "homo-bone-latin",
-    "difficulty": 3,
+    "difficulty": 2,
     "prompt": "Wie lautet der lateinische (anatomische) Name des Knochens „Becken\"?",
     "correctAnswer": "Pelvis",
     "options": [
@@ -319,6 +815,7 @@
     ],
     "testedAttribute": "latinName",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -327,7 +824,7 @@
     "entityId": "homo:sternum",
     "entityType": "bone",
     "type": "homo-bone-latin",
-    "difficulty": 3,
+    "difficulty": 2,
     "prompt": "Wie lautet der lateinische (anatomische) Name des Knochens „Brustbein\"?",
     "correctAnswer": "Sternum",
     "options": [
@@ -338,6 +835,7 @@
     ],
     "testedAttribute": "latinName",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -346,7 +844,7 @@
     "entityId": "homo:scapula",
     "entityType": "bone",
     "type": "homo-bone-latin",
-    "difficulty": 3,
+    "difficulty": 4,
     "prompt": "Wie lautet der lateinische (anatomische) Name des Knochens „Schulterblatt\"?",
     "correctAnswer": "Scapula",
     "options": [
@@ -357,6 +855,7 @@
     ],
     "testedAttribute": "latinName",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -365,7 +864,7 @@
     "entityId": "homo:mandibula",
     "entityType": "bone",
     "type": "homo-bone-latin",
-    "difficulty": 3,
+    "difficulty": 4,
     "prompt": "Wie lautet der lateinische (anatomische) Name des Knochens „Unterkiefer\"?",
     "correctAnswer": "Mandibula",
     "options": [
@@ -376,6 +875,7 @@
     ],
     "testedAttribute": "latinName",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -384,7 +884,7 @@
     "entityId": "homo:vertebra",
     "entityType": "bone",
     "type": "homo-bone-latin",
-    "difficulty": 3,
+    "difficulty": 2,
     "prompt": "Wie lautet der lateinische (anatomische) Name des Knochens „Wirbel\"?",
     "correctAnswer": "Vertebra",
     "options": [
@@ -395,6 +895,27 @@
     ],
     "testedAttribute": "latinName",
     "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_gluteus_maximus_homo-muscle-location",
+    "entityId": "homo:gluteus_maximus",
+    "entityType": "muscle",
+    "type": "homo-muscle-location",
+    "difficulty": 3,
+    "prompt": "Wo liegt der Muskel mit dem anatomischen Fachbegriff „Gluteus maximus\"?",
+    "correctAnswer": "Gesäß / Hüfte",
+    "options": [
+      "Gesäß / Hüfte",
+      "Kiefer / Wange",
+      "Mittelohr",
+      "Herz / Brustkorb"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -403,8 +924,8 @@
     "entityId": "homo:masseter",
     "entityType": "muscle",
     "type": "homo-muscle-location",
-    "difficulty": 2,
-    "prompt": "In welcher Körperregion liegt der Muskel „Kaumuskel (Masseter)\"?",
+    "difficulty": 4,
+    "prompt": "Wo liegt der Muskel mit dem anatomischen Fachbegriff „Masseter\"?",
     "correctAnswer": "Kiefer / Wange",
     "options": [
       "Kiefer / Wange",
@@ -414,6 +935,7 @@
     ],
     "testedAttribute": "location",
     "answerIsName": false,
+    "hideConceptIdentity": true,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -422,7 +944,7 @@
     "entityId": "homo:stapedius",
     "entityType": "muscle",
     "type": "homo-muscle-location",
-    "difficulty": 2,
+    "difficulty": 4,
     "prompt": "In welcher Körperregion liegt der Muskel „Steigbügelmuskel (Musculus stapedius)\"?",
     "correctAnswer": "Mittelohr",
     "options": [
@@ -433,6 +955,27 @@
     ],
     "testedAttribute": "location",
     "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_myocardium_homo-muscle-location",
+    "entityId": "homo:myocardium",
+    "entityType": "muscle",
+    "type": "homo-muscle-location",
+    "difficulty": 4,
+    "prompt": "Wo liegt der Muskel mit dem anatomischen Fachbegriff „Myokard\"?",
+    "correctAnswer": "Herz / Brustkorb",
+    "options": [
+      "Herz / Brustkorb",
+      "Gesäß / Hüfte",
+      "Kiefer / Wange",
+      "Mittelohr"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -441,7 +984,7 @@
     "entityId": "homo:diaphragma",
     "entityType": "muscle",
     "type": "homo-muscle-location",
-    "difficulty": 2,
+    "difficulty": 3,
     "prompt": "In welcher Körperregion liegt der Muskel „Zwerchfell (Diaphragma)\"?",
     "correctAnswer": "Zwischen Brust- und Bauchhöhle",
     "options": [
@@ -452,6 +995,7 @@
     ],
     "testedAttribute": "location",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -471,6 +1015,7 @@
     ],
     "testedAttribute": "location",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -490,6 +1035,27 @@
     ],
     "testedAttribute": "location",
     "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_gastrocnemius_homo-muscle-location",
+    "entityId": "homo:gastrocnemius",
+    "entityType": "muscle",
+    "type": "homo-muscle-location",
+    "difficulty": 4,
+    "prompt": "Wo liegt der Muskel mit dem anatomischen Fachbegriff „Musculus gastrocnemius\"?",
+    "correctAnswer": "Unterschenkel (Wade)",
+    "options": [
+      "Unterschenkel (Wade)",
+      "Gesäß / Hüfte",
+      "Kiefer / Wange",
+      "Mittelohr"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -498,7 +1064,7 @@
     "entityId": "homo:sartorius",
     "entityType": "muscle",
     "type": "homo-muscle-location",
-    "difficulty": 2,
+    "difficulty": 3,
     "prompt": "In welcher Körperregion liegt der Muskel „Schneidermuskel (Musculus sartorius)\"?",
     "correctAnswer": "Oberschenkel (Vorderseite)",
     "options": [
@@ -509,6 +1075,7 @@
     ],
     "testedAttribute": "location",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -517,7 +1084,7 @@
     "entityId": "homo:deltoideus",
     "entityType": "muscle",
     "type": "homo-muscle-location",
-    "difficulty": 2,
+    "difficulty": 3,
     "prompt": "In welcher Körperregion liegt der Muskel „Deltamuskel (Musculus deltoideus)\"?",
     "correctAnswer": "Schulter",
     "options": [
@@ -528,6 +1095,7 @@
     ],
     "testedAttribute": "location",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -536,8 +1104,8 @@
     "entityId": "homo:pectoralis_major",
     "entityType": "muscle",
     "type": "homo-muscle-location",
-    "difficulty": 2,
-    "prompt": "In welcher Körperregion liegt der Muskel „Großer Brustmuskel (Musculus pectoralis major)\"?",
+    "difficulty": 4,
+    "prompt": "Wo liegt der Muskel mit dem anatomischen Fachbegriff „Musculus pectoralis major\"?",
     "correctAnswer": "Vordere Brustwand",
     "options": [
       "Vordere Brustwand",
@@ -547,6 +1115,7 @@
     ],
     "testedAttribute": "location",
     "answerIsName": false,
+    "hideConceptIdentity": true,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -555,8 +1124,8 @@
     "entityId": "homo:latissimus_dorsi",
     "entityType": "muscle",
     "type": "homo-muscle-location",
-    "difficulty": 2,
-    "prompt": "In welcher Körperregion liegt der Muskel „Breiter Rückenmuskel (Musculus latissimus dorsi)\"?",
+    "difficulty": 4,
+    "prompt": "Wo liegt der Muskel mit dem anatomischen Fachbegriff „Musculus latissimus dorsi\"?",
     "correctAnswer": "Unterer hinterer Rumpf",
     "options": [
       "Unterer hinterer Rumpf",
@@ -566,6 +1135,7 @@
     ],
     "testedAttribute": "location",
     "answerIsName": false,
+    "hideConceptIdentity": true,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -574,7 +1144,7 @@
     "entityId": "homo:trapezius",
     "entityType": "muscle",
     "type": "homo-muscle-location",
-    "difficulty": 2,
+    "difficulty": 3,
     "prompt": "In welcher Körperregion liegt der Muskel „Trapezmuskel / Kapuzenmuskel (Musculus trapezius)\"?",
     "correctAnswer": "Oberer Rücken und Nacken",
     "options": [
@@ -585,6 +1155,7 @@
     ],
     "testedAttribute": "location",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -593,7 +1164,7 @@
     "entityId": "homo:sternocleidomastoid",
     "entityType": "muscle",
     "type": "homo-muscle-location",
-    "difficulty": 2,
+    "difficulty": 3,
     "prompt": "In welcher Körperregion liegt der Muskel „Kopfwender (Musculus sternocleidomastoideus)\"?",
     "correctAnswer": "Seitlicher Hals",
     "options": [
@@ -604,6 +1175,7 @@
     ],
     "testedAttribute": "location",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -612,7 +1184,7 @@
     "entityId": "homo:rectus_abdominis",
     "entityType": "muscle",
     "type": "homo-muscle-location",
-    "difficulty": 2,
+    "difficulty": 3,
     "prompt": "In welcher Körperregion liegt der Muskel „Gerader Bauchmuskel (Musculus rectus abdominis)\"?",
     "correctAnswer": "Vordere Bauchwand",
     "options": [
@@ -623,6 +1195,7 @@
     ],
     "testedAttribute": "location",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -632,7 +1205,7 @@
     "entityType": "muscle",
     "type": "homo-muscle-location",
     "difficulty": 2,
-    "prompt": "In welcher Körperregion liegt der Muskel „Vierköpfiger Schenkelmuskel (Musculus quadriceps femoris)\"?",
+    "prompt": "Wo liegt der Muskel mit dem anatomischen Fachbegriff „Musculus quadriceps femoris\"?",
     "correctAnswer": "Vorderseite des Oberschenkels",
     "options": [
       "Vorderseite des Oberschenkels",
@@ -642,6 +1215,7 @@
     ],
     "testedAttribute": "location",
     "answerIsName": false,
+    "hideConceptIdentity": true,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -650,7 +1224,7 @@
     "entityId": "homo:soleus",
     "entityType": "muscle",
     "type": "homo-muscle-location",
-    "difficulty": 2,
+    "difficulty": 3,
     "prompt": "In welcher Körperregion liegt der Muskel „Schollenmuskel (Musculus soleus)\"?",
     "correctAnswer": "Hintere Unterschenkelloge",
     "options": [
@@ -661,6 +1235,27 @@
     ],
     "testedAttribute": "location",
     "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_tibialis_anterior_homo-muscle-location",
+    "entityId": "homo:tibialis_anterior",
+    "entityType": "muscle",
+    "type": "homo-muscle-location",
+    "difficulty": 4,
+    "prompt": "Wo liegt der Muskel mit dem anatomischen Fachbegriff „Musculus tibialis anterior\"?",
+    "correctAnswer": "Vordere Unterschenkelloge",
+    "options": [
+      "Vordere Unterschenkelloge",
+      "Gesäß / Hüfte",
+      "Kiefer / Wange",
+      "Mittelohr"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -669,8 +1264,8 @@
     "entityId": "homo:orbicularis_oculi",
     "entityType": "muscle",
     "type": "homo-muscle-location",
-    "difficulty": 2,
-    "prompt": "In welcher Körperregion liegt der Muskel „Augenringmuskel (Musculus orbicularis oculi)\"?",
+    "difficulty": 4,
+    "prompt": "Wo liegt der Muskel mit dem anatomischen Fachbegriff „Musculus orbicularis oculi\"?",
     "correctAnswer": "Rund um die Augenhöhle und Lider",
     "options": [
       "Rund um die Augenhöhle und Lider",
@@ -680,6 +1275,7 @@
     ],
     "testedAttribute": "location",
     "answerIsName": false,
+    "hideConceptIdentity": true,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -688,8 +1284,8 @@
     "entityId": "homo:orbicularis_oris",
     "entityType": "muscle",
     "type": "homo-muscle-location",
-    "difficulty": 2,
-    "prompt": "In welcher Körperregion liegt der Muskel „Mundringmuskel (Musculus orbicularis oris)\"?",
+    "difficulty": 4,
+    "prompt": "Wo liegt der Muskel mit dem anatomischen Fachbegriff „Musculus orbicularis oris\"?",
     "correctAnswer": "Rund um die Mundöffnung",
     "options": [
       "Rund um die Mundöffnung",
@@ -699,6 +1295,27 @@
     ],
     "testedAttribute": "location",
     "answerIsName": false,
+    "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_genioglossus_homo-muscle-location",
+    "entityId": "homo:genioglossus",
+    "entityType": "muscle",
+    "type": "homo-muscle-location",
+    "difficulty": 4,
+    "prompt": "Wo liegt der Muskel mit dem anatomischen Fachbegriff „Musculus genioglossus\"?",
+    "correctAnswer": "Zunge",
+    "options": [
+      "Zunge",
+      "Gesäß / Hüfte",
+      "Kiefer / Wange",
+      "Mittelohr"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -707,8 +1324,8 @@
     "entityId": "homo:psoas_major",
     "entityType": "muscle",
     "type": "homo-muscle-location",
-    "difficulty": 2,
-    "prompt": "In welcher Körperregion liegt der Muskel „Großer Lendenmuskel (Musculus psoas major)\"?",
+    "difficulty": 4,
+    "prompt": "Wo liegt der Muskel mit dem anatomischen Fachbegriff „Musculus psoas major\"?",
     "correctAnswer": "Lendenregion",
     "options": [
       "Lendenregion",
@@ -718,6 +1335,27 @@
     ],
     "testedAttribute": "location",
     "answerIsName": false,
+    "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_intercostales_externi_homo-muscle-location",
+    "entityId": "homo:intercostales_externi",
+    "entityType": "muscle",
+    "type": "homo-muscle-location",
+    "difficulty": 4,
+    "prompt": "Wo liegt der Muskel mit dem anatomischen Fachbegriff „Musculi intercostales externi\"?",
+    "correctAnswer": "Zwischen den Rippen",
+    "options": [
+      "Zwischen den Rippen",
+      "Gesäß / Hüfte",
+      "Kiefer / Wange",
+      "Mittelohr"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -726,7 +1364,7 @@
     "entityId": "homo:leber",
     "entityType": "organ",
     "type": "homo-organ-system",
-    "difficulty": 2,
+    "difficulty": 1,
     "prompt": "Zu welchem Organsystem gehört „Leber\" hauptsächlich?",
     "correctAnswer": "Verdauung",
     "options": [
@@ -737,6 +1375,7 @@
     ],
     "testedAttribute": "system",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -745,7 +1384,7 @@
     "entityId": "homo:lunge",
     "entityType": "organ",
     "type": "homo-organ-system",
-    "difficulty": 2,
+    "difficulty": 1,
     "prompt": "Zu welchem Organsystem gehört „Lunge\" hauptsächlich?",
     "correctAnswer": "Atmung",
     "options": [
@@ -756,6 +1395,7 @@
     ],
     "testedAttribute": "system",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -764,7 +1404,7 @@
     "entityId": "homo:gehirn",
     "entityType": "organ",
     "type": "homo-organ-system",
-    "difficulty": 2,
+    "difficulty": 1,
     "prompt": "Zu welchem Organsystem gehört „Gehirn\" hauptsächlich?",
     "correctAnswer": "Nervensystem",
     "options": [
@@ -775,6 +1415,7 @@
     ],
     "testedAttribute": "system",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -794,6 +1435,7 @@
     ],
     "testedAttribute": "system",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -802,7 +1444,7 @@
     "entityId": "homo:haut",
     "entityType": "organ",
     "type": "homo-organ-system",
-    "difficulty": 2,
+    "difficulty": 1,
     "prompt": "Zu welchem Organsystem gehört „Haut\" hauptsächlich?",
     "correctAnswer": "Sinnesorgan",
     "options": [
@@ -813,6 +1455,7 @@
     ],
     "testedAttribute": "system",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -821,7 +1464,7 @@
     "entityId": "homo:magen",
     "entityType": "organ",
     "type": "homo-organ-system",
-    "difficulty": 2,
+    "difficulty": 1,
     "prompt": "Zu welchem Organsystem gehört „Magen\" hauptsächlich?",
     "correctAnswer": "Verdauung",
     "options": [
@@ -832,6 +1475,7 @@
     ],
     "testedAttribute": "system",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -851,6 +1495,7 @@
     ],
     "testedAttribute": "system",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -870,6 +1515,7 @@
     ],
     "testedAttribute": "system",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -889,6 +1535,7 @@
     ],
     "testedAttribute": "system",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -908,6 +1555,7 @@
     ],
     "testedAttribute": "system",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -927,6 +1575,7 @@
     ],
     "testedAttribute": "system",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -946,6 +1595,7 @@
     ],
     "testedAttribute": "system",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -965,6 +1615,7 @@
     ],
     "testedAttribute": "system",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -984,6 +1635,7 @@
     ],
     "testedAttribute": "system",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -1003,6 +1655,7 @@
     ],
     "testedAttribute": "approxWeightGrams",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -1022,6 +1675,7 @@
     ],
     "testedAttribute": "approxWeightGrams",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -1041,6 +1695,7 @@
     ],
     "testedAttribute": "approxWeightGrams",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -1060,6 +1715,7 @@
     ],
     "testedAttribute": "approxWeightGrams",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -1079,6 +1735,7 @@
     ],
     "testedAttribute": "approxWeightGrams",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -1098,6 +1755,7 @@
     ],
     "testedAttribute": "approxWeightGrams",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -1117,6 +1775,7 @@
     ],
     "testedAttribute": "approxWeightGrams",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -1136,6 +1795,7 @@
     ],
     "testedAttribute": "approxWeightGrams",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -1155,6 +1815,7 @@
     ],
     "testedAttribute": "approxWeightGrams",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -1174,6 +1835,7 @@
     ],
     "testedAttribute": "approxWeightGrams",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -1193,6 +1855,7 @@
     ],
     "testedAttribute": "approxWeightGrams",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -1212,6 +1875,7 @@
     ],
     "testedAttribute": "approxWeightGrams",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -1231,6 +1895,7 @@
     ],
     "testedAttribute": "approxWeightGrams",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -1250,6 +1915,7 @@
     ],
     "testedAttribute": "approxWeightGrams",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -1269,6 +1935,7 @@
     ],
     "testedAttribute": "approxWeightGrams",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -1288,6 +1955,7 @@
     ],
     "testedAttribute": "value",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -1307,6 +1975,7 @@
     ],
     "testedAttribute": "value",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -1326,6 +1995,7 @@
     ],
     "testedAttribute": "value",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -1345,6 +2015,7 @@
     ],
     "testedAttribute": "value",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -1364,6 +2035,7 @@
     ],
     "testedAttribute": "value",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -1383,6 +2055,7 @@
     ],
     "testedAttribute": "epoch",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -1402,6 +2075,7 @@
     ],
     "testedAttribute": "epoch",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -1421,6 +2095,7 @@
     ],
     "testedAttribute": "epoch",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -1440,6 +2115,7 @@
     ],
     "testedAttribute": "epoch",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -1459,6 +2135,7 @@
     ],
     "testedAttribute": "epoch",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -1478,6 +2155,7 @@
     ],
     "testedAttribute": "epoch",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -1497,6 +2175,7 @@
     ],
     "testedAttribute": "epoch",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -1516,6 +2195,7 @@
     ],
     "testedAttribute": "epoch",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -1535,6 +2215,7 @@
     ],
     "testedAttribute": "epoch",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -1554,6 +2235,7 @@
     ],
     "testedAttribute": "epoch",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -1573,6 +2255,7 @@
     ],
     "testedAttribute": "epoch",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -1581,7 +2264,7 @@
     "entityId": "homo:femur",
     "entityType": "bone",
     "type": "homo-bone-latin-rev",
-    "difficulty": 3,
+    "difficulty": 2,
     "prompt": "Welcher Knochen trägt den lateinischen Namen „Femur\"?",
     "correctAnswer": "Oberschenkelknochen",
     "options": [
@@ -1592,6 +2275,7 @@
     ],
     "testedAttribute": null,
     "answerIsName": true,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -1600,7 +2284,7 @@
     "entityId": "homo:tibia",
     "entityType": "bone",
     "type": "homo-bone-latin-rev",
-    "difficulty": 3,
+    "difficulty": 2,
     "prompt": "Welcher Knochen trägt den lateinischen Namen „Tibia\"?",
     "correctAnswer": "Schienbein",
     "options": [
@@ -1611,6 +2295,7 @@
     ],
     "testedAttribute": null,
     "answerIsName": true,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -1619,7 +2304,7 @@
     "entityId": "homo:fibula",
     "entityType": "bone",
     "type": "homo-bone-latin-rev",
-    "difficulty": 3,
+    "difficulty": 4,
     "prompt": "Welcher Knochen trägt den lateinischen Namen „Fibula\"?",
     "correctAnswer": "Wadenbein",
     "options": [
@@ -1630,6 +2315,7 @@
     ],
     "testedAttribute": null,
     "answerIsName": true,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -1638,7 +2324,7 @@
     "entityId": "homo:humerus",
     "entityType": "bone",
     "type": "homo-bone-latin-rev",
-    "difficulty": 3,
+    "difficulty": 2,
     "prompt": "Welcher Knochen trägt den lateinischen Namen „Humerus\"?",
     "correctAnswer": "Oberarmknochen",
     "options": [
@@ -1649,6 +2335,7 @@
     ],
     "testedAttribute": null,
     "answerIsName": true,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -1657,7 +2344,7 @@
     "entityId": "homo:ulna",
     "entityType": "bone",
     "type": "homo-bone-latin-rev",
-    "difficulty": 3,
+    "difficulty": 4,
     "prompt": "Welcher Knochen trägt den lateinischen Namen „Ulna\"?",
     "correctAnswer": "Elle",
     "options": [
@@ -1668,6 +2355,7 @@
     ],
     "testedAttribute": null,
     "answerIsName": true,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -1676,7 +2364,7 @@
     "entityId": "homo:radius",
     "entityType": "bone",
     "type": "homo-bone-latin-rev",
-    "difficulty": 3,
+    "difficulty": 4,
     "prompt": "Welcher Knochen trägt den lateinischen Namen „Radius\"?",
     "correctAnswer": "Speiche",
     "options": [
@@ -1687,6 +2375,7 @@
     ],
     "testedAttribute": null,
     "answerIsName": true,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -1695,7 +2384,7 @@
     "entityId": "homo:cranium",
     "entityType": "bone",
     "type": "homo-bone-latin-rev",
-    "difficulty": 3,
+    "difficulty": 2,
     "prompt": "Welcher Knochen trägt den lateinischen Namen „Cranium\"?",
     "correctAnswer": "Schädel",
     "options": [
@@ -1706,6 +2395,7 @@
     ],
     "testedAttribute": null,
     "answerIsName": true,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -1714,7 +2404,7 @@
     "entityId": "homo:patella",
     "entityType": "bone",
     "type": "homo-bone-latin-rev",
-    "difficulty": 3,
+    "difficulty": 2,
     "prompt": "Welcher Knochen trägt den lateinischen Namen „Patella\"?",
     "correctAnswer": "Kniescheibe",
     "options": [
@@ -1725,6 +2415,7 @@
     ],
     "testedAttribute": null,
     "answerIsName": true,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -1733,7 +2424,7 @@
     "entityId": "homo:clavicula",
     "entityType": "bone",
     "type": "homo-bone-latin-rev",
-    "difficulty": 3,
+    "difficulty": 4,
     "prompt": "Welcher Knochen trägt den lateinischen Namen „Clavicula\"?",
     "correctAnswer": "Schlüsselbein",
     "options": [
@@ -1744,6 +2435,7 @@
     ],
     "testedAttribute": null,
     "answerIsName": true,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -1752,7 +2444,7 @@
     "entityId": "homo:stapes",
     "entityType": "bone",
     "type": "homo-bone-latin-rev",
-    "difficulty": 3,
+    "difficulty": 4,
     "prompt": "Welcher Knochen trägt den lateinischen Namen „Stapes\"?",
     "correctAnswer": "Steigbügel",
     "options": [
@@ -1763,6 +2455,7 @@
     ],
     "testedAttribute": null,
     "answerIsName": true,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -1771,7 +2464,7 @@
     "entityId": "homo:pelvis",
     "entityType": "bone",
     "type": "homo-bone-latin-rev",
-    "difficulty": 3,
+    "difficulty": 2,
     "prompt": "Welcher Knochen trägt den lateinischen Namen „Pelvis\"?",
     "correctAnswer": "Becken",
     "options": [
@@ -1782,6 +2475,7 @@
     ],
     "testedAttribute": null,
     "answerIsName": true,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -1790,7 +2484,7 @@
     "entityId": "homo:sternum",
     "entityType": "bone",
     "type": "homo-bone-latin-rev",
-    "difficulty": 3,
+    "difficulty": 2,
     "prompt": "Welcher Knochen trägt den lateinischen Namen „Sternum\"?",
     "correctAnswer": "Brustbein",
     "options": [
@@ -1801,6 +2495,7 @@
     ],
     "testedAttribute": null,
     "answerIsName": true,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -1809,7 +2504,7 @@
     "entityId": "homo:scapula",
     "entityType": "bone",
     "type": "homo-bone-latin-rev",
-    "difficulty": 3,
+    "difficulty": 4,
     "prompt": "Welcher Knochen trägt den lateinischen Namen „Scapula\"?",
     "correctAnswer": "Schulterblatt",
     "options": [
@@ -1820,6 +2515,7 @@
     ],
     "testedAttribute": null,
     "answerIsName": true,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -1828,7 +2524,7 @@
     "entityId": "homo:mandibula",
     "entityType": "bone",
     "type": "homo-bone-latin-rev",
-    "difficulty": 3,
+    "difficulty": 4,
     "prompt": "Welcher Knochen trägt den lateinischen Namen „Mandibula\"?",
     "correctAnswer": "Unterkiefer",
     "options": [
@@ -1839,6 +2535,7 @@
     ],
     "testedAttribute": null,
     "answerIsName": true,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -1847,7 +2544,7 @@
     "entityId": "homo:vertebra",
     "entityType": "bone",
     "type": "homo-bone-latin-rev",
-    "difficulty": 3,
+    "difficulty": 2,
     "prompt": "Welcher Knochen trägt den lateinischen Namen „Vertebra\"?",
     "correctAnswer": "Wirbel",
     "options": [
@@ -1858,6 +2555,7 @@
     ],
     "testedAttribute": null,
     "answerIsName": true,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -1877,6 +2575,7 @@
     ],
     "testedAttribute": "region",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -1896,6 +2595,7 @@
     ],
     "testedAttribute": "region",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -1915,6 +2615,7 @@
     ],
     "testedAttribute": "region",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -1934,6 +2635,7 @@
     ],
     "testedAttribute": "region",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -1953,6 +2655,7 @@
     ],
     "testedAttribute": "region",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -1972,6 +2675,7 @@
     ],
     "testedAttribute": "region",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -1991,6 +2695,7 @@
     ],
     "testedAttribute": "region",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -2010,6 +2715,7 @@
     ],
     "testedAttribute": "region",
     "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -2029,6 +2735,7 @@
     ],
     "testedAttribute": null,
     "answerIsName": true,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -2048,6 +2755,7 @@
     ],
     "testedAttribute": null,
     "answerIsName": true,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -2067,6 +2775,7 @@
     ],
     "testedAttribute": null,
     "answerIsName": true,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -2086,6 +2795,7 @@
     ],
     "testedAttribute": null,
     "answerIsName": true,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -2105,6 +2815,7 @@
     ],
     "testedAttribute": null,
     "answerIsName": true,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -2124,6 +2835,7 @@
     ],
     "testedAttribute": null,
     "answerIsName": true,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   }
