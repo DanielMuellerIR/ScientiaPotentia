@@ -13,7 +13,7 @@
       "hasRings": false,
       "distanceFromSunAU": 0.39
     },
-    "funFact": "Merkur ist der kleinste Planet des Sonnensystems und hat den kuerzesten Umlauf um die Sonne.",
+    "funFact": "Merkur ist der kleinste Planet des Sonnensystems und hat den kürzesten Umlauf um die Sonne.",
     "sourceName": "NASA Planetary Fact Sheet",
     "sourceUrl": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/mercuryfact.html",
     "verifyNote": "Alle Werte stimmen mit NASA Planetary Fact Sheet ueberein: Durchmesser 4879 km, Length of Day 4222.6 h, Umlauf 88 Tage, 0.39 AU, 0 Monde."
@@ -32,10 +32,10 @@
       "hasRings": false,
       "distanceFromSunAU": 0.72
     },
-    "funFact": "Die Venus dreht sich rueckwaerts und so langsam, dass ein Tag dort laenger dauert als ein Venusjahr.",
+    "funFact": "Die Venus dreht sich rückwärts und so langsam, dass ein Tag dort länger dauert als ein Venusjahr.",
     "sourceName": "NASA Planetary Fact Sheet",
     "sourceUrl": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/venusfact.html",
-    "verifyNote": "Fehler: 5832.5 ist die (Betrag der) Rotationsperiode (-5832.5 h, retrograd), NICHT der Tag/Length of Day. Der Key dayLengthHours entspricht bei allen anderen Objekten der Fact-Sheet-Spalte 'Length of Day'; fuer Venus ist das 2802.0 h (Sonnentag). Korrektur fuer Konsistenz noetig. Quelle: NASA Planetary Fact Sheet (Venus). Uebrige Werte (Durchmesser 12104, Umlauf 224.7, 0.72 AU, 0 Monde) korrekt."
+    "verifyNote": "Fehler: 5832.5 ist die (Betrag der) Rotationsperiode (-5832.5 h, retrograd), NICHT der Tag/Length of Day. Der Key dayLengthHours entspricht bei allen anderen Objekten der Fact-Sheet-Spalte 'Length of Day'; für Venus ist das 2802.0 h (Sonnentag). Korrektur für Konsistenz noetig. Quelle: NASA Planetary Fact Sheet (Venus). Uebrige Werte (Durchmesser 12104, Umlauf 224.7, 0.72 AU, 0 Monde) korrekt."
   },
   {
     "id": "earth",
@@ -51,7 +51,7 @@
       "hasRings": false,
       "distanceFromSunAU": 1
     },
-    "funFact": "Die Erde ist der einzige bekannte Himmelskoerper, auf dem fluessiges Wasser dauerhaft an der Oberflaeche existiert.",
+    "funFact": "Die Erde ist der einzige bekannte Himmelskörper, auf dem flüssiges Wasser dauerhaft an der Oberfläche existiert.",
     "sourceName": "NASA Planetary Fact Sheet",
     "sourceUrl": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html",
     "verifyNote": "Durchmesser 12756 km, Tag 24 h, Umlauf 365.2 Tage, 1 AU, 1 Mond - alles korrekt."
@@ -70,7 +70,7 @@
       "hasRings": false,
       "distanceFromSunAU": 1.52
     },
-    "funFact": "Auf dem Mars steht mit dem Olympus Mons der hoechste bekannte Vulkan des Sonnensystems.",
+    "funFact": "Auf dem Mars steht mit dem Olympus Mons der höchste bekannte Vulkan des Sonnensystems.",
     "sourceName": "NASA Planetary Fact Sheet",
     "sourceUrl": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/marsfact.html",
     "verifyNote": "Durchmesser 6792 km (Fact Sheet 6792, teils 6794 gerundet - ok), Tag 24.7 h, Umlauf 687 Tage, 1.52 AU, 2 Monde (Phobos, Deimos). Korrekt."
@@ -108,7 +108,7 @@
       "hasRings": true,
       "distanceFromSunAU": 9.5
     },
-    "funFact": "Saturns ausgepraegtes Ringsystem besteht groesstenteils aus Eisbrocken und ist von der Erde aus schon im kleinen Teleskop sichtbar.",
+    "funFact": "Saturns ausgeprägtes Ringsystem besteht größtenteils aus Eisbrocken und ist von der Erde aus schon im kleinen Teleskop sichtbar.",
     "sourceName": "NASA Planetary Fact Sheet",
     "sourceUrl": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/saturnfact.html",
     "verifyNote": "Physikalische Werte exakt (120536 km, 10.7 h, 10747 Tage, 9.5 AU, Ringe ja). numMoons 146 war Stand 2023; seit 2025 sind deutlich mehr Monde bestaetigt (274+/285+ in 2025/2026). 146 ist eine gaengige, faire Zahl und kein Groessenordnungsfehler - aber veraltet, ggf. aktualisieren. Bestehender Wert akzeptabel belassen."
@@ -146,7 +146,7 @@
       "hasRings": true,
       "distanceFromSunAU": 30.1
     },
-    "funFact": "Neptun ist der aeusserste Planet und wurde 1846 zuerst mathematisch berechnet, bevor man ihn am Teleskop fand.",
+    "funFact": "Neptun ist der äußerste Planet und wurde 1846 zuerst mathematisch berechnet, bevor man ihn am Teleskop fand.",
     "sourceName": "NASA Planetary Fact Sheet",
     "sourceUrl": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/neptunefact.html",
     "verifyNote": "Durchmesser 49528 km, Tag 16.1 h, Umlauf 59800 Tage, 30.1 AU, 16 Monde, Ringe ja - alles korrekt. funFact (1846 mathematisch vorhergesagt) korrekt."
@@ -178,7 +178,7 @@
       "yearLengthEarthYears": 4.6,
       "discoveredYear": 1801
     },
-    "funFact": "Ceres ist der einzige Zwergplanet im Asteroidenguertel und wurde 2015 von der NASA-Sonde Dawn umkreist.",
+    "funFact": "Ceres ist der einzige Zwergplanet im Asteroidengürtel und wurde 2015 von der NASA-Sonde Dawn umkreist.",
     "sourceName": "NASA Science - Ceres Facts",
     "sourceUrl": "https://science.nasa.gov/dwarf-planets/ceres/facts/",
     "verifyNote": "Mittlerer Durchmesser 939 km (Dawn: 939,4 km), 0 Monde, Umlaufzeit ca. 4,6 Jahre, Entdeckung 1801 (Piazzi) - bestaetigt durch NASA Dawn-Mission. Dawn umkreiste Ceres ab 2015 (im funFact korrekt)."
@@ -194,7 +194,7 @@
       "yearLengthEarthYears": 559,
       "discoveredYear": 2005
     },
-    "funFact": "Die Entdeckung von Eris, fast so gross wie Pluto, loeste die Debatte aus, die 2006 zur Definition des Begriffs Zwergplanet fuehrte.",
+    "funFact": "Die Entdeckung von Eris, fast so groß wie Pluto, löste die Debatte aus, die 2006 zur Definition des Begriffs Zwergplanet führte.",
     "sourceName": "NASA Science - Eris Facts",
     "sourceUrl": "https://science.nasa.gov/dwarf-planets/eris/facts/",
     "verifyNote": "Durchmesser 2326 km (gemessen 2326 +/- 12 km), 1 Mond (Dysnomia), Umlaufzeit ca. 559 Jahre, Entdeckung 2005 - alle Werte bestaetigt."
@@ -210,7 +210,7 @@
       "yearLengthEarthYears": 305,
       "discoveredYear": 2005
     },
-    "funFact": "Makemake ist nach dem Schoepfergott der Rapa Nui der Osterinsel benannt und wurde kurz nach Ostern 2005 entdeckt.",
+    "funFact": "Makemake ist nach dem Schöpfergott der Rapa Nui der Osterinsel benannt und wurde kurz nach Ostern 2005 entdeckt.",
     "sourceName": "NASA Science - Makemake Facts",
     "sourceUrl": "https://science.nasa.gov/dwarf-planets/makemake/facts/",
     "verifyNote": "Aequatordurchmesser ca. 1430-1434 km, 1 Mond (S/2015 (136472) 1 / MK2), Umlaufzeit ca. 305 Jahre, Entdeckung 31.03.2005 (Brown et al.) - alle Werte bestaetigt."
@@ -226,10 +226,10 @@
       "yearLengthEarthYears": 285,
       "discoveredYear": 2004
     },
-    "funFact": "Haumea rotiert so schnell, dass sie eine stark eifoermige Gestalt hat und sogar von einem Ring umgeben ist.",
+    "funFact": "Haumea rotiert so schnell, dass sie eine stark eiförmige Gestalt hat und sogar von einem Ring umgeben ist.",
     "sourceName": "NASA Science - Haumea Facts",
     "sourceUrl": "https://science.nasa.gov/dwarf-planets/haumea/facts/",
-    "verifyNote": "Monde (2: Hi'iaka, Namaka), Umlaufzeit (285 J.) und Entdeckungsjahr (2004) korrekt. Durchmesser 1960 km passt aber zu keiner Standardachse und widerspricht der zitierten NASA-Quelle: NASA Science nennt einen Aequatordurchmesser von ca. 1740 km (Haumea ist ein triaxiales Ellipsoid ~2100 x 1680 x 1074 km, mittlerer Durchmesser ~1430 km). Auf NASA-Aequatorwert 1740 km korrigiert (konsistent zur Quelle und zur Einzeldurchmesser-Konvention der anderen Objekte). Hinweis: Die angegebene sourceUrl .../haumea/facts/ liefert HTTP 404; die Live-Seite ist https://science.nasa.gov/dwarf-planets/haumea/ - sourceUrl sollte angepasst werden (gilt vermutlich auch fuer die /facts/-URLs der anderen Objekte, nicht einzeln geprueft)."
+    "verifyNote": "Monde (2: Hi'iaka, Namaka), Umlaufzeit (285 J.) und Entdeckungsjahr (2004) korrekt. Durchmesser 1960 km passt aber zu keiner Standardachse und widerspricht der zitierten NASA-Quelle: NASA Science nennt einen Aequatordurchmesser von ca. 1740 km (Haumea ist ein triaxiales Ellipsoid ~2100 x 1680 x 1074 km, mittlerer Durchmesser ~1430 km). Auf NASA-Aequatorwert 1740 km korrigiert (konsistent zur Quelle und zur Einzeldurchmesser-Konvention der anderen Objekte). Hinweis: Die angegebene sourceUrl .../haumea/facts/ liefert HTTP 404; die Live-Seite ist https://science.nasa.gov/dwarf-planets/haumea/ - sourceUrl sollte angepasst werden (gilt vermutlich auch für die /facts/-URLs der anderen Objekte, nicht einzeln geprueft)."
   },
   {
     "id": "luna",
@@ -257,7 +257,7 @@
     "funFact": "Phobos umkreist den Mars so schnell, dass er von der Oberfläche aus zweimal täglich aufgeht.",
     "sourceName": "NASA Mars Fact Sheet",
     "sourceUrl": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/marsfact.html",
-    "verifyNote": "Mittlerer Durchmesser ~22,2-22,5 km plausibel (unregelmaessig geformt). Innerer/groesserer Marsmond korrekt. Aufgang zweimal taeglich (schneller als Marsrotation, geht im Westen auf) korrekt."
+    "verifyNote": "Mittlerer Durchmesser ~22,2-22,5 km plausibel (unregelmaessig geformt). Innerer/groesserer Marsmond korrekt. Aufgang zweimal täglich (schneller als Marsrotation, geht im Westen auf) korrekt."
   },
   {
     "id": "deimos",
@@ -271,7 +271,7 @@
     "funFact": "Deimos ist so klein, dass er von der Marsoberfläche aus eher wie ein heller Stern als wie ein Mond erscheint.",
     "sourceName": "NASA Mars Fact Sheet",
     "sourceUrl": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/marsfact.html",
-    "verifyNote": "Durchmesser ~12,4 km korrekt. Aeusserer/kleinerer Marsmond korrekt. Sternartiges Aussehen von der Oberflaeche plausibel."
+    "verifyNote": "Durchmesser ~12,4 km korrekt. Aeusserer/kleinerer Marsmond korrekt. Sternartiges Aussehen von der Oberfläche plausibel."
   },
   {
     "id": "io",
@@ -285,7 +285,7 @@
     "funFact": "Io hat hunderte aktive Vulkane, die Schwefel kilometerhoch ins All schleudern.",
     "sourceName": "NASA Jovian Satellite Fact Sheet",
     "sourceUrl": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/joviansatfact.html",
-    "verifyNote": "Durchmesser 3643 km korrekt (3643,2 km). Vulkanisch aktivster Koerper des Sonnensystems korrekt."
+    "verifyNote": "Durchmesser 3643 km korrekt (3643,2 km). Vulkanisch aktivster Körper des Sonnensystems korrekt."
   },
   {
     "id": "europa",
@@ -327,7 +327,7 @@
     "funFact": "Kallistos Oberfläche ist so alt und unverändert, dass sie als eine der am dichtesten verkraterten überhaupt gilt.",
     "sourceName": "NASA Jovian Satellite Fact Sheet",
     "sourceUrl": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/joviansatfact.html",
-    "verifyNote": "Durchmesser 4821 km korrekt (~4820,6 km). Einer der am staerksten verkraterten Koerper des Sonnensystems korrekt."
+    "verifyNote": "Durchmesser 4821 km korrekt (~4820,6 km). Einer der am staerksten verkraterten Körper des Sonnensystems korrekt."
   },
   {
     "id": "titan",
@@ -341,7 +341,7 @@
     "funFact": "Auf Titan gibt es Seen und Flüsse aus flüssigem Methan und Ethan.",
     "sourceName": "NASA Saturnian Satellite Fact Sheet",
     "sourceUrl": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/saturniansatfact.html",
-    "verifyNote": "Durchmesser 5150 km korrekt (5149,5 km). Groesster Saturnmond, einziger Mond mit dichter Atmosphaere, Methan-/Ethanseen korrekt."
+    "verifyNote": "Durchmesser 5150 km korrekt (5149,5 km). Groesster Saturnmond, einziger Mond mit dichter Atmosphäre, Methan-/Ethanseen korrekt."
   },
   {
     "id": "enceladus",
@@ -425,7 +425,7 @@
     "funFact": "Charon ist im Verhältnis zu seinem Zwergplaneten so groß, dass beide um einen gemeinsamen Schwerpunkt außerhalb Plutos kreisen.",
     "sourceName": "NASA Pluto Fact Sheet",
     "sourceUrl": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/plutofact.html",
-    "verifyNote": "Durchmesser 1212 km korrekt (1212,0 km). Verhaeltnis zu Pluto (2377 km) ~51 %, 'fast halb so gross' korrekt. Gemeinsamer Schwerpunkt (Baryzentrum) ausserhalb Plutos korrekt."
+    "verifyNote": "Durchmesser 1212 km korrekt (1212,0 km). Verhaeltnis zu Pluto (2377 km) ~51 %, 'fast halb so groß' korrekt. Gemeinsamer Schwerpunkt (Baryzentrum) außerhalb Plutos korrekt."
   },
   {
     "id": "sun",
@@ -645,7 +645,7 @@
     "funFact": "Die Andromedagalaxie (M31) bewegt sich auf die Milchstraße zu und wird in etwa 4 bis 5 Milliarden Jahren mit ihr verschmelzen.",
     "sourceName": "NASA",
     "sourceUrl": "https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-31/",
-    "verifyNote": "distanceLy 2.500.000 stimmt mit NASA (~2,5 Mio Lj). Naechste grosse Spirale, mit blossem Auge sichtbar, Merger in 4-5 Mrd Jahren korrekt."
+    "verifyNote": "distanceLy 2.500.000 stimmt mit NASA (~2,5 Mio Lj). Naechste grosse Spirale, mit bloßem Auge sichtbar, Merger in 4-5 Mrd Jahren korrekt."
   },
   {
     "id": "triangulum",
@@ -659,7 +659,7 @@
     "funFact": "Die Dreiecksgalaxie (M33) ist unter sehr dunklem Himmel das am weitesten entfernte Objekt, das man noch mit bloßem Auge erkennen kann.",
     "sourceName": "NASA",
     "sourceUrl": "https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-33/",
-    "verifyNote": "distanceLy 2.730.000 deckt sich mit Cepheid-Messung 2023 (840 kpc = ~2,74 Mio Lj). M33, drittgroesstes Mitglied der Lokalen Gruppe, fernstes Objekt fuer blosses Auge korrekt."
+    "verifyNote": "distanceLy 2.730.000 deckt sich mit Cepheid-Messung 2023 (840 kpc = ~2,74 Mio Lj). M33, drittgroesstes Mitglied der Lokalen Gruppe, fernstes Objekt für blosses Auge korrekt."
   },
   {
     "id": "large_magellanic_cloud",
@@ -701,7 +701,7 @@
     "funFact": "Die Whirlpool-Galaxie (M51) war die erste Galaxie, an der ihre Spiralstruktur erkannt wurde (1845 durch Lord Rosse).",
     "sourceName": "NASA",
     "sourceUrl": "https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-51/",
-    "verifyNote": "distanceLy 23.000.000 im akzeptierten Bereich (23-31 Mio Lj, gaengiger Wert ~23 Mio). M51 Grand-Design-Spirale, Wechselwirkung mit Begleiter, Lord Rosse 1845 korrekt."
+    "verifyNote": "distanceLy 23.000.000 im akzeptierten Bereich (23-31 Mio Lj, gängiger Wert ~23 Mio). M51 Grand-Design-Spirale, Wechselwirkung mit Begleiter, Lord Rosse 1845 korrekt."
   },
   {
     "id": "sombrero",
@@ -726,7 +726,7 @@
       "unit": "m/s",
       "definition": "Ausbreitungsgeschwindigkeit des Lichts im Vakuum, eine fundamentale Naturkonstante mit exakt festgelegtem Wert."
     },
-    "funFact": "Seit 1983 ist das Meter ueber die Lichtgeschwindigkeit definiert, weshalb deren Wert exakt und nicht mehr messfehlerbehaftet ist.",
+    "funFact": "Seit 1983 ist das Meter über die Lichtgeschwindigkeit definiert, weshalb deren Wert exakt und nicht mehr messfehlerbehaftet ist.",
     "sourceName": "CODATA / SI-Einheitensystem (BIPM)",
     "sourceUrl": "https://physics.nist.gov/cgi-bin/cuu/Value?c",
     "verifyNote": "299792458 m/s ist der exakt festgelegte SI-Wert. Korrekt."
@@ -738,9 +738,9 @@
     "attributes": {
       "value": "149597870.7",
       "unit": "km",
-      "definition": "Exakt festgelegte Laengeneinheit, die ungefaehr dem mittleren Abstand zwischen Erde und Sonne entspricht."
+      "definition": "Exakt festgelegte Längeneinheit, die ungefähr dem mittleren Abstand zwischen Erde und Sonne entspricht."
     },
-    "funFact": "Die IAU legte 2012 die AE als exakten festen Wert in Metern fest, sodass sie nicht mehr von Messungen der Erdbahn abhaengt.",
+    "funFact": "Die IAU legte 2012 die AE als exakten festen Wert in Metern fest, sodass sie nicht mehr von Messungen der Erdbahn abhängt.",
     "sourceName": "IAU Resolution B2 (2012)",
     "sourceUrl": "https://www.iau.org/static/resolutions/IAU2012_English.pdf",
     "verifyNote": "149597870.7 km entspricht exakt der IAU-2012-Definition. Korrekt."
@@ -752,9 +752,9 @@
     "attributes": {
       "value": "9460730472580.8",
       "unit": "km",
-      "definition": "Strecke, die das Licht im Vakuum in einem julianischen Jahr (365,25 Tage) zuruecklegt; rund 9,46 Billionen km."
+      "definition": "Strecke, die das Licht im Vakuum in einem julianischen Jahr (365,25 Tage) zurücklegt; rund 9,46 Billionen km."
     },
-    "funFact": "Trotz des Wortteils Jahr ist das Lichtjahr eine Laengeneinheit, keine Zeiteinheit.",
+    "funFact": "Trotz des Wortteils Jahr ist das Lichtjahr eine Längeneinheit, keine Zeiteinheit.",
     "sourceName": "IAU (Definition Laengeneinheiten)",
     "sourceUrl": "https://www.iau.org/public/themes/measuring/",
     "verifyNote": "9460730472580.8 km ist der exakte IAU-Wert (julianisches Jahr 365,25 Tage). Korrekt."
@@ -782,7 +782,7 @@
       "unit": "Milliarden Jahre",
       "definition": "Zeitspanne seit dem Urknall, bestimmt aus Messungen der kosmischen Hintergrundstrahlung durch die Planck-Mission."
     },
-    "funFact": "Die ESA-Raumsonde Planck praezisierte das Alter auf rund 13,8 Milliarden Jahre, etwa 100 Millionen Jahre mehr als zuvor angenommen.",
+    "funFact": "Die ESA-Raumsonde Planck präzisierte das Alter auf rund 13,8 Milliarden Jahre, etwa 100 Millionen Jahre mehr als zuvor angenommen.",
     "sourceName": "ESA Planck Mission",
     "sourceUrl": "https://www.esa.int/Science_Exploration/Space_Science/Planck/Planck_reveals_an_almost_perfect_Universe",
     "verifyNote": "13,8 Mrd. Jahre entspricht dem Planck-Ergebnis. Korrekt."
@@ -796,10 +796,10 @@
       "unit": "Milliarden Jahre",
       "definition": "Zeit seit der Entstehung der Erde, bestimmt vor allem durch radiometrische Datierung von Meteoriten und Gestein."
     },
-    "funFact": "Die aeltesten datierten Mineralien der Erde, Zirkonkristalle aus Australien, sind ueber 4,3 Milliarden Jahre alt.",
+    "funFact": "Die ältesten datierten Mineralien der Erde, Zirkonkristalle aus Australien, sind über 4,3 Milliarden Jahre alt.",
     "sourceName": "USGS / NASA",
     "sourceUrl": "https://pubs.usgs.gov/gip/geotime/age.html",
-    "verifyNote": "4,54 Mrd. Jahre ist der Standardwert (USGS). Korrekt; aelteste Zirkone (Jack Hills) sind ueber 4,3 Mrd. Jahre alt, FunFact passt."
+    "verifyNote": "4,54 Mrd. Jahre ist der Standardwert (USGS). Korrekt; aelteste Zirkone (Jack Hills) sind über 4,3 Mrd. Jahre alt, FunFact passt."
   },
   {
     "id": "age_of_sun",
@@ -810,7 +810,7 @@
       "unit": "Milliarden Jahre",
       "definition": "Zeit seit der Entstehung der Sonne aus einer kollabierenden Gas- und Staubwolke am Beginn des Sonnensystems."
     },
-    "funFact": "Die Sonne hat etwa die Haelfte ihrer Lebensdauer als Hauptreihenstern hinter sich und wird noch rund 5 Milliarden Jahre stabil leuchten.",
+    "funFact": "Die Sonne hat etwa die Hälfte ihrer Lebensdauer als Hauptreihenstern hinter sich und wird noch rund 5 Milliarden Jahre stabil leuchten.",
     "sourceName": "NASA Sun Fact Sheet",
     "sourceUrl": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/sunfact.html",
     "verifyNote": "4,6 Mrd. Jahre ist der akzeptierte Wert. Korrekt."
@@ -824,21 +824,21 @@
       "unit": "km",
       "definition": "Aequatorialer Durchmesser der Sonne; etwa das 109-fache des Erddurchmessers."
     },
-    "funFact": "In das Volumen der Sonne wuerden rund 1,3 Millionen Erden hineinpassen.",
+    "funFact": "In das Volumen der Sonne würden rund 1,3 Millionen Erden hineinpassen.",
     "sourceName": "NASA Sun Fact Sheet",
     "sourceUrl": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/sunfact.html",
     "verifyNote": "1392700 km ist der aequatoriale Durchmesser laut NASA Sun Fact Sheet. Korrekt; ~109x Erddurchmesser und ~1,3 Mio. Erdvolumina stimmen."
   },
   {
     "id": "sun_surface_temperature",
-    "name": "Oberflaechentemperatur der Sonne",
+    "name": "Oberflächentemperatur der Sonne",
     "category": "constant",
     "attributes": {
       "value": "5772",
       "unit": "K",
-      "definition": "Effektive Temperatur der sichtbaren Sonnenoberflaeche (Photosphaere) in Kelvin; entspricht rund 5500 Grad Celsius."
+      "definition": "Effektive Temperatur der sichtbaren Sonnenoberfläche (Photosphäre) in Kelvin; entspricht rund 5500 Grad Celsius."
     },
-    "funFact": "Die Korona, die aeussere Atmosphaere der Sonne, ist mit ueber einer Million Kelvin weit heisser als die Oberflaeche selbst.",
+    "funFact": "Die Korona, die äußere Atmosphäre der Sonne, ist mit über einer Million Kelvin weit heißer als die Oberfläche selbst.",
     "sourceName": "NASA Sun Fact Sheet",
     "sourceUrl": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/sunfact.html",
     "verifyNote": "5772 K bestaetigt gegen NASA Sun Fact Sheet (effektive Photosphaerentemperatur). ~5500 Grad Celsius (5772-273) korrekt."
@@ -850,9 +850,9 @@
     "attributes": {
       "value": "149600000",
       "unit": "km",
-      "definition": "Mittlerer Abstand zwischen Erde und Sonne; entspricht naeherungsweise einer Astronomischen Einheit (1 AE)."
+      "definition": "Mittlerer Abstand zwischen Erde und Sonne; entspricht näherungsweise einer Astronomischen Einheit (1 AE)."
     },
-    "funFact": "Das Licht der Sonne braucht fuer diese Strecke etwa 8 Minuten und 20 Sekunden bis zur Erde.",
+    "funFact": "Das Licht der Sonne braucht für diese Strecke etwa 8 Minuten und 20 Sekunden bis zur Erde.",
     "sourceName": "NASA Earth Fact Sheet",
     "sourceUrl": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html",
     "verifyNote": "149600000 km (mittlere Entfernung, ~1 AE) korrekt. Lichtlaufzeit 8 min 20 s passt."
@@ -865,7 +865,7 @@
       "parentPlanet": "Jupiter",
       "diameterKm": 167
     },
-    "funFact": "Amalthea ist tiefrot gefaerbt - vermutlich durch Schwefel von Ios Vulkanen - und gibt mehr Wärme ab, als sie von der Sonne empfaengt.",
+    "funFact": "Amalthea ist tiefrot gefärbt - vermutlich durch Schwefel von Ios Vulkanen - und gibt mehr Wärme ab, als sie von der Sonne empfängt.",
     "sourceName": "NASA Science / Wikipedia (JPL-Daten)",
     "sourceUrl": "https://en.wikipedia.org/wiki/Amalthea_(moon)",
     "verifyNote": "Mittlerer Durchmesser ca. 167 km berechnet als geometrisches Mittel der Achsen 252x146x126 km (Wikipedia, JPL/Galileo-Daten); Mutterplanet Jupiter gegen NASA Science bestaetigt."
@@ -878,7 +878,7 @@
       "parentPlanet": "Saturn",
       "diameterKm": 1469
     },
-    "funFact": "Iapetus hat eine pechschwarze und eine schneeweiße Hemisphaere und trägt einen 13 km hohen Äquatorgrat, der ihn wie eine Walnuss aussehen laesst.",
+    "funFact": "Iapetus hat eine pechschwarze und eine schneeweiße Hemisphäre und trägt einen 13 km hohen Äquatorgrat, der ihn wie eine Walnuss aussehen lässt.",
     "sourceName": "NASA Science (Saturn Moons)",
     "sourceUrl": "https://science.nasa.gov/saturn/moons/iapetus/",
     "verifyNote": "NASA gibt mittleren Radius 736 km an -> Durchmesser ca. 1472 km; Umlauf um Saturn laut NASA bestaetigt."
@@ -891,7 +891,7 @@
       "parentPlanet": "Saturn",
       "diameterKm": 1123
     },
-    "funFact": "Dione zeigt helle Eisklippen ('wispy terrain'), die fruehere Cassini-Bilder erst als Wolken fehldeuteten.",
+    "funFact": "Dione zeigt helle Eisklippen ('wispy terrain'), die frühere Cassini-Bilder erst als Wolken fehldeuteten.",
     "sourceName": "NASA Science (Saturn Moons)",
     "sourceUrl": "https://science.nasa.gov/saturn/moons/dione/",
     "verifyNote": "NASA gibt mittleren Radius 562 km an -> Durchmesser ca. 1123 km; Umlauf um Saturn laut NASA bestaetigt."
@@ -930,7 +930,7 @@
       "parentPlanet": "Uranus",
       "diameterKm": 1523
     },
-    "funFact": "Oberon ist der aeusserste der großen Uranusmonde und trägt einen Berg von rund 6 km Höhe über der Oberflaeche.",
+    "funFact": "Oberon ist der äußerste der großen Uranusmonde und trägt einen Berg von rund 6 km Höhe über der Oberfläche.",
     "sourceName": "Wikipedia (Moons of Uranus, IAU/Voyager-Daten)",
     "sourceUrl": "https://en.wikipedia.org/wiki/Moons_of_Uranus",
     "verifyNote": "Wikipedia-Tabelle: mittlerer Durchmesser 1522,8 km (Radius 761,4 km); Umlauf um Uranus gegen NASA Science bestaetigt."
@@ -956,7 +956,7 @@
       "parentPlanet": "Uranus",
       "diameterKm": 1158
     },
-    "funFact": "Ariel hat die hellste und juengste Oberflaeche aller Uranusmonde, durchzogen von tiefen Graebenbruchtaelern.",
+    "funFact": "Ariel hat die hellste und jüngste Oberfläche aller Uranusmonde, durchzogen von tiefen Grabenbruchtälern.",
     "sourceName": "Wikipedia (Moons of Uranus, IAU/Voyager-Daten)",
     "sourceUrl": "https://en.wikipedia.org/wiki/Moons_of_Uranus",
     "verifyNote": "Wikipedia-Tabelle: mittlerer Durchmesser 1157,8 km (Achsen 1162x1156x1155 km); Umlauf um Uranus gegen NASA Science bestaetigt."
@@ -969,7 +969,7 @@
       "parentPlanet": "Uranus",
       "diameterKm": 472
     },
-    "funFact": "Miranda besitzt mit der Verona Rupes eine Steilwand von bis zu 20 km Höhe - die hoechste bekannte Klippe im Sonnensystem.",
+    "funFact": "Miranda besitzt mit der Verona Rupes eine Steilwand von bis zu 20 km Höhe - die höchste bekannte Klippe im Sonnensystem.",
     "sourceName": "Wikipedia (Moons of Uranus, IAU/Voyager-Daten)",
     "sourceUrl": "https://en.wikipedia.org/wiki/Moons_of_Uranus",
     "verifyNote": "Wikipedia-Tabelle: mittlerer Durchmesser 471,6 km (Achsen 481x468x466 km); Umlauf um Uranus gegen NASA Science bestaetigt."
@@ -995,7 +995,7 @@
       "parentPlanet": "Neptun",
       "diameterKm": 420
     },
-    "funFact": "Proteus ist trotz seiner Groesse (zweitgrößter Neptunmond) so dunkel, dass er von der Erde aus übersehen wurde und erst 1989 von Voyager 2 entdeckt wurde - obwohl er größer ist als der länger bekannte Mond Nereid.",
+    "funFact": "Proteus ist trotz seiner Größe (zweitgrößter Neptunmond) so dunkel, dass er von der Erde aus übersehen wurde und erst 1989 von Voyager 2 entdeckt wurde - obwohl er größer ist als der länger bekannte Mond Nereid.",
     "sourceName": "Wikipedia (Proteus moon)",
     "sourceUrl": "https://en.wikipedia.org/wiki/Proteus_(moon)",
     "verifyNote": "Wikipedia: mittlerer Radius ca. 210 km -> Durchmesser ca. 420 km; zweitgrößter Neptunmond, Umlauf um Neptun bestaetigt."
@@ -1021,7 +1021,7 @@
       "parentPlanet": "Saturn",
       "diameterKm": 80
     },
-    "funFact": "Pandora ist ein Schaefermond, der zusammen mit Prometheus die Aussenkante von Saturns schmalem F-Ring formt.",
+    "funFact": "Pandora ist ein Schäfermond, der zusammen mit Prometheus die Außenkante von Saturns schmalem F-Ring formt.",
     "sourceName": "Wikipedia (Pandora moon, Cassini-Daten)",
     "sourceUrl": "https://en.wikipedia.org/wiki/Pandora_(moon)",
     "verifyNote": "Wikipedia: mittlerer Durchmesser 80,0 km (Achsen 103x79x63 km); innerer Saturnmond, Umlauf um Saturn bestaetigt."
@@ -1034,7 +1034,7 @@
       "parentPlanet": "Saturn",
       "diameterKm": 86
     },
-    "funFact": "Prometheus reisst mit seiner Schwerkraft regelmaessig dunkle Kanaele und Schlieren in den benachbarten F-Ring des Saturn.",
+    "funFact": "Prometheus reißt mit seiner Schwerkraft regelmäßig dunkle Kanäle und Schlieren in den benachbarten F-Ring des Saturn.",
     "sourceName": "Wikipedia (Prometheus moon, Cassini-Daten)",
     "sourceUrl": "https://en.wikipedia.org/wiki/Prometheus_(moon)",
     "verifyNote": "Wikipedia: mittlerer Durchmesser 85,6 km (Achsen 137x81x56 km); innerer Saturnmond, Umlauf um Saturn bestaetigt."
@@ -1079,7 +1079,7 @@
       "distanceLy": 11.46,
       "apparentMagnitude": 0.34
     },
-    "funFact": "Prokyon ist mit nur 11,46 Lichtjahren einer der naechsten Nachbarsterne der Sonne und besitzt einen Weißen Zwerg als Begleiter.",
+    "funFact": "Prokyon ist mit nur 11,46 Lichtjahren einer der nächsten Nachbarsterne der Sonne und besitzt einen Weißen Zwerg als Begleiter.",
     "sourceName": "Wikipedia (Procyon)",
     "sourceUrl": "https://en.wikipedia.org/wiki/Procyon",
     "verifyNote": "Spektraltyp F5 IV-V, Distanz 11.46 Lj (3.51 pc) und Helligkeit 0.34 gegen Wikipedia und universeguide.com bestaetigt."
@@ -1109,7 +1109,7 @@
       "distanceLy": 250,
       "apparentMagnitude": 0.98
     },
-    "funFact": "Spica ist in Wahrheit ein enges Doppelsternsystem, dessen beide Sterne sich in nur etwa vier Tagen umkreisen und durch die Gezeitenkraefte eiförmig verformt sind.",
+    "funFact": "Spica ist in Wahrheit ein enges Doppelsternsystem, dessen beide Sterne sich in nur etwa vier Tagen umkreisen und durch die Gezeitenkräfte eiförmig verformt sind.",
     "sourceName": "Wikipedia (Spica)",
     "sourceUrl": "https://en.wikipedia.org/wiki/Spica",
     "verifyNote": "Spektraltyp B1III-IV (Primaerstern), Distanz 250 +/- 10 Lj und Helligkeit 0.98 gegen Wikipedia bestaetigt; Doppelstern-Natur (Periode 4 Tage) ebenfalls dort belegt."
@@ -1124,7 +1124,7 @@
       "distanceLy": 33.8,
       "apparentMagnitude": 1.14
     },
-    "funFact": "Pollux ist der naechste Riesenstern zur Sonne und besitzt mit Thestias (Pollux b) einen bestaetigten Exoplaneten von mindestens etwa 2,3-facher Jupitermasse.",
+    "funFact": "Pollux ist der nächste Riesenstern zur Sonne und besitzt mit Thestias (Pollux b) einen bestätigten Exoplaneten von mindestens etwa 2,3-facher Jupitermasse.",
     "sourceName": "Wikipedia (Pollux)",
     "sourceUrl": "https://en.wikipedia.org/wiki/Pollux_(star)",
     "verifyNote": "Spektraltyp K0IIIb, Distanz 33.8 Lj und Helligkeit 1.14 gegen Wikipedia bestaetigt; Exoplanet Pollux b/Thestias dort belegt."
@@ -1139,7 +1139,7 @@
       "distanceLy": 25.1,
       "apparentMagnitude": 1.17
     },
-    "funFact": "Fomalhaut ist von einer markanten Trummerscheibe umgeben und gehoert zu den ersten Sternen, bei denen ein Planetenkandidat direkt fotografiert wurde.",
+    "funFact": "Fomalhaut ist von einer markanten Trummerscheibe umgeben und gehört zu den ersten Sternen, bei denen ein Planetenkandidat direkt fotografiert wurde.",
     "sourceName": "Wikipedia (Fomalhaut)",
     "sourceUrl": "https://en.wikipedia.org/wiki/Fomalhaut",
     "verifyNote": "Spektraltyp A3V, Distanz 25.1 Lj und Helligkeit 1.17 gegen astropixels.com und universeguide.com geprueft."
@@ -1154,7 +1154,7 @@
       "distanceLy": 2600,
       "apparentMagnitude": 1.25
     },
-    "funFact": "Deneb ist der entfernteste und leuchtkraeftigste Stern erster Groesse am Himmel und strahlt rund 200.000-mal heller als die Sonne.",
+    "funFact": "Deneb ist der entfernteste und leuchtkräftigste Stern erster Größe am Himmel und strahlt rund 200.000-mal heller als die Sonne.",
     "sourceName": "Wikipedia (Deneb)",
     "sourceUrl": "https://en.wikipedia.org/wiki/Deneb",
     "verifyNote": "Spektraltyp A2 Ia und Helligkeit 1.25 sicher; Distanz nur grob bestimmbar (Schaetzungen 1400-2600 Lj), hier gerundeter Wert ca. 2600 Lj entsprechend Wikipedia/star-facts.com angegeben."
@@ -1184,7 +1184,7 @@
       "distanceLy": 51.6,
       "apparentMagnitude": 1.58
     },
-    "funFact": "Was mit blossem Auge wie ein Stern wirkt, ist in Wahrheit ein Sechsfach-Sternsystem aus drei eng gebundenen Doppelsternen.",
+    "funFact": "Was mit bloßem Auge wie ein Stern wirkt, ist in Wahrheit ein Sechsfach-Sternsystem aus drei eng gebundenen Doppelsternen.",
     "sourceName": "Wikipedia (Castor)",
     "sourceUrl": "https://en.wikipedia.org/wiki/Castor_(star)",
     "verifyNote": "Spektraltyp A1V (hellste Komponente Castor Aa), Distanz 51.55 Lj (15.81 pc) und kombinierte Helligkeit 1.58 gegen universeguide.com/star-facts.com geprueft; Sechsfachsystem dort belegt."
@@ -1240,7 +1240,7 @@
       "type": "Starburst-Galaxie",
       "distanceLy": 12000000
     },
-    "funFact": "Im Zentrum von M82 entstehen rund zehnmal so schnell neue Sterne wie in der gesamten Milchstrasse, weshalb sie als Prototyp der Starburst-Galaxien gilt.",
+    "funFact": "Im Zentrum von M82 entstehen rund zehnmal so schnell neue Sterne wie in der gesamten Milchstraße, weshalb sie als Prototyp der Starburst-Galaxien gilt.",
     "sourceName": "NASA Science (Hubble Messier Catalog)",
     "sourceUrl": "https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-82/",
     "verifyNote": "Distanz 12 Mio. Lichtjahre gegen NASA-Messier-82-Seite geprueft; Starburst-Klassifikation (10-fache Sternentstehungsrate) ebenfalls dort belegt."
@@ -1253,10 +1253,10 @@
       "type": "Elliptische Galaxie",
       "distanceLy": 12000000
     },
-    "funFact": "Centaurus A ist die uns naechste Radiogalaxie und schiesst aus ihrem zentralen supermassereichen Schwarzen Loch einen relativistischen Jet ins All.",
+    "funFact": "Centaurus A ist die uns nächste Radiogalaxie und schießt aus ihrem zentralen supermassereichen Schwarzen Loch einen relativistischen Jet ins All.",
     "sourceName": "Wikipedia (Centaurus A, mit Literaturquellen)",
     "sourceUrl": "https://en.wikipedia.org/wiki/Centaurus_A",
-    "verifyNote": "Infobox-Distanz 11-13 Mio. Lichtjahre (3-5 Mpc); als Wert ~12 Mio. (Mittel) gewaehlt. Typ S0 pec / elliptisch-lentikular laut Infobox; NASA nennt naechste aktive Galaxie."
+    "verifyNote": "Infobox-Distanz 11-13 Mio. Lichtjahre (3-5 Mpc); als Wert ~12 Mio. (Mittel) gewaehlt. Typ S0 pec / elliptisch-lentikular laut Infobox; NASA nennt nächste aktive Galaxie."
   },
   {
     "id": "bildhauer_ngc253",
@@ -1266,7 +1266,7 @@
       "type": "Spiralgalaxie",
       "distanceLy": 11400000
     },
-    "funFact": "Wegen ihres silbrigen Glanzes wird die Bildhauer-Galaxie auch Silberdollar- oder Silbermuenzen-Galaxie genannt und ist nach Andromeda eine der am leichtesten sichtbaren Spiralgalaxien.",
+    "funFact": "Wegen ihres silbrigen Glanzes wird die Bildhauer-Galaxie auch Silberdollar- oder Silbermünzen-Galaxie genannt und ist nach Andromeda eine der am leichtesten sichtbaren Spiralgalaxien.",
     "sourceName": "Wikipedia (Sculptor Galaxy, mit Literaturquellen)",
     "sourceUrl": "https://en.wikipedia.org/wiki/Sculptor_Galaxy",
     "verifyNote": "Infobox-Distanz 11,4 +/- 0,7 Mio. Lichtjahre und Klassifikation SAB(s)c (intermediaere Spirale, Starburst) gegen Wikipedia-Infobox geprueft."
@@ -1279,7 +1279,7 @@
       "type": "Spiralgalaxie",
       "distanceLy": 21000000
     },
-    "funFact": "Mit rund 170.000 Lichtjahren Durchmesser ist die Feuerrad-Galaxie fast doppelt so groß wie die Milchstrasse und enthaelt schaetzungsweise über eine Billion Sterne.",
+    "funFact": "Mit rund 170.000 Lichtjahren Durchmesser ist die Feuerrad-Galaxie fast doppelt so groß wie die Milchstraße und enthält schätzungsweise über eine Billion Sterne.",
     "sourceName": "NASA Science (Hubble Messier Catalog)",
     "sourceUrl": "https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-101/",
     "verifyNote": "Distanz 25 Mio. Lichtjahre und Typ Spiralgalaxie (face-on Pinwheel) gegen NASA-Messier-101-Seite geprueft; Durchmesser 170.000 Lj dort ebenfalls genannt."
@@ -1292,7 +1292,7 @@
       "type": "Spiralgalaxie",
       "distanceLy": 27000000
     },
-    "funFact": "Statt klar gezeichneter Spiralarme zeigt die Sonnenblumengalaxie viele kurze, fransige Armstuecke - ein Musterbeispiel einer flockig-spiraligen (flocculent) Galaxie.",
+    "funFact": "Statt klar gezeichneter Spiralarme zeigt die Sonnenblumengalaxie viele kurze, fransige Armstücke - ein Musterbeispiel einer flockig-spiraligen (flocculent) Galaxie.",
     "sourceName": "NASA Science (Hubble Messier Catalog)",
     "sourceUrl": "https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-63/",
     "verifyNote": "Distanz 27 Mio. Lichtjahre und Typ flockige Spiralgalaxie gegen NASA-Messier-63-Seite geprueft."
@@ -1305,7 +1305,7 @@
       "type": "Spiralgalaxie",
       "distanceLy": 17000000
     },
-    "funFact": "Ein dunkles Staubband vor dem hellen Kern gab ihr den Namen Schwarzauge; im Aussenbereich rotiert das Gas sogar entgegengesetzt zum inneren Teil - Folge einer alten Verschmelzung.",
+    "funFact": "Ein dunkles Staubband vor dem hellen Kern gab ihr den Namen Schwarzauge; im Außenbereich rotiert das Gas sogar entgegengesetzt zum inneren Teil - Folge einer alten Verschmelzung.",
     "sourceName": "NASA Science (Hubble Messier Catalog)",
     "sourceUrl": "https://science.nasa.gov/mission/hubble/science/explore-the-night-sky/hubble-messier-catalog/messier-64/",
     "verifyNote": "Distanz 17 Mio. Lichtjahre und Typ Spiralgalaxie gegen NASA-Messier-64-Seite geprueft; gegenlaeufige Gasrotation dort beschrieben."
@@ -1318,7 +1318,7 @@
       "value": "6.67430e-11",
       "unit": "m^3 kg^-1 s^-2"
     },
-    "funFact": "G ist die am ungenauesten bekannte Fundamentalkonstante der Physik, weil sich die Gravitation im Labor kaum von Stoerungen abschirmen laesst.",
+    "funFact": "G ist die am ungenauesten bekannte Fundamentalkonstante der Physik, weil sich die Gravitation im Labor kaum von Störungen abschirmen lässt.",
     "sourceName": "NIST/CODATA 2022",
     "sourceUrl": "https://physics.nist.gov/cgi-bin/cuu/Value?bg",
     "verifyNote": "Wert 6.67430e-11 m^3 kg^-1 s^-2 direkt gegen die NIST-CODATA-Seite geprueft (Standardunsicherheit 0.00015e-11); identisch zur CODATA-2018-Empfehlung."
@@ -1383,7 +1383,7 @@
       "value": 1361,
       "unit": "W/m^2"
     },
-    "funFact": "Die Solarkonstante schwankt mit dem elfjaehrigen Sonnenzyklus nur um etwa 0,1 Prozent und ist trotz ihres Namens nicht voellig konstant.",
+    "funFact": "Die Solarkonstante schwankt mit dem elfjährigen Sonnenzyklus nur um etwa 0,1 Prozent und ist trotz ihres Namens nicht völlig konstant.",
     "sourceName": "Wikipedia (Solar constant) / IAU 2015 Resolution B3",
     "sourceUrl": "https://en.wikipedia.org/wiki/Solar_constant",
     "verifyNote": "Nominalwert 1361 W/m^2 gegen Wikipedia geprueft; entspricht dem von IAU 2015 Resolution B3 festgelegten nominalen Gesamtsolarstrahlungswert."
@@ -1396,7 +1396,7 @@
       "value": 67.4,
       "unit": "km/s/Mpc"
     },
-    "funFact": "Messungen aus dem fruehen Universum (Planck) und aus nahen Galaxien liefern systematisch verschiedene H0-Werte - die ungeloeste 'Hubble-Spannung'.",
+    "funFact": "Messungen aus dem frühen Universum (Planck) und aus nahen Galaxien liefern systematisch verschiedene H0-Werte - die ungelöste 'Hubble-Spannung'.",
     "sourceName": "Planck 2018 results VI (arXiv:1807.06209)",
     "sourceUrl": "https://arxiv.org/abs/1807.06209",
     "verifyNote": "Wert (67.4 +/- 0.5) km/s/Mpc aus der Planck-2018-Endmessung (Basis-LambdaCDM) geprueft; Quelle Planck Collaboration 2018."
@@ -1411,7 +1411,7 @@
       "diameterKm": 906,
       "yearLengthEarthYears": 11400
     },
-    "funFact": "Sedna braucht rund 11.400 Jahre fuer einen Sonnenumlauf und entfernt sich dabei so weit, dass ein einziges Sedna-Jahr fast doppelt so lang ist wie die gesamte bisherige Menschheitsgeschichte seit der Erfindung der Schrift.",
+    "funFact": "Sedna braucht rund 11.400 Jahre für einen Sonnenumlauf und entfernt sich dabei so weit, dass ein einziges Sedna-Jahr fast doppelt so lang ist wie die gesamte bisherige Menschheitsgeschichte seit der Erfindung der Schrift.",
     "sourceName": "Wikipedia (englisch): Sedna (dwarf planet)",
     "sourceUrl": "https://en.wikipedia.org/wiki/Sedna_(dwarf_planet)",
     "verifyNote": "Entdeckungsjahr 2003, mittlerer Durchmesser ~906 km und Umlaufzeit ~11.400 Jahre gegen die englische Wikipedia (Infobox) geprueft; als 'detached object'/innere Oortsche Wolke klassifiziert (Prototyp der Sednoiden)."
@@ -1426,7 +1426,7 @@
       "diameterKm": 1098,
       "yearLengthEarthYears": 288.83
     },
-    "funFact": "Quaoar besitzt ein Ringsystem, das sich in ungewoehnlich großer Entfernung weit ausserhalb der klassischen Roche-Grenze befindet und damit die Theorien zur Ringbildung herausfordert.",
+    "funFact": "Quaoar besitzt ein Ringsystem, das sich in ungewöhnlich großer Entfernung weit außerhalb der klassischen Roche-Grenze befindet und damit die Theorien zur Ringbildung herausfordert.",
     "sourceName": "Wikipedia (englisch): Quaoar",
     "sourceUrl": "https://en.wikipedia.org/wiki/Quaoar",
     "verifyNote": "Entdeckungsjahr 2002, volumenaequivalenter Durchmesser ~1.098 km (1.097,6 +/- 2,2 km aus Sternbedeckungen) und Umlaufzeit 288,83 Jahre gegen die englische Wikipedia (Infobox) geprueft; klassisches Kuipergueertel-Objekt."
@@ -1456,7 +1456,7 @@
       "diameterKm": 1230,
       "yearLengthEarthYears": 547.13
     },
-    "funFact": "Gonggong (frueher '2007 OR10') ist der fünftgrößte bekannte Zwergplanet jenseits von Neptun und besitzt mit Xiangliu einen eigenen Mond, ist also kein Einzelgaenger.",
+    "funFact": "Gonggong (früher '2007 OR10') ist der fünftgrößte bekannte Zwergplanet jenseits von Neptun und besitzt mit Xiangliu einen eigenen Mond, ist also kein Einzelgänger.",
     "sourceName": "Wikipedia (englisch): Gonggong (dwarf planet)",
     "sourceUrl": "https://en.wikipedia.org/wiki/Gonggong_(dwarf_planet)",
     "verifyNote": "Entdeckungsjahr 2007, Durchmesser ~1.230 km (radiometrische Messung 2018) und Umlaufzeit 547,13 Jahre gegen die englische Wikipedia (Infobox) geprueft; Objekt der Streuscheibe (scattered disc)."

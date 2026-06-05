@@ -1,5 +1,5 @@
 /**
- * Generator fuer die Astra-Domain (Astronomie).
+ * Generator für die Astra-Domain (Astronomie).
  *
  * Liest die verifizierte Faktenbasis aus scripts/data_sources/astra_raw.json und
  * erzeugt daraus zwei Artefakte (analog zu Terra):
@@ -36,7 +36,7 @@ function deNum(value) {
 }
 
 /**
- * Waehlt bis zu 3 Distraktoren aus einem Pool moeglicher Werte.
+ * Wählt bis zu 3 Distraktoren aus einem Pool möglicher Werte.
  * - numeric=true: die dem korrekten Wert NAECHSTLIEGENDEN Werte (am verwechselbarsten)
  * - numeric=false: die ersten abweichenden Werte in Pool-Reihenfolge
  * Der korrekte Wert wird stets ausgeschlossen, Duplikate werden entfernt.
@@ -50,11 +50,11 @@ function pickDistractors(correct, pool, numeric) {
   return unique.slice(0, 3);
 }
 
-// --- Selbstverraeter-Schutz ----------------------------------------------
+// --- Selbstverräter-Schutz ----------------------------------------------
 // Verwirft Fragen, deren Antwort schon im Hinweis steckt (Antwort = Wort aus
-// dem Konzeptnamen). Hier seltener als bei Homo, aber als gleiche Qualitaets-
-// schranke. Generische Stamm-Woerter (z.B. „Galaxie" in „Spiralgalaxie")
-// schlagen bewusst NICHT an (Token-Mindestlaenge + kein Hinweis->Antwort-Match).
+// dem Konzeptnamen). Hier seltener als bei Homo, aber als gleiche Qualitäts-
+// schranke. Generische Stamm-Wörter (z.B. „Galaxie" in „Spiralgalaxie")
+// schlagen bewusst NICHT an (Token-Mindestlänge + kein Hinweis->Antwort-Match).
 function norm(s) {
   return String(s ?? '').toLowerCase()
     .replace(/ß/g, 'ss').replace(/ä/g, 'a').replace(/ö/g, 'o').replace(/ü/g, 'u')
@@ -74,7 +74,7 @@ function revealsAnswer(subject, answer) {
 
 const raw = JSON.parse(readFileSync(RAW_PATH, 'utf8'));
 
-// Konzepte nach Kategorie gruppieren (fuer kategorie-interne Distraktoren)
+// Konzepte nach Kategorie gruppieren (für kategorie-interne Distraktoren)
 const byCategory = {};
 for (const c of raw) {
   (byCategory[c.category] ||= []).push(c);
@@ -111,12 +111,12 @@ const templates = [
   },
   {
     category: 'planet', attr: 'numMoons', type: 'astra-planet-moons', difficulty: 2,
-    prompt: c => `Wie viele Monde hat ${c.name} (nach gaengiger Zaehlung)?`,
+    prompt: c => `Wie viele Monde hat ${c.name} (nach gängiger Zählung)?`,
     format: v => `${deNum(v)}`, numeric: true
   },
   {
     category: 'planet', attr: 'type', type: 'astra-planet-type', difficulty: 2,
-    prompt: c => `Zu welchem Planetentyp gehoert ${c.name}?`,
+    prompt: c => `Zu welchem Planetentyp gehört ${c.name}?`,
     format: v => v,
     extraDistractors: ['Zwergplanet']
   },
@@ -127,7 +127,7 @@ const templates = [
   },
   {
     category: 'planet', attr: 'diameterKm', type: 'astra-planet-diameter', difficulty: 3,
-    prompt: c => `Welchen ungefaehren Durchmesser hat ${c.name}?`,
+    prompt: c => `Welchen ungefähren Durchmesser hat ${c.name}?`,
     format: v => `${deNum(v)} km`, numeric: true
   },
   // ---- Zwergplaneten --------------------------------------------------
@@ -145,7 +145,7 @@ const templates = [
   // ---- Monde ----------------------------------------------------------
   {
     category: 'moon', attr: 'parentPlanet', type: 'astra-moon-parent', difficulty: 2,
-    prompt: c => `Um welchen Himmelskoerper kreist der Mond ${c.name}?`,
+    prompt: c => `Um welchen Himmelskörper kreist der Mond ${c.name}?`,
     format: v => v
   },
   // ---- Sterne ---------------------------------------------------------
@@ -162,7 +162,7 @@ const templates = [
   },
   {
     category: 'star', attr: 'distanceLy', type: 'astra-star-distance', difficulty: 4,
-    prompt: c => `Wie weit ist ${c.name} ungefaehr von der Erde entfernt?`,
+    prompt: c => `Wie weit ist ${c.name} ungefähr von der Erde entfernt?`,
     format: v => `${deNum(v)} Lichtjahre`, numeric: true,
     skip: c => Number(c.attributes.distanceLy) < 0.1 // Sonne ausschliessen
   },
@@ -171,13 +171,13 @@ const templates = [
     category: 'galaxy', attr: 'type', type: 'astra-galaxy-type', difficulty: 3,
     prompt: c => `Welcher Galaxientyp ist ${c.name}?`,
     format: v => v,
-    extraDistractors: ['Elliptische Galaxie', 'Irregulaere Galaxie']
+    extraDistractors: ['Elliptische Galaxie', 'Irreguläre Galaxie']
   },
   {
     category: 'galaxy', attr: 'distanceLy', type: 'astra-galaxy-distance', difficulty: 4,
-    prompt: c => `Wie weit ist ${c.name} ungefaehr von der Erde entfernt?`,
+    prompt: c => `Wie weit ist ${c.name} ungefähr von der Erde entfernt?`,
     format: v => `${deNum(v)} Lichtjahre`, numeric: true,
-    skip: c => Number(c.attributes.distanceLy) < 1 // Milchstrasse (0) ausschliessen
+    skip: c => Number(c.attributes.distanceLy) < 1 // Milchstraße (0) ausschliessen
   },
   // ---- Konstanten -----------------------------------------------------
   // Umgekehrte Frage: vom Wert auf den Namen schliessen. Distraktoren sind
@@ -185,14 +185,14 @@ const templates = [
   {
     category: 'constant', attr: '__name__', type: 'astra-constant-value', difficulty: 3,
     subject: c => `${c.attributes.value} ${c.attributes.unit}`, // Hinweis ist der Wert
-    prompt: c => `Welche astronomische Groesse hat ungefaehr den Wert von ${c.attributes.value} ${c.attributes.unit}?`,
+    prompt: c => `Welche astronomische Größe hat ungefähr den Wert von ${c.attributes.value} ${c.attributes.unit}?`,
     format: (_v, c) => c.name,
     nameAnswer: true
   },
 
   // ==== Erweiterte Fragetypen (Stand 2026-06-04, Richtung 5000) ============
   // Nutzen ausschliesslich bereits verifizierte Attribute -> keine neuen Fakten,
-  // nur zusaetzliche, echte Lernwinkel je Konzept.
+  // nur zusätzliche, echte Lernwinkel je Konzept.
 
   // ---- Planeten: Tag/Jahr + Reverse-Position --------------------------
   {
@@ -203,7 +203,7 @@ const templates = [
   },
   {
     category: 'planet', attr: 'dayLengthHours', type: 'astra-planet-day', difficulty: 3,
-    prompt: c => `Wie lang dauert ein Tag (Rotation) auf ${c.name} ungefaehr?`,
+    prompt: c => `Wie lang dauert ein Tag (Rotation) auf ${c.name} ungefähr?`,
     format: v => `${deNum(v)} Stunden`, numeric: true
   },
   {
@@ -214,43 +214,43 @@ const templates = [
   // ---- Zwergplaneten: Durchmesser + Umlaufzeit ------------------------
   {
     category: 'dwarf_planet', attr: 'diameterKm', type: 'astra-dwarf-diameter', difficulty: 4,
-    prompt: c => `Welchen ungefaehren Durchmesser hat der Zwergplanet ${c.name}?`,
+    prompt: c => `Welchen ungefähren Durchmesser hat der Zwergplanet ${c.name}?`,
     format: v => `${deNum(v)} km`, numeric: true
   },
   {
     category: 'dwarf_planet', attr: 'yearLengthEarthYears', type: 'astra-dwarf-year-len', difficulty: 4,
-    prompt: c => `Wie lange braucht ${c.name} fuer einen Sonnenumlauf?`,
+    prompt: c => `Wie lange braucht ${c.name} für einen Sonnenumlauf?`,
     format: v => `${deNum(v)} Erdjahre`, numeric: true
   },
   // ---- Monde: Durchmesser ---------------------------------------------
   {
     category: 'moon', attr: 'diameterKm', type: 'astra-moon-diameter', difficulty: 3,
-    prompt: c => `Welchen ungefaehren Durchmesser hat der Mond ${c.name}?`,
+    prompt: c => `Welchen ungefähren Durchmesser hat der Mond ${c.name}?`,
     format: v => `${deNum(v)} km`, numeric: true
   },
   // ---- Sterne: scheinbare Helligkeit ----------------------------------
   {
     category: 'star', attr: 'apparentMagnitude', type: 'astra-star-magnitude', difficulty: 4,
-    prompt: c => `Welche scheinbare Helligkeit (Magnitude) hat ${c.name} ungefaehr?`,
+    prompt: c => `Welche scheinbare Helligkeit (Magnitude) hat ${c.name} ungefähr?`,
     format: v => `${deNum(v)} mag`, numeric: true,
     skip: c => c.attributes.apparentMagnitude === undefined
   },
   // ---- Konstanten: Name -> Wert (Gegenrichtung zur bestehenden Frage) -
   {
     category: 'constant', attr: 'value', type: 'astra-constant-name', difficulty: 2,
-    prompt: c => `Welchen Wert hat ${c.name} ungefaehr?`,
+    prompt: c => `Welchen Wert hat ${c.name} ungefähr?`,
     format: (_v, c) => `${c.attributes.value} ${c.attributes.unit}`
   },
 
   // ==== Phase-5-Erweiterung (Stand 2026-06-05, Richtung 5000/Domain) =======
   // Nutzen ausschliesslich bereits verifizierte Attribute -> keine neuen Fakten.
-  // (a) Zwergplaneten-Mondzahl als eigener Vorwaerts-Typ (Spiegel zu astra-planet-moons),
+  // (a) Zwergplaneten-Mondzahl als eigener Vorwärts-Typ (Spiegel zu astra-planet-moons),
   // (b)+(c) Reverse-Recall von vorhandenen numerischen Planeten-Attributen auf den Namen.
 
   // ---- Zwergplaneten: Mondzahl ----------------------------------------
   {
     category: 'dwarf_planet', attr: 'numMoons', type: 'astra-dwarf-moons', difficulty: 3,
-    prompt: c => `Wie viele Monde hat der Zwergplanet ${c.name} (nach gaengiger Zaehlung)?`,
+    prompt: c => `Wie viele Monde hat der Zwergplanet ${c.name} (nach gängiger Zählung)?`,
     format: v => `${deNum(v)}`, numeric: true
   },
   // ---- Planeten: Durchmesser -> Name (Gegenrichtung) ------------------
@@ -258,12 +258,12 @@ const templates = [
     category: 'planet', attr: 'diameterKm', type: 'astra-planet-diameter-rev', difficulty: 4, nameAnswer: true,
     subject: c => `${deNum(c.attributes.diameterKm)} km`, // Hinweis ist der Durchmesser, nicht der Name
     format: (_v, c) => c.name,
-    prompt: c => `Welcher Planet hat einen ungefaehren Durchmesser von ${deNum(c.attributes.diameterKm)} km?`
+    prompt: c => `Welcher Planet hat einen ungefähren Durchmesser von ${deNum(c.attributes.diameterKm)} km?`
   },
-  // ---- Planeten: Jahreslaenge -> Name (Gegenrichtung) -----------------
+  // ---- Planeten: Jahreslänge -> Name (Gegenrichtung) -----------------
   {
     category: 'planet', attr: 'yearLengthEarthDays', type: 'astra-planet-year-rev', difficulty: 4, nameAnswer: true,
-    subject: c => `${deNum(c.attributes.yearLengthEarthDays)} Erdtage`, // Hinweis ist die Jahreslaenge, nicht der Name
+    subject: c => `${deNum(c.attributes.yearLengthEarthDays)} Erdtage`, // Hinweis ist die Jahreslänge, nicht der Name
     format: (_v, c) => c.name,
     prompt: c => `Welcher Planet umrundet die Sonne in etwa ${deNum(c.attributes.yearLengthEarthDays)} Erdtagen?`
   }
@@ -276,13 +276,13 @@ const questions = [];
 for (const tpl of templates) {
   const conceptsInCat = byCategory[tpl.category] || [];
 
-  // Wertepool fuer Distraktoren: alle formatierten Werte dieses Attributs in
+  // Wertepool für Distraktoren: alle formatierten Werte dieses Attributs in
   // der Kategorie (bzw. alle Namen, bei der Konstanten-Frage).
   const valuePool = conceptsInCat
     .filter(c => !(tpl.skip && tpl.skip(c)))
     .map(c => (tpl.nameAnswer ? c.name : tpl.format(c.attributes[tpl.attr], c)))
-    // Duenn besetzte Attribute (z.B. dwarf_planet.numMoons nur bei einigen
-    // Zwergplaneten) wuerden sonst „undefined" als Distraktor liefern. Leere raus.
+    // Dünn besetzte Attribute (z.B. dwarf_planet.numMoons nur bei einigen
+    // Zwergplaneten) würden sonst „undefined" als Distraktor liefern. Leere raus.
     .filter(v => v !== undefined && v !== null && v !== '');
 
   for (const c of conceptsInCat) {
@@ -292,24 +292,24 @@ for (const tpl of templates) {
 
     const correct = tpl.nameAnswer ? c.name : tpl.format(rawValue, c);
 
-    // Selbstverraeter: steckt die Antwort schon im Hinweis, Frage verwerfen.
+    // Selbstverräter: steckt die Antwort schon im Hinweis, Frage verwerfen.
     const subject = tpl.subject ? tpl.subject(c) : c.name;
     if (revealsAnswer(subject, correct)) continue;
 
-    // Distraktoren aus dem Kategorie-Pool ziehen, optional feste Extras ergaenzen
+    // Distraktoren aus dem Kategorie-Pool ziehen, optional feste Extras ergänzen
     let pool = valuePool.slice();
     if (tpl.extraDistractors) pool = pool.concat(tpl.extraDistractors);
     const distractors = pickDistractors(correct, pool, tpl.numeric);
 
     // Faire Frage braucht mind. 1 Distraktor; wir streben 3 an. Weniger als 2
-    // Optionen waeren keine echte Wahl -> ueberspringen.
+    // Optionen wären keine echte Wahl -> überspringen.
     if (distractors.length < 1) continue;
 
     const options = [correct, ...distractors];
 
     questions.push({
       // type im id -> eindeutig, auch wenn zwei Templates dasselbe Attribut nutzen
-      // (z.B. Position vorwaerts/rueckwaerts).
+      // (z.B. Position vorwärts/rückwärts).
       id: `q_${DOMAIN}_${c.id}_${tpl.type}`,
       entityId: `${DOMAIN}:${c.id}`,
       entityType: c.category,
@@ -318,9 +318,9 @@ for (const tpl of templates) {
       prompt: tpl.prompt(c),
       correctAnswer: correct,
       options, // Quiz mischt die Reihenfolge zur Laufzeit
-      // Selbstverraeter-Guard im Visual: das Frontend muss wissen, welches
-      // Attribut die Antwort prueft. Bei Reverse-Templates (Antwort = Konzeptname,
-      // nameAnswer) gibt es kein geprueftes Attribut -> null. Bei Vorwaerts-
+      // Selbstverräter-Guard im Visual: das Frontend muss wissen, welches
+      // Attribut die Antwort prüft. Bei Reverse-Templates (Antwort = Konzeptname,
+      // nameAnswer) gibt es kein geprüftes Attribut -> null. Bei Vorwärts-
       // Templates ist es tpl.attr (z.B. 'orderFromSun', 'value').
       testedAttribute: tpl.nameAnswer ? null : tpl.attr,
       // answerIsName: true, wenn die korrekte Antwort der Konzeptname ist (Reverse).
@@ -336,7 +336,7 @@ for (const tpl of templates) {
 writeFileSync(CONCEPTS_OUT, JSON.stringify(concepts, null, 2), 'utf8');
 writeFileSync(QUESTIONS_OUT, JSON.stringify(questions, null, 2), 'utf8');
 
-// kleine Statistik fuer die Konsole
+// kleine Statistik für die Konsole
 const byType = {};
 for (const q of questions) byType[q.type] = (byType[q.type] || 0) + 1;
 const byDiff = {};
