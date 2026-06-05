@@ -1,10 +1,14 @@
 import { lazy } from 'react';
-import { Globe2, Sparkles, PersonStanding } from 'lucide-react';
+import { Globe2, Sparkles, PersonStanding, Orbit } from 'lucide-react';
 
 // Spezialisierte Visualisierungen lazy laden, damit schwere Abhaengigkeiten
 // (z.B. three.js fuer Astra) nur ins Bundle kommen, wenn die Domain aktiv ist.
 const AstraVisual = lazy(() => import('../components/AstraVisual'));
 const HomoVisual = lazy(() => import('../components/HomoVisual'));
+
+// Erkundungsbereiche (eigener Tab, gefüttert aus denselben Konzeptdaten wie das
+// Quiz). Analog zur Terra-Weltkarte, aber je Domain spezialisiert.
+const SolarSystemExplorer = lazy(() => import('../components/SolarSystemExplorer'));
 
 /**
  * Zentrale Registry aller Wissensbereiche ("Domains").
@@ -45,6 +49,10 @@ export const DOMAINS = [
     // Phase 2: 3D-Himmelskörper (three.js) statt statischer Übersicht.
     hasMap: false,
     Visual: AstraVisual,
+    // Erkundung: interaktive 2D-Sonnensystemkarte (Planeten -> Monde zoombar).
+    Explorer: SolarSystemExplorer,
+    explorerLabel: 'Sonnensystem',
+    ExplorerIcon: Orbit,
     loadConcepts: () => fetch('data/concepts_astra.json').then(handleJson),
     loadQuestions: () => fetch('data/questions_astra.json').then(handleJson)
   },

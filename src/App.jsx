@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, Suspense } from 'react';
 import Atlas from './components/Atlas';
 import Quiz from './components/Quiz';
 import Dashboard from './components/Dashboard';
@@ -12,7 +12,7 @@ import { playClick, isAudioMuted, setAudioMuted } from './utils/audio';
 import { BarChart3, HelpCircle, Compass, Flame, Trophy, Volume2, VolumeX } from 'lucide-react';
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState('dashboard'); // 'dashboard' | 'atlas' | 'quiz'
+  const [activeTab, setActiveTab] = useState('dashboard'); // 'dashboard' | 'atlas' | 'explore' | 'quiz'
   const [selectedEntityId, setSelectedEntityId] = useState(null);
   const [quizDifficulty, setQuizDifficulty] = useState(1);
   const [quizMode, setQuizMode] = useState('all'); // 'all' | 'countries' | 'cities' | 'rivers' | 'stadt-land-fluss'
@@ -284,7 +284,9 @@ export default function App() {
     if (domainId === activeDomainId) return;
     playClick();
     setActiveDomainId(domainId);
-    setActiveTab('dashboard');
+    // Domains mit Explorer (z.B. Astra) starten direkt im Erkundungsbereich,
+    // alle anderen in der Übersicht.
+    setActiveTab(getDomainById(domainId).Explorer ? 'explore' : 'dashboard');
     setSelectedEntityId(null);
     setClickedMapId(null);
     setActiveConceptKey(null);
@@ -342,14 +344,18 @@ export default function App() {
 
         {/* Tab Selectors */}
         <nav style={{ display: 'flex', gap: '6px' }}>
-          <button 
-            className={activeTab === 'dashboard' ? 'btn-terra-primary' : 'btn-terra'}
-            onClick={() => handleTabChange('dashboard')}
-            style={{ fontSize: '15px', padding: '8px 14px' }}
-          >
-            <BarChart3 size={16} />
-            Übersicht
-          </button>
+          {/* "Übersicht" nur für Domains ohne eigenen Explorer. Wo es einen gibt
+              (z.B. Astra-Sonnensystem), ist der Explorer die sinnvollere Startseite. */}
+          {!activeDomain.Explorer && (
+            <button
+              className={activeTab === 'dashboard' ? 'btn-terra-primary' : 'btn-terra'}
+              onClick={() => handleTabChange('dashboard')}
+              style={{ fontSize: '15px', padding: '8px 14px' }}
+            >
+              <BarChart3 size={16} />
+              Übersicht
+            </button>
+          )}
           {activeDomain.hasMap && (
             <button
               className={activeTab === 'atlas' ? 'btn-terra-primary' : 'btn-terra'}
@@ -358,6 +364,17 @@ export default function App() {
             >
               <Compass size={16} />
               Weltatlas
+            </button>
+          )}
+          {/* Erkundungs-Tab: nur Domains mit eigenem Explorer (z.B. Astra-Sonnensystem). */}
+          {activeDomain.Explorer && (
+            <button
+              className={activeTab === 'explore' ? 'btn-terra-primary' : 'btn-terra'}
+              onClick={() => handleTabChange('explore')}
+              style={{ fontSize: '15px', padding: '8px 14px' }}
+            >
+              {activeDomain.ExplorerIcon ? <activeDomain.ExplorerIcon size={16} /> : <Compass size={16} />}
+              {activeDomain.explorerLabel || 'Erkundung'}
             </button>
           )}
           <button 
@@ -413,6 +430,37 @@ export default function App() {
         overflow: 'hidden',
         position: 'relative'
       }}>
+        {/* Erkundungsmodus: der domänen-eigene Explorer (z.B. Astra-Sonnensystem)
+            nutzt die volle Breite, ohne rechte Sidebar. Sonst das gewohnte
+            Zwei-Spalten-Layout (Visual links, Tab-Panel rechts). */}
+        {activeTab === 'explore' && activeDomain.Explorer ? (
+          <>
+            {/* Erkundung links (z.B. Astra-Sonnensystem), rechts die gewohnte
+                Dashboard-Sidebar mit Stufen-Wähler + Quiz-Start — analog zu Terra. */}
+            <div style={{ flex: 1, height: '100%', minWidth: 0 }}>
+              <Suspense fallback={
+                <div className="terra-panel" style={{ height: '100%', display: 'flex', alignItems: 'center',
+                  justifyContent: 'center', color: 'var(--text-muted)', background: '#05060f',
+                  border: '1px solid var(--border-light)' }}>Erkundung wird geladen …</div>
+              }>
+                <activeDomain.Explorer domain={activeDomain} concepts={concepts} srsProgress={srsProgress} />
+              </Suspense>
+            </div>
+            <div style={{ width: '390px', height: '100%', zIndex: 10, flexShrink: 0 }}>
+              <Dashboard
+                geodb={domainDb}
+                domain={activeDomain}
+                questionPool={questionPool}
+                srsProgress={srsProgress}
+                dueCount={dueEntities.length}
+                streakCount={streakCount}
+                highScore={highScore}
+                onStartDailyReview={handleStartDailyReview}
+              />
+            </div>
+          </>
+        ) : (
+        <>
         {/* Linkes Visualisierungs-Panel: Weltkarte bei Terra, sonst pro Frage
             das gefragte Konzept (3D/Vektor bzw. generische Konzeptkarte). */}
         <div style={{ flex: 1, height: '100%', minWidth: 0 }}>
@@ -487,6 +535,8 @@ export default function App() {
             />
           )}
         </div>
+        </>
+        )}
       </main>
     </div>
   );
