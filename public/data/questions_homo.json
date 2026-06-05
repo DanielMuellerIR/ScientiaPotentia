@@ -446,9 +446,9 @@
     "type": "homo-bone-region",
     "difficulty": 4,
     "prompt": "In welcher Körperregion liegt der Knochen mit dem lateinischen Namen „Talus\"?",
-    "correctAnswer": "Fuss",
+    "correctAnswer": "Fuß",
     "options": [
-      "Fuss",
+      "Fuß",
       "Bein",
       "Arm",
       "Kopf"
@@ -466,9 +466,9 @@
     "type": "homo-bone-region",
     "difficulty": 4,
     "prompt": "In welcher Körperregion liegt der Knochen mit dem lateinischen Namen „Calcaneus\"?",
-    "correctAnswer": "Fuss",
+    "correctAnswer": "Fuß",
     "options": [
-      "Fuss",
+      "Fuß",
       "Bein",
       "Arm",
       "Kopf"
@@ -486,9 +486,9 @@
     "type": "homo-bone-region",
     "difficulty": 3,
     "prompt": "In welcher Körperregion liegt der Knochen „Kahnbein (Os naviculare)\"?",
-    "correctAnswer": "Fuss",
+    "correctAnswer": "Fuß",
     "options": [
-      "Fuss",
+      "Fuß",
       "Bein",
       "Arm",
       "Kopf"
@@ -1505,7 +1505,7 @@
     "entityType": "organ",
     "type": "homo-organ-system",
     "difficulty": 2,
-    "prompt": "Zu welchem Organsystem gehört „Bauchspeicheldruese\" hauptsächlich?",
+    "prompt": "Zu welchem Organsystem gehört „Bauchspeicheldrüse\" hauptsächlich?",
     "correctAnswer": "Verdauung",
     "options": [
       "Verdauung",
@@ -1805,7 +1805,7 @@
     "entityType": "organ",
     "type": "homo-organ-weight",
     "difficulty": 3,
-    "prompt": "Welches ungefähre Gewicht hat „Bauchspeicheldruese\" beim Erwachsenen?",
+    "prompt": "Welches ungefähre Gewicht hat „Bauchspeicheldrüse\" beim Erwachsenen?",
     "correctAnswer": "80 g",
     "options": [
       "80 g",
@@ -1940,18 +1940,98 @@
     "mapTargetId": null
   },
   {
+    "id": "q_homo_knochen_erwachsener_homo-bodyfact-value",
+    "entityId": "homo:knochen_erwachsener",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-value",
+    "difficulty": 2,
+    "prompt": "Welche Angabe gehört zu: „Anzahl Knochen beim Erwachsenen\"?",
+    "correctAnswer": "206 Knochen",
+    "options": [
+      "206 Knochen",
+      "100 Knochen",
+      "140 Knochen",
+      "180 Knochen"
+    ],
+    "testedAttribute": "value",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_knochen_neugeborenes_homo-bodyfact-value",
+    "entityId": "homo:knochen_neugeborenes",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-value",
+    "difficulty": 2,
+    "prompt": "Welche Angabe gehört zu: „Anzahl Knochen beim Neugeborenen\"?",
+    "correctAnswer": "ca. 300 Knochen",
+    "options": [
+      "ca. 300 Knochen",
+      "ca. 150 Knochen",
+      "ca. 210 Knochen",
+      "ca. 260 Knochen"
+    ],
+    "testedAttribute": "value",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_zaehne_erwachsener_homo-bodyfact-value",
+    "entityId": "homo:zaehne_erwachsener",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-value",
+    "difficulty": 2,
+    "prompt": "Welche Angabe gehört zu: „Anzahl Zähne beim Erwachsenen\"?",
+    "correctAnswer": "32 Zähne",
+    "options": [
+      "32 Zähne",
+      "16 Zähne",
+      "22 Zähne",
+      "27 Zähne"
+    ],
+    "testedAttribute": "value",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_chromosomen_homo-bodyfact-value",
+    "entityId": "homo:chromosomen",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-value",
+    "difficulty": 2,
+    "prompt": "Welche Angabe gehört zu: „Anzahl Chromosomen des Menschen\"?",
+    "correctAnswer": "46 Chromosomen",
+    "options": [
+      "46 Chromosomen",
+      "23 Chromosomen",
+      "32 Chromosomen",
+      "39 Chromosomen"
+    ],
+    "testedAttribute": "value",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_homo_koerpertemperatur_homo-bodyfact-value",
     "entityId": "homo:koerpertemperatur",
     "entityType": "body_fact",
     "type": "homo-bodyfact-value",
     "difficulty": 2,
-    "prompt": "Welche Angabe gehört zu: „Normale Koerpertemperatur\"?",
+    "prompt": "Welche Angabe gehört zu: „Normale Körpertemperatur\"?",
     "correctAnswer": "37 Grad Celsius",
     "options": [
       "37 Grad Celsius",
-      "206 Knochen",
-      "ca. 300 Knochen",
-      "32 Zaehne"
+      "19 Grad Celsius",
+      "26 Grad Celsius",
+      "31 Grad Celsius"
     ],
     "testedAttribute": "value",
     "answerIsName": false,
@@ -1969,9 +2049,9 @@
     "correctAnswer": "ca. 5 Liter",
     "options": [
       "ca. 5 Liter",
-      "206 Knochen",
-      "ca. 300 Knochen",
-      "32 Zaehne"
+      "ca. 3 Liter",
+      "ca. 4 Liter",
+      "ca. 6 Liter"
     ],
     "testedAttribute": "value",
     "answerIsName": false,
@@ -1986,12 +2066,72 @@
     "type": "homo-bodyfact-value",
     "difficulty": 2,
     "prompt": "Welche Angabe gehört zu: „Ruhepuls eines Erwachsenen\"?",
-    "correctAnswer": "60-100 Schlaege pro Minute",
+    "correctAnswer": "60-100 Schläge pro Minute",
     "options": [
-      "60-100 Schlaege pro Minute",
-      "206 Knochen",
-      "ca. 300 Knochen",
-      "32 Zaehne"
+      "60-100 Schläge pro Minute",
+      "15-55 Schläge pro Minute",
+      "105-145 Schläge pro Minute",
+      "150-190 Schläge pro Minute"
+    ],
+    "testedAttribute": "value",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_rippenpaare_homo-bodyfact-value",
+    "entityId": "homo:rippenpaare",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-value",
+    "difficulty": 2,
+    "prompt": "Welche Angabe gehört zu: „Anzahl Rippenpaare\"?",
+    "correctAnswer": "12 Rippenpaare",
+    "options": [
+      "12 Rippenpaare",
+      "6 Rippenpaare",
+      "8 Rippenpaare",
+      "10 Rippenpaare"
+    ],
+    "testedAttribute": "value",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_skelettmuskeln_600_homo-bodyfact-value",
+    "entityId": "homo:skelettmuskeln_600",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-value",
+    "difficulty": 2,
+    "prompt": "Welche Angabe gehört zu: „Skelettmuskeln im Körper\"?",
+    "correctAnswer": "600 Muskeln",
+    "options": [
+      "600 Muskeln",
+      "300 Muskeln",
+      "420 Muskeln",
+      "510 Muskeln"
+    ],
+    "testedAttribute": "value",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_neuronen_gehirn_86mrd_homo-bodyfact-value",
+    "entityId": "homo:neuronen_gehirn_86mrd",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-value",
+    "difficulty": 2,
+    "prompt": "Welche Angabe gehört zu: „Neuronen im menschlichen Gehirn\"?",
+    "correctAnswer": "86.000.000.000 Neuronen",
+    "options": [
+      "86.000.000.000 Neuronen",
+      "43.000.000.000 Neuronen",
+      "60.000.000.000 Neuronen",
+      "73.000.000.000 Neuronen"
     ],
     "testedAttribute": "value",
     "answerIsName": false,
@@ -2009,9 +2149,9 @@
     "correctAnswer": "60 %",
     "options": [
       "60 %",
-      "206 Knochen",
-      "ca. 300 Knochen",
-      "32 Zaehne"
+      "30 %",
+      "42 %",
+      "51 %"
     ],
     "testedAttribute": "value",
     "answerIsName": false,
@@ -2029,9 +2169,69 @@
     "correctAnswer": "7 m",
     "options": [
       "7 m",
-      "206 Knochen",
-      "ca. 300 Knochen",
-      "32 Zaehne"
+      "4 m",
+      "5 m",
+      "6 m"
+    ],
+    "testedAttribute": "value",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_wirbel_33_homo-bodyfact-value",
+    "entityId": "homo:wirbel_33",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-value",
+    "difficulty": 2,
+    "prompt": "Welche Angabe gehört zu: „Wirbel der Wirbelsäule\"?",
+    "correctAnswer": "33 Wirbel",
+    "options": [
+      "33 Wirbel",
+      "17 Wirbel",
+      "23 Wirbel",
+      "28 Wirbel"
+    ],
+    "testedAttribute": "value",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_atemzuege_pro_minute_homo-bodyfact-value",
+    "entityId": "homo:atemzuege_pro_minute",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-value",
+    "difficulty": 2,
+    "prompt": "Welche Angabe gehört zu: „Atemzüge pro Minute (Ruhe)\"?",
+    "correctAnswer": "16 Atemzüge/min",
+    "options": [
+      "16 Atemzüge/min",
+      "8 Atemzüge/min",
+      "11 Atemzüge/min",
+      "14 Atemzüge/min"
+    ],
+    "testedAttribute": "value",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_geschmacksknospen_homo-bodyfact-value",
+    "entityId": "homo:geschmacksknospen",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-value",
+    "difficulty": 2,
+    "prompt": "Welche Angabe gehört zu: „Geschmacksknospen der Zunge\"?",
+    "correctAnswer": "8.000 Geschmacksknospen",
+    "options": [
+      "8.000 Geschmacksknospen",
+      "4.000 Geschmacksknospen",
+      "5.600 Geschmacksknospen",
+      "6.800 Geschmacksknospen"
     ],
     "testedAttribute": "value",
     "answerIsName": false,
@@ -2146,9 +2346,9 @@
     "type": "homo-species-epoch",
     "difficulty": 3,
     "prompt": "In welchen Zeitraum fällt „Homo floresiensis\"?",
-    "correctAnswer": "Mittel- bis Spaetpleistozaen, ca. 100.000 bis 60.000 Jahre vor heute (Steinwerkzeuge bis ca. 190.000 Jahre)",
+    "correctAnswer": "Mittel- bis Spätpleistozän, ca. 100.000 bis 60.000 Jahre vor heute (Steinwerkzeuge bis ca. 190.000 Jahre)",
     "options": [
-      "Mittel- bis Spaetpleistozaen, ca. 100.000 bis 60.000 Jahre vor heute (Steinwerkzeuge bis ca. 190.000 Jahre)",
+      "Mittel- bis Spätpleistozän, ca. 100.000 bis 60.000 Jahre vor heute (Steinwerkzeuge bis ca. 190.000 Jahre)",
       "seit ca. 300.000 Jahren",
       "ca. 400.000 bis 40.000 Jahre vor heute",
       "ca. 1,9 Millionen bis 110.000 Jahre vor heute"
@@ -2166,9 +2366,9 @@
     "type": "homo-species-epoch",
     "difficulty": 3,
     "prompt": "In welchen Zeitraum fällt „Homo naledi\"?",
-    "correctAnswer": "Mittelpleistozaen, ca. 335.000 bis 236.000 Jahre vor heute",
+    "correctAnswer": "Mittelpleistozän, ca. 335.000 bis 236.000 Jahre vor heute",
     "options": [
-      "Mittelpleistozaen, ca. 335.000 bis 236.000 Jahre vor heute",
+      "Mittelpleistozän, ca. 335.000 bis 236.000 Jahre vor heute",
       "seit ca. 300.000 Jahren",
       "ca. 400.000 bis 40.000 Jahre vor heute",
       "ca. 1,9 Millionen bis 110.000 Jahre vor heute"
@@ -2186,9 +2386,9 @@
     "type": "homo-species-epoch",
     "difficulty": 3,
     "prompt": "In welchen Zeitraum fällt „Homo heidelbergensis\"?",
-    "correctAnswer": "Mittelpleistozaen, ca. 700.000 bis 200.000 Jahre vor heute (Typusexemplar Mauer datiert auf 609.000 +/- 40.000 Jahre)",
+    "correctAnswer": "Mittelpleistozän, ca. 700.000 bis 200.000 Jahre vor heute (Typusexemplar Mauer datiert auf 609.000 +/- 40.000 Jahre)",
     "options": [
-      "Mittelpleistozaen, ca. 700.000 bis 200.000 Jahre vor heute (Typusexemplar Mauer datiert auf 609.000 +/- 40.000 Jahre)",
+      "Mittelpleistozän, ca. 700.000 bis 200.000 Jahre vor heute (Typusexemplar Mauer datiert auf 609.000 +/- 40.000 Jahre)",
       "seit ca. 300.000 Jahren",
       "ca. 400.000 bis 40.000 Jahre vor heute",
       "ca. 1,9 Millionen bis 110.000 Jahre vor heute"
@@ -2206,9 +2406,9 @@
     "type": "homo-species-epoch",
     "difficulty": 3,
     "prompt": "In welchen Zeitraum fällt „Denisova-Mensch (Denisovaner)\"?",
-    "correctAnswer": "Mittel- bis Spaetpleistozaen, ca. 200.000 bis 50.000 Jahre vor heute",
+    "correctAnswer": "Mittel- bis Spätpleistozän, ca. 200.000 bis 50.000 Jahre vor heute",
     "options": [
-      "Mittel- bis Spaetpleistozaen, ca. 200.000 bis 50.000 Jahre vor heute",
+      "Mittel- bis Spätpleistozän, ca. 200.000 bis 50.000 Jahre vor heute",
       "seit ca. 300.000 Jahren",
       "ca. 400.000 bis 40.000 Jahre vor heute",
       "ca. 1,9 Millionen bis 110.000 Jahre vor heute"
@@ -2226,9 +2426,9 @@
     "type": "homo-species-epoch",
     "difficulty": 3,
     "prompt": "In welchen Zeitraum fällt „Paranthropus boisei\"?",
-    "correctAnswer": "Pleistozaen, ca. 2,3 bis 1,2 Millionen Jahre vor heute",
+    "correctAnswer": "Pleistozän, ca. 2,3 bis 1,2 Millionen Jahre vor heute",
     "options": [
-      "Pleistozaen, ca. 2,3 bis 1,2 Millionen Jahre vor heute",
+      "Pleistozän, ca. 2,3 bis 1,2 Millionen Jahre vor heute",
       "seit ca. 300.000 Jahren",
       "ca. 400.000 bis 40.000 Jahre vor heute",
       "ca. 1,9 Millionen bis 110.000 Jahre vor heute"
@@ -2246,9 +2446,9 @@
     "type": "homo-species-epoch",
     "difficulty": 3,
     "prompt": "In welchen Zeitraum fällt „Australopithecus africanus\"?",
-    "correctAnswer": "Spaetes Pliozaen bis fruehes Pleistozaen, ca. 3,3 bis 2,1 Millionen Jahre vor heute",
+    "correctAnswer": "Spätes Pliozän bis frühes Pleistozän, ca. 3,3 bis 2,1 Millionen Jahre vor heute",
     "options": [
-      "Spaetes Pliozaen bis fruehes Pleistozaen, ca. 3,3 bis 2,1 Millionen Jahre vor heute",
+      "Spätes Pliozän bis frühes Pleistozän, ca. 3,3 bis 2,1 Millionen Jahre vor heute",
       "seit ca. 300.000 Jahren",
       "ca. 400.000 bis 40.000 Jahre vor heute",
       "ca. 1,9 Millionen bis 110.000 Jahre vor heute"
@@ -2726,12 +2926,12 @@
     "type": "homo-bodyfact-name",
     "difficulty": 3,
     "prompt": "Welche Körperangabe beträgt ungefähr 37 Grad Celsius?",
-    "correctAnswer": "Normale Koerpertemperatur",
+    "correctAnswer": "Normale Körpertemperatur",
     "options": [
-      "Normale Koerpertemperatur",
+      "Normale Körpertemperatur",
       "Anzahl Knochen beim Erwachsenen",
       "Anzahl Knochen beim Neugeborenen",
-      "Anzahl Zaehne beim Erwachsenen"
+      "Anzahl Zähne beim Erwachsenen"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -2751,7 +2951,7 @@
       "Blutvolumen eines Erwachsenen",
       "Anzahl Knochen beim Erwachsenen",
       "Anzahl Knochen beim Neugeborenen",
-      "Anzahl Zaehne beim Erwachsenen"
+      "Anzahl Zähne beim Erwachsenen"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -2765,13 +2965,13 @@
     "entityType": "body_fact",
     "type": "homo-bodyfact-name",
     "difficulty": 3,
-    "prompt": "Welche Körperangabe beträgt ungefähr 60-100 Schlaege pro Minute?",
+    "prompt": "Welche Körperangabe beträgt ungefähr 60-100 Schläge pro Minute?",
     "correctAnswer": "Ruhepuls eines Erwachsenen",
     "options": [
       "Ruhepuls eines Erwachsenen",
       "Anzahl Knochen beim Erwachsenen",
       "Anzahl Knochen beim Neugeborenen",
-      "Anzahl Zaehne beim Erwachsenen"
+      "Anzahl Zähne beim Erwachsenen"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -2791,7 +2991,7 @@
       "Skelettmuskeln im Körper",
       "Anzahl Knochen beim Erwachsenen",
       "Anzahl Knochen beim Neugeborenen",
-      "Anzahl Zaehne beim Erwachsenen"
+      "Anzahl Zähne beim Erwachsenen"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -2811,7 +3011,7 @@
       "Wasseranteil des Körpers (Mann)",
       "Anzahl Knochen beim Erwachsenen",
       "Anzahl Knochen beim Neugeborenen",
-      "Anzahl Zaehne beim Erwachsenen"
+      "Anzahl Zähne beim Erwachsenen"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -2831,7 +3031,7 @@
       "Länge des Dünndarms",
       "Anzahl Knochen beim Erwachsenen",
       "Anzahl Knochen beim Neugeborenen",
-      "Anzahl Zaehne beim Erwachsenen"
+      "Anzahl Zähne beim Erwachsenen"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -2846,12 +3046,12 @@
     "type": "homo-organ-function",
     "difficulty": 1,
     "prompt": "Welche Hauptaufgabe erfüllt das Organ „Herz\"?",
-    "correctAnswer": "Pumpt Blut durch den Koerper und versorgt Gewebe mit Sauerstoff und Naehrstoffen.",
+    "correctAnswer": "Pumpt Blut durch den Körper und versorgt Gewebe mit Sauerstoff und Nährstoffen.",
     "options": [
-      "Pumpt Blut durch den Koerper und versorgt Gewebe mit Sauerstoff und Naehrstoffen.",
-      "Entgiftet das Blut, speichert Naehrstoffe und bildet Galle fuer die Fettverdauung.",
+      "Pumpt Blut durch den Körper und versorgt Gewebe mit Sauerstoff und Nährstoffen.",
+      "Entgiftet das Blut, speichert Nährstoffe und bildet Galle für die Fettverdauung.",
       "Nimmt Sauerstoff aus der Atemluft auf und gibt Kohlendioxid an die Ausatemluft ab.",
-      "Steuert Denken, Bewegung, Sinneswahrnehmung und lebenswichtige Koerperfunktionen."
+      "Steuert Denken, Bewegung, Sinneswahrnehmung und lebenswichtige Körperfunktionen."
     ],
     "testedAttribute": "function",
     "answerIsName": false,
@@ -2866,12 +3066,12 @@
     "type": "homo-organ-function",
     "difficulty": 1,
     "prompt": "Welche Hauptaufgabe erfüllt das Organ „Leber\"?",
-    "correctAnswer": "Entgiftet das Blut, speichert Naehrstoffe und bildet Galle fuer die Fettverdauung.",
+    "correctAnswer": "Entgiftet das Blut, speichert Nährstoffe und bildet Galle für die Fettverdauung.",
     "options": [
-      "Entgiftet das Blut, speichert Naehrstoffe und bildet Galle fuer die Fettverdauung.",
-      "Pumpt Blut durch den Koerper und versorgt Gewebe mit Sauerstoff und Naehrstoffen.",
+      "Entgiftet das Blut, speichert Nährstoffe und bildet Galle für die Fettverdauung.",
+      "Pumpt Blut durch den Körper und versorgt Gewebe mit Sauerstoff und Nährstoffen.",
       "Nimmt Sauerstoff aus der Atemluft auf und gibt Kohlendioxid an die Ausatemluft ab.",
-      "Steuert Denken, Bewegung, Sinneswahrnehmung und lebenswichtige Koerperfunktionen."
+      "Steuert Denken, Bewegung, Sinneswahrnehmung und lebenswichtige Körperfunktionen."
     ],
     "testedAttribute": "function",
     "answerIsName": false,
@@ -2889,9 +3089,9 @@
     "correctAnswer": "Nimmt Sauerstoff aus der Atemluft auf und gibt Kohlendioxid an die Ausatemluft ab.",
     "options": [
       "Nimmt Sauerstoff aus der Atemluft auf und gibt Kohlendioxid an die Ausatemluft ab.",
-      "Pumpt Blut durch den Koerper und versorgt Gewebe mit Sauerstoff und Naehrstoffen.",
-      "Entgiftet das Blut, speichert Naehrstoffe und bildet Galle fuer die Fettverdauung.",
-      "Steuert Denken, Bewegung, Sinneswahrnehmung und lebenswichtige Koerperfunktionen."
+      "Pumpt Blut durch den Körper und versorgt Gewebe mit Sauerstoff und Nährstoffen.",
+      "Entgiftet das Blut, speichert Nährstoffe und bildet Galle für die Fettverdauung.",
+      "Steuert Denken, Bewegung, Sinneswahrnehmung und lebenswichtige Körperfunktionen."
     ],
     "testedAttribute": "function",
     "answerIsName": false,
@@ -2906,11 +3106,11 @@
     "type": "homo-organ-function",
     "difficulty": 1,
     "prompt": "Welche Hauptaufgabe erfüllt das Organ „Gehirn\"?",
-    "correctAnswer": "Steuert Denken, Bewegung, Sinneswahrnehmung und lebenswichtige Koerperfunktionen.",
+    "correctAnswer": "Steuert Denken, Bewegung, Sinneswahrnehmung und lebenswichtige Körperfunktionen.",
     "options": [
-      "Steuert Denken, Bewegung, Sinneswahrnehmung und lebenswichtige Koerperfunktionen.",
-      "Pumpt Blut durch den Koerper und versorgt Gewebe mit Sauerstoff und Naehrstoffen.",
-      "Entgiftet das Blut, speichert Naehrstoffe und bildet Galle fuer die Fettverdauung.",
+      "Steuert Denken, Bewegung, Sinneswahrnehmung und lebenswichtige Körperfunktionen.",
+      "Pumpt Blut durch den Körper und versorgt Gewebe mit Sauerstoff und Nährstoffen.",
+      "Entgiftet das Blut, speichert Nährstoffe und bildet Galle für die Fettverdauung.",
       "Nimmt Sauerstoff aus der Atemluft auf und gibt Kohlendioxid an die Ausatemluft ab."
     ],
     "testedAttribute": "function",
@@ -2929,8 +3129,8 @@
     "correctAnswer": "Filtern das Blut, bilden Harn und regeln den Wasser- und Salzhaushalt.",
     "options": [
       "Filtern das Blut, bilden Harn und regeln den Wasser- und Salzhaushalt.",
-      "Pumpt Blut durch den Koerper und versorgt Gewebe mit Sauerstoff und Naehrstoffen.",
-      "Entgiftet das Blut, speichert Naehrstoffe und bildet Galle fuer die Fettverdauung.",
+      "Pumpt Blut durch den Körper und versorgt Gewebe mit Sauerstoff und Nährstoffen.",
+      "Entgiftet das Blut, speichert Nährstoffe und bildet Galle für die Fettverdauung.",
       "Nimmt Sauerstoff aus der Atemluft auf und gibt Kohlendioxid an die Ausatemluft ab."
     ],
     "testedAttribute": "function",
@@ -2946,11 +3146,11 @@
     "type": "homo-organ-function",
     "difficulty": 1,
     "prompt": "Welche Hauptaufgabe erfüllt das Organ „Haut\"?",
-    "correctAnswer": "Schuetzt den Koerper vor Umwelteinfluessen, reguliert die Temperatur und vermittelt den Tastsinn.",
+    "correctAnswer": "Schützt den Körper vor Umwelteinflüssen, reguliert die Temperatur und vermittelt den Tastsinn.",
     "options": [
-      "Schuetzt den Koerper vor Umwelteinfluessen, reguliert die Temperatur und vermittelt den Tastsinn.",
-      "Pumpt Blut durch den Koerper und versorgt Gewebe mit Sauerstoff und Naehrstoffen.",
-      "Entgiftet das Blut, speichert Naehrstoffe und bildet Galle fuer die Fettverdauung.",
+      "Schützt den Körper vor Umwelteinflüssen, reguliert die Temperatur und vermittelt den Tastsinn.",
+      "Pumpt Blut durch den Körper und versorgt Gewebe mit Sauerstoff und Nährstoffen.",
+      "Entgiftet das Blut, speichert Nährstoffe und bildet Galle für die Fettverdauung.",
       "Nimmt Sauerstoff aus der Atemluft auf und gibt Kohlendioxid an die Ausatemluft ab."
     ],
     "testedAttribute": "function",
@@ -2966,11 +3166,11 @@
     "type": "homo-organ-function",
     "difficulty": 2,
     "prompt": "Welche Hauptaufgabe erfüllt das Organ „Milz\"?",
-    "correctAnswer": "Filtert das Blut, baut alte rote Blutkoerperchen ab und ist Teil der Immunabwehr.",
+    "correctAnswer": "Filtert das Blut, baut alte rote Blutkörperchen ab und ist Teil der Immunabwehr.",
     "options": [
-      "Filtert das Blut, baut alte rote Blutkoerperchen ab und ist Teil der Immunabwehr.",
-      "Pumpt Blut durch den Koerper und versorgt Gewebe mit Sauerstoff und Naehrstoffen.",
-      "Entgiftet das Blut, speichert Naehrstoffe und bildet Galle fuer die Fettverdauung.",
+      "Filtert das Blut, baut alte rote Blutkörperchen ab und ist Teil der Immunabwehr.",
+      "Pumpt Blut durch den Körper und versorgt Gewebe mit Sauerstoff und Nährstoffen.",
+      "Entgiftet das Blut, speichert Nährstoffe und bildet Galle für die Fettverdauung.",
       "Nimmt Sauerstoff aus der Atemluft auf und gibt Kohlendioxid an die Ausatemluft ab."
     ],
     "testedAttribute": "function",
@@ -2985,12 +3185,12 @@
     "entityType": "organ",
     "type": "homo-organ-function",
     "difficulty": 2,
-    "prompt": "Welche Hauptaufgabe erfüllt das Organ „Bauchspeicheldruese\"?",
+    "prompt": "Welche Hauptaufgabe erfüllt das Organ „Bauchspeicheldrüse\"?",
     "correctAnswer": "Bildet Verdauungsenzyme und die Hormone Insulin und Glukagon zur Blutzuckerregelung.",
     "options": [
       "Bildet Verdauungsenzyme und die Hormone Insulin und Glukagon zur Blutzuckerregelung.",
-      "Pumpt Blut durch den Koerper und versorgt Gewebe mit Sauerstoff und Naehrstoffen.",
-      "Entgiftet das Blut, speichert Naehrstoffe und bildet Galle fuer die Fettverdauung.",
+      "Pumpt Blut durch den Körper und versorgt Gewebe mit Sauerstoff und Nährstoffen.",
+      "Entgiftet das Blut, speichert Nährstoffe und bildet Galle für die Fettverdauung.",
       "Nimmt Sauerstoff aus der Atemluft auf und gibt Kohlendioxid an die Ausatemluft ab."
     ],
     "testedAttribute": "function",

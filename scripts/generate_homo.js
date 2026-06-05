@@ -1,5 +1,5 @@
 /**
- * Generator fuer die Homo-Domain (Mensch & Körper / Anatomie & Physiologie).
+ * Generator für die Homo-Domain (Mensch & Körper / Anatomie & Physiologie).
  *
  * Liest scripts/data_sources/homo_raw.json (verifizierte Faktenbasis) und erzeugt:
  *   - public/data/concepts_homo.json  : Konzeptspeicher (Map id -> Konzept)
@@ -29,7 +29,7 @@ function deNum(value) {
   return value.toLocaleString('de-DE', { maximumFractionDigits: 4 });
 }
 
-/** Bis zu 3 Distraktoren (numerisch: naechstliegende Werte; sonst Reihenfolge). */
+/** Bis zu 3 Distraktoren (numerisch: nächstliegende Werte; sonst Reihenfolge). */
 function pickDistractors(correct, pool, numeric) {
   const unique = [...new Set(pool.map(v => String(v)))].filter(v => v !== String(correct));
   if (numeric) {
@@ -39,16 +39,70 @@ function pickDistractors(correct, pool, numeric) {
   return unique.slice(0, 3);
 }
 
-// --- Selbstverraeter-Schutz ----------------------------------------------
+// Rundet auf „schoene" Zahlen, damit Distraktoren nicht krumm wirken.
+function niceRound(x) {
+  if (x >= 1000) { const p = Math.pow(10, Math.floor(Math.log10(x)) - 1); return Math.round(x / p) * p; }
+  if (x >= 100) return Math.round(x / 10) * 10;
+  return Math.max(1, Math.round(x));
+}
+
+/**
+ * Distraktoren für physiologische Eckwerte (body_fact). Anders als beim
+ * frueheren Pool-Verfahren werden NICHT Werte anderer Fakten gemischt — sonst
+ * stuenden bei „Blutvolumen" Unsinns-Optionen wie „32 Zähne" oder „206 Knochen".
+ * Stattdessen erzeugen wir plausible Alternativwerte DERSELBEN Einheit rund um
+ * den korrekten Wert. Bereiche (z.B. „60-100") werden als verschobene Bereiche
+ * gleicher Spanne gebildet.
+ */
+// Einheit ohne erklärende Klammer (z.B. „Chromosomen (23 Paare)" -> „Chromosomen"),
+// damit Distraktoren nicht widersprüchlich werden („100 Chromosomen (23 Paare)").
+function bodyFactUnit(c) {
+  return (c.attributes.unit || '').replace(/\s*\([^)]*\)/g, '').trim();
+}
+
+function bodyFactDistractors(c) {
+  const u = bodyFactUnit(c);
+  const unit = u ? ` ${u}` : '';
+  const raw = String(c.attributes.value).trim();
+  const caPrefix = /^ca\.\s*/i.test(raw) ? 'ca. ' : '';
+
+  const range = raw.match(/(\d+)\s*[-–]\s*(\d+)/);
+  if (range) {
+    const a = +range[1], b = +range[2], step = (b - a) + 5;
+    return [
+      `${caPrefix}${Math.max(0, a - step)}-${Math.max(b - a, b - step)}${unit}`,
+      `${caPrefix}${a + step}-${b + step}${unit}`,
+      `${caPrefix}${a + 2 * step}-${b + 2 * step}${unit}`
+    ];
+  }
+
+  // Erste Zahl MIT Ziffernanfang (sonst träfe /[\d.]+/ den Punkt in „ca." -> NaN).
+  const m = raw.match(/\d+(?:[.,]\d+)?/);
+  const n = m ? parseFloat(m[0].replace(',', '.')) : NaN;
+  if (!isFinite(n) || n <= 0) return [];
+
+  // Proportionale Streuung um den korrekten Wert -> immer gleiche Dimension,
+  // nie eine Nonsens-Option aus einer anderen Einheit.
+  const factors = [0.5, 0.7, 0.85, 1.2, 1.4, 1.7, 2];
+  const correctRounded = niceRound(n);
+  const cands = [];
+  for (const f of factors) {
+    const v = niceRound(n * f);
+    if (v !== correctRounded && !cands.includes(v)) cands.push(v);
+  }
+  return cands.slice(0, 3).map(v => `${caPrefix}${deNum(v)}${unit}`);
+}
+
+// --- Selbstverräter-Schutz ----------------------------------------------
 // Wirft Fragen weg, deren Antwort schon im Fragetext/Konzeptnamen steckt.
 // Beispiel: „In welcher Region liegt der Oberarmknochen?" -> Antwort „Arm"
-// (steckt buchstaeblich im Namen). Solche Fragen sind wertlos.
+// (steckt buchstäblich im Namen). Solche Fragen sind wertlos.
 function norm(s) {
   return String(s ?? '').toLowerCase()
     .replace(/ß/g, 'ss').replace(/ä/g, 'a').replace(/ö/g, 'o').replace(/ü/g, 'u')
     .replace(/[^a-z0-9]+/g, ' ').trim();
 }
-// Deutsche Koerperteil-Wortstaemme -> implizierte Region. Damit faellt auch
+// Deutsche Körperteil-Wortstämme -> implizierte Region. Damit fällt auch
 // „Oberschenkelknochen" -> „Bein" auf, obwohl das Wort „Bein" nicht im Namen steht.
 const REGION_STEMS = [
   [/schenkel|wade|schien|knie|ferse|sprung|zeh/, 'bein fuss oberschenkel unterschenkel wade knie fuss'],
@@ -58,7 +112,7 @@ const REGION_STEMS = [
   [/mund|lippe/, 'kopf mund mundoffnung lippe'],
   [/zunge/, 'kopf mund zunge'],
   [/herz/, 'rumpf herz brustkorb brust'],
-  [/rippe|brust|becken|wirbel|kreuz|steiss|schulterblatt|schlussel|sitzbein|rucken|rueck|lende|bauch/, 'rumpf brust brustwand rucken ruecken lendenregion bauch rippen'],
+  [/rippe|brust|becken|wirbel|kreuz|steiss|schulterblatt|schlussel|sitzbein|rucken|rueck|lende|bauch/, 'rumpf brust brustwand rucken rücken lendenregion bauch rippen'],
   [/gesass|huft/, 'gesass hufte']
 ];
 function impliedRegions(name) {
@@ -77,7 +131,7 @@ function revealsAnswer(subject, answer) {
   for (const t of A.split(' ').filter(t => t.length >= 4)) {
     if (sNo.includes(t)) return true;
     // Kleine deutsche Flexionsglättung: "Oberschenkels" soll "Oberschenkel"
-    // treffen, ohne kurze/generische Tokens zu aggressiv zu kuerzen.
+    // treffen, ohne kurze/generische Tokens zu aggressiv zu kürzen.
     const stem = t.length >= 7 ? t.replace(/(ern|en|em|er|es|e|n|s)$/u, '') : t;
     if (stem.length >= 5 && sNo.includes(stem)) return true;
   }
@@ -133,12 +187,12 @@ function latinTerm(c) {
 }
 
 /**
- * Fuer Lage-/Region-Fragen waehlt der Generator den Hinweis bewusst:
- * - normal: deutscher Name, solange er die Antwort nicht verraet
- * - sonst: lateinischer Fachbegriff, wenn vorhanden und selbst nicht verraeterisch
+ * Für Lage-/Region-Fragen wählt der Generator den Hinweis bewusst:
+ * - normal: deutscher Name, solange er die Antwort nicht verrät
+ * - sonst: lateinischer Fachbegriff, wenn vorhanden und selbst nicht verräterisch
  *
  * Das Visual muss bei lateinischem Hinweis den deutschen Konzeptnamen verbergen,
- * weil sonst links wieder "Wadenbein" stehen wuerde, waehrend rechts "Fibula"
+ * weil sonst links wieder "Wadenbein" stehen würde, während rechts "Fibula"
  * abgefragt wird.
  */
 function resolveSubject(c, tpl, correct) {
@@ -192,8 +246,8 @@ const concepts = {};
 for (const c of raw) {
   const key = `${DOMAIN}:${c.id}`;
   const attributes = { ...c.attributes };
-  // Einige aeltere Muskel-Eintraege tragen den Fachbegriff nur in Klammern im
-  // Namen. Fuer konsistente Visuals und Fragen speichern wir ihn abgeleitet mit.
+  // Einige ältere Muskel-Einträge tragen den Fachbegriff nur in Klammern im
+  // Namen. Für konsistente Visuals und Fragen speichern wir ihn abgeleitet mit.
   const latin = latinTerm(c);
   if (latin && !attributes.latinName && (c.category === 'bone' || c.category === 'muscle')) {
     attributes.latinName = latin;
@@ -248,7 +302,15 @@ const templates = [
   {
     category: 'body_fact', attr: '__valueUnit__', type: 'homo-bodyfact-value', difficulty: 2,
     prompt: c => `Welche Angabe gehört zu: „${c.name}"?`,
-    format: (_v, c) => `${c.attributes.value}${c.attributes.unit ? ' ' + c.attributes.unit : ''}`,
+    format: (_v, c) => {
+      const u = bodyFactUnit(c);
+      const raw = String(c.attributes.value).trim();
+      // Reine Ganzzahl (ggf. mit „ca.") tausenderformatiert wie die Distraktoren
+      // anzeigen, sonst verriete das andere Format die richtige Antwort.
+      const m = raw.match(/^(ca\.\s*)?(\d+)$/i);
+      const val = m ? `${m[1] ? 'ca. ' : ''}${deNum(+m[2])}` : raw;
+      return `${val}${u ? ' ' + u : ''}`;
+    },
     valueUnit: true,
     skip: c => !/\d/.test(String(c.attributes.value)) // name-wertige Fakten (z.B. "Haut") überspringen
   },
@@ -261,7 +323,7 @@ const templates = [
 
   // ==== Erweiterte Fragetypen (Stand 2026-06-04, Richtung 5000) ============
   // Nutzen nur bereits verifizierte Attribute -> keine neuen Fakten, nur echte
-  // zusaetzliche Lernwinkel.
+  // zusätzliche Lernwinkel.
 
   // ---- Knochen: lateinischer Name -> deutscher Name (Gegenrichtung) ---
   {
@@ -320,7 +382,7 @@ for (const tpl of templates) {
   const valuePool = conceptsInCat
     .filter(c => !(tpl.skip && tpl.skip(c)))
     .map(c => (tpl.nameAnswer ? c.name : tpl.valueUnit ? tpl.format(null, c) : tpl.format(c.attributes[tpl.attr], c)))
-    // Bei duenn besetzten Attributen (z.B. organ.location nur bei wenigen Organen)
+    // Bei dünn besetzten Attributen (z.B. organ.location nur bei wenigen Organen)
     // liefern Konzepte ohne Wert sonst „undefined" als Distraktor. Leere Werte raus.
     .filter(v => v !== undefined && v !== null && v !== '');
 
@@ -334,12 +396,21 @@ for (const tpl of templates) {
     const correct = tpl.nameAnswer ? c.name : (tpl.valueUnit ? tpl.format(null, c) : tpl.format(rawValue, c));
     const subjectInfo = resolveSubject(c, tpl, correct);
 
-    // Selbstverraeter: steckt die Antwort schon im Hinweis (Name/Wert), Frage verwerfen.
-    if (revealsAnswer(subjectInfo.guardSubject, correct)) continue;
+    // Selbstverräter: steckt die Antwort schon im Hinweis (Name/Wert), Frage verwerfen.
+    // Ausnahme body_fact (valueUnit): hier ist die Antwort die ZAHL; dass die Einheit
+    // („Knochen") auch im Namen („Anzahl Knochen…") steht, verrät die Zahl nicht — und
+    // alle Distraktoren teilen die Einheit. Sonst fielen gute Fragen unnötig weg.
+    if (!tpl.valueUnit && revealsAnswer(subjectInfo.guardSubject, correct)) continue;
 
-    let pool = valuePool.slice();
-    if (tpl.extraDistractors) pool = pool.concat(tpl.extraDistractors);
-    const distractors = pickDistractors(correct, pool, tpl.numeric);
+    // body_fact: dimensionsgleiche Zahl-Distraktoren statt gemischter Pool.
+    let distractors;
+    if (tpl.valueUnit) {
+      distractors = bodyFactDistractors(c);
+    } else {
+      let pool = valuePool.slice();
+      if (tpl.extraDistractors) pool = pool.concat(tpl.extraDistractors);
+      distractors = pickDistractors(correct, pool, tpl.numeric);
+    }
     if (distractors.length < 1) continue;
 
     questions.push({
@@ -351,11 +422,11 @@ for (const tpl of templates) {
       prompt: tpl.prompt(c, subjectInfo),
       correctAnswer: correct,
       options: [correct, ...distractors],
-      // Selbstverraeter-Guard im Visual: das Frontend muss wissen, welches
-      // Attribut die Antwort prueft. Bei Reverse-Templates (Antwort = Konzeptname,
-      // nameAnswer) gibt es kein geprueftes Attribut -> null. Sonst tpl.attr;
+      // Selbstverräter-Guard im Visual: das Frontend muss wissen, welches
+      // Attribut die Antwort prüft. Bei Reverse-Templates (Antwort = Konzeptname,
+      // nameAnswer) gibt es kein geprüftes Attribut -> null. Sonst tpl.attr;
       // beim valueUnit-Template ist '__valueUnit__' nur ein Platzhalter -> das
-      // real gepruefte Attribut ist 'value'.
+      // real geprüfte Attribut ist 'value'.
       testedAttribute: tpl.nameAnswer ? null : (tpl.valueUnit ? 'value' : tpl.attr),
       // answerIsName: true, wenn die korrekte Antwort der Konzeptname ist (Reverse).
       answerIsName: Boolean(tpl.nameAnswer),
