@@ -2,9 +2,9 @@
 
 > **Stand:** 2026-06-04. Wegwerf-Arbeitsdokument; dauerhafte Projektfakten gehören nach `AGENTS.md`.
 >
-> **Vorhaben:** Das bestehende Geografie-Quiz wird zu einem mehrteiligen Wissensspiel **„Scientia potentia"**
-> mit sechs Hauptbereichen ausgebaut. Jeder Bereich hat eigenen Lernfortschritt; die Bereichsauswahl ersetzt
-> die heutige „Terra Weltatlas"-Kopfzeile.
+> **Vorhaben:** Das frühere Geografie-Quiz wird zu einem mehrteiligen Wissensspiel **„Scientia potentia"**
+> mit sechs Hauptbereichen ausgebaut. Jeder Bereich hat eigenen Lernfortschritt; die Bereichsauswahl ist Teil
+> der Domain-Abstraktion.
 >
 > **Leitidee:** Erst die Domain-Abstraktion bauen (die Architektur ist das eigentliche Deliverable),
 > dann Content inkrementell. Qualität schlägt Mengen-Quote. Eine Domain end-to-end, bevor repliziert wird.
@@ -37,9 +37,10 @@ jeder mit eigenem Lernfortschritt und mindestens langfristig großem Fragenkatal
 
 ---
 
-## 2. Ausgangslage (Ist-Architektur)
+## 2. Historische Ausgangslage (vor Domain-Abstraktion)
 
-Diese Fakten sind aus dem Code verifiziert und tragen den ganzen Plan:
+Dieser Abschnitt beschreibt die Ausgangslage vor Phase 0. Er ist historische Begründung, keine aktuelle
+Statusquelle. Aktuelle Architektur und Inhaltszahlen stehen in `AGENTS.md`.
 
 - **SRS trackt Konzepte, nicht Fragen.** `src/App.jsx` (≈ Z. 81–97) iteriert `geodb.entities` und
   berechnet `due`/`new` pro **Entity**. Eine Entity (`FJ`) hat mehrere Fragen
@@ -48,20 +49,20 @@ Diese Fakten sind aus dem Code verifiziert und tragen den ganzen Plan:
 - **Eine globale Welt.** `src/data/geodb.json` = `{ entities: { ID: {…} } }` mit reichen Metadaten.
   `src/components/Quiz.jsx` hängt durchgehend an `geodb.entities[q.entityId]`
   (Highlight, Eltern-Land, Silhouette-Geometrie, Klick-Validierung).
-- **Statischer Import.** `Quiz.jsx` importiert `src/data/quiz_questions.json` (≈ 2.8 MB) statisch,
-  nicht per `fetch`. Aktueller Katalog: **5217 Fragen**.
+- **Damals statischer Import.** `Quiz.jsx` importierte `src/data/quiz_questions.json` statisch,
+  nicht per `fetch`.
   Fragetypen: capital, flag, continent-match, highest-point, currency, silhouette, click-map,
   state-match, state-parent, city-match, reverse-city-match, city-river, river-country,
   reverse-river-country, river-mouth, river-mnemonic.
   Quiz-Modi (`quizMode`): `all | countries | cities | rivers | stadt-land-fluss`.
-- **DB v1.** `progress`-Store keyPath = `entityId`, ohne `domain`-Feld (`src/utils/db.js`).
+- **Damals DB v1.** `progress`-Store keyPath = `entityId`, ohne `domain`-Feld (`src/utils/db.js`).
 - **Tief verdrahteter Klick-Flow.** `App → Map → Quiz` für `click-map`-Fragen
   (`App.jsx` `handleSelectEntityFromMap`, `Quiz.jsx` clickedMapId-Effekt).
 - **Test-Infrastruktur vorhanden:** vitest + React-Testing-Library, `src/__tests__/QuizIntegration.test.jsx`,
   `src/setupTests.js`, `npm test`.
 
-**Konsequenz:** Multi-Domain braucht keine neue Quiz-Engine, aber eine **Abstraktionsschicht** über
-„eine globale Welt" und einen **Konzeptspeicher pro Domain** (heute fehlt er für alles außer Terra).
+**Konsequenz:** Multi-Domain brauchte keine neue Quiz-Engine, aber eine **Abstraktionsschicht** über
+„eine globale Welt" und einen **Konzeptspeicher pro Domain**. Diese Schicht ist inzwischen umgesetzt.
 
 ---
 
@@ -81,7 +82,7 @@ Diese Fakten sind aus dem Code verifiziert und tragen den ganzen Plan:
 ## 4. Datenmodell-Entscheidungen (vorab fixieren)
 
 ### 4.1 Konzept-Begriff verallgemeinern
-Die heutige „Entity" wird zum generischen **Concept**. Key-Schema: `domain:conceptId`.
+Die damalige „Entity" wurde zum generischen **Concept**. Key-Schema: `domain:conceptId`.
 - **Terra bleibt unpräfixt** (`FJ`, `Q64`, …) → keine Migration vorhandener IndexedDB-Records nötig.
   Regel im Code: Key ohne `:` ⇒ Domain `terra`.
 - Neue Domains präfixen (`astra:mars`, `homo:femur`). Kollisionsfrei, da `progress` über `entityId` keyt.
@@ -106,9 +107,10 @@ Damit funktionieren Highlight, Klick-Validierung und Mastery in **jeder** Domain
 
 ---
 
-## 5. Domain-Abstraktion (Code)
+## 5. Domain-Abstraktion (umgesetzt)
 
-`src/domains/index.js` — Registry. Jede Domain kapselt Content + Visualisierung, lazy geladen:
+`src/domains/index.js` — Registry. Jede Domain kapselt Content + Visualisierung, lazy geladen.
+Die Skizze beschreibt das Zielbild; aktuelle Details stehen in `AGENTS.md` und im Code:
 
 ```js
 // loadConcepts/loadQuestions lazy per fetch/import → kein Bundle-Bloat.
@@ -122,24 +124,26 @@ export const DOMAINS = [
     loadQuestions: () => fetch('data/questions_terra.json').then(r => r.json()),
     Visual: MapVisual, // bestehende Map.jsx, gewrappt
   },
-  // astra, homo, natura, cultura, lingua folgen je Phase
+  // astra, homo und weitere Domains folgen demselben Muster
 ];
 ```
 
-Notwendige Umbauten:
+Umgesetzte Umbauten:
 - `App.jsx`: neuer State `activeDomain`; `due`/`new`/`srsProgress` aus der **Domain-Concept-Liste**
   berechnen statt aus globalem `geodb`.
 - `Quiz.jsx`: `questions` + Concept-Lookup als Props/Loader (kein statischer Import,
   keine direkte `geodb`-Referenz mehr).
 - `VisualPanel.jsx`: rendert `activeDomain.Visual`; Terra ⇒ Map.
 - `DomainSwitcher.jsx`: Glassmorphism-Dropdown im Header, sechs Cards mit
-  Icon / Name / Kurzbeschreibung / glühender Mastery-Anzeige.
+  Icon / Name / Kurzbeschreibung / Mastery-Anzeige.
 
 ---
 
 ## 6. Phasen (jede Phase ist launchfähig)
 
 ### Phase 0 — Domain-Abstraktion, Terra unverändert *(kein neuer Content)*
+**Status:** erledigt.
+
 Gleiche App, intern domain-fähig. Null Verhaltensänderung ⇒ sofort mergebar.
 1. Registry `src/domains/index.js`, Terra als einzige Domain.
 2. Concept-Begriff + Key-Schema (4.1); Terra unpräfixt.
@@ -151,9 +155,11 @@ Gleiche App, intern domain-fähig. Null Verhaltensänderung ⇒ sofort mergebar.
 
 **Verifikation:** Terra spielt identisch wie vorher. Bestehende Test-Suite (`npm test`,
 `QuizIntegration.test.jsx`) grün + Browser-Run aller Modi
-(all/countries/cities/rivers/stadt-land-fluss, dazu click-map/silhouette). → Commit + Launch.
+(all/countries/cities/rivers/stadt-land-fluss, dazu click-map/silhouette).
 
 ### Phase 1 — Astra, MCQ-only *(noch kein Click-Map)*
+**Status:** erledigt.
+
 Beweist Multi-Domain ohne Visualisierungs-Risiko.
 1. **Faktenbasis zuerst:** `scripts/data_sources/astra_raw.json`, ~100 *bekannte* Objekte
    (Sonne, Planeten, große Monde, prominente Sterne/Galaxien, Konstanten). Jeder Fakt mit `source`
@@ -165,8 +171,8 @@ Beweist Multi-Domain ohne Visualisierungs-Risiko.
 4. Astra-Concepts in IndexedDB (`astra:*`), eigener Lernfortschritt.
 5. **DomainSwitcher** im Header einführen (Terra + Astra wählbar).
 
-**Verifikation:** strukturell **+ Faktencheck.** Neues `scripts/verify_facts.js`: prüft `source`-Feld
-und Schema, Stichprobe manuell gegen Quelle. Browser-Run einer Astra-Runde. → Commit + Launch (2 Domains).
+**Verifikation:** strukturell **+ Faktencheck.** `scripts/verify_facts.js` prüft `source`-Feld
+und Schema, Stichprobe manuell gegen Quelle. Browser-Run einer Astra-Runde.
 
 ### Phase 2 — Visualisierung pro Frage  *(Nutzer-Vorgabe: jede Frage zeigt links etwas)*
 1. ✅ **2a Backbone (v1.7.0):** `VisualPanel.jsx` als Switch über `domain.Visual` (lazy); Quiz meldet
@@ -174,18 +180,29 @@ und Schema, Stichprobe manuell gegen Quelle. Browser-Run einer Astra-Runde. → 
 2. ✅ **2b Astra (v1.8.0):** `AstraVisual.jsx` — 3D-Himmelskörper (three.js@0.180), echte Texturen
    (Solar System Scope, CC BY 4.0) für Sonne/8 Planeten/Erdmond, sonst prozedural. Sternenfeld.
 3. ✅ **2c Homo (v1.9.0):** `HomoVisual.jsx` — gemeinfreie Anatomiegrafiken (Wikimedia PD) je Kategorie.
-4. ⏳ **2d offen:** konzeptgenaue Hervorhebung (Astra-Click-Map mit Hotspots; Homo Einzelstruktur-
-   Highlight via SVG-Element-IDs). Klick-Flow generalisieren: `onSelectEntity(domainConceptId)`.
+4. ✅ **2d erledigt:** konzeptgenaue Hervorhebung über Astra-Kontextkarte und Homo-Struktur-Marker.
 
 **Verifikation:** Browser-Run je Domain bestätigt (Astra Jupiter texturiert, Homo Skelett) — erledigt.
 
-### Phasen 3–6 — Homo, Natura, Cultura, Lingua *(je einzeln, je Launch)*
-Pro Domain dieselbe Sequenz: verifizierte Faktenbasis (`source`) → MCQ-Generator → Launch →
-optional Visualisierung/Click-Map später.
+### Phase 3 — Homo, MCQ + Anatomievisual
+**Status:** erledigt.
 
 - **Homo:** Rekorde **ohne** namentlich genannte lebende Personen (Copyright/Persönlichkeitsrecht) —
   Kategorie-Fakten. Anatomie-SVG nur CC0/selbst erstellt. Nur harte, wissenschaftliche Fakten,
   keine Krankheiten, keine unseriösen Quellen.
+
+### Phase 5 — Content-Ausbau auf 5000 Fragen/Bereich
+**Status:** offen, laufend.
+
+Hebel sind Konzept-Ausbau und mehr distinkte Fragetypen je Konzept. Aktuelle Zahlen und Erkenntnisse
+stehen in `AGENTS.md`.
+
+### Phasen 4–6 — Natura, Lingua, Cultura *(je einzeln, je Launch)*
+**Status:** offen. Reihenfolge laut zentraler Projektdoku: Natura → Lingua → Cultura.
+
+Pro Domain dieselbe Sequenz: verifizierte Faktenbasis (`source`) → MCQ-Generator → Visualisierung →
+Browser-Run.
+
 - **Natura:** Klimawandel strikt nach IPCC/wissenschaftlichem Konsens (keine Leugner-Quellen).
   Erdgeschichte, Systematik, Evolution, Ökosysteme — kein Krankheiten-Lexikon.
 - **Cultura:** **keine** reproduzierten Songtexte/langen Zitate (Copyright). Nur faktische Zuordnung
@@ -201,8 +218,8 @@ optional Visualisierung/Click-Map später.
   Popkultur/Hard-SF darf zur Auswahl *inspirieren* — Fakten danach gegen wissenschaftliche Quellen prüfen.
 - **Distraktoren** plausibel, gleiche Kategorie, nicht trivial ausschließbar.
 - **Copyright:** keine geschützten Liedtexte/langen Zitate; keine namentlichen Rekorde lebender Personen.
-- **Mengenziel ≥ 5000/Bereich** ist Roadmap, kein Launch-Blocker. Pro Bereich dokumentieren:
-  aktuelle Fragenzahl + Qualitätsstufe + Quellenabdeckung (in `AGENTS.md`).
+- **Mengenziel 5000 Fragen/Bereich** ist hartes Ausbauziel, aber kein Ersatz für Qualität. Pro Bereich
+  dokumentieren: aktuelle Fragenzahl + Qualitätsstufe + Quellenabdeckung (in `AGENTS.md`).
 
 ---
 
@@ -212,7 +229,7 @@ optional Visualisierung/Click-Map später.
 - `scripts/verify_quiz.js` (bestehend) pro Domain: 4 eindeutige Optionen inkl. korrekter Antwort,
   kein Englisch-Leak in deutschen Prompts/Antworten, Frage referenziert existierenden `conceptId`,
   (für Click-Map) SVG-Pfade syntaktisch gültig und im Canvas.
-- `scripts/verify_facts.js` (neu): jeder Fakt hat `source`; Schema-Validierung der Concept-Objekte.
+- `scripts/verify_facts.js`: jeder Fakt hat `source`; Schema-Validierung der Concept-Objekte.
 - Unit-/Integrationstests (vitest/RTL): Domain-Wechsel, DB-Migration v1→v2, Mastery-Berechnung,
   bestehende `QuizIntegration.test.jsx` bleibt grün.
 
@@ -225,34 +242,33 @@ optional Visualisierung/Click-Map später.
 ## 9. Betroffene Dateien (Überblick)
 
 ```
-game_geo/
+ScientiaPotentia/
 ├── public/data/
-│   ├── questions_terra.json     # [NEU] Terra-Fragen ausgelagert (Bundle entlasten)
-│   ├── concepts_<domain>.json   # [NEU] Konzept-/Faktenspeicher pro neuer Domain
-│   └── questions_<domain>.json  # [NEU] Fragen pro neuer Domain
+│   ├── questions_terra.json     # Terra-Fragen ausgelagert (Bundle entlasten)
+│   ├── concepts_<domain>.json   # Konzept-/Faktenspeicher pro neuer Domain
+│   └── questions_<domain>.json  # Fragen pro neuer Domain
 ├── scripts/
-│   ├── data_sources/<domain>_raw.json  # [NEU] verifizierte Fakten + source
-│   ├── generate_<domain>.js     # [NEU] Generator pro Domain
-│   ├── verify_facts.js          # [NEU] Provenance-/Schema-Check
-│   └── verify_quiz.js           # [WIEDERVERWENDEN] pro Domain
+│   ├── data_sources/<domain>_raw.json  # verifizierte Fakten + source
+│   ├── generate_<domain>.js     # Generator pro Domain
+│   ├── verify_facts.js          # Provenance-/Schema-Check
+│   └── verify_quiz.js           # Quiz-Integritätsprüfung
 └── src/
-    ├── domains/index.js         # [NEU] Domain-Registry
+    ├── domains/index.js         # Domain-Registry
     ├── components/
-    │   ├── VisualPanel.jsx      # [NEU] Switch über activeDomain.Visual (ab Phase 2)
-    │   ├── DomainSwitcher.jsx   # [NEU] Header-Dropdown (Phase 1)
-    │   ├── Quiz.jsx             # [ÄNDERN] Loader statt Import, Concept-Lookup statt geodb
-    │   └── Dashboard.jsx        # [ÄNDERN] Mastery pro Domain
-    ├── utils/db.js              # [ÄNDERN] DB v2: domain-Feld + Index, additiv
-    └── App.jsx                  # [ÄNDERN] activeDomain-State, DomainSwitcher einbinden
+    │   ├── VisualPanel.jsx      # Switch über activeDomain.Visual
+    │   ├── DomainSwitcher.jsx   # Header-Domainauswahl
+    │   ├── Quiz.jsx             # Domain-Fragen + Concept-Lookup
+    │   └── Dashboard.jsx        # Mastery pro Domain
+    ├── utils/db.js              # DB v2: domain-Feld + Index, additiv
+    └── App.jsx                  # activeDomain-State, DomainSwitcher
 ```
 
 ---
 
 ## 10. Reihenfolge & Empfehlung
 
-**Phase 0 (reiner Refactor, Terra unverändert) ist der Hebel:** danach ist jede Domain ein kleiner,
-launchbarer Schritt statt eines Sechsfach-Risikos.
+**Aktueller Hebel:** Phase 5 Content-Ausbau. Neue Domains bleiben kleine, einzeln launchbare Schritte.
 
-Reihenfolge der neuen Domains nach Aufwand/Risiko:
-**Astra → Homo → Natura → Lingua → Cultura**
+Reihenfolge der verbleibenden Domains nach zentraler Projektdoku:
+**Natura → Lingua → Cultura**
 (Cultura zuletzt: Copyright + subjektive Auswahl am heikelsten).
