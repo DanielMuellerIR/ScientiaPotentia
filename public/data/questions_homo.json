@@ -2838,5 +2838,445 @@
     "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
+  },
+  {
+    "id": "q_homo_herz_homo-organ-function",
+    "entityId": "homo:herz",
+    "entityType": "organ",
+    "type": "homo-organ-function",
+    "difficulty": 1,
+    "prompt": "Welche Hauptaufgabe erfüllt das Organ „Herz\"?",
+    "correctAnswer": "Pumpt Blut durch den Koerper und versorgt Gewebe mit Sauerstoff und Naehrstoffen.",
+    "options": [
+      "Pumpt Blut durch den Koerper und versorgt Gewebe mit Sauerstoff und Naehrstoffen.",
+      "Entgiftet das Blut, speichert Naehrstoffe und bildet Galle fuer die Fettverdauung.",
+      "Nimmt Sauerstoff aus der Atemluft auf und gibt Kohlendioxid an die Ausatemluft ab.",
+      "Steuert Denken, Bewegung, Sinneswahrnehmung und lebenswichtige Koerperfunktionen."
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_leber_homo-organ-function",
+    "entityId": "homo:leber",
+    "entityType": "organ",
+    "type": "homo-organ-function",
+    "difficulty": 1,
+    "prompt": "Welche Hauptaufgabe erfüllt das Organ „Leber\"?",
+    "correctAnswer": "Entgiftet das Blut, speichert Naehrstoffe und bildet Galle fuer die Fettverdauung.",
+    "options": [
+      "Entgiftet das Blut, speichert Naehrstoffe und bildet Galle fuer die Fettverdauung.",
+      "Pumpt Blut durch den Koerper und versorgt Gewebe mit Sauerstoff und Naehrstoffen.",
+      "Nimmt Sauerstoff aus der Atemluft auf und gibt Kohlendioxid an die Ausatemluft ab.",
+      "Steuert Denken, Bewegung, Sinneswahrnehmung und lebenswichtige Koerperfunktionen."
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_lunge_homo-organ-function",
+    "entityId": "homo:lunge",
+    "entityType": "organ",
+    "type": "homo-organ-function",
+    "difficulty": 1,
+    "prompt": "Welche Hauptaufgabe erfüllt das Organ „Lunge\"?",
+    "correctAnswer": "Nimmt Sauerstoff aus der Atemluft auf und gibt Kohlendioxid an die Ausatemluft ab.",
+    "options": [
+      "Nimmt Sauerstoff aus der Atemluft auf und gibt Kohlendioxid an die Ausatemluft ab.",
+      "Pumpt Blut durch den Koerper und versorgt Gewebe mit Sauerstoff und Naehrstoffen.",
+      "Entgiftet das Blut, speichert Naehrstoffe und bildet Galle fuer die Fettverdauung.",
+      "Steuert Denken, Bewegung, Sinneswahrnehmung und lebenswichtige Koerperfunktionen."
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_gehirn_homo-organ-function",
+    "entityId": "homo:gehirn",
+    "entityType": "organ",
+    "type": "homo-organ-function",
+    "difficulty": 1,
+    "prompt": "Welche Hauptaufgabe erfüllt das Organ „Gehirn\"?",
+    "correctAnswer": "Steuert Denken, Bewegung, Sinneswahrnehmung und lebenswichtige Koerperfunktionen.",
+    "options": [
+      "Steuert Denken, Bewegung, Sinneswahrnehmung und lebenswichtige Koerperfunktionen.",
+      "Pumpt Blut durch den Koerper und versorgt Gewebe mit Sauerstoff und Naehrstoffen.",
+      "Entgiftet das Blut, speichert Naehrstoffe und bildet Galle fuer die Fettverdauung.",
+      "Nimmt Sauerstoff aus der Atemluft auf und gibt Kohlendioxid an die Ausatemluft ab."
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_nieren_homo-organ-function",
+    "entityId": "homo:nieren",
+    "entityType": "organ",
+    "type": "homo-organ-function",
+    "difficulty": 2,
+    "prompt": "Welche Hauptaufgabe erfüllt das Organ „Nieren\"?",
+    "correctAnswer": "Filtern das Blut, bilden Harn und regeln den Wasser- und Salzhaushalt.",
+    "options": [
+      "Filtern das Blut, bilden Harn und regeln den Wasser- und Salzhaushalt.",
+      "Pumpt Blut durch den Koerper und versorgt Gewebe mit Sauerstoff und Naehrstoffen.",
+      "Entgiftet das Blut, speichert Naehrstoffe und bildet Galle fuer die Fettverdauung.",
+      "Nimmt Sauerstoff aus der Atemluft auf und gibt Kohlendioxid an die Ausatemluft ab."
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_haut_homo-organ-function",
+    "entityId": "homo:haut",
+    "entityType": "organ",
+    "type": "homo-organ-function",
+    "difficulty": 1,
+    "prompt": "Welche Hauptaufgabe erfüllt das Organ „Haut\"?",
+    "correctAnswer": "Schuetzt den Koerper vor Umwelteinfluessen, reguliert die Temperatur und vermittelt den Tastsinn.",
+    "options": [
+      "Schuetzt den Koerper vor Umwelteinfluessen, reguliert die Temperatur und vermittelt den Tastsinn.",
+      "Pumpt Blut durch den Koerper und versorgt Gewebe mit Sauerstoff und Naehrstoffen.",
+      "Entgiftet das Blut, speichert Naehrstoffe und bildet Galle fuer die Fettverdauung.",
+      "Nimmt Sauerstoff aus der Atemluft auf und gibt Kohlendioxid an die Ausatemluft ab."
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_milz_homo-organ-function",
+    "entityId": "homo:milz",
+    "entityType": "organ",
+    "type": "homo-organ-function",
+    "difficulty": 2,
+    "prompt": "Welche Hauptaufgabe erfüllt das Organ „Milz\"?",
+    "correctAnswer": "Filtert das Blut, baut alte rote Blutkoerperchen ab und ist Teil der Immunabwehr.",
+    "options": [
+      "Filtert das Blut, baut alte rote Blutkoerperchen ab und ist Teil der Immunabwehr.",
+      "Pumpt Blut durch den Koerper und versorgt Gewebe mit Sauerstoff und Naehrstoffen.",
+      "Entgiftet das Blut, speichert Naehrstoffe und bildet Galle fuer die Fettverdauung.",
+      "Nimmt Sauerstoff aus der Atemluft auf und gibt Kohlendioxid an die Ausatemluft ab."
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_pankreas_homo-organ-function",
+    "entityId": "homo:pankreas",
+    "entityType": "organ",
+    "type": "homo-organ-function",
+    "difficulty": 2,
+    "prompt": "Welche Hauptaufgabe erfüllt das Organ „Bauchspeicheldruese\"?",
+    "correctAnswer": "Bildet Verdauungsenzyme und die Hormone Insulin und Glukagon zur Blutzuckerregelung.",
+    "options": [
+      "Bildet Verdauungsenzyme und die Hormone Insulin und Glukagon zur Blutzuckerregelung.",
+      "Pumpt Blut durch den Koerper und versorgt Gewebe mit Sauerstoff und Naehrstoffen.",
+      "Entgiftet das Blut, speichert Naehrstoffe und bildet Galle fuer die Fettverdauung.",
+      "Nimmt Sauerstoff aus der Atemluft auf und gibt Kohlendioxid an die Ausatemluft ab."
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_schilddruese_homo-organ-location",
+    "entityId": "homo:schilddruese",
+    "entityType": "organ",
+    "type": "homo-organ-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt das Organ „Schilddrüse (Glandula thyroidea)\"?",
+    "correctAnswer": "Vorderer Hals, unterhalb des Kehlkopfs, schmetterlingsförmig um die Luftröhre",
+    "options": [
+      "Vorderer Hals, unterhalb des Kehlkopfs, schmetterlingsförmig um die Luftröhre",
+      "Unterseite der Leber im rechten Oberbauch",
+      "Auf dem oberen Pol jeder Niere im hinteren Oberbauch (jeweils eine links und rechts)",
+      "Oberer vorderer Brustkorb im vorderen oberen Mediastinum, hinter dem Brustbein und vor dem Herzen"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_gallenblase_homo-organ-location",
+    "entityId": "homo:gallenblase",
+    "entityType": "organ",
+    "type": "homo-organ-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt das Organ „Gallenblase (Vesica biliaris)\"?",
+    "correctAnswer": "Unterseite der Leber im rechten Oberbauch",
+    "options": [
+      "Unterseite der Leber im rechten Oberbauch",
+      "Vorderer Hals, unterhalb des Kehlkopfs, schmetterlingsförmig um die Luftröhre",
+      "Auf dem oberen Pol jeder Niere im hinteren Oberbauch (jeweils eine links und rechts)",
+      "Oberer vorderer Brustkorb im vorderen oberen Mediastinum, hinter dem Brustbein und vor dem Herzen"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_nebenniere_homo-organ-location",
+    "entityId": "homo:nebenniere",
+    "entityType": "organ",
+    "type": "homo-organ-location",
+    "difficulty": 3,
+    "prompt": "In welcher Körperregion liegt das Organ „Glandula suprarenalis\"?",
+    "correctAnswer": "Auf dem oberen Pol jeder Niere im hinteren Oberbauch (jeweils eine links und rechts)",
+    "options": [
+      "Auf dem oberen Pol jeder Niere im hinteren Oberbauch (jeweils eine links und rechts)",
+      "Vorderer Hals, unterhalb des Kehlkopfs, schmetterlingsförmig um die Luftröhre",
+      "Unterseite der Leber im rechten Oberbauch",
+      "Oberer vorderer Brustkorb im vorderen oberen Mediastinum, hinter dem Brustbein und vor dem Herzen"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_thymus_homo-organ-location",
+    "entityId": "homo:thymus",
+    "entityType": "organ",
+    "type": "homo-organ-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt das Organ „Thymus (Bries)\"?",
+    "correctAnswer": "Oberer vorderer Brustkorb im vorderen oberen Mediastinum, hinter dem Brustbein und vor dem Herzen",
+    "options": [
+      "Oberer vorderer Brustkorb im vorderen oberen Mediastinum, hinter dem Brustbein und vor dem Herzen",
+      "Vorderer Hals, unterhalb des Kehlkopfs, schmetterlingsförmig um die Luftröhre",
+      "Unterseite der Leber im rechten Oberbauch",
+      "Auf dem oberen Pol jeder Niere im hinteren Oberbauch (jeweils eine links und rechts)"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_zunge_homo-organ-location",
+    "entityId": "homo:zunge",
+    "entityType": "organ",
+    "type": "homo-organ-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt das Organ „Zunge (Lingua)\"?",
+    "correctAnswer": "Mundhöhle, am Mundboden verankert",
+    "options": [
+      "Mundhöhle, am Mundboden verankert",
+      "Vorderer Hals, unterhalb des Kehlkopfs, schmetterlingsförmig um die Luftröhre",
+      "Unterseite der Leber im rechten Oberbauch",
+      "Auf dem oberen Pol jeder Niere im hinteren Oberbauch (jeweils eine links und rechts)"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_gluteus_maximus_homo-muscle-function",
+    "entityId": "homo:gluteus_maximus",
+    "entityType": "muscle",
+    "type": "homo-muscle-function",
+    "difficulty": 3,
+    "prompt": "Welche Funktion hat der Muskel „Großer Gesäßmuskel (Gluteus maximus)\" hauptsächlich?",
+    "correctAnswer": "Streckt das Hüftgelenk, richtet den Rumpf auf und stabilisiert beim Aufstehen und Treppensteigen",
+    "options": [
+      "Streckt das Hüftgelenk, richtet den Rumpf auf und stabilisiert beim Aufstehen und Treppensteigen",
+      "Schließt den Unterkiefer und erzeugt die Kraft zum Kauen und Zerkleinern der Nahrung",
+      "Dämpft die Bewegung des Steigbügels und schützt das Innenohr vor zu lauten Schallreizen",
+      "Pumpt durch rhythmische Kontraktion das Blut durch den Körper- und Lungenkreislauf"
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_masseter_homo-muscle-function",
+    "entityId": "homo:masseter",
+    "entityType": "muscle",
+    "type": "homo-muscle-function",
+    "difficulty": 4,
+    "prompt": "Welche Funktion hat der Muskel „Kaumuskel (Masseter)\" hauptsächlich?",
+    "correctAnswer": "Schließt den Unterkiefer und erzeugt die Kraft zum Kauen und Zerkleinern der Nahrung",
+    "options": [
+      "Schließt den Unterkiefer und erzeugt die Kraft zum Kauen und Zerkleinern der Nahrung",
+      "Streckt das Hüftgelenk, richtet den Rumpf auf und stabilisiert beim Aufstehen und Treppensteigen",
+      "Dämpft die Bewegung des Steigbügels und schützt das Innenohr vor zu lauten Schallreizen",
+      "Pumpt durch rhythmische Kontraktion das Blut durch den Körper- und Lungenkreislauf"
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_myocardium_homo-muscle-function",
+    "entityId": "homo:myocardium",
+    "entityType": "muscle",
+    "type": "homo-muscle-function",
+    "difficulty": 4,
+    "prompt": "Welche Funktion hat der Muskel „Herzmuskel (Myokard)\" hauptsächlich?",
+    "correctAnswer": "Pumpt durch rhythmische Kontraktion das Blut durch den Körper- und Lungenkreislauf",
+    "options": [
+      "Pumpt durch rhythmische Kontraktion das Blut durch den Körper- und Lungenkreislauf",
+      "Streckt das Hüftgelenk, richtet den Rumpf auf und stabilisiert beim Aufstehen und Treppensteigen",
+      "Schließt den Unterkiefer und erzeugt die Kraft zum Kauen und Zerkleinern der Nahrung",
+      "Dämpft die Bewegung des Steigbügels und schützt das Innenohr vor zu lauten Schallreizen"
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_diaphragma_homo-muscle-function",
+    "entityId": "homo:diaphragma",
+    "entityType": "muscle",
+    "type": "homo-muscle-function",
+    "difficulty": 4,
+    "prompt": "Welche Funktion hat der Muskel „Zwerchfell (Diaphragma)\" hauptsächlich?",
+    "correctAnswer": "Wichtigster Atemmuskel: senkt sich beim Einatmen und vergrößert so das Brustraumvolumen",
+    "options": [
+      "Wichtigster Atemmuskel: senkt sich beim Einatmen und vergrößert so das Brustraumvolumen",
+      "Streckt das Hüftgelenk, richtet den Rumpf auf und stabilisiert beim Aufstehen und Treppensteigen",
+      "Schließt den Unterkiefer und erzeugt die Kraft zum Kauen und Zerkleinern der Nahrung",
+      "Dämpft die Bewegung des Steigbügels und schützt das Innenohr vor zu lauten Schallreizen"
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_biceps_brachii_homo-muscle-function",
+    "entityId": "homo:biceps_brachii",
+    "entityType": "muscle",
+    "type": "homo-muscle-function",
+    "difficulty": 2,
+    "prompt": "Welche Funktion hat der Muskel „Bizeps (Musculus biceps brachii)\" hauptsächlich?",
+    "correctAnswer": "Beugt den Unterarm im Ellenbogen und dreht die Hand nach außen (Supination)",
+    "options": [
+      "Beugt den Unterarm im Ellenbogen und dreht die Hand nach außen (Supination)",
+      "Streckt das Hüftgelenk, richtet den Rumpf auf und stabilisiert beim Aufstehen und Treppensteigen",
+      "Schließt den Unterkiefer und erzeugt die Kraft zum Kauen und Zerkleinern der Nahrung",
+      "Dämpft die Bewegung des Steigbügels und schützt das Innenohr vor zu lauten Schallreizen"
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_triceps_brachii_homo-muscle-function",
+    "entityId": "homo:triceps_brachii",
+    "entityType": "muscle",
+    "type": "homo-muscle-function",
+    "difficulty": 2,
+    "prompt": "Welche Funktion hat der Muskel „Trizeps (Musculus triceps brachii)\" hauptsächlich?",
+    "correctAnswer": "Streckt den Unterarm im Ellenbogengelenk und ist Gegenspieler des Bizeps",
+    "options": [
+      "Streckt den Unterarm im Ellenbogengelenk und ist Gegenspieler des Bizeps",
+      "Streckt das Hüftgelenk, richtet den Rumpf auf und stabilisiert beim Aufstehen und Treppensteigen",
+      "Schließt den Unterkiefer und erzeugt die Kraft zum Kauen und Zerkleinern der Nahrung",
+      "Dämpft die Bewegung des Steigbügels und schützt das Innenohr vor zu lauten Schallreizen"
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_gastrocnemius_homo-muscle-function",
+    "entityId": "homo:gastrocnemius",
+    "entityType": "muscle",
+    "type": "homo-muscle-function",
+    "difficulty": 4,
+    "prompt": "Welche Funktion hat der Muskel „Wadenmuskel (Musculus gastrocnemius)\" hauptsächlich?",
+    "correctAnswer": "Beugt den Fuß nach unten (Plantarflexion) und ermöglicht Abstoßen beim Gehen, Laufen und Springen",
+    "options": [
+      "Beugt den Fuß nach unten (Plantarflexion) und ermöglicht Abstoßen beim Gehen, Laufen und Springen",
+      "Streckt das Hüftgelenk, richtet den Rumpf auf und stabilisiert beim Aufstehen und Treppensteigen",
+      "Schließt den Unterkiefer und erzeugt die Kraft zum Kauen und Zerkleinern der Nahrung",
+      "Dämpft die Bewegung des Steigbügels und schützt das Innenohr vor zu lauten Schallreizen"
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_sartorius_homo-muscle-function",
+    "entityId": "homo:sartorius",
+    "entityType": "muscle",
+    "type": "homo-muscle-function",
+    "difficulty": 4,
+    "prompt": "Welche Funktion hat der Muskel „Schneidermuskel (Musculus sartorius)\" hauptsächlich?",
+    "correctAnswer": "Beugt Hüfte und Knie und ermöglicht das Übereinanderschlagen der Beine",
+    "options": [
+      "Beugt Hüfte und Knie und ermöglicht das Übereinanderschlagen der Beine",
+      "Streckt das Hüftgelenk, richtet den Rumpf auf und stabilisiert beim Aufstehen und Treppensteigen",
+      "Schließt den Unterkiefer und erzeugt die Kraft zum Kauen und Zerkleinern der Nahrung",
+      "Dämpft die Bewegung des Steigbügels und schützt das Innenohr vor zu lauten Schallreizen"
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_deltoideus_homo-muscle-function",
+    "entityId": "homo:deltoideus",
+    "entityType": "muscle",
+    "type": "homo-muscle-function",
+    "difficulty": 4,
+    "prompt": "Welche Funktion hat der Muskel „Deltamuskel (Musculus deltoideus)\" hauptsächlich?",
+    "correctAnswer": "Hebt den Arm zur Seite (Abduktion) und gibt der Schulter ihre runde Form",
+    "options": [
+      "Hebt den Arm zur Seite (Abduktion) und gibt der Schulter ihre runde Form",
+      "Streckt das Hüftgelenk, richtet den Rumpf auf und stabilisiert beim Aufstehen und Treppensteigen",
+      "Schließt den Unterkiefer und erzeugt die Kraft zum Kauen und Zerkleinern der Nahrung",
+      "Dämpft die Bewegung des Steigbügels und schützt das Innenohr vor zu lauten Schallreizen"
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
   }
 ]

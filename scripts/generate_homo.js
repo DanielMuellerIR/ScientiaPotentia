@@ -281,6 +281,32 @@ const templates = [
     subject: c => `${c.attributes.value} ${c.attributes.unit || ''}`, // Hinweis ist der Wert
     prompt: c => `Welche Körperangabe beträgt ungefähr ${c.attributes.value}${c.attributes.unit ? ' ' + c.attributes.unit : ''}?`,
     skip: c => !/\d/.test(String(c.attributes.value)) // nur numerische Werte
+  },
+
+  // Hinweis: Ein eigener „Muskel <-> lateinischer Fachbegriff"-Fragetyp entfällt
+  // bewusst. Anders als bei den Knochen tragen alle Muskel-Konzeptnamen den
+  // lateinischen Begriff bereits in Klammern (z.B. „Großer Brustmuskel (Musculus
+  // pectoralis major)"), sodass Hinweis und Antwort identisch wären — der
+  // Selbstverräter-Guard würde jede solche Frage verwerfen. Der lateinische
+  // Begriff wird stattdessen schon in „homo-muscle-location" als Hinweis genutzt.
+
+  // ---- Organe: Hauptaufgabe (Funktion) -------------------------------
+  {
+    category: 'organ', attr: 'function', type: 'homo-organ-function', difficulty: 2,
+    prompt: c => `Welche Hauptaufgabe erfüllt das Organ „${c.name}"?`,
+    format: v => v
+  },
+  // ---- Organe: Lage (Körperregion) -----------------------------------
+  {
+    category: 'organ', attr: 'location', type: 'homo-organ-location', difficulty: 2, regionAnswer: true,
+    prompt: (c, subject) => `In welcher Körperregion liegt das Organ „${subject.label}"?`,
+    format: v => v
+  },
+  // ---- Muskeln: Hauptfunktion ----------------------------------------
+  {
+    category: 'muscle', attr: 'function', type: 'homo-muscle-function', difficulty: 3,
+    prompt: c => `Welche Funktion hat der Muskel „${c.name}" hauptsächlich?`,
+    format: v => v
   }
 ];
 
@@ -293,7 +319,10 @@ for (const tpl of templates) {
   // sind andere Namen derselben Kategorie. Das im Prompt genannte Attribut muss da sein.
   const valuePool = conceptsInCat
     .filter(c => !(tpl.skip && tpl.skip(c)))
-    .map(c => (tpl.nameAnswer ? c.name : tpl.valueUnit ? tpl.format(null, c) : tpl.format(c.attributes[tpl.attr], c)));
+    .map(c => (tpl.nameAnswer ? c.name : tpl.valueUnit ? tpl.format(null, c) : tpl.format(c.attributes[tpl.attr], c)))
+    // Bei duenn besetzten Attributen (z.B. organ.location nur bei wenigen Organen)
+    // liefern Konzepte ohne Wert sonst „undefined" als Distraktor. Leere Werte raus.
+    .filter(v => v !== undefined && v !== null && v !== '');
 
   for (const c of conceptsInCat) {
     if (tpl.skip && tpl.skip(c)) continue;
