@@ -1,5 +1,5 @@
 import { lazy } from 'react';
-import { Globe2, Sparkles, PersonStanding, Orbit } from 'lucide-react';
+import { Globe2, Sparkles, PersonStanding, Orbit, Leaf } from 'lucide-react';
 
 // Spezialisierte Visualisierungen lazy laden, damit schwere Abhaengigkeiten
 // (z.B. three.js fuer Astra) nur ins Bundle kommen, wenn die Domain aktiv ist.
@@ -69,6 +69,19 @@ export const DOMAINS = [
     Visual: HomoVisual,
     loadConcepts: () => fetch('data/concepts_homo.json').then(handleJson),
     loadQuestions: () => fetch('data/questions_homo.json').then(handleJson)
+  },
+  {
+    id: 'natura',
+    latinName: 'Natura',
+    label: 'Natur & Umwelt',
+    shortLabel: 'Naturkunde',
+    description: 'Tiere, Pflanzen, Pilze, Lebensräume, Gesteine und Naturphänomene.',
+    Icon: Leaf,
+    accent: '#3E7D5A',
+    // MCQ-only: nutzt das generische ConceptVisual (Bild/Kennwerte pro Konzept).
+    hasMap: false,
+    loadConcepts: () => fetch('data/concepts_natura.json').then(handleJson),
+    loadQuestions: () => fetch('data/questions_natura.json').then(handleJson)
   }
 ];
 

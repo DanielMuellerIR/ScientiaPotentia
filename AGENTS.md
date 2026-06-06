@@ -29,7 +29,8 @@ Geplante Bereiche: **Terra** (Geografie), **Astra** (Astronomie), **Homo** (Mens
 | Phase 2c | Homo Anatomiegrafiken (Wikimedia PD) pro Frage | ✅ erledigt (v1.9.0) |
 | Phase 2d | Konzeptgenaue Hervorhebung (Astra Kontext-Karte, Homo Struktur-Marker) | ✅ erledigt (v1.11.0) |
 | Phase 5 | **Content-Ausbau auf 5000 Fragen/Bereich** (mehr Fragetypen + Konzeptausbau) | offen, laufend (v1.12.4: Astra 100K/331F, Homo 96K/174F) |
-| Phase 4–6 | Natura, Lingua, Cultura | offen (Reihenfolge: Natura → Lingua → Cultura) |
+| Phase 4 | **Natura (MCQ-only)** als Domain verdrahtet (Merge→Generator→Registry, 98 Konzepte/302 Fragen) | ✅ erledigt (v1.14.0) |
+| Phase 4–6 | Lingua, Cultura (Harvest-Daten liegen, noch nicht verdrahtet) | offen (Reihenfolge: Lingua → Cultura) |
 
 **Neue verbindliche Anforderungen (Stand 2026-06-04, Nutzer-Vorgabe):**
 - **Jede Quizfrage MUSS links eine passende Visualisierung zeigen** (sonst „todlangweilig"). Umgesetzt
@@ -112,6 +113,7 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 | Terra  | 1852 | 5217 | Natural Earth / GeoNames / Wikidata | Weltkarte (MapLibre), pro Frage Highlight |
 | Astra  | 100 | 331 | NASA / IAU / ESA | **3D-Himmelskörper (three.js)** + Kontext-Karte (Bahn/Distanz), Texturen Solar System Scope (CC BY 4.0) |
 | Homo   | 96 | 174 | Gray's Anatomy / Prometheus / NIH | **Anatomiegrafiken (Wikimedia, PD)** + konzeptgenauer Struktur-Marker je Frage |
+| Natura | 98 | 302 | Wikipedia / USGS / IUCN / IPCC | generische Konzeptkarte (`ConceptVisual`); freies Commons-Foto je Konzept hinterlegt (`concept.image`, fürs spätere Museum) |
 
 > Fragenzahlen Astra/Homo sind noch weit vom 5000-Ziel — Content-Ausbau (Phase 5) läuft weiter.
 > Homo hat wenig Fragen/Konzept (174/96): Hebel = mehr Fragetypen je Kategorie (Astra: 331/100).
@@ -193,7 +195,19 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 ### Befehle
 `npm run dev` (Port 3000) · `npm run build` · `node scripts/generate_<domain>.js` ·
 `node scripts/verify_facts.js <domain>` · `node scripts/verify_quiz.js` (Terra) ·
-`node scripts/merge_phase5.js [--write]` (Einmal-Helfer: Recherche-Konzepte deduppen+putzen+anhängen).
+`node scripts/merge_phase5.js [--write]` (Einmal-Helfer: Recherche-Konzepte deduppen+putzen+anhängen) ·
+`node scripts/merge_natura.js [--write]` (Harvest→natura_raw.json: Key-/Wert-Normalisierung + Dedup) ·
+`node scripts/generate_natura.js`.
+
+> **Natura-Verdrahtung (v1.14.0):** Vorlage für Lingua/Cultura. Stolperstein war die
+> **uneinheitliche Ernte**: zwei Finder-Konventionen (Deutsch `maxGewichtKg`/`gefaehrdungsstatus`
+> vs. Englisch `maxWeightKg`/`status`) UND zwei Werte-Sprachen (`klasse`="Säugetiere" vs.
+> "Mammalia"; Status dt.+Code vs. engl. Wort). `merge_natura.js` kanonisiert deshalb **Keys**
+> (→ englisch) UND **Werte** (Tierklasse → eine dt. Form; IUCN-Status → dt. Bezeichnung+Code,
+> mehrdeutige bleiben Originaltext und werden in der Status-Frage übersprungen). Ohne das
+> zerfallen die kategorie-internen Distraktor-Pools. `generate_natura.js` zieht numerische
+> Distraktoren aus **rohen Zahlen** (echt nächstliegend) statt aus formatierten Strings.
+> Bilder lagen schon aufgelöst in der Ernte (Phase C); `concept.image` führt sie fürs Museum mit.
 Browser-Preview-Config: `.claude/launch.json` (Server „dev", Port 3000; nicht eingecheckt).
 
 ---

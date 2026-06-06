@@ -33,7 +33,16 @@ const CATEGORY_LABELS = {
   muscle: 'Muskel',
   organ: 'Organ',
   body_fact: 'Körperwert',
-  species: 'Menschenart'
+  species: 'Menschenart',
+  // Natura
+  animal: 'Tier',
+  plant: 'Pflanze',
+  fungus: 'Pilz',
+  biome: 'Lebensraum',
+  geology: 'Geologie',
+  mineral: 'Mineral',
+  atmosphere: 'Atmosphäre',
+  phenomenon: 'Naturphänomen'
 };
 
 // Deutsche Labels fuer haeufige Attribut-Schluessel (Fallback: Roh-Schluessel).
@@ -70,7 +79,39 @@ const ATTR_LABELS = {
   hasRings: 'Ringe',
   discoveredYear: 'Entdeckt',
   definition: 'Definition',
-  function: 'Funktion'
+  function: 'Funktion',
+  // Natura-Attribute (kanonische Keys aus merge_natura.js).
+  class: 'Tierklasse',
+  order: 'Ordnung',
+  range: 'Verbreitung',
+  conservationStatus: 'Schutzstatus (IUCN)',
+  maxLengthCm: 'max. Länge (cm)',
+  maxWeightKg: 'max. Gewicht (kg)',
+  lifespanYears: 'Lebensdauer (Jahre)',
+  topSpeedKmh: 'Geschwindigkeit (km/h)',
+  maxWingspanCm: 'Spannweite (cm)',
+  scientificName: 'Wissenschaftl. Name',
+  maxHeightM: 'max. Höhe (m)',
+  maxAgeYears: 'max. Alter (Jahre)',
+  origin: 'Herkunft',
+  mohsHardness: 'Mohshärte',
+  kristallsystem: 'Kristallsystem',
+  chemischeFormel: 'Chemische Formel',
+  lage: 'Lage',
+  vulkantyp: 'Vulkantyp',
+  // Häufige Natura-Einzelattribute (verhindert rohe camelCase-Keys im Panel).
+  herzgewichtKg: 'Herzgewicht (kg)',
+  herzfrequenzMin: 'Herzfrequenz (1/min)',
+  koerperlaengeCm: 'Körperlänge (cm)',
+  maxGewichtG: 'max. Gewicht (g)',
+  schulterhoeheMaxCm: 'Schulterhöhe (cm)',
+  tiefenbereichM: 'Tiefenbereich (m)',
+  maxTauchtiefeM: 'max. Tauchtiefe (m)',
+  maxTauchzeitMin: 'max. Tauchzeit (min)',
+  beissKraftN: 'Beißkraft (N)',
+  maxGroesseMm: 'max. Größe (mm)',
+  fluegelschlaegeSekunde: 'Flügelschläge/s',
+  migrationsdistanzKm: 'Migrationsdistanz (km)'
 };
 
 // Diese Freitext-Attribute beschreiben das Konzept so konkret, dass sie vor der
