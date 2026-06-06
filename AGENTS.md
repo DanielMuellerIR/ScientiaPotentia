@@ -208,6 +208,23 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 > zerfallen die kategorie-internen Distraktor-Pools. `generate_natura.js` zieht numerische
 > Distraktoren aus **rohen Zahlen** (echt nächstliegend) statt aus formatierten Strings.
 > Bilder lagen schon aufgelöst in der Ernte (Phase C); `concept.image` führt sie fürs Museum mit.
+
+> **Natura — offene Schritte (Stand 2026-06-06):**
+> 1. **Bilder geprüft, aber unsichtbar.** `node scripts/check_images.cjs scripts/data_sources/natura_raw.json`
+>    bestätigt **98/98** Commons-Bilder live: existieren, Bild-MIME, freie Lizenz. ABER: sie werden
+>    **nirgends angezeigt** — das linke Quiz-Panel (`ConceptVisual`) rendert nur das Domain-Icon, und
+>    es gibt **kein Natura-Museum**. Die Bilder liegen also brach. Gespeichert ist die Commons-**Dateiseite**
+>    (`/wiki/File:…`); zum Anzeigen `https://commons.wikimedia.org/wiki/Special:FilePath/<Dateiname>?width=…`
+>    nutzen (302-Redirect auf die echte Datei, direkt in `<img>` verwendbar).
+> 2. **TODO Museum (Erkundungsbereich).** Wiederverwendbare, themebare Galerie bauen — Muster:
+>    `SolarSystemExplorer.jsx` + Explorer-Verdrahtung in `App.jsx` (Tab „explore", nur wenn `domain.Explorer`
+>    gesetzt; Felder `Explorer`/`explorerLabel`/`ExplorerIcon` in `src/domains/index.js`). Grid aller
+>    Konzepte mit Foto (Special:FilePath), Kategorie-Filter, Detail mit Attributen/FunFact/Quelle+Lizenz.
+>    Danach Bilder visuell stichproben (Resolver nahm „erstes freies Treffer" → thematische Eignung prüfen).
+> 3. **TODO Content-Ausbau.** Aktuell nur **49 Tiere** (98 Konzepte gesamt) — Runde-1-Ernte. Mehr sammeln
+>    (Schwerpunkt Tiere) per `content_pipeline.md`: Harvest → Phase C Bilder → `merge_natura.js` → `generate_natura.js`.
+> 4. **Hinweis:** `concepts_astra.json`/`concepts_homo.json` haben **kein** `image`-Feld — fürs Museum dort
+>    nachrüsten (Astra-Bilder in `astra_raw`/Assets, Homo nutzt Anatomie-Assets).
 Browser-Preview-Config: `.claude/launch.json` (Server „dev", Port 3000; nicht eingecheckt).
 
 ---
