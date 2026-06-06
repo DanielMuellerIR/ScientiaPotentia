@@ -81,11 +81,14 @@ export default function Dashboard({
     }
   });
 
+  // Schwierigkeitsbeschreibungen domain-neutral halten: identischer Text gilt für
+  // alle Bereiche (Terra/Astra/Homo/Natura). Nur Schwierigkeit + Punkte-Multiplikator
+  // beschreiben, keine geografiespezifischen Begriffe (Länder/Silhouetten/Provinzen).
   const levelInfo = {
-    1: { title: 'Leicht (Stufe 1)', desc: 'Einfache Länder, Kontinente & leichte Silhouetten. (1x Punkte)' },
-    2: { title: 'Mittel (Stufe 2)', desc: 'Mittelschwere Länder, Karten-Klick & Städte-Zuordnung. (2.5x Punkte)' },
-    3: { title: 'Schwer (Stufe 3)', desc: 'Subnational: Bundesländer & Provinzen (Umrisse & Klicks). (5x Punkte)' },
-    4: { title: 'Meister (Stufe 4)', desc: 'Meister: Exotische Länder, ferne Provinzen & obscure Städte. (10x Punkte)' }
+    1: { title: 'Leicht (Stufe 1)', desc: 'Grundlagen und bekannte Konzepte. (1x Punkte)' },
+    2: { title: 'Mittel (Stufe 2)', desc: 'Mittelschwer: weniger geläufige Konzepte. (2.5x Punkte)' },
+    3: { title: 'Schwer (Stufe 3)', desc: 'Anspruchsvoll: seltenere Konzepte und feine Details. (5x Punkte)' },
+    4: { title: 'Meister (Stufe 4)', desc: 'Meister: seltene, exotische und schwer zu merkende Konzepte. (10x Punkte)' }
   };
 
   return (
