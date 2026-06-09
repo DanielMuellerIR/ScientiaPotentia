@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-import { describe, it, expect, vi } from 'vitest';
+import { render, screen, fireEvent, waitFor, cleanup } from '@testing-library/react';
+import { describe, it, expect, vi, afterEach } from 'vitest';
 import Quiz from '../components/Quiz';
 import Map from '../components/Map';
 
@@ -133,6 +133,12 @@ function QuizMapTestWrapper({ quizMode = 'all', difficulty = 1, onFinished = () 
     </div>
   );
 }
+
+// Bei globals:false führt @testing-library/react cleanup() nicht automatisch aus.
+// Expliziter afterEach stellt sicher, dass der DOM nach jedem Test geleert wird.
+afterEach(() => {
+  cleanup();
+});
 
 describe('Quiz & Map Integration Test', () => {
   it('loads the components, clicks the correct option for city-river question, renders "Weiter" without errors, and transitions to next question', async () => {

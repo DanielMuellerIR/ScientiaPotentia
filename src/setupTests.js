@@ -1,5 +1,7 @@
 import { vi } from 'vitest';
-import '@testing-library/jest-dom';
+// Vitest-spezifischer Import: ruft intern expect.extend() auf,
+// sodass jest-dom-Matcher (toBeInTheDocument, toBeDisabled, …) verfügbar sind.
+import '@testing-library/jest-dom/vitest';
 
 // Mock maplibre-gl
 vi.mock('maplibre-gl', () => {

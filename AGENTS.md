@@ -354,10 +354,10 @@ Die Rohdaten der Recherche befinden sich in den exportierten Sitzungsprotokollen
   bisher nur in der Browser-Preview bei 375×812 / 844×390 verifiziert. Auf echtem Gerät prüfen
   (Safari iOS, hochkant + quer): Karte oben sichtbar, Fragen rechts/unten vollständig scrollbar,
   Header-Umbruch ok, `100dvh` korrekt bei ein-/ausblendender Adressleiste. Siehe `LAYOUT.md`.
-- [ ] **Test-Infrastruktur reparieren:** `src/__tests__/QuizIntegration.test.jsx` läuft nicht —
-  `vitest`/`@testing-library/react` sind weder in `package.json` deklariert noch installiert,
-  es gibt kein `test`-Script. Entweder Test-Setup vollständig verdrahten oder die tote Testdatei
-  klären. (Layout-Regression ist separat über `npm run check:layout` abgedeckt.)
+- [x] **Test-Infrastruktur repariert (v1.15.2):** `vitest`/`jsdom`/`@testing-library/react`/`-jest-dom`
+  als devDependencies ergänzt, `test`-Block in `vite.config.js` (jsdom, setupFiles), Scripts
+  `npm test` / `npm run test:watch`. `QuizIntegration.test.jsx` läuft grün (2 Tests). Layout-Regression
+  separat über `npm run check:layout`.
 
 ### 2. Ablaufplan-Status
 - [x] **Session 1:** Datenrettung Codex, Aufbereitung `AGENTS.md`.
