@@ -446,7 +446,10 @@ export default function App() {
                 <activeDomain.Explorer domain={activeDomain} concepts={concepts} srsProgress={srsProgress} />
               </Suspense>
             </div>
-            <div style={{ width: '390px', height: '100%', zIndex: 10, flexShrink: 0 }}>
+            {/* minHeight:0 + overflowY:auto = Scroll-Sicherheitsnetz: zu hoher Inhalt
+                (z.B. Quiz auf niedrigem Viewport / Querformat-Handy) wird scrollbar
+                statt abgeschnitten. Siehe mobile-layout-plan.md, Tier 0. */}
+            <div style={{ width: '390px', height: '100%', minHeight: 0, overflowY: 'auto', zIndex: 10, flexShrink: 0 }}>
               <Dashboard
                 geodb={domainDb}
                 domain={activeDomain}
@@ -487,10 +490,15 @@ export default function App() {
           />
         </div>
 
-        {/* Floating Sidebar panel */}
+        {/* Floating Sidebar panel.
+            minHeight:0 + overflowY:auto = Scroll-Sicherheitsnetz: zu hoher Inhalt
+            (z.B. Quiz auf niedrigem Viewport / Querformat-Handy) wird scrollbar
+            statt abgeschnitten. Siehe mobile-layout-plan.md, Tier 0. */}
         <div style={{
           width: '390px',
           height: '100%',
+          minHeight: 0,
+          overflowY: 'auto',
           zIndex: 10,
           flexShrink: 0
         }}>
