@@ -1,9 +1,13 @@
-# Scientia potentia — Multi-Domain-Wissensquiz
+# Scientia — Multi-Domain-Wissensquiz
+
+> **Name/Leitspruch:** Das Quiz heißt **Scientia**. *„Scientia potentia est"* (Wissen ist
+> Macht) ist der Leitspruch und erscheint nur an passenden Stellen (Header-Tooltip, README,
+> künftiger About-Dialog), nicht als Produktname.
 
 > **Stand: 2026-06-05.** Lebendes Dokument, zentrale Quelle für Projektfakten.
 
 Aus dem ursprünglichen Geografie-Quiz („Terra Weltatlas") entsteht ein mehrteiliges
-Wissensspiel **Scientia potentia** mit eigenständigen Wissensbereichen (Domains), je mit
+Wissensspiel **Scientia** mit eigenständigen Wissensbereichen (Domains), je mit
 eigenem Lernfortschritt (Spaced Repetition / SM-2). Terra (Geografie) ist der erste, voll
 ausgebaute Bereich; weitere folgen je einzeln und launchfähig.
 

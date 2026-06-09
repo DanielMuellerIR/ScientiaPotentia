@@ -338,7 +338,7 @@ export default function App() {
             title="Scientia potentia est — Wissen ist Macht"
             style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, letterSpacing: '0.5px', whiteSpace: 'nowrap' }}
           >
-            Scientia potentia · v{pkg.version}
+            Scientia · v{pkg.version}
           </span>
         </div>
 

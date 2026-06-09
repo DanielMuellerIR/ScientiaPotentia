@@ -1,6 +1,8 @@
-# Scientia potentia — Multi-Domain-Wissensquiz
+# Scientia — Multi-Domain-Wissensquiz
 
-**Scientia potentia** ist ein responsives Wissensspiel für moderne Webbrowser. Das Projekt ist aus
+> *Scientia potentia est* — Wissen ist Macht.
+
+**Scientia** ist ein responsives Wissensspiel für moderne Webbrowser. Das Projekt ist aus
 dem Geografie-Spiel „Terra Weltatlas" entstanden und erweitert die Quiz-Engine auf mehrere
 Wissensbereiche mit eigenem Lernfortschritt.
 
