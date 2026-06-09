@@ -304,28 +304,12 @@ export default function App() {
     });
   };
 
+  // Shell-Layout via CSS-Klassen statt Inline-Styles — Masse/Responsive
+  // zentral in index.css (.app-shell etc.). Siehe mobile-layout-plan.md.
   return (
-    <div style={{
-      display: 'flex',
-      flexDirection: 'column',
-      height: '100vh',
-      width: '100vw',
-      background: 'var(--bg-main)',
-      color: 'var(--text-main)',
-      fontFamily: 'var(--font-sans)',
-      paddingBottom: '8px'
-    }}>
+    <div className="app-shell">
       {/* Terra Academic Header */}
-      <header className="terra-panel" style={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        padding: '12px 24px',
-        margin: '12px 24px 0 24px',
-        height: '60px',
-        border: '1px solid var(--border-light)',
-        zIndex: 100
-      }}>
+      <header className="terra-panel app-header">
         {/* Bereichsauswahl + App-Wortmarke (ersetzt die frühere statische Kopfzeile) */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
           <DomainSwitcher
@@ -335,6 +319,7 @@ export default function App() {
             srsProgress={srsProgress}
           />
           <span
+            className="app-wordmark"
             title="Scientia potentia est — Wissen ist Macht"
             style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, letterSpacing: '0.5px', whiteSpace: 'nowrap' }}
           >
@@ -422,14 +407,7 @@ export default function App() {
       </header>
 
       {/* Main Layout Area */}
-      <main style={{
-        flex: 1,
-        display: 'flex',
-        padding: '12px 24px 12px 24px',
-        gap: '20px',
-        overflow: 'hidden',
-        position: 'relative'
-      }}>
+      <main className="app-main">
         {/* Erkundungsmodus: der domänen-eigene Explorer (z.B. Astra-Sonnensystem)
             nutzt die volle Breite, ohne rechte Sidebar. Sonst das gewohnte
             Zwei-Spalten-Layout (Visual links, Tab-Panel rechts). */}
@@ -437,7 +415,7 @@ export default function App() {
           <>
             {/* Erkundung links (z.B. Astra-Sonnensystem), rechts die gewohnte
                 Dashboard-Sidebar mit Stufen-Wähler + Quiz-Start — analog zu Terra. */}
-            <div style={{ flex: 1, height: '100%', minWidth: 0 }}>
+            <div className="app-pane-left">
               <Suspense fallback={
                 <div className="terra-panel" style={{ height: '100%', display: 'flex', alignItems: 'center',
                   justifyContent: 'center', color: 'var(--text-muted)', background: '#05060f',
@@ -446,10 +424,7 @@ export default function App() {
                 <activeDomain.Explorer domain={activeDomain} concepts={concepts} srsProgress={srsProgress} />
               </Suspense>
             </div>
-            {/* minHeight:0 + overflowY:auto = Scroll-Sicherheitsnetz: zu hoher Inhalt
-                (z.B. Quiz auf niedrigem Viewport / Querformat-Handy) wird scrollbar
-                statt abgeschnitten. Siehe mobile-layout-plan.md, Tier 0. */}
-            <div style={{ width: '390px', height: '100%', minHeight: 0, overflowY: 'auto', zIndex: 10, flexShrink: 0 }}>
+            <div className="app-pane-right">
               <Dashboard
                 geodb={domainDb}
                 domain={activeDomain}
@@ -466,7 +441,7 @@ export default function App() {
         <>
         {/* Linkes Visualisierungs-Panel: Weltkarte bei Terra, sonst pro Frage
             das gefragte Konzept (3D/Vektor bzw. generische Konzeptkarte). */}
-        <div style={{ flex: 1, height: '100%', minWidth: 0 }}>
+        <div className="app-pane-left">
           <VisualPanel
             domain={activeDomain}
             concepts={concepts}
@@ -490,18 +465,8 @@ export default function App() {
           />
         </div>
 
-        {/* Floating Sidebar panel.
-            minHeight:0 + overflowY:auto = Scroll-Sicherheitsnetz: zu hoher Inhalt
-            (z.B. Quiz auf niedrigem Viewport / Querformat-Handy) wird scrollbar
-            statt abgeschnitten. Siehe mobile-layout-plan.md, Tier 0. */}
-        <div style={{
-          width: '390px',
-          height: '100%',
-          minHeight: 0,
-          overflowY: 'auto',
-          zIndex: 10,
-          flexShrink: 0
-        }}>
+        {/* Rechte Sidebar — Geometrie/Scroll in .app-pane-right (index.css). */}
+        <div className="app-pane-right">
           {activeTab === 'dashboard' && (
             <Dashboard
               geodb={domainDb}

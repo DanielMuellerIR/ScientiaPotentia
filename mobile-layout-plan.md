@@ -1,8 +1,11 @@
 # Plan — Mobil-Tauglichkeit & bröckelsicheres Layout
 
-> **Stand: 2026-06-09.** Arbeits-/Planungsdokument. Ziel: App auf dem Smartphone benutzbar machen
+> **Stand: 2026-06-10.** Arbeits-/Planungsdokument. Ziel: App auf dem Smartphone benutzbar machen
 > (etwas vom linken Bereich sichtbar, rechte Fragen immer vollständig bzw. scrollbar) und das
 > Layout so strukturieren, dass spätere Feature-Arbeit es nicht unbemerkt zerstört.
+>
+> **Status:** Tier 0 ✅ erledigt (v1.14.3). Tier 1 ✅ erledigt (v1.15.0), in 3 Viewports verifiziert
+> (Desktop unverändert, Hochkant gestapelt + scrollbar, Querformat Row + scrollbar). Tier 2 offen.
 
 ## Ist-Zustand (Befund 2026-06-09)
 
@@ -36,7 +39,7 @@
 
 ## Umsetzung in Stufen (Tiers)
 
-### Tier 0 — Scroll-Sicherheitsnetz (sehr günstig, sicher, kein Desktop-Effekt)
+### Tier 0 — Scroll-Sicherheitsnetz (sehr günstig, sicher, kein Desktop-Effekt) ✅ ERLEDIGT (v1.14.3)
 **Was:** der rechten Spalten-Wrapper-`div` (`App.jsx:449` und `App.jsx:491-496`)
 `overflowY:'auto'` + `minHeight:0` geben. Wrapper ist `height:100%` → bei zu hohem Quiz-Inhalt
 scrollt der Wrapper.
@@ -44,7 +47,7 @@ scrollt der Wrapper.
 **Risiko:** praktisch null — kann nichts verschlechtern (Inhalt war vorher geclippt).
 **Aufwand:** ~2 Zeilen. Kann unabhängig von allem anderen sofort gemacht werden.
 
-### Tier 1 — Responsive Shell (mittel, der eigentliche dauerhafte Fix)
+### Tier 1 — Responsive Shell (mittel, der eigentliche dauerhafte Fix) ✅ ERLEDIGT (v1.15.0)
 1. CSS-Variablen in `:root` ergänzen (`index.css`):
    `--header-height:60px; --sidebar-width:390px; --shell-gap:20px; --shell-pad:24px;`
 2. Shell-Klassen in `index.css` anlegen und in `App.jsx` die Inline-Style-Blöcke der vier
@@ -88,6 +91,9 @@ Browser-Preview bei mind. 3 Größen ansehen (preview_resize + screenshot):
 - **Tier 2** danach, sobald Tier 1 visuell bestätigt ist.
 
 ## START HIER (nächste Session)
-Wenn Tier 0 schon erledigt ist (Header-Wortmarke-Commit-Folge prüfen): mit Tier 1 Schritt 1
-beginnen — CSS-Variablen in `src/index.css` `:root` ergänzen, dann Shell-Klassen anlegen und
-`App.jsx:308-317`, `319-328`, `425-432`, `440/449`, `466/491-496` auf `className` umstellen.
+Tier 0 + Tier 1 sind erledigt. Offen ist **Tier 2** (Regressionsschutz, optional):
+`LAYOUT.md`-Vertrag schreiben + Kurzverweis in `AGENTS.md`, dann einen Viewport-Smoke-Test
+(Playwright o. vitest-browser) bei 375×812 / 844×390 / 1280×800 aufsetzen, der prüft, dass
+erster + letzter Antwort-Button im Viewport-Scrollbereich liegen und `.app-pane-left` sichtbar ist.
+Layout-Klassen liegen in `src/index.css` (Abschnitt „APP-SHELL LAYOUT"), Maße als CSS-Variablen
+in `:root` (`--header-height/--sidebar-width/--shell-gap/--shell-pad`).
