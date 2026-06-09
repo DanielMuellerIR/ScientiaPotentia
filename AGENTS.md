@@ -36,6 +36,11 @@ Geplante Bereiche: **Terra** (Geografie), **Astra** (Astronomie), **Homo** (Mens
 | Phase 4 | **Natura (MCQ-only)** als Domain verdrahtet (Merge→Generator→Registry, 98 Konzepte/302 Fragen) | ✅ erledigt (v1.14.0) |
 | Phase 4–6 | Lingua, Cultura (Harvest-Daten liegen, noch nicht verdrahtet) | offen (Reihenfolge: Lingua → Cultura) |
 
+**Layout/Frontend-Konvention (Stand 2026-06-10):** Das responsive Shell-Layout folgt einem
+verbindlichen Vertrag — Shell-Geometrie lebt in CSS-Klassen + CSS-Variablen (`src/index.css`),
+nicht in Inline-Styles; Details und Begründung in [`LAYOUT.md`](LAYOUT.md). Vor/nach Layout-Arbeit
+`npm run check:layout` ausführen (maschineller Regressionsschutz, kein Browser nötig).
+
 **Neue verbindliche Anforderungen (Stand 2026-06-04, Nutzer-Vorgabe):**
 - **Jede Quizfrage MUSS links eine passende Visualisierung zeigen** (sonst „todlangweilig"). Umgesetzt
   über `VisualPanel` → `domain.Visual` (lazy). Terra=Karte, Astra=3D, Homo=Anatomie, Rest=`ConceptVisual`.
@@ -345,6 +350,14 @@ Die Rohdaten der Recherche befinden sich in den exportierten Sitzungsprotokollen
 - [x] **Qualitätssicherung:** Testsuite (`verify_quiz.js`) prüft alle Fragen auf Korrektheit (32k+ Assertions).
 - [ ] **Erweiterung physische Features:** Flüsse, Seen und Gebirge als Layer auf der Weltkarte und als Quiz-Fragen einbinden.
 - [ ] **Tauri-Wrapper:** Optionales Desktop-Packaging für macOS.
+- [ ] **Mobil hochkant auf echtem iPhone testen:** Das responsive Layout (Tier 1, v1.15.0) ist
+  bisher nur in der Browser-Preview bei 375×812 / 844×390 verifiziert. Auf echtem Gerät prüfen
+  (Safari iOS, hochkant + quer): Karte oben sichtbar, Fragen rechts/unten vollständig scrollbar,
+  Header-Umbruch ok, `100dvh` korrekt bei ein-/ausblendender Adressleiste. Siehe `LAYOUT.md`.
+- [ ] **Test-Infrastruktur reparieren:** `src/__tests__/QuizIntegration.test.jsx` läuft nicht —
+  `vitest`/`@testing-library/react` sind weder in `package.json` deklariert noch installiert,
+  es gibt kein `test`-Script. Entweder Test-Setup vollständig verdrahten oder die tote Testdatei
+  klären. (Layout-Regression ist separat über `npm run check:layout` abgedeckt.)
 
 ### 2. Ablaufplan-Status
 - [x] **Session 1:** Datenrettung Codex, Aufbereitung `AGENTS.md`.

@@ -4,8 +4,12 @@
 > (etwas vom linken Bereich sichtbar, rechte Fragen immer vollständig bzw. scrollbar) und das
 > Layout so strukturieren, dass spätere Feature-Arbeit es nicht unbemerkt zerstört.
 >
-> **Status:** Tier 0 ✅ erledigt (v1.14.3). Tier 1 ✅ erledigt (v1.15.0), in 3 Viewports verifiziert
-> (Desktop unverändert, Hochkant gestapelt + scrollbar, Querformat Row + scrollbar). Tier 2 offen.
+> **Status:** Tier 0 ✅ (v1.14.3). Tier 1 ✅ (v1.15.0), in 3 Viewports verifiziert (Desktop
+> unverändert, Hochkant gestapelt + scrollbar, Querformat Row + scrollbar). Tier 2 ✅ — Layout-
+> Vertrag in `LAYOUT.md` + maschineller Check `scripts/check_layout_contract.cjs`
+> (`npm run check:layout`, 17 Prüfungen, dependency-frei). Offen: nur noch echter iPhone-Gerätetest
+> (Todo in `AGENTS.md`) — die ursprünglich geplante Playwright-Visualprobe wurde bewusst durch den
+> leichteren Source-Contract-Check ersetzt (vorhandene vitest-Infra ist ohnehin nicht lauffähig).
 
 ## Ist-Zustand (Befund 2026-06-09)
 
@@ -70,7 +74,7 @@ scrollt der Wrapper.
 **Aufwand:** ~1–2 h inkl. Browser-Verifikation bei 3 Viewports. **Risiko:** mittel — betrifft den
 Shell-Rahmen; Komponenten-Innenleben bleibt unberührt. Verifikation Pflicht (siehe unten).
 
-### Tier 2 — Regressionsschutz (optional, fängt künftige Bröckelung automatisch)
+### Tier 2 — Regressionsschutz ✅ ERLEDIGT (Source-Contract-Check statt Playwright)
 - `LAYOUT.md` mit „Layout-Vertrag": Shell-Maße nur in CSS-Klassen/Variablen; nie Shell-Breite/-Höhe/
   -overflow inline; Panes behalten `min-height:0; overflow-y:auto`. Kurzverweis in `AGENTS.md`.
 - Kommentare in `index.css` an jeder Shell-Regel + an der Media Query (Begründung Breakpoint).
