@@ -6287,5 +6287,4242 @@
     "answerIsName": true,
     "silhouetteSvgPath": null,
     "mapTargetId": null
+  },
+  {
+    "id": "q_astra_earth_astra-planet-moons-rev",
+    "entityId": "astra:earth",
+    "entityType": "planet",
+    "type": "astra-planet-moons-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Planet hat (nach gängiger Zählung) genau einen Mond?",
+    "correctAnswer": "Erde",
+    "options": [
+      "Erde",
+      "Uranus",
+      "Jupiter",
+      "Merkur"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_mars_astra-planet-moons-rev",
+    "entityId": "astra:mars",
+    "entityType": "planet",
+    "type": "astra-planet-moons-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Planet hat (nach gängiger Zählung) 2 Monde?",
+    "correctAnswer": "Mars",
+    "options": [
+      "Mars",
+      "Venus",
+      "Merkur",
+      "Saturn"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_jupiter_astra-planet-moons-rev",
+    "entityId": "astra:jupiter",
+    "entityType": "planet",
+    "type": "astra-planet-moons-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Planet hat (nach gängiger Zählung) 95 Monde?",
+    "correctAnswer": "Jupiter",
+    "options": [
+      "Jupiter",
+      "Venus",
+      "Erde",
+      "Mars"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_saturn_astra-planet-moons-rev",
+    "entityId": "astra:saturn",
+    "entityType": "planet",
+    "type": "astra-planet-moons-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Planet hat (nach gängiger Zählung) 146 Monde?",
+    "correctAnswer": "Saturn",
+    "options": [
+      "Saturn",
+      "Mars",
+      "Erde",
+      "Neptun"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_uranus_astra-planet-moons-rev",
+    "entityId": "astra:uranus",
+    "entityType": "planet",
+    "type": "astra-planet-moons-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Planet hat (nach gängiger Zählung) 28 Monde?",
+    "correctAnswer": "Uranus",
+    "options": [
+      "Uranus",
+      "Neptun",
+      "Mars",
+      "Saturn"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_neptune_astra-planet-moons-rev",
+    "entityId": "astra:neptune",
+    "entityType": "planet",
+    "type": "astra-planet-moons-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Planet hat (nach gängiger Zählung) 16 Monde?",
+    "correctAnswer": "Neptun",
+    "options": [
+      "Neptun",
+      "Uranus",
+      "Jupiter",
+      "Erde"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_mercury_astra-planet-au-rev",
+    "entityId": "astra:mercury",
+    "entityType": "planet",
+    "type": "astra-planet-au-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Planet umkreist die Sonne in einer mittleren Entfernung von 0,39 AE?",
+    "correctAnswer": "Merkur",
+    "options": [
+      "Merkur",
+      "Jupiter",
+      "Neptun",
+      "Erde"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_venus_astra-planet-au-rev",
+    "entityId": "astra:venus",
+    "entityType": "planet",
+    "type": "astra-planet-au-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Planet umkreist die Sonne in einer mittleren Entfernung von 0,72 AE?",
+    "correctAnswer": "Venus",
+    "options": [
+      "Venus",
+      "Erde",
+      "Mars",
+      "Saturn"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_earth_astra-planet-au-rev",
+    "entityId": "astra:earth",
+    "entityType": "planet",
+    "type": "astra-planet-au-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Planet umkreist die Sonne in einer mittleren Entfernung von 1 AE?",
+    "correctAnswer": "Erde",
+    "options": [
+      "Erde",
+      "Neptun",
+      "Saturn",
+      "Uranus"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_mars_astra-planet-au-rev",
+    "entityId": "astra:mars",
+    "entityType": "planet",
+    "type": "astra-planet-au-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Planet umkreist die Sonne in einer mittleren Entfernung von 1,52 AE?",
+    "correctAnswer": "Mars",
+    "options": [
+      "Mars",
+      "Neptun",
+      "Uranus",
+      "Saturn"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_jupiter_astra-planet-au-rev",
+    "entityId": "astra:jupiter",
+    "entityType": "planet",
+    "type": "astra-planet-au-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Planet umkreist die Sonne in einer mittleren Entfernung von 5,2 AE?",
+    "correctAnswer": "Jupiter",
+    "options": [
+      "Jupiter",
+      "Merkur",
+      "Neptun",
+      "Uranus"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_saturn_astra-planet-au-rev",
+    "entityId": "astra:saturn",
+    "entityType": "planet",
+    "type": "astra-planet-au-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Planet umkreist die Sonne in einer mittleren Entfernung von 9,5 AE?",
+    "correctAnswer": "Saturn",
+    "options": [
+      "Saturn",
+      "Neptun",
+      "Venus",
+      "Merkur"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_uranus_astra-planet-au-rev",
+    "entityId": "astra:uranus",
+    "entityType": "planet",
+    "type": "astra-planet-au-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Planet umkreist die Sonne in einer mittleren Entfernung von 19,2 AE?",
+    "correctAnswer": "Uranus",
+    "options": [
+      "Uranus",
+      "Mars",
+      "Neptun",
+      "Venus"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_neptune_astra-planet-au-rev",
+    "entityId": "astra:neptune",
+    "entityType": "planet",
+    "type": "astra-planet-au-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Planet umkreist die Sonne in einer mittleren Entfernung von 30,1 AE?",
+    "correctAnswer": "Neptun",
+    "options": [
+      "Neptun",
+      "Merkur",
+      "Venus",
+      "Erde"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_mercury_astra-planet-day-rev",
+    "entityId": "astra:mercury",
+    "entityType": "planet",
+    "type": "astra-planet-day-rev",
+    "difficulty": 4,
+    "prompt": "Auf welchem Planeten dauert ein Tag (Rotation) etwa 4.222,6 Stunden?",
+    "correctAnswer": "Merkur",
+    "options": [
+      "Merkur",
+      "Mars",
+      "Venus",
+      "Neptun"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_venus_astra-planet-day-rev",
+    "entityId": "astra:venus",
+    "entityType": "planet",
+    "type": "astra-planet-day-rev",
+    "difficulty": 4,
+    "prompt": "Auf welchem Planeten dauert ein Tag (Rotation) etwa 2.802 Stunden?",
+    "correctAnswer": "Venus",
+    "options": [
+      "Venus",
+      "Jupiter",
+      "Neptun",
+      "Erde"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_earth_astra-planet-day-rev",
+    "entityId": "astra:earth",
+    "entityType": "planet",
+    "type": "astra-planet-day-rev",
+    "difficulty": 4,
+    "prompt": "Auf welchem Planeten dauert ein Tag (Rotation) etwa 24 Stunden?",
+    "correctAnswer": "Erde",
+    "options": [
+      "Erde",
+      "Merkur",
+      "Saturn",
+      "Uranus"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_mars_astra-planet-day-rev",
+    "entityId": "astra:mars",
+    "entityType": "planet",
+    "type": "astra-planet-day-rev",
+    "difficulty": 4,
+    "prompt": "Auf welchem Planeten dauert ein Tag (Rotation) etwa 24,7 Stunden?",
+    "correctAnswer": "Mars",
+    "options": [
+      "Mars",
+      "Saturn",
+      "Uranus",
+      "Jupiter"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_jupiter_astra-planet-day-rev",
+    "entityId": "astra:jupiter",
+    "entityType": "planet",
+    "type": "astra-planet-day-rev",
+    "difficulty": 4,
+    "prompt": "Auf welchem Planeten dauert ein Tag (Rotation) etwa 9,9 Stunden?",
+    "correctAnswer": "Jupiter",
+    "options": [
+      "Jupiter",
+      "Erde",
+      "Merkur",
+      "Neptun"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_saturn_astra-planet-day-rev",
+    "entityId": "astra:saturn",
+    "entityType": "planet",
+    "type": "astra-planet-day-rev",
+    "difficulty": 4,
+    "prompt": "Auf welchem Planeten dauert ein Tag (Rotation) etwa 10,7 Stunden?",
+    "correctAnswer": "Saturn",
+    "options": [
+      "Saturn",
+      "Merkur",
+      "Jupiter",
+      "Mars"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_uranus_astra-planet-day-rev",
+    "entityId": "astra:uranus",
+    "entityType": "planet",
+    "type": "astra-planet-day-rev",
+    "difficulty": 4,
+    "prompt": "Auf welchem Planeten dauert ein Tag (Rotation) etwa 17,2 Stunden?",
+    "correctAnswer": "Uranus",
+    "options": [
+      "Uranus",
+      "Mars",
+      "Venus",
+      "Saturn"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_neptune_astra-planet-day-rev",
+    "entityId": "astra:neptune",
+    "entityType": "planet",
+    "type": "astra-planet-day-rev",
+    "difficulty": 4,
+    "prompt": "Auf welchem Planeten dauert ein Tag (Rotation) etwa 16,1 Stunden?",
+    "correctAnswer": "Neptun",
+    "options": [
+      "Neptun",
+      "Mars",
+      "Saturn",
+      "Venus"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_luna_astra-moon-diameter-rev",
+    "entityId": "astra:luna",
+    "entityType": "moon",
+    "type": "astra-moon-diameter-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Mond hat einen ungefähren Durchmesser von 3.475 km?",
+    "correctAnswer": "Erdmond (Luna)",
+    "options": [
+      "Erdmond (Luna)",
+      "Amalthea",
+      "Proteus",
+      "Io"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_phobos_astra-moon-diameter-rev",
+    "entityId": "astra:phobos",
+    "entityType": "moon",
+    "type": "astra-moon-diameter-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Mond hat einen ungefähren Durchmesser von 22,5 km?",
+    "correctAnswer": "Phobos",
+    "options": [
+      "Phobos",
+      "Mimas",
+      "Ganymed",
+      "Io"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_deimos_astra-moon-diameter-rev",
+    "entityId": "astra:deimos",
+    "entityType": "moon",
+    "type": "astra-moon-diameter-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Mond hat einen ungefähren Durchmesser von 12,4 km?",
+    "correctAnswer": "Deimos",
+    "options": [
+      "Deimos",
+      "Umbriel",
+      "Iapetus (Japetus)",
+      "Ariel"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_io_astra-moon-diameter-rev",
+    "entityId": "astra:io",
+    "entityType": "moon",
+    "type": "astra-moon-diameter-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Mond hat einen ungefähren Durchmesser von 3.643 km?",
+    "correctAnswer": "Io",
+    "options": [
+      "Io",
+      "Pandora",
+      "Deimos",
+      "Enceladus"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_europa_astra-moon-diameter-rev",
+    "entityId": "astra:europa",
+    "entityType": "moon",
+    "type": "astra-moon-diameter-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Mond hat einen ungefähren Durchmesser von 3.122 km?",
+    "correctAnswer": "Europa",
+    "options": [
+      "Europa",
+      "Nix",
+      "Ganymed",
+      "Charon"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_ganymede_astra-moon-diameter-rev",
+    "entityId": "astra:ganymede",
+    "entityType": "moon",
+    "type": "astra-moon-diameter-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Mond hat einen ungefähren Durchmesser von 5.268 km?",
+    "correctAnswer": "Ganymed",
+    "options": [
+      "Ganymed",
+      "Triton",
+      "Umbriel",
+      "Nix"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_callisto_astra-moon-diameter-rev",
+    "entityId": "astra:callisto",
+    "entityType": "moon",
+    "type": "astra-moon-diameter-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Mond hat einen ungefähren Durchmesser von 4.821 km?",
+    "correctAnswer": "Kallisto",
+    "options": [
+      "Kallisto",
+      "Mimas",
+      "Hyperion",
+      "Io"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_titan_astra-moon-diameter-rev",
+    "entityId": "astra:titan",
+    "entityType": "moon",
+    "type": "astra-moon-diameter-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Mond hat einen ungefähren Durchmesser von 5.150 km?",
+    "correctAnswer": "Titan",
+    "options": [
+      "Titan",
+      "Oberon",
+      "Enceladus",
+      "Miranda"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_enceladus_astra-moon-diameter-rev",
+    "entityId": "astra:enceladus",
+    "entityType": "moon",
+    "type": "astra-moon-diameter-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Mond hat einen ungefähren Durchmesser von 504 km?",
+    "correctAnswer": "Enceladus",
+    "options": [
+      "Enceladus",
+      "Europa",
+      "Proteus",
+      "Mimas"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_rhea_astra-moon-diameter-rev",
+    "entityId": "astra:rhea",
+    "entityType": "moon",
+    "type": "astra-moon-diameter-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Mond hat einen ungefähren Durchmesser von 1.528 km?",
+    "correctAnswer": "Rhea",
+    "options": [
+      "Rhea",
+      "Dione",
+      "Mimas",
+      "Oberon"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_mimas_astra-moon-diameter-rev",
+    "entityId": "astra:mimas",
+    "entityType": "moon",
+    "type": "astra-moon-diameter-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Mond hat einen ungefähren Durchmesser von 396 km?",
+    "correctAnswer": "Mimas",
+    "options": [
+      "Mimas",
+      "Tethys",
+      "Enceladus",
+      "Titania"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_triton_astra-moon-diameter-rev",
+    "entityId": "astra:triton",
+    "entityType": "moon",
+    "type": "astra-moon-diameter-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Mond hat einen ungefähren Durchmesser von 2.707 km?",
+    "correctAnswer": "Triton",
+    "options": [
+      "Triton",
+      "Kallisto",
+      "Ganymed",
+      "Enceladus"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_titania_astra-moon-diameter-rev",
+    "entityId": "astra:titania",
+    "entityType": "moon",
+    "type": "astra-moon-diameter-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Mond hat einen ungefähren Durchmesser von 1.577 km?",
+    "correctAnswer": "Titania",
+    "options": [
+      "Titania",
+      "Ariel",
+      "Kallisto",
+      "Phobos"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_charon_astra-moon-diameter-rev",
+    "entityId": "astra:charon",
+    "entityType": "moon",
+    "type": "astra-moon-diameter-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Mond hat einen ungefähren Durchmesser von 1.212 km?",
+    "correctAnswer": "Charon",
+    "options": [
+      "Charon",
+      "Nix",
+      "Iapetus (Japetus)",
+      "Triton"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_amalthea_astra-moon-diameter-rev",
+    "entityId": "astra:amalthea",
+    "entityType": "moon",
+    "type": "astra-moon-diameter-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Mond hat einen ungefähren Durchmesser von 167 km?",
+    "correctAnswer": "Amalthea",
+    "options": [
+      "Amalthea",
+      "Io",
+      "Deimos",
+      "Phobos"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_iapetus_astra-moon-diameter-rev",
+    "entityId": "astra:iapetus",
+    "entityType": "moon",
+    "type": "astra-moon-diameter-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Mond hat einen ungefähren Durchmesser von 1.469 km?",
+    "correctAnswer": "Iapetus (Japetus)",
+    "options": [
+      "Iapetus (Japetus)",
+      "Charon",
+      "Prometheus",
+      "Triton"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_dione_astra-moon-diameter-rev",
+    "entityId": "astra:dione",
+    "entityType": "moon",
+    "type": "astra-moon-diameter-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Mond hat einen ungefähren Durchmesser von 1.123 km?",
+    "correctAnswer": "Dione",
+    "options": [
+      "Dione",
+      "Titan",
+      "Ariel",
+      "Phobos"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_tethys_astra-moon-diameter-rev",
+    "entityId": "astra:tethys",
+    "entityType": "moon",
+    "type": "astra-moon-diameter-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Mond hat einen ungefähren Durchmesser von 1.062 km?",
+    "correctAnswer": "Tethys",
+    "options": [
+      "Tethys",
+      "Kallisto",
+      "Europa",
+      "Nereid"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_hyperion_astra-moon-diameter-rev",
+    "entityId": "astra:hyperion",
+    "entityType": "moon",
+    "type": "astra-moon-diameter-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Mond hat einen ungefähren Durchmesser von 270 km?",
+    "correctAnswer": "Hyperion",
+    "options": [
+      "Hyperion",
+      "Iapetus (Japetus)",
+      "Io",
+      "Nix"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_oberon_astra-moon-diameter-rev",
+    "entityId": "astra:oberon",
+    "entityType": "moon",
+    "type": "astra-moon-diameter-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Mond hat einen ungefähren Durchmesser von 1.523 km?",
+    "correctAnswer": "Oberon",
+    "options": [
+      "Oberon",
+      "Erdmond (Luna)",
+      "Ganymed",
+      "Hyperion"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_umbriel_astra-moon-diameter-rev",
+    "entityId": "astra:umbriel",
+    "entityType": "moon",
+    "type": "astra-moon-diameter-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Mond hat einen ungefähren Durchmesser von 1.169 km?",
+    "correctAnswer": "Umbriel",
+    "options": [
+      "Umbriel",
+      "Erdmond (Luna)",
+      "Europa",
+      "Hyperion"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_ariel_astra-moon-diameter-rev",
+    "entityId": "astra:ariel",
+    "entityType": "moon",
+    "type": "astra-moon-diameter-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Mond hat einen ungefähren Durchmesser von 1.158 km?",
+    "correctAnswer": "Ariel",
+    "options": [
+      "Ariel",
+      "Umbriel",
+      "Charon",
+      "Nereid"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_miranda_astra-moon-diameter-rev",
+    "entityId": "astra:miranda",
+    "entityType": "moon",
+    "type": "astra-moon-diameter-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Mond hat einen ungefähren Durchmesser von 472 km?",
+    "correctAnswer": "Miranda",
+    "options": [
+      "Miranda",
+      "Tethys",
+      "Rhea",
+      "Iapetus (Japetus)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_nereid_astra-moon-diameter-rev",
+    "entityId": "astra:nereid",
+    "entityType": "moon",
+    "type": "astra-moon-diameter-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Mond hat einen ungefähren Durchmesser von 357 km?",
+    "correctAnswer": "Nereid",
+    "options": [
+      "Nereid",
+      "Prometheus",
+      "Ariel",
+      "Titania"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_proteus_astra-moon-diameter-rev",
+    "entityId": "astra:proteus",
+    "entityType": "moon",
+    "type": "astra-moon-diameter-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Mond hat einen ungefähren Durchmesser von 420 km?",
+    "correctAnswer": "Proteus",
+    "options": [
+      "Proteus",
+      "Triton",
+      "Amalthea",
+      "Erdmond (Luna)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_nix_astra-moon-diameter-rev",
+    "entityId": "astra:nix",
+    "entityType": "moon",
+    "type": "astra-moon-diameter-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Mond hat einen ungefähren Durchmesser von 37 km?",
+    "correctAnswer": "Nix",
+    "options": [
+      "Nix",
+      "Phobos",
+      "Pandora",
+      "Triton"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_pandora-saturn_astra-moon-diameter-rev",
+    "entityId": "astra:pandora-saturn",
+    "entityType": "moon",
+    "type": "astra-moon-diameter-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Mond hat einen ungefähren Durchmesser von 80 km?",
+    "correctAnswer": "Pandora",
+    "options": [
+      "Pandora",
+      "Umbriel",
+      "Europa",
+      "Miranda"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_prometheus-saturn_astra-moon-diameter-rev",
+    "entityId": "astra:prometheus-saturn",
+    "entityType": "moon",
+    "type": "astra-moon-diameter-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Mond hat einen ungefähren Durchmesser von 86 km?",
+    "correctAnswer": "Prometheus",
+    "options": [
+      "Prometheus",
+      "Titania",
+      "Phobos",
+      "Kallisto"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sirius_astra-star-constellation-rev",
+    "entityId": "astra:sirius",
+    "entityType": "star",
+    "type": "astra-star-constellation-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Stern liegt im Sternbild Großer Hund?",
+    "correctAnswer": "Sirius",
+    "options": [
+      "Sirius",
+      "Regulus",
+      "Polaris (Polarstern)",
+      "Achernar"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_polaris_astra-star-constellation-rev",
+    "entityId": "astra:polaris",
+    "entityType": "star",
+    "type": "astra-star-constellation-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Stern liegt im Sternbild Kleiner Bär?",
+    "correctAnswer": "Polaris (Polarstern)",
+    "options": [
+      "Polaris (Polarstern)",
+      "Spica",
+      "Proxima Centauri",
+      "Antares"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_vega_astra-star-constellation-rev",
+    "entityId": "astra:vega",
+    "entityType": "star",
+    "type": "astra-star-constellation-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Stern liegt im Sternbild Leier?",
+    "correctAnswer": "Wega",
+    "options": [
+      "Wega",
+      "Algol",
+      "Fomalhaut",
+      "Sirius"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_aldebaran_astra-star-constellation-rev",
+    "entityId": "astra:aldebaran",
+    "entityType": "star",
+    "type": "astra-star-constellation-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Stern liegt im Sternbild Stier?",
+    "correctAnswer": "Aldebaran",
+    "options": [
+      "Aldebaran",
+      "Kapella",
+      "Prokyon (Procyon)",
+      "Beteigeuze"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_antares_astra-star-constellation-rev",
+    "entityId": "astra:antares",
+    "entityType": "star",
+    "type": "astra-star-constellation-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Stern liegt im Sternbild Skorpion?",
+    "correctAnswer": "Antares",
+    "options": [
+      "Antares",
+      "Achernar",
+      "Arktur",
+      "Atair (Altair)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_capella_astra-star-constellation-rev",
+    "entityId": "astra:capella",
+    "entityType": "star",
+    "type": "astra-star-constellation-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Stern liegt im Sternbild Fuhrmann?",
+    "correctAnswer": "Kapella",
+    "options": [
+      "Kapella",
+      "Sirius",
+      "Prokyon (Procyon)",
+      "Aldebaran"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_arcturus_astra-star-constellation-rev",
+    "entityId": "astra:arcturus",
+    "entityType": "star",
+    "type": "astra-star-constellation-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Stern liegt im Sternbild Bärenhüter?",
+    "correctAnswer": "Arktur",
+    "options": [
+      "Arktur",
+      "Spica",
+      "Regulus",
+      "Antares"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_kanopus_astra-star-constellation-rev",
+    "entityId": "astra:kanopus",
+    "entityType": "star",
+    "type": "astra-star-constellation-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Stern liegt im Sternbild Kiel des Schiffs?",
+    "correctAnswer": "Kanopus (Canopus)",
+    "options": [
+      "Kanopus (Canopus)",
+      "Rigel",
+      "Bellatrix",
+      "Spica"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_achernar_astra-star-constellation-rev",
+    "entityId": "astra:achernar",
+    "entityType": "star",
+    "type": "astra-star-constellation-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Stern liegt im Sternbild Eridanus?",
+    "correctAnswer": "Achernar",
+    "options": [
+      "Achernar",
+      "Spica",
+      "Rigel",
+      "Kapella"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_prokyon_astra-star-constellation-rev",
+    "entityId": "astra:prokyon",
+    "entityType": "star",
+    "type": "astra-star-constellation-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Stern liegt im Sternbild Kleiner Hund?",
+    "correctAnswer": "Prokyon (Procyon)",
+    "options": [
+      "Prokyon (Procyon)",
+      "Algol",
+      "Rigel",
+      "Kanopus (Canopus)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_atair_astra-star-constellation-rev",
+    "entityId": "astra:atair",
+    "entityType": "star",
+    "type": "astra-star-constellation-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Stern liegt im Sternbild Adler?",
+    "correctAnswer": "Atair (Altair)",
+    "options": [
+      "Atair (Altair)",
+      "Rigel",
+      "Aldebaran",
+      "Alpha Centauri A"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_spica_astra-star-constellation-rev",
+    "entityId": "astra:spica",
+    "entityType": "star",
+    "type": "astra-star-constellation-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Stern liegt im Sternbild Jungfrau?",
+    "correctAnswer": "Spica",
+    "options": [
+      "Spica",
+      "Castor",
+      "Kanopus (Canopus)",
+      "Sirius"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_fomalhaut_astra-star-constellation-rev",
+    "entityId": "astra:fomalhaut",
+    "entityType": "star",
+    "type": "astra-star-constellation-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Stern liegt im Sternbild Südlicher Fisch?",
+    "correctAnswer": "Fomalhaut",
+    "options": [
+      "Fomalhaut",
+      "Aldebaran",
+      "Wega",
+      "Rigel"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_deneb_astra-star-constellation-rev",
+    "entityId": "astra:deneb",
+    "entityType": "star",
+    "type": "astra-star-constellation-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Stern liegt im Sternbild Schwan?",
+    "correctAnswer": "Deneb",
+    "options": [
+      "Deneb",
+      "Fomalhaut",
+      "Atair (Altair)",
+      "Alpha Centauri A"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_regulus_astra-star-constellation-rev",
+    "entityId": "astra:regulus",
+    "entityType": "star",
+    "type": "astra-star-constellation-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Stern liegt im Sternbild Löwe?",
+    "correctAnswer": "Regulus",
+    "options": [
+      "Regulus",
+      "Sirius",
+      "Arktur",
+      "Beteigeuze"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_algol_astra-star-constellation-rev",
+    "entityId": "astra:algol",
+    "entityType": "star",
+    "type": "astra-star-constellation-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Stern liegt im Sternbild Perseus?",
+    "correctAnswer": "Algol",
+    "options": [
+      "Algol",
+      "Bellatrix",
+      "Pollux",
+      "Fomalhaut"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sun_astra-star-magnitude-rev",
+    "entityId": "astra:sun",
+    "entityType": "star",
+    "type": "astra-star-magnitude-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Stern hat eine scheinbare Helligkeit von etwa -26,74 mag?",
+    "correctAnswer": "Sonne",
+    "options": [
+      "Sonne",
+      "Deneb",
+      "Prokyon (Procyon)",
+      "Atair (Altair)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sirius_astra-star-magnitude-rev",
+    "entityId": "astra:sirius",
+    "entityType": "star",
+    "type": "astra-star-magnitude-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Stern hat eine scheinbare Helligkeit von etwa -1,46 mag?",
+    "correctAnswer": "Sirius",
+    "options": [
+      "Sirius",
+      "Alpha Centauri A",
+      "Castor",
+      "Pollux"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_betelgeuse_astra-star-magnitude-rev",
+    "entityId": "astra:betelgeuse",
+    "entityType": "star",
+    "type": "astra-star-magnitude-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Stern hat eine scheinbare Helligkeit von etwa 0,42 mag?",
+    "correctAnswer": "Beteigeuze",
+    "options": [
+      "Beteigeuze",
+      "Deneb",
+      "Sonne",
+      "Fomalhaut"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_rigel_astra-star-magnitude-rev",
+    "entityId": "astra:rigel",
+    "entityType": "star",
+    "type": "astra-star-magnitude-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Stern hat eine scheinbare Helligkeit von etwa 0,13 mag?",
+    "correctAnswer": "Rigel",
+    "options": [
+      "Rigel",
+      "Wega",
+      "Achernar",
+      "Sonne"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_proxima_centauri_astra-star-magnitude-rev",
+    "entityId": "astra:proxima_centauri",
+    "entityType": "star",
+    "type": "astra-star-magnitude-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Stern hat eine scheinbare Helligkeit von etwa 11,13 mag?",
+    "correctAnswer": "Proxima Centauri",
+    "options": [
+      "Proxima Centauri",
+      "Beteigeuze",
+      "Fomalhaut",
+      "Spica"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_alpha_centauri_a_astra-star-magnitude-rev",
+    "entityId": "astra:alpha_centauri_a",
+    "entityType": "star",
+    "type": "astra-star-magnitude-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Stern hat eine scheinbare Helligkeit von etwa -0,01 mag?",
+    "correctAnswer": "Alpha Centauri A",
+    "options": [
+      "Alpha Centauri A",
+      "Arktur",
+      "Sonne",
+      "Castor"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_polaris_astra-star-magnitude-rev",
+    "entityId": "astra:polaris",
+    "entityType": "star",
+    "type": "astra-star-magnitude-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Stern hat eine scheinbare Helligkeit von etwa 1,98 mag?",
+    "correctAnswer": "Polaris (Polarstern)",
+    "options": [
+      "Polaris (Polarstern)",
+      "Beteigeuze",
+      "Sirius",
+      "Achernar"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_vega_astra-star-magnitude-rev",
+    "entityId": "astra:vega",
+    "entityType": "star",
+    "type": "astra-star-magnitude-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Stern hat eine scheinbare Helligkeit von etwa 0,03 mag?",
+    "correctAnswer": "Wega",
+    "options": [
+      "Wega",
+      "Kanopus (Canopus)",
+      "Beteigeuze",
+      "Fomalhaut"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_aldebaran_astra-star-magnitude-rev",
+    "entityId": "astra:aldebaran",
+    "entityType": "star",
+    "type": "astra-star-magnitude-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Stern hat eine scheinbare Helligkeit von etwa 0,86 mag?",
+    "correctAnswer": "Aldebaran",
+    "options": [
+      "Aldebaran",
+      "Wega",
+      "Atair (Altair)",
+      "Castor"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_antares_astra-star-magnitude-rev",
+    "entityId": "astra:antares",
+    "entityType": "star",
+    "type": "astra-star-magnitude-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Stern hat eine scheinbare Helligkeit von etwa 1,06 mag?",
+    "correctAnswer": "Antares",
+    "options": [
+      "Antares",
+      "Sirius",
+      "Pollux",
+      "Spica"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_capella_astra-star-magnitude-rev",
+    "entityId": "astra:capella",
+    "entityType": "star",
+    "type": "astra-star-magnitude-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Stern hat eine scheinbare Helligkeit von etwa 0,08 mag?",
+    "correctAnswer": "Kapella",
+    "options": [
+      "Kapella",
+      "Proxima Centauri",
+      "Aldebaran",
+      "Algol"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_arcturus_astra-star-magnitude-rev",
+    "entityId": "astra:arcturus",
+    "entityType": "star",
+    "type": "astra-star-magnitude-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Stern hat eine scheinbare Helligkeit von etwa -0,05 mag?",
+    "correctAnswer": "Arktur",
+    "options": [
+      "Arktur",
+      "Regulus",
+      "Proxima Centauri",
+      "Aldebaran"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_kanopus_astra-star-magnitude-rev",
+    "entityId": "astra:kanopus",
+    "entityType": "star",
+    "type": "astra-star-magnitude-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Stern hat eine scheinbare Helligkeit von etwa -0,74 mag?",
+    "correctAnswer": "Kanopus (Canopus)",
+    "options": [
+      "Kanopus (Canopus)",
+      "Proxima Centauri",
+      "Fomalhaut",
+      "Kapella"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_achernar_astra-star-magnitude-rev",
+    "entityId": "astra:achernar",
+    "entityType": "star",
+    "type": "astra-star-magnitude-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Stern hat eine scheinbare Helligkeit von etwa 0,46 mag?",
+    "correctAnswer": "Achernar",
+    "options": [
+      "Achernar",
+      "Rigel",
+      "Regulus",
+      "Algol"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_prokyon_astra-star-magnitude-rev",
+    "entityId": "astra:prokyon",
+    "entityType": "star",
+    "type": "astra-star-magnitude-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Stern hat eine scheinbare Helligkeit von etwa 0,34 mag?",
+    "correctAnswer": "Prokyon (Procyon)",
+    "options": [
+      "Prokyon (Procyon)",
+      "Castor",
+      "Alpha Centauri A",
+      "Pollux"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_atair_astra-star-magnitude-rev",
+    "entityId": "astra:atair",
+    "entityType": "star",
+    "type": "astra-star-magnitude-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Stern hat eine scheinbare Helligkeit von etwa 0,76 mag?",
+    "correctAnswer": "Atair (Altair)",
+    "options": [
+      "Atair (Altair)",
+      "Regulus",
+      "Rigel",
+      "Prokyon (Procyon)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_spica_astra-star-magnitude-rev",
+    "entityId": "astra:spica",
+    "entityType": "star",
+    "type": "astra-star-magnitude-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Stern hat eine scheinbare Helligkeit von etwa 0,98 mag?",
+    "correctAnswer": "Spica",
+    "options": [
+      "Spica",
+      "Beteigeuze",
+      "Kapella",
+      "Algol"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_pollux_astra-star-magnitude-rev",
+    "entityId": "astra:pollux",
+    "entityType": "star",
+    "type": "astra-star-magnitude-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Stern hat eine scheinbare Helligkeit von etwa 1,14 mag?",
+    "correctAnswer": "Pollux",
+    "options": [
+      "Pollux",
+      "Beteigeuze",
+      "Arktur",
+      "Deneb"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_fomalhaut_astra-star-magnitude-rev",
+    "entityId": "astra:fomalhaut",
+    "entityType": "star",
+    "type": "astra-star-magnitude-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Stern hat eine scheinbare Helligkeit von etwa 1,17 mag?",
+    "correctAnswer": "Fomalhaut",
+    "options": [
+      "Fomalhaut",
+      "Bellatrix",
+      "Wega",
+      "Prokyon (Procyon)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_deneb_astra-star-magnitude-rev",
+    "entityId": "astra:deneb",
+    "entityType": "star",
+    "type": "astra-star-magnitude-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Stern hat eine scheinbare Helligkeit von etwa 1,25 mag?",
+    "correctAnswer": "Deneb",
+    "options": [
+      "Deneb",
+      "Beteigeuze",
+      "Regulus",
+      "Wega"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_regulus_astra-star-magnitude-rev",
+    "entityId": "astra:regulus",
+    "entityType": "star",
+    "type": "astra-star-magnitude-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Stern hat eine scheinbare Helligkeit von etwa 1,35 mag?",
+    "correctAnswer": "Regulus",
+    "options": [
+      "Regulus",
+      "Proxima Centauri",
+      "Sonne",
+      "Beteigeuze"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_castor_astra-star-magnitude-rev",
+    "entityId": "astra:castor",
+    "entityType": "star",
+    "type": "astra-star-magnitude-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Stern hat eine scheinbare Helligkeit von etwa 1,58 mag?",
+    "correctAnswer": "Castor",
+    "options": [
+      "Castor",
+      "Deneb",
+      "Beteigeuze",
+      "Regulus"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_bellatrix_astra-star-magnitude-rev",
+    "entityId": "astra:bellatrix",
+    "entityType": "star",
+    "type": "astra-star-magnitude-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Stern hat eine scheinbare Helligkeit von etwa 1,64 mag?",
+    "correctAnswer": "Bellatrix",
+    "options": [
+      "Bellatrix",
+      "Regulus",
+      "Castor",
+      "Proxima Centauri"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_algol_astra-star-magnitude-rev",
+    "entityId": "astra:algol",
+    "entityType": "star",
+    "type": "astra-star-magnitude-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Stern hat eine scheinbare Helligkeit von etwa 2,12 mag?",
+    "correctAnswer": "Algol",
+    "options": [
+      "Algol",
+      "Beteigeuze",
+      "Sonne",
+      "Proxima Centauri"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sirius_astra-star-distance-rev",
+    "entityId": "astra:sirius",
+    "entityType": "star",
+    "type": "astra-star-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Stern ist etwa 8,6 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "Sirius",
+    "options": [
+      "Sirius",
+      "Pollux",
+      "Regulus",
+      "Kanopus (Canopus)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_betelgeuse_astra-star-distance-rev",
+    "entityId": "astra:betelgeuse",
+    "entityType": "star",
+    "type": "astra-star-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Stern ist etwa 640 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "Beteigeuze",
+    "options": [
+      "Beteigeuze",
+      "Castor",
+      "Pollux",
+      "Fomalhaut"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_rigel_astra-star-distance-rev",
+    "entityId": "astra:rigel",
+    "entityType": "star",
+    "type": "astra-star-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Stern ist etwa 860 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "Rigel",
+    "options": [
+      "Rigel",
+      "Arktur",
+      "Achernar",
+      "Pollux"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_proxima_centauri_astra-star-distance-rev",
+    "entityId": "astra:proxima_centauri",
+    "entityType": "star",
+    "type": "astra-star-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Stern ist etwa 4,24 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "Proxima Centauri",
+    "options": [
+      "Proxima Centauri",
+      "Deneb",
+      "Beteigeuze",
+      "Arktur"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_alpha_centauri_a_astra-star-distance-rev",
+    "entityId": "astra:alpha_centauri_a",
+    "entityType": "star",
+    "type": "astra-star-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Stern ist etwa 4,37 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "Alpha Centauri A",
+    "options": [
+      "Alpha Centauri A",
+      "Deneb",
+      "Proxima Centauri",
+      "Wega"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_polaris_astra-star-distance-rev",
+    "entityId": "astra:polaris",
+    "entityType": "star",
+    "type": "astra-star-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Stern ist etwa 433 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "Polaris (Polarstern)",
+    "options": [
+      "Polaris (Polarstern)",
+      "Deneb",
+      "Bellatrix",
+      "Alpha Centauri A"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_vega_astra-star-distance-rev",
+    "entityId": "astra:vega",
+    "entityType": "star",
+    "type": "astra-star-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Stern ist etwa 25 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "Wega",
+    "options": [
+      "Wega",
+      "Polaris (Polarstern)",
+      "Rigel",
+      "Beteigeuze"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_aldebaran_astra-star-distance-rev",
+    "entityId": "astra:aldebaran",
+    "entityType": "star",
+    "type": "astra-star-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Stern ist etwa 65 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "Aldebaran",
+    "options": [
+      "Aldebaran",
+      "Polaris (Polarstern)",
+      "Arktur",
+      "Algol"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_antares_astra-star-distance-rev",
+    "entityId": "astra:antares",
+    "entityType": "star",
+    "type": "astra-star-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Stern ist etwa 550 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "Antares",
+    "options": [
+      "Antares",
+      "Aldebaran",
+      "Wega",
+      "Arktur"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_capella_astra-star-distance-rev",
+    "entityId": "astra:capella",
+    "entityType": "star",
+    "type": "astra-star-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Stern ist etwa 43 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "Kapella",
+    "options": [
+      "Kapella",
+      "Proxima Centauri",
+      "Deneb",
+      "Alpha Centauri A"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_arcturus_astra-star-distance-rev",
+    "entityId": "astra:arcturus",
+    "entityType": "star",
+    "type": "astra-star-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Stern ist etwa 37 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "Arktur",
+    "options": [
+      "Arktur",
+      "Bellatrix",
+      "Beteigeuze",
+      "Castor"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_kanopus_astra-star-distance-rev",
+    "entityId": "astra:kanopus",
+    "entityType": "star",
+    "type": "astra-star-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Stern ist etwa 310 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "Kanopus (Canopus)",
+    "options": [
+      "Kanopus (Canopus)",
+      "Pollux",
+      "Regulus",
+      "Rigel"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_achernar_astra-star-distance-rev",
+    "entityId": "astra:achernar",
+    "entityType": "star",
+    "type": "astra-star-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Stern ist etwa 139 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "Achernar",
+    "options": [
+      "Achernar",
+      "Fomalhaut",
+      "Castor",
+      "Algol"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_prokyon_astra-star-distance-rev",
+    "entityId": "astra:prokyon",
+    "entityType": "star",
+    "type": "astra-star-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Stern ist etwa 11,46 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "Prokyon (Procyon)",
+    "options": [
+      "Prokyon (Procyon)",
+      "Deneb",
+      "Wega",
+      "Arktur"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_atair_astra-star-distance-rev",
+    "entityId": "astra:atair",
+    "entityType": "star",
+    "type": "astra-star-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Stern ist etwa 16,7 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "Atair (Altair)",
+    "options": [
+      "Atair (Altair)",
+      "Prokyon (Procyon)",
+      "Castor",
+      "Sirius"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_pollux_astra-star-distance-rev",
+    "entityId": "astra:pollux",
+    "entityType": "star",
+    "type": "astra-star-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Stern ist etwa 33,8 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "Pollux",
+    "options": [
+      "Pollux",
+      "Proxima Centauri",
+      "Antares",
+      "Sirius"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_fomalhaut_astra-star-distance-rev",
+    "entityId": "astra:fomalhaut",
+    "entityType": "star",
+    "type": "astra-star-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Stern ist etwa 25,1 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "Fomalhaut",
+    "options": [
+      "Fomalhaut",
+      "Bellatrix",
+      "Spica",
+      "Alpha Centauri A"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_deneb_astra-star-distance-rev",
+    "entityId": "astra:deneb",
+    "entityType": "star",
+    "type": "astra-star-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Stern ist etwa 2.600 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "Deneb",
+    "options": [
+      "Deneb",
+      "Prokyon (Procyon)",
+      "Algol",
+      "Alpha Centauri A"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_regulus_astra-star-distance-rev",
+    "entityId": "astra:regulus",
+    "entityType": "star",
+    "type": "astra-star-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Stern ist etwa 79 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "Regulus",
+    "options": [
+      "Regulus",
+      "Deneb",
+      "Proxima Centauri",
+      "Wega"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_castor_astra-star-distance-rev",
+    "entityId": "astra:castor",
+    "entityType": "star",
+    "type": "astra-star-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Stern ist etwa 51,6 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "Castor",
+    "options": [
+      "Castor",
+      "Sirius",
+      "Alpha Centauri A",
+      "Pollux"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_algol_astra-star-distance-rev",
+    "entityId": "astra:algol",
+    "entityType": "star",
+    "type": "astra-star-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Stern ist etwa 90 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "Algol",
+    "options": [
+      "Algol",
+      "Alpha Centauri A",
+      "Regulus",
+      "Sirius"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_milky_way_astra-galaxy-type-rev",
+    "entityId": "astra:milky_way",
+    "entityType": "galaxy",
+    "type": "astra-galaxy-type-rev",
+    "difficulty": 4,
+    "prompt": "Welche dieser Galaxien gehört zum Typ „Balkenspiralgalaxie“?",
+    "correctAnswer": "Milchstraße",
+    "options": [
+      "Milchstraße",
+      "Zigarrengalaxie (M82)",
+      "Andromedagalaxie",
+      "Dreiecksgalaxie"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_zigarren_m82_astra-galaxy-type-rev",
+    "entityId": "astra:zigarren_m82",
+    "entityType": "galaxy",
+    "type": "astra-galaxy-type-rev",
+    "difficulty": 4,
+    "prompt": "Welche dieser Galaxien gehört zum Typ „Starburst-Galaxie“?",
+    "correctAnswer": "Zigarrengalaxie (M82)",
+    "options": [
+      "Zigarrengalaxie (M82)",
+      "Sonnenblumengalaxie (M63)",
+      "Milchstraße",
+      "Sombrero-Galaxie"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_centaurus_a_astra-galaxy-type-rev",
+    "entityId": "astra:centaurus_a",
+    "entityType": "galaxy",
+    "type": "astra-galaxy-type-rev",
+    "difficulty": 4,
+    "prompt": "Welche dieser Galaxien gehört zum Typ „Elliptische Galaxie“?",
+    "correctAnswer": "Centaurus A (NGC 5128)",
+    "options": [
+      "Centaurus A (NGC 5128)",
+      "Whirlpool-Galaxie",
+      "Schwarzauge-Galaxie (M64)",
+      "Kleine Magellansche Wolke"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_andromeda_astra-galaxy-distance-rev",
+    "entityId": "astra:andromeda",
+    "entityType": "galaxy",
+    "type": "astra-galaxy-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welche Galaxie ist etwa 2.500.000 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "Andromedagalaxie",
+    "options": [
+      "Andromedagalaxie",
+      "Centaurus A (NGC 5128)",
+      "Bildhauer-Galaxie (NGC 253)",
+      "Bode-Galaxie (M81)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_triangulum_astra-galaxy-distance-rev",
+    "entityId": "astra:triangulum",
+    "entityType": "galaxy",
+    "type": "astra-galaxy-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welche Galaxie ist etwa 2.730.000 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "Dreiecksgalaxie",
+    "options": [
+      "Dreiecksgalaxie",
+      "Whirlpool-Galaxie",
+      "Feuerrad-Galaxie (M101)",
+      "Zigarrengalaxie (M82)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_large_magellanic_cloud_astra-galaxy-distance-rev",
+    "entityId": "astra:large_magellanic_cloud",
+    "entityType": "galaxy",
+    "type": "astra-galaxy-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welche Galaxie ist etwa 160.000 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "Große Magellansche Wolke",
+    "options": [
+      "Große Magellansche Wolke",
+      "Sombrero-Galaxie",
+      "Andromedagalaxie",
+      "Zigarrengalaxie (M82)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_small_magellanic_cloud_astra-galaxy-distance-rev",
+    "entityId": "astra:small_magellanic_cloud",
+    "entityType": "galaxy",
+    "type": "astra-galaxy-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welche Galaxie ist etwa 200.000 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "Kleine Magellansche Wolke",
+    "options": [
+      "Kleine Magellansche Wolke",
+      "Whirlpool-Galaxie",
+      "Bode-Galaxie (M81)",
+      "Bildhauer-Galaxie (NGC 253)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_whirlpool_astra-galaxy-distance-rev",
+    "entityId": "astra:whirlpool",
+    "entityType": "galaxy",
+    "type": "astra-galaxy-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welche Galaxie ist etwa 23.000.000 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "Whirlpool-Galaxie",
+    "options": [
+      "Whirlpool-Galaxie",
+      "Feuerrad-Galaxie (M101)",
+      "Andromedagalaxie",
+      "Große Magellansche Wolke"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sombrero_astra-galaxy-distance-rev",
+    "entityId": "astra:sombrero",
+    "entityType": "galaxy",
+    "type": "astra-galaxy-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welche Galaxie ist etwa 28.000.000 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "Sombrero-Galaxie",
+    "options": [
+      "Sombrero-Galaxie",
+      "Andromedagalaxie",
+      "Bildhauer-Galaxie (NGC 253)",
+      "Feuerrad-Galaxie (M101)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_bode_m81_astra-galaxy-distance-rev",
+    "entityId": "astra:bode_m81",
+    "entityType": "galaxy",
+    "type": "astra-galaxy-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welche Galaxie ist etwa 11.600.000 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "Bode-Galaxie (M81)",
+    "options": [
+      "Bode-Galaxie (M81)",
+      "Große Magellansche Wolke",
+      "Whirlpool-Galaxie",
+      "Kleine Magellansche Wolke"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_bildhauer_ngc253_astra-galaxy-distance-rev",
+    "entityId": "astra:bildhauer_ngc253",
+    "entityType": "galaxy",
+    "type": "astra-galaxy-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welche Galaxie ist etwa 11.400.000 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "Bildhauer-Galaxie (NGC 253)",
+    "options": [
+      "Bildhauer-Galaxie (NGC 253)",
+      "Große Magellansche Wolke",
+      "Sonnenblumengalaxie (M63)",
+      "Zigarrengalaxie (M82)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_feuerrad_m101_astra-galaxy-distance-rev",
+    "entityId": "astra:feuerrad_m101",
+    "entityType": "galaxy",
+    "type": "astra-galaxy-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welche Galaxie ist etwa 21.000.000 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "Feuerrad-Galaxie (M101)",
+    "options": [
+      "Feuerrad-Galaxie (M101)",
+      "Große Magellansche Wolke",
+      "Zigarrengalaxie (M82)",
+      "Centaurus A (NGC 5128)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sonnenblume_m63_astra-galaxy-distance-rev",
+    "entityId": "astra:sonnenblume_m63",
+    "entityType": "galaxy",
+    "type": "astra-galaxy-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welche Galaxie ist etwa 27.000.000 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "Sonnenblumengalaxie (M63)",
+    "options": [
+      "Sonnenblumengalaxie (M63)",
+      "Kleine Magellansche Wolke",
+      "Whirlpool-Galaxie",
+      "Große Magellansche Wolke"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_schwarzauge_m64_astra-galaxy-distance-rev",
+    "entityId": "astra:schwarzauge_m64",
+    "entityType": "galaxy",
+    "type": "astra-galaxy-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welche Galaxie ist etwa 17.000.000 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "Schwarzauge-Galaxie (M64)",
+    "options": [
+      "Schwarzauge-Galaxie (M64)",
+      "Feuerrad-Galaxie (M101)",
+      "Bildhauer-Galaxie (NGC 253)",
+      "Sonnenblumengalaxie (M63)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_mission-voyager-1_astra-mission-launch-year",
+    "entityId": "astra:mission-voyager-1",
+    "entityType": "mission",
+    "type": "astra-mission-launch-year",
+    "difficulty": 3,
+    "prompt": "In welchem Jahr startete die Mission „Voyager 1“?",
+    "correctAnswer": "1977",
+    "options": [
+      "1977",
+      "1990",
+      "1997",
+      "2006"
+    ],
+    "testedAttribute": "launchYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_mission-cassini_astra-mission-launch-year",
+    "entityId": "astra:mission-cassini",
+    "entityType": "mission",
+    "type": "astra-mission-launch-year",
+    "difficulty": 3,
+    "prompt": "In welchem Jahr startete die Mission „Cassini-Huygens“?",
+    "correctAnswer": "1997",
+    "options": [
+      "1997",
+      "1990",
+      "2006",
+      "2009"
+    ],
+    "testedAttribute": "launchYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_mission-james-webb-teleskop_astra-mission-launch-year",
+    "entityId": "astra:mission-james-webb-teleskop",
+    "entityType": "mission",
+    "type": "astra-mission-launch-year",
+    "difficulty": 3,
+    "prompt": "In welchem Jahr startete die Mission „James-Webb-Weltraumteleskop“?",
+    "correctAnswer": "2021",
+    "options": [
+      "2021",
+      "2018",
+      "2013",
+      "2009"
+    ],
+    "testedAttribute": "launchYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_mission-voyager-2_astra-mission-launch-year",
+    "entityId": "astra:mission-voyager-2",
+    "entityType": "mission",
+    "type": "astra-mission-launch-year",
+    "difficulty": 3,
+    "prompt": "In welchem Jahr startete die Mission „Voyager 2“?",
+    "correctAnswer": "1977",
+    "options": [
+      "1977",
+      "1990",
+      "1997",
+      "2006"
+    ],
+    "testedAttribute": "launchYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_mission-new-horizons_astra-mission-launch-year",
+    "entityId": "astra:mission-new-horizons",
+    "entityType": "mission",
+    "type": "astra-mission-launch-year",
+    "difficulty": 3,
+    "prompt": "In welchem Jahr startete die Mission „New Horizons“?",
+    "correctAnswer": "2006",
+    "options": [
+      "2006",
+      "2009",
+      "2013",
+      "1997"
+    ],
+    "testedAttribute": "launchYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_mission-parker-solar-probe_astra-mission-launch-year",
+    "entityId": "astra:mission-parker-solar-probe",
+    "entityType": "mission",
+    "type": "astra-mission-launch-year",
+    "difficulty": 3,
+    "prompt": "In welchem Jahr startete die Mission „Parker Solar Probe“?",
+    "correctAnswer": "2018",
+    "options": [
+      "2018",
+      "2021",
+      "2013",
+      "2009"
+    ],
+    "testedAttribute": "launchYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_mission-hubble_astra-mission-launch-year",
+    "entityId": "astra:mission-hubble",
+    "entityType": "mission",
+    "type": "astra-mission-launch-year",
+    "difficulty": 3,
+    "prompt": "In welchem Jahr startete die Mission „Hubble-Weltraumteleskop“?",
+    "correctAnswer": "1990",
+    "options": [
+      "1990",
+      "1997",
+      "1977",
+      "2006"
+    ],
+    "testedAttribute": "launchYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_mission-gaia_astra-mission-launch-year",
+    "entityId": "astra:mission-gaia",
+    "entityType": "mission",
+    "type": "astra-mission-launch-year",
+    "difficulty": 3,
+    "prompt": "In welchem Jahr startete die Mission „Gaia (ESA)“?",
+    "correctAnswer": "2013",
+    "options": [
+      "2013",
+      "2009",
+      "2018",
+      "2006"
+    ],
+    "testedAttribute": "launchYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_mission-kepler-teleskop_astra-mission-launch-year",
+    "entityId": "astra:mission-kepler-teleskop",
+    "entityType": "mission",
+    "type": "astra-mission-launch-year",
+    "difficulty": 3,
+    "prompt": "In welchem Jahr startete die Mission „Kepler-Teleskop“?",
+    "correctAnswer": "2009",
+    "options": [
+      "2009",
+      "2006",
+      "2013",
+      "2018"
+    ],
+    "testedAttribute": "launchYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_mission-cassini_astra-mission-launch-year-rev",
+    "entityId": "astra:mission-cassini",
+    "entityType": "mission",
+    "type": "astra-mission-launch-year-rev",
+    "difficulty": 4,
+    "prompt": "Welche dieser Missionen startete im Jahr 1997?",
+    "correctAnswer": "Cassini-Huygens",
+    "options": [
+      "Cassini-Huygens",
+      "James-Webb-Weltraumteleskop",
+      "Hubble-Weltraumteleskop",
+      "Kepler-Teleskop"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_mission-james-webb-teleskop_astra-mission-launch-year-rev",
+    "entityId": "astra:mission-james-webb-teleskop",
+    "entityType": "mission",
+    "type": "astra-mission-launch-year-rev",
+    "difficulty": 4,
+    "prompt": "Welche dieser Missionen startete im Jahr 2021?",
+    "correctAnswer": "James-Webb-Weltraumteleskop",
+    "options": [
+      "James-Webb-Weltraumteleskop",
+      "Parker Solar Probe",
+      "Voyager 2",
+      "Voyager 1"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_mission-new-horizons_astra-mission-launch-year-rev",
+    "entityId": "astra:mission-new-horizons",
+    "entityType": "mission",
+    "type": "astra-mission-launch-year-rev",
+    "difficulty": 4,
+    "prompt": "Welche dieser Missionen startete im Jahr 2006?",
+    "correctAnswer": "New Horizons",
+    "options": [
+      "New Horizons",
+      "Parker Solar Probe",
+      "Voyager 1",
+      "Voyager 2"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_mission-parker-solar-probe_astra-mission-launch-year-rev",
+    "entityId": "astra:mission-parker-solar-probe",
+    "entityType": "mission",
+    "type": "astra-mission-launch-year-rev",
+    "difficulty": 4,
+    "prompt": "Welche dieser Missionen startete im Jahr 2018?",
+    "correctAnswer": "Parker Solar Probe",
+    "options": [
+      "Parker Solar Probe",
+      "New Horizons",
+      "Voyager 2",
+      "Voyager 1"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_mission-hubble_astra-mission-launch-year-rev",
+    "entityId": "astra:mission-hubble",
+    "entityType": "mission",
+    "type": "astra-mission-launch-year-rev",
+    "difficulty": 4,
+    "prompt": "Welche dieser Missionen startete im Jahr 1990?",
+    "correctAnswer": "Hubble-Weltraumteleskop",
+    "options": [
+      "Hubble-Weltraumteleskop",
+      "New Horizons",
+      "Voyager 2",
+      "Voyager 1"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_mission-gaia_astra-mission-launch-year-rev",
+    "entityId": "astra:mission-gaia",
+    "entityType": "mission",
+    "type": "astra-mission-launch-year-rev",
+    "difficulty": 4,
+    "prompt": "Welche dieser Missionen startete im Jahr 2013?",
+    "correctAnswer": "Gaia (ESA)",
+    "options": [
+      "Gaia (ESA)",
+      "New Horizons",
+      "James-Webb-Weltraumteleskop",
+      "Hubble-Weltraumteleskop"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_mission-kepler-teleskop_astra-mission-launch-year-rev",
+    "entityId": "astra:mission-kepler-teleskop",
+    "entityType": "mission",
+    "type": "astra-mission-launch-year-rev",
+    "difficulty": 4,
+    "prompt": "Welche dieser Missionen startete im Jahr 2009?",
+    "correctAnswer": "Kepler-Teleskop",
+    "options": [
+      "Kepler-Teleskop",
+      "New Horizons",
+      "Gaia (ESA)",
+      "Voyager 2"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_mission-voyager-2_astra-mission-launch-mass",
+    "entityId": "astra:mission-voyager-2",
+    "entityType": "mission",
+    "type": "astra-mission-launch-mass",
+    "difficulty": 4,
+    "prompt": "Welche Startmasse hatte die Mission „Voyager 2“?",
+    "correctAnswer": "825 kg",
+    "options": [
+      "825 kg",
+      "685 kg",
+      "478 kg",
+      "3.839 kg"
+    ],
+    "testedAttribute": "launchMassKg",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_mission-new-horizons_astra-mission-launch-mass",
+    "entityId": "astra:mission-new-horizons",
+    "entityType": "mission",
+    "type": "astra-mission-launch-mass",
+    "difficulty": 4,
+    "prompt": "Welche Startmasse hatte die Mission „New Horizons“?",
+    "correctAnswer": "478 kg",
+    "options": [
+      "478 kg",
+      "685 kg",
+      "825 kg",
+      "3.839 kg"
+    ],
+    "testedAttribute": "launchMassKg",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_mission-perseverance_astra-mission-launch-mass",
+    "entityId": "astra:mission-perseverance",
+    "entityType": "mission",
+    "type": "astra-mission-launch-mass",
+    "difficulty": 4,
+    "prompt": "Welche Startmasse hatte die Mission „Perseverance“?",
+    "correctAnswer": "3.839 kg",
+    "options": [
+      "3.839 kg",
+      "825 kg",
+      "685 kg",
+      "478 kg"
+    ],
+    "testedAttribute": "launchMassKg",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_mission-parker-solar-probe_astra-mission-launch-mass",
+    "entityId": "astra:mission-parker-solar-probe",
+    "entityType": "mission",
+    "type": "astra-mission-launch-mass",
+    "difficulty": 4,
+    "prompt": "Welche Startmasse hatte die Mission „Parker Solar Probe“?",
+    "correctAnswer": "685 kg",
+    "options": [
+      "685 kg",
+      "825 kg",
+      "478 kg",
+      "3.839 kg"
+    ],
+    "testedAttribute": "launchMassKg",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_mission-voyager-1_astra-mission-operator",
+    "entityId": "astra:mission-voyager-1",
+    "entityType": "mission",
+    "type": "astra-mission-operator",
+    "difficulty": 3,
+    "prompt": "Wer betreibt (oder betrieb) die Mission „Voyager 1“?",
+    "correctAnswer": "NASA/JPL",
+    "options": [
+      "NASA/JPL",
+      "NASA / ESA / ASI",
+      "NASA / ESA / CSA",
+      "ESA"
+    ],
+    "testedAttribute": "operator",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_mission-cassini_astra-mission-operator",
+    "entityId": "astra:mission-cassini",
+    "entityType": "mission",
+    "type": "astra-mission-operator",
+    "difficulty": 3,
+    "prompt": "Wer betreibt (oder betrieb) die Mission „Cassini-Huygens“?",
+    "correctAnswer": "NASA / ESA / ASI",
+    "options": [
+      "NASA / ESA / ASI",
+      "NASA/JPL",
+      "NASA / ESA / CSA",
+      "ESA"
+    ],
+    "testedAttribute": "operator",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_mission-james-webb-teleskop_astra-mission-operator",
+    "entityId": "astra:mission-james-webb-teleskop",
+    "entityType": "mission",
+    "type": "astra-mission-operator",
+    "difficulty": 3,
+    "prompt": "Wer betreibt (oder betrieb) die Mission „James-Webb-Weltraumteleskop“?",
+    "correctAnswer": "NASA / ESA / CSA",
+    "options": [
+      "NASA / ESA / CSA",
+      "NASA/JPL",
+      "NASA / ESA / ASI",
+      "ESA"
+    ],
+    "testedAttribute": "operator",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_nebel-orionnebel_astra-nebula-distance",
+    "entityId": "astra:nebel-orionnebel",
+    "entityType": "nebula",
+    "type": "astra-nebula-distance",
+    "difficulty": 3,
+    "prompt": "Wie weit ist der Orionnebel ungefähr von der Erde entfernt?",
+    "correctAnswer": "1.350 Lichtjahre",
+    "options": [
+      "1.350 Lichtjahre",
+      "1.500 Lichtjahre",
+      "2.300 Lichtjahre",
+      "6.500 Lichtjahre"
+    ],
+    "testedAttribute": "distanceLy",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_nebel-krebsnebel_astra-nebula-distance",
+    "entityId": "astra:nebel-krebsnebel",
+    "entityType": "nebula",
+    "type": "astra-nebula-distance",
+    "difficulty": 3,
+    "prompt": "Wie weit ist der Krebsnebel ungefähr von der Erde entfernt?",
+    "correctAnswer": "6.500 Lichtjahre",
+    "options": [
+      "6.500 Lichtjahre",
+      "7.000 Lichtjahre",
+      "2.300 Lichtjahre",
+      "1.500 Lichtjahre"
+    ],
+    "testedAttribute": "distanceLy",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_nebel-ringnebel_astra-nebula-distance",
+    "entityId": "astra:nebel-ringnebel",
+    "entityType": "nebula",
+    "type": "astra-nebula-distance",
+    "difficulty": 3,
+    "prompt": "Wie weit ist der Ringnebel ungefähr von der Erde entfernt?",
+    "correctAnswer": "2.300 Lichtjahre",
+    "options": [
+      "2.300 Lichtjahre",
+      "1.500 Lichtjahre",
+      "1.350 Lichtjahre",
+      "6.500 Lichtjahre"
+    ],
+    "testedAttribute": "distanceLy",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_nebel-adlernebel_astra-nebula-distance",
+    "entityId": "astra:nebel-adlernebel",
+    "entityType": "nebula",
+    "type": "astra-nebula-distance",
+    "difficulty": 3,
+    "prompt": "Wie weit ist der Adlernebel ungefähr von der Erde entfernt?",
+    "correctAnswer": "7.000 Lichtjahre",
+    "options": [
+      "7.000 Lichtjahre",
+      "6.500 Lichtjahre",
+      "2.300 Lichtjahre",
+      "1.500 Lichtjahre"
+    ],
+    "testedAttribute": "distanceLy",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_nebel-pferdekopfnebel_astra-nebula-distance",
+    "entityId": "astra:nebel-pferdekopfnebel",
+    "entityType": "nebula",
+    "type": "astra-nebula-distance",
+    "difficulty": 3,
+    "prompt": "Wie weit ist der Pferdekopfnebel ungefähr von der Erde entfernt?",
+    "correctAnswer": "1.500 Lichtjahre",
+    "options": [
+      "1.500 Lichtjahre",
+      "1.350 Lichtjahre",
+      "2.300 Lichtjahre",
+      "6.500 Lichtjahre"
+    ],
+    "testedAttribute": "distanceLy",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_nebel-orionnebel_astra-nebula-distance-rev",
+    "entityId": "astra:nebel-orionnebel",
+    "entityType": "nebula",
+    "type": "astra-nebula-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Nebel ist etwa 1.350 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "Orionnebel",
+    "options": [
+      "Orionnebel",
+      "Adlernebel",
+      "Ringnebel",
+      "Pferdekopfnebel"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_nebel-krebsnebel_astra-nebula-distance-rev",
+    "entityId": "astra:nebel-krebsnebel",
+    "entityType": "nebula",
+    "type": "astra-nebula-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Nebel ist etwa 6.500 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "Krebsnebel",
+    "options": [
+      "Krebsnebel",
+      "Pferdekopfnebel",
+      "Adlernebel",
+      "Ringnebel"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_nebel-ringnebel_astra-nebula-distance-rev",
+    "entityId": "astra:nebel-ringnebel",
+    "entityType": "nebula",
+    "type": "astra-nebula-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Nebel ist etwa 2.300 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "Ringnebel",
+    "options": [
+      "Ringnebel",
+      "Pferdekopfnebel",
+      "Orionnebel",
+      "Adlernebel"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_nebel-adlernebel_astra-nebula-distance-rev",
+    "entityId": "astra:nebel-adlernebel",
+    "entityType": "nebula",
+    "type": "astra-nebula-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Nebel ist etwa 7.000 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "Adlernebel",
+    "options": [
+      "Adlernebel",
+      "Pferdekopfnebel",
+      "Krebsnebel",
+      "Orionnebel"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_nebel-pferdekopfnebel_astra-nebula-distance-rev",
+    "entityId": "astra:nebel-pferdekopfnebel",
+    "entityType": "nebula",
+    "type": "astra-nebula-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Nebel ist etwa 1.500 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "Pferdekopfnebel",
+    "options": [
+      "Pferdekopfnebel",
+      "Adlernebel",
+      "Orionnebel",
+      "Krebsnebel"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_nebel-orionnebel_astra-nebula-messier",
+    "entityId": "astra:nebel-orionnebel",
+    "entityType": "nebula",
+    "type": "astra-nebula-messier",
+    "difficulty": 4,
+    "prompt": "Welche Messier-Nummer trägt der Orionnebel?",
+    "correctAnswer": "M42",
+    "options": [
+      "M42",
+      "M57",
+      "M16",
+      "M1"
+    ],
+    "testedAttribute": "messierNumber",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_nebel-krebsnebel_astra-nebula-messier",
+    "entityId": "astra:nebel-krebsnebel",
+    "entityType": "nebula",
+    "type": "astra-nebula-messier",
+    "difficulty": 4,
+    "prompt": "Welche Messier-Nummer trägt der Krebsnebel?",
+    "correctAnswer": "M1",
+    "options": [
+      "M1",
+      "M16",
+      "M42",
+      "M57"
+    ],
+    "testedAttribute": "messierNumber",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_nebel-ringnebel_astra-nebula-messier",
+    "entityId": "astra:nebel-ringnebel",
+    "entityType": "nebula",
+    "type": "astra-nebula-messier",
+    "difficulty": 4,
+    "prompt": "Welche Messier-Nummer trägt der Ringnebel?",
+    "correctAnswer": "M57",
+    "options": [
+      "M57",
+      "M42",
+      "M16",
+      "M1"
+    ],
+    "testedAttribute": "messierNumber",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_nebel-adlernebel_astra-nebula-messier",
+    "entityId": "astra:nebel-adlernebel",
+    "entityType": "nebula",
+    "type": "astra-nebula-messier",
+    "difficulty": 4,
+    "prompt": "Welche Messier-Nummer trägt der Adlernebel?",
+    "correctAnswer": "M16",
+    "options": [
+      "M16",
+      "M1",
+      "M42",
+      "M57"
+    ],
+    "testedAttribute": "messierNumber",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_nebel-orionnebel_astra-nebula-messier-rev",
+    "entityId": "astra:nebel-orionnebel",
+    "entityType": "nebula",
+    "type": "astra-nebula-messier-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Nebel trägt die Messier-Nummer M42?",
+    "correctAnswer": "Orionnebel",
+    "options": [
+      "Orionnebel",
+      "Adlernebel",
+      "Ringnebel",
+      "Krebsnebel"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_nebel-krebsnebel_astra-nebula-messier-rev",
+    "entityId": "astra:nebel-krebsnebel",
+    "entityType": "nebula",
+    "type": "astra-nebula-messier-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Nebel trägt die Messier-Nummer M1?",
+    "correctAnswer": "Krebsnebel",
+    "options": [
+      "Krebsnebel",
+      "Adlernebel",
+      "Orionnebel",
+      "Ringnebel"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_nebel-ringnebel_astra-nebula-messier-rev",
+    "entityId": "astra:nebel-ringnebel",
+    "entityType": "nebula",
+    "type": "astra-nebula-messier-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Nebel trägt die Messier-Nummer M57?",
+    "correctAnswer": "Ringnebel",
+    "options": [
+      "Ringnebel",
+      "Krebsnebel",
+      "Adlernebel",
+      "Orionnebel"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_nebel-adlernebel_astra-nebula-messier-rev",
+    "entityId": "astra:nebel-adlernebel",
+    "entityType": "nebula",
+    "type": "astra-nebula-messier-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Nebel trägt die Messier-Nummer M16?",
+    "correctAnswer": "Adlernebel",
+    "options": [
+      "Adlernebel",
+      "Orionnebel",
+      "Ringnebel",
+      "Krebsnebel"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_nebel-orionnebel_astra-nebula-diameter",
+    "entityId": "astra:nebel-orionnebel",
+    "entityType": "nebula",
+    "type": "astra-nebula-diameter",
+    "difficulty": 4,
+    "prompt": "Welche ungefähre Ausdehnung hat der Orionnebel?",
+    "correctAnswer": "24 Lichtjahre",
+    "options": [
+      "24 Lichtjahre",
+      "11 Lichtjahre",
+      "1,3 Lichtjahre",
+      "70 Lichtjahre"
+    ],
+    "testedAttribute": "diameterLy",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_nebel-krebsnebel_astra-nebula-diameter",
+    "entityId": "astra:nebel-krebsnebel",
+    "entityType": "nebula",
+    "type": "astra-nebula-diameter",
+    "difficulty": 4,
+    "prompt": "Welche ungefähre Ausdehnung hat der Krebsnebel?",
+    "correctAnswer": "11 Lichtjahre",
+    "options": [
+      "11 Lichtjahre",
+      "1,3 Lichtjahre",
+      "24 Lichtjahre",
+      "70 Lichtjahre"
+    ],
+    "testedAttribute": "diameterLy",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_nebel-ringnebel_astra-nebula-diameter",
+    "entityId": "astra:nebel-ringnebel",
+    "entityType": "nebula",
+    "type": "astra-nebula-diameter",
+    "difficulty": 4,
+    "prompt": "Welche ungefähre Ausdehnung hat der Ringnebel?",
+    "correctAnswer": "1,3 Lichtjahre",
+    "options": [
+      "1,3 Lichtjahre",
+      "11 Lichtjahre",
+      "24 Lichtjahre",
+      "70 Lichtjahre"
+    ],
+    "testedAttribute": "diameterLy",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_nebel-adlernebel_astra-nebula-diameter",
+    "entityId": "astra:nebel-adlernebel",
+    "entityType": "nebula",
+    "type": "astra-nebula-diameter",
+    "difficulty": 4,
+    "prompt": "Welche ungefähre Ausdehnung hat der Adlernebel?",
+    "correctAnswer": "70 Lichtjahre",
+    "options": [
+      "70 Lichtjahre",
+      "24 Lichtjahre",
+      "11 Lichtjahre",
+      "1,3 Lichtjahre"
+    ],
+    "testedAttribute": "diameterLy",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_nebel-ringnebel_astra-nebula-constellation",
+    "entityId": "astra:nebel-ringnebel",
+    "entityType": "nebula",
+    "type": "astra-nebula-constellation",
+    "difficulty": 3,
+    "prompt": "In welchem Sternbild liegt der Ringnebel?",
+    "correctAnswer": "Leier",
+    "options": [
+      "Leier",
+      "Orion",
+      "Schlange",
+      "Stier"
+    ],
+    "testedAttribute": "constellation",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_nebel-adlernebel_astra-nebula-constellation",
+    "entityId": "astra:nebel-adlernebel",
+    "entityType": "nebula",
+    "type": "astra-nebula-constellation",
+    "difficulty": 3,
+    "prompt": "In welchem Sternbild liegt der Adlernebel?",
+    "correctAnswer": "Schlange",
+    "options": [
+      "Schlange",
+      "Orion",
+      "Leier",
+      "Stier"
+    ],
+    "testedAttribute": "constellation",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_nebel-pferdekopfnebel_astra-nebula-constellation",
+    "entityId": "astra:nebel-pferdekopfnebel",
+    "entityType": "nebula",
+    "type": "astra-nebula-constellation",
+    "difficulty": 3,
+    "prompt": "In welchem Sternbild liegt der Pferdekopfnebel?",
+    "correctAnswer": "Orion",
+    "options": [
+      "Orion",
+      "Leier",
+      "Schlange",
+      "Stier"
+    ],
+    "testedAttribute": "constellation",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_asteroid-vesta_astra-asteroid-diameter",
+    "entityId": "astra:asteroid-vesta",
+    "entityType": "asteroid",
+    "type": "astra-asteroid-diameter",
+    "difficulty": 3,
+    "prompt": "Welchen ungefähren Durchmesser hat der Asteroid Vesta?",
+    "correctAnswer": "523 km",
+    "options": [
+      "523 km",
+      "513 km",
+      "900 m",
+      "492 m"
+    ],
+    "testedAttribute": "diameterKm",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_asteroid-pallas_astra-asteroid-diameter",
+    "entityId": "astra:asteroid-pallas",
+    "entityType": "asteroid",
+    "type": "astra-asteroid-diameter",
+    "difficulty": 3,
+    "prompt": "Welchen ungefähren Durchmesser hat der Asteroid Pallas?",
+    "correctAnswer": "513 km",
+    "options": [
+      "513 km",
+      "523 km",
+      "900 m",
+      "492 m"
+    ],
+    "testedAttribute": "diameterKm",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_asteroid-bennu_astra-asteroid-diameter",
+    "entityId": "astra:asteroid-bennu",
+    "entityType": "asteroid",
+    "type": "astra-asteroid-diameter",
+    "difficulty": 3,
+    "prompt": "Welchen ungefähren Durchmesser hat der Asteroid Bennu?",
+    "correctAnswer": "492 m",
+    "options": [
+      "492 m",
+      "350 m",
+      "900 m",
+      "513 km"
+    ],
+    "testedAttribute": "diameterKm",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_asteroid-ryugu_astra-asteroid-diameter",
+    "entityId": "astra:asteroid-ryugu",
+    "entityType": "asteroid",
+    "type": "astra-asteroid-diameter",
+    "difficulty": 3,
+    "prompt": "Welchen ungefähren Durchmesser hat der Asteroid Ryugu?",
+    "correctAnswer": "900 m",
+    "options": [
+      "900 m",
+      "492 m",
+      "350 m",
+      "513 km"
+    ],
+    "testedAttribute": "diameterKm",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_asteroid-apophis_astra-asteroid-diameter",
+    "entityId": "astra:asteroid-apophis",
+    "entityType": "asteroid",
+    "type": "astra-asteroid-diameter",
+    "difficulty": 3,
+    "prompt": "Welchen ungefähren Durchmesser hat der Asteroid Apophis?",
+    "correctAnswer": "350 m",
+    "options": [
+      "350 m",
+      "492 m",
+      "900 m",
+      "513 km"
+    ],
+    "testedAttribute": "diameterKm",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_asteroid-vesta_astra-asteroid-diameter-rev",
+    "entityId": "astra:asteroid-vesta",
+    "entityType": "asteroid",
+    "type": "astra-asteroid-diameter-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Asteroid hat einen ungefähren Durchmesser von 523 km?",
+    "correctAnswer": "Vesta",
+    "options": [
+      "Vesta",
+      "Pallas",
+      "Apophis",
+      "Bennu"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_asteroid-pallas_astra-asteroid-diameter-rev",
+    "entityId": "astra:asteroid-pallas",
+    "entityType": "asteroid",
+    "type": "astra-asteroid-diameter-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Asteroid hat einen ungefähren Durchmesser von 513 km?",
+    "correctAnswer": "Pallas",
+    "options": [
+      "Pallas",
+      "Vesta",
+      "Bennu",
+      "Ryugu"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_asteroid-bennu_astra-asteroid-diameter-rev",
+    "entityId": "astra:asteroid-bennu",
+    "entityType": "asteroid",
+    "type": "astra-asteroid-diameter-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Asteroid hat einen ungefähren Durchmesser von 492 m?",
+    "correctAnswer": "Bennu",
+    "options": [
+      "Bennu",
+      "Apophis",
+      "Pallas",
+      "Vesta"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_asteroid-ryugu_astra-asteroid-diameter-rev",
+    "entityId": "astra:asteroid-ryugu",
+    "entityType": "asteroid",
+    "type": "astra-asteroid-diameter-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Asteroid hat einen ungefähren Durchmesser von 900 m?",
+    "correctAnswer": "Ryugu",
+    "options": [
+      "Ryugu",
+      "Vesta",
+      "Apophis",
+      "Pallas"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_asteroid-apophis_astra-asteroid-diameter-rev",
+    "entityId": "astra:asteroid-apophis",
+    "entityType": "asteroid",
+    "type": "astra-asteroid-diameter-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Asteroid hat einen ungefähren Durchmesser von 350 m?",
+    "correctAnswer": "Apophis",
+    "options": [
+      "Apophis",
+      "Bennu",
+      "Vesta",
+      "Ryugu"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_asteroid-vesta_astra-asteroid-year",
+    "entityId": "astra:asteroid-vesta",
+    "entityType": "asteroid",
+    "type": "astra-asteroid-year",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr wurde der Asteroid Vesta entdeckt?",
+    "correctAnswer": "1807",
+    "options": [
+      "1807",
+      "1802",
+      "1999",
+      "2004"
+    ],
+    "testedAttribute": "discoveredYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_asteroid-pallas_astra-asteroid-year",
+    "entityId": "astra:asteroid-pallas",
+    "entityType": "asteroid",
+    "type": "astra-asteroid-year",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr wurde der Asteroid Pallas entdeckt?",
+    "correctAnswer": "1802",
+    "options": [
+      "1802",
+      "1807",
+      "1999",
+      "2004"
+    ],
+    "testedAttribute": "discoveredYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_asteroid-ryugu_astra-asteroid-year",
+    "entityId": "astra:asteroid-ryugu",
+    "entityType": "asteroid",
+    "type": "astra-asteroid-year",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr wurde der Asteroid Ryugu entdeckt?",
+    "correctAnswer": "1999",
+    "options": [
+      "1999",
+      "2004",
+      "1807",
+      "1802"
+    ],
+    "testedAttribute": "discoveredYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_asteroid-apophis_astra-asteroid-year",
+    "entityId": "astra:asteroid-apophis",
+    "entityType": "asteroid",
+    "type": "astra-asteroid-year",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr wurde der Asteroid Apophis entdeckt?",
+    "correctAnswer": "2004",
+    "options": [
+      "2004",
+      "1999",
+      "1807",
+      "1802"
+    ],
+    "testedAttribute": "discoveredYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_asteroid-vesta_astra-asteroid-year-rev",
+    "entityId": "astra:asteroid-vesta",
+    "entityType": "asteroid",
+    "type": "astra-asteroid-year-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Asteroid wurde im Jahr 1807 entdeckt?",
+    "correctAnswer": "Vesta",
+    "options": [
+      "Vesta",
+      "Apophis",
+      "Ryugu",
+      "Pallas"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_asteroid-pallas_astra-asteroid-year-rev",
+    "entityId": "astra:asteroid-pallas",
+    "entityType": "asteroid",
+    "type": "astra-asteroid-year-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Asteroid wurde im Jahr 1802 entdeckt?",
+    "correctAnswer": "Pallas",
+    "options": [
+      "Pallas",
+      "Ryugu",
+      "Vesta",
+      "Apophis"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_asteroid-ryugu_astra-asteroid-year-rev",
+    "entityId": "astra:asteroid-ryugu",
+    "entityType": "asteroid",
+    "type": "astra-asteroid-year-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Asteroid wurde im Jahr 1999 entdeckt?",
+    "correctAnswer": "Ryugu",
+    "options": [
+      "Ryugu",
+      "Vesta",
+      "Apophis",
+      "Pallas"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_asteroid-apophis_astra-asteroid-year-rev",
+    "entityId": "astra:asteroid-apophis",
+    "entityType": "asteroid",
+    "type": "astra-asteroid-year-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Asteroid wurde im Jahr 2004 entdeckt?",
+    "correctAnswer": "Apophis",
+    "options": [
+      "Apophis",
+      "Pallas",
+      "Vesta",
+      "Ryugu"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_meteorstrom-perseiden_astra-shower-peak",
+    "entityId": "astra:meteorstrom-perseiden",
+    "entityType": "meteor_shower",
+    "type": "astra-shower-peak",
+    "difficulty": 2,
+    "prompt": "Wann erreichen die Perseiden ihr jährliches Maximum?",
+    "correctAnswer": "12. August",
+    "options": [
+      "12. August",
+      "14. Dezember",
+      "17./18. November",
+      "4. Januar"
+    ],
+    "testedAttribute": "peakDate",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_meteorstrom-geminiden_astra-shower-peak",
+    "entityId": "astra:meteorstrom-geminiden",
+    "entityType": "meteor_shower",
+    "type": "astra-shower-peak",
+    "difficulty": 2,
+    "prompt": "Wann erreichen die Geminiden ihr jährliches Maximum?",
+    "correctAnswer": "14. Dezember",
+    "options": [
+      "14. Dezember",
+      "12. August",
+      "17./18. November",
+      "4. Januar"
+    ],
+    "testedAttribute": "peakDate",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_meteorstrom-leoniden_astra-shower-peak",
+    "entityId": "astra:meteorstrom-leoniden",
+    "entityType": "meteor_shower",
+    "type": "astra-shower-peak",
+    "difficulty": 2,
+    "prompt": "Wann erreichen die Leoniden ihr jährliches Maximum?",
+    "correctAnswer": "17./18. November",
+    "options": [
+      "17./18. November",
+      "12. August",
+      "14. Dezember",
+      "4. Januar"
+    ],
+    "testedAttribute": "peakDate",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_meteorstrom-quadrantiden_astra-shower-peak",
+    "entityId": "astra:meteorstrom-quadrantiden",
+    "entityType": "meteor_shower",
+    "type": "astra-shower-peak",
+    "difficulty": 2,
+    "prompt": "Wann erreichen die Quadrantiden ihr jährliches Maximum?",
+    "correctAnswer": "4. Januar",
+    "options": [
+      "4. Januar",
+      "12. August",
+      "14. Dezember",
+      "17./18. November"
+    ],
+    "testedAttribute": "peakDate",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_meteorstrom-perseiden_astra-shower-peak-rev",
+    "entityId": "astra:meteorstrom-perseiden",
+    "entityType": "meteor_shower",
+    "type": "astra-shower-peak-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Meteorstrom erreicht sein Maximum am 12. August?",
+    "correctAnswer": "Perseiden",
+    "options": [
+      "Perseiden",
+      "Geminiden",
+      "Leoniden",
+      "Quadrantiden"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_meteorstrom-geminiden_astra-shower-peak-rev",
+    "entityId": "astra:meteorstrom-geminiden",
+    "entityType": "meteor_shower",
+    "type": "astra-shower-peak-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Meteorstrom erreicht sein Maximum am 14. Dezember?",
+    "correctAnswer": "Geminiden",
+    "options": [
+      "Geminiden",
+      "Quadrantiden",
+      "Leoniden",
+      "Perseiden"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_meteorstrom-leoniden_astra-shower-peak-rev",
+    "entityId": "astra:meteorstrom-leoniden",
+    "entityType": "meteor_shower",
+    "type": "astra-shower-peak-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Meteorstrom erreicht sein Maximum am 17./18. November?",
+    "correctAnswer": "Leoniden",
+    "options": [
+      "Leoniden",
+      "Perseiden",
+      "Geminiden",
+      "Quadrantiden"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_meteorstrom-quadrantiden_astra-shower-peak-rev",
+    "entityId": "astra:meteorstrom-quadrantiden",
+    "entityType": "meteor_shower",
+    "type": "astra-shower-peak-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Meteorstrom erreicht sein Maximum am 4. Januar?",
+    "correctAnswer": "Quadrantiden",
+    "options": [
+      "Quadrantiden",
+      "Leoniden",
+      "Perseiden",
+      "Geminiden"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_meteorstrom-perseiden_astra-shower-parent",
+    "entityId": "astra:meteorstrom-perseiden",
+    "entityType": "meteor_shower",
+    "type": "astra-shower-parent",
+    "difficulty": 4,
+    "prompt": "Welcher Himmelskörper ist der Mutterkörper der Perseiden?",
+    "correctAnswer": "109P/Swift-Tuttle",
+    "options": [
+      "109P/Swift-Tuttle",
+      "(3200) Phaethon (Asteroid)",
+      "55P/Tempel-Tuttle",
+      "Asteroid 2003 EH1"
+    ],
+    "testedAttribute": "parentBody",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_meteorstrom-geminiden_astra-shower-parent",
+    "entityId": "astra:meteorstrom-geminiden",
+    "entityType": "meteor_shower",
+    "type": "astra-shower-parent",
+    "difficulty": 4,
+    "prompt": "Welcher Himmelskörper ist der Mutterkörper der Geminiden?",
+    "correctAnswer": "(3200) Phaethon (Asteroid)",
+    "options": [
+      "(3200) Phaethon (Asteroid)",
+      "109P/Swift-Tuttle",
+      "55P/Tempel-Tuttle",
+      "Asteroid 2003 EH1"
+    ],
+    "testedAttribute": "parentBody",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_meteorstrom-leoniden_astra-shower-parent",
+    "entityId": "astra:meteorstrom-leoniden",
+    "entityType": "meteor_shower",
+    "type": "astra-shower-parent",
+    "difficulty": 4,
+    "prompt": "Welcher Himmelskörper ist der Mutterkörper der Leoniden?",
+    "correctAnswer": "55P/Tempel-Tuttle",
+    "options": [
+      "55P/Tempel-Tuttle",
+      "109P/Swift-Tuttle",
+      "(3200) Phaethon (Asteroid)",
+      "Asteroid 2003 EH1"
+    ],
+    "testedAttribute": "parentBody",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_meteorstrom-quadrantiden_astra-shower-parent",
+    "entityId": "astra:meteorstrom-quadrantiden",
+    "entityType": "meteor_shower",
+    "type": "astra-shower-parent",
+    "difficulty": 4,
+    "prompt": "Welcher Himmelskörper ist der Mutterkörper der Quadrantiden?",
+    "correctAnswer": "Asteroid 2003 EH1",
+    "options": [
+      "Asteroid 2003 EH1",
+      "109P/Swift-Tuttle",
+      "(3200) Phaethon (Asteroid)",
+      "55P/Tempel-Tuttle"
+    ],
+    "testedAttribute": "parentBody",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_meteorstrom-perseiden_astra-shower-parent-rev",
+    "entityId": "astra:meteorstrom-perseiden",
+    "entityType": "meteor_shower",
+    "type": "astra-shower-parent-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Meteorstrom geht auf 109P/Swift-Tuttle zurück?",
+    "correctAnswer": "Perseiden",
+    "options": [
+      "Perseiden",
+      "Leoniden",
+      "Quadrantiden",
+      "Geminiden"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_meteorstrom-geminiden_astra-shower-parent-rev",
+    "entityId": "astra:meteorstrom-geminiden",
+    "entityType": "meteor_shower",
+    "type": "astra-shower-parent-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Meteorstrom geht auf (3200) Phaethon (Asteroid) zurück?",
+    "correctAnswer": "Geminiden",
+    "options": [
+      "Geminiden",
+      "Quadrantiden",
+      "Leoniden",
+      "Perseiden"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_meteorstrom-leoniden_astra-shower-parent-rev",
+    "entityId": "astra:meteorstrom-leoniden",
+    "entityType": "meteor_shower",
+    "type": "astra-shower-parent-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Meteorstrom geht auf 55P/Tempel-Tuttle zurück?",
+    "correctAnswer": "Leoniden",
+    "options": [
+      "Leoniden",
+      "Perseiden",
+      "Quadrantiden",
+      "Geminiden"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_meteorstrom-quadrantiden_astra-shower-parent-rev",
+    "entityId": "astra:meteorstrom-quadrantiden",
+    "entityType": "meteor_shower",
+    "type": "astra-shower-parent-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Meteorstrom geht auf Asteroid 2003 EH1 zurück?",
+    "correctAnswer": "Quadrantiden",
+    "options": [
+      "Quadrantiden",
+      "Leoniden",
+      "Geminiden",
+      "Perseiden"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_exoplanet-proxima-centauri-b_astra-exo-distance",
+    "entityId": "astra:exoplanet-proxima-centauri-b",
+    "entityType": "exoplanet",
+    "type": "astra-exo-distance",
+    "difficulty": 3,
+    "prompt": "Wie weit ist Proxima Centauri b ungefähr von der Erde entfernt?",
+    "correctAnswer": "4,2 Lichtjahre",
+    "options": [
+      "4,2 Lichtjahre",
+      "40 Lichtjahre",
+      "48 Lichtjahre",
+      "1.800 Lichtjahre"
+    ],
+    "testedAttribute": "distanceLy",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_exoplanet-trappist-1_astra-exo-distance",
+    "entityId": "astra:exoplanet-trappist-1",
+    "entityType": "exoplanet",
+    "type": "astra-exo-distance",
+    "difficulty": 3,
+    "prompt": "Wie weit ist TRAPPIST-1-System ungefähr von der Erde entfernt?",
+    "correctAnswer": "40 Lichtjahre",
+    "options": [
+      "40 Lichtjahre",
+      "48 Lichtjahre",
+      "4,2 Lichtjahre",
+      "1.800 Lichtjahre"
+    ],
+    "testedAttribute": "distanceLy",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_exoplanet-kepler-452b_astra-exo-distance",
+    "entityId": "astra:exoplanet-kepler-452b",
+    "entityType": "exoplanet",
+    "type": "astra-exo-distance",
+    "difficulty": 3,
+    "prompt": "Wie weit ist Kepler-452b ungefähr von der Erde entfernt?",
+    "correctAnswer": "1.800 Lichtjahre",
+    "options": [
+      "1.800 Lichtjahre",
+      "48 Lichtjahre",
+      "40 Lichtjahre",
+      "4,2 Lichtjahre"
+    ],
+    "testedAttribute": "distanceLy",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_exoplanet-51-pegasi-b_astra-exo-distance",
+    "entityId": "astra:exoplanet-51-pegasi-b",
+    "entityType": "exoplanet",
+    "type": "astra-exo-distance",
+    "difficulty": 3,
+    "prompt": "Wie weit ist 51 Pegasi b (Dimidium) ungefähr von der Erde entfernt?",
+    "correctAnswer": "48 Lichtjahre",
+    "options": [
+      "48 Lichtjahre",
+      "40 Lichtjahre",
+      "4,2 Lichtjahre",
+      "1.800 Lichtjahre"
+    ],
+    "testedAttribute": "distanceLy",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_exoplanet-proxima-centauri-b_astra-exo-distance-rev",
+    "entityId": "astra:exoplanet-proxima-centauri-b",
+    "entityType": "exoplanet",
+    "type": "astra-exo-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Exoplanet (bzw. welches System) ist etwa 4,2 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "Proxima Centauri b",
+    "options": [
+      "Proxima Centauri b",
+      "51 Pegasi b (Dimidium)",
+      "Kepler-452b",
+      "TRAPPIST-1-System"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_exoplanet-trappist-1_astra-exo-distance-rev",
+    "entityId": "astra:exoplanet-trappist-1",
+    "entityType": "exoplanet",
+    "type": "astra-exo-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Exoplanet (bzw. welches System) ist etwa 40 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "TRAPPIST-1-System",
+    "options": [
+      "TRAPPIST-1-System",
+      "Kepler-452b",
+      "Proxima Centauri b",
+      "51 Pegasi b (Dimidium)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_exoplanet-kepler-452b_astra-exo-distance-rev",
+    "entityId": "astra:exoplanet-kepler-452b",
+    "entityType": "exoplanet",
+    "type": "astra-exo-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Exoplanet (bzw. welches System) ist etwa 1.800 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "Kepler-452b",
+    "options": [
+      "Kepler-452b",
+      "Proxima Centauri b",
+      "51 Pegasi b (Dimidium)",
+      "TRAPPIST-1-System"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_exoplanet-51-pegasi-b_astra-exo-distance-rev",
+    "entityId": "astra:exoplanet-51-pegasi-b",
+    "entityType": "exoplanet",
+    "type": "astra-exo-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Exoplanet (bzw. welches System) ist etwa 48 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "51 Pegasi b (Dimidium)",
+    "options": [
+      "51 Pegasi b (Dimidium)",
+      "Proxima Centauri b",
+      "Kepler-452b",
+      "TRAPPIST-1-System"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_exoplanet-proxima-centauri-b_astra-exo-year",
+    "entityId": "astra:exoplanet-proxima-centauri-b",
+    "entityType": "exoplanet",
+    "type": "astra-exo-year",
+    "difficulty": 3,
+    "prompt": "In welchem Jahr wurde Proxima Centauri b entdeckt?",
+    "correctAnswer": "2016",
+    "options": [
+      "2016",
+      "2017",
+      "2015",
+      "1995"
+    ],
+    "testedAttribute": "discoveredYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_exoplanet-trappist-1_astra-exo-year",
+    "entityId": "astra:exoplanet-trappist-1",
+    "entityType": "exoplanet",
+    "type": "astra-exo-year",
+    "difficulty": 3,
+    "prompt": "In welchem Jahr wurde TRAPPIST-1-System entdeckt?",
+    "correctAnswer": "2017",
+    "options": [
+      "2017",
+      "2016",
+      "2015",
+      "1995"
+    ],
+    "testedAttribute": "discoveredYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_exoplanet-kepler-452b_astra-exo-year",
+    "entityId": "astra:exoplanet-kepler-452b",
+    "entityType": "exoplanet",
+    "type": "astra-exo-year",
+    "difficulty": 3,
+    "prompt": "In welchem Jahr wurde Kepler-452b entdeckt?",
+    "correctAnswer": "2015",
+    "options": [
+      "2015",
+      "2016",
+      "2017",
+      "1995"
+    ],
+    "testedAttribute": "discoveredYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_exoplanet-51-pegasi-b_astra-exo-year",
+    "entityId": "astra:exoplanet-51-pegasi-b",
+    "entityType": "exoplanet",
+    "type": "astra-exo-year",
+    "difficulty": 3,
+    "prompt": "In welchem Jahr wurde 51 Pegasi b (Dimidium) entdeckt?",
+    "correctAnswer": "1995",
+    "options": [
+      "1995",
+      "2015",
+      "2016",
+      "2017"
+    ],
+    "testedAttribute": "discoveredYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_exoplanet-proxima-centauri-b_astra-exo-year-rev",
+    "entityId": "astra:exoplanet-proxima-centauri-b",
+    "entityType": "exoplanet",
+    "type": "astra-exo-year-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Exoplanet (bzw. welches System) wurde im Jahr 2016 entdeckt?",
+    "correctAnswer": "Proxima Centauri b",
+    "options": [
+      "Proxima Centauri b",
+      "Kepler-452b",
+      "51 Pegasi b (Dimidium)",
+      "TRAPPIST-1-System"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_exoplanet-trappist-1_astra-exo-year-rev",
+    "entityId": "astra:exoplanet-trappist-1",
+    "entityType": "exoplanet",
+    "type": "astra-exo-year-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Exoplanet (bzw. welches System) wurde im Jahr 2017 entdeckt?",
+    "correctAnswer": "TRAPPIST-1-System",
+    "options": [
+      "TRAPPIST-1-System",
+      "51 Pegasi b (Dimidium)",
+      "Kepler-452b",
+      "Proxima Centauri b"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_exoplanet-kepler-452b_astra-exo-year-rev",
+    "entityId": "astra:exoplanet-kepler-452b",
+    "entityType": "exoplanet",
+    "type": "astra-exo-year-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Exoplanet (bzw. welches System) wurde im Jahr 2015 entdeckt?",
+    "correctAnswer": "Kepler-452b",
+    "options": [
+      "Kepler-452b",
+      "51 Pegasi b (Dimidium)",
+      "TRAPPIST-1-System",
+      "Proxima Centauri b"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_exoplanet-51-pegasi-b_astra-exo-year-rev",
+    "entityId": "astra:exoplanet-51-pegasi-b",
+    "entityType": "exoplanet",
+    "type": "astra-exo-year-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Exoplanet (bzw. welches System) wurde im Jahr 1995 entdeckt?",
+    "correctAnswer": "51 Pegasi b (Dimidium)",
+    "options": [
+      "51 Pegasi b (Dimidium)",
+      "Kepler-452b",
+      "Proxima Centauri b",
+      "TRAPPIST-1-System"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
   }
 ]

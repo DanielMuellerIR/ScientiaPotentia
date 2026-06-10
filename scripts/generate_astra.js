@@ -50,6 +50,22 @@ function pickDistractors(correct, pool, numeric) {
   return unique.slice(0, 3);
 }
 
+// --- deterministischer Mini-Hash (FNV-1a) ---------------------------------
+// Für die Reverse-Fragen (Welle 1) wollen wir die Distraktor-Namen pro Frage
+// VARIIEREN (sonst stünden immer die ersten Konzepte der Datenreihenfolge als
+// falsche Optionen da — das wäre durchschaubar). Math.random() wäre aber nicht
+// reproduzierbar (jeder Generator-Lauf ergäbe ein anderes Artefakt). Daher:
+// deterministische Pseudo-Zufallsreihenfolge über einen Hash aus Frage-Seed +
+// Kandidatenname — stabil über Läufe, aber je Frage anders gemischt.
+function hashStr(s) {
+  let h = 2166136261;
+  for (let i = 0; i < s.length; i++) {
+    h ^= s.charCodeAt(i);
+    h = Math.imul(h, 16777619) >>> 0;
+  }
+  return h;
+}
+
 // --- Selbstverräter-Schutz ----------------------------------------------
 // Verwirft Fragen, deren Antwort schon im Hinweis steckt (Antwort = Wort aus
 // dem Konzeptnamen). Hier seltener als bei Homo, aber als gleiche Qualitäts-
@@ -92,7 +108,12 @@ for (const c of raw) {
     category: c.category,
     attributes: c.attributes,
     funFact: c.funFact || '',
-    source: { name: c.sourceName, url: c.sourceUrl || '' }
+    source: { name: c.sourceName, url: c.sourceUrl || '' },
+    // Bild fürs spätere Museum + (optionale) Konzept-Illustration mitführen
+    // (wie Natura). Bestandskonzepte ohne Ernte-Bild bekommen null.
+    image: c.imageFile
+      ? { url: c.imageFile, license: c.imageLicense || '', attribution: c.imageAttribution || '' }
+      : null
   };
 }
 
@@ -266,6 +287,290 @@ const templates = [
     subject: c => `${deNum(c.attributes.yearLengthEarthDays)} Erdtage`, // Hinweis ist die Jahreslänge, nicht der Name
     format: (_v, c) => c.name,
     prompt: c => `Welcher Planet umrundet die Sonne in etwa ${deNum(c.attributes.yearLengthEarthDays)} Erdtagen?`
+  },
+
+  // ==== Welle-1-Erweiterung (Stand 2026-06-10) ==============================
+  // Zwei Hebel, ausschliesslich aus bereits verifizierten Attributen:
+  //  (a) Reverse-Spiegelungen bestehender Vorwärts-Fragen (Wert -> Name),
+  //  (b) Templates für die neuen Ernte-Kategorien (nach merge_astra.js).
+  //
+  // Neue Engine-Flags (Mechanik unten in der Generier-Schleife):
+  //  - reverseUnique: Reverse-Frage (Antwort = Konzeptname). KORREKTHEITS-GUARD:
+  //    teilt ein anderes Konzept derselben Kategorie den abgefragten Wert,
+  //    wird die Frage ÜBERSPRUNGEN (sonst wären mehrere Optionen richtig bzw.
+  //    die Frage in der Welt mehrdeutig). Distraktoren sind nur Konzepte mit
+  //    nachweislich ANDEREM Wert beim getesteten Attribut.
+  //  - numericByValue: numerische Vorwärts-Frage, deren Distraktoren anhand
+  //    der ROHEN Zahlenwerte nach Nähe gewählt werden (echte Nachbarwerte,
+  //    wie generate_natura) — erst danach wird formatiert. Nicht-numerische
+  //    Werte (z. B. Massen-Strings wie "2,59 × 10²⁰") werden übersprungen.
+  //
+  // BEWUSST AUSGELASSEN (zu kleine/ungeeignete Pools):
+  //  - comet, star_cluster, constellation, object: nur je 3 Konzepte
+  //    -> maximal 3 Optionen, laut Qualitätslatte lieber keine Frage.
+  //  - phenomenon (5 Konzepte): Attribute fast vollständig disjunkt
+  //    (Sonnenfinsternis/Polarlicht/Sgr A*/Roter Riese/Supernova teilen kein
+  //    Attribut mit >= 4 Trägern) -> kein fairer Distraktor-Pool möglich.
+  //  - nebula.type: zwei Werte beginnen mit "Emissions- und Reflexionsnebel"
+  //    -> als MCQ-Optionen mehrdeutig (Orionnebel enthält selbst einen
+  //    offenen Sternhaufen), Frage wäre unfair.
+  //  - asteroid.massKg: Strings mit eingebackener Einheit/Notation -> keine
+  //    numerische Frage möglich, kategorisch ohne Mehrwert.
+  //  - meteor_shower.zhrMax/entrySpeedKmS/radiantConstellation, exoplanet.
+  //    orbitalPeriodDays, mission.currentDistanceAU: nur 3 Träger -> Pool < 4.
+
+  // ---- (a) Planeten: Mondzahl -> Name ---------------------------------
+  {
+    category: 'planet', attr: 'numMoons', type: 'astra-planet-moons-rev', difficulty: 3,
+    nameAnswer: true, reverseUnique: true,
+    // Singular/Plural sauber: "1 Mond", sonst "95 Monde".
+    subject: c => c.attributes.numMoons === 1 ? '1 Mond' : `${deNum(c.attributes.numMoons)} Monde`,
+    format: (_v, c) => c.name,
+    prompt: c => c.attributes.numMoons === 1
+      ? 'Welcher Planet hat (nach gängiger Zählung) genau einen Mond?'
+      : `Welcher Planet hat (nach gängiger Zählung) ${deNum(c.attributes.numMoons)} Monde?`
+    // Merkur + Venus teilen sich den Wert 0 -> beide Fragen entfallen (Guard).
+  },
+  // ---- (a) Planeten: Sonnenabstand (AE) -> Name ------------------------
+  {
+    category: 'planet', attr: 'distanceFromSunAU', type: 'astra-planet-au-rev', difficulty: 4,
+    nameAnswer: true, reverseUnique: true,
+    subject: c => `${deNum(c.attributes.distanceFromSunAU)} AE`,
+    format: (_v, c) => c.name,
+    prompt: c => `Welcher Planet umkreist die Sonne in einer mittleren Entfernung von ${deNum(c.attributes.distanceFromSunAU)} AE?`
+  },
+  // ---- (a) Planeten: Tageslänge -> Name --------------------------------
+  {
+    category: 'planet', attr: 'dayLengthHours', type: 'astra-planet-day-rev', difficulty: 4,
+    nameAnswer: true, reverseUnique: true,
+    subject: c => `${deNum(c.attributes.dayLengthHours)} Stunden`,
+    format: (_v, c) => c.name,
+    prompt: c => `Auf welchem Planeten dauert ein Tag (Rotation) etwa ${deNum(c.attributes.dayLengthHours)} Stunden?`
+  },
+  // ---- (a) Monde: Durchmesser -> Name (Pool: 28 Monde) ------------------
+  {
+    category: 'moon', attr: 'diameterKm', type: 'astra-moon-diameter-rev', difficulty: 4,
+    nameAnswer: true, reverseUnique: true,
+    subject: c => `${deNum(c.attributes.diameterKm)} km`,
+    format: (_v, c) => c.name,
+    prompt: c => `Welcher Mond hat einen ungefähren Durchmesser von ${deNum(c.attributes.diameterKm)} km?`
+  },
+  // ---- (a) Sterne: Sternbild -> Name ------------------------------------
+  // Mehrere Sterne im selben Sternbild (Orion: Beteigeuze/Rigel/Bellatrix,
+  // Zentaur, Zwillinge) -> diese Fragen entfallen über den Guard.
+  {
+    category: 'star', attr: 'constellation', type: 'astra-star-constellation-rev', difficulty: 3,
+    nameAnswer: true, reverseUnique: true,
+    skip: c => !c.attributes.constellation, // Sonne hat kein Sternbild
+    subject: c => `Sternbild ${c.attributes.constellation}`,
+    format: (_v, c) => c.name,
+    prompt: c => `Welcher Stern liegt im Sternbild ${c.attributes.constellation}?`
+  },
+  // ---- (a) Sterne: scheinbare Helligkeit -> Name -------------------------
+  {
+    category: 'star', attr: 'apparentMagnitude', type: 'astra-star-magnitude-rev', difficulty: 4,
+    nameAnswer: true, reverseUnique: true,
+    skip: c => c.attributes.apparentMagnitude === undefined,
+    subject: c => `${deNum(c.attributes.apparentMagnitude)} mag`,
+    format: (_v, c) => c.name,
+    prompt: c => `Welcher Stern hat eine scheinbare Helligkeit von etwa ${deNum(c.attributes.apparentMagnitude)} mag?`
+  },
+  // ---- (a) Sterne: Entfernung -> Name ------------------------------------
+  // Spica + Bellatrix teilen sich 250 Lj -> beide entfallen über den Guard.
+  {
+    category: 'star', attr: 'distanceLy', type: 'astra-star-distance-rev', difficulty: 4,
+    nameAnswer: true, reverseUnique: true,
+    skip: c => Number(c.attributes.distanceLy) < 0.1, // Sonne ausschliessen
+    subject: c => `${deNum(c.attributes.distanceLy)} Lichtjahre`,
+    format: (_v, c) => c.name,
+    prompt: c => `Welcher Stern ist etwa ${deNum(c.attributes.distanceLy)} Lichtjahre von der Erde entfernt?`
+  },
+  // ---- (a) Galaxien: Typ -> Name ------------------------------------------
+  // "Spiralgalaxie"/"Zwerggalaxie" sind mehrfach vergeben -> nur die
+  // eindeutigen Typen (Balkenspiral-, Starburst-, Elliptische) überleben.
+  {
+    category: 'galaxy', attr: 'type', type: 'astra-galaxy-type-rev', difficulty: 4,
+    nameAnswer: true, reverseUnique: true,
+    subject: c => c.attributes.type,
+    format: (_v, c) => c.name,
+    prompt: c => `Welche dieser Galaxien gehört zum Typ „${c.attributes.type}“?`
+  },
+  // ---- (a) Galaxien: Entfernung -> Name -----------------------------------
+  // Zigarrengalaxie + Centaurus A teilen sich 12 Mio. Lj -> entfallen (Guard).
+  {
+    category: 'galaxy', attr: 'distanceLy', type: 'astra-galaxy-distance-rev', difficulty: 4,
+    nameAnswer: true, reverseUnique: true,
+    skip: c => Number(c.attributes.distanceLy) < 1, // Milchstraße (0) ausschliessen
+    subject: c => `${deNum(c.attributes.distanceLy)} Lichtjahre`,
+    format: (_v, c) => c.name,
+    prompt: c => `Welche Galaxie ist etwa ${deNum(c.attributes.distanceLy)} Lichtjahre von der Erde entfernt?`
+  },
+
+  // ---- (b) Missionen (11 Konzepte) ---------------------------------------
+  // launchYear ist nach dem Merge bei 9 von 11 gesetzt (aus startjahr bzw.
+  // aus dem ISO-Startdatum abgeleitet) -> grösster Pool der Kategorie.
+  {
+    category: 'mission', attr: 'launchYear', type: 'astra-mission-launch-year', difficulty: 3,
+    numericByValue: true,
+    prompt: c => `In welchem Jahr startete die Mission „${c.name}“?`,
+    format: v => `${v}` // Jahreszahl ohne Tausenderpunkt
+  },
+  {
+    category: 'mission', attr: 'launchYear', type: 'astra-mission-launch-year-rev', difficulty: 4,
+    nameAnswer: true, reverseUnique: true,
+    // Voyager 1 + 2 starteten beide 1977 -> beide entfallen über den Guard.
+    subject: c => `Startjahr ${c.attributes.launchYear}`,
+    format: (_v, c) => c.name,
+    prompt: c => `Welche dieser Missionen startete im Jahr ${c.attributes.launchYear}?`
+  },
+  {
+    category: 'mission', attr: 'launchMassKg', type: 'astra-mission-launch-mass', difficulty: 4,
+    numericByValue: true,
+    prompt: c => `Welche Startmasse hatte die Mission „${c.name}“?`,
+    format: v => `${deNum(v)} kg`
+  },
+  {
+    category: 'mission', attr: 'operator', type: 'astra-mission-operator', difficulty: 3,
+    prompt: c => `Wer betreibt (oder betrieb) die Mission „${c.name}“?`,
+    format: v => v
+    // "Gaia (ESA)" entfällt automatisch über den Selbstverräter-Guard
+    // (Antwort "ESA" steckt im Namen).
+  },
+
+  // ---- (b) Nebel (5 Konzepte) ----------------------------------------------
+  {
+    category: 'nebula', attr: 'distanceLy', type: 'astra-nebula-distance', difficulty: 3,
+    numericByValue: true,
+    prompt: c => `Wie weit ist der ${c.name} ungefähr von der Erde entfernt?`,
+    format: v => `${deNum(v)} Lichtjahre`
+  },
+  {
+    category: 'nebula', attr: 'distanceLy', type: 'astra-nebula-distance-rev', difficulty: 4,
+    nameAnswer: true, reverseUnique: true,
+    subject: c => `${deNum(c.attributes.distanceLy)} Lichtjahre`,
+    format: (_v, c) => c.name,
+    prompt: c => `Welcher Nebel ist etwa ${deNum(c.attributes.distanceLy)} Lichtjahre von der Erde entfernt?`
+  },
+  {
+    category: 'nebula', attr: 'messierNumber', type: 'astra-nebula-messier', difficulty: 4,
+    numericByValue: true,
+    prompt: c => `Welche Messier-Nummer trägt der ${c.name}?`,
+    format: v => `M${v}` // Katalognummer, kein Zahlenformat
+  },
+  {
+    category: 'nebula', attr: 'messierNumber', type: 'astra-nebula-messier-rev', difficulty: 4,
+    nameAnswer: true, reverseUnique: true,
+    subject: c => `M${c.attributes.messierNumber}`,
+    format: (_v, c) => c.name,
+    prompt: c => `Welcher Nebel trägt die Messier-Nummer M${c.attributes.messierNumber}?`
+  },
+  {
+    category: 'nebula', attr: 'diameterLy', type: 'astra-nebula-diameter', difficulty: 4,
+    numericByValue: true,
+    prompt: c => `Welche ungefähre Ausdehnung hat der ${c.name}?`,
+    format: v => `${deNum(v)} Lichtjahre`
+  },
+  {
+    category: 'nebula', attr: 'constellation', type: 'astra-nebula-constellation', difficulty: 3,
+    prompt: c => `In welchem Sternbild liegt der ${c.name}?`,
+    format: v => v,
+    // Nur 3 verschiedene Sternbild-Werte im Pool (Orion doppelt) -> mit echten
+    // Sternbildern auffüllen, damit 4 Optionen zustande kommen. "Stier" wäre
+    // nur beim Krebsnebel richtig — der hat aber kein Sternbild-Attribut und
+    // bekommt daher keine Frage dieses Typs.
+    extraDistractors: ['Stier', 'Schwan']
+    // Orionnebel (liegt im Orion) entfällt über den Selbstverräter-Guard.
+  },
+
+  // ---- (b) Asteroiden (5 Konzepte) -----------------------------------------
+  // diameterKm ist nach dem Merge bei allen 5 gesetzt (Bennu/Apophis exakt
+  // aus Metern umgerechnet). Anzeige unter 1 km in Metern — reine Formatierung.
+  {
+    category: 'asteroid', attr: 'diameterKm', type: 'astra-asteroid-diameter', difficulty: 3,
+    numericByValue: true,
+    prompt: c => `Welchen ungefähren Durchmesser hat der Asteroid ${c.name}?`,
+    format: v => v < 1 ? `${deNum(v * 1000)} m` : `${deNum(v)} km`
+  },
+  {
+    category: 'asteroid', attr: 'diameterKm', type: 'astra-asteroid-diameter-rev', difficulty: 4,
+    nameAnswer: true, reverseUnique: true,
+    subject: c => c.attributes.diameterKm < 1
+      ? `${deNum(c.attributes.diameterKm * 1000)} m`
+      : `${deNum(c.attributes.diameterKm)} km`,
+    format: (_v, c) => c.name,
+    prompt: c => `Welcher Asteroid hat einen ungefähren Durchmesser von ${c.attributes.diameterKm < 1
+      ? `${deNum(c.attributes.diameterKm * 1000)} m`
+      : `${deNum(c.attributes.diameterKm)} km`}?`
+  },
+  {
+    category: 'asteroid', attr: 'discoveredYear', type: 'astra-asteroid-year', difficulty: 4,
+    numericByValue: true,
+    prompt: c => `In welchem Jahr wurde der Asteroid ${c.name} entdeckt?`,
+    format: v => `${v}` // Jahreszahl ohne Tausenderpunkt
+  },
+  {
+    category: 'asteroid', attr: 'discoveredYear', type: 'astra-asteroid-year-rev', difficulty: 4,
+    nameAnswer: true, reverseUnique: true,
+    subject: c => `Entdeckungsjahr ${c.attributes.discoveredYear}`,
+    format: (_v, c) => c.name,
+    prompt: c => `Welcher Asteroid wurde im Jahr ${c.attributes.discoveredYear} entdeckt?`
+  },
+
+  // ---- (b) Meteorströme (4 Konzepte) ----------------------------------------
+  // Alle Namen sind Plural ("die Perseiden") -> Prompts passen für alle vier.
+  {
+    category: 'meteor_shower', attr: 'peakDate', type: 'astra-shower-peak', difficulty: 2,
+    prompt: c => `Wann erreichen die ${c.name} ihr jährliches Maximum?`,
+    format: v => v
+  },
+  {
+    category: 'meteor_shower', attr: 'peakDate', type: 'astra-shower-peak-rev', difficulty: 3,
+    nameAnswer: true, reverseUnique: true,
+    subject: c => `Maximum am ${c.attributes.peakDate}`,
+    format: (_v, c) => c.name,
+    prompt: c => `Welcher Meteorstrom erreicht sein Maximum am ${c.attributes.peakDate}?`
+  },
+  {
+    category: 'meteor_shower', attr: 'parentBody', type: 'astra-shower-parent', difficulty: 4,
+    prompt: c => `Welcher Himmelskörper ist der Mutterkörper der ${c.name}?`,
+    format: v => v
+  },
+  {
+    category: 'meteor_shower', attr: 'parentBody', type: 'astra-shower-parent-rev', difficulty: 4,
+    nameAnswer: true, reverseUnique: true,
+    subject: c => c.attributes.parentBody,
+    format: (_v, c) => c.name,
+    prompt: c => `Welcher Meteorstrom geht auf ${c.attributes.parentBody} zurück?`
+  },
+
+  // ---- (b) Exoplaneten (4 Konzepte) ------------------------------------------
+  // TRAPPIST-1 ist ein System (kein Einzelplanet) -> neutrale Formulierung
+  // "(bzw. welches System)" in den Reverse-Prompts.
+  {
+    category: 'exoplanet', attr: 'distanceLy', type: 'astra-exo-distance', difficulty: 3,
+    numericByValue: true,
+    prompt: c => `Wie weit ist ${c.name} ungefähr von der Erde entfernt?`,
+    format: v => `${deNum(v)} Lichtjahre`
+  },
+  {
+    category: 'exoplanet', attr: 'distanceLy', type: 'astra-exo-distance-rev', difficulty: 4,
+    nameAnswer: true, reverseUnique: true,
+    subject: c => `${deNum(c.attributes.distanceLy)} Lichtjahre`,
+    format: (_v, c) => c.name,
+    prompt: c => `Welcher Exoplanet (bzw. welches System) ist etwa ${deNum(c.attributes.distanceLy)} Lichtjahre von der Erde entfernt?`
+  },
+  {
+    category: 'exoplanet', attr: 'discoveredYear', type: 'astra-exo-year', difficulty: 3,
+    numericByValue: true,
+    prompt: c => `In welchem Jahr wurde ${c.name} entdeckt?`,
+    format: v => `${v}` // Jahreszahl ohne Tausenderpunkt
+  },
+  {
+    category: 'exoplanet', attr: 'discoveredYear', type: 'astra-exo-year-rev', difficulty: 4,
+    nameAnswer: true, reverseUnique: true,
+    subject: c => `Entdeckungsjahr ${c.attributes.discoveredYear}`,
+    format: (_v, c) => c.name,
+    prompt: c => `Welcher Exoplanet (bzw. welches System) wurde im Jahr ${c.attributes.discoveredYear} entdeckt?`
   }
 ];
 
@@ -277,8 +582,10 @@ for (const tpl of templates) {
   const conceptsInCat = byCategory[tpl.category] || [];
 
   // Wertepool für Distraktoren: alle formatierten Werte dieses Attributs in
-  // der Kategorie (bzw. alle Namen, bei der Konstanten-Frage).
-  const valuePool = conceptsInCat
+  // der Kategorie (bzw. alle Namen, bei der Konstanten-Frage). Die neuen
+  // Welle-1-Mechaniken (reverseUnique/numericByValue) bauen ihre Pools
+  // stattdessen pro Frage selbst -> hier leer lassen.
+  const valuePool = (tpl.reverseUnique || tpl.numericByValue) ? [] : conceptsInCat
     .filter(c => !(tpl.skip && tpl.skip(c)))
     .map(c => (tpl.nameAnswer ? c.name : tpl.format(c.attributes[tpl.attr], c)))
     // Dünn besetzte Attribute (z.B. dwarf_planet.numMoons nur bei einigen
@@ -290,16 +597,74 @@ for (const tpl of templates) {
     const rawValue = tpl.nameAnswer ? c.name : c.attributes[tpl.attr];
     if (rawValue === undefined || rawValue === null || rawValue === '') continue;
 
+    // Welle-1-Vorprüfungen (greifen nur bei den neuen Flags):
+    // - Reverse braucht das gespiegelte Attribut zwingend (rawValue ist hier
+    //   der NAME, daher eigener Blick auf das Attribut).
+    // - numericByValue braucht eine echte, endliche Zahl. Strings mit
+    //   eingebackener Einheit ("2,59 × 10²⁰"), Bereichs- oder Datums-Strings
+    //   fallen damit automatisch aus numerischen Fragen heraus.
+    if (tpl.reverseUnique) {
+      const v = c.attributes[tpl.attr];
+      if (v === undefined || v === null || v === '') continue;
+    }
+    if (tpl.numericByValue && !(typeof rawValue === 'number' && isFinite(rawValue))) continue;
+
     const correct = tpl.nameAnswer ? c.name : tpl.format(rawValue, c);
 
     // Selbstverräter: steckt die Antwort schon im Hinweis, Frage verwerfen.
     const subject = tpl.subject ? tpl.subject(c) : c.name;
     if (revealsAnswer(subject, correct)) continue;
 
-    // Distraktoren aus dem Kategorie-Pool ziehen, optional feste Extras ergänzen
-    let pool = valuePool.slice();
-    if (tpl.extraDistractors) pool = pool.concat(tpl.extraDistractors);
-    const distractors = pickDistractors(correct, pool, tpl.numeric);
+    let distractors;
+    if (tpl.reverseUnique) {
+      // --- Reverse-Korrektheits-Guard (Welle 1) --------------------------
+      // Alle Distraktor-Konzepte müssen beim getesteten Attribut einen
+      // ANDEREN Wert haben — sonst wären mehrere Optionen richtig. Teilt
+      // ein anderes Konzept den abgefragten Wert, ist die Frage schon in
+      // der Welt mehrdeutig ("Welcher Planet hat 0 Monde?" — Merkur UND
+      // Venus) -> komplett überspringen statt nur Distraktoren filtern.
+      const myVal = String(c.attributes[tpl.attr]);
+      const others = conceptsInCat.filter(o => o !== c && !(tpl.skip && tpl.skip(o)));
+      const shared = others.some(o => {
+        const v = o.attributes[tpl.attr];
+        return v !== undefined && v !== null && String(v) === myVal;
+      });
+      if (shared) continue;
+      // Distraktor-Pool: nur Namen von Konzepten, die das Attribut MIT
+      // anderem Wert tragen (Konzepte ohne Attribut wären als "falsche"
+      // Option nicht belegbar -> raus).
+      const namePool = others
+        .filter(o => {
+          const v = o.attributes[tpl.attr];
+          return v !== undefined && v !== null && v !== '' && String(v) !== myVal;
+        })
+        .map(o => o.name)
+        // Deterministisch pro Frage mischen (s. hashStr oben), damit nicht in
+        // jeder Reverse-Frage dieselben ersten Namen als Distraktoren stehen.
+        .sort((a, b) => hashStr(`${c.id}|${tpl.type}|${a}`) - hashStr(`${c.id}|${tpl.type}|${b}`));
+      distractors = pickDistractors(correct, namePool, false);
+    } else if (tpl.numericByValue) {
+      // --- Numerische Nachbarwert-Distraktoren (Welle 1) ------------------
+      // Auswahl auf den ROHEN Zahlen derselben Kategorie (die dem korrekten
+      // Wert nächstliegenden = am verwechselbarsten), erst danach formatieren.
+      // Das umgeht das Problem, dass formatierte Strings ("1.350 Lichtjahre")
+      // nicht zuverlässig zurück in Zahlen parsebar sind.
+      const rawNums = [...new Set(conceptsInCat
+        .filter(o => o !== c && !(tpl.skip && tpl.skip(o)))
+        .map(o => o.attributes[tpl.attr])
+        .filter(v => typeof v === 'number' && isFinite(v)))]
+        .filter(v => v !== rawValue);
+      rawNums.sort((a, b) => Math.abs(a - rawValue) - Math.abs(b - rawValue));
+      distractors = [...new Set(rawNums.map(v => tpl.format(v, c)))]
+        .filter(d => d !== correct)
+        .slice(0, 3);
+    } else {
+      // --- Bestandsweg (unverändert) ---------------------------------------
+      // Distraktoren aus dem Kategorie-Pool ziehen, optional feste Extras ergänzen
+      let pool = valuePool.slice();
+      if (tpl.extraDistractors) pool = pool.concat(tpl.extraDistractors);
+      distractors = pickDistractors(correct, pool, tpl.numeric);
+    }
 
     // Faire Frage braucht mind. 1 Distraktor; wir streben 3 an. Weniger als 2
     // Optionen wären keine echte Wahl -> überspringen.
