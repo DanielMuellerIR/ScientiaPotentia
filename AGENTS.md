@@ -32,9 +32,9 @@ Geplante Bereiche: **Terra** (Geografie), **Astra** (Astronomie), **Homo** (Mens
 | Phase 2b | Astra 3D-Himmelskörper (three.js + NASA/SSS-Texturen) | ✅ erledigt (v1.8.0) |
 | Phase 2c | Homo Anatomiegrafiken (Wikimedia PD) pro Frage | ✅ erledigt (v1.9.0) |
 | Phase 2d | Konzeptgenaue Hervorhebung (Astra Kontext-Karte, Homo Struktur-Marker) | ✅ erledigt (v1.11.0) |
-| Phase 5 | **Content-Ausbau auf 5000 Fragen/Bereich** (mehr Fragetypen + Konzeptausbau) | offen, laufend (v1.12.4: Astra 100K/331F, Homo 96K/174F) |
+| Phase 5 | **Content-Ausbau auf 5000 Fragen/Bereich** (mehr Fragetypen + Konzeptausbau) | offen, laufend (v1.16.0: Astra 146K/554F, Natura 98K/480F) |
 | Phase 4 | **Natura (MCQ-only)** als Domain verdrahtet (Merge→Generator→Registry, 98 Konzepte/302 Fragen) | ✅ erledigt (v1.14.0) |
-| Phase 4–6 | Lingua, Cultura (Harvest-Daten liegen, noch nicht verdrahtet) | offen (Reihenfolge: Lingua → Cultura) |
+| Phase 4–6 | Lingua, Cultura (Daten + Generator committed, Registry-Verdrahtung offen) | Daten ✅ (v1.16.0: Lingua 103K/154F, Cultura 98K/357F), Verdrahtung offen (Reihenfolge: Lingua → Cultura) |
 
 **Layout/Frontend-Konvention (Stand 2026-06-10):** Das responsive Shell-Layout folgt einem
 verbindlichen Vertrag — Shell-Geometrie lebt in CSS-Klassen + CSS-Variablen (`src/index.css`),
@@ -57,7 +57,8 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 > `node scripts/generate_<domain>.js` → `node scripts/verify_facts.js <domain>` → Browser-Run.
 > **Integritätsregel bleibt hart:** jeder Fakt mit Quelle, keine erfundenen Zahlen — bei
 > LLM-Recherche adversarialer Faktencheck **plus** manuelle Stichprobe vor Commit.
-> Aktueller Stand (v1.12.4): Astra 100 Konzepte/331 Fragen, Homo 96/174.
+> Aktueller Stand (v1.16.0): Astra 146 Konzepte/554 Fragen, Natura 98/480, Homo 96/174 (unverändert).
+> Lingua 103/154 und Cultura 98/357 sind als Daten committed, Registry-Verdrahtung folgt.
 >
 > **Phase-5-Runde 1 (2026-06-04, Multi-Agent-Workflow):** `scripts/merge_phase5.js` dokumentiert
 > Dedup + Daten-Putz der Recherche. Gelernt: Recherche-Agents liefern (a) Dubletten zum Bestand
@@ -120,12 +121,14 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 | Domain | Konzepte | Fragen | Quellen | Visualisierung |
 | :----- | :------- | :----- | :------ | :------------- |
 | Terra  | 1852 | 5217 | Natural Earth / GeoNames / Wikidata | Weltkarte (MapLibre), pro Frage Highlight |
-| Astra  | 100 | 331 | NASA / IAU / ESA | **3D-Himmelskörper (three.js)** + Kontext-Karte (Bahn/Distanz), Texturen Solar System Scope (CC BY 4.0) |
+| Astra  | 146 | 554 | NASA / IAU / ESA | **3D-Himmelskörper (three.js)** + Kontext-Karte (Bahn/Distanz), Texturen Solar System Scope (CC BY 4.0) |
 | Homo   | 96 | 174 | Gray's Anatomy / Prometheus / NIH | **Anatomiegrafiken (Wikimedia, PD)** + konzeptgenauer Struktur-Marker je Frage |
-| Natura | 98 | 302 | Wikipedia / USGS / IUCN / IPCC | generische Konzeptkarte (`ConceptVisual`); freies Commons-Foto je Konzept hinterlegt (`concept.image`, fürs spätere Museum) |
+| Natura | 98 | 480 | Wikipedia / USGS / IUCN / IPCC | generische Konzeptkarte (`ConceptVisual`); freies Commons-Foto je Konzept hinterlegt (`concept.image`, fürs spätere Museum) |
+| Lingua | 103 | 154 | (Daten committed, Registry-Verdrahtung offen v1.16.0) | folgt mit Verdrahtung |
+| Cultura | 98 | 357 | (Daten committed, Registry-Verdrahtung offen v1.16.0) | folgt mit Verdrahtung |
 
-> Fragenzahlen Astra/Homo sind noch weit vom 5000-Ziel — Content-Ausbau (Phase 5) läuft weiter.
-> Homo hat wenig Fragen/Konzept (174/96): Hebel = mehr Fragetypen je Kategorie (Astra: 331/100).
+> Fragenzahlen Astra/Homo/Natura/Lingua/Cultura sind noch weit vom 5000-Ziel — Content-Ausbau (Phase 5) läuft weiter.
+> Astra 554/146 = ~3.8 F/K, Natura 480/98 = ~4.9 F/K, Cultura 357/98 = ~3.6 F/K, Lingua 154/103 = ~1.5 F/K. Hebel: Lingua-Fragetypen ausbauen.
 
 ### Visualisierung pro Frage (Stand 2026-06-04)
 - **`src/components/VisualPanel.jsx`** wählt: Terra→`Map`, Domain mit `domain.Visual`→diese (lazy),
