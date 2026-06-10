@@ -1,113 +1,189 @@
-// Bild-Resolver für die Ernte (gehärtet): sucht je Konzept (imageSearchTerm) ein REAL
-// existierendes Wikimedia-Commons-Bild mit FREIER Lizenz (PD/CC0/CC-BY/CC-BY-SA/FAL/GFDL)
-// und schreibt verifizierte imageFile/imageLicense/imageAttribution.
+// Bild-Resolver für die Ernte (Phase C, gehärtet): sucht je Konzept (imageSearchTerm) ein
+// REAL existierendes Wikimedia-Commons-Bild mit FREIER Lizenz und schreibt verifizierte
+// imageFile/imageLicense/imageAttribution in die Harvest-JSONs.
 //
-// Härtung ggü. Erstfassung (2026-06-05):
-//   - EIN Call je Konzept: generator=search + prop=imageinfo gebündelt (statt Suche + Info
-//     getrennt). Halbiert die Commons-Calls -> ~2x Durchsatz, weniger Rate-Limit-Last.
-//   - maxlag=5: Server signalisiert Überlast selbst; wir respektieren den Retry-After-Header.
-//   - Klartext-Overload („You are making too many…") wird abgefangen + neu versucht, NIE still
-//     als „kein Bild" gewertet (genau dieser Bug nullte am 2026-06-05 ~350 Felder).
-//   - --max-seconds=N: Zeitbudget. Danach sauber stoppen; Teilfortschritt ist gespeichert.
+// Härtungen (Stand 2026-06-10, siehe docs/content_pipeline.md "Smarte Rate-Limit-Umgehung"):
+//   - EIN Call je Suchbegriff: generator=search + prop=imageinfo gebündelt (Suche + Lizenz +
+//     MIME zusammen statt zwei Calls). imageinfo könnte bis 50 Titel bündeln; wir nutzen 10
+//     Treffer je Suche.
+//   - maxlag=5: der Server signalisiert Überlast selbst; Retry-After-Header wird respektiert.
+//   - Backoff MIT Jitter (zufälliger Zuschlag), damit Retries nicht im Takt hämmern.
+//   - EINE Verbindung: alle Calls strikt sequenziell, mind. 350 ms Abstand (höflich).
+//   - Beschreibender User-Agent (Wikimedia-Pflicht).
+//   - JSON.parse-Guard: bei Überlast liefert die API KLARTEXT ("You are making too many
+//     requests…") statt JSON -> abfangen + Retry mit Backoff, NIEMALS still als "kein Bild"
+//     werten (genau dieser Bug nullte am 2026-06-05 ~350 Bildfelder).
+//   - Dedup-Cache: identischer Suchbegriff -> ein API-Call für viele Konzepte.
+//   - Lizenzfilter STRENG: nur Public Domain / CC0 / CC BY / CC BY-SA (jede Version).
+//     Tabu: NC, ND, "All rights reserved", FAL/GFDL, unklare/fehlende Lizenz.
+//   - MIME-Whitelist: nur browser-darstellbare Bildformate (jpeg/png/svg/gif/webp).
+//     Verhindert .djvu-Buchscans und .tiff-Riesendateien als "Bild".
+//   - Blacklist: gesperrte Commons-Dateien aus BLACKLIST.md werden nie verwendet.
 //   - Schreibt nach JEDEM Konzept zurück -> Abbruch/Timeout hinterlässt konsistenten Stand.
 //
 // Aufruf: node resolve_images.cjs [--max-seconds=N] [datei1.json datei2.json ...]
 //   ohne Dateien: alle _w1*.json im aktuellen Verzeichnis.
-// Füllt nur Konzepte mit leerem imageFile. Idempotent/fortsetzbar.
+// Füllt nur Konzepte mit LEEREM imageFile (bestehende verifizierte Bilder bleiben unberührt).
+// Idempotent/fortsetzbar. Fakten-Felder werden nie angefasst.
 
 const https = require("https");
 const fs = require("fs");
+const path = require("path");
 
-const UA = "ScientiaPotentiaQuiz/1.0 (offline education quiz; contact: local dev)";
+// Wikimedia verlangt einen beschreibenden User-Agent, der das Projekt erkennbar macht.
+const UA = "ScientiaQuizImageResolver/1.0 (educational quiz project)";
+const PROBLEM_TAG = "kein freies Bild gefunden (Phase C 2026-06-10)";
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
-// freie Lizenz ja/nein anhand der Commons-extmetadata
+// Nur diese MIME-Typen gelten als brauchbares Quiz-Bild (browser-darstellbar).
+const ALLOWED_MIME = new Set(["image/jpeg", "image/png", "image/svg+xml", "image/gif", "image/webp"]);
+
+// ---------------------------------------------------------------------------
+// Blacklist: gesperrte Commons-Dateiseiten aus BLACKLIST.md einlesen.
+// Wir extrahieren alle commons.wikimedia.org/wiki/File:...-URLs und normalisieren
+// sie auf den Dateititel ("File:Xyz.jpg", Unterstriche -> Leerzeichen, dekodiert),
+// damit der Vergleich unabhängig von URL-Encoding funktioniert.
+// ---------------------------------------------------------------------------
+function loadBlacklist() {
+  const set = new Set();
+  try {
+    const md = fs.readFileSync(path.join(__dirname, "BLACKLIST.md"), "utf8");
+    const re = /commons\.wikimedia\.org\/wiki\/(File:[^\s)\]]+)/gi;
+    let m;
+    while ((m = re.exec(md))) {
+      let title = m[1];
+      try { title = decodeURIComponent(title); } catch { /* schon dekodiert */ }
+      set.add(title.replace(/_/g, " ").trim());
+    }
+  } catch { /* keine BLACKLIST.md -> leere Sperrliste */ }
+  return set;
+}
+const BLACKLIST = loadBlacklist();
+
+// ---------------------------------------------------------------------------
+// Lizenzprüfung anhand der Commons-extmetadata.
+// Erlaubt sind NUR: Public Domain, CC0, CC BY (jede Version), CC BY-SA (jede Version).
+// Alles andere (NC, ND, "all rights reserved", FAL, GFDL, unklar) wird abgelehnt.
+// ---------------------------------------------------------------------------
 function isFree(meta) {
   const lic = (meta?.LicenseShortName?.value || "").toString();
   const licUrl = (meta?.LicenseUrl?.value || "").toString();
   const copyrighted = (meta?.Copyrighted?.value || "").toString();
   const blob = (lic + " " + licUrl).toLowerCase();
+  // Harte Ausschlüsse zuerst: NC/ND/all-rights schlagen alles.
   if (/\b(nc|nd|non[- ]?commercial|noncommercial|no[- ]?deriv|all rights)\b/.test(blob)) return false;
-  if (/public domain|^pd|cc0|creativecommons\.org\/publicdomain/.test(blob)) return true;
-  if (/cc[- ]by|creativecommons\.org\/licenses\/by/.test(blob)) return true; // by, by-sa (kein nc/nd, oben gefiltert)
-  if (/\bfal\b|free art|gfdl/.test(blob)) return true;
-  if (copyrighted.toLowerCase() === "false") return true; // PD ohne Kurzname
+  // Public Domain / CC0 (auch ohne Kurzname, wenn Commons "Copyrighted: False" meldet).
+  if (/public domain|^pd\b|\bpd\b|cc0|creativecommons\.org\/publicdomain/.test(blob)) return true;
+  if (copyrighted.toLowerCase() === "false") return true;
+  // CC BY / CC BY-SA jeder Version (NC/ND wurde oben schon ausgeschlossen).
+  if (/cc[- ]by|creativecommons\.org\/licenses\/by/.test(blob)) return true;
+  // Alles andere (FAL, GFDL, leere/unbekannte Lizenz) gilt als NICHT frei genug.
   return false;
 }
 function licName(meta) {
-  return (meta?.LicenseShortName?.value || (meta?.Copyrighted?.value === "False" ? "Public domain" : "?")).toString();
+  return (meta?.LicenseShortName?.value ||
+    (String(meta?.Copyrighted?.value).toLowerCase() === "false" ? "Public domain" : "?")).toString();
 }
+// Urheber-Angabe aus extmetadata (Artist + Credit), HTML-Tags gestrippt, gekürzt.
 function attribution(meta) {
   const artist = (meta?.Artist?.value || "").toString().replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
   const credit = (meta?.Credit?.value || "").toString().replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
   return [artist, credit].filter(Boolean).join(" / ").slice(0, 200) || "Wikimedia Commons";
 }
 
+// Laufzeit-Statistik (im Abschlussbericht ausgegeben).
+const STATS = { apiCalls: 0, cacheHits: 0, rateLimitEvents: 0, retries: 0 };
+
 let lastCall = 0;
-// HTTP-GET gegen die Commons-API mit Throttle, maxlag/Retry-After + Klartext-Overload-Guard.
+// HTTP-GET gegen die Commons-API: Throttle (eine Verbindung, sequenziell),
+// maxlag/Retry-After, Klartext-Overload-Guard, Backoff mit Jitter.
 function apiGet(params, tries = 0) {
   return new Promise(async (resolve) => {
-    // mind. 350 ms Abstand zwischen Calls (eine Verbindung, höflich)
+    // mind. 350 ms Abstand zwischen Calls (höflich, eine Verbindung)
     const wait = 350 - (Date.now() - lastCall);
     if (wait > 0) await sleep(wait);
     lastCall = Date.now();
+    STATS.apiCalls++;
     const q = "https://commons.wikimedia.org/w/api.php?" +
       Object.entries(params).map(([k, v]) => k + "=" + encodeURIComponent(v)).join("&");
+    // Backoff-Helfer: Basiswartezeit + zufälliger Jitter (0-500 ms), Retry-After hat Vorrang.
+    const backoff = (raSecs, baseMs) =>
+      (raSecs > 0 ? raSecs * 1000 : baseMs * (tries + 1)) + Math.floor(Math.random() * 500);
     https.get(q, { headers: { "User-Agent": UA } }, r => {
       let d = ""; r.on("data", c => d += c);
       r.on("end", async () => {
         // Retry-After respektieren (Server gibt ihn bei maxlag/429/503 vor)
         const ra = parseInt(r.headers["retry-after"] || "0", 10);
-        // Überlast: Klartext statt JSON, oder 429/503 -> warten + neu versuchen, NIE als „fehlt"
+        // Überlast: Klartext statt JSON, oder 429/503 -> warten + neu versuchen, NIE als "fehlt"
         if (d.startsWith("You are making too many") || r.statusCode === 429 || r.statusCode === 503) {
-          if (tries < 6) { await sleep(ra > 0 ? ra * 1000 : 1500 * (tries + 1)); return resolve(await apiGet(params, tries + 1)); }
+          STATS.rateLimitEvents++;
+          if (tries < 6) { STATS.retries++; await sleep(backoff(ra, 1500)); return resolve(await apiGet(params, tries + 1)); }
           return resolve(null);
         }
         let j;
         try { j = JSON.parse(d); }
         catch {
-          // unerwarteter Nicht-JSON-Body -> als Überlast behandeln + retry, nicht still „fehlt"
-          if (tries < 6) { await sleep(1500 * (tries + 1)); return resolve(await apiGet(params, tries + 1)); }
+          // unerwarteter Nicht-JSON-Body -> als Überlast behandeln + Retry, nicht still "fehlt"
+          STATS.rateLimitEvents++;
+          if (tries < 6) { STATS.retries++; await sleep(backoff(0, 1500)); return resolve(await apiGet(params, tries + 1)); }
           return resolve(null);
         }
         // maxlag-Fehler (HTTP 200, error.code === "maxlag") -> Retry-After abwarten
         if (j && j.error && j.error.code === "maxlag") {
-          if (tries < 6) { await sleep(ra > 0 ? ra * 1000 : 5000); return resolve(await apiGet(params, tries + 1)); }
+          STATS.rateLimitEvents++;
+          if (tries < 6) { STATS.retries++; await sleep(backoff(ra, 5000)); return resolve(await apiGet(params, tries + 1)); }
           return resolve(null);
         }
         resolve(j);
       });
     }).on("error", async () => {
-      if (tries < 6) { await sleep(800 * (tries + 1)); return resolve(await apiGet(params, tries + 1)); }
+      if (tries < 6) { STATS.retries++; await sleep(backoff(0, 800)); return resolve(await apiGet(params, tries + 1)); }
       resolve(null);
     });
   });
 }
 
-// EIN Call: Suche (generator=search) + Lizenz/URL/MIME (prop=imageinfo) gebündelt.
+// ---------------------------------------------------------------------------
+// Dedup-Cache: identischer Suchbegriff -> nur EIN API-Call, Ergebnis (auch ein
+// Fehlschlag = null) wird wiederverwendet. Spart Calls, wenn mehrere Konzepte
+// denselben imageSearchTerm tragen.
+// ---------------------------------------------------------------------------
+const CACHE = new Map();
+
+// EIN Call: Suche (generator=search, Namespace 6 = Dateien) + Lizenz/URL/MIME
+// (prop=imageinfo) gebündelt. Liefert das erste freie, MIME-taugliche,
+// nicht-geblacklistete Bild — oder null.
 async function resolveConcept(term) {
   if (!term) return null;
+  if (CACHE.has(term)) { STATS.cacheHits++; return CACHE.get(term); }
   const j = await apiGet({
     action: "query", format: "json",
     generator: "search", gsrsearch: term, gsrnamespace: 6, gsrlimit: 10,
     prop: "imageinfo", iiprop: "extmetadata|url|mime", maxlag: 5,
   });
+  let result = null;
   const pages = j?.query?.pages;
-  if (!pages) return null;
-  // generator liefert pages unsortiert (keyed by pageid); `index` = Such-Rang -> danach ordnen
-  const ordered = Object.values(pages).sort((a, b) => (a.index || 0) - (b.index || 0));
-  for (const p of ordered) {
-    const ii = p.imageinfo?.[0]; if (!ii) continue;
-    if ((ii.mime || "").startsWith("image/") === false) continue;
-    if (isFree(ii.extmetadata)) {
-      return {
-        imageFile: "https://commons.wikimedia.org/wiki/" + encodeURIComponent(p.title.replace(/ /g, "_")),
-        imageLicense: licName(ii.extmetadata),
-        imageAttribution: attribution(ii.extmetadata),
-      };
+  if (pages) {
+    // generator liefert pages unsortiert (keyed by pageid); `index` = Such-Rang -> danach ordnen
+    const ordered = Object.values(pages).sort((a, b) => (a.index || 0) - (b.index || 0));
+    for (const p of ordered) {
+      const ii = p.imageinfo?.[0]; if (!ii) continue;
+      if (!ALLOWED_MIME.has(ii.mime || "")) continue;            // nur echte, darstellbare Bilder
+      if (BLACKLIST.has((p.title || "").replace(/_/g, " ").trim())) continue; // gesperrte Datei
+      if (isFree(ii.extmetadata)) {
+        result = {
+          // Gespeichert wird die Commons-DATEISEITE (nicht die Roh-Bild-URL),
+          // damit Lizenz + Urheber für jeden nachprüfbar verlinkt sind.
+          imageFile: "https://commons.wikimedia.org/wiki/" + encodeURIComponent(p.title.replace(/ /g, "_")),
+          imageLicense: licName(ii.extmetadata),
+          imageAttribution: attribution(ii.extmetadata),
+        };
+        break;
+      }
     }
   }
-  return null;
+  CACHE.set(term, result);
+  return result;
 }
 
 (async () => {
@@ -125,12 +201,12 @@ async function resolveConcept(term) {
     const arr = JSON.parse(fs.readFileSync(f, "utf8"));
     let res = 0, none = 0;
     for (const o of arr) {
-      if (o.imageFile) continue;                  // schon gesetzt
+      if (o.imageFile) continue;                  // schon gesetzt -> nie überschreiben
       if (overBudget()) { G.stoppedEarly = true; break; }
       G.total++;
       const r = await resolveConcept(o.imageSearchTerm || o.name);
       if (r) { Object.assign(o, r); delete o._imgProblem; res++; G.resolved++; }
-      else { o._imgProblem = "kein freies Commons-Bild gefunden"; none++; G.none++; }
+      else { o._imgProblem = PROBLEM_TAG; none++; G.none++; }
       fs.writeFileSync(f, JSON.stringify(arr, null, 2)); // Teilfortschritt sofort sichern
     }
     fs.writeFileSync(f, JSON.stringify(arr, null, 2));
@@ -140,4 +216,6 @@ async function resolveConcept(term) {
   const secs = ((Date.now() - t0) / 1000).toFixed(1);
   console.log(`\n===== RESOLVER: ${G.resolved} aufgeloest, ${G.none} ohne freies Bild (von ${G.total}) in ${secs}s` +
     `${G.stoppedEarly ? " [Zeitbudget erreicht, gestoppt]" : ""} =====`);
+  console.log(`STATISTIK: API-Calls=${STATS.apiCalls}  Cache-Hits=${STATS.cacheHits}` +
+    `  Rate-Limit-Events=${STATS.rateLimitEvents}  Retries=${STATS.retries}`);
 })();
