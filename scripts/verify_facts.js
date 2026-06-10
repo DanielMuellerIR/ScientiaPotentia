@@ -30,7 +30,19 @@ const questions = JSON.parse(readFileSync(questionsPath, 'utf8'));
 // Verbreitete englische Wortreste, die in deutschen Quiz-Texten nichts verloren
 // haben. Bewusst eng gehalten, um Fehlalarme zu vermeiden. "planet" ist im
 // Deutschen identisch ("Planet") und daher KEIN Leak -> nicht aufnehmen.
-const ENGLISH_LEAK = /\b(the|moon|star|distance|diameter|orbit|galaxy)\b/i;
+// Pro Domain konfigurierbar: in lingua (Sprachnamen, Fachbegriffe) und cultura
+// (Werktitel wie "The Scream", "Moby-Dick") sind englische Woerter legitim ->
+// dort keinen Leak-Check fahren (null).
+const LEAK_BY_DOMAIN = {
+  astra: /\b(the|moon|star|distance|diameter|orbit|galaxy)\b/i,
+  // "organ" NICHT aufnehmen: deutsches Wort "Organ" ist identisch (kein Leak).
+  homo: /\b(the|bone|muscle|weight|blood)\b/i,
+  natura: /\b(the|animal|plant|weight|length|species)\b/i,
+  lingua: null,
+  cultura: null,
+};
+// Unbekannte Domains: konservativ die astra-Liste verwenden.
+const ENGLISH_LEAK = domain in LEAK_BY_DOMAIN ? LEAK_BY_DOMAIN[domain] : LEAK_BY_DOMAIN.astra;
 
 const errors = [];
 const warnings = [];
@@ -64,7 +76,7 @@ for (const q of questions) {
   if (!concepts[q.entityId]) {
     errors.push(`Frage ${tag}: entityId ${q.entityId} hat kein Konzept`);
   }
-  if (ENGLISH_LEAK.test(q.prompt)) {
+  if (ENGLISH_LEAK && ENGLISH_LEAK.test(q.prompt)) {
     warnings.push(`Frage ${tag}: moeglicher Englisch-Leak: "${q.prompt}"`);
   }
   // Fairness-Hinweis: weniger als 4 Optionen ist erlaubt, aber auffaellig
