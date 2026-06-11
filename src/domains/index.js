@@ -1,5 +1,5 @@
 import { lazy } from 'react';
-import { Globe2, Sparkles, PersonStanding, Orbit, Leaf, Languages } from 'lucide-react';
+import { Globe2, Sparkles, PersonStanding, Orbit, Leaf, Languages, Landmark } from 'lucide-react';
 
 // Spezialisierte Visualisierungen lazy laden, damit schwere Abhaengigkeiten
 // (z.B. three.js fuer Astra) nur ins Bundle kommen, wenn die Domain aktiv ist.
@@ -95,6 +95,19 @@ export const DOMAINS = [
     hasMap: false,
     loadConcepts: () => fetch('data/concepts_lingua.json').then(handleJson),
     loadQuestions: () => fetch('data/questions_lingua.json').then(handleJson)
+  },
+  {
+    id: 'cultura',
+    latinName: 'Cultura',
+    label: 'Kultur',
+    shortLabel: 'Kulturwelt',
+    description: 'Kunst, Skulptur, Architektur, Musik und Literatur.',
+    Icon: Landmark,
+    accent: '#7E4B6B',
+    // MCQ-only: nutzt das generische ConceptVisual (Bild/Kennwerte pro Konzept).
+    hasMap: false,
+    loadConcepts: () => fetch('data/concepts_cultura.json').then(handleJson),
+    loadQuestions: () => fetch('data/questions_cultura.json').then(handleJson)
   }
 ];
 

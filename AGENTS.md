@@ -35,7 +35,7 @@ Geplante Bereiche: **Terra** (Geografie), **Astra** (Astronomie), **Homo** (Mens
 | Phase 5 | **Content-Ausbau auf 5000 Fragen/Bereich** (mehr Fragetypen + Konzeptausbau) | offen, laufend (v1.16.0: Astra 146K/554F, Natura 98K/480F) |
 | Phase 4 | **Natura (MCQ-only)** als Domain verdrahtet (Merge→Generator→Registry, 98 Konzepte/302 Fragen) | ✅ erledigt (v1.14.0) |
 | Phase 4–6a | **Lingua als Domain verdrahtet** (Registry + ConceptVisual-Labels, Generator auf 22 Fragetypen erweitert) | ✅ erledigt (v1.17.0: 103 Konzepte/266 Fragen, Browser-verifiziert) |
-| Phase 4–6b | Cultura (Daten + Generator committed, Registry-Verdrahtung offen) | Daten ✅ (v1.16.0: 98K/357F), Verdrahtung offen — Muster: Lingua v1.17.0 |
+| Phase 4–6b | **Cultura als Domain verdrahtet** (Registry + ConceptVisual-Labels für 8 Kategorien/65 Attribute) | ✅ erledigt (v1.18.0: 98 Konzepte/357 Fragen, Browser-verifiziert) |
 
 **Layout/Frontend-Konvention (Stand 2026-06-10):** Das responsive Shell-Layout folgt einem
 verbindlichen Vertrag — Shell-Geometrie lebt in CSS-Klassen + CSS-Variablen (`src/index.css`),
@@ -58,8 +58,8 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 > `node scripts/generate_<domain>.js` → `node scripts/verify_facts.js <domain>` → Browser-Run.
 > **Integritätsregel bleibt hart:** jeder Fakt mit Quelle, keine erfundenen Zahlen — bei
 > LLM-Recherche adversarialer Faktencheck **plus** manuelle Stichprobe vor Commit.
-> Aktueller Stand (v1.17.0): Astra 146 Konzepte/554 Fragen, Natura 98/480, Homo 96/174 (unverändert),
-> Lingua 103/266 (verdrahtet). Cultura 98/357 ist als Daten committed, Registry-Verdrahtung folgt.
+> Aktueller Stand (v1.18.0): Astra 146 Konzepte/554 Fragen, Natura 98/480, Homo 96/174 (unverändert),
+> Lingua 103/266, Cultura 98/357 (beide verdrahtet).
 >
 > **Phase-5-Runde 1 (2026-06-04, Multi-Agent-Workflow):** `scripts/merge_phase5.js` dokumentiert
 > Dedup + Daten-Putz der Recherche. Gelernt: Recherche-Agents liefern (a) Dubletten zum Bestand
@@ -126,7 +126,7 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 | Homo   | 96 | 174 | Gray's Anatomy / Prometheus / NIH | **Anatomiegrafiken (Wikimedia, PD)** + konzeptgenauer Struktur-Marker je Frage |
 | Natura | 98 | 480 | Wikipedia / USGS / IUCN / IPCC | generische Konzeptkarte (`ConceptVisual`); freies Commons-Foto je Konzept hinterlegt (`concept.image`, fürs spätere Museum) |
 | Lingua | 103 | 266 | Wikipedia / Ethnologue / Wiktionary / Guinness | generische Konzeptkarte (`ConceptVisual`) mit dt. Attribut-Labels; Commons-Bild je Konzept hinterlegt (103/103, fürs spätere Museum) |
-| Cultura | 98 | 357 | (Daten committed, Registry-Verdrahtung offen v1.16.0) | folgt mit Verdrahtung |
+| Cultura | 98 | 357 | Wikipedia (DE/EN) | generische Konzeptkarte (`ConceptVisual`) mit dt. Kategorie-/Attribut-Labels; Commons-Bild je Konzept hinterlegt (fürs spätere Museum) |
 
 > Fragenzahlen Astra/Homo/Natura/Lingua/Cultura sind noch weit vom 5000-Ziel — Content-Ausbau (Phase 5) läuft weiter.
 > Astra 554/146 = ~3.8 F/K, Natura 480/98 = ~4.9 F/K, Cultura 357/98 = ~3.6 F/K, Lingua 266/103 = ~2.6 F/K
@@ -364,10 +364,10 @@ Die Rohdaten der Recherche befinden sich in den exportierten Sitzungsprotokollen
   als devDependencies ergänzt, `test`-Block in `vite.config.js` (jsdom, setupFiles), Scripts
   `npm test` / `npm run test:watch`. `QuizIntegration.test.jsx` läuft grün (2 Tests). Layout-Regression
   separat über `npm run check:layout`.
-- [ ] **Cultura als Domain verdrahten (nächster Schritt):** Daten + Generator liegen committed
-  (98 Konzepte/357 Fragen, v1.16.0). Fehlt nur Registry-Eintrag in `src/domains/index.js` +
-  `CATEGORY_LABELS`/`ATTR_LABELS` in `ConceptVisual.jsx` (Keys aus `concepts_cultura.json` ableiten) —
-  exakt das Muster der Lingua-Verdrahtung (v1.17.0). Danach Browser-Run + `verify_facts.js cultura`.
+- [x] **Cultura als Domain verdrahtet (v1.18.0):** Registry-Eintrag in `src/domains/index.js`
+  (Icon `Landmark`, accent `#7E4B6B`) + `CATEGORY_LABELS` (8 Kategorien) / `ATTR_LABELS`
+  (65 Attribute) in `ConceptVisual.jsx`. `verify_facts.js cultura` 0 Fehler, Browser-Run
+  verifiziert (Domain-Wechsel, Quizrunde, Selbstverräter-Guard, deutsche Labels, keine Konsolenfehler).
 - [ ] **Dashboard-Kosmetik (alle MCQ-Domains):** Die Kategorie-Aufschlüsselung zeigt rohe Keys
   (`language_family`, `animal` …) statt deutscher Labels, und der Fragen-Pool-Text sagt hartkodiert
   „… Orte" (`Dashboard.jsx`, Zeile ~116). Labels aus `ConceptVisual.jsx` exportieren/teilen und
