@@ -369,6 +369,78 @@ const templates = [
     category: 'muscle', attr: 'function', type: 'homo-muscle-function', difficulty: 3,
     prompt: c => `Welche Funktion hat der Muskel „${c.name}" hauptsächlich?`,
     format: v => v
+  },
+
+  // ==== Neue Templates (Stand 2026-06-12) =================================
+  // Alle nutzen ausschliesslich bereits in homo_raw.json vorhandene Attribute.
+  // Keine neuen Fakten - nur bisher ungenutzter Lernwinkel (notableFor) oder
+  // Umkehrrichtung bestehender Vorwarts-Fragen.
+
+  // ---- Knochen: notableFor-Reverse ----------------------------------------
+  // Hinweis: die markante Eigenschaft (notableFor). Antwort: der dt. Knochenname.
+  // Guard: skip, wenn der notableFor-Text den deutschen Namen buchstäblich schon
+  // enthält (revealsAnswer-Check läuft im zentralen Loop via guardSubject).
+  // Da alle 30 notableFor-Werte einzigartig sind, reicht der Pool als Distraktorquelle.
+  {
+    category: 'bone', attr: 'notableFor', type: 'homo-bone-notable-rev', difficulty: 2, nameAnswer: true,
+    subject: c => c.attributes.notableFor, // Hinweis im Prompt ist die Eigenschaft
+    prompt: c => `Welcher Knochen wird beschrieben als: „${c.attributes.notableFor}"?`
+  },
+
+  // ---- Knochen: notableFor-Vorwärts ----------------------------------------
+  // Hinweis: der dt. Knochenname. Antwort: die markante Eigenschaft (notableFor).
+  // Distraktorpool = alle notableFor-Werte der Kategorie (30 einzigartige Einträge).
+  // Guard: skip, wenn Name die notableFor-Antwort über Wortstamm verrät.
+  {
+    category: 'bone', attr: 'notableFor', type: 'homo-bone-notable', difficulty: 2,
+    prompt: c => `Wofür ist der Knochen „${c.name}" anatomisch besonders bekannt?`,
+    format: v => v
+  },
+
+  // ---- Muskeln: notableFor-Reverse ----------------------------------------
+  // Analog zum Knochen-Reverse: notableFor als Hinweis, Muskelname als Antwort.
+  // Achtung: Muskel-Namen enden oft auf '(Musculus ...)' - der dt. Kurzname
+  // dient als Antwort (c.name enthält beides). Der revealsAnswer-Guard prüft
+  // im Loop, ob notableFor den dt. Namensanteil preisgibt; skip dann automatisch.
+  {
+    category: 'muscle', attr: 'notableFor', type: 'homo-muscle-notable-rev', difficulty: 2, nameAnswer: true,
+    subject: c => c.attributes.notableFor, // Hinweis = markante Eigenschaft
+    prompt: c => `Welcher Muskel wird beschrieben als: „${c.attributes.notableFor}"?`
+  },
+
+  // ---- Organe: Gewicht-Reverse ----------------------------------------
+  // Hinweis: Gewichtsangabe in Gramm. Antwort: der Organname.
+  // Nur sinnvoll, wenn das Gewicht eindeutig ist - Organe mit identischem Gewicht
+  // (Niere/Magen/Milz: alle 150 g) werden per skip ausgeschlossen, damit
+  // kein falsches "richtig" entstehen kann.
+  // Distraktorpool: andere Organnamen (15 insgesamt - ausreichend).
+  {
+    category: 'organ', attr: 'approxWeightGrams', type: 'homo-organ-weight-rev', difficulty: 3,
+    nameAnswer: true,
+    // Hinweis im Prompt ist das Gewicht; subject liefert den Gewichtstext
+    subject: c => `${deNum(c.attributes.approxWeightGrams)} g (ungefähres Gewicht beim Erwachsenen)`,
+    prompt: c => `Welches Organ wiegt beim Erwachsenen ungefähr ${deNum(c.attributes.approxWeightGrams)} Gramm?`,
+    skip: c => {
+      // Organe mit nicht-eindeutigem Gewicht überspringen, damit die Frage
+      // eine klar korrekte Antwort hat. Prüfung: gibt es ein anderes Organ
+      // mit exakt demselben approxWeightGrams-Wert?
+      const w = c.attributes.approxWeightGrams;
+      // Folgende IDs teilen sich 150 g: nieren, magen, milz
+      const AMBIGUOUS_WEIGHTS = [150];
+      return AMBIGUOUS_WEIGHTS.includes(w);
+    }
+  },
+
+  // ---- Organe: Funktion-Reverse ----------------------------------------
+  // Hinweis: die Hauptfunktion des Organs. Antwort: der Organname.
+  // Nur 10 der 15 Organe haben das 'function'-Attribut. Da alle Funktionen
+  // einzigartig formuliert sind, ist der Reverse eindeutig.
+  // Distraktorpool: andere Organnamen (15 insgesamt - ausreichend).
+  {
+    category: 'organ', attr: 'function', type: 'homo-organ-function-rev', difficulty: 2,
+    nameAnswer: true,
+    subject: c => c.attributes.function, // Hinweis = Funktionstext
+    prompt: c => `Welches Organ erfüllt folgende Hauptaufgabe: „${c.attributes.function}"?`
   }
 ];
 

@@ -245,6 +245,24 @@ const templates = [
     prompt: c => `Wie hoch ist das Gemälde „${c.name}“?`,
     format: v => `${deNum(v)} m`
   },
+  // Entstehungsjahr des Gemäldes: 22 von 25 Gemälden haben ein sauberes Jahr
+  // (einteilige vierstellige Ganzzahl). Bereiche ("1503–1519") und "ca."-Angaben
+  // werden durch cleanYear herausgefiltert.
+  {
+    category: 'artwork', attr: 'year', kind: 'num', type: 'cultura-artwork-year', difficulty: 3,
+    prompt: c => `Aus welchem Jahr stammt das Gemälde „${c.name}"?`,
+    clean: cleanYear, format: yearFmt
+  },
+  // Entstehungsland des Gemäldes: skip für Klammer-Werte wie
+  // "Frankreich (Entstehung: Italien)" — mehrdeutig und nicht fair vergleichbar.
+  // poolFilter sperrt dieselben Werte auch als Distraktoren, damit nicht
+  // "Frankreich (Entstehung: Italien)" als Ausweichoption erscheint.
+  {
+    category: 'artwork', attr: 'country', kind: 'cat', type: 'cultura-artwork-country', difficulty: 2,
+    prompt: c => `Aus welchem Land stammt das Gemälde „${c.name}"?`,
+    skip: c => /\(/.test(String(c.attributes.country || '')),
+    poolFilter: v => !/\(/.test(String(v))
+  },
   // Reverse: vom Künstler aufs Werk (Distraktoren = Werke ANDERER Künstler).
   {
     category: 'artwork', attr: 'creator', kind: 'name', type: 'cultura-artwork-creator-rev', difficulty: 3,
@@ -281,6 +299,23 @@ const templates = [
     prompt: c => `Welche dieser Skulpturen schuf ${beforeParen(String(c.attributes.creator))}?`,
     skip: c => /unbekannt/i.test(String(c.attributes.creator || ''))
   },
+  // Entstehungsland der Skulptur: Slash-Werte ("Italien / Vatikan",
+  // "Griechenland / Rom") sind mehrdeutig -> skip. Klammer-Werte ("Griechenland
+  // (gefunden auf Milos)") ebenfalls -> skip; 16 von 19 Skulpturen bleiben.
+  // poolFilter entfernt dieselben Ambiguitäten auch aus dem Distraktor-Pool.
+  {
+    category: 'sculpture', attr: 'country', kind: 'cat', type: 'cultura-sculpture-country', difficulty: 2,
+    prompt: c => `Aus welchem Land stammt die Skulptur „${beforeParen(c.name)}"?`,
+    skip: c => /\//.test(String(c.attributes.country || '')) || /\(/.test(String(c.attributes.country || '')),
+    poolFilter: v => !/\//.test(String(v)) && !/\(/.test(String(v))
+  },
+  // Entstehungsjahr der Skulptur: 11 von 19 Skulpturen haben ein sauberes
+  // Jahr (antike Datierungen v. Chr. und Bereichs-Strings fallen heraus).
+  {
+    category: 'sculpture', attr: 'year', kind: 'num', type: 'cultura-sculpture-year', difficulty: 4,
+    prompt: c => `In welchem Jahr entstand die Skulptur „${beforeParen(c.name)}"?`,
+    clean: cleanYear, format: yearFmt
+  },
 
   // ==== Bauwerke (architecture) ============================================
   {
@@ -302,6 +337,29 @@ const templates = [
     // (kein Wert), Bauherren-Dynastien (Slash-Wert -> globaler Skip) und reine
     // Initiatoren (Maurice de Sully war Bischof, nicht Architekt) überspringen.
     skip: c => /\(initiator\)/i.test(String(c.attributes.architect || ''))
+  },
+
+  // Standort des Bauwerks: 23 von 25 Bauwerken haben einen eindeutigen Ort;
+  // die Einträge sind je Bauwerk einzigartig (kein Duplikat), daher braucht der
+  // Distraktor-Pool mindestens 3 ANDERE eindeutige Orte. Slash-Werte überspringen.
+  {
+    category: 'architecture', attr: 'location', kind: 'cat', type: 'cultura-architecture-location', difficulty: 2,
+    prompt: c => `Wo steht das Bauwerk „${c.name}"?`,
+    skip: c => /\//.test(String(c.attributes.location || ''))
+  },
+  // Fertigstellungsjahr: 14 von 25 Bauwerken haben ein sauberes einzelnes Jahr
+  // (Bereichs-Angaben "1887–1889" und antike Jahre fallen durch cleanYear heraus).
+  {
+    category: 'architecture', attr: 'year', kind: 'num', type: 'cultura-architecture-year', difficulty: 4,
+    prompt: c => `In welchem Jahr wurde „${c.name}" fertiggestellt?`,
+    clean: cleanYear, format: yearFmt
+  },
+  // Höhe des Bauwerks: 14 von 25 Bauwerken haben einen heightM-Wert; alle sind
+  // saubere positive Zahlen (cleanNum). Format: "330 m".
+  {
+    category: 'architecture', attr: 'heightM', kind: 'num', type: 'cultura-architecture-height', difficulty: 3,
+    prompt: c => `Wie hoch ist das Bauwerk „${c.name}"?`,
+    format: v => `${deNum(v)} m`
   },
 
   // ==== Kunstrichtungen (art_movement) =====================================
@@ -353,15 +411,34 @@ const templates = [
     prompt: c => `In welchem Jahr wurde ${c.name} geboren?`,
     clean: cleanYear, format: yearFmt
   },
+  // Sterbejahr des Komponisten: alle 32 Komponisten haben einen deathYear-Wert.
+  // Ergänzt birthYear und gibt zwei verschiedene Jahreszahl-Fragen pro Komponist.
+  // Fairness: birthYear und deathYear eines Komponisten unterscheiden sich
+  // deutlich genug, dass kein Selbstverräter-Problem entsteht.
+  {
+    category: 'composer', attr: 'deathYear', kind: 'num', type: 'cultura-composer-deathyear', difficulty: 4,
+    prompt: c => `In welchem Jahr starb ${c.name}?`,
+    clean: cleanYear, format: yearFmt
+  },
   // Reverse: vom Hauptwerk auf den Komponisten (laut Plan, diff 3). Generische
-  // Titel überspringen — "Von wem stammt die 9. Sinfonie?" wäre mehrdeutig.
+  // Titel überspringen — “Von wem stammt die 9. Sinfonie?” wäre mehrdeutig.
   {
     category: 'composer', attr: 'notableWork', kind: 'name', type: 'cultura-composer-work-rev', difficulty: 3,
-    prompt: c => `Von welchem Komponisten stammt das Werk „${c.attributes.notableWork}“?`,
+    prompt: c => `Von welchem Komponisten stammt das Werk „${c.attributes.notableWork}”?`,
     skip: c => GENERIC_TITLE.test(String(c.attributes.notableWork || ''))
   },
 
   // ==== Kompositionen (composition) ========================================
+  // Reverse: Von welchem Komponisten stammt diese Komposition? (kind=name)
+  // Distraktoren = Kompositionen ANDERER Komponisten (pickNames-Korrektheit).
+  // Beethoven und Mozart haben je 2 Werke im Pool — das ist kein Problem, da
+  // pickNames nur Werke mit ANDEREM composer-Wert als Distraktoren zulässt.
+  // Generische Titel ("9. Sinfonie") überspringen: zu mehrdeutig als Frage-Subjekt.
+  {
+    category: 'composition', attr: 'composer', kind: 'name', type: 'cultura-composition-composer-rev', difficulty: 3,
+    prompt: c => `Welche dieser Kompositionen stammt von ${String(c.attributes.composer)}?`,
+    skip: c => GENERIC_TITLE.test(beforeParen(c.name))
+  },
   {
     category: 'composition', attr: 'composer', kind: 'cat', type: 'cultura-composition-composer', difficulty: 2,
     prompt: c => `Wer komponierte das Werk „${beforeParen(c.name)}“?`,
@@ -401,6 +478,17 @@ const templates = [
     category: 'literature', attr: 'year', kind: 'num', type: 'cultura-literature-year', difficulty: 3,
     prompt: c => `Aus welchem Jahr stammt „${c.name}“?`,
     clean: cleanYear, format: yearFmt
+  },
+  // Literaturepoche: 18 von 26 Werken haben einen eindeutigen (kein Slash)
+  // era-Wert; 11 unique Epochen geben genug Distraktoren für fair 4-Option-Fragen.
+  // poolFilter sperrt Slash-Werte auch als Distraktoren — "Renaissance /
+  // Elisabethanisches Zeitalter" wäre kein fairer Ausweich-Distraktor.
+  {
+    category: 'literature', attr: 'era', kind: 'cat', type: 'cultura-literature-era', difficulty: 3,
+    prompt: c => `Welcher literarischen Epoche gehört „${c.name}" an?`,
+    // Slash-Werte ("Renaissance / Elisabethanisches Zeitalter") sind mehrdeutig.
+    skip: c => /\//.test(String(c.attributes.era || '')),
+    poolFilter: v => !/\//.test(String(v))
   },
   // Reverse: vom Autor aufs Werk (Distraktoren = Werke ANDERER Autoren; bei
   // Autoren mit mehreren Werken im Pool stellt pickNames die Korrektheit sicher).

@@ -2261,6 +2261,861 @@
     "mapTargetId": null
   },
   {
+    "id": "q_cultura_sternennacht_cultura-artwork-year",
+    "entityId": "cultura:sternennacht",
+    "entityType": "artwork",
+    "type": "cultura-artwork-year",
+    "difficulty": 3,
+    "prompt": "Aus welchem Jahr stammt das Gemälde „Die Sternennacht\"?",
+    "correctAnswer": "1889",
+    "options": [
+      "1889",
+      "1893",
+      "1872",
+      "1908"
+    ],
+    "testedAttribute": "year",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_der-schrei_cultura-artwork-year",
+    "entityId": "cultura:der-schrei",
+    "entityType": "artwork",
+    "type": "cultura-artwork-year",
+    "difficulty": 3,
+    "prompt": "Aus welchem Jahr stammt das Gemälde „Der Schrei\"?",
+    "correctAnswer": "1893",
+    "options": [
+      "1893",
+      "1889",
+      "1908",
+      "1872"
+    ],
+    "testedAttribute": "year",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_las-meninas_cultura-artwork-year",
+    "entityId": "cultura:las-meninas",
+    "entityType": "artwork",
+    "type": "cultura-artwork-year",
+    "difficulty": 3,
+    "prompt": "Aus welchem Jahr stammt das Gemälde „Las Meninas\"?",
+    "correctAnswer": "1656",
+    "options": [
+      "1656",
+      "1642",
+      "1587",
+      "1512"
+    ],
+    "testedAttribute": "year",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_die-nachtwache_cultura-artwork-year",
+    "entityId": "cultura:die-nachtwache",
+    "entityType": "artwork",
+    "type": "cultura-artwork-year",
+    "difficulty": 3,
+    "prompt": "Aus welchem Jahr stammt das Gemälde „Die Nachtwache\"?",
+    "correctAnswer": "1642",
+    "options": [
+      "1642",
+      "1656",
+      "1587",
+      "1512"
+    ],
+    "testedAttribute": "year",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_der-kuss-klimt_cultura-artwork-year",
+    "entityId": "cultura:der-kuss-klimt",
+    "entityType": "artwork",
+    "type": "cultura-artwork-year",
+    "difficulty": 3,
+    "prompt": "Aus welchem Jahr stammt das Gemälde „Der Kuss\"?",
+    "correctAnswer": "1908",
+    "options": [
+      "1908",
+      "1893",
+      "1889",
+      "1930"
+    ],
+    "testedAttribute": "year",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_wanderer-ueber-dem-nebelmeer_cultura-artwork-year",
+    "entityId": "cultura:wanderer-ueber-dem-nebelmeer",
+    "entityType": "artwork",
+    "type": "cultura-artwork-year",
+    "difficulty": 3,
+    "prompt": "Aus welchem Jahr stammt das Gemälde „Wanderer über dem Nebelmeer\"?",
+    "correctAnswer": "1818",
+    "options": [
+      "1818",
+      "1819",
+      "1830",
+      "1831"
+    ],
+    "testedAttribute": "year",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_die-erschaffung-adams_cultura-artwork-year",
+    "entityId": "cultura:die-erschaffung-adams",
+    "entityType": "artwork",
+    "type": "cultura-artwork-year",
+    "difficulty": 3,
+    "prompt": "Aus welchem Jahr stammt das Gemälde „Die Erschaffung Adams\"?",
+    "correctAnswer": "1512",
+    "options": [
+      "1512",
+      "1500",
+      "1496",
+      "1587"
+    ],
+    "testedAttribute": "year",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_american-gothic_cultura-artwork-year",
+    "entityId": "cultura:american-gothic",
+    "entityType": "artwork",
+    "type": "cultura-artwork-year",
+    "difficulty": 3,
+    "prompt": "Aus welchem Jahr stammt das Gemälde „American Gothic\"?",
+    "correctAnswer": "1930",
+    "options": [
+      "1930",
+      "1931",
+      "1937",
+      "1908"
+    ],
+    "testedAttribute": "year",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_die-freiheit-fuehrt-das-volk_cultura-artwork-year",
+    "entityId": "cultura:die-freiheit-fuehrt-das-volk",
+    "entityType": "artwork",
+    "type": "cultura-artwork-year",
+    "difficulty": 3,
+    "prompt": "Aus welchem Jahr stammt das Gemälde „Die Freiheit führt das Volk\"?",
+    "correctAnswer": "1830",
+    "options": [
+      "1830",
+      "1831",
+      "1819",
+      "1818"
+    ],
+    "testedAttribute": "year",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_garten-der-lueste_cultura-artwork-year",
+    "entityId": "cultura:garten-der-lueste",
+    "entityType": "artwork",
+    "type": "cultura-artwork-year",
+    "difficulty": 3,
+    "prompt": "Aus welchem Jahr stammt das Gemälde „Der Garten der Lüste\"?",
+    "correctAnswer": "1500",
+    "options": [
+      "1500",
+      "1496",
+      "1512",
+      "1434"
+    ],
+    "testedAttribute": "year",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_sixtinische-madonna_cultura-artwork-year",
+    "entityId": "cultura:sixtinische-madonna",
+    "entityType": "artwork",
+    "type": "cultura-artwork-year",
+    "difficulty": 3,
+    "prompt": "Aus welchem Jahr stammt das Gemälde „Sixtinische Madonna\"?",
+    "correctAnswer": "1512",
+    "options": [
+      "1512",
+      "1500",
+      "1496",
+      "1587"
+    ],
+    "testedAttribute": "year",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_impression-sonnenaufgang_cultura-artwork-year",
+    "entityId": "cultura:impression-sonnenaufgang",
+    "entityType": "artwork",
+    "type": "cultura-artwork-year",
+    "difficulty": 3,
+    "prompt": "Aus welchem Jahr stammt das Gemälde „Impression, Sonnenaufgang\"?",
+    "correctAnswer": "1872",
+    "options": [
+      "1872",
+      "1863",
+      "1889",
+      "1893"
+    ],
+    "testedAttribute": "year",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_die-grosse-welle-vor-kanagawa_cultura-artwork-year",
+    "entityId": "cultura:die-grosse-welle-vor-kanagawa",
+    "entityType": "artwork",
+    "type": "cultura-artwork-year",
+    "difficulty": 3,
+    "prompt": "Aus welchem Jahr stammt das Gemälde „Die große Welle vor Kanagawa\"?",
+    "correctAnswer": "1831",
+    "options": [
+      "1831",
+      "1830",
+      "1819",
+      "1818"
+    ],
+    "testedAttribute": "year",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_das-floss-der-medusa_cultura-artwork-year",
+    "entityId": "cultura:das-floss-der-medusa",
+    "entityType": "artwork",
+    "type": "cultura-artwork-year",
+    "difficulty": 3,
+    "prompt": "Aus welchem Jahr stammt das Gemälde „Das Floß der Medusa\"?",
+    "correctAnswer": "1819",
+    "options": [
+      "1819",
+      "1818",
+      "1830",
+      "1831"
+    ],
+    "testedAttribute": "year",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_olympia_cultura-artwork-year",
+    "entityId": "cultura:olympia",
+    "entityType": "artwork",
+    "type": "cultura-artwork-year",
+    "difficulty": 3,
+    "prompt": "Aus welchem Jahr stammt das Gemälde „Olympia\"?",
+    "correctAnswer": "1863",
+    "options": [
+      "1863",
+      "1872",
+      "1889",
+      "1893"
+    ],
+    "testedAttribute": "year",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_salvator-mundi_cultura-artwork-year",
+    "entityId": "cultura:salvator-mundi",
+    "entityType": "artwork",
+    "type": "cultura-artwork-year",
+    "difficulty": 3,
+    "prompt": "Aus welchem Jahr stammt das Gemälde „Salvator Mundi\"?",
+    "correctAnswer": "1500",
+    "options": [
+      "1500",
+      "1496",
+      "1512",
+      "1434"
+    ],
+    "testedAttribute": "year",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_guernica_cultura-artwork-year",
+    "entityId": "cultura:guernica",
+    "entityType": "artwork",
+    "type": "cultura-artwork-year",
+    "difficulty": 3,
+    "prompt": "Aus welchem Jahr stammt das Gemälde „Guernica\"?",
+    "correctAnswer": "1937",
+    "options": [
+      "1937",
+      "1931",
+      "1930",
+      "1908"
+    ],
+    "testedAttribute": "year",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_die-bestaendigkeit-der-erinnerung_cultura-artwork-year",
+    "entityId": "cultura:die-bestaendigkeit-der-erinnerung",
+    "entityType": "artwork",
+    "type": "cultura-artwork-year",
+    "difficulty": 3,
+    "prompt": "Aus welchem Jahr stammt das Gemälde „Die Beständigkeit der Erinnerung\"?",
+    "correctAnswer": "1931",
+    "options": [
+      "1931",
+      "1930",
+      "1937",
+      "1908"
+    ],
+    "testedAttribute": "year",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_selbstbildnis-ohne-bart_cultura-artwork-year",
+    "entityId": "cultura:selbstbildnis-ohne-bart",
+    "entityType": "artwork",
+    "type": "cultura-artwork-year",
+    "difficulty": 3,
+    "prompt": "Aus welchem Jahr stammt das Gemälde „Selbstbildnis ohne Bart\"?",
+    "correctAnswer": "1889",
+    "options": [
+      "1889",
+      "1893",
+      "1872",
+      "1908"
+    ],
+    "testedAttribute": "year",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_das-abendmahl_cultura-artwork-year",
+    "entityId": "cultura:das-abendmahl",
+    "entityType": "artwork",
+    "type": "cultura-artwork-year",
+    "difficulty": 3,
+    "prompt": "Aus welchem Jahr stammt das Gemälde „Das Abendmahl\"?",
+    "correctAnswer": "1496",
+    "options": [
+      "1496",
+      "1500",
+      "1512",
+      "1434"
+    ],
+    "testedAttribute": "year",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_begraebnis-des-grafen-orgaz_cultura-artwork-year",
+    "entityId": "cultura:begraebnis-des-grafen-orgaz",
+    "entityType": "artwork",
+    "type": "cultura-artwork-year",
+    "difficulty": 3,
+    "prompt": "Aus welchem Jahr stammt das Gemälde „Begräbnis des Grafen Orgaz\"?",
+    "correctAnswer": "1587",
+    "options": [
+      "1587",
+      "1642",
+      "1656",
+      "1512"
+    ],
+    "testedAttribute": "year",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_das-arnolfini-portraet_cultura-artwork-year",
+    "entityId": "cultura:das-arnolfini-portraet",
+    "entityType": "artwork",
+    "type": "cultura-artwork-year",
+    "difficulty": 3,
+    "prompt": "Aus welchem Jahr stammt das Gemälde „Das Arnolfini-Porträt\"?",
+    "correctAnswer": "1434",
+    "options": [
+      "1434",
+      "1496",
+      "1500",
+      "1512"
+    ],
+    "testedAttribute": "year",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_geburt-der-venus_cultura-artwork-country",
+    "entityId": "cultura:geburt-der-venus",
+    "entityType": "artwork",
+    "type": "cultura-artwork-country",
+    "difficulty": 2,
+    "prompt": "Aus welchem Land stammt das Gemälde „Die Geburt der Venus\"?",
+    "correctAnswer": "Italien",
+    "options": [
+      "Italien",
+      "Niederlande",
+      "Norwegen",
+      "Spanien"
+    ],
+    "testedAttribute": "country",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_maedchen-mit-perlenohrring_cultura-artwork-country",
+    "entityId": "cultura:maedchen-mit-perlenohrring",
+    "entityType": "artwork",
+    "type": "cultura-artwork-country",
+    "difficulty": 2,
+    "prompt": "Aus welchem Land stammt das Gemälde „Das Mädchen mit dem Perlenohrring\"?",
+    "correctAnswer": "Niederlande",
+    "options": [
+      "Niederlande",
+      "Italien",
+      "Norwegen",
+      "Spanien"
+    ],
+    "testedAttribute": "country",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_der-schrei_cultura-artwork-country",
+    "entityId": "cultura:der-schrei",
+    "entityType": "artwork",
+    "type": "cultura-artwork-country",
+    "difficulty": 2,
+    "prompt": "Aus welchem Land stammt das Gemälde „Der Schrei\"?",
+    "correctAnswer": "Norwegen",
+    "options": [
+      "Norwegen",
+      "Italien",
+      "Niederlande",
+      "Spanien"
+    ],
+    "testedAttribute": "country",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_las-meninas_cultura-artwork-country",
+    "entityId": "cultura:las-meninas",
+    "entityType": "artwork",
+    "type": "cultura-artwork-country",
+    "difficulty": 2,
+    "prompt": "Aus welchem Land stammt das Gemälde „Las Meninas\"?",
+    "correctAnswer": "Spanien",
+    "options": [
+      "Spanien",
+      "Italien",
+      "Niederlande",
+      "Norwegen"
+    ],
+    "testedAttribute": "country",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_die-nachtwache_cultura-artwork-country",
+    "entityId": "cultura:die-nachtwache",
+    "entityType": "artwork",
+    "type": "cultura-artwork-country",
+    "difficulty": 2,
+    "prompt": "Aus welchem Land stammt das Gemälde „Die Nachtwache\"?",
+    "correctAnswer": "Niederlande",
+    "options": [
+      "Niederlande",
+      "Italien",
+      "Norwegen",
+      "Spanien"
+    ],
+    "testedAttribute": "country",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_der-kuss-klimt_cultura-artwork-country",
+    "entityId": "cultura:der-kuss-klimt",
+    "entityType": "artwork",
+    "type": "cultura-artwork-country",
+    "difficulty": 2,
+    "prompt": "Aus welchem Land stammt das Gemälde „Der Kuss\"?",
+    "correctAnswer": "Österreich",
+    "options": [
+      "Österreich",
+      "Italien",
+      "Niederlande",
+      "Norwegen"
+    ],
+    "testedAttribute": "country",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_wanderer-ueber-dem-nebelmeer_cultura-artwork-country",
+    "entityId": "cultura:wanderer-ueber-dem-nebelmeer",
+    "entityType": "artwork",
+    "type": "cultura-artwork-country",
+    "difficulty": 2,
+    "prompt": "Aus welchem Land stammt das Gemälde „Wanderer über dem Nebelmeer\"?",
+    "correctAnswer": "Deutschland",
+    "options": [
+      "Deutschland",
+      "Italien",
+      "Niederlande",
+      "Norwegen"
+    ],
+    "testedAttribute": "country",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_die-erschaffung-adams_cultura-artwork-country",
+    "entityId": "cultura:die-erschaffung-adams",
+    "entityType": "artwork",
+    "type": "cultura-artwork-country",
+    "difficulty": 2,
+    "prompt": "Aus welchem Land stammt das Gemälde „Die Erschaffung Adams\"?",
+    "correctAnswer": "Italien",
+    "options": [
+      "Italien",
+      "Niederlande",
+      "Norwegen",
+      "Spanien"
+    ],
+    "testedAttribute": "country",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_american-gothic_cultura-artwork-country",
+    "entityId": "cultura:american-gothic",
+    "entityType": "artwork",
+    "type": "cultura-artwork-country",
+    "difficulty": 2,
+    "prompt": "Aus welchem Land stammt das Gemälde „American Gothic\"?",
+    "correctAnswer": "USA",
+    "options": [
+      "USA",
+      "Italien",
+      "Niederlande",
+      "Norwegen"
+    ],
+    "testedAttribute": "country",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_die-freiheit-fuehrt-das-volk_cultura-artwork-country",
+    "entityId": "cultura:die-freiheit-fuehrt-das-volk",
+    "entityType": "artwork",
+    "type": "cultura-artwork-country",
+    "difficulty": 2,
+    "prompt": "Aus welchem Land stammt das Gemälde „Die Freiheit führt das Volk\"?",
+    "correctAnswer": "Frankreich",
+    "options": [
+      "Frankreich",
+      "Italien",
+      "Niederlande",
+      "Norwegen"
+    ],
+    "testedAttribute": "country",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_garten-der-lueste_cultura-artwork-country",
+    "entityId": "cultura:garten-der-lueste",
+    "entityType": "artwork",
+    "type": "cultura-artwork-country",
+    "difficulty": 2,
+    "prompt": "Aus welchem Land stammt das Gemälde „Der Garten der Lüste\"?",
+    "correctAnswer": "Niederlande",
+    "options": [
+      "Niederlande",
+      "Italien",
+      "Norwegen",
+      "Spanien"
+    ],
+    "testedAttribute": "country",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_sixtinische-madonna_cultura-artwork-country",
+    "entityId": "cultura:sixtinische-madonna",
+    "entityType": "artwork",
+    "type": "cultura-artwork-country",
+    "difficulty": 2,
+    "prompt": "Aus welchem Land stammt das Gemälde „Sixtinische Madonna\"?",
+    "correctAnswer": "Italien",
+    "options": [
+      "Italien",
+      "Niederlande",
+      "Norwegen",
+      "Spanien"
+    ],
+    "testedAttribute": "country",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_impression-sonnenaufgang_cultura-artwork-country",
+    "entityId": "cultura:impression-sonnenaufgang",
+    "entityType": "artwork",
+    "type": "cultura-artwork-country",
+    "difficulty": 2,
+    "prompt": "Aus welchem Land stammt das Gemälde „Impression, Sonnenaufgang\"?",
+    "correctAnswer": "Frankreich",
+    "options": [
+      "Frankreich",
+      "Italien",
+      "Niederlande",
+      "Norwegen"
+    ],
+    "testedAttribute": "country",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_die-grosse-welle-vor-kanagawa_cultura-artwork-country",
+    "entityId": "cultura:die-grosse-welle-vor-kanagawa",
+    "entityType": "artwork",
+    "type": "cultura-artwork-country",
+    "difficulty": 2,
+    "prompt": "Aus welchem Land stammt das Gemälde „Die große Welle vor Kanagawa\"?",
+    "correctAnswer": "Japan",
+    "options": [
+      "Japan",
+      "Italien",
+      "Niederlande",
+      "Norwegen"
+    ],
+    "testedAttribute": "country",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_das-floss-der-medusa_cultura-artwork-country",
+    "entityId": "cultura:das-floss-der-medusa",
+    "entityType": "artwork",
+    "type": "cultura-artwork-country",
+    "difficulty": 2,
+    "prompt": "Aus welchem Land stammt das Gemälde „Das Floß der Medusa\"?",
+    "correctAnswer": "Frankreich",
+    "options": [
+      "Frankreich",
+      "Italien",
+      "Niederlande",
+      "Norwegen"
+    ],
+    "testedAttribute": "country",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_olympia_cultura-artwork-country",
+    "entityId": "cultura:olympia",
+    "entityType": "artwork",
+    "type": "cultura-artwork-country",
+    "difficulty": 2,
+    "prompt": "Aus welchem Land stammt das Gemälde „Olympia\"?",
+    "correctAnswer": "Frankreich",
+    "options": [
+      "Frankreich",
+      "Italien",
+      "Niederlande",
+      "Norwegen"
+    ],
+    "testedAttribute": "country",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_salvator-mundi_cultura-artwork-country",
+    "entityId": "cultura:salvator-mundi",
+    "entityType": "artwork",
+    "type": "cultura-artwork-country",
+    "difficulty": 2,
+    "prompt": "Aus welchem Land stammt das Gemälde „Salvator Mundi\"?",
+    "correctAnswer": "Italien",
+    "options": [
+      "Italien",
+      "Niederlande",
+      "Norwegen",
+      "Spanien"
+    ],
+    "testedAttribute": "country",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_guernica_cultura-artwork-country",
+    "entityId": "cultura:guernica",
+    "entityType": "artwork",
+    "type": "cultura-artwork-country",
+    "difficulty": 2,
+    "prompt": "Aus welchem Land stammt das Gemälde „Guernica\"?",
+    "correctAnswer": "Spanien",
+    "options": [
+      "Spanien",
+      "Italien",
+      "Niederlande",
+      "Norwegen"
+    ],
+    "testedAttribute": "country",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_die-bestaendigkeit-der-erinnerung_cultura-artwork-country",
+    "entityId": "cultura:die-bestaendigkeit-der-erinnerung",
+    "entityType": "artwork",
+    "type": "cultura-artwork-country",
+    "difficulty": 2,
+    "prompt": "Aus welchem Land stammt das Gemälde „Die Beständigkeit der Erinnerung\"?",
+    "correctAnswer": "Spanien",
+    "options": [
+      "Spanien",
+      "Italien",
+      "Niederlande",
+      "Norwegen"
+    ],
+    "testedAttribute": "country",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_selbstbildnis-ohne-bart_cultura-artwork-country",
+    "entityId": "cultura:selbstbildnis-ohne-bart",
+    "entityType": "artwork",
+    "type": "cultura-artwork-country",
+    "difficulty": 2,
+    "prompt": "Aus welchem Land stammt das Gemälde „Selbstbildnis ohne Bart\"?",
+    "correctAnswer": "Niederlande",
+    "options": [
+      "Niederlande",
+      "Italien",
+      "Norwegen",
+      "Spanien"
+    ],
+    "testedAttribute": "country",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_das-abendmahl_cultura-artwork-country",
+    "entityId": "cultura:das-abendmahl",
+    "entityType": "artwork",
+    "type": "cultura-artwork-country",
+    "difficulty": 2,
+    "prompt": "Aus welchem Land stammt das Gemälde „Das Abendmahl\"?",
+    "correctAnswer": "Italien",
+    "options": [
+      "Italien",
+      "Niederlande",
+      "Norwegen",
+      "Spanien"
+    ],
+    "testedAttribute": "country",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_begraebnis-des-grafen-orgaz_cultura-artwork-country",
+    "entityId": "cultura:begraebnis-des-grafen-orgaz",
+    "entityType": "artwork",
+    "type": "cultura-artwork-country",
+    "difficulty": 2,
+    "prompt": "Aus welchem Land stammt das Gemälde „Begräbnis des Grafen Orgaz\"?",
+    "correctAnswer": "Spanien",
+    "options": [
+      "Spanien",
+      "Italien",
+      "Niederlande",
+      "Norwegen"
+    ],
+    "testedAttribute": "country",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_das-arnolfini-portraet_cultura-artwork-country",
+    "entityId": "cultura:das-arnolfini-portraet",
+    "entityType": "artwork",
+    "type": "cultura-artwork-country",
+    "difficulty": 2,
+    "prompt": "Aus welchem Land stammt das Gemälde „Das Arnolfini-Porträt\"?",
+    "correctAnswer": "Niederlande",
+    "options": [
+      "Niederlande",
+      "Italien",
+      "Norwegen",
+      "Spanien"
+    ],
+    "testedAttribute": "country",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_cultura_mona-lisa_cultura-artwork-creator-rev",
     "entityId": "cultura:mona-lisa",
     "entityType": "artwork",
@@ -4598,6 +5453,519 @@
     "mapTargetId": null
   },
   {
+    "id": "q_cultura_david-michelangelo_cultura-sculpture-country",
+    "entityId": "cultura:david-michelangelo",
+    "entityType": "sculpture",
+    "type": "cultura-sculpture-country",
+    "difficulty": 2,
+    "prompt": "Aus welchem Land stammt die Skulptur „David\"?",
+    "correctAnswer": "Italien",
+    "options": [
+      "Italien",
+      "Frankreich",
+      "Ägypten",
+      "Griechenland"
+    ],
+    "testedAttribute": "country",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_der-denker_cultura-sculpture-country",
+    "entityId": "cultura:der-denker",
+    "entityType": "sculpture",
+    "type": "cultura-sculpture-country",
+    "difficulty": 2,
+    "prompt": "Aus welchem Land stammt die Skulptur „Der Denker\"?",
+    "correctAnswer": "Frankreich",
+    "options": [
+      "Frankreich",
+      "Italien",
+      "Ägypten",
+      "Griechenland"
+    ],
+    "testedAttribute": "country",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_bueste-der-nofretete_cultura-sculpture-country",
+    "entityId": "cultura:bueste-der-nofretete",
+    "entityType": "sculpture",
+    "type": "cultura-sculpture-country",
+    "difficulty": 2,
+    "prompt": "Aus welchem Land stammt die Skulptur „Büste der Nofretete\"?",
+    "correctAnswer": "Ägypten",
+    "options": [
+      "Ägypten",
+      "Italien",
+      "Frankreich",
+      "Griechenland"
+    ],
+    "testedAttribute": "country",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_diskuswerfer_cultura-sculpture-country",
+    "entityId": "cultura:diskuswerfer",
+    "entityType": "sculpture",
+    "type": "cultura-sculpture-country",
+    "difficulty": 2,
+    "prompt": "Aus welchem Land stammt die Skulptur „Diskuswerfer\"?",
+    "correctAnswer": "Griechenland",
+    "options": [
+      "Griechenland",
+      "Italien",
+      "Frankreich",
+      "Ägypten"
+    ],
+    "testedAttribute": "country",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_terrakotta-armee_cultura-sculpture-country",
+    "entityId": "cultura:terrakotta-armee",
+    "entityType": "sculpture",
+    "type": "cultura-sculpture-country",
+    "difficulty": 2,
+    "prompt": "Aus welchem Land stammt die Skulptur „Terrakotta-Armee\"?",
+    "correctAnswer": "China",
+    "options": [
+      "China",
+      "Italien",
+      "Frankreich",
+      "Ägypten"
+    ],
+    "testedAttribute": "country",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_freiheitsstatue_cultura-sculpture-country",
+    "entityId": "cultura:freiheitsstatue",
+    "entityType": "sculpture",
+    "type": "cultura-sculpture-country",
+    "difficulty": 2,
+    "prompt": "Aus welchem Land stammt die Skulptur „Freiheitsstatue\"?",
+    "correctAnswer": "USA",
+    "options": [
+      "USA",
+      "Italien",
+      "Frankreich",
+      "Ägypten"
+    ],
+    "testedAttribute": "country",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_trajanssaeule_cultura-sculpture-country",
+    "entityId": "cultura:trajanssaeule",
+    "entityType": "sculpture",
+    "type": "cultura-sculpture-country",
+    "difficulty": 2,
+    "prompt": "Aus welchem Land stammt die Skulptur „Trajanssäule\"?",
+    "correctAnswer": "Italien",
+    "options": [
+      "Italien",
+      "Frankreich",
+      "Ägypten",
+      "Griechenland"
+    ],
+    "testedAttribute": "country",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_reiterstandbild-marc-aurel_cultura-sculpture-country",
+    "entityId": "cultura:reiterstandbild-marc-aurel",
+    "entityType": "sculpture",
+    "type": "cultura-sculpture-country",
+    "difficulty": 2,
+    "prompt": "Aus welchem Land stammt die Skulptur „Reiterstandbild des Marc Aurel\"?",
+    "correctAnswer": "Italien",
+    "options": [
+      "Italien",
+      "Frankreich",
+      "Ägypten",
+      "Griechenland"
+    ],
+    "testedAttribute": "country",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_apollo-und-daphne_cultura-sculpture-country",
+    "entityId": "cultura:apollo-und-daphne",
+    "entityType": "sculpture",
+    "type": "cultura-sculpture-country",
+    "difficulty": 2,
+    "prompt": "Aus welchem Land stammt die Skulptur „Apollo und Daphne\"?",
+    "correctAnswer": "Italien",
+    "options": [
+      "Italien",
+      "Frankreich",
+      "Ägypten",
+      "Griechenland"
+    ],
+    "testedAttribute": "country",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_der-kuss-rodin_cultura-sculpture-country",
+    "entityId": "cultura:der-kuss-rodin",
+    "entityType": "sculpture",
+    "type": "cultura-sculpture-country",
+    "difficulty": 2,
+    "prompt": "Aus welchem Land stammt die Skulptur „Der Kuss\"?",
+    "correctAnswer": "Frankreich",
+    "options": [
+      "Frankreich",
+      "Italien",
+      "Ägypten",
+      "Griechenland"
+    ],
+    "testedAttribute": "country",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_buerger-von-calais_cultura-sculpture-country",
+    "entityId": "cultura:buerger-von-calais",
+    "entityType": "sculpture",
+    "type": "cultura-sculpture-country",
+    "difficulty": 2,
+    "prompt": "Aus welchem Land stammt die Skulptur „Die Bürger von Calais\"?",
+    "correctAnswer": "Frankreich",
+    "options": [
+      "Frankreich",
+      "Italien",
+      "Ägypten",
+      "Griechenland"
+    ],
+    "testedAttribute": "country",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_david-donatello_cultura-sculpture-country",
+    "entityId": "cultura:david-donatello",
+    "entityType": "sculpture",
+    "type": "cultura-sculpture-country",
+    "difficulty": 2,
+    "prompt": "Aus welchem Land stammt die Skulptur „David\"?",
+    "correctAnswer": "Italien",
+    "options": [
+      "Italien",
+      "Frankreich",
+      "Ägypten",
+      "Griechenland"
+    ],
+    "testedAttribute": "country",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_manneken-pis_cultura-sculpture-country",
+    "entityId": "cultura:manneken-pis",
+    "entityType": "sculpture",
+    "type": "cultura-sculpture-country",
+    "difficulty": 2,
+    "prompt": "Aus welchem Land stammt die Skulptur „Manneken Pis\"?",
+    "correctAnswer": "Belgien",
+    "options": [
+      "Belgien",
+      "Italien",
+      "Frankreich",
+      "Ägypten"
+    ],
+    "testedAttribute": "country",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_perseus-cellini_cultura-sculpture-country",
+    "entityId": "cultura:perseus-cellini",
+    "entityType": "sculpture",
+    "type": "cultura-sculpture-country",
+    "difficulty": 2,
+    "prompt": "Aus welchem Land stammt die Skulptur „Perseus mit dem Haupt der Medusa\"?",
+    "correctAnswer": "Italien",
+    "options": [
+      "Italien",
+      "Frankreich",
+      "Ägypten",
+      "Griechenland"
+    ],
+    "testedAttribute": "country",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_cristo-redentor_cultura-sculpture-country",
+    "entityId": "cultura:cristo-redentor",
+    "entityType": "sculpture",
+    "type": "cultura-sculpture-country",
+    "difficulty": 2,
+    "prompt": "Aus welchem Land stammt die Skulptur „Cristo Redentor\"?",
+    "correctAnswer": "Brasilien",
+    "options": [
+      "Brasilien",
+      "Italien",
+      "Frankreich",
+      "Ägypten"
+    ],
+    "testedAttribute": "country",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_angel-of-the-north_cultura-sculpture-country",
+    "entityId": "cultura:angel-of-the-north",
+    "entityType": "sculpture",
+    "type": "cultura-sculpture-country",
+    "difficulty": 2,
+    "prompt": "Aus welchem Land stammt die Skulptur „Angel of the North\"?",
+    "correctAnswer": "Vereinigtes Königreich",
+    "options": [
+      "Vereinigtes Königreich",
+      "Italien",
+      "Frankreich",
+      "Ägypten"
+    ],
+    "testedAttribute": "country",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_freiheitsstatue_cultura-sculpture-year",
+    "entityId": "cultura:freiheitsstatue",
+    "entityType": "sculpture",
+    "type": "cultura-sculpture-year",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr entstand die Skulptur „Freiheitsstatue\"?",
+    "correctAnswer": "1886",
+    "options": [
+      "1886",
+      "1889",
+      "1880",
+      "1931"
+    ],
+    "testedAttribute": "year",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_trajanssaeule_cultura-sculpture-year",
+    "entityId": "cultura:trajanssaeule",
+    "entityType": "sculpture",
+    "type": "cultura-sculpture-year",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr entstand die Skulptur „Trajanssäule\"?",
+    "correctAnswer": "112",
+    "options": [
+      "112",
+      "175",
+      "1444",
+      "1554"
+    ],
+    "testedAttribute": "year",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_reiterstandbild-marc-aurel_cultura-sculpture-year",
+    "entityId": "cultura:reiterstandbild-marc-aurel",
+    "entityType": "sculpture",
+    "type": "cultura-sculpture-year",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr entstand die Skulptur „Reiterstandbild des Marc Aurel\"?",
+    "correctAnswer": "175",
+    "options": [
+      "175",
+      "112",
+      "1444",
+      "1554"
+    ],
+    "testedAttribute": "year",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_apollo-und-daphne_cultura-sculpture-year",
+    "entityId": "cultura:apollo-und-daphne",
+    "entityType": "sculpture",
+    "type": "cultura-sculpture-year",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr entstand die Skulptur „Apollo und Daphne\"?",
+    "correctAnswer": "1622",
+    "options": [
+      "1622",
+      "1619",
+      "1554",
+      "1444"
+    ],
+    "testedAttribute": "year",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_der-kuss-rodin_cultura-sculpture-year",
+    "entityId": "cultura:der-kuss-rodin",
+    "entityType": "sculpture",
+    "type": "cultura-sculpture-year",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr entstand die Skulptur „Der Kuss\"?",
+    "correctAnswer": "1880",
+    "options": [
+      "1880",
+      "1886",
+      "1889",
+      "1931"
+    ],
+    "testedAttribute": "year",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_buerger-von-calais_cultura-sculpture-year",
+    "entityId": "cultura:buerger-von-calais",
+    "entityType": "sculpture",
+    "type": "cultura-sculpture-year",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr entstand die Skulptur „Die Bürger von Calais\"?",
+    "correctAnswer": "1889",
+    "options": [
+      "1889",
+      "1886",
+      "1880",
+      "1931"
+    ],
+    "testedAttribute": "year",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_david-donatello_cultura-sculpture-year",
+    "entityId": "cultura:david-donatello",
+    "entityType": "sculpture",
+    "type": "cultura-sculpture-year",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr entstand die Skulptur „David\"?",
+    "correctAnswer": "1444",
+    "options": [
+      "1444",
+      "1554",
+      "1619",
+      "1622"
+    ],
+    "testedAttribute": "year",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_manneken-pis_cultura-sculpture-year",
+    "entityId": "cultura:manneken-pis",
+    "entityType": "sculpture",
+    "type": "cultura-sculpture-year",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr entstand die Skulptur „Manneken Pis\"?",
+    "correctAnswer": "1619",
+    "options": [
+      "1619",
+      "1622",
+      "1554",
+      "1444"
+    ],
+    "testedAttribute": "year",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_perseus-cellini_cultura-sculpture-year",
+    "entityId": "cultura:perseus-cellini",
+    "entityType": "sculpture",
+    "type": "cultura-sculpture-year",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr entstand die Skulptur „Perseus mit dem Haupt der Medusa\"?",
+    "correctAnswer": "1554",
+    "options": [
+      "1554",
+      "1619",
+      "1622",
+      "1444"
+    ],
+    "testedAttribute": "year",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_cristo-redentor_cultura-sculpture-year",
+    "entityId": "cultura:cristo-redentor",
+    "entityType": "sculpture",
+    "type": "cultura-sculpture-year",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr entstand die Skulptur „Cristo Redentor\"?",
+    "correctAnswer": "1931",
+    "options": [
+      "1931",
+      "1889",
+      "1886",
+      "1880"
+    ],
+    "testedAttribute": "year",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_angel-of-the-north_cultura-sculpture-year",
+    "entityId": "cultura:angel-of-the-north",
+    "entityType": "sculpture",
+    "type": "cultura-sculpture-year",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr entstand die Skulptur „Angel of the North\"?",
+    "correctAnswer": "1998",
+    "options": [
+      "1998",
+      "1931",
+      "1889",
+      "1886"
+    ],
+    "testedAttribute": "year",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_cultura_tadsch-mahal_cultura-architecture-era",
     "entityId": "cultura:tadsch-mahal",
     "entityType": "architecture",
@@ -6132,6 +7500,842 @@
       "Gustave Eiffel"
     ],
     "testedAttribute": "architect",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_kolosseum_cultura-architecture-location",
+    "entityId": "cultura:kolosseum",
+    "entityType": "architecture",
+    "type": "cultura-architecture-location",
+    "difficulty": 2,
+    "prompt": "Wo steht das Bauwerk „Kolosseum\"?",
+    "correctAnswer": "Rom, Italien",
+    "options": [
+      "Rom, Italien",
+      "Agra, Indien",
+      "Paris, Frankreich",
+      "Istanbul, Türkei"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_tadsch-mahal_cultura-architecture-location",
+    "entityId": "cultura:tadsch-mahal",
+    "entityType": "architecture",
+    "type": "cultura-architecture-location",
+    "difficulty": 2,
+    "prompt": "Wo steht das Bauwerk „Tadsch Mahal\"?",
+    "correctAnswer": "Agra, Indien",
+    "options": [
+      "Agra, Indien",
+      "Rom, Italien",
+      "Paris, Frankreich",
+      "Istanbul, Türkei"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_eiffelturm_cultura-architecture-location",
+    "entityId": "cultura:eiffelturm",
+    "entityType": "architecture",
+    "type": "cultura-architecture-location",
+    "difficulty": 2,
+    "prompt": "Wo steht das Bauwerk „Eiffelturm\"?",
+    "correctAnswer": "Paris, Frankreich",
+    "options": [
+      "Paris, Frankreich",
+      "Rom, Italien",
+      "Agra, Indien",
+      "Istanbul, Türkei"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_hagia-sophia_cultura-architecture-location",
+    "entityId": "cultura:hagia-sophia",
+    "entityType": "architecture",
+    "type": "cultura-architecture-location",
+    "difficulty": 2,
+    "prompt": "Wo steht das Bauwerk „Hagia Sophia\"?",
+    "correctAnswer": "Istanbul, Türkei",
+    "options": [
+      "Istanbul, Türkei",
+      "Rom, Italien",
+      "Agra, Indien",
+      "Paris, Frankreich"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_sagrada-familia_cultura-architecture-location",
+    "entityId": "cultura:sagrada-familia",
+    "entityType": "architecture",
+    "type": "cultura-architecture-location",
+    "difficulty": 2,
+    "prompt": "Wo steht das Bauwerk „Sagrada Família\"?",
+    "correctAnswer": "Barcelona, Spanien",
+    "options": [
+      "Barcelona, Spanien",
+      "Rom, Italien",
+      "Agra, Indien",
+      "Paris, Frankreich"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_petersdom_cultura-architecture-location",
+    "entityId": "cultura:petersdom",
+    "entityType": "architecture",
+    "type": "cultura-architecture-location",
+    "difficulty": 2,
+    "prompt": "Wo steht das Bauwerk „Petersdom\"?",
+    "correctAnswer": "Vatikanstadt",
+    "options": [
+      "Vatikanstadt",
+      "Rom, Italien",
+      "Agra, Indien",
+      "Paris, Frankreich"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_machu-picchu_cultura-architecture-location",
+    "entityId": "cultura:machu-picchu",
+    "entityType": "architecture",
+    "type": "cultura-architecture-location",
+    "difficulty": 2,
+    "prompt": "Wo steht das Bauwerk „Machu Picchu\"?",
+    "correctAnswer": "Cusco-Region, Anden",
+    "options": [
+      "Cusco-Region, Anden",
+      "Rom, Italien",
+      "Agra, Indien",
+      "Paris, Frankreich"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_petra_cultura-architecture-location",
+    "entityId": "cultura:petra",
+    "entityType": "architecture",
+    "type": "cultura-architecture-location",
+    "difficulty": 2,
+    "prompt": "Wo steht das Bauwerk „Petra\"?",
+    "correctAnswer": "Gouvernement Maan",
+    "options": [
+      "Gouvernement Maan",
+      "Rom, Italien",
+      "Agra, Indien",
+      "Paris, Frankreich"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_parthenon_cultura-architecture-location",
+    "entityId": "cultura:parthenon",
+    "entityType": "architecture",
+    "type": "cultura-architecture-location",
+    "difficulty": 2,
+    "prompt": "Wo steht das Bauwerk „Parthenon\"?",
+    "correctAnswer": "Akropolis, Athen",
+    "options": [
+      "Akropolis, Athen",
+      "Rom, Italien",
+      "Agra, Indien",
+      "Paris, Frankreich"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_stonehenge_cultura-architecture-location",
+    "entityId": "cultura:stonehenge",
+    "entityType": "architecture",
+    "type": "cultura-architecture-location",
+    "difficulty": 2,
+    "prompt": "Wo steht das Bauwerk „Stonehenge\"?",
+    "correctAnswer": "Amesbury, Wiltshire, England",
+    "options": [
+      "Amesbury, Wiltshire, England",
+      "Rom, Italien",
+      "Agra, Indien",
+      "Paris, Frankreich"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_brandenburger-tor_cultura-architecture-location",
+    "entityId": "cultura:brandenburger-tor",
+    "entityType": "architecture",
+    "type": "cultura-architecture-location",
+    "difficulty": 2,
+    "prompt": "Wo steht das Bauwerk „Brandenburger Tor\"?",
+    "correctAnswer": "Pariser Platz, Berlin",
+    "options": [
+      "Pariser Platz, Berlin",
+      "Rom, Italien",
+      "Agra, Indien",
+      "Paris, Frankreich"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_elizabeth-tower_cultura-architecture-location",
+    "entityId": "cultura:elizabeth-tower",
+    "entityType": "architecture",
+    "type": "cultura-architecture-location",
+    "difficulty": 2,
+    "prompt": "Wo steht das Bauwerk „Big Ben (Elizabeth Tower)\"?",
+    "correctAnswer": "Palace of Westminster, London",
+    "options": [
+      "Palace of Westminster, London",
+      "Rom, Italien",
+      "Agra, Indien",
+      "Paris, Frankreich"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_louvre_cultura-architecture-location",
+    "entityId": "cultura:louvre",
+    "entityType": "architecture",
+    "type": "cultura-architecture-location",
+    "difficulty": 2,
+    "prompt": "Wo steht das Bauwerk „Louvre\"?",
+    "correctAnswer": "Paris, 1. Arrondissement",
+    "options": [
+      "Paris, 1. Arrondissement",
+      "Rom, Italien",
+      "Agra, Indien",
+      "Paris, Frankreich"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_schloss-neuschwanstein_cultura-architecture-location",
+    "entityId": "cultura:schloss-neuschwanstein",
+    "entityType": "architecture",
+    "type": "cultura-architecture-location",
+    "difficulty": 2,
+    "prompt": "Wo steht das Bauwerk „Schloss Neuschwanstein\"?",
+    "correctAnswer": "Schwangau, Allgäu, Bayern",
+    "options": [
+      "Schwangau, Allgäu, Bayern",
+      "Rom, Italien",
+      "Agra, Indien",
+      "Paris, Frankreich"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_golden-gate-bridge_cultura-architecture-location",
+    "entityId": "cultura:golden-gate-bridge",
+    "entityType": "architecture",
+    "type": "cultura-architecture-location",
+    "difficulty": 2,
+    "prompt": "Wo steht das Bauwerk „Golden Gate Bridge\"?",
+    "correctAnswer": "San Francisco, Kalifornien",
+    "options": [
+      "San Francisco, Kalifornien",
+      "Rom, Italien",
+      "Agra, Indien",
+      "Paris, Frankreich"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_pantheon-rom_cultura-architecture-location",
+    "entityId": "cultura:pantheon-rom",
+    "entityType": "architecture",
+    "type": "cultura-architecture-location",
+    "difficulty": 2,
+    "prompt": "Wo steht das Bauwerk „Pantheon (Rom)\"?",
+    "correctAnswer": "Piazza della Rotonda, Rom",
+    "options": [
+      "Piazza della Rotonda, Rom",
+      "Rom, Italien",
+      "Agra, Indien",
+      "Paris, Frankreich"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_chinesische-mauer_cultura-architecture-year",
+    "entityId": "cultura:chinesische-mauer",
+    "entityType": "architecture",
+    "type": "cultura-architecture-year",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr wurde „Chinesische Mauer\" fertiggestellt?",
+    "correctAnswer": "1368",
+    "options": [
+      "1368",
+      "1450",
+      "1150",
+      "1661"
+    ],
+    "testedAttribute": "year",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_machu-picchu_cultura-architecture-year",
+    "entityId": "cultura:machu-picchu",
+    "entityType": "architecture",
+    "type": "cultura-architecture-year",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr wurde „Machu Picchu\" fertiggestellt?",
+    "correctAnswer": "1450",
+    "options": [
+      "1450",
+      "1368",
+      "1661",
+      "1150"
+    ],
+    "testedAttribute": "year",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_brandenburger-tor_cultura-architecture-year",
+    "entityId": "cultura:brandenburger-tor",
+    "entityType": "architecture",
+    "type": "cultura-architecture-year",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr wurde „Brandenburger Tor\" fertiggestellt?",
+    "correctAnswer": "1793",
+    "options": [
+      "1793",
+      "1858",
+      "1880",
+      "1883"
+    ],
+    "testedAttribute": "year",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_sydney-opera-house_cultura-architecture-year",
+    "entityId": "cultura:sydney-opera-house",
+    "entityType": "architecture",
+    "type": "cultura-architecture-year",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr wurde „Oper von Sydney\" fertiggestellt?",
+    "correctAnswer": "1973",
+    "options": [
+      "1973",
+      "1937",
+      "1894",
+      "1892"
+    ],
+    "testedAttribute": "year",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_angkor-wat_cultura-architecture-year",
+    "entityId": "cultura:angkor-wat",
+    "entityType": "architecture",
+    "type": "cultura-architecture-year",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr wurde „Angkor Wat\" fertiggestellt?",
+    "correctAnswer": "1150",
+    "options": [
+      "1150",
+      "1368",
+      "1450",
+      "1661"
+    ],
+    "testedAttribute": "year",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_elizabeth-tower_cultura-architecture-year",
+    "entityId": "cultura:elizabeth-tower",
+    "entityType": "architecture",
+    "type": "cultura-architecture-year",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr wurde „Big Ben (Elizabeth Tower)\" fertiggestellt?",
+    "correctAnswer": "1858",
+    "options": [
+      "1858",
+      "1880",
+      "1883",
+      "1892"
+    ],
+    "testedAttribute": "year",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_koelner-dom_cultura-architecture-year",
+    "entityId": "cultura:koelner-dom",
+    "entityType": "architecture",
+    "type": "cultura-architecture-year",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr wurde „Kölner Dom\" fertiggestellt?",
+    "correctAnswer": "1880",
+    "options": [
+      "1880",
+      "1883",
+      "1892",
+      "1894"
+    ],
+    "testedAttribute": "year",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_schloss-versailles_cultura-architecture-year",
+    "entityId": "cultura:schloss-versailles",
+    "entityType": "architecture",
+    "type": "cultura-architecture-year",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr wurde „Schloss Versailles\" fertiggestellt?",
+    "correctAnswer": "1661",
+    "options": [
+      "1661",
+      "1793",
+      "1858",
+      "1450"
+    ],
+    "testedAttribute": "year",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_louvre_cultura-architecture-year",
+    "entityId": "cultura:louvre",
+    "entityType": "architecture",
+    "type": "cultura-architecture-year",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr wurde „Louvre\" fertiggestellt?",
+    "correctAnswer": "1793",
+    "options": [
+      "1793",
+      "1858",
+      "1880",
+      "1883"
+    ],
+    "testedAttribute": "year",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_schloss-neuschwanstein_cultura-architecture-year",
+    "entityId": "cultura:schloss-neuschwanstein",
+    "entityType": "architecture",
+    "type": "cultura-architecture-year",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr wurde „Schloss Neuschwanstein\" fertiggestellt?",
+    "correctAnswer": "1892",
+    "options": [
+      "1892",
+      "1894",
+      "1883",
+      "1880"
+    ],
+    "testedAttribute": "year",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_golden-gate-bridge_cultura-architecture-year",
+    "entityId": "cultura:golden-gate-bridge",
+    "entityType": "architecture",
+    "type": "cultura-architecture-year",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr wurde „Golden Gate Bridge\" fertiggestellt?",
+    "correctAnswer": "1937",
+    "options": [
+      "1937",
+      "1973",
+      "1894",
+      "1892"
+    ],
+    "testedAttribute": "year",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_brooklyn-bridge_cultura-architecture-year",
+    "entityId": "cultura:brooklyn-bridge",
+    "entityType": "architecture",
+    "type": "cultura-architecture-year",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr wurde „Brooklyn Bridge\" fertiggestellt?",
+    "correctAnswer": "1883",
+    "options": [
+      "1883",
+      "1880",
+      "1892",
+      "1894"
+    ],
+    "testedAttribute": "year",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_tower-bridge_cultura-architecture-year",
+    "entityId": "cultura:tower-bridge",
+    "entityType": "architecture",
+    "type": "cultura-architecture-year",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr wurde „Tower Bridge\" fertiggestellt?",
+    "correctAnswer": "1894",
+    "options": [
+      "1894",
+      "1892",
+      "1883",
+      "1880"
+    ],
+    "testedAttribute": "year",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_pantheon-rom_cultura-architecture-year",
+    "entityId": "cultura:pantheon-rom",
+    "entityType": "architecture",
+    "type": "cultura-architecture-year",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr wurde „Pantheon (Rom)\" fertiggestellt?",
+    "correctAnswer": "125",
+    "options": [
+      "125",
+      "1150",
+      "1368",
+      "1450"
+    ],
+    "testedAttribute": "year",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_eiffelturm_cultura-architecture-height",
+    "entityId": "cultura:eiffelturm",
+    "entityType": "architecture",
+    "type": "cultura-architecture-height",
+    "difficulty": 3,
+    "prompt": "Wie hoch ist das Bauwerk „Eiffelturm\"?",
+    "correctAnswer": "330 m",
+    "options": [
+      "330 m",
+      "227 m",
+      "172,5 m",
+      "157 m"
+    ],
+    "testedAttribute": "heightM",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_sagrada-familia_cultura-architecture-height",
+    "entityId": "cultura:sagrada-familia",
+    "entityType": "architecture",
+    "type": "cultura-architecture-height",
+    "difficulty": 3,
+    "prompt": "Wie hoch ist das Bauwerk „Sagrada Família\"?",
+    "correctAnswer": "172,5 m",
+    "options": [
+      "172,5 m",
+      "157 m",
+      "138,75 m",
+      "227 m"
+    ],
+    "testedAttribute": "heightM",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_notre-dame-de-paris_cultura-architecture-height",
+    "entityId": "cultura:notre-dame-de-paris",
+    "entityType": "architecture",
+    "type": "cultura-architecture-height",
+    "difficulty": 3,
+    "prompt": "Wie hoch ist das Bauwerk „Notre-Dame de Paris\"?",
+    "correctAnswer": "35 m",
+    "options": [
+      "35 m",
+      "43 m",
+      "26 m",
+      "65 m"
+    ],
+    "testedAttribute": "heightM",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_pyramiden-von-gizeh_cultura-architecture-height",
+    "entityId": "cultura:pyramiden-von-gizeh",
+    "entityType": "architecture",
+    "type": "cultura-architecture-height",
+    "difficulty": 3,
+    "prompt": "Wie hoch ist das Bauwerk „Pyramiden von Gizeh\"?",
+    "correctAnswer": "138,75 m",
+    "options": [
+      "138,75 m",
+      "157 m",
+      "172,5 m",
+      "96 m"
+    ],
+    "testedAttribute": "heightM",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_brandenburger-tor_cultura-architecture-height",
+    "entityId": "cultura:brandenburger-tor",
+    "entityType": "architecture",
+    "type": "cultura-architecture-height",
+    "difficulty": 3,
+    "prompt": "Wie hoch ist das Bauwerk „Brandenburger Tor\"?",
+    "correctAnswer": "26 m",
+    "options": [
+      "26 m",
+      "35 m",
+      "43 m",
+      "65 m"
+    ],
+    "testedAttribute": "heightM",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_sydney-opera-house_cultura-architecture-height",
+    "entityId": "cultura:sydney-opera-house",
+    "entityType": "architecture",
+    "type": "cultura-architecture-height",
+    "difficulty": 3,
+    "prompt": "Wie hoch ist das Bauwerk „Oper von Sydney\"?",
+    "correctAnswer": "67 m",
+    "options": [
+      "67 m",
+      "65 m",
+      "84 m",
+      "43 m"
+    ],
+    "testedAttribute": "heightM",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_angkor-wat_cultura-architecture-height",
+    "entityId": "cultura:angkor-wat",
+    "entityType": "architecture",
+    "type": "cultura-architecture-height",
+    "difficulty": 3,
+    "prompt": "Wie hoch ist das Bauwerk „Angkor Wat\"?",
+    "correctAnswer": "65 m",
+    "options": [
+      "65 m",
+      "67 m",
+      "84 m",
+      "43 m"
+    ],
+    "testedAttribute": "heightM",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_elizabeth-tower_cultura-architecture-height",
+    "entityId": "cultura:elizabeth-tower",
+    "entityType": "architecture",
+    "type": "cultura-architecture-height",
+    "difficulty": 3,
+    "prompt": "Wie hoch ist das Bauwerk „Big Ben (Elizabeth Tower)\"?",
+    "correctAnswer": "96 m",
+    "options": [
+      "96 m",
+      "84 m",
+      "67 m",
+      "65 m"
+    ],
+    "testedAttribute": "heightM",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_koelner-dom_cultura-architecture-height",
+    "entityId": "cultura:koelner-dom",
+    "entityType": "architecture",
+    "type": "cultura-architecture-height",
+    "difficulty": 3,
+    "prompt": "Wie hoch ist das Bauwerk „Kölner Dom\"?",
+    "correctAnswer": "157 m",
+    "options": [
+      "157 m",
+      "172,5 m",
+      "138,75 m",
+      "96 m"
+    ],
+    "testedAttribute": "heightM",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_schloss-neuschwanstein_cultura-architecture-height",
+    "entityId": "cultura:schloss-neuschwanstein",
+    "entityType": "architecture",
+    "type": "cultura-architecture-height",
+    "difficulty": 3,
+    "prompt": "Wie hoch ist das Bauwerk „Schloss Neuschwanstein\"?",
+    "correctAnswer": "65 m",
+    "options": [
+      "65 m",
+      "67 m",
+      "84 m",
+      "43 m"
+    ],
+    "testedAttribute": "heightM",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_golden-gate-bridge_cultura-architecture-height",
+    "entityId": "cultura:golden-gate-bridge",
+    "entityType": "architecture",
+    "type": "cultura-architecture-height",
+    "difficulty": 3,
+    "prompt": "Wie hoch ist das Bauwerk „Golden Gate Bridge\"?",
+    "correctAnswer": "227 m",
+    "options": [
+      "227 m",
+      "172,5 m",
+      "157 m",
+      "138,75 m"
+    ],
+    "testedAttribute": "heightM",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_brooklyn-bridge_cultura-architecture-height",
+    "entityId": "cultura:brooklyn-bridge",
+    "entityType": "architecture",
+    "type": "cultura-architecture-height",
+    "difficulty": 3,
+    "prompt": "Wie hoch ist das Bauwerk „Brooklyn Bridge\"?",
+    "correctAnswer": "84 m",
+    "options": [
+      "84 m",
+      "96 m",
+      "67 m",
+      "65 m"
+    ],
+    "testedAttribute": "heightM",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_tower-bridge_cultura-architecture-height",
+    "entityId": "cultura:tower-bridge",
+    "entityType": "architecture",
+    "type": "cultura-architecture-height",
+    "difficulty": 3,
+    "prompt": "Wie hoch ist das Bauwerk „Tower Bridge\"?",
+    "correctAnswer": "65 m",
+    "options": [
+      "65 m",
+      "67 m",
+      "84 m",
+      "43 m"
+    ],
+    "testedAttribute": "heightM",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_pantheon-rom_cultura-architecture-height",
+    "entityId": "cultura:pantheon-rom",
+    "entityType": "architecture",
+    "type": "cultura-architecture-height",
+    "difficulty": 3,
+    "prompt": "Wie hoch ist das Bauwerk „Pantheon (Rom)\"?",
+    "correctAnswer": "43 m",
+    "options": [
+      "43 m",
+      "35 m",
+      "26 m",
+      "65 m"
+    ],
+    "testedAttribute": "heightM",
     "answerIsName": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
@@ -8780,12 +10984,620 @@
     "mapTargetId": null
   },
   {
+    "id": "q_cultura_bach-johann-sebastian_cultura-composer-deathyear",
+    "entityId": "cultura:bach-johann-sebastian",
+    "entityType": "composer",
+    "type": "cultura-composer-deathyear",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr starb Johann Sebastian Bach?",
+    "correctAnswer": "1750",
+    "options": [
+      "1750",
+      "1741",
+      "1759",
+      "1791"
+    ],
+    "testedAttribute": "deathYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_mozart-wolfgang-amadeus_cultura-composer-deathyear",
+    "entityId": "cultura:mozart-wolfgang-amadeus",
+    "entityType": "composer",
+    "type": "cultura-composer-deathyear",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr starb Wolfgang Amadeus Mozart?",
+    "correctAnswer": "1791",
+    "options": [
+      "1791",
+      "1809",
+      "1759",
+      "1827"
+    ],
+    "testedAttribute": "deathYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_beethoven-ludwig-van_cultura-composer-deathyear",
+    "entityId": "cultura:beethoven-ludwig-van",
+    "entityType": "composer",
+    "type": "cultura-composer-deathyear",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr starb Ludwig van Beethoven?",
+    "correctAnswer": "1827",
+    "options": [
+      "1827",
+      "1828",
+      "1809",
+      "1849"
+    ],
+    "testedAttribute": "deathYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_vivaldi-antonio_cultura-composer-deathyear",
+    "entityId": "cultura:vivaldi-antonio",
+    "entityType": "composer",
+    "type": "cultura-composer-deathyear",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr starb Antonio Vivaldi?",
+    "correctAnswer": "1741",
+    "options": [
+      "1741",
+      "1750",
+      "1759",
+      "1791"
+    ],
+    "testedAttribute": "deathYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_chopin-frederic_cultura-composer-deathyear",
+    "entityId": "cultura:chopin-frederic",
+    "entityType": "composer",
+    "type": "cultura-composer-deathyear",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr starb Frédéric Chopin?",
+    "correctAnswer": "1849",
+    "options": [
+      "1849",
+      "1856",
+      "1869",
+      "1828"
+    ],
+    "testedAttribute": "deathYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_tschaikowski-pjotr_cultura-composer-deathyear",
+    "entityId": "cultura:tschaikowski-pjotr",
+    "entityType": "composer",
+    "type": "cultura-composer-deathyear",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr starb Pjotr Iljitsch Tschaikowski?",
+    "correctAnswer": "1893",
+    "options": [
+      "1893",
+      "1897",
+      "1899",
+      "1886"
+    ],
+    "testedAttribute": "deathYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_wagner-richard_cultura-composer-deathyear",
+    "entityId": "cultura:wagner-richard",
+    "entityType": "composer",
+    "type": "cultura-composer-deathyear",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr starb Richard Wagner?",
+    "correctAnswer": "1883",
+    "options": [
+      "1883",
+      "1884",
+      "1881",
+      "1886"
+    ],
+    "testedAttribute": "deathYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_brahms-johannes_cultura-composer-deathyear",
+    "entityId": "cultura:brahms-johannes",
+    "entityType": "composer",
+    "type": "cultura-composer-deathyear",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr starb Johannes Brahms?",
+    "correctAnswer": "1897",
+    "options": [
+      "1897",
+      "1899",
+      "1893",
+      "1901"
+    ],
+    "testedAttribute": "deathYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_haendel_cultura-composer-deathyear",
+    "entityId": "cultura:haendel",
+    "entityType": "composer",
+    "type": "cultura-composer-deathyear",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr starb Georg Friedrich Händel?",
+    "correctAnswer": "1759",
+    "options": [
+      "1759",
+      "1750",
+      "1741",
+      "1791"
+    ],
+    "testedAttribute": "deathYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_haydn_cultura-composer-deathyear",
+    "entityId": "cultura:haydn",
+    "entityType": "composer",
+    "type": "cultura-composer-deathyear",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr starb Joseph Haydn?",
+    "correctAnswer": "1809",
+    "options": [
+      "1809",
+      "1791",
+      "1827",
+      "1828"
+    ],
+    "testedAttribute": "deathYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_schubert_cultura-composer-deathyear",
+    "entityId": "cultura:schubert",
+    "entityType": "composer",
+    "type": "cultura-composer-deathyear",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr starb Franz Schubert?",
+    "correctAnswer": "1828",
+    "options": [
+      "1828",
+      "1827",
+      "1809",
+      "1849"
+    ],
+    "testedAttribute": "deathYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_robert-schumann_cultura-composer-deathyear",
+    "entityId": "cultura:robert-schumann",
+    "entityType": "composer",
+    "type": "cultura-composer-deathyear",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr starb Robert Schumann?",
+    "correctAnswer": "1856",
+    "options": [
+      "1856",
+      "1849",
+      "1869",
+      "1875"
+    ],
+    "testedAttribute": "deathYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_liszt_cultura-composer-deathyear",
+    "entityId": "cultura:liszt",
+    "entityType": "composer",
+    "type": "cultura-composer-deathyear",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr starb Franz Liszt?",
+    "correctAnswer": "1886",
+    "options": [
+      "1886",
+      "1884",
+      "1883",
+      "1881"
+    ],
+    "testedAttribute": "deathYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_verdi_cultura-composer-deathyear",
+    "entityId": "cultura:verdi",
+    "entityType": "composer",
+    "type": "cultura-composer-deathyear",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr starb Giuseppe Verdi?",
+    "correctAnswer": "1901",
+    "options": [
+      "1901",
+      "1899",
+      "1904",
+      "1897"
+    ],
+    "testedAttribute": "deathYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_dvorak_cultura-composer-deathyear",
+    "entityId": "cultura:dvorak",
+    "entityType": "composer",
+    "type": "cultura-composer-deathyear",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr starb Antonín Dvořák?",
+    "correctAnswer": "1904",
+    "options": [
+      "1904",
+      "1901",
+      "1907",
+      "1908"
+    ],
+    "testedAttribute": "deathYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_grieg_cultura-composer-deathyear",
+    "entityId": "cultura:grieg",
+    "entityType": "composer",
+    "type": "cultura-composer-deathyear",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr starb Edvard Grieg?",
+    "correctAnswer": "1907",
+    "options": [
+      "1907",
+      "1908",
+      "1904",
+      "1911"
+    ],
+    "testedAttribute": "deathYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_strauss-sohn_cultura-composer-deathyear",
+    "entityId": "cultura:strauss-sohn",
+    "entityType": "composer",
+    "type": "cultura-composer-deathyear",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr starb Johann Strauss (Sohn)?",
+    "correctAnswer": "1899",
+    "options": [
+      "1899",
+      "1897",
+      "1901",
+      "1904"
+    ],
+    "testedAttribute": "deathYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_debussy_cultura-composer-deathyear",
+    "entityId": "cultura:debussy",
+    "entityType": "composer",
+    "type": "cultura-composer-deathyear",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr starb Claude Debussy?",
+    "correctAnswer": "1918",
+    "options": [
+      "1918",
+      "1921",
+      "1924",
+      "1911"
+    ],
+    "testedAttribute": "deathYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_igor-strawinsky_cultura-composer-deathyear",
+    "entityId": "cultura:igor-strawinsky",
+    "entityType": "composer",
+    "type": "cultura-composer-deathyear",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr starb Igor Strawinsky?",
+    "correctAnswer": "1971",
+    "options": [
+      "1971",
+      "1957",
+      "1953",
+      "1949"
+    ],
+    "testedAttribute": "deathYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_sergei-prokofjew_cultura-composer-deathyear",
+    "entityId": "cultura:sergei-prokofjew",
+    "entityType": "composer",
+    "type": "cultura-composer-deathyear",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr starb Sergei Prokofjew?",
+    "correctAnswer": "1953",
+    "options": [
+      "1953",
+      "1949",
+      "1957",
+      "1937"
+    ],
+    "testedAttribute": "deathYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_gustav-mahler_cultura-composer-deathyear",
+    "entityId": "cultura:gustav-mahler",
+    "entityType": "composer",
+    "type": "cultura-composer-deathyear",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr starb Gustav Mahler?",
+    "correctAnswer": "1911",
+    "options": [
+      "1911",
+      "1908",
+      "1907",
+      "1904"
+    ],
+    "testedAttribute": "deathYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_richard-strauss_cultura-composer-deathyear",
+    "entityId": "cultura:richard-strauss",
+    "entityType": "composer",
+    "type": "cultura-composer-deathyear",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr starb Richard Strauss?",
+    "correctAnswer": "1949",
+    "options": [
+      "1949",
+      "1953",
+      "1957",
+      "1937"
+    ],
+    "testedAttribute": "deathYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_maurice-ravel_cultura-composer-deathyear",
+    "entityId": "cultura:maurice-ravel",
+    "entityType": "composer",
+    "type": "cultura-composer-deathyear",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr starb Maurice Ravel?",
+    "correctAnswer": "1937",
+    "options": [
+      "1937",
+      "1949",
+      "1924",
+      "1953"
+    ],
+    "testedAttribute": "deathYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_hector-berlioz_cultura-composer-deathyear",
+    "entityId": "cultura:hector-berlioz",
+    "entityType": "composer",
+    "type": "cultura-composer-deathyear",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr starb Hector Berlioz?",
+    "correctAnswer": "1869",
+    "options": [
+      "1869",
+      "1875",
+      "1881",
+      "1856"
+    ],
+    "testedAttribute": "deathYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_camille-saint-saens_cultura-composer-deathyear",
+    "entityId": "cultura:camille-saint-saens",
+    "entityType": "composer",
+    "type": "cultura-composer-deathyear",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr starb Camille Saint-Saëns?",
+    "correctAnswer": "1921",
+    "options": [
+      "1921",
+      "1918",
+      "1924",
+      "1911"
+    ],
+    "testedAttribute": "deathYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_nikolai-rimski-korsakow_cultura-composer-deathyear",
+    "entityId": "cultura:nikolai-rimski-korsakow",
+    "entityType": "composer",
+    "type": "cultura-composer-deathyear",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr starb Nikolai Rimski-Korsakow?",
+    "correctAnswer": "1908",
+    "options": [
+      "1908",
+      "1907",
+      "1911",
+      "1904"
+    ],
+    "testedAttribute": "deathYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_modest-mussorgski_cultura-composer-deathyear",
+    "entityId": "cultura:modest-mussorgski",
+    "entityType": "composer",
+    "type": "cultura-composer-deathyear",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr starb Modest Mussorgski?",
+    "correctAnswer": "1881",
+    "options": [
+      "1881",
+      "1883",
+      "1884",
+      "1886"
+    ],
+    "testedAttribute": "deathYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_giacomo-puccini_cultura-composer-deathyear",
+    "entityId": "cultura:giacomo-puccini",
+    "entityType": "composer",
+    "type": "cultura-composer-deathyear",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr starb Giacomo Puccini?",
+    "correctAnswer": "1924",
+    "options": [
+      "1924",
+      "1921",
+      "1918",
+      "1911"
+    ],
+    "testedAttribute": "deathYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_georges-bizet_cultura-composer-deathyear",
+    "entityId": "cultura:georges-bizet",
+    "entityType": "composer",
+    "type": "cultura-composer-deathyear",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr starb Georges Bizet?",
+    "correctAnswer": "1875",
+    "options": [
+      "1875",
+      "1869",
+      "1881",
+      "1883"
+    ],
+    "testedAttribute": "deathYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_jean-sibelius_cultura-composer-deathyear",
+    "entityId": "cultura:jean-sibelius",
+    "entityType": "composer",
+    "type": "cultura-composer-deathyear",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr starb Jean Sibelius?",
+    "correctAnswer": "1957",
+    "options": [
+      "1957",
+      "1953",
+      "1949",
+      "1971"
+    ],
+    "testedAttribute": "deathYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_gabriel-faure_cultura-composer-deathyear",
+    "entityId": "cultura:gabriel-faure",
+    "entityType": "composer",
+    "type": "cultura-composer-deathyear",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr starb Gabriel Fauré?",
+    "correctAnswer": "1924",
+    "options": [
+      "1924",
+      "1921",
+      "1918",
+      "1911"
+    ],
+    "testedAttribute": "deathYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_bedrich-smetana_cultura-composer-deathyear",
+    "entityId": "cultura:bedrich-smetana",
+    "entityType": "composer",
+    "type": "cultura-composer-deathyear",
+    "difficulty": 4,
+    "prompt": "In welchem Jahr starb Bedřich Smetana?",
+    "correctAnswer": "1884",
+    "options": [
+      "1884",
+      "1883",
+      "1886",
+      "1881"
+    ],
+    "testedAttribute": "deathYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_cultura_bach-johann-sebastian_cultura-composer-work-rev",
     "entityId": "cultura:bach-johann-sebastian",
     "entityType": "composer",
     "type": "cultura-composer-work-rev",
     "difficulty": 3,
-    "prompt": "Von welchem Komponisten stammt das Werk „Brandenburgische Konzerte“?",
+    "prompt": "Von welchem Komponisten stammt das Werk „Brandenburgische Konzerte”?",
     "correctAnswer": "Johann Sebastian Bach",
     "options": [
       "Johann Sebastian Bach",
@@ -8804,7 +11616,7 @@
     "entityType": "composer",
     "type": "cultura-composer-work-rev",
     "difficulty": 3,
-    "prompt": "Von welchem Komponisten stammt das Werk „Die Zauberflöte“?",
+    "prompt": "Von welchem Komponisten stammt das Werk „Die Zauberflöte”?",
     "correctAnswer": "Wolfgang Amadeus Mozart",
     "options": [
       "Wolfgang Amadeus Mozart",
@@ -8823,7 +11635,7 @@
     "entityType": "composer",
     "type": "cultura-composer-work-rev",
     "difficulty": 3,
-    "prompt": "Von welchem Komponisten stammt das Werk „Die vier Jahreszeiten“?",
+    "prompt": "Von welchem Komponisten stammt das Werk „Die vier Jahreszeiten”?",
     "correctAnswer": "Antonio Vivaldi",
     "options": [
       "Antonio Vivaldi",
@@ -8842,7 +11654,7 @@
     "entityType": "composer",
     "type": "cultura-composer-work-rev",
     "difficulty": 3,
-    "prompt": "Von welchem Komponisten stammt das Werk „Nocturnes op. 9“?",
+    "prompt": "Von welchem Komponisten stammt das Werk „Nocturnes op. 9”?",
     "correctAnswer": "Frédéric Chopin",
     "options": [
       "Frédéric Chopin",
@@ -8861,7 +11673,7 @@
     "entityType": "composer",
     "type": "cultura-composer-work-rev",
     "difficulty": 3,
-    "prompt": "Von welchem Komponisten stammt das Werk „Schwanensee“?",
+    "prompt": "Von welchem Komponisten stammt das Werk „Schwanensee”?",
     "correctAnswer": "Pjotr Iljitsch Tschaikowski",
     "options": [
       "Pjotr Iljitsch Tschaikowski",
@@ -8880,7 +11692,7 @@
     "entityType": "composer",
     "type": "cultura-composer-work-rev",
     "difficulty": 3,
-    "prompt": "Von welchem Komponisten stammt das Werk „Der Ring des Nibelungen“?",
+    "prompt": "Von welchem Komponisten stammt das Werk „Der Ring des Nibelungen”?",
     "correctAnswer": "Richard Wagner",
     "options": [
       "Richard Wagner",
@@ -8899,7 +11711,7 @@
     "entityType": "composer",
     "type": "cultura-composer-work-rev",
     "difficulty": 3,
-    "prompt": "Von welchem Komponisten stammt das Werk „Ein deutsches Requiem“?",
+    "prompt": "Von welchem Komponisten stammt das Werk „Ein deutsches Requiem”?",
     "correctAnswer": "Johannes Brahms",
     "options": [
       "Johannes Brahms",
@@ -8918,7 +11730,7 @@
     "entityType": "composer",
     "type": "cultura-composer-work-rev",
     "difficulty": 3,
-    "prompt": "Von welchem Komponisten stammt das Werk „Der Messias“?",
+    "prompt": "Von welchem Komponisten stammt das Werk „Der Messias”?",
     "correctAnswer": "Georg Friedrich Händel",
     "options": [
       "Georg Friedrich Händel",
@@ -8937,7 +11749,7 @@
     "entityType": "composer",
     "type": "cultura-composer-work-rev",
     "difficulty": 3,
-    "prompt": "Von welchem Komponisten stammt das Werk „Die Schöpfung“?",
+    "prompt": "Von welchem Komponisten stammt das Werk „Die Schöpfung”?",
     "correctAnswer": "Joseph Haydn",
     "options": [
       "Joseph Haydn",
@@ -8956,7 +11768,7 @@
     "entityType": "composer",
     "type": "cultura-composer-work-rev",
     "difficulty": 3,
-    "prompt": "Von welchem Komponisten stammt das Werk „Winterreise“?",
+    "prompt": "Von welchem Komponisten stammt das Werk „Winterreise”?",
     "correctAnswer": "Franz Schubert",
     "options": [
       "Franz Schubert",
@@ -8975,7 +11787,7 @@
     "entityType": "composer",
     "type": "cultura-composer-work-rev",
     "difficulty": 3,
-    "prompt": "Von welchem Komponisten stammt das Werk „Kinderszenen“?",
+    "prompt": "Von welchem Komponisten stammt das Werk „Kinderszenen”?",
     "correctAnswer": "Robert Schumann",
     "options": [
       "Robert Schumann",
@@ -8994,7 +11806,7 @@
     "entityType": "composer",
     "type": "cultura-composer-work-rev",
     "difficulty": 3,
-    "prompt": "Von welchem Komponisten stammt das Werk „Ungarische Rhapsodien“?",
+    "prompt": "Von welchem Komponisten stammt das Werk „Ungarische Rhapsodien”?",
     "correctAnswer": "Franz Liszt",
     "options": [
       "Franz Liszt",
@@ -9013,7 +11825,7 @@
     "entityType": "composer",
     "type": "cultura-composer-work-rev",
     "difficulty": 3,
-    "prompt": "Von welchem Komponisten stammt das Werk „Aida“?",
+    "prompt": "Von welchem Komponisten stammt das Werk „Aida”?",
     "correctAnswer": "Giuseppe Verdi",
     "options": [
       "Giuseppe Verdi",
@@ -9032,7 +11844,7 @@
     "entityType": "composer",
     "type": "cultura-composer-work-rev",
     "difficulty": 3,
-    "prompt": "Von welchem Komponisten stammt das Werk „Sinfonie aus der neuen Welt“?",
+    "prompt": "Von welchem Komponisten stammt das Werk „Sinfonie aus der neuen Welt”?",
     "correctAnswer": "Antonín Dvořák",
     "options": [
       "Antonín Dvořák",
@@ -9051,7 +11863,7 @@
     "entityType": "composer",
     "type": "cultura-composer-work-rev",
     "difficulty": 3,
-    "prompt": "Von welchem Komponisten stammt das Werk „Peer Gynt Suite“?",
+    "prompt": "Von welchem Komponisten stammt das Werk „Peer Gynt Suite”?",
     "correctAnswer": "Edvard Grieg",
     "options": [
       "Edvard Grieg",
@@ -9070,7 +11882,7 @@
     "entityType": "composer",
     "type": "cultura-composer-work-rev",
     "difficulty": 3,
-    "prompt": "Von welchem Komponisten stammt das Werk „An der schönen blauen Donau“?",
+    "prompt": "Von welchem Komponisten stammt das Werk „An der schönen blauen Donau”?",
     "correctAnswer": "Johann Strauss (Sohn)",
     "options": [
       "Johann Strauss (Sohn)",
@@ -9089,7 +11901,7 @@
     "entityType": "composer",
     "type": "cultura-composer-work-rev",
     "difficulty": 3,
-    "prompt": "Von welchem Komponisten stammt das Werk „Clair de lune“?",
+    "prompt": "Von welchem Komponisten stammt das Werk „Clair de lune”?",
     "correctAnswer": "Claude Debussy",
     "options": [
       "Claude Debussy",
@@ -9108,7 +11920,7 @@
     "entityType": "composer",
     "type": "cultura-composer-work-rev",
     "difficulty": 3,
-    "prompt": "Von welchem Komponisten stammt das Werk „Der Feuervogel“?",
+    "prompt": "Von welchem Komponisten stammt das Werk „Der Feuervogel”?",
     "correctAnswer": "Igor Strawinsky",
     "options": [
       "Igor Strawinsky",
@@ -9127,7 +11939,7 @@
     "entityType": "composer",
     "type": "cultura-composer-work-rev",
     "difficulty": 3,
-    "prompt": "Von welchem Komponisten stammt das Werk „Peter und der Wolf“?",
+    "prompt": "Von welchem Komponisten stammt das Werk „Peter und der Wolf”?",
     "correctAnswer": "Sergei Prokofjew",
     "options": [
       "Sergei Prokofjew",
@@ -9146,7 +11958,7 @@
     "entityType": "composer",
     "type": "cultura-composer-work-rev",
     "difficulty": 3,
-    "prompt": "Von welchem Komponisten stammt das Werk „Sinfonie der Tausend“?",
+    "prompt": "Von welchem Komponisten stammt das Werk „Sinfonie der Tausend”?",
     "correctAnswer": "Gustav Mahler",
     "options": [
       "Gustav Mahler",
@@ -9165,7 +11977,7 @@
     "entityType": "composer",
     "type": "cultura-composer-work-rev",
     "difficulty": 3,
-    "prompt": "Von welchem Komponisten stammt das Werk „Also sprach Zarathustra“?",
+    "prompt": "Von welchem Komponisten stammt das Werk „Also sprach Zarathustra”?",
     "correctAnswer": "Richard Strauss",
     "options": [
       "Richard Strauss",
@@ -9184,7 +11996,7 @@
     "entityType": "composer",
     "type": "cultura-composer-work-rev",
     "difficulty": 3,
-    "prompt": "Von welchem Komponisten stammt das Werk „Bolero“?",
+    "prompt": "Von welchem Komponisten stammt das Werk „Bolero”?",
     "correctAnswer": "Maurice Ravel",
     "options": [
       "Maurice Ravel",
@@ -9203,7 +12015,7 @@
     "entityType": "composer",
     "type": "cultura-composer-work-rev",
     "difficulty": 3,
-    "prompt": "Von welchem Komponisten stammt das Werk „Symphonie fantastique“?",
+    "prompt": "Von welchem Komponisten stammt das Werk „Symphonie fantastique”?",
     "correctAnswer": "Hector Berlioz",
     "options": [
       "Hector Berlioz",
@@ -9222,7 +12034,7 @@
     "entityType": "composer",
     "type": "cultura-composer-work-rev",
     "difficulty": 3,
-    "prompt": "Von welchem Komponisten stammt das Werk „Der Karneval der Tiere“?",
+    "prompt": "Von welchem Komponisten stammt das Werk „Der Karneval der Tiere”?",
     "correctAnswer": "Camille Saint-Saëns",
     "options": [
       "Camille Saint-Saëns",
@@ -9241,7 +12053,7 @@
     "entityType": "composer",
     "type": "cultura-composer-work-rev",
     "difficulty": 3,
-    "prompt": "Von welchem Komponisten stammt das Werk „Scheherazade“?",
+    "prompt": "Von welchem Komponisten stammt das Werk „Scheherazade”?",
     "correctAnswer": "Nikolai Rimski-Korsakow",
     "options": [
       "Nikolai Rimski-Korsakow",
@@ -9260,7 +12072,7 @@
     "entityType": "composer",
     "type": "cultura-composer-work-rev",
     "difficulty": 3,
-    "prompt": "Von welchem Komponisten stammt das Werk „Bilder einer Ausstellung“?",
+    "prompt": "Von welchem Komponisten stammt das Werk „Bilder einer Ausstellung”?",
     "correctAnswer": "Modest Mussorgski",
     "options": [
       "Modest Mussorgski",
@@ -9279,7 +12091,7 @@
     "entityType": "composer",
     "type": "cultura-composer-work-rev",
     "difficulty": 3,
-    "prompt": "Von welchem Komponisten stammt das Werk „La Bohème“?",
+    "prompt": "Von welchem Komponisten stammt das Werk „La Bohème”?",
     "correctAnswer": "Giacomo Puccini",
     "options": [
       "Giacomo Puccini",
@@ -9298,7 +12110,7 @@
     "entityType": "composer",
     "type": "cultura-composer-work-rev",
     "difficulty": 3,
-    "prompt": "Von welchem Komponisten stammt das Werk „Carmen“?",
+    "prompt": "Von welchem Komponisten stammt das Werk „Carmen”?",
     "correctAnswer": "Georges Bizet",
     "options": [
       "Georges Bizet",
@@ -9317,7 +12129,7 @@
     "entityType": "composer",
     "type": "cultura-composer-work-rev",
     "difficulty": 3,
-    "prompt": "Von welchem Komponisten stammt das Werk „Finlandia“?",
+    "prompt": "Von welchem Komponisten stammt das Werk „Finlandia”?",
     "correctAnswer": "Jean Sibelius",
     "options": [
       "Jean Sibelius",
@@ -9336,7 +12148,7 @@
     "entityType": "composer",
     "type": "cultura-composer-work-rev",
     "difficulty": 3,
-    "prompt": "Von welchem Komponisten stammt das Werk „Requiem“?",
+    "prompt": "Von welchem Komponisten stammt das Werk „Requiem”?",
     "correctAnswer": "Gabriel Fauré",
     "options": [
       "Gabriel Fauré",
@@ -9355,13 +12167,184 @@
     "entityType": "composer",
     "type": "cultura-composer-work-rev",
     "difficulty": 3,
-    "prompt": "Von welchem Komponisten stammt das Werk „Die Moldau“?",
+    "prompt": "Von welchem Komponisten stammt das Werk „Die Moldau”?",
     "correctAnswer": "Bedřich Smetana",
     "options": [
       "Bedřich Smetana",
       "Johann Sebastian Bach",
       "Wolfgang Amadeus Mozart",
       "Ludwig van Beethoven"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_vivaldi-vier-jahreszeiten_cultura-composition-composer-rev",
+    "entityId": "cultura:vivaldi-vier-jahreszeiten",
+    "entityType": "composition",
+    "type": "cultura-composition-composer-rev",
+    "difficulty": 3,
+    "prompt": "Welche dieser Kompositionen stammt von Antonio Vivaldi?",
+    "correctAnswer": "Die vier Jahreszeiten",
+    "options": [
+      "Die vier Jahreszeiten",
+      "Die Zauberflöte",
+      "Brandenburgische Konzerte",
+      "Der Ring des Nibelungen"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_mozart-zauberflote_cultura-composition-composer-rev",
+    "entityId": "cultura:mozart-zauberflote",
+    "entityType": "composition",
+    "type": "cultura-composition-composer-rev",
+    "difficulty": 3,
+    "prompt": "Welche dieser Kompositionen stammt von Wolfgang Amadeus Mozart?",
+    "correctAnswer": "Die Zauberflöte",
+    "options": [
+      "Die Zauberflöte",
+      "Die vier Jahreszeiten",
+      "Brandenburgische Konzerte",
+      "Der Ring des Nibelungen"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_bach-brandenburgische-konzerte_cultura-composition-composer-rev",
+    "entityId": "cultura:bach-brandenburgische-konzerte",
+    "entityType": "composition",
+    "type": "cultura-composition-composer-rev",
+    "difficulty": 3,
+    "prompt": "Welche dieser Kompositionen stammt von Johann Sebastian Bach?",
+    "correctAnswer": "Brandenburgische Konzerte",
+    "options": [
+      "Brandenburgische Konzerte",
+      "Die vier Jahreszeiten",
+      "Die Zauberflöte",
+      "Der Ring des Nibelungen"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_wagner-ring-des-nibelungen_cultura-composition-composer-rev",
+    "entityId": "cultura:wagner-ring-des-nibelungen",
+    "entityType": "composition",
+    "type": "cultura-composition-composer-rev",
+    "difficulty": 3,
+    "prompt": "Welche dieser Kompositionen stammt von Richard Wagner?",
+    "correctAnswer": "Der Ring des Nibelungen",
+    "options": [
+      "Der Ring des Nibelungen",
+      "Die vier Jahreszeiten",
+      "Die Zauberflöte",
+      "Brandenburgische Konzerte"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_eine-kleine-nachtmusik_cultura-composition-composer-rev",
+    "entityId": "cultura:eine-kleine-nachtmusik",
+    "entityType": "composition",
+    "type": "cultura-composition-composer-rev",
+    "difficulty": 3,
+    "prompt": "Welche dieser Kompositionen stammt von Wolfgang Amadeus Mozart?",
+    "correctAnswer": "Eine kleine Nachtmusik",
+    "options": [
+      "Eine kleine Nachtmusik",
+      "Die vier Jahreszeiten",
+      "Brandenburgische Konzerte",
+      "Der Ring des Nibelungen"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_schwanensee_cultura-composition-composer-rev",
+    "entityId": "cultura:schwanensee",
+    "entityType": "composition",
+    "type": "cultura-composition-composer-rev",
+    "difficulty": 3,
+    "prompt": "Welche dieser Kompositionen stammt von Pjotr Iljitsch Tschaikowski?",
+    "correctAnswer": "Schwanensee",
+    "options": [
+      "Schwanensee",
+      "Die vier Jahreszeiten",
+      "Die Zauberflöte",
+      "Brandenburgische Konzerte"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_carmen_cultura-composition-composer-rev",
+    "entityId": "cultura:carmen",
+    "entityType": "composition",
+    "type": "cultura-composition-composer-rev",
+    "difficulty": 3,
+    "prompt": "Welche dieser Kompositionen stammt von Georges Bizet?",
+    "correctAnswer": "Carmen",
+    "options": [
+      "Carmen",
+      "Die vier Jahreszeiten",
+      "Die Zauberflöte",
+      "Brandenburgische Konzerte"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_nussknacker_cultura-composition-composer-rev",
+    "entityId": "cultura:nussknacker",
+    "entityType": "composition",
+    "type": "cultura-composition-composer-rev",
+    "difficulty": 3,
+    "prompt": "Welche dieser Kompositionen stammt von Pjotr Iljitsch Tschaikowski?",
+    "correctAnswer": "Der Nussknacker",
+    "options": [
+      "Der Nussknacker",
+      "Die vier Jahreszeiten",
+      "Die Zauberflöte",
+      "Brandenburgische Konzerte"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_bolero_cultura-composition-composer-rev",
+    "entityId": "cultura:bolero",
+    "entityType": "composition",
+    "type": "cultura-composition-composer-rev",
+    "difficulty": 3,
+    "prompt": "Welche dieser Kompositionen stammt von Maurice Ravel?",
+    "correctAnswer": "Boléro",
+    "options": [
+      "Boléro",
+      "Die vier Jahreszeiten",
+      "Die Zauberflöte",
+      "Brandenburgische Konzerte"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -11739,6 +14722,310 @@
       "1897"
     ],
     "testedAttribute": "year",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_tolstoi-krieg-und-frieden_cultura-literature-era",
+    "entityId": "cultura:tolstoi-krieg-und-frieden",
+    "entityType": "literature",
+    "type": "cultura-literature-era",
+    "difficulty": 3,
+    "prompt": "Welcher literarischen Epoche gehört „Krieg und Frieden\" an?",
+    "correctAnswer": "Realismus",
+    "options": [
+      "Realismus",
+      "Amerikanische Romantik",
+      "Viktorianische Literatur",
+      "Regency-Literatur"
+    ],
+    "testedAttribute": "era",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_moby-dick_cultura-literature-era",
+    "entityId": "cultura:moby-dick",
+    "entityType": "literature",
+    "type": "cultura-literature-era",
+    "difficulty": 3,
+    "prompt": "Welcher literarischen Epoche gehört „Moby-Dick\" an?",
+    "correctAnswer": "Amerikanische Romantik",
+    "options": [
+      "Amerikanische Romantik",
+      "Realismus",
+      "Viktorianische Literatur",
+      "Regency-Literatur"
+    ],
+    "testedAttribute": "era",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_brueder-karamasow_cultura-literature-era",
+    "entityId": "cultura:brueder-karamasow",
+    "entityType": "literature",
+    "type": "cultura-literature-era",
+    "difficulty": 3,
+    "prompt": "Welcher literarischen Epoche gehört „Die Brüder Karamasow\" an?",
+    "correctAnswer": "Russischer Realismus",
+    "options": [
+      "Russischer Realismus",
+      "Amerikanische Romantik",
+      "Viktorianische Literatur",
+      "Regency-Literatur"
+    ],
+    "testedAttribute": "era",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_der-kleine-prinz_cultura-literature-era",
+    "entityId": "cultura:der-kleine-prinz",
+    "entityType": "literature",
+    "type": "cultura-literature-era",
+    "difficulty": 3,
+    "prompt": "Welcher literarischen Epoche gehört „Der kleine Prinz\" an?",
+    "correctAnswer": "Moderne",
+    "options": [
+      "Moderne",
+      "Realismus",
+      "Amerikanische Romantik",
+      "Viktorianische Literatur"
+    ],
+    "testedAttribute": "era",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_neunzehnvierundachtzig_cultura-literature-era",
+    "entityId": "cultura:neunzehnvierundachtzig",
+    "entityType": "literature",
+    "type": "cultura-literature-era",
+    "difficulty": 3,
+    "prompt": "Welcher literarischen Epoche gehört „1984\" an?",
+    "correctAnswer": "Moderne",
+    "options": [
+      "Moderne",
+      "Realismus",
+      "Amerikanische Romantik",
+      "Viktorianische Literatur"
+    ],
+    "testedAttribute": "era",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_anna-karenina_cultura-literature-era",
+    "entityId": "cultura:anna-karenina",
+    "entityType": "literature",
+    "type": "cultura-literature-era",
+    "difficulty": 3,
+    "prompt": "Welcher literarischen Epoche gehört „Anna Karenina\" an?",
+    "correctAnswer": "Russischer Realismus",
+    "options": [
+      "Russischer Realismus",
+      "Amerikanische Romantik",
+      "Viktorianische Literatur",
+      "Regency-Literatur"
+    ],
+    "testedAttribute": "era",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_ilias_cultura-literature-era",
+    "entityId": "cultura:ilias",
+    "entityType": "literature",
+    "type": "cultura-literature-era",
+    "difficulty": 3,
+    "prompt": "Welcher literarischen Epoche gehört „Die Ilias\" an?",
+    "correctAnswer": "Antike",
+    "options": [
+      "Antike",
+      "Realismus",
+      "Amerikanische Romantik",
+      "Viktorianische Literatur"
+    ],
+    "testedAttribute": "era",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_robinson-crusoe_cultura-literature-era",
+    "entityId": "cultura:robinson-crusoe",
+    "entityType": "literature",
+    "type": "cultura-literature-era",
+    "difficulty": 3,
+    "prompt": "Welcher literarischen Epoche gehört „Robinson Crusoe\" an?",
+    "correctAnswer": "Aufklärung",
+    "options": [
+      "Aufklärung",
+      "Realismus",
+      "Amerikanische Romantik",
+      "Viktorianische Literatur"
+    ],
+    "testedAttribute": "era",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_tom-jones_cultura-literature-era",
+    "entityId": "cultura:tom-jones",
+    "entityType": "literature",
+    "type": "cultura-literature-era",
+    "difficulty": 3,
+    "prompt": "Welcher literarischen Epoche gehört „Tom Jones\" an?",
+    "correctAnswer": "Aufklärung",
+    "options": [
+      "Aufklärung",
+      "Realismus",
+      "Amerikanische Romantik",
+      "Viktorianische Literatur"
+    ],
+    "testedAttribute": "era",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_decamerone_cultura-literature-era",
+    "entityId": "cultura:decamerone",
+    "entityType": "literature",
+    "type": "cultura-literature-era",
+    "difficulty": 3,
+    "prompt": "Welcher literarischen Epoche gehört „Decamerone\" an?",
+    "correctAnswer": "Mittelalter",
+    "options": [
+      "Mittelalter",
+      "Realismus",
+      "Amerikanische Romantik",
+      "Viktorianische Literatur"
+    ],
+    "testedAttribute": "era",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_canterbury-tales_cultura-literature-era",
+    "entityId": "cultura:canterbury-tales",
+    "entityType": "literature",
+    "type": "cultura-literature-era",
+    "difficulty": 3,
+    "prompt": "Welcher literarischen Epoche gehört „Canterbury Tales\" an?",
+    "correctAnswer": "Mittelalter",
+    "options": [
+      "Mittelalter",
+      "Realismus",
+      "Amerikanische Romantik",
+      "Viktorianische Literatur"
+    ],
+    "testedAttribute": "era",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_tausendundeine-nacht_cultura-literature-era",
+    "entityId": "cultura:tausendundeine-nacht",
+    "entityType": "literature",
+    "type": "cultura-literature-era",
+    "difficulty": 3,
+    "prompt": "Welcher literarischen Epoche gehört „Tausendundeine Nacht\" an?",
+    "correctAnswer": "Mittelalter",
+    "options": [
+      "Mittelalter",
+      "Realismus",
+      "Amerikanische Romantik",
+      "Viktorianische Literatur"
+    ],
+    "testedAttribute": "era",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_beowulf_cultura-literature-era",
+    "entityId": "cultura:beowulf",
+    "entityType": "literature",
+    "type": "cultura-literature-era",
+    "difficulty": 3,
+    "prompt": "Welcher literarischen Epoche gehört „Beowulf\" an?",
+    "correctAnswer": "Mittelalter",
+    "options": [
+      "Mittelalter",
+      "Realismus",
+      "Amerikanische Romantik",
+      "Viktorianische Literatur"
+    ],
+    "testedAttribute": "era",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_simplicissimus_cultura-literature-era",
+    "entityId": "cultura:simplicissimus",
+    "entityType": "literature",
+    "type": "cultura-literature-era",
+    "difficulty": 3,
+    "prompt": "Welcher literarischen Epoche gehört „Der abenteuerliche Simplicissimus\" an?",
+    "correctAnswer": "Barock",
+    "options": [
+      "Barock",
+      "Realismus",
+      "Amerikanische Romantik",
+      "Viktorianische Literatur"
+    ],
+    "testedAttribute": "era",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_blechtrommel_cultura-literature-era",
+    "entityId": "cultura:blechtrommel",
+    "entityType": "literature",
+    "type": "cultura-literature-era",
+    "difficulty": 3,
+    "prompt": "Welcher literarischen Epoche gehört „Die Blechtrommel\" an?",
+    "correctAnswer": "20. Jahrhundert",
+    "options": [
+      "20. Jahrhundert",
+      "Realismus",
+      "Amerikanische Romantik",
+      "Viktorianische Literatur"
+    ],
+    "testedAttribute": "era",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_schwejk_cultura-literature-era",
+    "entityId": "cultura:schwejk",
+    "entityType": "literature",
+    "type": "cultura-literature-era",
+    "difficulty": 3,
+    "prompt": "Welcher literarischen Epoche gehört „Der brave Soldat Schwejk\" an?",
+    "correctAnswer": "20. Jahrhundert",
+    "options": [
+      "20. Jahrhundert",
+      "Realismus",
+      "Amerikanische Romantik",
+      "Viktorianische Literatur"
+    ],
+    "testedAttribute": "era",
     "answerIsName": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
