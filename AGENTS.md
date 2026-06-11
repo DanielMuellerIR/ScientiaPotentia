@@ -35,7 +35,7 @@ Geplante Bereiche: **Terra** (Geografie), **Astra** (Astronomie), **Homo** (Mens
 | Phase 5 | **Content-Ausbau auf 5000 Fragen/Bereich** (mehr Fragetypen + Konzeptausbau) | offen, laufend (v1.16.0: Astra 146K/554F, Natura 98K/480F) |
 | Phase 4 | **Natura (MCQ-only)** als Domain verdrahtet (Merge→Generator→Registry, 98 Konzepte/302 Fragen) | ✅ erledigt (v1.14.0) |
 | Phase 4–6a | **Lingua als Domain verdrahtet** (Registry + ConceptVisual-Labels, Generator auf 22 Fragetypen erweitert) | ✅ erledigt (v1.17.0: 103 Konzepte/266 Fragen, Browser-verifiziert) |
-| Phase 4–6b | **Cultura als Domain verdrahtet** (Registry + ConceptVisual-Labels für 8 Kategorien/65 Attribute) | ✅ erledigt (v1.18.0: 98 Konzepte/357 Fragen, Browser-verifiziert) |
+| Phase 4–6b | **Cultura als Domain verdrahtet** (Registry + ConceptVisual-Labels für 8 Kategorien/65 Attribute) | ✅ erledigt (v1.18.0), per MiniMax-Delegation ausgebaut auf 155 Konzepte/645 Fragen (v1.19.0), Browser-verifiziert |
 
 **Layout/Frontend-Konvention (Stand 2026-06-10):** Das responsive Shell-Layout folgt einem
 verbindlichen Vertrag — Shell-Geometrie lebt in CSS-Klassen + CSS-Variablen (`src/index.css`),
@@ -59,7 +59,7 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 > **Integritätsregel bleibt hart:** jeder Fakt mit Quelle, keine erfundenen Zahlen — bei
 > LLM-Recherche adversarialer Faktencheck **plus** manuelle Stichprobe vor Commit.
 > Aktueller Stand (v1.18.0): Astra 146 Konzepte/554 Fragen, Natura 98/480, Homo 96/174 (unverändert),
-> Lingua 103/266, Cultura 98/357 (beide verdrahtet).
+> Lingua 103/266, Cultura 155/645 (beide verdrahtet; Cultura via MiniMax-Delegation ausgebaut, v1.19.0).
 >
 > **Phase-5-Runde 1 (2026-06-04, Multi-Agent-Workflow):** `scripts/merge_phase5.js` dokumentiert
 > Dedup + Daten-Putz der Recherche. Gelernt: Recherche-Agents liefern (a) Dubletten zum Bestand
@@ -126,10 +126,10 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 | Homo   | 96 | 174 | Gray's Anatomy / Prometheus / NIH | **Anatomiegrafiken (Wikimedia, PD)** + konzeptgenauer Struktur-Marker je Frage |
 | Natura | 98 | 480 | Wikipedia / USGS / IUCN / IPCC | generische Konzeptkarte (`ConceptVisual`); freies Commons-Foto je Konzept hinterlegt (`concept.image`, fürs spätere Museum) |
 | Lingua | 103 | 266 | Wikipedia / Ethnologue / Wiktionary / Guinness | generische Konzeptkarte (`ConceptVisual`) mit dt. Attribut-Labels; Commons-Bild je Konzept hinterlegt (103/103, fürs spätere Museum) |
-| Cultura | 98 | 357 | Wikipedia (DE/EN) | generische Konzeptkarte (`ConceptVisual`) mit dt. Kategorie-/Attribut-Labels; Commons-Bild je Konzept hinterlegt (fürs spätere Museum) |
+| Cultura | 155 | 645 | Wikipedia (DE/EN) / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Kategorie-/Attribut-Labels; via MiniMax-Delegation ausgebaut (Komponisten Wikidata-geprüft, Werke web-grounded) |
 
 > Fragenzahlen Astra/Homo/Natura/Lingua/Cultura sind noch weit vom 5000-Ziel — Content-Ausbau (Phase 5) läuft weiter.
-> Astra 554/146 = ~3.8 F/K, Natura 480/98 = ~4.9 F/K, Cultura 357/98 = ~3.6 F/K, Lingua 266/103 = ~2.6 F/K
+> Astra 554/146 = ~3.8 F/K, Natura 480/98 = ~4.9 F/K, Cultura 645/155 = ~4.2 F/K, Lingua 266/103 = ~2.6 F/K
 > (Lingua: 22 Fragetypen; 47 heterogene Konzepte aus language_fact/grammar_fact/phonetics/language_curio
 > bewusst ohne eigene Templates — nur Museum/Distraktor-Pool. Hebel für mehr: dort Templates ergänzen).
 
