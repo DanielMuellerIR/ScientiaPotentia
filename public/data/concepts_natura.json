@@ -2302,5 +2302,961 @@
       "license": "Public domain",
       "attribution": "NASA Earth Observatory image by Michala Garrison, using data from the MUR SST (Multi-scale Ultra-high Resolution Sea Surface Temperature) project and reef information from the Great Barrier Reef Marin"
     }
+  },
+  "natura:loewe": {
+    "id": "natura:loewe",
+    "name": "Löwe",
+    "type": "animal",
+    "category": "animal",
+    "attributes": {
+      "class": "Säugetiere",
+      "order": "Raubtiere",
+      "range": "Afrika südlich der Sahara, einzelne Bestände in Gujarat (Indien)",
+      "conservationStatus": "Gefährdet (VU)",
+      "maxLengthCm": 208,
+      "maxWeightKg": 272,
+      "lifespanYears": 27
+    },
+    "funFact": "Löwen sind die einzigen Katzen, die dauerhaft in Gruppen — sogenannten Rudeln — zusammenleben und gemeinsam jagen.",
+    "source": {
+      "name": "Wikipedia DE – Löwe",
+      "url": "https://de.wikipedia.org/wiki/Löwe"
+    },
+    "image": null
+  },
+  "natura:tiger": {
+    "id": "natura:tiger",
+    "name": "Tiger",
+    "type": "animal",
+    "category": "animal",
+    "attributes": {
+      "class": "Säugetiere",
+      "order": "Raubtiere",
+      "range": "Asien, vom Kaukasus und Fernen Osten Russlands über China und Indien bis Hinterindien und Sumatra",
+      "conservationStatus": "Stark gefährdet (EN)",
+      "maxLengthCm": 350,
+      "maxWeightKg": 306.5
+    },
+    "funFact": "Das Streifenmuster eines jeden Tigers ist einzigartig — wie ein Fingerabdruck lässt sich jedes Individuum daran identifizieren.",
+    "source": {
+      "name": "Wikipedia DE – Tiger",
+      "url": "https://de.wikipedia.org/wiki/Tiger"
+    },
+    "image": null
+  },
+  "natura:wolf": {
+    "id": "natura:wolf",
+    "name": "Wolf",
+    "type": "animal",
+    "category": "animal",
+    "attributes": {
+      "class": "Säugetiere",
+      "order": "Raubtiere",
+      "range": "Europa, Asien und Nordamerika in großen zusammenhängenden Beständen",
+      "conservationStatus": "Nicht gefährdet (LC)",
+      "maxLengthCm": 160,
+      "maxWeightKg": 80
+    },
+    "funFact": "Wölfe heulen nicht nur zur Verständigung des Rudels, sondern auch zur Reviermarkierung — ihr Heulen ist kilometerweit hörbar.",
+    "source": {
+      "name": "Wikipedia DE – Wolf",
+      "url": "https://de.wikipedia.org/wiki/Wolf"
+    },
+    "image": null
+  },
+  "natura:grosser-panda": {
+    "id": "natura:grosser-panda",
+    "name": "Großer Panda",
+    "type": "animal",
+    "category": "animal",
+    "attributes": {
+      "class": "Säugetiere",
+      "order": "Raubtiere",
+      "range": "Gebirgige Regionen der chinesischen Provinzen Sichuan, Gansu und Shaanxi",
+      "conservationStatus": "Gefährdet (VU)",
+      "maxLengthCm": 150,
+      "maxWeightKg": 160,
+      "lifespanYears": 20
+    },
+    "funFact": "Große Pandas fressen bis zu 38 Kilogramm Bambus pro Tag und verbringen rund 14 Stunden täglich mit Fressen.",
+    "source": {
+      "name": "Wikipedia DE – Großer Panda",
+      "url": "https://de.wikipedia.org/wiki/Großer_Panda"
+    },
+    "image": null
+  },
+  "natura:spitzmaulnashorn": {
+    "id": "natura:spitzmaulnashorn",
+    "name": "Spitzmaulnashorn",
+    "type": "animal",
+    "category": "animal",
+    "attributes": {
+      "class": "Säugetiere",
+      "order": "Unpaarhufer",
+      "range": "Afrika südlich der Sahara, vor allem Ost- und Südafrika",
+      "conservationStatus": "Vom Aussterben bedroht (CR)",
+      "maxLengthCm": 350,
+      "maxWeightKg": 1400,
+      "lifespanYears": 45
+    },
+    "funFact": "Das obere Horn des Spitzmaulnashorns kann bis zu 130 Zentimeter lang werden und besteht vollständig aus Keratin — demselben Stoff wie menschliche Fingernägel.",
+    "source": {
+      "name": "Wikipedia DE – Spitzmaulnashorn",
+      "url": "https://de.wikipedia.org/wiki/Spitzmaulnashorn"
+    },
+    "image": null
+  },
+  "natura:flusspferd": {
+    "id": "natura:flusspferd",
+    "name": "Flusspferd",
+    "type": "animal",
+    "category": "animal",
+    "attributes": {
+      "class": "Säugetiere",
+      "order": "Paarhufer",
+      "range": "Afrika südlich der Sahara, vor allem entlang von Flüssen und Seen",
+      "conservationStatus": "Gefährdet (VU)",
+      "maxLengthCm": 350,
+      "maxWeightKg": 2660,
+      "lifespanYears": 61
+    },
+    "funFact": "Trotz ihres massigen Körpers können Flusspferde bis zu 30 Minuten unter Wasser bleiben und sogar auf dem Grund des Gewässers laufen.",
+    "source": {
+      "name": "Wikipedia DE – Flusspferd",
+      "url": "https://de.wikipedia.org/wiki/Flusspferd"
+    },
+    "image": null
+  },
+  "natura:steppenzebra": {
+    "id": "natura:steppenzebra",
+    "name": "Steppenzebra",
+    "type": "animal",
+    "category": "animal",
+    "attributes": {
+      "class": "Säugetiere",
+      "order": "Unpaarhufer",
+      "range": "Vom südlichen Sudan und Südäthiopien über Ostafrika bis Süd- und Südwestafrika",
+      "conservationStatus": "Potenziell gefährdet (NT)",
+      "maxLengthCm": 230,
+      "maxWeightKg": 385,
+      "lifespanYears": 40
+    },
+    "funFact": "Jedes Zebra besitzt ein individuelles Streifenmuster — die Schwarz-Weiß-Zeichnung wirkt zudem als Insektenschutz, da sie die Wahrnehmung von Tsetsefliegen stört.",
+    "source": {
+      "name": "Wikipedia DE – Steppenzebra",
+      "url": "https://de.wikipedia.org/wiki/Steppenzebra"
+    },
+    "image": null
+  },
+  "natura:koala": {
+    "id": "natura:koala",
+    "name": "Koala",
+    "type": "animal",
+    "category": "animal",
+    "attributes": {
+      "class": "Säugetiere",
+      "order": "Diprotodontia",
+      "range": "Australische Ostküste in Queensland, New South Wales und Victoria",
+      "conservationStatus": "Gefährdet (VU)",
+      "maxLengthCm": 85,
+      "maxWeightKg": 14,
+      "lifespanYears": 19
+    },
+    "funFact": "Koalas schlafen bis zu 22 Stunden am Tag — ihr Energiehaushalt ist so niedrig, dass sie selten freiwillig die Eukalyptusbäume verlassen.",
+    "source": {
+      "name": "Wikipedia DE – Koala",
+      "url": "https://de.wikipedia.org/wiki/Koala"
+    },
+    "image": null
+  },
+  "natura:eurasischer-luchs": {
+    "id": "natura:eurasischer-luchs",
+    "name": "Eurasischer Luchs",
+    "type": "animal",
+    "category": "animal",
+    "attributes": {
+      "class": "Säugetiere",
+      "order": "Raubtiere",
+      "range": "Skandinavien, Mitteleuropa, Russland, Nordasien bis Festlandchina und Naher Osten",
+      "conservationStatus": "Nicht gefährdet (LC)",
+      "maxLengthCm": 120,
+      "maxWeightKg": 37,
+      "lifespanYears": 25
+    },
+    "funFact": "Die schwarzen Haarpinsel auf den Ohren des Luchses verbessern sein Gehör — sie wirken wie zusätzliche Antennen für Schallwellen.",
+    "source": {
+      "name": "Wikipedia DE – Eurasischer Luchs",
+      "url": "https://de.wikipedia.org/wiki/Eurasischer_Luchs"
+    },
+    "image": null
+  },
+  "natura:rotfuchs": {
+    "id": "natura:rotfuchs",
+    "name": "Rotfuchs",
+    "type": "animal",
+    "category": "animal",
+    "attributes": {
+      "class": "Säugetiere",
+      "order": "Raubtiere",
+      "range": "Weitverbreitet in Europa, Asien, Nordamerika und Australien",
+      "conservationStatus": "Nicht gefährdet (LC)",
+      "maxLengthCm": 75,
+      "maxWeightKg": 14.5,
+      "lifespanYears": 14
+    },
+    "funFact": "Rotfüchse nutzen das Erdmagnetfeld zur Orientierung: Sie springen bevorzugt in nordöstliche Richtung, um Mäuse unter dem Schnee präziser zu überraschen.",
+    "source": {
+      "name": "Wikipedia DE – Rotfuchs",
+      "url": "https://de.wikipedia.org/wiki/Rotfuchs"
+    },
+    "image": null
+  },
+  "natura:braunbrustigel": {
+    "id": "natura:braunbrustigel",
+    "name": "Braunbrustigel",
+    "type": "animal",
+    "category": "animal",
+    "attributes": {
+      "class": "Säugetiere",
+      "order": "Insektenfresser",
+      "range": "West-, Mittel-, Süd- und Nordeuropa",
+      "conservationStatus": "Potenziell gefährdet (NT)",
+      "maxLengthCm": 30,
+      "maxWeightKg": 1.5,
+      "lifespanYears": 16
+    },
+    "funFact": "Igel besitzen bis zu 8000 Stacheln, die aus keratinhaltigem Horn bestehen — bei Gefahr rollen sie sich zu einer fast unangreifbaren Kugel zusammen.",
+    "source": {
+      "name": "Wikipedia DE – Braunbrustigel",
+      "url": "https://de.wikipedia.org/wiki/Braunbrustigel"
+    },
+    "image": null
+  },
+  "natura:uhu": {
+    "id": "natura:uhu",
+    "name": "Uhu",
+    "type": "animal",
+    "category": "animal",
+    "attributes": {
+      "class": "Vögel",
+      "order": "Eulen",
+      "range": "Nordafrika, Europa und weite Teile Asiens",
+      "conservationStatus": "Nicht gefährdet (LC)",
+      "maxLengthCm": 73,
+      "maxWeightKg": 4.2,
+      "lifespanYears": 68
+    },
+    "funFact": "Uhus orten Beutetiere auch in völliger Dunkelheit — ihr asymmetrisch angeordnetes Ohr erlaubt ein dreidimensionales Richtungshören.",
+    "source": {
+      "name": "Wikipedia DE – Uhu",
+      "url": "https://de.wikipedia.org/wiki/Uhu"
+    },
+    "image": null
+  },
+  "natura:orang-utan": {
+    "id": "natura:orang-utan",
+    "name": "Orang-Utan",
+    "type": "animal",
+    "category": "animal",
+    "attributes": {
+      "class": "Säugetiere",
+      "order": "Primaten",
+      "range": "Sumatra und Borneo (Südostasien)",
+      "conservationStatus": "Vom Aussterben bedroht (CR)",
+      "maxLengthCm": 150,
+      "maxWeightKg": 200,
+      "lifespanYears": 60
+    },
+    "funFact": "2022 wurde ein wildlebender Sumatra-Orang-Utan dabei beobachtet, wie er eine Kampfverletzung mit einer zerkauten Heilpflanze behandelte.",
+    "source": {
+      "name": "Wikipedia DE – Orang-Utan",
+      "url": "https://de.wikipedia.org/wiki/Orang-Utan"
+    },
+    "image": null
+  },
+  "natura:wisent": {
+    "id": "natura:wisent",
+    "name": "Wisent",
+    "type": "animal",
+    "category": "animal",
+    "attributes": {
+      "class": "Säugetiere",
+      "order": "Paarhufer",
+      "range": "Wälder und Offenland in West-, Zentral- und Südosteuropa",
+      "conservationStatus": "Gefährdet (VU)",
+      "maxLengthCm": 300,
+      "maxWeightKg": 920,
+      "lifespanYears": 25
+    },
+    "funFact": "Alle heute freilebend lebenden Wisente gehen auf nur zwölf in Zoos gehaltene Tiere zurück; der letzte wildlebende Kaukasus-Wisent wurde 1927 erlegt.",
+    "source": {
+      "name": "Wikipedia DE – Wisent",
+      "url": "https://de.wikipedia.org/wiki/Wisent"
+    },
+    "image": null
+  },
+  "natura:elch": {
+    "id": "natura:elch",
+    "name": "Elch",
+    "type": "animal",
+    "category": "animal",
+    "attributes": {
+      "class": "Säugetiere",
+      "order": "Paarhufer",
+      "range": "Nordeuropa, Nordasien und Nordamerika (boreale Wälder)",
+      "conservationStatus": "Nicht gefährdet (LC)",
+      "maxLengthCm": 300,
+      "maxWeightKg": 800,
+      "lifespanYears": 27
+    },
+    "funFact": "Elche sind die einzigen Hirsche, deren Hufe durch eine Schwimmhaut verbunden sind – das verhindert das Einsinken in Schnee und Morast.",
+    "source": {
+      "name": "Wikipedia DE – Elch",
+      "url": "https://de.wikipedia.org/wiki/Elch"
+    },
+    "image": null
+  },
+  "natura:rentier": {
+    "id": "natura:rentier",
+    "name": "Rentier",
+    "type": "animal",
+    "category": "animal",
+    "attributes": {
+      "class": "Säugetiere",
+      "order": "Paarhufer",
+      "range": "Zirkumpolare arktische Tundren und Taiga in Nordeuropa, Nordasien, Nordamerika und Grönland",
+      "conservationStatus": "Nicht gefährdet (LC)",
+      "maxLengthCm": 220,
+      "maxWeightKg": 300,
+      "lifespanYears": 20
+    },
+    "funFact": "Das Rentier ist die einzige Hirschart, bei der auch die Weibchen regelmäßig ein Geweih tragen.",
+    "source": {
+      "name": "Wikipedia DE – Rentier",
+      "url": "https://de.wikipedia.org/wiki/Rentier"
+    },
+    "image": null
+  },
+  "natura:erdmaennchen": {
+    "id": "natura:erdmaennchen",
+    "name": "Erdmännchen",
+    "type": "animal",
+    "category": "animal",
+    "attributes": {
+      "class": "Säugetiere",
+      "order": "Raubtiere",
+      "range": "Südliches Afrika (Südafrika, Namibia, Botswana, kleiner Teil Angolas)",
+      "conservationStatus": "Nicht gefährdet (LC)",
+      "maxLengthCm": 29,
+      "maxWeightKg": 0.97,
+      "lifespanYears": 14
+    },
+    "funFact": "Bei Erdmännchen versuchen subdominante Weibchen, die Jungtiere des dominanten Weibchens innerhalb der ersten 24 Stunden nach der Geburt zu töten, werden aber oft vorher aus der Gruppe vertrieben.",
+    "source": {
+      "name": "Wikipedia DE – Erdmännchen",
+      "url": "https://de.wikipedia.org/wiki/Erdm%C3%A4nnchen"
+    },
+    "image": null
+  },
+  "natura:waschbaer": {
+    "id": "natura:waschbaer",
+    "name": "Waschbär",
+    "type": "animal",
+    "category": "animal",
+    "attributes": {
+      "class": "Säugetiere",
+      "order": "Raubtiere",
+      "range": "Ursprünglich Nordamerika; als Neozoon in Europa, dem Kaukasus und Japan",
+      "maxLengthCm": 71,
+      "maxWeightKg": 28.4,
+      "lifespanYears": 20
+    },
+    "funFact": "Das auffällige „Waschen“ der Nahrung in Gefangenschaft ist vermutlich eine reine Leerlaufhandlung, die das Tasten am Flussufer imitiert – eine echte Reinigung findet dabei nicht statt.",
+    "source": {
+      "name": "Wikipedia DE – Waschbär",
+      "url": "https://de.wikipedia.org/wiki/Waschb%C3%A4r"
+    },
+    "image": null
+  },
+  "natura:biber": {
+    "id": "natura:biber",
+    "name": "Biber",
+    "type": "animal",
+    "category": "animal",
+    "attributes": {
+      "class": "Säugetiere",
+      "order": "Nagetiere",
+      "range": "Europa und Asien (Europäischer Biber) sowie Nordamerika (Kanadischer Biber)",
+      "maxLengthCm": 120,
+      "maxWeightKg": 45,
+      "lifespanYears": 19
+    },
+    "funFact": "Der größte bekannte Biberdamm steht im kanadischen Wood-Buffalo-Nationalpark, ist rund 850 Meter lang und sogar aus dem Weltraum sichtbar.",
+    "source": {
+      "name": "Wikipedia DE – Biber",
+      "url": "https://de.wikipedia.org/wiki/Biber"
+    },
+    "image": null
+  },
+  "natura:walross": {
+    "id": "natura:walross",
+    "name": "Walross",
+    "type": "animal",
+    "category": "animal",
+    "attributes": {
+      "class": "Säugetiere",
+      "order": "Raubtiere",
+      "range": "Arktische Meere der Nordhalbkugel (Pazifik, Atlantik, Laptewsee)",
+      "maxLengthCm": 350,
+      "maxWeightKg": 1200,
+      "lifespanYears": 40
+    },
+    "funFact": "Der Penisknochen (Baculum) eines Walrossbullen erreicht über 60 cm Länge und ist damit der längste im gesamten Tierreich.",
+    "source": {
+      "name": "Wikipedia DE – Walross",
+      "url": "https://de.wikipedia.org/wiki/Walross"
+    },
+    "image": null
+  },
+  "natura:seehund": {
+    "id": "natura:seehund",
+    "name": "Seehund",
+    "type": "animal",
+    "category": "animal",
+    "attributes": {
+      "class": "Säugetiere",
+      "order": "Raubtiere",
+      "range": "Küsten und Sandbänke der Nordhalbkugel im Atlantik und Pazifik",
+      "conservationStatus": "Nicht gefährdet (LC)",
+      "maxLengthCm": 170,
+      "maxWeightKg": 150,
+      "lifespanYears": 53
+    },
+    "funFact": "Der Name „Seehund“ hat ursprünglich weder mit dem Meer noch mit Hunden zu tun – er geht auf das germanische Wort „selha“ zurück, das einfach „Robbe“ bedeutet und sich im englischen „seal“ erhalten hat.",
+    "source": {
+      "name": "Wikipedia DE – Seehund",
+      "url": "https://de.wikipedia.org/wiki/Seehund"
+    },
+    "image": null
+  },
+  "natura:guerteltier": {
+    "id": "natura:guerteltier",
+    "name": "Gürteltier",
+    "type": "animal",
+    "category": "animal",
+    "attributes": {
+      "class": "Säugetiere",
+      "order": "Gürteltiere",
+      "range": "Südamerika sowie südliche Teile Nordamerikas bis in die südlichen USA",
+      "maxLengthCm": 100,
+      "maxWeightKg": 45,
+      "lifespanYears": 30
+    },
+    "funFact": "Die Krallen der mittleren Zehen am Vorderfuß des Riesengürteltiers erreichen bis zu 20 cm Länge – das ist der Rekord der größten Krallen im gesamten heutigen Tierreich.",
+    "source": {
+      "name": "Wikipedia DE – Gürteltier",
+      "url": "https://de.wikipedia.org/wiki/G%C3%BCrteltier"
+    },
+    "image": null
+  },
+  "natura:ameisenbaer": {
+    "id": "natura:ameisenbaer",
+    "name": "Ameisenbär",
+    "type": "animal",
+    "category": "animal",
+    "attributes": {
+      "class": "Säugetiere",
+      "order": "Zahnarme",
+      "range": "Mittel- und Südamerika",
+      "conservationStatus": "Gefährdet (VU)",
+      "maxLengthCm": 140,
+      "maxWeightKg": 50
+    },
+    "funFact": "Die Zungenbasis des Großen Ameisenbären ist nicht mit dem Zungenbein, sondern direkt mit dem Brustbein verbunden – so kann die über 60 cm lange Zunge blitzschnell in Ameisenbauten schnellen.",
+    "source": {
+      "name": "Wikipedia DE – Ameisenbär",
+      "url": "https://de.wikipedia.org/wiki/Ameisenb%C3%A4r"
+    },
+    "image": null
+  },
+  "natura:stachelschwein": {
+    "id": "natura:stachelschwein",
+    "name": "Stachelschwein",
+    "type": "animal",
+    "category": "animal",
+    "attributes": {
+      "class": "Säugetiere",
+      "order": "Nagetiere",
+      "range": "Tropisches und subtropisches Asien, Teile Afrikas sowie Italien und Sizilien",
+      "conservationStatus": "Nicht gefährdet (LC)",
+      "maxLengthCm": 100,
+      "maxWeightKg": 24,
+      "lifespanYears": 20
+    },
+    "funFact": "In Äquatorialguinea macht das Fleisch von Stachelschweinen über die Hälfte des gesamten Bushmeat-Angebots auf den Märkten aus und gehört gleichzeitig zu den begehrtesten und teuersten Sorten.",
+    "source": {
+      "name": "Wikipedia DE – Stachelschwein",
+      "url": "https://de.wikipedia.org/wiki/Stachelschwein"
+    },
+    "image": null
+  },
+  "natura:hellroter-ara": {
+    "id": "natura:hellroter-ara",
+    "name": "Hellroter Ara",
+    "type": "animal",
+    "category": "animal",
+    "attributes": {
+      "class": "Vögel",
+      "order": "Papageien",
+      "range": "Südosten Mexikos bis Zentralbrasilien, ohne Andenregion",
+      "maxLengthCm": 90,
+      "maxWeightKg": 1
+    },
+    "funFact": "Sein lautes Kreischen ist im Regenwald kilometerweit zu hören und übertönt praktisch alle anderen Tierstimmen.",
+    "source": {
+      "name": "Wikipedia DE – Hellroter Ara",
+      "url": "https://de.wikipedia.org/wiki/Hellroter_Ara"
+    },
+    "image": null
+  },
+  "natura:fischertukan": {
+    "id": "natura:fischertukan",
+    "name": "Fischertukan",
+    "type": "animal",
+    "category": "animal",
+    "attributes": {
+      "class": "Vögel",
+      "order": "Spechtvögel",
+      "range": "Südliches Mexiko bis Kolumbien und Venezuela",
+      "conservationStatus": "Nicht gefährdet (LC)",
+      "maxLengthCm": 50,
+      "maxWeightKg": 0.55
+    },
+    "funFact": "Sein riesiger, bunter Schnabel ist innen hohl und mit Knochenwaben verstärkt – trotz seiner Größe auffallend leicht.",
+    "source": {
+      "name": "Wikipedia DE – Fischertukan",
+      "url": "https://de.wikipedia.org/wiki/Fischertukan"
+    },
+    "image": null
+  },
+  "natura:kranich": {
+    "id": "natura:kranich",
+    "name": "Kranich",
+    "type": "animal",
+    "category": "animal",
+    "attributes": {
+      "class": "Vögel",
+      "order": "Kranichvögel",
+      "range": "Brutgebiete in Nord- und Osteuropa sowie Nordasien; überwintert in Südeuropa, Afrika und Südasien",
+      "conservationStatus": "Nicht gefährdet (LC)",
+      "maxLengthCm": 130,
+      "maxWeightKg": 7,
+      "lifespanYears": 40
+    },
+    "funFact": "Kraniche fliegen in Keilformation und sparen durch den Sog des Vordermanns bis zu einem Drittel ihrer Flugenergie.",
+    "source": {
+      "name": "Wikipedia DE – Kranich",
+      "url": "https://de.wikipedia.org/wiki/Kranich"
+    },
+    "image": null
+  },
+  "natura:rosapelikan": {
+    "id": "natura:rosapelikan",
+    "name": "Rosapelikan",
+    "type": "animal",
+    "category": "animal",
+    "attributes": {
+      "class": "Vögel",
+      "order": "Ruderfüßer",
+      "range": "Südosteuropa, Kleinasien, Zentralasien, Westrand des Indischen Subkontinents, Subsahara-Afrika",
+      "conservationStatus": "Nicht gefährdet (LC)",
+      "maxLengthCm": 175,
+      "maxWeightKg": 15
+    },
+    "funFact": "Sein Hautsack am Unterschnabel fasst beim Fischen mehr Wasser, als sein Magen aufnehmen kann – er lässt das überschüssige Wasser einfach ablaufen.",
+    "source": {
+      "name": "Wikipedia DE – Rosapelikan",
+      "url": "https://de.wikipedia.org/wiki/Rosapelikan"
+    },
+    "image": null
+  },
+  "natura:hoeckerschwan": {
+    "id": "natura:hoeckerschwan",
+    "name": "Höckerschwan",
+    "type": "animal",
+    "category": "animal",
+    "attributes": {
+      "class": "Vögel",
+      "order": "Gänsevögel",
+      "range": "Ursprünglich Mitteleuropa bis Nordchina; in Westeuropa, Nordamerika, Australien und Neuseeland eingeführt",
+      "conservationStatus": "Nicht gefährdet (LC)",
+      "maxLengthCm": 160,
+      "maxWeightKg": 14.3,
+      "lifespanYears": 20
+    },
+    "funFact": "Der schwarze Höcker über dem orangen Schnabel ist beim Männchen zur Brutzeit besonders ausgeprägt – daher der Name.",
+    "source": {
+      "name": "Wikipedia DE – Höckerschwan",
+      "url": "https://de.wikipedia.org/wiki/Höckerschwan"
+    },
+    "image": null
+  },
+  "natura:blauer-pfau": {
+    "id": "natura:blauer-pfau",
+    "name": "Blauer Pfau",
+    "type": "animal",
+    "category": "animal",
+    "attributes": {
+      "class": "Vögel",
+      "order": "Hühnervögel",
+      "range": "Indischer Subkontinent (Indien und Sri Lanka)",
+      "conservationStatus": "Nicht gefährdet (LC)",
+      "maxLengthCm": 200,
+      "maxWeightKg": 6
+    },
+    "funFact": "Das schillernde Blau seiner Schwanzfedern kommt nicht von Pigmenten – es entsteht durch Lichtbrechung an der mikroskopischen Federstruktur.",
+    "source": {
+      "name": "Wikipedia DE – Blauer Pfau",
+      "url": "https://de.wikipedia.org/wiki/Blauer_Pfau"
+    },
+    "image": null
+  },
+  "natura:texas-klapperschlange": {
+    "id": "natura:texas-klapperschlange",
+    "name": "Texas-Klapperschlange",
+    "type": "animal",
+    "category": "animal",
+    "attributes": {
+      "class": "Reptilien",
+      "order": "Schuppenkriechtiere",
+      "range": "Südwestliche USA und Nord-Mexiko, von Baja California bis zum Golf von Mexiko",
+      "maxLengthCm": 200
+    },
+    "funFact": "Sie ist in Mexiko für die meisten Schlangenbisse verantwortlich – ihr Gift ist für Mäuse tödlich, für Menschen jedoch selten lebensbedrohlich.",
+    "source": {
+      "name": "Wikipedia DE – Texas-Klapperschlange",
+      "url": "https://de.wikipedia.org/wiki/Texas-Klapperschlange"
+    },
+    "image": null
+  },
+  "natura:gruener-leguan": {
+    "id": "natura:gruener-leguan",
+    "name": "Grüner Leguan",
+    "type": "animal",
+    "category": "animal",
+    "attributes": {
+      "class": "Reptilien",
+      "order": "Schuppenkriechtiere",
+      "range": "Mittelamerika und Südamerika bis Paraguay; eingeschleppt in Florida",
+      "maxLengthCm": 230,
+      "maxWeightKg": 10.5,
+      "lifespanYears": 25
+    },
+    "funFact": "Trotz seiner Größe kann er freiwillig einen Teil seines Schwanzes abwerfen, um Fressfeinde abzulenken – der Schwanz wächst nur eingeschränkt nach.",
+    "source": {
+      "name": "Wikipedia DE – Grüner Leguan",
+      "url": "https://de.wikipedia.org/wiki/Grüner_Leguan"
+    },
+    "image": null
+  },
+  "natura:leopardgecko": {
+    "id": "natura:leopardgecko",
+    "name": "Leopardgecko",
+    "type": "animal",
+    "category": "animal",
+    "attributes": {
+      "class": "Reptilien",
+      "order": "Schuppenkriechtiere",
+      "range": "Ost-Afghanistan, Pakistan und Nordindien",
+      "maxLengthCm": 30,
+      "lifespanYears": 20
+    },
+    "funFact": "Sein Schwanz dient als Fettspeicher – in mageren Zeiten kann er davon zehren, und der Schwanz wird sichtbar dünner.",
+    "source": {
+      "name": "Wikipedia DE – Leopardgecko",
+      "url": "https://de.wikipedia.org/wiki/Leopardgecko"
+    },
+    "image": null
+  },
+  "natura:feuersalamander": {
+    "id": "natura:feuersalamander",
+    "name": "Feuersalamander",
+    "type": "animal",
+    "category": "animal",
+    "attributes": {
+      "class": "Amphibien",
+      "order": "Schwanzlurche",
+      "range": "Mittel- und Südeuropa, vom Norden Deutschlands bis zur Iberischen Halbinsel und zum Balkan",
+      "maxLengthCm": 21,
+      "maxWeightKg": 0.071,
+      "lifespanYears": 20
+    },
+    "funFact": "Aus seinen Ohrdrüsen kann er ein giftiges Sekret bis zu einem Meter weit auf Angreifer spritzen – das enthaltene Samandarin löst Muskelkrämpfe aus.",
+    "source": {
+      "name": "Wikipedia DE – Feuersalamander",
+      "url": "https://de.wikipedia.org/wiki/Feuersalamander"
+    },
+    "image": null
+  },
+  "natura:erdkroete": {
+    "id": "natura:erdkroete",
+    "name": "Erdkröte",
+    "type": "animal",
+    "category": "animal",
+    "attributes": {
+      "class": "Amphibien",
+      "order": "Froschlurche",
+      "range": "Europa (außer Irland, Island, äußerster Norden Skandinaviens, einige Mittelmeerinseln) bis Ostsibirien",
+      "maxLengthCm": 15,
+      "maxWeightKg": 0.15,
+      "lifespanYears": 36
+    },
+    "funFact": "Jedes Frühjahr wandern Erdkröten in Massen zu ihrem Laichgewässer zurück – oft auf Straßen, weshalb vielerorts Krötenzäune aufgestellt werden.",
+    "source": {
+      "name": "Wikipedia DE – Erdkröte",
+      "url": "https://de.wikipedia.org/wiki/Erdkröte"
+    },
+    "image": null
+  },
+  "natura:grottenolm": {
+    "id": "natura:grottenolm",
+    "name": "Grottenolm",
+    "type": "animal",
+    "category": "animal",
+    "attributes": {
+      "class": "Amphibien",
+      "order": "Schwanzlurche",
+      "range": "Dinarischer Karst von Nordostitalien über Slowenien und Westkroatien bis Herzegowina",
+      "conservationStatus": "Gefährdet (VU)",
+      "maxLengthCm": 30,
+      "lifespanYears": 70
+    },
+    "funFact": "Er kann über 70 Jahre alt werden – und das in völliger Dunkelheit: Seine Haut ist unpigmentiert, seine Augen sind rückgebildet, dafür nimmt er Beute über elektrische Sinne wahr.",
+    "source": {
+      "name": "Wikipedia DE – Grottenolm",
+      "url": "https://de.wikipedia.org/wiki/Grottenolm"
+    },
+    "image": null
+  },
+  "natura:hammerhai": {
+    "id": "natura:hammerhai",
+    "name": "Hammerhai",
+    "type": "animal",
+    "category": "animal",
+    "attributes": {
+      "class": "Knorpelfische",
+      "order": "Grundhaie",
+      "range": "Tropische und subtropische Küstengewässer weltweit",
+      "maxLengthCm": 610
+    },
+    "funFact": "Die hammerförmige Kopfform verleiht dem Großen Hammerhai ein nahezu 360°-Sichtfeld durch die weit auseinanderliegenden Augen.",
+    "source": {
+      "name": "Wikipedia DE – Hammerhaie",
+      "url": "https://de.wikipedia.org/wiki/Hammerhaie"
+    },
+    "image": null
+  },
+  "natura:schwertfisch": {
+    "id": "natura:schwertfisch",
+    "name": "Schwertfisch",
+    "type": "animal",
+    "category": "animal",
+    "attributes": {
+      "class": "Fische",
+      "order": "Carangiformes",
+      "range": "Kosmopolitisch in tropischen bis gemäßigten Ozeanen",
+      "conservationStatus": "Potenziell gefährdet (NT)",
+      "maxLengthCm": 455,
+      "maxWeightKg": 650
+    },
+    "funFact": "Der Schwertfisch ist einer der wenigen Fische, die ihre Körpertemperatur aktiv über die Wassertemperatur anheben können.",
+    "source": {
+      "name": "Wikipedia DE – Schwertfisch",
+      "url": "https://de.wikipedia.org/wiki/Schwertfisch"
+    },
+    "image": null
+  },
+  "natura:atlantischer-lachs": {
+    "id": "natura:atlantischer-lachs",
+    "name": "Atlantischer Lachs",
+    "type": "animal",
+    "category": "animal",
+    "attributes": {
+      "class": "Fische",
+      "order": "Lachsartige",
+      "range": "Europa und Nordamerika, Atlantischer Ozean",
+      "maxLengthCm": 150
+    },
+    "funFact": "Adulte Atlantische Lachse finden ihren Geburtsfluss nach Jahren im Meer anhand des einzigartigen Geruchsbilds des Wassers wieder.",
+    "source": {
+      "name": "Wikipedia DE – Atlantischer Lachs",
+      "url": "https://de.wikipedia.org/wiki/Atlantischer_Lachs"
+    },
+    "image": null
+  },
+  "natura:clownfisch": {
+    "id": "natura:clownfisch",
+    "name": "Clownfisch",
+    "type": "animal",
+    "category": "animal",
+    "attributes": {
+      "class": "Fische",
+      "order": "Schleimfischartige",
+      "range": "Tropischer Indopazifik, Korallenriffe in 1–15 m Tiefe",
+      "maxLengthCm": 16
+    },
+    "funFact": "Anemonenfische sind protandrische Zwitter: Alle Tiere werden als Männchen geboren, das größte Tier wandelt sich zum Weibchen.",
+    "source": {
+      "name": "Wikipedia DE – Anemonenfische",
+      "url": "https://de.wikipedia.org/wiki/Anemonenfische"
+    },
+    "image": null
+  },
+  "natura:kugelfisch": {
+    "id": "natura:kugelfisch",
+    "name": "Kugelfisch",
+    "type": "animal",
+    "category": "animal",
+    "attributes": {
+      "class": "Fische",
+      "order": "Kugelfischartige",
+      "range": "Tropische und warme Meere, ca. 47° N bis 47° S",
+      "maxLengthCm": 120,
+      "lifespanYears": 10
+    },
+    "funFact": "Das Nervengift Tetrodotoxin in Kugelfischen ist etwa 1200-mal stärker als Blausäure; dennoch wird ihr Fleisch in Japan als Fugu zubereitet.",
+    "source": {
+      "name": "Wikipedia DE – Kugelfische",
+      "url": "https://de.wikipedia.org/wiki/Kugelfische"
+    },
+    "image": null
+  },
+  "natura:seestern": {
+    "id": "natura:seestern",
+    "name": "Seestern",
+    "type": "animal",
+    "category": "animal",
+    "attributes": {
+      "class": "Stachelhäuter",
+      "range": "Weltweit im marinen Benthal, von der Gezeitenzone bis in die Tiefsee"
+    },
+    "funFact": "Seesterne besitzen weder Blut noch Gehirn; sie pumpen Meerwasser durch ein Wassergefäßsystem, das als Hydraulik für die Bewegung dient.",
+    "source": {
+      "name": "Wikipedia DE – Seesterne",
+      "url": "https://de.wikipedia.org/wiki/Seesterne"
+    },
+    "image": null
+  },
+  "natura:ohrenqualle": {
+    "id": "natura:ohrenqualle",
+    "name": "Ohrenqualle",
+    "type": "animal",
+    "category": "animal",
+    "attributes": {
+      "class": "Nesseltiere",
+      "order": "Fahnenquallen",
+      "range": "Nahezu weltweit in Ozeanen, ca. 70° N bis 55° S",
+      "maxLengthCm": 30
+    },
+    "funFact": "Die vier namensgebenden „Ohren\" sind keine Ohren, sondern die hufeisenförmigen Gonaden, die durch den Schirm durchscheinen.",
+    "source": {
+      "name": "Wikipedia DE – Ohrenqualle",
+      "url": "https://de.wikipedia.org/wiki/Ohrenqualle"
+    },
+    "image": null
+  },
+  "natura:vogelspinne": {
+    "id": "natura:vogelspinne",
+    "name": "Vogelspinne",
+    "type": "animal",
+    "category": "animal",
+    "attributes": {
+      "class": "Spinnentiere",
+      "order": "Webspinnen",
+      "range": "Tropische und subtropische Klimazonen weltweit",
+      "maxLengthCm": 12
+    },
+    "funFact": "Vogelspinnen können verlorene Beine bei der nächsten Häutung vollständig regenerieren.",
+    "source": {
+      "name": "Wikipedia DE – Vogelspinnen",
+      "url": "https://de.wikipedia.org/wiki/Vogelspinnen"
+    },
+    "image": null
+  },
+  "natura:skorpion": {
+    "id": "natura:skorpion",
+    "name": "Skorpion",
+    "type": "animal",
+    "category": "animal",
+    "attributes": {
+      "class": "Spinnentiere",
+      "order": "Skorpione",
+      "range": "Weltweit auf allen Kontinenten außer Antarktis; Schwerpunkt Tropen und Subtropen",
+      "maxLengthCm": 21
+    },
+    "funFact": "Skorpione fluoreszieren unter UV-Licht blaugrün, weshalb nachtaktive Arten im Schein einer Schwarzlichtlampe leicht aufzuspüren sind.",
+    "source": {
+      "name": "Wikipedia DE – Skorpione",
+      "url": "https://de.wikipedia.org/wiki/Skorpione"
+    },
+    "image": null
+  },
+  "natura:europaeischer-hummer": {
+    "id": "natura:europaeischer-hummer",
+    "name": "Europäischer Hummer",
+    "type": "animal",
+    "category": "animal",
+    "attributes": {
+      "class": "Krebstiere",
+      "order": "Zehnfußkrebse",
+      "range": "Nordöstlicher Atlantik von den Lofoten bis Marokko, Mittelmeer, Nordsee",
+      "maxLengthCm": 60,
+      "maxWeightKg": 4
+    },
+    "funFact": "Hummer wachsen zeitlebens; der größte dokumentierte Europäische Hummer erreichte über 9 kg, und einzelne Amerikanische Hummer können über 20 kg wiegen.",
+    "source": {
+      "name": "Wikipedia DE – Europäischer Hummer",
+      "url": "https://de.wikipedia.org/wiki/Europäischer_Hummer"
+    },
+    "image": null
+  },
+  "natura:siebenpunkt-marienkaefer": {
+    "id": "natura:siebenpunkt-marienkaefer",
+    "name": "Siebenpunkt-Marienkäfer",
+    "type": "animal",
+    "category": "animal",
+    "attributes": {
+      "class": "Insekten",
+      "order": "Käfer",
+      "range": "Ursprünglich Paläarktis; heute auch Nordamerika, Naher Osten und Indien",
+      "maxLengthCm": 0.8,
+      "lifespanYears": 1
+    },
+    "funFact": "Bei Bedrohung sondert der Siebenpunkt-Marienkäfer aus Beingelenken eine gelbe, übelriechende Hämolymphe ab, die Fressfeinde abschreckt.",
+    "source": {
+      "name": "Wikipedia DE – Siebenpunkt-Marienkäfer",
+      "url": "https://de.wikipedia.org/wiki/Siebenpunkt-Marienk%C3%A4fer"
+    },
+    "image": null
+  },
+  "natura:hirschkaefer": {
+    "id": "natura:hirschkaefer",
+    "name": "Hirschkäfer",
+    "type": "animal",
+    "category": "animal",
+    "attributes": {
+      "class": "Insekten",
+      "order": "Käfer",
+      "range": "Süd-, Mittel- und Westeuropa, nördlich bis Südschweden, östlich bis Syrien",
+      "conservationStatus": "Stark gefährdet (EN)",
+      "maxLengthCm": 8,
+      "lifespanYears": 8
+    },
+    "funFact": "Hirschkäfer-Männchen tragen ein geweihartiges, bis 3 cm breites Mandibelpaar, mit dem sie Rivalen von Ästen hebeln.",
+    "source": {
+      "name": "Wikipedia DE – Hirschkäfer",
+      "url": "https://de.wikipedia.org/wiki/Hirschk%C3%A4fer"
+    },
+    "image": null
   }
 }

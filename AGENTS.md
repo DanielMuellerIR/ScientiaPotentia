@@ -58,7 +58,7 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 > `node scripts/generate_<domain>.js` → `node scripts/verify_facts.js <domain>` → Browser-Run.
 > **Integritätsregel bleibt hart:** jeder Fakt mit Quelle, keine erfundenen Zahlen — bei
 > LLM-Recherche adversarialer Faktencheck **plus** manuelle Stichprobe vor Commit.
-> Aktueller Stand (v1.18.0): Astra 146 Konzepte/554 Fragen, Natura 98/480, Homo 96/174 (unverändert),
+> Aktueller Stand (v1.20.0): Astra 146 Konzepte/554 Fragen, Natura 146/939, Homo 96/174 (unverändert),
 > Lingua 103/266, Cultura 155/645 (beide verdrahtet; Cultura via MiniMax-Delegation ausgebaut, v1.19.0).
 >
 > **Phase-5-Runde 1 (2026-06-04, Multi-Agent-Workflow):** `scripts/merge_phase5.js` dokumentiert
@@ -124,12 +124,12 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 | Terra  | 1852 | 5217 | Natural Earth / GeoNames / Wikidata | Weltkarte (MapLibre), pro Frage Highlight |
 | Astra  | 146 | 554 | NASA / IAU / ESA | **3D-Himmelskörper (three.js)** + Kontext-Karte (Bahn/Distanz), Texturen Solar System Scope (CC BY 4.0) |
 | Homo   | 96 | 174 | Gray's Anatomy / Prometheus / NIH | **Anatomiegrafiken (Wikimedia, PD)** + konzeptgenauer Struktur-Marker je Frage |
-| Natura | 98 | 480 | Wikipedia / USGS / IUCN / IPCC | generische Konzeptkarte (`ConceptVisual`); freies Commons-Foto je Konzept hinterlegt (`concept.image`, fürs spätere Museum) |
+| Natura | 146 | 939 | Wikipedia / USGS / IUCN / IPCC | generische Konzeptkarte (`ConceptVisual`); Tiere via MiniMax-Delegation 49→97 ausgebaut (web-grounded); freies Commons-Foto je Konzept hinterlegt (`concept.image`, fürs spätere Museum) |
 | Lingua | 103 | 266 | Wikipedia / Ethnologue / Wiktionary / Guinness | generische Konzeptkarte (`ConceptVisual`) mit dt. Attribut-Labels; Commons-Bild je Konzept hinterlegt (103/103, fürs spätere Museum) |
 | Cultura | 155 | 645 | Wikipedia (DE/EN) / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Kategorie-/Attribut-Labels; via MiniMax-Delegation ausgebaut (Komponisten Wikidata-geprüft, Werke web-grounded) |
 
 > Fragenzahlen Astra/Homo/Natura/Lingua/Cultura sind noch weit vom 5000-Ziel — Content-Ausbau (Phase 5) läuft weiter.
-> Astra 554/146 = ~3.8 F/K, Natura 480/98 = ~4.9 F/K, Cultura 645/155 = ~4.2 F/K, Lingua 266/103 = ~2.6 F/K
+> Astra 554/146 = ~3.8 F/K, Natura 939/146 = ~6.4 F/K, Cultura 645/155 = ~4.2 F/K, Lingua 266/103 = ~2.6 F/K
 > (Lingua: 22 Fragetypen; 47 heterogene Konzepte aus language_fact/grammar_fact/phonetics/language_curio
 > bewusst ohne eigene Templates — nur Museum/Distraktor-Pool. Hebel für mehr: dort Templates ergänzen).
 
@@ -236,7 +236,7 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 >    gesetzt; Felder `Explorer`/`explorerLabel`/`ExplorerIcon` in `src/domains/index.js`). Grid aller
 >    Konzepte mit Foto (Special:FilePath), Kategorie-Filter, Detail mit Attributen/FunFact/Quelle+Lizenz.
 >    Danach Bilder visuell stichproben (Resolver nahm „erstes freies Treffer" → thematische Eignung prüfen).
-> 3. **TODO Content-Ausbau.** Aktuell nur **49 Tiere** (98 Konzepte gesamt) — Runde-1-Ernte. Mehr sammeln
+> 3. **TODO Content-Ausbau.** Aktuell **97 Tiere** (146 Konzepte gesamt) — via MiniMax web-grounded ausgebaut. Weiter sammeln
 >    (Schwerpunkt Tiere) per `content_pipeline.md`: Harvest → Phase C Bilder → `merge_natura.js` → `generate_natura.js`.
 > 4. **Hinweis:** `concepts_astra.json`/`concepts_homo.json` haben **kein** `image`-Feld — fürs Museum dort
 >    nachrüsten (Astra-Bilder in `astra_raw`/Assets, Homo nutzt Anatomie-Assets).
