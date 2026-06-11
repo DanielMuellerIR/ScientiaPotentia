@@ -571,6 +571,105 @@ const templates = [
     subject: c => `Entdeckungsjahr ${c.attributes.discoveredYear}`,
     format: (_v, c) => c.name,
     prompt: c => `Welcher Exoplanet (bzw. welches System) wurde im Jahr ${c.attributes.discoveredYear} entdeckt?`
+  },
+
+  // ==== Welle-2-Erweiterung (Stand 2026-06-12) ==============================
+  // Sechs neue Fragetypen aus bisher ungenutzten Attributen, ausschließlich
+  // aus bereits verifizierten Daten. Alle neuen Templates folgen den
+  // bestehenden Qualitätssicherungs-Mechanismen:
+  //  - reverseUnique: Guard gegen Mehrdeutigkeit (identischer Wert bei anderem Konzept)
+  //  - numericByValue: Distraktoren nach echtem Zahlenwert-Abstand (nicht String)
+  //  - Selbstverräter-Guard greift automatisch über revealsAnswer()
+  //
+  // BEWUSST AUSGELASSEN (Begründung):
+  //  - planet.hasRings: nur 2 mögliche Antworten ('Ja'/'Nein') -> 50% Ratewahrscheinlichkeit,
+  //    keine sinnvollen Distraktoren; Reverse nicht eindeutig (je 4 Planeten pro Wert).
+  //  - moon.parentPlanet Reverse: 'Erde' (einziger eindeutiger Wert) würde Selbstverräter
+  //    auslösen, weil 'erde' in norm('Erdmond (Luna)') enthalten ist -> keine Fragen.
+  //  - exoplanet.starType: nur 2 Träger im Datensatz -> Pool zu klein.
+  //  - asteroid.type: 2 Asteroiden teilen 'Apollo-Typ' -> Reverse nicht eindeutig;
+  //    Vorwärts mit 3 Trägern grenzwertig, Distraktoren schwer kategorieintern.
+  //  - nebula.type: alle Werte einzigartig, aber Texte zu unterschiedlich für faire
+  //    kategorische Distraktoren (kein gemeinsames Schema wie 'Typ XY').
+
+  // ---- (c) Sterne: Typ -> Name (11 einzigartige Sterntypen) -----------------
+  // Gegenstück zu astra-star-type (Name -> Typ, bereits vorhanden).
+  // reverseUnique-Guard überspringt die 13 Sterne mit doppeltem Typ automatisch
+  // (z.B. 'Weißer Hauptreihenstern' gilt für 5 Sterne -> keine eindeutige Frage).
+  // Die 11 Sterne mit einzigartigem Typ erzeugen je eine faire Reverse-Frage;
+  // Distraktoren sind die anderen 23 Sterne (mit anderem Typ), durchgemischt per
+  // deterministischem Hash.
+  {
+    category: 'star', attr: 'type', type: 'astra-star-type-rev', difficulty: 4,
+    nameAnswer: true, reverseUnique: true,
+    // Hinweis ist der Sterntyp, nicht der Name -> kein Selbstverräter möglich.
+    subject: c => c.attributes.type,
+    format: (_v, c) => c.name,
+    prompt: c => `Welcher Stern ist vom Typ „${c.attributes.type}"?`
+  },
+
+  // ---- (c) Zwergplaneten: Durchmesser -> Name --------------------------------
+  // Gegenstück zu astra-dwarf-diameter (Name -> Durchmesser, bereits vorhanden).
+  // Alle 9 Zwergplaneten haben einzigartige diameterKm-Werte -> Guard genehmigt alle.
+  // Distraktoren sind die 8 anderen Zwergplaneten (nach Zahlenwert-Nähe ausgewählt,
+  // dann als Name präsentiert) — reverseUnique baut den Pool intern auf.
+  {
+    category: 'dwarf_planet', attr: 'diameterKm', type: 'astra-dwarf-diameter-rev', difficulty: 4,
+    nameAnswer: true, reverseUnique: true,
+    // Hinweis ist der Durchmesser in km.
+    subject: c => `${deNum(c.attributes.diameterKm)} km`,
+    format: (_v, c) => c.name,
+    prompt: c => `Welcher Zwergplanet hat einen ungefähren Durchmesser von ${deNum(c.attributes.diameterKm)} km?`
+  },
+
+  // ---- (c) Zwergplaneten: Umlaufzeit -> Name ---------------------------------
+  // Gegenstück zu astra-dwarf-year-len (Name -> Umlaufzeit, bereits vorhanden).
+  // Alle 9 Umlaufzeiten sind einzigartig -> kein Guard-Ausfall erwartet.
+  // Prompts mit gerundetem Wert, damit die Frage natürlich klingt.
+  {
+    category: 'dwarf_planet', attr: 'yearLengthEarthYears', type: 'astra-dwarf-year-len-rev', difficulty: 4,
+    nameAnswer: true, reverseUnique: true,
+    // Hinweis ist die Umlaufzeit in Erdjahren (mit bis zu 2 Dezimalstellen formatiert).
+    subject: c => `${deNum(c.attributes.yearLengthEarthYears)} Erdjahre`,
+    format: (_v, c) => c.name,
+    prompt: c => `Welcher Zwergplanet benötigt ungefähr ${deNum(c.attributes.yearLengthEarthYears)} Erdjahre für einen Sonnenumlauf?`
+  },
+
+  // ---- (c) Zwergplaneten: Entdeckungsjahr -> Name ----------------------------
+  // Gegenstück zu astra-dwarf-year (Name -> Entdeckungsjahr, bereits vorhanden).
+  // reverseUnique-Guard entfernt: 2005 (Eris + Makemake) und 2004 (Haumea + Orcus).
+  // Übrig bleiben 5 eindeutige Jahre: 1930 (Pluto), 1801 (Ceres), 2003 (Sedna),
+  // 2002 (Quaoar), 2007 (Gonggong).
+  {
+    category: 'dwarf_planet', attr: 'discoveredYear', type: 'astra-dwarf-year-rev', difficulty: 4,
+    nameAnswer: true, reverseUnique: true,
+    // Hinweis ist das Entdeckungsjahr.
+    subject: c => `Entdeckungsjahr ${c.attributes.discoveredYear}`,
+    format: (_v, c) => c.name,
+    prompt: c => `Welcher Zwergplanet wurde im Jahr ${c.attributes.discoveredYear} entdeckt?`
+  },
+
+  // ---- (c) Nebel: Sternbild -> Name ------------------------------------------
+  // Gegenstück zu astra-nebula-constellation (Name -> Sternbild, bereits vorhanden).
+  // Orionnebel und Pferdekopfnebel teilen das Sternbild 'Orion' -> beide entfallen
+  // per reverseUnique-Guard. Der Krebsnebel hat kein constellation-Attribut -> skip.
+  // Übrig: Ringnebel (Leier) und Adlernebel (Schlange). Pool = nur 3 Nebel mit Sternbild,
+  // davon 2 mit je einzigartigem Wert -> Distraktoren: je 1 echter + 2 extraDistractors
+  // ('Orion', 'Stier') -> insg. 4 Optionen. Die extraDistractors sind echte Sternbildnamen,
+  // die plausibel sind, aber bei keinem der vorhandenen Nebel auftreten -> fair.
+  {
+    category: 'nebula', attr: 'constellation', type: 'astra-nebula-constellation-rev', difficulty: 4,
+    nameAnswer: true, reverseUnique: true,
+    // Sterne ohne Sternbild-Attribut (Krebsnebel) überspringen.
+    skip: c => !c.attributes.constellation,
+    // Hinweis ist das Sternbild.
+    subject: c => `Sternbild ${c.attributes.constellation}`,
+    format: (_v, c) => c.name,
+    prompt: c => `Welcher Nebel liegt im Sternbild ${c.attributes.constellation}?`,
+    // Zwei plausible Sternbildnamen als feste Distraktoren, falls der echte Pool zu klein ist.
+    // 'Orion': bekanntes Sternbild, klingt plausibel für einen Nebel (Orionnebel existiert!),
+    // aber er entfällt als richtiger Kandidat per Guard -> faires Ablenkmanöver.
+    extraDistractors: ['Orion', 'Stier']
   }
 ];
 
@@ -642,7 +741,13 @@ for (const tpl of templates) {
         // Deterministisch pro Frage mischen (s. hashStr oben), damit nicht in
         // jeder Reverse-Frage dieselben ersten Namen als Distraktoren stehen.
         .sort((a, b) => hashStr(`${c.id}|${tpl.type}|${a}`) - hashStr(`${c.id}|${tpl.type}|${b}`));
-      distractors = pickDistractors(correct, namePool, false);
+      // Optionale feste Distraktoren ergänzen, falls der kategorie-interne Pool
+      // zu klein ist (z.B. nebula.constellation: nur 3 Nebel mit Sternbild ->
+      // je 1 echter Distraktor -> extraDistractors füllen auf 3 auf).
+      const namePoolWithExtras = tpl.extraDistractors
+        ? namePool.concat(tpl.extraDistractors)
+        : namePool;
+      distractors = pickDistractors(correct, namePoolWithExtras, false);
     } else if (tpl.numericByValue) {
       // --- Numerische Nachbarwert-Distraktoren (Welle 1) ------------------
       // Auswahl auf den ROHEN Zahlen derselben Kategorie (die dem korrekten
