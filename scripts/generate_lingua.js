@@ -26,6 +26,10 @@
  *     müssen alle Distraktor-Konzepte beim getesteten Attribut einen ANDEREN,
  *     nicht überlappenden Wert haben (sonst wären zwei Optionen richtig,
  *     z.B. Shampoo [Hindi] und Pyjama [Hindi / Persisch]).
+ *   - extraDistractors: Template-Feld für statisch feste Zusatz-Distraktoren,
+ *     wenn der dynamische Pool zu klein ist (z.B. Schreibrichtung: nur 2
+ *     kanonische Werte). Wert wird nur übernommen wenn er von der richtigen
+ *     Antwort abweicht.
  *
  * Aufruf: node scripts/generate_lingua.js
  */
@@ -40,6 +44,15 @@ const CONCEPTS_OUT = join(ROOT, 'public', 'data', 'concepts_lingua.json');
 const QUESTIONS_OUT = join(ROOT, 'public', 'data', 'questions_lingua.json');
 
 const DOMAIN = 'lingua';
+
+// Kanonische Schreibrichtungen für die Richtungs-Frage.
+// Werte wie „links nach rechts (traditionell: oben nach unten)" oder
+// „rechts nach links oder links nach rechts (je nach Ausrichtung)" sind
+// nicht kanonisch und werden per skip übersprungen.
+const DIRECTION_CANON_SET = new Set([
+  'links nach rechts',
+  'rechts nach links'
+]);
 
 // --- kleine Helfer -------------------------------------------------------
 
@@ -77,9 +90,44 @@ function fmtMillions(v) {
   return `${deNum(v)} Millionen`;
 }
 
-/** Länder-Formatierer für die Amtssprachen-Frage (Singular/Plural). */
+/** Länder-Formatierer für die Amtssprachen-Frage (Nominativ/Akkusativ). */
 function fmtCountries(v) {
   return v === 1 ? '1 Land' : `${deNum(v)} Länder`;
+}
+
+/**
+ * Länder-Formatierer im Dativ (nach Präpositionen wie „in", „aus").
+ * „1 Land" → „1 Land" (Dativ Singular = Nominativ); „3 Länder" → „3 Ländern".
+ */
+function fmtCountriesDat(v) {
+  return v === 1 ? '1 Land' : `${deNum(v)} Ländern`;
+}
+
+/**
+ * Dekliniert den Namen einer Sprachfamilie in den Genitiv/Dativ.
+ * „Indogermanische Sprachfamilie" → „Indogermanischen Sprachfamilie"
+ * Namen wie „Turksprachen" bleiben unverändert (kein Adjektiv vor Sprachfamilie).
+ */
+function familyInflected(name) {
+  return name.replace(/^(.+)e Sprachfamilie$/, '$1en Sprachfamilie');
+}
+
+/**
+ * Extrahiert das eigentliche Wort aus einem Etymologie-Konzeptnamen.
+ * „Alkohol (Etymologie)" → „Alkohol"; kein Klammer-Suffix → ganzer Name.
+ */
+function displayWord(c) {
+  const match = c.name.match(/^(.+?)\s*\(/);
+  return match ? match[1].trim() : c.name;
+}
+
+/**
+ * Prüft, ob das displayWord ein einzelnes Wort ist (kein Leerzeichen).
+ * Mehrwortige Konzepte wie „Mama und Papa als Universalwörter" werden für
+ * Etymologie-Prompts übersprungen, da der Fragetext sonst grammatisch schief wäre.
+ */
+function isSingleWord(c) {
+  return !displayWord(c).includes(' ');
 }
 
 /**
@@ -181,10 +229,11 @@ for (const c of raw) {
 // --- Frage-Templates -----------------------------------------------------
 // kind: 'cat' (kategorisch), 'num' (numerisch, nutzt rohe Zahl), 'name'
 // (Reverse: Antwort = Konzeptname). attr = abgefragtes Attribut.
-// transform   = optionale Wert-Kürzung fürs Quiz (z.B. beforeParen).
-// similarGuard= Ähnlichkeits-Guard für Distraktoren aktivieren.
-// skip        = optionaler Konzept-Filter.
-// nameDisplay = Anzeige-Name bei Reverse-Fragen (Etymologie: ohne Suffix).
+// transform      = optionale Wert-Kürzung fürs Quiz (z.B. beforeParen).
+// similarGuard   = Ähnlichkeits-Guard für Distraktoren aktivieren.
+// skip           = optionaler Konzept-Filter.
+// nameDisplay    = Anzeige-Name bei Reverse-Fragen (Etymologie: ohne Suffix).
+// extraDistractors = statische Zusatz-Distraktoren wenn dynamischer Pool klein.
 //
 // Bewusst OHNE Templates: language_fact, loanword, grammar_fact, phonetics,
 // language_curio — dort existieren keine 4 vergleichbaren Werte je Dimension
@@ -217,10 +266,37 @@ const templates = [
     format: fmtCountries
   },
 
+  // Gesamtsprecher (Mutter- + Zweitsprachler) — numerisch, Schwierigkeit 3.
+  // Ergänzt die Muttersprachler-Frage um die Perspektive der Gesamtsprecher.
+  {
+    category: 'language', attr: 'speakersMillionsTotal', kind: 'num', type: 'lingua-language-total-speakers', difficulty: 3,
+    prompt: c => `Wie viele Menschen sprechen ${c.name} insgesamt (Mutter- und Zweitsprachler)?`,
+    format: fmtMillions
+  },
+
+  // Reverse: Gesamtsprecher → Sprachname, Schwierigkeit 4.
+  // Zahlen im Prompt über fmtMillions: konsistent mit der Vorwärts-Frage.
+  {
+    category: 'language', attr: 'speakersMillionsTotal', kind: 'name', type: 'lingua-language-total-speakers-rev', difficulty: 4,
+    subject: c => fmtMillions(cleanNum(c.attributes.speakersMillionsTotal)),
+    prompt: c => `Welche dieser Sprachen hat insgesamt rund ${fmtMillions(cleanNum(c.attributes.speakersMillionsTotal))} Sprecher?`
+  },
+
+  // Reverse: Amtssprachen-Anzahl → Sprachname, Schwierigkeit 4.
+  // Prompt benötigt Dativ nach „in": „in 3 Ländern" (fmtCountriesDat).
+  // subject für revealsAnswer nutzt dieselbe Formulierung.
+  {
+    category: 'language', attr: 'officialIn', kind: 'name', type: 'lingua-language-official-countries-rev', difficulty: 4,
+    subject: c => fmtCountriesDat(cleanNum(c.attributes.officialIn)),
+    prompt: c => `Welche dieser Sprachen ist in ${fmtCountriesDat(cleanNum(c.attributes.officialIn))} Amtssprache?`
+  },
+
   // ==== Schriftsysteme (writing_system) — 14 Konzepte ======================
   {
     category: 'writing_system', attr: 'scriptType', kind: 'cat', type: 'lingua-script-type', difficulty: 3,
-    prompt: c => `Zu welchem Schrifttyp zählt ${c.name}?`,
+    // Anführungszeichen um den Namen: korrekter Kasus statt Nominativ-Adjektiv
+    // frei stehend. „Zu welchem Schrifttyp zählt „Arabisches Alphabet"?"
+    prompt: c => `Zu welchem Schrifttyp zählt „${c.name}"?`,
     // Werte fürs Quiz aufs Kern-Label kürzen: "Abjad (nur Konsonanten
     // obligatorisch)" -> "Abjad". Selbstverräter wie "Lateinisches Alphabet"
     // -> Antwort "Alphabet" verwirft revealsAnswer korrekt.
@@ -229,7 +305,8 @@ const templates = [
   },
   {
     category: 'writing_system', attr: 'charCount', kind: 'num', type: 'lingua-script-charcount', difficulty: 3,
-    prompt: c => `Wie viele Zeichen umfasst ${c.name}?`,
+    // Anführungszeichen: „Wie viele Zeichen umfasst „Lateinisches Alphabet"?"
+    prompt: c => `Wie viele Zeichen umfasst „${c.name}"?`,
     // Reine Zahl als Option (Einheit steht im Prompt). Mit Suffix "… Zeichen"
     // würde revealsAnswer bei "Chinesische SchriftZEICHEN" fälschlich anschlagen.
     format: v => deNum(v)
@@ -243,46 +320,118 @@ const templates = [
   },
   {
     category: 'writing_system', attr: 'usersMillions', kind: 'num', type: 'lingua-script-users', difficulty: 3,
-    prompt: c => `Wie viele Menschen schreiben mit ${c.name}?`,
+    // Anführungszeichen: „Wie viele Menschen nutzen die Schrift „Arabisches Alphabet"?"
+    prompt: c => `Wie viele Menschen nutzen die Schrift „${c.name}"?`,
     format: fmtMillions,
     // Hieroglyphen haben 0 Nutzer (ausgestorben) — als Frage und als
     // Distraktor unbrauchbar.
     skip: c => cleanNum(c.attributes.usersMillions) === 0
   },
-  // direction bewusst NICHT: nur 2 Werte (links/rechts) -> kein fairer Pool.
+
+  // Schreibrichtung — nur kanonische Werte 'links nach rechts' /
+  // 'rechts nach links'. Mehrdeutige wie „links nach rechts oder oben nach
+  // unten" werden per skip übersprungen.
+  // extraDistractors: 'oben nach unten' als dritter Distraktor, damit die
+  // Frage nicht 50:50 ist (traditionelles Mongolisch schreibt tatsächlich
+  // von oben nach unten → fachlich fair).
+  {
+    category: 'writing_system', attr: 'direction', kind: 'cat', type: 'lingua-script-direction', difficulty: 2,
+    prompt: c => `In welche Richtung wird „${c.name}" hauptsächlich geschrieben?`,
+    skip: c => !DIRECTION_CANON_SET.has(c.attributes.direction),
+    // Pool enthält nur 2 kanonische Werte → 2 statische Zusatz-Distraktoren,
+    // damit die Frage nicht 50:50 oder nur 3-Option ist:
+    //   • „oben nach unten" — traditionelles Mongolisch, fachlich real
+    //   • „wechselnd (boustrophedon)" — antike griechische Inschriften, real
+    extraDistractors: ['oben nach unten', 'wechselnd (boustrophedon)']
+  },
+
+  // Reverse: Zeichenanzahl → Schriftname, Schwierigkeit 4.
+  {
+    category: 'writing_system', attr: 'charCount', kind: 'name', type: 'lingua-script-charcount-rev', difficulty: 4,
+    subject: c => `${deNum(cleanNum(c.attributes.charCount))} Zeichen`,
+    prompt: c => `Welches dieser Schriftsysteme umfasst ${deNum(cleanNum(c.attributes.charCount))} Zeichen?`
+  },
 
   // ==== Sprachfamilien (language_family) — 10 Konzepte ====================
-  // Prompts mit Anführungszeichen, weil die Namen grammatisch gemischt sind
-  // ("Turksprachen" = Plural, "Indogermanische Sprachfamilie" = Singular).
+  // Anmerkung zu Attribut-Benennung: In lingua_raw.json heißt das Sprecher-
+  // Attribut der Familien „speakersMillions" (nicht speakersMillionsNative wie
+  // bei Einzelsprachen). Der funFact-Text bestätigt: „3,4 Mrd. Muttersprachler"
+  // → semantisch Muttersprachler, also Prompt mit „Muttersprachler".
   {
     category: 'language_family', attr: 'speakersMillions', kind: 'num', type: 'lingua-family-speakers', difficulty: 3,
-    prompt: c => `Wie viele Sprecher entfallen weltweit auf „${c.name}“?`,
+    // Nominativ nach „hat die" → c.name direkt (kein familyInflected).
+    // familyInflected erzeugt Genitiv/Dativ; „hat die Indogermanischen" wäre falsch.
+    prompt: c => `Wie viele Muttersprachler hat die ${c.name}?`,
     format: fmtMillions
   },
   {
     category: 'language_family', attr: 'languageCount', kind: 'num', type: 'lingua-family-languagecount', difficulty: 4,
-    prompt: c => `Wie viele Einzelsprachen gehören zu „${c.name}“?`,
+    prompt: c => `Wie viele Einzelsprachen gehören zu „${c.name}"?`,
     // Reine Zahl als Option (Einheit steht im Prompt). Mit Suffix "… Sprachen"
     // würde revealsAnswer bei "TurkSPRACHEN"/"BantuSPRACHEN" fälschlich anschlagen.
     format: v => deNum(v)
+  },
+
+  // Weltbevölkerungs-Anteil — numerisch, Schwierigkeit 4.
+  {
+    category: 'language_family', attr: 'shareWorldPopulationPercent', kind: 'num', type: 'lingua-family-world-share', difficulty: 4,
+    prompt: c => `Welchen Anteil der Weltbevölkerung stellen Muttersprachler der ${familyInflected(c.name)}?`,
+    format: v => `${deNum(v)} %`
+  },
+
+  // Verbreitung — kategorisch, Schwierigkeit 3.
+  // Nominativ nach „die" → c.name direkt.
+  {
+    category: 'language_family', attr: 'distribution', kind: 'cat', type: 'lingua-family-distribution', difficulty: 3,
+    prompt: c => `Wo ist die ${c.name} hauptsächlich verbreitet?`
+  },
+
+  // Hauptzweige — kategorisch, Schwierigkeit 3.
+  // revealsAnswer-Guard filtert automatisch Fälle, bei denen die Antwort
+  // (z.B. „Germanisch, Romanisch, Slawisch…") den Familiennamen enthält.
+  {
+    category: 'language_family', attr: 'mainBranches', kind: 'cat', type: 'lingua-family-main-branches', difficulty: 3,
+    prompt: c => `Welche Hauptzweige gehören zur ${familyInflected(c.name)}?`
   },
 
   // ==== Etymologie (etymology) — 17 Konzepte ==============================
   {
     category: 'etymology', attr: 'sourceLanguage', kind: 'cat', type: 'lingua-etymology-source', difficulty: 3,
     // Konzeptnamen tragen das Suffix " (Etymologie)" -> fürs Prompt kürzen.
-    prompt: c => `Aus welcher Sprache stammt das Wort „${beforeParen(c.name)}“?`,
+    prompt: c => `Aus welcher Sprache stammt das Wort „${displayWord(c)}"?`,
     // Guard nötig: "Hindi", "Hindi / Persisch" und "Hindi/Gujarati" dürfen
     // nicht gemeinsam als Optionen auftauchen (Hindi-Anteil mehrdeutig).
-    similarGuard: true
+    similarGuard: true,
+    subject: c => `das Wort „${displayWord(c)}"`,
+    skip: c => !isSingleWord(c)
   },
   // Reverse: von der Herkunftssprache auf das Wort (Distraktoren = Wörter mit
   // nachweislich ANDERER, nicht überlappender Herkunftssprache).
   {
     category: 'etymology', attr: 'sourceLanguage', kind: 'name', type: 'lingua-etymology-source-rev', difficulty: 4,
     subject: c => String(c.attributes.sourceLanguage),
-    prompt: c => `Welches dieser Wörter hat seinen Ursprung in der Sprache „${c.attributes.sourceLanguage}“?`,
-    nameDisplay: c => beforeParen(c.name) // "Alkohol (Etymologie)" -> "Alkohol"
+    prompt: c => `Welches dieser Wörter hat seinen Ursprung in der Sprache „${c.attributes.sourceLanguage}"?`,
+    nameDisplay: c => displayWord(c)  // "Alkohol (Etymologie)" -> "Alkohol"
+  },
+
+  // Entlehnungsweg — kategorisch, Schwierigkeit 3.
+  // Attribut loanPath (kanonisiert in merge_lingua.js aus „entlehnungsweg").
+  // Nur Einzelwörter, damit der Prompt grammatisch korrekt ist.
+  {
+    category: 'etymology', attr: 'loanPath', kind: 'cat', type: 'lingua-etymology-borrowing-path', difficulty: 3,
+    prompt: c => `Auf welchem Weg gelangte das Wort „${displayWord(c)}" ins Deutsche?`,
+    subject: c => `das Wort „${displayWord(c)}"`,
+    skip: c => !isSingleWord(c)
+  },
+
+  // Epoche — kategorisch, Schwierigkeit 4.
+  // Attribut loanEra (kanonisiert in merge_lingua.js aus „entlehnung"/„epoche").
+  // Nur Einzelwörter (isSingleWord-Guard wie beim Entlehnungsweg).
+  {
+    category: 'etymology', attr: 'loanEra', kind: 'cat', type: 'lingua-etymology-era', difficulty: 4,
+    prompt: c => `In welcher Epoche kam das Wort „${displayWord(c)}" ins Deutsche?`,
+    subject: c => `das Wort „${displayWord(c)}"`,
+    skip: c => !isSingleWord(c)
   }
 ];
 
@@ -314,9 +463,11 @@ for (const tpl of templates) {
 
   // Mindestpool-Wächter: unter 4 vergleichbaren Werten ist keine faire
   // 4-Optionen-Frage möglich -> ganzes Template überspringen (und sagen).
+  // extraDistractors werden mitgezählt, weil sie statisch immer verfügbar sind.
+  const extraCount = tpl.extraDistractors ? tpl.extraDistractors.length : 0;
   const uniqueSize = tpl.kind === 'num'
     ? new Set(numPool).size
-    : new Set(tpl.kind === 'name' ? catPool.map(e => e.name) : catPool).size;
+    : new Set(tpl.kind === 'name' ? catPool.map(e => e.name) : catPool).size + extraCount;
   if (uniqueSize < 4) {
     console.log(`Template ${tpl.type} übersprungen: nur ${uniqueSize} vergleichbare Werte.`);
     continue;
@@ -347,6 +498,17 @@ for (const tpl of templates) {
       if (vRaw === undefined || vRaw === null || vRaw === '') { skipStats.noValue++; continue; }
       correct = String(transform(vRaw));
       distractors = pickCategorical(correct, catPool, 3, tpl.similarGuard ? optionsTooSimilar : null);
+    }
+
+    // Optionale statische Zusatz-Distraktoren anhängen (z.B. für
+    // Richtungsfrage: Pool hat nur 2 kanonische Werte → 'oben nach unten'
+    // als fachlich fairer dritter Distraktor ergänzen).
+    if (tpl.extraDistractors) {
+      for (const extra of tpl.extraDistractors) {
+        if (extra !== correct && !distractors.includes(extra)) {
+          distractors.push(extra);
+        }
+      }
     }
 
     // Selbstverräter: steckt die Antwort schon im Hinweis, Frage verwerfen.

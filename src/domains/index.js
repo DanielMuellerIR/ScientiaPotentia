@@ -1,5 +1,5 @@
 import { lazy } from 'react';
-import { Globe2, Sparkles, PersonStanding, Orbit, Leaf } from 'lucide-react';
+import { Globe2, Sparkles, PersonStanding, Orbit, Leaf, Languages } from 'lucide-react';
 
 // Spezialisierte Visualisierungen lazy laden, damit schwere Abhaengigkeiten
 // (z.B. three.js fuer Astra) nur ins Bundle kommen, wenn die Domain aktiv ist.
@@ -82,6 +82,19 @@ export const DOMAINS = [
     hasMap: false,
     loadConcepts: () => fetch('data/concepts_natura.json').then(handleJson),
     loadQuestions: () => fetch('data/questions_natura.json').then(handleJson)
+  },
+  {
+    id: 'lingua',
+    latinName: 'Lingua',
+    label: 'Sprachen',
+    shortLabel: 'Sprachwelt',
+    description: 'Sprachen, Sprachfamilien, Schriftsysteme und Wortgeschichten.',
+    Icon: Languages,
+    accent: '#8A6D3B',
+    // MCQ-only: nutzt das generische ConceptVisual (Bild/Kennwerte pro Konzept).
+    hasMap: false,
+    loadConcepts: () => fetch('data/concepts_lingua.json').then(handleJson),
+    loadQuestions: () => fetch('data/questions_lingua.json').then(handleJson)
   }
 ];
 

@@ -42,7 +42,17 @@ const CATEGORY_LABELS = {
   geology: 'Geologie',
   mineral: 'Mineral',
   atmosphere: 'Atmosphäre',
-  phenomenon: 'Naturphänomen'
+  phenomenon: 'Naturphänomen',
+  // Lingua
+  language: 'Sprache',
+  language_family: 'Sprachfamilie',
+  writing_system: 'Schriftsystem',
+  language_fact: 'Sprach-Fakt',
+  etymology: 'Wortherkunft',
+  loanword: 'Lehnwort',
+  grammar_fact: 'Grammatik',
+  phonetics: 'Phonetik',
+  language_curio: 'Sprachkuriosum'
 };
 
 // Deutsche Labels fuer haeufige Attribut-Schluessel (Fallback: Roh-Schluessel).
@@ -111,7 +121,38 @@ const ATTR_LABELS = {
   beissKraftN: 'Beißkraft (N)',
   maxGroesseMm: 'max. Größe (mm)',
   fluegelschlaegeSekunde: 'Flügelschläge/s',
-  migrationsdistanzKm: 'Migrationsdistanz (km)'
+  migrationsdistanzKm: 'Migrationsdistanz (km)',
+  // Lingua (kanonische Keys aus merge_lingua.js)
+  speakersMillionsTotal: 'Sprecher gesamt (Mio.)',
+  speakersMillionsNative: 'Muttersprachler (Mio.)',
+  family: 'Sprachfamilie',
+  script: 'Schrift',
+  scriptType: 'Schrifttyp',
+  countries: 'Länder',
+  officialIn: 'Amtssprache in (Ländern)',
+  languageCount: 'Anzahl Sprachen',
+  mainBranches: 'Hauptzweige',
+  distribution: 'Verbreitung',
+  shareWorldPopulationPercent: 'Anteil Weltbevölkerung (%)',
+  charCount: 'Zeichenanzahl',
+  direction: 'Schreibrichtung',
+  usersMillions: 'Nutzer (Mio.)',
+  languagesUsing: 'Verwendet von',
+  sourceLanguage: 'Herkunftssprache',
+  originalMeaning: 'Ursprüngliche Bedeutung',
+  loanPath: 'Entlehnungsweg',
+  loanEra: 'Entlehnungszeit',
+  meaning: 'Bedeutung',
+  examples: 'Beispiele',
+  language: 'Sprache',
+  speakersMillions: 'Sprecher (Mio.)',
+  inventedYear: 'Erfunden (Jahr)',
+  specialFeature: 'Besonderheit',
+  firstAttestedYear: 'Erstbeleg (Jahr)',
+  caseCount: 'Anzahl Fälle',
+  toneCount: 'Anzahl Töne',
+  founder: 'Begründer',
+  foundedYear: 'Gegründet'
 };
 
 // Diese Freitext-Attribute beschreiben das Konzept so konkret, dass sie vor der

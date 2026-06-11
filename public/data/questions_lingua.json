@@ -1140,12 +1140,924 @@
     "mapTargetId": null
   },
   {
+    "id": "q_lingua_mandarin_lingua-language-total-speakers",
+    "entityId": "lingua:mandarin",
+    "entityType": "language",
+    "type": "lingua-language-total-speakers",
+    "difficulty": 3,
+    "prompt": "Wie viele Menschen sprechen Mandarin (Hochchinesisch) insgesamt (Mutter- und Zweitsprachler)?",
+    "correctAnswer": "1,183 Milliarden",
+    "options": [
+      "1,183 Milliarden",
+      "1,493 Milliarden",
+      "611 Millionen",
+      "561 Millionen"
+    ],
+    "testedAttribute": "speakersMillionsTotal",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_englisch_lingua-language-total-speakers",
+    "entityId": "lingua:englisch",
+    "entityType": "language",
+    "type": "lingua-language-total-speakers",
+    "difficulty": 3,
+    "prompt": "Wie viele Menschen sprechen Englisch insgesamt (Mutter- und Zweitsprachler)?",
+    "correctAnswer": "1,493 Milliarden",
+    "options": [
+      "1,493 Milliarden",
+      "1,183 Milliarden",
+      "611 Millionen",
+      "561 Millionen"
+    ],
+    "testedAttribute": "speakersMillionsTotal",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_spanisch_lingua-language-total-speakers",
+    "entityId": "lingua:spanisch",
+    "entityType": "language",
+    "type": "lingua-language-total-speakers",
+    "difficulty": 3,
+    "prompt": "Wie viele Menschen sprechen Spanisch insgesamt (Mutter- und Zweitsprachler)?",
+    "correctAnswer": "561 Millionen",
+    "options": [
+      "561 Millionen",
+      "611 Millionen",
+      "335 Millionen",
+      "310 Millionen"
+    ],
+    "testedAttribute": "speakersMillionsTotal",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_hindi_lingua-language-total-speakers",
+    "entityId": "lingua:hindi",
+    "entityType": "language",
+    "type": "lingua-language-total-speakers",
+    "difficulty": 3,
+    "prompt": "Wie viele Menschen sprechen Hindi insgesamt (Mutter- und Zweitsprachler)?",
+    "correctAnswer": "611 Millionen",
+    "options": [
+      "611 Millionen",
+      "561 Millionen",
+      "335 Millionen",
+      "310 Millionen"
+    ],
+    "testedAttribute": "speakersMillionsTotal",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_arabisch-sprache_lingua-language-total-speakers",
+    "entityId": "lingua:arabisch-sprache",
+    "entityType": "language",
+    "type": "lingua-language-total-speakers",
+    "difficulty": 3,
+    "prompt": "Wie viele Menschen sprechen Arabisch insgesamt (Mutter- und Zweitsprachler)?",
+    "correctAnswer": "335 Millionen",
+    "options": [
+      "335 Millionen",
+      "310 Millionen",
+      "272 Millionen",
+      "263 Millionen"
+    ],
+    "testedAttribute": "speakersMillionsTotal",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_deutsch-sprache_lingua-language-total-speakers",
+    "entityId": "lingua:deutsch-sprache",
+    "entityType": "language",
+    "type": "lingua-language-total-speakers",
+    "difficulty": 3,
+    "prompt": "Wie viele Menschen sprechen Deutsch insgesamt (Mutter- und Zweitsprachler)?",
+    "correctAnswer": "135 Millionen",
+    "options": [
+      "135 Millionen",
+      "128 Millionen",
+      "125 Millionen",
+      "90 Millionen"
+    ],
+    "testedAttribute": "speakersMillionsTotal",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_franzoesisch_lingua-language-total-speakers",
+    "entityId": "lingua:franzoesisch",
+    "entityType": "language",
+    "type": "lingua-language-total-speakers",
+    "difficulty": 3,
+    "prompt": "Wie viele Menschen sprechen Französisch insgesamt (Mutter- und Zweitsprachler)?",
+    "correctAnswer": "310 Millionen",
+    "options": [
+      "310 Millionen",
+      "335 Millionen",
+      "272 Millionen",
+      "263 Millionen"
+    ],
+    "testedAttribute": "speakersMillionsTotal",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_portugiesisch_lingua-language-total-speakers",
+    "entityId": "lingua:portugiesisch",
+    "entityType": "language",
+    "type": "lingua-language-total-speakers",
+    "difficulty": 3,
+    "prompt": "Wie viele Menschen sprechen Portugiesisch insgesamt (Mutter- und Zweitsprachler)?",
+    "correctAnswer": "263 Millionen",
+    "options": [
+      "263 Millionen",
+      "258 Millionen",
+      "272 Millionen",
+      "310 Millionen"
+    ],
+    "testedAttribute": "speakersMillionsTotal",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_russisch_lingua-language-total-speakers",
+    "entityId": "lingua:russisch",
+    "entityType": "language",
+    "type": "lingua-language-total-speakers",
+    "difficulty": 3,
+    "prompt": "Wie viele Menschen sprechen Russisch insgesamt (Mutter- und Zweitsprachler)?",
+    "correctAnswer": "258 Millionen",
+    "options": [
+      "258 Millionen",
+      "263 Millionen",
+      "272 Millionen",
+      "310 Millionen"
+    ],
+    "testedAttribute": "speakersMillionsTotal",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_japanisch_lingua-language-total-speakers",
+    "entityId": "lingua:japanisch",
+    "entityType": "language",
+    "type": "lingua-language-total-speakers",
+    "difficulty": 3,
+    "prompt": "Wie viele Menschen sprechen Japanisch insgesamt (Mutter- und Zweitsprachler)?",
+    "correctAnswer": "128 Millionen",
+    "options": [
+      "128 Millionen",
+      "125 Millionen",
+      "135 Millionen",
+      "90 Millionen"
+    ],
+    "testedAttribute": "speakersMillionsTotal",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_bengali_lingua-language-total-speakers",
+    "entityId": "lingua:bengali",
+    "entityType": "language",
+    "type": "lingua-language-total-speakers",
+    "difficulty": 3,
+    "prompt": "Wie viele Menschen sprechen Bengali insgesamt (Mutter- und Zweitsprachler)?",
+    "correctAnswer": "272 Millionen",
+    "options": [
+      "272 Millionen",
+      "263 Millionen",
+      "258 Millionen",
+      "310 Millionen"
+    ],
+    "testedAttribute": "speakersMillionsTotal",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_punjabi_lingua-language-total-speakers",
+    "entityId": "lingua:punjabi",
+    "entityType": "language",
+    "type": "lingua-language-total-speakers",
+    "difficulty": 3,
+    "prompt": "Wie viele Menschen sprechen Punjabi insgesamt (Mutter- und Zweitsprachler)?",
+    "correctAnswer": "125 Millionen",
+    "options": [
+      "125 Millionen",
+      "128 Millionen",
+      "135 Millionen",
+      "90 Millionen"
+    ],
+    "testedAttribute": "speakersMillionsTotal",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_suaheli_lingua-language-total-speakers",
+    "entityId": "lingua:suaheli",
+    "entityType": "language",
+    "type": "lingua-language-total-speakers",
+    "difficulty": 3,
+    "prompt": "Wie viele Menschen sprechen Suaheli (Swahili) insgesamt (Mutter- und Zweitsprachler)?",
+    "correctAnswer": "200 Millionen",
+    "options": [
+      "200 Millionen",
+      "258 Millionen",
+      "263 Millionen",
+      "135 Millionen"
+    ],
+    "testedAttribute": "speakersMillionsTotal",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_tuerkisch_lingua-language-total-speakers",
+    "entityId": "lingua:tuerkisch",
+    "entityType": "language",
+    "type": "lingua-language-total-speakers",
+    "difficulty": 3,
+    "prompt": "Wie viele Menschen sprechen Türkisch insgesamt (Mutter- und Zweitsprachler)?",
+    "correctAnswer": "90 Millionen",
+    "options": [
+      "90 Millionen",
+      "82 Millionen",
+      "125 Millionen",
+      "128 Millionen"
+    ],
+    "testedAttribute": "speakersMillionsTotal",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_koreanisch_lingua-language-total-speakers",
+    "entityId": "lingua:koreanisch",
+    "entityType": "language",
+    "type": "lingua-language-total-speakers",
+    "difficulty": 3,
+    "prompt": "Wie viele Menschen sprechen Koreanisch insgesamt (Mutter- und Zweitsprachler)?",
+    "correctAnswer": "82 Millionen",
+    "options": [
+      "82 Millionen",
+      "90 Millionen",
+      "125 Millionen",
+      "128 Millionen"
+    ],
+    "testedAttribute": "speakersMillionsTotal",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_vietnamesisch_lingua-language-total-speakers",
+    "entityId": "lingua:vietnamesisch",
+    "entityType": "language",
+    "type": "lingua-language-total-speakers",
+    "difficulty": 3,
+    "prompt": "Wie viele Menschen sprechen Vietnamesisch insgesamt (Mutter- und Zweitsprachler)?",
+    "correctAnswer": "90 Millionen",
+    "options": [
+      "90 Millionen",
+      "82 Millionen",
+      "125 Millionen",
+      "128 Millionen"
+    ],
+    "testedAttribute": "speakersMillionsTotal",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_mandarin_lingua-language-total-speakers-rev",
+    "entityId": "lingua:mandarin",
+    "entityType": "language",
+    "type": "lingua-language-total-speakers-rev",
+    "difficulty": 4,
+    "prompt": "Welche dieser Sprachen hat insgesamt rund 1,183 Milliarden Sprecher?",
+    "correctAnswer": "Mandarin (Hochchinesisch)",
+    "options": [
+      "Mandarin (Hochchinesisch)",
+      "Englisch",
+      "Spanisch",
+      "Hindi"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_englisch_lingua-language-total-speakers-rev",
+    "entityId": "lingua:englisch",
+    "entityType": "language",
+    "type": "lingua-language-total-speakers-rev",
+    "difficulty": 4,
+    "prompt": "Welche dieser Sprachen hat insgesamt rund 1,493 Milliarden Sprecher?",
+    "correctAnswer": "Englisch",
+    "options": [
+      "Englisch",
+      "Mandarin (Hochchinesisch)",
+      "Spanisch",
+      "Hindi"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_spanisch_lingua-language-total-speakers-rev",
+    "entityId": "lingua:spanisch",
+    "entityType": "language",
+    "type": "lingua-language-total-speakers-rev",
+    "difficulty": 4,
+    "prompt": "Welche dieser Sprachen hat insgesamt rund 561 Millionen Sprecher?",
+    "correctAnswer": "Spanisch",
+    "options": [
+      "Spanisch",
+      "Mandarin (Hochchinesisch)",
+      "Englisch",
+      "Hindi"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_hindi_lingua-language-total-speakers-rev",
+    "entityId": "lingua:hindi",
+    "entityType": "language",
+    "type": "lingua-language-total-speakers-rev",
+    "difficulty": 4,
+    "prompt": "Welche dieser Sprachen hat insgesamt rund 611 Millionen Sprecher?",
+    "correctAnswer": "Hindi",
+    "options": [
+      "Hindi",
+      "Mandarin (Hochchinesisch)",
+      "Englisch",
+      "Spanisch"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_arabisch-sprache_lingua-language-total-speakers-rev",
+    "entityId": "lingua:arabisch-sprache",
+    "entityType": "language",
+    "type": "lingua-language-total-speakers-rev",
+    "difficulty": 4,
+    "prompt": "Welche dieser Sprachen hat insgesamt rund 335 Millionen Sprecher?",
+    "correctAnswer": "Arabisch",
+    "options": [
+      "Arabisch",
+      "Mandarin (Hochchinesisch)",
+      "Englisch",
+      "Spanisch"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_deutsch-sprache_lingua-language-total-speakers-rev",
+    "entityId": "lingua:deutsch-sprache",
+    "entityType": "language",
+    "type": "lingua-language-total-speakers-rev",
+    "difficulty": 4,
+    "prompt": "Welche dieser Sprachen hat insgesamt rund 135 Millionen Sprecher?",
+    "correctAnswer": "Deutsch",
+    "options": [
+      "Deutsch",
+      "Mandarin (Hochchinesisch)",
+      "Englisch",
+      "Spanisch"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_franzoesisch_lingua-language-total-speakers-rev",
+    "entityId": "lingua:franzoesisch",
+    "entityType": "language",
+    "type": "lingua-language-total-speakers-rev",
+    "difficulty": 4,
+    "prompt": "Welche dieser Sprachen hat insgesamt rund 310 Millionen Sprecher?",
+    "correctAnswer": "Französisch",
+    "options": [
+      "Französisch",
+      "Mandarin (Hochchinesisch)",
+      "Englisch",
+      "Spanisch"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_portugiesisch_lingua-language-total-speakers-rev",
+    "entityId": "lingua:portugiesisch",
+    "entityType": "language",
+    "type": "lingua-language-total-speakers-rev",
+    "difficulty": 4,
+    "prompt": "Welche dieser Sprachen hat insgesamt rund 263 Millionen Sprecher?",
+    "correctAnswer": "Portugiesisch",
+    "options": [
+      "Portugiesisch",
+      "Mandarin (Hochchinesisch)",
+      "Englisch",
+      "Spanisch"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_russisch_lingua-language-total-speakers-rev",
+    "entityId": "lingua:russisch",
+    "entityType": "language",
+    "type": "lingua-language-total-speakers-rev",
+    "difficulty": 4,
+    "prompt": "Welche dieser Sprachen hat insgesamt rund 258 Millionen Sprecher?",
+    "correctAnswer": "Russisch",
+    "options": [
+      "Russisch",
+      "Mandarin (Hochchinesisch)",
+      "Englisch",
+      "Spanisch"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_japanisch_lingua-language-total-speakers-rev",
+    "entityId": "lingua:japanisch",
+    "entityType": "language",
+    "type": "lingua-language-total-speakers-rev",
+    "difficulty": 4,
+    "prompt": "Welche dieser Sprachen hat insgesamt rund 128 Millionen Sprecher?",
+    "correctAnswer": "Japanisch",
+    "options": [
+      "Japanisch",
+      "Mandarin (Hochchinesisch)",
+      "Englisch",
+      "Spanisch"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_bengali_lingua-language-total-speakers-rev",
+    "entityId": "lingua:bengali",
+    "entityType": "language",
+    "type": "lingua-language-total-speakers-rev",
+    "difficulty": 4,
+    "prompt": "Welche dieser Sprachen hat insgesamt rund 272 Millionen Sprecher?",
+    "correctAnswer": "Bengali",
+    "options": [
+      "Bengali",
+      "Mandarin (Hochchinesisch)",
+      "Englisch",
+      "Spanisch"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_punjabi_lingua-language-total-speakers-rev",
+    "entityId": "lingua:punjabi",
+    "entityType": "language",
+    "type": "lingua-language-total-speakers-rev",
+    "difficulty": 4,
+    "prompt": "Welche dieser Sprachen hat insgesamt rund 125 Millionen Sprecher?",
+    "correctAnswer": "Punjabi",
+    "options": [
+      "Punjabi",
+      "Mandarin (Hochchinesisch)",
+      "Englisch",
+      "Spanisch"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_suaheli_lingua-language-total-speakers-rev",
+    "entityId": "lingua:suaheli",
+    "entityType": "language",
+    "type": "lingua-language-total-speakers-rev",
+    "difficulty": 4,
+    "prompt": "Welche dieser Sprachen hat insgesamt rund 200 Millionen Sprecher?",
+    "correctAnswer": "Suaheli (Swahili)",
+    "options": [
+      "Suaheli (Swahili)",
+      "Mandarin (Hochchinesisch)",
+      "Englisch",
+      "Spanisch"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_tuerkisch_lingua-language-total-speakers-rev",
+    "entityId": "lingua:tuerkisch",
+    "entityType": "language",
+    "type": "lingua-language-total-speakers-rev",
+    "difficulty": 4,
+    "prompt": "Welche dieser Sprachen hat insgesamt rund 90 Millionen Sprecher?",
+    "correctAnswer": "Türkisch",
+    "options": [
+      "Türkisch",
+      "Mandarin (Hochchinesisch)",
+      "Englisch",
+      "Spanisch"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_koreanisch_lingua-language-total-speakers-rev",
+    "entityId": "lingua:koreanisch",
+    "entityType": "language",
+    "type": "lingua-language-total-speakers-rev",
+    "difficulty": 4,
+    "prompt": "Welche dieser Sprachen hat insgesamt rund 82 Millionen Sprecher?",
+    "correctAnswer": "Koreanisch",
+    "options": [
+      "Koreanisch",
+      "Mandarin (Hochchinesisch)",
+      "Englisch",
+      "Spanisch"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_vietnamesisch_lingua-language-total-speakers-rev",
+    "entityId": "lingua:vietnamesisch",
+    "entityType": "language",
+    "type": "lingua-language-total-speakers-rev",
+    "difficulty": 4,
+    "prompt": "Welche dieser Sprachen hat insgesamt rund 90 Millionen Sprecher?",
+    "correctAnswer": "Vietnamesisch",
+    "options": [
+      "Vietnamesisch",
+      "Mandarin (Hochchinesisch)",
+      "Englisch",
+      "Spanisch"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_mandarin_lingua-language-official-countries-rev",
+    "entityId": "lingua:mandarin",
+    "entityType": "language",
+    "type": "lingua-language-official-countries-rev",
+    "difficulty": 4,
+    "prompt": "Welche dieser Sprachen ist in 3 Ländern Amtssprache?",
+    "correctAnswer": "Mandarin (Hochchinesisch)",
+    "options": [
+      "Mandarin (Hochchinesisch)",
+      "Englisch",
+      "Spanisch",
+      "Arabisch"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_englisch_lingua-language-official-countries-rev",
+    "entityId": "lingua:englisch",
+    "entityType": "language",
+    "type": "lingua-language-official-countries-rev",
+    "difficulty": 4,
+    "prompt": "Welche dieser Sprachen ist in 67 Ländern Amtssprache?",
+    "correctAnswer": "Englisch",
+    "options": [
+      "Englisch",
+      "Mandarin (Hochchinesisch)",
+      "Spanisch",
+      "Hindi"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_spanisch_lingua-language-official-countries-rev",
+    "entityId": "lingua:spanisch",
+    "entityType": "language",
+    "type": "lingua-language-official-countries-rev",
+    "difficulty": 4,
+    "prompt": "Welche dieser Sprachen ist in 20 Ländern Amtssprache?",
+    "correctAnswer": "Spanisch",
+    "options": [
+      "Spanisch",
+      "Mandarin (Hochchinesisch)",
+      "Englisch",
+      "Hindi"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_hindi_lingua-language-official-countries-rev",
+    "entityId": "lingua:hindi",
+    "entityType": "language",
+    "type": "lingua-language-official-countries-rev",
+    "difficulty": 4,
+    "prompt": "Welche dieser Sprachen ist in 3 Ländern Amtssprache?",
+    "correctAnswer": "Hindi",
+    "options": [
+      "Hindi",
+      "Englisch",
+      "Spanisch",
+      "Arabisch"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_arabisch-sprache_lingua-language-official-countries-rev",
+    "entityId": "lingua:arabisch-sprache",
+    "entityType": "language",
+    "type": "lingua-language-official-countries-rev",
+    "difficulty": 4,
+    "prompt": "Welche dieser Sprachen ist in 25 Ländern Amtssprache?",
+    "correctAnswer": "Arabisch",
+    "options": [
+      "Arabisch",
+      "Mandarin (Hochchinesisch)",
+      "Englisch",
+      "Spanisch"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_deutsch-sprache_lingua-language-official-countries-rev",
+    "entityId": "lingua:deutsch-sprache",
+    "entityType": "language",
+    "type": "lingua-language-official-countries-rev",
+    "difficulty": 4,
+    "prompt": "Welche dieser Sprachen ist in 6 Ländern Amtssprache?",
+    "correctAnswer": "Deutsch",
+    "options": [
+      "Deutsch",
+      "Mandarin (Hochchinesisch)",
+      "Spanisch",
+      "Hindi"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_franzoesisch_lingua-language-official-countries-rev",
+    "entityId": "lingua:franzoesisch",
+    "entityType": "language",
+    "type": "lingua-language-official-countries-rev",
+    "difficulty": 4,
+    "prompt": "Welche dieser Sprachen ist in 29 Ländern Amtssprache?",
+    "correctAnswer": "Französisch",
+    "options": [
+      "Französisch",
+      "Mandarin (Hochchinesisch)",
+      "Englisch",
+      "Spanisch"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_portugiesisch_lingua-language-official-countries-rev",
+    "entityId": "lingua:portugiesisch",
+    "entityType": "language",
+    "type": "lingua-language-official-countries-rev",
+    "difficulty": 4,
+    "prompt": "Welche dieser Sprachen ist in 9 Ländern Amtssprache?",
+    "correctAnswer": "Portugiesisch",
+    "options": [
+      "Portugiesisch",
+      "Mandarin (Hochchinesisch)",
+      "Englisch",
+      "Spanisch"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_russisch_lingua-language-official-countries-rev",
+    "entityId": "lingua:russisch",
+    "entityType": "language",
+    "type": "lingua-language-official-countries-rev",
+    "difficulty": 4,
+    "prompt": "Welche dieser Sprachen ist in 4 Ländern Amtssprache?",
+    "correctAnswer": "Russisch",
+    "options": [
+      "Russisch",
+      "Mandarin (Hochchinesisch)",
+      "Englisch",
+      "Spanisch"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_japanisch_lingua-language-official-countries-rev",
+    "entityId": "lingua:japanisch",
+    "entityType": "language",
+    "type": "lingua-language-official-countries-rev",
+    "difficulty": 4,
+    "prompt": "Welche dieser Sprachen ist in 1 Land Amtssprache?",
+    "correctAnswer": "Japanisch",
+    "options": [
+      "Japanisch",
+      "Mandarin (Hochchinesisch)",
+      "Englisch",
+      "Spanisch"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_bengali_lingua-language-official-countries-rev",
+    "entityId": "lingua:bengali",
+    "entityType": "language",
+    "type": "lingua-language-official-countries-rev",
+    "difficulty": 4,
+    "prompt": "Welche dieser Sprachen ist in 2 Ländern Amtssprache?",
+    "correctAnswer": "Bengali",
+    "options": [
+      "Bengali",
+      "Mandarin (Hochchinesisch)",
+      "Englisch",
+      "Hindi"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_punjabi_lingua-language-official-countries-rev",
+    "entityId": "lingua:punjabi",
+    "entityType": "language",
+    "type": "lingua-language-official-countries-rev",
+    "difficulty": 4,
+    "prompt": "Welche dieser Sprachen ist in 2 Ländern Amtssprache?",
+    "correctAnswer": "Punjabi",
+    "options": [
+      "Punjabi",
+      "Mandarin (Hochchinesisch)",
+      "Englisch",
+      "Hindi"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_suaheli_lingua-language-official-countries-rev",
+    "entityId": "lingua:suaheli",
+    "entityType": "language",
+    "type": "lingua-language-official-countries-rev",
+    "difficulty": 4,
+    "prompt": "Welche dieser Sprachen ist in 5 Ländern Amtssprache?",
+    "correctAnswer": "Suaheli (Swahili)",
+    "options": [
+      "Suaheli (Swahili)",
+      "Mandarin (Hochchinesisch)",
+      "Englisch",
+      "Spanisch"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_tuerkisch_lingua-language-official-countries-rev",
+    "entityId": "lingua:tuerkisch",
+    "entityType": "language",
+    "type": "lingua-language-official-countries-rev",
+    "difficulty": 4,
+    "prompt": "Welche dieser Sprachen ist in 2 Ländern Amtssprache?",
+    "correctAnswer": "Türkisch",
+    "options": [
+      "Türkisch",
+      "Mandarin (Hochchinesisch)",
+      "Englisch",
+      "Hindi"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_koreanisch_lingua-language-official-countries-rev",
+    "entityId": "lingua:koreanisch",
+    "entityType": "language",
+    "type": "lingua-language-official-countries-rev",
+    "difficulty": 4,
+    "prompt": "Welche dieser Sprachen ist in 2 Ländern Amtssprache?",
+    "correctAnswer": "Koreanisch",
+    "options": [
+      "Koreanisch",
+      "Mandarin (Hochchinesisch)",
+      "Englisch",
+      "Hindi"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_vietnamesisch_lingua-language-official-countries-rev",
+    "entityId": "lingua:vietnamesisch",
+    "entityType": "language",
+    "type": "lingua-language-official-countries-rev",
+    "difficulty": 4,
+    "prompt": "Welche dieser Sprachen ist in 1 Land Amtssprache?",
+    "correctAnswer": "Vietnamesisch",
+    "options": [
+      "Vietnamesisch",
+      "Mandarin (Hochchinesisch)",
+      "Englisch",
+      "Spanisch"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_lingua_arabisches-alphabet_lingua-script-type",
     "entityId": "lingua:arabisches-alphabet",
     "entityType": "writing_system",
     "type": "lingua-script-type",
     "difficulty": 3,
-    "prompt": "Zu welchem Schrifttyp zählt Arabisches Alphabet?",
+    "prompt": "Zu welchem Schrifttyp zählt „Arabisches Alphabet\"?",
     "correctAnswer": "Abjad",
     "options": [
       "Abjad",
@@ -1164,7 +2076,7 @@
     "entityType": "writing_system",
     "type": "lingua-script-type",
     "difficulty": 3,
-    "prompt": "Zu welchem Schrifttyp zählt Chinesische Schriftzeichen (Hanzi)?",
+    "prompt": "Zu welchem Schrifttyp zählt „Chinesische Schriftzeichen (Hanzi)\"?",
     "correctAnswer": "Logografie",
     "options": [
       "Logografie",
@@ -1183,7 +2095,7 @@
     "entityType": "writing_system",
     "type": "lingua-script-type",
     "difficulty": 3,
-    "prompt": "Zu welchem Schrifttyp zählt Devanagari?",
+    "prompt": "Zu welchem Schrifttyp zählt „Devanagari\"?",
     "correctAnswer": "Abugida",
     "options": [
       "Abugida",
@@ -1202,7 +2114,7 @@
     "entityType": "writing_system",
     "type": "lingua-script-type",
     "difficulty": 3,
-    "prompt": "Zu welchem Schrifttyp zählt Hangul?",
+    "prompt": "Zu welchem Schrifttyp zählt „Hangul\"?",
     "correctAnswer": "Featural Alphabet",
     "options": [
       "Featural Alphabet",
@@ -1221,7 +2133,7 @@
     "entityType": "writing_system",
     "type": "lingua-script-type",
     "difficulty": 3,
-    "prompt": "Zu welchem Schrifttyp zählt Hiragana und Katakana (Japanische Kana)?",
+    "prompt": "Zu welchem Schrifttyp zählt „Hiragana und Katakana (Japanische Kana)\"?",
     "correctAnswer": "Silbenschrift",
     "options": [
       "Silbenschrift",
@@ -1240,7 +2152,7 @@
     "entityType": "writing_system",
     "type": "lingua-script-type",
     "difficulty": 3,
-    "prompt": "Zu welchem Schrifttyp zählt Hebräische Schrift?",
+    "prompt": "Zu welchem Schrifttyp zählt „Hebräische Schrift\"?",
     "correctAnswer": "Abjad",
     "options": [
       "Abjad",
@@ -1259,7 +2171,7 @@
     "entityType": "writing_system",
     "type": "lingua-script-type",
     "difficulty": 3,
-    "prompt": "Zu welchem Schrifttyp zählt Thailändische Schrift?",
+    "prompt": "Zu welchem Schrifttyp zählt „Thailändische Schrift\"?",
     "correctAnswer": "Abugida",
     "options": [
       "Abugida",
@@ -1278,7 +2190,7 @@
     "entityType": "writing_system",
     "type": "lingua-script-type",
     "difficulty": 3,
-    "prompt": "Zu welchem Schrifttyp zählt Brailleschrift?",
+    "prompt": "Zu welchem Schrifttyp zählt „Brailleschrift\"?",
     "correctAnswer": "Taktiles Alphabet",
     "options": [
       "Taktiles Alphabet",
@@ -1297,7 +2209,7 @@
     "entityType": "writing_system",
     "type": "lingua-script-type",
     "difficulty": 3,
-    "prompt": "Zu welchem Schrifttyp zählt Ägyptische Hieroglyphen?",
+    "prompt": "Zu welchem Schrifttyp zählt „Ägyptische Hieroglyphen\"?",
     "correctAnswer": "Logosyllabisches System",
     "options": [
       "Logosyllabisches System",
@@ -1316,7 +2228,7 @@
     "entityType": "writing_system",
     "type": "lingua-script-charcount",
     "difficulty": 3,
-    "prompt": "Wie viele Zeichen umfasst Lateinisches Alphabet?",
+    "prompt": "Wie viele Zeichen umfasst „Lateinisches Alphabet\"?",
     "correctAnswer": "26",
     "options": [
       "26",
@@ -1335,7 +2247,7 @@
     "entityType": "writing_system",
     "type": "lingua-script-charcount",
     "difficulty": 3,
-    "prompt": "Wie viele Zeichen umfasst Kyrillisches Alphabet?",
+    "prompt": "Wie viele Zeichen umfasst „Kyrillisches Alphabet\"?",
     "correctAnswer": "43",
     "options": [
       "43",
@@ -1354,7 +2266,7 @@
     "entityType": "writing_system",
     "type": "lingua-script-charcount",
     "difficulty": 3,
-    "prompt": "Wie viele Zeichen umfasst Arabisches Alphabet?",
+    "prompt": "Wie viele Zeichen umfasst „Arabisches Alphabet\"?",
     "correctAnswer": "28",
     "options": [
       "28",
@@ -1373,7 +2285,7 @@
     "entityType": "writing_system",
     "type": "lingua-script-charcount",
     "difficulty": 3,
-    "prompt": "Wie viele Zeichen umfasst Chinesische Schriftzeichen (Hanzi)?",
+    "prompt": "Wie viele Zeichen umfasst „Chinesische Schriftzeichen (Hanzi)\"?",
     "correctAnswer": "100.000",
     "options": [
       "100.000",
@@ -1392,7 +2304,7 @@
     "entityType": "writing_system",
     "type": "lingua-script-charcount",
     "difficulty": 3,
-    "prompt": "Wie viele Zeichen umfasst Devanagari?",
+    "prompt": "Wie viele Zeichen umfasst „Devanagari\"?",
     "correctAnswer": "48",
     "options": [
       "48",
@@ -1411,7 +2323,7 @@
     "entityType": "writing_system",
     "type": "lingua-script-charcount",
     "difficulty": 3,
-    "prompt": "Wie viele Zeichen umfasst Griechisches Alphabet?",
+    "prompt": "Wie viele Zeichen umfasst „Griechisches Alphabet\"?",
     "correctAnswer": "24",
     "options": [
       "24",
@@ -1430,7 +2342,7 @@
     "entityType": "writing_system",
     "type": "lingua-script-charcount",
     "difficulty": 3,
-    "prompt": "Wie viele Zeichen umfasst Hangul?",
+    "prompt": "Wie viele Zeichen umfasst „Hangul\"?",
     "correctAnswer": "24",
     "options": [
       "24",
@@ -1449,7 +2361,7 @@
     "entityType": "writing_system",
     "type": "lingua-script-charcount",
     "difficulty": 3,
-    "prompt": "Wie viele Zeichen umfasst Hiragana und Katakana (Japanische Kana)?",
+    "prompt": "Wie viele Zeichen umfasst „Hiragana und Katakana (Japanische Kana)\"?",
     "correctAnswer": "46",
     "options": [
       "46",
@@ -1468,7 +2380,7 @@
     "entityType": "writing_system",
     "type": "lingua-script-charcount",
     "difficulty": 3,
-    "prompt": "Wie viele Zeichen umfasst Hebräische Schrift?",
+    "prompt": "Wie viele Zeichen umfasst „Hebräische Schrift\"?",
     "correctAnswer": "22",
     "options": [
       "22",
@@ -1487,7 +2399,7 @@
     "entityType": "writing_system",
     "type": "lingua-script-charcount",
     "difficulty": 3,
-    "prompt": "Wie viele Zeichen umfasst Thailändische Schrift?",
+    "prompt": "Wie viele Zeichen umfasst „Thailändische Schrift\"?",
     "correctAnswer": "44",
     "options": [
       "44",
@@ -1506,7 +2418,7 @@
     "entityType": "writing_system",
     "type": "lingua-script-charcount",
     "difficulty": 3,
-    "prompt": "Wie viele Zeichen umfasst Georgisches Alphabet (Mkhedruli)?",
+    "prompt": "Wie viele Zeichen umfasst „Georgisches Alphabet (Mkhedruli)\"?",
     "correctAnswer": "33",
     "options": [
       "33",
@@ -1525,7 +2437,7 @@
     "entityType": "writing_system",
     "type": "lingua-script-charcount",
     "difficulty": 3,
-    "prompt": "Wie viele Zeichen umfasst Armenisches Alphabet?",
+    "prompt": "Wie viele Zeichen umfasst „Armenisches Alphabet\"?",
     "correctAnswer": "38",
     "options": [
       "38",
@@ -1544,7 +2456,7 @@
     "entityType": "writing_system",
     "type": "lingua-script-charcount",
     "difficulty": 3,
-    "prompt": "Wie viele Zeichen umfasst Brailleschrift?",
+    "prompt": "Wie viele Zeichen umfasst „Brailleschrift\"?",
     "correctAnswer": "64",
     "options": [
       "64",
@@ -1563,7 +2475,7 @@
     "entityType": "writing_system",
     "type": "lingua-script-charcount",
     "difficulty": 3,
-    "prompt": "Wie viele Zeichen umfasst Ägyptische Hieroglyphen?",
+    "prompt": "Wie viele Zeichen umfasst „Ägyptische Hieroglyphen\"?",
     "correctAnswer": "700",
     "options": [
       "700",
@@ -1658,7 +2570,7 @@
     "entityType": "writing_system",
     "type": "lingua-script-users",
     "difficulty": 3,
-    "prompt": "Wie viele Menschen schreiben mit Lateinisches Alphabet?",
+    "prompt": "Wie viele Menschen nutzen die Schrift „Lateinisches Alphabet\"?",
     "correctAnswer": "2,6 Milliarden",
     "options": [
       "2,6 Milliarden",
@@ -1677,7 +2589,7 @@
     "entityType": "writing_system",
     "type": "lingua-script-users",
     "difficulty": 3,
-    "prompt": "Wie viele Menschen schreiben mit Kyrillisches Alphabet?",
+    "prompt": "Wie viele Menschen nutzen die Schrift „Kyrillisches Alphabet\"?",
     "correctAnswer": "250 Millionen",
     "options": [
       "250 Millionen",
@@ -1696,7 +2608,7 @@
     "entityType": "writing_system",
     "type": "lingua-script-users",
     "difficulty": 3,
-    "prompt": "Wie viele Menschen schreiben mit Arabisches Alphabet?",
+    "prompt": "Wie viele Menschen nutzen die Schrift „Arabisches Alphabet\"?",
     "correctAnswer": "660 Millionen",
     "options": [
       "660 Millionen",
@@ -1715,7 +2627,7 @@
     "entityType": "writing_system",
     "type": "lingua-script-users",
     "difficulty": 3,
-    "prompt": "Wie viele Menschen schreiben mit Chinesische Schriftzeichen (Hanzi)?",
+    "prompt": "Wie viele Menschen nutzen die Schrift „Chinesische Schriftzeichen (Hanzi)\"?",
     "correctAnswer": "1,4 Milliarden",
     "options": [
       "1,4 Milliarden",
@@ -1734,7 +2646,7 @@
     "entityType": "writing_system",
     "type": "lingua-script-users",
     "difficulty": 3,
-    "prompt": "Wie viele Menschen schreiben mit Devanagari?",
+    "prompt": "Wie viele Menschen nutzen die Schrift „Devanagari\"?",
     "correctAnswer": "600 Millionen",
     "options": [
       "600 Millionen",
@@ -1753,7 +2665,7 @@
     "entityType": "writing_system",
     "type": "lingua-script-users",
     "difficulty": 3,
-    "prompt": "Wie viele Menschen schreiben mit Griechisches Alphabet?",
+    "prompt": "Wie viele Menschen nutzen die Schrift „Griechisches Alphabet\"?",
     "correctAnswer": "13 Millionen",
     "options": [
       "13 Millionen",
@@ -1772,7 +2684,7 @@
     "entityType": "writing_system",
     "type": "lingua-script-users",
     "difficulty": 3,
-    "prompt": "Wie viele Menschen schreiben mit Hangul?",
+    "prompt": "Wie viele Menschen nutzen die Schrift „Hangul\"?",
     "correctAnswer": "82 Millionen",
     "options": [
       "82 Millionen",
@@ -1791,7 +2703,7 @@
     "entityType": "writing_system",
     "type": "lingua-script-users",
     "difficulty": 3,
-    "prompt": "Wie viele Menschen schreiben mit Hiragana und Katakana (Japanische Kana)?",
+    "prompt": "Wie viele Menschen nutzen die Schrift „Hiragana und Katakana (Japanische Kana)\"?",
     "correctAnswer": "126 Millionen",
     "options": [
       "126 Millionen",
@@ -1810,7 +2722,7 @@
     "entityType": "writing_system",
     "type": "lingua-script-users",
     "difficulty": 3,
-    "prompt": "Wie viele Menschen schreiben mit Hebräische Schrift?",
+    "prompt": "Wie viele Menschen nutzen die Schrift „Hebräische Schrift\"?",
     "correctAnswer": "9 Millionen",
     "options": [
       "9 Millionen",
@@ -1829,7 +2741,7 @@
     "entityType": "writing_system",
     "type": "lingua-script-users",
     "difficulty": 3,
-    "prompt": "Wie viele Menschen schreiben mit Thailändische Schrift?",
+    "prompt": "Wie viele Menschen nutzen die Schrift „Thailändische Schrift\"?",
     "correctAnswer": "60 Millionen",
     "options": [
       "60 Millionen",
@@ -1848,7 +2760,7 @@
     "entityType": "writing_system",
     "type": "lingua-script-users",
     "difficulty": 3,
-    "prompt": "Wie viele Menschen schreiben mit Georgisches Alphabet (Mkhedruli)?",
+    "prompt": "Wie viele Menschen nutzen die Schrift „Georgisches Alphabet (Mkhedruli)\"?",
     "correctAnswer": "4 Millionen",
     "options": [
       "4 Millionen",
@@ -1867,7 +2779,7 @@
     "entityType": "writing_system",
     "type": "lingua-script-users",
     "difficulty": 3,
-    "prompt": "Wie viele Menschen schreiben mit Armenisches Alphabet?",
+    "prompt": "Wie viele Menschen nutzen die Schrift „Armenisches Alphabet\"?",
     "correctAnswer": "6 Millionen",
     "options": [
       "6 Millionen",
@@ -1886,7 +2798,7 @@
     "entityType": "writing_system",
     "type": "lingua-script-users",
     "difficulty": 3,
-    "prompt": "Wie viele Menschen schreiben mit Brailleschrift?",
+    "prompt": "Wie viele Menschen nutzen die Schrift „Brailleschrift\"?",
     "correctAnswer": "2 Millionen",
     "options": [
       "2 Millionen",
@@ -1900,12 +2812,468 @@
     "mapTargetId": null
   },
   {
+    "id": "q_lingua_lateinisches-alphabet_lingua-script-direction",
+    "entityId": "lingua:lateinisches-alphabet",
+    "entityType": "writing_system",
+    "type": "lingua-script-direction",
+    "difficulty": 2,
+    "prompt": "In welche Richtung wird „Lateinisches Alphabet\" hauptsächlich geschrieben?",
+    "correctAnswer": "links nach rechts",
+    "options": [
+      "links nach rechts",
+      "rechts nach links",
+      "oben nach unten",
+      "wechselnd (boustrophedon)"
+    ],
+    "testedAttribute": "direction",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_kyrillisches-alphabet_lingua-script-direction",
+    "entityId": "lingua:kyrillisches-alphabet",
+    "entityType": "writing_system",
+    "type": "lingua-script-direction",
+    "difficulty": 2,
+    "prompt": "In welche Richtung wird „Kyrillisches Alphabet\" hauptsächlich geschrieben?",
+    "correctAnswer": "links nach rechts",
+    "options": [
+      "links nach rechts",
+      "rechts nach links",
+      "oben nach unten",
+      "wechselnd (boustrophedon)"
+    ],
+    "testedAttribute": "direction",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_arabisches-alphabet_lingua-script-direction",
+    "entityId": "lingua:arabisches-alphabet",
+    "entityType": "writing_system",
+    "type": "lingua-script-direction",
+    "difficulty": 2,
+    "prompt": "In welche Richtung wird „Arabisches Alphabet\" hauptsächlich geschrieben?",
+    "correctAnswer": "rechts nach links",
+    "options": [
+      "rechts nach links",
+      "links nach rechts",
+      "oben nach unten",
+      "wechselnd (boustrophedon)"
+    ],
+    "testedAttribute": "direction",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_devanagari_lingua-script-direction",
+    "entityId": "lingua:devanagari",
+    "entityType": "writing_system",
+    "type": "lingua-script-direction",
+    "difficulty": 2,
+    "prompt": "In welche Richtung wird „Devanagari\" hauptsächlich geschrieben?",
+    "correctAnswer": "links nach rechts",
+    "options": [
+      "links nach rechts",
+      "rechts nach links",
+      "oben nach unten",
+      "wechselnd (boustrophedon)"
+    ],
+    "testedAttribute": "direction",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_griechisches-alphabet_lingua-script-direction",
+    "entityId": "lingua:griechisches-alphabet",
+    "entityType": "writing_system",
+    "type": "lingua-script-direction",
+    "difficulty": 2,
+    "prompt": "In welche Richtung wird „Griechisches Alphabet\" hauptsächlich geschrieben?",
+    "correctAnswer": "links nach rechts",
+    "options": [
+      "links nach rechts",
+      "rechts nach links",
+      "oben nach unten",
+      "wechselnd (boustrophedon)"
+    ],
+    "testedAttribute": "direction",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_hebraeische-schrift_lingua-script-direction",
+    "entityId": "lingua:hebraeische-schrift",
+    "entityType": "writing_system",
+    "type": "lingua-script-direction",
+    "difficulty": 2,
+    "prompt": "In welche Richtung wird „Hebräische Schrift\" hauptsächlich geschrieben?",
+    "correctAnswer": "rechts nach links",
+    "options": [
+      "rechts nach links",
+      "links nach rechts",
+      "oben nach unten",
+      "wechselnd (boustrophedon)"
+    ],
+    "testedAttribute": "direction",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_thai-schrift_lingua-script-direction",
+    "entityId": "lingua:thai-schrift",
+    "entityType": "writing_system",
+    "type": "lingua-script-direction",
+    "difficulty": 2,
+    "prompt": "In welche Richtung wird „Thailändische Schrift\" hauptsächlich geschrieben?",
+    "correctAnswer": "links nach rechts",
+    "options": [
+      "links nach rechts",
+      "rechts nach links",
+      "oben nach unten",
+      "wechselnd (boustrophedon)"
+    ],
+    "testedAttribute": "direction",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_georgische-schrift_lingua-script-direction",
+    "entityId": "lingua:georgische-schrift",
+    "entityType": "writing_system",
+    "type": "lingua-script-direction",
+    "difficulty": 2,
+    "prompt": "In welche Richtung wird „Georgisches Alphabet (Mkhedruli)\" hauptsächlich geschrieben?",
+    "correctAnswer": "links nach rechts",
+    "options": [
+      "links nach rechts",
+      "rechts nach links",
+      "oben nach unten",
+      "wechselnd (boustrophedon)"
+    ],
+    "testedAttribute": "direction",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_armenische-schrift_lingua-script-direction",
+    "entityId": "lingua:armenische-schrift",
+    "entityType": "writing_system",
+    "type": "lingua-script-direction",
+    "difficulty": 2,
+    "prompt": "In welche Richtung wird „Armenisches Alphabet\" hauptsächlich geschrieben?",
+    "correctAnswer": "links nach rechts",
+    "options": [
+      "links nach rechts",
+      "rechts nach links",
+      "oben nach unten",
+      "wechselnd (boustrophedon)"
+    ],
+    "testedAttribute": "direction",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_brailleschrift_lingua-script-direction",
+    "entityId": "lingua:brailleschrift",
+    "entityType": "writing_system",
+    "type": "lingua-script-direction",
+    "difficulty": 2,
+    "prompt": "In welche Richtung wird „Brailleschrift\" hauptsächlich geschrieben?",
+    "correctAnswer": "links nach rechts",
+    "options": [
+      "links nach rechts",
+      "rechts nach links",
+      "oben nach unten",
+      "wechselnd (boustrophedon)"
+    ],
+    "testedAttribute": "direction",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_lateinisches-alphabet_lingua-script-charcount-rev",
+    "entityId": "lingua:lateinisches-alphabet",
+    "entityType": "writing_system",
+    "type": "lingua-script-charcount-rev",
+    "difficulty": 4,
+    "prompt": "Welches dieser Schriftsysteme umfasst 26 Zeichen?",
+    "correctAnswer": "Lateinisches Alphabet",
+    "options": [
+      "Lateinisches Alphabet",
+      "Kyrillisches Alphabet",
+      "Arabisches Alphabet",
+      "Chinesische Schriftzeichen (Hanzi)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_kyrillisches-alphabet_lingua-script-charcount-rev",
+    "entityId": "lingua:kyrillisches-alphabet",
+    "entityType": "writing_system",
+    "type": "lingua-script-charcount-rev",
+    "difficulty": 4,
+    "prompt": "Welches dieser Schriftsysteme umfasst 43 Zeichen?",
+    "correctAnswer": "Kyrillisches Alphabet",
+    "options": [
+      "Kyrillisches Alphabet",
+      "Lateinisches Alphabet",
+      "Arabisches Alphabet",
+      "Chinesische Schriftzeichen (Hanzi)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_arabisches-alphabet_lingua-script-charcount-rev",
+    "entityId": "lingua:arabisches-alphabet",
+    "entityType": "writing_system",
+    "type": "lingua-script-charcount-rev",
+    "difficulty": 4,
+    "prompt": "Welches dieser Schriftsysteme umfasst 28 Zeichen?",
+    "correctAnswer": "Arabisches Alphabet",
+    "options": [
+      "Arabisches Alphabet",
+      "Lateinisches Alphabet",
+      "Kyrillisches Alphabet",
+      "Chinesische Schriftzeichen (Hanzi)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_chinesische-schriftzeichen_lingua-script-charcount-rev",
+    "entityId": "lingua:chinesische-schriftzeichen",
+    "entityType": "writing_system",
+    "type": "lingua-script-charcount-rev",
+    "difficulty": 4,
+    "prompt": "Welches dieser Schriftsysteme umfasst 100.000 Zeichen?",
+    "correctAnswer": "Chinesische Schriftzeichen (Hanzi)",
+    "options": [
+      "Chinesische Schriftzeichen (Hanzi)",
+      "Lateinisches Alphabet",
+      "Kyrillisches Alphabet",
+      "Arabisches Alphabet"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_devanagari_lingua-script-charcount-rev",
+    "entityId": "lingua:devanagari",
+    "entityType": "writing_system",
+    "type": "lingua-script-charcount-rev",
+    "difficulty": 4,
+    "prompt": "Welches dieser Schriftsysteme umfasst 48 Zeichen?",
+    "correctAnswer": "Devanagari",
+    "options": [
+      "Devanagari",
+      "Lateinisches Alphabet",
+      "Kyrillisches Alphabet",
+      "Arabisches Alphabet"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_griechisches-alphabet_lingua-script-charcount-rev",
+    "entityId": "lingua:griechisches-alphabet",
+    "entityType": "writing_system",
+    "type": "lingua-script-charcount-rev",
+    "difficulty": 4,
+    "prompt": "Welches dieser Schriftsysteme umfasst 24 Zeichen?",
+    "correctAnswer": "Griechisches Alphabet",
+    "options": [
+      "Griechisches Alphabet",
+      "Lateinisches Alphabet",
+      "Kyrillisches Alphabet",
+      "Arabisches Alphabet"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_hangul_lingua-script-charcount-rev",
+    "entityId": "lingua:hangul",
+    "entityType": "writing_system",
+    "type": "lingua-script-charcount-rev",
+    "difficulty": 4,
+    "prompt": "Welches dieser Schriftsysteme umfasst 24 Zeichen?",
+    "correctAnswer": "Hangul",
+    "options": [
+      "Hangul",
+      "Lateinisches Alphabet",
+      "Kyrillisches Alphabet",
+      "Arabisches Alphabet"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_hiragana-katakana_lingua-script-charcount-rev",
+    "entityId": "lingua:hiragana-katakana",
+    "entityType": "writing_system",
+    "type": "lingua-script-charcount-rev",
+    "difficulty": 4,
+    "prompt": "Welches dieser Schriftsysteme umfasst 46 Zeichen?",
+    "correctAnswer": "Hiragana und Katakana (Japanische Kana)",
+    "options": [
+      "Hiragana und Katakana (Japanische Kana)",
+      "Lateinisches Alphabet",
+      "Kyrillisches Alphabet",
+      "Arabisches Alphabet"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_hebraeische-schrift_lingua-script-charcount-rev",
+    "entityId": "lingua:hebraeische-schrift",
+    "entityType": "writing_system",
+    "type": "lingua-script-charcount-rev",
+    "difficulty": 4,
+    "prompt": "Welches dieser Schriftsysteme umfasst 22 Zeichen?",
+    "correctAnswer": "Hebräische Schrift",
+    "options": [
+      "Hebräische Schrift",
+      "Lateinisches Alphabet",
+      "Kyrillisches Alphabet",
+      "Arabisches Alphabet"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_thai-schrift_lingua-script-charcount-rev",
+    "entityId": "lingua:thai-schrift",
+    "entityType": "writing_system",
+    "type": "lingua-script-charcount-rev",
+    "difficulty": 4,
+    "prompt": "Welches dieser Schriftsysteme umfasst 44 Zeichen?",
+    "correctAnswer": "Thailändische Schrift",
+    "options": [
+      "Thailändische Schrift",
+      "Lateinisches Alphabet",
+      "Kyrillisches Alphabet",
+      "Arabisches Alphabet"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_georgische-schrift_lingua-script-charcount-rev",
+    "entityId": "lingua:georgische-schrift",
+    "entityType": "writing_system",
+    "type": "lingua-script-charcount-rev",
+    "difficulty": 4,
+    "prompt": "Welches dieser Schriftsysteme umfasst 33 Zeichen?",
+    "correctAnswer": "Georgisches Alphabet (Mkhedruli)",
+    "options": [
+      "Georgisches Alphabet (Mkhedruli)",
+      "Lateinisches Alphabet",
+      "Kyrillisches Alphabet",
+      "Arabisches Alphabet"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_armenische-schrift_lingua-script-charcount-rev",
+    "entityId": "lingua:armenische-schrift",
+    "entityType": "writing_system",
+    "type": "lingua-script-charcount-rev",
+    "difficulty": 4,
+    "prompt": "Welches dieser Schriftsysteme umfasst 38 Zeichen?",
+    "correctAnswer": "Armenisches Alphabet",
+    "options": [
+      "Armenisches Alphabet",
+      "Lateinisches Alphabet",
+      "Kyrillisches Alphabet",
+      "Arabisches Alphabet"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_brailleschrift_lingua-script-charcount-rev",
+    "entityId": "lingua:brailleschrift",
+    "entityType": "writing_system",
+    "type": "lingua-script-charcount-rev",
+    "difficulty": 4,
+    "prompt": "Welches dieser Schriftsysteme umfasst 64 Zeichen?",
+    "correctAnswer": "Brailleschrift",
+    "options": [
+      "Brailleschrift",
+      "Lateinisches Alphabet",
+      "Kyrillisches Alphabet",
+      "Arabisches Alphabet"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_aegyptische-hieroglyphen_lingua-script-charcount-rev",
+    "entityId": "lingua:aegyptische-hieroglyphen",
+    "entityType": "writing_system",
+    "type": "lingua-script-charcount-rev",
+    "difficulty": 4,
+    "prompt": "Welches dieser Schriftsysteme umfasst 700 Zeichen?",
+    "correctAnswer": "Ägyptische Hieroglyphen",
+    "options": [
+      "Ägyptische Hieroglyphen",
+      "Lateinisches Alphabet",
+      "Kyrillisches Alphabet",
+      "Arabisches Alphabet"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_lingua_indogermanisch_lingua-family-speakers",
     "entityId": "lingua:indogermanisch",
     "entityType": "language_family",
     "type": "lingua-family-speakers",
     "difficulty": 3,
-    "prompt": "Wie viele Sprecher entfallen weltweit auf „Indogermanische Sprachfamilie“?",
+    "prompt": "Wie viele Muttersprachler hat die Indogermanische Sprachfamilie?",
     "correctAnswer": "3,4 Milliarden",
     "options": [
       "3,4 Milliarden",
@@ -1924,7 +3292,7 @@
     "entityType": "language_family",
     "type": "lingua-family-speakers",
     "difficulty": 3,
-    "prompt": "Wie viele Sprecher entfallen weltweit auf „Sinotibetische Sprachfamilie“?",
+    "prompt": "Wie viele Muttersprachler hat die Sinotibetische Sprachfamilie?",
     "correctAnswer": "1,4 Milliarden",
     "options": [
       "1,4 Milliarden",
@@ -1943,7 +3311,7 @@
     "entityType": "language_family",
     "type": "lingua-family-speakers",
     "difficulty": 3,
-    "prompt": "Wie viele Sprecher entfallen weltweit auf „Afroasiatische Sprachfamilie“?",
+    "prompt": "Wie viele Muttersprachler hat die Afroasiatische Sprachfamilie?",
     "correctAnswer": "630 Millionen",
     "options": [
       "630 Millionen",
@@ -1962,7 +3330,7 @@
     "entityType": "language_family",
     "type": "lingua-family-speakers",
     "difficulty": 3,
-    "prompt": "Wie viele Sprecher entfallen weltweit auf „Niger-Kongo-Sprachfamilie“?",
+    "prompt": "Wie viele Muttersprachler hat die Niger-Kongo-Sprachfamilie?",
     "correctAnswer": "600 Millionen",
     "options": [
       "600 Millionen",
@@ -1981,7 +3349,7 @@
     "entityType": "language_family",
     "type": "lingua-family-speakers",
     "difficulty": 3,
-    "prompt": "Wie viele Sprecher entfallen weltweit auf „Austronesische Sprachfamilie“?",
+    "prompt": "Wie viele Muttersprachler hat die Austronesische Sprachfamilie?",
     "correctAnswer": "386 Millionen",
     "options": [
       "386 Millionen",
@@ -2000,7 +3368,7 @@
     "entityType": "language_family",
     "type": "lingua-family-speakers",
     "difficulty": 3,
-    "prompt": "Wie viele Sprecher entfallen weltweit auf „Dravidische Sprachfamilie“?",
+    "prompt": "Wie viele Muttersprachler hat die Dravidische Sprachfamilie?",
     "correctAnswer": "250 Millionen",
     "options": [
       "250 Millionen",
@@ -2019,7 +3387,7 @@
     "entityType": "language_family",
     "type": "lingua-family-speakers",
     "difficulty": 3,
-    "prompt": "Wie viele Sprecher entfallen weltweit auf „Turksprachen“?",
+    "prompt": "Wie viele Muttersprachler hat die Turksprachen?",
     "correctAnswer": "200 Millionen",
     "options": [
       "200 Millionen",
@@ -2038,7 +3406,7 @@
     "entityType": "language_family",
     "type": "lingua-family-speakers",
     "difficulty": 3,
-    "prompt": "Wie viele Sprecher entfallen weltweit auf „Uralische Sprachfamilie“?",
+    "prompt": "Wie viele Muttersprachler hat die Uralische Sprachfamilie?",
     "correctAnswer": "25 Millionen",
     "options": [
       "25 Millionen",
@@ -2057,7 +3425,7 @@
     "entityType": "language_family",
     "type": "lingua-family-speakers",
     "difficulty": 3,
-    "prompt": "Wie viele Sprecher entfallen weltweit auf „Japanische Sprachfamilie (Japonisch)“?",
+    "prompt": "Wie viele Muttersprachler hat die Japanische Sprachfamilie (Japonisch)?",
     "correctAnswer": "128 Millionen",
     "options": [
       "128 Millionen",
@@ -2076,7 +3444,7 @@
     "entityType": "language_family",
     "type": "lingua-family-speakers",
     "difficulty": 3,
-    "prompt": "Wie viele Sprecher entfallen weltweit auf „Bantusprachen“?",
+    "prompt": "Wie viele Muttersprachler hat die Bantusprachen?",
     "correctAnswer": "350 Millionen",
     "options": [
       "350 Millionen",
@@ -2095,7 +3463,7 @@
     "entityType": "language_family",
     "type": "lingua-family-languagecount",
     "difficulty": 4,
-    "prompt": "Wie viele Einzelsprachen gehören zu „Indogermanische Sprachfamilie“?",
+    "prompt": "Wie viele Einzelsprachen gehören zu „Indogermanische Sprachfamilie\"?",
     "correctAnswer": "446",
     "options": [
       "446",
@@ -2114,7 +3482,7 @@
     "entityType": "language_family",
     "type": "lingua-family-languagecount",
     "difficulty": 4,
-    "prompt": "Wie viele Einzelsprachen gehören zu „Sinotibetische Sprachfamilie“?",
+    "prompt": "Wie viele Einzelsprachen gehören zu „Sinotibetische Sprachfamilie\"?",
     "correctAnswer": "400",
     "options": [
       "400",
@@ -2133,7 +3501,7 @@
     "entityType": "language_family",
     "type": "lingua-family-languagecount",
     "difficulty": 4,
-    "prompt": "Wie viele Einzelsprachen gehören zu „Afroasiatische Sprachfamilie“?",
+    "prompt": "Wie viele Einzelsprachen gehören zu „Afroasiatische Sprachfamilie\"?",
     "correctAnswer": "400",
     "options": [
       "400",
@@ -2152,7 +3520,7 @@
     "entityType": "language_family",
     "type": "lingua-family-languagecount",
     "difficulty": 4,
-    "prompt": "Wie viele Einzelsprachen gehören zu „Niger-Kongo-Sprachfamilie“?",
+    "prompt": "Wie viele Einzelsprachen gehören zu „Niger-Kongo-Sprachfamilie\"?",
     "correctAnswer": "1.540",
     "options": [
       "1.540",
@@ -2171,7 +3539,7 @@
     "entityType": "language_family",
     "type": "lingua-family-languagecount",
     "difficulty": 4,
-    "prompt": "Wie viele Einzelsprachen gehören zu „Austronesische Sprachfamilie“?",
+    "prompt": "Wie viele Einzelsprachen gehören zu „Austronesische Sprachfamilie\"?",
     "correctAnswer": "1.257",
     "options": [
       "1.257",
@@ -2190,7 +3558,7 @@
     "entityType": "language_family",
     "type": "lingua-family-languagecount",
     "difficulty": 4,
-    "prompt": "Wie viele Einzelsprachen gehören zu „Dravidische Sprachfamilie“?",
+    "prompt": "Wie viele Einzelsprachen gehören zu „Dravidische Sprachfamilie\"?",
     "correctAnswer": "80",
     "options": [
       "80",
@@ -2209,7 +3577,7 @@
     "entityType": "language_family",
     "type": "lingua-family-languagecount",
     "difficulty": 4,
-    "prompt": "Wie viele Einzelsprachen gehören zu „Turksprachen“?",
+    "prompt": "Wie viele Einzelsprachen gehören zu „Turksprachen\"?",
     "correctAnswer": "35",
     "options": [
       "35",
@@ -2228,7 +3596,7 @@
     "entityType": "language_family",
     "type": "lingua-family-languagecount",
     "difficulty": 4,
-    "prompt": "Wie viele Einzelsprachen gehören zu „Uralische Sprachfamilie“?",
+    "prompt": "Wie viele Einzelsprachen gehören zu „Uralische Sprachfamilie\"?",
     "correctAnswer": "38",
     "options": [
       "38",
@@ -2247,7 +3615,7 @@
     "entityType": "language_family",
     "type": "lingua-family-languagecount",
     "difficulty": 4,
-    "prompt": "Wie viele Einzelsprachen gehören zu „Japanische Sprachfamilie (Japonisch)“?",
+    "prompt": "Wie viele Einzelsprachen gehören zu „Japanische Sprachfamilie (Japonisch)\"?",
     "correctAnswer": "5",
     "options": [
       "5",
@@ -2266,7 +3634,7 @@
     "entityType": "language_family",
     "type": "lingua-family-languagecount",
     "difficulty": 4,
-    "prompt": "Wie viele Einzelsprachen gehören zu „Bantusprachen“?",
+    "prompt": "Wie viele Einzelsprachen gehören zu „Bantusprachen\"?",
     "correctAnswer": "500",
     "options": [
       "500",
@@ -2280,12 +3648,487 @@
     "mapTargetId": null
   },
   {
+    "id": "q_lingua_indogermanisch_lingua-family-world-share",
+    "entityId": "lingua:indogermanisch",
+    "entityType": "language_family",
+    "type": "lingua-family-world-share",
+    "difficulty": 4,
+    "prompt": "Welchen Anteil der Weltbevölkerung stellen Muttersprachler der Indogermanischen Sprachfamilie?",
+    "correctAnswer": "42 %",
+    "options": [
+      "42 %",
+      "17 %",
+      "8 %",
+      "7 %"
+    ],
+    "testedAttribute": "shareWorldPopulationPercent",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_sinotibetisch_lingua-family-world-share",
+    "entityId": "lingua:sinotibetisch",
+    "entityType": "language_family",
+    "type": "lingua-family-world-share",
+    "difficulty": 4,
+    "prompt": "Welchen Anteil der Weltbevölkerung stellen Muttersprachler der Sinotibetischen Sprachfamilie?",
+    "correctAnswer": "17 %",
+    "options": [
+      "17 %",
+      "8 %",
+      "7 %",
+      "4 %"
+    ],
+    "testedAttribute": "shareWorldPopulationPercent",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_afroasiatisch_lingua-family-world-share",
+    "entityId": "lingua:afroasiatisch",
+    "entityType": "language_family",
+    "type": "lingua-family-world-share",
+    "difficulty": 4,
+    "prompt": "Welchen Anteil der Weltbevölkerung stellen Muttersprachler der Afroasiatischen Sprachfamilie?",
+    "correctAnswer": "8 %",
+    "options": [
+      "8 %",
+      "7 %",
+      "4 %",
+      "3 %"
+    ],
+    "testedAttribute": "shareWorldPopulationPercent",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_niger-kongo_lingua-family-world-share",
+    "entityId": "lingua:niger-kongo",
+    "entityType": "language_family",
+    "type": "lingua-family-world-share",
+    "difficulty": 4,
+    "prompt": "Welchen Anteil der Weltbevölkerung stellen Muttersprachler der Niger-Kongo-Sprachfamilie?",
+    "correctAnswer": "7 %",
+    "options": [
+      "7 %",
+      "8 %",
+      "4 %",
+      "3 %"
+    ],
+    "testedAttribute": "shareWorldPopulationPercent",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_austronesisch_lingua-family-world-share",
+    "entityId": "lingua:austronesisch",
+    "entityType": "language_family",
+    "type": "lingua-family-world-share",
+    "difficulty": 4,
+    "prompt": "Welchen Anteil der Weltbevölkerung stellen Muttersprachler der Austronesischen Sprachfamilie?",
+    "correctAnswer": "4 %",
+    "options": [
+      "4 %",
+      "3 %",
+      "1,6 %",
+      "7 %"
+    ],
+    "testedAttribute": "shareWorldPopulationPercent",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_dravidisch_lingua-family-world-share",
+    "entityId": "lingua:dravidisch",
+    "entityType": "language_family",
+    "type": "lingua-family-world-share",
+    "difficulty": 4,
+    "prompt": "Welchen Anteil der Weltbevölkerung stellen Muttersprachler der Dravidischen Sprachfamilie?",
+    "correctAnswer": "3 %",
+    "options": [
+      "3 %",
+      "4 %",
+      "1,6 %",
+      "0,3 %"
+    ],
+    "testedAttribute": "shareWorldPopulationPercent",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_turksprachen_lingua-family-world-share",
+    "entityId": "lingua:turksprachen",
+    "entityType": "language_family",
+    "type": "lingua-family-world-share",
+    "difficulty": 4,
+    "prompt": "Welchen Anteil der Weltbevölkerung stellen Muttersprachler der Turksprachen?",
+    "correctAnswer": "3 %",
+    "options": [
+      "3 %",
+      "4 %",
+      "1,6 %",
+      "0,3 %"
+    ],
+    "testedAttribute": "shareWorldPopulationPercent",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_uralisch_lingua-family-world-share",
+    "entityId": "lingua:uralisch",
+    "entityType": "language_family",
+    "type": "lingua-family-world-share",
+    "difficulty": 4,
+    "prompt": "Welchen Anteil der Weltbevölkerung stellen Muttersprachler der Uralischen Sprachfamilie?",
+    "correctAnswer": "0,3 %",
+    "options": [
+      "0,3 %",
+      "1,6 %",
+      "3 %",
+      "4 %"
+    ],
+    "testedAttribute": "shareWorldPopulationPercent",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_japonisch_lingua-family-world-share",
+    "entityId": "lingua:japonisch",
+    "entityType": "language_family",
+    "type": "lingua-family-world-share",
+    "difficulty": 4,
+    "prompt": "Welchen Anteil der Weltbevölkerung stellen Muttersprachler der Japanische Sprachfamilie (Japonisch)?",
+    "correctAnswer": "1,6 %",
+    "options": [
+      "1,6 %",
+      "0,3 %",
+      "3 %",
+      "4 %"
+    ],
+    "testedAttribute": "shareWorldPopulationPercent",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_bantusprachen_lingua-family-world-share",
+    "entityId": "lingua:bantusprachen",
+    "entityType": "language_family",
+    "type": "lingua-family-world-share",
+    "difficulty": 4,
+    "prompt": "Welchen Anteil der Weltbevölkerung stellen Muttersprachler der Bantusprachen?",
+    "correctAnswer": "4 %",
+    "options": [
+      "4 %",
+      "3 %",
+      "1,6 %",
+      "7 %"
+    ],
+    "testedAttribute": "shareWorldPopulationPercent",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_indogermanisch_lingua-family-distribution",
+    "entityId": "lingua:indogermanisch",
+    "entityType": "language_family",
+    "type": "lingua-family-distribution",
+    "difficulty": 3,
+    "prompt": "Wo ist die Indogermanische Sprachfamilie hauptsächlich verbreitet?",
+    "correctAnswer": "Europa, Südasien, Amerika, Ozeanien",
+    "options": [
+      "Europa, Südasien, Amerika, Ozeanien",
+      "China, Himalaya, Südostasien",
+      "Nordafrika, Horn von Afrika, Naher Osten",
+      "Subsahara-Afrika (West, Zentral, Süd, Ost)"
+    ],
+    "testedAttribute": "distribution",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_sinotibetisch_lingua-family-distribution",
+    "entityId": "lingua:sinotibetisch",
+    "entityType": "language_family",
+    "type": "lingua-family-distribution",
+    "difficulty": 3,
+    "prompt": "Wo ist die Sinotibetische Sprachfamilie hauptsächlich verbreitet?",
+    "correctAnswer": "China, Himalaya, Südostasien",
+    "options": [
+      "China, Himalaya, Südostasien",
+      "Europa, Südasien, Amerika, Ozeanien",
+      "Nordafrika, Horn von Afrika, Naher Osten",
+      "Subsahara-Afrika (West, Zentral, Süd, Ost)"
+    ],
+    "testedAttribute": "distribution",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_afroasiatisch_lingua-family-distribution",
+    "entityId": "lingua:afroasiatisch",
+    "entityType": "language_family",
+    "type": "lingua-family-distribution",
+    "difficulty": 3,
+    "prompt": "Wo ist die Afroasiatische Sprachfamilie hauptsächlich verbreitet?",
+    "correctAnswer": "Nordafrika, Horn von Afrika, Naher Osten",
+    "options": [
+      "Nordafrika, Horn von Afrika, Naher Osten",
+      "Europa, Südasien, Amerika, Ozeanien",
+      "China, Himalaya, Südostasien",
+      "Subsahara-Afrika (West, Zentral, Süd, Ost)"
+    ],
+    "testedAttribute": "distribution",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_niger-kongo_lingua-family-distribution",
+    "entityId": "lingua:niger-kongo",
+    "entityType": "language_family",
+    "type": "lingua-family-distribution",
+    "difficulty": 3,
+    "prompt": "Wo ist die Niger-Kongo-Sprachfamilie hauptsächlich verbreitet?",
+    "correctAnswer": "Subsahara-Afrika (West, Zentral, Süd, Ost)",
+    "options": [
+      "Subsahara-Afrika (West, Zentral, Süd, Ost)",
+      "Europa, Südasien, Amerika, Ozeanien",
+      "China, Himalaya, Südostasien",
+      "Nordafrika, Horn von Afrika, Naher Osten"
+    ],
+    "testedAttribute": "distribution",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_austronesisch_lingua-family-distribution",
+    "entityId": "lingua:austronesisch",
+    "entityType": "language_family",
+    "type": "lingua-family-distribution",
+    "difficulty": 3,
+    "prompt": "Wo ist die Austronesische Sprachfamilie hauptsächlich verbreitet?",
+    "correctAnswer": "Südostasien, Pazifik, Madagaskar",
+    "options": [
+      "Südostasien, Pazifik, Madagaskar",
+      "Europa, Südasien, Amerika, Ozeanien",
+      "China, Himalaya, Südostasien",
+      "Nordafrika, Horn von Afrika, Naher Osten"
+    ],
+    "testedAttribute": "distribution",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_dravidisch_lingua-family-distribution",
+    "entityId": "lingua:dravidisch",
+    "entityType": "language_family",
+    "type": "lingua-family-distribution",
+    "difficulty": 3,
+    "prompt": "Wo ist die Dravidische Sprachfamilie hauptsächlich verbreitet?",
+    "correctAnswer": "Südindien, Sri Lanka, Pakistan (Brahui)",
+    "options": [
+      "Südindien, Sri Lanka, Pakistan (Brahui)",
+      "Europa, Südasien, Amerika, Ozeanien",
+      "China, Himalaya, Südostasien",
+      "Nordafrika, Horn von Afrika, Naher Osten"
+    ],
+    "testedAttribute": "distribution",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_turksprachen_lingua-family-distribution",
+    "entityId": "lingua:turksprachen",
+    "entityType": "language_family",
+    "type": "lingua-family-distribution",
+    "difficulty": 3,
+    "prompt": "Wo ist die Turksprachen hauptsächlich verbreitet?",
+    "correctAnswer": "Türkei, Zentralasien, Russland (Tatarstan, Jakutien), China (Xinjiang)",
+    "options": [
+      "Türkei, Zentralasien, Russland (Tatarstan, Jakutien), China (Xinjiang)",
+      "Europa, Südasien, Amerika, Ozeanien",
+      "China, Himalaya, Südostasien",
+      "Nordafrika, Horn von Afrika, Naher Osten"
+    ],
+    "testedAttribute": "distribution",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_uralisch_lingua-family-distribution",
+    "entityId": "lingua:uralisch",
+    "entityType": "language_family",
+    "type": "lingua-family-distribution",
+    "difficulty": 3,
+    "prompt": "Wo ist die Uralische Sprachfamilie hauptsächlich verbreitet?",
+    "correctAnswer": "Nordeuropa, Ungarn, Sibirien",
+    "options": [
+      "Nordeuropa, Ungarn, Sibirien",
+      "Europa, Südasien, Amerika, Ozeanien",
+      "China, Himalaya, Südostasien",
+      "Nordafrika, Horn von Afrika, Naher Osten"
+    ],
+    "testedAttribute": "distribution",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_bantusprachen_lingua-family-distribution",
+    "entityId": "lingua:bantusprachen",
+    "entityType": "language_family",
+    "type": "lingua-family-distribution",
+    "difficulty": 3,
+    "prompt": "Wo ist die Bantusprachen hauptsächlich verbreitet?",
+    "correctAnswer": "Zentral-, Ost- und Südafrika",
+    "options": [
+      "Zentral-, Ost- und Südafrika",
+      "Europa, Südasien, Amerika, Ozeanien",
+      "China, Himalaya, Südostasien",
+      "Nordafrika, Horn von Afrika, Naher Osten"
+    ],
+    "testedAttribute": "distribution",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_afroasiatisch_lingua-family-main-branches",
+    "entityId": "lingua:afroasiatisch",
+    "entityType": "language_family",
+    "type": "lingua-family-main-branches",
+    "difficulty": 3,
+    "prompt": "Welche Hauptzweige gehören zur Afroasiatischen Sprachfamilie?",
+    "correctAnswer": "Semitisch, Berberisch, Kuschitisch, Tschadisch",
+    "options": [
+      "Semitisch, Berberisch, Kuschitisch, Tschadisch",
+      "Germanisch, Romanisch, Slawisch, Indo-Iranisch, Keltisch",
+      "Sinitisch (Chinesisch), Tibetisch, Birmanisch",
+      "Bantu, Mande, Atlantisch-Kongo"
+    ],
+    "testedAttribute": "mainBranches",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_austronesisch_lingua-family-main-branches",
+    "entityId": "lingua:austronesisch",
+    "entityType": "language_family",
+    "type": "lingua-family-main-branches",
+    "difficulty": 3,
+    "prompt": "Welche Hauptzweige gehören zur Austronesischen Sprachfamilie?",
+    "correctAnswer": "Malayo-Polynesisch, Formosanisch",
+    "options": [
+      "Malayo-Polynesisch, Formosanisch",
+      "Germanisch, Romanisch, Slawisch, Indo-Iranisch, Keltisch",
+      "Sinitisch (Chinesisch), Tibetisch, Birmanisch",
+      "Semitisch, Berberisch, Kuschitisch, Tschadisch"
+    ],
+    "testedAttribute": "mainBranches",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_dravidisch_lingua-family-main-branches",
+    "entityId": "lingua:dravidisch",
+    "entityType": "language_family",
+    "type": "lingua-family-main-branches",
+    "difficulty": 3,
+    "prompt": "Welche Hauptzweige gehören zur Dravidischen Sprachfamilie?",
+    "correctAnswer": "Südlich (Tamil, Malayalam), Zentraldravidisch (Telugu, Kannada)",
+    "options": [
+      "Südlich (Tamil, Malayalam), Zentraldravidisch (Telugu, Kannada)",
+      "Germanisch, Romanisch, Slawisch, Indo-Iranisch, Keltisch",
+      "Sinitisch (Chinesisch), Tibetisch, Birmanisch",
+      "Semitisch, Berberisch, Kuschitisch, Tschadisch"
+    ],
+    "testedAttribute": "mainBranches",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_turksprachen_lingua-family-main-branches",
+    "entityId": "lingua:turksprachen",
+    "entityType": "language_family",
+    "type": "lingua-family-main-branches",
+    "difficulty": 3,
+    "prompt": "Welche Hauptzweige gehören zur Turksprachen?",
+    "correctAnswer": "Türkisch, Aserbaidschanisch, Usbekisch, Kasachisch, Uigurisch",
+    "options": [
+      "Türkisch, Aserbaidschanisch, Usbekisch, Kasachisch, Uigurisch",
+      "Germanisch, Romanisch, Slawisch, Indo-Iranisch, Keltisch",
+      "Sinitisch (Chinesisch), Tibetisch, Birmanisch",
+      "Semitisch, Berberisch, Kuschitisch, Tschadisch"
+    ],
+    "testedAttribute": "mainBranches",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_uralisch_lingua-family-main-branches",
+    "entityId": "lingua:uralisch",
+    "entityType": "language_family",
+    "type": "lingua-family-main-branches",
+    "difficulty": 3,
+    "prompt": "Welche Hauptzweige gehören zur Uralischen Sprachfamilie?",
+    "correctAnswer": "Finno-Ugrisch (Finnisch, Ungarisch, Estnisch, Samisch), Samojedisch",
+    "options": [
+      "Finno-Ugrisch (Finnisch, Ungarisch, Estnisch, Samisch), Samojedisch",
+      "Germanisch, Romanisch, Slawisch, Indo-Iranisch, Keltisch",
+      "Sinitisch (Chinesisch), Tibetisch, Birmanisch",
+      "Semitisch, Berberisch, Kuschitisch, Tschadisch"
+    ],
+    "testedAttribute": "mainBranches",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_bantusprachen_lingua-family-main-branches",
+    "entityId": "lingua:bantusprachen",
+    "entityType": "language_family",
+    "type": "lingua-family-main-branches",
+    "difficulty": 3,
+    "prompt": "Welche Hauptzweige gehören zur Bantusprachen?",
+    "correctAnswer": "Suaheli, Zulu, Xhosa, Ganda, Lingala, Shona",
+    "options": [
+      "Suaheli, Zulu, Xhosa, Ganda, Lingala, Shona",
+      "Germanisch, Romanisch, Slawisch, Indo-Iranisch, Keltisch",
+      "Sinitisch (Chinesisch), Tibetisch, Birmanisch",
+      "Semitisch, Berberisch, Kuschitisch, Tschadisch"
+    ],
+    "testedAttribute": "mainBranches",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_lingua_etymologie-alkohol_lingua-etymology-source",
     "entityId": "lingua:etymologie-alkohol",
     "entityType": "etymology",
     "type": "lingua-etymology-source",
     "difficulty": 3,
-    "prompt": "Aus welcher Sprache stammt das Wort „Alkohol“?",
+    "prompt": "Aus welcher Sprache stammt das Wort „Alkohol\"?",
     "correctAnswer": "Arabisch",
     "options": [
       "Arabisch",
@@ -2304,7 +4147,7 @@
     "entityType": "etymology",
     "type": "lingua-etymology-source",
     "difficulty": 3,
-    "prompt": "Aus welcher Sprache stammt das Wort „Roboter“?",
+    "prompt": "Aus welcher Sprache stammt das Wort „Roboter\"?",
     "correctAnswer": "Tschechisch / Altslawisch",
     "options": [
       "Tschechisch / Altslawisch",
@@ -2323,7 +4166,7 @@
     "entityType": "etymology",
     "type": "lingua-etymology-source",
     "difficulty": 3,
-    "prompt": "Aus welcher Sprache stammt das Wort „Tabu“?",
+    "prompt": "Aus welcher Sprache stammt das Wort „Tabu\"?",
     "correctAnswer": "Polynesisch (Tongaisch)",
     "options": [
       "Polynesisch (Tongaisch)",
@@ -2342,7 +4185,7 @@
     "entityType": "etymology",
     "type": "lingua-etymology-source",
     "difficulty": 3,
-    "prompt": "Aus welcher Sprache stammt das Wort „Schokolade“?",
+    "prompt": "Aus welcher Sprache stammt das Wort „Schokolade\"?",
     "correctAnswer": "Nahuatl (Aztekisch)",
     "options": [
       "Nahuatl (Aztekisch)",
@@ -2361,7 +4204,7 @@
     "entityType": "etymology",
     "type": "lingua-etymology-source",
     "difficulty": 3,
-    "prompt": "Aus welcher Sprache stammt das Wort „Pyjama“?",
+    "prompt": "Aus welcher Sprache stammt das Wort „Pyjama\"?",
     "correctAnswer": "Hindi / Persisch",
     "options": [
       "Hindi / Persisch",
@@ -2380,7 +4223,7 @@
     "entityType": "etymology",
     "type": "lingua-etymology-source",
     "difficulty": 3,
-    "prompt": "Aus welcher Sprache stammt das Wort „Kaffee“?",
+    "prompt": "Aus welcher Sprache stammt das Wort „Kaffee\"?",
     "correctAnswer": "Arabisch",
     "options": [
       "Arabisch",
@@ -2399,7 +4242,7 @@
     "entityType": "etymology",
     "type": "lingua-etymology-source",
     "difficulty": 3,
-    "prompt": "Aus welcher Sprache stammt das Wort „Sauna“?",
+    "prompt": "Aus welcher Sprache stammt das Wort „Sauna\"?",
     "correctAnswer": "Finnisch",
     "options": [
       "Finnisch",
@@ -2418,7 +4261,7 @@
     "entityType": "etymology",
     "type": "lingua-etymology-source",
     "difficulty": 3,
-    "prompt": "Aus welcher Sprache stammt das Wort „Ketchup“?",
+    "prompt": "Aus welcher Sprache stammt das Wort „Ketchup\"?",
     "correctAnswer": "Chinesisch (Amoy-Dialekt)",
     "options": [
       "Chinesisch (Amoy-Dialekt)",
@@ -2437,7 +4280,7 @@
     "entityType": "etymology",
     "type": "lingua-etymology-source",
     "difficulty": 3,
-    "prompt": "Aus welcher Sprache stammt das Wort „Bungalow“?",
+    "prompt": "Aus welcher Sprache stammt das Wort „Bungalow\"?",
     "correctAnswer": "Hindi/Gujarati",
     "options": [
       "Hindi/Gujarati",
@@ -2456,7 +4299,7 @@
     "entityType": "etymology",
     "type": "lingua-etymology-source",
     "difficulty": 3,
-    "prompt": "Aus welcher Sprache stammt das Wort „Anorak“?",
+    "prompt": "Aus welcher Sprache stammt das Wort „Anorak\"?",
     "correctAnswer": "Kalaallisut (Westgrönländisch)",
     "options": [
       "Kalaallisut (Westgrönländisch)",
@@ -2475,7 +4318,7 @@
     "entityType": "etymology",
     "type": "lingua-etymology-source",
     "difficulty": 3,
-    "prompt": "Aus welcher Sprache stammt das Wort „Tsunami“?",
+    "prompt": "Aus welcher Sprache stammt das Wort „Tsunami\"?",
     "correctAnswer": "Japanisch",
     "options": [
       "Japanisch",
@@ -2494,7 +4337,7 @@
     "entityType": "etymology",
     "type": "lingua-etymology-source",
     "difficulty": 3,
-    "prompt": "Aus welcher Sprache stammt das Wort „Kindergarten“?",
+    "prompt": "Aus welcher Sprache stammt das Wort „Kindergarten\"?",
     "correctAnswer": "Deutsch",
     "options": [
       "Deutsch",
@@ -2513,7 +4356,7 @@
     "entityType": "etymology",
     "type": "lingua-etymology-source",
     "difficulty": 3,
-    "prompt": "Aus welcher Sprache stammt das Wort „Doppelgänger“?",
+    "prompt": "Aus welcher Sprache stammt das Wort „Doppelgänger\"?",
     "correctAnswer": "Deutsch",
     "options": [
       "Deutsch",
@@ -2532,7 +4375,7 @@
     "entityType": "etymology",
     "type": "lingua-etymology-source",
     "difficulty": 3,
-    "prompt": "Aus welcher Sprache stammt das Wort „Zombie“?",
+    "prompt": "Aus welcher Sprache stammt das Wort „Zombie\"?",
     "correctAnswer": "Kimbundu (Bantu, Nord-Angola)",
     "options": [
       "Kimbundu (Bantu, Nord-Angola)",
@@ -2551,7 +4394,7 @@
     "entityType": "etymology",
     "type": "lingua-etymology-source",
     "difficulty": 3,
-    "prompt": "Aus welcher Sprache stammt das Wort „Shampoo“?",
+    "prompt": "Aus welcher Sprache stammt das Wort „Shampoo\"?",
     "correctAnswer": "Hindi",
     "options": [
       "Hindi",
@@ -2570,7 +4413,7 @@
     "entityType": "etymology",
     "type": "lingua-etymology-source",
     "difficulty": 3,
-    "prompt": "Aus welcher Sprache stammt das Wort „Muskel“?",
+    "prompt": "Aus welcher Sprache stammt das Wort „Muskel\"?",
     "correctAnswer": "Lateinisch",
     "options": [
       "Lateinisch",
@@ -2589,7 +4432,7 @@
     "entityType": "etymology",
     "type": "lingua-etymology-source",
     "difficulty": 3,
-    "prompt": "Aus welcher Sprache stammt das Wort „Zeitgeist“?",
+    "prompt": "Aus welcher Sprache stammt das Wort „Zeitgeist\"?",
     "correctAnswer": "Deutsch",
     "options": [
       "Deutsch",
@@ -2608,7 +4451,7 @@
     "entityType": "etymology",
     "type": "lingua-etymology-source-rev",
     "difficulty": 4,
-    "prompt": "Welches dieser Wörter hat seinen Ursprung in der Sprache „Arabisch“?",
+    "prompt": "Welches dieser Wörter hat seinen Ursprung in der Sprache „Arabisch\"?",
     "correctAnswer": "Alkohol",
     "options": [
       "Alkohol",
@@ -2627,7 +4470,7 @@
     "entityType": "etymology",
     "type": "lingua-etymology-source-rev",
     "difficulty": 4,
-    "prompt": "Welches dieser Wörter hat seinen Ursprung in der Sprache „Tschechisch / Altslawisch“?",
+    "prompt": "Welches dieser Wörter hat seinen Ursprung in der Sprache „Tschechisch / Altslawisch\"?",
     "correctAnswer": "Roboter",
     "options": [
       "Roboter",
@@ -2646,7 +4489,7 @@
     "entityType": "etymology",
     "type": "lingua-etymology-source-rev",
     "difficulty": 4,
-    "prompt": "Welches dieser Wörter hat seinen Ursprung in der Sprache „Polynesisch (Tongaisch)“?",
+    "prompt": "Welches dieser Wörter hat seinen Ursprung in der Sprache „Polynesisch (Tongaisch)\"?",
     "correctAnswer": "Tabu",
     "options": [
       "Tabu",
@@ -2665,7 +4508,7 @@
     "entityType": "etymology",
     "type": "lingua-etymology-source-rev",
     "difficulty": 4,
-    "prompt": "Welches dieser Wörter hat seinen Ursprung in der Sprache „Nahuatl (Aztekisch)“?",
+    "prompt": "Welches dieser Wörter hat seinen Ursprung in der Sprache „Nahuatl (Aztekisch)\"?",
     "correctAnswer": "Schokolade",
     "options": [
       "Schokolade",
@@ -2684,7 +4527,7 @@
     "entityType": "etymology",
     "type": "lingua-etymology-source-rev",
     "difficulty": 4,
-    "prompt": "Welches dieser Wörter hat seinen Ursprung in der Sprache „Hindi / Persisch“?",
+    "prompt": "Welches dieser Wörter hat seinen Ursprung in der Sprache „Hindi / Persisch\"?",
     "correctAnswer": "Pyjama",
     "options": [
       "Pyjama",
@@ -2703,7 +4546,7 @@
     "entityType": "etymology",
     "type": "lingua-etymology-source-rev",
     "difficulty": 4,
-    "prompt": "Welches dieser Wörter hat seinen Ursprung in der Sprache „Arabisch“?",
+    "prompt": "Welches dieser Wörter hat seinen Ursprung in der Sprache „Arabisch\"?",
     "correctAnswer": "Kaffee",
     "options": [
       "Kaffee",
@@ -2722,7 +4565,7 @@
     "entityType": "etymology",
     "type": "lingua-etymology-source-rev",
     "difficulty": 4,
-    "prompt": "Welches dieser Wörter hat seinen Ursprung in der Sprache „Finnisch“?",
+    "prompt": "Welches dieser Wörter hat seinen Ursprung in der Sprache „Finnisch\"?",
     "correctAnswer": "Sauna",
     "options": [
       "Sauna",
@@ -2741,7 +4584,7 @@
     "entityType": "etymology",
     "type": "lingua-etymology-source-rev",
     "difficulty": 4,
-    "prompt": "Welches dieser Wörter hat seinen Ursprung in der Sprache „Chinesisch (Amoy-Dialekt)“?",
+    "prompt": "Welches dieser Wörter hat seinen Ursprung in der Sprache „Chinesisch (Amoy-Dialekt)\"?",
     "correctAnswer": "Ketchup",
     "options": [
       "Ketchup",
@@ -2760,7 +4603,7 @@
     "entityType": "etymology",
     "type": "lingua-etymology-source-rev",
     "difficulty": 4,
-    "prompt": "Welches dieser Wörter hat seinen Ursprung in der Sprache „Hindi/Gujarati“?",
+    "prompt": "Welches dieser Wörter hat seinen Ursprung in der Sprache „Hindi/Gujarati\"?",
     "correctAnswer": "Bungalow",
     "options": [
       "Bungalow",
@@ -2779,7 +4622,7 @@
     "entityType": "etymology",
     "type": "lingua-etymology-source-rev",
     "difficulty": 4,
-    "prompt": "Welches dieser Wörter hat seinen Ursprung in der Sprache „Kalaallisut (Westgrönländisch)“?",
+    "prompt": "Welches dieser Wörter hat seinen Ursprung in der Sprache „Kalaallisut (Westgrönländisch)\"?",
     "correctAnswer": "Anorak",
     "options": [
       "Anorak",
@@ -2798,7 +4641,7 @@
     "entityType": "etymology",
     "type": "lingua-etymology-source-rev",
     "difficulty": 4,
-    "prompt": "Welches dieser Wörter hat seinen Ursprung in der Sprache „Japanisch“?",
+    "prompt": "Welches dieser Wörter hat seinen Ursprung in der Sprache „Japanisch\"?",
     "correctAnswer": "Tsunami",
     "options": [
       "Tsunami",
@@ -2817,7 +4660,7 @@
     "entityType": "etymology",
     "type": "lingua-etymology-source-rev",
     "difficulty": 4,
-    "prompt": "Welches dieser Wörter hat seinen Ursprung in der Sprache „Deutsch“?",
+    "prompt": "Welches dieser Wörter hat seinen Ursprung in der Sprache „Deutsch\"?",
     "correctAnswer": "Kindergarten",
     "options": [
       "Kindergarten",
@@ -2836,7 +4679,7 @@
     "entityType": "etymology",
     "type": "lingua-etymology-source-rev",
     "difficulty": 4,
-    "prompt": "Welches dieser Wörter hat seinen Ursprung in der Sprache „Deutsch“?",
+    "prompt": "Welches dieser Wörter hat seinen Ursprung in der Sprache „Deutsch\"?",
     "correctAnswer": "Doppelgänger",
     "options": [
       "Doppelgänger",
@@ -2855,7 +4698,7 @@
     "entityType": "etymology",
     "type": "lingua-etymology-source-rev",
     "difficulty": 4,
-    "prompt": "Welches dieser Wörter hat seinen Ursprung in der Sprache „Kimbundu (Bantu, Nord-Angola)“?",
+    "prompt": "Welches dieser Wörter hat seinen Ursprung in der Sprache „Kimbundu (Bantu, Nord-Angola)\"?",
     "correctAnswer": "Zombie",
     "options": [
       "Zombie",
@@ -2874,7 +4717,7 @@
     "entityType": "etymology",
     "type": "lingua-etymology-source-rev",
     "difficulty": 4,
-    "prompt": "Welches dieser Wörter hat seinen Ursprung in der Sprache „Hindi“?",
+    "prompt": "Welches dieser Wörter hat seinen Ursprung in der Sprache „Hindi\"?",
     "correctAnswer": "Shampoo",
     "options": [
       "Shampoo",
@@ -2893,7 +4736,7 @@
     "entityType": "etymology",
     "type": "lingua-etymology-source-rev",
     "difficulty": 4,
-    "prompt": "Welches dieser Wörter hat seinen Ursprung in der Sprache „Lateinisch“?",
+    "prompt": "Welches dieser Wörter hat seinen Ursprung in der Sprache „Lateinisch\"?",
     "correctAnswer": "Muskel",
     "options": [
       "Muskel",
@@ -2912,7 +4755,7 @@
     "entityType": "etymology",
     "type": "lingua-etymology-source-rev",
     "difficulty": 4,
-    "prompt": "Welches dieser Wörter hat seinen Ursprung in der Sprache „Deutsch“?",
+    "prompt": "Welches dieser Wörter hat seinen Ursprung in der Sprache „Deutsch\"?",
     "correctAnswer": "Zeitgeist",
     "options": [
       "Zeitgeist",
@@ -2922,6 +4765,291 @@
     ],
     "testedAttribute": null,
     "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_etymologie-alkohol_lingua-etymology-borrowing-path",
+    "entityId": "lingua:etymologie-alkohol",
+    "entityType": "etymology",
+    "type": "lingua-etymology-borrowing-path",
+    "difficulty": 3,
+    "prompt": "Auf welchem Weg gelangte das Wort „Alkohol\" ins Deutsche?",
+    "correctAnswer": "Arabisch → Alchemisten-Latein → Deutsch",
+    "options": [
+      "Arabisch → Alchemisten-Latein → Deutsch",
+      "Tschechisch → Englisch → Deutsch",
+      "Tongaisch → Englisch taboo → Französisch tabou → Deutsch",
+      "Nahuatl → Spanisch → Niederländisch → Deutsch"
+    ],
+    "testedAttribute": "loanPath",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_etymologie-roboter_lingua-etymology-borrowing-path",
+    "entityId": "lingua:etymologie-roboter",
+    "entityType": "etymology",
+    "type": "lingua-etymology-borrowing-path",
+    "difficulty": 3,
+    "prompt": "Auf welchem Weg gelangte das Wort „Roboter\" ins Deutsche?",
+    "correctAnswer": "Tschechisch → Englisch → Deutsch",
+    "options": [
+      "Tschechisch → Englisch → Deutsch",
+      "Arabisch → Alchemisten-Latein → Deutsch",
+      "Tongaisch → Englisch taboo → Französisch tabou → Deutsch",
+      "Nahuatl → Spanisch → Niederländisch → Deutsch"
+    ],
+    "testedAttribute": "loanPath",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_etymologie-tabu_lingua-etymology-borrowing-path",
+    "entityId": "lingua:etymologie-tabu",
+    "entityType": "etymology",
+    "type": "lingua-etymology-borrowing-path",
+    "difficulty": 3,
+    "prompt": "Auf welchem Weg gelangte das Wort „Tabu\" ins Deutsche?",
+    "correctAnswer": "Tongaisch → Englisch taboo → Französisch tabou → Deutsch",
+    "options": [
+      "Tongaisch → Englisch taboo → Französisch tabou → Deutsch",
+      "Arabisch → Alchemisten-Latein → Deutsch",
+      "Tschechisch → Englisch → Deutsch",
+      "Nahuatl → Spanisch → Niederländisch → Deutsch"
+    ],
+    "testedAttribute": "loanPath",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_etymologie-schokolade_lingua-etymology-borrowing-path",
+    "entityId": "lingua:etymologie-schokolade",
+    "entityType": "etymology",
+    "type": "lingua-etymology-borrowing-path",
+    "difficulty": 3,
+    "prompt": "Auf welchem Weg gelangte das Wort „Schokolade\" ins Deutsche?",
+    "correctAnswer": "Nahuatl → Spanisch → Niederländisch → Deutsch",
+    "options": [
+      "Nahuatl → Spanisch → Niederländisch → Deutsch",
+      "Arabisch → Alchemisten-Latein → Deutsch",
+      "Tschechisch → Englisch → Deutsch",
+      "Tongaisch → Englisch taboo → Französisch tabou → Deutsch"
+    ],
+    "testedAttribute": "loanPath",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_etymologie-pyjama_lingua-etymology-borrowing-path",
+    "entityId": "lingua:etymologie-pyjama",
+    "entityType": "etymology",
+    "type": "lingua-etymology-borrowing-path",
+    "difficulty": 3,
+    "prompt": "Auf welchem Weg gelangte das Wort „Pyjama\" ins Deutsche?",
+    "correctAnswer": "Persisch → Hindi/Urdu → Englisch → Deutsch",
+    "options": [
+      "Persisch → Hindi/Urdu → Englisch → Deutsch",
+      "Arabisch → Alchemisten-Latein → Deutsch",
+      "Tschechisch → Englisch → Deutsch",
+      "Tongaisch → Englisch taboo → Französisch tabou → Deutsch"
+    ],
+    "testedAttribute": "loanPath",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_etymologie-kaffee_lingua-etymology-borrowing-path",
+    "entityId": "lingua:etymologie-kaffee",
+    "entityType": "etymology",
+    "type": "lingua-etymology-borrowing-path",
+    "difficulty": 3,
+    "prompt": "Auf welchem Weg gelangte das Wort „Kaffee\" ins Deutsche?",
+    "correctAnswer": "Arabisch → Türkisch kahve → Niederländisch koffie → Deutsch",
+    "options": [
+      "Arabisch → Türkisch kahve → Niederländisch koffie → Deutsch",
+      "Arabisch → Alchemisten-Latein → Deutsch",
+      "Tschechisch → Englisch → Deutsch",
+      "Tongaisch → Englisch taboo → Französisch tabou → Deutsch"
+    ],
+    "testedAttribute": "loanPath",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_etymologie-alkohol_lingua-etymology-era",
+    "entityId": "lingua:etymologie-alkohol",
+    "entityType": "etymology",
+    "type": "lingua-etymology-era",
+    "difficulty": 4,
+    "prompt": "In welcher Epoche kam das Wort „Alkohol\" ins Deutsche?",
+    "correctAnswer": "16. Jahrhundert",
+    "options": [
+      "16. Jahrhundert",
+      "19. Jahrhundert",
+      "17. Jahrhundert",
+      "20. Jahrhundert"
+    ],
+    "testedAttribute": "loanEra",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_etymologie-tabu_lingua-etymology-era",
+    "entityId": "lingua:etymologie-tabu",
+    "entityType": "etymology",
+    "type": "lingua-etymology-era",
+    "difficulty": 4,
+    "prompt": "In welcher Epoche kam das Wort „Tabu\" ins Deutsche?",
+    "correctAnswer": "19. Jahrhundert",
+    "options": [
+      "19. Jahrhundert",
+      "16. Jahrhundert",
+      "17. Jahrhundert",
+      "20. Jahrhundert"
+    ],
+    "testedAttribute": "loanEra",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_etymologie-schokolade_lingua-etymology-era",
+    "entityId": "lingua:etymologie-schokolade",
+    "entityType": "etymology",
+    "type": "lingua-etymology-era",
+    "difficulty": 4,
+    "prompt": "In welcher Epoche kam das Wort „Schokolade\" ins Deutsche?",
+    "correctAnswer": "17. Jahrhundert",
+    "options": [
+      "17. Jahrhundert",
+      "16. Jahrhundert",
+      "19. Jahrhundert",
+      "20. Jahrhundert"
+    ],
+    "testedAttribute": "loanEra",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_etymologie-pyjama_lingua-etymology-era",
+    "entityId": "lingua:etymologie-pyjama",
+    "entityType": "etymology",
+    "type": "lingua-etymology-era",
+    "difficulty": 4,
+    "prompt": "In welcher Epoche kam das Wort „Pyjama\" ins Deutsche?",
+    "correctAnswer": "20. Jahrhundert",
+    "options": [
+      "20. Jahrhundert",
+      "16. Jahrhundert",
+      "19. Jahrhundert",
+      "17. Jahrhundert"
+    ],
+    "testedAttribute": "loanEra",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_etymologie-kaffee_lingua-etymology-era",
+    "entityId": "lingua:etymologie-kaffee",
+    "entityType": "etymology",
+    "type": "lingua-etymology-era",
+    "difficulty": 4,
+    "prompt": "In welcher Epoche kam das Wort „Kaffee\" ins Deutsche?",
+    "correctAnswer": "17. Jahrhundert",
+    "options": [
+      "17. Jahrhundert",
+      "16. Jahrhundert",
+      "19. Jahrhundert",
+      "20. Jahrhundert"
+    ],
+    "testedAttribute": "loanEra",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_etymologie-sauna_lingua-etymology-era",
+    "entityId": "lingua:etymologie-sauna",
+    "entityType": "etymology",
+    "type": "lingua-etymology-era",
+    "difficulty": 4,
+    "prompt": "In welcher Epoche kam das Wort „Sauna\" ins Deutsche?",
+    "correctAnswer": "20. Jahrhundert",
+    "options": [
+      "20. Jahrhundert",
+      "16. Jahrhundert",
+      "19. Jahrhundert",
+      "17. Jahrhundert"
+    ],
+    "testedAttribute": "loanEra",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_etymologie-bungalow_lingua-etymology-era",
+    "entityId": "lingua:etymologie-bungalow",
+    "entityType": "etymology",
+    "type": "lingua-etymology-era",
+    "difficulty": 4,
+    "prompt": "In welcher Epoche kam das Wort „Bungalow\" ins Deutsche?",
+    "correctAnswer": "18. Jahrhundert",
+    "options": [
+      "18. Jahrhundert",
+      "16. Jahrhundert",
+      "19. Jahrhundert",
+      "17. Jahrhundert"
+    ],
+    "testedAttribute": "loanEra",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_etymologie-anorak_lingua-etymology-era",
+    "entityId": "lingua:etymologie-anorak",
+    "entityType": "etymology",
+    "type": "lingua-etymology-era",
+    "difficulty": 4,
+    "prompt": "In welcher Epoche kam das Wort „Anorak\" ins Deutsche?",
+    "correctAnswer": "1. Hälfte 20. Jahrhundert",
+    "options": [
+      "1. Hälfte 20. Jahrhundert",
+      "16. Jahrhundert",
+      "19. Jahrhundert",
+      "17. Jahrhundert"
+    ],
+    "testedAttribute": "loanEra",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_lingua_etymologie-tsunami_lingua-etymology-era",
+    "entityId": "lingua:etymologie-tsunami",
+    "entityType": "etymology",
+    "type": "lingua-etymology-era",
+    "difficulty": 4,
+    "prompt": "In welcher Epoche kam das Wort „Tsunami\" ins Deutsche?",
+    "correctAnswer": "20. Jahrhundert",
+    "options": [
+      "20. Jahrhundert",
+      "16. Jahrhundert",
+      "19. Jahrhundert",
+      "17. Jahrhundert"
+    ],
+    "testedAttribute": "loanEra",
+    "answerIsName": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   }
