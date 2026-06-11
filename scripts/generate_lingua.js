@@ -432,6 +432,96 @@ const templates = [
     prompt: c => `In welcher Epoche kam das Wort „${displayWord(c)}" ins Deutsche?`,
     subject: c => `das Wort „${displayWord(c)}"`,
     skip: c => !isSingleWord(c)
+  },
+
+  // ==== Neue Templates: bisher ungenutzte Attribute ========================
+
+  // ---- language.scriptType (Vorwärts) — kategorisch, Schwierigkeit 2 ------
+  // Welchen Schrifttyp nutzt Sprache X?
+  // 7 distinkte Werte im Pool (Alphabet, Abugida, Abjad, Logografie usw.),
+  // alle 16 Sprachkonzepte haben das Attribut → keine skip-Bedingung nötig.
+  // similarGuard aktiv: "Alphabet" und "Featural Alphabet (Silbensegmente)"
+  // teilen den Kern-Token "alphabet" → optionsTooSimilar sondert sie als
+  // gemeinsame Distraktor-Kombination aus. Das ist korrekt: sie wären in
+  // derselben Frage schwer auseinanderzuhalten.
+  // testedAttribute: 'scriptType' → ConceptVisual braucht ein ATTR_LABEL dafür,
+  // sofern noch keins existiert (prüfen nach Generatorlauf).
+  {
+    category: 'language', attr: 'scriptType', kind: 'cat',
+    type: 'lingua-language-script-type', difficulty: 2,
+    testedAttribute: 'scriptType',
+    prompt: c => `Welchen Schrifttyp nutzt die Sprache ${c.name}?`,
+    similarGuard: true  // "Alphabet" vs. "Featural Alphabet" trennen
+  },
+
+  // ---- language.speakersMillionsNative (Reverse) — Schwierigkeit 4 --------
+  // Welche Sprache hat X Millionen Muttersprachler?
+  // Ergänzt lingua-language-native-speakers (Vorwärts) um die Reverse-Richtung.
+  // Alle 16 Werte distinkt (Französisch 80 = Türkisch 80 ist der einzige
+  // Duplikats-Kandidat, aber valuesShareToken('80', '80') filtert ihn korrekt
+  // als Distraktor heraus → jeweils bleiben noch ≥3 andere übrig).
+  {
+    category: 'language', attr: 'speakersMillionsNative', kind: 'name',
+    type: 'lingua-language-native-speakers-rev', difficulty: 4,
+    subject: c => fmtMillions(cleanNum(c.attributes.speakersMillionsNative)),
+    prompt: c => `Welche dieser Sprachen hat rund ${fmtMillions(cleanNum(c.attributes.speakersMillionsNative))} Muttersprachler?`
+    // nameDisplay nicht gesetzt → c.name wird direkt verwendet (Sprachname).
+  },
+
+  // ---- language_family.speakersMillions (Reverse) — Schwierigkeit 4 -------
+  // Welche Sprachfamilie hat rund X Sprecher?
+  // Ergänzt lingua-family-speakers (Vorwärts) um die Reverse-Richtung.
+  // Alle 10 Familiensprecherzahlen sind numerisch distinkt; einziger Token-
+  // Konflikt: Dravidisch (250) ~ Uralisch (25) → „25" steckt in „250" →
+  // valuesShareToken filtert ihn aus. Genug andere Distraktoren bleiben.
+  {
+    category: 'language_family', attr: 'speakersMillions', kind: 'name',
+    type: 'lingua-family-speakers-rev', difficulty: 4,
+    subject: c => fmtMillions(cleanNum(c.attributes.speakersMillions)),
+    prompt: c => `Welche dieser Sprachfamilien hat rund ${fmtMillions(cleanNum(c.attributes.speakersMillions))} Muttersprachler?`
+  },
+
+  // ---- language_family.languageCount (Reverse) — Schwierigkeit 4 ----------
+  // Welche Sprachfamilie umfasst rund X Einzelsprachen?
+  // Ergänzt lingua-family-languagecount (Vorwärts) um die Reverse-Richtung.
+  // Zahlenwerte wie 1540 vs. 1257 vs. 500 vs. 446 vs. 400 × 2 vs. 80/38/35/5
+  // lösen vielfältige valuesShareToken-Konflikte aus (z. B. steckt '5' in '1540'
+  // und '35' etc.) — der Guard filtert das korrekt aus; alle 10 Konzepte haben
+  // trotzdem ≥3 unbedenkliche Distraktoren.
+  {
+    category: 'language_family', attr: 'languageCount', kind: 'name',
+    type: 'lingua-family-languagecount-rev', difficulty: 4,
+    subject: c => `${deNum(cleanNum(c.attributes.languageCount))} Sprachen`,
+    prompt: c => `Welche dieser Sprachfamilien umfasst rund ${deNum(cleanNum(c.attributes.languageCount))} Einzelsprachen?`
+  },
+
+  // ---- writing_system.usersMillions (Reverse) — Schwierigkeit 4 -----------
+  // Welches Schriftsystem nutzen X Millionen Menschen?
+  // Ergänzt lingua-script-users (Vorwärts) um die Reverse-Richtung.
+  // Hieroglyphen (0 Nutzer) werden per skip übersprungen — identisch wie beim
+  // Vorwärts-Template. Alle verbleibenden 13 Werte sind distinkt.
+  {
+    category: 'writing_system', attr: 'usersMillions', kind: 'name',
+    type: 'lingua-script-users-rev', difficulty: 4,
+    subject: c => fmtMillions(cleanNum(c.attributes.usersMillions)),
+    prompt: c => `Welches dieser Schriftsysteme nutzen rund ${fmtMillions(cleanNum(c.attributes.usersMillions))} Menschen?`,
+    // Hieroglyphen ausschließen (0 Nutzer, nicht vergleichbar).
+    skip: c => cleanNum(c.attributes.usersMillions) === 0
+  },
+
+  // ---- writing_system.inventedYear (Reverse) — Schwierigkeit 4 -----------
+  // Welches dieser Schriftsysteme wurde im Jahr X erfunden?
+  // Ergänzt lingua-script-invented-year (Vorwärts) um die Reverse-Richtung.
+  // Nur 4 Konzepte haben inventedYear (Hangul 1443, Thai 1283, Armenisch 405,
+  // Braille 1824) → Pool exakt 4, genau die Mindestgrenze. Alle Werte distinkt;
+  // valuesShareToken zeigt hier keine Konflikte.
+  {
+    category: 'writing_system', attr: 'inventedYear', kind: 'name',
+    type: 'lingua-script-invented-year-rev', difficulty: 4,
+    subject: c => `Jahr ${c.attributes.inventedYear}`,
+    prompt: c => `Welches dieser Schriftsysteme wurde im Jahr ${c.attributes.inventedYear} erfunden?`,
+    // Nur Konzepte mit echtem inventedYear-Wert (Zahl) ins Reverse einbeziehen.
+    skip: c => c.attributes.inventedYear == null
   }
 ];
 
