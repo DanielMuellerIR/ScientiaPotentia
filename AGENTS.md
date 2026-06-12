@@ -389,6 +389,13 @@ Die Rohdaten der Recherche befinden sich in den exportierten Sitzungsprotokollen
 - [ ] **Lingua-Fragetypen für heterogene Kategorien:** 47 Konzepte (language_fact, grammar_fact,
   phonetics, language_curio, loanword z.T.) haben bewusst noch keine Templates — Konzepte sind im
   Spiel (Visual/Distraktor-Pools), liefern aber keine Fragen. Hebel Richtung 5000-Ziel.
+- [ ] **Astra/Homo-Konzeptbilder fürs Museum (Stand 2026-06-12):** `generate_astra.js`/`generate_homo.js`
+  tragen — anders als Natura/Lingua/Cultura — kein `concept.image`. Astra-Konzepte (inkl. der 68 neuen
+  Wikidata-Objekte) haben bereits `imageSearchTerm`. Kleiner Generator-Edit (image-Feld spiegeln wie in
+  `generate_natura.js`) + `node scripts/data_sources/harvest/resolve_images.cjs astra_raw.json`. Homo nutzt
+  Anatomie-Assets (eigener Weg). Voraussetzung fürs Museum.
+- [ ] **Cultura 21 Restbilder:** alte Literaturwerke + obskure Bauwerke ohne freies Commons-Bild
+  (`_imgProblem`-Markierung in `cultura_raw.json`) — ggf. bessere Suchbegriffe oder andere freie Quelle.
 
 ### 2. Ablaufplan-Status
 - [x] **Session 1:** Datenrettung Codex, Aufbereitung `AGENTS.md`.
