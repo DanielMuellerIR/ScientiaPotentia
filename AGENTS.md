@@ -58,8 +58,12 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 > `node scripts/generate_<domain>.js` → `node scripts/verify_facts.js <domain>` → Browser-Run.
 > **Integritätsregel bleibt hart:** jeder Fakt mit Quelle, keine erfundenen Zahlen — bei
 > LLM-Recherche adversarialer Faktencheck **plus** manuelle Stichprobe vor Commit.
-> Aktueller Stand (v1.22.0): Astra 214 Konzepte/801 Fragen, Natura 146/939, Homo 96/266,
-> Lingua 103/335, Cultura 155/818. **Generator-Hebel-Welle (v1.21.0, token-frei):** in 4 parallelen
+> Aktueller Stand (v1.23.0): Astra 214 Konzepte/801 Fragen, Natura 198/1263, Homo 96/266,
+> Lingua 139/537, Cultura 213/1021. **Wikidata-SPARQL-Welle 2 (v1.23.0):** Natura +52 Tiere
+> (1263 Fragen), Cultura +58 Konzepte (sitelink-kuratiert, Fehlkategorisierte verworfen; 1021 Fragen),
+> Lingua +36 Weltsprachen (537 Fragen) — alle deterministisch aus WDQS, Quelle je Fakt = Wikidata-QID,
+> Opus-Stichprobe + Sitelink-Notabilitätsfilter. Bilder Phase C nachgezogen (Natura 198/198, Cultura/Lingua
+> teilweise). **Generator-Hebel-Welle (v1.21.0, token-frei):** in 4 parallelen
 > Sonnet-Subagents je Generator neue Frage-Templates für bisher ungenutzte Attribute ergänzt
 > (Homo +92, Cultura +173, Lingua +69, Astra +36 = +370 Fragen, keine neuen Konzepte/Fakten),
 > alle `verify_facts` 0 Fehler, Browser-verifiziert (Homo-Reverse + Cultura-Vorwärts).
@@ -133,12 +137,12 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 | Terra  | 1852 | 5217 | Natural Earth / GeoNames / Wikidata | Weltkarte (MapLibre), pro Frage Highlight |
 | Astra  | 214 | 801 | NASA / IAU / ESA / Wikidata | **3D-Himmelskörper (three.js)** + Kontext-Karte (Bahn/Distanz), Texturen Solar System Scope (CC BY 4.0) |
 | Homo   | 96 | 266 | Gray's Anatomy / Prometheus / NIH | **Anatomiegrafiken (Wikimedia, PD)** + konzeptgenauer Struktur-Marker je Frage |
-| Natura | 146 | 939 | Wikipedia / USGS / IUCN / IPCC | generische Konzeptkarte (`ConceptVisual`); Tiere via MiniMax-Delegation 49→97 ausgebaut (web-grounded); freies Commons-Foto je Konzept hinterlegt (`concept.image`, fürs spätere Museum) |
-| Lingua | 103 | 335 | Wikipedia / Ethnologue / Wiktionary / Guinness | generische Konzeptkarte (`ConceptVisual`) mit dt. Attribut-Labels; Commons-Bild je Konzept hinterlegt (103/103, fürs spätere Museum) |
-| Cultura | 155 | 818 | Wikipedia (DE/EN) / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Kategorie-/Attribut-Labels; via MiniMax-Delegation ausgebaut (Komponisten Wikidata-geprüft, Werke web-grounded) |
+| Natura | 198 | 1263 | Wikipedia / USGS / IUCN / IPCC / Wikidata | generische Konzeptkarte (`ConceptVisual`); Tiere via MiniMax-Delegation 49→97 ausgebaut (web-grounded); freies Commons-Foto je Konzept hinterlegt (`concept.image`, fürs spätere Museum) |
+| Lingua | 139 | 537 | Wikipedia / Ethnologue / Wiktionary / Guinness / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Attribut-Labels; Commons-Bild je Konzept hinterlegt (103/103, fürs spätere Museum) |
+| Cultura | 213 | 1021 | Wikipedia (DE/EN) / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Kategorie-/Attribut-Labels; via MiniMax-Delegation ausgebaut (Komponisten Wikidata-geprüft, Werke web-grounded) |
 
 > Fragenzahlen Astra/Homo/Natura/Lingua/Cultura sind noch weit vom 5000-Ziel — Content-Ausbau (Phase 5) läuft weiter.
-> Astra 801/214 = ~3.7 F/K, Natura 939/146 = ~6.4 F/K, Cultura 818/155 = ~5.3 F/K, Lingua 335/103 = ~3.3 F/K,
+> Astra 801/214 = ~3.7 F/K, Natura 1263/198 = ~6.4 F/K, Cultura 1021/213 = ~4.8 F/K, Lingua 537/139 = ~3.9 F/K,
 > Homo 266/96 = ~2.8 F/K
 > (Lingua: 22 Fragetypen; 47 heterogene Konzepte aus language_fact/grammar_fact/phonetics/language_curio
 > bewusst ohne eigene Templates — nur Museum/Distraktor-Pool. Hebel für mehr: dort Templates ergänzen).
