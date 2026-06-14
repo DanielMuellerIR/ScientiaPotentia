@@ -3320,26 +3320,6 @@
     "mapTargetId": null
   },
   {
-    "id": "q_homo_masseter_homo-muscle-function",
-    "entityId": "homo:masseter",
-    "entityType": "muscle",
-    "type": "homo-muscle-function",
-    "difficulty": 4,
-    "prompt": "Welche Funktion hat der Muskel „Kaumuskel (Masseter)\" hauptsächlich?",
-    "correctAnswer": "Schließt den Unterkiefer und erzeugt die Kraft zum Kauen und Zerkleinern der Nahrung",
-    "options": [
-      "Schließt den Unterkiefer und erzeugt die Kraft zum Kauen und Zerkleinern der Nahrung",
-      "Streckt das Hüftgelenk, richtet den Rumpf auf und stabilisiert beim Aufstehen und Treppensteigen",
-      "Dämpft die Bewegung des Steigbügels und schützt das Innenohr vor zu lauten Schallreizen",
-      "Pumpt durch rhythmische Kontraktion das Blut durch den Körper- und Lungenkreislauf"
-    ],
-    "testedAttribute": "function",
-    "answerIsName": false,
-    "hideConceptIdentity": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
     "id": "q_homo_myocardium_homo-muscle-function",
     "entityId": "homo:myocardium",
     "entityType": "muscle",
@@ -4215,26 +4195,6 @@
     ],
     "testedAttribute": "notableFor",
     "answerIsName": false,
-    "hideConceptIdentity": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_homo_masseter_homo-muscle-notable-rev",
-    "entityId": "homo:masseter",
-    "entityType": "muscle",
-    "type": "homo-muscle-notable-rev",
-    "difficulty": 3,
-    "prompt": "Welcher Muskel wird beschrieben als: „Im Verhältnis zu seiner Größe stärkster Muskel des Körpers (höchste Kaukraft)\"?",
-    "correctAnswer": "Kaumuskel (Masseter)",
-    "options": [
-      "Kaumuskel (Masseter)",
-      "Großer Gesäßmuskel (Gluteus maximus)",
-      "Steigbügelmuskel (Musculus stapedius)",
-      "Herzmuskel (Myokard)"
-    ],
-    "testedAttribute": null,
-    "answerIsName": true,
     "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null

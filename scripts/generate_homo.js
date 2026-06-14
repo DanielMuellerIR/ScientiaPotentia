@@ -135,18 +135,30 @@ function revealsAnswer(subject, answer) {
     const stem = t.length >= 7 ? t.replace(/(ern|en|em|er|es|e|n|s)$/u, '') : t;
     if (stem.length >= 5 && sNo.includes(stem)) return true;
   }
-  // Deutsche Komposita verraten sich oft über den gemeinsamen Wortstamm am
-  // Wortanfang, nicht über das Wortende: der Hinweis „…den gebildeten Harn…"
-  // verrät „Harnblase" (Stamm „Harn"), „…Magensaft…" verriete „Magen".
-  // Daher: teilen ein Hinweis- und ein Antwort-Token einen Präfix von >= 4
-  // Zeichen, gilt das als Selbstverräter. (>= 4 vermeidet Zufallstreffer wie
-  // „her" in „Herz"/„herstellen".)
-  const hintTokens = S.split(' ').filter(t => t.length >= 4);
-  for (const a of A.split(' ').filter(t => t.length >= 4)) {
-    for (const s of hintTokens) {
+  // Deutsche Komposita verraten sich über den gemeinsamen Wortstamm am
+  // Wortanfang, nicht über das Wortende: „…gebildeten Harn…" verrät „Harnblase",
+  // „Kaumuskel" verrät „…zum Kauen…", „Stirnbein" verrät „…die Stirn…".
+  // Generische Kopf-Substantive (muskel/knochen/bein/organ/…) tragen keine
+  // Bedeutung und werden vorher abgetrennt, damit der eigentliche Stamm frei
+  // liegt ("Kaumuskel" -> "kau"). Schwelle: >= 4 Zeichen gemeinsamer Präfix
+  // (vermeidet Zufälle wie „her" in „Herz"/„herstellen"); wurde aber bei einem
+  // der Token ein Kopf-Substantiv abgetrennt, genügen >= 3 Zeichen ("kau").
+  const stripHead = w =>
+    w.replace(/(muskeln|muskel|knochen|beine|bein|organe|organ|drusen|druse|nerven|nerv)$/u, '');
+  const hintTokens = S.split(' ').filter(t => t.length >= 3).map(t => [t, stripHead(t)]);
+  for (const aTok of A.split(' ').filter(t => t.length >= 3)) {
+    const aCore = stripHead(aTok);
+    if (aCore.length < 3) continue;
+    for (const [sTok, sCore] of hintTokens) {
+      if (sCore.length < 3) continue;
       let k = 0;
-      while (k < a.length && k < s.length && a[k] === s[k]) k++;
+      while (k < aCore.length && k < sCore.length && aCore[k] === sCore[k]) k++;
       if (k >= 4) return true;
+      // 3-Zeichen-Stamm zählt nur nach Abtrennen eines Kopf-Substantivs UND wenn
+      // der kürzere Kern vollständig im anderen aufgeht (echter Morphem-Treffer
+      // „kau"->„kauen", nicht bloßer Trigramm-Zufall „sch" in Schlüssel/Schulter).
+      const headStripped = aCore !== aTok || sCore !== sTok;
+      if (headStripped && k >= 3 && (k === aCore.length || k === sCore.length)) return true;
     }
   }
   return false;
