@@ -59,7 +59,7 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 > **Integritätsregel bleibt hart:** jeder Fakt mit Quelle, keine erfundenen Zahlen — bei
 > LLM-Recherche adversarialer Faktencheck **plus** manuelle Stichprobe vor Commit.
 > Aktueller Stand (v1.25.0): Astra 455 Konzepte/1448 Fragen, Natura 606/3647, Homo 96/266,
-> Lingua 241/988, Cultura 267/1292. **Wikidata-SPARQL-Welle 4 (v1.25.0):** 4 parallele
+> Lingua 241/988, Cultura 365/1580. **Wikidata-SPARQL-Welle 4 (v1.25.0/v1.26.0):** 4 parallele
 > Sonnet-Harvester (wd3, eigene Dateien → kein Index-Race), Opus-Faktencheck vor Commit.
 > Committet: **Natura +162 K/+954 F** (Doktorfische/Welse/Störe/Libellen/Gürteltiere/Falken,
 > alle IUCN+dewiki+Bild-gefiltert), **Astra +152 K/+394 F** (16 Sterne, 118 benannte Asteroiden,
@@ -68,8 +68,14 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 > der Sonnet-Harvester erntete alphabetisch (nicht notabilitäts-gerankt) → obskure Brücken/Türme
 > (Aachsägebrücke, Bettelturm) + Bildhauer-Müll; composer-Batch durch Wikidata-P106-Fehler
 > kontaminiert (Peter d. Gr., Tagore, Dario Fo als „Komponisten"), Nationalität falsch (Venturini
-> „Deutsch"), und die behauptete Agent-Bereinigung wurde nie geschrieben. Cultura bleibt 267/1292,
-> Neu-Ernte mit Sitelink-DESC-Ranking + P106-Validierung als Folgeschritt.
+> „Deutsch"), und die behauptete Agent-Bereinigung wurde nie geschrieben. **Cultura korrekt neu geerntet
+> (v1.26.0): +98 K/+288 F** — Notabilität per `wikibase:sitelinks`-Schwelle (≥12-25), composer
+> P106-validiert (Rossini/Offenbach/Schönberg/Janáček u.a., Nationalität nur aus P27), literature
+> nur echte Werke (Animal Farm/Alice/Hobbit/Schuld und Sühne…), berühmte Gemälde/Skulpturen/Bauwerke
+> (Verbotene Stadt/Alhambra/Trevi-Brunnen/Venus von Urbino). Agent entfernte 12 Kontaminanten in
+> verifizierter Selbstkontrolle (Mein Kampf/Kommunist. Manifest als nicht-literarisch, Wikidata-
+> Fehlklassifikationen). Lehre: Wikidata-Massenernte braucht Sitelink-Ranking + P31/P106/P27-Validierung,
+> sonst alphabetischer/kontaminierter Müll.
 > **Wikidata-SPARQL-Welle 3 (v1.24.0):** 4 parallele
 > Sonnet-Subagents (je Domain ein erweiterter Harvester, eigene Dateien → kein Index-Race),
 > deterministisch aus WDQS: Natura +246 Tiere (Reptilien/Knorpelfische/Schmetterlinge/Vögel,
@@ -159,7 +165,7 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 | Homo   | 96 | 266 | Gray's Anatomy / Prometheus / NIH | **Anatomiegrafiken (Wikimedia, PD)** + konzeptgenauer Struktur-Marker je Frage |
 | Natura | 606 | 3647 | Wikipedia / USGS / IUCN / IPCC / Wikidata | generische Konzeptkarte (`ConceptVisual`); Tiere via MiniMax-Delegation 49→97 ausgebaut (web-grounded); freies Commons-Foto je Konzept hinterlegt (`concept.image`, fürs spätere Museum) |
 | Lingua | 241 | 988 | Wikipedia / Ethnologue / Wiktionary / Guinness / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Attribut-Labels; Commons-Bild je Konzept hinterlegt (103/103, fürs spätere Museum) |
-| Cultura | 267 | 1292 | Wikipedia (DE/EN) / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Kategorie-/Attribut-Labels; via MiniMax-Delegation ausgebaut (Komponisten Wikidata-geprüft, Werke web-grounded) |
+| Cultura | 365 | 1580 | Wikipedia (DE/EN) / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Kategorie-/Attribut-Labels; via MiniMax-Delegation ausgebaut (Komponisten Wikidata-geprüft, Werke web-grounded) |
 
 > Fragenzahlen Astra/Homo/Natura/Lingua/Cultura sind noch weit vom 5000-Ziel — Content-Ausbau (Phase 5) läuft weiter.
 > Astra 1054/303 = ~3.5 F/K, Natura 2693/444 = ~6.1 F/K, Cultura 1292/267 = ~4.8 F/K, Lingua 856/212 = ~4.0 F/K,
