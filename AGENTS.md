@@ -58,8 +58,19 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 > `node scripts/generate_<domain>.js` → `node scripts/verify_facts.js <domain>` → Browser-Run.
 > **Integritätsregel bleibt hart:** jeder Fakt mit Quelle, keine erfundenen Zahlen — bei
 > LLM-Recherche adversarialer Faktencheck **plus** manuelle Stichprobe vor Commit.
-> Aktueller Stand (v1.24.0): Astra 303 Konzepte/1054 Fragen, Natura 444/2693, Homo 96/266,
-> Lingua 212/856, Cultura 267/1292. **Wikidata-SPARQL-Welle 3 (v1.24.0):** 4 parallele
+> Aktueller Stand (v1.25.0): Astra 455 Konzepte/1448 Fragen, Natura 606/3647, Homo 96/266,
+> Lingua 241/988, Cultura 267/1292. **Wikidata-SPARQL-Welle 4 (v1.25.0):** 4 parallele
+> Sonnet-Harvester (wd3, eigene Dateien → kein Index-Race), Opus-Faktencheck vor Commit.
+> Committet: **Natura +162 K/+954 F** (Doktorfische/Welse/Störe/Libellen/Gürteltiere/Falken,
+> alle IUCN+dewiki+Bild-gefiltert), **Astra +152 K/+394 F** (16 Sterne, 118 benannte Asteroiden,
+> 18 Monde), **Lingua +29 K/+132 F** (slawisch/germanisch/dravidisch/semitisch/Mon-Khmer u.a.;
+> Agent entfernte 77 Dialekte/historische/umstrittene Einträge). **Cultura-Welle VERWORFEN:**
+> der Sonnet-Harvester erntete alphabetisch (nicht notabilitäts-gerankt) → obskure Brücken/Türme
+> (Aachsägebrücke, Bettelturm) + Bildhauer-Müll; composer-Batch durch Wikidata-P106-Fehler
+> kontaminiert (Peter d. Gr., Tagore, Dario Fo als „Komponisten"), Nationalität falsch (Venturini
+> „Deutsch"), und die behauptete Agent-Bereinigung wurde nie geschrieben. Cultura bleibt 267/1292,
+> Neu-Ernte mit Sitelink-DESC-Ranking + P106-Validierung als Folgeschritt.
+> **Wikidata-SPARQL-Welle 3 (v1.24.0):** 4 parallele
 > Sonnet-Subagents (je Domain ein erweiterter Harvester, eigene Dateien → kein Index-Race),
 > deterministisch aus WDQS: Natura +246 Tiere (Reptilien/Knorpelfische/Schmetterlinge/Vögel,
 > →2693 Fragen), Astra +89 (25 Sterne/64 Asteroiden, →1054), Lingua +73 Sprachen (Bantu/Turk/
@@ -144,10 +155,10 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 | Domain | Konzepte | Fragen | Quellen | Visualisierung |
 | :----- | :------- | :----- | :------ | :------------- |
 | Terra  | 1852 | 5217 | Natural Earth / GeoNames / Wikidata | Weltkarte (MapLibre), pro Frage Highlight |
-| Astra  | 303 | 1054 | NASA / IAU / ESA / Wikidata | **3D-Himmelskörper (three.js)** + Kontext-Karte (Bahn/Distanz), Texturen Solar System Scope (CC BY 4.0) |
+| Astra  | 455 | 1448 | NASA / IAU / ESA / Wikidata | **3D-Himmelskörper (three.js)** + Kontext-Karte (Bahn/Distanz), Texturen Solar System Scope (CC BY 4.0) |
 | Homo   | 96 | 266 | Gray's Anatomy / Prometheus / NIH | **Anatomiegrafiken (Wikimedia, PD)** + konzeptgenauer Struktur-Marker je Frage |
-| Natura | 444 | 2693 | Wikipedia / USGS / IUCN / IPCC / Wikidata | generische Konzeptkarte (`ConceptVisual`); Tiere via MiniMax-Delegation 49→97 ausgebaut (web-grounded); freies Commons-Foto je Konzept hinterlegt (`concept.image`, fürs spätere Museum) |
-| Lingua | 212 | 856 | Wikipedia / Ethnologue / Wiktionary / Guinness / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Attribut-Labels; Commons-Bild je Konzept hinterlegt (103/103, fürs spätere Museum) |
+| Natura | 606 | 3647 | Wikipedia / USGS / IUCN / IPCC / Wikidata | generische Konzeptkarte (`ConceptVisual`); Tiere via MiniMax-Delegation 49→97 ausgebaut (web-grounded); freies Commons-Foto je Konzept hinterlegt (`concept.image`, fürs spätere Museum) |
+| Lingua | 241 | 988 | Wikipedia / Ethnologue / Wiktionary / Guinness / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Attribut-Labels; Commons-Bild je Konzept hinterlegt (103/103, fürs spätere Museum) |
 | Cultura | 267 | 1292 | Wikipedia (DE/EN) / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Kategorie-/Attribut-Labels; via MiniMax-Delegation ausgebaut (Komponisten Wikidata-geprüft, Werke web-grounded) |
 
 > Fragenzahlen Astra/Homo/Natura/Lingua/Cultura sind noch weit vom 5000-Ziel — Content-Ausbau (Phase 5) läuft weiter.
