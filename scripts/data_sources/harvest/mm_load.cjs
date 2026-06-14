@@ -19,8 +19,11 @@
 const fs = require("fs");
 
 // Typografische Anführungszeichen reparieren: „text" -> „text“ (sonst bricht der String).
+// WICHTIG: die Innenklasse schließt das typografische SCHLUSSzeichen “ mit aus
+// ([^"„“]) — sonst frisst der Match über ein bereits korrekt geschlossenes „…“
+// hinweg bis zum nächsten ASCII-" (dem JSON-String-Ende) und zerstört das Objekt.
 function quoteRepair(s) {
-  return s.replace(/„([^"„]*)"/g, "„$1“");
+  return s.replace(/„([^"„“]*)"/g, "„$1“");
 }
 
 // Top-Level-{…}-Objekte herausschneiden, ohne von { } innerhalb von Strings getäuscht
