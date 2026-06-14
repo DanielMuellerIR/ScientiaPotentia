@@ -67,8 +67,8 @@ const MARKER_BY_ID = {
   cranium:    { x: 0.50, y: 0.06 }, mandibula: { x: 0.50, y: 0.10 },
   stapes:     { x: 0.56, y: 0.07 }, clavicula: { x: 0.40, y: 0.16 },
   scapula:    { x: 0.37, y: 0.20 }, sternum:   { x: 0.50, y: 0.24 },
-  vertebra:   { x: 0.50, y: 0.30 }, humerus:   { x: 0.31, y: 0.28 },
-  ulna:       { x: 0.27, y: 0.40 }, radius:    { x: 0.31, y: 0.40 },
+  vertebra:   { x: 0.50, y: 0.30 }, humerus:   { x: 0.185, y: 0.31 },
+  ulna:       { x: 0.135, y: 0.44 }, radius:   { x: 0.155, y: 0.44 },
   pelvis:     { x: 0.50, y: 0.42 }, femur:     { x: 0.44, y: 0.54 },
   patella:    { x: 0.45, y: 0.66 }, tibia:     { x: 0.46, y: 0.78 },
   fibula:     { x: 0.42, y: 0.78 },
@@ -95,7 +95,9 @@ const MARKER_BY_ID = {
 // Knochen: exakte Regionswerte (Kopf/Rumpf/Arm/Bein/Hand/Fuss) -> Skelett.
 const BONE_ZONES = {
   kopf:  { x: 0.50, y: 0.07 }, rumpf: { x: 0.50, y: 0.30 },
-  arm:   { x: 0.30, y: 0.34 }, hand:  { x: 0.22, y: 0.50 },
+  // Arme stehen auf dieser Grafik abgespreizt -> Armknochen liegen weit lateral
+  // (linker Bildarm). arm = Oberarm/Humerus-Höhe, hand = Handskelett unten links.
+  arm:   { x: 0.17, y: 0.37 }, hand:  { x: 0.10, y: 0.62 },
   bein:  { x: 0.45, y: 0.66 }, fuss:  { x: 0.46, y: 0.95 }
 };
 // Muskeln: freie Lage-Texte per Stichwort -> Muskelfigur.
