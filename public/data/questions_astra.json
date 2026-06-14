@@ -26533,9 +26533,9 @@
     "correctAnswer": "4,2 Lichtjahre",
     "options": [
       "4,2 Lichtjahre",
-      "40 Lichtjahre",
-      "48 Lichtjahre",
-      "1.800 Lichtjahre"
+      "11 Lichtjahre",
+      "20,5 Lichtjahre",
+      "30,8 Lichtjahre"
     ],
     "testedAttribute": "distanceLy",
     "answerIsName": false,
@@ -26552,9 +26552,9 @@
     "correctAnswer": "40 Lichtjahre",
     "options": [
       "40 Lichtjahre",
-      "48 Lichtjahre",
-      "4,2 Lichtjahre",
-      "1.800 Lichtjahre"
+      "41 Lichtjahre",
+      "47,8 Lichtjahre",
+      "48 Lichtjahre"
     ],
     "testedAttribute": "distanceLy",
     "answerIsName": false,
@@ -26571,9 +26571,9 @@
     "correctAnswer": "1.800 Lichtjahre",
     "options": [
       "1.800 Lichtjahre",
-      "48 Lichtjahre",
-      "40 Lichtjahre",
-      "4,2 Lichtjahre"
+      "1.956,9 Lichtjahre",
+      "1.393,5 Lichtjahre",
+      "1.193,6 Lichtjahre"
     ],
     "testedAttribute": "distanceLy",
     "answerIsName": false,
@@ -26590,9 +26590,446 @@
     "correctAnswer": "48 Lichtjahre",
     "options": [
       "48 Lichtjahre",
+      "47,8 Lichtjahre",
+      "48,9 Lichtjahre",
+      "41 Lichtjahre"
+    ],
+    "testedAttribute": "distanceLy",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_hd-209458-b-osiris_astra-exo-distance",
+    "entityId": "astra:hd-209458-b-osiris",
+    "entityType": "exoplanet",
+    "type": "astra-exo-distance",
+    "difficulty": 3,
+    "prompt": "Wie weit ist HD 209458 b (Osiris) ungefähr von der Erde entfernt?",
+    "correctAnswer": "157,5 Lichtjahre",
+    "options": [
+      "157,5 Lichtjahre",
+      "134,5 Lichtjahre",
+      "124 Lichtjahre",
+      "101,5 Lichtjahre"
+    ],
+    "testedAttribute": "distanceLy",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_kepler-22-b_astra-exo-distance",
+    "entityId": "astra:kepler-22-b",
+    "entityType": "exoplanet",
+    "type": "astra-exo-distance",
+    "difficulty": 3,
+    "prompt": "Wie weit ist Kepler-22 b ungefähr von der Erde entfernt?",
+    "correctAnswer": "634,8 Lichtjahre",
+    "options": [
+      "634,8 Lichtjahre",
+      "579,2 Lichtjahre",
+      "697,9 Lichtjahre",
+      "702,3 Lichtjahre"
+    ],
+    "testedAttribute": "distanceLy",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_kepler-186-f_astra-exo-distance",
+    "entityId": "astra:kepler-186-f",
+    "entityType": "exoplanet",
+    "type": "astra-exo-distance",
+    "difficulty": 3,
+    "prompt": "Wie weit ist Kepler-186 f ungefähr von der Erde entfernt?",
+    "correctAnswer": "579,2 Lichtjahre",
+    "options": [
+      "579,2 Lichtjahre",
+      "634,8 Lichtjahre",
+      "697,9 Lichtjahre",
+      "702,3 Lichtjahre"
+    ],
+    "testedAttribute": "distanceLy",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_kepler-16-b-tatooine_astra-exo-distance",
+    "entityId": "astra:kepler-16-b-tatooine",
+    "entityType": "exoplanet",
+    "type": "astra-exo-distance",
+    "difficulty": 3,
+    "prompt": "Wie weit ist Kepler-16 b (Tatooine) ungefähr von der Erde entfernt?",
+    "correctAnswer": "244,9 Lichtjahre",
+    "options": [
+      "244,9 Lichtjahre",
+      "157,5 Lichtjahre",
+      "134,5 Lichtjahre",
+      "124 Lichtjahre"
+    ],
+    "testedAttribute": "distanceLy",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_55-cancri-e-janssen_astra-exo-distance",
+    "entityId": "astra:55-cancri-e-janssen",
+    "entityType": "exoplanet",
+    "type": "astra-exo-distance",
+    "difficulty": 3,
+    "prompt": "Wie weit ist 55 Cancri e (Janssen) ungefähr von der Erde entfernt?",
+    "correctAnswer": "41 Lichtjahre",
+    "options": [
+      "41 Lichtjahre",
       "40 Lichtjahre",
+      "47,8 Lichtjahre",
+      "48 Lichtjahre"
+    ],
+    "testedAttribute": "distanceLy",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_hd-189733-b_astra-exo-distance",
+    "entityId": "astra:hd-189733-b",
+    "entityType": "exoplanet",
+    "type": "astra-exo-distance",
+    "difficulty": 3,
+    "prompt": "Wie weit ist HD 189733 b ungefähr von der Erde entfernt?",
+    "correctAnswer": "64,5 Lichtjahre",
+    "options": [
+      "64,5 Lichtjahre",
+      "64,4 Lichtjahre",
+      "48,9 Lichtjahre",
+      "48 Lichtjahre"
+    ],
+    "testedAttribute": "distanceLy",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_psr-b1257-12-c-poltergeist_astra-exo-distance",
+    "entityId": "astra:psr-b1257-12-c-poltergeist",
+    "entityType": "exoplanet",
+    "type": "astra-exo-distance",
+    "difficulty": 3,
+    "prompt": "Wie weit ist PSR B1257+12 c (Poltergeist) ungefähr von der Erde entfernt?",
+    "correctAnswer": "1.956,9 Lichtjahre",
+    "options": [
+      "1.956,9 Lichtjahre",
+      "1.800 Lichtjahre",
+      "1.393,5 Lichtjahre",
+      "1.193,6 Lichtjahre"
+    ],
+    "testedAttribute": "distanceLy",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_wasp-12-b_astra-exo-distance",
+    "entityId": "astra:wasp-12-b",
+    "entityType": "exoplanet",
+    "type": "astra-exo-distance",
+    "difficulty": 3,
+    "prompt": "Wie weit ist WASP-12 b ungefähr von der Erde entfernt?",
+    "correctAnswer": "1.393,5 Lichtjahre",
+    "options": [
+      "1.393,5 Lichtjahre",
+      "1.193,6 Lichtjahre",
+      "1.800 Lichtjahre",
+      "981,3 Lichtjahre"
+    ],
+    "testedAttribute": "distanceLy",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_k2-18-b_astra-exo-distance",
+    "entityId": "astra:k2-18-b",
+    "entityType": "exoplanet",
+    "type": "astra-exo-distance",
+    "difficulty": 3,
+    "prompt": "Wie weit ist K2-18 b ungefähr von der Erde entfernt?",
+    "correctAnswer": "124 Lichtjahre",
+    "options": [
+      "124 Lichtjahre",
+      "134,5 Lichtjahre",
+      "101,5 Lichtjahre",
+      "157,5 Lichtjahre"
+    ],
+    "testedAttribute": "distanceLy",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_hr-8799-b_astra-exo-distance",
+    "entityId": "astra:hr-8799-b",
+    "entityType": "exoplanet",
+    "type": "astra-exo-distance",
+    "difficulty": 3,
+    "prompt": "Wie weit ist HR 8799 b ungefähr von der Erde entfernt?",
+    "correctAnswer": "134,5 Lichtjahre",
+    "options": [
+      "134,5 Lichtjahre",
+      "124 Lichtjahre",
+      "157,5 Lichtjahre",
+      "101,5 Lichtjahre"
+    ],
+    "testedAttribute": "distanceLy",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_beta-pictoris-b_astra-exo-distance",
+    "entityId": "astra:beta-pictoris-b",
+    "entityType": "exoplanet",
+    "type": "astra-exo-distance",
+    "difficulty": 3,
+    "prompt": "Wie weit ist Beta Pictoris b ungefähr von der Erde entfernt?",
+    "correctAnswer": "64,4 Lichtjahre",
+    "options": [
+      "64,4 Lichtjahre",
+      "64,5 Lichtjahre",
+      "48,9 Lichtjahre",
+      "48 Lichtjahre"
+    ],
+    "testedAttribute": "distanceLy",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_gj-1214-b_astra-exo-distance",
+    "entityId": "astra:gj-1214-b",
+    "entityType": "exoplanet",
+    "type": "astra-exo-distance",
+    "difficulty": 3,
+    "prompt": "Wie weit ist GJ 1214 b ungefähr von der Erde entfernt?",
+    "correctAnswer": "47,8 Lichtjahre",
+    "options": [
+      "47,8 Lichtjahre",
+      "48 Lichtjahre",
+      "48,9 Lichtjahre",
+      "41 Lichtjahre"
+    ],
+    "testedAttribute": "distanceLy",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_lhs-1140-b_astra-exo-distance",
+    "entityId": "astra:lhs-1140-b",
+    "entityType": "exoplanet",
+    "type": "astra-exo-distance",
+    "difficulty": 3,
+    "prompt": "Wie weit ist LHS 1140 b ungefähr von der Erde entfernt?",
+    "correctAnswer": "48,9 Lichtjahre",
+    "options": [
+      "48,9 Lichtjahre",
+      "48 Lichtjahre",
+      "47,8 Lichtjahre",
+      "41 Lichtjahre"
+    ],
+    "testedAttribute": "distanceLy",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_toi-700-d_astra-exo-distance",
+    "entityId": "astra:toi-700-d",
+    "entityType": "exoplanet",
+    "type": "astra-exo-distance",
+    "difficulty": 3,
+    "prompt": "Wie weit ist TOI-700 d ungefähr von der Erde entfernt?",
+    "correctAnswer": "101,5 Lichtjahre",
+    "options": [
+      "101,5 Lichtjahre",
+      "124 Lichtjahre",
+      "134,5 Lichtjahre",
+      "64,5 Lichtjahre"
+    ],
+    "testedAttribute": "distanceLy",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_ross-128-b_astra-exo-distance",
+    "entityId": "astra:ross-128-b",
+    "entityType": "exoplanet",
+    "type": "astra-exo-distance",
+    "difficulty": 3,
+    "prompt": "Wie weit ist Ross 128 b ungefähr von der Erde entfernt?",
+    "correctAnswer": "11 Lichtjahre",
+    "options": [
+      "11 Lichtjahre",
       "4,2 Lichtjahre",
-      "1.800 Lichtjahre"
+      "20,5 Lichtjahre",
+      "30,8 Lichtjahre"
+    ],
+    "testedAttribute": "distanceLy",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_kepler-90-i_astra-exo-distance",
+    "entityId": "astra:kepler-90-i",
+    "entityType": "exoplanet",
+    "type": "astra-exo-distance",
+    "difficulty": 3,
+    "prompt": "Wie weit ist Kepler-90 i ungefähr von der Erde entfernt?",
+    "correctAnswer": "2.766,6 Lichtjahre",
+    "options": [
+      "2.766,6 Lichtjahre",
+      "1.956,9 Lichtjahre",
+      "1.800 Lichtjahre",
+      "1.393,5 Lichtjahre"
+    ],
+    "testedAttribute": "distanceLy",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_kepler-442-b_astra-exo-distance",
+    "entityId": "astra:kepler-442-b",
+    "entityType": "exoplanet",
+    "type": "astra-exo-distance",
+    "difficulty": 3,
+    "prompt": "Wie weit ist Kepler-442 b ungefähr von der Erde entfernt?",
+    "correctAnswer": "1.193,6 Lichtjahre",
+    "options": [
+      "1.193,6 Lichtjahre",
+      "1.393,5 Lichtjahre",
+      "981,3 Lichtjahre",
+      "880,3 Lichtjahre"
+    ],
+    "testedAttribute": "distanceLy",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_gj-357-d_astra-exo-distance",
+    "entityId": "astra:gj-357-d",
+    "entityType": "exoplanet",
+    "type": "astra-exo-distance",
+    "difficulty": 3,
+    "prompt": "Wie weit ist GJ 357 d ungefähr von der Erde entfernt?",
+    "correctAnswer": "30,8 Lichtjahre",
+    "options": [
+      "30,8 Lichtjahre",
+      "40 Lichtjahre",
+      "41 Lichtjahre",
+      "20,5 Lichtjahre"
+    ],
+    "testedAttribute": "distanceLy",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_wasp-121-b_astra-exo-distance",
+    "entityId": "astra:wasp-121-b",
+    "entityType": "exoplanet",
+    "type": "astra-exo-distance",
+    "difficulty": 3,
+    "prompt": "Wie weit ist WASP-121 b ungefähr von der Erde entfernt?",
+    "correctAnswer": "880,3 Lichtjahre",
+    "options": [
+      "880,3 Lichtjahre",
+      "981,3 Lichtjahre",
+      "702,3 Lichtjahre",
+      "697,9 Lichtjahre"
+    ],
+    "testedAttribute": "distanceLy",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_tres-2-b-kepler-1-b_astra-exo-distance",
+    "entityId": "astra:tres-2-b-kepler-1-b",
+    "entityType": "exoplanet",
+    "type": "astra-exo-distance",
+    "difficulty": 3,
+    "prompt": "Wie weit ist TrES-2 b (Kepler-1 b) ungefähr von der Erde entfernt?",
+    "correctAnswer": "702,3 Lichtjahre",
+    "options": [
+      "702,3 Lichtjahre",
+      "697,9 Lichtjahre",
+      "634,8 Lichtjahre",
+      "579,2 Lichtjahre"
+    ],
+    "testedAttribute": "distanceLy",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_gliese-581-c_astra-exo-distance",
+    "entityId": "astra:gliese-581-c",
+    "entityType": "exoplanet",
+    "type": "astra-exo-distance",
+    "difficulty": 3,
+    "prompt": "Wie weit ist Gliese 581 c ungefähr von der Erde entfernt?",
+    "correctAnswer": "20,5 Lichtjahre",
+    "options": [
+      "20,5 Lichtjahre",
+      "11 Lichtjahre",
+      "30,8 Lichtjahre",
+      "4,2 Lichtjahre"
+    ],
+    "testedAttribute": "distanceLy",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_kepler-62-f_astra-exo-distance",
+    "entityId": "astra:kepler-62-f",
+    "entityType": "exoplanet",
+    "type": "astra-exo-distance",
+    "difficulty": 3,
+    "prompt": "Wie weit ist Kepler-62 f ungefähr von der Erde entfernt?",
+    "correctAnswer": "981,3 Lichtjahre",
+    "options": [
+      "981,3 Lichtjahre",
+      "880,3 Lichtjahre",
+      "1.193,6 Lichtjahre",
+      "702,3 Lichtjahre"
+    ],
+    "testedAttribute": "distanceLy",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_wasp-39-b_astra-exo-distance",
+    "entityId": "astra:wasp-39-b",
+    "entityType": "exoplanet",
+    "type": "astra-exo-distance",
+    "difficulty": 3,
+    "prompt": "Wie weit ist WASP-39 b ungefähr von der Erde entfernt?",
+    "correctAnswer": "697,9 Lichtjahre",
+    "options": [
+      "697,9 Lichtjahre",
+      "702,3 Lichtjahre",
+      "634,8 Lichtjahre",
+      "579,2 Lichtjahre"
     ],
     "testedAttribute": "distanceLy",
     "answerIsName": false,
@@ -26609,9 +27046,9 @@
     "correctAnswer": "Proxima Centauri b",
     "options": [
       "Proxima Centauri b",
-      "51 Pegasi b (Dimidium)",
-      "Kepler-452b",
-      "TRAPPIST-1-System"
+      "Kepler-90 i",
+      "K2-18 b",
+      "HD 209458 b (Osiris)"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -26628,9 +27065,9 @@
     "correctAnswer": "TRAPPIST-1-System",
     "options": [
       "TRAPPIST-1-System",
-      "Kepler-452b",
-      "Proxima Centauri b",
-      "51 Pegasi b (Dimidium)"
+      "Kepler-16 b (Tatooine)",
+      "WASP-39 b",
+      "Kepler-452b"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -26647,9 +27084,9 @@
     "correctAnswer": "Kepler-452b",
     "options": [
       "Kepler-452b",
-      "Proxima Centauri b",
-      "51 Pegasi b (Dimidium)",
-      "TRAPPIST-1-System"
+      "LHS 1140 b",
+      "HR 8799 b",
+      "TOI-700 d"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -26666,9 +27103,446 @@
     "correctAnswer": "51 Pegasi b (Dimidium)",
     "options": [
       "51 Pegasi b (Dimidium)",
+      "WASP-121 b",
+      "Ross 128 b",
+      "Kepler-16 b (Tatooine)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_hd-209458-b-osiris_astra-exo-distance-rev",
+    "entityId": "astra:hd-209458-b-osiris",
+    "entityType": "exoplanet",
+    "type": "astra-exo-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Exoplanet (bzw. welches System) ist etwa 157,5 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "HD 209458 b (Osiris)",
+    "options": [
+      "HD 209458 b (Osiris)",
+      "51 Pegasi b (Dimidium)",
+      "Kepler-16 b (Tatooine)",
+      "PSR B1257+12 c (Poltergeist)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_kepler-22-b_astra-exo-distance-rev",
+    "entityId": "astra:kepler-22-b",
+    "entityType": "exoplanet",
+    "type": "astra-exo-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Exoplanet (bzw. welches System) ist etwa 634,8 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "Kepler-22 b",
+    "options": [
+      "Kepler-22 b",
+      "WASP-39 b",
+      "Kepler-442 b",
+      "55 Cancri e (Janssen)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_kepler-186-f_astra-exo-distance-rev",
+    "entityId": "astra:kepler-186-f",
+    "entityType": "exoplanet",
+    "type": "astra-exo-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Exoplanet (bzw. welches System) ist etwa 579,2 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "Kepler-186 f",
+    "options": [
+      "Kepler-186 f",
+      "HD 189733 b",
+      "Ross 128 b",
+      "Kepler-90 i"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_kepler-16-b-tatooine_astra-exo-distance-rev",
+    "entityId": "astra:kepler-16-b-tatooine",
+    "entityType": "exoplanet",
+    "type": "astra-exo-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Exoplanet (bzw. welches System) ist etwa 244,9 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "Kepler-16 b (Tatooine)",
+    "options": [
+      "Kepler-16 b (Tatooine)",
+      "GJ 357 d",
+      "Ross 128 b",
+      "55 Cancri e (Janssen)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_55-cancri-e-janssen_astra-exo-distance-rev",
+    "entityId": "astra:55-cancri-e-janssen",
+    "entityType": "exoplanet",
+    "type": "astra-exo-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Exoplanet (bzw. welches System) ist etwa 41 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "55 Cancri e (Janssen)",
+    "options": [
+      "55 Cancri e (Janssen)",
+      "Kepler-90 i",
+      "TrES-2 b (Kepler-1 b)",
+      "PSR B1257+12 c (Poltergeist)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_hd-189733-b_astra-exo-distance-rev",
+    "entityId": "astra:hd-189733-b",
+    "entityType": "exoplanet",
+    "type": "astra-exo-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Exoplanet (bzw. welches System) ist etwa 64,5 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "HD 189733 b",
+    "options": [
+      "HD 189733 b",
+      "Kepler-186 f",
+      "TrES-2 b (Kepler-1 b)",
+      "HD 209458 b (Osiris)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_psr-b1257-12-c-poltergeist_astra-exo-distance-rev",
+    "entityId": "astra:psr-b1257-12-c-poltergeist",
+    "entityType": "exoplanet",
+    "type": "astra-exo-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Exoplanet (bzw. welches System) ist etwa 1.956,9 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "PSR B1257+12 c (Poltergeist)",
+    "options": [
+      "PSR B1257+12 c (Poltergeist)",
+      "K2-18 b",
+      "Beta Pictoris b",
+      "Kepler-442 b"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_wasp-12-b_astra-exo-distance-rev",
+    "entityId": "astra:wasp-12-b",
+    "entityType": "exoplanet",
+    "type": "astra-exo-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Exoplanet (bzw. welches System) ist etwa 1.393,5 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "WASP-12 b",
+    "options": [
+      "WASP-12 b",
+      "WASP-121 b",
+      "WASP-39 b",
+      "Proxima Centauri b"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_k2-18-b_astra-exo-distance-rev",
+    "entityId": "astra:k2-18-b",
+    "entityType": "exoplanet",
+    "type": "astra-exo-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Exoplanet (bzw. welches System) ist etwa 124 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "K2-18 b",
+    "options": [
+      "K2-18 b",
+      "Kepler-442 b",
+      "HR 8799 b",
+      "TrES-2 b (Kepler-1 b)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_hr-8799-b_astra-exo-distance-rev",
+    "entityId": "astra:hr-8799-b",
+    "entityType": "exoplanet",
+    "type": "astra-exo-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Exoplanet (bzw. welches System) ist etwa 134,5 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "HR 8799 b",
+    "options": [
+      "HR 8799 b",
+      "GJ 357 d",
+      "Beta Pictoris b",
+      "LHS 1140 b"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_beta-pictoris-b_astra-exo-distance-rev",
+    "entityId": "astra:beta-pictoris-b",
+    "entityType": "exoplanet",
+    "type": "astra-exo-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Exoplanet (bzw. welches System) ist etwa 64,4 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "Beta Pictoris b",
+    "options": [
+      "Beta Pictoris b",
+      "WASP-121 b",
+      "HR 8799 b",
+      "Kepler-22 b"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_gj-1214-b_astra-exo-distance-rev",
+    "entityId": "astra:gj-1214-b",
+    "entityType": "exoplanet",
+    "type": "astra-exo-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Exoplanet (bzw. welches System) ist etwa 47,8 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "GJ 1214 b",
+    "options": [
+      "GJ 1214 b",
       "Proxima Centauri b",
-      "Kepler-452b",
+      "HD 209458 b (Osiris)",
+      "GJ 357 d"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_lhs-1140-b_astra-exo-distance-rev",
+    "entityId": "astra:lhs-1140-b",
+    "entityType": "exoplanet",
+    "type": "astra-exo-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Exoplanet (bzw. welches System) ist etwa 48,9 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "LHS 1140 b",
+    "options": [
+      "LHS 1140 b",
+      "HD 209458 b (Osiris)",
+      "HD 189733 b",
+      "Kepler-22 b"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_toi-700-d_astra-exo-distance-rev",
+    "entityId": "astra:toi-700-d",
+    "entityType": "exoplanet",
+    "type": "astra-exo-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Exoplanet (bzw. welches System) ist etwa 101,5 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "TOI-700 d",
+    "options": [
+      "TOI-700 d",
+      "GJ 1214 b",
+      "Kepler-16 b (Tatooine)",
       "TRAPPIST-1-System"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_ross-128-b_astra-exo-distance-rev",
+    "entityId": "astra:ross-128-b",
+    "entityType": "exoplanet",
+    "type": "astra-exo-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Exoplanet (bzw. welches System) ist etwa 11 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "Ross 128 b",
+    "options": [
+      "Ross 128 b",
+      "Kepler-452b",
+      "Kepler-442 b",
+      "K2-18 b"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_kepler-90-i_astra-exo-distance-rev",
+    "entityId": "astra:kepler-90-i",
+    "entityType": "exoplanet",
+    "type": "astra-exo-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Exoplanet (bzw. welches System) ist etwa 2.766,6 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "Kepler-90 i",
+    "options": [
+      "Kepler-90 i",
+      "HD 189733 b",
+      "Kepler-452b",
+      "LHS 1140 b"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_kepler-442-b_astra-exo-distance-rev",
+    "entityId": "astra:kepler-442-b",
+    "entityType": "exoplanet",
+    "type": "astra-exo-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Exoplanet (bzw. welches System) ist etwa 1.193,6 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "Kepler-442 b",
+    "options": [
+      "Kepler-442 b",
+      "55 Cancri e (Janssen)",
+      "Proxima Centauri b",
+      "TRAPPIST-1-System"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_gj-357-d_astra-exo-distance-rev",
+    "entityId": "astra:gj-357-d",
+    "entityType": "exoplanet",
+    "type": "astra-exo-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Exoplanet (bzw. welches System) ist etwa 30,8 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "GJ 357 d",
+    "options": [
+      "GJ 357 d",
+      "Beta Pictoris b",
+      "Kepler-442 b",
+      "Kepler-452b"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_wasp-121-b_astra-exo-distance-rev",
+    "entityId": "astra:wasp-121-b",
+    "entityType": "exoplanet",
+    "type": "astra-exo-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Exoplanet (bzw. welches System) ist etwa 880,3 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "WASP-121 b",
+    "options": [
+      "WASP-121 b",
+      "55 Cancri e (Janssen)",
+      "WASP-12 b",
+      "K2-18 b"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_tres-2-b-kepler-1-b_astra-exo-distance-rev",
+    "entityId": "astra:tres-2-b-kepler-1-b",
+    "entityType": "exoplanet",
+    "type": "astra-exo-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Exoplanet (bzw. welches System) ist etwa 702,3 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "TrES-2 b (Kepler-1 b)",
+    "options": [
+      "TrES-2 b (Kepler-1 b)",
+      "WASP-121 b",
+      "Gliese 581 c",
+      "WASP-12 b"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_gliese-581-c_astra-exo-distance-rev",
+    "entityId": "astra:gliese-581-c",
+    "entityType": "exoplanet",
+    "type": "astra-exo-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Exoplanet (bzw. welches System) ist etwa 20,5 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "Gliese 581 c",
+    "options": [
+      "Gliese 581 c",
+      "TrES-2 b (Kepler-1 b)",
+      "Kepler-22 b",
+      "55 Cancri e (Janssen)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_kepler-62-f_astra-exo-distance-rev",
+    "entityId": "astra:kepler-62-f",
+    "entityType": "exoplanet",
+    "type": "astra-exo-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Exoplanet (bzw. welches System) ist etwa 981,3 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "Kepler-62 f",
+    "options": [
+      "Kepler-62 f",
+      "Gliese 581 c",
+      "HD 189733 b",
+      "LHS 1140 b"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_wasp-39-b_astra-exo-distance-rev",
+    "entityId": "astra:wasp-39-b",
+    "entityType": "exoplanet",
+    "type": "astra-exo-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Exoplanet (bzw. welches System) ist etwa 697,9 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "WASP-39 b",
+    "options": [
+      "WASP-39 b",
+      "Proxima Centauri b",
+      "HD 209458 b (Osiris)",
+      "WASP-12 b"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -26687,7 +27561,7 @@
       "2016",
       "2017",
       "2015",
-      "1995"
+      "2014"
     ],
     "testedAttribute": "discoveredYear",
     "answerIsName": false,
@@ -26706,7 +27580,7 @@
       "2017",
       "2016",
       "2015",
-      "1995"
+      "2019"
     ],
     "testedAttribute": "discoveredYear",
     "answerIsName": false,
@@ -26724,8 +27598,8 @@
     "options": [
       "2015",
       "2016",
-      "2017",
-      "1995"
+      "2014",
+      "2017"
     ],
     "testedAttribute": "discoveredYear",
     "answerIsName": false,
@@ -26742,8 +27616,179 @@
     "correctAnswer": "1995",
     "options": [
       "1995",
+      "1992",
+      "1999",
+      "2004"
+    ],
+    "testedAttribute": "discoveredYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_hd-209458-b-osiris_astra-exo-year",
+    "entityId": "astra:hd-209458-b-osiris",
+    "entityType": "exoplanet",
+    "type": "astra-exo-year",
+    "difficulty": 3,
+    "prompt": "In welchem Jahr wurde HD 209458 b (Osiris) entdeckt?",
+    "correctAnswer": "1999",
+    "options": [
+      "1999",
+      "1995",
+      "2004",
+      "2005"
+    ],
+    "testedAttribute": "discoveredYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_kepler-22-b_astra-exo-year",
+    "entityId": "astra:kepler-22-b",
+    "entityType": "exoplanet",
+    "type": "astra-exo-year",
+    "difficulty": 3,
+    "prompt": "In welchem Jahr wurde Kepler-22 b entdeckt?",
+    "correctAnswer": "2011",
+    "options": [
+      "2011",
+      "2009",
+      "2013",
+      "2014"
+    ],
+    "testedAttribute": "discoveredYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_kepler-186-f_astra-exo-year",
+    "entityId": "astra:kepler-186-f",
+    "entityType": "exoplanet",
+    "type": "astra-exo-year",
+    "difficulty": 3,
+    "prompt": "In welchem Jahr wurde Kepler-186 f entdeckt?",
+    "correctAnswer": "2014",
+    "options": [
+      "2014",
+      "2015",
+      "2013",
+      "2016"
+    ],
+    "testedAttribute": "discoveredYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_kepler-16-b-tatooine_astra-exo-year",
+    "entityId": "astra:kepler-16-b-tatooine",
+    "entityType": "exoplanet",
+    "type": "astra-exo-year",
+    "difficulty": 3,
+    "prompt": "In welchem Jahr wurde Kepler-16 b (Tatooine) entdeckt?",
+    "correctAnswer": "2011",
+    "options": [
+      "2011",
+      "2009",
+      "2013",
+      "2014"
+    ],
+    "testedAttribute": "discoveredYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_55-cancri-e-janssen_astra-exo-year",
+    "entityId": "astra:55-cancri-e-janssen",
+    "entityType": "exoplanet",
+    "type": "astra-exo-year",
+    "difficulty": 3,
+    "prompt": "In welchem Jahr wurde 55 Cancri e (Janssen) entdeckt?",
+    "correctAnswer": "2004",
+    "options": [
+      "2004",
+      "2005",
+      "2006",
+      "2007"
+    ],
+    "testedAttribute": "discoveredYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_hd-189733-b_astra-exo-year",
+    "entityId": "astra:hd-189733-b",
+    "entityType": "exoplanet",
+    "type": "astra-exo-year",
+    "difficulty": 3,
+    "prompt": "In welchem Jahr wurde HD 189733 b entdeckt?",
+    "correctAnswer": "2005",
+    "options": [
+      "2005",
+      "2004",
+      "2006",
+      "2007"
+    ],
+    "testedAttribute": "discoveredYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_psr-b1257-12-c-poltergeist_astra-exo-year",
+    "entityId": "astra:psr-b1257-12-c-poltergeist",
+    "entityType": "exoplanet",
+    "type": "astra-exo-year",
+    "difficulty": 3,
+    "prompt": "In welchem Jahr wurde PSR B1257+12 c (Poltergeist) entdeckt?",
+    "correctAnswer": "1992",
+    "options": [
+      "1992",
+      "1995",
+      "1999",
+      "2004"
+    ],
+    "testedAttribute": "discoveredYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_wasp-12-b_astra-exo-year",
+    "entityId": "astra:wasp-12-b",
+    "entityType": "exoplanet",
+    "type": "astra-exo-year",
+    "difficulty": 3,
+    "prompt": "In welchem Jahr wurde WASP-12 b entdeckt?",
+    "correctAnswer": "2008",
+    "options": [
+      "2008",
+      "2009",
+      "2007",
+      "2006"
+    ],
+    "testedAttribute": "discoveredYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_k2-18-b_astra-exo-year",
+    "entityId": "astra:k2-18-b",
+    "entityType": "exoplanet",
+    "type": "astra-exo-year",
+    "difficulty": 3,
+    "prompt": "In welchem Jahr wurde K2-18 b entdeckt?",
+    "correctAnswer": "2015",
+    "options": [
       "2015",
       "2016",
+      "2014",
       "2017"
     ],
     "testedAttribute": "discoveredYear",
@@ -26752,59 +27797,268 @@
     "mapTargetId": null
   },
   {
-    "id": "q_astra_exoplanet-proxima-centauri-b_astra-exo-year-rev",
-    "entityId": "astra:exoplanet-proxima-centauri-b",
+    "id": "q_astra_hr-8799-b_astra-exo-year",
+    "entityId": "astra:hr-8799-b",
     "entityType": "exoplanet",
-    "type": "astra-exo-year-rev",
-    "difficulty": 4,
-    "prompt": "Welcher Exoplanet (bzw. welches System) wurde im Jahr 2016 entdeckt?",
-    "correctAnswer": "Proxima Centauri b",
+    "type": "astra-exo-year",
+    "difficulty": 3,
+    "prompt": "In welchem Jahr wurde HR 8799 b entdeckt?",
+    "correctAnswer": "2008",
     "options": [
-      "Proxima Centauri b",
-      "Kepler-452b",
-      "51 Pegasi b (Dimidium)",
-      "TRAPPIST-1-System"
+      "2008",
+      "2009",
+      "2007",
+      "2006"
     ],
-    "testedAttribute": null,
-    "answerIsName": true,
+    "testedAttribute": "discoveredYear",
+    "answerIsName": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
   {
-    "id": "q_astra_exoplanet-trappist-1_astra-exo-year-rev",
-    "entityId": "astra:exoplanet-trappist-1",
+    "id": "q_astra_beta-pictoris-b_astra-exo-year",
+    "entityId": "astra:beta-pictoris-b",
     "entityType": "exoplanet",
-    "type": "astra-exo-year-rev",
-    "difficulty": 4,
-    "prompt": "Welcher Exoplanet (bzw. welches System) wurde im Jahr 2017 entdeckt?",
-    "correctAnswer": "TRAPPIST-1-System",
+    "type": "astra-exo-year",
+    "difficulty": 3,
+    "prompt": "In welchem Jahr wurde Beta Pictoris b entdeckt?",
+    "correctAnswer": "2008",
     "options": [
-      "TRAPPIST-1-System",
-      "51 Pegasi b (Dimidium)",
-      "Kepler-452b",
-      "Proxima Centauri b"
+      "2008",
+      "2009",
+      "2007",
+      "2006"
     ],
-    "testedAttribute": null,
-    "answerIsName": true,
+    "testedAttribute": "discoveredYear",
+    "answerIsName": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
   {
-    "id": "q_astra_exoplanet-kepler-452b_astra-exo-year-rev",
-    "entityId": "astra:exoplanet-kepler-452b",
+    "id": "q_astra_gj-1214-b_astra-exo-year",
+    "entityId": "astra:gj-1214-b",
     "entityType": "exoplanet",
-    "type": "astra-exo-year-rev",
-    "difficulty": 4,
-    "prompt": "Welcher Exoplanet (bzw. welches System) wurde im Jahr 2015 entdeckt?",
-    "correctAnswer": "Kepler-452b",
+    "type": "astra-exo-year",
+    "difficulty": 3,
+    "prompt": "In welchem Jahr wurde GJ 1214 b entdeckt?",
+    "correctAnswer": "2009",
     "options": [
-      "Kepler-452b",
-      "51 Pegasi b (Dimidium)",
-      "TRAPPIST-1-System",
-      "Proxima Centauri b"
+      "2009",
+      "2008",
+      "2011",
+      "2007"
     ],
-    "testedAttribute": null,
-    "answerIsName": true,
+    "testedAttribute": "discoveredYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_lhs-1140-b_astra-exo-year",
+    "entityId": "astra:lhs-1140-b",
+    "entityType": "exoplanet",
+    "type": "astra-exo-year",
+    "difficulty": 3,
+    "prompt": "In welchem Jahr wurde LHS 1140 b entdeckt?",
+    "correctAnswer": "2017",
+    "options": [
+      "2017",
+      "2016",
+      "2015",
+      "2019"
+    ],
+    "testedAttribute": "discoveredYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_toi-700-d_astra-exo-year",
+    "entityId": "astra:toi-700-d",
+    "entityType": "exoplanet",
+    "type": "astra-exo-year",
+    "difficulty": 3,
+    "prompt": "In welchem Jahr wurde TOI-700 d entdeckt?",
+    "correctAnswer": "2020",
+    "options": [
+      "2020",
+      "2019",
+      "2017",
+      "2016"
+    ],
+    "testedAttribute": "discoveredYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_ross-128-b_astra-exo-year",
+    "entityId": "astra:ross-128-b",
+    "entityType": "exoplanet",
+    "type": "astra-exo-year",
+    "difficulty": 3,
+    "prompt": "In welchem Jahr wurde Ross 128 b entdeckt?",
+    "correctAnswer": "2017",
+    "options": [
+      "2017",
+      "2016",
+      "2015",
+      "2019"
+    ],
+    "testedAttribute": "discoveredYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_kepler-90-i_astra-exo-year",
+    "entityId": "astra:kepler-90-i",
+    "entityType": "exoplanet",
+    "type": "astra-exo-year",
+    "difficulty": 3,
+    "prompt": "In welchem Jahr wurde Kepler-90 i entdeckt?",
+    "correctAnswer": "2017",
+    "options": [
+      "2017",
+      "2016",
+      "2015",
+      "2019"
+    ],
+    "testedAttribute": "discoveredYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_kepler-442-b_astra-exo-year",
+    "entityId": "astra:kepler-442-b",
+    "entityType": "exoplanet",
+    "type": "astra-exo-year",
+    "difficulty": 3,
+    "prompt": "In welchem Jahr wurde Kepler-442 b entdeckt?",
+    "correctAnswer": "2015",
+    "options": [
+      "2015",
+      "2016",
+      "2014",
+      "2017"
+    ],
+    "testedAttribute": "discoveredYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_gj-357-d_astra-exo-year",
+    "entityId": "astra:gj-357-d",
+    "entityType": "exoplanet",
+    "type": "astra-exo-year",
+    "difficulty": 3,
+    "prompt": "In welchem Jahr wurde GJ 357 d entdeckt?",
+    "correctAnswer": "2019",
+    "options": [
+      "2019",
+      "2020",
+      "2017",
+      "2016"
+    ],
+    "testedAttribute": "discoveredYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_wasp-121-b_astra-exo-year",
+    "entityId": "astra:wasp-121-b",
+    "entityType": "exoplanet",
+    "type": "astra-exo-year",
+    "difficulty": 3,
+    "prompt": "In welchem Jahr wurde WASP-121 b entdeckt?",
+    "correctAnswer": "2016",
+    "options": [
+      "2016",
+      "2017",
+      "2015",
+      "2014"
+    ],
+    "testedAttribute": "discoveredYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_tres-2-b-kepler-1-b_astra-exo-year",
+    "entityId": "astra:tres-2-b-kepler-1-b",
+    "entityType": "exoplanet",
+    "type": "astra-exo-year",
+    "difficulty": 3,
+    "prompt": "In welchem Jahr wurde TrES-2 b (Kepler-1 b) entdeckt?",
+    "correctAnswer": "2006",
+    "options": [
+      "2006",
+      "2005",
+      "2007",
+      "2004"
+    ],
+    "testedAttribute": "discoveredYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_gliese-581-c_astra-exo-year",
+    "entityId": "astra:gliese-581-c",
+    "entityType": "exoplanet",
+    "type": "astra-exo-year",
+    "difficulty": 3,
+    "prompt": "In welchem Jahr wurde Gliese 581 c entdeckt?",
+    "correctAnswer": "2007",
+    "options": [
+      "2007",
+      "2008",
+      "2006",
+      "2005"
+    ],
+    "testedAttribute": "discoveredYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_kepler-62-f_astra-exo-year",
+    "entityId": "astra:kepler-62-f",
+    "entityType": "exoplanet",
+    "type": "astra-exo-year",
+    "difficulty": 3,
+    "prompt": "In welchem Jahr wurde Kepler-62 f entdeckt?",
+    "correctAnswer": "2013",
+    "options": [
+      "2013",
+      "2014",
+      "2015",
+      "2011"
+    ],
+    "testedAttribute": "discoveredYear",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_wasp-39-b_astra-exo-year",
+    "entityId": "astra:wasp-39-b",
+    "entityType": "exoplanet",
+    "type": "astra-exo-year",
+    "difficulty": 3,
+    "prompt": "In welchem Jahr wurde WASP-39 b entdeckt?",
+    "correctAnswer": "2011",
+    "options": [
+      "2011",
+      "2009",
+      "2013",
+      "2014"
+    ],
+    "testedAttribute": "discoveredYear",
+    "answerIsName": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -26818,9 +28072,218 @@
     "correctAnswer": "51 Pegasi b (Dimidium)",
     "options": [
       "51 Pegasi b (Dimidium)",
-      "Kepler-452b",
+      "Kepler-186 f",
+      "Ross 128 b",
+      "GJ 1214 b"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_hd-209458-b-osiris_astra-exo-year-rev",
+    "entityId": "astra:hd-209458-b-osiris",
+    "entityType": "exoplanet",
+    "type": "astra-exo-year-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Exoplanet (bzw. welches System) wurde im Jahr 1999 entdeckt?",
+    "correctAnswer": "HD 209458 b (Osiris)",
+    "options": [
+      "HD 209458 b (Osiris)",
+      "WASP-12 b",
+      "Beta Pictoris b",
+      "Ross 128 b"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_kepler-186-f_astra-exo-year-rev",
+    "entityId": "astra:kepler-186-f",
+    "entityType": "exoplanet",
+    "type": "astra-exo-year-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Exoplanet (bzw. welches System) wurde im Jahr 2014 entdeckt?",
+    "correctAnswer": "Kepler-186 f",
+    "options": [
+      "Kepler-186 f",
+      "Kepler-90 i",
+      "GJ 1214 b",
+      "K2-18 b"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_55-cancri-e-janssen_astra-exo-year-rev",
+    "entityId": "astra:55-cancri-e-janssen",
+    "entityType": "exoplanet",
+    "type": "astra-exo-year-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Exoplanet (bzw. welches System) wurde im Jahr 2004 entdeckt?",
+    "correctAnswer": "55 Cancri e (Janssen)",
+    "options": [
+      "55 Cancri e (Janssen)",
+      "Gliese 581 c",
       "Proxima Centauri b",
-      "TRAPPIST-1-System"
+      "HR 8799 b"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_hd-189733-b_astra-exo-year-rev",
+    "entityId": "astra:hd-189733-b",
+    "entityType": "exoplanet",
+    "type": "astra-exo-year-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Exoplanet (bzw. welches System) wurde im Jahr 2005 entdeckt?",
+    "correctAnswer": "HD 189733 b",
+    "options": [
+      "HD 189733 b",
+      "Kepler-16 b (Tatooine)",
+      "WASP-12 b",
+      "GJ 357 d"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_psr-b1257-12-c-poltergeist_astra-exo-year-rev",
+    "entityId": "astra:psr-b1257-12-c-poltergeist",
+    "entityType": "exoplanet",
+    "type": "astra-exo-year-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Exoplanet (bzw. welches System) wurde im Jahr 1992 entdeckt?",
+    "correctAnswer": "PSR B1257+12 c (Poltergeist)",
+    "options": [
+      "PSR B1257+12 c (Poltergeist)",
+      "Kepler-62 f",
+      "Proxima Centauri b",
+      "TrES-2 b (Kepler-1 b)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_gj-1214-b_astra-exo-year-rev",
+    "entityId": "astra:gj-1214-b",
+    "entityType": "exoplanet",
+    "type": "astra-exo-year-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Exoplanet (bzw. welches System) wurde im Jahr 2009 entdeckt?",
+    "correctAnswer": "GJ 1214 b",
+    "options": [
+      "GJ 1214 b",
+      "Ross 128 b",
+      "LHS 1140 b",
+      "HR 8799 b"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_toi-700-d_astra-exo-year-rev",
+    "entityId": "astra:toi-700-d",
+    "entityType": "exoplanet",
+    "type": "astra-exo-year-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Exoplanet (bzw. welches System) wurde im Jahr 2020 entdeckt?",
+    "correctAnswer": "TOI-700 d",
+    "options": [
+      "TOI-700 d",
+      "GJ 1214 b",
+      "LHS 1140 b",
+      "WASP-39 b"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_gj-357-d_astra-exo-year-rev",
+    "entityId": "astra:gj-357-d",
+    "entityType": "exoplanet",
+    "type": "astra-exo-year-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Exoplanet (bzw. welches System) wurde im Jahr 2019 entdeckt?",
+    "correctAnswer": "GJ 357 d",
+    "options": [
+      "GJ 357 d",
+      "Beta Pictoris b",
+      "Proxima Centauri b",
+      "Kepler-22 b"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_tres-2-b-kepler-1-b_astra-exo-year-rev",
+    "entityId": "astra:tres-2-b-kepler-1-b",
+    "entityType": "exoplanet",
+    "type": "astra-exo-year-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Exoplanet (bzw. welches System) wurde im Jahr 2006 entdeckt?",
+    "correctAnswer": "TrES-2 b (Kepler-1 b)",
+    "options": [
+      "TrES-2 b (Kepler-1 b)",
+      "LHS 1140 b",
+      "Kepler-22 b",
+      "Kepler-442 b"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_gliese-581-c_astra-exo-year-rev",
+    "entityId": "astra:gliese-581-c",
+    "entityType": "exoplanet",
+    "type": "astra-exo-year-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Exoplanet (bzw. welches System) wurde im Jahr 2007 entdeckt?",
+    "correctAnswer": "Gliese 581 c",
+    "options": [
+      "Gliese 581 c",
+      "Kepler-442 b",
+      "51 Pegasi b (Dimidium)",
+      "Kepler-62 f"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_kepler-62-f_astra-exo-year-rev",
+    "entityId": "astra:kepler-62-f",
+    "entityType": "exoplanet",
+    "type": "astra-exo-year-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Exoplanet (bzw. welches System) wurde im Jahr 2013 entdeckt?",
+    "correctAnswer": "Kepler-62 f",
+    "options": [
+      "Kepler-62 f",
+      "TrES-2 b (Kepler-1 b)",
+      "Beta Pictoris b",
+      "HD 209458 b (Osiris)"
     ],
     "testedAttribute": null,
     "answerIsName": true,
