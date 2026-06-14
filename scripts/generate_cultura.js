@@ -495,6 +495,37 @@ const templates = [
   {
     category: 'literature', attr: 'author', kind: 'name', type: 'cultura-literature-author-rev', difficulty: 3,
     prompt: c => `Welches dieser Werke schrieb ${beforeParen(String(c.attributes.author))}?`
+  },
+  // ==== Zitate (quote) — ausschließlich gemeinfreie deutschsprachige Klassiker.
+  // Datenmodell: name = der Zitattext selbst (ohne äußere Anführungszeichen);
+  // die typografische Anführung setzt jeweils der Prompt. Attribute: author, work,
+  // year (+ optional completionStem/completionAnswer für die Vervollständigung).
+  // Das PD-Gate (Autor †≤1955) wird HARVEST-seitig erzwungen, nicht hier.
+  {
+    // (1) Zitat -> Autor. Distraktoren = andere Klassiker-Autoren aus dem Pool.
+    category: 'quote', attr: 'author', kind: 'cat', type: 'cultura-quote-author', difficulty: 3,
+    prompt: c => `Von welchem Autor stammt das Zitat: „${c.name}“?`
+  },
+  {
+    // (2) Zitat -> Werk. Nur Zitate mit eindeutigem Werk (sonst Skip).
+    category: 'quote', attr: 'work', kind: 'cat', type: 'cultura-quote-work', difficulty: 4,
+    skip: c => !c.attributes.work,
+    prompt: c => `Aus welchem Werk stammt das Zitat: „${c.name}“?`
+  },
+  {
+    // (3) Reverse: Werk(+Autor) -> welches Zitat? correct = Zitattext (c.name).
+    // pickNames stellt über attr=work sicher, dass Distraktor-Zitate aus ANDEREN
+    // Werken stammen (sonst mehrere richtige Optionen).
+    category: 'quote', attr: 'work', kind: 'name', type: 'cultura-quote-text', difficulty: 4,
+    skip: c => !c.attributes.work,
+    prompt: c => `Welches Zitat stammt aus „${c.attributes.work}“${c.attributes.author ? ` von ${beforeParen(String(c.attributes.author))}` : ''}?`
+  },
+  {
+    // (4) Zitat vervollständigen. Nur Zitate mit Stamm+Fortsetzung (sonst Skip).
+    // Distraktoren = Fortsetzungen anderer Zitate.
+    category: 'quote', attr: 'completionAnswer', kind: 'cat', type: 'cultura-quote-complete', difficulty: 2,
+    skip: c => !c.attributes.completionStem || !c.attributes.completionAnswer,
+    prompt: c => `Vervollständige das Zitat: „${c.attributes.completionStem} …“`
   }
 ];
 
