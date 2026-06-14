@@ -33088,9 +33088,9 @@
     "correctAnswer": "Und bin so klug als wie zuvor.",
     "options": [
       "Und bin so klug als wie zuvor.",
-      "Es ist der Vater mit seinem Kind.",
+      "die Tat.",
       "Die ich rief, die Geister, werd ich nun nicht los.",
-      "ob sich das Herz zum Herzen findet."
+      "Und wir haben ihn getötet."
     ],
     "testedAttribute": "completionAnswer",
     "answerIsName": false,
@@ -33098,18 +33098,18 @@
     "mapTargetId": null
   },
   {
-    "id": "q_cultura_goethe-erlkoenig_cultura-quote-complete",
-    "entityId": "cultura:goethe-erlkoenig",
+    "id": "q_cultura_goethe-faust-leben_cultura-quote-complete",
+    "entityId": "cultura:goethe-faust-leben",
     "entityType": "quote",
     "type": "cultura-quote-complete",
     "difficulty": 2,
-    "prompt": "Vervollständige das Zitat: „Wer reitet so spät durch Nacht und Wind? …“",
-    "correctAnswer": "Es ist der Vater mit seinem Kind.",
+    "prompt": "Vervollständige das Zitat: „Im Anfang war …“",
+    "correctAnswer": "die Tat.",
     "options": [
-      "Es ist der Vater mit seinem Kind.",
+      "die Tat.",
       "Und bin so klug als wie zuvor.",
       "Die ich rief, die Geister, werd ich nun nicht los.",
-      "ob sich das Herz zum Herzen findet."
+      "Und wir haben ihn getötet."
     ],
     "testedAttribute": "completionAnswer",
     "answerIsName": false,
@@ -33127,8 +33127,141 @@
     "options": [
       "Die ich rief, die Geister, werd ich nun nicht los.",
       "Und bin so klug als wie zuvor.",
-      "Es ist der Vater mit seinem Kind.",
-      "ob sich das Herz zum Herzen findet."
+      "die Tat.",
+      "Und wir haben ihn getötet."
+    ],
+    "testedAttribute": "completionAnswer",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_nietzsche-gott-tot_cultura-quote-complete",
+    "entityId": "cultura:nietzsche-gott-tot",
+    "entityType": "quote",
+    "type": "cultura-quote-complete",
+    "difficulty": 2,
+    "prompt": "Vervollständige das Zitat: „Gott ist tot! Gott bleibt tot! …“",
+    "correctAnswer": "Und wir haben ihn getötet.",
+    "options": [
+      "Und wir haben ihn getötet.",
+      "Und bin so klug als wie zuvor.",
+      "die Tat.",
+      "Die ich rief, die Geister, werd ich nun nicht los."
+    ],
+    "testedAttribute": "completionAnswer",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_nietzsche-amor-fati_cultura-quote-complete",
+    "entityId": "cultura:nietzsche-amor-fati",
+    "entityType": "quote",
+    "type": "cultura-quote-complete",
+    "difficulty": 2,
+    "prompt": "Vervollständige das Zitat: „Ich will immer mehr lernen, das Schöne an einem Ding und am Leben sehen, – …“",
+    "correctAnswer": "Amor fati: das sei von nun an meine Liebe.",
+    "options": [
+      "Amor fati: das sei von nun an meine Liebe.",
+      "Und bin so klug als wie zuvor.",
+      "die Tat.",
+      "Die ich rief, die Geister, werd ich nun nicht los."
+    ],
+    "testedAttribute": "completionAnswer",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_nietzsche-tiefe-schmerz_cultura-quote-complete",
+    "entityId": "cultura:nietzsche-tiefe-schmerz",
+    "entityType": "quote",
+    "type": "cultura-quote-complete",
+    "difficulty": 2,
+    "prompt": "Vervollständige das Zitat: „Der tiefe Schmerz macht erst rechtschaffen; …“",
+    "correctAnswer": "im Glück aber klingt der Mensch oberflächlich.",
+    "options": [
+      "im Glück aber klingt der Mensch oberflächlich.",
+      "Und bin so klug als wie zuvor.",
+      "die Tat.",
+      "Die ich rief, die Geister, werd ich nun nicht los."
+    ],
+    "testedAttribute": "completionAnswer",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_kant-zweck_cultura-quote-complete",
+    "entityId": "cultura:kant-zweck",
+    "entityType": "quote",
+    "type": "cultura-quote-complete",
+    "difficulty": 2,
+    "prompt": "Vervollständige das Zitat: „Handle so, dass du die Menschheit, sowohl in deiner Person, als in der Person eines jeden andern, jederzeit zugleich als Zweck, …“",
+    "correctAnswer": "niemals bloß als Mittel brauchst.",
+    "options": [
+      "niemals bloß als Mittel brauchst.",
+      "Und bin so klug als wie zuvor.",
+      "die Tat.",
+      "Die ich rief, die Geister, werd ich nun nicht los."
+    ],
+    "testedAttribute": "completionAnswer",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_kant-aufklaerung_cultura-quote-complete",
+    "entityId": "cultura:kant-aufklaerung",
+    "entityType": "quote",
+    "type": "cultura-quote-complete",
+    "difficulty": 2,
+    "prompt": "Vervollständige das Zitat: „Aufklärung ist …“",
+    "correctAnswer": "der Ausgang des Menschen aus seiner selbstverschuldeten Unmündigkeit.",
+    "options": [
+      "der Ausgang des Menschen aus seiner selbstverschuldeten Unmündigkeit.",
+      "Und bin so klug als wie zuvor.",
+      "die Tat.",
+      "Die ich rief, die Geister, werd ich nun nicht los."
+    ],
+    "testedAttribute": "completionAnswer",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_kant-sapere_cultura-quote-complete",
+    "entityId": "cultura:kant-sapere",
+    "entityType": "quote",
+    "type": "cultura-quote-complete",
+    "difficulty": 2,
+    "prompt": "Vervollständige das Zitat: „Habe Mut, …“",
+    "correctAnswer": "dich deines eigenen Verstandes zu bedienen!",
+    "options": [
+      "dich deines eigenen Verstandes zu bedienen!",
+      "Und bin so klug als wie zuvor.",
+      "die Tat.",
+      "Die ich rief, die Geister, werd ich nun nicht los."
+    ],
+    "testedAttribute": "completionAnswer",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_kant-sternhimmel_cultura-quote-complete",
+    "entityId": "cultura:kant-sternhimmel",
+    "entityType": "quote",
+    "type": "cultura-quote-complete",
+    "difficulty": 2,
+    "prompt": "Vervollständige das Zitat: „Zwei Dinge erfüllen das Gemüt mit immer neuer und zunehmender Bewunderung und Ehrfurcht: …“",
+    "correctAnswer": "der bestirnte Himmel über mir und das moralische Gesetz in mir.",
+    "options": [
+      "der bestirnte Himmel über mir und das moralische Gesetz in mir.",
+      "Und bin so klug als wie zuvor.",
+      "die Tat.",
+      "Die ich rief, die Geister, werd ich nun nicht los."
     ],
     "testedAttribute": "completionAnswer",
     "answerIsName": false,
@@ -33146,7 +33279,7 @@
     "options": [
       "daß ich so traurig bin.",
       "Und bin so klug als wie zuvor.",
-      "Es ist der Vater mit seinem Kind.",
+      "die Tat.",
       "Die ich rief, die Geister, werd ich nun nicht los."
     ],
     "testedAttribute": "completionAnswer",
@@ -33165,7 +33298,83 @@
     "options": [
       "dann bin ich um den Schlaf gebracht.",
       "Und bin so klug als wie zuvor.",
-      "Es ist der Vater mit seinem Kind.",
+      "die Tat.",
+      "Die ich rief, die Geister, werd ich nun nicht los."
+    ],
+    "testedAttribute": "completionAnswer",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_kafka-buch_cultura-quote-complete",
+    "entityId": "cultura:kafka-buch",
+    "entityType": "quote",
+    "type": "cultura-quote-complete",
+    "difficulty": 2,
+    "prompt": "Vervollständige das Zitat: „Ein Buch muss die Axt sein …“",
+    "correctAnswer": "für das gefrorene Meer in uns.",
+    "options": [
+      "für das gefrorene Meer in uns.",
+      "Und bin so klug als wie zuvor.",
+      "die Tat.",
+      "Die ich rief, die Geister, werd ich nun nicht los."
+    ],
+    "testedAttribute": "completionAnswer",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_tucholsky-moral_cultura-quote-complete",
+    "entityId": "cultura:tucholsky-moral",
+    "entityType": "quote",
+    "type": "cultura-quote-complete",
+    "difficulty": 2,
+    "prompt": "Vervollständige das Zitat: „Was darf die Satire? …“",
+    "correctAnswer": "Alles.",
+    "options": [
+      "Alles.",
+      "Und bin so klug als wie zuvor.",
+      "die Tat.",
+      "Die ich rief, die Geister, werd ich nun nicht los."
+    ],
+    "testedAttribute": "completionAnswer",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_tucholsky-grab_cultura-quote-complete",
+    "entityId": "cultura:tucholsky-grab",
+    "entityType": "quote",
+    "type": "cultura-quote-complete",
+    "difficulty": 2,
+    "prompt": "Vervollständige das Zitat: „Der Mensch ist ein Aas, …“",
+    "correctAnswer": "das denkt.",
+    "options": [
+      "das denkt.",
+      "Und bin so klug als wie zuvor.",
+      "die Tat.",
+      "Die ich rief, die Geister, werd ich nun nicht los."
+    ],
+    "testedAttribute": "completionAnswer",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_cultura_lichtenberg-buch_cultura-quote-complete",
+    "entityId": "cultura:lichtenberg-buch",
+    "entityType": "quote",
+    "type": "cultura-quote-complete",
+    "difficulty": 2,
+    "prompt": "Vervollständige das Zitat: „Ein Buch ist ein Spiegel, wenn ein Affe hineinsieht, …“",
+    "correctAnswer": "so kann freilich kein Apostel herausgucken.",
+    "options": [
+      "so kann freilich kein Apostel herausgucken.",
+      "Und bin so klug als wie zuvor.",
+      "die Tat.",
       "Die ich rief, die Geister, werd ich nun nicht los."
     ],
     "testedAttribute": "completionAnswer",
