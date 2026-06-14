@@ -135,6 +135,20 @@ function revealsAnswer(subject, answer) {
     const stem = t.length >= 7 ? t.replace(/(ern|en|em|er|es|e|n|s)$/u, '') : t;
     if (stem.length >= 5 && sNo.includes(stem)) return true;
   }
+  // Deutsche Komposita verraten sich oft über den gemeinsamen Wortstamm am
+  // Wortanfang, nicht über das Wortende: der Hinweis „…den gebildeten Harn…"
+  // verrät „Harnblase" (Stamm „Harn"), „…Magensaft…" verriete „Magen".
+  // Daher: teilen ein Hinweis- und ein Antwort-Token einen Präfix von >= 4
+  // Zeichen, gilt das als Selbstverräter. (>= 4 vermeidet Zufallstreffer wie
+  // „her" in „Herz"/„herstellen".)
+  const hintTokens = S.split(' ').filter(t => t.length >= 4);
+  for (const a of A.split(' ').filter(t => t.length >= 4)) {
+    for (const s of hintTokens) {
+      let k = 0;
+      while (k < a.length && k < s.length && a[k] === s[k]) k++;
+      if (k >= 4) return true;
+    }
+  }
   return false;
 }
 

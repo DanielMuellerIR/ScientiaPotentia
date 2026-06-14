@@ -1184,8 +1184,8 @@
     "entityId": "homo:rectus_abdominis",
     "entityType": "muscle",
     "type": "homo-muscle-location",
-    "difficulty": 3,
-    "prompt": "In welcher Körperregion liegt der Muskel „Gerader Bauchmuskel (Musculus rectus abdominis)\"?",
+    "difficulty": 4,
+    "prompt": "Wo liegt der Muskel mit dem anatomischen Fachbegriff „Musculus rectus abdominis\"?",
     "correctAnswer": "Vordere Bauchwand",
     "options": [
       "Vordere Bauchwand",
@@ -1195,7 +1195,7 @@
     ],
     "testedAttribute": "location",
     "answerIsName": false,
-    "hideConceptIdentity": false,
+    "hideConceptIdentity": true,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -3284,8 +3284,8 @@
     "entityId": "homo:zunge",
     "entityType": "organ",
     "type": "homo-organ-location",
-    "difficulty": 2,
-    "prompt": "In welcher Körperregion liegt das Organ „Zunge (Lingua)\"?",
+    "difficulty": 3,
+    "prompt": "In welcher Körperregion liegt das Organ „Lingua\"?",
     "correctAnswer": "Mundhöhle, am Mundboden verankert",
     "options": [
       "Mundhöhle, am Mundboden verankert",
@@ -3295,7 +3295,7 @@
     ],
     "testedAttribute": "location",
     "answerIsName": false,
-    "hideConceptIdentity": false,
+    "hideConceptIdentity": true,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -3540,26 +3540,6 @@
     "mapTargetId": null
   },
   {
-    "id": "q_homo_humerus_homo-bone-notable-rev",
-    "entityId": "homo:humerus",
-    "entityType": "bone",
-    "type": "homo-bone-notable-rev",
-    "difficulty": 1,
-    "prompt": "Welcher Knochen wird beschrieben als: „längster Knochen der oberen Extremität\"?",
-    "correctAnswer": "Oberarmknochen",
-    "options": [
-      "Oberarmknochen",
-      "Oberschenkelknochen",
-      "Schienbein",
-      "Wadenbein"
-    ],
-    "testedAttribute": null,
-    "answerIsName": true,
-    "hideConceptIdentity": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
     "id": "q_homo_ulna_homo-bone-notable-rev",
     "entityId": "homo:ulna",
     "entityType": "bone",
@@ -3689,46 +3669,6 @@
     "correctAnswer": "Becken",
     "options": [
       "Becken",
-      "Oberschenkelknochen",
-      "Schienbein",
-      "Wadenbein"
-    ],
-    "testedAttribute": null,
-    "answerIsName": true,
-    "hideConceptIdentity": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_homo_sternum_homo-bone-notable-rev",
-    "entityId": "homo:sternum",
-    "entityType": "bone",
-    "type": "homo-bone-notable-rev",
-    "difficulty": 1,
-    "prompt": "Welcher Knochen wird beschrieben als: „flacher Knochen in der Mitte des Brustkorbs\"?",
-    "correctAnswer": "Brustbein",
-    "options": [
-      "Brustbein",
-      "Oberschenkelknochen",
-      "Schienbein",
-      "Wadenbein"
-    ],
-    "testedAttribute": null,
-    "answerIsName": true,
-    "hideConceptIdentity": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_homo_scapula_homo-bone-notable-rev",
-    "entityId": "homo:scapula",
-    "entityType": "bone",
-    "type": "homo-bone-notable-rev",
-    "difficulty": 3,
-    "prompt": "Welcher Knochen wird beschrieben als: „flacher dreieckiger Knochen der Schulter\"?",
-    "correctAnswer": "Schulterblatt",
-    "options": [
-      "Schulterblatt",
       "Oberschenkelknochen",
       "Schienbein",
       "Wadenbein"
@@ -3880,66 +3820,6 @@
     "mapTargetId": null
   },
   {
-    "id": "q_homo_talus_homo-bone-notable-rev",
-    "entityId": "homo:talus",
-    "entityType": "bone",
-    "type": "homo-bone-notable-rev",
-    "difficulty": 4,
-    "prompt": "Welcher Knochen wird beschrieben als: „Bildet das obere Sprunggelenk und überträgt das Körpergewicht aufs Fersenbein\"?",
-    "correctAnswer": "Sprungbein (Talus)",
-    "options": [
-      "Sprungbein (Talus)",
-      "Oberschenkelknochen",
-      "Schienbein",
-      "Wadenbein"
-    ],
-    "testedAttribute": null,
-    "answerIsName": true,
-    "hideConceptIdentity": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_homo_calcaneus_homo-bone-notable-rev",
-    "entityId": "homo:calcaneus",
-    "entityType": "bone",
-    "type": "homo-bone-notable-rev",
-    "difficulty": 4,
-    "prompt": "Welcher Knochen wird beschrieben als: „Größter Fußwurzelknochen, bildet die Ferse und Ansatz der Achillessehne\"?",
-    "correctAnswer": "Fersenbein (Calcaneus)",
-    "options": [
-      "Fersenbein (Calcaneus)",
-      "Oberschenkelknochen",
-      "Schienbein",
-      "Wadenbein"
-    ],
-    "testedAttribute": null,
-    "answerIsName": true,
-    "hideConceptIdentity": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_homo_os_naviculare_homo-bone-notable-rev",
-    "entityId": "homo:os_naviculare",
-    "entityType": "bone",
-    "type": "homo-bone-notable-rev",
-    "difficulty": 4,
-    "prompt": "Welcher Knochen wird beschrieben als: „Kahnförmiger Fußwurzelknochen zwischen Sprungbein und Keilbeinen\"?",
-    "correctAnswer": "Kahnbein (Os naviculare)",
-    "options": [
-      "Kahnbein (Os naviculare)",
-      "Oberschenkelknochen",
-      "Schienbein",
-      "Wadenbein"
-    ],
-    "testedAttribute": null,
-    "answerIsName": true,
-    "hideConceptIdentity": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
     "id": "q_homo_os_zygomaticum_homo-bone-notable-rev",
     "entityId": "homo:os_zygomaticum",
     "entityType": "bone",
@@ -3960,46 +3840,6 @@
     "mapTargetId": null
   },
   {
-    "id": "q_homo_os_frontale_homo-bone-notable-rev",
-    "entityId": "homo:os_frontale",
-    "entityType": "bone",
-    "type": "homo-bone-notable-rev",
-    "difficulty": 4,
-    "prompt": "Welcher Knochen wird beschrieben als: „Bildet die Stirn und das Dach der Augenhöhlen\"?",
-    "correctAnswer": "Stirnbein (Os frontale)",
-    "options": [
-      "Stirnbein (Os frontale)",
-      "Oberschenkelknochen",
-      "Schienbein",
-      "Wadenbein"
-    ],
-    "testedAttribute": null,
-    "answerIsName": true,
-    "hideConceptIdentity": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_homo_os_occipitale_homo-bone-notable-rev",
-    "entityId": "homo:os_occipitale",
-    "entityType": "bone",
-    "type": "homo-bone-notable-rev",
-    "difficulty": 4,
-    "prompt": "Welcher Knochen wird beschrieben als: „Bildet Schädelhinterseite und das große Hinterhauptloch für das Rückenmark\"?",
-    "correctAnswer": "Hinterhauptbein (Os occipitale)",
-    "options": [
-      "Hinterhauptbein (Os occipitale)",
-      "Oberschenkelknochen",
-      "Schienbein",
-      "Wadenbein"
-    ],
-    "testedAttribute": null,
-    "answerIsName": true,
-    "hideConceptIdentity": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
     "id": "q_homo_os_temporale_homo-bone-notable-rev",
     "entityId": "homo:os_temporale",
     "entityType": "bone",
@@ -4009,26 +3849,6 @@
     "correctAnswer": "Schläfenbein (Os temporale)",
     "options": [
       "Schläfenbein (Os temporale)",
-      "Oberschenkelknochen",
-      "Schienbein",
-      "Wadenbein"
-    ],
-    "testedAttribute": null,
-    "answerIsName": true,
-    "hideConceptIdentity": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_homo_os_metacarpale_homo-bone-notable-rev",
-    "entityId": "homo:os_metacarpale",
-    "entityType": "bone",
-    "type": "homo-bone-notable-rev",
-    "difficulty": 4,
-    "prompt": "Welcher Knochen wird beschrieben als: „Fünf Röhrenknochen bilden das Skelett der Mittelhand\"?",
-    "correctAnswer": "Mittelhandknochen (Os metacarpale)",
-    "options": [
-      "Mittelhandknochen (Os metacarpale)",
       "Oberschenkelknochen",
       "Schienbein",
       "Wadenbein"
@@ -4220,26 +4040,6 @@
     "mapTargetId": null
   },
   {
-    "id": "q_homo_sternum_homo-bone-notable",
-    "entityId": "homo:sternum",
-    "entityType": "bone",
-    "type": "homo-bone-notable",
-    "difficulty": 1,
-    "prompt": "Wofür ist der Knochen „Brustbein\" anatomisch besonders bekannt?",
-    "correctAnswer": "flacher Knochen in der Mitte des Brustkorbs",
-    "options": [
-      "flacher Knochen in der Mitte des Brustkorbs",
-      "längster und stärkster Knochen des menschlichen Körpers",
-      "zweitlängster Knochen und tragender Knochen des Unterschenkels",
-      "dünner Unterschenkelknochen neben dem Schienbein"
-    ],
-    "testedAttribute": "notableFor",
-    "answerIsName": false,
-    "hideConceptIdentity": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
     "id": "q_homo_mandibula_homo-bone-notable",
     "entityId": "homo:mandibula",
     "entityType": "bone",
@@ -4340,26 +4140,6 @@
     "mapTargetId": null
   },
   {
-    "id": "q_homo_costa_rib_homo-bone-notable",
-    "entityId": "homo:costa_rib",
-    "entityType": "bone",
-    "type": "homo-bone-notable",
-    "difficulty": 2,
-    "prompt": "Wofür ist der Knochen „Rippe (Costa)\" anatomisch besonders bekannt?",
-    "correctAnswer": "12 Paare bilden den Brustkorb; die oberen 7 Paare sind 'echte Rippen'",
-    "options": [
-      "12 Paare bilden den Brustkorb; die oberen 7 Paare sind 'echte Rippen'",
-      "längster und stärkster Knochen des menschlichen Körpers",
-      "zweitlängster Knochen und tragender Knochen des Unterschenkels",
-      "dünner Unterschenkelknochen neben dem Schienbein"
-    ],
-    "testedAttribute": "notableFor",
-    "answerIsName": false,
-    "hideConceptIdentity": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
     "id": "q_homo_malleus_homo-bone-notable",
     "entityId": "homo:malleus",
     "entityType": "bone",
@@ -4400,46 +4180,6 @@
     "mapTargetId": null
   },
   {
-    "id": "q_homo_talus_homo-bone-notable",
-    "entityId": "homo:talus",
-    "entityType": "bone",
-    "type": "homo-bone-notable",
-    "difficulty": 4,
-    "prompt": "Wofür ist der Knochen „Sprungbein (Talus)\" anatomisch besonders bekannt?",
-    "correctAnswer": "Bildet das obere Sprunggelenk und überträgt das Körpergewicht aufs Fersenbein",
-    "options": [
-      "Bildet das obere Sprunggelenk und überträgt das Körpergewicht aufs Fersenbein",
-      "längster und stärkster Knochen des menschlichen Körpers",
-      "zweitlängster Knochen und tragender Knochen des Unterschenkels",
-      "dünner Unterschenkelknochen neben dem Schienbein"
-    ],
-    "testedAttribute": "notableFor",
-    "answerIsName": false,
-    "hideConceptIdentity": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_homo_os_naviculare_homo-bone-notable",
-    "entityId": "homo:os_naviculare",
-    "entityType": "bone",
-    "type": "homo-bone-notable",
-    "difficulty": 4,
-    "prompt": "Wofür ist der Knochen „Kahnbein (Os naviculare)\" anatomisch besonders bekannt?",
-    "correctAnswer": "Kahnförmiger Fußwurzelknochen zwischen Sprungbein und Keilbeinen",
-    "options": [
-      "Kahnförmiger Fußwurzelknochen zwischen Sprungbein und Keilbeinen",
-      "längster und stärkster Knochen des menschlichen Körpers",
-      "zweitlängster Knochen und tragender Knochen des Unterschenkels",
-      "dünner Unterschenkelknochen neben dem Schienbein"
-    ],
-    "testedAttribute": "notableFor",
-    "answerIsName": false,
-    "hideConceptIdentity": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
     "id": "q_homo_os_zygomaticum_homo-bone-notable",
     "entityId": "homo:os_zygomaticum",
     "entityType": "bone",
@@ -4449,26 +4189,6 @@
     "correctAnswer": "Paariger Gesichtsknochen, bildet die Wangenvorwölbung",
     "options": [
       "Paariger Gesichtsknochen, bildet die Wangenvorwölbung",
-      "längster und stärkster Knochen des menschlichen Körpers",
-      "zweitlängster Knochen und tragender Knochen des Unterschenkels",
-      "dünner Unterschenkelknochen neben dem Schienbein"
-    ],
-    "testedAttribute": "notableFor",
-    "answerIsName": false,
-    "hideConceptIdentity": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_homo_os_occipitale_homo-bone-notable",
-    "entityId": "homo:os_occipitale",
-    "entityType": "bone",
-    "type": "homo-bone-notable",
-    "difficulty": 4,
-    "prompt": "Wofür ist der Knochen „Hinterhauptbein (Os occipitale)\" anatomisch besonders bekannt?",
-    "correctAnswer": "Bildet Schädelhinterseite und das große Hinterhauptloch für das Rückenmark",
-    "options": [
-      "Bildet Schädelhinterseite und das große Hinterhauptloch für das Rückenmark",
       "längster und stärkster Knochen des menschlichen Körpers",
       "zweitlängster Knochen und tragender Knochen des Unterschenkels",
       "dünner Unterschenkelknochen neben dem Schienbein"
@@ -4620,26 +4340,6 @@
     "mapTargetId": null
   },
   {
-    "id": "q_homo_gastrocnemius_homo-muscle-notable-rev",
-    "entityId": "homo:gastrocnemius",
-    "entityType": "muscle",
-    "type": "homo-muscle-notable-rev",
-    "difficulty": 4,
-    "prompt": "Welcher Muskel wird beschrieben als: „Auffälligster Muskel der Wade, bildet die sichtbare Wadenwölbung\"?",
-    "correctAnswer": "Wadenmuskel (Musculus gastrocnemius)",
-    "options": [
-      "Wadenmuskel (Musculus gastrocnemius)",
-      "Großer Gesäßmuskel (Gluteus maximus)",
-      "Kaumuskel (Masseter)",
-      "Steigbügelmuskel (Musculus stapedius)"
-    ],
-    "testedAttribute": null,
-    "answerIsName": true,
-    "hideConceptIdentity": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
     "id": "q_homo_sartorius_homo-muscle-notable-rev",
     "entityId": "homo:sartorius",
     "entityType": "muscle",
@@ -4700,46 +4400,6 @@
     "mapTargetId": null
   },
   {
-    "id": "q_homo_trapezius_homo-muscle-notable-rev",
-    "entityId": "homo:trapezius",
-    "entityType": "muscle",
-    "type": "homo-muscle-notable-rev",
-    "difficulty": 3,
-    "prompt": "Welcher Muskel wird beschrieben als: „Trapezförmiger Muskel, der das Schulterblatt stabilisiert und bewegt\"?",
-    "correctAnswer": "Trapezmuskel / Kapuzenmuskel (Musculus trapezius)",
-    "options": [
-      "Trapezmuskel / Kapuzenmuskel (Musculus trapezius)",
-      "Großer Gesäßmuskel (Gluteus maximus)",
-      "Kaumuskel (Masseter)",
-      "Steigbügelmuskel (Musculus stapedius)"
-    ],
-    "testedAttribute": null,
-    "answerIsName": true,
-    "hideConceptIdentity": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_homo_sternocleidomastoid_homo-muscle-notable-rev",
-    "entityId": "homo:sternocleidomastoid",
-    "entityType": "muscle",
-    "type": "homo-muscle-notable-rev",
-    "difficulty": 3,
-    "prompt": "Welcher Muskel wird beschrieben als: „Dreht den Kopf zur Gegenseite und beugt den Hals\"?",
-    "correctAnswer": "Kopfwender (Musculus sternocleidomastoideus)",
-    "options": [
-      "Kopfwender (Musculus sternocleidomastoideus)",
-      "Großer Gesäßmuskel (Gluteus maximus)",
-      "Kaumuskel (Masseter)",
-      "Steigbügelmuskel (Musculus stapedius)"
-    ],
-    "testedAttribute": null,
-    "answerIsName": true,
-    "hideConceptIdentity": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
     "id": "q_homo_rectus_abdominis_homo-muscle-notable-rev",
     "entityId": "homo:rectus_abdominis",
     "entityType": "muscle",
@@ -4749,26 +4409,6 @@
     "correctAnswer": "Gerader Bauchmuskel (Musculus rectus abdominis)",
     "options": [
       "Gerader Bauchmuskel (Musculus rectus abdominis)",
-      "Großer Gesäßmuskel (Gluteus maximus)",
-      "Kaumuskel (Masseter)",
-      "Steigbügelmuskel (Musculus stapedius)"
-    ],
-    "testedAttribute": null,
-    "answerIsName": true,
-    "hideConceptIdentity": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_homo_quadriceps_femoris_homo-muscle-notable-rev",
-    "entityId": "homo:quadriceps_femoris",
-    "entityType": "muscle",
-    "type": "homo-muscle-notable-rev",
-    "difficulty": 1,
-    "prompt": "Welcher Muskel wird beschrieben als: „Streckt das Knie; besteht aus vier Muskelköpfen\"?",
-    "correctAnswer": "Vierköpfiger Schenkelmuskel (Musculus quadriceps femoris)",
-    "options": [
-      "Vierköpfiger Schenkelmuskel (Musculus quadriceps femoris)",
       "Großer Gesäßmuskel (Gluteus maximus)",
       "Kaumuskel (Masseter)",
       "Steigbügelmuskel (Musculus stapedius)"
@@ -4820,26 +4460,6 @@
     "mapTargetId": null
   },
   {
-    "id": "q_homo_orbicularis_oculi_homo-muscle-notable-rev",
-    "entityId": "homo:orbicularis_oculi",
-    "entityType": "muscle",
-    "type": "homo-muscle-notable-rev",
-    "difficulty": 4,
-    "prompt": "Welcher Muskel wird beschrieben als: „Ringmuskel, der die Augenlider schließt\"?",
-    "correctAnswer": "Augenringmuskel (Musculus orbicularis oculi)",
-    "options": [
-      "Augenringmuskel (Musculus orbicularis oculi)",
-      "Großer Gesäßmuskel (Gluteus maximus)",
-      "Kaumuskel (Masseter)",
-      "Steigbügelmuskel (Musculus stapedius)"
-    ],
-    "testedAttribute": null,
-    "answerIsName": true,
-    "hideConceptIdentity": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
     "id": "q_homo_orbicularis_oris_homo-muscle-notable-rev",
     "entityId": "homo:orbicularis_oris",
     "entityType": "muscle",
@@ -4849,26 +4469,6 @@
     "correctAnswer": "Mundringmuskel (Musculus orbicularis oris)",
     "options": [
       "Mundringmuskel (Musculus orbicularis oris)",
-      "Großer Gesäßmuskel (Gluteus maximus)",
-      "Kaumuskel (Masseter)",
-      "Steigbügelmuskel (Musculus stapedius)"
-    ],
-    "testedAttribute": null,
-    "answerIsName": true,
-    "hideConceptIdentity": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_homo_psoas_major_homo-muscle-notable-rev",
-    "entityId": "homo:psoas_major",
-    "entityType": "muscle",
-    "type": "homo-muscle-notable-rev",
-    "difficulty": 3,
-    "prompt": "Welcher Muskel wird beschrieben als: „Kräftiger Hüftbeuger, zieht vom Lendenwirbel zum Oberschenkel\"?",
-    "correctAnswer": "Großer Lendenmuskel (Musculus psoas major)",
-    "options": [
-      "Großer Lendenmuskel (Musculus psoas major)",
       "Großer Gesäßmuskel (Gluteus maximus)",
       "Kaumuskel (Masseter)",
       "Steigbügelmuskel (Musculus stapedius)"
@@ -5289,26 +4889,6 @@
     "correctAnswer": "Bauchspeicheldrüse",
     "options": [
       "Bauchspeicheldrüse",
-      "Herz",
-      "Leber",
-      "Lunge"
-    ],
-    "testedAttribute": null,
-    "answerIsName": true,
-    "hideConceptIdentity": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_homo_blase_homo-organ-function-rev",
-    "entityId": "homo:blase",
-    "entityType": "organ",
-    "type": "homo-organ-function-rev",
-    "difficulty": 2,
-    "prompt": "Welches Organ erfüllt folgende Hauptaufgabe: „Speichert den von den Nieren gebildeten Harn bis zur Entleerung.\"?",
-    "correctAnswer": "Harnblase",
-    "options": [
-      "Harnblase",
       "Herz",
       "Leber",
       "Lunge"
