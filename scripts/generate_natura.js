@@ -125,7 +125,22 @@ function revealsAnswer(subject, answer) {
   if (!sNo || !aNo) return false;
   if (aNo.length >= 3 && sNo.includes(aNo)) return true;
   if (sNo.length >= 3 && aNo.includes(sNo)) return true;
-  for (const t of A.split(' ').filter(t => t.length >= 4)) if (sNo.includes(t)) return true;
+  // Verschärfte Checks (wie Cultura): fangen Stamm-/Kompositum-Leaks, die der
+  // reine Token-im-Hinweis-Test verpasst.
+  const sTokens = S.split(' ').filter(t => t.length >= 4);
+  const aTokens = A.split(' ').filter(t => t.length >= 4);
+  // Antwort-Token im Hinweis (volle Antwort).
+  for (const t of aTokens) if (sNo.includes(t)) return true;
+  // Antwort-Kern OHNE Klammerzusätze ("Wanderratte (Rattus)" -> "wanderratte").
+  const ACore = norm(String(answer).replace(/\([^)]*\)/g, ' '));
+  const aCoreNo = ACore.replace(/ /g, '');
+  const aCoreTokens = ACore.split(' ').filter(t => t.length >= 4);
+  // a) Hinweis-Token im Antwort-Kern (>= 5, sonst trifft kurzes "Tier"/"Fisch").
+  for (const t of sTokens) if (t.length >= 5 && aCoreNo.includes(t)) return true;
+  // b) gemeinsamer Wortanfang (>= 4 Zeichen) gegen Ableitungs-Leaks.
+  for (const st of sTokens) for (const at of aCoreTokens) {
+    if (st.slice(0, 4) === at.slice(0, 4)) return true;
+  }
   return false;
 }
 
