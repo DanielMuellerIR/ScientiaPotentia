@@ -52,6 +52,17 @@ nicht in Inline-Styles; Details und Begründung in [`LAYOUT.md`](LAYOUT.md). Vor
 
 Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 
+> **Stand 2026-06-17 (v1.36.0) — Welle 3 (Bilder + Konzepte), 8 Sonnet-Subagents:**
+> Lektion umgesetzt: Bilder jetzt über **de.wikipedia-Lemma / Wikidata-P18** statt commons-Freitext
+> (`resolve_images_p18.cjs`) — die zuvor falsch zugeordneten Bauwerke kommen so korrekt (Bastille,
+> Erechtheion, Marienburg→Malbork, Belvedere→Wien). **+327 Konzepte, ~+766 Fragen, +89 Cultura-Bilder:**
+> Cultura 874→**990** K / →**2988** F (+116 Wikiquote-Zitate, neue PD-Autoren); Astra 562→**627** /
+> →**1949** (+23 exoplanet, +25 galaxy, +17 nebula); Natura 782→**851** / →**4301** (+35 plant, +16
+> mineral, +7 fungus, +11 geology); Lingua 282→**317** / →**1326** (+17 Sprachen, +18 Etymologien);
+> Homo 169→**211** / →**593** (+17 body_fact, +12 organ, +6 bone, +7 muscle). Subagents fingen eigene
+> Fehler (P18-Fehlbesetzungen cpe-bach→Gerichtsgebäude, meyerbeer→Pflanze; value-Kollisionen).
+> Astra/Natura-Bildauflösung lief ins Turn-Limit → Folge-Welle. Alle `verify_facts` 0 Fehler.
+
 > **Stand 2026-06-17 (v1.35.0) — Breite Parallel-Welle, 8 Sonnet-Subagents über 5 Quellen:**
 > Host-Diversität statt Agent-Stapeln (MiniMax-Limit ~4–6 parallel): 3× MiniMax + 3× Wikidata-SPARQL
 > + 1× Wikiquote + 1× Commons-Bildauflösung gleichzeitig, alle Produce-only (eigene /tmp-Kandidaten,
