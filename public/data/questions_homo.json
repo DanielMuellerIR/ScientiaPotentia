@@ -1640,6 +1640,386 @@
     "mapTargetId": null
   },
   {
+    "id": "q_homo_speiseroehre_homo-organ-system",
+    "entityId": "homo:speiseroehre",
+    "entityType": "organ",
+    "type": "homo-organ-system",
+    "difficulty": 2,
+    "prompt": "Zu welchem Organsystem gehört „Speiseröhre\" hauptsächlich?",
+    "correctAnswer": "Verdauungssystem",
+    "options": [
+      "Verdauungssystem",
+      "Herz-Kreislauf",
+      "Verdauung",
+      "Atmung"
+    ],
+    "testedAttribute": "system",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_duenndarm_homo-organ-system",
+    "entityId": "homo:duenndarm",
+    "entityType": "organ",
+    "type": "homo-organ-system",
+    "difficulty": 2,
+    "prompt": "Zu welchem Organsystem gehört „Dünndarm\" hauptsächlich?",
+    "correctAnswer": "Verdauungssystem",
+    "options": [
+      "Verdauungssystem",
+      "Herz-Kreislauf",
+      "Verdauung",
+      "Atmung"
+    ],
+    "testedAttribute": "system",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_dickdarm_homo-organ-system",
+    "entityId": "homo:dickdarm",
+    "entityType": "organ",
+    "type": "homo-organ-system",
+    "difficulty": 2,
+    "prompt": "Zu welchem Organsystem gehört „Dickdarm\" hauptsächlich?",
+    "correctAnswer": "Verdauungssystem",
+    "options": [
+      "Verdauungssystem",
+      "Herz-Kreislauf",
+      "Verdauung",
+      "Atmung"
+    ],
+    "testedAttribute": "system",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_mastdarm_homo-organ-system",
+    "entityId": "homo:mastdarm",
+    "entityType": "organ",
+    "type": "homo-organ-system",
+    "difficulty": 2,
+    "prompt": "Zu welchem Organsystem gehört „Mastdarm\" hauptsächlich?",
+    "correctAnswer": "Verdauungssystem",
+    "options": [
+      "Verdauungssystem",
+      "Herz-Kreislauf",
+      "Verdauung",
+      "Atmung"
+    ],
+    "testedAttribute": "system",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_appendix_homo-organ-system",
+    "entityId": "homo:appendix",
+    "entityType": "organ",
+    "type": "homo-organ-system",
+    "difficulty": 2,
+    "prompt": "Zu welchem Organsystem gehört „Wurmfortsatz (Appendix vermiformis)\" hauptsächlich?",
+    "correctAnswer": "Verdauungssystem",
+    "options": [
+      "Verdauungssystem",
+      "Herz-Kreislauf",
+      "Verdauung",
+      "Atmung"
+    ],
+    "testedAttribute": "system",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_hypophyse_homo-organ-system",
+    "entityId": "homo:hypophyse",
+    "entityType": "organ",
+    "type": "homo-organ-system",
+    "difficulty": 2,
+    "prompt": "Zu welchem Organsystem gehört „Hypophyse (Hirnanhangsdrüse)\" hauptsächlich?",
+    "correctAnswer": "Endokrines System",
+    "options": [
+      "Endokrines System",
+      "Herz-Kreislauf",
+      "Verdauung",
+      "Atmung"
+    ],
+    "testedAttribute": "system",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_zirbeldruese_homo-organ-system",
+    "entityId": "homo:zirbeldruese",
+    "entityType": "organ",
+    "type": "homo-organ-system",
+    "difficulty": 2,
+    "prompt": "Zu welchem Organsystem gehört „Zirbeldrüse (Epiphyse, Glandula pinealis)\" hauptsächlich?",
+    "correctAnswer": "Endokrines System",
+    "options": [
+      "Endokrines System",
+      "Herz-Kreislauf",
+      "Verdauung",
+      "Atmung"
+    ],
+    "testedAttribute": "system",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_kehlkopf_homo-organ-system",
+    "entityId": "homo:kehlkopf",
+    "entityType": "organ",
+    "type": "homo-organ-system",
+    "difficulty": 2,
+    "prompt": "Zu welchem Organsystem gehört „Kehlkopf (Larynx)\" hauptsächlich?",
+    "correctAnswer": "Atmungssystem",
+    "options": [
+      "Atmungssystem",
+      "Herz-Kreislauf",
+      "Verdauung",
+      "Atmung"
+    ],
+    "testedAttribute": "system",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_luftroehre_homo-organ-system",
+    "entityId": "homo:luftroehre",
+    "entityType": "organ",
+    "type": "homo-organ-system",
+    "difficulty": 2,
+    "prompt": "Zu welchem Organsystem gehört „Luftröhre (Trachea)\" hauptsächlich?",
+    "correctAnswer": "Atmungssystem",
+    "options": [
+      "Atmungssystem",
+      "Herz-Kreislauf",
+      "Verdauung",
+      "Atmung"
+    ],
+    "testedAttribute": "system",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_mandeln_homo-organ-system",
+    "entityId": "homo:mandeln",
+    "entityType": "organ",
+    "type": "homo-organ-system",
+    "difficulty": 2,
+    "prompt": "Zu welchem Organsystem gehört „Gaumenmandeln (Tonsillae palatinae)\" hauptsächlich?",
+    "correctAnswer": "Lymphatisches System",
+    "options": [
+      "Lymphatisches System",
+      "Herz-Kreislauf",
+      "Verdauung",
+      "Atmung"
+    ],
+    "testedAttribute": "system",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_harnleiter_homo-organ-system",
+    "entityId": "homo:harnleiter",
+    "entityType": "organ",
+    "type": "homo-organ-system",
+    "difficulty": 2,
+    "prompt": "Zu welchem Organsystem gehört „Harnleiter (Ureter)\" hauptsächlich?",
+    "correctAnswer": "Ausscheidungssystem",
+    "options": [
+      "Ausscheidungssystem",
+      "Herz-Kreislauf",
+      "Verdauung",
+      "Atmung"
+    ],
+    "testedAttribute": "system",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_harnroehre_homo-organ-system",
+    "entityId": "homo:harnroehre",
+    "entityType": "organ",
+    "type": "homo-organ-system",
+    "difficulty": 2,
+    "prompt": "Zu welchem Organsystem gehört „Harnröhre (Urethra)\" hauptsächlich?",
+    "correctAnswer": "Ausscheidungssystem",
+    "options": [
+      "Ausscheidungssystem",
+      "Herz-Kreislauf",
+      "Verdauung",
+      "Atmung"
+    ],
+    "testedAttribute": "system",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_eierstock_homo-organ-system",
+    "entityId": "homo:eierstock",
+    "entityType": "organ",
+    "type": "homo-organ-system",
+    "difficulty": 2,
+    "prompt": "Zu welchem Organsystem gehört „Eierstock (Ovar)\" hauptsächlich?",
+    "correctAnswer": "Fortpflanzungssystem",
+    "options": [
+      "Fortpflanzungssystem",
+      "Herz-Kreislauf",
+      "Verdauung",
+      "Atmung"
+    ],
+    "testedAttribute": "system",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_eileiter_homo-organ-system",
+    "entityId": "homo:eileiter",
+    "entityType": "organ",
+    "type": "homo-organ-system",
+    "difficulty": 2,
+    "prompt": "Zu welchem Organsystem gehört „Eileiter (Tuba uterina, Salpinx)\" hauptsächlich?",
+    "correctAnswer": "Fortpflanzungssystem",
+    "options": [
+      "Fortpflanzungssystem",
+      "Herz-Kreislauf",
+      "Verdauung",
+      "Atmung"
+    ],
+    "testedAttribute": "system",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_gebaermutter_homo-organ-system",
+    "entityId": "homo:gebaermutter",
+    "entityType": "organ",
+    "type": "homo-organ-system",
+    "difficulty": 2,
+    "prompt": "Zu welchem Organsystem gehört „Gebärmutter (Uterus)\" hauptsächlich?",
+    "correctAnswer": "Fortpflanzungssystem",
+    "options": [
+      "Fortpflanzungssystem",
+      "Herz-Kreislauf",
+      "Verdauung",
+      "Atmung"
+    ],
+    "testedAttribute": "system",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_hoden_homo-organ-system",
+    "entityId": "homo:hoden",
+    "entityType": "organ",
+    "type": "homo-organ-system",
+    "difficulty": 2,
+    "prompt": "Zu welchem Organsystem gehört „Hoden (Testis)\" hauptsächlich?",
+    "correctAnswer": "Fortpflanzungssystem",
+    "options": [
+      "Fortpflanzungssystem",
+      "Herz-Kreislauf",
+      "Verdauung",
+      "Atmung"
+    ],
+    "testedAttribute": "system",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_prostata_homo-organ-system",
+    "entityId": "homo:prostata",
+    "entityType": "organ",
+    "type": "homo-organ-system",
+    "difficulty": 2,
+    "prompt": "Zu welchem Organsystem gehört „Prostata (Vorsteherdrüse)\" hauptsächlich?",
+    "correctAnswer": "Fortpflanzungssystem",
+    "options": [
+      "Fortpflanzungssystem",
+      "Herz-Kreislauf",
+      "Verdauung",
+      "Atmung"
+    ],
+    "testedAttribute": "system",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_blinddarm_homo-organ-system",
+    "entityId": "homo:blinddarm",
+    "entityType": "organ",
+    "type": "homo-organ-system",
+    "difficulty": 2,
+    "prompt": "Zu welchem Organsystem gehört „Blinddarm\" hauptsächlich?",
+    "correctAnswer": "Verdauungssystem",
+    "options": [
+      "Verdauungssystem",
+      "Herz-Kreislauf",
+      "Verdauung",
+      "Atmung"
+    ],
+    "testedAttribute": "system",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_nebenhoden_homo-organ-system",
+    "entityId": "homo:nebenhoden",
+    "entityType": "organ",
+    "type": "homo-organ-system",
+    "difficulty": 2,
+    "prompt": "Zu welchem Organsystem gehört „Nebenhoden\" hauptsächlich?",
+    "correctAnswer": "Fortpflanzungssystem",
+    "options": [
+      "Fortpflanzungssystem",
+      "Herz-Kreislauf",
+      "Verdauung",
+      "Atmung"
+    ],
+    "testedAttribute": "system",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_homo_herz_homo-organ-weight",
     "entityId": "homo:herz",
     "entityType": "organ",
@@ -1929,6 +2309,326 @@
     "correctAnswer": "70 g",
     "options": [
       "70 g",
+      "300 g",
+      "1.500 g",
+      "1.000 g"
+    ],
+    "testedAttribute": "approxWeightGrams",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_dickdarm_homo-organ-weight",
+    "entityId": "homo:dickdarm",
+    "entityType": "organ",
+    "type": "homo-organ-weight",
+    "difficulty": 3,
+    "prompt": "Welches ungefähre Gewicht hat „Dickdarm\" beim Erwachsenen?",
+    "correctAnswer": "1.100 g",
+    "options": [
+      "1.100 g",
+      "300 g",
+      "1.500 g",
+      "1.000 g"
+    ],
+    "testedAttribute": "approxWeightGrams",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_mastdarm_homo-organ-weight",
+    "entityId": "homo:mastdarm",
+    "entityType": "organ",
+    "type": "homo-organ-weight",
+    "difficulty": 3,
+    "prompt": "Welches ungefähre Gewicht hat „Mastdarm\" beim Erwachsenen?",
+    "correctAnswer": "100 g",
+    "options": [
+      "100 g",
+      "300 g",
+      "1.500 g",
+      "1.000 g"
+    ],
+    "testedAttribute": "approxWeightGrams",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_appendix_homo-organ-weight",
+    "entityId": "homo:appendix",
+    "entityType": "organ",
+    "type": "homo-organ-weight",
+    "difficulty": 3,
+    "prompt": "Welches ungefähre Gewicht hat „Wurmfortsatz (Appendix vermiformis)\" beim Erwachsenen?",
+    "correctAnswer": "10 g",
+    "options": [
+      "10 g",
+      "300 g",
+      "1.500 g",
+      "1.000 g"
+    ],
+    "testedAttribute": "approxWeightGrams",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_hypophyse_homo-organ-weight",
+    "entityId": "homo:hypophyse",
+    "entityType": "organ",
+    "type": "homo-organ-weight",
+    "difficulty": 3,
+    "prompt": "Welches ungefähre Gewicht hat „Hypophyse (Hirnanhangsdrüse)\" beim Erwachsenen?",
+    "correctAnswer": "0,6 g",
+    "options": [
+      "0,6 g",
+      "300 g",
+      "1.500 g",
+      "1.000 g"
+    ],
+    "testedAttribute": "approxWeightGrams",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_zirbeldruese_homo-organ-weight",
+    "entityId": "homo:zirbeldruese",
+    "entityType": "organ",
+    "type": "homo-organ-weight",
+    "difficulty": 3,
+    "prompt": "Welches ungefähre Gewicht hat „Zirbeldrüse (Epiphyse, Glandula pinealis)\" beim Erwachsenen?",
+    "correctAnswer": "0,1 g",
+    "options": [
+      "0,1 g",
+      "300 g",
+      "1.500 g",
+      "1.000 g"
+    ],
+    "testedAttribute": "approxWeightGrams",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_kehlkopf_homo-organ-weight",
+    "entityId": "homo:kehlkopf",
+    "entityType": "organ",
+    "type": "homo-organ-weight",
+    "difficulty": 3,
+    "prompt": "Welches ungefähre Gewicht hat „Kehlkopf (Larynx)\" beim Erwachsenen?",
+    "correctAnswer": "60 g",
+    "options": [
+      "60 g",
+      "300 g",
+      "1.500 g",
+      "1.000 g"
+    ],
+    "testedAttribute": "approxWeightGrams",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_luftroehre_homo-organ-weight",
+    "entityId": "homo:luftroehre",
+    "entityType": "organ",
+    "type": "homo-organ-weight",
+    "difficulty": 3,
+    "prompt": "Welches ungefähre Gewicht hat „Luftröhre (Trachea)\" beim Erwachsenen?",
+    "correctAnswer": "30 g",
+    "options": [
+      "30 g",
+      "300 g",
+      "1.500 g",
+      "1.000 g"
+    ],
+    "testedAttribute": "approxWeightGrams",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_mandeln_homo-organ-weight",
+    "entityId": "homo:mandeln",
+    "entityType": "organ",
+    "type": "homo-organ-weight",
+    "difficulty": 3,
+    "prompt": "Welches ungefähre Gewicht hat „Gaumenmandeln (Tonsillae palatinae)\" beim Erwachsenen?",
+    "correctAnswer": "6 g",
+    "options": [
+      "6 g",
+      "300 g",
+      "1.500 g",
+      "1.000 g"
+    ],
+    "testedAttribute": "approxWeightGrams",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_harnleiter_homo-organ-weight",
+    "entityId": "homo:harnleiter",
+    "entityType": "organ",
+    "type": "homo-organ-weight",
+    "difficulty": 3,
+    "prompt": "Welches ungefähre Gewicht hat „Harnleiter (Ureter)\" beim Erwachsenen?",
+    "correctAnswer": "6 g",
+    "options": [
+      "6 g",
+      "300 g",
+      "1.500 g",
+      "1.000 g"
+    ],
+    "testedAttribute": "approxWeightGrams",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_eierstock_homo-organ-weight",
+    "entityId": "homo:eierstock",
+    "entityType": "organ",
+    "type": "homo-organ-weight",
+    "difficulty": 3,
+    "prompt": "Welches ungefähre Gewicht hat „Eierstock (Ovar)\" beim Erwachsenen?",
+    "correctAnswer": "14 g",
+    "options": [
+      "14 g",
+      "300 g",
+      "1.500 g",
+      "1.000 g"
+    ],
+    "testedAttribute": "approxWeightGrams",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_eileiter_homo-organ-weight",
+    "entityId": "homo:eileiter",
+    "entityType": "organ",
+    "type": "homo-organ-weight",
+    "difficulty": 3,
+    "prompt": "Welches ungefähre Gewicht hat „Eileiter (Tuba uterina, Salpinx)\" beim Erwachsenen?",
+    "correctAnswer": "10 g",
+    "options": [
+      "10 g",
+      "300 g",
+      "1.500 g",
+      "1.000 g"
+    ],
+    "testedAttribute": "approxWeightGrams",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_gebaermutter_homo-organ-weight",
+    "entityId": "homo:gebaermutter",
+    "entityType": "organ",
+    "type": "homo-organ-weight",
+    "difficulty": 3,
+    "prompt": "Welches ungefähre Gewicht hat „Gebärmutter (Uterus)\" beim Erwachsenen?",
+    "correctAnswer": "70 g",
+    "options": [
+      "70 g",
+      "300 g",
+      "1.500 g",
+      "1.000 g"
+    ],
+    "testedAttribute": "approxWeightGrams",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_hoden_homo-organ-weight",
+    "entityId": "homo:hoden",
+    "entityType": "organ",
+    "type": "homo-organ-weight",
+    "difficulty": 3,
+    "prompt": "Welches ungefähre Gewicht hat „Hoden (Testis)\" beim Erwachsenen?",
+    "correctAnswer": "40 g",
+    "options": [
+      "40 g",
+      "300 g",
+      "1.500 g",
+      "1.000 g"
+    ],
+    "testedAttribute": "approxWeightGrams",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_prostata_homo-organ-weight",
+    "entityId": "homo:prostata",
+    "entityType": "organ",
+    "type": "homo-organ-weight",
+    "difficulty": 3,
+    "prompt": "Welches ungefähre Gewicht hat „Prostata (Vorsteherdrüse)\" beim Erwachsenen?",
+    "correctAnswer": "25 g",
+    "options": [
+      "25 g",
+      "300 g",
+      "1.500 g",
+      "1.000 g"
+    ],
+    "testedAttribute": "approxWeightGrams",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_blinddarm_homo-organ-weight",
+    "entityId": "homo:blinddarm",
+    "entityType": "organ",
+    "type": "homo-organ-weight",
+    "difficulty": 3,
+    "prompt": "Welches ungefähre Gewicht hat „Blinddarm\" beim Erwachsenen?",
+    "correctAnswer": "10 g",
+    "options": [
+      "10 g",
+      "300 g",
+      "1.500 g",
+      "1.000 g"
+    ],
+    "testedAttribute": "approxWeightGrams",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_nebenhoden_homo-organ-weight",
+    "entityId": "homo:nebenhoden",
+    "entityType": "organ",
+    "type": "homo-organ-weight",
+    "difficulty": 3,
+    "prompt": "Welches ungefähre Gewicht hat „Nebenhoden\" beim Erwachsenen?",
+    "correctAnswer": "10 g",
+    "options": [
+      "10 g",
       "300 g",
       "1.500 g",
       "1.000 g"
@@ -2232,6 +2932,305 @@
       "4.000 Geschmacksknospen",
       "5.600 Geschmacksknospen",
       "6.800 Geschmacksknospen"
+    ],
+    "testedAttribute": "value",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_herzschlaege_pro_tag_homo-bodyfact-value",
+    "entityId": "homo:herzschlaege_pro_tag",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-value",
+    "difficulty": 2,
+    "prompt": "Welche Angabe gehört zu: „Herzschläge pro Tag\"?",
+    "correctAnswer": "ca. 100.000 Schläge/Tag",
+    "options": [
+      "ca. 100.000 Schläge/Tag",
+      "ca. 50.000 Schläge/Tag",
+      "ca. 70.000 Schläge/Tag",
+      "ca. 85.000 Schläge/Tag"
+    ],
+    "testedAttribute": "value",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_schlagvolumen_homo-bodyfact-value",
+    "entityId": "homo:schlagvolumen",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-value",
+    "difficulty": 2,
+    "prompt": "Welche Angabe gehört zu: „Herzschlagvolumen\"?",
+    "correctAnswer": "70 ml",
+    "options": [
+      "70 ml",
+      "35 ml",
+      "49 ml",
+      "60 ml"
+    ],
+    "testedAttribute": "value",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_kopfhaare_homo-bodyfact-value",
+    "entityId": "homo:kopfhaare",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-value",
+    "difficulty": 2,
+    "prompt": "Welche Angabe gehört zu: „Anzahl Haare auf dem Kopf\"?",
+    "correctAnswer": "ca. 100.000 Haare",
+    "options": [
+      "ca. 100.000 Haare",
+      "ca. 50.000 Haare",
+      "ca. 70.000 Haare",
+      "ca. 85.000 Haare"
+    ],
+    "testedAttribute": "value",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_schweissdruesen_homo-bodyfact-value",
+    "entityId": "homo:schweissdruesen",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-value",
+    "difficulty": 2,
+    "prompt": "Welche Angabe gehört zu: „Anzahl Schweißdrüsen\"?",
+    "correctAnswer": "ca. 2.000.000 Drüsen",
+    "options": [
+      "ca. 2.000.000 Drüsen",
+      "ca. 1.000.000 Drüsen",
+      "ca. 1.400.000 Drüsen",
+      "ca. 1.700.000 Drüsen"
+    ],
+    "testedAttribute": "value",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_talgdruesen_homo-bodyfact-value",
+    "entityId": "homo:talgdruesen",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-value",
+    "difficulty": 2,
+    "prompt": "Welche Angabe gehört zu: „Anzahl Talgdrüsen\"?",
+    "correctAnswer": "ca. 400.000 Drüsen",
+    "options": [
+      "ca. 400.000 Drüsen",
+      "ca. 200.000 Drüsen",
+      "ca. 280.000 Drüsen",
+      "ca. 340.000 Drüsen"
+    ],
+    "testedAttribute": "value",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_blutdruck_systolisch_homo-bodyfact-value",
+    "entityId": "homo:blutdruck_systolisch",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-value",
+    "difficulty": 2,
+    "prompt": "Welche Angabe gehört zu: „Blutdruck systolisch (Normwert)\"?",
+    "correctAnswer": "120 mmHg",
+    "options": [
+      "120 mmHg",
+      "60 mmHg",
+      "84 mmHg",
+      "100 mmHg"
+    ],
+    "testedAttribute": "value",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_alveolen_homo-bodyfact-value",
+    "entityId": "homo:alveolen",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-value",
+    "difficulty": 2,
+    "prompt": "Welche Angabe gehört zu: „Anzahl Alveolen (Lungenbläschen)\"?",
+    "correctAnswer": "ca. 500.000.000 Alveolen",
+    "options": [
+      "ca. 500.000.000 Alveolen",
+      "ca. 250 Alveolen",
+      "ca. 350 Alveolen",
+      "ca. 430 Alveolen"
+    ],
+    "testedAttribute": "value",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_hautdicke_homo-bodyfact-value",
+    "entityId": "homo:hautdicke",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-value",
+    "difficulty": 2,
+    "prompt": "Welche Angabe gehört zu: „Durchschnittliche Hautdicke\"?",
+    "correctAnswer": "1-2 mm",
+    "options": [
+      "1-2 mm",
+      "0-1 mm",
+      "7-8 mm",
+      "13-14 mm"
+    ],
+    "testedAttribute": "value",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_gelenke_homo-bodyfact-value",
+    "entityId": "homo:gelenke",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-value",
+    "difficulty": 2,
+    "prompt": "Welche Angabe gehört zu: „Anzahl Gelenke\"?",
+    "correctAnswer": "ca. 143 Gelenke",
+    "options": [
+      "ca. 143 Gelenke",
+      "ca. 72 Gelenke",
+      "ca. 100 Gelenke",
+      "ca. 120 Gelenke"
+    ],
+    "testedAttribute": "value",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_dickdarm_laenge_homo-bodyfact-value",
+    "entityId": "homo:dickdarm_laenge",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-value",
+    "difficulty": 2,
+    "prompt": "Welche Angabe gehört zu: „Länge des Dickdarms\"?",
+    "correctAnswer": "ca. 1.5 m",
+    "options": [
+      "ca. 1.5 m",
+      "ca. 1 m",
+      "ca. 3 m"
+    ],
+    "testedAttribute": "value",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_speiseroehre_laenge_homo-bodyfact-value",
+    "entityId": "homo:speiseroehre_laenge",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-value",
+    "difficulty": 2,
+    "prompt": "Welche Angabe gehört zu: „Länge der Speiseröhre\"?",
+    "correctAnswer": "ca. 25 cm",
+    "options": [
+      "ca. 25 cm",
+      "ca. 13 cm",
+      "ca. 18 cm",
+      "ca. 21 cm"
+    ],
+    "testedAttribute": "value",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_luftroehre_laenge_homo-bodyfact-value",
+    "entityId": "homo:luftroehre_laenge",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-value",
+    "difficulty": 2,
+    "prompt": "Welche Angabe gehört zu: „Länge der Luftröhre\"?",
+    "correctAnswer": "ca. 12 cm",
+    "options": [
+      "ca. 12 cm",
+      "ca. 6 cm",
+      "ca. 8 cm",
+      "ca. 10 cm"
+    ],
+    "testedAttribute": "value",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_glomeruli_homo-bodyfact-value",
+    "entityId": "homo:glomeruli",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-value",
+    "difficulty": 2,
+    "prompt": "Welche Angabe gehört zu: „Anzahl Nierenkörperchen (Glomeruli)\"?",
+    "correctAnswer": "ca. 2.000.000 Nierenkörperchen",
+    "options": [
+      "ca. 2.000.000 Nierenkörperchen",
+      "ca. 1.000.000 Nierenkörperchen",
+      "ca. 1.400.000 Nierenkörperchen",
+      "ca. 1.700.000 Nierenkörperchen"
+    ],
+    "testedAttribute": "value",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_nervenleitgeschwindigkeit_homo-bodyfact-value",
+    "entityId": "homo:nervenleitgeschwindigkeit",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-value",
+    "difficulty": 2,
+    "prompt": "Welche Angabe gehört zu: „Nervenleitgeschwindigkeit\"?",
+    "correctAnswer": "ca. 100 m/s",
+    "options": [
+      "ca. 100 m/s",
+      "ca. 50 m/s",
+      "ca. 70 m/s",
+      "ca. 85 m/s"
+    ],
+    "testedAttribute": "value",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_sehzellen_netzhaut_homo-bodyfact-value",
+    "entityId": "homo:sehzellen_netzhaut",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-value",
+    "difficulty": 2,
+    "prompt": "Welche Angabe gehört zu: „Sehzellen in der Netzhaut\"?",
+    "correctAnswer": "ca. 126.000.000 Sehzellen",
+    "options": [
+      "ca. 126.000.000 Sehzellen",
+      "ca. 63 Sehzellen",
+      "ca. 88 Sehzellen",
+      "ca. 110 Sehzellen"
     ],
     "testedAttribute": "value",
     "answerIsName": false,
@@ -3040,6 +4039,206 @@
     "mapTargetId": null
   },
   {
+    "id": "q_homo_herzschlaege_pro_tag_homo-bodyfact-name",
+    "entityId": "homo:herzschlaege_pro_tag",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-name",
+    "difficulty": 3,
+    "prompt": "Welche Körperangabe beträgt ungefähr ca. 100000 Schläge/Tag?",
+    "correctAnswer": "Herzschläge pro Tag",
+    "options": [
+      "Herzschläge pro Tag",
+      "Anzahl Knochen beim Erwachsenen",
+      "Anzahl Knochen beim Neugeborenen",
+      "Anzahl Zähne beim Erwachsenen"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_schlagvolumen_homo-bodyfact-name",
+    "entityId": "homo:schlagvolumen",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-name",
+    "difficulty": 3,
+    "prompt": "Welche Körperangabe beträgt ungefähr 70 ml?",
+    "correctAnswer": "Herzschlagvolumen",
+    "options": [
+      "Herzschlagvolumen",
+      "Anzahl Knochen beim Erwachsenen",
+      "Anzahl Knochen beim Neugeborenen",
+      "Anzahl Zähne beim Erwachsenen"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_schweissdruesen_homo-bodyfact-name",
+    "entityId": "homo:schweissdruesen",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-name",
+    "difficulty": 3,
+    "prompt": "Welche Körperangabe beträgt ungefähr ca. 2000000 Drüsen?",
+    "correctAnswer": "Anzahl Schweißdrüsen",
+    "options": [
+      "Anzahl Schweißdrüsen",
+      "Anzahl Knochen beim Erwachsenen",
+      "Anzahl Knochen beim Neugeborenen",
+      "Anzahl Zähne beim Erwachsenen"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_talgdruesen_homo-bodyfact-name",
+    "entityId": "homo:talgdruesen",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-name",
+    "difficulty": 3,
+    "prompt": "Welche Körperangabe beträgt ungefähr ca. 400000 Drüsen?",
+    "correctAnswer": "Anzahl Talgdrüsen",
+    "options": [
+      "Anzahl Talgdrüsen",
+      "Anzahl Knochen beim Erwachsenen",
+      "Anzahl Knochen beim Neugeborenen",
+      "Anzahl Zähne beim Erwachsenen"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_blutdruck_systolisch_homo-bodyfact-name",
+    "entityId": "homo:blutdruck_systolisch",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-name",
+    "difficulty": 3,
+    "prompt": "Welche Körperangabe beträgt ungefähr 120 mmHg?",
+    "correctAnswer": "Blutdruck systolisch (Normwert)",
+    "options": [
+      "Blutdruck systolisch (Normwert)",
+      "Anzahl Knochen beim Erwachsenen",
+      "Anzahl Knochen beim Neugeborenen",
+      "Anzahl Zähne beim Erwachsenen"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_hautdicke_homo-bodyfact-name",
+    "entityId": "homo:hautdicke",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-name",
+    "difficulty": 3,
+    "prompt": "Welche Körperangabe beträgt ungefähr 1-2 mm?",
+    "correctAnswer": "Durchschnittliche Hautdicke",
+    "options": [
+      "Durchschnittliche Hautdicke",
+      "Anzahl Knochen beim Erwachsenen",
+      "Anzahl Knochen beim Neugeborenen",
+      "Anzahl Zähne beim Erwachsenen"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_dickdarm_laenge_homo-bodyfact-name",
+    "entityId": "homo:dickdarm_laenge",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-name",
+    "difficulty": 3,
+    "prompt": "Welche Körperangabe beträgt ungefähr ca. 1.5 m?",
+    "correctAnswer": "Länge des Dickdarms",
+    "options": [
+      "Länge des Dickdarms",
+      "Anzahl Knochen beim Erwachsenen",
+      "Anzahl Knochen beim Neugeborenen",
+      "Anzahl Zähne beim Erwachsenen"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_speiseroehre_laenge_homo-bodyfact-name",
+    "entityId": "homo:speiseroehre_laenge",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-name",
+    "difficulty": 3,
+    "prompt": "Welche Körperangabe beträgt ungefähr ca. 25 cm?",
+    "correctAnswer": "Länge der Speiseröhre",
+    "options": [
+      "Länge der Speiseröhre",
+      "Anzahl Knochen beim Erwachsenen",
+      "Anzahl Knochen beim Neugeborenen",
+      "Anzahl Zähne beim Erwachsenen"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_luftroehre_laenge_homo-bodyfact-name",
+    "entityId": "homo:luftroehre_laenge",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-name",
+    "difficulty": 3,
+    "prompt": "Welche Körperangabe beträgt ungefähr ca. 12 cm?",
+    "correctAnswer": "Länge der Luftröhre",
+    "options": [
+      "Länge der Luftröhre",
+      "Anzahl Knochen beim Erwachsenen",
+      "Anzahl Knochen beim Neugeborenen",
+      "Anzahl Zähne beim Erwachsenen"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_nervenleitgeschwindigkeit_homo-bodyfact-name",
+    "entityId": "homo:nervenleitgeschwindigkeit",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-name",
+    "difficulty": 3,
+    "prompt": "Welche Körperangabe beträgt ungefähr ca. 100 m/s?",
+    "correctAnswer": "Nervenleitgeschwindigkeit",
+    "options": [
+      "Nervenleitgeschwindigkeit",
+      "Anzahl Knochen beim Erwachsenen",
+      "Anzahl Knochen beim Neugeborenen",
+      "Anzahl Zähne beim Erwachsenen"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_homo_herz_homo-organ-function",
     "entityId": "homo:herz",
     "entityType": "organ",
@@ -3200,6 +4399,286 @@
     "mapTargetId": null
   },
   {
+    "id": "q_homo_speiseroehre_homo-organ-function",
+    "entityId": "homo:speiseroehre",
+    "entityType": "organ",
+    "type": "homo-organ-function",
+    "difficulty": 2,
+    "prompt": "Welche Hauptaufgabe erfüllt das Organ „Speiseröhre\"?",
+    "correctAnswer": "Transportiert die Nahrung vom Rachen durch wellenförmige Muskelkontraktionen (Peristaltik) in den Magen.",
+    "options": [
+      "Transportiert die Nahrung vom Rachen durch wellenförmige Muskelkontraktionen (Peristaltik) in den Magen.",
+      "Pumpt Blut durch den Körper und versorgt Gewebe mit Sauerstoff und Nährstoffen.",
+      "Entgiftet das Blut, speichert Nährstoffe und bildet Galle für die Fettverdauung.",
+      "Nimmt Sauerstoff aus der Atemluft auf und gibt Kohlendioxid an die Ausatemluft ab."
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_duenndarm_homo-organ-function",
+    "entityId": "homo:duenndarm",
+    "entityType": "organ",
+    "type": "homo-organ-function",
+    "difficulty": 2,
+    "prompt": "Welche Hauptaufgabe erfüllt das Organ „Dünndarm\"?",
+    "correctAnswer": "Hauptort der Verdauung und Aufnahme von Nährstoffen; besteht aus Zwölffingerdarm, Leerdarm und Krummdarm.",
+    "options": [
+      "Hauptort der Verdauung und Aufnahme von Nährstoffen; besteht aus Zwölffingerdarm, Leerdarm und Krummdarm.",
+      "Pumpt Blut durch den Körper und versorgt Gewebe mit Sauerstoff und Nährstoffen.",
+      "Entgiftet das Blut, speichert Nährstoffe und bildet Galle für die Fettverdauung.",
+      "Nimmt Sauerstoff aus der Atemluft auf und gibt Kohlendioxid an die Ausatemluft ab."
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_dickdarm_homo-organ-function",
+    "entityId": "homo:dickdarm",
+    "entityType": "organ",
+    "type": "homo-organ-function",
+    "difficulty": 2,
+    "prompt": "Welche Hauptaufgabe erfüllt das Organ „Dickdarm\"?",
+    "correctAnswer": "Entzieht dem Speisebrei Wasser und Elektrolyte und speichert den Stuhl bis zur Entleerung.",
+    "options": [
+      "Entzieht dem Speisebrei Wasser und Elektrolyte und speichert den Stuhl bis zur Entleerung.",
+      "Pumpt Blut durch den Körper und versorgt Gewebe mit Sauerstoff und Nährstoffen.",
+      "Entgiftet das Blut, speichert Nährstoffe und bildet Galle für die Fettverdauung.",
+      "Nimmt Sauerstoff aus der Atemluft auf und gibt Kohlendioxid an die Ausatemluft ab."
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_mastdarm_homo-organ-function",
+    "entityId": "homo:mastdarm",
+    "entityType": "organ",
+    "type": "homo-organ-function",
+    "difficulty": 2,
+    "prompt": "Welche Hauptaufgabe erfüllt das Organ „Mastdarm\"?",
+    "correctAnswer": "Speichert den Stuhl bis zur willentlichen Entleerung über den After und dichtet mit zwei Schließmuskeln ab.",
+    "options": [
+      "Speichert den Stuhl bis zur willentlichen Entleerung über den After und dichtet mit zwei Schließmuskeln ab.",
+      "Pumpt Blut durch den Körper und versorgt Gewebe mit Sauerstoff und Nährstoffen.",
+      "Entgiftet das Blut, speichert Nährstoffe und bildet Galle für die Fettverdauung.",
+      "Nimmt Sauerstoff aus der Atemluft auf und gibt Kohlendioxid an die Ausatemluft ab."
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_appendix_homo-organ-function",
+    "entityId": "homo:appendix",
+    "entityType": "organ",
+    "type": "homo-organ-function",
+    "difficulty": 2,
+    "prompt": "Welche Hauptaufgabe erfüllt das Organ „Wurmfortsatz (Appendix vermiformis)\"?",
+    "correctAnswer": "Enthält reichlich lymphatisches Gewebe und gilt als Teil des darmassoziierten Immunsystems.",
+    "options": [
+      "Enthält reichlich lymphatisches Gewebe und gilt als Teil des darmassoziierten Immunsystems.",
+      "Pumpt Blut durch den Körper und versorgt Gewebe mit Sauerstoff und Nährstoffen.",
+      "Entgiftet das Blut, speichert Nährstoffe und bildet Galle für die Fettverdauung.",
+      "Nimmt Sauerstoff aus der Atemluft auf und gibt Kohlendioxid an die Ausatemluft ab."
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_zirbeldruese_homo-organ-function",
+    "entityId": "homo:zirbeldruese",
+    "entityType": "organ",
+    "type": "homo-organ-function",
+    "difficulty": 2,
+    "prompt": "Welche Hauptaufgabe erfüllt das Organ „Zirbeldrüse (Epiphyse, Glandula pinealis)\"?",
+    "correctAnswer": "Produziert das Hormon Melatonin und steuert damit den Tag-Nacht-Rhythmus des Körpers.",
+    "options": [
+      "Produziert das Hormon Melatonin und steuert damit den Tag-Nacht-Rhythmus des Körpers.",
+      "Pumpt Blut durch den Körper und versorgt Gewebe mit Sauerstoff und Nährstoffen.",
+      "Entgiftet das Blut, speichert Nährstoffe und bildet Galle für die Fettverdauung.",
+      "Nimmt Sauerstoff aus der Atemluft auf und gibt Kohlendioxid an die Ausatemluft ab."
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_kehlkopf_homo-organ-function",
+    "entityId": "homo:kehlkopf",
+    "entityType": "organ",
+    "type": "homo-organ-function",
+    "difficulty": 2,
+    "prompt": "Welche Hauptaufgabe erfüllt das Organ „Kehlkopf (Larynx)\"?",
+    "correctAnswer": "Leitet die Atemluft in die Luftröhre und erzeugt mit den Stimmlippen die menschliche Stimme.",
+    "options": [
+      "Leitet die Atemluft in die Luftröhre und erzeugt mit den Stimmlippen die menschliche Stimme.",
+      "Pumpt Blut durch den Körper und versorgt Gewebe mit Sauerstoff und Nährstoffen.",
+      "Entgiftet das Blut, speichert Nährstoffe und bildet Galle für die Fettverdauung.",
+      "Nimmt Sauerstoff aus der Atemluft auf und gibt Kohlendioxid an die Ausatemluft ab."
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_luftroehre_homo-organ-function",
+    "entityId": "homo:luftroehre",
+    "entityType": "organ",
+    "type": "homo-organ-function",
+    "difficulty": 2,
+    "prompt": "Welche Hauptaufgabe erfüllt das Organ „Luftröhre (Trachea)\"?",
+    "correctAnswer": "Führt die Atemluft vom Kehlkopf in die beiden Hauptbronchien und hält sie durch Knorpelspangen offen.",
+    "options": [
+      "Führt die Atemluft vom Kehlkopf in die beiden Hauptbronchien und hält sie durch Knorpelspangen offen.",
+      "Pumpt Blut durch den Körper und versorgt Gewebe mit Sauerstoff und Nährstoffen.",
+      "Entgiftet das Blut, speichert Nährstoffe und bildet Galle für die Fettverdauung.",
+      "Nimmt Sauerstoff aus der Atemluft auf und gibt Kohlendioxid an die Ausatemluft ab."
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_mandeln_homo-organ-function",
+    "entityId": "homo:mandeln",
+    "entityType": "organ",
+    "type": "homo-organ-function",
+    "difficulty": 2,
+    "prompt": "Welche Hauptaufgabe erfüllt das Organ „Gaumenmandeln (Tonsillae palatinae)\"?",
+    "correctAnswer": "Gehören zum lymphatischen Rachenring und sind an der Immunabwehr gegen über die Atemwege eindringende Erreger beteiligt.",
+    "options": [
+      "Gehören zum lymphatischen Rachenring und sind an der Immunabwehr gegen über die Atemwege eindringende Erreger beteiligt.",
+      "Pumpt Blut durch den Körper und versorgt Gewebe mit Sauerstoff und Nährstoffen.",
+      "Entgiftet das Blut, speichert Nährstoffe und bildet Galle für die Fettverdauung.",
+      "Nimmt Sauerstoff aus der Atemluft auf und gibt Kohlendioxid an die Ausatemluft ab."
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_eierstock_homo-organ-function",
+    "entityId": "homo:eierstock",
+    "entityType": "organ",
+    "type": "homo-organ-function",
+    "difficulty": 2,
+    "prompt": "Welche Hauptaufgabe erfüllt das Organ „Eierstock (Ovar)\"?",
+    "correctAnswer": "Bildet reife Eizellen und produziert die weiblichen Geschlechtshormone Östrogen und Progesteron.",
+    "options": [
+      "Bildet reife Eizellen und produziert die weiblichen Geschlechtshormone Östrogen und Progesteron.",
+      "Pumpt Blut durch den Körper und versorgt Gewebe mit Sauerstoff und Nährstoffen.",
+      "Entgiftet das Blut, speichert Nährstoffe und bildet Galle für die Fettverdauung.",
+      "Nimmt Sauerstoff aus der Atemluft auf und gibt Kohlendioxid an die Ausatemluft ab."
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_eileiter_homo-organ-function",
+    "entityId": "homo:eileiter",
+    "entityType": "organ",
+    "type": "homo-organ-function",
+    "difficulty": 2,
+    "prompt": "Welche Hauptaufgabe erfüllt das Organ „Eileiter (Tuba uterina, Salpinx)\"?",
+    "correctAnswer": "Transportiert die Eizelle vom Eierstock zur Gebärmutter und ist der häufigste Ort der Befruchtung.",
+    "options": [
+      "Transportiert die Eizelle vom Eierstock zur Gebärmutter und ist der häufigste Ort der Befruchtung.",
+      "Pumpt Blut durch den Körper und versorgt Gewebe mit Sauerstoff und Nährstoffen.",
+      "Entgiftet das Blut, speichert Nährstoffe und bildet Galle für die Fettverdauung.",
+      "Nimmt Sauerstoff aus der Atemluft auf und gibt Kohlendioxid an die Ausatemluft ab."
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_gebaermutter_homo-organ-function",
+    "entityId": "homo:gebaermutter",
+    "entityType": "organ",
+    "type": "homo-organ-function",
+    "difficulty": 2,
+    "prompt": "Welche Hauptaufgabe erfüllt das Organ „Gebärmutter (Uterus)\"?",
+    "correctAnswer": "Nimmt die befruchtete Eizelle auf, nährt den Embryo und Fötus während der Schwangerschaft und stößt bei der Geburt das Kind aus.",
+    "options": [
+      "Nimmt die befruchtete Eizelle auf, nährt den Embryo und Fötus während der Schwangerschaft und stößt bei der Geburt das Kind aus.",
+      "Pumpt Blut durch den Körper und versorgt Gewebe mit Sauerstoff und Nährstoffen.",
+      "Entgiftet das Blut, speichert Nährstoffe und bildet Galle für die Fettverdauung.",
+      "Nimmt Sauerstoff aus der Atemluft auf und gibt Kohlendioxid an die Ausatemluft ab."
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_prostata_homo-organ-function",
+    "entityId": "homo:prostata",
+    "entityType": "organ",
+    "type": "homo-organ-function",
+    "difficulty": 2,
+    "prompt": "Welche Hauptaufgabe erfüllt das Organ „Prostata (Vorsteherdrüse)\"?",
+    "correctAnswer": "Produziert ein Sekret, das die Spermien beweglicher macht und Teil des Ejakulats ist.",
+    "options": [
+      "Produziert ein Sekret, das die Spermien beweglicher macht und Teil des Ejakulats ist.",
+      "Pumpt Blut durch den Körper und versorgt Gewebe mit Sauerstoff und Nährstoffen.",
+      "Entgiftet das Blut, speichert Nährstoffe und bildet Galle für die Fettverdauung.",
+      "Nimmt Sauerstoff aus der Atemluft auf und gibt Kohlendioxid an die Ausatemluft ab."
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_blinddarm_homo-organ-function",
+    "entityId": "homo:blinddarm",
+    "entityType": "organ",
+    "type": "homo-organ-function",
+    "difficulty": 2,
+    "prompt": "Welche Hauptaufgabe erfüllt das Organ „Blinddarm\"?",
+    "correctAnswer": "Beherbergt einen Teil der Darmflora und enthält reichlich lymphatisches Gewebe zur Immunabwehr.",
+    "options": [
+      "Beherbergt einen Teil der Darmflora und enthält reichlich lymphatisches Gewebe zur Immunabwehr.",
+      "Pumpt Blut durch den Körper und versorgt Gewebe mit Sauerstoff und Nährstoffen.",
+      "Entgiftet das Blut, speichert Nährstoffe und bildet Galle für die Fettverdauung.",
+      "Nimmt Sauerstoff aus der Atemluft auf und gibt Kohlendioxid an die Ausatemluft ab."
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_homo_schilddruese_homo-organ-location",
     "entityId": "homo:schilddruese",
     "entityType": "organ",
@@ -3296,6 +4775,406 @@
     "testedAttribute": "location",
     "answerIsName": false,
     "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_speiseroehre_homo-organ-location",
+    "entityId": "homo:speiseroehre",
+    "entityType": "organ",
+    "type": "homo-organ-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt das Organ „Speiseröhre\"?",
+    "correctAnswer": "Hals und Brustraum, hinter der Luftröhre, vor der Wirbelsäule.",
+    "options": [
+      "Hals und Brustraum, hinter der Luftröhre, vor der Wirbelsäule.",
+      "Vorderer Hals, unterhalb des Kehlkopfs, schmetterlingsförmig um die Luftröhre",
+      "Unterseite der Leber im rechten Oberbauch",
+      "Auf dem oberen Pol jeder Niere im hinteren Oberbauch (jeweils eine links und rechts)"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_duenndarm_homo-organ-location",
+    "entityId": "homo:duenndarm",
+    "entityType": "organ",
+    "type": "homo-organ-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt das Organ „Dünndarm\"?",
+    "correctAnswer": "Liegt im mittleren Bauchraum, umrahmt vom Dickdarm, reicht vom Magenausgang bis zum Blinddarm.",
+    "options": [
+      "Liegt im mittleren Bauchraum, umrahmt vom Dickdarm, reicht vom Magenausgang bis zum Blinddarm.",
+      "Vorderer Hals, unterhalb des Kehlkopfs, schmetterlingsförmig um die Luftröhre",
+      "Unterseite der Leber im rechten Oberbauch",
+      "Auf dem oberen Pol jeder Niere im hinteren Oberbauch (jeweils eine links und rechts)"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_dickdarm_homo-organ-location",
+    "entityId": "homo:dickdarm",
+    "entityType": "organ",
+    "type": "homo-organ-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt das Organ „Dickdarm\"?",
+    "correctAnswer": "Umrahmt als aufsteigender, querer und absteigender Teil den Dünndarm im Bauch- und Beckenraum.",
+    "options": [
+      "Umrahmt als aufsteigender, querer und absteigender Teil den Dünndarm im Bauch- und Beckenraum.",
+      "Vorderer Hals, unterhalb des Kehlkopfs, schmetterlingsförmig um die Luftröhre",
+      "Unterseite der Leber im rechten Oberbauch",
+      "Auf dem oberen Pol jeder Niere im hinteren Oberbauch (jeweils eine links und rechts)"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_mastdarm_homo-organ-location",
+    "entityId": "homo:mastdarm",
+    "entityType": "organ",
+    "type": "homo-organ-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt das Organ „Mastdarm\"?",
+    "correctAnswer": "Letzter Abschnitt des Dickdarms, liegt im kleinen Becken vor Kreuz- und Steißbein.",
+    "options": [
+      "Letzter Abschnitt des Dickdarms, liegt im kleinen Becken vor Kreuz- und Steißbein.",
+      "Vorderer Hals, unterhalb des Kehlkopfs, schmetterlingsförmig um die Luftröhre",
+      "Unterseite der Leber im rechten Oberbauch",
+      "Auf dem oberen Pol jeder Niere im hinteren Oberbauch (jeweils eine links und rechts)"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_appendix_homo-organ-location",
+    "entityId": "homo:appendix",
+    "entityType": "organ",
+    "type": "homo-organ-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt das Organ „Wurmfortsatz (Appendix vermiformis)\"?",
+    "correctAnswer": "Hängt am unteren Ende des Blinddarms im rechten Unterbauch.",
+    "options": [
+      "Hängt am unteren Ende des Blinddarms im rechten Unterbauch.",
+      "Vorderer Hals, unterhalb des Kehlkopfs, schmetterlingsförmig um die Luftröhre",
+      "Unterseite der Leber im rechten Oberbauch",
+      "Auf dem oberen Pol jeder Niere im hinteren Oberbauch (jeweils eine links und rechts)"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_hypophyse_homo-organ-location",
+    "entityId": "homo:hypophyse",
+    "entityType": "organ",
+    "type": "homo-organ-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt das Organ „Hypophyse (Hirnanhangsdrüse)\"?",
+    "correctAnswer": "An der Unterseite des Zwischenhirns, im Türkensattel des Keilbeins.",
+    "options": [
+      "An der Unterseite des Zwischenhirns, im Türkensattel des Keilbeins.",
+      "Vorderer Hals, unterhalb des Kehlkopfs, schmetterlingsförmig um die Luftröhre",
+      "Unterseite der Leber im rechten Oberbauch",
+      "Auf dem oberen Pol jeder Niere im hinteren Oberbauch (jeweils eine links und rechts)"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_zirbeldruese_homo-organ-location",
+    "entityId": "homo:zirbeldruese",
+    "entityType": "organ",
+    "type": "homo-organ-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt das Organ „Zirbeldrüse (Epiphyse, Glandula pinealis)\"?",
+    "correctAnswer": "Liegt tief im Zwischenhirn, zwischen den beiden Großhirnhälften, am hinteren Ende des dritten Ventrikels.",
+    "options": [
+      "Liegt tief im Zwischenhirn, zwischen den beiden Großhirnhälften, am hinteren Ende des dritten Ventrikels.",
+      "Vorderer Hals, unterhalb des Kehlkopfs, schmetterlingsförmig um die Luftröhre",
+      "Unterseite der Leber im rechten Oberbauch",
+      "Auf dem oberen Pol jeder Niere im hinteren Oberbauch (jeweils eine links und rechts)"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_kehlkopf_homo-organ-location",
+    "entityId": "homo:kehlkopf",
+    "entityType": "organ",
+    "type": "homo-organ-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt das Organ „Kehlkopf (Larynx)\"?",
+    "correctAnswer": "Vorderer Hals, unterhalb des Zungenbeins, am Übergang vom Rachen zur Luftröhre.",
+    "options": [
+      "Vorderer Hals, unterhalb des Zungenbeins, am Übergang vom Rachen zur Luftröhre.",
+      "Vorderer Hals, unterhalb des Kehlkopfs, schmetterlingsförmig um die Luftröhre",
+      "Unterseite der Leber im rechten Oberbauch",
+      "Auf dem oberen Pol jeder Niere im hinteren Oberbauch (jeweils eine links und rechts)"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_luftroehre_homo-organ-location",
+    "entityId": "homo:luftroehre",
+    "entityType": "organ",
+    "type": "homo-organ-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt das Organ „Luftröhre (Trachea)\"?",
+    "correctAnswer": "Vorderer Hals und oberer Brustraum, vor der Speiseröhre, ab Höhe des sechsten Halswirbels.",
+    "options": [
+      "Vorderer Hals und oberer Brustraum, vor der Speiseröhre, ab Höhe des sechsten Halswirbels.",
+      "Vorderer Hals, unterhalb des Kehlkopfs, schmetterlingsförmig um die Luftröhre",
+      "Unterseite der Leber im rechten Oberbauch",
+      "Auf dem oberen Pol jeder Niere im hinteren Oberbauch (jeweils eine links und rechts)"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_lymphknoten_homo-organ-location",
+    "entityId": "homo:lymphknoten",
+    "entityType": "organ",
+    "type": "homo-organ-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt das Organ „Lymphknoten (Nodi lymphoidei)\"?",
+    "correctAnswer": "Verteilt über den Körper, gehäuft in Hals, Achselhöhlen, Leisten, entlang der großen Gefäße und im Mesenterium.",
+    "options": [
+      "Verteilt über den Körper, gehäuft in Hals, Achselhöhlen, Leisten, entlang der großen Gefäße und im Mesenterium.",
+      "Vorderer Hals, unterhalb des Kehlkopfs, schmetterlingsförmig um die Luftröhre",
+      "Unterseite der Leber im rechten Oberbauch",
+      "Auf dem oberen Pol jeder Niere im hinteren Oberbauch (jeweils eine links und rechts)"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_mandeln_homo-organ-location",
+    "entityId": "homo:mandeln",
+    "entityType": "organ",
+    "type": "homo-organ-location",
+    "difficulty": 3,
+    "prompt": "In welcher Körperregion liegt das Organ „Tonsillae palatinae\"?",
+    "correctAnswer": "Beidseits im Rachen, zwischen den Gaumenbögen.",
+    "options": [
+      "Beidseits im Rachen, zwischen den Gaumenbögen.",
+      "Vorderer Hals, unterhalb des Kehlkopfs, schmetterlingsförmig um die Luftröhre",
+      "Unterseite der Leber im rechten Oberbauch",
+      "Auf dem oberen Pol jeder Niere im hinteren Oberbauch (jeweils eine links und rechts)"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_harnleiter_homo-organ-location",
+    "entityId": "homo:harnleiter",
+    "entityType": "organ",
+    "type": "homo-organ-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt das Organ „Harnleiter (Ureter)\"?",
+    "correctAnswer": "Paariger, etwa 25–30 cm langer Muskelschlauch, der retroperitoneal vom Nierenbecken ins kleine Becken zieht.",
+    "options": [
+      "Paariger, etwa 25–30 cm langer Muskelschlauch, der retroperitoneal vom Nierenbecken ins kleine Becken zieht.",
+      "Vorderer Hals, unterhalb des Kehlkopfs, schmetterlingsförmig um die Luftröhre",
+      "Unterseite der Leber im rechten Oberbauch",
+      "Auf dem oberen Pol jeder Niere im hinteren Oberbauch (jeweils eine links und rechts)"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_harnroehre_homo-organ-location",
+    "entityId": "homo:harnroehre",
+    "entityType": "organ",
+    "type": "homo-organ-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt das Organ „Harnröhre (Urethra)\"?",
+    "correctAnswer": "Beim Mann verläuft sie durch Prostata, Beckenboden und Penis, bei der Frau wesentlich kürzer vor der Vagina.",
+    "options": [
+      "Beim Mann verläuft sie durch Prostata, Beckenboden und Penis, bei der Frau wesentlich kürzer vor der Vagina.",
+      "Vorderer Hals, unterhalb des Kehlkopfs, schmetterlingsförmig um die Luftröhre",
+      "Unterseite der Leber im rechten Oberbauch",
+      "Auf dem oberen Pol jeder Niere im hinteren Oberbauch (jeweils eine links und rechts)"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_eierstock_homo-organ-location",
+    "entityId": "homo:eierstock",
+    "entityType": "organ",
+    "type": "homo-organ-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt das Organ „Eierstock (Ovar)\"?",
+    "correctAnswer": "Paarig angelegt, links und rechts der Gebärmutter im kleinen Becken.",
+    "options": [
+      "Paarig angelegt, links und rechts der Gebärmutter im kleinen Becken.",
+      "Vorderer Hals, unterhalb des Kehlkopfs, schmetterlingsförmig um die Luftröhre",
+      "Unterseite der Leber im rechten Oberbauch",
+      "Auf dem oberen Pol jeder Niere im hinteren Oberbauch (jeweils eine links und rechts)"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_eileiter_homo-organ-location",
+    "entityId": "homo:eileiter",
+    "entityType": "organ",
+    "type": "homo-organ-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt das Organ „Eileiter (Tuba uterina, Salpinx)\"?",
+    "correctAnswer": "Paarig, zieht beidseits vom oberen Rand der Gebärmutter zum Eierstock.",
+    "options": [
+      "Paarig, zieht beidseits vom oberen Rand der Gebärmutter zum Eierstock.",
+      "Vorderer Hals, unterhalb des Kehlkopfs, schmetterlingsförmig um die Luftröhre",
+      "Unterseite der Leber im rechten Oberbauch",
+      "Auf dem oberen Pol jeder Niere im hinteren Oberbauch (jeweils eine links und rechts)"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_gebaermutter_homo-organ-location",
+    "entityId": "homo:gebaermutter",
+    "entityType": "organ",
+    "type": "homo-organ-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt das Organ „Gebärmutter (Uterus)\"?",
+    "correctAnswer": "Birnenförmiges Hohlorgan im kleinen Becken zwischen Harnblase und Mastdarm.",
+    "options": [
+      "Birnenförmiges Hohlorgan im kleinen Becken zwischen Harnblase und Mastdarm.",
+      "Vorderer Hals, unterhalb des Kehlkopfs, schmetterlingsförmig um die Luftröhre",
+      "Unterseite der Leber im rechten Oberbauch",
+      "Auf dem oberen Pol jeder Niere im hinteren Oberbauch (jeweils eine links und rechts)"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_hoden_homo-organ-location",
+    "entityId": "homo:hoden",
+    "entityType": "organ",
+    "type": "homo-organ-location",
+    "difficulty": 3,
+    "prompt": "In welcher Körperregion liegt das Organ „Testis\"?",
+    "correctAnswer": "Paarig im Hodensack außerhalb des Körpers, weil für die Spermienreifung eine um etwa 2–3 °C niedrigere Temperatur als im Bauchraum nötig ist.",
+    "options": [
+      "Paarig im Hodensack außerhalb des Körpers, weil für die Spermienreifung eine um etwa 2–3 °C niedrigere Temperatur als im Bauchraum nötig ist.",
+      "Vorderer Hals, unterhalb des Kehlkopfs, schmetterlingsförmig um die Luftröhre",
+      "Unterseite der Leber im rechten Oberbauch",
+      "Auf dem oberen Pol jeder Niere im hinteren Oberbauch (jeweils eine links und rechts)"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_prostata_homo-organ-location",
+    "entityId": "homo:prostata",
+    "entityType": "organ",
+    "type": "homo-organ-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt das Organ „Prostata (Vorsteherdrüse)\"?",
+    "correctAnswer": "Unterhalb der Harnblase, umgibt den Anfangsteil der männlichen Harnröhre.",
+    "options": [
+      "Unterhalb der Harnblase, umgibt den Anfangsteil der männlichen Harnröhre.",
+      "Vorderer Hals, unterhalb des Kehlkopfs, schmetterlingsförmig um die Luftröhre",
+      "Unterseite der Leber im rechten Oberbauch",
+      "Auf dem oberen Pol jeder Niere im hinteren Oberbauch (jeweils eine links und rechts)"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_blinddarm_homo-organ-location",
+    "entityId": "homo:blinddarm",
+    "entityType": "organ",
+    "type": "homo-organ-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt das Organ „Blinddarm\"?",
+    "correctAnswer": "Erster, sackförmiger Abschnitt des Dickdarms im rechten Unterbauch.",
+    "options": [
+      "Erster, sackförmiger Abschnitt des Dickdarms im rechten Unterbauch.",
+      "Vorderer Hals, unterhalb des Kehlkopfs, schmetterlingsförmig um die Luftröhre",
+      "Unterseite der Leber im rechten Oberbauch",
+      "Auf dem oberen Pol jeder Niere im hinteren Oberbauch (jeweils eine links und rechts)"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_nebenhoden_homo-organ-location",
+    "entityId": "homo:nebenhoden",
+    "entityType": "organ",
+    "type": "homo-organ-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt das Organ „Nebenhoden\"?",
+    "correctAnswer": "Paarig dem oberen hinteren Rand des Hodens anliegend.",
+    "options": [
+      "Paarig dem oberen hinteren Rand des Hodens anliegend.",
+      "Vorderer Hals, unterhalb des Kehlkopfs, schmetterlingsförmig um die Luftröhre",
+      "Unterseite der Leber im rechten Oberbauch",
+      "Auf dem oberen Pol jeder Niere im hinteren Oberbauch (jeweils eine links und rechts)"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -4700,6 +6579,326 @@
     "mapTargetId": null
   },
   {
+    "id": "q_homo_dickdarm_homo-organ-weight-rev",
+    "entityId": "homo:dickdarm",
+    "entityType": "organ",
+    "type": "homo-organ-weight-rev",
+    "difficulty": 3,
+    "prompt": "Welches Organ wiegt beim Erwachsenen ungefähr 1.100 Gramm?",
+    "correctAnswer": "Dickdarm",
+    "options": [
+      "Dickdarm",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_mastdarm_homo-organ-weight-rev",
+    "entityId": "homo:mastdarm",
+    "entityType": "organ",
+    "type": "homo-organ-weight-rev",
+    "difficulty": 3,
+    "prompt": "Welches Organ wiegt beim Erwachsenen ungefähr 100 Gramm?",
+    "correctAnswer": "Mastdarm",
+    "options": [
+      "Mastdarm",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_appendix_homo-organ-weight-rev",
+    "entityId": "homo:appendix",
+    "entityType": "organ",
+    "type": "homo-organ-weight-rev",
+    "difficulty": 3,
+    "prompt": "Welches Organ wiegt beim Erwachsenen ungefähr 10 Gramm?",
+    "correctAnswer": "Wurmfortsatz (Appendix vermiformis)",
+    "options": [
+      "Wurmfortsatz (Appendix vermiformis)",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_hypophyse_homo-organ-weight-rev",
+    "entityId": "homo:hypophyse",
+    "entityType": "organ",
+    "type": "homo-organ-weight-rev",
+    "difficulty": 3,
+    "prompt": "Welches Organ wiegt beim Erwachsenen ungefähr 0,6 Gramm?",
+    "correctAnswer": "Hypophyse (Hirnanhangsdrüse)",
+    "options": [
+      "Hypophyse (Hirnanhangsdrüse)",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_zirbeldruese_homo-organ-weight-rev",
+    "entityId": "homo:zirbeldruese",
+    "entityType": "organ",
+    "type": "homo-organ-weight-rev",
+    "difficulty": 3,
+    "prompt": "Welches Organ wiegt beim Erwachsenen ungefähr 0,1 Gramm?",
+    "correctAnswer": "Zirbeldrüse (Epiphyse, Glandula pinealis)",
+    "options": [
+      "Zirbeldrüse (Epiphyse, Glandula pinealis)",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_kehlkopf_homo-organ-weight-rev",
+    "entityId": "homo:kehlkopf",
+    "entityType": "organ",
+    "type": "homo-organ-weight-rev",
+    "difficulty": 3,
+    "prompt": "Welches Organ wiegt beim Erwachsenen ungefähr 60 Gramm?",
+    "correctAnswer": "Kehlkopf (Larynx)",
+    "options": [
+      "Kehlkopf (Larynx)",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_luftroehre_homo-organ-weight-rev",
+    "entityId": "homo:luftroehre",
+    "entityType": "organ",
+    "type": "homo-organ-weight-rev",
+    "difficulty": 3,
+    "prompt": "Welches Organ wiegt beim Erwachsenen ungefähr 30 Gramm?",
+    "correctAnswer": "Luftröhre (Trachea)",
+    "options": [
+      "Luftröhre (Trachea)",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_mandeln_homo-organ-weight-rev",
+    "entityId": "homo:mandeln",
+    "entityType": "organ",
+    "type": "homo-organ-weight-rev",
+    "difficulty": 3,
+    "prompt": "Welches Organ wiegt beim Erwachsenen ungefähr 6 Gramm?",
+    "correctAnswer": "Gaumenmandeln (Tonsillae palatinae)",
+    "options": [
+      "Gaumenmandeln (Tonsillae palatinae)",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_harnleiter_homo-organ-weight-rev",
+    "entityId": "homo:harnleiter",
+    "entityType": "organ",
+    "type": "homo-organ-weight-rev",
+    "difficulty": 3,
+    "prompt": "Welches Organ wiegt beim Erwachsenen ungefähr 6 Gramm?",
+    "correctAnswer": "Harnleiter (Ureter)",
+    "options": [
+      "Harnleiter (Ureter)",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_eierstock_homo-organ-weight-rev",
+    "entityId": "homo:eierstock",
+    "entityType": "organ",
+    "type": "homo-organ-weight-rev",
+    "difficulty": 3,
+    "prompt": "Welches Organ wiegt beim Erwachsenen ungefähr 14 Gramm?",
+    "correctAnswer": "Eierstock (Ovar)",
+    "options": [
+      "Eierstock (Ovar)",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_eileiter_homo-organ-weight-rev",
+    "entityId": "homo:eileiter",
+    "entityType": "organ",
+    "type": "homo-organ-weight-rev",
+    "difficulty": 3,
+    "prompt": "Welches Organ wiegt beim Erwachsenen ungefähr 10 Gramm?",
+    "correctAnswer": "Eileiter (Tuba uterina, Salpinx)",
+    "options": [
+      "Eileiter (Tuba uterina, Salpinx)",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_gebaermutter_homo-organ-weight-rev",
+    "entityId": "homo:gebaermutter",
+    "entityType": "organ",
+    "type": "homo-organ-weight-rev",
+    "difficulty": 3,
+    "prompt": "Welches Organ wiegt beim Erwachsenen ungefähr 70 Gramm?",
+    "correctAnswer": "Gebärmutter (Uterus)",
+    "options": [
+      "Gebärmutter (Uterus)",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_hoden_homo-organ-weight-rev",
+    "entityId": "homo:hoden",
+    "entityType": "organ",
+    "type": "homo-organ-weight-rev",
+    "difficulty": 3,
+    "prompt": "Welches Organ wiegt beim Erwachsenen ungefähr 40 Gramm?",
+    "correctAnswer": "Hoden (Testis)",
+    "options": [
+      "Hoden (Testis)",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_prostata_homo-organ-weight-rev",
+    "entityId": "homo:prostata",
+    "entityType": "organ",
+    "type": "homo-organ-weight-rev",
+    "difficulty": 3,
+    "prompt": "Welches Organ wiegt beim Erwachsenen ungefähr 25 Gramm?",
+    "correctAnswer": "Prostata (Vorsteherdrüse)",
+    "options": [
+      "Prostata (Vorsteherdrüse)",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_blinddarm_homo-organ-weight-rev",
+    "entityId": "homo:blinddarm",
+    "entityType": "organ",
+    "type": "homo-organ-weight-rev",
+    "difficulty": 3,
+    "prompt": "Welches Organ wiegt beim Erwachsenen ungefähr 10 Gramm?",
+    "correctAnswer": "Blinddarm",
+    "options": [
+      "Blinddarm",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_nebenhoden_homo-organ-weight-rev",
+    "entityId": "homo:nebenhoden",
+    "entityType": "organ",
+    "type": "homo-organ-weight-rev",
+    "difficulty": 3,
+    "prompt": "Welches Organ wiegt beim Erwachsenen ungefähr 10 Gramm?",
+    "correctAnswer": "Nebenhoden",
+    "options": [
+      "Nebenhoden",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_homo_herz_homo-organ-function-rev",
     "entityId": "homo:herz",
     "entityType": "organ",
@@ -4849,6 +7048,306 @@
     "correctAnswer": "Bauchspeicheldrüse",
     "options": [
       "Bauchspeicheldrüse",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_speiseroehre_homo-organ-function-rev",
+    "entityId": "homo:speiseroehre",
+    "entityType": "organ",
+    "type": "homo-organ-function-rev",
+    "difficulty": 2,
+    "prompt": "Welches Organ erfüllt folgende Hauptaufgabe: „Transportiert die Nahrung vom Rachen durch wellenförmige Muskelkontraktionen (Peristaltik) in den Magen.\"?",
+    "correctAnswer": "Speiseröhre",
+    "options": [
+      "Speiseröhre",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_duenndarm_homo-organ-function-rev",
+    "entityId": "homo:duenndarm",
+    "entityType": "organ",
+    "type": "homo-organ-function-rev",
+    "difficulty": 2,
+    "prompt": "Welches Organ erfüllt folgende Hauptaufgabe: „Hauptort der Verdauung und Aufnahme von Nährstoffen; besteht aus Zwölffingerdarm, Leerdarm und Krummdarm.\"?",
+    "correctAnswer": "Dünndarm",
+    "options": [
+      "Dünndarm",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_dickdarm_homo-organ-function-rev",
+    "entityId": "homo:dickdarm",
+    "entityType": "organ",
+    "type": "homo-organ-function-rev",
+    "difficulty": 2,
+    "prompt": "Welches Organ erfüllt folgende Hauptaufgabe: „Entzieht dem Speisebrei Wasser und Elektrolyte und speichert den Stuhl bis zur Entleerung.\"?",
+    "correctAnswer": "Dickdarm",
+    "options": [
+      "Dickdarm",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_mastdarm_homo-organ-function-rev",
+    "entityId": "homo:mastdarm",
+    "entityType": "organ",
+    "type": "homo-organ-function-rev",
+    "difficulty": 2,
+    "prompt": "Welches Organ erfüllt folgende Hauptaufgabe: „Speichert den Stuhl bis zur willentlichen Entleerung über den After und dichtet mit zwei Schließmuskeln ab.\"?",
+    "correctAnswer": "Mastdarm",
+    "options": [
+      "Mastdarm",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_appendix_homo-organ-function-rev",
+    "entityId": "homo:appendix",
+    "entityType": "organ",
+    "type": "homo-organ-function-rev",
+    "difficulty": 2,
+    "prompt": "Welches Organ erfüllt folgende Hauptaufgabe: „Enthält reichlich lymphatisches Gewebe und gilt als Teil des darmassoziierten Immunsystems.\"?",
+    "correctAnswer": "Wurmfortsatz (Appendix vermiformis)",
+    "options": [
+      "Wurmfortsatz (Appendix vermiformis)",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_zirbeldruese_homo-organ-function-rev",
+    "entityId": "homo:zirbeldruese",
+    "entityType": "organ",
+    "type": "homo-organ-function-rev",
+    "difficulty": 2,
+    "prompt": "Welches Organ erfüllt folgende Hauptaufgabe: „Produziert das Hormon Melatonin und steuert damit den Tag-Nacht-Rhythmus des Körpers.\"?",
+    "correctAnswer": "Zirbeldrüse (Epiphyse, Glandula pinealis)",
+    "options": [
+      "Zirbeldrüse (Epiphyse, Glandula pinealis)",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_kehlkopf_homo-organ-function-rev",
+    "entityId": "homo:kehlkopf",
+    "entityType": "organ",
+    "type": "homo-organ-function-rev",
+    "difficulty": 2,
+    "prompt": "Welches Organ erfüllt folgende Hauptaufgabe: „Leitet die Atemluft in die Luftröhre und erzeugt mit den Stimmlippen die menschliche Stimme.\"?",
+    "correctAnswer": "Kehlkopf (Larynx)",
+    "options": [
+      "Kehlkopf (Larynx)",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_luftroehre_homo-organ-function-rev",
+    "entityId": "homo:luftroehre",
+    "entityType": "organ",
+    "type": "homo-organ-function-rev",
+    "difficulty": 2,
+    "prompt": "Welches Organ erfüllt folgende Hauptaufgabe: „Führt die Atemluft vom Kehlkopf in die beiden Hauptbronchien und hält sie durch Knorpelspangen offen.\"?",
+    "correctAnswer": "Luftröhre (Trachea)",
+    "options": [
+      "Luftröhre (Trachea)",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_mandeln_homo-organ-function-rev",
+    "entityId": "homo:mandeln",
+    "entityType": "organ",
+    "type": "homo-organ-function-rev",
+    "difficulty": 2,
+    "prompt": "Welches Organ erfüllt folgende Hauptaufgabe: „Gehören zum lymphatischen Rachenring und sind an der Immunabwehr gegen über die Atemwege eindringende Erreger beteiligt.\"?",
+    "correctAnswer": "Gaumenmandeln (Tonsillae palatinae)",
+    "options": [
+      "Gaumenmandeln (Tonsillae palatinae)",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_eierstock_homo-organ-function-rev",
+    "entityId": "homo:eierstock",
+    "entityType": "organ",
+    "type": "homo-organ-function-rev",
+    "difficulty": 2,
+    "prompt": "Welches Organ erfüllt folgende Hauptaufgabe: „Bildet reife Eizellen und produziert die weiblichen Geschlechtshormone Östrogen und Progesteron.\"?",
+    "correctAnswer": "Eierstock (Ovar)",
+    "options": [
+      "Eierstock (Ovar)",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_eileiter_homo-organ-function-rev",
+    "entityId": "homo:eileiter",
+    "entityType": "organ",
+    "type": "homo-organ-function-rev",
+    "difficulty": 2,
+    "prompt": "Welches Organ erfüllt folgende Hauptaufgabe: „Transportiert die Eizelle vom Eierstock zur Gebärmutter und ist der häufigste Ort der Befruchtung.\"?",
+    "correctAnswer": "Eileiter (Tuba uterina, Salpinx)",
+    "options": [
+      "Eileiter (Tuba uterina, Salpinx)",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_gebaermutter_homo-organ-function-rev",
+    "entityId": "homo:gebaermutter",
+    "entityType": "organ",
+    "type": "homo-organ-function-rev",
+    "difficulty": 2,
+    "prompt": "Welches Organ erfüllt folgende Hauptaufgabe: „Nimmt die befruchtete Eizelle auf, nährt den Embryo und Fötus während der Schwangerschaft und stößt bei der Geburt das Kind aus.\"?",
+    "correctAnswer": "Gebärmutter (Uterus)",
+    "options": [
+      "Gebärmutter (Uterus)",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_prostata_homo-organ-function-rev",
+    "entityId": "homo:prostata",
+    "entityType": "organ",
+    "type": "homo-organ-function-rev",
+    "difficulty": 2,
+    "prompt": "Welches Organ erfüllt folgende Hauptaufgabe: „Produziert ein Sekret, das die Spermien beweglicher macht und Teil des Ejakulats ist.\"?",
+    "correctAnswer": "Prostata (Vorsteherdrüse)",
+    "options": [
+      "Prostata (Vorsteherdrüse)",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_blinddarm_homo-organ-function-rev",
+    "entityId": "homo:blinddarm",
+    "entityType": "organ",
+    "type": "homo-organ-function-rev",
+    "difficulty": 2,
+    "prompt": "Welches Organ erfüllt folgende Hauptaufgabe: „Beherbergt einen Teil der Darmflora und enthält reichlich lymphatisches Gewebe zur Immunabwehr.\"?",
+    "correctAnswer": "Blinddarm",
+    "options": [
+      "Blinddarm",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_nebenhoden_homo-organ-function-rev",
+    "entityId": "homo:nebenhoden",
+    "entityType": "organ",
+    "type": "homo-organ-function-rev",
+    "difficulty": 2,
+    "prompt": "Welches Organ erfüllt folgende Hauptaufgabe: „Dient der Reifung und Speicherung der im Hoden gebildeten Spermien.\"?",
+    "correctAnswer": "Nebenhoden",
+    "options": [
+      "Nebenhoden",
       "Herz",
       "Leber",
       "Lunge"

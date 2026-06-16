@@ -1314,5 +1314,511 @@
     "sourceName": "Smithsonian Human Origins Program / Britannica",
     "sourceUrl": "https://humanorigins.si.edu/evidence/human-fossils/fossils/taung-child",
     "verifyNote": "Speziesspanne ca. 3,3-2,1 Mio. Jahre, Fund des Taung-Kindes 1924 und Erstbeschreibung durch Raymond Dart 1925, Hauptfundorte Taung/Sterkfontein/Makapansgat gegen Smithsonian/Britannica/Wikipedia geprueft."
+  },
+  {
+    "id": "speiseroehre",
+    "name": "Speiseröhre",
+    "category": "organ",
+    "attributes": {
+      "system": "Verdauungssystem",
+      "function": "Transportiert die Nahrung vom Rachen durch wellenförmige Muskelkontraktionen (Peristaltik) in den Magen.",
+      "location": "Hals und Brustraum, hinter der Luftröhre, vor der Wirbelsäule."
+    },
+    "funFact": "Die Nahrung wird in der Schwerkraft „ignoriert“ – Astronauten können auf dem Kopf stehend genauso gut schlucken, da reine Peristaltik den Speisebrei befördert.",
+    "sourceName": "de.wikipedia.org – Speiseröhre",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Speiseröhre",
+    "verifyNote": "Wikipedia-Artikel „Speiseröhre“; Wikidata Q42003"
+  },
+  {
+    "id": "duenndarm",
+    "name": "Dünndarm",
+    "category": "organ",
+    "attributes": {
+      "system": "Verdauungssystem",
+      "function": "Hauptort der Verdauung und Aufnahme von Nährstoffen; besteht aus Zwölffingerdarm, Leerdarm und Krummdarm.",
+      "location": "Liegt im mittleren Bauchraum, umrahmt vom Dickdarm, reicht vom Magenausgang bis zum Blinddarm."
+    },
+    "funFact": "Die Schleimhaut bildet Falten, Zotten und Mikrovilli – ausgebreitet hat die Dünndarmoberfläche die Fläche von etwa 200 m².",
+    "sourceName": "de.wikipedia.org – Dünndarm",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Dünndarm",
+    "verifyNote": "Wikipedia-Artikel „Dünndarm“; Wikidata Q43885"
+  },
+  {
+    "id": "dickdarm",
+    "name": "Dickdarm",
+    "category": "organ",
+    "attributes": {
+      "system": "Verdauungssystem",
+      "approxWeightGrams": 1100,
+      "function": "Entzieht dem Speisebrei Wasser und Elektrolyte und speichert den Stuhl bis zur Entleerung.",
+      "location": "Umrahmt als aufsteigender, querer und absteigender Teil den Dünndarm im Bauch- und Beckenraum."
+    },
+    "funFact": "Im Dickdarm leben Billiarden nützlicher Bakterien, die zusammen die sogenannte Darmflora bilden.",
+    "sourceName": "de.wikipedia.org – Dickdarm",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Dickdarm",
+    "verifyNote": "Wikipedia-Artikel „Dickdarm“; Wikidata Q41404"
+  },
+  {
+    "id": "mastdarm",
+    "name": "Mastdarm",
+    "category": "organ",
+    "attributes": {
+      "system": "Verdauungssystem",
+      "approxWeightGrams": 100,
+      "function": "Speichert den Stuhl bis zur willentlichen Entleerung über den After und dichtet mit zwei Schließmuskeln ab.",
+      "location": "Letzter Abschnitt des Dickdarms, liegt im kleinen Becken vor Kreuz- und Steißbein."
+    },
+    "funFact": "Der innere Afterschließmuskel arbeitet unwillkürlich und besteht aus glatter Muskulatur, der äußere ist willkürlich steuerbar.",
+    "sourceName": "de.wikipedia.org – Mastdarm",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Mastdarm",
+    "verifyNote": "Wikipedia-Artikel „Mastdarm“; Wikidata Q33628"
+  },
+  {
+    "id": "appendix",
+    "name": "Wurmfortsatz (Appendix vermiformis)",
+    "category": "organ",
+    "attributes": {
+      "system": "Verdauungssystem",
+      "approxWeightGrams": 10,
+      "function": "Enthält reichlich lymphatisches Gewebe und gilt als Teil des darmassoziierten Immunsystems.",
+      "location": "Hängt am unteren Ende des Blinddarms im rechten Unterbauch."
+    },
+    "funFact": "Er ist ein evolutionäres Relikt, aber nicht nutzlos: Er beherbergt nützliche Darmbakterien, die nach einer schweren Darminfektion den Darm wiederbesiedeln können.",
+    "sourceName": "de.wikipedia.org – Wurmfortsatz",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Wurmfortsatz",
+    "verifyNote": "Wikipedia-Artikel „Wurmfortsatz“; Wikidata Q632447"
+  },
+  {
+    "id": "hypophyse",
+    "name": "Hypophyse (Hirnanhangsdrüse)",
+    "category": "organ",
+    "attributes": {
+      "system": "Endokrines System",
+      "approxWeightGrams": 0.6,
+      "function": "Zentrale Hormondrüse, die über Hypophysenhormone viele andere Drüsen wie Schilddrüse, Nebenniere und Gonaden steuert.",
+      "location": "An der Unterseite des Zwischenhirns, im Türkensattel des Keilbeins."
+    },
+    "funFact": "Sie besteht aus zwei entwicklungsgeschichtlich unterschiedlichen Teilen: einem drüsigen Vorderlappen und einem nervösen Hinterlappen.",
+    "sourceName": "de.wikipedia.org – Hypophyse",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Hypophyse",
+    "verifyNote": "Wikipedia-Artikel „Hypophyse“; Wikidata Q171137"
+  },
+  {
+    "id": "zirbeldruese",
+    "name": "Zirbeldrüse (Epiphyse, Glandula pinealis)",
+    "category": "organ",
+    "attributes": {
+      "system": "Endokrines System",
+      "approxWeightGrams": 0.1,
+      "function": "Produziert das Hormon Melatonin und steuert damit den Tag-Nacht-Rhythmus des Körpers.",
+      "location": "Liegt tief im Zwischenhirn, zwischen den beiden Großhirnhälften, am hinteren Ende des dritten Ventrikels."
+    },
+    "funFact": "Der Philosoph René Descartes hielt die Zirbeldrüse für den „Sitz der Seele“, da sie als unpaares Organ in der Mitte des Gehirns liegt.",
+    "sourceName": "de.wikipedia.org – Zirbeldrüse",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Zirbeldrüse",
+    "verifyNote": "Wikipedia-Artikel „Zirbeldrüse“; Wikidata Q192250"
+  },
+  {
+    "id": "kehlkopf",
+    "name": "Kehlkopf (Larynx)",
+    "category": "organ",
+    "attributes": {
+      "system": "Atmungssystem",
+      "approxWeightGrams": 60,
+      "function": "Leitet die Atemluft in die Luftröhre und erzeugt mit den Stimmlippen die menschliche Stimme.",
+      "location": "Vorderer Hals, unterhalb des Zungenbeins, am Übergang vom Rachen zur Luftröhre."
+    },
+    "funFact": "Der Kehldeckel (Epiglottis) verschließt beim Schlucken den Kehlkopfeingang, sodass keine Nahrung in die Luftröhre gelangt.",
+    "sourceName": "de.wikipedia.org – Kehlkopf",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Kehlkopf",
+    "verifyNote": "Wikipedia-Artikel „Kehlkopf“; Wikidata Q8251"
+  },
+  {
+    "id": "luftroehre",
+    "name": "Luftröhre (Trachea)",
+    "category": "organ",
+    "attributes": {
+      "system": "Atmungssystem",
+      "approxWeightGrams": 30,
+      "function": "Führt die Atemluft vom Kehlkopf in die beiden Hauptbronchien und hält sie durch Knorpelspangen offen.",
+      "location": "Vorderer Hals und oberer Brustraum, vor der Speiseröhre, ab Höhe des sechsten Halswirbels."
+    },
+    "funFact": "Die etwa 16 bis 20 hufeisenförmigen Knorpelspangen der Luftröhre sind hinten offen, damit die Speiseröhre sich beim Schlucken ausdehnen kann.",
+    "sourceName": "de.wikipedia.org – Luftröhre",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Luftr%C3%B6hre",
+    "verifyNote": "Wikipedia-Artikel „Luftröhre“; Wikidata Q44070"
+  },
+  {
+    "id": "lymphknoten",
+    "name": "Lymphknoten (Nodi lymphoidei)",
+    "category": "organ",
+    "attributes": {
+      "system": "Lymphatisches System",
+      "function": "Filtern die Lymphe auf Krankheitserreger und aktivieren Immunzellen, die Erreger abwehren.",
+      "location": "Verteilt über den Körper, gehäuft in Hals, Achselhöhlen, Leisten, entlang der großen Gefäße und im Mesenterium."
+    },
+    "funFact": "Der Mensch besitzt mehrere hundert Lymphknoten; sie schwellen bei Infektionen an, weshalb man „geschwollene Drüsen“ am Hals tasten kann.",
+    "sourceName": "de.wikipedia.org – Lymphknoten",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Lymphknoten",
+    "verifyNote": "Wikipedia-Artikel „Lymphknoten“; Wikidata Q158455"
+  },
+  {
+    "id": "mandeln",
+    "name": "Gaumenmandeln (Tonsillae palatinae)",
+    "category": "organ",
+    "attributes": {
+      "system": "Lymphatisches System",
+      "approxWeightGrams": 6,
+      "function": "Gehören zum lymphatischen Rachenring und sind an der Immunabwehr gegen über die Atemwege eindringende Erreger beteiligt.",
+      "location": "Beidseits im Rachen, zwischen den Gaumenbögen."
+    },
+    "funFact": "Ihre zerklüftete Oberfläche bildet viele Buchten (Krypte), in denen sich Immunzellen direkt mit Erregern aus der Mundhöhle auseinandersetzen.",
+    "sourceName": "de.wikipedia.org – Tonsilla_palatina",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Tonsilla_palatina",
+    "verifyNote": "Wikipedia-Artikel „Gaumenmandel“; Wikidata Q187406"
+  },
+  {
+    "id": "harnleiter",
+    "name": "Harnleiter (Ureter)",
+    "category": "organ",
+    "attributes": {
+      "system": "Ausscheidungssystem",
+      "approxWeightGrams": 6,
+      "function": "Transportiert den Urin per Peristaltik vom Nierenbecken zur Harnblase.",
+      "location": "Paariger, etwa 25–30 cm langer Muskelschlauch, der retroperitoneal vom Nierenbecken ins kleine Becken zieht."
+    },
+    "funFact": "Durch den Harnleiter zieht eine langsam fortschreitende peristaltische Welle – der Urin tropft also aktiv in die Blase, er läuft nicht einfach „bergab“.",
+    "sourceName": "de.wikipedia.org – Harnleiter",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Harnleiter",
+    "verifyNote": "Wikipedia-Artikel „Harnleiter“; Wikidata Q187560"
+  },
+  {
+    "id": "harnroehre",
+    "name": "Harnröhre (Urethra)",
+    "category": "organ",
+    "attributes": {
+      "system": "Ausscheidungssystem",
+      "function": "Leitet den Urin aus der Harnblase nach außen; bei Männern dient sie zusätzlich als Samenweg.",
+      "location": "Beim Mann verläuft sie durch Prostata, Beckenboden und Penis, bei der Frau wesentlich kürzer vor der Vagina."
+    },
+    "funFact": "Die männliche Harnröhre ist mit etwa 20 cm deutlich länger als die weibliche mit rund 3–5 cm – ein Grund, warum Harnwegsinfekte bei Frauen häufiger sind.",
+    "sourceName": "de.wikipedia.org – Harnröhre",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Harnröhre",
+    "verifyNote": "Wikipedia-Artikel „Harnröhre“; Wikidata Q10774"
+  },
+  {
+    "id": "eierstock",
+    "name": "Eierstock (Ovar)",
+    "category": "organ",
+    "attributes": {
+      "system": "Fortpflanzungssystem",
+      "approxWeightGrams": 14,
+      "function": "Bildet reife Eizellen und produziert die weiblichen Geschlechtshormone Östrogen und Progesteron.",
+      "location": "Paarig angelegt, links und rechts der Gebärmutter im kleinen Becken."
+    },
+    "funFact": "Bereits bei der Geburt enthält ein Eierstock rund eine Million unreifer Eizellen – die größten Zellen des menschlichen Körpers.",
+    "sourceName": "de.wikipedia.org – Eierstock",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Eierstock",
+    "verifyNote": "Wikipedia-Artikel „Eierstock“; Wikidata Q54872"
+  },
+  {
+    "id": "eileiter",
+    "name": "Eileiter (Tuba uterina, Salpinx)",
+    "category": "organ",
+    "attributes": {
+      "system": "Fortpflanzungssystem",
+      "approxWeightGrams": 10,
+      "function": "Transportiert die Eizelle vom Eierstock zur Gebärmutter und ist der häufigste Ort der Befruchtung.",
+      "location": "Paarig, zieht beidseits vom oberen Rand der Gebärmutter zum Eierstock."
+    },
+    "funFact": "Sein fransiger, trichterförmiger Fimbrientrichter „fängt“ die Eizelle nach dem Eisprung gewissermaßen auf und leitet sie ein.",
+    "sourceName": "de.wikipedia.org – Eileiter",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Eileiter",
+    "verifyNote": "Wikipedia-Artikel „Eileiter“; Wikidata Q181789"
+  },
+  {
+    "id": "gebaermutter",
+    "name": "Gebärmutter (Uterus)",
+    "category": "organ",
+    "attributes": {
+      "system": "Fortpflanzungssystem",
+      "approxWeightGrams": 70,
+      "function": "Nimmt die befruchtete Eizelle auf, nährt den Embryo und Fötus während der Schwangerschaft und stößt bei der Geburt das Kind aus.",
+      "location": "Birnenförmiges Hohlorgan im kleinen Becken zwischen Harnblase und Mastdarm."
+    },
+    "funFact": "Während der Schwangerschaft wächst die Gebärmutter von rund 70 g auf etwa 1.000–1.500 g und vervielfacht ihr Volumen um das 500- bis 1000-Fache.",
+    "sourceName": "de.wikipedia.org – Gebärmutter",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Gebärmutter",
+    "verifyNote": "Wikipedia-Artikel „Gebärmutter“; Wikidata Q9623 – Wikipedia DE: 30–120g; 70g als Mittelwert (nicht schwangerer Uterus)."
+  },
+  {
+    "id": "hoden",
+    "name": "Hoden (Testis)",
+    "category": "organ",
+    "attributes": {
+      "system": "Fortpflanzungssystem",
+      "approxWeightGrams": 40,
+      "function": "Bildet Spermien und produziert das männliche Geschlechtshormon Testosteron.",
+      "location": "Paarig im Hodensack außerhalb des Körpers, weil für die Spermienreifung eine um etwa 2–3 °C niedrigere Temperatur als im Bauchraum nötig ist."
+    },
+    "funFact": "Ein erwachsener Mann produziert täglich schätzungsweise 100 bis 200 Millionen Spermien – die Reifung dauert rund 74 Tage.",
+    "sourceName": "de.wikipedia.org – Hoden",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Hoden",
+    "verifyNote": "Wikipedia-Artikel „Hoden“; Wikidata Q9386"
+  },
+  {
+    "id": "prostata",
+    "name": "Prostata (Vorsteherdrüse)",
+    "category": "organ",
+    "attributes": {
+      "system": "Fortpflanzungssystem",
+      "approxWeightGrams": 25,
+      "function": "Produziert ein Sekret, das die Spermien beweglicher macht und Teil des Ejakulats ist.",
+      "location": "Unterhalb der Harnblase, umgibt den Anfangsteil der männlichen Harnröhre."
+    },
+    "funFact": "Ihre Größe wird gern mit einer Kastanie verglichen – sie gehört zu den wenigen Organen, die lebenslang weiter wachsen können.",
+    "sourceName": "de.wikipedia.org – Prostata",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Prostata",
+    "verifyNote": "Wikipedia-Artikel „Prostata“; Wikidata Q6760"
+  },
+  {
+    "id": "blinddarm",
+    "name": "Blinddarm",
+    "category": "organ",
+    "attributes": {
+      "system": "Verdauungssystem",
+      "approxWeightGrams": 10,
+      "function": "Beherbergt einen Teil der Darmflora und enthält reichlich lymphatisches Gewebe zur Immunabwehr.",
+      "location": "Erster, sackförmiger Abschnitt des Dickdarms im rechten Unterbauch."
+    },
+    "funFact": "Der oft fälschlich als „Blinddarm“ bezeichnete Wurmfortsatz (Appendix) sitzt am unteren Ende des Blinddarms.",
+    "sourceName": "de.wikipedia.org – Blinddarm",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Blinddarm",
+    "verifyNote": "Wikidata Q639549"
+  },
+  {
+    "id": "nebenhoden",
+    "name": "Nebenhoden",
+    "category": "organ",
+    "attributes": {
+      "system": "Fortpflanzungssystem",
+      "approxWeightGrams": 10,
+      "function": "Dient der Reifung und Speicherung der im Hoden gebildeten Spermien.",
+      "location": "Paarig dem oberen hinteren Rand des Hodens anliegend."
+    },
+    "funFact": "Allein der Nebenhodengang ist rund sechs Meter lang, wenn man ihn vollständig aufwickelt.",
+    "sourceName": "de.wikipedia.org – Nebenhoden",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Nebenhoden",
+    "verifyNote": "Wikidata Q52516"
+  },
+  {
+    "id": "herzschlaege_pro_tag",
+    "name": "Herzschläge pro Tag",
+    "category": "body_fact",
+    "attributes": {
+      "value": "ca. 100000",
+      "unit": "Schläge/Tag",
+      "definition": "Das gesunde menschliche Herz schlägt im Ruhezustand etwa 100.000-mal pro Tag und pumpt dabei rund 7.000 Liter Blut durch den Körper."
+    },
+    "funFact": "Bei 80 Lebensjahren ergibt das rund 2,5 Milliarden Herzschläge – Frauen haben im Durchschnitt etwas höhere Ruhefrequenzen als Männer.",
+    "sourceName": "de.wikipedia.org – Herzfrequenz",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Herzfrequenz",
+    "verifyNote": "Lehrbuchwert (z. B. Prometheus, Pschyrembel); Wikidata Q5829"
+  },
+  {
+    "id": "schlagvolumen",
+    "name": "Herzschlagvolumen",
+    "category": "body_fact",
+    "attributes": {
+      "value": 70,
+      "unit": "ml",
+      "definition": "Das Schlagvolumen ist die Blutmenge, die das Herz pro Herzschlag aus der linken Kammer in die Aorta pumpt; der Lehrbuch-Normwert liegt bei etwa 70 ml in Ruhe."
+    },
+    "funFact": "Bei körperlicher Belastung kann das Schlagvolumen auf über 120 ml ansteigen – das Herzzeitvolumen vervielfacht sich dann hauptsächlich über die Frequenz.",
+    "sourceName": "de.wikipedia.org – Schlagvolumen",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Schlagvolumen",
+    "verifyNote": "Lehrbuchwert (Pschyrembel, Prometheus); Wikidata Q1414819"
+  },
+  {
+    "id": "kopfhaare",
+    "name": "Anzahl Haare auf dem Kopf",
+    "category": "body_fact",
+    "attributes": {
+      "value": "ca. 100000",
+      "unit": "Haare",
+      "definition": "Ein gesunder Erwachsener trägt im Durchschnitt etwa 100.000 Kopfhaare; blondhaarige Menschen haben tendenziell mehr, rothaarige weniger."
+    },
+    "funFact": "Pro Quadratzentimeter Kopfhaut wachsen etwa 150–200 Haare – verliert man täglich bis zu 100, gilt das noch als normal.",
+    "sourceName": "de.wikipedia.org – Kopfhaar",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Kopfhaar",
+    "verifyNote": "Lehrbuchwert; Wikidata Q2841413"
+  },
+  {
+    "id": "schweissdruesen",
+    "name": "Anzahl Schweißdrüsen",
+    "category": "body_fact",
+    "attributes": {
+      "value": "ca. 2000000",
+      "unit": "Drüsen",
+      "definition": "Der Mensch besitzt etwa 2 Millionen ekkrine Schweißdrüsen, die der Temperaturregulation dienen; besonders dicht sitzen sie an Handflächen, Fußsohlen und Stirn."
+    },
+    "funFact": "An heißen Tagen können die Schweißdrüsen zusammen bis zu 10 Liter Flüssigkeit pro Tag abgeben – das ist rund 200-mal mehr als im Ruhezustand.",
+    "sourceName": "de.wikipedia.org – Schweißdrüse",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Schwei%C3%9Fdr%C3%BCse",
+    "verifyNote": "Lehrbuchwert; Wikidata Q188844"
+  },
+  {
+    "id": "talgdruesen",
+    "name": "Anzahl Talgdrüsen",
+    "category": "body_fact",
+    "attributes": {
+      "value": "ca. 400000",
+      "unit": "Drüsen",
+      "definition": "Talgdrüsen produzieren den schützenden Hauttalg; insgesamt gibt es etwa 400.000 Talgdrüsen am Körper, besonders viele im Gesicht, am Rücken und auf der Kopfhaut."
+    },
+    "funFact": "Im Gehörgang bilden Talgdrüsen gemeinsam mit apokrinen Drüsen das Ohrenschmalz – jeder Mensch hat dort also einen eingebauten „Reinigungsdienst“.",
+    "sourceName": "de.wikipedia.org – Talgdrüse",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Talgdr%C3%BCse",
+    "verifyNote": "Lehrbuchwert; Wikidata Q1222488"
+  },
+  {
+    "id": "blutdruck_systolisch",
+    "name": "Blutdruck systolisch (Normwert)",
+    "category": "body_fact",
+    "attributes": {
+      "value": "120",
+      "unit": "mmHg",
+      "definition": "Der systolische Blutdruck entsteht beim Zusammenziehen der linken Herzkammer; der ideale Ruhewert liegt bei etwa 120 mmHg."
+    },
+    "funFact": "Der diastolische Wert liegt komplementär bei rund 80 mmHg – der berühmte „120 zu 80“ ist also das Lehrbuch-Ideal.",
+    "sourceName": "de.wikipedia.org – Blutdruck",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Blutdruck",
+    "verifyNote": "Lehrbuchwert (DHL, Hochdruckliga); Wikidata Q8610"
+  },
+  {
+    "id": "alveolen",
+    "name": "Anzahl Alveolen (Lungenbläschen)",
+    "category": "body_fact",
+    "attributes": {
+      "value": "ca. 500.000.000",
+      "unit": "Alveolen",
+      "definition": "Die menschliche Lunge enthält rund 500 Millionen Alveolen (Lungenbläschen), in denen der Gasaustausch zwischen Atemluft und Blut stattfindet."
+    },
+    "funFact": "Ausgebreitet ergeben die Alveolen eine Oberfläche von etwa 70–100 m² – so groß wie ein kleines Einfamilienhaus.",
+    "sourceName": "de.wikipedia.org – Lungenbläschen",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Lungenbläschen",
+    "verifyNote": "Lehrbuchwert; Wikidata Q193583"
+  },
+  {
+    "id": "hautdicke",
+    "name": "Durchschnittliche Hautdicke",
+    "category": "body_fact",
+    "attributes": {
+      "value": "1-2",
+      "unit": "mm",
+      "definition": "Die Haut ist im Durchschnitt 1–2 mm dick; an den Augenlidern beträgt sie nur etwa 0,5 mm, an Handflächen und Fußsohlen bis zu 4 mm."
+    },
+    "funFact": "Die Haut wiegt je nach Körpergröße 3,5 bis 10 kg und ist damit das schwerste einzelne Organ des Menschen.",
+    "sourceName": "de.wikipedia.org – Haut",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Haut",
+    "verifyNote": "Lehrbuchwert; Wikidata Q1072"
+  },
+  {
+    "id": "gelenke",
+    "name": "Anzahl Gelenke",
+    "category": "body_fact",
+    "attributes": {
+      "value": "ca. 143",
+      "unit": "Gelenke",
+      "definition": "Der menschliche Körper besitzt etwa 143 echte Gelenke, deren exakte Zahl in der Anatomie zwischen 137 und 150 angegeben wird."
+    },
+    "funFact": "Die Hand allein enthält 27 Knochen und 27 Gelenke – sie ist damit eines der komplexesten Bewegungsinstrumente im Tierreich.",
+    "sourceName": "de.wikipedia.org – Gelenk",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Gelenk",
+    "verifyNote": "Lehrbuchwert; Wikidata Q163944"
+  },
+  {
+    "id": "dickdarm_laenge",
+    "name": "Länge des Dickdarms",
+    "category": "body_fact",
+    "attributes": {
+      "value": "ca. 1.5",
+      "unit": "m",
+      "definition": "Der Dickdarm ist im Mittel etwa 1,5 m lang und besteht aus Blinddarm, Colon ascendens, transversum, descendens, Sigma und Mastdarm."
+    },
+    "funFact": "Trotz seiner im Vergleich zum Dünndarm geringen Länge verweilt der Nahrungsbrei im Dickdarm mit 12–48 Stunden am längsten.",
+    "sourceName": "de.wikipedia.org – Dickdarm",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Dickdarm",
+    "verifyNote": "Lehrbuchwert; Wikidata Q12186"
+  },
+  {
+    "id": "speiseroehre_laenge",
+    "name": "Länge der Speiseröhre",
+    "category": "body_fact",
+    "attributes": {
+      "value": "ca. 25",
+      "unit": "cm",
+      "definition": "Die Speiseröhre verbindet den Rachen mit dem Mageneingang und ist beim Erwachsenen etwa 25 cm lang."
+    },
+    "funFact": "Der Nahrungsbolus braucht durchschnittlich nur 7–9 Sekunden für den Weg durch die Speiseröhre – beim Schlucken hilft die Schwerkraft weniger, als viele denken.",
+    "sourceName": "de.wikipedia.org – Speiseröhre",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Speiser%C3%B6hre",
+    "verifyNote": "Lehrbuchwert; Wikidata Q37038"
+  },
+  {
+    "id": "luftroehre_laenge",
+    "name": "Länge der Luftröhre",
+    "category": "body_fact",
+    "attributes": {
+      "value": "ca. 12",
+      "unit": "cm",
+      "definition": "Die Luftröhre ist ein etwa 10–12 cm langes Rohr, das vom Kehlkopf bis zur Aufzweigung in die Hauptbronchien reicht."
+    },
+    "funFact": "Sie wird von 16–20 hufeisenförmigen Knorpelspangen offen gehalten, damit man auch bei großem Unterdruck im Brustkorb atmen kann.",
+    "sourceName": "de.wikipedia.org – Luftröhre",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Luftr%C3%B6hre",
+    "verifyNote": "Lehrbuchwert; Wikidata Q44070"
+  },
+  {
+    "id": "glomeruli",
+    "name": "Anzahl Nierenkörperchen (Glomeruli)",
+    "category": "body_fact",
+    "attributes": {
+      "value": "ca. 2000000",
+      "unit": "Nierenkörperchen",
+      "definition": "In beiden Nieren zusammen arbeiten rund 2 Millionen Glomeruli, die den Primärharn aus dem Blut filtern."
+    },
+    "funFact": "Pro Tag fließen etwa 1.500 Liter Blut durch die Glomeruli – daraus entstehen rund 180 Liter Primärharn, von denen 99 % rückresorbiert werden.",
+    "sourceName": "de.wikipedia.org – Glomerulus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Glomerulus",
+    "verifyNote": "Lehrbuchwert; Wikidata Q195077"
+  },
+  {
+    "id": "nervenleitgeschwindigkeit",
+    "name": "Nervenleitgeschwindigkeit",
+    "category": "body_fact",
+    "attributes": {
+      "value": "ca. 100",
+      "unit": "m/s",
+      "definition": "Die Leitgeschwindigkeit markhaltiger Nervenfasern (Typ Aα) beträgt beim Menschen bis zu 100 m/s – schnell genug, um Reflexe in wenigen Millisekunden auszulösen."
+    },
+    "funFact": "Unmyelinisierte C-Fasern für langsame Schmerzsignale schaffen dagegen nur 0,5–2 m/s – deshalb spürt man einen Stoß sofort, den dumpfen Schmerz aber erst später.",
+    "sourceName": "de.wikipedia.org – Nervenleitgeschwindigkeit",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Nervenleitgeschwindigkeit",
+    "verifyNote": "Lehrbuchwert (Schmidt/Thews, Physiologie); Wikidata Q4113533"
+  },
+  {
+    "id": "sehzellen_netzhaut",
+    "name": "Sehzellen in der Netzhaut",
+    "category": "body_fact",
+    "attributes": {
+      "value": "ca. 126.000.000",
+      "unit": "Sehzellen",
+      "definition": "Gesamtzahl der Fotorezeptoren (Stäbchen und Zapfen) in der Retina eines gesunden menschlichen Auges."
+    },
+    "funFact": "Davon sind etwa 120 Millionen Stäbchen für das Dämmerungssehen und nur rund 6–7 Millionen Zapfen für das Farbsehen zuständig.",
+    "sourceName": "de.wikipedia.org – Netzhaut",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Netzhaut",
+    "verifyNote": "Quelle: de.wikipedia.org/wiki/Netzhaut (WD: Q170134)"
   }
 ]
