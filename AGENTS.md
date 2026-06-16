@@ -52,6 +52,20 @@ nicht in Inline-Styles; Details und Begründung in [`LAYOUT.md`](LAYOUT.md). Vor
 
 Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 
+> **Stand 2026-06-17 (v1.35.0) — Breite Parallel-Welle, 8 Sonnet-Subagents über 5 Quellen:**
+> Host-Diversität statt Agent-Stapeln (MiniMax-Limit ~4–6 parallel): 3× MiniMax + 3× Wikidata-SPARQL
+> + 1× Wikiquote + 1× Commons-Bildauflösung gleichzeitig, alle Produce-only (eigene /tmp-Kandidaten,
+> kein Index-Race), zentrales Opus-Gate + Merge. **+469 Konzepte, ~+1450 Fragen:**
+> **Cultura** 647→**874** K / →**2809** F (+150 Wikiquote-Zitate, +76 composition/Movements);
+> **Natura** 703→**782** / →**4124** (+17 fungus, +16 geology, +16 mineral, +30 plant);
+> **Astra** 478→**562** / →**1781** (+25 galaxy, +18 nebula via Wikidata; +15 mission, +6 meteor_shower,
+> +20 exoplanet via Wikidata/NASA); **Lingua** 241→**282** / →**1189** (+14 writing_system, +7
+> language_family, +20 etymology); **Homo** 131→**169** / →**488** (+23 bone, +15 muscle).
+> Dazu **+109 Museum-Bilder** für Cultura (Commons) — 19 commons-search-Fehlzuordnungen im Opus-Gate
+> aussortiert (z.B. Bastille→Pont Royal, Erechtheion→Ornament, Tuileries→Louvre-Entwurf). Neuer
+> Wikidata-Harvester `wikidata_galneb.cjs`. Alle `verify_facts` 0 Fehler, Browser-verifiziert
+> (819 Museum-Karten, Bild-URLs einzeln geprüft). PD-Gate: Einstein/Th. Mann (†1955) seit 2026-01-01 frei.
+
 > **Stand 2026-06-16 (v1.34.0) — Parallel-Welle (Museum + Cultura + Homo), 4 Sonnet-Subagents:**
 > Neuer **Museum-Tab** (`src/components/MuseumExplorer.jsx`, in `src/App.jsx` verdrahtet) macht die
 > geernteten freien Bilder durchsuchbar (710 Bilder, Filter nach Bereich + Suche + Lightbox; handhabt
