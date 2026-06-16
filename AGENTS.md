@@ -52,6 +52,17 @@ nicht in Inline-Styles; Details und Begründung in [`LAYOUT.md`](LAYOUT.md). Vor
 
 Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 
+> **Stand 2026-06-16 (v1.34.0) — Parallel-Welle (Museum + Cultura + Homo), 4 Sonnet-Subagents:**
+> Neuer **Museum-Tab** (`src/components/MuseumExplorer.jsx`, in `src/App.jsx` verdrahtet) macht die
+> geernteten freien Bilder durchsuchbar (710 Bilder, Filter nach Bereich + Suche + Lightbox; handhabt
+> Commons-`Special:FilePath`- und Met/NASA-Direkt-URLs). **Cultura 496→647 K / 1941→2315 F:**
+> +76 `composition` (Brahms/Mahler/Bruckner/Verdi/Puccini u.a., One-Shot-MiniMax, Lemma + Jahr geprüft)
+> + 75 `quote` via neuem **Wikiquote-Direktparser** (`scripts/data_sources/harvest/wikiquote_harvest.cjs`,
+> verbatim aus de.wikiquote, PD-Gate †≤1955; 2 Fehlzuschreibungen + 1 Begriff + 2 Schwachfälle im
+> Opus-Gate verworfen). **Homo 96→131 K / →368 F:** +20 `organ` + 15 `body_fact` (MiniMax, Anatomie
+> gegen de.wikipedia geprüft; unbelegte Gewichte, der „100.000 km Blutgefäße"-Mythos und eine
+> Wert-Kollision verworfen). Alle `verify_facts` 0 Fehler, Browser-verifiziert.
+
 > **Nächste Session — Phase 5 (5000 Fragen/Bereich):** Hebel = Konzept-Ausbau (nicht Templating).
 > Ziel ~500 faire, **belegte** Konzepte/Bereich × ~10 Fragetypen. Mehrere Recherche-Runden.
 > Pipeline steht: `scripts/data_sources/<domain>_raw.json` (Konzept + `sourceName` + `verifyNote`) →

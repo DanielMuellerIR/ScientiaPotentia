@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, Suspense } from 'react';
+import React, { useState, useEffect, useMemo, Suspense, lazy } from 'react';
 import Atlas from './components/Atlas';
 import Quiz from './components/Quiz';
 import Dashboard from './components/Dashboard';
@@ -9,10 +9,14 @@ import { DOMAINS, getDomainById } from './domains';
 import pkg from '../package.json';
 import { getAllProgress, getSetting, saveSetting } from './utils/db';
 import { playClick, isAudioMuted, setAudioMuted } from './utils/audio';
-import { BarChart3, HelpCircle, Compass, Flame, Trophy, Volume2, VolumeX } from 'lucide-react';
+import { BarChart3, HelpCircle, Compass, Flame, Trophy, Volume2, VolumeX, Images } from 'lucide-react';
+
+// Museum-Explorer lazy laden — enthält keine schweren Abhängigkeiten,
+// aber lazy hält den initialen Bundle-Umfang schlank.
+const MuseumExplorer = lazy(() => import('./components/MuseumExplorer'));
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState('dashboard'); // 'dashboard' | 'atlas' | 'explore' | 'quiz'
+  const [activeTab, setActiveTab] = useState('dashboard'); // 'dashboard' | 'atlas' | 'explore' | 'quiz' | 'museum'
   const [selectedEntityId, setSelectedEntityId] = useState(null);
   const [quizDifficulty, setQuizDifficulty] = useState(1);
   const [quizMode, setQuizMode] = useState('all'); // 'all' | 'countries' | 'cities' | 'rivers' | 'stadt-land-fluss'
@@ -53,6 +57,10 @@ export default function App() {
   // Fragenkatalog der aktiven Domain. Wird zur Laufzeit aus public/data/ geladen
   // (entlastet das JS-Bundle, ermöglicht beliebig viele Domains).
   const [questionPool, setQuestionPool] = useState([]);
+
+  // Museum: Konzept-Maps aller Domains — wird einmalig beim ersten Öffnen
+  // des Museum-Tabs geladen und dann gecacht (domainId -> Map).
+  const [allDomainData, setAllDomainData] = useState({});
 
   // db-artiges Objekt für Komponenten, die geodb.entities erwarten (Quiz,
   // Dashboard, Atlas) — domain-agnostisch über den Konzeptspeicher.
@@ -110,6 +118,29 @@ export default function App() {
     return () => { cancelled = true; };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeDomainId]);
+
+  // Museum-Daten: beim ersten Öffnen des Museum-Tabs alle Domains parallel laden.
+  // Das Laden geschieht nur einmal (Prüfung Object.keys länge) und wird gecacht.
+  useEffect(() => {
+    if (activeTab !== 'museum') return;
+    // Nur nachladen, wenn noch keine Daten vorhanden.
+    if (Object.keys(allDomainData).length > 0) return;
+    let cancelled = false;
+    Promise.all(
+      DOMAINS.map(domain =>
+        domain.loadConcepts()
+          .then(data => ({ id: domain.id, data }))
+          .catch(() => ({ id: domain.id, data: {} }))
+      )
+    ).then(results => {
+      if (cancelled) return;
+      const map = {};
+      results.forEach(({ id, data }) => { map[id] = data; });
+      setAllDomainData(map);
+    });
+    return () => { cancelled = true; };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeTab]);
 
   // Update map state mode based on active tab
   useEffect(() => {
@@ -362,13 +393,22 @@ export default function App() {
               {activeDomain.explorerLabel || 'Erkundung'}
             </button>
           )}
-          <button 
+          <button
             className={activeTab === 'quiz' ? 'btn-terra-primary' : 'btn-terra'}
             onClick={() => handleTabChange('quiz')}
             style={{ fontSize: '15px', padding: '8px 14px' }}
           >
             <HelpCircle size={16} />
             Lern-Quiz
+          </button>
+          {/* Museum-Tab: globale Bildgalerie über alle Domains */}
+          <button
+            className={activeTab === 'museum' ? 'btn-terra-primary' : 'btn-terra'}
+            onClick={() => handleTabChange('museum')}
+            style={{ fontSize: '15px', padding: '8px 14px' }}
+          >
+            <Images size={16} />
+            Museum
           </button>
         </nav>
         
@@ -411,7 +451,18 @@ export default function App() {
         {/* Erkundungsmodus: der domänen-eigene Explorer (z.B. Astra-Sonnensystem)
             nutzt die volle Breite, ohne rechte Sidebar. Sonst das gewohnte
             Zwei-Spalten-Layout (Visual links, Tab-Panel rechts). */}
-        {activeTab === 'explore' && activeDomain.Explorer ? (
+        {activeTab === 'museum' ? (
+          /* Museum: volle Breite wie der Explore-Tab, kein VisualPanel daneben */
+          <div style={{ flex: 1, minWidth: 0, minHeight: 0, padding: 0, height: '100%' }}>
+            <Suspense fallback={
+              <div className="terra-panel" style={{ height: '100%', display: 'flex', alignItems: 'center',
+                justifyContent: 'center', color: 'var(--text-muted)',
+                border: '1px solid var(--border-light)' }}>Museum wird geladen …</div>
+            }>
+              <MuseumExplorer allDomainData={allDomainData} />
+            </Suspense>
+          </div>
+        ) : activeTab === 'explore' && activeDomain.Explorer ? (
           <>
             {/* Erkundung links (z.B. Astra-Sonnensystem), rechts die gewohnte
                 Dashboard-Sidebar mit Stufen-Wähler + Quiz-Start — analog zu Terra. */}
