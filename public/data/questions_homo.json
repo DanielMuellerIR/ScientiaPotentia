@@ -600,6 +600,466 @@
     "mapTargetId": null
   },
   {
+    "id": "q_homo_keilbein_homo-bone-region",
+    "entityId": "homo:keilbein",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 1,
+    "prompt": "In welcher Körperregion liegt der Knochen „Keilbein\"?",
+    "correctAnswer": "Schädel",
+    "options": [
+      "Schädel",
+      "Bein",
+      "Arm",
+      "Kopf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_siebbein_homo-bone-region",
+    "entityId": "homo:siebbein",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 1,
+    "prompt": "In welcher Körperregion liegt der Knochen „Siebbein\"?",
+    "correctAnswer": "Schädel",
+    "options": [
+      "Schädel",
+      "Bein",
+      "Arm",
+      "Kopf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_gaumenbein_homo-bone-region",
+    "entityId": "homo:gaumenbein",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 1,
+    "prompt": "In welcher Körperregion liegt der Knochen „Gaumenbein\"?",
+    "correctAnswer": "Gesicht",
+    "options": [
+      "Gesicht",
+      "Bein",
+      "Arm",
+      "Kopf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_traenenbein_homo-bone-region",
+    "entityId": "homo:traenenbein",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 1,
+    "prompt": "In welcher Körperregion liegt der Knochen „Tränenbein\"?",
+    "correctAnswer": "Gesicht",
+    "options": [
+      "Gesicht",
+      "Bein",
+      "Arm",
+      "Kopf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_nasenbein_homo-bone-region",
+    "entityId": "homo:nasenbein",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 1,
+    "prompt": "In welcher Körperregion liegt der Knochen „Nasenbein\"?",
+    "correctAnswer": "Gesicht",
+    "options": [
+      "Gesicht",
+      "Bein",
+      "Arm",
+      "Kopf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_pflugscharbein_homo-bone-region",
+    "entityId": "homo:pflugscharbein",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 1,
+    "prompt": "In welcher Körperregion liegt der Knochen „Pflugscharbein\"?",
+    "correctAnswer": "Gesicht",
+    "options": [
+      "Gesicht",
+      "Bein",
+      "Arm",
+      "Kopf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_zungenbein_homo-bone-region",
+    "entityId": "homo:zungenbein",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 1,
+    "prompt": "In welcher Körperregion liegt der Knochen „Zungenbein\"?",
+    "correctAnswer": "Hals",
+    "options": [
+      "Hals",
+      "Bein",
+      "Arm",
+      "Kopf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_hamatum_homo-bone-region",
+    "entityId": "homo:os_hamatum",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 1,
+    "prompt": "In welcher Körperregion liegt der Knochen „Hakenbein\"?",
+    "correctAnswer": "Hand",
+    "options": [
+      "Hand",
+      "Bein",
+      "Arm",
+      "Kopf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_capitatum_homo-bone-region",
+    "entityId": "homo:os_capitatum",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 1,
+    "prompt": "In welcher Körperregion liegt der Knochen „Kopfbein\"?",
+    "correctAnswer": "Hand",
+    "options": [
+      "Hand",
+      "Bein",
+      "Arm",
+      "Kopf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_trapezium_homo-bone-region",
+    "entityId": "homo:os_trapezium",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 1,
+    "prompt": "In welcher Körperregion liegt der Knochen „Großes Vieleckbein\"?",
+    "correctAnswer": "Hand",
+    "options": [
+      "Hand",
+      "Bein",
+      "Arm",
+      "Kopf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_trapezoideum_homo-bone-region",
+    "entityId": "homo:os_trapezoideum",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 1,
+    "prompt": "In welcher Körperregion liegt der Knochen „Kleines Vieleckbein\"?",
+    "correctAnswer": "Hand",
+    "options": [
+      "Hand",
+      "Bein",
+      "Arm",
+      "Kopf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_pisiforme_homo-bone-region",
+    "entityId": "homo:os_pisiforme",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 1,
+    "prompt": "In welcher Körperregion liegt der Knochen „Erbsenbein\"?",
+    "correctAnswer": "Hand",
+    "options": [
+      "Hand",
+      "Bein",
+      "Arm",
+      "Kopf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_triquetrum_homo-bone-region",
+    "entityId": "homo:os_triquetrum",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 1,
+    "prompt": "In welcher Körperregion liegt der Knochen „Dreiecksbein\"?",
+    "correctAnswer": "Hand",
+    "options": [
+      "Hand",
+      "Bein",
+      "Arm",
+      "Kopf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_lunatum_homo-bone-region",
+    "entityId": "homo:os_lunatum",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 1,
+    "prompt": "In welcher Körperregion liegt der Knochen „Mondbein\"?",
+    "correctAnswer": "Hand",
+    "options": [
+      "Hand",
+      "Bein",
+      "Arm",
+      "Kopf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_darmbein_homo-bone-region",
+    "entityId": "homo:darmbein",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 1,
+    "prompt": "In welcher Körperregion liegt der Knochen „Darmbein\"?",
+    "correctAnswer": "Becken",
+    "options": [
+      "Becken",
+      "Bein",
+      "Arm",
+      "Kopf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_schambein_homo-bone-region",
+    "entityId": "homo:schambein",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 1,
+    "prompt": "In welcher Körperregion liegt der Knochen „Schambein\"?",
+    "correctAnswer": "Becken",
+    "options": [
+      "Becken",
+      "Bein",
+      "Arm",
+      "Kopf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_sitzbein_homo-bone-region",
+    "entityId": "homo:sitzbein",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 1,
+    "prompt": "In welcher Körperregion liegt der Knochen „Sitzbein\"?",
+    "correctAnswer": "Becken",
+    "options": [
+      "Becken",
+      "Bein",
+      "Arm",
+      "Kopf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_cuboideum_homo-bone-region",
+    "entityId": "homo:os_cuboideum",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 1,
+    "prompt": "In welcher Körperregion liegt der Knochen „Würfelbein\"?",
+    "correctAnswer": "Fuß",
+    "options": [
+      "Fuß",
+      "Bein",
+      "Arm",
+      "Kopf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_cuneiforme_mediale_homo-bone-region",
+    "entityId": "homo:os_cuneiforme_mediale",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 1,
+    "prompt": "In welcher Körperregion liegt der Knochen „Inneres Keilbein\"?",
+    "correctAnswer": "Fuß",
+    "options": [
+      "Fuß",
+      "Bein",
+      "Arm",
+      "Kopf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_cuneiforme_intermedium_homo-bone-region",
+    "entityId": "homo:os_cuneiforme_intermedium",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 1,
+    "prompt": "In welcher Körperregion liegt der Knochen „Mittleres Keilbein\"?",
+    "correctAnswer": "Fuß",
+    "options": [
+      "Fuß",
+      "Bein",
+      "Arm",
+      "Kopf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_cuneiforme_laterale_homo-bone-region",
+    "entityId": "homo:os_cuneiforme_laterale",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 1,
+    "prompt": "In welcher Körperregion liegt der Knochen „Äußeres Keilbein\"?",
+    "correctAnswer": "Fuß",
+    "options": [
+      "Fuß",
+      "Bein",
+      "Arm",
+      "Kopf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_metatarsale_1_homo-bone-region",
+    "entityId": "homo:os_metatarsale_1",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt der Knochen mit dem lateinischen Namen „Os metatarsale I\"?",
+    "correctAnswer": "Fuß",
+    "options": [
+      "Fuß",
+      "Bein",
+      "Arm",
+      "Kopf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_scaphoideum_homo-bone-region",
+    "entityId": "homo:os_scaphoideum",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt der Knochen mit dem lateinischen Namen „Os scaphoideum\"?",
+    "correctAnswer": "Hand",
+    "options": [
+      "Hand",
+      "Bein",
+      "Arm",
+      "Kopf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_homo_femur_homo-bone-latin",
     "entityId": "homo:femur",
     "entityType": "bone",
@@ -889,6 +1349,466 @@
     "correctAnswer": "Vertebra",
     "options": [
       "Vertebra",
+      "Femur",
+      "Tibia",
+      "Fibula"
+    ],
+    "testedAttribute": "latinName",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_keilbein_homo-bone-latin",
+    "entityId": "homo:keilbein",
+    "entityType": "bone",
+    "type": "homo-bone-latin",
+    "difficulty": 3,
+    "prompt": "Wie lautet der lateinische (anatomische) Name des Knochens „Keilbein\"?",
+    "correctAnswer": "Os sphenoidale",
+    "options": [
+      "Os sphenoidale",
+      "Femur",
+      "Tibia",
+      "Fibula"
+    ],
+    "testedAttribute": "latinName",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_siebbein_homo-bone-latin",
+    "entityId": "homo:siebbein",
+    "entityType": "bone",
+    "type": "homo-bone-latin",
+    "difficulty": 3,
+    "prompt": "Wie lautet der lateinische (anatomische) Name des Knochens „Siebbein\"?",
+    "correctAnswer": "Os ethmoidale",
+    "options": [
+      "Os ethmoidale",
+      "Femur",
+      "Tibia",
+      "Fibula"
+    ],
+    "testedAttribute": "latinName",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_gaumenbein_homo-bone-latin",
+    "entityId": "homo:gaumenbein",
+    "entityType": "bone",
+    "type": "homo-bone-latin",
+    "difficulty": 3,
+    "prompt": "Wie lautet der lateinische (anatomische) Name des Knochens „Gaumenbein\"?",
+    "correctAnswer": "Os palatinum",
+    "options": [
+      "Os palatinum",
+      "Femur",
+      "Tibia",
+      "Fibula"
+    ],
+    "testedAttribute": "latinName",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_traenenbein_homo-bone-latin",
+    "entityId": "homo:traenenbein",
+    "entityType": "bone",
+    "type": "homo-bone-latin",
+    "difficulty": 3,
+    "prompt": "Wie lautet der lateinische (anatomische) Name des Knochens „Tränenbein\"?",
+    "correctAnswer": "Os lacrimale",
+    "options": [
+      "Os lacrimale",
+      "Femur",
+      "Tibia",
+      "Fibula"
+    ],
+    "testedAttribute": "latinName",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_nasenbein_homo-bone-latin",
+    "entityId": "homo:nasenbein",
+    "entityType": "bone",
+    "type": "homo-bone-latin",
+    "difficulty": 3,
+    "prompt": "Wie lautet der lateinische (anatomische) Name des Knochens „Nasenbein\"?",
+    "correctAnswer": "Os nasale",
+    "options": [
+      "Os nasale",
+      "Femur",
+      "Tibia",
+      "Fibula"
+    ],
+    "testedAttribute": "latinName",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_pflugscharbein_homo-bone-latin",
+    "entityId": "homo:pflugscharbein",
+    "entityType": "bone",
+    "type": "homo-bone-latin",
+    "difficulty": 3,
+    "prompt": "Wie lautet der lateinische (anatomische) Name des Knochens „Pflugscharbein\"?",
+    "correctAnswer": "Vomer",
+    "options": [
+      "Vomer",
+      "Femur",
+      "Tibia",
+      "Fibula"
+    ],
+    "testedAttribute": "latinName",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_zungenbein_homo-bone-latin",
+    "entityId": "homo:zungenbein",
+    "entityType": "bone",
+    "type": "homo-bone-latin",
+    "difficulty": 3,
+    "prompt": "Wie lautet der lateinische (anatomische) Name des Knochens „Zungenbein\"?",
+    "correctAnswer": "Os hyoideum",
+    "options": [
+      "Os hyoideum",
+      "Femur",
+      "Tibia",
+      "Fibula"
+    ],
+    "testedAttribute": "latinName",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_hamatum_homo-bone-latin",
+    "entityId": "homo:os_hamatum",
+    "entityType": "bone",
+    "type": "homo-bone-latin",
+    "difficulty": 3,
+    "prompt": "Wie lautet der lateinische (anatomische) Name des Knochens „Hakenbein\"?",
+    "correctAnswer": "Os hamatum",
+    "options": [
+      "Os hamatum",
+      "Femur",
+      "Tibia",
+      "Fibula"
+    ],
+    "testedAttribute": "latinName",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_capitatum_homo-bone-latin",
+    "entityId": "homo:os_capitatum",
+    "entityType": "bone",
+    "type": "homo-bone-latin",
+    "difficulty": 3,
+    "prompt": "Wie lautet der lateinische (anatomische) Name des Knochens „Kopfbein\"?",
+    "correctAnswer": "Os capitatum",
+    "options": [
+      "Os capitatum",
+      "Femur",
+      "Tibia",
+      "Fibula"
+    ],
+    "testedAttribute": "latinName",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_trapezium_homo-bone-latin",
+    "entityId": "homo:os_trapezium",
+    "entityType": "bone",
+    "type": "homo-bone-latin",
+    "difficulty": 3,
+    "prompt": "Wie lautet der lateinische (anatomische) Name des Knochens „Großes Vieleckbein\"?",
+    "correctAnswer": "Os trapezium",
+    "options": [
+      "Os trapezium",
+      "Femur",
+      "Tibia",
+      "Fibula"
+    ],
+    "testedAttribute": "latinName",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_trapezoideum_homo-bone-latin",
+    "entityId": "homo:os_trapezoideum",
+    "entityType": "bone",
+    "type": "homo-bone-latin",
+    "difficulty": 3,
+    "prompt": "Wie lautet der lateinische (anatomische) Name des Knochens „Kleines Vieleckbein\"?",
+    "correctAnswer": "Os trapezoideum",
+    "options": [
+      "Os trapezoideum",
+      "Femur",
+      "Tibia",
+      "Fibula"
+    ],
+    "testedAttribute": "latinName",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_pisiforme_homo-bone-latin",
+    "entityId": "homo:os_pisiforme",
+    "entityType": "bone",
+    "type": "homo-bone-latin",
+    "difficulty": 3,
+    "prompt": "Wie lautet der lateinische (anatomische) Name des Knochens „Erbsenbein\"?",
+    "correctAnswer": "Os pisiforme",
+    "options": [
+      "Os pisiforme",
+      "Femur",
+      "Tibia",
+      "Fibula"
+    ],
+    "testedAttribute": "latinName",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_triquetrum_homo-bone-latin",
+    "entityId": "homo:os_triquetrum",
+    "entityType": "bone",
+    "type": "homo-bone-latin",
+    "difficulty": 3,
+    "prompt": "Wie lautet der lateinische (anatomische) Name des Knochens „Dreiecksbein\"?",
+    "correctAnswer": "Os triquetrum",
+    "options": [
+      "Os triquetrum",
+      "Femur",
+      "Tibia",
+      "Fibula"
+    ],
+    "testedAttribute": "latinName",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_lunatum_homo-bone-latin",
+    "entityId": "homo:os_lunatum",
+    "entityType": "bone",
+    "type": "homo-bone-latin",
+    "difficulty": 3,
+    "prompt": "Wie lautet der lateinische (anatomische) Name des Knochens „Mondbein\"?",
+    "correctAnswer": "Os lunatum",
+    "options": [
+      "Os lunatum",
+      "Femur",
+      "Tibia",
+      "Fibula"
+    ],
+    "testedAttribute": "latinName",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_darmbein_homo-bone-latin",
+    "entityId": "homo:darmbein",
+    "entityType": "bone",
+    "type": "homo-bone-latin",
+    "difficulty": 3,
+    "prompt": "Wie lautet der lateinische (anatomische) Name des Knochens „Darmbein\"?",
+    "correctAnswer": "Os ilium",
+    "options": [
+      "Os ilium",
+      "Femur",
+      "Tibia",
+      "Fibula"
+    ],
+    "testedAttribute": "latinName",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_schambein_homo-bone-latin",
+    "entityId": "homo:schambein",
+    "entityType": "bone",
+    "type": "homo-bone-latin",
+    "difficulty": 3,
+    "prompt": "Wie lautet der lateinische (anatomische) Name des Knochens „Schambein\"?",
+    "correctAnswer": "Os pubis",
+    "options": [
+      "Os pubis",
+      "Femur",
+      "Tibia",
+      "Fibula"
+    ],
+    "testedAttribute": "latinName",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_sitzbein_homo-bone-latin",
+    "entityId": "homo:sitzbein",
+    "entityType": "bone",
+    "type": "homo-bone-latin",
+    "difficulty": 3,
+    "prompt": "Wie lautet der lateinische (anatomische) Name des Knochens „Sitzbein\"?",
+    "correctAnswer": "Os ischii",
+    "options": [
+      "Os ischii",
+      "Femur",
+      "Tibia",
+      "Fibula"
+    ],
+    "testedAttribute": "latinName",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_cuboideum_homo-bone-latin",
+    "entityId": "homo:os_cuboideum",
+    "entityType": "bone",
+    "type": "homo-bone-latin",
+    "difficulty": 3,
+    "prompt": "Wie lautet der lateinische (anatomische) Name des Knochens „Würfelbein\"?",
+    "correctAnswer": "Os cuboideum",
+    "options": [
+      "Os cuboideum",
+      "Femur",
+      "Tibia",
+      "Fibula"
+    ],
+    "testedAttribute": "latinName",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_cuneiforme_mediale_homo-bone-latin",
+    "entityId": "homo:os_cuneiforme_mediale",
+    "entityType": "bone",
+    "type": "homo-bone-latin",
+    "difficulty": 3,
+    "prompt": "Wie lautet der lateinische (anatomische) Name des Knochens „Inneres Keilbein\"?",
+    "correctAnswer": "Os cuneiforme mediale",
+    "options": [
+      "Os cuneiforme mediale",
+      "Femur",
+      "Tibia",
+      "Fibula"
+    ],
+    "testedAttribute": "latinName",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_cuneiforme_intermedium_homo-bone-latin",
+    "entityId": "homo:os_cuneiforme_intermedium",
+    "entityType": "bone",
+    "type": "homo-bone-latin",
+    "difficulty": 3,
+    "prompt": "Wie lautet der lateinische (anatomische) Name des Knochens „Mittleres Keilbein\"?",
+    "correctAnswer": "Os cuneiforme intermedium",
+    "options": [
+      "Os cuneiforme intermedium",
+      "Femur",
+      "Tibia",
+      "Fibula"
+    ],
+    "testedAttribute": "latinName",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_cuneiforme_laterale_homo-bone-latin",
+    "entityId": "homo:os_cuneiforme_laterale",
+    "entityType": "bone",
+    "type": "homo-bone-latin",
+    "difficulty": 3,
+    "prompt": "Wie lautet der lateinische (anatomische) Name des Knochens „Äußeres Keilbein\"?",
+    "correctAnswer": "Os cuneiforme laterale",
+    "options": [
+      "Os cuneiforme laterale",
+      "Femur",
+      "Tibia",
+      "Fibula"
+    ],
+    "testedAttribute": "latinName",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_metatarsale_1_homo-bone-latin",
+    "entityId": "homo:os_metatarsale_1",
+    "entityType": "bone",
+    "type": "homo-bone-latin",
+    "difficulty": 3,
+    "prompt": "Wie lautet der lateinische (anatomische) Name des Knochens „Erster Mittelfußknochen\"?",
+    "correctAnswer": "Os metatarsale I",
+    "options": [
+      "Os metatarsale I",
+      "Femur",
+      "Tibia",
+      "Fibula"
+    ],
+    "testedAttribute": "latinName",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_scaphoideum_homo-bone-latin",
+    "entityId": "homo:os_scaphoideum",
+    "entityType": "bone",
+    "type": "homo-bone-latin",
+    "difficulty": 3,
+    "prompt": "Wie lautet der lateinische (anatomische) Name des Knochens „Kahnbein der Hand\"?",
+    "correctAnswer": "Os scaphoideum",
+    "options": [
+      "Os scaphoideum",
       "Femur",
       "Tibia",
       "Fibula"
@@ -1356,6 +2276,306 @@
     "testedAttribute": "location",
     "answerIsName": false,
     "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_kleiner_gesaessmuskel_homo-muscle-location",
+    "entityId": "homo:kleiner_gesaessmuskel",
+    "entityType": "muscle",
+    "type": "homo-muscle-location",
+    "difficulty": 3,
+    "prompt": "Wo liegt der Muskel mit dem anatomischen Fachbegriff „Musculus gluteus minimus\"?",
+    "correctAnswer": "Hüfte, tiefe Gesäßregion",
+    "options": [
+      "Hüfte, tiefe Gesäßregion",
+      "Gesäß / Hüfte",
+      "Kiefer / Wange",
+      "Mittelohr"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_mittlerer_gesaessmuskel_homo-muscle-location",
+    "entityId": "homo:mittlerer_gesaessmuskel",
+    "entityType": "muscle",
+    "type": "homo-muscle-location",
+    "difficulty": 3,
+    "prompt": "Wo liegt der Muskel mit dem anatomischen Fachbegriff „Musculus gluteus medius\"?",
+    "correctAnswer": "Hüfte, seitliche Gesäßregion",
+    "options": [
+      "Hüfte, seitliche Gesäßregion",
+      "Gesäß / Hüfte",
+      "Kiefer / Wange",
+      "Mittelohr"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_zweikoepfiger_oberschenkelmuskel_homo-muscle-location",
+    "entityId": "homo:zweikoepfiger_oberschenkelmuskel",
+    "entityType": "muscle",
+    "type": "homo-muscle-location",
+    "difficulty": 3,
+    "prompt": "Wo liegt der Muskel mit dem anatomischen Fachbegriff „Musculus biceps femoris\"?",
+    "correctAnswer": "Oberschenkel, hintere Oberschenkelregion (ischiokrurale Muskulatur)",
+    "options": [
+      "Oberschenkel, hintere Oberschenkelregion (ischiokrurale Muskulatur)",
+      "Gesäß / Hüfte",
+      "Kiefer / Wange",
+      "Mittelohr"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_halbsehniger_muskel_homo-muscle-location",
+    "entityId": "homo:halbsehniger_muskel",
+    "entityType": "muscle",
+    "type": "homo-muscle-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt der Muskel „Halbsehniger Muskel (Musculus semitendinosus)\"?",
+    "correctAnswer": "Oberschenkel, hintere Oberschenkelregion (ischiokrurale Muskulatur)",
+    "options": [
+      "Oberschenkel, hintere Oberschenkelregion (ischiokrurale Muskulatur)",
+      "Gesäß / Hüfte",
+      "Kiefer / Wange",
+      "Mittelohr"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_innerer_schraeger_bauchmuskel_homo-muscle-location",
+    "entityId": "homo:innerer_schraeger_bauchmuskel",
+    "entityType": "muscle",
+    "type": "homo-muscle-location",
+    "difficulty": 3,
+    "prompt": "Wo liegt der Muskel mit dem anatomischen Fachbegriff „Musculus obliquus internus abdominis\"?",
+    "correctAnswer": "Bauchwand, mittlere Schicht der seitlichen Bauchmuskulatur",
+    "options": [
+      "Bauchwand, mittlere Schicht der seitlichen Bauchmuskulatur",
+      "Gesäß / Hüfte",
+      "Kiefer / Wange",
+      "Mittelohr"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_aeusserer_schraeger_bauchmuskel_homo-muscle-location",
+    "entityId": "homo:aeusserer_schraeger_bauchmuskel",
+    "entityType": "muscle",
+    "type": "homo-muscle-location",
+    "difficulty": 3,
+    "prompt": "Wo liegt der Muskel mit dem anatomischen Fachbegriff „Musculus obliquus externus abdominis\"?",
+    "correctAnswer": "Bauchwand, oberflächlichste Schicht der seitlichen Bauchmuskulatur",
+    "options": [
+      "Bauchwand, oberflächlichste Schicht der seitlichen Bauchmuskulatur",
+      "Gesäß / Hüfte",
+      "Kiefer / Wange",
+      "Mittelohr"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_schlaefenmuskel_homo-muscle-location",
+    "entityId": "homo:schlaefenmuskel",
+    "entityType": "muscle",
+    "type": "homo-muscle-location",
+    "difficulty": 3,
+    "prompt": "Wo liegt der Muskel mit dem anatomischen Fachbegriff „Musculus temporalis\"?",
+    "correctAnswer": "Kopf, Schläfenregion",
+    "options": [
+      "Kopf, Schläfenregion",
+      "Gesäß / Hüfte",
+      "Kiefer / Wange",
+      "Mittelohr"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_kleiner_brustmuskel_homo-muscle-location",
+    "entityId": "homo:kleiner_brustmuskel",
+    "entityType": "muscle",
+    "type": "homo-muscle-location",
+    "difficulty": 3,
+    "prompt": "Wo liegt der Muskel mit dem anatomischen Fachbegriff „Musculus pectoralis minor\"?",
+    "correctAnswer": "Brustwand, unter dem großen Brustmuskel",
+    "options": [
+      "Brustwand, unter dem großen Brustmuskel",
+      "Gesäß / Hüfte",
+      "Kiefer / Wange",
+      "Mittelohr"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_grosser_rundmuskel_homo-muscle-location",
+    "entityId": "homo:grosser_rundmuskel",
+    "entityType": "muscle",
+    "type": "homo-muscle-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt der Muskel „Großer Rundmuskel (Musculus teres major)\"?",
+    "correctAnswer": "Rücken, hintere Achselhöhlenregion",
+    "options": [
+      "Rücken, hintere Achselhöhlenregion",
+      "Gesäß / Hüfte",
+      "Kiefer / Wange",
+      "Mittelohr"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_langer_handballenmuskel_homo-muscle-location",
+    "entityId": "homo:langer_handballenmuskel",
+    "entityType": "muscle",
+    "type": "homo-muscle-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt der Muskel „Langer Hohlhandmuskel (Musculus palmaris longus)\"?",
+    "correctAnswer": "Unterarm, oberflächliche Beugergruppe",
+    "options": [
+      "Unterarm, oberflächliche Beugergruppe",
+      "Gesäß / Hüfte",
+      "Kiefer / Wange",
+      "Mittelohr"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_gemeinsamer_fingerstrecker_homo-muscle-location",
+    "entityId": "homo:gemeinsamer_fingerstrecker",
+    "entityType": "muscle",
+    "type": "homo-muscle-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt der Muskel „Gemeinsamer Fingerstrecker (Musculus extensor digitorum)\"?",
+    "correctAnswer": "Unterarm, Streckerseite",
+    "options": [
+      "Unterarm, Streckerseite",
+      "Gesäß / Hüfte",
+      "Kiefer / Wange",
+      "Mittelohr"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_langer_kopfnicker_homo-muscle-location",
+    "entityId": "homo:langer_kopfnicker",
+    "entityType": "muscle",
+    "type": "homo-muscle-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt der Muskel „Langer Kopfwender (Musculus longus colli)\"?",
+    "correctAnswer": "Hals, prävertebral vor der Halswirbelsäule",
+    "options": [
+      "Hals, prävertebral vor der Halswirbelsäule",
+      "Gesäß / Hüfte",
+      "Kiefer / Wange",
+      "Mittelohr"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_schulterdachmuskel_homo-muscle-location",
+    "entityId": "homo:schulterdachmuskel",
+    "entityType": "muscle",
+    "type": "homo-muscle-location",
+    "difficulty": 3,
+    "prompt": "Wo liegt der Muskel mit dem anatomischen Fachbegriff „Musculus supraspinatus\"?",
+    "correctAnswer": "Schulter, oberer Anteil der Rotatorenmanschette",
+    "options": [
+      "Schulter, oberer Anteil der Rotatorenmanschette",
+      "Gesäß / Hüfte",
+      "Kiefer / Wange",
+      "Mittelohr"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_infraspinatus_homo-muscle-location",
+    "entityId": "homo:infraspinatus",
+    "entityType": "muscle",
+    "type": "homo-muscle-location",
+    "difficulty": 3,
+    "prompt": "Wo liegt der Muskel mit dem anatomischen Fachbegriff „Musculus infraspinatus\"?",
+    "correctAnswer": "Schulter, hinterer Anteil der Rotatorenmanschette",
+    "options": [
+      "Schulter, hinterer Anteil der Rotatorenmanschette",
+      "Gesäß / Hüfte",
+      "Kiefer / Wange",
+      "Mittelohr"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_untergraetenmuskel_homo-muscle-location",
+    "entityId": "homo:untergraetenmuskel",
+    "entityType": "muscle",
+    "type": "homo-muscle-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt der Muskel „Untergrätenmuskel (Musculus teres minor)\"?",
+    "correctAnswer": "Schulter, hinterer Anteil der Rotatorenmanschette",
+    "options": [
+      "Schulter, hinterer Anteil der Rotatorenmanschette",
+      "Gesäß / Hüfte",
+      "Kiefer / Wange",
+      "Mittelohr"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },
@@ -3759,6 +4979,466 @@
     "mapTargetId": null
   },
   {
+    "id": "q_homo_keilbein_homo-bone-latin-rev",
+    "entityId": "homo:keilbein",
+    "entityType": "bone",
+    "type": "homo-bone-latin-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Knochen trägt den lateinischen Namen „Os sphenoidale\"?",
+    "correctAnswer": "Keilbein",
+    "options": [
+      "Keilbein",
+      "Oberschenkelknochen",
+      "Schienbein",
+      "Wadenbein"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_siebbein_homo-bone-latin-rev",
+    "entityId": "homo:siebbein",
+    "entityType": "bone",
+    "type": "homo-bone-latin-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Knochen trägt den lateinischen Namen „Os ethmoidale\"?",
+    "correctAnswer": "Siebbein",
+    "options": [
+      "Siebbein",
+      "Oberschenkelknochen",
+      "Schienbein",
+      "Wadenbein"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_gaumenbein_homo-bone-latin-rev",
+    "entityId": "homo:gaumenbein",
+    "entityType": "bone",
+    "type": "homo-bone-latin-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Knochen trägt den lateinischen Namen „Os palatinum\"?",
+    "correctAnswer": "Gaumenbein",
+    "options": [
+      "Gaumenbein",
+      "Oberschenkelknochen",
+      "Schienbein",
+      "Wadenbein"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_traenenbein_homo-bone-latin-rev",
+    "entityId": "homo:traenenbein",
+    "entityType": "bone",
+    "type": "homo-bone-latin-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Knochen trägt den lateinischen Namen „Os lacrimale\"?",
+    "correctAnswer": "Tränenbein",
+    "options": [
+      "Tränenbein",
+      "Oberschenkelknochen",
+      "Schienbein",
+      "Wadenbein"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_nasenbein_homo-bone-latin-rev",
+    "entityId": "homo:nasenbein",
+    "entityType": "bone",
+    "type": "homo-bone-latin-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Knochen trägt den lateinischen Namen „Os nasale\"?",
+    "correctAnswer": "Nasenbein",
+    "options": [
+      "Nasenbein",
+      "Oberschenkelknochen",
+      "Schienbein",
+      "Wadenbein"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_pflugscharbein_homo-bone-latin-rev",
+    "entityId": "homo:pflugscharbein",
+    "entityType": "bone",
+    "type": "homo-bone-latin-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Knochen trägt den lateinischen Namen „Vomer\"?",
+    "correctAnswer": "Pflugscharbein",
+    "options": [
+      "Pflugscharbein",
+      "Oberschenkelknochen",
+      "Schienbein",
+      "Wadenbein"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_zungenbein_homo-bone-latin-rev",
+    "entityId": "homo:zungenbein",
+    "entityType": "bone",
+    "type": "homo-bone-latin-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Knochen trägt den lateinischen Namen „Os hyoideum\"?",
+    "correctAnswer": "Zungenbein",
+    "options": [
+      "Zungenbein",
+      "Oberschenkelknochen",
+      "Schienbein",
+      "Wadenbein"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_hamatum_homo-bone-latin-rev",
+    "entityId": "homo:os_hamatum",
+    "entityType": "bone",
+    "type": "homo-bone-latin-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Knochen trägt den lateinischen Namen „Os hamatum\"?",
+    "correctAnswer": "Hakenbein",
+    "options": [
+      "Hakenbein",
+      "Oberschenkelknochen",
+      "Schienbein",
+      "Wadenbein"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_capitatum_homo-bone-latin-rev",
+    "entityId": "homo:os_capitatum",
+    "entityType": "bone",
+    "type": "homo-bone-latin-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Knochen trägt den lateinischen Namen „Os capitatum\"?",
+    "correctAnswer": "Kopfbein",
+    "options": [
+      "Kopfbein",
+      "Oberschenkelknochen",
+      "Schienbein",
+      "Wadenbein"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_trapezium_homo-bone-latin-rev",
+    "entityId": "homo:os_trapezium",
+    "entityType": "bone",
+    "type": "homo-bone-latin-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Knochen trägt den lateinischen Namen „Os trapezium\"?",
+    "correctAnswer": "Großes Vieleckbein",
+    "options": [
+      "Großes Vieleckbein",
+      "Oberschenkelknochen",
+      "Schienbein",
+      "Wadenbein"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_trapezoideum_homo-bone-latin-rev",
+    "entityId": "homo:os_trapezoideum",
+    "entityType": "bone",
+    "type": "homo-bone-latin-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Knochen trägt den lateinischen Namen „Os trapezoideum\"?",
+    "correctAnswer": "Kleines Vieleckbein",
+    "options": [
+      "Kleines Vieleckbein",
+      "Oberschenkelknochen",
+      "Schienbein",
+      "Wadenbein"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_pisiforme_homo-bone-latin-rev",
+    "entityId": "homo:os_pisiforme",
+    "entityType": "bone",
+    "type": "homo-bone-latin-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Knochen trägt den lateinischen Namen „Os pisiforme\"?",
+    "correctAnswer": "Erbsenbein",
+    "options": [
+      "Erbsenbein",
+      "Oberschenkelknochen",
+      "Schienbein",
+      "Wadenbein"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_triquetrum_homo-bone-latin-rev",
+    "entityId": "homo:os_triquetrum",
+    "entityType": "bone",
+    "type": "homo-bone-latin-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Knochen trägt den lateinischen Namen „Os triquetrum\"?",
+    "correctAnswer": "Dreiecksbein",
+    "options": [
+      "Dreiecksbein",
+      "Oberschenkelknochen",
+      "Schienbein",
+      "Wadenbein"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_lunatum_homo-bone-latin-rev",
+    "entityId": "homo:os_lunatum",
+    "entityType": "bone",
+    "type": "homo-bone-latin-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Knochen trägt den lateinischen Namen „Os lunatum\"?",
+    "correctAnswer": "Mondbein",
+    "options": [
+      "Mondbein",
+      "Oberschenkelknochen",
+      "Schienbein",
+      "Wadenbein"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_darmbein_homo-bone-latin-rev",
+    "entityId": "homo:darmbein",
+    "entityType": "bone",
+    "type": "homo-bone-latin-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Knochen trägt den lateinischen Namen „Os ilium\"?",
+    "correctAnswer": "Darmbein",
+    "options": [
+      "Darmbein",
+      "Oberschenkelknochen",
+      "Schienbein",
+      "Wadenbein"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_schambein_homo-bone-latin-rev",
+    "entityId": "homo:schambein",
+    "entityType": "bone",
+    "type": "homo-bone-latin-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Knochen trägt den lateinischen Namen „Os pubis\"?",
+    "correctAnswer": "Schambein",
+    "options": [
+      "Schambein",
+      "Oberschenkelknochen",
+      "Schienbein",
+      "Wadenbein"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_sitzbein_homo-bone-latin-rev",
+    "entityId": "homo:sitzbein",
+    "entityType": "bone",
+    "type": "homo-bone-latin-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Knochen trägt den lateinischen Namen „Os ischii\"?",
+    "correctAnswer": "Sitzbein",
+    "options": [
+      "Sitzbein",
+      "Oberschenkelknochen",
+      "Schienbein",
+      "Wadenbein"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_cuboideum_homo-bone-latin-rev",
+    "entityId": "homo:os_cuboideum",
+    "entityType": "bone",
+    "type": "homo-bone-latin-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Knochen trägt den lateinischen Namen „Os cuboideum\"?",
+    "correctAnswer": "Würfelbein",
+    "options": [
+      "Würfelbein",
+      "Oberschenkelknochen",
+      "Schienbein",
+      "Wadenbein"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_cuneiforme_mediale_homo-bone-latin-rev",
+    "entityId": "homo:os_cuneiforme_mediale",
+    "entityType": "bone",
+    "type": "homo-bone-latin-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Knochen trägt den lateinischen Namen „Os cuneiforme mediale\"?",
+    "correctAnswer": "Inneres Keilbein",
+    "options": [
+      "Inneres Keilbein",
+      "Oberschenkelknochen",
+      "Schienbein",
+      "Wadenbein"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_cuneiforme_intermedium_homo-bone-latin-rev",
+    "entityId": "homo:os_cuneiforme_intermedium",
+    "entityType": "bone",
+    "type": "homo-bone-latin-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Knochen trägt den lateinischen Namen „Os cuneiforme intermedium\"?",
+    "correctAnswer": "Mittleres Keilbein",
+    "options": [
+      "Mittleres Keilbein",
+      "Oberschenkelknochen",
+      "Schienbein",
+      "Wadenbein"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_cuneiforme_laterale_homo-bone-latin-rev",
+    "entityId": "homo:os_cuneiforme_laterale",
+    "entityType": "bone",
+    "type": "homo-bone-latin-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Knochen trägt den lateinischen Namen „Os cuneiforme laterale\"?",
+    "correctAnswer": "Äußeres Keilbein",
+    "options": [
+      "Äußeres Keilbein",
+      "Oberschenkelknochen",
+      "Schienbein",
+      "Wadenbein"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_metatarsale_1_homo-bone-latin-rev",
+    "entityId": "homo:os_metatarsale_1",
+    "entityType": "bone",
+    "type": "homo-bone-latin-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Knochen trägt den lateinischen Namen „Os metatarsale I\"?",
+    "correctAnswer": "Erster Mittelfußknochen",
+    "options": [
+      "Erster Mittelfußknochen",
+      "Oberschenkelknochen",
+      "Schienbein",
+      "Wadenbein"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_scaphoideum_homo-bone-latin-rev",
+    "entityId": "homo:os_scaphoideum",
+    "entityType": "bone",
+    "type": "homo-bone-latin-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Knochen trägt den lateinischen Namen „Os scaphoideum\"?",
+    "correctAnswer": "Kahnbein der Hand",
+    "options": [
+      "Kahnbein der Hand",
+      "Oberschenkelknochen",
+      "Schienbein",
+      "Wadenbein"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_homo_homo_sapiens_homo-species-region",
     "entityId": "homo:homo_sapiens",
     "entityType": "species",
@@ -5339,6 +7019,226 @@
     "mapTargetId": null
   },
   {
+    "id": "q_homo_kleiner_gesaessmuskel_homo-muscle-function",
+    "entityId": "homo:kleiner_gesaessmuskel",
+    "entityType": "muscle",
+    "type": "homo-muscle-function",
+    "difficulty": 3,
+    "prompt": "Welche Funktion hat der Muskel „Kleiner Gesäßmuskel (Musculus gluteus minimus)\" hauptsächlich?",
+    "correctAnswer": "Abduziert den Oberschenkel und stabilisiert das Becken beim Gehen",
+    "options": [
+      "Abduziert den Oberschenkel und stabilisiert das Becken beim Gehen",
+      "Streckt das Hüftgelenk, richtet den Rumpf auf und stabilisiert beim Aufstehen und Treppensteigen",
+      "Schließt den Unterkiefer und erzeugt die Kraft zum Kauen und Zerkleinern der Nahrung",
+      "Dämpft die Bewegung des Steigbügels und schützt das Innenohr vor zu lauten Schallreizen"
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_mittlerer_gesaessmuskel_homo-muscle-function",
+    "entityId": "homo:mittlerer_gesaessmuskel",
+    "entityType": "muscle",
+    "type": "homo-muscle-function",
+    "difficulty": 3,
+    "prompt": "Welche Funktion hat der Muskel „Mittlerer Gesäßmuskel (Musculus gluteus medius)\" hauptsächlich?",
+    "correctAnswer": "Abduziert den Oberschenkel und stabilisiert das Becken beim Gehen und Stehen",
+    "options": [
+      "Abduziert den Oberschenkel und stabilisiert das Becken beim Gehen und Stehen",
+      "Streckt das Hüftgelenk, richtet den Rumpf auf und stabilisiert beim Aufstehen und Treppensteigen",
+      "Schließt den Unterkiefer und erzeugt die Kraft zum Kauen und Zerkleinern der Nahrung",
+      "Dämpft die Bewegung des Steigbügels und schützt das Innenohr vor zu lauten Schallreizen"
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_zweikoepfiger_oberschenkelmuskel_homo-muscle-function",
+    "entityId": "homo:zweikoepfiger_oberschenkelmuskel",
+    "entityType": "muscle",
+    "type": "homo-muscle-function",
+    "difficulty": 3,
+    "prompt": "Welche Funktion hat der Muskel „Zweiköpfiger Oberschenkelmuskel (Musculus biceps femoris)\" hauptsächlich?",
+    "correctAnswer": "Beugt das Kniegelenk und streckt im Hüftgelenk; einer der Beuger",
+    "options": [
+      "Beugt das Kniegelenk und streckt im Hüftgelenk; einer der Beuger",
+      "Streckt das Hüftgelenk, richtet den Rumpf auf und stabilisiert beim Aufstehen und Treppensteigen",
+      "Schließt den Unterkiefer und erzeugt die Kraft zum Kauen und Zerkleinern der Nahrung",
+      "Dämpft die Bewegung des Steigbügels und schützt das Innenohr vor zu lauten Schallreizen"
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_halbsehniger_muskel_homo-muscle-function",
+    "entityId": "homo:halbsehniger_muskel",
+    "entityType": "muscle",
+    "type": "homo-muscle-function",
+    "difficulty": 3,
+    "prompt": "Welche Funktion hat der Muskel „Halbsehniger Muskel (Musculus semitendinosus)\" hauptsächlich?",
+    "correctAnswer": "Beugt das Kniegelenk und streckt im Hüftgelenk; einer der Beuger",
+    "options": [
+      "Beugt das Kniegelenk und streckt im Hüftgelenk; einer der Beuger",
+      "Streckt das Hüftgelenk, richtet den Rumpf auf und stabilisiert beim Aufstehen und Treppensteigen",
+      "Schließt den Unterkiefer und erzeugt die Kraft zum Kauen und Zerkleinern der Nahrung",
+      "Dämpft die Bewegung des Steigbügels und schützt das Innenohr vor zu lauten Schallreizen"
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_innerer_schraeger_bauchmuskel_homo-muscle-function",
+    "entityId": "homo:innerer_schraeger_bauchmuskel",
+    "entityType": "muscle",
+    "type": "homo-muscle-function",
+    "difficulty": 3,
+    "prompt": "Welche Funktion hat der Muskel „Innerer schräger Bauchmuskel (Musculus obliquus internus abdominis)\" hauptsächlich?",
+    "correctAnswer": "Dreht den Rumpf zur gleichen Seite und beugt die Wirbelsäule seitlich",
+    "options": [
+      "Dreht den Rumpf zur gleichen Seite und beugt die Wirbelsäule seitlich",
+      "Streckt das Hüftgelenk, richtet den Rumpf auf und stabilisiert beim Aufstehen und Treppensteigen",
+      "Schließt den Unterkiefer und erzeugt die Kraft zum Kauen und Zerkleinern der Nahrung",
+      "Dämpft die Bewegung des Steigbügels und schützt das Innenohr vor zu lauten Schallreizen"
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_aeusserer_schraeger_bauchmuskel_homo-muscle-function",
+    "entityId": "homo:aeusserer_schraeger_bauchmuskel",
+    "entityType": "muscle",
+    "type": "homo-muscle-function",
+    "difficulty": 3,
+    "prompt": "Welche Funktion hat der Muskel „Äußerer schräger Bauchmuskel (Musculus obliquus externus abdominis)\" hauptsächlich?",
+    "correctAnswer": "Dreht den Rumpf zur Gegenseite und beugt die Wirbelsäule seitlich",
+    "options": [
+      "Dreht den Rumpf zur Gegenseite und beugt die Wirbelsäule seitlich",
+      "Streckt das Hüftgelenk, richtet den Rumpf auf und stabilisiert beim Aufstehen und Treppensteigen",
+      "Schließt den Unterkiefer und erzeugt die Kraft zum Kauen und Zerkleinern der Nahrung",
+      "Dämpft die Bewegung des Steigbügels und schützt das Innenohr vor zu lauten Schallreizen"
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_kleiner_brustmuskel_homo-muscle-function",
+    "entityId": "homo:kleiner_brustmuskel",
+    "entityType": "muscle",
+    "type": "homo-muscle-function",
+    "difficulty": 3,
+    "prompt": "Welche Funktion hat der Muskel „Kleiner Brustmuskel (Musculus pectoralis minor)\" hauptsächlich?",
+    "correctAnswer": "Zieht das Schulterblatt nach vorne und unten und hebt die Rippen bei der Einatmung",
+    "options": [
+      "Zieht das Schulterblatt nach vorne und unten und hebt die Rippen bei der Einatmung",
+      "Streckt das Hüftgelenk, richtet den Rumpf auf und stabilisiert beim Aufstehen und Treppensteigen",
+      "Schließt den Unterkiefer und erzeugt die Kraft zum Kauen und Zerkleinern der Nahrung",
+      "Dämpft die Bewegung des Steigbügels und schützt das Innenohr vor zu lauten Schallreizen"
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_grosser_rundmuskel_homo-muscle-function",
+    "entityId": "homo:grosser_rundmuskel",
+    "entityType": "muscle",
+    "type": "homo-muscle-function",
+    "difficulty": 3,
+    "prompt": "Welche Funktion hat der Muskel „Großer Rundmuskel (Musculus teres major)\" hauptsächlich?",
+    "correctAnswer": "Adduziert und innenrotiert den Arm im Schultergelenk",
+    "options": [
+      "Adduziert und innenrotiert den Arm im Schultergelenk",
+      "Streckt das Hüftgelenk, richtet den Rumpf auf und stabilisiert beim Aufstehen und Treppensteigen",
+      "Schließt den Unterkiefer und erzeugt die Kraft zum Kauen und Zerkleinern der Nahrung",
+      "Dämpft die Bewegung des Steigbügels und schützt das Innenohr vor zu lauten Schallreizen"
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_langer_kopfnicker_homo-muscle-function",
+    "entityId": "homo:langer_kopfnicker",
+    "entityType": "muscle",
+    "type": "homo-muscle-function",
+    "difficulty": 3,
+    "prompt": "Welche Funktion hat der Muskel „Langer Kopfwender (Musculus longus colli)\" hauptsächlich?",
+    "correctAnswer": "Beugt die Halswirbelsäule nach vorne und ermöglicht leichte Drehbewegungen",
+    "options": [
+      "Beugt die Halswirbelsäule nach vorne und ermöglicht leichte Drehbewegungen",
+      "Streckt das Hüftgelenk, richtet den Rumpf auf und stabilisiert beim Aufstehen und Treppensteigen",
+      "Schließt den Unterkiefer und erzeugt die Kraft zum Kauen und Zerkleinern der Nahrung",
+      "Dämpft die Bewegung des Steigbügels und schützt das Innenohr vor zu lauten Schallreizen"
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_infraspinatus_homo-muscle-function",
+    "entityId": "homo:infraspinatus",
+    "entityType": "muscle",
+    "type": "homo-muscle-function",
+    "difficulty": 3,
+    "prompt": "Welche Funktion hat der Muskel „Unterschultergrätenmuskel (Musculus infraspinatus)\" hauptsächlich?",
+    "correctAnswer": "Außenrotiert den Arm im Schultergelenk und stabilisiert den Humeruskopf",
+    "options": [
+      "Außenrotiert den Arm im Schultergelenk und stabilisiert den Humeruskopf",
+      "Streckt das Hüftgelenk, richtet den Rumpf auf und stabilisiert beim Aufstehen und Treppensteigen",
+      "Schließt den Unterkiefer und erzeugt die Kraft zum Kauen und Zerkleinern der Nahrung",
+      "Dämpft die Bewegung des Steigbügels und schützt das Innenohr vor zu lauten Schallreizen"
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_untergraetenmuskel_homo-muscle-function",
+    "entityId": "homo:untergraetenmuskel",
+    "entityType": "muscle",
+    "type": "homo-muscle-function",
+    "difficulty": 3,
+    "prompt": "Welche Funktion hat der Muskel „Untergrätenmuskel (Musculus teres minor)\" hauptsächlich?",
+    "correctAnswer": "Außenrotiert den Arm im Schultergelenk und stabilisiert den Humeruskopf",
+    "options": [
+      "Außenrotiert den Arm im Schultergelenk und stabilisiert den Humeruskopf",
+      "Streckt das Hüftgelenk, richtet den Rumpf auf und stabilisiert beim Aufstehen und Treppensteigen",
+      "Schließt den Unterkiefer und erzeugt die Kraft zum Kauen und Zerkleinern der Nahrung",
+      "Dämpft die Bewegung des Steigbügels und schützt das Innenohr vor zu lauten Schallreizen"
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_homo_femur_homo-bone-notable-rev",
     "entityId": "homo:femur",
     "entityType": "bone",
@@ -5719,6 +7619,166 @@
     "mapTargetId": null
   },
   {
+    "id": "q_homo_keilbein_homo-bone-notable-rev",
+    "entityId": "homo:keilbein",
+    "entityType": "bone",
+    "type": "homo-bone-notable-rev",
+    "difficulty": 2,
+    "prompt": "Welcher Knochen wird beschrieben als: „Zentraler Schädelknochen, an dem fast alle anderen Schädelknochen zusammentreffen.\"?",
+    "correctAnswer": "Keilbein",
+    "options": [
+      "Keilbein",
+      "Oberschenkelknochen",
+      "Schienbein",
+      "Wadenbein"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_traenenbein_homo-bone-notable-rev",
+    "entityId": "homo:traenenbein",
+    "entityType": "bone",
+    "type": "homo-bone-notable-rev",
+    "difficulty": 2,
+    "prompt": "Welcher Knochen wird beschrieben als: „Kleinster Gesichtsknochen, an der medialen Wand der Augenhöhle gelegen.\"?",
+    "correctAnswer": "Tränenbein",
+    "options": [
+      "Tränenbein",
+      "Oberschenkelknochen",
+      "Schienbein",
+      "Wadenbein"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_zungenbein_homo-bone-notable-rev",
+    "entityId": "homo:zungenbein",
+    "entityType": "bone",
+    "type": "homo-bone-notable-rev",
+    "difficulty": 2,
+    "prompt": "Welcher Knochen wird beschrieben als: „Einziger Knochen des Körpers, der keine direkte gelenkige Verbindung zu einem anderen Knochen hat.\"?",
+    "correctAnswer": "Zungenbein",
+    "options": [
+      "Zungenbein",
+      "Oberschenkelknochen",
+      "Schienbein",
+      "Wadenbein"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_capitatum_homo-bone-notable-rev",
+    "entityId": "homo:os_capitatum",
+    "entityType": "bone",
+    "type": "homo-bone-notable-rev",
+    "difficulty": 2,
+    "prompt": "Welcher Knochen wird beschrieben als: „Größter Handwurzelknochen, zentral in der distalen Reihe gelegen.\"?",
+    "correctAnswer": "Kopfbein",
+    "options": [
+      "Kopfbein",
+      "Oberschenkelknochen",
+      "Schienbein",
+      "Wadenbein"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_trapezium_homo-bone-notable-rev",
+    "entityId": "homo:os_trapezium",
+    "entityType": "bone",
+    "type": "homo-bone-notable-rev",
+    "difficulty": 2,
+    "prompt": "Welcher Knochen wird beschrieben als: „Handwurzelknochen der distalen Reihe, der mit dem ersten Mittelhandknochen den Daumensattel bildet.\"?",
+    "correctAnswer": "Großes Vieleckbein",
+    "options": [
+      "Großes Vieleckbein",
+      "Oberschenkelknochen",
+      "Schienbein",
+      "Wadenbein"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_pisiforme_homo-bone-notable-rev",
+    "entityId": "homo:os_pisiforme",
+    "entityType": "bone",
+    "type": "homo-bone-notable-rev",
+    "difficulty": 2,
+    "prompt": "Welcher Knochen wird beschrieben als: „Sesambein im Sehnenverlauf des Musculus flexor carpi ulnaris an der palmaren Handwurzel.\"?",
+    "correctAnswer": "Erbsenbein",
+    "options": [
+      "Erbsenbein",
+      "Oberschenkelknochen",
+      "Schienbein",
+      "Wadenbein"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_darmbein_homo-bone-notable-rev",
+    "entityId": "homo:darmbein",
+    "entityType": "bone",
+    "type": "homo-bone-notable-rev",
+    "difficulty": 2,
+    "prompt": "Welcher Knochen wird beschrieben als: „Größter der drei Beckenknochen und Hauptbildner der Hüftpfanne.\"?",
+    "correctAnswer": "Darmbein",
+    "options": [
+      "Darmbein",
+      "Oberschenkelknochen",
+      "Schienbein",
+      "Wadenbein"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_cuboideum_homo-bone-notable-rev",
+    "entityId": "homo:os_cuboideum",
+    "entityType": "bone",
+    "type": "homo-bone-notable-rev",
+    "difficulty": 2,
+    "prompt": "Welcher Knochen wird beschrieben als: „Äußerer Fußwurzelknochen, der an Fersenbein und 4. sowie 5. Mittelfußknochen angrenzt.\"?",
+    "correctAnswer": "Würfelbein",
+    "options": [
+      "Würfelbein",
+      "Oberschenkelknochen",
+      "Schienbein",
+      "Wadenbein"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_homo_tibia_homo-bone-notable",
     "entityId": "homo:tibia",
     "entityType": "bone",
@@ -6079,6 +8139,166 @@
     "mapTargetId": null
   },
   {
+    "id": "q_homo_keilbein_homo-bone-notable",
+    "entityId": "homo:keilbein",
+    "entityType": "bone",
+    "type": "homo-bone-notable",
+    "difficulty": 2,
+    "prompt": "Wofür ist der Knochen „Keilbein\" anatomisch besonders bekannt?",
+    "correctAnswer": "Zentraler Schädelknochen, an dem fast alle anderen Schädelknochen zusammentreffen.",
+    "options": [
+      "Zentraler Schädelknochen, an dem fast alle anderen Schädelknochen zusammentreffen.",
+      "längster und stärkster Knochen des menschlichen Körpers",
+      "zweitlängster Knochen und tragender Knochen des Unterschenkels",
+      "dünner Unterschenkelknochen neben dem Schienbein"
+    ],
+    "testedAttribute": "notableFor",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_traenenbein_homo-bone-notable",
+    "entityId": "homo:traenenbein",
+    "entityType": "bone",
+    "type": "homo-bone-notable",
+    "difficulty": 2,
+    "prompt": "Wofür ist der Knochen „Tränenbein\" anatomisch besonders bekannt?",
+    "correctAnswer": "Kleinster Gesichtsknochen, an der medialen Wand der Augenhöhle gelegen.",
+    "options": [
+      "Kleinster Gesichtsknochen, an der medialen Wand der Augenhöhle gelegen.",
+      "längster und stärkster Knochen des menschlichen Körpers",
+      "zweitlängster Knochen und tragender Knochen des Unterschenkels",
+      "dünner Unterschenkelknochen neben dem Schienbein"
+    ],
+    "testedAttribute": "notableFor",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_zungenbein_homo-bone-notable",
+    "entityId": "homo:zungenbein",
+    "entityType": "bone",
+    "type": "homo-bone-notable",
+    "difficulty": 2,
+    "prompt": "Wofür ist der Knochen „Zungenbein\" anatomisch besonders bekannt?",
+    "correctAnswer": "Einziger Knochen des Körpers, der keine direkte gelenkige Verbindung zu einem anderen Knochen hat.",
+    "options": [
+      "Einziger Knochen des Körpers, der keine direkte gelenkige Verbindung zu einem anderen Knochen hat.",
+      "längster und stärkster Knochen des menschlichen Körpers",
+      "zweitlängster Knochen und tragender Knochen des Unterschenkels",
+      "dünner Unterschenkelknochen neben dem Schienbein"
+    ],
+    "testedAttribute": "notableFor",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_capitatum_homo-bone-notable",
+    "entityId": "homo:os_capitatum",
+    "entityType": "bone",
+    "type": "homo-bone-notable",
+    "difficulty": 2,
+    "prompt": "Wofür ist der Knochen „Kopfbein\" anatomisch besonders bekannt?",
+    "correctAnswer": "Größter Handwurzelknochen, zentral in der distalen Reihe gelegen.",
+    "options": [
+      "Größter Handwurzelknochen, zentral in der distalen Reihe gelegen.",
+      "längster und stärkster Knochen des menschlichen Körpers",
+      "zweitlängster Knochen und tragender Knochen des Unterschenkels",
+      "dünner Unterschenkelknochen neben dem Schienbein"
+    ],
+    "testedAttribute": "notableFor",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_trapezium_homo-bone-notable",
+    "entityId": "homo:os_trapezium",
+    "entityType": "bone",
+    "type": "homo-bone-notable",
+    "difficulty": 2,
+    "prompt": "Wofür ist der Knochen „Großes Vieleckbein\" anatomisch besonders bekannt?",
+    "correctAnswer": "Handwurzelknochen der distalen Reihe, der mit dem ersten Mittelhandknochen den Daumensattel bildet.",
+    "options": [
+      "Handwurzelknochen der distalen Reihe, der mit dem ersten Mittelhandknochen den Daumensattel bildet.",
+      "längster und stärkster Knochen des menschlichen Körpers",
+      "zweitlängster Knochen und tragender Knochen des Unterschenkels",
+      "dünner Unterschenkelknochen neben dem Schienbein"
+    ],
+    "testedAttribute": "notableFor",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_pisiforme_homo-bone-notable",
+    "entityId": "homo:os_pisiforme",
+    "entityType": "bone",
+    "type": "homo-bone-notable",
+    "difficulty": 2,
+    "prompt": "Wofür ist der Knochen „Erbsenbein\" anatomisch besonders bekannt?",
+    "correctAnswer": "Sesambein im Sehnenverlauf des Musculus flexor carpi ulnaris an der palmaren Handwurzel.",
+    "options": [
+      "Sesambein im Sehnenverlauf des Musculus flexor carpi ulnaris an der palmaren Handwurzel.",
+      "längster und stärkster Knochen des menschlichen Körpers",
+      "zweitlängster Knochen und tragender Knochen des Unterschenkels",
+      "dünner Unterschenkelknochen neben dem Schienbein"
+    ],
+    "testedAttribute": "notableFor",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_darmbein_homo-bone-notable",
+    "entityId": "homo:darmbein",
+    "entityType": "bone",
+    "type": "homo-bone-notable",
+    "difficulty": 2,
+    "prompt": "Wofür ist der Knochen „Darmbein\" anatomisch besonders bekannt?",
+    "correctAnswer": "Größter der drei Beckenknochen und Hauptbildner der Hüftpfanne.",
+    "options": [
+      "Größter der drei Beckenknochen und Hauptbildner der Hüftpfanne.",
+      "längster und stärkster Knochen des menschlichen Körpers",
+      "zweitlängster Knochen und tragender Knochen des Unterschenkels",
+      "dünner Unterschenkelknochen neben dem Schienbein"
+    ],
+    "testedAttribute": "notableFor",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_cuboideum_homo-bone-notable",
+    "entityId": "homo:os_cuboideum",
+    "entityType": "bone",
+    "type": "homo-bone-notable",
+    "difficulty": 2,
+    "prompt": "Wofür ist der Knochen „Würfelbein\" anatomisch besonders bekannt?",
+    "correctAnswer": "Äußerer Fußwurzelknochen, der an Fersenbein und 4. sowie 5. Mittelfußknochen angrenzt.",
+    "options": [
+      "Äußerer Fußwurzelknochen, der an Fersenbein und 4. sowie 5. Mittelfußknochen angrenzt.",
+      "längster und stärkster Knochen des menschlichen Körpers",
+      "zweitlängster Knochen und tragender Knochen des Unterschenkels",
+      "dünner Unterschenkelknochen neben dem Schienbein"
+    ],
+    "testedAttribute": "notableFor",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_homo_stapedius_homo-muscle-notable-rev",
     "entityId": "homo:stapedius",
     "entityType": "muscle",
@@ -6328,6 +8548,186 @@
     "correctAnswer": "Äußere Zwischenrippenmuskeln (Musculi intercostales externi)",
     "options": [
       "Äußere Zwischenrippenmuskeln (Musculi intercostales externi)",
+      "Großer Gesäßmuskel (Gluteus maximus)",
+      "Kaumuskel (Masseter)",
+      "Steigbügelmuskel (Musculus stapedius)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_mittlerer_gesaessmuskel_homo-muscle-notable-rev",
+    "entityId": "homo:mittlerer_gesaessmuskel",
+    "entityType": "muscle",
+    "type": "homo-muscle-notable-rev",
+    "difficulty": 2,
+    "prompt": "Welcher Muskel wird beschrieben als: „Wird auch als Trendelenburg-relevant bezeichnet, da sein Ausfall das einseitige Hüfthinken verursacht\"?",
+    "correctAnswer": "Mittlerer Gesäßmuskel (Musculus gluteus medius)",
+    "options": [
+      "Mittlerer Gesäßmuskel (Musculus gluteus medius)",
+      "Großer Gesäßmuskel (Gluteus maximus)",
+      "Kaumuskel (Masseter)",
+      "Steigbügelmuskel (Musculus stapedius)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_halbsehniger_muskel_homo-muscle-notable-rev",
+    "entityId": "homo:halbsehniger_muskel",
+    "entityType": "muscle",
+    "type": "homo-muscle-notable-rev",
+    "difficulty": 2,
+    "prompt": "Welcher Muskel wird beschrieben als: „Sein langer, sehniger Ansatz verhalf ihm zum Namen und bildet die mediale Begrenzung der Kniekehle\"?",
+    "correctAnswer": "Halbsehniger Muskel (Musculus semitendinosus)",
+    "options": [
+      "Halbsehniger Muskel (Musculus semitendinosus)",
+      "Großer Gesäßmuskel (Gluteus maximus)",
+      "Kaumuskel (Masseter)",
+      "Steigbügelmuskel (Musculus stapedius)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_aeusserer_schraeger_bauchmuskel_homo-muscle-notable-rev",
+    "entityId": "homo:aeusserer_schraeger_bauchmuskel",
+    "entityType": "muscle",
+    "type": "homo-muscle-notable-rev",
+    "difficulty": 2,
+    "prompt": "Welcher Muskel wird beschrieben als: „Seine flächenhafte Aponeurose bildet das Leistenband (Ligamentum inguinale)\"?",
+    "correctAnswer": "Äußerer schräger Bauchmuskel (Musculus obliquus externus abdominis)",
+    "options": [
+      "Äußerer schräger Bauchmuskel (Musculus obliquus externus abdominis)",
+      "Großer Gesäßmuskel (Gluteus maximus)",
+      "Kaumuskel (Masseter)",
+      "Steigbügelmuskel (Musculus stapedius)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_schlaefenmuskel_homo-muscle-notable-rev",
+    "entityId": "homo:schlaefenmuskel",
+    "entityType": "muscle",
+    "type": "homo-muscle-notable-rev",
+    "difficulty": 2,
+    "prompt": "Welcher Muskel wird beschrieben als: „Einer der vier Kaumuskeln und einer der kräftigsten Muskeln des menschlichen Körpers\"?",
+    "correctAnswer": "Schläfenmuskel (Musculus temporalis)",
+    "options": [
+      "Schläfenmuskel (Musculus temporalis)",
+      "Großer Gesäßmuskel (Gluteus maximus)",
+      "Kaumuskel (Masseter)",
+      "Steigbügelmuskel (Musculus stapedius)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_grosser_rundmuskel_homo-muscle-notable-rev",
+    "entityId": "homo:grosser_rundmuskel",
+    "entityType": "muscle",
+    "type": "homo-muscle-notable-rev",
+    "difficulty": 2,
+    "prompt": "Welcher Muskel wird beschrieben als: „Wird gemeinsam mit dem Latissimus dorsi als „kleiner Helfer der Klimmzüge“ bezeichnet\"?",
+    "correctAnswer": "Großer Rundmuskel (Musculus teres major)",
+    "options": [
+      "Großer Rundmuskel (Musculus teres major)",
+      "Großer Gesäßmuskel (Gluteus maximus)",
+      "Kaumuskel (Masseter)",
+      "Steigbügelmuskel (Musculus stapedius)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_langer_handballenmuskel_homo-muscle-notable-rev",
+    "entityId": "homo:langer_handballenmuskel",
+    "entityType": "muscle",
+    "type": "homo-muscle-notable-rev",
+    "difficulty": 2,
+    "prompt": "Welcher Muskel wird beschrieben als: „Fehlt bei etwa zehn bis fünfzehn Prozent der Menschen und ist einer der variabelsten Muskeln des Körpers\"?",
+    "correctAnswer": "Langer Hohlhandmuskel (Musculus palmaris longus)",
+    "options": [
+      "Langer Hohlhandmuskel (Musculus palmaris longus)",
+      "Großer Gesäßmuskel (Gluteus maximus)",
+      "Kaumuskel (Masseter)",
+      "Steigbügelmuskel (Musculus stapedius)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_gemeinsamer_fingerstrecker_homo-muscle-notable-rev",
+    "entityId": "homo:gemeinsamer_fingerstrecker",
+    "entityType": "muscle",
+    "type": "homo-muscle-notable-rev",
+    "difficulty": 2,
+    "prompt": "Welcher Muskel wird beschrieben als: „Seine Sehnen sind auf dem Handrücken durch Sehnenbrücken (Connexus intertendinei) verbunden\"?",
+    "correctAnswer": "Gemeinsamer Fingerstrecker (Musculus extensor digitorum)",
+    "options": [
+      "Gemeinsamer Fingerstrecker (Musculus extensor digitorum)",
+      "Großer Gesäßmuskel (Gluteus maximus)",
+      "Kaumuskel (Masseter)",
+      "Steigbügelmuskel (Musculus stapedius)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_schulterdachmuskel_homo-muscle-notable-rev",
+    "entityId": "homo:schulterdachmuskel",
+    "entityType": "muscle",
+    "type": "homo-muscle-notable-rev",
+    "difficulty": 2,
+    "prompt": "Welcher Muskel wird beschrieben als: „Gehört zur Rotatorenmanschette und ist der erste Muskel, der bei der Armabduktion aktiv wird\"?",
+    "correctAnswer": "Schulterdachmuskel (Musculus supraspinatus)",
+    "options": [
+      "Schulterdachmuskel (Musculus supraspinatus)",
+      "Großer Gesäßmuskel (Gluteus maximus)",
+      "Kaumuskel (Masseter)",
+      "Steigbügelmuskel (Musculus stapedius)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_infraspinatus_homo-muscle-notable-rev",
+    "entityId": "homo:infraspinatus",
+    "entityType": "muscle",
+    "type": "homo-muscle-notable-rev",
+    "difficulty": 2,
+    "prompt": "Welcher Muskel wird beschrieben als: „Wird klinisch auch als „Pitcher-Muskel“ bezeichnet, da er bei Überkopfwurfbewegungen stark belastet wird\"?",
+    "correctAnswer": "Unterschultergrätenmuskel (Musculus infraspinatus)",
+    "options": [
+      "Unterschultergrätenmuskel (Musculus infraspinatus)",
       "Großer Gesäßmuskel (Gluteus maximus)",
       "Kaumuskel (Masseter)",
       "Steigbügelmuskel (Musculus stapedius)"

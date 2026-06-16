@@ -2107,5 +2107,628 @@
       "name": "de.wikipedia.org – Netzhaut",
       "url": "https://de.wikipedia.org/wiki/Netzhaut"
     }
+  },
+  "homo:keilbein": {
+    "id": "homo:keilbein",
+    "name": "Keilbein",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Schädel",
+      "latinName": "Os sphenoidale",
+      "notableFor": "Zentraler Schädelknochen, an dem fast alle anderen Schädelknochen zusammentreffen."
+    },
+    "funFact": "Das Keilbein bildet mit seinen großen und kleinen Flügeln Teile der Schädelbasis, der Augenhöhle und des Schläfenbeins und umschließt die Hypophyse in der Sella turcica.",
+    "source": {
+      "name": "Prometheus Lernatlas der Anatomie",
+      "url": "https://de.wikipedia.org/wiki/Keilbein"
+    }
+  },
+  "homo:siebbein": {
+    "id": "homo:siebbein",
+    "name": "Siebbein",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Schädel",
+      "latinName": "Os ethmoidale",
+      "notableFor": "Siebiger Knochen zwischen den Augenhöhlen, der die obere Nasenmuschel und Teile der Nasenscheidewand bildet."
+    },
+    "funFact": "Die Lamina cribrosa des Siebbeins ist von zahlreichen kleinen Löchern durchsetzt, durch die die Riechfäden des Nervus olfactorius in die Nasenhöhle ziehen.",
+    "source": {
+      "name": "Prometheus Lernatlas der Anatomie",
+      "url": "https://de.wikipedia.org/wiki/Siebbein"
+    }
+  },
+  "homo:gaumenbein": {
+    "id": "homo:gaumenbein",
+    "name": "Gaumenbein",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Gesicht",
+      "latinName": "Os palatinum",
+      "notableFor": "L-förmiger Knochen, der den hinteren Teil des harten Gaumens bildet."
+    },
+    "funFact": "Das Gaumenbein beteiligt sich mit seiner Lamina perpendicularis an der Begrenzung der Nasenhöhle und mit der Lamina horizontalis am Gaumen.",
+    "source": {
+      "name": "Prometheus Lernatlas der Anatomie",
+      "url": "https://de.wikipedia.org/wiki/Gaumenbein"
+    }
+  },
+  "homo:traenenbein": {
+    "id": "homo:traenenbein",
+    "name": "Tränenbein",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Gesicht",
+      "latinName": "Os lacrimale",
+      "notableFor": "Kleinster Gesichtsknochen, an der medialen Wand der Augenhöhle gelegen."
+    },
+    "funFact": "Das Tränenbein bildet mit dem Sulcus lacrimalis des Oberkiefers die Fossa sacci lacrimalis, in der der Tränensack liegt.",
+    "source": {
+      "name": "Prometheus Lernatlas der Anatomie",
+      "url": "https://de.wikipedia.org/wiki/Tr%C3%A4nenbein"
+    }
+  },
+  "homo:nasenbein": {
+    "id": "homo:nasenbein",
+    "name": "Nasenbein",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Gesicht",
+      "latinName": "Os nasale",
+      "notableFor": "Paariger Knochen, der den Nasenrücken bildet."
+    },
+    "funFact": "Die beiden Nasenbeine artikulieren in der Mittellinie miteinander und bilden oben den Ansatz für die knöcherne Nasenpyramide.",
+    "source": {
+      "name": "Prometheus Lernatlas der Anatomie",
+      "url": "https://de.wikipedia.org/wiki/Nasenbein"
+    }
+  },
+  "homo:pflugscharbein": {
+    "id": "homo:pflugscharbein",
+    "name": "Pflugscharbein",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Gesicht",
+      "latinName": "Vomer",
+      "notableFor": "Dünner, pflugscharförmiger Knochen, der den hinteren unteren Teil der Nasenscheidewand bildet."
+    },
+    "funFact": "Das Pflugscharbein artikuliert oben mit dem Keilbein und unten mit dem Gaumenbein und bildet den hinteren Anteil der knöchernen Nasenscheidewand.",
+    "source": {
+      "name": "Prometheus Lernatlas der Anatomie",
+      "url": "https://de.wikipedia.org/wiki/Pflugscharbein"
+    }
+  },
+  "homo:zungenbein": {
+    "id": "homo:zungenbein",
+    "name": "Zungenbein",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Hals",
+      "latinName": "Os hyoideum",
+      "notableFor": "Einziger Knochen des Körpers, der keine direkte gelenkige Verbindung zu einem anderen Knochen hat."
+    },
+    "funFact": "Das Zungenbein ist über Muskeln und Bänder am Processus styloideus des Schläfenbeins aufgehängt und dient als Ansatz für die Zungen- und Kehlkopfmuskulatur.",
+    "source": {
+      "name": "Prometheus Lernatlas der Anatomie",
+      "url": "https://de.wikipedia.org/wiki/Zungenbein"
+    }
+  },
+  "homo:os_hamatum": {
+    "id": "homo:os_hamatum",
+    "name": "Hakenbein",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Hand",
+      "latinName": "Os hamatum",
+      "notableFor": "Distaler Handwurzelknochen mit einem nach palmar gerichteten hakenförmigen Fortsatz (Hamulus)."
+    },
+    "funFact": "Der Hamulus ossis hamati dient unter anderem dem Retinaculum flexorum und dem Musculus flexor carpi ulnaris als Umlenkrolle.",
+    "source": {
+      "name": "Prometheus Lernatlas der Anatomie",
+      "url": "https://de.wikipedia.org/wiki/Os_hamatum"
+    }
+  },
+  "homo:os_capitatum": {
+    "id": "homo:os_capitatum",
+    "name": "Kopfbein",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Hand",
+      "latinName": "Os capitatum",
+      "notableFor": "Größter Handwurzelknochen, zentral in der distalen Reihe gelegen."
+    },
+    "funFact": "Das Kopfbein artikuliert proximal mit dem Os lunatum und distal mit dem dritten Mittelhandknochen und bildet den Mittelpunkt der Handwurzel.",
+    "source": {
+      "name": "Prometheus Lernatlas der Anatomie",
+      "url": "https://de.wikipedia.org/wiki/Os_capitatum"
+    }
+  },
+  "homo:os_trapezium": {
+    "id": "homo:os_trapezium",
+    "name": "Großes Vieleckbein",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Hand",
+      "latinName": "Os trapezium",
+      "notableFor": "Handwurzelknochen der distalen Reihe, der mit dem ersten Mittelhandknochen den Daumensattel bildet."
+    },
+    "funFact": "Das Os trapezium besitzt eine sattelförmige Gelenkfläche für das Os metacarpi I, die dem Daumen seinen großen Bewegungsumfang ermöglicht.",
+    "source": {
+      "name": "Prometheus Lernatlas der Anatomie",
+      "url": "https://de.wikipedia.org/wiki/Os_trapezium"
+    }
+  },
+  "homo:os_trapezoideum": {
+    "id": "homo:os_trapezoideum",
+    "name": "Kleines Vieleckbein",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Hand",
+      "latinName": "Os trapezoideum",
+      "notableFor": "Kleinster Knochen der distalen Handwurzelreihe, zwischen Os trapezium und Os capitatum gelegen."
+    },
+    "funFact": "Das Os trapezoideum artikuliert distal mit dem zweiten Mittelhandknochen und trägt wesentlich zur Stabilität des Handskeletts bei.",
+    "source": {
+      "name": "Prometheus Lernatlas der Anatomie",
+      "url": "https://de.wikipedia.org/wiki/Os_trapezoideum"
+    }
+  },
+  "homo:os_pisiforme": {
+    "id": "homo:os_pisiforme",
+    "name": "Erbsenbein",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Hand",
+      "latinName": "Os pisiforme",
+      "notableFor": "Sesambein im Sehnenverlauf des Musculus flexor carpi ulnaris an der palmaren Handwurzel."
+    },
+    "funFact": "Das Erbsenbein ist der einzige Handwurzelknochen, an dem keine direkte Gelenkverbindung mit einem Mittelhandknochen besteht, und gilt entwicklungsgeschichtlich als Sesambein.",
+    "source": {
+      "name": "Prometheus Lernatlas der Anatomie",
+      "url": "https://de.wikipedia.org/wiki/Os_pisiforme"
+    }
+  },
+  "homo:os_triquetrum": {
+    "id": "homo:os_triquetrum",
+    "name": "Dreiecksbein",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Hand",
+      "latinName": "Os triquetrum",
+      "notableFor": "Dreieckiger Handwurzelknochen der proximalen Reihe an der ulnaren Handwurzelkante."
+    },
+    "funFact": "Das Os triquetrum artikuliert proximal mit dem Discus articularis des distalen Radioulnargelenks und bildet einen wesentlichen Pfeiler des ulnaren Handgelenks.",
+    "source": {
+      "name": "Prometheus Lernatlas der Anatomie",
+      "url": "https://de.wikipedia.org/wiki/Os_triquetrum"
+    }
+  },
+  "homo:os_lunatum": {
+    "id": "homo:os_lunatum",
+    "name": "Mondbein",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Hand",
+      "latinName": "Os lunatum",
+      "notableFor": "Mondförmiger Handwurzelknochen der proximalen Reihe, zentral zwischen Kahnbein und Dreiecksbein."
+    },
+    "funFact": "Das Mondbein ist der am häufigsten von einer avaskulären Nekrose betroffene Handwurzelknochen und zentraler Bestandteil des proximalen Handgelenks.",
+    "source": {
+      "name": "Prometheus Lernatlas der Anatomie",
+      "url": "https://de.wikipedia.org/wiki/Os_lunatum"
+    }
+  },
+  "homo:darmbein": {
+    "id": "homo:darmbein",
+    "name": "Darmbein",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Becken",
+      "latinName": "Os ilium",
+      "notableFor": "Größter der drei Beckenknochen und Hauptbildner der Hüftpfanne."
+    },
+    "funFact": "Das Darmbein bildet mit seinen kräftigen Flügeln den breitesten Teil des knöchernen Beckens und dient als Ansatz für die großen Gesäßmuskeln.",
+    "source": {
+      "name": "Prometheus Lernatlas der Anatomie",
+      "url": "https://de.wikipedia.org/wiki/Os_ilium"
+    }
+  },
+  "homo:schambein": {
+    "id": "homo:schambein",
+    "name": "Schambein",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Becken",
+      "latinName": "Os pubis",
+      "notableFor": "Vorderer Anteil des Hüftbeins, dessen Schambeinäste die Schambeinfuge bilden."
+    },
+    "funFact": "Linkes und rechtes Schambein treffen in der Schambeinfuge zusammen und schließen so den vorderen Beckenring stabil ab.",
+    "source": {
+      "name": "Prometheus Lernatlas der Anatomie",
+      "url": "https://de.wikipedia.org/wiki/Schambein"
+    }
+  },
+  "homo:sitzbein": {
+    "id": "homo:sitzbein",
+    "name": "Sitzbein",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Becken",
+      "latinName": "Os ischii",
+      "notableFor": "Trägt mit seinem Sitzbeinhöcker das Körpergewicht beim Sitzen."
+    },
+    "funFact": "Der kräftige Sitzbeinhöcker ist der tiefste Knochenpunkt des Beckens und bildet gemeinsam mit Darm- und Schambein die Hüftpfanne.",
+    "source": {
+      "name": "Prometheus Lernatlas der Anatomie",
+      "url": "https://de.wikipedia.org/wiki/Sitzbein"
+    }
+  },
+  "homo:os_cuboideum": {
+    "id": "homo:os_cuboideum",
+    "name": "Würfelbein",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Fuß",
+      "latinName": "Os cuboideum",
+      "notableFor": "Äußerer Fußwurzelknochen, der an Fersenbein und 4. sowie 5. Mittelfußknochen angrenzt."
+    },
+    "funFact": "Seinen Namen verdankt das Würfelbein seiner ungefähr kubischen Form und es bildet einen wichtigen Pfeiler des Fußlängsgewölbes.",
+    "source": {
+      "name": "Prometheus Lernatlas der Anatomie",
+      "url": "https://de.wikipedia.org/wiki/W%C3%BCrfelbein"
+    }
+  },
+  "homo:os_cuneiforme_mediale": {
+    "id": "homo:os_cuneiforme_mediale",
+    "name": "Inneres Keilbein",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Fuß",
+      "latinName": "Os cuneiforme mediale",
+      "notableFor": "Größtes der drei Keilbeine und größter Knochen der Fußwurzel."
+    },
+    "funFact": "Das innere Keilbein artikuliert mit dem 1. und 2. Mittelfußknochen und ist ein Schlüsselelement des Fußlängsgewölbes.",
+    "source": {
+      "name": "Prometheus Lernatlas der Anatomie",
+      "url": "https://de.wikipedia.org/wiki/Os_cuneiforme"
+    }
+  },
+  "homo:os_cuneiforme_intermedium": {
+    "id": "homo:os_cuneiforme_intermedium",
+    "name": "Mittleres Keilbein",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Fuß",
+      "latinName": "Os cuneiforme intermedium",
+      "notableFor": "Kleinstes der drei Fußkeilbeine, eingebettet zwischen innerem und äußerem Keilbein."
+    },
+    "funFact": "Es artikuliert mit dem 2. Mittelfußknochen und schützt durch seine zentrale Lage die Nerven und Gefäße des Mittelfußes.",
+    "source": {
+      "name": "Prometheus Lernatlas der Anatomie",
+      "url": "https://de.wikipedia.org/wiki/Os_cuneiforme"
+    }
+  },
+  "homo:os_cuneiforme_laterale": {
+    "id": "homo:os_cuneiforme_laterale",
+    "name": "Äußeres Keilbein",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Fuß",
+      "latinName": "Os cuneiforme laterale",
+      "notableFor": "Seitliches der drei Keilbeine des Fußes, artikuliert mit dem 3. Mittelfußknochen."
+    },
+    "funFact": "Zusammen mit dem Würfelbein bildet es den vorderen Abschluss der Fußwurzel und ist am Aufbau des Quergewölbes beteiligt.",
+    "source": {
+      "name": "Prometheus Lernatlas der Anatomie",
+      "url": "https://de.wikipedia.org/wiki/Os_cuneiforme"
+    }
+  },
+  "homo:os_metatarsale_1": {
+    "id": "homo:os_metatarsale_1",
+    "name": "Erster Mittelfußknochen",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Fuß",
+      "latinName": "Os metatarsale I",
+      "notableFor": "Kürzester und kräftigster Mittelfußknochen, trägt den Ballen des Großzehs."
+    },
+    "funFact": "An seinem Köpfchen sitzen häufig zwei Sesambeine, die als Umlenkrollen für die Beugesehnen dienen.",
+    "source": {
+      "name": "Prometheus Lernatlas der Anatomie",
+      "url": "https://de.wikipedia.org/wiki/Mittelfu%C3%9Fknochen"
+    }
+  },
+  "homo:os_scaphoideum": {
+    "id": "homo:os_scaphoideum",
+    "name": "Kahnbein der Hand",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Hand",
+      "latinName": "Os scaphoideum",
+      "notableFor": "Größter Knochen der proximalen Handwurzelreihe, daumenseitig gelegen."
+    },
+    "funFact": "Das Kahnbein bildet mit seinem Höcker einen gut tastbaren Orientierungspunkt am Handgelenk und ist der größte Knochen der oberen Handwurzelreihe.",
+    "source": {
+      "name": "Prometheus Lernatlas der Anatomie",
+      "url": "https://de.wikipedia.org/wiki/Os_scaphoideum"
+    }
+  },
+  "homo:kleiner_gesaessmuskel": {
+    "id": "homo:kleiner_gesaessmuskel",
+    "name": "Kleiner Gesäßmuskel (Musculus gluteus minimus)",
+    "type": "muscle",
+    "category": "muscle",
+    "attributes": {
+      "location": "Hüfte, tiefe Gesäßregion",
+      "function": "Abduziert den Oberschenkel und stabilisiert das Becken beim Gehen",
+      "notableFor": "Kleinster der drei Gesäßmuskeln und wichtigster Stabilisator des Beckens im Einbeinstand",
+      "latinName": "Musculus gluteus minimus"
+    },
+    "funFact": "Der Musculus gluteus minimus ist der tiefste der drei Glutealmuskeln und dient gemeinsam mit dem Gluteus medius als wichtigster pelvitrochantärer Stabilisator.",
+    "source": {
+      "name": "Prometheus Lernatlas der Anatomie",
+      "url": "https://de.wikipedia.org/wiki/Musculus_gluteus_minimus"
+    }
+  },
+  "homo:mittlerer_gesaessmuskel": {
+    "id": "homo:mittlerer_gesaessmuskel",
+    "name": "Mittlerer Gesäßmuskel (Musculus gluteus medius)",
+    "type": "muscle",
+    "category": "muscle",
+    "attributes": {
+      "location": "Hüfte, seitliche Gesäßregion",
+      "function": "Abduziert den Oberschenkel und stabilisiert das Becken beim Gehen und Stehen",
+      "notableFor": "Wird auch als Trendelenburg-relevant bezeichnet, da sein Ausfall das einseitige Hüfthinken verursacht",
+      "latinName": "Musculus gluteus medius"
+    },
+    "funFact": "Der Musculus gluteus medius ist ein klassischer Injektionsort für intramuskuläre Spritzen am Gesäß und einer der wichtigsten Beckenstabilisatoren beim Gehen.",
+    "source": {
+      "name": "Gray's Anatomy",
+      "url": "https://de.wikipedia.org/wiki/Musculus_gluteus_medius"
+    }
+  },
+  "homo:zweikoepfiger_oberschenkelmuskel": {
+    "id": "homo:zweikoepfiger_oberschenkelmuskel",
+    "name": "Zweiköpfiger Oberschenkelmuskel (Musculus biceps femoris)",
+    "type": "muscle",
+    "category": "muscle",
+    "attributes": {
+      "location": "Oberschenkel, hintere Oberschenkelregion (ischiokrurale Muskulatur)",
+      "function": "Beugt das Kniegelenk und streckt im Hüftgelenk; einer der Beuger",
+      "notableFor": "Gehört zu den Hamstrings und besitzt wie der Oberarm-Bizeps zwei Köpfe (Caput longum und Caput breve)",
+      "latinName": "Musculus biceps femoris"
+    },
+    "funFact": "Der Musculus biceps femoris ist der einzige Hamstring-Muskel mit einem kurzen Kopf, der ausschließlich vom Kniegelenk abhängig ist und nicht über das Hüftgelenk wirkt.",
+    "source": {
+      "name": "Prometheus Lernatlas der Anatomie",
+      "url": "https://de.wikipedia.org/wiki/Musculus_biceps_femoris"
+    }
+  },
+  "homo:halbsehniger_muskel": {
+    "id": "homo:halbsehniger_muskel",
+    "name": "Halbsehniger Muskel (Musculus semitendinosus)",
+    "type": "muscle",
+    "category": "muscle",
+    "attributes": {
+      "location": "Oberschenkel, hintere Oberschenkelregion (ischiokrurale Muskulatur)",
+      "function": "Beugt das Kniegelenk und streckt im Hüftgelenk; einer der Beuger",
+      "notableFor": "Sein langer, sehniger Ansatz verhalf ihm zum Namen und bildet die mediale Begrenzung der Kniekehle",
+      "latinName": "Musculus semitendinosus"
+    },
+    "funFact": "Der Musculus semitendinosus besitzt eine besonders lange distale Sehne, die zusammen mit der des Gracilis und Sartorius die oberflächliche Pes-anserinus-Gruppe bildet.",
+    "source": {
+      "name": "Prometheus Lernatlas der Anatomie",
+      "url": "https://de.wikipedia.org/wiki/Musculus_semitendinosus"
+    }
+  },
+  "homo:innerer_schraeger_bauchmuskel": {
+    "id": "homo:innerer_schraeger_bauchmuskel",
+    "name": "Innerer schräger Bauchmuskel (Musculus obliquus internus abdominis)",
+    "type": "muscle",
+    "category": "muscle",
+    "attributes": {
+      "location": "Bauchwand, mittlere Schicht der seitlichen Bauchmuskulatur",
+      "function": "Dreht den Rumpf zur gleichen Seite und beugt die Wirbelsäule seitlich",
+      "notableFor": "Liegt unter dem äußeren schrägen Bauchmuskel und hat quer bis schräg aufsteigende Fasern",
+      "latinName": "Musculus obliquus internus abdominis"
+    },
+    "funFact": "Die Faserrichtung des Musculus obliquus internus abdominis verläuft spiegelbildlich zur des äußeren schrägen Bauchmuskels und bildet mit diesem ein funktionelles Gegenspielerpaar bei der Rumpfrotation.",
+    "source": {
+      "name": "Prometheus Lernatlas der Anatomie",
+      "url": "https://de.wikipedia.org/wiki/Musculus_obliquus_internus_abdominis"
+    }
+  },
+  "homo:aeusserer_schraeger_bauchmuskel": {
+    "id": "homo:aeusserer_schraeger_bauchmuskel",
+    "name": "Äußerer schräger Bauchmuskel (Musculus obliquus externus abdominis)",
+    "type": "muscle",
+    "category": "muscle",
+    "attributes": {
+      "location": "Bauchwand, oberflächlichste Schicht der seitlichen Bauchmuskulatur",
+      "function": "Dreht den Rumpf zur Gegenseite und beugt die Wirbelsäule seitlich",
+      "notableFor": "Seine flächenhafte Aponeurose bildet das Leistenband (Ligamentum inguinale)",
+      "latinName": "Musculus obliquus externus abdominis"
+    },
+    "funFact": "Der Musculus obliquus externus abdominis geht am vorderen Rand in eine breite Aponeurose über, die gemeinsam mit der Fascia transversalis die vordere Bauchwand verstärkt.",
+    "source": {
+      "name": "Prometheus Lernatlas der Anatomie",
+      "url": "https://de.wikipedia.org/wiki/Musculus_obliquus_externus_abdominis"
+    }
+  },
+  "homo:schlaefenmuskel": {
+    "id": "homo:schlaefenmuskel",
+    "name": "Schläfenmuskel (Musculus temporalis)",
+    "type": "muscle",
+    "category": "muscle",
+    "attributes": {
+      "location": "Kopf, Schläfenregion",
+      "function": "Hebt den Unterkiefer und schließt dadurch den Mund (Kieferadduktion)",
+      "notableFor": "Einer der vier Kaumuskeln und einer der kräftigsten Muskeln des menschlichen Körpers",
+      "latinName": "Musculus temporalis"
+    },
+    "funFact": "Der Musculus temporalis entspringt fächerförmig an der Schläfengrube und setzt am Processus coronoideus des Unterkiefers an, wo er eine besonders hohe Beißkraft entwickelt.",
+    "source": {
+      "name": "Gray's Anatomy",
+      "url": "https://de.wikipedia.org/wiki/Musculus_temporalis"
+    }
+  },
+  "homo:kleiner_brustmuskel": {
+    "id": "homo:kleiner_brustmuskel",
+    "name": "Kleiner Brustmuskel (Musculus pectoralis minor)",
+    "type": "muscle",
+    "category": "muscle",
+    "attributes": {
+      "location": "Brustwand, unter dem großen Brustmuskel",
+      "function": "Zieht das Schulterblatt nach vorne und unten und hebt die Rippen bei der Einatmung",
+      "notableFor": "Liegt vollständig unter dem Musculus pectoralis major und ist ein wichtiger Atemhilfsmuskel",
+      "latinName": "Musculus pectoralis minor"
+    },
+    "funFact": "Der Musculus pectoralis minor ist einer der klinisch relevanten Muskeln für das Thoracic-outlet-Syndrom, da er über den Plexus brachialis und die Arteria subclavia zieht.",
+    "source": {
+      "name": "Prometheus Lernatlas der Anatomie",
+      "url": "https://de.wikipedia.org/wiki/Musculus_pectoralis_minor"
+    }
+  },
+  "homo:grosser_rundmuskel": {
+    "id": "homo:grosser_rundmuskel",
+    "name": "Großer Rundmuskel (Musculus teres major)",
+    "type": "muscle",
+    "category": "muscle",
+    "attributes": {
+      "location": "Rücken, hintere Achselhöhlenregion",
+      "function": "Adduziert und innenrotiert den Arm im Schultergelenk",
+      "notableFor": "Wird gemeinsam mit dem Latissimus dorsi als „kleiner Helfer der Klimmzüge“ bezeichnet",
+      "latinName": "Musculus teres major"
+    },
+    "funFact": "Der Musculus teres major verläuft parallel zum unteren Rand des Musculus latissimus dorsi und inseriert an der Crista tuberculi minoris des Humerus.",
+    "source": {
+      "name": "Prometheus Lernatlas der Anatomie",
+      "url": "https://de.wikipedia.org/wiki/Musculus_teres_major"
+    }
+  },
+  "homo:langer_handballenmuskel": {
+    "id": "homo:langer_handballenmuskel",
+    "name": "Langer Hohlhandmuskel (Musculus palmaris longus)",
+    "type": "muscle",
+    "category": "muscle",
+    "attributes": {
+      "location": "Unterarm, oberflächliche Beugergruppe",
+      "function": "Spannt die Palmaraponeurose und beugt schwach das Handgelenk",
+      "notableFor": "Fehlt bei etwa zehn bis fünfzehn Prozent der Menschen und ist einer der variabelsten Muskeln des Körpers",
+      "latinName": "Musculus palmaris longus"
+    },
+    "funFact": "Der Musculus palmaris longus ist der Muskel, an dem am häufigsten Sehnentransplantationen vorgenommen werden, da sein Fehlen die Handfunktion kaum beeinträchtigt.",
+    "source": {
+      "name": "Gray's Anatomy",
+      "url": "https://de.wikipedia.org/wiki/Musculus_palmaris_longus"
+    }
+  },
+  "homo:gemeinsamer_fingerstrecker": {
+    "id": "homo:gemeinsamer_fingerstrecker",
+    "name": "Gemeinsamer Fingerstrecker (Musculus extensor digitorum)",
+    "type": "muscle",
+    "category": "muscle",
+    "attributes": {
+      "location": "Unterarm, Streckerseite",
+      "function": "Streckt die Finger II bis V im Grund- und Mittelgelenk",
+      "notableFor": "Seine Sehnen sind auf dem Handrücken durch Sehnenbrücken (Connexus intertendinei) verbunden",
+      "latinName": "Musculus extensor digitorum"
+    },
+    "funFact": "Der Musculus extensor digitorum communis entspringt am Epicondylus lateralis humeri und teilt sich in der Höhe des Handgelenks in vier Sehnen für den zweiten bis fünften Finger.",
+    "source": {
+      "name": "Prometheus Lernatlas der Anatomie",
+      "url": "https://de.wikipedia.org/wiki/Musculus_extensor_digitorum"
+    }
+  },
+  "homo:langer_kopfnicker": {
+    "id": "homo:langer_kopfnicker",
+    "name": "Langer Kopfwender (Musculus longus colli)",
+    "type": "muscle",
+    "category": "muscle",
+    "attributes": {
+      "location": "Hals, prävertebral vor der Halswirbelsäule",
+      "function": "Beugt die Halswirbelsäule nach vorne und ermöglicht leichte Drehbewegungen",
+      "notableFor": "Längster prävertebraler Halsmuskel und wichtigster Beuger der Halswirbelsäule",
+      "latinName": "Musculus longus colli"
+    },
+    "funFact": "Der Musculus longus colli erstreckt sich vom Atlas bis zum dritten Brustwirbel und besteht aus drei Anteilen mit unterschiedlichen Verlaufsrichtungen.",
+    "source": {
+      "name": "Prometheus Lernatlas der Anatomie",
+      "url": "https://de.wikipedia.org/wiki/Musculus_longus_colli"
+    }
+  },
+  "homo:schulterdachmuskel": {
+    "id": "homo:schulterdachmuskel",
+    "name": "Schulterdachmuskel (Musculus supraspinatus)",
+    "type": "muscle",
+    "category": "muscle",
+    "attributes": {
+      "location": "Schulter, oberer Anteil der Rotatorenmanschette",
+      "function": "Abduziert den Arm im Schultergelenk und stabilisiert den Humeruskopf",
+      "notableFor": "Gehört zur Rotatorenmanschette und ist der erste Muskel, der bei der Armabduktion aktiv wird",
+      "latinName": "Musculus supraspinatus"
+    },
+    "funFact": "Der Musculus supraspinatus verläuft unter dem Schulterdach (Akromion) und ist der am häufigsten von degenerativen Veränderungen betroffene Muskel der Rotatorenmanschette.",
+    "source": {
+      "name": "Gray's Anatomy",
+      "url": "https://de.wikipedia.org/wiki/Musculus_supraspinatus"
+    }
+  },
+  "homo:infraspinatus": {
+    "id": "homo:infraspinatus",
+    "name": "Unterschultergrätenmuskel (Musculus infraspinatus)",
+    "type": "muscle",
+    "category": "muscle",
+    "attributes": {
+      "location": "Schulter, hinterer Anteil der Rotatorenmanschette",
+      "function": "Außenrotiert den Arm im Schultergelenk und stabilisiert den Humeruskopf",
+      "notableFor": "Wird klinisch auch als „Pitcher-Muskel“ bezeichnet, da er bei Überkopfwurfbewegungen stark belastet wird",
+      "latinName": "Musculus infraspinatus"
+    },
+    "funFact": "Der Musculus infraspinatus entspringt in der Fossa infraspinata des Schulterblatts und ist der wichtigste Außenrotator des Oberarms.",
+    "source": {
+      "name": "Prometheus Lernatlas der Anatomie",
+      "url": "https://de.wikipedia.org/wiki/Musculus_infraspinatus"
+    }
+  },
+  "homo:untergraetenmuskel": {
+    "id": "homo:untergraetenmuskel",
+    "name": "Untergrätenmuskel (Musculus teres minor)",
+    "type": "muscle",
+    "category": "muscle",
+    "attributes": {
+      "location": "Schulter, hinterer Anteil der Rotatorenmanschette",
+      "function": "Außenrotiert den Arm im Schultergelenk und stabilisiert den Humeruskopf",
+      "notableFor": "Der kleinste Muskel der Rotatorenmanschette und unmittelbar unter dem Teres major gelegen",
+      "latinName": "Musculus teres minor"
+    },
+    "funFact": "Der Musculus teres minor bildet gemeinsam mit Infraspinatus, Supraspinatus und Subscapularis die Rotatorenmanschette, die den Humeruskopf in der Gelenkpfanne zentriert.",
+    "source": {
+      "name": "Prometheus Lernatlas der Anatomie",
+      "url": "https://de.wikipedia.org/wiki/Musculus_teres_minor"
+    }
   }
 }
