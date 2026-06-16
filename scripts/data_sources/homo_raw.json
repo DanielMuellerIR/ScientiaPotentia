@@ -2367,5 +2367,596 @@
     "sourceName": "Prometheus Lernatlas der Anatomie",
     "sourceUrl": "https://de.wikipedia.org/wiki/Musculus_teres_minor",
     "verifyNote": "Wikipedia-Artikel Musculus teres minor"
+  },
+  {
+    "id": "magen_volumen",
+    "name": "Magenvolumen",
+    "category": "body_fact",
+    "attributes": {
+      "value": 1500,
+      "unit": "ml",
+      "definition": "Fassungsvermögen des menschlichen Magens bei mäßiger Dehnung"
+    },
+    "funFact": "Der leere Magen fasst nur etwa 50 ml, kann sich aber nach einer Mahlzeit auf das Zehnfache ausdehnen.",
+    "sourceName": "de.wikipedia.org – Magen",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Magen",
+    "verifyNote": "Anatomielehrbücher, z. B. Sobotta, geben 1,2–1,5 Liter an."
+  },
+  {
+    "id": "speichel_produktion_tag",
+    "name": "Speichelproduktion pro Tag",
+    "category": "body_fact",
+    "attributes": {
+      "value": "500-1500",
+      "unit": "ml/Tag",
+      "definition": "Menge des täglich von den Speicheldrüsen gebildeten Speichels"
+    },
+    "funFact": "Beim Essen kann die Speichelproduktion kurzfristig auf das Zehnfache des Ruhewerts ansteigen.",
+    "sourceName": "de.wikipedia.org – Speichel",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Speichel",
+    "verifyNote": "Konsenswerte aus Physiologielehrbüchern."
+  },
+  {
+    "id": "lungenoberflaeche",
+    "name": "Gasaustauschoberfläche der Lunge",
+    "category": "body_fact",
+    "attributes": {
+      "value": 100,
+      "unit": "m²",
+      "definition": "Gesamtfläche der Alveolen, an der der Gasaustausch stattfindet"
+    },
+    "funFact": "Die Lunge hat etwa die Fläche eines halben Tennisplatzes, gefaltet in den winzigen Brustraum.",
+    "sourceName": "de.wikipedia.org – Lunge",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Lunge",
+    "verifyNote": "Gängiger Lehrbuchwert 80–100 m²."
+  },
+  {
+    "id": "riechzellen_anzahl",
+    "name": "Anzahl Riechzellen",
+    "category": "body_fact",
+    "attributes": {
+      "value": 30000000,
+      "unit": "Stück",
+      "definition": "Anzahl der olfaktorischen Rezeptorneurone beider Nasenhöhlen"
+    },
+    "funFact": "Riechzellen gehören zu den wenigen Nervenzellen, die sich beim Erwachsenen regelmäßig erneuern.",
+    "sourceName": "de.wikipedia.org – Geruchssinn",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Geruchssinn",
+    "verifyNote": "Häufig genannter Wert: 10–30 Millionen."
+  },
+  {
+    "id": "reaktionszeit_akustisch",
+    "name": "Reaktionszeit auf akustischen Reiz",
+    "category": "body_fact",
+    "attributes": {
+      "value": 150,
+      "unit": "ms",
+      "definition": "Zeit zwischen einem einfachen Hörreiz und der motorischen Reaktion"
+    },
+    "funFact": "Die Reaktionszeit auf einen visuellen Reiz ist mit rund 250 ms etwas länger als auf einen Hörreiz.",
+    "sourceName": "de.wikipedia.org – Reaktionszeit",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Reaktionszeit",
+    "verifyNote": "Standardwert aus Sportphysiologie und Reaktionszeitforschung."
+  },
+  {
+    "id": "synapsen_gehirn",
+    "name": "Anzahl Synapsen im Gehirn",
+    "category": "body_fact",
+    "attributes": {
+      "value": 100000000000000,
+      "unit": "Stück",
+      "definition": "Geschätzte Gesamtzahl der synaptischen Verbindungen im menschlichen Gehirn"
+    },
+    "funFact": "Jedes der rund 86 Milliarden Neuronen ist im Schnitt mit Tausenden anderen verschaltet.",
+    "sourceName": "de.wikipedia.org – Synapse",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Synapse",
+    "verifyNote": "Schätzwert ca. 10¹⁴–10¹⁵ Synapsen."
+  },
+  {
+    "id": "lebensdauer_erythrozyten",
+    "name": "Lebensdauer roter Blutkörperchen",
+    "category": "body_fact",
+    "attributes": {
+      "value": 120,
+      "unit": "Tage",
+      "definition": "Durchschnittliche Lebenszeit eines Erythrozyten im Blutkreislauf"
+    },
+    "funFact": "Pro Sekunde werden etwa 2,4 Millionen rote Blutkörperchen neu gebildet – ebenso viele abgebaut.",
+    "sourceName": "de.wikipedia.org – Erythrozyt",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Erythrozyt",
+    "verifyNote": "Klassischer Lehrbuchwert von 120 Tagen."
+  },
+  {
+    "id": "lebensdauer_leukozyten",
+    "name": "Lebensdauer weißer Blutkörperchen",
+    "category": "body_fact",
+    "attributes": {
+      "value": "5-21",
+      "unit": "Tage",
+      "definition": "Durchschnittliche Lebenszeit der meisten Leukozyten im Blut"
+    },
+    "funFact": "Einige Lymphozyten können allerdings Jahrzehnte alt werden und bilden ein immunologisches Gedächtnis.",
+    "sourceName": "de.wikipedia.org – Leukozyt",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Leukozyt",
+    "verifyNote": "Lehrbuchwert: Granulozyten wenige Stunden bis Tage, Lymphozyten deutlich länger; Bereichswert."
+  },
+  {
+    "id": "erythrozyten_pro_tag",
+    "name": "Erythrozyten-Neubildung pro Tag",
+    "category": "body_fact",
+    "attributes": {
+      "value": 200000000000,
+      "unit": "Stück/Tag",
+      "definition": "Anzahl der täglich im Knochenmark neu gebildeten roten Blutkörperchen"
+    },
+    "funFact": "Das Knochenmark produziert täglich rund 200 Milliarden rote Blutkörperchen und ersetzt damit die gealterten Zellen vollständig.",
+    "sourceName": "de.wikipedia.org – Erythropoese",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Erythropoese",
+    "verifyNote": "Standardangabe 2·10¹¹ pro Tag."
+  },
+  {
+    "id": "hauterneuerung",
+    "name": "Hautzellen-Erneuerung",
+    "category": "body_fact",
+    "attributes": {
+      "value": 28,
+      "unit": "Tage",
+      "definition": "Dauer, in der sich die oberste Hautschicht (Epidermis) einmal vollständig erneuert"
+    },
+    "funFact": "Wir verlieren pro Tag etwa 0,5–1 g abgestorbene Hautzellen – im Jahr rund 200 g.",
+    "sourceName": "de.wikipedia.org – Epidermis (Wirbeltiere)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Epidermis_(Wirbeltiere)",
+    "verifyNote": "Gängiger Lehrbuchwert 28 Tage (Dermatologie); auf de.wikipedia nicht explizit belegt — Wert aus Fachbüchern"
+  },
+  {
+    "id": "sauerstoffverbrauch_ruhe",
+    "name": "Sauerstoffverbrauch in Ruhe",
+    "category": "body_fact",
+    "attributes": {
+      "value": 250,
+      "unit": "ml/min",
+      "definition": "Sauerstoffaufnahme eines gesunden Erwachsenen in körperlicher Ruhe"
+    },
+    "funFact": "Bei schwerer körperlicher Arbeit kann der Sauerstoffverbrauch auf über 3000 ml/min ansteigen.",
+    "sourceName": "de.wikipedia.org – Lungenventilation",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Lungenventilation",
+    "verifyNote": "Standardwert Spiroergometrie; de.wikipedia Lungenventilation bestätigt Größenordnung"
+  },
+  {
+    "id": "atemzugvolumen",
+    "name": "Atemzugvolumen",
+    "category": "body_fact",
+    "attributes": {
+      "value": 500,
+      "unit": "ml",
+      "definition": "Luftmenge, die bei normaler Atmung pro Atemzug ein- und ausgeatmet wird"
+    },
+    "funFact": "Von einem Atemzug von 500 ml werden nur etwa 350 ml effektiv in die Lunge umgesetzt.",
+    "sourceName": "de.wikipedia.org – Atemzugvolumen",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Atemzugvolumen",
+    "verifyNote": "Standardwert 500 ml, Bereich 400–600 ml."
+  },
+  {
+    "id": "herzminutenvolumen",
+    "name": "Herzminutenvolumen",
+    "category": "body_fact",
+    "attributes": {
+      "value": 5,
+      "unit": "l/min",
+      "definition": "Blutvolumen, das das Herz pro Minute in den Kreislauf pumpt"
+    },
+    "funFact": "Bei sportlicher Belastung kann das Herzminutenvolumen auf 20–25 Liter pro Minute ansteigen.",
+    "sourceName": "de.wikipedia.org – Herzzeitvolumen",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Herzzeitvolumen",
+    "verifyNote": "Ruhewert ca. 5 l/min."
+  },
+  {
+    "id": "koerperoberflaeche",
+    "name": "Körperoberfläche",
+    "category": "body_fact",
+    "attributes": {
+      "value": 1.8,
+      "unit": "m²",
+      "definition": "Gesamtoberfläche der Haut eines erwachsenen Menschen"
+    },
+    "funFact": "Die Körperoberfläche wird nach der Dubois-Formel aus Größe und Gewicht berechnet und ist wichtig für die Medikamentendosierung.",
+    "sourceName": "de.wikipedia.org – Körperoberfläche",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Körperoberfläche",
+    "verifyNote": "Durchschnittswert für einen Erwachsenen."
+  },
+  {
+    "id": "lymphknoten_anzahl",
+    "name": "Anzahl Lymphknoten",
+    "category": "body_fact",
+    "attributes": {
+      "value": 600,
+      "unit": "Stück",
+      "definition": "Anzahl der Lymphknoten im menschlichen Körper"
+    },
+    "funFact": "Die meisten Lymphknoten liegen unauffällig im Bauchraum, Hals und in den Leisten.",
+    "sourceName": "de.wikipedia.org – Lymphknoten",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Lymphknoten",
+    "verifyNote": "Gängige Angabe 500–700 Lymphknoten."
+  },
+  {
+    "id": "papillen_zunge",
+    "name": "Geschmackspapillen auf der Zunge",
+    "category": "body_fact",
+    "attributes": {
+      "value": 2000,
+      "unit": "Stück",
+      "definition": "Anzahl der sichtbaren Geschmackspapillen auf der Zungenoberfläche"
+    },
+    "funFact": "Jede Papille trägt zwischen 50 und 150 Geschmacksknospen, in denen sich die eigentlichen Sinneszellen befinden.",
+    "sourceName": "de.wikipedia.org – Geschmacksknospe",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Geschmacksknospe",
+    "verifyNote": "Bereich 2000–8000 Papillen."
+  },
+  {
+    "id": "augapfel_durchmesser",
+    "name": "Augapfeldurchmesser",
+    "category": "body_fact",
+    "attributes": {
+      "value": 23,
+      "unit": "mm",
+      "definition": "Mittlerer Durchmesser des menschlichen Augapfels"
+    },
+    "funFact": "Der Augapfel hat bei Neugeborenen etwa 16 mm Durchmesser und erreicht mit 13 Jahren seine endgültige Größe.",
+    "sourceName": "de.wikipedia.org – Augapfel",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Augapfel",
+    "verifyNote": "Wikipedia Augapfel: Erwachsener Ø ca. 23 mm (Bereich 22-24 mm)"
+  },
+  {
+    "id": "rueckenmark",
+    "name": "Rückenmark (Medulla spinalis)",
+    "category": "organ",
+    "attributes": {
+      "system": "Nervensystem",
+      "approxWeightGrams": 30,
+      "function": "Leitet Nervenimpulse zwischen Gehirn und peripherem Nervensystem und steuert einfache Reflexe.",
+      "location": "Wirbelkanal"
+    },
+    "funFact": "Das Rückenmark endet beim Erwachsenen bereits auf Höhe des ersten oder zweiten Lendenwirbels – die unteren Spinalnerven verlaufen als Pferdeschweif (Cauda equina) weiter nach unten.",
+    "sourceName": "de.wikipedia.org – Rückenmark",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Rückenmark",
+    "verifyNote": "Q132422"
+  },
+  {
+    "id": "bauchfell",
+    "name": "Bauchfell (Peritoneum)",
+    "category": "organ",
+    "attributes": {
+      "system": "Verdauungssystem",
+      "function": "Überzieht die Bauchorgane und die Innenwand der Bauchhöhle als seröse Haut, bildet die Bauchhöhle und ermöglicht reibungsarme Organbewegungen.",
+      "location": "Bauchhöhle"
+    },
+    "funFact": "Die Gesamtoberfläche des Bauchfells beträgt beim Erwachsenen etwa 1,5 bis 2 Quadratmeter – fast so groß wie die Hautoberfläche.",
+    "sourceName": "de.wikipedia.org – Peritoneum",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Peritoneum",
+    "verifyNote": "Q1373365"
+  },
+  {
+    "id": "omentum_majus",
+    "name": "Großes Netz (Omentum majus)",
+    "category": "organ",
+    "attributes": {
+      "system": "Verdauungssystem",
+      "function": "Eine fett- und gefäßreiche Bauchfellduplikatur, die als „Fettschürze“ über den Dünndarmschlingen liegt und an Immunabwehr sowie Wundheilung beteiligt ist.",
+      "location": "Bauchhöhle"
+    },
+    "funFact": "Das große Netz wird manchmal „Polizist des Bauchraums“ genannt, weil es Entzündungsherde abdeckeln und eingrenzen kann.",
+    "sourceName": "de.wikipedia.org – Omentum majus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Omentum_majus",
+    "verifyNote": "Q1076747"
+  },
+  {
+    "id": "mamma",
+    "name": "Brustdrüse (Mamma)",
+    "category": "organ",
+    "attributes": {
+      "system": "Haut und Anhangsgebilde",
+      "function": "Milchproduzierende Drüse, die nach einer Schwangerschaft die Säuglingsernährung ermöglicht.",
+      "location": "Brustkorb (vordere Thoraxwand)"
+    },
+    "funFact": "Die Brustdrüse ist eine modifizierte Schweißdrüse und entwickelt sich erst während der Pubertät unter dem Einfluss von Hormonen voll aus.",
+    "sourceName": "de.wikipedia.org – Brustdrüse",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Brustdrüse",
+    "verifyNote": "Q172134"
+  },
+  {
+    "id": "glandula_lacrimalis",
+    "name": "Tränendrüse (Glandula lacrimalis)",
+    "category": "organ",
+    "attributes": {
+      "system": "Sinnesorgane",
+      "approxWeightGrams": 2,
+      "function": "Produziert die Tränenflüssigkeit, die Hornhaut und Bindehaut befeuchtet, ernährt und reinigt.",
+      "location": "Augenhöhle, oberer seitlicher Bereich"
+    },
+    "funFact": "Wir produzieren täglich etwa 0,5 bis 1 Milliliter Tränenflüssigkeit – beim Weinen können es in kurzer Zeit über 100 Milliliter werden.",
+    "sourceName": "de.wikipedia.org – Tränendrüse",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Tränendrüse",
+    "verifyNote": "Q1041488"
+  },
+  {
+    "id": "glandula_parotis",
+    "name": "Ohrspeicheldrüse (Glandula parotidea)",
+    "category": "organ",
+    "attributes": {
+      "system": "Verdauungssystem",
+      "approxWeightGrams": 30,
+      "function": "Größte Speicheldrüse; produziert einen serösen, enzymreichen Speichel, der die Verdauung von Kohlenhydraten einleitet.",
+      "location": "Vor und unter dem Ohr, vor dem aufsteigenden Unterkieferast"
+    },
+    "funFact": "Die Ohrspeicheldrüse ist häufiger als andere Speicheldrüsen von Speichelsteinen und Entzündungen betroffen, vor allem weil ihr Speichel besonders zähflüssig sein kann.",
+    "sourceName": "de.wikipedia.org – Ohrspeicheldrüse",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Ohrspeicheldrüse",
+    "verifyNote": "Q866532"
+  },
+  {
+    "id": "cerebellum",
+    "name": "Kleinhirn (Cerebellum)",
+    "category": "organ",
+    "attributes": {
+      "system": "Nervensystem",
+      "approxWeightGrams": 150,
+      "function": "Koordiniert Bewegungen, steuert Gleichgewicht und Feinmotorik und ist am motorischen Lernen beteiligt.",
+      "location": "Hintere Schädelgrube, unterhalb des Großhirns"
+    },
+    "funFact": "Obwohl das Kleinhirn nur etwa 10 Prozent des Hirnvolumens ausmacht, enthält es rund 80 Prozent aller Neuronen des Gehirns.",
+    "sourceName": "de.wikipedia.org – Kleinhirn",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Kleinhirn",
+    "verifyNote": "Q130983"
+  },
+  {
+    "id": "truncus_cerebri",
+    "name": "Hirnstamm (Truncus encephali)",
+    "category": "organ",
+    "attributes": {
+      "system": "Nervensystem",
+      "function": "Verbindet Großhirn und Rückenmark, steuert lebenswichtige Funktionen wie Atmung, Herzschlag und Blutdruck.",
+      "location": "Schädelbasis"
+    },
+    "funFact": "Der Hirnstamm steuert viele Reflexe, die ohne bewusstes Nachdenken ablaufen – etwa den Schluck-, Husten- oder Lidschlussreflex.",
+    "sourceName": "de.wikipedia.org – Hirnstamm",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Hirnstamm",
+    "verifyNote": "Q1320154"
+  },
+  {
+    "id": "corpus_callosum",
+    "name": "Balken (Corpus callosum)",
+    "category": "organ",
+    "attributes": {
+      "system": "Nervensystem",
+      "function": "Größte Nervenbahnverbindung beider Großhirnhälften, die den Informationsaustausch zwischen linker und rechter Hemisphäre ermöglicht.",
+      "location": "Mittellinie des Großhirns"
+    },
+    "funFact": "Der Balken besteht aus etwa 200 bis 250 Millionen Nervenfasern und ist die breiteste Kommissurenbahn des Gehirns.",
+    "sourceName": "de.wikipedia.org – Balken (Gehirn)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Balken_(Gehirn)",
+    "verifyNote": "Q212664"
+  },
+  {
+    "id": "hippocampus",
+    "name": "Hippocampus",
+    "category": "organ",
+    "attributes": {
+      "system": "Nervensystem",
+      "function": "Spielt eine zentrale Rolle bei der Überführung von Kurzzeit- in Langzeitgedächtnis sowie bei der räumlichen Orientierung.",
+      "location": "Im Schläfenlappen, Teil des limbischen Systems"
+    },
+    "funFact": "Der Name kommt vom griechischen Wort für „Seepferdchen“, da seine gebogene Form im Querschnitt an das Tier erinnert.",
+    "sourceName": "de.wikipedia.org – Hippocampus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Hippocampus",
+    "verifyNote": "Q107604"
+  },
+  {
+    "id": "tonsilla_pharyngea",
+    "name": "Rachenmandel (Tonsilla pharyngea)",
+    "category": "organ",
+    "attributes": {
+      "system": "Lymphsystem",
+      "function": "Als Teil des lymphatischen Rachenrings trägt sie zur Abwehr von Krankheitserregern im Nasen-Rachen-Raum bei.",
+      "location": "Dach des Nasenrachens"
+    },
+    "funFact": "Die Rachenmandel ist nur bei Kindern stark ausgeprägt und bildet sich ab der Pubertät meist vollständig zurück.",
+    "sourceName": "de.wikipedia.org – Rachenmandel",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Rachenmandel",
+    "verifyNote": "Q1493124"
+  },
+  {
+    "id": "retina",
+    "name": "Netzhaut (Retina)",
+    "category": "organ",
+    "attributes": {
+      "system": "Sinnesorgane",
+      "function": "Wandelt einfallendes Licht in elektrische Nervensignale um, die über den Sehnerv an das Gehirn weitergeleitet werden.",
+      "location": "Innenauskleidung des Augapfels"
+    },
+    "funFact": "An der Stelle des schärfsten Sehens, dem gelben Fleck (Macula lutea), liegen die Photorezeptoren so dicht, dass dort die Sehschärfe am höchsten ist.",
+    "sourceName": "de.wikipedia.org – Netzhaut",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Netzhaut",
+    "verifyNote": "Q11939"
+  },
+  {
+    "id": "phalanx_proximalis_pedis",
+    "name": "Grundglied des Zehs (Phalanx proximalis pedis)",
+    "category": "bone",
+    "attributes": {
+      "region": "Fuß",
+      "latinName": "Phalanx proximalis pedis",
+      "notableFor": "Erstes Glied eines Zehs, artikuliert mit dem jeweiligen Mittelfußknochen."
+    },
+    "funFact": "Die Grundglieder der Zehen sind kürzer und dicker als die der Finger und tragen einen Großteil des Abrollgewichts beim Gehen.",
+    "sourceName": "de.wikipedia.org – Phalanx proximalis pedis",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Fußknochen",
+    "verifyNote": "Q11992"
+  },
+  {
+    "id": "phalanx_media_pedis",
+    "name": "Mittelglied des Zehs (Phalanx media pedis)",
+    "category": "bone",
+    "attributes": {
+      "region": "Fuß",
+      "latinName": "Phalanx media pedis",
+      "notableFor": "Mittleres Zehenglied, das nur am zweiten bis fünften Zeh vorkommt – der Großzeh besitzt kein Mittelglied."
+    },
+    "funFact": "Beim Menschen sind die Mittelglieder der Zehen oft so stark reduziert, dass sie mit den Grund- und Endgelenken regelrecht verschmelzen können.",
+    "sourceName": "de.wikipedia.org – Phalanx media pedis",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Zehenknochen",
+    "verifyNote": "Q11992"
+  },
+  {
+    "id": "phalanx_distalis_pedis",
+    "name": "Endglied des Zehs (Phalanx distalis pedis)",
+    "category": "bone",
+    "attributes": {
+      "region": "Fuß",
+      "latinName": "Phalanx distalis pedis",
+      "notableFor": "Letztes Zehenglied, trägt den Nagel und dient als Widerlager beim Abstoßen."
+    },
+    "funFact": "An der Spitze der Endglieder sitzen die Tuberositas phalangis distalis, die Form und Wachstum des Zehennagels mitbestimmen.",
+    "sourceName": "de.wikipedia.org – Phalanx distalis pedis",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Zehenknochen",
+    "verifyNote": "Q11992"
+  },
+  {
+    "id": "zweiter_mittelfussknochen",
+    "name": "Zweiter Mittelfußknochen (Os metatarsale II)",
+    "category": "bone",
+    "attributes": {
+      "region": "Fuß",
+      "latinName": "Os metatarsale II",
+      "notableFor": "Längster Mittelfußknochen, häufigster Ort einer sogenannten Marschfraktur."
+    },
+    "funFact": "Der zweite Mittelfußknochen ist der längste der fünf Mittelfußknochen und an der Bildung des Fußlängsgewölbes maßgeblich beteiligt.",
+    "sourceName": "de.wikipedia.org – Os metatarsale II",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Mittelfußknochen",
+    "verifyNote": "Q1323928"
+  },
+  {
+    "id": "maxilla",
+    "name": "Oberkiefer (Maxilla)",
+    "category": "bone",
+    "attributes": {
+      "region": "Kopf",
+      "latinName": "Maxilla",
+      "notableFor": "Trägt die oberen Zähne und bildet den Großteil des harten Gaumens sowie den Boden der Augenhöhle."
+    },
+    "funFact": "Der Oberkiefer ist paarig angelegt, verschmilzt aber bereits vorgeburtlich in der Mittellinie zu einem einheitlichen Knochen.",
+    "sourceName": "de.wikipedia.org – Oberkiefer",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Oberkiefer",
+    "verifyNote": "Q46255"
+  },
+  {
+    "id": "os_parietale",
+    "name": "Scheitelbein (Os parietale)",
+    "category": "bone",
+    "attributes": {
+      "region": "Kopf",
+      "latinName": "Os parietale",
+      "notableFor": "Paariger Knochen des Schädeldachs, bildet einen Großteil der seitlichen und oberen Schädelkalotte."
+    },
+    "funFact": "Beim Neugeborenen sind die beiden Scheitelbeine noch durch die Pfeilnaht getrennt, die in der frühen Kindheit vollständig verknöchert.",
+    "sourceName": "de.wikipedia.org – Scheitelbein",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Scheitelbein",
+    "verifyNote": "Q168755"
+  },
+  {
+    "id": "musculus_extensor_hallucis_longus",
+    "name": "Langer Großzehenstrecker (Musculus extensor hallucis longus)",
+    "category": "muscle",
+    "attributes": {
+      "location": "Unterschenkel, Vorderseite",
+      "function": "Streckt die Großzehe im Grund- und Endgelenk und hebt zusätzlich den Fuß."
+    },
+    "notableFor": "Seine Sehne ist am Fußrücken leicht tastbar und dient Chirurgen als Orientierungspunkt.",
+    "sourceName": "de.wikipedia.org – Musculus extensor hallucis longus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Musculus_extensor_hallucis_longus",
+    "verifyNote": "Lage/Funktion (Unterschenkel-Vorderseite, Streckung der Großzehe + Fußhebung) gegen de.wikipedia geprueft."
+  },
+  {
+    "id": "adductor_longus",
+    "name": "Langer Adduktor (Musculus adductor longus)",
+    "category": "muscle",
+    "attributes": {
+      "location": "mediale Oberschenkelmuskulatur",
+      "function": "Adduktion im Hüftgelenk sowie Beugung und Innenrotation des Oberschenkels.",
+      "notableFor": "Er bildet den medialen Rand des Schenkelkanals und tritt häufig als „Sportlerleiste“ in Erscheinung."
+    },
+    "funFact": "Er entspringt am Schambein und ist der am leichtesten tastbare Adduktor, weshalb er als anatomischer Orientierungspunkt dient.",
+    "sourceName": "de.wikipedia.org – Musculus adductor longus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Musculus_adductor_longus",
+    "verifyNote": "Q289445"
+  },
+  {
+    "id": "iliopsoas",
+    "name": "Iliopsoas (Musculus iliopsoas)",
+    "category": "muscle",
+    "attributes": {
+      "location": "vom Lendenwirbelbereich und Becken zum Oberschenkel",
+      "function": "Beugung im Hüftgelenk; gleichzeitig wichtigster Hüftbeuger und aufrechter Gang.",
+      "notableFor": "Als „Hüftbeuger-Muskel“ verbindet er Wirbelsäule, Becken und Bein und neigt bei Verkürzung zu Hyperlordose."
+    },
+    "funFact": "Er setzt sich aus Musculus psoas major und Musculus iliacus zusammen und ist der einzige Muskel, der die Wirbelsäule mit dem Bein verbindet.",
+    "sourceName": "de.wikipedia.org – Musculus iliopsoas",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Musculus_iliopsoas",
+    "verifyNote": "Q1384138"
+  },
+  {
+    "id": "rectus_femoris",
+    "name": "Gerader Oberschenkelmuskel (Musculus rectus femoris)",
+    "category": "muscle",
+    "attributes": {
+      "location": "vordere Oberschenkelmuskulatur",
+      "function": "Streckung im Kniegelenk und Beugung im Hüftgelenk; Teil des Quadrizeps.",
+      "notableFor": "Er ist der einzige Quadrizepsanteil, der über zwei Gelenke zieht, und daher besonders anfällig für Muskelzerrungen."
+    },
+    "funFact": "Sein Ursprung an der Spina iliaca anterior inferior macht ihn bei Sprints und Kicks besonders belastet.",
+    "sourceName": "de.wikipedia.org – Musculus rectus femoris",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Musculus_rectus_femoris",
+    "verifyNote": "Q848399"
+  },
+  {
+    "id": "flexor_digitorum_superficialis",
+    "name": "Oberflächlicher Fingerbeuger (Musculus flexor digitorum superficialis)",
+    "category": "muscle",
+    "attributes": {
+      "location": "Unterarm, ventral",
+      "function": "Beugung der Mittel- und Grundgelenke der Finger II–V sowie Unterarmbeugung.",
+      "notableFor": "Er ist der einzige Beuger, der am Mittelglied ansetzt, und gilt als klassischer „Hexenzauberer“-Muskel der Unterarmloge."
+    },
+    "funFact": "Seine Sehnen sind am Karpaltunnel beteiligt und können dort mit dem Medianusnerv in Konflikt geraten.",
+    "sourceName": "de.wikipedia.org – Musculus flexor digitorum superficialis",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Musculus_flexor_digitorum_superficialis",
+    "verifyNote": "Q776544"
+  },
+  {
+    "id": "supinator",
+    "name": "Supinator (Musculus supinator)",
+    "category": "muscle",
+    "attributes": {
+      "location": "Ellenbogen, proximaler Unterarm dorsal",
+      "function": "Supination des Unterarms durch Drehung des Radius nach außen.",
+      "notableFor": "Er wird vom tiefen Ast des N. radialis durchbohrt, weshalb dieser als „Supinator-Schlitz“ bezeichnet wird."
+    },
+    "funFact": "Beim Rückwärtsfallen wird er reflexartig aktiv und schützt so die Handflächen vor Überdrehung.",
+    "sourceName": "de.wikipedia.org – Musculus supinator",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Musculus_supinator",
+    "verifyNote": "Q831329"
+  },
+  {
+    "id": "tibialis_posterior",
+    "name": "Hinterer Schienbeinmuskel (Musculus tibialis posterior)",
+    "category": "muscle",
+    "attributes": {
+      "location": "tiefe hintere Unterschenkelloge",
+      "function": "Plantarflexion und Supination des Fußes; stützt das Längsgewölbe.",
+      "notableFor": "Seine Sehne ist der häufigste Ort der „Schienbeinkantensyndrom“-Beschwerden und Sehnenscheidenentzündungen bei Läufern."
+    },
+    "funFact": "Als „Steigbügel des Fußes“ verspannt er das Fußgewölbe und gilt als zentraler Stabilisator des Sprunggelenks.",
+    "sourceName": "de.wikipedia.org – Musculus tibialis posterior",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Musculus_tibialis_posterior",
+    "verifyNote": "Q681396"
   }
 ]

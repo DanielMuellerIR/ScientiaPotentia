@@ -1060,6 +1060,126 @@
     "mapTargetId": null
   },
   {
+    "id": "q_homo_phalanx_proximalis_pedis_homo-bone-region",
+    "entityId": "homo:phalanx_proximalis_pedis",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt der Knochen mit dem lateinischen Namen „Phalanx proximalis pedis\"?",
+    "correctAnswer": "Fuß",
+    "options": [
+      "Fuß",
+      "Bein",
+      "Arm",
+      "Kopf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_phalanx_media_pedis_homo-bone-region",
+    "entityId": "homo:phalanx_media_pedis",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt der Knochen mit dem lateinischen Namen „Phalanx media pedis\"?",
+    "correctAnswer": "Fuß",
+    "options": [
+      "Fuß",
+      "Bein",
+      "Arm",
+      "Kopf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_phalanx_distalis_pedis_homo-bone-region",
+    "entityId": "homo:phalanx_distalis_pedis",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt der Knochen mit dem lateinischen Namen „Phalanx distalis pedis\"?",
+    "correctAnswer": "Fuß",
+    "options": [
+      "Fuß",
+      "Bein",
+      "Arm",
+      "Kopf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_zweiter_mittelfussknochen_homo-bone-region",
+    "entityId": "homo:zweiter_mittelfussknochen",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt der Knochen mit dem lateinischen Namen „Os metatarsale II\"?",
+    "correctAnswer": "Fuß",
+    "options": [
+      "Fuß",
+      "Bein",
+      "Arm",
+      "Kopf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_maxilla_homo-bone-region",
+    "entityId": "homo:maxilla",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt der Knochen mit dem lateinischen Namen „Maxilla\"?",
+    "correctAnswer": "Kopf",
+    "options": [
+      "Kopf",
+      "Bein",
+      "Arm",
+      "Rumpf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_parietale_homo-bone-region",
+    "entityId": "homo:os_parietale",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 1,
+    "prompt": "In welcher Körperregion liegt der Knochen „Scheitelbein (Os parietale)\"?",
+    "correctAnswer": "Kopf",
+    "options": [
+      "Kopf",
+      "Bein",
+      "Arm",
+      "Rumpf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_homo_femur_homo-bone-latin",
     "entityId": "homo:femur",
     "entityType": "bone",
@@ -2580,6 +2700,146 @@
     "mapTargetId": null
   },
   {
+    "id": "q_homo_musculus_extensor_hallucis_longus_homo-muscle-location",
+    "entityId": "homo:musculus_extensor_hallucis_longus",
+    "entityType": "muscle",
+    "type": "homo-muscle-location",
+    "difficulty": 3,
+    "prompt": "Wo liegt der Muskel mit dem anatomischen Fachbegriff „Musculus extensor hallucis longus\"?",
+    "correctAnswer": "Unterschenkel, Vorderseite",
+    "options": [
+      "Unterschenkel, Vorderseite",
+      "Gesäß / Hüfte",
+      "Kiefer / Wange",
+      "Mittelohr"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_adductor_longus_homo-muscle-location",
+    "entityId": "homo:adductor_longus",
+    "entityType": "muscle",
+    "type": "homo-muscle-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt der Muskel „Langer Adduktor (Musculus adductor longus)\"?",
+    "correctAnswer": "mediale Oberschenkelmuskulatur",
+    "options": [
+      "mediale Oberschenkelmuskulatur",
+      "Gesäß / Hüfte",
+      "Kiefer / Wange",
+      "Mittelohr"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_iliopsoas_homo-muscle-location",
+    "entityId": "homo:iliopsoas",
+    "entityType": "muscle",
+    "type": "homo-muscle-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt der Muskel „Iliopsoas (Musculus iliopsoas)\"?",
+    "correctAnswer": "vom Lendenwirbelbereich und Becken zum Oberschenkel",
+    "options": [
+      "vom Lendenwirbelbereich und Becken zum Oberschenkel",
+      "Gesäß / Hüfte",
+      "Kiefer / Wange",
+      "Mittelohr"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_rectus_femoris_homo-muscle-location",
+    "entityId": "homo:rectus_femoris",
+    "entityType": "muscle",
+    "type": "homo-muscle-location",
+    "difficulty": 3,
+    "prompt": "Wo liegt der Muskel mit dem anatomischen Fachbegriff „Musculus rectus femoris\"?",
+    "correctAnswer": "vordere Oberschenkelmuskulatur",
+    "options": [
+      "vordere Oberschenkelmuskulatur",
+      "Gesäß / Hüfte",
+      "Kiefer / Wange",
+      "Mittelohr"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_flexor_digitorum_superficialis_homo-muscle-location",
+    "entityId": "homo:flexor_digitorum_superficialis",
+    "entityType": "muscle",
+    "type": "homo-muscle-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt der Muskel „Oberflächlicher Fingerbeuger (Musculus flexor digitorum superficialis)\"?",
+    "correctAnswer": "Unterarm, ventral",
+    "options": [
+      "Unterarm, ventral",
+      "Gesäß / Hüfte",
+      "Kiefer / Wange",
+      "Mittelohr"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_supinator_homo-muscle-location",
+    "entityId": "homo:supinator",
+    "entityType": "muscle",
+    "type": "homo-muscle-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt der Muskel „Supinator (Musculus supinator)\"?",
+    "correctAnswer": "Ellenbogen, proximaler Unterarm dorsal",
+    "options": [
+      "Ellenbogen, proximaler Unterarm dorsal",
+      "Gesäß / Hüfte",
+      "Kiefer / Wange",
+      "Mittelohr"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_tibialis_posterior_homo-muscle-location",
+    "entityId": "homo:tibialis_posterior",
+    "entityType": "muscle",
+    "type": "homo-muscle-location",
+    "difficulty": 3,
+    "prompt": "Wo liegt der Muskel mit dem anatomischen Fachbegriff „Musculus tibialis posterior\"?",
+    "correctAnswer": "tiefe hintere Unterschenkelloge",
+    "options": [
+      "tiefe hintere Unterschenkelloge",
+      "Gesäß / Hüfte",
+      "Kiefer / Wange",
+      "Mittelohr"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_homo_leber_homo-organ-system",
     "entityId": "homo:leber",
     "entityType": "organ",
@@ -3240,6 +3500,246 @@
     "mapTargetId": null
   },
   {
+    "id": "q_homo_rueckenmark_homo-organ-system",
+    "entityId": "homo:rueckenmark",
+    "entityType": "organ",
+    "type": "homo-organ-system",
+    "difficulty": 2,
+    "prompt": "Zu welchem Organsystem gehört „Rückenmark (Medulla spinalis)\" hauptsächlich?",
+    "correctAnswer": "Nervensystem",
+    "options": [
+      "Nervensystem",
+      "Herz-Kreislauf",
+      "Verdauung",
+      "Atmung"
+    ],
+    "testedAttribute": "system",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_bauchfell_homo-organ-system",
+    "entityId": "homo:bauchfell",
+    "entityType": "organ",
+    "type": "homo-organ-system",
+    "difficulty": 2,
+    "prompt": "Zu welchem Organsystem gehört „Bauchfell (Peritoneum)\" hauptsächlich?",
+    "correctAnswer": "Verdauungssystem",
+    "options": [
+      "Verdauungssystem",
+      "Herz-Kreislauf",
+      "Verdauung",
+      "Atmung"
+    ],
+    "testedAttribute": "system",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_omentum_majus_homo-organ-system",
+    "entityId": "homo:omentum_majus",
+    "entityType": "organ",
+    "type": "homo-organ-system",
+    "difficulty": 2,
+    "prompt": "Zu welchem Organsystem gehört „Großes Netz (Omentum majus)\" hauptsächlich?",
+    "correctAnswer": "Verdauungssystem",
+    "options": [
+      "Verdauungssystem",
+      "Herz-Kreislauf",
+      "Verdauung",
+      "Atmung"
+    ],
+    "testedAttribute": "system",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_mamma_homo-organ-system",
+    "entityId": "homo:mamma",
+    "entityType": "organ",
+    "type": "homo-organ-system",
+    "difficulty": 2,
+    "prompt": "Zu welchem Organsystem gehört „Brustdrüse (Mamma)\" hauptsächlich?",
+    "correctAnswer": "Haut und Anhangsgebilde",
+    "options": [
+      "Haut und Anhangsgebilde",
+      "Herz-Kreislauf",
+      "Verdauung",
+      "Atmung"
+    ],
+    "testedAttribute": "system",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_glandula_lacrimalis_homo-organ-system",
+    "entityId": "homo:glandula_lacrimalis",
+    "entityType": "organ",
+    "type": "homo-organ-system",
+    "difficulty": 2,
+    "prompt": "Zu welchem Organsystem gehört „Tränendrüse (Glandula lacrimalis)\" hauptsächlich?",
+    "correctAnswer": "Sinnesorgane",
+    "options": [
+      "Sinnesorgane",
+      "Herz-Kreislauf",
+      "Verdauung",
+      "Atmung"
+    ],
+    "testedAttribute": "system",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_glandula_parotis_homo-organ-system",
+    "entityId": "homo:glandula_parotis",
+    "entityType": "organ",
+    "type": "homo-organ-system",
+    "difficulty": 2,
+    "prompt": "Zu welchem Organsystem gehört „Ohrspeicheldrüse (Glandula parotidea)\" hauptsächlich?",
+    "correctAnswer": "Verdauungssystem",
+    "options": [
+      "Verdauungssystem",
+      "Herz-Kreislauf",
+      "Verdauung",
+      "Atmung"
+    ],
+    "testedAttribute": "system",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_cerebellum_homo-organ-system",
+    "entityId": "homo:cerebellum",
+    "entityType": "organ",
+    "type": "homo-organ-system",
+    "difficulty": 2,
+    "prompt": "Zu welchem Organsystem gehört „Kleinhirn (Cerebellum)\" hauptsächlich?",
+    "correctAnswer": "Nervensystem",
+    "options": [
+      "Nervensystem",
+      "Herz-Kreislauf",
+      "Verdauung",
+      "Atmung"
+    ],
+    "testedAttribute": "system",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_truncus_cerebri_homo-organ-system",
+    "entityId": "homo:truncus_cerebri",
+    "entityType": "organ",
+    "type": "homo-organ-system",
+    "difficulty": 2,
+    "prompt": "Zu welchem Organsystem gehört „Hirnstamm (Truncus encephali)\" hauptsächlich?",
+    "correctAnswer": "Nervensystem",
+    "options": [
+      "Nervensystem",
+      "Herz-Kreislauf",
+      "Verdauung",
+      "Atmung"
+    ],
+    "testedAttribute": "system",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_corpus_callosum_homo-organ-system",
+    "entityId": "homo:corpus_callosum",
+    "entityType": "organ",
+    "type": "homo-organ-system",
+    "difficulty": 2,
+    "prompt": "Zu welchem Organsystem gehört „Balken (Corpus callosum)\" hauptsächlich?",
+    "correctAnswer": "Nervensystem",
+    "options": [
+      "Nervensystem",
+      "Herz-Kreislauf",
+      "Verdauung",
+      "Atmung"
+    ],
+    "testedAttribute": "system",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_hippocampus_homo-organ-system",
+    "entityId": "homo:hippocampus",
+    "entityType": "organ",
+    "type": "homo-organ-system",
+    "difficulty": 2,
+    "prompt": "Zu welchem Organsystem gehört „Hippocampus\" hauptsächlich?",
+    "correctAnswer": "Nervensystem",
+    "options": [
+      "Nervensystem",
+      "Herz-Kreislauf",
+      "Verdauung",
+      "Atmung"
+    ],
+    "testedAttribute": "system",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_tonsilla_pharyngea_homo-organ-system",
+    "entityId": "homo:tonsilla_pharyngea",
+    "entityType": "organ",
+    "type": "homo-organ-system",
+    "difficulty": 2,
+    "prompt": "Zu welchem Organsystem gehört „Rachenmandel (Tonsilla pharyngea)\" hauptsächlich?",
+    "correctAnswer": "Lymphsystem",
+    "options": [
+      "Lymphsystem",
+      "Herz-Kreislauf",
+      "Verdauung",
+      "Atmung"
+    ],
+    "testedAttribute": "system",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_retina_homo-organ-system",
+    "entityId": "homo:retina",
+    "entityType": "organ",
+    "type": "homo-organ-system",
+    "difficulty": 2,
+    "prompt": "Zu welchem Organsystem gehört „Netzhaut (Retina)\" hauptsächlich?",
+    "correctAnswer": "Sinnesorgane",
+    "options": [
+      "Sinnesorgane",
+      "Herz-Kreislauf",
+      "Verdauung",
+      "Atmung"
+    ],
+    "testedAttribute": "system",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_homo_herz_homo-organ-weight",
     "entityId": "homo:herz",
     "entityType": "organ",
@@ -3860,6 +4360,86 @@
     "mapTargetId": null
   },
   {
+    "id": "q_homo_rueckenmark_homo-organ-weight",
+    "entityId": "homo:rueckenmark",
+    "entityType": "organ",
+    "type": "homo-organ-weight",
+    "difficulty": 3,
+    "prompt": "Welches ungefähre Gewicht hat „Rückenmark (Medulla spinalis)\" beim Erwachsenen?",
+    "correctAnswer": "30 g",
+    "options": [
+      "30 g",
+      "300 g",
+      "1.500 g",
+      "1.000 g"
+    ],
+    "testedAttribute": "approxWeightGrams",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_glandula_lacrimalis_homo-organ-weight",
+    "entityId": "homo:glandula_lacrimalis",
+    "entityType": "organ",
+    "type": "homo-organ-weight",
+    "difficulty": 3,
+    "prompt": "Welches ungefähre Gewicht hat „Tränendrüse (Glandula lacrimalis)\" beim Erwachsenen?",
+    "correctAnswer": "2 g",
+    "options": [
+      "2 g",
+      "300 g",
+      "1.500 g",
+      "1.000 g"
+    ],
+    "testedAttribute": "approxWeightGrams",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_glandula_parotis_homo-organ-weight",
+    "entityId": "homo:glandula_parotis",
+    "entityType": "organ",
+    "type": "homo-organ-weight",
+    "difficulty": 3,
+    "prompt": "Welches ungefähre Gewicht hat „Ohrspeicheldrüse (Glandula parotidea)\" beim Erwachsenen?",
+    "correctAnswer": "30 g",
+    "options": [
+      "30 g",
+      "300 g",
+      "1.500 g",
+      "1.000 g"
+    ],
+    "testedAttribute": "approxWeightGrams",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_cerebellum_homo-organ-weight",
+    "entityId": "homo:cerebellum",
+    "entityType": "organ",
+    "type": "homo-organ-weight",
+    "difficulty": 3,
+    "prompt": "Welches ungefähre Gewicht hat „Kleinhirn (Cerebellum)\" beim Erwachsenen?",
+    "correctAnswer": "150 g",
+    "options": [
+      "150 g",
+      "300 g",
+      "1.500 g",
+      "1.000 g"
+    ],
+    "testedAttribute": "approxWeightGrams",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_homo_knochen_erwachsener_homo-bodyfact-value",
     "entityId": "homo:knochen_erwachsener",
     "entityType": "body_fact",
@@ -4451,6 +5031,346 @@
       "ca. 63 Sehzellen",
       "ca. 88 Sehzellen",
       "ca. 110 Sehzellen"
+    ],
+    "testedAttribute": "value",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_magen_volumen_homo-bodyfact-value",
+    "entityId": "homo:magen_volumen",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-value",
+    "difficulty": 2,
+    "prompt": "Welche Angabe gehört zu: „Magenvolumen\"?",
+    "correctAnswer": "1.500 ml",
+    "options": [
+      "1.500 ml",
+      "750 ml",
+      "1.100 ml",
+      "1.300 ml"
+    ],
+    "testedAttribute": "value",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_speichel_produktion_tag_homo-bodyfact-value",
+    "entityId": "homo:speichel_produktion_tag",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-value",
+    "difficulty": 2,
+    "prompt": "Welche Angabe gehört zu: „Speichelproduktion pro Tag\"?",
+    "correctAnswer": "500-1500 ml/Tag",
+    "options": [
+      "500-1500 ml/Tag",
+      "0-1000 ml/Tag",
+      "1505-2505 ml/Tag",
+      "2510-3510 ml/Tag"
+    ],
+    "testedAttribute": "value",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_lungenoberflaeche_homo-bodyfact-value",
+    "entityId": "homo:lungenoberflaeche",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-value",
+    "difficulty": 2,
+    "prompt": "Welche Angabe gehört zu: „Gasaustauschoberfläche der Lunge\"?",
+    "correctAnswer": "100 m²",
+    "options": [
+      "100 m²",
+      "50 m²",
+      "70 m²",
+      "85 m²"
+    ],
+    "testedAttribute": "value",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_riechzellen_anzahl_homo-bodyfact-value",
+    "entityId": "homo:riechzellen_anzahl",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-value",
+    "difficulty": 2,
+    "prompt": "Welche Angabe gehört zu: „Anzahl Riechzellen\"?",
+    "correctAnswer": "30.000.000 Stück",
+    "options": [
+      "30.000.000 Stück",
+      "15.000.000 Stück",
+      "21.000.000 Stück",
+      "26.000.000 Stück"
+    ],
+    "testedAttribute": "value",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_reaktionszeit_akustisch_homo-bodyfact-value",
+    "entityId": "homo:reaktionszeit_akustisch",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-value",
+    "difficulty": 2,
+    "prompt": "Welche Angabe gehört zu: „Reaktionszeit auf akustischen Reiz\"?",
+    "correctAnswer": "150 ms",
+    "options": [
+      "150 ms",
+      "75 ms",
+      "110 ms",
+      "130 ms"
+    ],
+    "testedAttribute": "value",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_synapsen_gehirn_homo-bodyfact-value",
+    "entityId": "homo:synapsen_gehirn",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-value",
+    "difficulty": 2,
+    "prompt": "Welche Angabe gehört zu: „Anzahl Synapsen im Gehirn\"?",
+    "correctAnswer": "100.000.000.000.000 Stück",
+    "options": [
+      "100.000.000.000.000 Stück",
+      "50.000.000.000.000 Stück",
+      "70.000.000.000.000 Stück",
+      "85.000.000.000.000 Stück"
+    ],
+    "testedAttribute": "value",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_lebensdauer_erythrozyten_homo-bodyfact-value",
+    "entityId": "homo:lebensdauer_erythrozyten",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-value",
+    "difficulty": 2,
+    "prompt": "Welche Angabe gehört zu: „Lebensdauer roter Blutkörperchen\"?",
+    "correctAnswer": "120 Tage",
+    "options": [
+      "120 Tage",
+      "60 Tage",
+      "84 Tage",
+      "100 Tage"
+    ],
+    "testedAttribute": "value",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_lebensdauer_leukozyten_homo-bodyfact-value",
+    "entityId": "homo:lebensdauer_leukozyten",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-value",
+    "difficulty": 2,
+    "prompt": "Welche Angabe gehört zu: „Lebensdauer weißer Blutkörperchen\"?",
+    "correctAnswer": "5-21 Tage",
+    "options": [
+      "5-21 Tage",
+      "0-16 Tage",
+      "26-42 Tage",
+      "47-63 Tage"
+    ],
+    "testedAttribute": "value",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_erythrozyten_pro_tag_homo-bodyfact-value",
+    "entityId": "homo:erythrozyten_pro_tag",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-value",
+    "difficulty": 2,
+    "prompt": "Welche Angabe gehört zu: „Erythrozyten-Neubildung pro Tag\"?",
+    "correctAnswer": "200.000.000.000 Stück/Tag",
+    "options": [
+      "200.000.000.000 Stück/Tag",
+      "100.000.000.000 Stück/Tag",
+      "140.000.000.000 Stück/Tag",
+      "170.000.000.000 Stück/Tag"
+    ],
+    "testedAttribute": "value",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_hauterneuerung_homo-bodyfact-value",
+    "entityId": "homo:hauterneuerung",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-value",
+    "difficulty": 2,
+    "prompt": "Welche Angabe gehört zu: „Hautzellen-Erneuerung\"?",
+    "correctAnswer": "28 Tage",
+    "options": [
+      "28 Tage",
+      "14 Tage",
+      "20 Tage",
+      "24 Tage"
+    ],
+    "testedAttribute": "value",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_sauerstoffverbrauch_ruhe_homo-bodyfact-value",
+    "entityId": "homo:sauerstoffverbrauch_ruhe",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-value",
+    "difficulty": 2,
+    "prompt": "Welche Angabe gehört zu: „Sauerstoffverbrauch in Ruhe\"?",
+    "correctAnswer": "250 ml/min",
+    "options": [
+      "250 ml/min",
+      "130 ml/min",
+      "180 ml/min",
+      "210 ml/min"
+    ],
+    "testedAttribute": "value",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_atemzugvolumen_homo-bodyfact-value",
+    "entityId": "homo:atemzugvolumen",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-value",
+    "difficulty": 2,
+    "prompt": "Welche Angabe gehört zu: „Atemzugvolumen\"?",
+    "correctAnswer": "500 ml",
+    "options": [
+      "500 ml",
+      "250 ml",
+      "350 ml",
+      "430 ml"
+    ],
+    "testedAttribute": "value",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_herzminutenvolumen_homo-bodyfact-value",
+    "entityId": "homo:herzminutenvolumen",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-value",
+    "difficulty": 2,
+    "prompt": "Welche Angabe gehört zu: „Herzminutenvolumen\"?",
+    "correctAnswer": "5 l/min",
+    "options": [
+      "5 l/min",
+      "3 l/min",
+      "4 l/min",
+      "6 l/min"
+    ],
+    "testedAttribute": "value",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_koerperoberflaeche_homo-bodyfact-value",
+    "entityId": "homo:koerperoberflaeche",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-value",
+    "difficulty": 2,
+    "prompt": "Welche Angabe gehört zu: „Körperoberfläche\"?",
+    "correctAnswer": "1.8 m²",
+    "options": [
+      "1.8 m²",
+      "1 m²",
+      "3 m²",
+      "4 m²"
+    ],
+    "testedAttribute": "value",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_lymphknoten_anzahl_homo-bodyfact-value",
+    "entityId": "homo:lymphknoten_anzahl",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-value",
+    "difficulty": 2,
+    "prompt": "Welche Angabe gehört zu: „Anzahl Lymphknoten\"?",
+    "correctAnswer": "600 Stück",
+    "options": [
+      "600 Stück",
+      "300 Stück",
+      "420 Stück",
+      "510 Stück"
+    ],
+    "testedAttribute": "value",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_papillen_zunge_homo-bodyfact-value",
+    "entityId": "homo:papillen_zunge",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-value",
+    "difficulty": 2,
+    "prompt": "Welche Angabe gehört zu: „Geschmackspapillen auf der Zunge\"?",
+    "correctAnswer": "2.000 Stück",
+    "options": [
+      "2.000 Stück",
+      "1.000 Stück",
+      "1.400 Stück",
+      "1.700 Stück"
+    ],
+    "testedAttribute": "value",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_augapfel_durchmesser_homo-bodyfact-value",
+    "entityId": "homo:augapfel_durchmesser",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-value",
+    "difficulty": 2,
+    "prompt": "Welche Angabe gehört zu: „Augapfeldurchmesser\"?",
+    "correctAnswer": "23 mm",
+    "options": [
+      "23 mm",
+      "12 mm",
+      "16 mm",
+      "20 mm"
     ],
     "testedAttribute": "value",
     "answerIsName": false,
@@ -5919,6 +6839,346 @@
     "mapTargetId": null
   },
   {
+    "id": "q_homo_magen_volumen_homo-bodyfact-name",
+    "entityId": "homo:magen_volumen",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-name",
+    "difficulty": 3,
+    "prompt": "Welche Körperangabe beträgt ungefähr 1500 ml?",
+    "correctAnswer": "Magenvolumen",
+    "options": [
+      "Magenvolumen",
+      "Anzahl Knochen beim Erwachsenen",
+      "Anzahl Knochen beim Neugeborenen",
+      "Anzahl Zähne beim Erwachsenen"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_speichel_produktion_tag_homo-bodyfact-name",
+    "entityId": "homo:speichel_produktion_tag",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-name",
+    "difficulty": 3,
+    "prompt": "Welche Körperangabe beträgt ungefähr 500-1500 ml/Tag?",
+    "correctAnswer": "Speichelproduktion pro Tag",
+    "options": [
+      "Speichelproduktion pro Tag",
+      "Anzahl Knochen beim Erwachsenen",
+      "Anzahl Knochen beim Neugeborenen",
+      "Anzahl Zähne beim Erwachsenen"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_lungenoberflaeche_homo-bodyfact-name",
+    "entityId": "homo:lungenoberflaeche",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-name",
+    "difficulty": 3,
+    "prompt": "Welche Körperangabe beträgt ungefähr 100 m²?",
+    "correctAnswer": "Gasaustauschoberfläche der Lunge",
+    "options": [
+      "Gasaustauschoberfläche der Lunge",
+      "Anzahl Knochen beim Erwachsenen",
+      "Anzahl Knochen beim Neugeborenen",
+      "Anzahl Zähne beim Erwachsenen"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_riechzellen_anzahl_homo-bodyfact-name",
+    "entityId": "homo:riechzellen_anzahl",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-name",
+    "difficulty": 3,
+    "prompt": "Welche Körperangabe beträgt ungefähr 30000000 Stück?",
+    "correctAnswer": "Anzahl Riechzellen",
+    "options": [
+      "Anzahl Riechzellen",
+      "Anzahl Knochen beim Erwachsenen",
+      "Anzahl Knochen beim Neugeborenen",
+      "Anzahl Zähne beim Erwachsenen"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_reaktionszeit_akustisch_homo-bodyfact-name",
+    "entityId": "homo:reaktionszeit_akustisch",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-name",
+    "difficulty": 3,
+    "prompt": "Welche Körperangabe beträgt ungefähr 150 ms?",
+    "correctAnswer": "Reaktionszeit auf akustischen Reiz",
+    "options": [
+      "Reaktionszeit auf akustischen Reiz",
+      "Anzahl Knochen beim Erwachsenen",
+      "Anzahl Knochen beim Neugeborenen",
+      "Anzahl Zähne beim Erwachsenen"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_synapsen_gehirn_homo-bodyfact-name",
+    "entityId": "homo:synapsen_gehirn",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-name",
+    "difficulty": 3,
+    "prompt": "Welche Körperangabe beträgt ungefähr 100000000000000 Stück?",
+    "correctAnswer": "Anzahl Synapsen im Gehirn",
+    "options": [
+      "Anzahl Synapsen im Gehirn",
+      "Anzahl Knochen beim Erwachsenen",
+      "Anzahl Knochen beim Neugeborenen",
+      "Anzahl Zähne beim Erwachsenen"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_lebensdauer_erythrozyten_homo-bodyfact-name",
+    "entityId": "homo:lebensdauer_erythrozyten",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-name",
+    "difficulty": 3,
+    "prompt": "Welche Körperangabe beträgt ungefähr 120 Tage?",
+    "correctAnswer": "Lebensdauer roter Blutkörperchen",
+    "options": [
+      "Lebensdauer roter Blutkörperchen",
+      "Anzahl Knochen beim Erwachsenen",
+      "Anzahl Knochen beim Neugeborenen",
+      "Anzahl Zähne beim Erwachsenen"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_lebensdauer_leukozyten_homo-bodyfact-name",
+    "entityId": "homo:lebensdauer_leukozyten",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-name",
+    "difficulty": 3,
+    "prompt": "Welche Körperangabe beträgt ungefähr 5-21 Tage?",
+    "correctAnswer": "Lebensdauer weißer Blutkörperchen",
+    "options": [
+      "Lebensdauer weißer Blutkörperchen",
+      "Anzahl Knochen beim Erwachsenen",
+      "Anzahl Knochen beim Neugeborenen",
+      "Anzahl Zähne beim Erwachsenen"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_erythrozyten_pro_tag_homo-bodyfact-name",
+    "entityId": "homo:erythrozyten_pro_tag",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-name",
+    "difficulty": 3,
+    "prompt": "Welche Körperangabe beträgt ungefähr 200000000000 Stück/Tag?",
+    "correctAnswer": "Erythrozyten-Neubildung pro Tag",
+    "options": [
+      "Erythrozyten-Neubildung pro Tag",
+      "Anzahl Knochen beim Erwachsenen",
+      "Anzahl Knochen beim Neugeborenen",
+      "Anzahl Zähne beim Erwachsenen"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_hauterneuerung_homo-bodyfact-name",
+    "entityId": "homo:hauterneuerung",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-name",
+    "difficulty": 3,
+    "prompt": "Welche Körperangabe beträgt ungefähr 28 Tage?",
+    "correctAnswer": "Hautzellen-Erneuerung",
+    "options": [
+      "Hautzellen-Erneuerung",
+      "Anzahl Knochen beim Erwachsenen",
+      "Anzahl Knochen beim Neugeborenen",
+      "Anzahl Zähne beim Erwachsenen"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_sauerstoffverbrauch_ruhe_homo-bodyfact-name",
+    "entityId": "homo:sauerstoffverbrauch_ruhe",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-name",
+    "difficulty": 3,
+    "prompt": "Welche Körperangabe beträgt ungefähr 250 ml/min?",
+    "correctAnswer": "Sauerstoffverbrauch in Ruhe",
+    "options": [
+      "Sauerstoffverbrauch in Ruhe",
+      "Anzahl Knochen beim Erwachsenen",
+      "Anzahl Knochen beim Neugeborenen",
+      "Anzahl Zähne beim Erwachsenen"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_atemzugvolumen_homo-bodyfact-name",
+    "entityId": "homo:atemzugvolumen",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-name",
+    "difficulty": 3,
+    "prompt": "Welche Körperangabe beträgt ungefähr 500 ml?",
+    "correctAnswer": "Atemzugvolumen",
+    "options": [
+      "Atemzugvolumen",
+      "Anzahl Knochen beim Erwachsenen",
+      "Anzahl Knochen beim Neugeborenen",
+      "Anzahl Zähne beim Erwachsenen"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_herzminutenvolumen_homo-bodyfact-name",
+    "entityId": "homo:herzminutenvolumen",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-name",
+    "difficulty": 3,
+    "prompt": "Welche Körperangabe beträgt ungefähr 5 l/min?",
+    "correctAnswer": "Herzminutenvolumen",
+    "options": [
+      "Herzminutenvolumen",
+      "Anzahl Knochen beim Erwachsenen",
+      "Anzahl Knochen beim Neugeborenen",
+      "Anzahl Zähne beim Erwachsenen"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_koerperoberflaeche_homo-bodyfact-name",
+    "entityId": "homo:koerperoberflaeche",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-name",
+    "difficulty": 3,
+    "prompt": "Welche Körperangabe beträgt ungefähr 1.8 m²?",
+    "correctAnswer": "Körperoberfläche",
+    "options": [
+      "Körperoberfläche",
+      "Anzahl Knochen beim Erwachsenen",
+      "Anzahl Knochen beim Neugeborenen",
+      "Anzahl Zähne beim Erwachsenen"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_lymphknoten_anzahl_homo-bodyfact-name",
+    "entityId": "homo:lymphknoten_anzahl",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-name",
+    "difficulty": 3,
+    "prompt": "Welche Körperangabe beträgt ungefähr 600 Stück?",
+    "correctAnswer": "Anzahl Lymphknoten",
+    "options": [
+      "Anzahl Lymphknoten",
+      "Anzahl Knochen beim Erwachsenen",
+      "Anzahl Knochen beim Neugeborenen",
+      "Anzahl Zähne beim Erwachsenen"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_papillen_zunge_homo-bodyfact-name",
+    "entityId": "homo:papillen_zunge",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-name",
+    "difficulty": 3,
+    "prompt": "Welche Körperangabe beträgt ungefähr 2000 Stück?",
+    "correctAnswer": "Geschmackspapillen auf der Zunge",
+    "options": [
+      "Geschmackspapillen auf der Zunge",
+      "Anzahl Knochen beim Erwachsenen",
+      "Anzahl Knochen beim Neugeborenen",
+      "Anzahl Zähne beim Erwachsenen"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_augapfel_durchmesser_homo-bodyfact-name",
+    "entityId": "homo:augapfel_durchmesser",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-name",
+    "difficulty": 3,
+    "prompt": "Welche Körperangabe beträgt ungefähr 23 mm?",
+    "correctAnswer": "Augapfeldurchmesser",
+    "options": [
+      "Augapfeldurchmesser",
+      "Anzahl Knochen beim Erwachsenen",
+      "Anzahl Knochen beim Neugeborenen",
+      "Anzahl Zähne beim Erwachsenen"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_homo_herz_homo-organ-function",
     "entityId": "homo:herz",
     "entityType": "organ",
@@ -6348,6 +7608,146 @@
     "correctAnswer": "Beherbergt einen Teil der Darmflora und enthält reichlich lymphatisches Gewebe zur Immunabwehr.",
     "options": [
       "Beherbergt einen Teil der Darmflora und enthält reichlich lymphatisches Gewebe zur Immunabwehr.",
+      "Pumpt Blut durch den Körper und versorgt Gewebe mit Sauerstoff und Nährstoffen.",
+      "Entgiftet das Blut, speichert Nährstoffe und bildet Galle für die Fettverdauung.",
+      "Nimmt Sauerstoff aus der Atemluft auf und gibt Kohlendioxid an die Ausatemluft ab."
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_rueckenmark_homo-organ-function",
+    "entityId": "homo:rueckenmark",
+    "entityType": "organ",
+    "type": "homo-organ-function",
+    "difficulty": 2,
+    "prompt": "Welche Hauptaufgabe erfüllt das Organ „Rückenmark (Medulla spinalis)\"?",
+    "correctAnswer": "Leitet Nervenimpulse zwischen Gehirn und peripherem Nervensystem und steuert einfache Reflexe.",
+    "options": [
+      "Leitet Nervenimpulse zwischen Gehirn und peripherem Nervensystem und steuert einfache Reflexe.",
+      "Pumpt Blut durch den Körper und versorgt Gewebe mit Sauerstoff und Nährstoffen.",
+      "Entgiftet das Blut, speichert Nährstoffe und bildet Galle für die Fettverdauung.",
+      "Nimmt Sauerstoff aus der Atemluft auf und gibt Kohlendioxid an die Ausatemluft ab."
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_omentum_majus_homo-organ-function",
+    "entityId": "homo:omentum_majus",
+    "entityType": "organ",
+    "type": "homo-organ-function",
+    "difficulty": 2,
+    "prompt": "Welche Hauptaufgabe erfüllt das Organ „Großes Netz (Omentum majus)\"?",
+    "correctAnswer": "Eine fett- und gefäßreiche Bauchfellduplikatur, die als „Fettschürze“ über den Dünndarmschlingen liegt und an Immunabwehr sowie Wundheilung beteiligt ist.",
+    "options": [
+      "Eine fett- und gefäßreiche Bauchfellduplikatur, die als „Fettschürze“ über den Dünndarmschlingen liegt und an Immunabwehr sowie Wundheilung beteiligt ist.",
+      "Pumpt Blut durch den Körper und versorgt Gewebe mit Sauerstoff und Nährstoffen.",
+      "Entgiftet das Blut, speichert Nährstoffe und bildet Galle für die Fettverdauung.",
+      "Nimmt Sauerstoff aus der Atemluft auf und gibt Kohlendioxid an die Ausatemluft ab."
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_cerebellum_homo-organ-function",
+    "entityId": "homo:cerebellum",
+    "entityType": "organ",
+    "type": "homo-organ-function",
+    "difficulty": 2,
+    "prompt": "Welche Hauptaufgabe erfüllt das Organ „Kleinhirn (Cerebellum)\"?",
+    "correctAnswer": "Koordiniert Bewegungen, steuert Gleichgewicht und Feinmotorik und ist am motorischen Lernen beteiligt.",
+    "options": [
+      "Koordiniert Bewegungen, steuert Gleichgewicht und Feinmotorik und ist am motorischen Lernen beteiligt.",
+      "Pumpt Blut durch den Körper und versorgt Gewebe mit Sauerstoff und Nährstoffen.",
+      "Entgiftet das Blut, speichert Nährstoffe und bildet Galle für die Fettverdauung.",
+      "Nimmt Sauerstoff aus der Atemluft auf und gibt Kohlendioxid an die Ausatemluft ab."
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_truncus_cerebri_homo-organ-function",
+    "entityId": "homo:truncus_cerebri",
+    "entityType": "organ",
+    "type": "homo-organ-function",
+    "difficulty": 2,
+    "prompt": "Welche Hauptaufgabe erfüllt das Organ „Hirnstamm (Truncus encephali)\"?",
+    "correctAnswer": "Verbindet Großhirn und Rückenmark, steuert lebenswichtige Funktionen wie Atmung, Herzschlag und Blutdruck.",
+    "options": [
+      "Verbindet Großhirn und Rückenmark, steuert lebenswichtige Funktionen wie Atmung, Herzschlag und Blutdruck.",
+      "Pumpt Blut durch den Körper und versorgt Gewebe mit Sauerstoff und Nährstoffen.",
+      "Entgiftet das Blut, speichert Nährstoffe und bildet Galle für die Fettverdauung.",
+      "Nimmt Sauerstoff aus der Atemluft auf und gibt Kohlendioxid an die Ausatemluft ab."
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_corpus_callosum_homo-organ-function",
+    "entityId": "homo:corpus_callosum",
+    "entityType": "organ",
+    "type": "homo-organ-function",
+    "difficulty": 2,
+    "prompt": "Welche Hauptaufgabe erfüllt das Organ „Balken (Corpus callosum)\"?",
+    "correctAnswer": "Größte Nervenbahnverbindung beider Großhirnhälften, die den Informationsaustausch zwischen linker und rechter Hemisphäre ermöglicht.",
+    "options": [
+      "Größte Nervenbahnverbindung beider Großhirnhälften, die den Informationsaustausch zwischen linker und rechter Hemisphäre ermöglicht.",
+      "Pumpt Blut durch den Körper und versorgt Gewebe mit Sauerstoff und Nährstoffen.",
+      "Entgiftet das Blut, speichert Nährstoffe und bildet Galle für die Fettverdauung.",
+      "Nimmt Sauerstoff aus der Atemluft auf und gibt Kohlendioxid an die Ausatemluft ab."
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_hippocampus_homo-organ-function",
+    "entityId": "homo:hippocampus",
+    "entityType": "organ",
+    "type": "homo-organ-function",
+    "difficulty": 2,
+    "prompt": "Welche Hauptaufgabe erfüllt das Organ „Hippocampus\"?",
+    "correctAnswer": "Spielt eine zentrale Rolle bei der Überführung von Kurzzeit- in Langzeitgedächtnis sowie bei der räumlichen Orientierung.",
+    "options": [
+      "Spielt eine zentrale Rolle bei der Überführung von Kurzzeit- in Langzeitgedächtnis sowie bei der räumlichen Orientierung.",
+      "Pumpt Blut durch den Körper und versorgt Gewebe mit Sauerstoff und Nährstoffen.",
+      "Entgiftet das Blut, speichert Nährstoffe und bildet Galle für die Fettverdauung.",
+      "Nimmt Sauerstoff aus der Atemluft auf und gibt Kohlendioxid an die Ausatemluft ab."
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_retina_homo-organ-function",
+    "entityId": "homo:retina",
+    "entityType": "organ",
+    "type": "homo-organ-function",
+    "difficulty": 2,
+    "prompt": "Welche Hauptaufgabe erfüllt das Organ „Netzhaut (Retina)\"?",
+    "correctAnswer": "Wandelt einfallendes Licht in elektrische Nervensignale um, die über den Sehnerv an das Gehirn weitergeleitet werden.",
+    "options": [
+      "Wandelt einfallendes Licht in elektrische Nervensignale um, die über den Sehnerv an das Gehirn weitergeleitet werden.",
       "Pumpt Blut durch den Körper und versorgt Gewebe mit Sauerstoff und Nährstoffen.",
       "Entgiftet das Blut, speichert Nährstoffe und bildet Galle für die Fettverdauung.",
       "Nimmt Sauerstoff aus der Atemluft auf und gibt Kohlendioxid an die Ausatemluft ab."
@@ -6859,6 +8259,246 @@
     "mapTargetId": null
   },
   {
+    "id": "q_homo_rueckenmark_homo-organ-location",
+    "entityId": "homo:rueckenmark",
+    "entityType": "organ",
+    "type": "homo-organ-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt das Organ „Rückenmark (Medulla spinalis)\"?",
+    "correctAnswer": "Wirbelkanal",
+    "options": [
+      "Wirbelkanal",
+      "Vorderer Hals, unterhalb des Kehlkopfs, schmetterlingsförmig um die Luftröhre",
+      "Unterseite der Leber im rechten Oberbauch",
+      "Auf dem oberen Pol jeder Niere im hinteren Oberbauch (jeweils eine links und rechts)"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_bauchfell_homo-organ-location",
+    "entityId": "homo:bauchfell",
+    "entityType": "organ",
+    "type": "homo-organ-location",
+    "difficulty": 3,
+    "prompt": "In welcher Körperregion liegt das Organ „Peritoneum\"?",
+    "correctAnswer": "Bauchhöhle",
+    "options": [
+      "Bauchhöhle",
+      "Vorderer Hals, unterhalb des Kehlkopfs, schmetterlingsförmig um die Luftröhre",
+      "Unterseite der Leber im rechten Oberbauch",
+      "Auf dem oberen Pol jeder Niere im hinteren Oberbauch (jeweils eine links und rechts)"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_omentum_majus_homo-organ-location",
+    "entityId": "homo:omentum_majus",
+    "entityType": "organ",
+    "type": "homo-organ-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt das Organ „Großes Netz (Omentum majus)\"?",
+    "correctAnswer": "Bauchhöhle",
+    "options": [
+      "Bauchhöhle",
+      "Vorderer Hals, unterhalb des Kehlkopfs, schmetterlingsförmig um die Luftröhre",
+      "Unterseite der Leber im rechten Oberbauch",
+      "Auf dem oberen Pol jeder Niere im hinteren Oberbauch (jeweils eine links und rechts)"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_mamma_homo-organ-location",
+    "entityId": "homo:mamma",
+    "entityType": "organ",
+    "type": "homo-organ-location",
+    "difficulty": 3,
+    "prompt": "In welcher Körperregion liegt das Organ „Mamma\"?",
+    "correctAnswer": "Brustkorb (vordere Thoraxwand)",
+    "options": [
+      "Brustkorb (vordere Thoraxwand)",
+      "Vorderer Hals, unterhalb des Kehlkopfs, schmetterlingsförmig um die Luftröhre",
+      "Unterseite der Leber im rechten Oberbauch",
+      "Auf dem oberen Pol jeder Niere im hinteren Oberbauch (jeweils eine links und rechts)"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_glandula_lacrimalis_homo-organ-location",
+    "entityId": "homo:glandula_lacrimalis",
+    "entityType": "organ",
+    "type": "homo-organ-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt das Organ „Tränendrüse (Glandula lacrimalis)\"?",
+    "correctAnswer": "Augenhöhle, oberer seitlicher Bereich",
+    "options": [
+      "Augenhöhle, oberer seitlicher Bereich",
+      "Vorderer Hals, unterhalb des Kehlkopfs, schmetterlingsförmig um die Luftröhre",
+      "Unterseite der Leber im rechten Oberbauch",
+      "Auf dem oberen Pol jeder Niere im hinteren Oberbauch (jeweils eine links und rechts)"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_glandula_parotis_homo-organ-location",
+    "entityId": "homo:glandula_parotis",
+    "entityType": "organ",
+    "type": "homo-organ-location",
+    "difficulty": 3,
+    "prompt": "In welcher Körperregion liegt das Organ „Glandula parotidea\"?",
+    "correctAnswer": "Vor und unter dem Ohr, vor dem aufsteigenden Unterkieferast",
+    "options": [
+      "Vor und unter dem Ohr, vor dem aufsteigenden Unterkieferast",
+      "Vorderer Hals, unterhalb des Kehlkopfs, schmetterlingsförmig um die Luftröhre",
+      "Unterseite der Leber im rechten Oberbauch",
+      "Auf dem oberen Pol jeder Niere im hinteren Oberbauch (jeweils eine links und rechts)"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_cerebellum_homo-organ-location",
+    "entityId": "homo:cerebellum",
+    "entityType": "organ",
+    "type": "homo-organ-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt das Organ „Kleinhirn (Cerebellum)\"?",
+    "correctAnswer": "Hintere Schädelgrube, unterhalb des Großhirns",
+    "options": [
+      "Hintere Schädelgrube, unterhalb des Großhirns",
+      "Vorderer Hals, unterhalb des Kehlkopfs, schmetterlingsförmig um die Luftröhre",
+      "Unterseite der Leber im rechten Oberbauch",
+      "Auf dem oberen Pol jeder Niere im hinteren Oberbauch (jeweils eine links und rechts)"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_truncus_cerebri_homo-organ-location",
+    "entityId": "homo:truncus_cerebri",
+    "entityType": "organ",
+    "type": "homo-organ-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt das Organ „Hirnstamm (Truncus encephali)\"?",
+    "correctAnswer": "Schädelbasis",
+    "options": [
+      "Schädelbasis",
+      "Vorderer Hals, unterhalb des Kehlkopfs, schmetterlingsförmig um die Luftröhre",
+      "Unterseite der Leber im rechten Oberbauch",
+      "Auf dem oberen Pol jeder Niere im hinteren Oberbauch (jeweils eine links und rechts)"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_corpus_callosum_homo-organ-location",
+    "entityId": "homo:corpus_callosum",
+    "entityType": "organ",
+    "type": "homo-organ-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt das Organ „Balken (Corpus callosum)\"?",
+    "correctAnswer": "Mittellinie des Großhirns",
+    "options": [
+      "Mittellinie des Großhirns",
+      "Vorderer Hals, unterhalb des Kehlkopfs, schmetterlingsförmig um die Luftröhre",
+      "Unterseite der Leber im rechten Oberbauch",
+      "Auf dem oberen Pol jeder Niere im hinteren Oberbauch (jeweils eine links und rechts)"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_hippocampus_homo-organ-location",
+    "entityId": "homo:hippocampus",
+    "entityType": "organ",
+    "type": "homo-organ-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt das Organ „Hippocampus\"?",
+    "correctAnswer": "Im Schläfenlappen, Teil des limbischen Systems",
+    "options": [
+      "Im Schläfenlappen, Teil des limbischen Systems",
+      "Vorderer Hals, unterhalb des Kehlkopfs, schmetterlingsförmig um die Luftröhre",
+      "Unterseite der Leber im rechten Oberbauch",
+      "Auf dem oberen Pol jeder Niere im hinteren Oberbauch (jeweils eine links und rechts)"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_tonsilla_pharyngea_homo-organ-location",
+    "entityId": "homo:tonsilla_pharyngea",
+    "entityType": "organ",
+    "type": "homo-organ-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt das Organ „Rachenmandel (Tonsilla pharyngea)\"?",
+    "correctAnswer": "Dach des Nasenrachens",
+    "options": [
+      "Dach des Nasenrachens",
+      "Vorderer Hals, unterhalb des Kehlkopfs, schmetterlingsförmig um die Luftröhre",
+      "Unterseite der Leber im rechten Oberbauch",
+      "Auf dem oberen Pol jeder Niere im hinteren Oberbauch (jeweils eine links und rechts)"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_retina_homo-organ-location",
+    "entityId": "homo:retina",
+    "entityType": "organ",
+    "type": "homo-organ-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt das Organ „Netzhaut (Retina)\"?",
+    "correctAnswer": "Innenauskleidung des Augapfels",
+    "options": [
+      "Innenauskleidung des Augapfels",
+      "Vorderer Hals, unterhalb des Kehlkopfs, schmetterlingsförmig um die Luftröhre",
+      "Unterseite der Leber im rechten Oberbauch",
+      "Auf dem oberen Pol jeder Niere im hinteren Oberbauch (jeweils eine links und rechts)"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_homo_gluteus_maximus_homo-muscle-function",
     "entityId": "homo:gluteus_maximus",
     "entityType": "muscle",
@@ -7228,6 +8868,66 @@
     "correctAnswer": "Außenrotiert den Arm im Schultergelenk und stabilisiert den Humeruskopf",
     "options": [
       "Außenrotiert den Arm im Schultergelenk und stabilisiert den Humeruskopf",
+      "Streckt das Hüftgelenk, richtet den Rumpf auf und stabilisiert beim Aufstehen und Treppensteigen",
+      "Schließt den Unterkiefer und erzeugt die Kraft zum Kauen und Zerkleinern der Nahrung",
+      "Dämpft die Bewegung des Steigbügels und schützt das Innenohr vor zu lauten Schallreizen"
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_iliopsoas_homo-muscle-function",
+    "entityId": "homo:iliopsoas",
+    "entityType": "muscle",
+    "type": "homo-muscle-function",
+    "difficulty": 3,
+    "prompt": "Welche Funktion hat der Muskel „Iliopsoas (Musculus iliopsoas)\" hauptsächlich?",
+    "correctAnswer": "Beugung im Hüftgelenk; gleichzeitig wichtigster Hüftbeuger und aufrechter Gang.",
+    "options": [
+      "Beugung im Hüftgelenk; gleichzeitig wichtigster Hüftbeuger und aufrechter Gang.",
+      "Streckt das Hüftgelenk, richtet den Rumpf auf und stabilisiert beim Aufstehen und Treppensteigen",
+      "Schließt den Unterkiefer und erzeugt die Kraft zum Kauen und Zerkleinern der Nahrung",
+      "Dämpft die Bewegung des Steigbügels und schützt das Innenohr vor zu lauten Schallreizen"
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_rectus_femoris_homo-muscle-function",
+    "entityId": "homo:rectus_femoris",
+    "entityType": "muscle",
+    "type": "homo-muscle-function",
+    "difficulty": 3,
+    "prompt": "Welche Funktion hat der Muskel „Gerader Oberschenkelmuskel (Musculus rectus femoris)\" hauptsächlich?",
+    "correctAnswer": "Streckung im Kniegelenk und Beugung im Hüftgelenk; Teil des Quadrizeps.",
+    "options": [
+      "Streckung im Kniegelenk und Beugung im Hüftgelenk; Teil des Quadrizeps.",
+      "Streckt das Hüftgelenk, richtet den Rumpf auf und stabilisiert beim Aufstehen und Treppensteigen",
+      "Schließt den Unterkiefer und erzeugt die Kraft zum Kauen und Zerkleinern der Nahrung",
+      "Dämpft die Bewegung des Steigbügels und schützt das Innenohr vor zu lauten Schallreizen"
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_tibialis_posterior_homo-muscle-function",
+    "entityId": "homo:tibialis_posterior",
+    "entityType": "muscle",
+    "type": "homo-muscle-function",
+    "difficulty": 3,
+    "prompt": "Welche Funktion hat der Muskel „Hinterer Schienbeinmuskel (Musculus tibialis posterior)\" hauptsächlich?",
+    "correctAnswer": "Plantarflexion und Supination des Fußes; stützt das Längsgewölbe.",
+    "options": [
+      "Plantarflexion und Supination des Fußes; stützt das Längsgewölbe.",
       "Streckt das Hüftgelenk, richtet den Rumpf auf und stabilisiert beim Aufstehen und Treppensteigen",
       "Schließt den Unterkiefer und erzeugt die Kraft zum Kauen und Zerkleinern der Nahrung",
       "Dämpft die Bewegung des Steigbügels und schützt das Innenohr vor zu lauten Schallreizen"
@@ -7779,6 +9479,46 @@
     "mapTargetId": null
   },
   {
+    "id": "q_homo_phalanx_distalis_pedis_homo-bone-notable-rev",
+    "entityId": "homo:phalanx_distalis_pedis",
+    "entityType": "bone",
+    "type": "homo-bone-notable-rev",
+    "difficulty": 2,
+    "prompt": "Welcher Knochen wird beschrieben als: „Letztes Zehenglied, trägt den Nagel und dient als Widerlager beim Abstoßen.\"?",
+    "correctAnswer": "Endglied des Zehs (Phalanx distalis pedis)",
+    "options": [
+      "Endglied des Zehs (Phalanx distalis pedis)",
+      "Oberschenkelknochen",
+      "Schienbein",
+      "Wadenbein"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_parietale_homo-bone-notable-rev",
+    "entityId": "homo:os_parietale",
+    "entityType": "bone",
+    "type": "homo-bone-notable-rev",
+    "difficulty": 2,
+    "prompt": "Welcher Knochen wird beschrieben als: „Paariger Knochen des Schädeldachs, bildet einen Großteil der seitlichen und oberen Schädelkalotte.\"?",
+    "correctAnswer": "Scheitelbein (Os parietale)",
+    "options": [
+      "Scheitelbein (Os parietale)",
+      "Oberschenkelknochen",
+      "Schienbein",
+      "Wadenbein"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_homo_tibia_homo-bone-notable",
     "entityId": "homo:tibia",
     "entityType": "bone",
@@ -8299,6 +10039,46 @@
     "mapTargetId": null
   },
   {
+    "id": "q_homo_phalanx_distalis_pedis_homo-bone-notable",
+    "entityId": "homo:phalanx_distalis_pedis",
+    "entityType": "bone",
+    "type": "homo-bone-notable",
+    "difficulty": 2,
+    "prompt": "Wofür ist der Knochen „Endglied des Zehs (Phalanx distalis pedis)\" anatomisch besonders bekannt?",
+    "correctAnswer": "Letztes Zehenglied, trägt den Nagel und dient als Widerlager beim Abstoßen.",
+    "options": [
+      "Letztes Zehenglied, trägt den Nagel und dient als Widerlager beim Abstoßen.",
+      "längster und stärkster Knochen des menschlichen Körpers",
+      "zweitlängster Knochen und tragender Knochen des Unterschenkels",
+      "dünner Unterschenkelknochen neben dem Schienbein"
+    ],
+    "testedAttribute": "notableFor",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_parietale_homo-bone-notable",
+    "entityId": "homo:os_parietale",
+    "entityType": "bone",
+    "type": "homo-bone-notable",
+    "difficulty": 2,
+    "prompt": "Wofür ist der Knochen „Scheitelbein (Os parietale)\" anatomisch besonders bekannt?",
+    "correctAnswer": "Paariger Knochen des Schädeldachs, bildet einen Großteil der seitlichen und oberen Schädelkalotte.",
+    "options": [
+      "Paariger Knochen des Schädeldachs, bildet einen Großteil der seitlichen und oberen Schädelkalotte.",
+      "längster und stärkster Knochen des menschlichen Körpers",
+      "zweitlängster Knochen und tragender Knochen des Unterschenkels",
+      "dünner Unterschenkelknochen neben dem Schienbein"
+    ],
+    "testedAttribute": "notableFor",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_homo_stapedius_homo-muscle-notable-rev",
     "entityId": "homo:stapedius",
     "entityType": "muscle",
@@ -8728,6 +10508,86 @@
     "correctAnswer": "Unterschultergrätenmuskel (Musculus infraspinatus)",
     "options": [
       "Unterschultergrätenmuskel (Musculus infraspinatus)",
+      "Großer Gesäßmuskel (Gluteus maximus)",
+      "Kaumuskel (Masseter)",
+      "Steigbügelmuskel (Musculus stapedius)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_adductor_longus_homo-muscle-notable-rev",
+    "entityId": "homo:adductor_longus",
+    "entityType": "muscle",
+    "type": "homo-muscle-notable-rev",
+    "difficulty": 2,
+    "prompt": "Welcher Muskel wird beschrieben als: „Er bildet den medialen Rand des Schenkelkanals und tritt häufig als „Sportlerleiste“ in Erscheinung.\"?",
+    "correctAnswer": "Langer Adduktor (Musculus adductor longus)",
+    "options": [
+      "Langer Adduktor (Musculus adductor longus)",
+      "Großer Gesäßmuskel (Gluteus maximus)",
+      "Kaumuskel (Masseter)",
+      "Steigbügelmuskel (Musculus stapedius)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_iliopsoas_homo-muscle-notable-rev",
+    "entityId": "homo:iliopsoas",
+    "entityType": "muscle",
+    "type": "homo-muscle-notable-rev",
+    "difficulty": 2,
+    "prompt": "Welcher Muskel wird beschrieben als: „Als „Hüftbeuger-Muskel“ verbindet er Wirbelsäule, Becken und Bein und neigt bei Verkürzung zu Hyperlordose.\"?",
+    "correctAnswer": "Iliopsoas (Musculus iliopsoas)",
+    "options": [
+      "Iliopsoas (Musculus iliopsoas)",
+      "Großer Gesäßmuskel (Gluteus maximus)",
+      "Kaumuskel (Masseter)",
+      "Steigbügelmuskel (Musculus stapedius)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_rectus_femoris_homo-muscle-notable-rev",
+    "entityId": "homo:rectus_femoris",
+    "entityType": "muscle",
+    "type": "homo-muscle-notable-rev",
+    "difficulty": 2,
+    "prompt": "Welcher Muskel wird beschrieben als: „Er ist der einzige Quadrizepsanteil, der über zwei Gelenke zieht, und daher besonders anfällig für Muskelzerrungen.\"?",
+    "correctAnswer": "Gerader Oberschenkelmuskel (Musculus rectus femoris)",
+    "options": [
+      "Gerader Oberschenkelmuskel (Musculus rectus femoris)",
+      "Großer Gesäßmuskel (Gluteus maximus)",
+      "Kaumuskel (Masseter)",
+      "Steigbügelmuskel (Musculus stapedius)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_flexor_digitorum_superficialis_homo-muscle-notable-rev",
+    "entityId": "homo:flexor_digitorum_superficialis",
+    "entityType": "muscle",
+    "type": "homo-muscle-notable-rev",
+    "difficulty": 2,
+    "prompt": "Welcher Muskel wird beschrieben als: „Er ist der einzige Beuger, der am Mittelglied ansetzt, und gilt als klassischer „Hexenzauberer“-Muskel der Unterarmloge.\"?",
+    "correctAnswer": "Oberflächlicher Fingerbeuger (Musculus flexor digitorum superficialis)",
+    "options": [
+      "Oberflächlicher Fingerbeuger (Musculus flexor digitorum superficialis)",
       "Großer Gesäßmuskel (Gluteus maximus)",
       "Kaumuskel (Masseter)",
       "Steigbügelmuskel (Musculus stapedius)"
@@ -9299,6 +11159,66 @@
     "mapTargetId": null
   },
   {
+    "id": "q_homo_rueckenmark_homo-organ-weight-rev",
+    "entityId": "homo:rueckenmark",
+    "entityType": "organ",
+    "type": "homo-organ-weight-rev",
+    "difficulty": 3,
+    "prompt": "Welches Organ wiegt beim Erwachsenen ungefähr 30 Gramm?",
+    "correctAnswer": "Rückenmark (Medulla spinalis)",
+    "options": [
+      "Rückenmark (Medulla spinalis)",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_glandula_lacrimalis_homo-organ-weight-rev",
+    "entityId": "homo:glandula_lacrimalis",
+    "entityType": "organ",
+    "type": "homo-organ-weight-rev",
+    "difficulty": 3,
+    "prompt": "Welches Organ wiegt beim Erwachsenen ungefähr 2 Gramm?",
+    "correctAnswer": "Tränendrüse (Glandula lacrimalis)",
+    "options": [
+      "Tränendrüse (Glandula lacrimalis)",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_glandula_parotis_homo-organ-weight-rev",
+    "entityId": "homo:glandula_parotis",
+    "entityType": "organ",
+    "type": "homo-organ-weight-rev",
+    "difficulty": 3,
+    "prompt": "Welches Organ wiegt beim Erwachsenen ungefähr 30 Gramm?",
+    "correctAnswer": "Ohrspeicheldrüse (Glandula parotidea)",
+    "options": [
+      "Ohrspeicheldrüse (Glandula parotidea)",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_homo_herz_homo-organ-function-rev",
     "entityId": "homo:herz",
     "entityType": "organ",
@@ -9748,6 +11668,186 @@
     "correctAnswer": "Nebenhoden",
     "options": [
       "Nebenhoden",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_rueckenmark_homo-organ-function-rev",
+    "entityId": "homo:rueckenmark",
+    "entityType": "organ",
+    "type": "homo-organ-function-rev",
+    "difficulty": 2,
+    "prompt": "Welches Organ erfüllt folgende Hauptaufgabe: „Leitet Nervenimpulse zwischen Gehirn und peripherem Nervensystem und steuert einfache Reflexe.\"?",
+    "correctAnswer": "Rückenmark (Medulla spinalis)",
+    "options": [
+      "Rückenmark (Medulla spinalis)",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_omentum_majus_homo-organ-function-rev",
+    "entityId": "homo:omentum_majus",
+    "entityType": "organ",
+    "type": "homo-organ-function-rev",
+    "difficulty": 2,
+    "prompt": "Welches Organ erfüllt folgende Hauptaufgabe: „Eine fett- und gefäßreiche Bauchfellduplikatur, die als „Fettschürze“ über den Dünndarmschlingen liegt und an Immunabwehr sowie Wundheilung beteiligt ist.\"?",
+    "correctAnswer": "Großes Netz (Omentum majus)",
+    "options": [
+      "Großes Netz (Omentum majus)",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_mamma_homo-organ-function-rev",
+    "entityId": "homo:mamma",
+    "entityType": "organ",
+    "type": "homo-organ-function-rev",
+    "difficulty": 2,
+    "prompt": "Welches Organ erfüllt folgende Hauptaufgabe: „Milchproduzierende Drüse, die nach einer Schwangerschaft die Säuglingsernährung ermöglicht.\"?",
+    "correctAnswer": "Brustdrüse (Mamma)",
+    "options": [
+      "Brustdrüse (Mamma)",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_glandula_parotis_homo-organ-function-rev",
+    "entityId": "homo:glandula_parotis",
+    "entityType": "organ",
+    "type": "homo-organ-function-rev",
+    "difficulty": 2,
+    "prompt": "Welches Organ erfüllt folgende Hauptaufgabe: „Größte Speicheldrüse; produziert einen serösen, enzymreichen Speichel, der die Verdauung von Kohlenhydraten einleitet.\"?",
+    "correctAnswer": "Ohrspeicheldrüse (Glandula parotidea)",
+    "options": [
+      "Ohrspeicheldrüse (Glandula parotidea)",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_cerebellum_homo-organ-function-rev",
+    "entityId": "homo:cerebellum",
+    "entityType": "organ",
+    "type": "homo-organ-function-rev",
+    "difficulty": 2,
+    "prompt": "Welches Organ erfüllt folgende Hauptaufgabe: „Koordiniert Bewegungen, steuert Gleichgewicht und Feinmotorik und ist am motorischen Lernen beteiligt.\"?",
+    "correctAnswer": "Kleinhirn (Cerebellum)",
+    "options": [
+      "Kleinhirn (Cerebellum)",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_truncus_cerebri_homo-organ-function-rev",
+    "entityId": "homo:truncus_cerebri",
+    "entityType": "organ",
+    "type": "homo-organ-function-rev",
+    "difficulty": 2,
+    "prompt": "Welches Organ erfüllt folgende Hauptaufgabe: „Verbindet Großhirn und Rückenmark, steuert lebenswichtige Funktionen wie Atmung, Herzschlag und Blutdruck.\"?",
+    "correctAnswer": "Hirnstamm (Truncus encephali)",
+    "options": [
+      "Hirnstamm (Truncus encephali)",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_corpus_callosum_homo-organ-function-rev",
+    "entityId": "homo:corpus_callosum",
+    "entityType": "organ",
+    "type": "homo-organ-function-rev",
+    "difficulty": 2,
+    "prompt": "Welches Organ erfüllt folgende Hauptaufgabe: „Größte Nervenbahnverbindung beider Großhirnhälften, die den Informationsaustausch zwischen linker und rechter Hemisphäre ermöglicht.\"?",
+    "correctAnswer": "Balken (Corpus callosum)",
+    "options": [
+      "Balken (Corpus callosum)",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_hippocampus_homo-organ-function-rev",
+    "entityId": "homo:hippocampus",
+    "entityType": "organ",
+    "type": "homo-organ-function-rev",
+    "difficulty": 2,
+    "prompt": "Welches Organ erfüllt folgende Hauptaufgabe: „Spielt eine zentrale Rolle bei der Überführung von Kurzzeit- in Langzeitgedächtnis sowie bei der räumlichen Orientierung.\"?",
+    "correctAnswer": "Hippocampus",
+    "options": [
+      "Hippocampus",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_retina_homo-organ-function-rev",
+    "entityId": "homo:retina",
+    "entityType": "organ",
+    "type": "homo-organ-function-rev",
+    "difficulty": 2,
+    "prompt": "Welches Organ erfüllt folgende Hauptaufgabe: „Wandelt einfallendes Licht in elektrische Nervensignale um, die über den Sehnerv an das Gehirn weitergeleitet werden.\"?",
+    "correctAnswer": "Netzhaut (Retina)",
+    "options": [
+      "Netzhaut (Retina)",
       "Herz",
       "Leber",
       "Lunge"
