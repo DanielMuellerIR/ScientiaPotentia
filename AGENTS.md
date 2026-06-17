@@ -52,6 +52,21 @@ nicht in Inline-Styles; Details und Begründung in [`LAYOUT.md`](LAYOUT.md). Vor
 
 Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 
+> **Stand 2026-06-17 (v1.38.0) — Sachbuch-Phase-2 Track-A Pilot: NEUE Tier-Konzepte aus „Spezielle Zoologie":**
+> Erster Discovery-Lauf (statt Anreicherung jetzt Entdeckung): 1 Sonnet-Agent las den Raubtier-
+> Abschnitt (Westheide/Rieger Teil 2, S. 620–650) gegen die Dedup-Namensliste und extrahierte
+> **46 neue, im Buch belegte Raubtier-Arten** mit schema-konformen Attributen (class/order +
+> maxLengthCm/maxWeightKg + range). Opus-Gate: Dedup (Substring-Treffer Erdwolf/Wolf, Leopard/
+> Leopardgecko, Seelöwe/Löwe als Fehlalarm verworfen — keine echte Dublette); **conservationStatus
+> gedroppt** (Buch nennt keinen IUCN-Code, Agent hatte ihn abgeleitet → „nicht raten"); 3 Text-
+> korrekturen (Tüpfelhyäne-Ton, Leopard/Serval Grammatik). **Natura 1205→1251 K / 6403→6767 F**
+> (+46 / +364). order „Raubtiere" pool-t mit 15 Bestandskonzepten; fehlende Bilder unkritisch
+> (643/911 Tiere haben ohnehin keins). verify 0 Fehler, Browser-verifiziert. Arten u.a.: Leopard,
+> Jaguar, Seeotter, Südlicher See-Elefant (4 t, schwerstes Raubtier), Honigdachs, Vielfraß, Fossa,
+> Krabbenfresser, Mittelmeer-Mönchsrobbe. **Hochrechnung:** ~1,5 Arten/Seite → Westheide Teil 1+2
+> (~900 S.) birgt mehrere hundert weitere belegte Tierkonzepte. Skalierung = mehrere Page-Range-
+> Slices parallel. Track B (Sachfrage-MCQ) weiter offen (braucht neuen Generator-Fragetyp, §6 Plan).
+
 > **Stand 2026-06-17 (v1.37.3) — Sachbuch-Extraktion Phase 1, Natura-Welle (die eigentliche Ernte):**
 > Gleiche Pipeline auf die **69 funFact-Lücken** unter den 243 Natura-Buchtreffern (alle aus
 > Campbell/Westheide, KEINE Fehltreffer). 3 parallele Sonnet-Agenten → **52 belegte funFacts**
