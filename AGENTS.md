@@ -52,6 +52,18 @@ nicht in Inline-Styles; Details und Begründung in [`LAYOUT.md`](LAYOUT.md). Vor
 
 Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 
+> **Stand 2026-06-17 (v1.37.3) — Sachbuch-Extraktion Phase 1, Natura-Welle (die eigentliche Ernte):**
+> Gleiche Pipeline auf die **69 funFact-Lücken** unter den 243 Natura-Buchtreffern (alle aus
+> Campbell/Westheide, KEINE Fehltreffer). 3 parallele Sonnet-Agenten → **52 belegte funFacts**
+> (75 % Ertrag) → Opus-Gate (3 Sachkorrekturen: China-Alligator-Alleinstellung entschärft,
+> Blauhäher „operante Konditionierung"→„erlernte Geschmacksaversion", Typo Schaumnest) → merge →
+> verify (0 Fehler) → Browser (1205 K geladen, keine Fehler). Quelle „Spezielle Zoologie"
+> (Westheide/Rieger) / „Campbell Biologie", je in `verifyNote`; bestehende Attribut-Quellen/Werte
+> unangetastet. Highlights: Weißwal-Rhein-Irrgast 1966, Weißkopfseeadler-Federn schwerer als Skelett,
+> Laotische Felsenratte (lebendes Fossil, 2005 wiederentdeckt), Aga-Kröte-Invasion. Bestätigt die
+> Astra-Lehre: Buch-Ernte gehört zu den Bio-Domänen. Nächste Optionen: restliche 174 Natura-Treffer
+> selektiv upgraden, Homo/Cultura-Treffer-Finder, dann Phase-2-Pilot (neue Konzepte/Sachfragen).
+
 > **Stand 2026-06-17 (v1.37.2) — Sachbuch-Extraktion Phase 1, Astra-Pilot (`docs/extraktion_sachbuecher_plan.md`):**
 > Pipeline End-to-End validiert: `pdftotext` → deterministischer Treffer-Finder (`concept_passages.py`)
 > → 3 parallele Sonnet-Enrichment-Agenten (Batches je ~28 Konzepte, produce-only nach `/tmp`) →
