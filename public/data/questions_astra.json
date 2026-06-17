@@ -4028,6 +4028,82 @@
     "mapTargetId": null
   },
   {
+    "id": "q_astra_barnards-stern_astra-star-constellation",
+    "entityId": "astra:barnards-stern",
+    "entityType": "star",
+    "type": "astra-star-constellation",
+    "difficulty": 3,
+    "prompt": "In welchem Sternbild liegt Barnards Stern?",
+    "correctAnswer": "Schlangenträger",
+    "options": [
+      "Schlangenträger",
+      "Großer Hund",
+      "Orion",
+      "Zentaur"
+    ],
+    "testedAttribute": "constellation",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_r136a1_astra-star-constellation",
+    "entityId": "astra:r136a1",
+    "entityType": "star",
+    "type": "astra-star-constellation",
+    "difficulty": 3,
+    "prompt": "In welchem Sternbild liegt R136a1?",
+    "correctAnswer": "Schwertfisch",
+    "options": [
+      "Schwertfisch",
+      "Großer Hund",
+      "Orion",
+      "Zentaur"
+    ],
+    "testedAttribute": "constellation",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_stephenson-2-18_astra-star-constellation",
+    "entityId": "astra:stephenson-2-18",
+    "entityType": "star",
+    "type": "astra-star-constellation",
+    "difficulty": 3,
+    "prompt": "In welchem Sternbild liegt Stephenson 2-18?",
+    "correctAnswer": "Schild",
+    "options": [
+      "Schild",
+      "Großer Hund",
+      "Orion",
+      "Zentaur"
+    ],
+    "testedAttribute": "constellation",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_alpha-centauri_astra-star-constellation",
+    "entityId": "astra:alpha-centauri",
+    "entityType": "star",
+    "type": "astra-star-constellation",
+    "difficulty": 3,
+    "prompt": "In welchem Sternbild liegt Alpha Centauri?",
+    "correctAnswer": "Zentaur",
+    "options": [
+      "Zentaur",
+      "Großer Hund",
+      "Orion",
+      "Kleiner Bär"
+    ],
+    "testedAttribute": "constellation",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_astra_sun_astra-star-type",
     "entityId": "astra:sun",
     "entityType": "star",
@@ -4636,6 +4712,82 @@
     "mapTargetId": null
   },
   {
+    "id": "q_astra_barnards-stern_astra-star-type",
+    "entityId": "astra:barnards-stern",
+    "entityType": "star",
+    "type": "astra-star-type",
+    "difficulty": 3,
+    "prompt": "Welcher Sterntyp ist Barnards Stern?",
+    "correctAnswer": "Roter Zwerg",
+    "options": [
+      "Roter Zwerg",
+      "Gelber Zwerg",
+      "Weißer Hauptreihenstern",
+      "Roter Überriese"
+    ],
+    "testedAttribute": "type",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_r136a1_astra-star-type",
+    "entityId": "astra:r136a1",
+    "entityType": "star",
+    "type": "astra-star-type",
+    "difficulty": 3,
+    "prompt": "Welcher Sterntyp ist R136a1?",
+    "correctAnswer": "Wolf-Rayet-Stern",
+    "options": [
+      "Wolf-Rayet-Stern",
+      "Gelber Zwerg",
+      "Weißer Hauptreihenstern",
+      "Roter Überriese"
+    ],
+    "testedAttribute": "type",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_stephenson-2-18_astra-star-type",
+    "entityId": "astra:stephenson-2-18",
+    "entityType": "star",
+    "type": "astra-star-type",
+    "difficulty": 3,
+    "prompt": "Welcher Sterntyp ist Stephenson 2-18?",
+    "correctAnswer": "Roter Überriese",
+    "options": [
+      "Roter Überriese",
+      "Gelber Zwerg",
+      "Weißer Hauptreihenstern",
+      "Blauer Überriese"
+    ],
+    "testedAttribute": "type",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_alpha-centauri_astra-star-type",
+    "entityId": "astra:alpha-centauri",
+    "entityType": "star",
+    "type": "astra-star-type",
+    "difficulty": 3,
+    "prompt": "Welcher Sterntyp ist Alpha Centauri?",
+    "correctAnswer": "Stern",
+    "options": [
+      "Stern",
+      "Gelber Zwerg",
+      "Weißer Hauptreihenstern",
+      "Roter Überriese"
+    ],
+    "testedAttribute": "type",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_astra_sirius_astra-star-distance",
     "entityId": "astra:sirius",
     "entityType": "star",
@@ -5215,6 +5367,82 @@
     "correctAnswer": "154 Lichtjahre",
     "options": [
       "154 Lichtjahre",
+      "8,6 Lichtjahre",
+      "640 Lichtjahre",
+      "860 Lichtjahre"
+    ],
+    "testedAttribute": "distanceLy",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_barnards-stern_astra-star-distance",
+    "entityId": "astra:barnards-stern",
+    "entityType": "star",
+    "type": "astra-star-distance",
+    "difficulty": 4,
+    "prompt": "Wie weit ist Barnards Stern ungefähr von der Erde entfernt?",
+    "correctAnswer": "6 Lichtjahre",
+    "options": [
+      "6 Lichtjahre",
+      "8,6 Lichtjahre",
+      "640 Lichtjahre",
+      "860 Lichtjahre"
+    ],
+    "testedAttribute": "distanceLy",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_r136a1_astra-star-distance",
+    "entityId": "astra:r136a1",
+    "entityType": "star",
+    "type": "astra-star-distance",
+    "difficulty": 4,
+    "prompt": "Wie weit ist R136a1 ungefähr von der Erde entfernt?",
+    "correctAnswer": "165.000 Lichtjahre",
+    "options": [
+      "165.000 Lichtjahre",
+      "8,6 Lichtjahre",
+      "640 Lichtjahre",
+      "860 Lichtjahre"
+    ],
+    "testedAttribute": "distanceLy",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_stephenson-2-18_astra-star-distance",
+    "entityId": "astra:stephenson-2-18",
+    "entityType": "star",
+    "type": "astra-star-distance",
+    "difficulty": 4,
+    "prompt": "Wie weit ist Stephenson 2-18 ungefähr von der Erde entfernt?",
+    "correctAnswer": "18.917 Lichtjahre",
+    "options": [
+      "18.917 Lichtjahre",
+      "8,6 Lichtjahre",
+      "640 Lichtjahre",
+      "860 Lichtjahre"
+    ],
+    "testedAttribute": "distanceLy",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_alpha-centauri_astra-star-distance",
+    "entityId": "astra:alpha-centauri",
+    "entityType": "star",
+    "type": "astra-star-distance",
+    "difficulty": 4,
+    "prompt": "Wie weit ist Alpha Centauri ungefähr von der Erde entfernt?",
+    "correctAnswer": "4 Lichtjahre",
+    "options": [
+      "4 Lichtjahre",
       "8,6 Lichtjahre",
       "640 Lichtjahre",
       "860 Lichtjahre"
@@ -6263,6 +6491,44 @@
       "Balkenspiralgalaxie",
       "Spiralgalaxie",
       "Starburst-Galaxie"
+    ],
+    "testedAttribute": "type",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_messier-87_astra-galaxy-type",
+    "entityId": "astra:messier-87",
+    "entityType": "galaxy",
+    "type": "astra-galaxy-type",
+    "difficulty": 3,
+    "prompt": "Welcher Galaxientyp ist Messier 87?",
+    "correctAnswer": "Elliptische Galaxie",
+    "options": [
+      "Elliptische Galaxie",
+      "Balkenspiralgalaxie",
+      "Spiralgalaxie",
+      "Zwerggalaxie"
+    ],
+    "testedAttribute": "type",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_oj-287_astra-galaxy-type",
+    "entityId": "astra:oj-287",
+    "entityType": "galaxy",
+    "type": "astra-galaxy-type",
+    "difficulty": 3,
+    "prompt": "Welcher Galaxientyp ist OJ 287?",
+    "correctAnswer": "Blazar",
+    "options": [
+      "Blazar",
+      "Balkenspiralgalaxie",
+      "Spiralgalaxie",
+      "Zwerggalaxie"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -7571,6 +7837,44 @@
     "correctAnswer": "521.850 Lichtjahre",
     "options": [
       "521.850 Lichtjahre",
+      "2.500.000 Lichtjahre",
+      "2.730.000 Lichtjahre",
+      "160.000 Lichtjahre"
+    ],
+    "testedAttribute": "distanceLy",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_messier-87_astra-galaxy-distance",
+    "entityId": "astra:messier-87",
+    "entityType": "galaxy",
+    "type": "astra-galaxy-distance",
+    "difficulty": 4,
+    "prompt": "Wie weit ist Messier 87 ungefähr von der Erde entfernt?",
+    "correctAnswer": "53.900.000 Lichtjahre",
+    "options": [
+      "53.900.000 Lichtjahre",
+      "2.500.000 Lichtjahre",
+      "2.730.000 Lichtjahre",
+      "160.000 Lichtjahre"
+    ],
+    "testedAttribute": "distanceLy",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_oj-287_astra-galaxy-distance",
+    "entityId": "astra:oj-287",
+    "entityType": "galaxy",
+    "type": "astra-galaxy-distance",
+    "difficulty": 4,
+    "prompt": "Wie weit ist OJ 287 ungefähr von der Erde entfernt?",
+    "correctAnswer": "3.500.000.000 Lichtjahre",
+    "options": [
+      "3.500.000.000 Lichtjahre",
       "2.500.000 Lichtjahre",
       "2.730.000 Lichtjahre",
       "160.000 Lichtjahre"
@@ -11305,6 +11609,44 @@
     "mapTargetId": null
   },
   {
+    "id": "q_astra_barnards-stern_astra-star-magnitude",
+    "entityId": "astra:barnards-stern",
+    "entityType": "star",
+    "type": "astra-star-magnitude",
+    "difficulty": 4,
+    "prompt": "Welche scheinbare Helligkeit (Magnitude) hat Barnards Stern ungefähr?",
+    "correctAnswer": "9,51 mag",
+    "options": [
+      "9,51 mag",
+      "-26,74 mag",
+      "-1,46 mag",
+      "0,42 mag"
+    ],
+    "testedAttribute": "apparentMagnitude",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_r136a1_astra-star-magnitude",
+    "entityId": "astra:r136a1",
+    "entityType": "star",
+    "type": "astra-star-magnitude",
+    "difficulty": 4,
+    "prompt": "Welche scheinbare Helligkeit (Magnitude) hat R136a1 ungefähr?",
+    "correctAnswer": "12,78 mag",
+    "options": [
+      "12,78 mag",
+      "-26,74 mag",
+      "-1,46 mag",
+      "0,42 mag"
+    ],
+    "testedAttribute": "apparentMagnitude",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_astra_speed_of_light_astra-constant-name",
     "entityId": "astra:speed_of_light",
     "entityType": "constant",
@@ -13490,25 +13832,6 @@
     "mapTargetId": null
   },
   {
-    "id": "q_astra_sabik_astra-star-constellation-rev",
-    "entityId": "astra:sabik",
-    "entityType": "star",
-    "type": "astra-star-constellation-rev",
-    "difficulty": 3,
-    "prompt": "Welcher Stern liegt im Sternbild Schlangenträger?",
-    "correctAnswer": "Sabik",
-    "options": [
-      "Sabik",
-      "Arktur",
-      "Sheratan",
-      "Graffias"
-    ],
-    "testedAttribute": null,
-    "answerIsName": true,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
     "id": "q_astra_unukalhai_astra-star-constellation-rev",
     "entityId": "astra:unukalhai",
     "entityType": "star",
@@ -13614,8 +13937,8 @@
     "options": [
       "Phakt",
       "Gemma",
-      "Mirfak",
-      "Heka"
+      "Alpha Centauri",
+      "Mirfak"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -13652,8 +13975,46 @@
     "options": [
       "Gamma Corvi",
       "Kochab",
-      "Gacrux",
-      "Ain"
+      "Barnards Stern",
+      "Gacrux"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_r136a1_astra-star-constellation-rev",
+    "entityId": "astra:r136a1",
+    "entityType": "star",
+    "type": "astra-star-constellation-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Stern liegt im Sternbild Schwertfisch?",
+    "correctAnswer": "R136a1",
+    "options": [
+      "R136a1",
+      "Caph",
+      "Pi Puppis",
+      "Kanopus (Canopus)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_stephenson-2-18_astra-star-constellation-rev",
+    "entityId": "astra:stephenson-2-18",
+    "entityType": "star",
+    "type": "astra-star-constellation-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Stern liegt im Sternbild Schild?",
+    "correctAnswer": "Stephenson 2-18",
+    "options": [
+      "Stephenson 2-18",
+      "Graffias",
+      "Alwaid",
+      "Alnitak"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -13841,9 +14202,9 @@
     "correctAnswer": "Antares",
     "options": [
       "Antares",
+      "R136a1",
       "Unukalhai",
-      "Lesath",
-      "Sirius"
+      "Lesath"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -14299,7 +14660,7 @@
       "Phekda",
       "Iota Aurigae",
       "Bellatrix",
-      "Pollux"
+      "Barnards Stern"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -14449,9 +14810,9 @@
     "correctAnswer": "Sheliak",
     "options": [
       "Sheliak",
+      "R136a1",
       "Miaplacidus",
-      "Castor",
-      "Deneb"
+      "Castor"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -14545,8 +14906,8 @@
     "options": [
       "Graffias",
       "Sadalmelik",
-      "Sadalsuud",
-      "Hamal"
+      "Barnards Stern",
+      "Sadalsuud"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -14793,7 +15154,7 @@
       "Nunki",
       "Atair (Altair)",
       "Chertan",
-      "Scheat"
+      "R136a1"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -14877,6 +15238,44 @@
     "mapTargetId": null
   },
   {
+    "id": "q_astra_barnards-stern_astra-star-magnitude-rev",
+    "entityId": "astra:barnards-stern",
+    "entityType": "star",
+    "type": "astra-star-magnitude-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Stern hat eine scheinbare Helligkeit von etwa 9,51 mag?",
+    "correctAnswer": "Barnards Stern",
+    "options": [
+      "Barnards Stern",
+      "Sadr",
+      "Regulus",
+      "Caph"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_r136a1_astra-star-magnitude-rev",
+    "entityId": "astra:r136a1",
+    "entityType": "star",
+    "type": "astra-star-magnitude-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Stern hat eine scheinbare Helligkeit von etwa 12,78 mag?",
+    "correctAnswer": "R136a1",
+    "options": [
+      "R136a1",
+      "Heka",
+      "Wega",
+      "Antares"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_astra_sirius_astra-star-distance-rev",
     "entityId": "astra:sirius",
     "entityType": "star",
@@ -14945,7 +15344,7 @@
       "Proxima Centauri",
       "Deneb",
       "Beteigeuze",
-      "Arktur"
+      "Alpha Centauri"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -14964,7 +15363,7 @@
       "Alpha Centauri A",
       "Gemma",
       "Deneb",
-      "Gamma Corvi"
+      "Alpha Centauri"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -14983,7 +15382,7 @@
       "Polaris (Polarstern)",
       "Deneb",
       "Bellatrix",
-      "Alpha Centauri A"
+      "Alpha Centauri"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -15059,7 +15458,7 @@
       "Kapella",
       "Proxima Centauri",
       "Deneb",
-      "Gemma"
+      "R136a1"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -15095,9 +15494,9 @@
     "correctAnswer": "Kanopus (Canopus)",
     "options": [
       "Kanopus (Canopus)",
-      "Pollux",
-      "Sadr",
-      "Regulus"
+      "Alpha Centauri",
+      "Stephenson 2-18",
+      "Pollux"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -15173,7 +15572,7 @@
       "Pollux",
       "Proxima Centauri",
       "Antares",
-      "Sirius"
+      "Alpha Centauri"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -15268,7 +15667,7 @@
       "Algol",
       "Sirrah",
       "Alpha Centauri A",
-      "Regulus"
+      "R136a1"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -15418,9 +15817,85 @@
     "correctAnswer": "Gamma Corvi",
     "options": [
       "Gamma Corvi",
+      "Barnards Stern",
       "Beteigeuze",
-      "Sadr",
-      "Nunki"
+      "Sadr"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_barnards-stern_astra-star-distance-rev",
+    "entityId": "astra:barnards-stern",
+    "entityType": "star",
+    "type": "astra-star-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Stern ist etwa 6 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "Barnards Stern",
+    "options": [
+      "Barnards Stern",
+      "Spica",
+      "Sirius",
+      "Deneb"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_r136a1_astra-star-distance-rev",
+    "entityId": "astra:r136a1",
+    "entityType": "star",
+    "type": "astra-star-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Stern ist etwa 165.000 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "R136a1",
+    "options": [
+      "R136a1",
+      "Alwaid",
+      "Atair (Altair)",
+      "Bellatrix"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_stephenson-2-18_astra-star-distance-rev",
+    "entityId": "astra:stephenson-2-18",
+    "entityType": "star",
+    "type": "astra-star-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Stern ist etwa 18.917 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "Stephenson 2-18",
+    "options": [
+      "Stephenson 2-18",
+      "Pollux",
+      "Antares",
+      "Alpha Centauri A"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_alpha-centauri_astra-star-distance-rev",
+    "entityId": "astra:alpha-centauri",
+    "entityType": "star",
+    "type": "astra-star-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Stern ist etwa 4 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "Alpha Centauri",
+    "options": [
+      "Alpha Centauri",
+      "Sirrah",
+      "Aldebaran",
+      "Bellatrix"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -15447,18 +15922,18 @@
     "mapTargetId": null
   },
   {
-    "id": "q_astra_centaurus_a_astra-galaxy-type-rev",
-    "entityId": "astra:centaurus_a",
+    "id": "q_astra_oj-287_astra-galaxy-type-rev",
+    "entityId": "astra:oj-287",
     "entityType": "galaxy",
     "type": "astra-galaxy-type-rev",
     "difficulty": 4,
-    "prompt": "Welche dieser Galaxien gehört zum Typ „Elliptische Galaxie“?",
-    "correctAnswer": "Centaurus A (NGC 5128)",
+    "prompt": "Welche dieser Galaxien gehört zum Typ „Blazar“?",
+    "correctAnswer": "OJ 287",
     "options": [
-      "Centaurus A (NGC 5128)",
-      "Whirlpool-Galaxie",
-      "Sextans-Zwerggalaxie",
-      "Hercules-Zwerggalaxie"
+      "OJ 287",
+      "NGC 4314",
+      "Milchstraße",
+      "Große Magellansche Wolke"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -15722,9 +16197,9 @@
     "correctAnswer": "Messier 83",
     "options": [
       "Messier 83",
+      "OJ 287",
       "Whirlpool-Galaxie",
-      "Circinusgalaxie",
-      "Sagittarius-Zwerggalaxie"
+      "Circinusgalaxie"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -16501,9 +16976,9 @@
     "correctAnswer": "Markarian 231",
     "options": [
       "Markarian 231",
+      "Messier 87",
       "Messier 96",
-      "Messier 91",
-      "PGC 43462"
+      "Messier 91"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -16580,6 +17055,44 @@
       "Bildhauer-Galaxie (NGC 253)",
       "Dwingeloo 1",
       "Markarian 231"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_messier-87_astra-galaxy-distance-rev",
+    "entityId": "astra:messier-87",
+    "entityType": "galaxy",
+    "type": "astra-galaxy-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welche Galaxie ist etwa 53.900.000 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "Messier 87",
+    "options": [
+      "Messier 87",
+      "Sculptor-Galaxie",
+      "Messier 88",
+      "PGC 43462"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_oj-287_astra-galaxy-distance-rev",
+    "entityId": "astra:oj-287",
+    "entityType": "galaxy",
+    "type": "astra-galaxy-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welche Galaxie ist etwa 3.500.000.000 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "OJ 287",
+    "options": [
+      "OJ 287",
+      "PGC 43462",
+      "AM 0644-741",
+      "Barnards Galaxie"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -37506,25 +38019,6 @@
     "mapTargetId": null
   },
   {
-    "id": "q_astra_proxima_centauri_astra-star-type-rev",
-    "entityId": "astra:proxima_centauri",
-    "entityType": "star",
-    "type": "astra-star-type-rev",
-    "difficulty": 4,
-    "prompt": "Welcher Stern ist vom Typ „Roter Zwerg\"?",
-    "correctAnswer": "Proxima Centauri",
-    "options": [
-      "Proxima Centauri",
-      "Phakt",
-      "Antares",
-      "Rigel"
-    ],
-    "testedAttribute": null,
-    "answerIsName": true,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
     "id": "q_astra_capella_astra-star-type-rev",
     "entityId": "astra:capella",
     "entityType": "star",
@@ -37611,8 +38105,8 @@
     "options": [
       "Deneb",
       "Achernar",
-      "Gemma",
-      "Gamma Corvi"
+      "Stephenson 2-18",
+      "Gemma"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -37650,7 +38144,45 @@
       "Algol",
       "Alpha Centauri A",
       "Wega",
-      "Proxima Centauri"
+      "Stephenson 2-18"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_r136a1_astra-star-type-rev",
+    "entityId": "astra:r136a1",
+    "entityType": "star",
+    "type": "astra-star-type-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Stern ist vom Typ „Wolf-Rayet-Stern\"?",
+    "correctAnswer": "R136a1",
+    "options": [
+      "R136a1",
+      "Rigel",
+      "Atair (Altair)",
+      "Beta Herculis"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_alpha-centauri_astra-star-type-rev",
+    "entityId": "astra:alpha-centauri",
+    "entityType": "star",
+    "type": "astra-star-type-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Stern ist vom Typ „Stern\"?",
+    "correctAnswer": "Alpha Centauri",
+    "options": [
+      "Alpha Centauri",
+      "Stephenson 2-18",
+      "Sonne",
+      "Prokyon (Procyon)"
     ],
     "testedAttribute": null,
     "answerIsName": true,
