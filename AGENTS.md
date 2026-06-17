@@ -278,6 +278,20 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
   → Kopf trivial. Schwierigkeit muss den **Bekanntheitsgrad** widerspiegeln, nicht das Template.
 - Copyright: keine geschützten Texte/langen Zitate, keine namentlichen Rekorde lebender Personen.
 - Homo: keine Krankheiten, keine Kultur. Natura: Klimawandel nach IPCC-Konsens. Cultura zuletzt.
+- **Politik-Ausschluss (global, Stand 2026-06-17):** Gegenwarts-/Tagespolitik, aktuelle
+  Parteien/Regierungen/Wahlen sowie Wirtschaftssystem-Debatten (Kapitalismus/Sozialismus/-ismen,
+  Wertungen, Schuldfragen) bleiben draußen — in **allen** Bereichen und bereits bei der Quellenwahl
+  (YouTube/E-Books). **Historische** Politik ist nur als nüchterne, datierbare Fakten ohne Wertung
+  zulässig (Jahreszahlen, wer gründete/erfand was, Epochen, Verträge als Daten). Gilt besonders für
+  den geplanten Bereich Historia (Schwerpunkt Kultur/Wissenschaft/Technik).
+
+### Externe Wissensquellen (YouTube, E-Book-Korpus)
+Kuratierte, seriöse Quellen je Bereich + Nutzungsprinzip stehen in
+[`docs/wissensquellen_extern.md`](docs/wissensquellen_extern.md). **Kernregel:** kuratierte
+Kanäle/Bücher sind die **Entdeckungs-/Notabilitätsschicht** (welche Objekte/Themen aufnehmen),
+**niemals die Faktenschicht** — Werte kommen weiter aus Wikidata/NASA/IUCN/Gray's etc., bei
+E-Books aus dem Sachbuch-Volltext mit verbatim-Verifikation. Zugangs-/Hostdetails zum
+E-Book-Korpus (Projekt ebook_vectordb, M5): zentral im theplan-knowledge.
 
 > **✅ Selbstverräter-Guard (v1.11.0):** Beide Generatoren verwerfen jetzt automatisch Fragen, deren
 > Antwort schon im Hinweis steckt (`revealsAnswer()` + `impliedRegions()` für dt. Körperteil-Stämme).
@@ -493,6 +507,30 @@ Die Rohdaten der Recherche befinden sich in den exportierten Sitzungsprotokollen
   Anatomie-Assets (eigener Weg). Voraussetzung fürs Museum.
 - [ ] **Cultura 21 Restbilder:** alte Literaturwerke + obskure Bauwerke ohne freies Commons-Bild
   (`_imgProblem`-Markierung in `cultura_raw.json`) — ggf. bessere Suchbegriffe oder andere freie Quelle.
+
+### 1b. Geplante Bereiche, Modi & Quellen (Stand 2026-06-17)
+*Aus Brainstorming-Session; Entscheidungen getroffen, Umsetzung offen.*
+- [ ] **Neuer Bereich „Machina"** (Digital/IT/Computer) — lat. Name **Machina** (gesetzt). Neue
+  Domain analog Natura: `generate_machina.js` + Kategorien + Registry-Eintrag (`src/domains/index.js`)
+  + generisches `ConceptVisual` mit dt. Labels. Materiallage sehr ergiebig. Quellen: siehe
+  `docs/wissensquellen_extern.md` (ExplainingTheFuture, c't 3003, heise c't u.a.).
+- [ ] **Neuer Bereich „Historia"** (Geschichte) — lat. Name **Historia**. Schwerpunkt
+  **Kultur-/Wissenschafts-/Technikgeschichte** (Entdeckungen, Erfindungen, Kunst-/Bauepochen,
+  wer-baute/erfand-was-wann). **Politik-Ausschlussregel beachten** (s. Inhaltsregeln). Quelle u.a.
+  Geschichtsfenster.
+- [ ] **Spielmodus „Allround"** — Fragen quer über alle Hauptbereiche gemischt (Domain-übergreifend).
+- [ ] **Spielmodus „Marathon"/Sudden-Death** — spielen, bis der erste Fehler kommt (Highscore = Streak).
+- [ ] **Astra `black_hole`-Kategorie + Generator-Templates** (Masse in Sonnenmassen, Entfernung,
+  Typ, Erstbild-Jahr) — Voraussetzung, um die ergiebigsten Astronomie-Quellen (Schwarze Löcher,
+  Quasare, Neutronensterne: TON 618, M87*, Sgr A*) überhaupt aufnehmen zu können. Wikidata hat dafür
+  saubere Werte. Ggf. analog `quasar`/`neutron_star`.
+- [ ] **E-Book-Korpus als Quelle + Verifikations-Schicht** (Projekt ebook_vectordb, Daten auf M5,
+  per `ssh m5` erreichbar; 40k Bücher, FTS5 = 0 Tokens, Semantik, `ask --check strict` mit
+  verbatim-Verifikation). **Nur Sachbücher** (Korpus ist fiction-lastig; Genre am Pfad, das große
+  „ePub Archiv" braucht bessere Genre-Erkennung). Primärnutzen: geerntete Fakten gegen Sachbücher
+  bestätigen (spart Web-Zugriffe, härtet „Quelle pro Fakt"). Sekundär: gezielte Extraktion, Drafting
+  auf MiniMax/gemma (M5), Quelle = Buchtitel+Autor, **keine Langzitate speichern** (Copyright).
+  Zugangsdetails: theplan-knowledge `p_scientiapotentia.md` + `ebook_vectordb.md`.
 
 ### 2. Ablaufplan-Status
 - [x] **Session 1:** Datenrettung Codex, Aufbereitung `AGENTS.md`.
