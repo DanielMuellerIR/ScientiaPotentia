@@ -61,7 +61,10 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 > mineral, +7 fungus, +11 geology); Lingua 282→**317** / →**1326** (+17 Sprachen, +18 Etymologien);
 > Homo 169→**211** / →**593** (+17 body_fact, +12 organ, +6 bone, +7 muscle). Subagents fingen eigene
 > Fehler (P18-Fehlbesetzungen cpe-bach→Gerichtsgebäude, meyerbeer→Pflanze; value-Kollisionen).
-> Astra/Natura-Bildauflösung lief ins Turn-Limit → Folge-Welle. Alle `verify_facts` 0 Fehler.
+> Alle `verify_facts` 0 Fehler. **Nachgezogen (v1.36.1):** Astra +137 und Natura +213 Museum-Bilder
+> über einen **gebündelten** P18/pageimages-Resolver (`resolve_images_batched.cjs`, bis 50 Einheiten/
+> Request → kein Rate-Limit; der per-Konzept-Resolver war zuvor 6 h gelaufen und ins 429-Limit
+> getreten). Museum gesamt: **1258 Bilder** (Astronomie 183, Natur 508, Kultur 428, Sprachen 139).
 
 > **Stand 2026-06-17 (v1.35.0) — Breite Parallel-Welle, 8 Sonnet-Subagents über 5 Quellen:**
 > Host-Diversität statt Agent-Stapeln (MiniMax-Limit ~4–6 parallel): 3× MiniMax + 3× Wikidata-SPARQL
