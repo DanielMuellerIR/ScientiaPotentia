@@ -52,6 +52,14 @@ nicht in Inline-Styles; Details und Begründung in [`LAYOUT.md`](LAYOUT.md). Vor
 
 Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 
+> **Stand 2026-06-17 (v1.41.0) — Track-A Welle 3: +287 Tierkonzepte → Natura-Meilenstein 2000 K / 10 993 F:**
+> Dritte Discovery-Welle (Insekten×2, Reptilien×2, Vögel×2 über frische Grzimek-Seiten) → 294
+> Kandidaten → Gate (292 ok) + 4 Taxon-Verifier (5 Fehler: Laubsängermeise nicht existent +
+> 4 Insekten-funFact-Fehler). **287 gemerged: Natura 1713→2000 K / 9379→10 993 F** (runder
+> Meilenstein). Tests grün, verify 0 Fehler, Browser-verifiziert. **Session-Summe Track A:
+> +749 Tierkonzepte (3 Wellen), +55 funFacts.** Reserven weiter groß (Säugetiere-Band fast
+> unberührt, Westheide Teil 1 Wirbellose kaum, Grzimek-Bände je ~50 % offen).
+
 > **Stand 2026-06-17 (v1.40.1) — Astra Track A getestet: Konzept-Lehrbuch ≠ Objektkatalog (Lehre):**
 > Probe auf *The Cosmic Perspective (2017)*, sternreichster Abschnitt (S. 525–575, 50 S.): nur **2
 > neue Objekte** (Sirius B übernommen; NGC 3603 zu obskur verworfen). Grund: ein Konzept-Lehrbuch
