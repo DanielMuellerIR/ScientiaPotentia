@@ -52,6 +52,20 @@ nicht in Inline-Styles; Details und Begründung in [`LAYOUT.md`](LAYOUT.md). Vor
 
 Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 
+> **Stand 2026-06-17 (v1.37.2) — Sachbuch-Extraktion Phase 1, Astra-Pilot (`docs/extraktion_sachbuecher_plan.md`):**
+> Pipeline End-to-End validiert: `pdftotext` → deterministischer Treffer-Finder (`concept_passages.py`)
+> → 3 parallele Sonnet-Enrichment-Agenten (Batches je ~28 Konzepte, produce-only nach `/tmp`) →
+> Opus-Gate → merge → generate → verify (0 Fehler) → Browser. **Ergebnis Astra: nur +3 belegte
+> funFacts** (Mira, Mariner 10, Cassiopeia A — bisher ohne funFact; Quelle „Der neue Kosmos"/Unsöld).
+> **Wichtige Pilot-Lehre:** Astra-Buchanreicherung lohnt kaum — (a) die 82 Namens-Treffer waren
+> großteils **Biologie-Fehltreffer** (Asteroidennamen wie Pandora/Iris/Daphne = griech./biolog.
+> Begriffe in den Bio-Büchern; `concept_passages.py` durchsucht ALLE `.txt`), (b) von 35 verwertbaren
+> Fakten hatten **32 Konzepte bereits gleich gute oder bessere** NASA/Wikipedia-funFacts, (c) die eine
+> Astro-Quelle (Unsöld, alte Auflage) liefert **veraltete Werte** (Deneb 63 000× statt ~200 000×,
+> Andromeda 670 kpc) → Attribute NICHT überschrieben. **Konsequenz:** Buch-Ernte gehört zu **Natura**
+> (Campbell/Westheide = autoritative Tierquelle, keine Fehltreffer-Pollution): dort **69 echte
+> funFact-Lücken** unter 243 Treffern → nächste Welle.
+
 > **Stand 2026-06-17 (v1.37.1) — Kurzgesagt als Notabilitäts-Signal (Astra, Proof-of-Concept):**
 > Neue Quelle getestet: YouTube-Kanal Kurzgesagt als **Auswahl-/Notabilitätssignal** (welche
 > berühmten Objekte aufnehmen), NICHT als Faktenquelle. Pipeline: 5 astronomielastige Videos
