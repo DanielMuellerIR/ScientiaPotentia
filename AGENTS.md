@@ -52,6 +52,20 @@ nicht in Inline-Styles; Details und Begründung in [`LAYOUT.md`](LAYOUT.md). Vor
 
 Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 
+> **Stand 2026-06-17 (v1.39.0) — Sachbuch-Phase-2 Track-A SKALIERT: +159 neue Tierkonzepte (Grzimek + Westheide):**
+> Neue Bücher extrahiert (Grzimeks Tierleben Säugetiere/Insekten/Kriechtiere/Vögel, ~1 Mio W; +
+> The Cosmic Perspective 2017 als moderne Astro-Quelle; + Prometheus Anatomie für Homo). Breite
+> Discovery-Welle: **6 parallele Sonnet-Agenten** über Page-Range-Slices (Insekten×2, Reptilien,
+> Vögel, Säugetiere, wirbellose Tiere/Mollusken) → 167 Kandidaten. **Zweistufiges Gate:**
+> (1) programmatisch — Dedup (cross-batch + Bestand), ≥2 belegte Attribute, Wertebereich-Sanity,
+> class-Vokabel, funFact-Länge, conservationStatus gedroppt (kein Buch-IUCN); (2) **adversariale
+> Verifikation** — 3 skeptische Sonnet-Prüfer (nach Taxon) fingen 7 Sachfehler (Bergkänguru-Speed
+> 88→falsch, Herkulesspinner-Superlativ vertauscht, „stumme" Waldgrille, Synonym-Schildkröte u.a.).
+> **159 gemerged → Natura 1251→1410 K / 6767→7635 F** (+868 Fragen). Browser-verifiziert, verify 0
+> Fehler. Bestätigt: Discovery skaliert sauber über parallele Slices + zweistufiges Gate. Reserven:
+> Grzimek-Bände noch zu ~80 % ungelesen, Westheide Teil 1+2 ebenso → weitere hunderte Arten möglich.
+> Offen: Cosmic Perspective für Astra-Discovery; Prometheus für Homo; Track B (Sachfrage-MCQ, §6).
+
 > **Stand 2026-06-17 (v1.38.0) — Sachbuch-Phase-2 Track-A Pilot: NEUE Tier-Konzepte aus „Spezielle Zoologie":**
 > Erster Discovery-Lauf (statt Anreicherung jetzt Entdeckung): 1 Sonnet-Agent las den Raubtier-
 > Abschnitt (Westheide/Rieger Teil 2, S. 620–650) gegen die Dedup-Namensliste und extrahierte
