@@ -52,6 +52,23 @@ nicht in Inline-Styles; Details und Begründung in [`LAYOUT.md`](LAYOUT.md). Vor
 
 Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 
+> **Stand 2026-06-17 (v1.37.0) — Welle 4, reine Sonnet-Harvests (kein MiniMax):** Auf Wunsch
+> nur Sonnet-Subagents statt MiniMax (Daniel hatte Sonnet-Volumen übrig). 5 parallele produce-only
+> Subagents, host-diversifiziert (4× Wikidata-SPARQL + 1× Wikiquote), zentrales Opus-Gate.
+> **+626 Konzepte / +2931 Fragen:** Natura 851→**1205** K / 4301→**6403** F (+354 Tiere, alle
+> Sitelinks ≥ 12 notabilitäts-gerankt — Greifvögel/Eulen/Spechte/Primaten/Beuteltiere u.a.);
+> Cultura 990→**1205** / 2988→**3557** (+86 Werke: Mozart-Opern, Hemingway, van Gogh u.a.,
+> P31/P106-validiert; +129 gemeinfreie Zitate †≤1955 verbatim aus Wikiquote — Schnitzler, Musil,
+> Zweig, Herder, Schlegel u.a.); Lingua 317→**352** / 1326→**1512** (+21 Sprachen, +9
+> Schriftsysteme, +5 Sprachfamilien; Agent korrigierte etliche Wikidata-Datenfehler); Astra
+> 627→**649** / 1949→**2023** (+8 benannte Sterne, +6 Galaxien, +8 Nebel). Alle `verify_facts`
+> 0 Fehler, Natura-Quiz Browser-verifiziert. **Gate-Lehre erneut bestätigt:** Erste Natura-Ernte
+> (232) war systematisch obskur (29 Kreischeulen-Varianten, tropische Tapaculos) — IUCN+P18+dewiki
+> ist als Notabilitätsfilter ZU SCHWACH; erst `wikibase:sitelinks ≥ 12` trennt bekannte von
+> obskuren Arten (cultura-wd1-Lehre). Astra: 5 katalog-only/obskure Galaxien (NGC-Nummern, GLASS-z13)
+> im Gate verworfen. Neue Harvester: `wikidata_natura_wd4.cjs`, `wikidata_astra_w4.cjs`,
+> `wikidata_lingua_w5.cjs`, `wikidata_cultura_w4.cjs`, `wikiquote_w4.cjs`.
+
 > **Stand 2026-06-17 (v1.36.0) — Welle 3 (Bilder + Konzepte), 8 Sonnet-Subagents:**
 > Lektion umgesetzt: Bilder jetzt über **de.wikipedia-Lemma / Wikidata-P18** statt commons-Freitext
 > (`resolve_images_p18.cjs`) — die zuvor falsch zugeordneten Bauwerke kommen so korrekt (Bastille,
