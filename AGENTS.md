@@ -52,6 +52,17 @@ nicht in Inline-Styles; Details und Begründung in [`LAYOUT.md`](LAYOUT.md). Vor
 
 Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 
+> **Stand 2026-06-17 (v1.40.0) — Track-A Welle 2: +303 neue Tierkonzepte (→ Natura 1713 K / 9379 F):**
+> Zweite Discovery-Welle, gleiche Mechanik: 6 Sonnet-Agenten über frische Page-Range-Slices
+> (Insekten, Reptilien×2, Vögel, + Westheide Teil 2 Fische/Amphibien → neue Klassen Knochen-/
+> Knorpelfische) → 320 Kandidaten. Zweistufiges Gate: programmatisch (316 ok, 4 zu lang) +
+> 4 Taxon-Verifier (13 Sachfehler gefiltert: Wüstenleguan/Seewolf-Längen, Blindbremse-funFact,
+> „Baubau" kein Vogel u.a.). **303 gemerged: Natura 1410→1713 K / 7635→9379 F** (+1744 Fragen).
+> Tests grün, verify 0 Fehler, Browser-verifiziert (Königskobra, Mondfisch, Stierhai, Tsetsefliege).
+> **Session-Summe Track A: +462 Tierkonzepte aus 2 Wellen.** Wiederkehrende Falle: Agenten erzeugen
+> teils ASCII-`"` als dt. Schlusszeichen → JSON bricht; Repair-Regex `„…"`→`„…“` im Gate-Skript.
+> Reserven weiter groß (Grzimek-Bände ~60 % ungelesen). Offen: Cosmic Perspective (Astra), Prometheus (Homo), Track B.
+
 > **Stand 2026-06-17 (v1.39.0) — Sachbuch-Phase-2 Track-A SKALIERT: +159 neue Tierkonzepte (Grzimek + Westheide):**
 > Neue Bücher extrahiert (Grzimeks Tierleben Säugetiere/Insekten/Kriechtiere/Vögel, ~1 Mio W; +
 > The Cosmic Perspective 2017 als moderne Astro-Quelle; + Prometheus Anatomie für Homo). Breite
