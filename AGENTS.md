@@ -52,6 +52,21 @@ nicht in Inline-Styles; Details und Begründung in [`LAYOUT.md`](LAYOUT.md). Vor
 
 Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 
+> **Stand 2026-06-17 (v1.37.1) — Kurzgesagt als Notabilitäts-Signal (Astra, Proof-of-Concept):**
+> Neue Quelle getestet: YouTube-Kanal Kurzgesagt als **Auswahl-/Notabilitätssignal** (welche
+> berühmten Objekte aufnehmen), NICHT als Faktenquelle. Pipeline: 5 astronomielastige Videos
+> lokal transkribiert (`yt-transcribe`/Auto-Untertitel) → Sonnet extrahiert benannte reale Objekte
+> (verstümmelte Auto-Transkript-Namen auf kanonische Form normalisiert) → **Werte ausschließlich
+> aus Wikidata** → Opus-Gate. Politik/Spekulatives per Titelfilter ausgeschlossen. Ergebnis: +6
+> Flaggschiff-Objekte (Astra 649→**655** K / →**2051** F): R136a1 (massereichster Stern),
+> Stephenson 2-18 (größter Stern), Barnards Stern, Alpha Centauri, Messier 87 (Foto-Galaxie),
+> OJ 287. **Gate fing zwei Datenfallen:** (1) Beta Centauri — Wikidata-Distanz selbst falsch
+> (50 statt ~390 Lj) → verworfen; (2) `apparentMagnitude` P1215 hat pro Stern viele Claims in
+> verschiedenen Photometrie-Bändern (V/B/Infrarot) — der Harvest-Agent nahm den ersten (oft IR,
+> z.B. Stephenson 2-18 mag 7.15 = IR, visuell ~15) → Helligkeit nur behalten wo gesichert V-Band.
+> Schwarze Löcher/Quasare/Neutronensterne (TON 618, M87*, Sgr A*) brauchen NEUE Astra-Kategorie +
+> Generator-Templates → Folge-Option. verify_facts 0 Fehler, Astra-3D browser-verifiziert.
+
 > **Stand 2026-06-17 (v1.37.0) — Welle 4, reine Sonnet-Harvests (kein MiniMax):** Auf Wunsch
 > nur Sonnet-Subagents statt MiniMax (Daniel hatte Sonnet-Volumen übrig). 5 parallele produce-only
 > Subagents, host-diversifiziert (4× Wikidata-SPARQL + 1× Wikiquote), zentrales Opus-Gate.
