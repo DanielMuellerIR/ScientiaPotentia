@@ -52,6 +52,15 @@ nicht in Inline-Styles; Details und Begründung in [`LAYOUT.md`](LAYOUT.md). Vor
 
 Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 
+> **Stand 2026-06-17 (v1.40.1) — Astra Track A getestet: Konzept-Lehrbuch ≠ Objektkatalog (Lehre):**
+> Probe auf *The Cosmic Perspective (2017)*, sternreichster Abschnitt (S. 525–575, 50 S.): nur **2
+> neue Objekte** (Sirius B übernommen; NGC 3603 zu obskur verworfen). Grund: ein Konzept-Lehrbuch
+> nennt nur bekannte Referenzobjekte (alle schon im Spiel) + H-R-Diagramm-Labels OHNE auswertbare
+> Attribute; Sternhaufen haben keine Schema-Kategorie. **Lehre:** Track-A-Discovery lohnt nur bei
+> systematischen Objekt-/Art-KATALOGEN (Grzimek/Westheide ~1,5 Treffer/Seite), NICHT bei Konzept-
+> Lehrbüchern (~0,04/Seite). Astra-Wachstum bleibt bei **Wikidata-Harvests** (bewährt, vgl. v1.37.0).
+> Sirius B (Weißer Zwerg, Großer Hund, 8,6 Lj) ergänzt → Astra 655→656 K / 2053 F.
+
 > **Stand 2026-06-17 (v1.40.0) — Track-A Welle 2: +303 neue Tierkonzepte (→ Natura 1713 K / 9379 F):**
 > Zweite Discovery-Welle, gleiche Mechanik: 6 Sonnet-Agenten über frische Page-Range-Slices
 > (Insekten, Reptilien×2, Vögel, + Westheide Teil 2 Fische/Amphibien → neue Klassen Knochen-/
