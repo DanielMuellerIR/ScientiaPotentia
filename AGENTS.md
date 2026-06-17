@@ -531,6 +531,9 @@ Die Rohdaten der Recherche befinden sich in den exportierten Sitzungsprotokollen
   bestätigen (spart Web-Zugriffe, härtet „Quelle pro Fakt"). Sekundär: gezielte Extraktion, Drafting
   auf MiniMax/gemma (M5), Quelle = Buchtitel+Autor, **keine Langzitate speichern** (Copyright).
   Zugangsdetails: theplan-knowledge `p_scientiapotentia.md` + `ebook_vectordb.md`.
+  **Ausführungsreifer Extraktionsplan (M5-frei, rein lokal auf M3): [`docs/extraktion_sachbuecher_plan.md`](docs/extraktion_sachbuecher_plan.md)** — parallele Sonnet-Agenten, Gerüst-Skripte
+  unter `scripts/data_sources/extract/` (getestet: Natura 243/1205, Astra 82/655 Konzepte in den
+  neuen Büchern Unsöld/Westheide/Campbell gefunden). Für eine eigene Session vorgesehen.
 
 ### 2. Ablaufplan-Status
 - [x] **Session 1:** Datenrettung Codex, Aufbereitung `AGENTS.md`.
