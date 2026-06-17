@@ -593,6 +593,21 @@ Die Rohdaten der Recherche befinden sich in den exportierten Sitzungsprotokollen
 
 ### 1b. Geplante Bereiche, Modi & Quellen (Stand 2026-06-17)
 *Aus Brainstorming-Session; Entscheidungen getroffen, Umsetzung offen.*
+- [ ] **Hauptbereiche neu abgrenzen / Definitionen schärfen (PLANUNG, vor Machina/Historia):** Mit
+  den neuen Bereichen (Machina, Historia) drohen Überschneidungen zu bestehenden — Teile waren
+  planerisch evtl. schon in vorhandene Bereiche integriert. Jeden Hauptbereich klar definieren und
+  gegen die anderen abgrenzen (Scope, Trennlinien, Grenzfälle): **Terra** (Geografie), **Natura**
+  (Biologie/Erde/Naturphänomene), **Astra** (Astronomie), **Homo** (menschl. Körper), **Cultura**
+  (Kunst/Musik/Literatur/Architektur/Zitate), **Lingua** (Sprachen), + geplant **Machina** (Digital/
+  IT) und **Historia** (Kultur-/Wissenschafts-/Technikgeschichte). Z.B.: Technikgeschichte → Historia
+  vs. Machina? Kunst-/Bauepochen → Historia vs. Cultura? Wissenschaftsgeschichte/Entdecker → Historia
+  vs. Astra/Natura? Ergebnis = Zuordnungs-Matrix als Referenz für künftige Inhalts-Wellen.
+- [ ] **Sachbuch-Track-A Welle 4 fertig verifizieren + mergen (pending):** 341 programmatisch
+  gegatete, aber NICHT adversarial verifizierte Tier-Kandidaten in
+  `~/.cache/scientia_extract/pending_wave4.json` (Insekten/Reptilien/Vögel; Reptilien-Gr.2 bereits
+  gelandet). Nächste Session nach Sonnet-Reset: die 5 offenen Verifier-Gruppen
+  (`v4_insekt_1/2`, `v4_reptil_1`, `v4_voegel_1/2` in selbem Cache) durch Sonnet-Taxon-Prüfer laufen
+  lassen → Drops → mergen via bewährter Merge-Logik → generate/verify/test/Browser → Commit.
 - [ ] **Neuer Bereich „Machina"** (Digital/IT/Computer) — lat. Name **Machina** (gesetzt). Neue
   Domain analog Natura: `generate_machina.js` + Kategorien + Registry-Eintrag (`src/domains/index.js`)
   + generisches `ConceptVisual` mit dt. Labels. Materiallage sehr ergiebig. Quellen: siehe
