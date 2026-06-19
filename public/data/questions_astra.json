@@ -4104,6 +4104,25 @@
     "mapTargetId": null
   },
   {
+    "id": "q_astra_sirius-b_astra-star-constellation",
+    "entityId": "astra:sirius-b",
+    "entityType": "star",
+    "type": "astra-star-constellation",
+    "difficulty": 3,
+    "prompt": "In welchem Sternbild liegt Sirius B?",
+    "correctAnswer": "Großer Hund",
+    "options": [
+      "Großer Hund",
+      "Orion",
+      "Zentaur",
+      "Kleiner Bär"
+    ],
+    "testedAttribute": "constellation",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_astra_sun_astra-star-type",
     "entityId": "astra:sun",
     "entityType": "star",
@@ -4788,6 +4807,25 @@
     "mapTargetId": null
   },
   {
+    "id": "q_astra_sirius-b_astra-star-type",
+    "entityId": "astra:sirius-b",
+    "entityType": "star",
+    "type": "astra-star-type",
+    "difficulty": 3,
+    "prompt": "Welcher Sterntyp ist Sirius B?",
+    "correctAnswer": "Weißer Zwerg",
+    "options": [
+      "Weißer Zwerg",
+      "Gelber Zwerg",
+      "Weißer Hauptreihenstern",
+      "Roter Überriese"
+    ],
+    "testedAttribute": "type",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_astra_sirius_astra-star-distance",
     "entityId": "astra:sirius",
     "entityType": "star",
@@ -5446,6 +5484,25 @@
       "8,6 Lichtjahre",
       "640 Lichtjahre",
       "860 Lichtjahre"
+    ],
+    "testedAttribute": "distanceLy",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sirius-b_astra-star-distance",
+    "entityId": "astra:sirius-b",
+    "entityType": "star",
+    "type": "astra-star-distance",
+    "difficulty": 4,
+    "prompt": "Wie weit ist Sirius B ungefähr von der Erde entfernt?",
+    "correctAnswer": "8,6 Lichtjahre",
+    "options": [
+      "8,6 Lichtjahre",
+      "640 Lichtjahre",
+      "860 Lichtjahre",
+      "4,24 Lichtjahre"
     ],
     "testedAttribute": "distanceLy",
     "answerIsName": false,
@@ -13661,25 +13718,6 @@
     "mapTargetId": null
   },
   {
-    "id": "q_astra_sirius_astra-star-constellation-rev",
-    "entityId": "astra:sirius",
-    "entityType": "star",
-    "type": "astra-star-constellation-rev",
-    "difficulty": 3,
-    "prompt": "Welcher Stern liegt im Sternbild Großer Hund?",
-    "correctAnswer": "Sirius",
-    "options": [
-      "Sirius",
-      "Caph",
-      "Gacrux",
-      "Alnitak"
-    ],
-    "testedAttribute": null,
-    "answerIsName": true,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
     "id": "q_astra_achernar_astra-star-constellation-rev",
     "entityId": "astra:achernar",
     "entityType": "star",
@@ -15276,25 +15314,6 @@
     "mapTargetId": null
   },
   {
-    "id": "q_astra_sirius_astra-star-distance-rev",
-    "entityId": "astra:sirius",
-    "entityType": "star",
-    "type": "astra-star-distance-rev",
-    "difficulty": 4,
-    "prompt": "Welcher Stern ist etwa 8,6 Lichtjahre von der Erde entfernt?",
-    "correctAnswer": "Sirius",
-    "options": [
-      "Sirius",
-      "Pollux",
-      "Gemma",
-      "Sadr"
-    ],
-    "testedAttribute": null,
-    "answerIsName": true,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
     "id": "q_astra_betelgeuse_astra-star-distance-rev",
     "entityId": "astra:betelgeuse",
     "entityType": "star",
@@ -15362,8 +15381,8 @@
     "options": [
       "Alpha Centauri A",
       "Gemma",
-      "Deneb",
-      "Alpha Centauri"
+      "Sirius B",
+      "Deneb"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -15382,7 +15401,7 @@
       "Polaris (Polarstern)",
       "Deneb",
       "Bellatrix",
-      "Alpha Centauri"
+      "Sirius B"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -15609,8 +15628,8 @@
     "options": [
       "Deneb",
       "Prokyon (Procyon)",
-      "Algol",
-      "Alpha Centauri A"
+      "Sirius B",
+      "Algol"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -38087,7 +38106,7 @@
       "Pollux",
       "Castor",
       "Atair (Altair)",
-      "Proxima Centauri"
+      "Sirius B"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -38183,6 +38202,25 @@
       "Stephenson 2-18",
       "Sonne",
       "Prokyon (Procyon)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sirius-b_astra-star-type-rev",
+    "entityId": "astra:sirius-b",
+    "entityType": "star",
+    "type": "astra-star-type-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Stern ist vom Typ „Weißer Zwerg\"?",
+    "correctAnswer": "Sirius B",
+    "options": [
+      "Sirius B",
+      "Nunki",
+      "Proxima Centauri",
+      "Sadr"
     ],
     "testedAttribute": null,
     "answerIsName": true,
