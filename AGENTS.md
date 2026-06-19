@@ -633,6 +633,13 @@ Die Rohdaten der Recherche befinden sich in den exportierten Sitzungsprotokollen
   unter `scripts/data_sources/extract/` (getestet: Natura 243/1205, Astra 82/655 Konzepte in den
   neuen Büchern Unsöld/Westheide/Campbell gefunden). Für eine eigene Session vorgesehen.
 
+- [ ] **Neue Sachbuch-Quellen für Cultura + Historia (Stand 2026-06-19, Daniels Hinweis):** Es liegen
+  **neue Kunst-Sachbücher** vor (Cultura-Lane: Kunst/Kunstgeschichte) — als Discovery-/Anreicherungs-
+  Quelle für Cultura prüfen. Zusätzlich soll der **Geschichts-Ordner** im E-Book-Korpus ergiebig sein —
+  Kandidat für die Quellenbasis des geplanten Bereichs **Historia**. Beim Einlesen die Track-A-Lehre
+  beachten (lohnt nur bei Katalogen, nicht bei reinen Konzept-/Fließtext-Lehrbüchern) und die
+  Politik-Ausschlussregel für Historia. Konkrete Titel/Pfade beim nächsten Extraktionslauf sichten.
+
 ### 2. Ablaufplan-Status
 - [x] **Session 1:** Datenrettung Codex, Aufbereitung `AGENTS.md`.
 - [x] **Session 2:** Architekturentscheidung, Daten-Pipeline entwerfen, Testdaten-Extrakt erstellen.
