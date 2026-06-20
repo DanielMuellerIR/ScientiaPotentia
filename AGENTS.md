@@ -52,6 +52,14 @@ nicht in Inline-Styles; Details und Begründung in [`LAYOUT.md`](LAYOUT.md). Vor
 
 Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 
+> **Stand 2026-06-20 (v1.42.0) — Track-A Welle 4 abgeschlossen → Natura 2402 K / 12 685 F:**
+> Die 341 gegateten Kandidaten aus `pending_wave4.json` (Insekten/Reptilien/Vögel) durch 5 parallele
+> Sonnet-Taxon-Verifier adversarial geprüft (4 Fehler: Kastanienbohrer, Zwerghonigbiene,
+> Kamelhalsfliege, Nordamerikanische Sandboa), **+337 deterministisch gemerged: Natura 2065→2402 K /
+> 11 245→12 685 F**. verify 0 Fehler, Tests grün, Browser-verifiziert. Zusätzlich: **Bereichs-
+> Abgrenzung** als Zuordnungs-Matrix erstellt ([`docs/bereichs_abgrenzung.md`](docs/bereichs_abgrenzung.md))
+> — Voraussetzung vor Bau von Machina/Historia.
+
 > **Stand 2026-06-17 (v1.41.0) — Track-A Welle 3: +287 Tierkonzepte → Natura-Meilenstein 2000 K / 10 993 F:**
 > Dritte Discovery-Welle (Insekten×2, Reptilien×2, Vögel×2 über frische Grzimek-Seiten) → 294
 > Kandidaten → Gate (292 ok) + 4 Taxon-Verifier (5 Fehler: Laubsängermeise nicht existent +
@@ -601,12 +609,11 @@ Die Rohdaten der Recherche befinden sich in den exportierten Sitzungsprotokollen
   Epoche→Historia), Wissenschaftsgeschichte (Objekt→Astra/Natura / Entdeckung→Historia), physische
   Geografie (Karte→Terra / Geologie→Natura). Meta-Regel: **Historia ist kein Sammelbecken**, ein
   Konzept = ein Primär-Owner. **Vor dem Bau von Machina/Historia und vor neuen Wellen heranziehen.**
-- [ ] **Sachbuch-Track-A Welle 4 fertig verifizieren + mergen (pending):** 341 programmatisch
-  gegatete, aber NICHT adversarial verifizierte Tier-Kandidaten in
-  `~/.cache/scientia_extract/pending_wave4.json` (Insekten/Reptilien/Vögel; Reptilien-Gr.2 bereits
-  gelandet). Nächste Session nach Sonnet-Reset: die 5 offenen Verifier-Gruppen
-  (`v4_insekt_1/2`, `v4_reptil_1`, `v4_voegel_1/2` in selbem Cache) durch Sonnet-Taxon-Prüfer laufen
-  lassen → Drops → mergen via bewährter Merge-Logik → generate/verify/test/Browser → Commit.
+- [x] **Sachbuch-Track-A Welle 4 fertig verifizieren + mergen (v1.42.0):** Die 341 gegateten
+  Kandidaten aus `pending_wave4.json` durch 5 parallele Sonnet-Taxon-Verifier adversarial geprüft;
+  4 Fehler gefiltert (Kastanienbohrer, Zwerghonigbiene, Kamelhalsfliege, Nordamerikanische Sandboa),
+  **+337 Konzepte** deterministisch gemergt. verify_facts natura 0 Fehler, npm test grün,
+  Natura-Quizrunde im Browser verifiziert. **Natura: 2065 → 2402 Konzepte / 11245 → 12685 Fragen.**
 - [ ] **Neuer Bereich „Machina"** (Digital/IT/Computer) — lat. Name **Machina** (gesetzt). Neue
   Domain analog Natura: `generate_machina.js` + Kategorien + Registry-Eintrag (`src/domains/index.js`)
   + generisches `ConceptVisual` mit dt. Labels. Materiallage sehr ergiebig. Quellen: siehe
