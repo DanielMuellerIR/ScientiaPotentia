@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-deploy.py — Upload des Terra Weltatlas Production-Builds auf den Netcup-Webspace (dm0.de) per FTPS.
+deploy.py — Upload des Scientia-Potentia Production-Builds auf den Netcup-Webspace (dm0.de/sci/) per FTPS.
 
 Lädt exakt den fertigen Build (dist/) hoch.
 Sicherheit:
@@ -28,7 +28,9 @@ LOCAL_DIST = os.path.join(SCRIPT_DIR, "dist")
 # Dynamische Ermittlung des Home-Verzeichnisses für maximale Portabilität
 HOME_DIR = os.path.expanduser("~")
 DEFAULT_ENV = os.path.join(HOME_DIR, "Nextcloud", "Beispiele", "Templates", "Sticky", ".env", "chili.env")
-REMOTE_BASE_DIR = "/dm0.de/httpdocs/terra"
+# Zielverzeichnis auf dem Netcup-Webspace -> erreichbar unter https://dm0.de/sci/
+# (Vite baut mit base:'./' relative Asset-Pfade, daher unterordner-tauglich.)
+REMOTE_BASE_DIR = "/dm0.de/httpdocs/sci"
 
 
 def load_env_credentials(env_path):
@@ -113,7 +115,7 @@ def main():
     args = parser.parse_args()
 
     print("=" * 60)
-    print("     TERRA WELTATLAS - DEPLOYING TO NETCUP FTPS")
+    print("     SCIENTIA POTENTIA - DEPLOYING TO NETCUP FTPS (dm0.de/sci/)")
     print("=" * 60)
 
     # 1. Build ausführen falls erwünscht
