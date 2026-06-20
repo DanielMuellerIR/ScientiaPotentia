@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo, Suspense, lazy } from 'react';
 import Atlas from './components/Atlas';
 import Quiz from './components/Quiz';
+import QuizLauncher from './components/QuizLauncher';
 import Dashboard from './components/Dashboard';
 import DomainSwitcher from './components/DomainSwitcher';
 import VisualPanel from './components/VisualPanel';
@@ -19,6 +20,12 @@ export default function App() {
   const [activeTab, setActiveTab] = useState('dashboard'); // 'dashboard' | 'atlas' | 'explore' | 'quiz' | 'museum'
   const [selectedEntityId, setSelectedEntityId] = useState(null);
   const [quizDifficulty, setQuizDifficulty] = useState(1);
+  // Ob im Lern-Quiz-Tab bereits eine Runde "scharf gestellt" wurde. false =
+  // Vorschalt-Screen mit Stufen-/Modus-Wahl; true = laufende Quizrunde. Wird über
+  // einen Start-Handler (Dashboard- oder Tab-Launcher, Atlas-Schnellquiz) gesetzt
+  // und beim Klick auf den Lern-Quiz-Tab bewusst zurückgesetzt, damit man dort
+  // immer zuerst die Schwierigkeit wählt statt sofort in Stufe 1 zu landen.
+  const [quizArmed, setQuizArmed] = useState(false);
   const [quizMode, setQuizMode] = useState('all'); // 'all' | 'countries' | 'cities' | 'rivers' | 'stadt-land-fluss'
   const [clickedMapId, setClickedMapId] = useState(null);
   const [isMuted, setIsMuted] = useState(isAudioMuted());
@@ -275,6 +282,7 @@ export default function App() {
       setDueEntities([targetEntity]);
       setNewEntities([]);
       setQuizDifficulty(1); // Quick quiz default is level 1
+      setQuizArmed(true);   // Schnellquiz startet ohne Vorschalt-Screen direkt
       setActiveTab('quiz');
     }
   };
@@ -283,6 +291,7 @@ export default function App() {
     playClick();
     setQuizDifficulty(level);
     setQuizMode(mode);
+    setQuizArmed(true); // Runde scharf stellen -> Quiz statt Vorschalt-Screen
     saveSetting('activeScore', 0); // Reset score points for the new round
     setActiveTab('quiz');
   };
@@ -301,11 +310,15 @@ export default function App() {
     }
 
     await loadProgressData();
+    setQuizArmed(false); // Runde beendet -> nächster Lern-Quiz-Aufruf zeigt wieder die Wahl
     setActiveTab('dashboard');
   };
 
   const handleTabChange = (tab) => {
     playClick();
+    // Direkter Klick auf den Lern-Quiz-Tab: Runde "entschärfen", damit zuerst der
+    // Vorschalt-Screen mit Stufenwahl erscheint (nicht sofort Stufe 1).
+    if (tab === 'quiz') setQuizArmed(false);
     setActiveTab(tab);
   };
 
@@ -318,6 +331,7 @@ export default function App() {
     // Domains mit Explorer (z.B. Astra) starten direkt im Erkundungsbereich,
     // alle anderen in der Übersicht.
     setActiveTab(getDomainById(domainId).Explorer ? 'explore' : 'dashboard');
+    setQuizArmed(false); // Bereichswechsel -> Quizrunde zurücksetzen
     setSelectedEntityId(null);
     setClickedMapId(null);
     setActiveConceptKey(null);
@@ -342,7 +356,7 @@ export default function App() {
       {/* Terra Academic Header */}
       <header className="terra-panel app-header">
         {/* Bereichsauswahl + App-Wortmarke (ersetzt die frühere statische Kopfzeile) */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+        <div className="app-header-brand">
           <DomainSwitcher
             domains={DOMAINS}
             activeId={activeDomainId}
@@ -359,14 +373,13 @@ export default function App() {
         </div>
 
         {/* Tab Selectors */}
-        <nav style={{ display: 'flex', gap: '6px' }}>
+        <nav className="app-header-nav">
           {/* "Übersicht" nur für Domains ohne eigenen Explorer. Wo es einen gibt
               (z.B. Astra-Sonnensystem), ist der Explorer die sinnvollere Startseite. */}
           {!activeDomain.Explorer && (
             <button
               className={activeTab === 'dashboard' ? 'btn-terra-primary' : 'btn-terra'}
               onClick={() => handleTabChange('dashboard')}
-              style={{ fontSize: '15px', padding: '8px 14px' }}
             >
               <BarChart3 size={16} />
               Übersicht
@@ -376,7 +389,6 @@ export default function App() {
             <button
               className={activeTab === 'atlas' ? 'btn-terra-primary' : 'btn-terra'}
               onClick={() => handleTabChange('atlas')}
-              style={{ fontSize: '15px', padding: '8px 14px' }}
             >
               <Compass size={16} />
               Weltatlas
@@ -387,7 +399,6 @@ export default function App() {
             <button
               className={activeTab === 'explore' ? 'btn-terra-primary' : 'btn-terra'}
               onClick={() => handleTabChange('explore')}
-              style={{ fontSize: '15px', padding: '8px 14px' }}
             >
               {activeDomain.ExplorerIcon ? <activeDomain.ExplorerIcon size={16} /> : <Compass size={16} />}
               {activeDomain.explorerLabel || 'Erkundung'}
@@ -413,7 +424,7 @@ export default function App() {
         </nav>
         
         {/* Score & Streak indicators */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+        <div className="app-header-meta">
           <button 
             onClick={handleToggleMute}
             className="btn-terra"
@@ -541,7 +552,7 @@ export default function App() {
             />
           )}
 
-          {activeTab === 'quiz' && (
+          {activeTab === 'quiz' && (quizArmed ? (
             <Quiz
               geodb={domainDb}
               questionPool={questionPool}
@@ -557,7 +568,24 @@ export default function App() {
               onActiveConceptChange={handleActiveConceptChange}
               onAddScore={handleAddScorePoints}
             />
-          )}
+          ) : (
+            /* Vorschalt-Screen: Stufe (+ bei Terra Modus) wählen, bevor die erste
+               Frage erscheint. Start ruft denselben Handler wie das Dashboard. */
+            <div className="terra-panel slide-in" style={{ height: '100%', overflowY: 'auto', padding: '20px' }}>
+              <div style={{ marginBottom: '14px' }}>
+                <span style={{ fontSize: '12px', color: 'var(--text-muted)', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase' }}>
+                  {activeDomain.latinName} · {activeDomain.label}
+                </span>
+                <h2 style={{ fontFamily: 'var(--font-title)', fontSize: '24px', color: 'var(--color-primary)', fontWeight: 700, marginBottom: '2px' }}>
+                  Lern-Quiz
+                </h2>
+                <div style={{ fontSize: '12.5px', color: 'var(--text-muted)', fontWeight: 500 }}>
+                  Wähle die Schwierigkeit{activeDomain.id === 'terra' ? ' und den Spielmodus' : ''} und starte die Runde.
+                </div>
+              </div>
+              <QuizLauncher domain={activeDomain} onStart={handleStartDailyReview} />
+            </div>
+          ))}
         </div>
         </>
         )}

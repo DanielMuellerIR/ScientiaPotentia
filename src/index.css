@@ -12,7 +12,15 @@
    Siehe mobile-layout-plan.md (Tier 1).
    ============================================================ */
 .app-shell{display:flex;flex-direction:column;height:100dvh;width:100vw;background:var(--bg-main);color:var(--text-main);font-family:var(--font-sans);padding-bottom:8px}
-.app-header{display:flex;justify-content:space-between;align-items:center;padding:12px 24px;margin:12px var(--shell-pad) 0;height:var(--header-height);border:1px solid var(--border-light);z-index:100;flex-shrink:0}
+.app-header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;row-gap:8px;column-gap:12px;padding:12px 24px;margin:12px var(--shell-pad) 0;min-height:var(--header-height);border:1px solid var(--border-light);z-index:100;flex-shrink:0}
+/* Drei Header-Gruppen als Klassen (nicht Inline), damit Media Queries sie steuern
+   koennen — siehe Broeckel-Schutz-Hinweis oben. Der Nav-Block darf seine Tabs
+   umbrechen; bei zu schmalem Fenster rutscht zuerst die Score-Gruppe in Zeile 2,
+   nichts wird mehr abgeschnitten. */
+.app-header-brand{display:flex;align-items:center;gap:14px;min-width:0}
+.app-header-nav{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+.app-header-nav button{font-size:15px;padding:8px 14px;white-space:nowrap}
+.app-header-meta{display:flex;align-items:center;gap:16px}
 .app-main{flex:1;display:flex;padding:12px var(--shell-pad);gap:var(--shell-gap);overflow:hidden;position:relative;min-height:0}
 /* Linke Spalte (Karte/Explorer): waechst, darf auf 0 schrumpfen. */
 .app-pane-left{flex:1;height:100%;min-width:0;min-height:0}
@@ -24,6 +32,15 @@
 /* MOBIL: unter 768px aus der Zwei-Spalten-Reihe eine gestapelte Spalte
    machen. Links bekommt eine gedeckelte Hoehe (etwas von der Karte bleibt
    sichtbar), rechts volle Breite und scrollt. Bewusst nur EIN Breakpoint. */
+/* MITTLERE Breiten (Desktop-Fenster schmaler gezogen): Wortmarke ausblenden und
+   die Tabs etwas verkleinern, damit der Header moeglichst lange einzeilig bleibt,
+   bevor die Score-Gruppe umbricht. */
+@media (max-width:1080px){
+  .app-wordmark{display:none}
+  .app-header{padding:10px 16px}
+  .app-header-nav button{font-size:13.5px;padding:7px 10px}
+  .app-header-meta{gap:10px}
+}
 @media (max-width:768px){
   :root{--shell-pad:12px;--shell-gap:10px}
   .app-header{margin:8px var(--shell-pad) 0;padding:8px 12px;height:auto;flex-wrap:wrap;gap:8px}

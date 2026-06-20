@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { Flame, Compass, Calendar, Award, BookOpen, AlertCircle, BarChart3, Trophy } from 'lucide-react';
+import React from 'react';
+import { Flame, Calendar, Award, BookOpen, AlertCircle, BarChart3, Trophy } from 'lucide-react';
+import QuizLauncher from './QuizLauncher';
 
 // Deutsche Labels für Konzept-Typen über alle Domains hinweg.
 // Unbekannte Typen werden unverändert angezeigt.
@@ -33,8 +34,6 @@ export default function Dashboard({
   highScore = 0,
   onStartDailyReview
 }) {
-  const [selectedLevel, setSelectedLevel] = useState(1); // 1 | 2 | 3 | 4
-  const [selectedMode, setSelectedMode] = useState('all'); // 'all' | 'countries' | 'cities' | 'rivers' | 'stadt-land-fluss'
   const isTerra = domain.id === 'terra';
   const totalEntitiesCount = Object.keys(geodb.entities).length;
   
@@ -80,16 +79,6 @@ export default function Dashboard({
       entityTypes[type].studied++;
     }
   });
-
-  // Schwierigkeitsbeschreibungen domain-neutral halten: identischer Text gilt für
-  // alle Bereiche (Terra/Astra/Homo/Natura). Nur Schwierigkeit + Punkte-Multiplikator
-  // beschreiben, keine geografiespezifischen Begriffe (Länder/Silhouetten/Provinzen).
-  const levelInfo = {
-    1: { title: 'Leicht (Stufe 1)', desc: 'Grundlagen und bekannte Konzepte. (1x Punkte)' },
-    2: { title: 'Mittel (Stufe 2)', desc: 'Mittelschwer: weniger geläufige Konzepte. (2.5x Punkte)' },
-    3: { title: 'Schwer (Stufe 3)', desc: 'Anspruchsvoll: seltenere Konzepte und feine Details. (5x Punkte)' },
-    4: { title: 'Meister (Stufe 4)', desc: 'Meister: seltene, exotische und schwer zu merkende Konzepte. (10x Punkte)' }
-  };
 
   return (
     <div className="terra-panel slide-in" style={{
@@ -158,99 +147,9 @@ export default function Dashboard({
 
       <hr style={{ border: 'none', height: '1px', background: 'var(--border-light)', marginBottom: '14px' }} />
 
-      {/* Difficulty & Gameplay launch card */}
-      <div className="terra-panel-inset" style={{
-        padding: '16px',
-        marginBottom: '20px',
-        background: '#FAF9F4',
-        border: '1px solid var(--border-light)'
-      }}>
-        <h4 style={{ fontFamily: 'var(--font-title)', color: 'var(--color-primary)', fontSize: '16px', fontWeight: 600, marginBottom: '8px' }}>
-          Schwierigkeitsgrad wählen
-        </h4>
-        
-        {/* Radio Button list */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginBottom: '14px' }}>
-          {[1, 2, 3, 4].map(lvl => (
-            <label key={lvl} style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px',
-              padding: '6px 10px',
-              borderRadius: '2px',
-              border: `1px solid ${selectedLevel === lvl ? 'var(--color-primary)' : 'transparent'}`,
-              background: selectedLevel === lvl ? 'rgba(27, 48, 91, 0.03)' : 'transparent',
-              fontSize: '14px',
-              cursor: 'pointer',
-              fontWeight: selectedLevel === lvl ? 600 : 500
-            }}>
-              <input 
-                type="radio" 
-                name="difficulty" 
-                checked={selectedLevel === lvl} 
-                onChange={() => setSelectedLevel(lvl)} 
-                style={{ accentColor: 'var(--color-primary)' }}
-              />
-              {lvl === 1 && 'Stufe 1 (Leicht)'}
-              {lvl === 2 && 'Stufe 2 (Mittel)'}
-              {lvl === 3 && 'Stufe 3 (Schwer)'}
-              {lvl === 4 && 'Stufe 4 (Meister)'}
-            </label>
-          ))}
-        </div>
-
-        <div style={{ fontSize: '13px', color: 'var(--text-muted)', lineHeight: '1.4', padding: '8px 10px', background: 'rgba(0,0,0,0.02)', borderLeft: '2px solid var(--color-primary)', marginBottom: '16px' }}>
-          {levelInfo[selectedLevel].desc}
-        </div>
-
-        {/* Spielmodi sind geografiespezifisch (Stadt/Land/Fluss) -> nur bei Terra */}
-        {isTerra && (<>
-        <h4 style={{ fontFamily: 'var(--font-title)', color: 'var(--color-primary)', fontSize: '16px', fontWeight: 600, marginBottom: '8px' }}>
-          Spielmodus wählen
-        </h4>
-
-        {/* Mode selection Radio list */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginBottom: '16px' }}>
-          {[
-            { id: 'all', label: 'Alle Kategorien' },
-            { id: 'countries', label: 'Nur Länder & Provinzen' },
-            { id: 'cities', label: 'Nur Städte' },
-            { id: 'rivers', label: 'Nur Flüsse' },
-            { id: 'stadt-land-fluss', label: 'Stadt, Land, Fluss (Wechselnd)' }
-          ].map(mode => (
-            <label key={mode.id} style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px',
-              padding: '6px 10px',
-              borderRadius: '2px',
-              border: `1px solid ${selectedMode === mode.id ? 'var(--color-primary)' : 'transparent'}`,
-              background: selectedMode === mode.id ? 'rgba(27, 48, 91, 0.03)' : 'transparent',
-              fontSize: '14px',
-              cursor: 'pointer',
-              fontWeight: selectedMode === mode.id ? 600 : 500
-            }}>
-              <input 
-                type="radio" 
-                name="quizMode" 
-                checked={selectedMode === mode.id} 
-                onChange={() => setSelectedMode(mode.id)} 
-                style={{ accentColor: 'var(--color-primary)' }}
-              />
-              {mode.label}
-            </label>
-          ))}
-        </div>
-        </>)}
-
-        <button
-          className="btn-terra-primary"
-          onClick={() => onStartDailyReview(selectedLevel, isTerra ? selectedMode : 'all')}
-          style={{ width: '100%', justifyContent: 'center' }}
-        >
-          <Compass size={18} />
-          Quiz starten
-        </button>
+      {/* Schwierigkeits-/Modus-Wahl + Quiz-Start (geteilt mit dem Lern-Quiz-Tab) */}
+      <div style={{ marginBottom: '20px' }}>
+        <QuizLauncher domain={domain} onStart={onStartDailyReview} />
       </div>
 
       {/* Progress Breakdown */}
