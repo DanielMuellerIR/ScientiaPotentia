@@ -593,15 +593,14 @@ Die Rohdaten der Recherche befinden sich in den exportierten Sitzungsprotokollen
 
 ### 1b. Geplante Bereiche, Modi & Quellen (Stand 2026-06-17)
 *Aus Brainstorming-Session; Entscheidungen getroffen, Umsetzung offen.*
-- [ ] **Hauptbereiche neu abgrenzen / Definitionen schärfen (PLANUNG, vor Machina/Historia):** Mit
-  den neuen Bereichen (Machina, Historia) drohen Überschneidungen zu bestehenden — Teile waren
-  planerisch evtl. schon in vorhandene Bereiche integriert. Jeden Hauptbereich klar definieren und
-  gegen die anderen abgrenzen (Scope, Trennlinien, Grenzfälle): **Terra** (Geografie), **Natura**
-  (Biologie/Erde/Naturphänomene), **Astra** (Astronomie), **Homo** (menschl. Körper), **Cultura**
-  (Kunst/Musik/Literatur/Architektur/Zitate), **Lingua** (Sprachen), + geplant **Machina** (Digital/
-  IT) und **Historia** (Kultur-/Wissenschafts-/Technikgeschichte). Z.B.: Technikgeschichte → Historia
-  vs. Machina? Kunst-/Bauepochen → Historia vs. Cultura? Wissenschaftsgeschichte/Entdecker → Historia
-  vs. Astra/Natura? Ergebnis = Zuordnungs-Matrix als Referenz für künftige Inhalts-Wellen.
+- [x] **Hauptbereiche neu abgrenzen / Definitionen schärfen (PLANUNG, vor Machina/Historia):**
+  Zuordnungs-Matrix erstellt → [`docs/bereichs_abgrenzung.md`](docs/bereichs_abgrenzung.md).
+  Leitprinzip: jeder Bereich hat eine **Ordnungsachse**; **Objekt-vs-Zeit-Regel** (Sach-Bereiche +
+  Machina besitzen das Objekt, **Historia** den datierbaren Verlauf). Grenzfälle entschieden:
+  Technikgeschichte (Funktion→Machina / Datum→Historia), Kunst-/Bauepochen (Werk→Cultura /
+  Epoche→Historia), Wissenschaftsgeschichte (Objekt→Astra/Natura / Entdeckung→Historia), physische
+  Geografie (Karte→Terra / Geologie→Natura). Meta-Regel: **Historia ist kein Sammelbecken**, ein
+  Konzept = ein Primär-Owner. **Vor dem Bau von Machina/Historia und vor neuen Wellen heranziehen.**
 - [ ] **Sachbuch-Track-A Welle 4 fertig verifizieren + mergen (pending):** 341 programmatisch
   gegatete, aber NICHT adversarial verifizierte Tier-Kandidaten in
   `~/.cache/scientia_extract/pending_wave4.json` (Insekten/Reptilien/Vögel; Reptilien-Gr.2 bereits
