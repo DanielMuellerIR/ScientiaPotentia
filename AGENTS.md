@@ -52,6 +52,18 @@ nicht in Inline-Styles; Details und Begründung in [`LAYOUT.md`](LAYOUT.md). Vor
 
 Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 
+> **Stand 2026-06-20 (v1.44.0) — Schwierigkeitsstufen abgeschafft + Galerie-Lightbox + Selbstverräter:**
+> **Schwierigkeitsstufen (Leicht/Mittel/Schwer/Meister) komplett entfernt.** Grund: die `difficulty`
+> wurde **pro Fragen-Template** vergeben (z.B. jede „Ordnung"-Frage = Meister), nicht nach echter
+> Rate-Schwierigkeit — famose Tiere wie Blauwal/Elefant landeten so unter „Meister", was albern wirkt.
+> Echte Kalibrierung pro Frage ist bei zigtausend Fragen nicht leistbar. Quiz zieht jetzt **zufällig
+> aus dem ganzen Pool** (SRS-Priorisierung bleibt), Header „FRAGE x VON y", flaches Scoring (10 Pkt./
+> Treffer, ÷ Versuchszahl). `difficulty`-Feld bleibt ungenutzt in den Daten. UI: keine Stufenwahl mehr,
+> Lern-Quiz startet direkt (Terra: nur Spielmodus). **Selbstverräter-Guard erweitert:** korrelierte
+> Taxon-Attribute (`class`↔`order`) werden vor der Antwort gegenseitig ausgeblendet — bei „Welche
+> Ordnung?" ist die Tierklasse nicht mehr sichtbar (sonst geschenkt). **Galerie-Lightbox gefixt:**
+> per Portal Vollbild statt nur im linken Panel, hohe Hochformate bleiben im Rahmen.
+
 > **Stand 2026-06-20 (v1.42.0) — Track-A Welle 4 abgeschlossen → Natura 2402 K / 12 685 F:**
 > Die 341 gegateten Kandidaten aus `pending_wave4.json` (Insekten/Reptilien/Vögel) durch 5 parallele
 > Sonnet-Taxon-Verifier adversarial geprüft (4 Fehler: Kastanienbohrer, Zwerghonigbiene,

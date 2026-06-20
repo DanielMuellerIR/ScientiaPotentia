@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import { createPortal } from 'react-dom';
 import { Images, X } from 'lucide-react';
 import { commonsToDirectUrl } from '../utils/commonsImage';
 
@@ -163,24 +164,28 @@ export default function GalleryExplorer({ domain, concepts = {} }) {
         </div>
       </div>
 
-      {/* Lightbox: großes Bild + Provenienz */}
-      {lightbox && (
+      {/* Lightbox: großes Bild + Provenienz. position:fixed -> deckt das GANZE
+          Fenster ab (nicht nur das linke Panel). Bild mit fester maxHeight + dem
+          Container auf overflow:hidden, damit hohe Hochformate nicht aus dem Rahmen
+          ragen (Muster wie MuseumExplorer). Kopf/Fuß flexShrink:0. */}
+      {lightbox && createPortal((
         <div
           onClick={() => setLightbox(null)}
           style={{
-            position: 'absolute', inset: 0, zIndex: 50, background: 'rgba(20,18,15,0.82)',
-            display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '24px'
+            position: 'fixed', inset: 0, zIndex: 1000, background: 'rgba(10,10,15,0.88)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '16px'
           }}
         >
           <div
             onClick={e => e.stopPropagation()}
-            className="terra-panel"
             style={{
-              maxWidth: '90%', maxHeight: '92%', display: 'flex', flexDirection: 'column',
-              overflow: 'hidden', background: 'var(--bg-card)'
+              background: 'var(--bg-card)', border: '1px solid var(--border-light)',
+              borderRadius: 'var(--radius-lg)', maxWidth: '820px', width: '100%', maxHeight: '90vh',
+              display: 'flex', flexDirection: 'column', overflow: 'hidden',
+              boxShadow: '0 20px 60px rgba(0,0,0,0.5)'
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '10px 14px', gap: '12px', borderBottom: '1px solid var(--border-light)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '10px 14px', gap: '12px', borderBottom: '1px solid var(--border-light)', flexShrink: 0 }}>
               <div>
                 <div style={{ fontFamily: 'var(--font-title)', fontSize: '16px', fontWeight: 700, color: 'var(--color-primary)' }}>{lightbox.name}</div>
                 <div style={{ fontSize: '12px', color: 'var(--text-muted)' }}>{catLabel(lightbox.category)}</div>
@@ -189,7 +194,7 @@ export default function GalleryExplorer({ domain, concepts = {} }) {
                 <X size={18} />
               </button>
             </div>
-            <div style={{ flex: 1, minHeight: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#1b1916', padding: '8px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#0a0a0f', maxHeight: '70vh', overflow: 'hidden', flexShrink: 0 }}>
               <img
                 src={commonsToDirectUrl(lightbox.url, 800)}
                 alt={lightbox.name}
@@ -197,13 +202,13 @@ export default function GalleryExplorer({ domain, concepts = {} }) {
               />
             </div>
             {(lightbox.license || lightbox.attribution) && (
-              <div style={{ padding: '8px 14px', fontSize: '11px', color: 'var(--text-muted)', borderTop: '1px solid var(--border-light)' }}>
+              <div style={{ padding: '8px 14px', fontSize: '11px', color: 'var(--text-muted)', borderTop: '1px solid var(--border-light)', flexShrink: 0 }}>
                 {[lightbox.attribution, lightbox.license].filter(Boolean).join(' · ')} · Wikimedia Commons
               </div>
             )}
           </div>
         </div>
-      )}
+      ), document.body)}
     </div>
   );
 }

@@ -19,7 +19,6 @@ const MuseumExplorer = lazy(() => import('./components/MuseumExplorer'));
 export default function App() {
   const [activeTab, setActiveTab] = useState('dashboard'); // 'dashboard' | 'atlas' | 'explore' | 'quiz' | 'museum'
   const [selectedEntityId, setSelectedEntityId] = useState(null);
-  const [quizDifficulty, setQuizDifficulty] = useState(1);
   // Ob im Lern-Quiz-Tab bereits eine Runde "scharf gestellt" wurde. false =
   // Vorschalt-Screen mit Stufen-/Modus-Wahl; true = laufende Quizrunde. Wird über
   // einen Start-Handler (Dashboard- oder Tab-Launcher, Atlas-Schnellquiz) gesetzt
@@ -281,15 +280,15 @@ export default function App() {
     if (targetEntity) {
       setDueEntities([targetEntity]);
       setNewEntities([]);
-      setQuizDifficulty(1); // Quick quiz default is level 1
       setQuizArmed(true);   // Schnellquiz startet ohne Vorschalt-Screen direkt
       setActiveTab('quiz');
     }
   };
 
-  const handleStartDailyReview = (level, mode = 'all') => {
+  // Startet eine Quizrunde. Ohne Schwierigkeitsstufen nur noch der Spielmodus
+  // (bei Terra Stadt/Land/Fluss, sonst 'all'); die Fragen mischt der Quiz selbst.
+  const handleStartDailyReview = (mode = 'all') => {
     playClick();
-    setQuizDifficulty(level);
     setQuizMode(mode);
     setQuizArmed(true); // Runde scharf stellen -> Quiz statt Vorschalt-Screen
     saveSetting('activeScore', 0); // Reset score points for the new round
@@ -559,7 +558,6 @@ export default function App() {
               domainId={activeDomain.id}
               dueEntities={dueEntities}
               newEntities={newEntities}
-              difficulty={quizDifficulty}
               quizMode={quizMode}
               clickedMapId={clickedMapId}
               resetClickedMapId={() => setClickedMapId(null)}
@@ -569,8 +567,8 @@ export default function App() {
               onAddScore={handleAddScorePoints}
             />
           ) : (
-            /* Vorschalt-Screen: Stufe (+ bei Terra Modus) wählen, bevor die erste
-               Frage erscheint. Start ruft denselben Handler wie das Dashboard. */
+            /* Vorschalt-Screen: bei Terra den Spielmodus wählen, sonst direkt starten.
+               Keine Schwierigkeitsstufen mehr — die Fragen mischt der Quiz selbst. */
             <div className="terra-panel slide-in" style={{ height: '100%', overflowY: 'auto', padding: '20px' }}>
               <div style={{ marginBottom: '14px' }}>
                 <span style={{ fontSize: '12px', color: 'var(--text-muted)', fontWeight: 600, letterSpacing: '1px', textTransform: 'uppercase' }}>
@@ -580,7 +578,7 @@ export default function App() {
                   Lern-Quiz
                 </h2>
                 <div style={{ fontSize: '12.5px', color: 'var(--text-muted)', fontWeight: 500 }}>
-                  Wähle die Schwierigkeit{activeDomain.id === 'terra' ? ' und den Spielmodus' : ''} und starte die Runde.
+                  {activeDomain.id === 'terra' ? 'Wähle den Spielmodus und starte die Runde.' : 'Starte eine Runde — die Fragen werden zufällig gemischt.'}
                 </div>
               </div>
               <QuizLauncher domain={activeDomain} onStart={handleStartDailyReview} />

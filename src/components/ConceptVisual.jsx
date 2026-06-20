@@ -232,6 +232,12 @@ const ATTR_LABELS = {
 // der Antwort gezeigt.
 const POST_ANSWER_ATTRS = new Set(['notableFor', 'definition', 'function']);
 
+// Taxonomisch korrelierte Attribute: Wird z.B. die ORDNUNG gefragt, verraet die
+// sichtbare TIERKLASSE die Antwort oft schon (die Distraktoren sind dann Ordnungen
+// anderer Klassen — wer "Vögel" sieht, waehlt die einzige Vogel-Ordnung). Daher vor
+// der Antwort das jeweils korrelierte Attribut mit ausblenden (in beide Richtungen).
+const CORRELATED_ATTRS = { order: 'class', class: 'order' };
+
 // testedAttribute/answerIsName/hideConceptIdentity/isQuestionAnswered:
 // Selbstverraeter-Guard (siehe Quiz.jsx). Vor der Antwort werden Identitaet,
 // getestete Attribute und Freitext-Details konservativ verborgen; nach der
@@ -263,7 +269,7 @@ export default function ConceptVisual({
       ([k, v]) =>
         v !== undefined && v !== null && v !== '' &&
         k !== 'unit' &&
-        (detailsUnlocked || (k !== testedAttribute && !POST_ANSWER_ATTRS.has(k)))
+        (detailsUnlocked || (k !== testedAttribute && k !== CORRELATED_ATTRS[testedAttribute] && !POST_ANSWER_ATTRS.has(k)))
     );
 
   return (

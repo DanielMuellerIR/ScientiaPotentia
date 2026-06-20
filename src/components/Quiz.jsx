@@ -9,8 +9,7 @@ export default function Quiz({
   questionPool = [],
   domainId = 'terra',
   dueEntities = [], 
-  newEntities = [], 
-  difficulty = 1,
+  newEntities = [],
   quizMode = 'all',
   clickedMapId = null,
   resetClickedMapId,
@@ -50,7 +49,7 @@ export default function Quiz({
   // Generate quiz questions on mount or pool change
   useEffect(() => {
     generateQuizSession();
-  }, [dueEntities, newEntities, difficulty, quizMode, questionPool]);
+  }, [dueEntities, newEntities, quizMode, questionPool]);
 
   // Meldet die aktive Frage ans linke Visual-Panel. Dieser Effekt ist bewusst
   // vom Karten-Setup getrennt: Der Antwortzustand aendert sich nach einem Klick,
@@ -153,7 +152,7 @@ export default function Quiz({
           setScore(prev => prev + 1);
           
           // Calculate points
-          const earned = Math.round(10 * getDifficultyMultiplier() * (1 / newAttempts));
+          const earned = earnedPoints(newAttempts);
           setPoints(prev => prev + earned);
           if (onAddScore) onAddScore(earned);
   
@@ -207,12 +206,9 @@ export default function Quiz({
     }
   }, [clickedMapId, isAnswered, sessionFinished, questions, currentIdx]);
 
-  const getDifficultyMultiplier = () => {
-    if (difficulty === 2) return 2.5;
-    if (difficulty === 3) return 5.0;
-    if (difficulty === 4) return 10.0;
-    return 1.0;
-  };
+  // Flaches Scoring ohne Schwierigkeitsstufen: 10 Punkte beim ersten Versuch,
+  // weniger bei weiteren Versuchen (10 / Versuchszahl). Kein Stufen-Multiplikator mehr.
+  const earnedPoints = (attemptCount) => Math.round(10 / attemptCount);
 
   const generateQuizSession = () => {
     if (quizQuestions.length === 0) {
@@ -247,21 +243,17 @@ export default function Quiz({
     // 1. Special sequence mode: Stadt, Land, Fluss alternating
     if (quizMode === 'stadt-land-fluss') {
       const getSortedPoolForType = (type) => {
-        // Try requested difficulty, then fallback in order
-        for (const d of [difficulty, 2, 3, 1, 4].filter((v, i, a) => a.indexOf(v) === i)) {
-          let pool = [];
-          if (type === 'city') {
-            pool = quizQuestions.filter(q => q.difficulty === d && q.entityType === 'city');
-          } else if (type === 'country') {
-            pool = quizQuestions.filter(q => q.difficulty === d && (q.entityType === 'country' || q.entityType === 'state'));
-          } else if (type === 'river') {
-            pool = quizQuestions.filter(q => q.difficulty === d && (q.entityType === 'river' || q.type === 'city-river'));
-          }
-          if (pool.length > 0) {
-            return sortPool(pool);
-          }
+        // Ohne Schwierigkeitsstufen: gesamter Fragenpool des Typs, zufällig gemischt
+        // (SRS-Priorisierung via sortPool bleibt erhalten).
+        let pool = [];
+        if (type === 'city') {
+          pool = quizQuestions.filter(q => q.entityType === 'city');
+        } else if (type === 'country') {
+          pool = quizQuestions.filter(q => q.entityType === 'country' || q.entityType === 'state');
+        } else if (type === 'river') {
+          pool = quizQuestions.filter(q => q.entityType === 'river' || q.type === 'city-river');
         }
-        return [];
+        return sortPool(pool);
       };
 
       const citiesSorted = getSortedPoolForType('city');
@@ -329,25 +321,16 @@ export default function Quiz({
       return;
     }
 
-    // 2. Standard modes with category filters and difficulty fallbacks
-    let filteredQuestions = [];
-    const diffOrder = [difficulty, 2, 3, 1, 4].filter((v, i, a) => a.indexOf(v) === i);
-    
-    for (const d of diffOrder) {
-      const levelQs = quizQuestions.filter(q => q.difficulty === d);
-      let candidates = levelQs;
-      if (quizMode === 'countries') {
-        candidates = levelQs.filter(q => q.entityType === 'country' || q.entityType === 'state');
-      } else if (quizMode === 'cities') {
-        candidates = levelQs.filter(q => q.entityType === 'city');
-      } else if (quizMode === 'rivers') {
-        candidates = levelQs.filter(q => q.entityType === 'river' || q.type === 'city-river');
-      }
-      
-      if (candidates.length > 0) {
-        filteredQuestions = candidates;
-        break;
-      }
+    // 2. Standardmodi: gesamter Fragenpool (ohne Schwierigkeitsstufen), nur nach
+    //    Spielmodus-Kategorie gefiltert. Die Mischung kommt aus sortPool (Zufall +
+    //    SRS-Priorisierung fälliger/neuer Konzepte).
+    let filteredQuestions = quizQuestions;
+    if (quizMode === 'countries') {
+      filteredQuestions = quizQuestions.filter(q => q.entityType === 'country' || q.entityType === 'state');
+    } else if (quizMode === 'cities') {
+      filteredQuestions = quizQuestions.filter(q => q.entityType === 'city');
+    } else if (quizMode === 'rivers') {
+      filteredQuestions = quizQuestions.filter(q => q.entityType === 'river' || q.type === 'city-river');
     }
 
     const sortedQuestions = sortPool(filteredQuestions);
@@ -453,7 +436,7 @@ export default function Quiz({
       setIsAnswered(true);
       setScore(prev => prev + 1);
       
-      const earned = Math.round(10 * getDifficultyMultiplier() * (1 / newAttempts));
+      const earned = earnedPoints(newAttempts);
       setPoints(prev => prev + earned);
       if (onAddScore) onAddScore(earned);
 
@@ -768,7 +751,7 @@ export default function Quiz({
       <div>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
           <span style={{ fontSize: '13px', fontWeight: 600, color: 'var(--text-muted)' }}>
-            TEST {currentIdx + 1} VON {questions.length} ({getGermanDifficulty(difficulty)})
+            FRAGE {currentIdx + 1} VON {questions.length}
           </span>
           <span style={{ fontSize: '14px', fontWeight: 700, color: 'var(--color-secondary)' }}>
             Punkte: {points}
@@ -934,7 +917,7 @@ export default function Quiz({
                 {selectedOption === q.correctAnswer ? (
                   <>
                     <Check size={14} />
-                    <span>Hervorragend gelöst! (+{Math.round(10 * getDifficultyMultiplier() * (1 / attempts))} Pkt.)</span>
+                    <span>Hervorragend gelöst! (+{earnedPoints(attempts)} Pkt.)</span>
                   </>
                 ) : (
                   <>
@@ -958,11 +941,4 @@ export default function Quiz({
       </div>
     </div>
   );
-}
-
-function getGermanDifficulty(diff) {
-  if (diff === 2) return 'MITTEL';
-  if (diff === 3) return 'SCHWER';
-  if (diff === 4) return 'MEISTER';
-  return 'LEICHT';
 }
