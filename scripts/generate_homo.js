@@ -286,7 +286,12 @@ for (const c of raw) {
     category: c.category,
     attributes,
     funFact: c.funFact || '',
-    source: { name: c.sourceName, url: c.sourceUrl || '' }
+    source: { name: c.sourceName, url: c.sourceUrl || '' },
+    // Bild fürs Museum/Galerie spiegeln (analog generate_natura.js): nur wenn der
+    // Resolver ein freies Commons-Bild gefunden hat. Ohne Bild bleibt das Feld weg.
+    image: c.imageFile
+      ? { url: c.imageFile, license: c.imageLicense || '', attribution: c.imageAttribution || '' }
+      : undefined
   };
 }
 
