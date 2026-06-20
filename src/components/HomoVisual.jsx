@@ -227,9 +227,11 @@ export default function HomoVisual({
         }
       `}</style>
 
-      {/* Anatomiegrafik im aspektgenauen Rahmen (damit Marker passgenau sitzen) */}
+      {/* Anatomiegrafik im aspektgenauen Rahmen (damit Marker passgenau sitzen).
+          Unten bewusst mehr Abstand (96px), damit hohe Figuren (Skelett) mit den
+          Füßen nicht unter die eingeblendete Info-/Chip-Leiste geraten. */}
       <div style={{
-        position: 'absolute', inset: '64px 24px 56px', display: 'flex',
+        position: 'absolute', inset: '60px 24px 96px', display: 'flex',
         alignItems: 'center', justifyContent: 'center'
       }}>
         {/* Wrapper schrumpft exakt auf das Bild: das Bild gibt per height:100% +

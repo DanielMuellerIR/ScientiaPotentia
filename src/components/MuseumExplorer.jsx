@@ -1,49 +1,8 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { Images, X, ChevronLeft, ChevronRight, Info } from 'lucide-react';
 import { DOMAINS } from '../domains';
-
-// --- URL-Helfer: Wikimedia-Commons-File-Link -> direkte Bild-URL ---------
-// Alle geernteten Bilder nutzen das Format:
-//   https://commons.wikimedia.org/wiki/File%3A<Dateiname>
-// Der Sonderzeichen-dekodierte Dateiname wird an die FilePath-API übergeben,
-// die eine direkte, cachefähige Bild-URL liefert.
-// Matcht Commons-URLs in beiden Varianten:
-//   .../wiki/File:Dateiname.jpg     (schon dekodiert)
-//   .../wiki/File%3ADateiname.jpg   (%3A = URL-kodierter Doppelpunkt)
-// WICHTIG: [:%3A]+ ist KEIN korrekter Regex für %3A — stattdessen explizite Alternation.
-const COMMONS_WIKI_RX = /commons\.wikimedia\.org\/wiki\/File(?:%3A|:)(.+)/i;
-
-/**
- * Wandelt eine Commons-wiki/File-URL in einen direkten Bild-Link um.
- * @param {string} rawUrl  - URL aus dem Konzeptdatensatz
- * @param {number} width   - gewünschte Breite in Pixeln (Commons skaliert serverseitig)
- * @returns {string}       - direkt verwendbare <img src>-URL
- */
-function commonsToDirectUrl(rawUrl, width = 400) {
-  const m = COMMONS_WIKI_RX.exec(rawUrl);
-  if (!m) {
-    // Nicht-Commons-URLs (Met, NASA, direkte CDN-Links) direkt zurückgeben.
-    return rawUrl;
-  }
-  // Dateiname ist oft doppelt URL-kodiert (File%3A -> File:, dann Dateiname nochmal).
-  // decodeURIComponent schlägt bei ungültigen %xx-Sequenzen fehl → try/catch.
-  let fileName = m[1];
-  try {
-    // Erster Versuch: vollständiges Dekodieren (entpackt %3A, %20 etc.)
-    fileName = decodeURIComponent(m[1]);
-  } catch (_) {
-    // Fallback: nur die häufigsten Escape-Sequenzen manuell ersetzen
-    // (%3A = :, %20 = Leerzeichen, %27 = Apostroph)
-    fileName = m[1]
-      .replace(/%3A/gi, ':')
-      .replace(/%20/gi, ' ')
-      .replace(/%27/gi, "'")
-      .replace(/%26/gi, '&')
-      .replace(/%2B/gi, '+');
-  }
-  // Leerzeichen und Umlaute in Dateinamen für den URL-Parameter erneut kodieren.
-  return `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(fileName)}?width=${width}`;
-}
+// Commons-URL-Helfer ausgelagert (geteilt mit GalleryExplorer), s. utils/commonsImage.js
+import { commonsToDirectUrl } from '../utils/commonsImage';
 
 // --- Farben pro Domain (Akzent aus domains/index.js übernehmen) -----------
 const DOMAIN_ACCENT = {

@@ -454,8 +454,9 @@ E-Book-Korpus (Projekt ebook_vectordb, M5): zentral im theplan-knowledge.
 >    Danach Bilder visuell stichproben (Resolver nahm „erstes freies Treffer" → thematische Eignung prüfen).
 > 3. **TODO Content-Ausbau.** Aktuell **97 Tiere** (146 Konzepte gesamt) — via MiniMax web-grounded ausgebaut. Weiter sammeln
 >    (Schwerpunkt Tiere) per `content_pipeline.md`: Harvest → Phase C Bilder → `merge_natura.js` → `generate_natura.js`.
-> 4. **Hinweis:** `concepts_astra.json`/`concepts_homo.json` haben **kein** `image`-Feld — fürs Museum dort
->    nachrüsten (Astra-Bilder in `astra_raw`/Assets, Homo nutzt Anatomie-Assets).
+> 4. **Hinweis (Stand 2026-06-20):** Astra trägt inzwischen `image` (183 Museumsbilder, erledigt).
+>    Offen bleibt **Homo** — `concepts_homo.json` hat **kein** `concept.image` (0 Museumsbilder);
+>    Homo nutzt bisher nur die Anatomie-Assets (`HomoVisual`).
 Browser-Preview-Config: `.claude/launch.json` (Server „dev", Port 3000; nicht eingecheckt).
 
 ---
@@ -591,11 +592,11 @@ Die Rohdaten der Recherche befinden sich in den exportierten Sitzungsprotokollen
 - [ ] **Lingua-Fragetypen für heterogene Kategorien:** 47 Konzepte (language_fact, grammar_fact,
   phonetics, language_curio, loanword z.T.) haben bewusst noch keine Templates — Konzepte sind im
   Spiel (Visual/Distraktor-Pools), liefern aber keine Fragen. Hebel Richtung 5000-Ziel.
-- [ ] **Astra/Homo-Konzeptbilder fürs Museum (Stand 2026-06-12):** `generate_astra.js`/`generate_homo.js`
-  tragen — anders als Natura/Lingua/Cultura — kein `concept.image`. Astra-Konzepte (inkl. der 68 neuen
-  Wikidata-Objekte) haben bereits `imageSearchTerm`. Kleiner Generator-Edit (image-Feld spiegeln wie in
-  `generate_natura.js`) + `node scripts/data_sources/harvest/resolve_images.cjs astra_raw.json`. Homo nutzt
-  Anatomie-Assets (eigener Weg). Voraussetzung fürs Museum.
+- [ ] **Homo-Konzeptbilder fürs Museum (Stand 2026-06-20):** `concepts_homo.json` hat als einziger
+  Bereich **kein** `concept.image` (0 Museumsbilder). Astra ist erledigt (183 Bilder via `image`-Feld).
+  Homo ist inhaltlich der zäheste Fall: Anatomie-Konzepte (Knochen/Muskeln/Organe) haben auf Commons
+  wenig brauchbare freie Fotos; ggf. statt Fotos die vorhandenen Anatomie-Assets (`HomoVisual`) als
+  Galerie-Quelle nutzen, statt pro Konzept ein Commons-Foto zu suchen.
 - [ ] **Cultura 21 Restbilder:** alte Literaturwerke + obskure Bauwerke ohne freies Commons-Bild
   (`_imgProblem`-Markierung in `cultura_raw.json`) — ggf. bessere Suchbegriffe oder andere freie Quelle.
 

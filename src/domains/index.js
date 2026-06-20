@@ -1,5 +1,5 @@
 import { lazy } from 'react';
-import { Globe2, Sparkles, PersonStanding, Orbit, Leaf, Languages, Landmark } from 'lucide-react';
+import { Globe2, Sparkles, PersonStanding, Orbit, Leaf, Languages, Landmark, Images } from 'lucide-react';
 
 // Spezialisierte Visualisierungen lazy laden, damit schwere Abhaengigkeiten
 // (z.B. three.js fuer Astra) nur ins Bundle kommen, wenn die Domain aktiv ist.
@@ -9,6 +9,9 @@ const HomoVisual = lazy(() => import('../components/HomoVisual'));
 // Erkundungsbereiche (eigener Tab, gefüttert aus denselben Konzeptdaten wie das
 // Quiz). Analog zur Terra-Weltkarte, aber je Domain spezialisiert.
 const SolarSystemExplorer = lazy(() => import('../components/SolarSystemExplorer'));
+// Generische Bildgalerie als Startansicht für Bereiche ohne eigenen Spezial-Explorer
+// (Natura/Cultura/Lingua/Homo) — zeigt die geernteten Konzeptbilder statt nur Statistik.
+const GalleryExplorer = lazy(() => import('../components/GalleryExplorer'));
 
 /**
  * Zentrale Registry aller Wissensbereiche ("Domains").
@@ -67,6 +70,10 @@ export const DOMAINS = [
     // Phase 2: gemeinfreie Anatomiegrafiken (Wikimedia PD) je Konzept-Kategorie.
     hasMap: false,
     Visual: HomoVisual,
+    // Startansicht: Bildgalerie (füllt sich, sobald Homo-Konzepte freie Bilder haben).
+    Explorer: GalleryExplorer,
+    explorerLabel: 'Galerie',
+    ExplorerIcon: Images,
     loadConcepts: () => fetch('data/concepts_homo.json').then(handleJson),
     loadQuestions: () => fetch('data/questions_homo.json').then(handleJson)
   },
@@ -80,6 +87,10 @@ export const DOMAINS = [
     accent: '#3E7D5A',
     // MCQ-only: nutzt das generische ConceptVisual (Bild/Kennwerte pro Konzept).
     hasMap: false,
+    // Startansicht: Bildgalerie der Tier-/Pflanzen-/Gesteins-Konzepte statt Statistik.
+    Explorer: GalleryExplorer,
+    explorerLabel: 'Galerie',
+    ExplorerIcon: Images,
     loadConcepts: () => fetch('data/concepts_natura.json').then(handleJson),
     loadQuestions: () => fetch('data/questions_natura.json').then(handleJson)
   },
@@ -93,6 +104,10 @@ export const DOMAINS = [
     accent: '#8A6D3B',
     // MCQ-only: nutzt das generische ConceptVisual (Bild/Kennwerte pro Konzept).
     hasMap: false,
+    // Startansicht: Bildgalerie der Sprach-/Schrift-Konzepte statt Statistik.
+    Explorer: GalleryExplorer,
+    explorerLabel: 'Galerie',
+    ExplorerIcon: Images,
     loadConcepts: () => fetch('data/concepts_lingua.json').then(handleJson),
     loadQuestions: () => fetch('data/questions_lingua.json').then(handleJson)
   },
@@ -106,6 +121,10 @@ export const DOMAINS = [
     accent: '#7E4B6B',
     // MCQ-only: nutzt das generische ConceptVisual (Bild/Kennwerte pro Konzept).
     hasMap: false,
+    // Startansicht: Bildgalerie der Kunst-/Bau-/Musik-/Literatur-Konzepte statt Statistik.
+    Explorer: GalleryExplorer,
+    explorerLabel: 'Galerie',
+    ExplorerIcon: Images,
     loadConcepts: () => fetch('data/concepts_cultura.json').then(handleJson),
     loadQuestions: () => fetch('data/questions_cultura.json').then(handleJson)
   }
