@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Globe, BookOpen, Compass, Award, Calendar, ChevronRight, Info } from 'lucide-react';
 
 export default function Atlas({ selectedEntity, srsProgress, onStartQuickQuiz, geodb, onSelectEntity }) {
@@ -39,15 +39,27 @@ export default function Atlas({ selectedEntity, srsProgress, onStartQuickQuiz, g
     setSearchQuery(e.target.value);
   };
 
-  // Live filter entities by name/english name/id
-  const filteredSearch = searchQuery.trim() !== '' 
-    ? Object.values(geodb.entities).filter(entity => {
-        const query = searchQuery.toLowerCase();
-        return (entity.name && entity.name.toLowerCase().includes(query)) ||
-               (entity.englishName && entity.englishName.toLowerCase().includes(query)) ||
-               (entity.id && entity.id.toLowerCase().includes(query));
-      }).slice(0, 5)
-    : [];
+  // Live filter entities by name/english name/id. useMemo: nicht bei jedem
+  // Tastendruck die gesamte Entity-Datenbank (Terra: tausende Eintraege) neu scannen.
+  const filteredSearch = useMemo(() => {
+    if (searchQuery.trim() === '') return [];
+    const query = searchQuery.toLowerCase();
+    return Object.values(geodb.entities).filter(entity =>
+      (entity.name && entity.name.toLowerCase().includes(query)) ||
+      (entity.englishName && entity.englishName.toLowerCase().includes(query)) ||
+      (entity.id && entity.id.toLowerCase().includes(query))
+    ).slice(0, 5);
+  }, [searchQuery, geodb.entities]);
+
+  // Unter-Einheiten (Bundeslaender/Provinzen) des aktuellen Landes — einmal
+  // berechnet statt zweimal (Tab-Sichtbarkeit + Liste) bei jedem Render, und nicht
+  // erneut bei jedem Tastendruck in der Suchleiste.
+  const subdivisions = useMemo(() => {
+    if (!selectedEntity || selectedEntity.type !== 'country') return [];
+    return Object.values(geodb.entities)
+      .filter(e => e.type === 'state' && e.metadata?.countryId === selectedEntity.id)
+      .sort((a, b) => a.name.localeCompare(b.name));
+  }, [geodb.entities, selectedEntity]);
 
   const handleSelectSearchResult = (id) => {
     onSelectEntity && onSelectEntity(id);
@@ -284,7 +296,7 @@ export default function Atlas({ selectedEntity, srsProgress, onStartQuickQuiz, g
                 Städte
               </button>
             )}
-            {selectedEntity.type === 'country' && Object.values(geodb.entities).filter(e => e.type === 'state' && e.metadata?.countryId === selectedEntity.id).length > 0 && (
+            {subdivisions.length > 0 && (
               <button 
                 onClick={() => setActiveSubTab('subdivisions')}
                 style={{
@@ -502,10 +514,7 @@ export default function Atlas({ selectedEntity, srsProgress, onStartQuickQuiz, g
                 </h4>
                 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                  {Object.values(geodb.entities)
-                    .filter(e => e.type === 'state' && e.metadata?.countryId === selectedEntity.id)
-                    .sort((a, b) => a.name.localeCompare(b.name))
-                    .map((sub) => (
+                  {subdivisions.map((sub) => (
                       <button
                         key={sub.id}
                         onClick={() => handleSelectSearchResult(sub.id)}

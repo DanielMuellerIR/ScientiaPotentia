@@ -517,7 +517,7 @@ export default function Map({
         }
       }
     }
-  }, [mapLoaded, selectedId, highlightedIds, wrongIds, correctIds, progressHeatmap, mode, showSubdivisions]);
+  }, [mapLoaded, selectedId, highlightedIds, wrongIds, correctIds, progressHeatmap, mode, showSubdivisions, zoomToEntityId]);
 
   // Handle map center panning/zooming to country or subdivision context
   useEffect(() => {
@@ -661,7 +661,7 @@ export default function Map({
         }
       }
     }
-  }, [selectedId, zoomToEntityId, countriesGeoJSON, subdivisionsGeoJSON, mapLoaded, mode]);
+  }, [selectedId, zoomToEntityId, countriesGeoJSON, subdivisionsGeoJSON, riversGeoJSON, mapLoaded, mode]);
 
   return (
     <div style={{ position: 'relative', width: '100%', height: '100%' }}>

@@ -239,6 +239,19 @@ export default function SolarSystemExplorer({ domain, concepts = {} }) {
   };
   const onPointerUp = () => { drag.current = null; };
 
+  // Mausrad-Zoom nativ + NICHT-passiv registrieren. React haengt onWheel
+  // standardmaessig als passiven Listener an, in dem e.preventDefault() wirkungslos
+  // ist (Konsolen-Warnung; die Seite scrollt beim Zoomen mit). Mit
+  // { passive: false } darf der Handler den Seiten-Scroll unterdruecken.
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    el.addEventListener('wheel', onWheel, { passive: false });
+    return () => el.removeEventListener('wheel', onWheel);
+    // onWheel nutzt nur Refs/stabile Setter -> First-Render-Closure bleibt gueltig.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   // Welt -> Bildschirm.
   const { w: W, h: H } = dims;
   const px = wx => (wx - cam.cx) * cam.scale + W / 2;
@@ -290,7 +303,6 @@ export default function SolarSystemExplorer({ domain, concepts = {} }) {
   return (
     <div
       ref={containerRef}
-      onWheel={onWheel}
       onPointerDown={onPointerDown}
       onPointerMove={onPointerMove}
       onPointerUp={onPointerUp}

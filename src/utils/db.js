@@ -17,21 +17,35 @@ function getDomainFromEntityId(entityId) {
   return entityId.split(':')[0];
 }
 
+// Gecachte Verbindung: Bisher oeffnete jede getProgress/saveProgress/… einen
+// EIGENEN IndexedDB-Handle (pro Quiz-Antwort gleich mehrere) und schloss keinen
+// — die offenen Verbindungen sammelten sich an. Wir oeffnen die DB jetzt genau
+// einmal und teilen das Promise. Bei Fehler/unerwartetem Schliessen wird der
+// Cache geleert, damit der naechste Zugriff sauber neu verbindet.
+let dbPromise = null;
+
 /**
- * Initializes the IndexedDB instance.
+ * Liefert die (einmalig geoeffnete, danach gecachte) IndexedDB-Instanz.
  * @returns {Promise<IDBDatabase>}
  */
 export function initDB() {
-  return new Promise((resolve, reject) => {
+  if (dbPromise) return dbPromise;
+
+  dbPromise = new Promise((resolve, reject) => {
     const request = indexedDB.open(DB_NAME, DB_VERSION);
 
     request.onerror = (event) => {
+      dbPromise = null; // erlaubt erneuten Verbindungsversuch nach Fehler
       console.error('Database failed to open:', event.target.error);
       reject(event.target.error);
     };
 
     request.onsuccess = (event) => {
-      resolve(event.target.result);
+      const db = event.target.result;
+      // Schliesst sich die Verbindung unerwartet (z.B. Tab-uebergreifendes
+      // Versions-Upgrade), aus dem Cache nehmen -> naechster Zugriff oeffnet neu.
+      db.onclose = () => { dbPromise = null; };
+      resolve(db);
     };
 
     request.onupgradeneeded = (event) => {

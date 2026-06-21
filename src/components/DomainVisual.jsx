@@ -15,6 +15,23 @@ import React from 'react';
  *   - concepts:    Map conceptKey -> Konzept der aktiven Domain
  *   - srsProgress: globaler Fortschritt (Map conceptKey -> Fortschritt)
  */
+
+// Deutsche Labels fuer bekannte Kategorien (Fallback: Schluessel). Auf Modul-Ebene,
+// damit das Objekt nicht bei jedem Render neu erzeugt wird (wie in ConceptVisual).
+const CATEGORY_LABELS = {
+  planet: 'Planeten',
+  dwarf_planet: 'Zwergplaneten',
+  moon: 'Monde',
+  star: 'Sterne',
+  galaxy: 'Galaxien',
+  constant: 'Konstanten',
+  bone: 'Knochen',
+  muscle: 'Muskeln',
+  organ: 'Organe',
+  body_fact: 'Körperwerte',
+  species: 'Menschenarten'
+};
+
 export default function DomainVisual({ domain, concepts = {}, srsProgress = {} }) {
   const Icon = domain.Icon;
   const accent = domain.accent || 'var(--color-primary)';
@@ -30,21 +47,6 @@ export default function DomainVisual({ domain, concepts = {}, srsProgress = {} }
       cats[cat].studied++;
     }
   });
-
-  // Deutsche Labels fuer bekannte Astronomie-Kategorien (Fallback: Schluessel)
-  const CATEGORY_LABELS = {
-    planet: 'Planeten',
-    dwarf_planet: 'Zwergplaneten',
-    moon: 'Monde',
-    star: 'Sterne',
-    galaxy: 'Galaxien',
-    constant: 'Konstanten',
-    bone: 'Knochen',
-    muscle: 'Muskeln',
-    organ: 'Organe',
-    body_fact: 'Körperwerte',
-    species: 'Menschenarten'
-  };
 
   return (
     <div
