@@ -52,6 +52,23 @@ nicht in Inline-Styles; Details und Begründung in [`LAYOUT.md`](LAYOUT.md). Vor
 
 Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 
+> **Stand 2026-06-23 (v1.45.0) — Zwei neue Hauptbereiche: Machina (IT) + Historia (Geschichte):**
+> Beide Domains end-to-end verdrahtet nach dem erprobten Cultura-Muster (Generator + Registry +
+> `ConceptVisual`-Labels + `verify_facts`-Leak-Config). **Machina 150 Konzepte / 386 Fragen**
+> (programming_language, file_format, network_protocol, data_structure, algorithm, hardware,
+> acronym, concept — Achse **Funktionsprinzip**, KEINE Erfindungsdaten → Historia). **Historia 139
+> Konzepte / 470 Fragen** (invention, discovery, epoch, figure, milestone, expedition — Achse
+> **Zeit/Urheberschaft**, Politik-Ausschluss eingehalten). Pipeline: 8 parallele Sonnet-Finder
+> (Schema/kontrolliertes Vokabular in `harvest/SPEC_machina_historia.md`) → Gate
+> (`merge_machina_historia.js`: Dedup + Struktur + ASCII-Umlaut-Erkennung) → deterministischer
+> Umlaut-Fix (`harvest/fix_cand_umlauts.cjs`, 67 Ersetzungen) → **5 adversariale Sonnet-Verifier**
+> (6 Sachfehler korrigiert: TS-Execution-Frage entschärft via Prompt-Wording, Dijkstra O((V+E)log V),
+> Hashing-Kategorie, Fahrenheit-Land, Tesla-Nationalität, da Vinci entfernt [Künstler→Cultura],
+> Dias-Jahr) → `apply_corrections.cjs` → generate → verify (0 Fehler) → Browser-verifiziert
+> (Domain-Wechsel, Quizrunde je Domain, dt. Labels, Selbstverräter-„?", keine Konsolenfehler) →
+> npm test grün, Layout 17/17. **Noch offen:** kein Explorer/Museum-Tab (Konzepte ohne Bilder);
+> Content-Ausbau Richtung 5000 (analog Natura-Wellen). `npm test` grün, NICHT deployt.
+
 > **Stand 2026-06-20 (v1.44.0) — Schwierigkeitsstufen abgeschafft + Galerie-Lightbox + Selbstverräter:**
 > **Schwierigkeitsstufen (Leicht/Mittel/Schwer/Meister) komplett entfernt.** Grund: die `difficulty`
 > wurde **pro Fragen-Template** vergeben (z.B. jede „Ordnung"-Frage = Meister), nicht nach echter
@@ -340,6 +357,8 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 | Natura | 606 | 3606 | Wikipedia / USGS / IUCN / IPCC / Wikidata | generische Konzeptkarte (`ConceptVisual`); Tiere via MiniMax-Delegation 49→97 ausgebaut (web-grounded); freies Commons-Foto je Konzept hinterlegt (`concept.image`, fürs spätere Museum) |
 | Lingua | 241 | 988 | Wikipedia / Ethnologue / Wiktionary / Guinness / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Attribut-Labels; Commons-Bild je Konzept hinterlegt (103/103, fürs spätere Museum) |
 | Cultura | 365 | 1580 | Wikipedia (DE/EN) / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Kategorie-/Attribut-Labels; via MiniMax-Delegation ausgebaut (Komponisten Wikidata-geprüft, Werke web-grounded) |
+| Machina | 150 | 386 | Wikipedia / RFC/IANA / Lehrbücher | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Funktionsprinzip (v1.45.0) |
+| Historia | 139 | 470 | Wikipedia / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Zeit/Urheberschaft, Politik-Ausschluss (v1.45.0) |
 
 > Fragenzahlen Astra/Homo/Natura/Lingua/Cultura sind noch weit vom 5000-Ziel — Content-Ausbau (Phase 5) läuft weiter.
 > Astra 1054/303 = ~3.5 F/K, Natura 2693/444 = ~6.1 F/K, Cultura 1292/267 = ~4.8 F/K, Lingua 856/212 = ~4.0 F/K,

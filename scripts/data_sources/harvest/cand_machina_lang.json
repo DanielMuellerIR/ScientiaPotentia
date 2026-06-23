@@ -1,0 +1,477 @@
+[
+  {
+    "id": "lang-python",
+    "name": "Python",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Multiparadigma",
+      "typeSystem": "Dynamisch typisiert",
+      "execution": "Interpretiert",
+      "primaryDomain": "Datenwissenschaft",
+      "fileExtension": ".py"
+    },
+    "funFact": "Python wurde nach der britischen Comedy-Gruppe Monty Python benannt, nicht nach der Schlange.",
+    "sourceName": "Wikipedia DE - Python (Programmiersprache)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Python_(Programmiersprache)",
+    "verifyNote": "Paradigma, Typisierung und Dateiendung laut Wikipedia DE und offizieller Python-Dokumentation."
+  },
+  {
+    "id": "lang-javascript",
+    "name": "JavaScript",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Multiparadigma",
+      "typeSystem": "Dynamisch typisiert",
+      "execution": "JIT-kompiliert",
+      "primaryDomain": "Webentwicklung (Frontend)",
+      "fileExtension": ".js"
+    },
+    "funFact": "JavaScript wurde in nur zehn Tagen von Brendan Eich bei Netscape entwickelt.",
+    "sourceName": "Wikipedia DE - JavaScript",
+    "sourceUrl": "https://de.wikipedia.org/wiki/JavaScript",
+    "verifyNote": "Paradigma und Domäne per Wikipedia DE; JIT-Kompilierung in modernen Engines wie V8 laut MDN."
+  },
+  {
+    "id": "lang-java",
+    "name": "Java",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Objektorientiert",
+      "typeSystem": "Statisch typisiert",
+      "execution": "Bytecode (VM)",
+      "primaryDomain": "Webentwicklung (Backend)",
+      "fileExtension": ".java"
+    },
+    "funFact": "Javas Motto 'Write once, run anywhere' bezieht sich darauf, dass Bytecode auf jeder Java Virtual Machine läuft, unabhängig vom Betriebssystem.",
+    "sourceName": "Wikipedia DE - Java (Programmiersprache)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Java_(Programmiersprache)",
+    "verifyNote": "Bytecode/JVM-Ausführung und statische Typisierung sind Kernmerkmale laut Java SE Specification."
+  },
+  {
+    "id": "lang-c",
+    "name": "C",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Imperativ/prozedural",
+      "typeSystem": "Statisch typisiert",
+      "execution": "Kompiliert",
+      "primaryDomain": "Systemprogrammierung",
+      "fileExtension": ".c"
+    },
+    "funFact": "Der Linux-Kernel ist überwiegend in C geschrieben.",
+    "sourceName": "Wikipedia DE - C (Programmiersprache)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/C_(Programmiersprache)",
+    "verifyNote": "Imperatives Paradigma, statische Typisierung und Systemprogrammierung laut Wikipedia DE und ISO-C-Standard."
+  },
+  {
+    "id": "lang-cpp",
+    "name": "C++",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Multiparadigma",
+      "typeSystem": "Statisch typisiert",
+      "execution": "Kompiliert",
+      "primaryDomain": "Systemprogrammierung",
+      "fileExtension": ".cpp"
+    },
+    "funFact": "C++ wurde als 'C mit Klassen' konzipiert und erweitert C um objektorientierte Konzepte.",
+    "sourceName": "Wikipedia DE - C++",
+    "sourceUrl": "https://de.wikipedia.org/wiki/C%2B%2B",
+    "verifyNote": "Multiparadigma (imperativ, OOP, generisch) und statische Typisierung laut ISO-C++-Standard und Wikipedia DE."
+  },
+  {
+    "id": "lang-csharp",
+    "name": "C#",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Multiparadigma",
+      "typeSystem": "Statisch typisiert",
+      "execution": "Bytecode (VM)",
+      "primaryDomain": "Webentwicklung (Backend)",
+      "fileExtension": ".cs"
+    },
+    "funFact": "C# wurde von Microsoft als Teil der .NET-Plattform entwickelt und läuft auf der Common Language Runtime (CLR).",
+    "sourceName": "Wikipedia DE - C-Sharp",
+    "sourceUrl": "https://de.wikipedia.org/wiki/C-Sharp",
+    "verifyNote": "CLR/Bytecode-Ausführung und statische Typisierung laut ECMA-334-Standard und Microsoft-Dokumentation."
+  },
+  {
+    "id": "lang-go",
+    "name": "Go",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Imperativ/prozedural",
+      "typeSystem": "Statisch typisiert",
+      "execution": "Kompiliert",
+      "primaryDomain": "Nebenläufige Systeme",
+      "fileExtension": ".go"
+    },
+    "funFact": "Go wurde bei Google entwickelt, um die langen Kompilierzeiten großer C++-Projekte zu umgehen.",
+    "sourceName": "Wikipedia DE - Go (Programmiersprache)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Go_(Programmiersprache)",
+    "verifyNote": "Kompilierung zu nativem Code und eingebaute Goroutinen für Nebenläufigkeit laut Go-Spezifikation und Wikipedia."
+  },
+  {
+    "id": "lang-rust",
+    "name": "Rust",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Multiparadigma",
+      "typeSystem": "Statisch typisiert",
+      "execution": "Kompiliert",
+      "primaryDomain": "Systemprogrammierung",
+      "fileExtension": ".rs"
+    },
+    "funFact": "Rust wurde mehrere Jahre in Folge zur beliebtesten Programmiersprache in der Stack-Overflow-Entwicklerumfrage gewählt.",
+    "sourceName": "Wikipedia DE - Rust (Programmiersprache)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Rust_(Programmiersprache)",
+    "verifyNote": "Systemprogrammierung, statische Typisierung und Kompilierung zu nativem Code laut Rust Reference und Wikipedia DE."
+  },
+  {
+    "id": "lang-typescript",
+    "name": "TypeScript",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Multiparadigma",
+      "typeSystem": "Statisch typisiert",
+      "execution": "Interpretiert",
+      "primaryDomain": "Webentwicklung (Frontend)",
+      "fileExtension": ".ts"
+    },
+    "funFact": "TypeScript ist eine Obermenge von JavaScript - jedes gültige JavaScript-Programm ist auch gültiges TypeScript.",
+    "sourceName": "Wikipedia DE - TypeScript",
+    "sourceUrl": "https://de.wikipedia.org/wiki/TypeScript",
+    "verifyNote": "Statische Typisierung als Hauptmerkmal laut offizieller TypeScript-Dokumentation und Wikipedia DE."
+  },
+  {
+    "id": "lang-ruby",
+    "name": "Ruby",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Objektorientiert",
+      "typeSystem": "Dynamisch typisiert",
+      "execution": "Interpretiert",
+      "primaryDomain": "Webentwicklung (Backend)",
+      "fileExtension": ".rb"
+    },
+    "funFact": "In Ruby ist alles ein Objekt - auch Zahlen und Zeichenketten sind Instanzen von Klassen.",
+    "sourceName": "Wikipedia DE - Ruby (Programmiersprache)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Ruby_(Programmiersprache)",
+    "verifyNote": "Rein objektorientiertes Paradigma und dynamische Typisierung laut Ruby-Sprachspezifikation und Wikipedia DE."
+  },
+  {
+    "id": "lang-php",
+    "name": "PHP",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Multiparadigma",
+      "typeSystem": "Dynamisch typisiert",
+      "execution": "Interpretiert",
+      "primaryDomain": "Webentwicklung (Backend)",
+      "fileExtension": ".php"
+    },
+    "funFact": "PHP steht für das rekursive Akronym 'PHP: Hypertext Preprocessor'.",
+    "sourceName": "Wikipedia DE - PHP",
+    "sourceUrl": "https://de.wikipedia.org/wiki/PHP",
+    "verifyNote": "Serverseitiges Skripting für Web-Backend und dynamische Typisierung laut PHP-Dokumentation und Wikipedia DE."
+  },
+  {
+    "id": "lang-swift",
+    "name": "Swift",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Multiparadigma",
+      "typeSystem": "Statisch typisiert",
+      "execution": "Kompiliert",
+      "primaryDomain": "Mobile Apps",
+      "fileExtension": ".swift"
+    },
+    "funFact": "Swift wurde von Apple 2014 als Nachfolger von Objective-C für die Entwicklung von iOS- und macOS-Apps eingeführt.",
+    "sourceName": "Wikipedia DE - Swift (Programmiersprache)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Swift_(Programmiersprache)",
+    "verifyNote": "Mobile-App-Domäne (iOS/macOS) und statische Typisierung laut Apple-Dokumentation und Wikipedia DE."
+  },
+  {
+    "id": "lang-kotlin",
+    "name": "Kotlin",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Multiparadigma",
+      "typeSystem": "Statisch typisiert",
+      "execution": "Bytecode (VM)",
+      "primaryDomain": "Mobile Apps",
+      "fileExtension": ".kt"
+    },
+    "funFact": "Google erklärte Kotlin 2019 zur bevorzugten Sprache für Android-Entwicklung.",
+    "sourceName": "Wikipedia DE - Kotlin (Programmiersprache)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Kotlin_(Programmiersprache)",
+    "verifyNote": "JVM-Bytecode-Ausführung und Android-App-Entwicklung laut JetBrains-Dokumentation und Wikipedia DE."
+  },
+  {
+    "id": "lang-haskell",
+    "name": "Haskell",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Funktional",
+      "typeSystem": "Statisch typisiert",
+      "execution": "Kompiliert",
+      "fileExtension": ".hs"
+    },
+    "funFact": "Haskell ist eine rein funktionale Sprache - Seiteneffekte werden durch das Typsystem über Monaden kontrolliert.",
+    "sourceName": "Wikipedia DE - Haskell (Programmiersprache)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Haskell_(Programmiersprache)",
+    "verifyNote": "Rein funktionales Paradigma und starkes statisches Typsystem laut Haskell-Report 2010 und Wikipedia DE; keine eindeutige primaryDomain im Vokabular."
+  },
+  {
+    "id": "lang-scala",
+    "name": "Scala",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Multiparadigma",
+      "typeSystem": "Statisch typisiert",
+      "execution": "Bytecode (VM)",
+      "primaryDomain": "Datenwissenschaft",
+      "fileExtension": ".scala"
+    },
+    "funFact": "Apache Spark, eine der meistgenutzten Big-Data-Plattformen, ist in Scala geschrieben.",
+    "sourceName": "Wikipedia DE - Scala (Programmiersprache)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Scala_(Programmiersprache)",
+    "verifyNote": "JVM-Ausführung, OOP+funktionale Kombination und Datenwissenschaftsdomäne laut Wikipedia DE."
+  },
+  {
+    "id": "lang-r",
+    "name": "R",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Multiparadigma",
+      "typeSystem": "Dynamisch typisiert",
+      "execution": "Interpretiert",
+      "primaryDomain": "Datenwissenschaft",
+      "fileExtension": ".r"
+    },
+    "funFact": "R wurde speziell für statistische Berechnungen entwickelt und ist in der akademischen Forschung weit verbreitet.",
+    "sourceName": "Wikipedia DE - R (Programmiersprache)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/R_(Programmiersprache)",
+    "verifyNote": "Statistik/Datenwissenschaft als primäre Domäne und interpretierte Ausführung laut R-Projektseite und Wikipedia DE."
+  },
+  {
+    "id": "lang-matlab",
+    "name": "MATLAB",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Imperativ/prozedural",
+      "typeSystem": "Dynamisch typisiert",
+      "execution": "Interpretiert",
+      "primaryDomain": "Wissenschaftliches Rechnen",
+      "fileExtension": ".m"
+    },
+    "funFact": "MATLAB steht für 'Matrix Laboratory' und wurde ursprünglich für die numerische lineare Algebra entwickelt.",
+    "sourceName": "Wikipedia DE - MATLAB",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Matlab",
+    "verifyNote": "Wissenschaftliches Rechnen als primäre Domäne und dynamische Typisierung laut MathWorks-Dokumentation."
+  },
+  {
+    "id": "lang-perl",
+    "name": "Perl",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Multiparadigma",
+      "typeSystem": "Dynamisch typisiert",
+      "execution": "Interpretiert",
+      "primaryDomain": "Skripting/Automatisierung",
+      "fileExtension": ".pl"
+    },
+    "funFact": "Perl war in den 1990er Jahren die meistgenutzte Sprache für CGI-Webskripte und Textverarbeitung.",
+    "sourceName": "Wikipedia DE - Perl (Programmiersprache)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Perl_(Programmiersprache)",
+    "verifyNote": "Skripting-Domäne und dynamische Typisierung laut Wikipedia DE und Perl-Dokumentation."
+  },
+  {
+    "id": "lang-lua",
+    "name": "Lua",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Multiparadigma",
+      "typeSystem": "Dynamisch typisiert",
+      "execution": "Interpretiert",
+      "primaryDomain": "Spieleentwicklung",
+      "fileExtension": ".lua"
+    },
+    "funFact": "Lua wird häufig als eingebettete Skriptsprache in Spielen verwendet - bekannte Beispiele sind World of Warcraft und Roblox.",
+    "sourceName": "Wikipedia DE - Lua",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Lua",
+    "verifyNote": "Spieleentwicklung als primäre Einbettungsdomäne laut Wikipedia DE und offizieller Lua-Seite."
+  },
+  {
+    "id": "lang-sql",
+    "name": "SQL",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Logisch",
+      "execution": "Interpretiert",
+      "primaryDomain": "Datenbankabfragen",
+      "fileExtension": ".sql"
+    },
+    "funFact": "SQL (Structured Query Language) ist der ISO-Standard für die Abfrage und Verwaltung relationaler Datenbanken.",
+    "sourceName": "Wikipedia DE - SQL",
+    "sourceUrl": "https://de.wikipedia.org/wiki/SQL",
+    "verifyNote": "Deklaratives/logisches Paradigma für Datenbankabfragen laut ISO/IEC 9075-Standard; kein einheitliches typeSystem im klassischen Sinne weggelassen."
+  },
+  {
+    "id": "lang-assembly",
+    "name": "Assembler",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Imperativ/prozedural",
+      "typeSystem": "Statisch typisiert",
+      "execution": "Kompiliert",
+      "primaryDomain": "Systemprogrammierung",
+      "fileExtension": ".asm"
+    },
+    "funFact": "Assembler-Code ist prozessorspezifisch - ein für x86 geschriebenes Programm läuft nicht direkt auf ARM-Prozessoren.",
+    "sourceName": "Wikipedia DE - Assemblersprache",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Assemblersprache",
+    "verifyNote": "Maschinennähe, Systemprogrammierung und direkte Kompilierung zu Maschinencode laut Wikipedia DE."
+  },
+  {
+    "id": "lang-fortran",
+    "name": "Fortran",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Imperativ/prozedural",
+      "typeSystem": "Statisch typisiert",
+      "execution": "Kompiliert",
+      "primaryDomain": "Wissenschaftliches Rechnen",
+      "fileExtension": ".f90"
+    },
+    "funFact": "Fortran war die erste höhere Programmiersprache, die kommerziell verfügbar wurde, und wird bis heute in numerischen Simulationen eingesetzt.",
+    "sourceName": "Wikipedia DE - Fortran",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Fortran",
+    "verifyNote": "Wissenschaftliches Rechnen und kompilierte Ausführung laut Wikipedia DE und Fortran-ISO-Standard."
+  },
+  {
+    "id": "lang-cobol",
+    "name": "COBOL",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Imperativ/prozedural",
+      "typeSystem": "Statisch typisiert",
+      "execution": "Kompiliert",
+      "fileExtension": ".cob"
+    },
+    "funFact": "COBOL verarbeitet weltweit noch immer einen Großteil der Banktransaktionen, obwohl die Sprache in den 1950er Jahren entwickelt wurde.",
+    "sourceName": "Wikipedia DE - COBOL",
+    "sourceUrl": "https://de.wikipedia.org/wiki/COBOL",
+    "verifyNote": "Imperatives Paradigma und statische Typisierung laut Wikipedia DE; primäre Domäne ist Geschäftsdatenverarbeitung, passt nicht exakt in das Vokabular, daher weggelassen."
+  },
+  {
+    "id": "lang-prolog",
+    "name": "Prolog",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Logisch",
+      "typeSystem": "Dynamisch typisiert",
+      "execution": "Interpretiert",
+      "fileExtension": ".pl"
+    },
+    "funFact": "Prolog steht für 'Programming in Logic' und wird hauptsächlich in der künstlichen Intelligenz und Computerlinguistik eingesetzt.",
+    "sourceName": "Wikipedia DE - Prolog (Programmiersprache)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Prolog_(Programmiersprache)",
+    "verifyNote": "Logisches Paradigma als Kernmerkmal laut Wikipedia DE; keine klar passende primaryDomain im Vokabular, daher weggelassen."
+  },
+  {
+    "id": "lang-lisp",
+    "name": "Lisp",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Funktional",
+      "typeSystem": "Dynamisch typisiert",
+      "execution": "Interpretiert",
+      "fileExtension": ".lisp"
+    },
+    "funFact": "Lisp ist eine der ältesten noch genutzten Programmiersprachen und führte Konzepte wie Garbage Collection und First-Class Functions ein.",
+    "sourceName": "Wikipedia DE - Lisp (Programmiersprache)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Lisp",
+    "verifyNote": "Funktionales Paradigma und dynamische Typisierung laut Wikipedia DE; primaryDomain nicht eindeutig zuzuordnen, daher weggelassen."
+  },
+  {
+    "id": "lang-dart",
+    "name": "Dart",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Objektorientiert",
+      "typeSystem": "Statisch typisiert",
+      "execution": "JIT-kompiliert",
+      "primaryDomain": "Mobile Apps",
+      "fileExtension": ".dart"
+    },
+    "funFact": "Dart ist die Programmiersprache hinter dem Flutter-Framework von Google, mit dem plattformübergreifende Apps erstellt werden.",
+    "sourceName": "Wikipedia DE - Dart (Programmiersprache)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Dart_(Programmiersprache)",
+    "verifyNote": "Mobile-App-Domäne via Flutter und statische Typisierung laut Dart-Sprachdokumentation und Wikipedia DE."
+  },
+  {
+    "id": "lang-objective-c",
+    "name": "Objective-C",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Objektorientiert",
+      "typeSystem": "Statisch typisiert",
+      "execution": "Kompiliert",
+      "primaryDomain": "Mobile Apps",
+      "fileExtension": ".m"
+    },
+    "funFact": "Objective-C war bis zur Einführung von Swift 2014 die Hauptsprache für die iOS- und macOS-Entwicklung bei Apple.",
+    "sourceName": "Wikipedia DE - Objective-C",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Objective-C",
+    "verifyNote": "OOP-Paradigma, Mobile-App-Domäne und Kompilierung laut Apple-Dokumentation und Wikipedia DE."
+  },
+  {
+    "id": "lang-julia",
+    "name": "Julia",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Multiparadigma",
+      "typeSystem": "Dynamisch typisiert",
+      "execution": "JIT-kompiliert",
+      "primaryDomain": "Wissenschaftliches Rechnen",
+      "fileExtension": ".jl"
+    },
+    "funFact": "Julia ist darauf ausgelegt, die Lesbarkeit von Python mit der Ausführungsgeschwindigkeit von C zu kombinieren.",
+    "sourceName": "Wikipedia DE - Julia (Programmiersprache)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Julia_(Programmiersprache)",
+    "verifyNote": "Wissenschaftliches Rechnen und JIT-Kompilierung laut Julia-Projektseite und Wikipedia DE."
+  },
+  {
+    "id": "lang-erlang",
+    "name": "Erlang",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Funktional",
+      "typeSystem": "Dynamisch typisiert",
+      "execution": "Bytecode (VM)",
+      "primaryDomain": "Nebenläufige Systeme",
+      "fileExtension": ".erl"
+    },
+    "funFact": "Erlang wurde bei Ericsson für hochverfügbare Telekommunikationssysteme entwickelt und unterstützt Millionen gleichzeitiger Prozesse.",
+    "sourceName": "Wikipedia DE - Erlang (Programmiersprache)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Erlang_(Programmiersprache)",
+    "verifyNote": "Nebenläufigkeit und BEAM-VM-Bytecode laut Erlang-Dokumentation und Wikipedia DE."
+  },
+  {
+    "id": "lang-visual-basic",
+    "name": "Visual Basic .NET",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Objektorientiert",
+      "typeSystem": "Statisch typisiert",
+      "execution": "Bytecode (VM)",
+      "primaryDomain": "Webentwicklung (Backend)",
+      "fileExtension": ".vb"
+    },
+    "funFact": "Visual Basic .NET läuft auf der .NET-Runtime und teilt eine gemeinsame Klassenbibliothek mit C#.",
+    "sourceName": "Wikipedia DE - Visual Basic .NET",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Visual_Basic_.NET",
+    "verifyNote": "CLR-Bytecode-Ausführung und statische Typisierung laut Microsoft-Dokumentation und Wikipedia DE."
+  }
+]

@@ -1,0 +1,12 @@
+[
+  {
+    "id": "algo-dijkstra",
+    "set": { "avgComplexity": "O((V+E) log V)" },
+    "reason": "Dijkstra mit Min-Heap hat Komplexität O((V+E) log V), nicht O(n log n). O(n log n) setzt V≈E voraus, was nur bei dichten Graphen gilt. Lehrbuch-Standard (CLRS Kap. 24) ist O((V+E) log V). Die eigene verifyNote benennt bereits O((V+E) log V) als korrekte Angabe."
+  },
+  {
+    "id": "algo-hashing",
+    "set": { "category": "Such- und Hashverfahren" },
+    "reason": "Hashing als allgemeiner Algorithmus (Abbildung auf Hashwert beliebiger Eingaben) ist kein Kryptografie-Algorithmus, sondern ein Such- und Hashverfahren. Kryptografisches Hashing ist ein Spezialfall; der purpose-Text nennt auch nicht-kryptografische Anwendungen (Hashtabellen). Kategorie 'Kryptografie' ist zu eng und irreführend."
+  }
+]

@@ -1,0 +1,635 @@
+[
+  {
+    "id": "epoch-steinzeit",
+    "name": "Steinzeit",
+    "category": "epoch",
+    "attributes": {
+      "startYear": -3000000,
+      "endYear": -2000,
+      "region": "Europa und Vorderasien",
+      "precededBy": null
+    },
+    "funFact": "In der Steinzeit wurden erstmals Werkzeuge aus Feuerstein hergestellt, was die Grundlage für alle späteren Kulturen bildete.",
+    "sourceName": "Wikipedia DE – Steinzeit",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Steinzeit",
+    "verifyNote": "Standardeinteilung der Urgeschichte; Enddatum ca. 2000 v. Chr. für Mitteleuropa"
+  },
+  {
+    "id": "epoch-bronzezeit",
+    "name": "Bronzezeit",
+    "category": "epoch",
+    "attributes": {
+      "startYear": -2000,
+      "endYear": -800,
+      "region": "Europa",
+      "precededBy": "Steinzeit"
+    },
+    "funFact": "Die Bronzezeit ist nach der Legierung aus Kupfer und Zinn benannt, die Werkzeuge und Waffen revolutionierte.",
+    "sourceName": "Wikipedia DE – Bronzezeit",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Bronzezeit",
+    "verifyNote": "Europäische Bronzezeit ca. 2200–800 v. Chr. nach archäologischem Konsens"
+  },
+  {
+    "id": "epoch-eisenzeit",
+    "name": "Eisenzeit",
+    "category": "epoch",
+    "attributes": {
+      "startYear": -800,
+      "endYear": -50,
+      "region": "Europa",
+      "precededBy": "Bronzezeit"
+    },
+    "funFact": "In der Eisenzeit verbreitete sich die Eisenverhüttung in Europa und verdrängte Bronze als wichtigstes Werkstoffmaterial.",
+    "sourceName": "Wikipedia DE – Eisenzeit",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Eisenzeit",
+    "verifyNote": "Europäische Eisenzeit ca. 800–50 v. Chr. nach archäologischem Standardwerk"
+  },
+  {
+    "id": "epoch-antike",
+    "name": "Antike",
+    "category": "epoch",
+    "attributes": {
+      "startYear": -800,
+      "endYear": 500,
+      "region": "Europa und Mittelmeerraum",
+      "precededBy": "Eisenzeit"
+    },
+    "funFact": "Die Antike umfasst das klassische Griechenland und das Römische Reich, in denen Philosophie, Demokratie und Rechtssysteme entwickelt wurden.",
+    "sourceName": "Wikipedia DE – Antike",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Antike",
+    "verifyNote": "Übliche Einordnung: griechische Archaik bis Untergang Westroms 476 n. Chr."
+  },
+  {
+    "id": "epoch-fruehmittelalter",
+    "name": "Frühmittelalter",
+    "category": "epoch",
+    "attributes": {
+      "startYear": 500,
+      "endYear": 1000,
+      "region": "Europa",
+      "precededBy": "Antike"
+    },
+    "funFact": "Im Frühmittelalter entstanden aus den germanischen Völkerwanderungen die Grundlagen der heutigen europäischen Staaten.",
+    "sourceName": "Wikipedia DE – Frühmittelalter",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Fr%C3%BChmittelalter",
+    "verifyNote": "Konventionell ca. 500–1000 n. Chr., Übergang von Spätantike bis Hochmittelalter"
+  },
+  {
+    "id": "epoch-hochmittelalter",
+    "name": "Hochmittelalter",
+    "category": "epoch",
+    "attributes": {
+      "startYear": 1000,
+      "endYear": 1250,
+      "region": "Europa",
+      "precededBy": "Frühmittelalter"
+    },
+    "funFact": "Im Hochmittelalter erlebten Städte, Universitäten und Kathedralbau einen enormen Aufschwung.",
+    "sourceName": "Wikipedia DE – Hochmittelalter",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Hochmittelalter",
+    "verifyNote": "Standardperiodisierung ca. 1000–1250 n. Chr. in der europäischen Geschichtswissenschaft"
+  },
+  {
+    "id": "epoch-romanik",
+    "name": "Romanik",
+    "category": "epoch",
+    "attributes": {
+      "startYear": 950,
+      "endYear": 1200,
+      "region": "Europa",
+      "precededBy": "Frühmittelalter"
+    },
+    "funFact": "Romanische Kirchen sind durch ihre runden Bögen, dicken Mauern und massiven Türme charakteristisch.",
+    "sourceName": "Wikipedia DE – Romanik",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Romanik",
+    "verifyNote": "Architekturperiode ca. 950–1200; Kernmerkmal Rundbogen-Architektur"
+  },
+  {
+    "id": "epoch-gotik",
+    "name": "Gotik",
+    "category": "epoch",
+    "attributes": {
+      "startYear": 1140,
+      "endYear": 1500,
+      "region": "Europa",
+      "precededBy": "Romanik"
+    },
+    "funFact": "Der spitze Bogen und das Strebewerk der Gotik erlaubten größere Fenster und lichtdurchflutete Kathedralen.",
+    "sourceName": "Wikipedia DE – Gotik",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Gotik",
+    "verifyNote": "Gotische Architektur ab ca. 1140 (Saint-Denis) bis ca. 1500; Lehrbuchkonsens"
+  },
+  {
+    "id": "epoch-renaissance",
+    "name": "Renaissance",
+    "category": "epoch",
+    "attributes": {
+      "startYear": 1350,
+      "endYear": 1600,
+      "region": "Europa (Ursprung: Italien)",
+      "precededBy": "Gotik"
+    },
+    "funFact": "Die Renaissance bedeutet auf Französisch »Wiedergeburt« und bezeichnet die Wiederbelebung antiker Kunst und Wissenschaft.",
+    "sourceName": "Wikipedia DE – Renaissance",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Renaissance",
+    "verifyNote": "Standardperiodisierung 14.–16. Jahrhundert; Ursprung Florenz/Norditalien"
+  },
+  {
+    "id": "epoch-fruehe-neuzeit",
+    "name": "Frühe Neuzeit",
+    "category": "epoch",
+    "attributes": {
+      "startYear": 1500,
+      "endYear": 1800,
+      "region": "Europa",
+      "precededBy": "Renaissance"
+    },
+    "funFact": "Die Frühe Neuzeit ist geprägt von Buchdruck, Reformation, Entdeckungsreisen und dem Aufstieg der Naturwissenschaften.",
+    "sourceName": "Wikipedia DE – Frühe Neuzeit",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Fr%C3%BChe_Neuzeit",
+    "verifyNote": "Gängige Periodisierung 1500–1800 in deutschsprachiger Geschichtswissenschaft"
+  },
+  {
+    "id": "epoch-barock",
+    "name": "Barock",
+    "category": "epoch",
+    "attributes": {
+      "startYear": 1600,
+      "endYear": 1750,
+      "region": "Europa",
+      "precededBy": "Renaissance"
+    },
+    "funFact": "Der Begriff »Barock« stammt vom portugiesischen Wort für »unregelmäßige Perle« und beschreibt den prunkvollen, bewegten Stil der Epoche.",
+    "sourceName": "Wikipedia DE – Barock",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Barock",
+    "verifyNote": "Barock ca. 1600–1750 in Kunst, Musik und Architektur; Lehrbuchkonsens"
+  },
+  {
+    "id": "epoch-aufklaerung",
+    "name": "Aufklärung",
+    "category": "epoch",
+    "attributes": {
+      "startYear": 1680,
+      "endYear": 1800,
+      "region": "Europa",
+      "precededBy": "Barock"
+    },
+    "funFact": "Immanuel Kants Leitspruch der Aufklärung lautete: »Habe Mut, dich deines eigenen Verstandes zu bedienen!«",
+    "sourceName": "Wikipedia DE – Aufklärung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Aufkl%C3%A4rung",
+    "verifyNote": "Aufklärung als geistige Strömung ca. 1680–1800; Kant als Kronzeuge"
+  },
+  {
+    "id": "epoch-industrielle-revolution",
+    "name": "Industrielle Revolution",
+    "category": "epoch",
+    "attributes": {
+      "startYear": 1760,
+      "endYear": 1850,
+      "region": "Europa (Ursprung: England)",
+      "precededBy": "Aufklärung"
+    },
+    "funFact": "Die Industrielle Revolution begann in England mit der Mechanisierung der Textilindustrie durch die Dampfmaschine.",
+    "sourceName": "Wikipedia DE – Industrielle Revolution",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Industrielle_Revolution",
+    "verifyNote": "Erste Industrielle Revolution ca. 1760–1850, Ausgangspunkt England; Standardlehrbuch"
+  },
+  {
+    "id": "epoch-klassik",
+    "name": "Klassik",
+    "category": "epoch",
+    "attributes": {
+      "startYear": 1750,
+      "endYear": 1820,
+      "region": "Europa (Schwerpunkt: Deutschland/Österreich)",
+      "precededBy": "Barock"
+    },
+    "funFact": "Die Wiener Klassik mit Haydn, Mozart und Beethoven gilt als Höhepunkt der abendländischen Kunstmusik.",
+    "sourceName": "Wikipedia DE – Klassik (Musik)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Klassik_(Musik)",
+    "verifyNote": "Musikhistorische Klassik ca. 1750–1820; Wiener Klassik als Kern"
+  },
+  {
+    "id": "epoch-mittelalter",
+    "name": "Mittelalter",
+    "category": "epoch",
+    "attributes": {
+      "startYear": 500,
+      "endYear": 1500,
+      "region": "Europa",
+      "precededBy": "Antike"
+    },
+    "funFact": "Das Mittelalter wird oft als »dunkles Zeitalter« bezeichnet, war aber eine Zeit bedeutender kultureller und wissenschaftlicher Entwicklungen.",
+    "sourceName": "Wikipedia DE – Mittelalter",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Mittelalter",
+    "verifyNote": "Standardperiodisierung 500–1500 n. Chr. in der europäischen Geschichtswissenschaft"
+  },
+
+  {
+    "id": "milestone-mondlandung",
+    "name": "Erste Mondlandung",
+    "category": "milestone",
+    "attributes": {
+      "year": 1969,
+      "protagonist": "Neil Armstrong, Buzz Aldrin (NASA Apollo 11)",
+      "field": "Raumfahrt"
+    },
+    "funFact": "Am 20. Juli 1969 betrat Neil Armstrong als erster Mensch den Mond und sprach die berühmten Worte: »Ein kleiner Schritt für einen Menschen, ein riesiger Sprung für die Menschheit.«",
+    "sourceName": "Wikipedia DE – Apollo 11",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Apollo_11",
+    "verifyNote": "Mondlandung Apollo 11, 20. Juli 1969; Neil Armstrong erster Mensch auf dem Mond"
+  },
+  {
+    "id": "milestone-motorflug",
+    "name": "Erster bemannter Motorflug",
+    "category": "milestone",
+    "attributes": {
+      "year": 1903,
+      "protagonist": "Orville Wright",
+      "field": "Luftfahrt"
+    },
+    "funFact": "Am 17. Dezember 1903 flog Orville Wright in Kitty Hawk, North Carolina, 12 Sekunden lang – der erste kontrollierte Motorflug der Geschichte.",
+    "sourceName": "Wikipedia DE – Gebrüder Wright",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Gebr%C3%BCder_Wright",
+    "verifyNote": "Erster Motorflug 17. Dezember 1903, Kitty Hawk; gut belegter historischer Fakt"
+  },
+  {
+    "id": "milestone-herztransplantation",
+    "name": "Erste erfolgreiche Herztransplantation",
+    "category": "milestone",
+    "attributes": {
+      "year": 1967,
+      "protagonist": "Christiaan Barnard",
+      "field": "Medizin"
+    },
+    "funFact": "Christiaan Barnard führte am 3. Dezember 1967 im Groote Schuur Hospital in Kapstadt die erste erfolgreiche Herztransplantation am Menschen durch.",
+    "sourceName": "Wikipedia DE – Christiaan Barnard",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Christiaan_Barnard",
+    "verifyNote": "Erste Herztransplantation 3. Dezember 1967; weltweit dokumentiert"
+  },
+  {
+    "id": "milestone-mensch-im-all",
+    "name": "Erster Mensch im Weltraum",
+    "category": "milestone",
+    "attributes": {
+      "year": 1961,
+      "protagonist": "Juri Gagarin",
+      "field": "Raumfahrt"
+    },
+    "funFact": "Juri Gagarin umkreiste am 12. April 1961 mit dem Raumschiff Wostok 1 einmal die Erde – der erste Mensch im Weltall.",
+    "sourceName": "Wikipedia DE – Juri Gagarin",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Juri_Gagarin",
+    "verifyNote": "Wostok-1-Flug 12. April 1961; Faktum unbestritten"
+  },
+  {
+    "id": "milestone-everest",
+    "name": "Erstbesteigung des Mount Everest",
+    "category": "milestone",
+    "attributes": {
+      "year": 1953,
+      "protagonist": "Edmund Hillary, Tenzing Norgay",
+      "field": "Entdeckung"
+    },
+    "funFact": "Am 29. Mai 1953 erreichten Edmund Hillary und Tenzing Norgay als erste Menschen den Gipfel des Mount Everest auf 8849 Metern.",
+    "sourceName": "Wikipedia DE – Erstbesteigung des Mount Everest",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Erstbesteigung_des_Mount_Everest",
+    "verifyNote": "Erstbesteigung 29. Mai 1953; durch zahlreiche Quellen belegt"
+  },
+  {
+    "id": "milestone-suedpol",
+    "name": "Erreichen des Südpols",
+    "category": "milestone",
+    "attributes": {
+      "year": 1911,
+      "protagonist": "Roald Amundsen",
+      "field": "Entdeckung"
+    },
+    "funFact": "Roald Amundsen erreichte am 14. Dezember 1911 als erster Mensch den geographischen Südpol.",
+    "sourceName": "Wikipedia DE – Roald Amundsen",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Roald_Amundsen",
+    "verifyNote": "Amundsens Südpolexpedition; Ankunft 14. Dezember 1911 historisch gesichert"
+  },
+  {
+    "id": "milestone-eisenbahn",
+    "name": "Erste öffentliche Dampfeisenbahn",
+    "category": "milestone",
+    "attributes": {
+      "year": 1825,
+      "protagonist": "George Stephenson",
+      "field": "Entdeckung"
+    },
+    "funFact": "Am 27. September 1825 fuhr die Stockton and Darlington Railway als erste öffentliche Dampfeisenbahn der Welt.",
+    "sourceName": "Wikipedia DE – Stockton and Darlington Railway",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Stockton_and_Darlington_Railway",
+    "verifyNote": "Eröffnung 27. September 1825; gilt als erste öffentliche Dampfeisenbahn"
+  },
+  {
+    "id": "milestone-suezkanal",
+    "name": "Eröffnung des Suezkanals",
+    "category": "milestone",
+    "attributes": {
+      "year": 1869,
+      "protagonist": "Ferdinand de Lesseps (Bauunternehmer)",
+      "field": "Entdeckung"
+    },
+    "funFact": "Der Suezkanal wurde am 17. November 1869 eröffnet und verbindet seitdem das Mittelmeer mit dem Roten Meer.",
+    "sourceName": "Wikipedia DE – Suezkanal",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Suezkanal",
+    "verifyNote": "Eröffnung 17. November 1869; historisch gesichertes Datum"
+  },
+  {
+    "id": "milestone-eniac",
+    "name": "Erster programmierbarer Elektronenrechner ENIAC",
+    "category": "milestone",
+    "attributes": {
+      "year": 1945,
+      "protagonist": "John Mauchly, J. Presper Eckert (University of Pennsylvania)",
+      "field": "Computertechnik"
+    },
+    "funFact": "Der ENIAC (Electronic Numerical Integrator and Computer) bestand aus 17.468 Vakuumröhren und war das erste vollständig elektronische Universalrechner-System.",
+    "sourceName": "Wikipedia DE – ENIAC",
+    "sourceUrl": "https://de.wikipedia.org/wiki/ENIAC",
+    "verifyNote": "ENIAC fertiggestellt 1945, in Betrieb genommen 1946; Standardreferenz Computertechnik"
+  },
+  {
+    "id": "milestone-erste-email",
+    "name": "Erste E-Mail",
+    "category": "milestone",
+    "attributes": {
+      "year": 1971,
+      "protagonist": "Ray Tomlinson",
+      "field": "Kommunikation"
+    },
+    "funFact": "Ray Tomlinson schickte 1971 die erste E-Mail zwischen zwei verschiedenen Computern und führte das @-Symbol für E-Mail-Adressen ein.",
+    "sourceName": "Wikipedia DE – Ray Tomlinson",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Ray_Tomlinson",
+    "verifyNote": "Erste Netzwerk-E-Mail 1971 durch Ray Tomlinson; Einführung des @-Zeichens"
+  },
+  {
+    "id": "milestone-world-wide-web",
+    "name": "Start des World Wide Web",
+    "category": "milestone",
+    "attributes": {
+      "year": 1991,
+      "protagonist": "Tim Berners-Lee (CERN)",
+      "field": "Kommunikation"
+    },
+    "funFact": "Tim Berners-Lee veröffentlichte am 6. August 1991 die erste Website der Welt und legte damit den Grundstein für das moderne Internet.",
+    "sourceName": "Wikipedia DE – World Wide Web",
+    "sourceUrl": "https://de.wikipedia.org/wiki/World_Wide_Web",
+    "verifyNote": "Erste Website am 6. August 1991 online; Tim Berners-Lee als Erfinder des WWW"
+  },
+  {
+    "id": "milestone-sputnik",
+    "name": "Start des ersten künstlichen Erdsatelliten Sputnik 1",
+    "category": "milestone",
+    "attributes": {
+      "year": 1957,
+      "protagonist": "Sowjetische Raumfahrtbehörde (OKB-1, Sergei Koroljow)",
+      "field": "Raumfahrt"
+    },
+    "funFact": "Sputnik 1 war der erste künstliche Erdsatellit und umkreiste die Erde 1440 Mal, bevor er am 4. Januar 1958 verglühte.",
+    "sourceName": "Wikipedia DE – Sputnik 1",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Sputnik_1",
+    "verifyNote": "Start 4. Oktober 1957; löste das »Sputnik-Schock«-Phänomen aus"
+  },
+  {
+    "id": "milestone-erste-fotografie",
+    "name": "Erste dauerhafte Fotografie",
+    "category": "milestone",
+    "attributes": {
+      "year": 1826,
+      "protagonist": "Joseph Nicéphore Niépce",
+      "field": "Wissenschaft"
+    },
+    "funFact": "Joseph Nicéphore Niépce gelang 1826 die erste dauerhaft fixierte Fotografie »Blick aus dem Fenster in Le Gras« mit einer Belichtungszeit von mehreren Stunden.",
+    "sourceName": "Wikipedia DE – Joseph Nicéphore Niépce",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Joseph_Nic%C3%A9phore_Ni%C3%A9pce",
+    "verifyNote": "Älteste erhaltene Fotografie ca. 1826/1827; historisch gesichert"
+  },
+  {
+    "id": "milestone-transatlantik-funk",
+    "name": "Erster Transatlantik-Funkspruch",
+    "category": "milestone",
+    "attributes": {
+      "year": 1901,
+      "protagonist": "Guglielmo Marconi",
+      "field": "Kommunikation"
+    },
+    "funFact": "Guglielmo Marconi empfing am 12. Dezember 1901 das erste drahtlose Signal über den Atlantik – vom englischen Cornwall ins kanadische Neufundland.",
+    "sourceName": "Wikipedia DE – Guglielmo Marconi",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Guglielmo_Marconi",
+    "verifyNote": "Transatlantische Funkübertragung 12. Dezember 1901; Marconi-Nobelpreis 1909"
+  },
+  {
+    "id": "milestone-dna-struktur",
+    "name": "Entschlüsselung der DNA-Doppelhelix",
+    "category": "milestone",
+    "attributes": {
+      "year": 1953,
+      "protagonist": "James Watson, Francis Crick",
+      "field": "Wissenschaft"
+    },
+    "funFact": "Die Entdeckung der Doppelhelix-Struktur der DNA im April 1953 gilt als eine der bedeutendsten wissenschaftlichen Entdeckungen des 20. Jahrhunderts.",
+    "sourceName": "Wikipedia DE – DNA",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Desoxyribonukleins%C3%A4ure",
+    "verifyNote": "Veröffentlichung im Nature-Artikel April 1953; Watson und Crick erhielten 1962 den Nobelpreis"
+  },
+  {
+    "id": "milestone-erste-antibiotikabehandlung",
+    "name": "Erster klinischer Einsatz von Penicillin",
+    "category": "milestone",
+    "attributes": {
+      "year": 1941,
+      "protagonist": "Howard Florey, Ernst Boris Chain",
+      "field": "Medizin"
+    },
+    "funFact": "1941 wurde Penicillin erstmals erfolgreich am Menschen klinisch eingesetzt – ein Meilenstein in der Geschichte der Infektionsmedizin.",
+    "sourceName": "Wikipedia DE – Penicillin",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Penicillin",
+    "verifyNote": "Klinische Anwendung 1941; Florey und Chain erhielten 1945 den Nobelpreis gemeinsam mit Fleming"
+  },
+
+  {
+    "id": "expedition-kolumbus-1492",
+    "name": "Kolumbus' erste Reise nach Amerika",
+    "category": "expedition",
+    "attributes": {
+      "explorer": "Christoph Kolumbus",
+      "year": 1492,
+      "region": "Amerika (Karibik)"
+    },
+    "funFact": "Kolumbus landete am 12. Oktober 1492 auf der Insel Guanahani in der Karibik und nannte sie »San Salvador«.",
+    "sourceName": "Wikipedia DE – Christoph Kolumbus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Christoph_Kolumbus",
+    "verifyNote": "Erste Reise 1492; Landung in der Karibik historisch gesichert"
+  },
+  {
+    "id": "expedition-magellan-1519",
+    "name": "Magellans Weltumsegelung",
+    "category": "expedition",
+    "attributes": {
+      "explorer": "Ferdinand Magellan",
+      "year": 1519,
+      "region": "Welt (Erste Erdumsegelung)"
+    },
+    "funFact": "Magellan selbst starb 1521 auf den Philippinen; sein Schiff Victoria vollendete die erste Erdumsegelung 1522 unter Juan Sebastián Elcano.",
+    "sourceName": "Wikipedia DE – Ferdinand Magellan",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Ferdinand_Magellan",
+    "verifyNote": "Expedition begann 1519, erste Weltumsegelung abgeschlossen 1522"
+  },
+  {
+    "id": "expedition-vasco-da-gama-1498",
+    "name": "Vasco da Gamas Indienreise",
+    "category": "expedition",
+    "attributes": {
+      "explorer": "Vasco da Gama",
+      "year": 1497,
+      "region": "Indischer Seeweg (Westafrika um Kap der Guten Hoffnung nach Indien)"
+    },
+    "funFact": "Vasco da Gama erreichte 1498 als erster Europäer auf dem Seeweg Indien und öffnete damit den lukrativen Gewürzhandel für Portugal.",
+    "sourceName": "Wikipedia DE – Vasco da Gama",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Vasco_da_Gama",
+    "verifyNote": "Abfahrt 1497, Ankunft in Calicut 1498; historisch gesichertes Datum"
+  },
+  {
+    "id": "expedition-amundsen-suedpol",
+    "name": "Amundsens Südpolexpedition",
+    "category": "expedition",
+    "attributes": {
+      "explorer": "Roald Amundsen",
+      "year": 1910,
+      "region": "Antarktis (Südpol)"
+    },
+    "funFact": "Amundsen und seine Mannschaft erreichten am 14. Dezember 1911 als Erste den Südpol – fünf Wochen vor dem britischen Konkurrenten Robert Falcon Scott.",
+    "sourceName": "Wikipedia DE – Amundsen-Scott-Südpolexpedition",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Amundsen-Scott-S%C3%BCdpolexpedition",
+    "verifyNote": "Expedition begann 1910 von Norwegen, Südpol am 14. Dezember 1911 erreicht"
+  },
+  {
+    "id": "expedition-scott-terra-nova",
+    "name": "Scotts Terra-Nova-Expedition",
+    "category": "expedition",
+    "attributes": {
+      "explorer": "Robert Falcon Scott",
+      "year": 1910,
+      "region": "Antarktis (Südpol)"
+    },
+    "funFact": "Scott und seine vier Begleiter erreichten den Südpol am 17. Januar 1912, mussten jedoch feststellen, dass Amundsen sie um fünf Wochen überholt hatte – alle fünf starben auf dem Rückweg.",
+    "sourceName": "Wikipedia DE – Terra-Nova-Expedition",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Terra-Nova-Expedition",
+    "verifyNote": "Expedition 1910–1913; tragisches Ende auf dem Rückmarsch gut dokumentiert"
+  },
+  {
+    "id": "expedition-cook-pazifik-1768",
+    "name": "Cooks erste Pazifikreise",
+    "category": "expedition",
+    "attributes": {
+      "explorer": "James Cook",
+      "year": 1768,
+      "region": "Pazifik (Neuseeland, Australien, Tahiti)"
+    },
+    "funFact": "James Cook kartierte auf seiner ersten Reise (1768–1771) als erster Europäer die neuseeländische Küste und die Ostküste Australiens.",
+    "sourceName": "Wikipedia DE – James Cook",
+    "sourceUrl": "https://de.wikipedia.org/wiki/James_Cook",
+    "verifyNote": "Erste Reise 1768–1771; Kartierung Neuseelands und Australiens historisch gesichert"
+  },
+  {
+    "id": "expedition-marco-polo-china",
+    "name": "Marco Polos Reise nach China",
+    "category": "expedition",
+    "attributes": {
+      "explorer": "Marco Polo",
+      "year": 1271,
+      "region": "Asien (China, Zentralasien)"
+    },
+    "funFact": "Marco Polo verbrachte rund 24 Jahre in Asien und am Hof des Kublai Khan; seine Reisebeschreibung »Il Milione« machte Europa mit der Welt des Fernen Ostens bekannt.",
+    "sourceName": "Wikipedia DE – Marco Polo",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Marco_Polo",
+    "verifyNote": "Reise ab 1271; Reisebericht »Il Milione« als Hauptquelle"
+  },
+  {
+    "id": "expedition-lewis-clark-1804",
+    "name": "Lewis-und-Clark-Expedition",
+    "category": "expedition",
+    "attributes": {
+      "explorer": "Meriwether Lewis, William Clark",
+      "year": 1804,
+      "region": "Nordamerika (Missouri bis Pazifik)"
+    },
+    "funFact": "Die Lewis-und-Clark-Expedition (1804–1806) war die erste amerikanische Überlandexpedition zum Pazifik und erschloss den Westen des nordamerikanischen Kontinents.",
+    "sourceName": "Wikipedia DE – Lewis-und-Clark-Expedition",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Lewis-und-Clark-Expedition",
+    "verifyNote": "Expedition 1804–1806; gut dokumentierte historische Quelle"
+  },
+  {
+    "id": "expedition-humboldt-1799",
+    "name": "Humboldts Amerikareise",
+    "category": "expedition",
+    "attributes": {
+      "explorer": "Alexander von Humboldt",
+      "year": 1799,
+      "region": "Südamerika und Mittelamerika"
+    },
+    "funFact": "Alexander von Humboldt bereiste von 1799 bis 1804 Lateinamerika und maß erstmals den Chimborazo in Ecuador – damals als höchster Berg der Welt gehalten.",
+    "sourceName": "Wikipedia DE – Alexander von Humboldt",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Alexander_von_Humboldt",
+    "verifyNote": "Amerikareise 1799–1804; Humboldt als Begründer der modernen Geographie"
+  },
+  {
+    "id": "expedition-diaz-1488",
+    "name": "Bartolomeu Dias – Umsegelung des Kaps der Guten Hoffnung",
+    "category": "expedition",
+    "attributes": {
+      "explorer": "Bartolomeu Dias",
+      "year": 1487,
+      "region": "Südafrika (Kap der Guten Hoffnung)"
+    },
+    "funFact": "Bartolomeu Dias erreichte 1488 als erster Europäer das Kap der Guten Hoffnung und ebnete damit den Seeweg nach Indien.",
+    "sourceName": "Wikipedia DE – Bartolomeu Dias",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Bartolomeu_Dias",
+    "verifyNote": "Umsegelung des Kaps 1488; historisch gesichertes Datum"
+  },
+  {
+    "id": "expedition-drake-1577",
+    "name": "Francis Drakes Weltumsegelung",
+    "category": "expedition",
+    "attributes": {
+      "explorer": "Francis Drake",
+      "year": 1577,
+      "region": "Welt (Zweite vollständige Erdumsegelung)"
+    },
+    "funFact": "Francis Drake war der erste Kapitän, der seine Weltumsegelung (1577–1580) selbst vollendete – Magellan war unterwegs gestorben.",
+    "sourceName": "Wikipedia DE – Francis Drake",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Francis_Drake",
+    "verifyNote": "Weltumsegelung 1577–1580; zweite nach Magellan/Elcano"
+  },
+  {
+    "id": "expedition-cabral-1500",
+    "name": "Pedro Álvares Cabrals Entdeckung Brasiliens",
+    "category": "expedition",
+    "attributes": {
+      "explorer": "Pedro Álvares Cabral",
+      "year": 1500,
+      "region": "Brasilien (Südamerika)"
+    },
+    "funFact": "Pedro Álvares Cabral landete am 22. April 1500 als erster Europäer in Brasilien und beanspruchte das Land für Portugal.",
+    "sourceName": "Wikipedia DE – Pedro Álvares Cabral",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Pedro_%C3%81lvares_Cabral",
+    "verifyNote": "Landung in Brasilien 22. April 1500; historisch gesichertes Datum"
+  },
+  {
+    "id": "expedition-bering-1728",
+    "name": "Vitus Berings erste Kamtschatka-Expedition",
+    "category": "expedition",
+    "attributes": {
+      "explorer": "Vitus Bering",
+      "year": 1725,
+      "region": "Nordpazifik (Beringstraße, Sibirien)"
+    },
+    "funFact": "Vitus Bering befuhr 1728 die nach ihm benannte Beringstraße und bewies damit die geographische Trennung von Asien und Amerika.",
+    "sourceName": "Wikipedia DE – Vitus Bering",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Vitus_Bering",
+    "verifyNote": "Erste Expedition 1725–1730; Beringstraße benannt nach ihm"
+  }
+]

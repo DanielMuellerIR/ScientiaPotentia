@@ -40,6 +40,10 @@ const LEAK_BY_DOMAIN = {
   natura: /\b(the|animal|plant|weight|length|species)\b/i,
   lingua: null,
   cultura: null,
+  // Machina: legitime englische Begriffe überall (HTTP, Python, O(n log n), TCP …).
+  machina: null,
+  // Historia: viele Eigennamen/Begriffe nicht-deutsch (Personen, Erfindungen).
+  historia: null,
 };
 // Unbekannte Domains: konservativ die astra-Liste verwenden.
 const ENGLISH_LEAK = domain in LEAK_BY_DOMAIN ? LEAK_BY_DOMAIN[domain] : LEAK_BY_DOMAIN.astra;

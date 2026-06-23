@@ -61,7 +61,23 @@ const CATEGORY_LABELS = {
   composer: 'Komponist',
   composition: 'Musikwerk',
   literature: 'Literaturwerk',
-  literary_movement: 'Literaturepoche'
+  literary_movement: 'Literaturepoche',
+  // Machina (Digital & Technik)
+  programming_language: 'Programmiersprache',
+  file_format: 'Dateiformat',
+  network_protocol: 'Netzwerkprotokoll',
+  data_structure: 'Datenstruktur',
+  algorithm: 'Algorithmus',
+  hardware: 'Hardware',
+  acronym: 'Abkürzung',
+  concept: 'Konzept',
+  // Historia (Geschichte)
+  invention: 'Erfindung',
+  discovery: 'Entdeckung',
+  epoch: 'Epoche',
+  figure: 'Persönlichkeit',
+  milestone: 'Meilenstein',
+  expedition: 'Expedition'
 };
 
 // Deutsche Labels fuer haeufige Attribut-Schluessel (Fallback: Roh-Schluessel).
@@ -224,13 +240,38 @@ const ATTR_LABELS = {
   interiorArea: 'Innenfläche',
   totalAreaHa: 'Gesamtfläche (ha)',
   durationMin: 'Dauer (min)',
-  totalDurationHours: 'Gesamtdauer (h)'
+  totalDurationHours: 'Gesamtdauer (h)',
+  // Machina (Digital & Technik) — Funktion/Eigenschaft, kein Datum/Person.
+  paradigm: 'Paradigma',
+  typeSystem: 'Typsystem',
+  execution: 'Ausführung',
+  primaryDomain: 'Anwendungsbereich',
+  fileExtension: 'Dateiendung',
+  mediaType: 'Datenart',
+  compression: 'Kompression',
+  fullName: 'Bedeutung',
+  layer: 'Netzwerkschicht',
+  defaultPort: 'Standard-Port',
+  transport: 'Transportprotokoll',
+  purpose: 'Zweck',
+  accessComplexity: 'Zugriffskomplexität',
+  avgComplexity: 'Zeitkomplexität (Ø)',
+  // Historia (Geschichte) — Zeit/Urheberschaft. region/nationality/field s. o.
+  inventor: 'Erfinder',
+  discoverer: 'Entdecker',
+  knownFor: 'Bekannt für',
+  protagonist: 'Hauptakteur',
+  explorer: 'Entdeckungsreisender',
+  precededBy: 'Vorausgehende Epoche',
+  field: 'Bereich'
 };
 
 // Diese Freitext-Attribute beschreiben das Konzept so konkret, dass sie vor der
 // Antwort oft indirekt die Loesung verraten. Sie werden erst als Erklaerung nach
 // der Antwort gezeigt.
-const POST_ANSWER_ATTRS = new Set(['notableFor', 'definition', 'function']);
+// 'knownFor' (Historia-Persönlichkeiten) erst nach der Antwort zeigen: der
+// Freitext ("Beiträge zur Quantenmechanik") verriete sonst Feld/Nationalität.
+const POST_ANSWER_ATTRS = new Set(['notableFor', 'definition', 'function', 'knownFor']);
 
 // Taxonomisch korrelierte Attribute: Wird z.B. die ORDNUNG gefragt, verraet die
 // sichtbare TIERKLASSE die Antwort oft schon (die Distraktoren sind dann Ordnungen

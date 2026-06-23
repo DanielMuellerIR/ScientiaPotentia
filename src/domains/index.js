@@ -1,5 +1,5 @@
 import { lazy } from 'react';
-import { Globe2, Sparkles, PersonStanding, Orbit, Leaf, Languages, Landmark, Images } from 'lucide-react';
+import { Globe2, Sparkles, PersonStanding, Orbit, Leaf, Languages, Landmark, Images, Cpu, ScrollText } from 'lucide-react';
 
 // Spezialisierte Visualisierungen lazy laden, damit schwere Abhaengigkeiten
 // (z.B. three.js fuer Astra) nur ins Bundle kommen, wenn die Domain aktiv ist.
@@ -127,6 +127,36 @@ export const DOMAINS = [
     ExplorerIcon: Images,
     loadConcepts: () => fetch('data/concepts_cultura.json').then(handleJson),
     loadQuestions: () => fetch('data/questions_cultura.json').then(handleJson)
+  },
+  {
+    id: 'machina',
+    latinName: 'Machina',
+    label: 'Digital & Technik',
+    shortLabel: 'Computerwelt',
+    description: 'Programmiersprachen, Protokolle, Dateiformate, Algorithmen und Hardware.',
+    Icon: Cpu,
+    accent: '#2C7A8C',
+    // MCQ-only: nutzt das generische ConceptVisual. Ordnungsachse = Funktionsprinzip
+    // (vgl. docs/bereichs_abgrenzung.md); Erfindungsdatum/-person liegt bei Historia.
+    hasMap: false,
+    // Kein Explorer-Tab vorerst: die Konzepte tragen noch keine freien Bilder,
+    // eine leere Galerie sähe defekt aus. Nachrüstbar, sobald Bilder geerntet sind.
+    loadConcepts: () => fetch('data/concepts_machina.json').then(handleJson),
+    loadQuestions: () => fetch('data/questions_machina.json').then(handleJson)
+  },
+  {
+    id: 'historia',
+    latinName: 'Historia',
+    label: 'Geschichte',
+    shortLabel: 'Zeitachse',
+    description: 'Erfindungen, Entdeckungen, Epochen, Forscher und datierbare Meilensteine.',
+    Icon: ScrollText,
+    accent: '#7A5230',
+    // MCQ-only: nutzt das generische ConceptVisual. Ordnungsachse = Zeit/Urheberschaft.
+    // Schwerpunkt Kultur-/Wissenschafts-/Technikgeschichte; Politik-Ausschluss gilt.
+    hasMap: false,
+    loadConcepts: () => fetch('data/concepts_historia.json').then(handleJson),
+    loadQuestions: () => fetch('data/questions_historia.json').then(handleJson)
   }
 ];
 

@@ -1,0 +1,534 @@
+[
+  {
+    "id": "ds-array",
+    "name": "Array",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Lineare Struktur",
+      "purpose": "Speichert Elemente in einer festen, indizierten Reihenfolge im zusammenhängenden Speicher",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Arrays sind die älteste und einfachste Datenstruktur — direkter Speicherzugriff über Index ohne Suchaufwand.",
+    "sourceName": "Cormen et al. – Introduction to Algorithms (CLRS)",
+    "verifyNote": "O(1)-Zugriff über Index ist lehrbuch-Standard (CLRS Kap. 10)"
+  },
+  {
+    "id": "ds-linked-list",
+    "name": "Verkettete Liste",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Lineare Struktur",
+      "purpose": "Speichert Elemente als Knoten, die per Zeiger verkettet sind; effizientes Einfügen/Löschen",
+      "accessComplexity": "O(n)"
+    },
+    "funFact": "Im Gegensatz zum Array braucht eine verkettete Liste keinen zusammenhängenden Speicher.",
+    "sourceName": "Wikipedia DE – Verkettete Liste",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Verkettete_Liste",
+    "verifyNote": "O(n) für Zugriff nach Index ist lehrbuch-Standard"
+  },
+  {
+    "id": "ds-doubly-linked-list",
+    "name": "Doppelt verkettete Liste",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Lineare Struktur",
+      "purpose": "Wie verkettete Liste, aber mit Zeigern in beide Richtungen — ermöglicht effizientes Vor- und Rückwärtstraversieren",
+      "accessComplexity": "O(n)"
+    },
+    "sourceName": "Cormen et al. – Introduction to Algorithms (CLRS)",
+    "verifyNote": "CLRS Kap. 10.2 beschreibt doppelt verkettete Listen mit O(n) Zugriff"
+  },
+  {
+    "id": "ds-stack",
+    "name": "Stack",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Lineare Struktur",
+      "purpose": "Last-In-First-Out-Struktur (LIFO); Push und Pop am selben Ende",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Stacks werden u.a. beim Funktionsaufruf (Call Stack) und beim Undo-Mechanismus genutzt.",
+    "sourceName": "Wikipedia DE – Stapelspeicher",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Stapelspeicher",
+    "verifyNote": "O(1) für Push/Pop ist lehrbuch-Standard"
+  },
+  {
+    "id": "ds-queue",
+    "name": "Queue",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Lineare Struktur",
+      "purpose": "First-In-First-Out-Struktur (FIFO); Enqueue hinten, Dequeue vorne",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Queues modellieren Warteschlangen, z.B. beim Druckerspooler oder bei Netzwerkpaketen.",
+    "sourceName": "Wikipedia DE – Warteschlange (Datenstruktur)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Warteschlange_(Datenstruktur)",
+    "verifyNote": "O(1) für Enqueue/Dequeue ist lehrbuch-Standard"
+  },
+  {
+    "id": "ds-hashtable",
+    "name": "Hashtabelle",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Hash-basiert",
+      "purpose": "Speichert Schlüssel-Wert-Paare mit sehr schnellem Zugriff über Hashfunktion",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Im Durchschnitt O(1), im Worst Case (viele Kollisionen) O(n) — gute Hashfunktionen minimieren Kollisionen.",
+    "sourceName": "Cormen et al. – Introduction to Algorithms (CLRS)",
+    "verifyNote": "O(1) Durchschnitt ist lehrbuch-Standard (CLRS Kap. 11)"
+  },
+  {
+    "id": "ds-binary-search-tree",
+    "name": "Binärer Suchbaum",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "purpose": "Baumstruktur, bei der linke Kinder kleiner und rechte Kinder größer als der Elternknoten sind; effiziente Suche",
+      "accessComplexity": "O(log n)"
+    },
+    "funFact": "Ist der Baum unausgeglichen, verschlechtert sich die Komplexität auf O(n) — AVL- und Rot-Schwarz-Bäume vermeiden das.",
+    "sourceName": "Wikipedia DE – Binärer Suchbaum",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Bin%C3%A4rer_Suchbaum",
+    "verifyNote": "O(log n) für ausgeglichene BST ist lehrbuch-Standard"
+  },
+  {
+    "id": "ds-avl-tree",
+    "name": "AVL-Baum",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "purpose": "Selbstbalancierender binärer Suchbaum; garantiert O(log n) durch Rotationen nach Einfügen/Löschen",
+      "accessComplexity": "O(log n)"
+    },
+    "sourceName": "Wikipedia DE – AVL-Baum",
+    "sourceUrl": "https://de.wikipedia.org/wiki/AVL-Baum",
+    "verifyNote": "Benannt nach Adelson-Velsky und Landis (1962); O(log n) garantiert durch Höhenbalance"
+  },
+  {
+    "id": "ds-heap",
+    "name": "Heap",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Heap",
+      "purpose": "Baum-basierte Struktur, die schnellen Zugriff auf das Minimum oder Maximum bietet; Basis für Prioritätswarteschlangen",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Ein Heap ist die effizienteste Datenstruktur, um wiederholt das kleinste oder größte Element zu entnehmen.",
+    "sourceName": "Cormen et al. – Introduction to Algorithms (CLRS)",
+    "verifyNote": "O(1) für Min/Max-Zugriff, O(log n) für Einfügen/Entfernen (CLRS Kap. 6)"
+  },
+  {
+    "id": "ds-graph",
+    "name": "Graph",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Graph",
+      "purpose": "Modelliert Netzwerke aus Knoten und Kanten; Basis für Navigationssysteme, soziale Netzwerke und viele Graphalgorithmen"
+    },
+    "funFact": "Graphen sind die universellste Datenstruktur — Bäume, Listen und sogar Gitter sind Spezialfälle.",
+    "sourceName": "Wikipedia DE – Graph (Graphentheorie)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Graph_(Graphentheorie)",
+    "verifyNote": "accessComplexity weggelassen, da je nach Repräsentation (Adjazenzmatrix vs. -liste) verschieden"
+  },
+  {
+    "id": "ds-trie",
+    "name": "Trie",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "purpose": "Baumstruktur zur effizienten Speicherung und Suche von Zeichenketten; Basis für Autocomplete und Rechtschreibprüfung"
+    },
+    "funFact": "Der Name 'Trie' leitet sich von 'retrieval' ab und wird meist 'Try' ausgesprochen.",
+    "sourceName": "Wikipedia DE – Trie",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Trie",
+    "verifyNote": "accessComplexity weggelassen, da O(m) mit m = Schlüssellänge, nicht von n (Anzahl Einträge) abhängig"
+  },
+  {
+    "id": "algo-quicksort",
+    "name": "Quicksort",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortieralgorithmus",
+      "avgComplexity": "O(n log n)",
+      "purpose": "Teilt ein Array rekursiv anhand eines Pivotelements und sortiert die Teilbereiche"
+    },
+    "funFact": "Quicksort ist in der Praxis oft schneller als Mergesort, obwohl beide O(n log n) haben — wegen besserer Cache-Lokalität.",
+    "sourceName": "Cormen et al. – Introduction to Algorithms (CLRS)",
+    "verifyNote": "O(n log n) Durchschnitt, O(n²) Worst Case (CLRS Kap. 7)"
+  },
+  {
+    "id": "algo-mergesort",
+    "name": "Mergesort",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortieralgorithmus",
+      "avgComplexity": "O(n log n)",
+      "purpose": "Teilt ein Array rekursiv in Hälften, sortiert diese und fügt sie zusammen (Divide & Conquer)"
+    },
+    "funFact": "Mergesort ist stabil — gleiche Elemente behalten ihre relative Reihenfolge, was ihn für Datenbankoperationen wertvoll macht.",
+    "sourceName": "Cormen et al. – Introduction to Algorithms (CLRS)",
+    "verifyNote": "O(n log n) garantiert im Best/Average/Worst Case (CLRS Kap. 2)"
+  },
+  {
+    "id": "algo-bubblesort",
+    "name": "Bubblesort",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortieralgorithmus",
+      "avgComplexity": "O(n²)",
+      "purpose": "Vergleicht benachbarte Elemente und tauscht sie, bis die Liste sortiert ist"
+    },
+    "funFact": "Bubblesort ist für große Datenmengen ineffizient, gilt aber als leicht verständlicher Einstiegsalgorithmus.",
+    "sourceName": "Wikipedia DE – Bubblesort",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Bubblesort",
+    "verifyNote": "O(n²) Durchschnitt und Worst Case ist lehrbuch-Standard"
+  },
+  {
+    "id": "algo-insertionsort",
+    "name": "Insertionsort",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortieralgorithmus",
+      "avgComplexity": "O(n²)",
+      "purpose": "Fügt Elemente nacheinander an die richtige Position in den bereits sortierten Teil ein"
+    },
+    "funFact": "Bei nahezu sortierten Listen ist Insertionsort sehr effizient — Komplexität nähert sich O(n).",
+    "sourceName": "Cormen et al. – Introduction to Algorithms (CLRS)",
+    "verifyNote": "O(n²) Durchschnitt und Worst Case (CLRS Kap. 2.1)"
+  },
+  {
+    "id": "algo-heapsort",
+    "name": "Heapsort",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortieralgorithmus",
+      "avgComplexity": "O(n log n)",
+      "purpose": "Nutzt einen Heap, um Elemente zu sortieren — in-place und mit garantiert guter Komplexität"
+    },
+    "sourceName": "Cormen et al. – Introduction to Algorithms (CLRS)",
+    "verifyNote": "O(n log n) im Worst Case garantiert (CLRS Kap. 6)"
+  },
+  {
+    "id": "algo-binary-search",
+    "name": "Binäre Suche",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Suchalgorithmus",
+      "avgComplexity": "O(log n)",
+      "purpose": "Findet ein Element in einer sortierten Liste durch wiederholtes Halbieren des Suchbereichs"
+    },
+    "funFact": "Binäre Suche findet in einer Liste mit einer Milliarde Einträgen das gesuchte Element in maximal 30 Schritten.",
+    "sourceName": "Cormen et al. – Introduction to Algorithms (CLRS)",
+    "verifyNote": "O(log n) ist lehrbuch-Standard für sortierte Arrays"
+  },
+  {
+    "id": "algo-linear-search",
+    "name": "Lineare Suche",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Suchalgorithmus",
+      "avgComplexity": "O(n)",
+      "purpose": "Durchsucht eine Liste sequenziell von Anfang bis Ende — funktioniert auch auf unsortierten Daten"
+    },
+    "sourceName": "Wikipedia DE – Lineare Suche",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Lineare_Suche",
+    "verifyNote": "O(n) Durchschnitt ist lehrbuch-Standard"
+  },
+  {
+    "id": "algo-dijkstra",
+    "name": "Dijkstra-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Graphalgorithmus",
+      "avgComplexity": "O(n log n)",
+      "purpose": "Findet den kürzesten Pfad von einem Startknoten zu allen anderen Knoten in einem gewichteten Graphen"
+    },
+    "funFact": "Edsger Dijkstra entwickelte den Algorithmus 1956 in nur 20 Minuten und ohne Computer.",
+    "sourceName": "Wikipedia DE – Dijkstra-Algorithmus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Dijkstra-Algorithmus",
+    "verifyNote": "O((V+E) log V) mit Min-Heap; vereinfacht O(n log n) — lehrbuch-gängige Darstellung"
+  },
+  {
+    "id": "algo-bfs",
+    "name": "Breitensuche (BFS)",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Graphalgorithmus",
+      "avgComplexity": "O(n)",
+      "purpose": "Traversiert einen Graphen ebenenweise vom Startknoten aus; findet kürzeste Pfade in ungewichteten Graphen"
+    },
+    "sourceName": "Cormen et al. – Introduction to Algorithms (CLRS)",
+    "verifyNote": "O(V+E) mit V = Knoten, E = Kanten; als O(n) vereinfacht für lehrbuch-Kontext (CLRS Kap. 22.2)"
+  },
+  {
+    "id": "algo-dfs",
+    "name": "Tiefensuche (DFS)",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Graphalgorithmus",
+      "avgComplexity": "O(n)",
+      "purpose": "Traversiert einen Graphen so tief wie möglich entlang eines Pfades, bevor zurückgegangen wird"
+    },
+    "sourceName": "Cormen et al. – Introduction to Algorithms (CLRS)",
+    "verifyNote": "O(V+E) vereinfacht als O(n) (CLRS Kap. 22.3)"
+  },
+  {
+    "id": "algo-astar",
+    "name": "A*-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Graphalgorithmus",
+      "purpose": "Findet den kürzesten Pfad in einem gewichteten Graphen mithilfe einer Heuristik — effizienter als Dijkstra bei bekanntem Ziel"
+    },
+    "funFact": "A* wird in Videospielen für die Wegfindung von Charakteren eingesetzt und ist heute einer der meistgenutzten Pfadfindungsalgorithmen.",
+    "sourceName": "Wikipedia DE – A*-Algorithmus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/A*-Algorithmus",
+    "verifyNote": "avgComplexity weggelassen — hängt stark von der Heuristik ab, kein lehrbuch-eindeutiger O-Wert"
+  },
+  {
+    "id": "algo-huffman",
+    "name": "Huffman-Kodierung",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Kompression",
+      "avgComplexity": "O(n log n)",
+      "purpose": "Komprimiert Daten verlustfrei, indem häufige Zeichen kürzere Bit-Codes erhalten als seltene"
+    },
+    "funFact": "Huffman-Kodierung ist die Basis vieler Kompressionsformate wie ZIP, GZIP und PNG.",
+    "sourceName": "Wikipedia DE – Huffman-Kodierung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Huffman-Kodierung",
+    "verifyNote": "O(n log n) für Aufbau des Huffman-Baums ist lehrbuch-Standard"
+  },
+  {
+    "id": "algo-rsa",
+    "name": "RSA",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Kryptografie",
+      "purpose": "Asymmetrisches Verschlüsselungsverfahren basierend auf der Schwierigkeit der Faktorisierung großer Zahlen"
+    },
+    "funFact": "RSA wurde 1977 von Rivest, Shamir und Adleman veröffentlicht und ist heute das meistgenutzte asymmetrische Kryptoverfahren.",
+    "sourceName": "Wikipedia DE – RSA-Kryptosystem",
+    "sourceUrl": "https://de.wikipedia.org/wiki/RSA-Kryptosystem",
+    "verifyNote": "avgComplexity weggelassen — hängt von Schlüssellänge und Operation (Verschlüsseln/Entschlüsseln) ab"
+  },
+  {
+    "id": "algo-hashing",
+    "name": "Hashing",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Kryptografie",
+      "avgComplexity": "O(n)",
+      "purpose": "Bildet Eingabedaten beliebiger Länge auf einen Hashwert fester Länge ab; Grundlage für Hashtabellen, Passwort-Speicherung und digitale Signaturen"
+    },
+    "sourceName": "Wikipedia DE – Hashfunktion",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Hashfunktion",
+    "verifyNote": "O(n) mit n = Eingabelänge ist Standard; Kollisionsverhalten wird separat betrachtet"
+  },
+  {
+    "id": "concept-recursion",
+    "name": "Rekursion",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmierung",
+      "definition": "Eine Funktion, die sich selbst aufruft, um ein Problem durch Zerlegung in kleinere Teilprobleme zu lösen"
+    },
+    "funFact": "Rekursion erfordert immer eine Abbruchbedingung (Basisfall), sonst entsteht ein unendlicher Aufrufstapel.",
+    "sourceName": "Wikipedia DE – Rekursion",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Rekursion",
+    "verifyNote": "Grundkonzept der Informatik, in jedem Lehrbuch belegt"
+  },
+  {
+    "id": "concept-compilation",
+    "name": "Kompilierung",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmierung",
+      "definition": "Übersetzung von Quellcode einer höheren Programmiersprache in Maschinencode oder Zwischencode durch einen Compiler"
+    },
+    "sourceName": "Wikipedia DE – Compiler",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Compiler",
+    "verifyNote": "Standarddefinition in jedem Informatik-Lehrbuch"
+  },
+  {
+    "id": "concept-virtualization",
+    "name": "Virtualisierung",
+    "category": "concept",
+    "attributes": {
+      "category": "Betriebssysteme",
+      "definition": "Emulation von Hardware- oder Software-Ressourcen, sodass mehrere virtuelle Systeme auf einer physischen Maschine laufen können"
+    },
+    "funFact": "Virtualisierung ist die Grundlage des Cloud Computing — Anbieter teilen physische Server in viele virtuelle Maschinen auf.",
+    "sourceName": "Wikipedia DE – Virtualisierung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Virtualisierung_(Informatik)",
+    "verifyNote": "Standarddefinition in Betriebssystemen-Lehrbüchern"
+  },
+  {
+    "id": "concept-caching",
+    "name": "Caching",
+    "category": "concept",
+    "attributes": {
+      "category": "Betriebssysteme",
+      "definition": "Zwischenspeichern häufig genutzter Daten in einem schnellen Speicher (Cache), um wiederholte langsame Zugriffe auf die Originalquelle zu vermeiden"
+    },
+    "funFact": "CPU-Caches (L1/L2/L3) sind oft über 100-mal schneller als der Hauptspeicher und entscheidend für die Prozessorleistung.",
+    "sourceName": "Wikipedia DE – Cache",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Cache",
+    "verifyNote": "Standarddefinition in Betriebssystem- und Rechnerarchitektur-Lehrbüchern"
+  },
+  {
+    "id": "concept-encryption",
+    "name": "Verschlüsselung",
+    "category": "concept",
+    "attributes": {
+      "category": "Sicherheit/Kryptografie",
+      "definition": "Umwandlung von lesbaren Daten (Klartext) in eine unleserliche Form (Chiffretext) mithilfe eines Schlüssels, sodass nur Berechtigte die Daten lesen können"
+    },
+    "sourceName": "Wikipedia DE – Verschlüsselung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Verschl%C3%BCsselung",
+    "verifyNote": "Grundkonzept der Kryptografie, in allen einschlägigen Lehrbüchern belegt"
+  },
+  {
+    "id": "concept-hashing-concept",
+    "name": "Hashing (Konzept)",
+    "category": "concept",
+    "attributes": {
+      "category": "Sicherheit/Kryptografie",
+      "definition": "Abbildung beliebig langer Daten auf einen Hashwert fester Länge durch eine Hashfunktion — Einwegfunktion: Umkehrung ist praktisch unmöglich"
+    },
+    "funFact": "Passwörter werden nie im Klartext gespeichert, sondern als Hashwert — bei Login wird der eingegebene Wert gehasht und verglichen.",
+    "sourceName": "Wikipedia DE – Hashfunktion",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Hashfunktion",
+    "verifyNote": "Einwegfunktion-Eigenschaft ist definitorisch in der Kryptografie"
+  },
+  {
+    "id": "concept-cloud-computing",
+    "name": "Cloud Computing",
+    "category": "concept",
+    "attributes": {
+      "category": "Netzwerk",
+      "definition": "Bereitstellung von IT-Ressourcen (Rechenleistung, Speicher, Software) über das Internet als bedarfsgerecht abrufbarer Dienst"
+    },
+    "funFact": "Der Begriff 'Cloud' steht als Metapher für das Internet, das in Netzwerkdiagrammen oft als Wolkensymbol dargestellt wurde.",
+    "sourceName": "Wikipedia DE – Cloud Computing",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Cloud_Computing",
+    "verifyNote": "NIST-Definition (SP 800-145) ist maßgeblich"
+  },
+  {
+    "id": "concept-machine-learning",
+    "name": "Maschinelles Lernen",
+    "category": "concept",
+    "attributes": {
+      "category": "Künstliche Intelligenz",
+      "definition": "Teilgebiet der KI, bei dem Algorithmen aus Daten Muster erlernen und Vorhersagen treffen, ohne explizit programmiert zu werden"
+    },
+    "sourceName": "Wikipedia DE – Maschinelles Lernen",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Maschinelles_Lernen",
+    "verifyNote": "Standarddefinition nach Mitchell (1997): 'A computer program learns from experience E with respect to task T'"
+  },
+  {
+    "id": "concept-neural-network",
+    "name": "Neuronales Netz",
+    "category": "concept",
+    "attributes": {
+      "category": "Künstliche Intelligenz",
+      "definition": "Rechnermodell, das aus schichtweise angeordneten künstlichen Neuronen besteht und die Informationsverarbeitung biologischer Nervensysteme nachahmt"
+    },
+    "funFact": "Moderne große Sprachmodelle wie GPT oder Claude basieren auf neuronalen Netzen mit Milliarden von Parametern.",
+    "sourceName": "Wikipedia DE – Künstliches neuronales Netz",
+    "sourceUrl": "https://de.wikipedia.org/wiki/K%C3%BCnstliches_neuronales_Netz",
+    "verifyNote": "Standarddefinition in KI-Lehrbüchern (Goodfellow et al., Deep Learning)"
+  },
+  {
+    "id": "concept-db-index",
+    "name": "Datenbank-Index",
+    "category": "concept",
+    "attributes": {
+      "category": "Datenbanken",
+      "definition": "Hilfsstruktur in einer Datenbank, die schnelle Suche nach bestimmten Spalten ermöglicht, ohne alle Datensätze zu durchsuchen"
+    },
+    "funFact": "Ein Datenbankindex funktioniert ähnlich wie das Register eines Buches — man sucht im Register, statt jede Seite zu lesen.",
+    "sourceName": "Wikipedia DE – Datenbankindex",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Datenbankindex",
+    "verifyNote": "Standardkonzept in Datenbankzlehrbüchern (Ramakrishnan & Gehrke)"
+  },
+  {
+    "id": "concept-relational-db",
+    "name": "Relationale Datenbank",
+    "category": "concept",
+    "attributes": {
+      "category": "Datenbanken",
+      "definition": "Datenbank, die Daten in Tabellen (Relationen) mit Zeilen und Spalten speichert und Beziehungen über Schlüssel herstellt; Abfrage per SQL"
+    },
+    "funFact": "Das relationale Modell wurde 1970 von Edgar F. Codd bei IBM entwickelt und ist bis heute das dominante Datenbankparadigma.",
+    "sourceName": "Wikipedia DE – Relationale Datenbank",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Relationale_Datenbank",
+    "verifyNote": "Codds Originalarbeit 'A Relational Model of Data for Large Shared Data Banks' (1970) ist Standardreferenz"
+  },
+  {
+    "id": "concept-big-data",
+    "name": "Big Data",
+    "category": "concept",
+    "attributes": {
+      "category": "Datenbanken",
+      "definition": "Sehr große, schnell wachsende und vielfältige Datenmengen, die mit herkömmlichen Werkzeugen nicht mehr verarbeitbar sind; charakterisiert durch Volume, Velocity, Variety"
+    },
+    "sourceName": "Wikipedia DE – Big Data",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Big_Data",
+    "verifyNote": "Die 3-V-Definition (Volume, Velocity, Variety) ist industrie-standard (Gartner, 2001)"
+  },
+  {
+    "id": "concept-open-source",
+    "name": "Open Source",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmierung",
+      "definition": "Software, deren Quellcode öffentlich zugänglich ist und von jedem genutzt, verändert und weitergegeben werden darf"
+    },
+    "funFact": "Der Linux-Kernel ist das bekannteste Open-Source-Projekt — an ihm arbeiten tausende Entwickler weltweit.",
+    "sourceName": "Wikipedia DE – Open Source",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Open_Source",
+    "verifyNote": "Open Source Definition der OSI (opensource.org) ist maßgeblich"
+  },
+  {
+    "id": "concept-boolean-algebra",
+    "name": "Boolesche Algebra",
+    "category": "concept",
+    "attributes": {
+      "category": "Theoretische Informatik",
+      "definition": "Mathematisches System mit zwei Werten (wahr/falsch bzw. 1/0) und Operationen (UND, ODER, NICHT); Grundlage aller digitalen Schaltungen"
+    },
+    "funFact": "George Boole entwickelte die boolesche Algebra 1854 — ohne zu wissen, dass sie ein Jahrhundert später die Grundlage aller Computer bilden würde.",
+    "sourceName": "Wikipedia DE – Boolesche Algebra",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Boolesche_Algebra",
+    "verifyNote": "Grundkonzept der Theoretischen Informatik und Digitaltechnik, in allen Lehrbüchern belegt"
+  },
+  {
+    "id": "concept-binary-system",
+    "name": "Binärsystem",
+    "category": "concept",
+    "attributes": {
+      "category": "Theoretische Informatik",
+      "definition": "Zahlensystem mit der Basis 2, das nur die Ziffern 0 und 1 verwendet; die native Darstellungsform aller digitalen Computer"
+    },
+    "funFact": "Alle Daten im Computer — Texte, Bilder, Videos — sind letztlich Abfolgen von Nullen und Einsen.",
+    "sourceName": "Wikipedia DE – Dualsystem",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Dualsystem",
+    "verifyNote": "Grundkonzept der Informatik, definitiv belegt"
+  },
+  {
+    "id": "concept-compiler-vs-interpreter",
+    "name": "Compiler vs. Interpreter",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmierung",
+      "definition": "Compiler übersetzen den gesamten Quellcode vor der Ausführung in Maschinencode; Interpreter führen Quellcode Zeile für Zeile zur Laufzeit aus"
+    },
+    "funFact": "Python ist interpretiert, C ist kompiliert — deshalb ist C-Code typischerweise wesentlich schneller, aber weniger flexibel beim Testen.",
+    "sourceName": "Wikipedia DE – Interpreter (Informatik)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Interpreter",
+    "verifyNote": "Standardunterscheidung in Programmiersprachenlehrbüchern"
+  }
+]

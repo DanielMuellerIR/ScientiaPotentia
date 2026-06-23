@@ -1,0 +1,509 @@
+[
+  {
+    "id": "albert-einstein",
+    "name": "Albert Einstein",
+    "category": "figure",
+    "attributes": {
+      "field": "Physik",
+      "nationality": "Deutschland",
+      "birthYear": 1879,
+      "knownFor": "Formulierung der speziellen und allgemeinen Relativitätstheorie"
+    },
+    "funFact": "Einstein erhielt den Nobelpreis 1921 nicht für die Relativitätstheorie, sondern für die Erklärung des photoelektrischen Effekts.",
+    "sourceName": "Wikipedia DE – Albert Einstein",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Albert_Einstein",
+    "verifyNote": "Biografie und Werk vielfach lehrbuchbelegt."
+  },
+  {
+    "id": "isaac-newton",
+    "name": "Isaac Newton",
+    "category": "figure",
+    "attributes": {
+      "field": "Physik",
+      "nationality": "England",
+      "birthYear": 1643,
+      "knownFor": "Formulierung der klassischen Mechanik und des Gravitationsgesetzes"
+    },
+    "funFact": "Newton entwickelte die Infinitesimalrechnung unabhängig von Leibniz, was zu einem langen Prioritätsstreit führte.",
+    "sourceName": "Wikipedia DE – Isaac Newton",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Isaac_Newton",
+    "verifyNote": "Standardwerk der Physikgeschichte, vielfach belegt."
+  },
+  {
+    "id": "galileo-galilei",
+    "name": "Galileo Galilei",
+    "category": "figure",
+    "attributes": {
+      "field": "Astronomie",
+      "nationality": "Italien",
+      "birthYear": 1564,
+      "knownFor": "Begründung der modernen Experimentalwissenschaft und Beobachtung der Jupitermonde"
+    },
+    "funFact": "Galilei baute eines der ersten Fernrohre für astronomische Beobachtungen und entdeckte damit vier Monde des Jupiters.",
+    "sourceName": "Wikipedia DE – Galileo Galilei",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Galileo_Galilei",
+    "verifyNote": "Historisch gut belegte Biografie und Werk."
+  },
+  {
+    "id": "charles-darwin",
+    "name": "Charles Darwin",
+    "category": "figure",
+    "attributes": {
+      "field": "Biologie",
+      "nationality": "England",
+      "birthYear": 1809,
+      "knownFor": "Begründung der Evolutionstheorie durch natürliche Selektion"
+    },
+    "funFact": "Darwin wartete über 20 Jahre mit der Veröffentlichung seiner Evolutionstheorie, bis ein Brief von Alfred Russel Wallace ihn zur Eile antrieb.",
+    "sourceName": "Wikipedia DE – Charles Darwin",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Charles_Darwin",
+    "verifyNote": "Biografie und Hauptwerk vielfach lehrbuchbelegt."
+  },
+  {
+    "id": "marie-curie",
+    "name": "Marie Curie",
+    "category": "figure",
+    "attributes": {
+      "field": "Chemie",
+      "nationality": "Polen",
+      "birthYear": 1867,
+      "knownFor": "Erforschung der Radioaktivität und Entdeckung der Elemente Polonium und Radium"
+    },
+    "funFact": "Marie Curie ist die einzige Person, die Nobelpreise in zwei verschiedenen Naturwissenschaften erhielt: Physik 1903 und Chemie 1911.",
+    "sourceName": "Wikipedia DE – Marie Curie",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Marie_Curie",
+    "verifyNote": "Nobelpreis-Datenbank und Standardbiografien belegen die Angaben."
+  },
+  {
+    "id": "nikola-tesla",
+    "name": "Nikola Tesla",
+    "category": "figure",
+    "attributes": {
+      "field": "Technik/Erfindung",
+      "nationality": "Serbien",
+      "birthYear": 1856,
+      "knownFor": "Entwicklung des Wechselstrom-Systems und der Induktionsmaschine"
+    },
+    "funFact": "Tesla ließ mehr als 300 Patente in verschiedenen Ländern eintragen und arbeitete zeitweise für Thomas Edison.",
+    "sourceName": "Wikipedia DE – Nikola Tesla",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Nikola_Tesla",
+    "verifyNote": "Patentregister und Biografien vielfach belegt."
+  },
+  {
+    "id": "thomas-edison",
+    "name": "Thomas Edison",
+    "category": "figure",
+    "attributes": {
+      "field": "Technik/Erfindung",
+      "nationality": "Vereinigte Staaten",
+      "birthYear": 1847,
+      "knownFor": "Erfindung der praktischen Glühlampe und des Phonographen"
+    },
+    "funFact": "Edison hielt über 1000 US-Patente und betrieb eines der ersten industriellen Forschungslabore in Menlo Park.",
+    "sourceName": "Wikipedia DE – Thomas Edison",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Thomas_Edison",
+    "verifyNote": "US-Patent-Datenbank und Standardbiografien belegen die Angaben."
+  },
+  {
+    "id": "alexander-fleming",
+    "name": "Alexander Fleming",
+    "category": "figure",
+    "attributes": {
+      "field": "Medizin",
+      "nationality": "Schottland",
+      "birthYear": 1881,
+      "knownFor": "Entdeckung des Penicillins als erstes Antibiotikum"
+    },
+    "funFact": "Fleming entdeckte Penicillin 1928 zufällig, als ein Schimmelspor seinen Bakterienversuch kontaminierte und die Bakterien abtötete.",
+    "sourceName": "Wikipedia DE – Alexander Fleming",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Alexander_Fleming",
+    "verifyNote": "Nobelpreiskomitee 1945 und Standardlehrbücher belegen die Entdeckung."
+  },
+  {
+    "id": "louis-pasteur",
+    "name": "Louis Pasteur",
+    "category": "figure",
+    "attributes": {
+      "field": "Biologie",
+      "nationality": "Frankreich",
+      "birthYear": 1822,
+      "knownFor": "Widerlegung der Spontanzeugung und Entwicklung der Pasteurisierung"
+    },
+    "funFact": "Pasteur entwickelte auch Impfstoffe gegen Hühnercholera, Milzbrand und Tollwut und rettete damit zahlreiche Leben.",
+    "sourceName": "Wikipedia DE – Louis Pasteur",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Louis_Pasteur",
+    "verifyNote": "Historisch gut belegte Biografie und Publikationen."
+  },
+  {
+    "id": "gregor-mendel",
+    "name": "Gregor Mendel",
+    "category": "figure",
+    "attributes": {
+      "field": "Biologie",
+      "nationality": "Österreich",
+      "birthYear": 1822,
+      "knownFor": "Begründung der Genetik durch Erbsenkreuzungsexperimente und Formulierung der Mendelschen Gesetze"
+    },
+    "funFact": "Mendels Erbgesetze wurden zu seinen Lebzeiten kaum beachtet und erst 35 Jahre nach ihrer Veröffentlichung wiederentdeckt.",
+    "sourceName": "Wikipedia DE – Gregor Mendel",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Gregor_Mendel",
+    "verifyNote": "Genetik-Lehrbücher und historische Quellen belegen die Angaben."
+  },
+  {
+    "id": "nikolaus-kopernikus",
+    "name": "Nikolaus Kopernikus",
+    "category": "figure",
+    "attributes": {
+      "field": "Astronomie",
+      "nationality": "Polen",
+      "birthYear": 1473,
+      "knownFor": "Aufstellung des heliozentrischen Weltbildes"
+    },
+    "funFact": "Kopernikus veröffentlichte sein Hauptwerk über das heliozentrische Weltbild erst kurz vor seinem Tod, um kirchliche Verurteilung zu vermeiden.",
+    "sourceName": "Wikipedia DE – Nikolaus Kopernikus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Nikolaus_Kopernikus",
+    "verifyNote": "Astronomiegeschichte vielfach lehrbuchbelegt."
+  },
+  {
+    "id": "johannes-kepler",
+    "name": "Johannes Kepler",
+    "category": "figure",
+    "attributes": {
+      "field": "Astronomie",
+      "nationality": "Deutschland",
+      "birthYear": 1571,
+      "knownFor": "Formulierung der drei Keplerschen Gesetze der Planetenbewegung"
+    },
+    "funFact": "Kepler nutzte die präzisen Beobachtungsdaten von Tycho Brahe, um mathematisch zu beweisen, dass Planeten Ellipsen beschreiben.",
+    "sourceName": "Wikipedia DE – Johannes Kepler",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Johannes_Kepler",
+    "verifyNote": "Astronomiegeschichte und Standardlehrbücher belegen die Angaben."
+  },
+  {
+    "id": "michael-faraday",
+    "name": "Michael Faraday",
+    "category": "figure",
+    "attributes": {
+      "field": "Physik",
+      "nationality": "England",
+      "birthYear": 1791,
+      "knownFor": "Entdeckung der elektromagnetischen Induktion und Grundlegung der Elektrochemie"
+    },
+    "funFact": "Faraday hatte kaum formale Schulbildung und arbeitete sich vom Buchbinderlehrling zum führenden Experimentalphysiker seiner Zeit hoch.",
+    "sourceName": "Wikipedia DE – Michael Faraday",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Michael_Faraday",
+    "verifyNote": "Physikgeschichte vielfach lehrbuchbelegt."
+  },
+  {
+    "id": "james-clerk-maxwell",
+    "name": "James Clerk Maxwell",
+    "category": "figure",
+    "attributes": {
+      "field": "Physik",
+      "nationality": "Schottland",
+      "birthYear": 1831,
+      "knownFor": "Formulierung der Maxwell-Gleichungen, die Elektrizität, Magnetismus und Licht vereinen"
+    },
+    "funFact": "Maxwells Gleichungen sagten voraus, dass Licht eine elektromagnetische Welle ist – Jahrzehnte bevor dies experimentell bestätigt wurde.",
+    "sourceName": "Wikipedia DE – James Clerk Maxwell",
+    "sourceUrl": "https://de.wikipedia.org/wiki/James_Clerk_Maxwell",
+    "verifyNote": "Physikgeschichte vielfach lehrbuchbelegt."
+  },
+  {
+    "id": "niels-bohr",
+    "name": "Niels Bohr",
+    "category": "figure",
+    "attributes": {
+      "field": "Physik",
+      "nationality": "Dänemark",
+      "birthYear": 1885,
+      "knownFor": "Entwicklung des Bohrschen Atommodells und Beiträge zur Quantenmechanik"
+    },
+    "funFact": "Bohr half während des Zweiten Weltkriegs jüdischen Wissenschaftlern zu fliehen und arbeitete kurzzeitig am Manhattan-Projekt.",
+    "sourceName": "Wikipedia DE – Niels Bohr",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Niels_Bohr",
+    "verifyNote": "Nobelpreiskomitee 1922 und Standardlehrbücher belegen die Angaben."
+  },
+  {
+    "id": "werner-heisenberg",
+    "name": "Werner Heisenberg",
+    "category": "figure",
+    "attributes": {
+      "field": "Physik",
+      "nationality": "Deutschland",
+      "birthYear": 1901,
+      "knownFor": "Formulierung der Unschärferelation und Begründung der Matrizenmechanik"
+    },
+    "funFact": "Heisenberg erhielt mit 31 Jahren den Nobelpreis für Physik und war damit einer der jüngsten Preisträger.",
+    "sourceName": "Wikipedia DE – Werner Heisenberg",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Werner_Heisenberg",
+    "verifyNote": "Nobelpreiskomitee 1932 und Standardlehrbücher belegen die Angaben."
+  },
+  {
+    "id": "max-planck",
+    "name": "Max Planck",
+    "category": "figure",
+    "attributes": {
+      "field": "Physik",
+      "nationality": "Deutschland",
+      "birthYear": 1858,
+      "knownFor": "Begründung der Quantentheorie durch Einführung des Wirkungsquantums"
+    },
+    "funFact": "Planck bezeichnete seine Quantenhypothese zunächst selbst als mathematischen Trick, ohne deren revolutionäre Bedeutung zu erkennen.",
+    "sourceName": "Wikipedia DE – Max Planck",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Max_Planck",
+    "verifyNote": "Nobelpreiskomitee 1918 und Standardlehrbücher belegen die Angaben."
+  },
+  {
+    "id": "carl-von-linne",
+    "name": "Carl von Linné",
+    "category": "figure",
+    "attributes": {
+      "field": "Biologie",
+      "nationality": "Schweden",
+      "birthYear": 1707,
+      "knownFor": "Einführung der binären Nomenklatur zur Klassifikation aller Lebewesen"
+    },
+    "funFact": "Linné klassifizierte und benannte über 7700 Pflanzen- und 4400 Tierarten in seinem Hauptwerk Systema Naturae.",
+    "sourceName": "Wikipedia DE – Carl von Linné",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Carl_von_Linn%C3%A9",
+    "verifyNote": "Biologiegeschichte vielfach lehrbuchbelegt."
+  },
+  {
+    "id": "alexander-von-humboldt",
+    "name": "Alexander von Humboldt",
+    "category": "figure",
+    "attributes": {
+      "field": "Naturwissenschaft (allg.)",
+      "nationality": "Deutschland",
+      "birthYear": 1769,
+      "knownFor": "Erforschung Lateinamerikas und Begründung der modernen physischen Geografie"
+    },
+    "funFact": "Humboldt bereiste auf eigene Kosten fünf Jahre lang Lateinamerika und brachte Tausende Pflanzenproben sowie umfassende Klimadaten zurück.",
+    "sourceName": "Wikipedia DE – Alexander von Humboldt",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Alexander_von_Humboldt",
+    "verifyNote": "Historisch gut belegte Biografie und Reiseberichte."
+  },
+  {
+    "id": "archimedes",
+    "name": "Archimedes",
+    "category": "figure",
+    "attributes": {
+      "field": "Mathematik",
+      "nationality": "Antikes Griechenland",
+      "knownFor": "Entdeckung des Hebelgesetzes und des Archimedischen Prinzips"
+    },
+    "funFact": "Archimedes berechnete den Wert von Pi mit bemerkenswerter Genauigkeit und entwickelte frühe Methoden der Integralrechnung.",
+    "sourceName": "Wikipedia DE – Archimedes",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Archimedes",
+    "verifyNote": "Antike Quellen und Mathematikgeschichte vielfach belegt; Geburtsjahr unsicher, daher weggelassen."
+  },
+  {
+    "id": "euklid",
+    "name": "Euklid",
+    "category": "figure",
+    "attributes": {
+      "field": "Mathematik",
+      "nationality": "Antikes Griechenland",
+      "knownFor": "Verfassung der Elemente, das grundlegende Werk der euklidischen Geometrie"
+    },
+    "sourceName": "Wikipedia DE – Euklid",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Euklid",
+    "verifyNote": "Mathematikgeschichte vielfach belegt; Lebensdaten unsicher, daher weggelassen."
+  },
+  {
+    "id": "ada-lovelace",
+    "name": "Ada Lovelace",
+    "category": "figure",
+    "attributes": {
+      "field": "Mathematik",
+      "nationality": "England",
+      "birthYear": 1815,
+      "knownFor": "Erstellung des ersten Algorithmus für eine Rechenmaschine"
+    },
+    "funFact": "Ada Lovelace erkannte als Erste, dass Babbages Analytical Engine nicht nur rechnen, sondern auch Musik und Symbole verarbeiten könnte.",
+    "sourceName": "Wikipedia DE – Ada Lovelace",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Ada_Lovelace",
+    "verifyNote": "Informatikgeschichte vielfach belegt."
+  },
+  {
+    "id": "alan-turing",
+    "name": "Alan Turing",
+    "category": "figure",
+    "attributes": {
+      "field": "Mathematik",
+      "nationality": "England",
+      "birthYear": 1912,
+      "knownFor": "Entwicklung des Turing-Maschinenkonzepts und Grundlegung der theoretischen Informatik"
+    },
+    "funFact": "Turings Arbeit zum Knacken des Enigma-Codes im Zweiten Weltkrieg trug maßgeblich zum Sieg der Alliierten bei.",
+    "sourceName": "Wikipedia DE – Alan Turing",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Alan_Turing",
+    "verifyNote": "Informatikgeschichte und Standardlehrbücher belegen die Angaben."
+  },
+  {
+    "id": "carl-friedrich-gauss",
+    "name": "Carl Friedrich Gauß",
+    "category": "figure",
+    "attributes": {
+      "field": "Mathematik",
+      "nationality": "Deutschland",
+      "birthYear": 1777,
+      "knownFor": "Wegweisende Beiträge zur Zahlentheorie, Statistik und Differenzialgeometrie"
+    },
+    "funFact": "Gauß soll als Schüler die Summe der Zahlen 1 bis 100 in Sekunden berechnet haben, indem er Paare erkannte, die je 101 ergeben.",
+    "sourceName": "Wikipedia DE – Carl Friedrich Gauß",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Carl_Friedrich_Gau%C3%9F",
+    "verifyNote": "Mathematikgeschichte vielfach lehrbuchbelegt."
+  },
+  {
+    "id": "wilhelm-roentgen",
+    "name": "Wilhelm Conrad Röntgen",
+    "category": "figure",
+    "attributes": {
+      "field": "Physik",
+      "nationality": "Deutschland",
+      "birthYear": 1845,
+      "knownFor": "Entdeckung der Röntgenstrahlen"
+    },
+    "funFact": "Röntgen erhielt 1901 den allerersten Nobelpreis für Physik und lehnte es ab, Patente auf seine Entdeckung anzumelden.",
+    "sourceName": "Wikipedia DE – Wilhelm Conrad Röntgen",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Wilhelm_Conrad_R%C3%B6ntgen",
+    "verifyNote": "Nobelpreiskomitee 1901 und Standardlehrbücher belegen die Angaben."
+  },
+  {
+    "id": "christoph-kolumbus",
+    "name": "Christoph Kolumbus",
+    "category": "figure",
+    "attributes": {
+      "field": "Entdeckungsreisen",
+      "nationality": "Italien",
+      "birthYear": 1451,
+      "knownFor": "Europäische Erstentdeckung Amerikas im Jahr 1492"
+    },
+    "funFact": "Kolumbus glaubte bis zu seinem Tod, in Asien angekommen zu sein, und erkannte nicht, dass er einen neuen Kontinent entdeckt hatte.",
+    "sourceName": "Wikipedia DE – Christoph Kolumbus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Christoph_Kolumbus",
+    "verifyNote": "Historisch gut belegte Biografie und Reiseberichte."
+  },
+  {
+    "id": "ferdinand-magellan",
+    "name": "Ferdinand Magellan",
+    "category": "figure",
+    "attributes": {
+      "field": "Entdeckungsreisen",
+      "nationality": "Portugal",
+      "birthYear": 1480,
+      "knownFor": "Leitung der ersten Weltumsegelung"
+    },
+    "funFact": "Magellan selbst überlebte die erste Weltumsegelung nicht – er starb 1521 auf den Philippinen. Nur 18 von 270 Besatzungsmitgliedern kehrten zurück.",
+    "sourceName": "Wikipedia DE – Ferdinand Magellan",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Ferdinand_Magellan",
+    "verifyNote": "Historisch gut belegte Biografie und Expeditionsberichte."
+  },
+  {
+    "id": "james-cook",
+    "name": "James Cook",
+    "category": "figure",
+    "attributes": {
+      "field": "Entdeckungsreisen",
+      "nationality": "England",
+      "birthYear": 1728,
+      "knownFor": "Erkundung des Pazifiks, Australiens und Neuseelands"
+    },
+    "funFact": "Cook umrundete als Erster die Antarktis und bewies damit, dass kein bewohnbarer Südkontinent in gemäßigten Breiten existiert.",
+    "sourceName": "Wikipedia DE – James Cook",
+    "sourceUrl": "https://de.wikipedia.org/wiki/James_Cook",
+    "verifyNote": "Historisch gut belegte Biografie und Expeditionsberichte."
+  },
+  {
+    "id": "roald-amundsen",
+    "name": "Roald Amundsen",
+    "category": "figure",
+    "attributes": {
+      "field": "Entdeckungsreisen",
+      "nationality": "Norwegen",
+      "birthYear": 1872,
+      "knownFor": "Erstmalige Erreichung des Südpols im Jahr 1911"
+    },
+    "funFact": "Amundsen gewann das Rennen zum Südpol gegen Robert Scott um rund fünf Wochen, unter anderem wegen seiner konsequenten Nutzung von Schlittenhunden.",
+    "sourceName": "Wikipedia DE – Roald Amundsen",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Roald_Amundsen",
+    "verifyNote": "Historisch gut belegte Expeditionsberichte."
+  },
+  {
+    "id": "marco-polo",
+    "name": "Marco Polo",
+    "category": "figure",
+    "attributes": {
+      "field": "Entdeckungsreisen",
+      "nationality": "Italien",
+      "birthYear": 1254,
+      "knownFor": "Reise nach China und Beschreibung Ostasiens im Reisebericht Il Milione"
+    },
+    "funFact": "Marco Polos Reisebericht war so unglaublich, dass viele Zeitgenossen seine Schilderungen für erfunden hielten und ihn Il Milione nannten.",
+    "sourceName": "Wikipedia DE – Marco Polo",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Marco_Polo",
+    "verifyNote": "Historisch gut belegte Biografie."
+  },
+  {
+    "id": "vasco-da-gama",
+    "name": "Vasco da Gama",
+    "category": "figure",
+    "attributes": {
+      "field": "Entdeckungsreisen",
+      "nationality": "Portugal",
+      "birthYear": 1469,
+      "knownFor": "Erschließung des Seewegs von Europa nach Indien"
+    },
+    "funFact": "Da Gama umrundete 1498 das Kap der Guten Hoffnung und erreichte als erster Europäer auf dem Seeweg Indien.",
+    "sourceName": "Wikipedia DE – Vasco da Gama",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Vasco_da_Gama",
+    "verifyNote": "Historisch gut belegte Expeditionsberichte."
+  },
+  {
+    "id": "leonardo-da-vinci",
+    "name": "Leonardo da Vinci",
+    "category": "figure",
+    "attributes": {
+      "field": "Technik/Erfindung",
+      "nationality": "Italien",
+      "birthYear": 1452,
+      "knownFor": "Entwürfe revolutionärer Maschinen als Universalgelehrter der Renaissance"
+    },
+    "funFact": "Leonardos Entwürfe für Fluggeräte, Panzer und Sonnenenergie-Spiegel waren ihrer Zeit um Jahrhunderte voraus, wurden aber zu seinen Lebzeiten nicht realisiert.",
+    "sourceName": "Wikipedia DE – Leonardo da Vinci",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Leonardo_da_Vinci",
+    "verifyNote": "Historisch gut belegte Biografie und Notizbücher."
+  },
+  {
+    "id": "dmitri-mendelejew",
+    "name": "Dmitri Mendelejew",
+    "category": "figure",
+    "attributes": {
+      "field": "Chemie",
+      "nationality": "Russland",
+      "birthYear": 1834,
+      "knownFor": "Aufstellung des Periodensystems der Elemente"
+    },
+    "funFact": "Mendelejew ließ im Periodensystem bewusst Lücken für noch unbekannte Elemente und sagte deren Eigenschaften voraus, was später bestätigt wurde.",
+    "sourceName": "Wikipedia DE – Dmitri Mendelejew",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Dmitri_Iwanowitsch_Mendelejew",
+    "verifyNote": "Chemiegeschichte vielfach lehrbuchbelegt."
+  },
+  {
+    "id": "werner-von-siemens",
+    "name": "Werner von Siemens",
+    "category": "figure",
+    "attributes": {
+      "field": "Technik/Erfindung",
+      "nationality": "Deutschland",
+      "birthYear": 1816,
+      "knownFor": "Entwicklung des Dynamoprinzips und Aufbau des weltweit ersten elektrischen Straßenbahnnetzes"
+    },
+    "funFact": "Siemens baute 1879 die erste elektrische Straßenbahn der Welt auf der Berliner Gewerbeausstellung und gründete einen der ersten globalen Elektrokonzerne.",
+    "sourceName": "Wikipedia DE – Werner von Siemens",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Werner_von_Siemens",
+    "verifyNote": "Unternehmensgeschichte und historische Quellen vielfach belegt."
+  }
+]

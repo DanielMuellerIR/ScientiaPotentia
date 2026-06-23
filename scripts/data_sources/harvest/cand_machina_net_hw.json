@@ -1,0 +1,468 @@
+[
+  {
+    "id": "np-http",
+    "name": "HTTP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Hypertext Transfer Protocol",
+      "layer": "Anwendungsschicht",
+      "defaultPort": 80,
+      "transport": "TCP",
+      "purpose": "Übertragung von Webseiten und Web-Ressourcen"
+    },
+    "funFact": "HTTP wurde 1991 von Tim Berners-Lee am CERN entworfen und ist heute das Fundament des World Wide Web.",
+    "sourceName": "RFC 9110 – HTTP Semantics",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc9110",
+    "verifyNote": "Port 80 und Schichtzuordnung aus RFC 9110 und IANA Service Name Registry."
+  },
+  {
+    "id": "np-https",
+    "name": "HTTPS",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Hypertext Transfer Protocol Secure",
+      "layer": "Anwendungsschicht",
+      "defaultPort": 443,
+      "transport": "TCP",
+      "purpose": "Verschlüsselte Übertragung von Webseiten via TLS"
+    },
+    "funFact": "HTTPS-Verbindungen sind an dem Schloss-Symbol im Browser erkennbar und schützen vor Man-in-the-Middle-Angriffen.",
+    "sourceName": "RFC 9110 – HTTP Semantics / IANA",
+    "sourceUrl": "https://www.iana.org/assignments/service-names-port-numbers/",
+    "verifyNote": "Port 443 und TLS-Transportbindung sind IANA-Standard."
+  },
+  {
+    "id": "np-ftp",
+    "name": "FTP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "File Transfer Protocol",
+      "layer": "Anwendungsschicht",
+      "defaultPort": 21,
+      "transport": "TCP",
+      "purpose": "Übertragung von Dateien zwischen Client und Server"
+    },
+    "funFact": "FTP überträgt Passwörter unverschlüsselt im Klartext und wurde weitgehend durch SFTP und FTPS ersetzt.",
+    "sourceName": "RFC 959 – File Transfer Protocol",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc959",
+    "verifyNote": "Port 21 (Steuerkanal) und TCP-Transport aus RFC 959."
+  },
+  {
+    "id": "np-ssh",
+    "name": "SSH",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Secure Shell",
+      "layer": "Anwendungsschicht",
+      "defaultPort": 22,
+      "transport": "TCP",
+      "purpose": "Verschlüsselte Fernverwaltung von Rechnern und sichere Dateiübertragung"
+    },
+    "funFact": "SSH wurde 1995 von Tatu Ylönen entwickelt, nachdem sein Uni-Netzwerk Opfer eines Passwort-Schnüffelangriffs wurde.",
+    "sourceName": "RFC 4251 – SSH Protocol Architecture",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc4251",
+    "verifyNote": "Port 22 und TCP-Transport sind IANA-Standard gemäß RFC 4251."
+  },
+  {
+    "id": "np-dns",
+    "name": "DNS",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Domain Name System",
+      "layer": "Anwendungsschicht",
+      "defaultPort": 53,
+      "transport": "TCP und UDP",
+      "purpose": "Auflösung von Domainnamen zu IP-Adressen"
+    },
+    "funFact": "Das DNS ist wie das Telefonbuch des Internets – ohne es müsste man für jeden Aufruf die numerische IP-Adresse kennen.",
+    "sourceName": "RFC 1035 – Domain Names: Implementation and Specification",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc1035",
+    "verifyNote": "Port 53, Nutzung von UDP (Anfragen) und TCP (Zone-Transfers) gemäß RFC 1035."
+  },
+  {
+    "id": "np-smtp",
+    "name": "SMTP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Simple Mail Transfer Protocol",
+      "layer": "Anwendungsschicht",
+      "defaultPort": 25,
+      "transport": "TCP",
+      "purpose": "Versand von E-Mails zwischen Mailservern"
+    },
+    "funFact": "SMTP ist ausschließlich zum Versenden von E-Mails zuständig; zum Empfangen werden IMAP oder POP3 verwendet.",
+    "sourceName": "RFC 5321 – Simple Mail Transfer Protocol",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc5321",
+    "verifyNote": "Port 25 und TCP-Transport aus RFC 5321."
+  },
+  {
+    "id": "np-imap",
+    "name": "IMAP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Internet Message Access Protocol",
+      "layer": "Anwendungsschicht",
+      "defaultPort": 143,
+      "transport": "TCP",
+      "purpose": "Zugriff auf und Verwaltung von E-Mails auf dem Mailserver"
+    },
+    "funFact": "Im Gegensatz zu POP3 verbleiben E-Mails bei IMAP auf dem Server, sodass sie von mehreren Geräten synchron abgerufen werden können.",
+    "sourceName": "RFC 9051 – Internet Message Access Protocol (IMAP) Version 4rev2",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc9051",
+    "verifyNote": "Port 143 und TCP-Transport sind IANA-Standard."
+  },
+  {
+    "id": "np-pop3",
+    "name": "POP3",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Post Office Protocol Version 3",
+      "layer": "Anwendungsschicht",
+      "defaultPort": 110,
+      "transport": "TCP",
+      "purpose": "Herunterladen von E-Mails vom Mailserver auf den lokalen Client"
+    },
+    "sourceName": "RFC 1939 – Post Office Protocol – Version 3",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc1939",
+    "verifyNote": "Port 110 und TCP-Transport aus RFC 1939."
+  },
+  {
+    "id": "np-tcp",
+    "name": "TCP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Transmission Control Protocol",
+      "layer": "Transportschicht",
+      "transport": "TCP",
+      "purpose": "Zuverlässige, verbindungsorientierte Datenübertragung mit Fehlerkorrektur"
+    },
+    "funFact": "TCP stellt durch Sequenznummern und Bestätigungen sicher, dass alle Datenpakete vollständig und in der richtigen Reihenfolge ankommen.",
+    "sourceName": "RFC 9293 – Transmission Control Protocol (TCP)",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc9293",
+    "verifyNote": "Schichtzuordnung (Transportschicht) und Eigenschaften aus RFC 9293; kein fester Port, da TCP ein Transportprotokoll ist."
+  },
+  {
+    "id": "np-udp",
+    "name": "UDP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "User Datagram Protocol",
+      "layer": "Transportschicht",
+      "transport": "UDP",
+      "purpose": "Schnelle, verbindungslose Datenübertragung ohne Garantie der Zustellung"
+    },
+    "funFact": "UDP wird bevorzugt bei Livestreams und Online-Spielen eingesetzt, wo Geschwindigkeit wichtiger ist als Verlässlichkeit.",
+    "sourceName": "RFC 768 – User Datagram Protocol",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc768",
+    "verifyNote": "Schichtzuordnung und Eigenschaften aus RFC 768; kein fester Port, da UDP ein Transportprotokoll ist."
+  },
+  {
+    "id": "np-ip",
+    "name": "IP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Internet Protocol",
+      "layer": "Vermittlungsschicht (Internet)",
+      "purpose": "Adressierung und Weiterleitung von Datenpaketen zwischen Netzwerken"
+    },
+    "funFact": "IPv4-Adressen sind 32 Bit lang und ermöglichen rund 4,3 Milliarden eindeutige Adressen – zu wenige für das heutige Internet, weshalb IPv6 eingeführt wurde.",
+    "sourceName": "RFC 791 – Internet Protocol",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc791",
+    "verifyNote": "Schichtzuordnung aus RFC 791; kein defaultPort, da IP selbst keine Ports kennt."
+  },
+  {
+    "id": "np-dhcp",
+    "name": "DHCP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Dynamic Host Configuration Protocol",
+      "layer": "Anwendungsschicht",
+      "defaultPort": 67,
+      "transport": "UDP",
+      "purpose": "Automatische Vergabe von IP-Adressen und Netzwerkkonfiguration an Clients"
+    },
+    "funFact": "DHCP weist Geräten beim Einwählen ins Netzwerk automatisch eine IP-Adresse zu, sodass keine manuelle Konfiguration nötig ist.",
+    "sourceName": "RFC 2131 – Dynamic Host Configuration Protocol",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc2131",
+    "verifyNote": "Port 67 (Server) aus RFC 2131; UDP-Transport, da DHCP vor IP-Konfiguration läuft."
+  },
+  {
+    "id": "np-telnet",
+    "name": "Telnet",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Teletype Network Protocol",
+      "layer": "Anwendungsschicht",
+      "defaultPort": 23,
+      "transport": "TCP",
+      "purpose": "Unverschlüsselte Fernverwaltung von Rechnern über die Kommandozeile"
+    },
+    "funFact": "Telnet überträgt alle Daten inklusive Passwörter im Klartext und wurde für Remote-Zugriffe fast vollständig durch SSH ersetzt.",
+    "sourceName": "RFC 854 – Telnet Protocol Specification",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc854",
+    "verifyNote": "Port 23 und TCP-Transport aus RFC 854."
+  },
+  {
+    "id": "np-ntp",
+    "name": "NTP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Network Time Protocol",
+      "layer": "Anwendungsschicht",
+      "defaultPort": 123,
+      "transport": "UDP",
+      "purpose": "Synchronisation der Systemzeit von Computern über das Netzwerk"
+    },
+    "funFact": "NTP kann die Systemzeit über das Internet auf wenige Millisekunden genau synchronisieren und ist damit eines der langlebigsten Internet-Protokolle.",
+    "sourceName": "RFC 5905 – Network Time Protocol Version 4",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc5905",
+    "verifyNote": "Port 123 und UDP-Transport aus RFC 5905."
+  },
+  {
+    "id": "np-snmp",
+    "name": "SNMP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Simple Network Management Protocol",
+      "layer": "Anwendungsschicht",
+      "defaultPort": 161,
+      "transport": "UDP",
+      "purpose": "Überwachung und Verwaltung von Netzwerkgeräten wie Routern und Switches"
+    },
+    "sourceName": "RFC 3411 – An Architecture for Describing SNMP Management Frameworks",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc3411",
+    "verifyNote": "Port 161 (Agent) und UDP-Transport sind IANA-Standard."
+  },
+  {
+    "id": "np-arp",
+    "name": "ARP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Address Resolution Protocol",
+      "layer": "Sicherungsschicht",
+      "purpose": "Auflösung von IP-Adressen zu MAC-Adressen im lokalen Netzwerk"
+    },
+    "funFact": "ARP arbeitet im lokalen Netzwerksegment und sendet eine Broadcast-Anfrage, um die Hardwareadresse zu einem bekannten IP zu ermitteln.",
+    "sourceName": "RFC 826 – An Ethernet Address Resolution Protocol",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc826",
+    "verifyNote": "Schichtzuordnung zur Sicherungsschicht aus RFC 826; ARP hat keinen eigenen Port und nutzt Ethernet-Frames direkt."
+  },
+  {
+    "id": "np-tls",
+    "name": "TLS",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Transport Layer Security",
+      "layer": "Transportschicht",
+      "transport": "TCP",
+      "purpose": "Kryptografische Absicherung von Netzwerkverbindungen durch Verschlüsselung und Authentifizierung"
+    },
+    "funFact": "TLS ist der Nachfolger von SSL; der ältere Name SSL wird im Alltag oft noch verwendet, obwohl echtes SSL als unsicher gilt und nicht mehr eingesetzt werden sollte.",
+    "sourceName": "RFC 8446 – The Transport Layer Security (TLS) Protocol Version 1.3",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc8446",
+    "verifyNote": "Schichtzuordnung und Eigenschaften aus RFC 8446; kein eigener defaultPort, da TLS unter Anwendungsprotokollen liegt (HTTPS = TLS + HTTP auf Port 443)."
+  },
+  {
+    "id": "np-icmp",
+    "name": "ICMP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Internet Control Message Protocol",
+      "layer": "Vermittlungsschicht (Internet)",
+      "purpose": "Übermittlung von Fehlermeldungen und Diagnoseinformationen im IP-Netzwerk"
+    },
+    "funFact": "Das bekannte Netzwerkwerkzeug 'ping' basiert auf ICMP-Echo-Anfragen und -Antworten.",
+    "sourceName": "RFC 792 – Internet Control Message Protocol",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc792",
+    "verifyNote": "Schichtzuordnung aus RFC 792; ICMP hat keine Ports, da es direkt über IP liegt."
+  },
+  {
+    "id": "hw-cpu",
+    "name": "CPU",
+    "category": "hardware",
+    "attributes": {
+      "category": "Prozessor/Recheneinheit",
+      "function": "Führt Programminstruktionen aus und koordiniert alle Rechenoperationen des Computers"
+    },
+    "funFact": "Moderne CPUs enthalten mehrere Kerne (Cores) und können so mehrere Aufgaben gleichzeitig bearbeiten.",
+    "sourceName": "Wikipedia DE – Prozessor",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Prozessor",
+    "verifyNote": "Funktion und Kategorisierung als Prozessor/Recheneinheit sind Standardlehrbuch-Wissen."
+  },
+  {
+    "id": "hw-gpu",
+    "name": "GPU",
+    "category": "hardware",
+    "attributes": {
+      "category": "Grafik",
+      "function": "Berechnet und rendert Grafiken; ursprünglich für 3D-Spiele, heute auch für KI-Berechnungen genutzt"
+    },
+    "funFact": "GPUs haben tausende von kleinen Rechenkernen, die parallel arbeiten – ideal für Matrizenberechnungen in neuronalen Netzen.",
+    "sourceName": "Wikipedia DE – Grafikprozessor",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Grafikprozessor",
+    "verifyNote": "Funktion und Kategorie Grafik sind Standardwissen."
+  },
+  {
+    "id": "hw-ram",
+    "name": "RAM",
+    "category": "hardware",
+    "attributes": {
+      "category": "Arbeitsspeicher",
+      "function": "Flüchtiger Zwischenspeicher für aktuell laufende Programme und Betriebssystem-Daten"
+    },
+    "funFact": "Der Inhalt des RAM geht beim Ausschalten des Computers verloren, da es sich um einen flüchtigen Speicher handelt.",
+    "sourceName": "Wikipedia DE – Random-Access Memory",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Random-Access_Memory",
+    "verifyNote": "Kategorie und Funktion sind Standardlehrbuch-Wissen."
+  },
+  {
+    "id": "hw-ssd",
+    "name": "SSD",
+    "category": "hardware",
+    "attributes": {
+      "category": "Massenspeicher",
+      "function": "Permanenter Datenspeicher auf Basis von Flash-Speicherzellen ohne bewegliche Teile"
+    },
+    "funFact": "SSDs sind deutlich schneller als herkömmliche Festplatten (HDDs), da sie keine mechanischen Schreib-/Leseköpfe besitzen.",
+    "sourceName": "Wikipedia DE – Solid-State-Drive",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Solid-State-Drive",
+    "verifyNote": "Funktion und Kategorie Massenspeicher sind Standardwissen."
+  },
+  {
+    "id": "hw-hdd",
+    "name": "HDD",
+    "category": "hardware",
+    "attributes": {
+      "category": "Massenspeicher",
+      "function": "Magnetischer Massenspeicher mit rotierenden Scheiben und mechanischen Schreib-/Leseköpfen"
+    },
+    "funFact": "Festplatten können wegen der Rotationsgeräusche ihrer Scheiben (typischerweise 5.400 oder 7.200 RPM) auch akustisch geortet werden.",
+    "sourceName": "Wikipedia DE – Festplatte",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Festplatte",
+    "verifyNote": "Funktion und Kategorie Massenspeicher sind Standardwissen."
+  },
+  {
+    "id": "hw-mainboard",
+    "name": "Mainboard",
+    "category": "hardware",
+    "attributes": {
+      "category": "Hauptplatine/Bus",
+      "function": "Zentrale Leiterplatte, die CPU, RAM, Erweiterungskarten und Peripherie verbindet und mit Strom versorgt"
+    },
+    "funFact": "Das Mainboard enthält den Chipsatz, der als Vermittler zwischen CPU und allen anderen Komponenten fungiert.",
+    "sourceName": "Wikipedia DE – Hauptplatine",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Hauptplatine",
+    "verifyNote": "Funktion und Kategorie sind Standardlehrbuch-Wissen."
+  },
+  {
+    "id": "hw-netzteil",
+    "name": "Netzteil",
+    "category": "hardware",
+    "attributes": {
+      "category": "Hauptplatine/Bus",
+      "function": "Wandelt Netzwechselspannung in die für PC-Komponenten benötigten Gleichspannungen (3,3 V, 5 V, 12 V) um"
+    },
+    "sourceName": "Wikipedia DE – Computernetzteil",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Computernetzteil",
+    "verifyNote": "Funktion und Spannungswerte sind Standardwissen; Kategorie Hauptplatine/Bus als nächstliegende Spec-Option für Stromversorgungskomponente gewählt."
+  },
+  {
+    "id": "hw-netzwerkkarte",
+    "name": "Netzwerkkarte",
+    "category": "hardware",
+    "attributes": {
+      "category": "Netzwerk",
+      "function": "Verbindet den Computer physisch oder drahtlos mit einem Netzwerk und stellt eine eindeutige MAC-Adresse bereit"
+    },
+    "funFact": "Jede Netzwerkkarte hat eine weltweit eindeutige MAC-Adresse, die vom Hersteller fest eingebrannt wird.",
+    "sourceName": "Wikipedia DE – Netzwerkkarte",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Netzwerkkarte",
+    "verifyNote": "Funktion und Kategorie Netzwerk sind Standardwissen."
+  },
+  {
+    "id": "hw-monitor",
+    "name": "Monitor",
+    "category": "hardware",
+    "attributes": {
+      "category": "Ausgabegerät",
+      "function": "Zeigt visuelle Informationen des Computers auf einem Bildschirm an"
+    },
+    "sourceName": "Wikipedia DE – Computermonitor",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Computermonitor",
+    "verifyNote": "Funktion und Kategorie Ausgabegerät sind Standardwissen."
+  },
+  {
+    "id": "hw-tastatur",
+    "name": "Tastatur",
+    "category": "hardware",
+    "attributes": {
+      "category": "Eingabegerät",
+      "function": "Ermöglicht die Texteingabe und Steuerung des Computers über physische Tasten"
+    },
+    "sourceName": "Wikipedia DE – Tastatur (Computer)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Tastatur_(Computer)",
+    "verifyNote": "Funktion und Kategorie Eingabegerät sind Standardwissen."
+  },
+  {
+    "id": "hw-maus",
+    "name": "Maus",
+    "category": "hardware",
+    "attributes": {
+      "category": "Eingabegerät",
+      "function": "Zeigegerät zur Steuerung des Mauszeigers und Interaktion mit grafischen Benutzeroberflächen"
+    },
+    "sourceName": "Wikipedia DE – Computermaus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Computermaus",
+    "verifyNote": "Funktion und Kategorie Eingabegerät sind Standardwissen."
+  },
+  {
+    "id": "hw-drucker",
+    "name": "Drucker",
+    "category": "hardware",
+    "attributes": {
+      "category": "Ausgabegerät",
+      "function": "Überträgt digitale Dokumente und Bilder auf physische Medien wie Papier"
+    },
+    "sourceName": "Wikipedia DE – Drucker (Computer)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Drucker_(Computer)",
+    "verifyNote": "Funktion und Kategorie Ausgabegerät sind Standardwissen."
+  },
+  {
+    "id": "hw-scanner",
+    "name": "Scanner",
+    "category": "hardware",
+    "attributes": {
+      "category": "Eingabegerät",
+      "function": "Digitalisiert physische Dokumente und Bilder zur Weiterverarbeitung am Computer"
+    },
+    "sourceName": "Wikipedia DE – Scanner (Datenverarbeitung)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Scanner_(Datenverarbeitung)",
+    "verifyNote": "Funktion und Kategorie Eingabegerät sind Standardwissen."
+  },
+  {
+    "id": "hw-cpu-cache",
+    "name": "CPU-Cache",
+    "category": "hardware",
+    "attributes": {
+      "category": "Arbeitsspeicher",
+      "function": "Sehr schneller Zwischenspeicher direkt im oder am Prozessor, der häufig benötigte Daten und Instruktionen vorhält"
+    },
+    "funFact": "CPUs haben meist mehrere Cache-Ebenen (L1, L2, L3); L1 ist am schnellsten und kleinsten, L3 am langsamsten und größten.",
+    "sourceName": "Wikipedia DE – Cache",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Cache",
+    "verifyNote": "Funktion und Kategorie Arbeitsspeicher sind Standardlehrbuch-Wissen."
+  },
+  {
+    "id": "hw-bios-chip",
+    "name": "BIOS-Chip",
+    "category": "hardware",
+    "attributes": {
+      "category": "Hauptplatine/Bus",
+      "function": "Enthält die Firmware zum Initialisieren der Hardware beim Start und zum Laden des Betriebssystems"
+    },
+    "funFact": "Modernes BIOS heißt UEFI (Unified Extensible Firmware Interface) und bietet eine grafische Oberfläche statt des alten Text-Menüs.",
+    "sourceName": "Wikipedia DE – BIOS",
+    "sourceUrl": "https://de.wikipedia.org/wiki/BIOS",
+    "verifyNote": "Funktion und Kategorie Hauptplatine/Bus sind Standardwissen."
+  }
+]

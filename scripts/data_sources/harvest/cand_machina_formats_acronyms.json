@@ -1,0 +1,649 @@
+[
+  {
+    "id": "fmt-png",
+    "name": "PNG",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Bild",
+      "compression": "verlustfrei komprimiert",
+      "fullName": "Portable Network Graphics"
+    },
+    "funFact": "PNG wurde 1996 als lizenzfreier Ersatz für das patentbelastete GIF-Format entwickelt.",
+    "sourceName": "Wikipedia DE – Portable Network Graphics",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Portable_Network_Graphics",
+    "verifyNote": "Vollform und verlustfreie Kompression sind Lehrbuch-Standard."
+  },
+  {
+    "id": "fmt-jpeg",
+    "name": "JPEG",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Bild",
+      "compression": "verlustbehaftet komprimiert",
+      "fullName": "Joint Photographic Experts Group"
+    },
+    "funFact": "JPEG nutzt diskrete Kosinustransformation, um Bilddaten platzsparend zu reduzieren.",
+    "sourceName": "Wikipedia DE – JPEG",
+    "sourceUrl": "https://de.wikipedia.org/wiki/JPEG",
+    "verifyNote": "Vollform und verlustbehaftete Kompression sind Lehrbuch-Standard (ISO 10918)."
+  },
+  {
+    "id": "fmt-gif",
+    "name": "GIF",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Bild",
+      "compression": "verlustfrei komprimiert",
+      "fullName": "Graphics Interchange Format"
+    },
+    "funFact": "GIF unterstützt Animationen und ist deshalb im Web für kurze Bewegtbilder sehr verbreitet.",
+    "sourceName": "Wikipedia DE – Graphics Interchange Format",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Graphics_Interchange_Format",
+    "verifyNote": "Vollform und LZW-Verlustfreiheit laut Wikipedia DE."
+  },
+  {
+    "id": "fmt-webp",
+    "name": "WebP",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Bild",
+      "fullName": "Web Picture Format"
+    },
+    "funFact": "WebP wurde 2010 von Google vorgestellt und unterstützt sowohl verlustfreie als auch verlustbehaftete Kompression.",
+    "sourceName": "Wikipedia DE – WebP",
+    "sourceUrl": "https://de.wikipedia.org/wiki/WebP",
+    "verifyNote": "Vollform laut Google/Wikipedia; compression weggelassen, da Format beide Modi unterstützt."
+  },
+  {
+    "id": "fmt-svg",
+    "name": "SVG",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Bild",
+      "compression": "unkomprimiert",
+      "fullName": "Scalable Vector Graphics"
+    },
+    "funFact": "SVG ist ein XML-basiertes Vektorgrafik-Format, das sich ohne Qualitätsverlust beliebig skalieren lässt.",
+    "sourceName": "W3C – SVG-Spezifikation",
+    "sourceUrl": "https://www.w3.org/TR/SVG/",
+    "verifyNote": "Vollform und XML-Grundlage laut W3C-Standard; als Textformat prinzipiell unkomprimiert (Basis-SVG)."
+  },
+  {
+    "id": "fmt-tiff",
+    "name": "TIFF",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Bild",
+      "compression": "verlustfrei komprimiert",
+      "fullName": "Tagged Image File Format"
+    },
+    "funFact": "TIFF wird wegen seiner verlustfreien Qualität vor allem in der Druckvorstufe und Fotografie eingesetzt.",
+    "sourceName": "Wikipedia DE – TIFF",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Tagged_Image_File_Format",
+    "verifyNote": "Vollform laut Wikipedia; TIFF unterstützt verlustfreie Kompression (LZW/ZIP) als dominanten Modus."
+  },
+  {
+    "id": "fmt-bmp",
+    "name": "BMP",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Bild",
+      "compression": "unkomprimiert",
+      "fullName": "Bitmap"
+    },
+    "funFact": "Das BMP-Format speichert Pixel ohne Kompression direkt, was zu großen Dateien führt.",
+    "sourceName": "Wikipedia DE – BMP (Dateiformat)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/BMP_(Dateiformat)",
+    "verifyNote": "Vollform und unkomprimierter Standard-Modus laut Wikipedia DE."
+  },
+  {
+    "id": "fmt-mp3",
+    "name": "MP3",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Audio",
+      "compression": "verlustbehaftet komprimiert",
+      "fullName": "MPEG-1 Audio Layer III"
+    },
+    "funFact": "MP3 revolutionierte die Musikdistribution und legte den Grundstein für das digitale Musikzeitalter.",
+    "sourceName": "Wikipedia DE – MP3",
+    "sourceUrl": "https://de.wikipedia.org/wiki/MP3",
+    "verifyNote": "Vollform und verlustbehaftete Kompression sind ISO 11172-3-Standard."
+  },
+  {
+    "id": "fmt-wav",
+    "name": "WAV",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Audio",
+      "compression": "unkomprimiert",
+      "fullName": "Waveform Audio File Format"
+    },
+    "funFact": "WAV ist das Standard-Audioformat von Microsoft und speichert Audiodaten meist unkomprimiert in PCM-Qualität.",
+    "sourceName": "Wikipedia DE – WAV",
+    "sourceUrl": "https://de.wikipedia.org/wiki/WAV",
+    "verifyNote": "Vollform laut Microsoft-Spezifikation; unkomprimierter PCM-Modus ist der verbreitete Standard."
+  },
+  {
+    "id": "fmt-flac",
+    "name": "FLAC",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Audio",
+      "compression": "verlustfrei komprimiert",
+      "fullName": "Free Lossless Audio Codec"
+    },
+    "funFact": "FLAC reduziert Audiodateien auf etwa die Hälfte der Originalgröße, ohne dabei Klangqualität zu verlieren.",
+    "sourceName": "Wikipedia DE – FLAC",
+    "sourceUrl": "https://de.wikipedia.org/wiki/FLAC",
+    "verifyNote": "Vollform und verlustfreie Kompression laut Wikipedia DE und xiph.org."
+  },
+  {
+    "id": "fmt-aac",
+    "name": "AAC",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Audio",
+      "compression": "verlustbehaftet komprimiert",
+      "fullName": "Advanced Audio Coding"
+    },
+    "funFact": "AAC gilt als Nachfolger von MP3 und liefert bei gleicher Bitrate eine bessere Klangqualität.",
+    "sourceName": "Wikipedia DE – Advanced Audio Coding",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Advanced_Audio_Coding",
+    "verifyNote": "Vollform und verlustbehaftete Kompression laut ISO 13818-7."
+  },
+  {
+    "id": "fmt-ogg",
+    "name": "OGG",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Audio",
+      "compression": "verlustbehaftet komprimiert",
+      "fullName": "Ogg Vorbis"
+    },
+    "funFact": "OGG ist ein offenes, patentfreies Format und wird häufig in freier Software und Spielen eingesetzt.",
+    "sourceName": "Wikipedia DE – Ogg",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Ogg",
+    "verifyNote": "Vollform und verlustbehaftete Vorbis-Kompression laut xiph.org."
+  },
+  {
+    "id": "fmt-mp4",
+    "name": "MP4",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Video",
+      "compression": "verlustbehaftet komprimiert",
+      "fullName": "MPEG-4 Part 14"
+    },
+    "funFact": "MP4 ist heute das meistgenutzte Containerformat für Videos im Web und auf mobilen Geräten.",
+    "sourceName": "Wikipedia DE – MP4",
+    "sourceUrl": "https://de.wikipedia.org/wiki/MP4",
+    "verifyNote": "Vollform laut ISO 14496-14; Video-Kompression (H.264/H.265) ist verlustbehaftet."
+  },
+  {
+    "id": "fmt-avi",
+    "name": "AVI",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Video",
+      "fullName": "Audio Video Interleave"
+    },
+    "funFact": "AVI wurde 1992 von Microsoft eingeführt und war lange das Standard-Videoformat unter Windows.",
+    "sourceName": "Wikipedia DE – Audio Video Interleave",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Audio_Video_Interleave",
+    "verifyNote": "Vollform laut Microsoft; compression weggelassen, da AVI viele Codecs unterstützt (verlustfrei und verlustbehaftet)."
+  },
+  {
+    "id": "fmt-mkv",
+    "name": "MKV",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Video",
+      "fullName": "Matroska Video"
+    },
+    "funFact": "MKV ist ein offenes Containerformat, das beliebig viele Video-, Audio- und Untertitelspuren in einer Datei bündeln kann.",
+    "sourceName": "Wikipedia DE – Matroska",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Matroska",
+    "verifyNote": "Vollform laut Matroska-Spezifikation; compression weggelassen, da Container-Format codec-agnostisch."
+  },
+  {
+    "id": "fmt-mov",
+    "name": "MOV",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Video",
+      "fullName": "QuickTime Movie"
+    },
+    "funFact": "MOV ist das native Videoformat von Apples QuickTime-Player und wird häufig in der Videoproduktion verwendet.",
+    "sourceName": "Wikipedia DE – QuickTime",
+    "sourceUrl": "https://de.wikipedia.org/wiki/QuickTime",
+    "verifyNote": "Vollform laut Apple-Dokumentation; compression weggelassen, da MOV ein Container-Format ist."
+  },
+  {
+    "id": "fmt-pdf",
+    "name": "PDF",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Dokument",
+      "fullName": "Portable Document Format"
+    },
+    "funFact": "PDF wurde 1993 von Adobe entwickelt und ist heute ein ISO-Standard (ISO 32000) für den Dokumentenaustausch.",
+    "sourceName": "Wikipedia DE – Portable Document Format",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Portable_Document_Format",
+    "verifyNote": "Vollform laut Adobe/ISO 32000; compression weggelassen, da PDFs intern verschiedene Kompressionsverfahren nutzen können."
+  },
+  {
+    "id": "fmt-docx",
+    "name": "DOCX",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Dokument",
+      "compression": "verlustfrei komprimiert",
+      "fullName": "Office Open XML Document"
+    },
+    "funFact": "DOCX-Dateien sind intern ZIP-Archive mit XML-Dateien und wurden mit Office 2007 eingeführt.",
+    "sourceName": "Wikipedia DE – Office Open XML",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Office_Open_XML",
+    "verifyNote": "Vollform und ZIP-basierte Kompression laut ECMA-376-Standard."
+  },
+  {
+    "id": "fmt-txt",
+    "name": "TXT",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Dokument",
+      "compression": "unkomprimiert",
+      "fullName": "Plain Text"
+    },
+    "funFact": "TXT-Dateien speichern reinen Text ohne Formatierung und sind auf nahezu jedem System lesbar.",
+    "sourceName": "Wikipedia DE – Textdatei",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Textdatei",
+    "verifyNote": "Vollform und unkomprimierter Charakter sind Lehrbuch-Standard."
+  },
+  {
+    "id": "fmt-csv",
+    "name": "CSV",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Strukturierte Daten",
+      "compression": "unkomprimiert",
+      "fullName": "Comma-Separated Values"
+    },
+    "funFact": "CSV ist trotz seines simplen Formats das am weitesten verbreitete Format für den Datenaustausch zwischen Tabellenkalkulationsprogrammen.",
+    "sourceName": "Wikipedia DE – CSV (Dateiformat)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/CSV_(Dateiformat)",
+    "verifyNote": "Vollform laut RFC 4180; unkomprimiertes Textformat."
+  },
+  {
+    "id": "fmt-zip",
+    "name": "ZIP",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Archiv/Kompression",
+      "compression": "verlustfrei komprimiert",
+      "fullName": "ZIP Archive"
+    },
+    "funFact": "ZIP wurde 1989 von Phil Katz entwickelt und ist bis heute das verbreitetste Archivformat.",
+    "sourceName": "Wikipedia DE – ZIP (Dateiformat)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/ZIP_(Dateiformat)",
+    "verifyNote": "Verlustfreie Deflate-Kompression und Vollform laut PKWARE-Spezifikation."
+  },
+  {
+    "id": "fmt-rar",
+    "name": "RAR",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Archiv/Kompression",
+      "compression": "verlustfrei komprimiert",
+      "fullName": "Roshal Archive"
+    },
+    "funFact": "RAR wurde von Jewgeni Roschall entwickelt und bietet oft bessere Kompressionsraten als ZIP.",
+    "sourceName": "Wikipedia DE – RAR (Dateiformat)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/RAR_(Dateiformat)",
+    "verifyNote": "Vollform (Roshal = Entwicklernachname) und verlustfreie Kompression laut Wikipedia DE."
+  },
+  {
+    "id": "fmt-7z",
+    "name": "7Z",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Archiv/Kompression",
+      "compression": "verlustfrei komprimiert",
+      "fullName": "7-Zip Archive"
+    },
+    "funFact": "7Z nutzt den LZMA-Algorithmus und erreicht oft höhere Kompressionsraten als ZIP oder RAR.",
+    "sourceName": "Wikipedia DE – 7-Zip",
+    "sourceUrl": "https://de.wikipedia.org/wiki/7-Zip",
+    "verifyNote": "Vollform und LZMA-basierte verlustfreie Kompression laut 7-zip.org."
+  },
+  {
+    "id": "fmt-gzip",
+    "name": "GZIP",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Archiv/Kompression",
+      "compression": "verlustfrei komprimiert",
+      "fullName": "GNU Zip"
+    },
+    "funFact": "GZIP basiert auf dem Deflate-Algorithmus und ist das Standard-Kompressionsformat auf Unix/Linux-Systemen.",
+    "sourceName": "Wikipedia DE – Gzip",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Gzip",
+    "verifyNote": "Vollform und verlustfreie Deflate-Kompression laut RFC 1952."
+  },
+  {
+    "id": "fmt-tar",
+    "name": "TAR",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Archiv/Kompression",
+      "compression": "unkomprimiert",
+      "fullName": "Tape Archive"
+    },
+    "funFact": "TAR bündelt Dateien zu einem Archiv, ohne sie zu komprimieren — Kompression übernimmt meist GZIP oder BZIP2.",
+    "sourceName": "Wikipedia DE – Tar (Archivdateiformat)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Tar_(Archivdateiformat)",
+    "verifyNote": "Vollform und unkomprimierter Charakter des reinen TAR-Formats laut POSIX-Standard."
+  },
+  {
+    "id": "fmt-json",
+    "name": "JSON",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Strukturierte Daten",
+      "compression": "unkomprimiert",
+      "fullName": "JavaScript Object Notation"
+    },
+    "funFact": "JSON wurde von Douglas Crockford popularisiert und hat XML in vielen Web-APIs als Datenformat abgelöst.",
+    "sourceName": "Wikipedia DE – JSON",
+    "sourceUrl": "https://de.wikipedia.org/wiki/JSON",
+    "verifyNote": "Vollform laut ECMA-404 und RFC 8259; unkomprimiertes Textformat."
+  },
+  {
+    "id": "fmt-xml",
+    "name": "XML",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Strukturierte Daten",
+      "compression": "unkomprimiert",
+      "fullName": "Extensible Markup Language"
+    },
+    "funFact": "XML ist ein vom W3C definiertes Format zum plattformunabhängigen Austausch strukturierter Daten.",
+    "sourceName": "W3C – XML-Spezifikation",
+    "sourceUrl": "https://www.w3.org/TR/xml/",
+    "verifyNote": "Vollform laut W3C-Standard; unkomprimiertes Textformat."
+  },
+  {
+    "id": "fmt-html",
+    "name": "HTML",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Dokument",
+      "compression": "unkomprimiert",
+      "fullName": "Hypertext Markup Language"
+    },
+    "funFact": "HTML wurde 1991 von Tim Berners-Lee entwickelt und ist die Grundsprache des World Wide Web.",
+    "sourceName": "W3C – HTML-Living-Standard",
+    "sourceUrl": "https://html.spec.whatwg.org/",
+    "verifyNote": "Vollform laut W3C/WHATWG-Standard; HTML-Dateien sind unkomprimierte Textdateien."
+  },
+  {
+    "id": "acr-css",
+    "name": "CSS",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Cascading Style Sheets",
+      "domain": "Webtechnik"
+    },
+    "funFact": "CSS wurde 1996 vom W3C standardisiert und trennt das visuelle Design vom strukturellen HTML-Inhalt.",
+    "sourceName": "W3C – CSS",
+    "sourceUrl": "https://www.w3.org/Style/CSS/",
+    "verifyNote": "Vollform laut W3C-Standard."
+  },
+  {
+    "id": "acr-sql",
+    "name": "SQL",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Structured Query Language",
+      "domain": "Datenbanken"
+    },
+    "funFact": "SQL wurde in den 1970er-Jahren bei IBM entwickelt und ist heute die am weitesten verbreitete Datenbankabfragesprache.",
+    "sourceName": "Wikipedia DE – SQL",
+    "sourceUrl": "https://de.wikipedia.org/wiki/SQL",
+    "verifyNote": "Vollform laut ISO/IEC 9075-Standard."
+  },
+  {
+    "id": "acr-api",
+    "name": "API",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Application Programming Interface",
+      "domain": "Programmierung"
+    },
+    "funFact": "APIs ermöglichen es, dass verschiedene Softwaresysteme miteinander kommunizieren, ohne interne Implementierungsdetails offenzulegen.",
+    "sourceName": "Wikipedia DE – Programmierschnittstelle",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Programmierschnittstelle",
+    "verifyNote": "Vollform ist Lehrbuch-Standard."
+  },
+  {
+    "id": "acr-url",
+    "name": "URL",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Uniform Resource Locator",
+      "domain": "Webtechnik"
+    },
+    "funFact": "URLs wurden 1994 in RFC 1738 standardisiert und bilden die Grundlage der Adressierung im World Wide Web.",
+    "sourceName": "Wikipedia DE – Uniform Resource Locator",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Uniform_Resource_Locator",
+    "verifyNote": "Vollform laut RFC 1738/3986."
+  },
+  {
+    "id": "acr-http",
+    "name": "HTTP",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Hypertext Transfer Protocol",
+      "domain": "Netzwerk"
+    },
+    "funFact": "HTTP ist das Grundprotokoll des World Wide Web und wurde von Tim Berners-Lee entwickelt.",
+    "sourceName": "Wikipedia DE – HTTP",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Hypertext_Transfer_Protocol",
+    "verifyNote": "Vollform laut RFC 7230."
+  },
+  {
+    "id": "acr-ram",
+    "name": "RAM",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Random Access Memory",
+      "domain": "Hardware"
+    },
+    "funFact": "RAM ist flüchtiger Speicher — alle Daten gehen beim Ausschalten verloren, da Energie zur Erhaltung nötig ist.",
+    "sourceName": "Wikipedia DE – Arbeitsspeicher",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Arbeitsspeicher",
+    "verifyNote": "Vollform ist Lehrbuch-Standard."
+  },
+  {
+    "id": "acr-rom",
+    "name": "ROM",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Read-Only Memory",
+      "domain": "Hardware"
+    },
+    "funFact": "ROM behält seinen Inhalt dauerhaft auch ohne Stromversorgung und enthält meist Firmware oder BIOS.",
+    "sourceName": "Wikipedia DE – Festwertspeicher",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Festwertspeicher",
+    "verifyNote": "Vollform ist Lehrbuch-Standard."
+  },
+  {
+    "id": "acr-cpu",
+    "name": "CPU",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Central Processing Unit",
+      "domain": "Hardware"
+    },
+    "funFact": "Die CPU ist das Hauptrechenwerk eines Computers und führt Milliarden von Befehlen pro Sekunde aus.",
+    "sourceName": "Wikipedia DE – Prozessor",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Prozessor",
+    "verifyNote": "Vollform ist Lehrbuch-Standard."
+  },
+  {
+    "id": "acr-gpu",
+    "name": "GPU",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Graphics Processing Unit",
+      "domain": "Hardware"
+    },
+    "funFact": "GPUs wurden ursprünglich für 3D-Grafik entwickelt, sind heute aber auch für KI-Berechnungen unverzichtbar.",
+    "sourceName": "Wikipedia DE – Grafikprozessor",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Grafikprozessor",
+    "verifyNote": "Vollform ist Lehrbuch-Standard."
+  },
+  {
+    "id": "acr-usb",
+    "name": "USB",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Universal Serial Bus",
+      "domain": "Hardware"
+    },
+    "funFact": "USB wurde 1996 eingeführt und hat seitdem nahezu alle früheren Anschlusstypen wie PS/2 und parallele Ports verdrängt.",
+    "sourceName": "Wikipedia DE – Universal Serial Bus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Universal_Serial_Bus",
+    "verifyNote": "Vollform laut USB-IF-Spezifikation."
+  },
+  {
+    "id": "acr-dns",
+    "name": "DNS",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Domain Name System",
+      "domain": "Netzwerk"
+    },
+    "funFact": "DNS fungiert als Telefonbuch des Internets und übersetzt Domainnamen in IP-Adressen.",
+    "sourceName": "Wikipedia DE – Domain Name System",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Domain_Name_System",
+    "verifyNote": "Vollform laut RFC 1034/1035."
+  },
+  {
+    "id": "acr-ip",
+    "name": "IP",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Internet Protocol",
+      "domain": "Netzwerk"
+    },
+    "funFact": "IP ist das grundlegende Protokoll für die Adressierung und Weiterleitung von Datenpaketen im Internet.",
+    "sourceName": "Wikipedia DE – Internet Protocol",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Internet_Protocol",
+    "verifyNote": "Vollform laut RFC 791 (IPv4) und RFC 2460 (IPv6)."
+  },
+  {
+    "id": "acr-vpn",
+    "name": "VPN",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Virtual Private Network",
+      "domain": "Sicherheit"
+    },
+    "funFact": "VPN verschlüsselt den Datenverkehr und ermöglicht sichere Verbindungen über öffentliche Netzwerke.",
+    "sourceName": "Wikipedia DE – Virtual Private Network",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Virtual_Private_Network",
+    "verifyNote": "Vollform ist Lehrbuch-Standard."
+  },
+  {
+    "id": "acr-ssd",
+    "name": "SSD",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Solid-State Drive",
+      "domain": "Hardware"
+    },
+    "funFact": "SSDs haben keine beweglichen Teile und sind dadurch deutlich schneller und robuster als klassische Festplatten.",
+    "sourceName": "Wikipedia DE – Solid-State-Drive",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Solid-State-Drive",
+    "verifyNote": "Vollform ist Lehrbuch-Standard."
+  },
+  {
+    "id": "acr-hdd",
+    "name": "HDD",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Hard Disk Drive",
+      "domain": "Hardware"
+    },
+    "funFact": "HDDs speichern Daten magnetisch auf rotierenden Scheiben und bieten großen Speicherplatz zu niedrigen Kosten.",
+    "sourceName": "Wikipedia DE – Festplatte",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Festplatte",
+    "verifyNote": "Vollform ist Lehrbuch-Standard."
+  },
+  {
+    "id": "acr-gui",
+    "name": "GUI",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Graphical User Interface",
+      "domain": "Software/OS"
+    },
+    "funFact": "GUIs wurden durch den Apple Macintosh (1984) für den Massenmarkt populär gemacht.",
+    "sourceName": "Wikipedia DE – Grafische Benutzeroberfläche",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Grafische_Benutzeroberfl%C3%A4che",
+    "verifyNote": "Vollform ist Lehrbuch-Standard."
+  },
+  {
+    "id": "acr-cli",
+    "name": "CLI",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Command-Line Interface",
+      "domain": "Software/OS"
+    },
+    "funFact": "CLIs ermöglichen die Steuerung von Software über Texteingaben und sind besonders in der Serveradministration verbreitet.",
+    "sourceName": "Wikipedia DE – Kommandozeile",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Kommandozeile",
+    "verifyNote": "Vollform ist Lehrbuch-Standard."
+  },
+  {
+    "id": "acr-oop",
+    "name": "OOP",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Object-Oriented Programming",
+      "domain": "Programmierung"
+    },
+    "funFact": "OOP organisiert Code in Objekte mit Eigenschaften und Methoden und ist das dominierende Programmierparadigma in der Softwareentwicklung.",
+    "sourceName": "Wikipedia DE – Objektorientierte Programmierung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Objektorientierte_Programmierung",
+    "verifyNote": "Vollform ist Lehrbuch-Standard."
+  },
+  {
+    "id": "acr-ide",
+    "name": "IDE",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Integrated Development Environment",
+      "domain": "Programmierung"
+    },
+    "funFact": "IDEs bündeln Editor, Compiler, Debugger und weitere Werkzeuge in einer einzigen Anwendung.",
+    "sourceName": "Wikipedia DE – Integrierte Entwicklungsumgebung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Integrierte_Entwicklungsumgebung",
+    "verifyNote": "Vollform ist Lehrbuch-Standard."
+  },
+  {
+    "id": "acr-sdk",
+    "name": "SDK",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Software Development Kit",
+      "domain": "Programmierung"
+    },
+    "funFact": "SDKs stellen Entwicklern Bibliotheken, Dokumentation und Werkzeuge bereit, um für eine bestimmte Plattform zu entwickeln.",
+    "sourceName": "Wikipedia DE – Software Development Kit",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Software_Development_Kit",
+    "verifyNote": "Vollform ist Lehrbuch-Standard."
+  }
+]
