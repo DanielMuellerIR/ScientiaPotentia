@@ -54,13 +54,15 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 
 > **Stand 2026-06-23 (v1.45.0) — Zwei neue Hauptbereiche: Machina (IT) + Historia (Geschichte):**
 > Beide Domains end-to-end verdrahtet nach dem erprobten Cultura-Muster (Generator + Registry +
-> `ConceptVisual`-Labels + `verify_facts`-Leak-Config). Nach Welle 2 (v1.45.1): **Machina 243
-> Konzepte / 572 Fragen** (programming_language, file_format, network_protocol, data_structure,
-> algorithm, hardware, acronym, concept — Achse **Funktionsprinzip**, KEINE Erfindungsdaten →
-> Historia). **Historia 246 Konzepte / 839 Fragen** (invention, discovery, epoch, figure, milestone,
-> expedition — Achse **Zeit/Urheberschaft**, Politik-Ausschluss eingehalten). Welle 2: +93/+107
-> Konzepte durch 6 weitere parallele Finder + 4 adversariale Verifier (10 Big-O-/Jahres-/Execution-
-> Korrekturen; acronym-Cross-Dedup gegen Protokoll-/Hardware-Konzepte automatisiert). Pipeline: 8 parallele Sonnet-Finder
+> `ConceptVisual`-Labels + `verify_facts`-Leak-Config). Nach Welle 2 + Reverse-Hebel (v1.45.2):
+> **Machina 243 Konzepte / 760 Fragen** (programming_language, file_format, network_protocol,
+> data_structure, algorithm, hardware, acronym, concept — Achse **Funktionsprinzip**, KEINE
+> Erfindungsdaten → Historia). **Historia 246 Konzepte / 1180 Fragen** (invention, discovery, epoch,
+> figure, milestone, expedition — Achse **Zeit/Urheberschaft**, Politik-Ausschluss eingehalten).
+> Welle 2: +93/+107 Konzepte durch 6 weitere parallele Finder + 4 adversariale Verifier (10 Big-O-/
+> Jahres-/Execution-Korrekturen; acronym-Cross-Dedup gegen Protokoll-/Hardware-Konzepte automatisiert).
+> v1.45.2: token-freier Reverse-Hebel (+13 Frage-Templates, kind:'name' mit pickNames-Eindeutigkeit)
+> → +188/+341 Fragen ohne neue Fakten. Pipeline: 8 parallele Sonnet-Finder
 > (Schema/kontrolliertes Vokabular in `harvest/SPEC_machina_historia.md`) → Gate
 > (`merge_machina_historia.js`: Dedup + Struktur + ASCII-Umlaut-Erkennung) → deterministischer
 > Umlaut-Fix (`harvest/fix_cand_umlauts.cjs`, 67 Ersetzungen) → **5 adversariale Sonnet-Verifier**
@@ -359,8 +361,8 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 | Natura | 606 | 3606 | Wikipedia / USGS / IUCN / IPCC / Wikidata | generische Konzeptkarte (`ConceptVisual`); Tiere via MiniMax-Delegation 49→97 ausgebaut (web-grounded); freies Commons-Foto je Konzept hinterlegt (`concept.image`, fürs spätere Museum) |
 | Lingua | 241 | 988 | Wikipedia / Ethnologue / Wiktionary / Guinness / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Attribut-Labels; Commons-Bild je Konzept hinterlegt (103/103, fürs spätere Museum) |
 | Cultura | 365 | 1580 | Wikipedia (DE/EN) / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Kategorie-/Attribut-Labels; via MiniMax-Delegation ausgebaut (Komponisten Wikidata-geprüft, Werke web-grounded) |
-| Machina | 243 | 572 | Wikipedia / RFC/IANA / Lehrbücher | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Funktionsprinzip (v1.45.1) |
-| Historia | 246 | 839 | Wikipedia / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Zeit/Urheberschaft, Politik-Ausschluss (v1.45.1) |
+| Machina | 243 | 760 | Wikipedia / RFC/IANA / Lehrbücher | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Funktionsprinzip (v1.45.2) |
+| Historia | 246 | 1180 | Wikipedia / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Zeit/Urheberschaft, Politik-Ausschluss (v1.45.2) |
 
 > Fragenzahlen Astra/Homo/Natura/Lingua/Cultura sind noch weit vom 5000-Ziel — Content-Ausbau (Phase 5) läuft weiter.
 > Astra 1054/303 = ~3.5 F/K, Natura 2693/444 = ~6.1 F/K, Cultura 1292/267 = ~4.8 F/K, Lingua 856/212 = ~4.0 F/K,

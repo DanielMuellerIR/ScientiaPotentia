@@ -260,6 +260,38 @@ const templates = [
   {
     category: 'expedition', attr: 'region', kind: 'cat', type: 'historia-expedition-region', difficulty: 3,
     prompt: c => `Welche Region war Ziel der Reise „${beforeParen(c.name)}“?`
+  },
+
+  // ==== Reverse-Hebel (mehr Fragetypen je Konzept, token-frei) =============
+  // kind:'name': Antwort = Konzeptname; pickNames garantiert, dass nur EINE der
+  // 4 Optionen die genannte Eigenschaft (Bereich/Land/Nation/Region) erfüllt.
+  {
+    category: 'invention', attr: 'field', kind: 'name', type: 'historia-invention-field-rev', difficulty: 3,
+    prompt: c => `Welche dieser Erfindungen gehört zum Bereich „${c.attributes.field}“?`
+  },
+  {
+    category: 'invention', attr: 'country', kind: 'name', type: 'historia-invention-country-rev', difficulty: 3,
+    prompt: c => `Welche dieser Erfindungen stammt aus „${c.attributes.country}“?`
+  },
+  {
+    category: 'discovery', attr: 'field', kind: 'name', type: 'historia-discovery-field-rev', difficulty: 3,
+    prompt: c => `Welche dieser Entdeckungen gehört zum Gebiet „${c.attributes.field}“?`
+  },
+  {
+    category: 'figure', attr: 'field', kind: 'name', type: 'historia-figure-field-rev', difficulty: 3,
+    prompt: c => `Welcher dieser Forscher wirkte vor allem im Bereich „${c.attributes.field}“?`
+  },
+  {
+    category: 'figure', attr: 'nationality', kind: 'name', type: 'historia-figure-nationality-rev', difficulty: 3,
+    prompt: c => `Welche dieser Persönlichkeiten stammt aus „${c.attributes.nationality}“?`
+  },
+  {
+    category: 'milestone', attr: 'field', kind: 'name', type: 'historia-milestone-field-rev', difficulty: 3,
+    prompt: c => `Welches dieser Ereignisse gehört zum Bereich „${c.attributes.field}“?`
+  },
+  {
+    category: 'expedition', attr: 'region', kind: 'name', type: 'historia-expedition-region-rev', difficulty: 3,
+    prompt: c => `Welche dieser Reisen führte in die Region „${c.attributes.region}“?`
   }
 ];
 

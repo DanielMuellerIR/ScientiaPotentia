@@ -270,6 +270,35 @@ const templates = [
   {
     category: 'concept', attr: 'category', kind: 'cat', type: 'machina-concept-category', difficulty: 3,
     prompt: c => `Welchem Teilgebiet der Informatik ist das Konzept „${c.name}“ zuzuordnen?`
+  },
+
+  // ==== Reverse-Hebel (mehr Fragetypen je Konzept, token-frei) =============
+  // kind:'name' -> Antwort ist der Konzeptname; pickNames stellt sicher, dass die
+  // Distraktor-Konzepte beim getesteten Attribut einen ANDEREN Wert haben, also
+  // unter den 4 Optionen nur EINS die genannte Eigenschaft erfüllt (fair eindeutig).
+  {
+    category: 'programming_language', attr: 'primaryDomain', kind: 'name', type: 'machina-lang-domain-rev', difficulty: 3,
+    prompt: c => `Welche dieser Programmiersprachen wird vor allem im Bereich „${c.attributes.primaryDomain}“ eingesetzt?`
+  },
+  {
+    category: 'programming_language', attr: 'execution', kind: 'name', type: 'machina-lang-execution-rev', difficulty: 3,
+    prompt: c => `Welche dieser Programmiersprachen wird üblicherweise so ausgeführt: „${c.attributes.execution}“?`
+  },
+  {
+    category: 'file_format', attr: 'mediaType', kind: 'name', type: 'machina-format-mediatype-rev', difficulty: 2,
+    prompt: c => `Welches dieser Dateiformate dient für „${c.attributes.mediaType}“?`
+  },
+  {
+    category: 'network_protocol', attr: 'layer', kind: 'name', type: 'machina-protocol-layer-rev', difficulty: 3,
+    prompt: c => `Welches dieser Protokolle arbeitet auf der „${c.attributes.layer}“?`
+  },
+  {
+    category: 'acronym', attr: 'domain', kind: 'name', type: 'machina-acronym-domain-rev', difficulty: 2,
+    prompt: c => `Welche dieser Abkürzungen gehört in das Gebiet „${c.attributes.domain}“?`
+  },
+  {
+    category: 'hardware', attr: 'category', kind: 'name', type: 'machina-hw-category-rev', difficulty: 3,
+    prompt: c => `Welche dieser Komponenten gehört zur Gruppe „${c.attributes.category}“?`
   }
 ];
 
