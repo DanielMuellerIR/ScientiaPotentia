@@ -1,0 +1,32 @@
+[
+  {
+    "id": "algo-radixsort",
+    "set": { "avgComplexity": "O(nk)" },
+    "reason": "Lehrbuch-Standard (CLRS Kap. 8.3) ist O(nk), wobei k die Schlüssellänge (Anzahl der Stellen) ist. O(n) gilt nur bei konstanter Schlüssellänge — das ist eine unzulässige Vereinfachung für den Allgemeinfall. Die eigene verifyNote nennt dies selbst."
+  },
+  {
+    "id": "algo-counting-sort",
+    "set": { "avgComplexity": "O(n+k)" },
+    "reason": "Lehrbuch-Standard (CLRS Kap. 8.2) ist O(n+k), wobei k der Wertebereich der Eingabe ist. O(n) ist nur korrekt, wenn k als konstant angenommen wird. Die eigene verifyNote nennt O(n+k) explizit — das Feld widerspricht ihr."
+  },
+  {
+    "id": "algo-bellman-ford",
+    "set": { "avgComplexity": "O(V·E)" },
+    "reason": "Lehrbuch-Standard (CLRS Kap. 24.1) ist O(V·E). O(n²) ist nur für dichte Graphen (E ≈ V²) eine Vereinfachung, im Allgemeinfall aber falsch. Laut Prüfauftrag ist O(n²) hier explizit als FALSCH zu korrigieren."
+  },
+  {
+    "id": "algo-floyd-warshall",
+    "set": { "avgComplexity": "O(n³)" },
+    "reason": "Lehrbuch-Standard (CLRS Kap. 25.2) ist O(n³) bzw. O(V³). Der eingetragene Wert O(n²) ist falsch. Die eigene verifyNote bestätigt dies ausdrücklich: 'O(n³) ist lehrbuch-Standard ... hier vereinfacht als O(n²) angegeben — tatsächlich O(n³)'. Das Feld muss korrigiert werden."
+  },
+  {
+    "id": "algo-kruskal",
+    "set": { "avgComplexity": "O(E log V)" },
+    "reason": "Lehrbuch-Standard (CLRS Kap. 23.2) ist O(E log V) bzw. O(E log E). O(n log n) ist eine Vereinfachung für sparse Graphen (E ≈ n), trifft aber für allgemeine Graphen nicht zu. Laut Prüfauftrag gilt Kruskal O(E log V)."
+  },
+  {
+    "id": "lang-elixir",
+    "set": { "execution": "Bytecode (VM)/BEAM" },
+    "reason": "Elixir läuft auf der BEAM-VM (Erlang VM), nicht auf einer generischen VM. Die präzise Angabe laut Prüfauftrag ist 'Bytecode (VM)/BEAM', um den Unterschied zur JVM oder CLR kenntlich zu machen. Die eigene verifyNote und der funFact nennen BEAM explizit."
+  }
+]

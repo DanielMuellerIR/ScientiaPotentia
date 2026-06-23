@@ -1,0 +1,303 @@
+[
+  {
+    "id": "lang-bash",
+    "name": "Bash",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Skriptsprache",
+      "typeSystem": "Dynamisch typisiert",
+      "execution": "Interpretiert",
+      "primaryDomain": "Skripting/Automatisierung",
+      "fileExtension": ".sh"
+    },
+    "funFact": "Bash steht für 'Bourne Again Shell' und ist die Standard-Shell der meisten Linux-Distributionen.",
+    "sourceName": "GNU Bash Manual",
+    "sourceUrl": "https://www.gnu.org/software/bash/manual/",
+    "verifyNote": "Paradigma, Domäne und Dateiendung laut GNU-Dokumentation und Wikipedia DE."
+  },
+  {
+    "id": "lang-powershell",
+    "name": "PowerShell",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Skriptsprache",
+      "typeSystem": "Dynamisch typisiert",
+      "execution": "Interpretiert",
+      "primaryDomain": "Skripting/Automatisierung",
+      "fileExtension": ".ps1"
+    },
+    "funFact": "PowerShell arbeitet mit .NET-Objekten statt mit reinem Text — dadurch können Cmdlets strukturierte Daten direkt weitergeben.",
+    "sourceName": "Wikipedia DE – PowerShell",
+    "sourceUrl": "https://de.wikipedia.org/wiki/PowerShell",
+    "verifyNote": "Skripting-Domäne, interpretierte Ausführung und .ps1-Extension laut Microsoft-Dokumentation und Wikipedia DE."
+  },
+  {
+    "id": "lang-fsharp",
+    "name": "F#",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Funktional",
+      "typeSystem": "Statisch typisiert",
+      "execution": "Bytecode (VM)",
+      "primaryDomain": "Datenwissenschaft",
+      "fileExtension": ".fs"
+    },
+    "funFact": "F# läuft auf der .NET-Runtime und verbindet funktionale Programmierung mit der Ökosystem-Breite von C#.",
+    "sourceName": "Wikipedia DE – F Sharp (Programmiersprache)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/F_Sharp",
+    "verifyNote": "Funktionales Paradigma, CLR-Bytecode und statische Typisierung laut Microsoft-Dokumentation und Wikipedia DE."
+  },
+  {
+    "id": "lang-clojure",
+    "name": "Clojure",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Funktional",
+      "typeSystem": "Dynamisch typisiert",
+      "execution": "Bytecode (VM)",
+      "primaryDomain": "Nebenläufige Systeme",
+      "fileExtension": ".clj"
+    },
+    "funFact": "Clojure ist ein Lisp-Dialekt auf der JVM und setzt auf unveränderliche Datenstrukturen, um nebenläufige Programmierung sicher zu machen.",
+    "sourceName": "Wikipedia DE – Clojure",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Clojure",
+    "verifyNote": "Funktionales Paradigma, JVM-Bytecode und dynamische Typisierung laut Clojure.org und Wikipedia DE."
+  },
+  {
+    "id": "lang-elixir",
+    "name": "Elixir",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Funktional",
+      "typeSystem": "Dynamisch typisiert",
+      "execution": "Bytecode (VM)",
+      "primaryDomain": "Nebenläufige Systeme",
+      "fileExtension": ".ex"
+    },
+    "funFact": "Elixir läuft auf der Erlang-VM (BEAM) und erbt damit deren Stärken für hochverfügbare, verteilte Systeme.",
+    "sourceName": "Wikipedia DE – Elixir (Programmiersprache)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Elixir_(Programmiersprache)",
+    "verifyNote": "Funktionales Paradigma, BEAM-VM-Bytecode und dynamische Typisierung laut elixir-lang.org und Wikipedia DE."
+  },
+  {
+    "id": "lang-groovy",
+    "name": "Groovy",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Multiparadigma",
+      "typeSystem": "Dynamisch typisiert",
+      "execution": "Bytecode (VM)",
+      "primaryDomain": "Skripting/Automatisierung",
+      "fileExtension": ".groovy"
+    },
+    "funFact": "Groovy ist vollständig kompatibel mit Java — jeder Java-Code ist gültiges Groovy, aber Groovy-Code ist meist deutlich kürzer.",
+    "sourceName": "Wikipedia DE – Groovy (Programmiersprache)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Groovy_(Programmiersprache)",
+    "verifyNote": "JVM-Ausführung, dynamische Typisierung und Skripting-Domäne laut groovy-lang.org und Wikipedia DE."
+  },
+  {
+    "id": "lang-pascal",
+    "name": "Pascal",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Imperativ/prozedural",
+      "typeSystem": "Statisch typisiert",
+      "execution": "Kompiliert",
+      "fileExtension": ".pas"
+    },
+    "funFact": "Pascal wurde in den 1970er Jahren als Lehrsprache konzipiert und legte die Grundlage für strukturiertes Programmieren.",
+    "sourceName": "Wikipedia DE – Pascal (Programmiersprache)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Pascal_(Programmiersprache)",
+    "verifyNote": "Imperatives Paradigma, statische Typisierung und kompilierte Ausführung laut Wikipedia DE; primaryDomain weggelassen, da Pascal heute primär historisch/didaktisch ist."
+  },
+  {
+    "id": "lang-ada",
+    "name": "Ada",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Imperativ/prozedural",
+      "typeSystem": "Statisch typisiert",
+      "execution": "Kompiliert",
+      "primaryDomain": "Systemprogrammierung",
+      "fileExtension": ".adb"
+    },
+    "funFact": "Ada wurde im Auftrag des US-Verteidigungsministeriums entwickelt und ist heute noch in sicherheitskritischen Systemen wie Flugzeugen und Raketen im Einsatz.",
+    "sourceName": "Wikipedia DE – Ada (Programmiersprache)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Ada_(Programmiersprache)",
+    "verifyNote": "Imperatives Paradigma, statische Typisierung und Systemprogrammierung laut Wikipedia DE und ISO/IEC 8652."
+  },
+  {
+    "id": "lang-ocaml",
+    "name": "OCaml",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Multiparadigma",
+      "typeSystem": "Statisch typisiert",
+      "execution": "Kompiliert",
+      "fileExtension": ".ml"
+    },
+    "funFact": "OCaml kombiniert funktionale, objektorientierte und imperative Programmierung und wird u.a. für den Flow-Typchecker von Facebook genutzt.",
+    "sourceName": "Wikipedia DE – OCaml",
+    "sourceUrl": "https://de.wikipedia.org/wiki/OCaml",
+    "verifyNote": "Multiparadigma, statische Typisierung und Kompilierung laut ocaml.org und Wikipedia DE; primaryDomain weggelassen, da breit eingesetzt."
+  },
+  {
+    "id": "lang-webassembly",
+    "name": "WebAssembly",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Stack-basiert",
+      "typeSystem": "Statisch typisiert",
+      "execution": "Bytecode (VM)",
+      "primaryDomain": "Webentwicklung (Frontend)",
+      "fileExtension": ".wasm"
+    },
+    "funFact": "WebAssembly wird direkt im Browser mit nahezu nativer Geschwindigkeit ausgeführt und ermöglicht z.B. rechenintensive Anwendungen wie 3D-Rendering im Web.",
+    "sourceName": "W3C – WebAssembly Specification",
+    "sourceUrl": "https://webassembly.github.io/spec/core/",
+    "verifyNote": "Stack-basierte VM, statische Typisierung und .wasm-Extension laut W3C-Spezifikation und MDN."
+  },
+  {
+    "id": "np-sftp",
+    "name": "SFTP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "SSH File Transfer Protocol",
+      "layer": "Anwendungsschicht",
+      "defaultPort": 22,
+      "transport": "TCP",
+      "purpose": "Verschlüsselte Dateiübertragung über SSH"
+    },
+    "funFact": "Trotz des Namens ist SFTP kein FTP mit SSL — es ist ein eigenständiges Protokoll, das vollständig über SSH läuft.",
+    "sourceName": "Wikipedia DE – SSH File Transfer Protocol",
+    "sourceUrl": "https://de.wikipedia.org/wiki/SSH_File_Transfer_Protocol",
+    "verifyNote": "Port 22 (via SSH-Tunnel) und TCP-Transport laut IETF-Draft draft-ietf-secsh-filexfer."
+  },
+  {
+    "id": "np-ldap",
+    "name": "LDAP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Lightweight Directory Access Protocol",
+      "layer": "Anwendungsschicht",
+      "defaultPort": 389,
+      "transport": "TCP",
+      "purpose": "Zugriff auf und Verwaltung von Verzeichnisdiensten, z.B. Active Directory"
+    },
+    "funFact": "LDAP ist das Standardprotokoll für Unternehmensverzeichnisse; Microsoft Active Directory basiert auf LDAP.",
+    "sourceName": "RFC 4511 – Lightweight Directory Access Protocol (LDAP)",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc4511",
+    "verifyNote": "Port 389 und TCP-Transport sind IANA-Standard gemäß RFC 4511."
+  },
+  {
+    "id": "np-rdp",
+    "name": "RDP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Remote Desktop Protocol",
+      "layer": "Anwendungsschicht",
+      "defaultPort": 3389,
+      "transport": "TCP",
+      "purpose": "Grafische Fernsteuerung von Windows-Rechnern"
+    },
+    "funFact": "RDP wurde von Microsoft entwickelt und ermöglicht die vollständige grafische Steuerung eines entfernten Windows-Systems über das Netzwerk.",
+    "sourceName": "Wikipedia DE – Remote Desktop Protocol",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Remote_Desktop_Protocol",
+    "verifyNote": "Port 3389 und TCP-Transport sind IANA-Standard; RDP ist ein proprietäres Microsoft-Protokoll."
+  },
+  {
+    "id": "np-sip",
+    "name": "SIP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Session Initiation Protocol",
+      "layer": "Anwendungsschicht",
+      "defaultPort": 5060,
+      "transport": "UDP",
+      "purpose": "Aufbau, Steuerung und Beendigung von VoIP- und Multimedia-Kommunikationssitzungen"
+    },
+    "funFact": "SIP ist das Standardprotokoll für IP-Telefonie und bildet die Grundlage für viele VoIP-Systeme und Videokonferenzdienste.",
+    "sourceName": "RFC 3261 – SIP: Session Initiation Protocol",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc3261",
+    "verifyNote": "Port 5060 (UDP) und Schichtzuordnung aus RFC 3261."
+  },
+  {
+    "id": "np-bgp",
+    "name": "BGP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Border Gateway Protocol",
+      "layer": "Anwendungsschicht",
+      "defaultPort": 179,
+      "transport": "TCP",
+      "purpose": "Austausch von Routing-Informationen zwischen autonomen Systemen im Internet"
+    },
+    "funFact": "BGP ist das Routing-Protokoll des Internets — es entscheidet, welche Wege Datenpakete zwischen den großen Netzbetreibern nehmen.",
+    "sourceName": "RFC 4271 – A Border Gateway Protocol 4 (BGP-4)",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc4271",
+    "verifyNote": "Port 179 und TCP-Transport aus RFC 4271; Anwendungsschicht (trotz Routing-Aufgabe) laut gängiger Lehrmeinung."
+  },
+  {
+    "id": "np-mqtt",
+    "name": "MQTT",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Message Queuing Telemetry Transport",
+      "layer": "Anwendungsschicht",
+      "defaultPort": 1883,
+      "transport": "TCP",
+      "purpose": "Leichtgewichtiges Publish-Subscribe-Messaging für IoT-Geräte und Sensornetzwerke"
+    },
+    "funFact": "MQTT wurde ursprünglich für die Überwachung von Ölpipelines per Satellit entwickelt und ist heute das meistgenutzte Protokoll im Internet of Things.",
+    "sourceName": "Wikipedia DE – MQTT",
+    "sourceUrl": "https://de.wikipedia.org/wiki/MQTT",
+    "verifyNote": "Port 1883 und TCP-Transport sind IANA-Standard; Vollform und Zweck laut OASIS MQTT-Standard."
+  },
+  {
+    "id": "np-irc",
+    "name": "IRC",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Internet Relay Chat",
+      "layer": "Anwendungsschicht",
+      "defaultPort": 6667,
+      "transport": "TCP",
+      "purpose": "Echtzeit-Textkommunikation in thematisch organisierten Kanälen"
+    },
+    "funFact": "IRC wurde 1988 von Jarkko Oikarinen entwickelt und war in den 1990er Jahren das dominante Echtzeit-Chat-System im Internet.",
+    "sourceName": "RFC 1459 – Internet Relay Chat Protocol",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc1459",
+    "verifyNote": "Port 6667 und TCP-Transport sind de-facto-Standard gemäß RFC 1459."
+  },
+  {
+    "id": "np-websocket",
+    "name": "WebSocket",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "WebSocket Protocol",
+      "layer": "Anwendungsschicht",
+      "defaultPort": 80,
+      "transport": "TCP",
+      "purpose": "Bidirektionale Vollduplex-Kommunikation zwischen Browser und Server über eine persistente TCP-Verbindung"
+    },
+    "funFact": "WebSocket ermöglicht es, dass der Server Daten aktiv an den Browser sendet, ohne dass der Browser eine Anfrage stellen muss — ideal für Echtzeit-Anwendungen.",
+    "sourceName": "RFC 6455 – The WebSocket Protocol",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc6455",
+    "verifyNote": "Port 80 (bzw. 443 für WSS) und TCP-Transport aus RFC 6455."
+  },
+  {
+    "id": "np-quic",
+    "name": "QUIC",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Quick UDP Internet Connections",
+      "layer": "Transportschicht",
+      "transport": "UDP",
+      "purpose": "Schnelles, verschlüsseltes Transportprotokoll als Grundlage von HTTP/3"
+    },
+    "funFact": "QUIC wurde von Google entwickelt und ist seit 2022 als RFC 9000 standardisiert; HTTP/3 nutzt QUIC als Transportprotokoll statt TCP.",
+    "sourceName": "RFC 9000 – QUIC: A UDP-Based Multiplexed and Secure Transport",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc9000",
+    "verifyNote": "UDP-Transport und Transportschicht-Einordnung aus RFC 9000; kein eigener standardisierter Port."
+  }
+]

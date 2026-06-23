@@ -113,6 +113,23 @@ function processDomain(domain) {
     out.push(clean);
   }
 
+  // Cross-Kategorie-Dedup: Ein `acronym` (z.B. "FTP") dupliziert ein reicheres
+  // Konzept gleichen Namens (network_protocol/file_format/programming_language) —
+  // beide würden eine "Wofür steht X?"-Frage erzeugen. Das reichere Konzept gewinnt;
+  // das acronym wird verworfen.
+  const richNames = new Set(
+    out.filter(c => c.category !== 'acronym').map(c => norm(c.name))
+  );
+  const deduped = out.filter(c => {
+    if (c.category === 'acronym' && richNames.has(norm(c.name))) {
+      warnings.push(`${domain}: acronym "${c.name}" kollidiert mit gleichnamigem Konzept anderer Kategorie -> verworfen`);
+      return false;
+    }
+    return true;
+  });
+  out.length = 0;
+  out.push(...deduped);
+
   // Kategorie-Statistik
   const byCat = {};
   for (const c of out) byCat[c.category] = (byCat[c.category] || 0) + 1;

@@ -399,6 +399,120 @@
     "mapTargetId": null
   },
   {
+    "id": "q_machina_lang-fsharp_machina-lang-paradigm",
+    "entityId": "machina:lang-fsharp",
+    "entityType": "programming_language",
+    "type": "machina-lang-paradigm",
+    "difficulty": 3,
+    "prompt": "Welchem Programmierparadigma wird die Sprache F# primär zugeordnet?",
+    "correctAnswer": "Funktional",
+    "options": [
+      "Funktional",
+      "Multiparadigma",
+      "Objektorientiert",
+      "Imperativ/prozedural"
+    ],
+    "testedAttribute": "paradigm",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_lang-clojure_machina-lang-paradigm",
+    "entityId": "machina:lang-clojure",
+    "entityType": "programming_language",
+    "type": "machina-lang-paradigm",
+    "difficulty": 3,
+    "prompt": "Welchem Programmierparadigma wird die Sprache Clojure primär zugeordnet?",
+    "correctAnswer": "Funktional",
+    "options": [
+      "Funktional",
+      "Multiparadigma",
+      "Objektorientiert",
+      "Imperativ/prozedural"
+    ],
+    "testedAttribute": "paradigm",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_lang-elixir_machina-lang-paradigm",
+    "entityId": "machina:lang-elixir",
+    "entityType": "programming_language",
+    "type": "machina-lang-paradigm",
+    "difficulty": 3,
+    "prompt": "Welchem Programmierparadigma wird die Sprache Elixir primär zugeordnet?",
+    "correctAnswer": "Funktional",
+    "options": [
+      "Funktional",
+      "Multiparadigma",
+      "Objektorientiert",
+      "Imperativ/prozedural"
+    ],
+    "testedAttribute": "paradigm",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_lang-groovy_machina-lang-paradigm",
+    "entityId": "machina:lang-groovy",
+    "entityType": "programming_language",
+    "type": "machina-lang-paradigm",
+    "difficulty": 3,
+    "prompt": "Welchem Programmierparadigma wird die Sprache Groovy primär zugeordnet?",
+    "correctAnswer": "Multiparadigma",
+    "options": [
+      "Multiparadigma",
+      "Objektorientiert",
+      "Imperativ/prozedural",
+      "Funktional"
+    ],
+    "testedAttribute": "paradigm",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_lang-ocaml_machina-lang-paradigm",
+    "entityId": "machina:lang-ocaml",
+    "entityType": "programming_language",
+    "type": "machina-lang-paradigm",
+    "difficulty": 3,
+    "prompt": "Welchem Programmierparadigma wird die Sprache OCaml primär zugeordnet?",
+    "correctAnswer": "Multiparadigma",
+    "options": [
+      "Multiparadigma",
+      "Objektorientiert",
+      "Imperativ/prozedural",
+      "Funktional"
+    ],
+    "testedAttribute": "paradigm",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_lang-webassembly_machina-lang-paradigm",
+    "entityId": "machina:lang-webassembly",
+    "entityType": "programming_language",
+    "type": "machina-lang-paradigm",
+    "difficulty": 3,
+    "prompt": "Welchem Programmierparadigma wird die Sprache WebAssembly primär zugeordnet?",
+    "correctAnswer": "Stack-basiert",
+    "options": [
+      "Stack-basiert",
+      "Multiparadigma",
+      "Objektorientiert",
+      "Imperativ/prozedural"
+    ],
+    "testedAttribute": "paradigm",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_machina_lang-python_machina-lang-execution",
     "entityId": "machina:lang-python",
     "entityType": "programming_language",
@@ -428,7 +542,8 @@
     "options": [
       "JIT-kompiliert",
       "Interpretiert",
-      "Bytecode (VM)"
+      "Bytecode (VM)",
+      "Bytecode (VM)/BEAM"
     ],
     "testedAttribute": "execution",
     "answerIsName": false,
@@ -465,7 +580,8 @@
     "options": [
       "Kompiliert",
       "Interpretiert",
-      "Bytecode (VM)"
+      "Bytecode (VM)",
+      "Bytecode (VM)/BEAM"
     ],
     "testedAttribute": "execution",
     "answerIsName": false,
@@ -483,7 +599,8 @@
     "options": [
       "Kompiliert",
       "Interpretiert",
-      "Bytecode (VM)"
+      "Bytecode (VM)",
+      "Bytecode (VM)/BEAM"
     ],
     "testedAttribute": "execution",
     "answerIsName": false,
@@ -501,7 +618,8 @@
     "options": [
       "Kompiliert",
       "Interpretiert",
-      "Bytecode (VM)"
+      "Bytecode (VM)",
+      "Bytecode (VM)/BEAM"
     ],
     "testedAttribute": "execution",
     "answerIsName": false,
@@ -576,7 +694,8 @@
     "options": [
       "Kompiliert",
       "Interpretiert",
-      "Bytecode (VM)"
+      "Bytecode (VM)",
+      "Bytecode (VM)/BEAM"
     ],
     "testedAttribute": "execution",
     "answerIsName": false,
@@ -613,7 +732,8 @@
     "options": [
       "Kompiliert",
       "Interpretiert",
-      "Bytecode (VM)"
+      "Bytecode (VM)",
+      "Bytecode (VM)/BEAM"
     ],
     "testedAttribute": "execution",
     "answerIsName": false,
@@ -745,7 +865,8 @@
     "options": [
       "Kompiliert",
       "Interpretiert",
-      "Bytecode (VM)"
+      "Bytecode (VM)",
+      "Bytecode (VM)/BEAM"
     ],
     "testedAttribute": "execution",
     "answerIsName": false,
@@ -763,7 +884,8 @@
     "options": [
       "Kompiliert",
       "Interpretiert",
-      "Bytecode (VM)"
+      "Bytecode (VM)",
+      "Bytecode (VM)/BEAM"
     ],
     "testedAttribute": "execution",
     "answerIsName": false,
@@ -781,7 +903,8 @@
     "options": [
       "Kompiliert",
       "Interpretiert",
-      "Bytecode (VM)"
+      "Bytecode (VM)",
+      "Bytecode (VM)/BEAM"
     ],
     "testedAttribute": "execution",
     "answerIsName": false,
@@ -837,7 +960,8 @@
     "options": [
       "JIT-kompiliert",
       "Interpretiert",
-      "Bytecode (VM)"
+      "Bytecode (VM)",
+      "Bytecode (VM)/BEAM"
     ],
     "testedAttribute": "execution",
     "answerIsName": false,
@@ -855,7 +979,8 @@
     "options": [
       "Kompiliert",
       "Interpretiert",
-      "Bytecode (VM)"
+      "Bytecode (VM)",
+      "Bytecode (VM)/BEAM"
     ],
     "testedAttribute": "execution",
     "answerIsName": false,
@@ -873,7 +998,8 @@
     "options": [
       "JIT-kompiliert",
       "Interpretiert",
-      "Bytecode (VM)"
+      "Bytecode (VM)",
+      "Bytecode (VM)/BEAM"
     ],
     "testedAttribute": "execution",
     "answerIsName": false,
@@ -906,6 +1032,177 @@
     "type": "machina-lang-execution",
     "difficulty": 3,
     "prompt": "Wie wird Programmcode der Sprache Visual Basic .NET üblicherweise ausgeführt?",
+    "correctAnswer": "Bytecode (VM)",
+    "options": [
+      "Bytecode (VM)",
+      "Interpretiert",
+      "JIT-kompiliert",
+      "Kompiliert"
+    ],
+    "testedAttribute": "execution",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_lang-bash_machina-lang-execution",
+    "entityId": "machina:lang-bash",
+    "entityType": "programming_language",
+    "type": "machina-lang-execution",
+    "difficulty": 3,
+    "prompt": "Wie wird Programmcode der Sprache Bash üblicherweise ausgeführt?",
+    "correctAnswer": "Interpretiert",
+    "options": [
+      "Interpretiert",
+      "JIT-kompiliert",
+      "Bytecode (VM)",
+      "Kompiliert"
+    ],
+    "testedAttribute": "execution",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_lang-powershell_machina-lang-execution",
+    "entityId": "machina:lang-powershell",
+    "entityType": "programming_language",
+    "type": "machina-lang-execution",
+    "difficulty": 3,
+    "prompt": "Wie wird Programmcode der Sprache PowerShell üblicherweise ausgeführt?",
+    "correctAnswer": "Interpretiert",
+    "options": [
+      "Interpretiert",
+      "JIT-kompiliert",
+      "Bytecode (VM)",
+      "Kompiliert"
+    ],
+    "testedAttribute": "execution",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_lang-fsharp_machina-lang-execution",
+    "entityId": "machina:lang-fsharp",
+    "entityType": "programming_language",
+    "type": "machina-lang-execution",
+    "difficulty": 3,
+    "prompt": "Wie wird Programmcode der Sprache F# üblicherweise ausgeführt?",
+    "correctAnswer": "Bytecode (VM)",
+    "options": [
+      "Bytecode (VM)",
+      "Interpretiert",
+      "JIT-kompiliert",
+      "Kompiliert"
+    ],
+    "testedAttribute": "execution",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_lang-clojure_machina-lang-execution",
+    "entityId": "machina:lang-clojure",
+    "entityType": "programming_language",
+    "type": "machina-lang-execution",
+    "difficulty": 3,
+    "prompt": "Wie wird Programmcode der Sprache Clojure üblicherweise ausgeführt?",
+    "correctAnswer": "Bytecode (VM)",
+    "options": [
+      "Bytecode (VM)",
+      "Interpretiert",
+      "JIT-kompiliert",
+      "Kompiliert"
+    ],
+    "testedAttribute": "execution",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_lang-groovy_machina-lang-execution",
+    "entityId": "machina:lang-groovy",
+    "entityType": "programming_language",
+    "type": "machina-lang-execution",
+    "difficulty": 3,
+    "prompt": "Wie wird Programmcode der Sprache Groovy üblicherweise ausgeführt?",
+    "correctAnswer": "Bytecode (VM)",
+    "options": [
+      "Bytecode (VM)",
+      "Interpretiert",
+      "JIT-kompiliert",
+      "Kompiliert"
+    ],
+    "testedAttribute": "execution",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_lang-pascal_machina-lang-execution",
+    "entityId": "machina:lang-pascal",
+    "entityType": "programming_language",
+    "type": "machina-lang-execution",
+    "difficulty": 3,
+    "prompt": "Wie wird Programmcode der Sprache Pascal üblicherweise ausgeführt?",
+    "correctAnswer": "Kompiliert",
+    "options": [
+      "Kompiliert",
+      "Interpretiert",
+      "Bytecode (VM)",
+      "Bytecode (VM)/BEAM"
+    ],
+    "testedAttribute": "execution",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_lang-ada_machina-lang-execution",
+    "entityId": "machina:lang-ada",
+    "entityType": "programming_language",
+    "type": "machina-lang-execution",
+    "difficulty": 3,
+    "prompt": "Wie wird Programmcode der Sprache Ada üblicherweise ausgeführt?",
+    "correctAnswer": "Kompiliert",
+    "options": [
+      "Kompiliert",
+      "Interpretiert",
+      "Bytecode (VM)",
+      "Bytecode (VM)/BEAM"
+    ],
+    "testedAttribute": "execution",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_lang-ocaml_machina-lang-execution",
+    "entityId": "machina:lang-ocaml",
+    "entityType": "programming_language",
+    "type": "machina-lang-execution",
+    "difficulty": 3,
+    "prompt": "Wie wird Programmcode der Sprache OCaml üblicherweise ausgeführt?",
+    "correctAnswer": "Kompiliert",
+    "options": [
+      "Kompiliert",
+      "Interpretiert",
+      "Bytecode (VM)",
+      "Bytecode (VM)/BEAM"
+    ],
+    "testedAttribute": "execution",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_lang-webassembly_machina-lang-execution",
+    "entityId": "machina:lang-webassembly",
+    "entityType": "programming_language",
+    "type": "machina-lang-execution",
+    "difficulty": 3,
+    "prompt": "Wie wird Programmcode der Sprache WebAssembly üblicherweise ausgeführt?",
     "correctAnswer": "Bytecode (VM)",
     "options": [
       "Bytecode (VM)",
@@ -1356,6 +1653,101 @@
     "mapTargetId": null
   },
   {
+    "id": "q_machina_lang-fsharp_machina-lang-domain",
+    "entityId": "machina:lang-fsharp",
+    "entityType": "programming_language",
+    "type": "machina-lang-domain",
+    "difficulty": 2,
+    "prompt": "In welchem Anwendungsbereich wird F# vor allem eingesetzt?",
+    "correctAnswer": "Datenwissenschaft",
+    "options": [
+      "Datenwissenschaft",
+      "Webentwicklung (Frontend)",
+      "Webentwicklung (Backend)",
+      "Systemprogrammierung"
+    ],
+    "testedAttribute": "primaryDomain",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_lang-clojure_machina-lang-domain",
+    "entityId": "machina:lang-clojure",
+    "entityType": "programming_language",
+    "type": "machina-lang-domain",
+    "difficulty": 2,
+    "prompt": "In welchem Anwendungsbereich wird Clojure vor allem eingesetzt?",
+    "correctAnswer": "Nebenläufige Systeme",
+    "options": [
+      "Nebenläufige Systeme",
+      "Datenwissenschaft",
+      "Webentwicklung (Frontend)",
+      "Webentwicklung (Backend)"
+    ],
+    "testedAttribute": "primaryDomain",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_lang-elixir_machina-lang-domain",
+    "entityId": "machina:lang-elixir",
+    "entityType": "programming_language",
+    "type": "machina-lang-domain",
+    "difficulty": 2,
+    "prompt": "In welchem Anwendungsbereich wird Elixir vor allem eingesetzt?",
+    "correctAnswer": "Nebenläufige Systeme",
+    "options": [
+      "Nebenläufige Systeme",
+      "Datenwissenschaft",
+      "Webentwicklung (Frontend)",
+      "Webentwicklung (Backend)"
+    ],
+    "testedAttribute": "primaryDomain",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_lang-ada_machina-lang-domain",
+    "entityId": "machina:lang-ada",
+    "entityType": "programming_language",
+    "type": "machina-lang-domain",
+    "difficulty": 2,
+    "prompt": "In welchem Anwendungsbereich wird Ada vor allem eingesetzt?",
+    "correctAnswer": "Systemprogrammierung",
+    "options": [
+      "Systemprogrammierung",
+      "Datenwissenschaft",
+      "Webentwicklung (Frontend)",
+      "Webentwicklung (Backend)"
+    ],
+    "testedAttribute": "primaryDomain",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_lang-webassembly_machina-lang-domain",
+    "entityId": "machina:lang-webassembly",
+    "entityType": "programming_language",
+    "type": "machina-lang-domain",
+    "difficulty": 2,
+    "prompt": "In welchem Anwendungsbereich wird WebAssembly vor allem eingesetzt?",
+    "correctAnswer": "Webentwicklung (Frontend)",
+    "options": [
+      "Webentwicklung (Frontend)",
+      "Datenwissenschaft",
+      "Webentwicklung (Backend)",
+      "Systemprogrammierung"
+    ],
+    "testedAttribute": "primaryDomain",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_machina_lang-python_machina-lang-ext",
     "entityId": "machina:lang-python",
     "entityType": "programming_language",
@@ -1688,6 +2080,158 @@
     "correctAnswer": ".vb",
     "options": [
       ".vb",
+      ".py",
+      ".js",
+      ".java"
+    ],
+    "testedAttribute": "fileExtension",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_lang-bash_machina-lang-ext",
+    "entityId": "machina:lang-bash",
+    "entityType": "programming_language",
+    "type": "machina-lang-ext",
+    "difficulty": 2,
+    "prompt": "Welche Dateiendung tragen Quelltextdateien der Sprache Bash typischerweise?",
+    "correctAnswer": ".sh",
+    "options": [
+      ".sh",
+      ".py",
+      ".js",
+      ".java"
+    ],
+    "testedAttribute": "fileExtension",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_lang-powershell_machina-lang-ext",
+    "entityId": "machina:lang-powershell",
+    "entityType": "programming_language",
+    "type": "machina-lang-ext",
+    "difficulty": 2,
+    "prompt": "Welche Dateiendung tragen Quelltextdateien der Sprache PowerShell typischerweise?",
+    "correctAnswer": ".ps1",
+    "options": [
+      ".ps1",
+      ".py",
+      ".js",
+      ".java"
+    ],
+    "testedAttribute": "fileExtension",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_lang-fsharp_machina-lang-ext",
+    "entityId": "machina:lang-fsharp",
+    "entityType": "programming_language",
+    "type": "machina-lang-ext",
+    "difficulty": 2,
+    "prompt": "Welche Dateiendung tragen Quelltextdateien der Sprache F# typischerweise?",
+    "correctAnswer": ".fs",
+    "options": [
+      ".fs",
+      ".py",
+      ".js",
+      ".java"
+    ],
+    "testedAttribute": "fileExtension",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_lang-clojure_machina-lang-ext",
+    "entityId": "machina:lang-clojure",
+    "entityType": "programming_language",
+    "type": "machina-lang-ext",
+    "difficulty": 2,
+    "prompt": "Welche Dateiendung tragen Quelltextdateien der Sprache Clojure typischerweise?",
+    "correctAnswer": ".clj",
+    "options": [
+      ".clj",
+      ".py",
+      ".js",
+      ".java"
+    ],
+    "testedAttribute": "fileExtension",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_lang-elixir_machina-lang-ext",
+    "entityId": "machina:lang-elixir",
+    "entityType": "programming_language",
+    "type": "machina-lang-ext",
+    "difficulty": 2,
+    "prompt": "Welche Dateiendung tragen Quelltextdateien der Sprache Elixir typischerweise?",
+    "correctAnswer": ".ex",
+    "options": [
+      ".ex",
+      ".py",
+      ".js",
+      ".java"
+    ],
+    "testedAttribute": "fileExtension",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_lang-ada_machina-lang-ext",
+    "entityId": "machina:lang-ada",
+    "entityType": "programming_language",
+    "type": "machina-lang-ext",
+    "difficulty": 2,
+    "prompt": "Welche Dateiendung tragen Quelltextdateien der Sprache Ada typischerweise?",
+    "correctAnswer": ".adb",
+    "options": [
+      ".adb",
+      ".py",
+      ".js",
+      ".java"
+    ],
+    "testedAttribute": "fileExtension",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_lang-ocaml_machina-lang-ext",
+    "entityId": "machina:lang-ocaml",
+    "entityType": "programming_language",
+    "type": "machina-lang-ext",
+    "difficulty": 2,
+    "prompt": "Welche Dateiendung tragen Quelltextdateien der Sprache OCaml typischerweise?",
+    "correctAnswer": ".ml",
+    "options": [
+      ".ml",
+      ".py",
+      ".js",
+      ".java"
+    ],
+    "testedAttribute": "fileExtension",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_lang-webassembly_machina-lang-ext",
+    "entityId": "machina:lang-webassembly",
+    "entityType": "programming_language",
+    "type": "machina-lang-ext",
+    "difficulty": 2,
+    "prompt": "Welche Dateiendung tragen Quelltextdateien der Sprache WebAssembly typischerweise?",
+    "correctAnswer": ".wasm",
+    "options": [
+      ".wasm",
       ".py",
       ".js",
       ".java"
@@ -2211,6 +2755,196 @@
     "mapTargetId": null
   },
   {
+    "id": "q_machina_lang-bash_machina-lang-paradigm-rev",
+    "entityId": "machina:lang-bash",
+    "entityType": "programming_language",
+    "type": "machina-lang-paradigm-rev",
+    "difficulty": 3,
+    "prompt": "Welche dieser Sprachen ist dem Paradigma „Skriptsprache“ zuzuordnen?",
+    "correctAnswer": "Bash",
+    "options": [
+      "Bash",
+      "Python",
+      "JavaScript",
+      "Java"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_lang-powershell_machina-lang-paradigm-rev",
+    "entityId": "machina:lang-powershell",
+    "entityType": "programming_language",
+    "type": "machina-lang-paradigm-rev",
+    "difficulty": 3,
+    "prompt": "Welche dieser Sprachen ist dem Paradigma „Skriptsprache“ zuzuordnen?",
+    "correctAnswer": "PowerShell",
+    "options": [
+      "PowerShell",
+      "Python",
+      "JavaScript",
+      "Java"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_lang-fsharp_machina-lang-paradigm-rev",
+    "entityId": "machina:lang-fsharp",
+    "entityType": "programming_language",
+    "type": "machina-lang-paradigm-rev",
+    "difficulty": 3,
+    "prompt": "Welche dieser Sprachen ist dem Paradigma „Funktional“ zuzuordnen?",
+    "correctAnswer": "F#",
+    "options": [
+      "F#",
+      "Python",
+      "JavaScript",
+      "Java"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_lang-clojure_machina-lang-paradigm-rev",
+    "entityId": "machina:lang-clojure",
+    "entityType": "programming_language",
+    "type": "machina-lang-paradigm-rev",
+    "difficulty": 3,
+    "prompt": "Welche dieser Sprachen ist dem Paradigma „Funktional“ zuzuordnen?",
+    "correctAnswer": "Clojure",
+    "options": [
+      "Clojure",
+      "Python",
+      "JavaScript",
+      "Java"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_lang-elixir_machina-lang-paradigm-rev",
+    "entityId": "machina:lang-elixir",
+    "entityType": "programming_language",
+    "type": "machina-lang-paradigm-rev",
+    "difficulty": 3,
+    "prompt": "Welche dieser Sprachen ist dem Paradigma „Funktional“ zuzuordnen?",
+    "correctAnswer": "Elixir",
+    "options": [
+      "Elixir",
+      "Python",
+      "JavaScript",
+      "Java"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_lang-groovy_machina-lang-paradigm-rev",
+    "entityId": "machina:lang-groovy",
+    "entityType": "programming_language",
+    "type": "machina-lang-paradigm-rev",
+    "difficulty": 3,
+    "prompt": "Welche dieser Sprachen ist dem Paradigma „Multiparadigma“ zuzuordnen?",
+    "correctAnswer": "Groovy",
+    "options": [
+      "Groovy",
+      "Java",
+      "C",
+      "Go"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_lang-pascal_machina-lang-paradigm-rev",
+    "entityId": "machina:lang-pascal",
+    "entityType": "programming_language",
+    "type": "machina-lang-paradigm-rev",
+    "difficulty": 3,
+    "prompt": "Welche dieser Sprachen ist dem Paradigma „Imperativ/prozedural“ zuzuordnen?",
+    "correctAnswer": "Pascal",
+    "options": [
+      "Pascal",
+      "Python",
+      "JavaScript",
+      "Java"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_lang-ada_machina-lang-paradigm-rev",
+    "entityId": "machina:lang-ada",
+    "entityType": "programming_language",
+    "type": "machina-lang-paradigm-rev",
+    "difficulty": 3,
+    "prompt": "Welche dieser Sprachen ist dem Paradigma „Imperativ/prozedural“ zuzuordnen?",
+    "correctAnswer": "Ada",
+    "options": [
+      "Ada",
+      "Python",
+      "JavaScript",
+      "Java"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_lang-ocaml_machina-lang-paradigm-rev",
+    "entityId": "machina:lang-ocaml",
+    "entityType": "programming_language",
+    "type": "machina-lang-paradigm-rev",
+    "difficulty": 3,
+    "prompt": "Welche dieser Sprachen ist dem Paradigma „Multiparadigma“ zuzuordnen?",
+    "correctAnswer": "OCaml",
+    "options": [
+      "OCaml",
+      "Java",
+      "Go",
+      "Ruby"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_lang-webassembly_machina-lang-paradigm-rev",
+    "entityId": "machina:lang-webassembly",
+    "entityType": "programming_language",
+    "type": "machina-lang-paradigm-rev",
+    "difficulty": 3,
+    "prompt": "Welche dieser Sprachen ist dem Paradigma „Stack-basiert“ zuzuordnen?",
+    "correctAnswer": "WebAssembly",
+    "options": [
+      "WebAssembly",
+      "Python",
+      "JavaScript",
+      "Java"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_machina_fmt-png_machina-format-mediatype",
     "entityId": "machina:fmt-png",
     "entityType": "file_format",
@@ -2581,6 +3315,291 @@
     "correctAnswer": "Dokument",
     "options": [
       "Dokument",
+      "Bild",
+      "Audio",
+      "Video"
+    ],
+    "testedAttribute": "mediaType",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-heic_machina-format-mediatype",
+    "entityId": "machina:fmt-heic",
+    "entityType": "file_format",
+    "type": "machina-format-mediatype",
+    "difficulty": 2,
+    "prompt": "Welcher Art von Daten dient das Dateiformat HEIC primär?",
+    "correctAnswer": "Bild",
+    "options": [
+      "Bild",
+      "Audio",
+      "Video",
+      "Dokument"
+    ],
+    "testedAttribute": "mediaType",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-ico_machina-format-mediatype",
+    "entityId": "machina:fmt-ico",
+    "entityType": "file_format",
+    "type": "machina-format-mediatype",
+    "difficulty": 2,
+    "prompt": "Welcher Art von Daten dient das Dateiformat ICO primär?",
+    "correctAnswer": "Bild",
+    "options": [
+      "Bild",
+      "Audio",
+      "Video",
+      "Dokument"
+    ],
+    "testedAttribute": "mediaType",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-psd_machina-format-mediatype",
+    "entityId": "machina:fmt-psd",
+    "entityType": "file_format",
+    "type": "machina-format-mediatype",
+    "difficulty": 2,
+    "prompt": "Welcher Art von Daten dient das Dateiformat PSD primär?",
+    "correctAnswer": "Bild",
+    "options": [
+      "Bild",
+      "Audio",
+      "Video",
+      "Dokument"
+    ],
+    "testedAttribute": "mediaType",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-eps_machina-format-mediatype",
+    "entityId": "machina:fmt-eps",
+    "entityType": "file_format",
+    "type": "machina-format-mediatype",
+    "difficulty": 2,
+    "prompt": "Welcher Art von Daten dient das Dateiformat EPS primär?",
+    "correctAnswer": "Bild",
+    "options": [
+      "Bild",
+      "Audio",
+      "Video",
+      "Dokument"
+    ],
+    "testedAttribute": "mediaType",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-midi_machina-format-mediatype",
+    "entityId": "machina:fmt-midi",
+    "entityType": "file_format",
+    "type": "machina-format-mediatype",
+    "difficulty": 2,
+    "prompt": "Welcher Art von Daten dient das Dateiformat MIDI primär?",
+    "correctAnswer": "Audio",
+    "options": [
+      "Audio",
+      "Bild",
+      "Video",
+      "Dokument"
+    ],
+    "testedAttribute": "mediaType",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-m4a_machina-format-mediatype",
+    "entityId": "machina:fmt-m4a",
+    "entityType": "file_format",
+    "type": "machina-format-mediatype",
+    "difficulty": 2,
+    "prompt": "Welcher Art von Daten dient das Dateiformat M4A primär?",
+    "correctAnswer": "Audio",
+    "options": [
+      "Audio",
+      "Bild",
+      "Video",
+      "Dokument"
+    ],
+    "testedAttribute": "mediaType",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-wma_machina-format-mediatype",
+    "entityId": "machina:fmt-wma",
+    "entityType": "file_format",
+    "type": "machina-format-mediatype",
+    "difficulty": 2,
+    "prompt": "Welcher Art von Daten dient das Dateiformat WMA primär?",
+    "correctAnswer": "Audio",
+    "options": [
+      "Audio",
+      "Bild",
+      "Video",
+      "Dokument"
+    ],
+    "testedAttribute": "mediaType",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-wmv_machina-format-mediatype",
+    "entityId": "machina:fmt-wmv",
+    "entityType": "file_format",
+    "type": "machina-format-mediatype",
+    "difficulty": 2,
+    "prompt": "Welcher Art von Daten dient das Dateiformat WMV primär?",
+    "correctAnswer": "Video",
+    "options": [
+      "Video",
+      "Bild",
+      "Audio",
+      "Dokument"
+    ],
+    "testedAttribute": "mediaType",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-flv_machina-format-mediatype",
+    "entityId": "machina:fmt-flv",
+    "entityType": "file_format",
+    "type": "machina-format-mediatype",
+    "difficulty": 2,
+    "prompt": "Welcher Art von Daten dient das Dateiformat FLV primär?",
+    "correctAnswer": "Video",
+    "options": [
+      "Video",
+      "Bild",
+      "Audio",
+      "Dokument"
+    ],
+    "testedAttribute": "mediaType",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-webm_machina-format-mediatype",
+    "entityId": "machina:fmt-webm",
+    "entityType": "file_format",
+    "type": "machina-format-mediatype",
+    "difficulty": 2,
+    "prompt": "Welcher Art von Daten dient das Dateiformat WebM primär?",
+    "correctAnswer": "Video",
+    "options": [
+      "Video",
+      "Bild",
+      "Audio",
+      "Dokument"
+    ],
+    "testedAttribute": "mediaType",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-epub_machina-format-mediatype",
+    "entityId": "machina:fmt-epub",
+    "entityType": "file_format",
+    "type": "machina-format-mediatype",
+    "difficulty": 2,
+    "prompt": "Welcher Art von Daten dient das Dateiformat EPUB primär?",
+    "correctAnswer": "Dokument",
+    "options": [
+      "Dokument",
+      "Bild",
+      "Audio",
+      "Video"
+    ],
+    "testedAttribute": "mediaType",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-rtf_machina-format-mediatype",
+    "entityId": "machina:fmt-rtf",
+    "entityType": "file_format",
+    "type": "machina-format-mediatype",
+    "difficulty": 2,
+    "prompt": "Welcher Art von Daten dient das Dateiformat RTF primär?",
+    "correctAnswer": "Dokument",
+    "options": [
+      "Dokument",
+      "Bild",
+      "Audio",
+      "Video"
+    ],
+    "testedAttribute": "mediaType",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-odt_machina-format-mediatype",
+    "entityId": "machina:fmt-odt",
+    "entityType": "file_format",
+    "type": "machina-format-mediatype",
+    "difficulty": 2,
+    "prompt": "Welcher Art von Daten dient das Dateiformat ODT primär?",
+    "correctAnswer": "Dokument",
+    "options": [
+      "Dokument",
+      "Bild",
+      "Audio",
+      "Video"
+    ],
+    "testedAttribute": "mediaType",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-ttf_machina-format-mediatype",
+    "entityId": "machina:fmt-ttf",
+    "entityType": "file_format",
+    "type": "machina-format-mediatype",
+    "difficulty": 2,
+    "prompt": "Welcher Art von Daten dient das Dateiformat TTF primär?",
+    "correctAnswer": "Schriftart",
+    "options": [
+      "Schriftart",
+      "Bild",
+      "Audio",
+      "Video"
+    ],
+    "testedAttribute": "mediaType",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-woff_machina-format-mediatype",
+    "entityId": "machina:fmt-woff",
+    "entityType": "file_format",
+    "type": "machina-format-mediatype",
+    "difficulty": 2,
+    "prompt": "Welcher Art von Daten dient das Dateiformat WOFF primär?",
+    "correctAnswer": "Schriftart",
+    "options": [
+      "Schriftart",
       "Bild",
       "Audio",
       "Video"
@@ -2993,6 +4012,330 @@
     "type": "machina-format-compression",
     "difficulty": 3,
     "prompt": "Wie behandelt das Dateiformat HTML die Datenmenge bei der Speicherung?",
+    "correctAnswer": "unkomprimiert",
+    "options": [
+      "unkomprimiert",
+      "verlustfrei komprimiert",
+      "verlustbehaftet komprimiert"
+    ],
+    "testedAttribute": "compression",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-heic_machina-format-compression",
+    "entityId": "machina:fmt-heic",
+    "entityType": "file_format",
+    "type": "machina-format-compression",
+    "difficulty": 3,
+    "prompt": "Wie behandelt das Dateiformat HEIC die Datenmenge bei der Speicherung?",
+    "correctAnswer": "verlustbehaftet komprimiert",
+    "options": [
+      "verlustbehaftet komprimiert",
+      "verlustfrei komprimiert",
+      "unkomprimiert"
+    ],
+    "testedAttribute": "compression",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-psd_machina-format-compression",
+    "entityId": "machina:fmt-psd",
+    "entityType": "file_format",
+    "type": "machina-format-compression",
+    "difficulty": 3,
+    "prompt": "Wie behandelt das Dateiformat PSD die Datenmenge bei der Speicherung?",
+    "correctAnswer": "verlustfrei komprimiert",
+    "options": [
+      "verlustfrei komprimiert",
+      "verlustbehaftet komprimiert",
+      "unkomprimiert"
+    ],
+    "testedAttribute": "compression",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-eps_machina-format-compression",
+    "entityId": "machina:fmt-eps",
+    "entityType": "file_format",
+    "type": "machina-format-compression",
+    "difficulty": 3,
+    "prompt": "Wie behandelt das Dateiformat EPS die Datenmenge bei der Speicherung?",
+    "correctAnswer": "unkomprimiert",
+    "options": [
+      "unkomprimiert",
+      "verlustfrei komprimiert",
+      "verlustbehaftet komprimiert"
+    ],
+    "testedAttribute": "compression",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-midi_machina-format-compression",
+    "entityId": "machina:fmt-midi",
+    "entityType": "file_format",
+    "type": "machina-format-compression",
+    "difficulty": 3,
+    "prompt": "Wie behandelt das Dateiformat MIDI die Datenmenge bei der Speicherung?",
+    "correctAnswer": "unkomprimiert",
+    "options": [
+      "unkomprimiert",
+      "verlustfrei komprimiert",
+      "verlustbehaftet komprimiert"
+    ],
+    "testedAttribute": "compression",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-m4a_machina-format-compression",
+    "entityId": "machina:fmt-m4a",
+    "entityType": "file_format",
+    "type": "machina-format-compression",
+    "difficulty": 3,
+    "prompt": "Wie behandelt das Dateiformat M4A die Datenmenge bei der Speicherung?",
+    "correctAnswer": "verlustbehaftet komprimiert",
+    "options": [
+      "verlustbehaftet komprimiert",
+      "verlustfrei komprimiert",
+      "unkomprimiert"
+    ],
+    "testedAttribute": "compression",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-wma_machina-format-compression",
+    "entityId": "machina:fmt-wma",
+    "entityType": "file_format",
+    "type": "machina-format-compression",
+    "difficulty": 3,
+    "prompt": "Wie behandelt das Dateiformat WMA die Datenmenge bei der Speicherung?",
+    "correctAnswer": "verlustbehaftet komprimiert",
+    "options": [
+      "verlustbehaftet komprimiert",
+      "verlustfrei komprimiert",
+      "unkomprimiert"
+    ],
+    "testedAttribute": "compression",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-wmv_machina-format-compression",
+    "entityId": "machina:fmt-wmv",
+    "entityType": "file_format",
+    "type": "machina-format-compression",
+    "difficulty": 3,
+    "prompt": "Wie behandelt das Dateiformat WMV die Datenmenge bei der Speicherung?",
+    "correctAnswer": "verlustbehaftet komprimiert",
+    "options": [
+      "verlustbehaftet komprimiert",
+      "verlustfrei komprimiert",
+      "unkomprimiert"
+    ],
+    "testedAttribute": "compression",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-flv_machina-format-compression",
+    "entityId": "machina:fmt-flv",
+    "entityType": "file_format",
+    "type": "machina-format-compression",
+    "difficulty": 3,
+    "prompt": "Wie behandelt das Dateiformat FLV die Datenmenge bei der Speicherung?",
+    "correctAnswer": "verlustbehaftet komprimiert",
+    "options": [
+      "verlustbehaftet komprimiert",
+      "verlustfrei komprimiert",
+      "unkomprimiert"
+    ],
+    "testedAttribute": "compression",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-webm_machina-format-compression",
+    "entityId": "machina:fmt-webm",
+    "entityType": "file_format",
+    "type": "machina-format-compression",
+    "difficulty": 3,
+    "prompt": "Wie behandelt das Dateiformat WebM die Datenmenge bei der Speicherung?",
+    "correctAnswer": "verlustbehaftet komprimiert",
+    "options": [
+      "verlustbehaftet komprimiert",
+      "verlustfrei komprimiert",
+      "unkomprimiert"
+    ],
+    "testedAttribute": "compression",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-epub_machina-format-compression",
+    "entityId": "machina:fmt-epub",
+    "entityType": "file_format",
+    "type": "machina-format-compression",
+    "difficulty": 3,
+    "prompt": "Wie behandelt das Dateiformat EPUB die Datenmenge bei der Speicherung?",
+    "correctAnswer": "verlustfrei komprimiert",
+    "options": [
+      "verlustfrei komprimiert",
+      "verlustbehaftet komprimiert",
+      "unkomprimiert"
+    ],
+    "testedAttribute": "compression",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-rtf_machina-format-compression",
+    "entityId": "machina:fmt-rtf",
+    "entityType": "file_format",
+    "type": "machina-format-compression",
+    "difficulty": 3,
+    "prompt": "Wie behandelt das Dateiformat RTF die Datenmenge bei der Speicherung?",
+    "correctAnswer": "unkomprimiert",
+    "options": [
+      "unkomprimiert",
+      "verlustfrei komprimiert",
+      "verlustbehaftet komprimiert"
+    ],
+    "testedAttribute": "compression",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-odt_machina-format-compression",
+    "entityId": "machina:fmt-odt",
+    "entityType": "file_format",
+    "type": "machina-format-compression",
+    "difficulty": 3,
+    "prompt": "Wie behandelt das Dateiformat ODT die Datenmenge bei der Speicherung?",
+    "correctAnswer": "verlustfrei komprimiert",
+    "options": [
+      "verlustfrei komprimiert",
+      "verlustbehaftet komprimiert",
+      "unkomprimiert"
+    ],
+    "testedAttribute": "compression",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-xlsx_machina-format-compression",
+    "entityId": "machina:fmt-xlsx",
+    "entityType": "file_format",
+    "type": "machina-format-compression",
+    "difficulty": 3,
+    "prompt": "Wie behandelt das Dateiformat XLSX die Datenmenge bei der Speicherung?",
+    "correctAnswer": "verlustfrei komprimiert",
+    "options": [
+      "verlustfrei komprimiert",
+      "verlustbehaftet komprimiert",
+      "unkomprimiert"
+    ],
+    "testedAttribute": "compression",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-yaml_machina-format-compression",
+    "entityId": "machina:fmt-yaml",
+    "entityType": "file_format",
+    "type": "machina-format-compression",
+    "difficulty": 3,
+    "prompt": "Wie behandelt das Dateiformat YAML die Datenmenge bei der Speicherung?",
+    "correctAnswer": "unkomprimiert",
+    "options": [
+      "unkomprimiert",
+      "verlustfrei komprimiert",
+      "verlustbehaftet komprimiert"
+    ],
+    "testedAttribute": "compression",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-woff_machina-format-compression",
+    "entityId": "machina:fmt-woff",
+    "entityType": "file_format",
+    "type": "machina-format-compression",
+    "difficulty": 3,
+    "prompt": "Wie behandelt das Dateiformat WOFF die Datenmenge bei der Speicherung?",
+    "correctAnswer": "verlustfrei komprimiert",
+    "options": [
+      "verlustfrei komprimiert",
+      "verlustbehaftet komprimiert",
+      "unkomprimiert"
+    ],
+    "testedAttribute": "compression",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-iso_machina-format-compression",
+    "entityId": "machina:fmt-iso",
+    "entityType": "file_format",
+    "type": "machina-format-compression",
+    "difficulty": 3,
+    "prompt": "Wie behandelt das Dateiformat ISO die Datenmenge bei der Speicherung?",
+    "correctAnswer": "unkomprimiert",
+    "options": [
+      "unkomprimiert",
+      "verlustfrei komprimiert",
+      "verlustbehaftet komprimiert"
+    ],
+    "testedAttribute": "compression",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-apk_machina-format-compression",
+    "entityId": "machina:fmt-apk",
+    "entityType": "file_format",
+    "type": "machina-format-compression",
+    "difficulty": 3,
+    "prompt": "Wie behandelt das Dateiformat APK die Datenmenge bei der Speicherung?",
+    "correctAnswer": "verlustfrei komprimiert",
+    "options": [
+      "verlustfrei komprimiert",
+      "verlustbehaftet komprimiert",
+      "unkomprimiert"
+    ],
+    "testedAttribute": "compression",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-ini_machina-format-compression",
+    "entityId": "machina:fmt-ini",
+    "entityType": "file_format",
+    "type": "machina-format-compression",
+    "difficulty": 3,
+    "prompt": "Wie behandelt das Dateiformat INI die Datenmenge bei der Speicherung?",
     "correctAnswer": "unkomprimiert",
     "options": [
       "unkomprimiert",
@@ -3442,6 +4785,310 @@
     "mapTargetId": null
   },
   {
+    "id": "q_machina_fmt-heic_machina-format-fullname",
+    "entityId": "machina:fmt-heic",
+    "entityType": "file_format",
+    "type": "machina-format-fullname",
+    "difficulty": 3,
+    "prompt": "Wofür steht das Kürzel des Dateiformats HEIC?",
+    "correctAnswer": "High Efficiency Image Container",
+    "options": [
+      "High Efficiency Image Container",
+      "Portable Network Graphics",
+      "Joint Photographic Experts Group",
+      "Graphics Interchange Format"
+    ],
+    "testedAttribute": "fullName",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-psd_machina-format-fullname",
+    "entityId": "machina:fmt-psd",
+    "entityType": "file_format",
+    "type": "machina-format-fullname",
+    "difficulty": 3,
+    "prompt": "Wofür steht das Kürzel des Dateiformats PSD?",
+    "correctAnswer": "Photoshop Document",
+    "options": [
+      "Photoshop Document",
+      "Portable Network Graphics",
+      "Joint Photographic Experts Group",
+      "Graphics Interchange Format"
+    ],
+    "testedAttribute": "fullName",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-eps_machina-format-fullname",
+    "entityId": "machina:fmt-eps",
+    "entityType": "file_format",
+    "type": "machina-format-fullname",
+    "difficulty": 3,
+    "prompt": "Wofür steht das Kürzel des Dateiformats EPS?",
+    "correctAnswer": "Encapsulated PostScript",
+    "options": [
+      "Encapsulated PostScript",
+      "Portable Network Graphics",
+      "Joint Photographic Experts Group",
+      "Graphics Interchange Format"
+    ],
+    "testedAttribute": "fullName",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-midi_machina-format-fullname",
+    "entityId": "machina:fmt-midi",
+    "entityType": "file_format",
+    "type": "machina-format-fullname",
+    "difficulty": 3,
+    "prompt": "Wofür steht das Kürzel des Dateiformats MIDI?",
+    "correctAnswer": "Musical Instrument Digital Interface",
+    "options": [
+      "Musical Instrument Digital Interface",
+      "Portable Network Graphics",
+      "Joint Photographic Experts Group",
+      "Graphics Interchange Format"
+    ],
+    "testedAttribute": "fullName",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-m4a_machina-format-fullname",
+    "entityId": "machina:fmt-m4a",
+    "entityType": "file_format",
+    "type": "machina-format-fullname",
+    "difficulty": 3,
+    "prompt": "Wofür steht das Kürzel des Dateiformats M4A?",
+    "correctAnswer": "MPEG-4 Audio",
+    "options": [
+      "MPEG-4 Audio",
+      "Portable Network Graphics",
+      "Joint Photographic Experts Group",
+      "Graphics Interchange Format"
+    ],
+    "testedAttribute": "fullName",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-wma_machina-format-fullname",
+    "entityId": "machina:fmt-wma",
+    "entityType": "file_format",
+    "type": "machina-format-fullname",
+    "difficulty": 3,
+    "prompt": "Wofür steht das Kürzel des Dateiformats WMA?",
+    "correctAnswer": "Windows Media Audio",
+    "options": [
+      "Windows Media Audio",
+      "Portable Network Graphics",
+      "Joint Photographic Experts Group",
+      "Graphics Interchange Format"
+    ],
+    "testedAttribute": "fullName",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-wmv_machina-format-fullname",
+    "entityId": "machina:fmt-wmv",
+    "entityType": "file_format",
+    "type": "machina-format-fullname",
+    "difficulty": 3,
+    "prompt": "Wofür steht das Kürzel des Dateiformats WMV?",
+    "correctAnswer": "Windows Media Video",
+    "options": [
+      "Windows Media Video",
+      "Portable Network Graphics",
+      "Joint Photographic Experts Group",
+      "Graphics Interchange Format"
+    ],
+    "testedAttribute": "fullName",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-flv_machina-format-fullname",
+    "entityId": "machina:fmt-flv",
+    "entityType": "file_format",
+    "type": "machina-format-fullname",
+    "difficulty": 3,
+    "prompt": "Wofür steht das Kürzel des Dateiformats FLV?",
+    "correctAnswer": "Flash Video",
+    "options": [
+      "Flash Video",
+      "Portable Network Graphics",
+      "Joint Photographic Experts Group",
+      "Graphics Interchange Format"
+    ],
+    "testedAttribute": "fullName",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-webm_machina-format-fullname",
+    "entityId": "machina:fmt-webm",
+    "entityType": "file_format",
+    "type": "machina-format-fullname",
+    "difficulty": 3,
+    "prompt": "Wofür steht das Kürzel des Dateiformats WebM?",
+    "correctAnswer": "Web Media",
+    "options": [
+      "Web Media",
+      "Portable Network Graphics",
+      "Joint Photographic Experts Group",
+      "Graphics Interchange Format"
+    ],
+    "testedAttribute": "fullName",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-epub_machina-format-fullname",
+    "entityId": "machina:fmt-epub",
+    "entityType": "file_format",
+    "type": "machina-format-fullname",
+    "difficulty": 3,
+    "prompt": "Wofür steht das Kürzel des Dateiformats EPUB?",
+    "correctAnswer": "Electronic Publication",
+    "options": [
+      "Electronic Publication",
+      "Portable Network Graphics",
+      "Joint Photographic Experts Group",
+      "Graphics Interchange Format"
+    ],
+    "testedAttribute": "fullName",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-odt_machina-format-fullname",
+    "entityId": "machina:fmt-odt",
+    "entityType": "file_format",
+    "type": "machina-format-fullname",
+    "difficulty": 3,
+    "prompt": "Wofür steht das Kürzel des Dateiformats ODT?",
+    "correctAnswer": "OpenDocument Text",
+    "options": [
+      "OpenDocument Text",
+      "Portable Network Graphics",
+      "Joint Photographic Experts Group",
+      "Graphics Interchange Format"
+    ],
+    "testedAttribute": "fullName",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-xlsx_machina-format-fullname",
+    "entityId": "machina:fmt-xlsx",
+    "entityType": "file_format",
+    "type": "machina-format-fullname",
+    "difficulty": 3,
+    "prompt": "Wofür steht das Kürzel des Dateiformats XLSX?",
+    "correctAnswer": "Office Open XML Spreadsheet",
+    "options": [
+      "Office Open XML Spreadsheet",
+      "Portable Network Graphics",
+      "Joint Photographic Experts Group",
+      "Graphics Interchange Format"
+    ],
+    "testedAttribute": "fullName",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-ttf_machina-format-fullname",
+    "entityId": "machina:fmt-ttf",
+    "entityType": "file_format",
+    "type": "machina-format-fullname",
+    "difficulty": 3,
+    "prompt": "Wofür steht das Kürzel des Dateiformats TTF?",
+    "correctAnswer": "TrueType Font",
+    "options": [
+      "TrueType Font",
+      "Portable Network Graphics",
+      "Joint Photographic Experts Group",
+      "Graphics Interchange Format"
+    ],
+    "testedAttribute": "fullName",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-iso_machina-format-fullname",
+    "entityId": "machina:fmt-iso",
+    "entityType": "file_format",
+    "type": "machina-format-fullname",
+    "difficulty": 3,
+    "prompt": "Wofür steht das Kürzel des Dateiformats ISO?",
+    "correctAnswer": "ISO-Image (Disc Image)",
+    "options": [
+      "ISO-Image (Disc Image)",
+      "Portable Network Graphics",
+      "Joint Photographic Experts Group",
+      "Graphics Interchange Format"
+    ],
+    "testedAttribute": "fullName",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-apk_machina-format-fullname",
+    "entityId": "machina:fmt-apk",
+    "entityType": "file_format",
+    "type": "machina-format-fullname",
+    "difficulty": 3,
+    "prompt": "Wofür steht das Kürzel des Dateiformats APK?",
+    "correctAnswer": "Android Package",
+    "options": [
+      "Android Package",
+      "Portable Network Graphics",
+      "Joint Photographic Experts Group",
+      "Graphics Interchange Format"
+    ],
+    "testedAttribute": "fullName",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-ini_machina-format-fullname",
+    "entityId": "machina:fmt-ini",
+    "entityType": "file_format",
+    "type": "machina-format-fullname",
+    "difficulty": 3,
+    "prompt": "Wofür steht das Kürzel des Dateiformats INI?",
+    "correctAnswer": "Initialization File",
+    "options": [
+      "Initialization File",
+      "Portable Network Graphics",
+      "Joint Photographic Experts Group",
+      "Graphics Interchange Format"
+    ],
+    "testedAttribute": "fullName",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_machina_fmt-png_machina-format-compression-rev",
     "entityId": "machina:fmt-png",
     "entityType": "file_format",
@@ -3879,6 +5526,348 @@
     "mapTargetId": null
   },
   {
+    "id": "q_machina_fmt-heic_machina-format-compression-rev",
+    "entityId": "machina:fmt-heic",
+    "entityType": "file_format",
+    "type": "machina-format-compression-rev",
+    "difficulty": 3,
+    "prompt": "Welches dieser Dateiformate arbeitet „verlustbehaftet komprimiert“?",
+    "correctAnswer": "HEIC",
+    "options": [
+      "HEIC",
+      "PNG",
+      "GIF",
+      "SVG"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-psd_machina-format-compression-rev",
+    "entityId": "machina:fmt-psd",
+    "entityType": "file_format",
+    "type": "machina-format-compression-rev",
+    "difficulty": 3,
+    "prompt": "Welches dieser Dateiformate arbeitet „verlustfrei komprimiert“?",
+    "correctAnswer": "PSD",
+    "options": [
+      "PSD",
+      "JPEG",
+      "SVG",
+      "BMP"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-eps_machina-format-compression-rev",
+    "entityId": "machina:fmt-eps",
+    "entityType": "file_format",
+    "type": "machina-format-compression-rev",
+    "difficulty": 3,
+    "prompt": "Welches dieser Dateiformate arbeitet „unkomprimiert“?",
+    "correctAnswer": "EPS",
+    "options": [
+      "EPS",
+      "PNG",
+      "JPEG",
+      "GIF"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-midi_machina-format-compression-rev",
+    "entityId": "machina:fmt-midi",
+    "entityType": "file_format",
+    "type": "machina-format-compression-rev",
+    "difficulty": 3,
+    "prompt": "Welches dieser Dateiformate arbeitet „unkomprimiert“?",
+    "correctAnswer": "MIDI",
+    "options": [
+      "MIDI",
+      "PNG",
+      "JPEG",
+      "GIF"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-m4a_machina-format-compression-rev",
+    "entityId": "machina:fmt-m4a",
+    "entityType": "file_format",
+    "type": "machina-format-compression-rev",
+    "difficulty": 3,
+    "prompt": "Welches dieser Dateiformate arbeitet „verlustbehaftet komprimiert“?",
+    "correctAnswer": "M4A",
+    "options": [
+      "M4A",
+      "PNG",
+      "GIF",
+      "SVG"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-wma_machina-format-compression-rev",
+    "entityId": "machina:fmt-wma",
+    "entityType": "file_format",
+    "type": "machina-format-compression-rev",
+    "difficulty": 3,
+    "prompt": "Welches dieser Dateiformate arbeitet „verlustbehaftet komprimiert“?",
+    "correctAnswer": "WMA",
+    "options": [
+      "WMA",
+      "PNG",
+      "GIF",
+      "SVG"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-wmv_machina-format-compression-rev",
+    "entityId": "machina:fmt-wmv",
+    "entityType": "file_format",
+    "type": "machina-format-compression-rev",
+    "difficulty": 3,
+    "prompt": "Welches dieser Dateiformate arbeitet „verlustbehaftet komprimiert“?",
+    "correctAnswer": "WMV",
+    "options": [
+      "WMV",
+      "PNG",
+      "GIF",
+      "SVG"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-flv_machina-format-compression-rev",
+    "entityId": "machina:fmt-flv",
+    "entityType": "file_format",
+    "type": "machina-format-compression-rev",
+    "difficulty": 3,
+    "prompt": "Welches dieser Dateiformate arbeitet „verlustbehaftet komprimiert“?",
+    "correctAnswer": "FLV",
+    "options": [
+      "FLV",
+      "PNG",
+      "GIF",
+      "SVG"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-webm_machina-format-compression-rev",
+    "entityId": "machina:fmt-webm",
+    "entityType": "file_format",
+    "type": "machina-format-compression-rev",
+    "difficulty": 3,
+    "prompt": "Welches dieser Dateiformate arbeitet „verlustbehaftet komprimiert“?",
+    "correctAnswer": "WebM",
+    "options": [
+      "WebM",
+      "PNG",
+      "GIF",
+      "SVG"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-epub_machina-format-compression-rev",
+    "entityId": "machina:fmt-epub",
+    "entityType": "file_format",
+    "type": "machina-format-compression-rev",
+    "difficulty": 3,
+    "prompt": "Welches dieser Dateiformate arbeitet „verlustfrei komprimiert“?",
+    "correctAnswer": "EPUB",
+    "options": [
+      "EPUB",
+      "JPEG",
+      "SVG",
+      "BMP"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-rtf_machina-format-compression-rev",
+    "entityId": "machina:fmt-rtf",
+    "entityType": "file_format",
+    "type": "machina-format-compression-rev",
+    "difficulty": 3,
+    "prompt": "Welches dieser Dateiformate arbeitet „unkomprimiert“?",
+    "correctAnswer": "RTF",
+    "options": [
+      "RTF",
+      "PNG",
+      "JPEG",
+      "GIF"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-odt_machina-format-compression-rev",
+    "entityId": "machina:fmt-odt",
+    "entityType": "file_format",
+    "type": "machina-format-compression-rev",
+    "difficulty": 3,
+    "prompt": "Welches dieser Dateiformate arbeitet „verlustfrei komprimiert“?",
+    "correctAnswer": "ODT",
+    "options": [
+      "ODT",
+      "JPEG",
+      "SVG",
+      "BMP"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-xlsx_machina-format-compression-rev",
+    "entityId": "machina:fmt-xlsx",
+    "entityType": "file_format",
+    "type": "machina-format-compression-rev",
+    "difficulty": 3,
+    "prompt": "Welches dieser Dateiformate arbeitet „verlustfrei komprimiert“?",
+    "correctAnswer": "XLSX",
+    "options": [
+      "XLSX",
+      "JPEG",
+      "SVG",
+      "BMP"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-yaml_machina-format-compression-rev",
+    "entityId": "machina:fmt-yaml",
+    "entityType": "file_format",
+    "type": "machina-format-compression-rev",
+    "difficulty": 3,
+    "prompt": "Welches dieser Dateiformate arbeitet „unkomprimiert“?",
+    "correctAnswer": "YAML",
+    "options": [
+      "YAML",
+      "PNG",
+      "JPEG",
+      "GIF"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-woff_machina-format-compression-rev",
+    "entityId": "machina:fmt-woff",
+    "entityType": "file_format",
+    "type": "machina-format-compression-rev",
+    "difficulty": 3,
+    "prompt": "Welches dieser Dateiformate arbeitet „verlustfrei komprimiert“?",
+    "correctAnswer": "WOFF",
+    "options": [
+      "WOFF",
+      "JPEG",
+      "SVG",
+      "BMP"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-iso_machina-format-compression-rev",
+    "entityId": "machina:fmt-iso",
+    "entityType": "file_format",
+    "type": "machina-format-compression-rev",
+    "difficulty": 3,
+    "prompt": "Welches dieser Dateiformate arbeitet „unkomprimiert“?",
+    "correctAnswer": "ISO",
+    "options": [
+      "ISO",
+      "PNG",
+      "JPEG",
+      "GIF"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-apk_machina-format-compression-rev",
+    "entityId": "machina:fmt-apk",
+    "entityType": "file_format",
+    "type": "machina-format-compression-rev",
+    "difficulty": 3,
+    "prompt": "Welches dieser Dateiformate arbeitet „verlustfrei komprimiert“?",
+    "correctAnswer": "APK",
+    "options": [
+      "APK",
+      "JPEG",
+      "SVG",
+      "BMP"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_fmt-ini_machina-format-compression-rev",
+    "entityId": "machina:fmt-ini",
+    "entityType": "file_format",
+    "type": "machina-format-compression-rev",
+    "difficulty": 3,
+    "prompt": "Welches dieser Dateiformate arbeitet „unkomprimiert“?",
+    "correctAnswer": "INI",
+    "options": [
+      "INI",
+      "PNG",
+      "JPEG",
+      "GIF"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_machina_np-http_machina-protocol-layer",
     "entityId": "machina:np-http",
     "entityType": "network_protocol",
@@ -4221,6 +6210,177 @@
     "mapTargetId": null
   },
   {
+    "id": "q_machina_np-sftp_machina-protocol-layer",
+    "entityId": "machina:np-sftp",
+    "entityType": "network_protocol",
+    "type": "machina-protocol-layer",
+    "difficulty": 3,
+    "prompt": "Auf welcher Ebene des Netzwerkmodells ist das Protokoll SFTP angesiedelt?",
+    "correctAnswer": "Anwendungsschicht",
+    "options": [
+      "Anwendungsschicht",
+      "Transportschicht",
+      "Vermittlungsschicht (Internet)",
+      "Sicherungsschicht"
+    ],
+    "testedAttribute": "layer",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_np-ldap_machina-protocol-layer",
+    "entityId": "machina:np-ldap",
+    "entityType": "network_protocol",
+    "type": "machina-protocol-layer",
+    "difficulty": 3,
+    "prompt": "Auf welcher Ebene des Netzwerkmodells ist das Protokoll LDAP angesiedelt?",
+    "correctAnswer": "Anwendungsschicht",
+    "options": [
+      "Anwendungsschicht",
+      "Transportschicht",
+      "Vermittlungsschicht (Internet)",
+      "Sicherungsschicht"
+    ],
+    "testedAttribute": "layer",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_np-rdp_machina-protocol-layer",
+    "entityId": "machina:np-rdp",
+    "entityType": "network_protocol",
+    "type": "machina-protocol-layer",
+    "difficulty": 3,
+    "prompt": "Auf welcher Ebene des Netzwerkmodells ist das Protokoll RDP angesiedelt?",
+    "correctAnswer": "Anwendungsschicht",
+    "options": [
+      "Anwendungsschicht",
+      "Transportschicht",
+      "Vermittlungsschicht (Internet)",
+      "Sicherungsschicht"
+    ],
+    "testedAttribute": "layer",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_np-sip_machina-protocol-layer",
+    "entityId": "machina:np-sip",
+    "entityType": "network_protocol",
+    "type": "machina-protocol-layer",
+    "difficulty": 3,
+    "prompt": "Auf welcher Ebene des Netzwerkmodells ist das Protokoll SIP angesiedelt?",
+    "correctAnswer": "Anwendungsschicht",
+    "options": [
+      "Anwendungsschicht",
+      "Transportschicht",
+      "Vermittlungsschicht (Internet)",
+      "Sicherungsschicht"
+    ],
+    "testedAttribute": "layer",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_np-bgp_machina-protocol-layer",
+    "entityId": "machina:np-bgp",
+    "entityType": "network_protocol",
+    "type": "machina-protocol-layer",
+    "difficulty": 3,
+    "prompt": "Auf welcher Ebene des Netzwerkmodells ist das Protokoll BGP angesiedelt?",
+    "correctAnswer": "Anwendungsschicht",
+    "options": [
+      "Anwendungsschicht",
+      "Transportschicht",
+      "Vermittlungsschicht (Internet)",
+      "Sicherungsschicht"
+    ],
+    "testedAttribute": "layer",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_np-mqtt_machina-protocol-layer",
+    "entityId": "machina:np-mqtt",
+    "entityType": "network_protocol",
+    "type": "machina-protocol-layer",
+    "difficulty": 3,
+    "prompt": "Auf welcher Ebene des Netzwerkmodells ist das Protokoll MQTT angesiedelt?",
+    "correctAnswer": "Anwendungsschicht",
+    "options": [
+      "Anwendungsschicht",
+      "Transportschicht",
+      "Vermittlungsschicht (Internet)",
+      "Sicherungsschicht"
+    ],
+    "testedAttribute": "layer",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_np-irc_machina-protocol-layer",
+    "entityId": "machina:np-irc",
+    "entityType": "network_protocol",
+    "type": "machina-protocol-layer",
+    "difficulty": 3,
+    "prompt": "Auf welcher Ebene des Netzwerkmodells ist das Protokoll IRC angesiedelt?",
+    "correctAnswer": "Anwendungsschicht",
+    "options": [
+      "Anwendungsschicht",
+      "Transportschicht",
+      "Vermittlungsschicht (Internet)",
+      "Sicherungsschicht"
+    ],
+    "testedAttribute": "layer",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_np-websocket_machina-protocol-layer",
+    "entityId": "machina:np-websocket",
+    "entityType": "network_protocol",
+    "type": "machina-protocol-layer",
+    "difficulty": 3,
+    "prompt": "Auf welcher Ebene des Netzwerkmodells ist das Protokoll WebSocket angesiedelt?",
+    "correctAnswer": "Anwendungsschicht",
+    "options": [
+      "Anwendungsschicht",
+      "Transportschicht",
+      "Vermittlungsschicht (Internet)",
+      "Sicherungsschicht"
+    ],
+    "testedAttribute": "layer",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_np-quic_machina-protocol-layer",
+    "entityId": "machina:np-quic",
+    "entityType": "network_protocol",
+    "type": "machina-protocol-layer",
+    "difficulty": 3,
+    "prompt": "Auf welcher Ebene des Netzwerkmodells ist das Protokoll QUIC angesiedelt?",
+    "correctAnswer": "Transportschicht",
+    "options": [
+      "Transportschicht",
+      "Anwendungsschicht",
+      "Vermittlungsschicht (Internet)",
+      "Sicherungsschicht"
+    ],
+    "testedAttribute": "layer",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_machina_np-http_machina-protocol-port",
     "entityId": "machina:np-http",
     "entityType": "network_protocol",
@@ -4249,9 +6409,9 @@
     "correctAnswer": "443",
     "options": [
       "443",
-      "161",
-      "143",
-      "123"
+      "389",
+      "179",
+      "161"
     ],
     "testedAttribute": "defaultPort",
     "answerIsName": false,
@@ -4440,7 +6600,159 @@
     "options": [
       "161",
       "143",
-      "123",
+      "179",
+      "123"
+    ],
+    "testedAttribute": "defaultPort",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_np-sftp_machina-protocol-port",
+    "entityId": "machina:np-sftp",
+    "entityType": "network_protocol",
+    "type": "machina-protocol-port",
+    "difficulty": 4,
+    "prompt": "Welche Portnummer ist dem Protokoll SFTP standardmäßig zugeordnet?",
+    "correctAnswer": "22",
+    "options": [
+      "22",
+      "21",
+      "23",
+      "25"
+    ],
+    "testedAttribute": "defaultPort",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_np-ldap_machina-protocol-port",
+    "entityId": "machina:np-ldap",
+    "entityType": "network_protocol",
+    "type": "machina-protocol-port",
+    "difficulty": 4,
+    "prompt": "Welche Portnummer ist dem Protokoll LDAP standardmäßig zugeordnet?",
+    "correctAnswer": "389",
+    "options": [
+      "389",
+      "443",
+      "179",
+      "161"
+    ],
+    "testedAttribute": "defaultPort",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_np-rdp_machina-protocol-port",
+    "entityId": "machina:np-rdp",
+    "entityType": "network_protocol",
+    "type": "machina-protocol-port",
+    "difficulty": 4,
+    "prompt": "Welche Portnummer ist dem Protokoll RDP standardmäßig zugeordnet?",
+    "correctAnswer": "3389",
+    "options": [
+      "3389",
+      "1883",
+      "5060",
+      "443"
+    ],
+    "testedAttribute": "defaultPort",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_np-sip_machina-protocol-port",
+    "entityId": "machina:np-sip",
+    "entityType": "network_protocol",
+    "type": "machina-protocol-port",
+    "difficulty": 4,
+    "prompt": "Welche Portnummer ist dem Protokoll SIP standardmäßig zugeordnet?",
+    "correctAnswer": "5060",
+    "options": [
+      "5060",
+      "6667",
+      "3389",
+      "1883"
+    ],
+    "testedAttribute": "defaultPort",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_np-bgp_machina-protocol-port",
+    "entityId": "machina:np-bgp",
+    "entityType": "network_protocol",
+    "type": "machina-protocol-port",
+    "difficulty": 4,
+    "prompt": "Welche Portnummer ist dem Protokoll BGP standardmäßig zugeordnet?",
+    "correctAnswer": "179",
+    "options": [
+      "179",
+      "161",
+      "143",
+      "123"
+    ],
+    "testedAttribute": "defaultPort",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_np-mqtt_machina-protocol-port",
+    "entityId": "machina:np-mqtt",
+    "entityType": "network_protocol",
+    "type": "machina-protocol-port",
+    "difficulty": 4,
+    "prompt": "Welche Portnummer ist dem Protokoll MQTT standardmäßig zugeordnet?",
+    "correctAnswer": "1883",
+    "options": [
+      "1883",
+      "443",
+      "389",
+      "3389"
+    ],
+    "testedAttribute": "defaultPort",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_np-irc_machina-protocol-port",
+    "entityId": "machina:np-irc",
+    "entityType": "network_protocol",
+    "type": "machina-protocol-port",
+    "difficulty": 4,
+    "prompt": "Welche Portnummer ist dem Protokoll IRC standardmäßig zugeordnet?",
+    "correctAnswer": "6667",
+    "options": [
+      "6667",
+      "5060",
+      "3389",
+      "1883"
+    ],
+    "testedAttribute": "defaultPort",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_np-websocket_machina-protocol-port",
+    "entityId": "machina:np-websocket",
+    "entityType": "network_protocol",
+    "type": "machina-protocol-port",
+    "difficulty": 4,
+    "prompt": "Welche Portnummer ist dem Protokoll WebSocket standardmäßig zugeordnet?",
+    "correctAnswer": "80",
+    "options": [
+      "80",
+      "67",
+      "53",
       "110"
     ],
     "testedAttribute": "defaultPort",
@@ -4791,6 +7103,158 @@
     "mapTargetId": null
   },
   {
+    "id": "q_machina_np-sftp_machina-protocol-purpose",
+    "entityId": "machina:np-sftp",
+    "entityType": "network_protocol",
+    "type": "machina-protocol-purpose",
+    "difficulty": 2,
+    "prompt": "Wozu dient das Protokoll SFTP?",
+    "correctAnswer": "Verschlüsselte Dateiübertragung über SSH",
+    "options": [
+      "Verschlüsselte Dateiübertragung über SSH",
+      "Übertragung von Webseiten und Web-Ressourcen",
+      "Verschlüsselte Übertragung von Webseiten via TLS",
+      "Übertragung von Dateien zwischen Client und Server"
+    ],
+    "testedAttribute": "purpose",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_np-ldap_machina-protocol-purpose",
+    "entityId": "machina:np-ldap",
+    "entityType": "network_protocol",
+    "type": "machina-protocol-purpose",
+    "difficulty": 2,
+    "prompt": "Wozu dient das Protokoll LDAP?",
+    "correctAnswer": "Zugriff auf und Verwaltung von Verzeichnisdiensten, z.B. Active Directory",
+    "options": [
+      "Zugriff auf und Verwaltung von Verzeichnisdiensten, z.B. Active Directory",
+      "Übertragung von Webseiten und Web-Ressourcen",
+      "Verschlüsselte Übertragung von Webseiten via TLS",
+      "Übertragung von Dateien zwischen Client und Server"
+    ],
+    "testedAttribute": "purpose",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_np-rdp_machina-protocol-purpose",
+    "entityId": "machina:np-rdp",
+    "entityType": "network_protocol",
+    "type": "machina-protocol-purpose",
+    "difficulty": 2,
+    "prompt": "Wozu dient das Protokoll RDP?",
+    "correctAnswer": "Grafische Fernsteuerung von Windows-Rechnern",
+    "options": [
+      "Grafische Fernsteuerung von Windows-Rechnern",
+      "Übertragung von Webseiten und Web-Ressourcen",
+      "Verschlüsselte Übertragung von Webseiten via TLS",
+      "Übertragung von Dateien zwischen Client und Server"
+    ],
+    "testedAttribute": "purpose",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_np-sip_machina-protocol-purpose",
+    "entityId": "machina:np-sip",
+    "entityType": "network_protocol",
+    "type": "machina-protocol-purpose",
+    "difficulty": 2,
+    "prompt": "Wozu dient das Protokoll SIP?",
+    "correctAnswer": "Aufbau, Steuerung und Beendigung von VoIP- und Multimedia-Kommunikationssitzungen",
+    "options": [
+      "Aufbau, Steuerung und Beendigung von VoIP- und Multimedia-Kommunikationssitzungen",
+      "Übertragung von Webseiten und Web-Ressourcen",
+      "Verschlüsselte Übertragung von Webseiten via TLS",
+      "Übertragung von Dateien zwischen Client und Server"
+    ],
+    "testedAttribute": "purpose",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_np-bgp_machina-protocol-purpose",
+    "entityId": "machina:np-bgp",
+    "entityType": "network_protocol",
+    "type": "machina-protocol-purpose",
+    "difficulty": 2,
+    "prompt": "Wozu dient das Protokoll BGP?",
+    "correctAnswer": "Austausch von Routing-Informationen zwischen autonomen Systemen im Internet",
+    "options": [
+      "Austausch von Routing-Informationen zwischen autonomen Systemen im Internet",
+      "Übertragung von Webseiten und Web-Ressourcen",
+      "Verschlüsselte Übertragung von Webseiten via TLS",
+      "Übertragung von Dateien zwischen Client und Server"
+    ],
+    "testedAttribute": "purpose",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_np-mqtt_machina-protocol-purpose",
+    "entityId": "machina:np-mqtt",
+    "entityType": "network_protocol",
+    "type": "machina-protocol-purpose",
+    "difficulty": 2,
+    "prompt": "Wozu dient das Protokoll MQTT?",
+    "correctAnswer": "Leichtgewichtiges Publish-Subscribe-Messaging für IoT-Geräte und Sensornetzwerke",
+    "options": [
+      "Leichtgewichtiges Publish-Subscribe-Messaging für IoT-Geräte und Sensornetzwerke",
+      "Übertragung von Webseiten und Web-Ressourcen",
+      "Verschlüsselte Übertragung von Webseiten via TLS",
+      "Übertragung von Dateien zwischen Client und Server"
+    ],
+    "testedAttribute": "purpose",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_np-irc_machina-protocol-purpose",
+    "entityId": "machina:np-irc",
+    "entityType": "network_protocol",
+    "type": "machina-protocol-purpose",
+    "difficulty": 2,
+    "prompt": "Wozu dient das Protokoll IRC?",
+    "correctAnswer": "Echtzeit-Textkommunikation in thematisch organisierten Kanälen",
+    "options": [
+      "Echtzeit-Textkommunikation in thematisch organisierten Kanälen",
+      "Übertragung von Webseiten und Web-Ressourcen",
+      "Verschlüsselte Übertragung von Webseiten via TLS",
+      "Übertragung von Dateien zwischen Client und Server"
+    ],
+    "testedAttribute": "purpose",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_np-websocket_machina-protocol-purpose",
+    "entityId": "machina:np-websocket",
+    "entityType": "network_protocol",
+    "type": "machina-protocol-purpose",
+    "difficulty": 2,
+    "prompt": "Wozu dient das Protokoll WebSocket?",
+    "correctAnswer": "Bidirektionale Vollduplex-Kommunikation zwischen Browser und Server über eine persistente TCP-Verbindung",
+    "options": [
+      "Bidirektionale Vollduplex-Kommunikation zwischen Browser und Server über eine persistente TCP-Verbindung",
+      "Übertragung von Webseiten und Web-Ressourcen",
+      "Verschlüsselte Übertragung von Webseiten via TLS",
+      "Übertragung von Dateien zwischen Client und Server"
+    ],
+    "testedAttribute": "purpose",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_machina_np-http_machina-protocol-fullname",
     "entityId": "machina:np-http",
     "entityType": "network_protocol",
@@ -5123,6 +7587,139 @@
     "correctAnswer": "Internet Control Message Protocol",
     "options": [
       "Internet Control Message Protocol",
+      "Hypertext Transfer Protocol",
+      "Hypertext Transfer Protocol Secure",
+      "File Transfer Protocol"
+    ],
+    "testedAttribute": "fullName",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_np-sftp_machina-protocol-fullname",
+    "entityId": "machina:np-sftp",
+    "entityType": "network_protocol",
+    "type": "machina-protocol-fullname",
+    "difficulty": 3,
+    "prompt": "Wofür steht die Abkürzung SFTP?",
+    "correctAnswer": "SSH File Transfer Protocol",
+    "options": [
+      "SSH File Transfer Protocol",
+      "Hypertext Transfer Protocol",
+      "Hypertext Transfer Protocol Secure",
+      "Secure Shell"
+    ],
+    "testedAttribute": "fullName",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_np-ldap_machina-protocol-fullname",
+    "entityId": "machina:np-ldap",
+    "entityType": "network_protocol",
+    "type": "machina-protocol-fullname",
+    "difficulty": 3,
+    "prompt": "Wofür steht die Abkürzung LDAP?",
+    "correctAnswer": "Lightweight Directory Access Protocol",
+    "options": [
+      "Lightweight Directory Access Protocol",
+      "Hypertext Transfer Protocol",
+      "Hypertext Transfer Protocol Secure",
+      "File Transfer Protocol"
+    ],
+    "testedAttribute": "fullName",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_np-rdp_machina-protocol-fullname",
+    "entityId": "machina:np-rdp",
+    "entityType": "network_protocol",
+    "type": "machina-protocol-fullname",
+    "difficulty": 3,
+    "prompt": "Wofür steht die Abkürzung RDP?",
+    "correctAnswer": "Remote Desktop Protocol",
+    "options": [
+      "Remote Desktop Protocol",
+      "Hypertext Transfer Protocol",
+      "Hypertext Transfer Protocol Secure",
+      "File Transfer Protocol"
+    ],
+    "testedAttribute": "fullName",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_np-sip_machina-protocol-fullname",
+    "entityId": "machina:np-sip",
+    "entityType": "network_protocol",
+    "type": "machina-protocol-fullname",
+    "difficulty": 3,
+    "prompt": "Wofür steht die Abkürzung SIP?",
+    "correctAnswer": "Session Initiation Protocol",
+    "options": [
+      "Session Initiation Protocol",
+      "Hypertext Transfer Protocol",
+      "Hypertext Transfer Protocol Secure",
+      "File Transfer Protocol"
+    ],
+    "testedAttribute": "fullName",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_np-bgp_machina-protocol-fullname",
+    "entityId": "machina:np-bgp",
+    "entityType": "network_protocol",
+    "type": "machina-protocol-fullname",
+    "difficulty": 3,
+    "prompt": "Wofür steht die Abkürzung BGP?",
+    "correctAnswer": "Border Gateway Protocol",
+    "options": [
+      "Border Gateway Protocol",
+      "Hypertext Transfer Protocol",
+      "Hypertext Transfer Protocol Secure",
+      "File Transfer Protocol"
+    ],
+    "testedAttribute": "fullName",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_np-mqtt_machina-protocol-fullname",
+    "entityId": "machina:np-mqtt",
+    "entityType": "network_protocol",
+    "type": "machina-protocol-fullname",
+    "difficulty": 3,
+    "prompt": "Wofür steht die Abkürzung MQTT?",
+    "correctAnswer": "Message Queuing Telemetry Transport",
+    "options": [
+      "Message Queuing Telemetry Transport",
+      "Hypertext Transfer Protocol",
+      "Hypertext Transfer Protocol Secure",
+      "File Transfer Protocol"
+    ],
+    "testedAttribute": "fullName",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_np-irc_machina-protocol-fullname",
+    "entityId": "machina:np-irc",
+    "entityType": "network_protocol",
+    "type": "machina-protocol-fullname",
+    "difficulty": 3,
+    "prompt": "Wofür steht die Abkürzung IRC?",
+    "correctAnswer": "Internet Relay Chat",
+    "options": [
+      "Internet Relay Chat",
       "Hypertext Transfer Protocol",
       "Hypertext Transfer Protocol Secure",
       "File Transfer Protocol"
@@ -5637,6 +8234,139 @@
     "mapTargetId": null
   },
   {
+    "id": "q_machina_algo-selectionsort_machina-algo-category",
+    "entityId": "machina:algo-selectionsort",
+    "entityType": "algorithm",
+    "type": "machina-algo-category",
+    "difficulty": 3,
+    "prompt": "Zu welcher Klasse von Algorithmen gehört Selectionsort?",
+    "correctAnswer": "Sortieralgorithmus",
+    "options": [
+      "Sortieralgorithmus",
+      "Suchalgorithmus",
+      "Graphalgorithmus",
+      "Kompression"
+    ],
+    "testedAttribute": "category",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_algo-shellsort_machina-algo-category",
+    "entityId": "machina:algo-shellsort",
+    "entityType": "algorithm",
+    "type": "machina-algo-category",
+    "difficulty": 3,
+    "prompt": "Zu welcher Klasse von Algorithmen gehört Shellsort?",
+    "correctAnswer": "Sortieralgorithmus",
+    "options": [
+      "Sortieralgorithmus",
+      "Suchalgorithmus",
+      "Graphalgorithmus",
+      "Kompression"
+    ],
+    "testedAttribute": "category",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_algo-radixsort_machina-algo-category",
+    "entityId": "machina:algo-radixsort",
+    "entityType": "algorithm",
+    "type": "machina-algo-category",
+    "difficulty": 3,
+    "prompt": "Zu welcher Klasse von Algorithmen gehört Radixsort?",
+    "correctAnswer": "Sortieralgorithmus",
+    "options": [
+      "Sortieralgorithmus",
+      "Suchalgorithmus",
+      "Graphalgorithmus",
+      "Kompression"
+    ],
+    "testedAttribute": "category",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_algo-aes_machina-algo-category",
+    "entityId": "machina:algo-aes",
+    "entityType": "algorithm",
+    "type": "machina-algo-category",
+    "difficulty": 3,
+    "prompt": "Zu welcher Klasse von Algorithmen gehört AES?",
+    "correctAnswer": "Kryptografie",
+    "options": [
+      "Kryptografie",
+      "Sortieralgorithmus",
+      "Suchalgorithmus",
+      "Graphalgorithmus"
+    ],
+    "testedAttribute": "category",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_algo-sha_machina-algo-category",
+    "entityId": "machina:algo-sha",
+    "entityType": "algorithm",
+    "type": "machina-algo-category",
+    "difficulty": 3,
+    "prompt": "Zu welcher Klasse von Algorithmen gehört SHA?",
+    "correctAnswer": "Kryptografie",
+    "options": [
+      "Kryptografie",
+      "Sortieralgorithmus",
+      "Suchalgorithmus",
+      "Graphalgorithmus"
+    ],
+    "testedAttribute": "category",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_algo-md5_machina-algo-category",
+    "entityId": "machina:algo-md5",
+    "entityType": "algorithm",
+    "type": "machina-algo-category",
+    "difficulty": 3,
+    "prompt": "Zu welcher Klasse von Algorithmen gehört MD5?",
+    "correctAnswer": "Kryptografie",
+    "options": [
+      "Kryptografie",
+      "Sortieralgorithmus",
+      "Suchalgorithmus",
+      "Graphalgorithmus"
+    ],
+    "testedAttribute": "category",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_algo-backtracking_machina-algo-category",
+    "entityId": "machina:algo-backtracking",
+    "entityType": "algorithm",
+    "type": "machina-algo-category",
+    "difficulty": 3,
+    "prompt": "Zu welcher Klasse von Algorithmen gehört Backtracking?",
+    "correctAnswer": "Suchalgorithmus",
+    "options": [
+      "Suchalgorithmus",
+      "Sortieralgorithmus",
+      "Graphalgorithmus",
+      "Kompression"
+    ],
+    "testedAttribute": "category",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_machina_algo-quicksort_machina-algo-complexity",
     "entityId": "machina:algo-quicksort",
     "entityType": "algorithm",
@@ -5647,7 +8377,8 @@
     "options": [
       "O(n log n)",
       "O(log n)",
-      "O((V+E) log V)"
+      "O((V+E) log V)",
+      "O(nk)"
     ],
     "testedAttribute": "avgComplexity",
     "answerIsName": false,
@@ -5665,7 +8396,8 @@
     "options": [
       "O(n log n)",
       "O(log n)",
-      "O((V+E) log V)"
+      "O((V+E) log V)",
+      "O(nk)"
     ],
     "testedAttribute": "avgComplexity",
     "answerIsName": false,
@@ -5683,7 +8415,8 @@
     "options": [
       "O(n²)",
       "O(log n)",
-      "O((V+E) log V)"
+      "O((V+E) log V)",
+      "O(V·E)"
     ],
     "testedAttribute": "avgComplexity",
     "answerIsName": false,
@@ -5701,7 +8434,8 @@
     "options": [
       "O(n²)",
       "O(log n)",
-      "O((V+E) log V)"
+      "O((V+E) log V)",
+      "O(V·E)"
     ],
     "testedAttribute": "avgComplexity",
     "answerIsName": false,
@@ -5719,7 +8453,8 @@
     "options": [
       "O(n log n)",
       "O(log n)",
-      "O((V+E) log V)"
+      "O((V+E) log V)",
+      "O(nk)"
     ],
     "testedAttribute": "avgComplexity",
     "answerIsName": false,
@@ -5756,7 +8491,8 @@
     "options": [
       "O(n)",
       "O(log n)",
-      "O((V+E) log V)"
+      "O((V+E) log V)",
+      "O(V·E)"
     ],
     "testedAttribute": "avgComplexity",
     "answerIsName": false,
@@ -5793,7 +8529,8 @@
     "options": [
       "O(n)",
       "O(log n)",
-      "O((V+E) log V)"
+      "O((V+E) log V)",
+      "O(V·E)"
     ],
     "testedAttribute": "avgComplexity",
     "answerIsName": false,
@@ -5811,7 +8548,8 @@
     "options": [
       "O(n)",
       "O(log n)",
-      "O((V+E) log V)"
+      "O((V+E) log V)",
+      "O(V·E)"
     ],
     "testedAttribute": "avgComplexity",
     "answerIsName": false,
@@ -5829,7 +8567,8 @@
     "options": [
       "O(n log n)",
       "O(log n)",
-      "O((V+E) log V)"
+      "O((V+E) log V)",
+      "O(nk)"
     ],
     "testedAttribute": "avgComplexity",
     "answerIsName": false,
@@ -5847,7 +8586,122 @@
     "options": [
       "O(n)",
       "O(log n)",
+      "O((V+E) log V)",
+      "O(V·E)"
+    ],
+    "testedAttribute": "avgComplexity",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_algo-selectionsort_machina-algo-complexity",
+    "entityId": "machina:algo-selectionsort",
+    "entityType": "algorithm",
+    "type": "machina-algo-complexity",
+    "difficulty": 4,
+    "prompt": "Welche durchschnittliche Zeitkomplexität hat der Algorithmus Selectionsort?",
+    "correctAnswer": "O(n²)",
+    "options": [
+      "O(n²)",
+      "O(log n)",
+      "O((V+E) log V)",
+      "O(V·E)"
+    ],
+    "testedAttribute": "avgComplexity",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_algo-radixsort_machina-algo-complexity",
+    "entityId": "machina:algo-radixsort",
+    "entityType": "algorithm",
+    "type": "machina-algo-complexity",
+    "difficulty": 4,
+    "prompt": "Welche durchschnittliche Zeitkomplexität hat der Algorithmus Radixsort?",
+    "correctAnswer": "O(nk)",
+    "options": [
+      "O(nk)",
+      "O(n log n)",
+      "O(log n)",
       "O((V+E) log V)"
+    ],
+    "testedAttribute": "avgComplexity",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_algo-counting-sort_machina-algo-complexity",
+    "entityId": "machina:algo-counting-sort",
+    "entityType": "algorithm",
+    "type": "machina-algo-complexity",
+    "difficulty": 4,
+    "prompt": "Welche durchschnittliche Zeitkomplexität hat der Algorithmus Counting Sort?",
+    "correctAnswer": "O(n+k)",
+    "options": [
+      "O(n+k)",
+      "O(n log n)",
+      "O(log n)",
+      "O((V+E) log V)"
+    ],
+    "testedAttribute": "avgComplexity",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_algo-bellman-ford_machina-algo-complexity",
+    "entityId": "machina:algo-bellman-ford",
+    "entityType": "algorithm",
+    "type": "machina-algo-complexity",
+    "difficulty": 4,
+    "prompt": "Welche durchschnittliche Zeitkomplexität hat der Algorithmus Bellman-Ford-Algorithmus?",
+    "correctAnswer": "O(V·E)",
+    "options": [
+      "O(V·E)",
+      "O(n log n)",
+      "O(n²)",
+      "O(log n)"
+    ],
+    "testedAttribute": "avgComplexity",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_algo-floyd-warshall_machina-algo-complexity",
+    "entityId": "machina:algo-floyd-warshall",
+    "entityType": "algorithm",
+    "type": "machina-algo-complexity",
+    "difficulty": 4,
+    "prompt": "Welche durchschnittliche Zeitkomplexität hat der Algorithmus Floyd-Warshall-Algorithmus?",
+    "correctAnswer": "O(n³)",
+    "options": [
+      "O(n³)",
+      "O(log n)",
+      "O((V+E) log V)",
+      "O(V·E)"
+    ],
+    "testedAttribute": "avgComplexity",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_algo-kruskal_machina-algo-complexity",
+    "entityId": "machina:algo-kruskal",
+    "entityType": "algorithm",
+    "type": "machina-algo-complexity",
+    "difficulty": 4,
+    "prompt": "Welche durchschnittliche Zeitkomplexität hat der Algorithmus Kruskal-Algorithmus?",
+    "correctAnswer": "O(E log V)",
+    "options": [
+      "O(E log V)",
+      "O(n log n)",
+      "O(n²)",
+      "O(log n)"
     ],
     "testedAttribute": "avgComplexity",
     "answerIsName": false,
@@ -6045,6 +8899,177 @@
     "mapTargetId": null
   },
   {
+    "id": "q_machina_algo-selectionsort_machina-algo-purpose",
+    "entityId": "machina:algo-selectionsort",
+    "entityType": "algorithm",
+    "type": "machina-algo-purpose",
+    "difficulty": 2,
+    "prompt": "Welches Problem löst der Algorithmus Selectionsort?",
+    "correctAnswer": "Sucht wiederholt das kleinste verbleibende Element und tauscht es an die richtige Position",
+    "options": [
+      "Sucht wiederholt das kleinste verbleibende Element und tauscht es an die richtige Position",
+      "Teilt ein Array rekursiv anhand eines Pivotelements und sortiert die Teilbereiche",
+      "Teilt ein Array rekursiv in Hälften, sortiert diese und fügt sie zusammen (Divide & Conquer)",
+      "Vergleicht benachbarte Elemente und tauscht sie, bis die Liste sortiert ist"
+    ],
+    "testedAttribute": "purpose",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_algo-shellsort_machina-algo-purpose",
+    "entityId": "machina:algo-shellsort",
+    "entityType": "algorithm",
+    "type": "machina-algo-purpose",
+    "difficulty": 2,
+    "prompt": "Welches Problem löst der Algorithmus Shellsort?",
+    "correctAnswer": "Erweiterung des Insertionsorts: sortiert zunächst weit entfernte Elemente, um Inversionen schnell zu reduzieren",
+    "options": [
+      "Erweiterung des Insertionsorts: sortiert zunächst weit entfernte Elemente, um Inversionen schnell zu reduzieren",
+      "Teilt ein Array rekursiv anhand eines Pivotelements und sortiert die Teilbereiche",
+      "Teilt ein Array rekursiv in Hälften, sortiert diese und fügt sie zusammen (Divide & Conquer)",
+      "Vergleicht benachbarte Elemente und tauscht sie, bis die Liste sortiert ist"
+    ],
+    "testedAttribute": "purpose",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_algo-radixsort_machina-algo-purpose",
+    "entityId": "machina:algo-radixsort",
+    "entityType": "algorithm",
+    "type": "machina-algo-purpose",
+    "difficulty": 2,
+    "prompt": "Welches Problem löst der Algorithmus Radixsort?",
+    "correctAnswer": "Sortiert Zahlen oder Zeichenketten stellenweise von der niedrigsten zur höchsten Stelle, ohne Vergleiche",
+    "options": [
+      "Sortiert Zahlen oder Zeichenketten stellenweise von der niedrigsten zur höchsten Stelle, ohne Vergleiche",
+      "Teilt ein Array rekursiv anhand eines Pivotelements und sortiert die Teilbereiche",
+      "Teilt ein Array rekursiv in Hälften, sortiert diese und fügt sie zusammen (Divide & Conquer)",
+      "Vergleicht benachbarte Elemente und tauscht sie, bis die Liste sortiert ist"
+    ],
+    "testedAttribute": "purpose",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_algo-bellman-ford_machina-algo-purpose",
+    "entityId": "machina:algo-bellman-ford",
+    "entityType": "algorithm",
+    "type": "machina-algo-purpose",
+    "difficulty": 2,
+    "prompt": "Welches Problem löst der Algorithmus Bellman-Ford-Algorithmus?",
+    "correctAnswer": "Findet kürzeste Pfade in gewichteten Graphen und erkennt negative Zyklen — im Gegensatz zu Dijkstra auch mit negativen Kantengewichten",
+    "options": [
+      "Findet kürzeste Pfade in gewichteten Graphen und erkennt negative Zyklen — im Gegensatz zu Dijkstra auch mit negativen Kantengewichten",
+      "Teilt ein Array rekursiv anhand eines Pivotelements und sortiert die Teilbereiche",
+      "Teilt ein Array rekursiv in Hälften, sortiert diese und fügt sie zusammen (Divide & Conquer)",
+      "Vergleicht benachbarte Elemente und tauscht sie, bis die Liste sortiert ist"
+    ],
+    "testedAttribute": "purpose",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_algo-floyd-warshall_machina-algo-purpose",
+    "entityId": "machina:algo-floyd-warshall",
+    "entityType": "algorithm",
+    "type": "machina-algo-purpose",
+    "difficulty": 2,
+    "prompt": "Welches Problem löst der Algorithmus Floyd-Warshall-Algorithmus?",
+    "correctAnswer": "Berechnet kürzeste Pfade zwischen allen Knotenpaaren eines gewichteten Graphen",
+    "options": [
+      "Berechnet kürzeste Pfade zwischen allen Knotenpaaren eines gewichteten Graphen",
+      "Teilt ein Array rekursiv anhand eines Pivotelements und sortiert die Teilbereiche",
+      "Teilt ein Array rekursiv in Hälften, sortiert diese und fügt sie zusammen (Divide & Conquer)",
+      "Vergleicht benachbarte Elemente und tauscht sie, bis die Liste sortiert ist"
+    ],
+    "testedAttribute": "purpose",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_algo-kruskal_machina-algo-purpose",
+    "entityId": "machina:algo-kruskal",
+    "entityType": "algorithm",
+    "type": "machina-algo-purpose",
+    "difficulty": 2,
+    "prompt": "Welches Problem löst der Algorithmus Kruskal-Algorithmus?",
+    "correctAnswer": "Findet den minimalen Spannbaum eines gewichteten ungerichteten Graphen durch sukzessives Hinzufügen der günstigsten Kante",
+    "options": [
+      "Findet den minimalen Spannbaum eines gewichteten ungerichteten Graphen durch sukzessives Hinzufügen der günstigsten Kante",
+      "Teilt ein Array rekursiv anhand eines Pivotelements und sortiert die Teilbereiche",
+      "Teilt ein Array rekursiv in Hälften, sortiert diese und fügt sie zusammen (Divide & Conquer)",
+      "Vergleicht benachbarte Elemente und tauscht sie, bis die Liste sortiert ist"
+    ],
+    "testedAttribute": "purpose",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_algo-prim_machina-algo-purpose",
+    "entityId": "machina:algo-prim",
+    "entityType": "algorithm",
+    "type": "machina-algo-purpose",
+    "difficulty": 2,
+    "prompt": "Welches Problem löst der Algorithmus Prim-Algorithmus?",
+    "correctAnswer": "Wächst einen minimalen Spannbaum schrittweise, indem immer die günstigste Kante zum bereits aufgebauten Baum hinzugefügt wird",
+    "options": [
+      "Wächst einen minimalen Spannbaum schrittweise, indem immer die günstigste Kante zum bereits aufgebauten Baum hinzugefügt wird",
+      "Teilt ein Array rekursiv anhand eines Pivotelements und sortiert die Teilbereiche",
+      "Teilt ein Array rekursiv in Hälften, sortiert diese und fügt sie zusammen (Divide & Conquer)",
+      "Vergleicht benachbarte Elemente und tauscht sie, bis die Liste sortiert ist"
+    ],
+    "testedAttribute": "purpose",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_algo-sha_machina-algo-purpose",
+    "entityId": "machina:algo-sha",
+    "entityType": "algorithm",
+    "type": "machina-algo-purpose",
+    "difficulty": 2,
+    "prompt": "Welches Problem löst der Algorithmus SHA?",
+    "correctAnswer": "Familie kryptografischer Hashfunktionen (SHA-1, SHA-256, SHA-3), die Daten auf einen Hashwert fester Länge abbilden",
+    "options": [
+      "Familie kryptografischer Hashfunktionen (SHA-1, SHA-256, SHA-3), die Daten auf einen Hashwert fester Länge abbilden",
+      "Teilt ein Array rekursiv anhand eines Pivotelements und sortiert die Teilbereiche",
+      "Teilt ein Array rekursiv in Hälften, sortiert diese und fügt sie zusammen (Divide & Conquer)",
+      "Vergleicht benachbarte Elemente und tauscht sie, bis die Liste sortiert ist"
+    ],
+    "testedAttribute": "purpose",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_algo-md5_machina-algo-purpose",
+    "entityId": "machina:algo-md5",
+    "entityType": "algorithm",
+    "type": "machina-algo-purpose",
+    "difficulty": 2,
+    "prompt": "Welches Problem löst der Algorithmus MD5?",
+    "correctAnswer": "Hashfunktion, die eine 128-Bit-Prüfsumme erzeugt — heute nur noch zur Integritätsprüfung, nicht mehr zur sicheren Kryptografie empfohlen",
+    "options": [
+      "Hashfunktion, die eine 128-Bit-Prüfsumme erzeugt — heute nur noch zur Integritätsprüfung, nicht mehr zur sicheren Kryptografie empfohlen",
+      "Teilt ein Array rekursiv anhand eines Pivotelements und sortiert die Teilbereiche",
+      "Teilt ein Array rekursiv in Hälften, sortiert diese und fügt sie zusammen (Divide & Conquer)",
+      "Vergleicht benachbarte Elemente und tauscht sie, bis die Liste sortiert ist"
+    ],
+    "testedAttribute": "purpose",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_machina_hw-gpu_machina-hw-function",
     "entityId": "machina:hw-gpu",
     "entityType": "hardware",
@@ -6168,6 +9193,63 @@
     "correctAnswer": "Enthält die Firmware zum Initialisieren der Hardware beim Start und zum Laden des Betriebssystems",
     "options": [
       "Enthält die Firmware zum Initialisieren der Hardware beim Start und zum Laden des Betriebssystems",
+      "Führt Programminstruktionen aus und koordiniert alle Rechenoperationen des Computers",
+      "Berechnet und rendert Grafiken; ursprünglich für 3D-Spiele, heute auch für KI-Berechnungen genutzt",
+      "Flüchtiger Zwischenspeicher für aktuell laufende Programme und Betriebssystem-Daten"
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_hw-usb-stick_machina-hw-function",
+    "entityId": "machina:hw-usb-stick",
+    "entityType": "hardware",
+    "type": "machina-hw-function",
+    "difficulty": 2,
+    "prompt": "Welche Aufgabe erfüllt die Komponente USB-Stick im Computer?",
+    "correctAnswer": "Tragbarer Flash-Speicher mit USB-Anschluss zum Transport und Backup von Dateien",
+    "options": [
+      "Tragbarer Flash-Speicher mit USB-Anschluss zum Transport und Backup von Dateien",
+      "Führt Programminstruktionen aus und koordiniert alle Rechenoperationen des Computers",
+      "Berechnet und rendert Grafiken; ursprünglich für 3D-Spiele, heute auch für KI-Berechnungen genutzt",
+      "Flüchtiger Zwischenspeicher für aktuell laufende Programme und Betriebssystem-Daten"
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_hw-webcam_machina-hw-function",
+    "entityId": "machina:hw-webcam",
+    "entityType": "hardware",
+    "type": "machina-hw-function",
+    "difficulty": 2,
+    "prompt": "Welche Aufgabe erfüllt die Komponente Webcam im Computer?",
+    "correctAnswer": "Digitale Kamera zur Videoübertragung in Echtzeit über das Internet, z.B. für Videokonferenzen",
+    "options": [
+      "Digitale Kamera zur Videoübertragung in Echtzeit über das Internet, z.B. für Videokonferenzen",
+      "Führt Programminstruktionen aus und koordiniert alle Rechenoperationen des Computers",
+      "Berechnet und rendert Grafiken; ursprünglich für 3D-Spiele, heute auch für KI-Berechnungen genutzt",
+      "Flüchtiger Zwischenspeicher für aktuell laufende Programme und Betriebssystem-Daten"
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_hw-touchpad_machina-hw-function",
+    "entityId": "machina:hw-touchpad",
+    "entityType": "hardware",
+    "type": "machina-hw-function",
+    "difficulty": 2,
+    "prompt": "Welche Aufgabe erfüllt die Komponente Touchpad im Computer?",
+    "correctAnswer": "Berührungsempfindliche Fläche zur Mauszeiger-Steuerung, typisch in Laptops verbaut",
+    "options": [
+      "Berührungsempfindliche Fläche zur Mauszeiger-Steuerung, typisch in Laptops verbaut",
       "Führt Programminstruktionen aus und koordiniert alle Rechenoperationen des Computers",
       "Berechnet und rendert Grafiken; ursprünglich für 3D-Spiele, heute auch für KI-Berechnungen genutzt",
       "Flüchtiger Zwischenspeicher für aktuell laufende Programme und Betriebssystem-Daten"
@@ -6368,6 +9450,158 @@
     "mapTargetId": null
   },
   {
+    "id": "q_machina_hw-usb-stick_machina-hw-category",
+    "entityId": "machina:hw-usb-stick",
+    "entityType": "hardware",
+    "type": "machina-hw-category",
+    "difficulty": 3,
+    "prompt": "Zu welcher Gruppe von Hardware zählt USB-Stick?",
+    "correctAnswer": "Massenspeicher",
+    "options": [
+      "Massenspeicher",
+      "Prozessor/Recheneinheit",
+      "Grafik",
+      "Arbeitsspeicher"
+    ],
+    "testedAttribute": "category",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_hw-webcam_machina-hw-category",
+    "entityId": "machina:hw-webcam",
+    "entityType": "hardware",
+    "type": "machina-hw-category",
+    "difficulty": 3,
+    "prompt": "Zu welcher Gruppe von Hardware zählt Webcam?",
+    "correctAnswer": "Eingabegerät",
+    "options": [
+      "Eingabegerät",
+      "Prozessor/Recheneinheit",
+      "Grafik",
+      "Arbeitsspeicher"
+    ],
+    "testedAttribute": "category",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_hw-mikrofon_machina-hw-category",
+    "entityId": "machina:hw-mikrofon",
+    "entityType": "hardware",
+    "type": "machina-hw-category",
+    "difficulty": 3,
+    "prompt": "Zu welcher Gruppe von Hardware zählt Mikrofon?",
+    "correctAnswer": "Eingabegerät",
+    "options": [
+      "Eingabegerät",
+      "Prozessor/Recheneinheit",
+      "Grafik",
+      "Arbeitsspeicher"
+    ],
+    "testedAttribute": "category",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_hw-lautsprecher_machina-hw-category",
+    "entityId": "machina:hw-lautsprecher",
+    "entityType": "hardware",
+    "type": "machina-hw-category",
+    "difficulty": 3,
+    "prompt": "Zu welcher Gruppe von Hardware zählt Lautsprecher?",
+    "correctAnswer": "Ausgabegerät",
+    "options": [
+      "Ausgabegerät",
+      "Prozessor/Recheneinheit",
+      "Grafik",
+      "Arbeitsspeicher"
+    ],
+    "testedAttribute": "category",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_hw-touchpad_machina-hw-category",
+    "entityId": "machina:hw-touchpad",
+    "entityType": "hardware",
+    "type": "machina-hw-category",
+    "difficulty": 3,
+    "prompt": "Zu welcher Gruppe von Hardware zählt Touchpad?",
+    "correctAnswer": "Eingabegerät",
+    "options": [
+      "Eingabegerät",
+      "Prozessor/Recheneinheit",
+      "Grafik",
+      "Arbeitsspeicher"
+    ],
+    "testedAttribute": "category",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_hw-raid-controller_machina-hw-category",
+    "entityId": "machina:hw-raid-controller",
+    "entityType": "hardware",
+    "type": "machina-hw-category",
+    "difficulty": 3,
+    "prompt": "Zu welcher Gruppe von Hardware zählt RAID-Controller?",
+    "correctAnswer": "Massenspeicher",
+    "options": [
+      "Massenspeicher",
+      "Prozessor/Recheneinheit",
+      "Grafik",
+      "Arbeitsspeicher"
+    ],
+    "testedAttribute": "category",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_hw-router_machina-hw-category",
+    "entityId": "machina:hw-router",
+    "entityType": "hardware",
+    "type": "machina-hw-category",
+    "difficulty": 3,
+    "prompt": "Zu welcher Gruppe von Hardware zählt Router?",
+    "correctAnswer": "Netzwerk",
+    "options": [
+      "Netzwerk",
+      "Prozessor/Recheneinheit",
+      "Grafik",
+      "Arbeitsspeicher"
+    ],
+    "testedAttribute": "category",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_hw-optisches-laufwerk_machina-hw-category",
+    "entityId": "machina:hw-optisches-laufwerk",
+    "entityType": "hardware",
+    "type": "machina-hw-category",
+    "difficulty": 3,
+    "prompt": "Zu welcher Gruppe von Hardware zählt Optisches Laufwerk?",
+    "correctAnswer": "Massenspeicher",
+    "options": [
+      "Massenspeicher",
+      "Prozessor/Recheneinheit",
+      "Grafik",
+      "Arbeitsspeicher"
+    ],
+    "testedAttribute": "category",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_machina_acr-css_machina-acronym-fullname",
     "entityId": "machina:acr-css",
     "entityType": "acronym",
@@ -6377,28 +9611,9 @@
     "correctAnswer": "Cascading Style Sheets",
     "options": [
       "Cascading Style Sheets",
-      "Structured Query Language",
       "Application Programming Interface",
-      "Uniform Resource Locator"
-    ],
-    "testedAttribute": "fullName",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_machina_acr-sql_machina-acronym-fullname",
-    "entityId": "machina:acr-sql",
-    "entityType": "acronym",
-    "type": "machina-acronym-fullname",
-    "difficulty": 3,
-    "prompt": "Wofür steht die Abkürzung „SQL“ in der Informatik?",
-    "correctAnswer": "Structured Query Language",
-    "options": [
-      "Structured Query Language",
-      "Cascading Style Sheets",
-      "Application Programming Interface",
-      "Uniform Resource Locator"
+      "Uniform Resource Locator",
+      "Read-Only Memory"
     ],
     "testedAttribute": "fullName",
     "answerIsName": false,
@@ -6416,8 +9631,8 @@
     "options": [
       "Application Programming Interface",
       "Cascading Style Sheets",
-      "Structured Query Language",
-      "Uniform Resource Locator"
+      "Uniform Resource Locator",
+      "Read-Only Memory"
     ],
     "testedAttribute": "fullName",
     "answerIsName": false,
@@ -6435,46 +9650,8 @@
     "options": [
       "Uniform Resource Locator",
       "Cascading Style Sheets",
-      "Structured Query Language",
-      "Application Programming Interface"
-    ],
-    "testedAttribute": "fullName",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_machina_acr-http_machina-acronym-fullname",
-    "entityId": "machina:acr-http",
-    "entityType": "acronym",
-    "type": "machina-acronym-fullname",
-    "difficulty": 3,
-    "prompt": "Wofür steht die Abkürzung „HTTP“ in der Informatik?",
-    "correctAnswer": "Hypertext Transfer Protocol",
-    "options": [
-      "Hypertext Transfer Protocol",
-      "Cascading Style Sheets",
-      "Structured Query Language",
-      "Application Programming Interface"
-    ],
-    "testedAttribute": "fullName",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_machina_acr-ram_machina-acronym-fullname",
-    "entityId": "machina:acr-ram",
-    "entityType": "acronym",
-    "type": "machina-acronym-fullname",
-    "difficulty": 3,
-    "prompt": "Wofür steht die Abkürzung „RAM“ in der Informatik?",
-    "correctAnswer": "Random Access Memory",
-    "options": [
-      "Random Access Memory",
-      "Cascading Style Sheets",
-      "Structured Query Language",
-      "Application Programming Interface"
+      "Application Programming Interface",
+      "Read-Only Memory"
     ],
     "testedAttribute": "fullName",
     "answerIsName": false,
@@ -6492,46 +9669,8 @@
     "options": [
       "Read-Only Memory",
       "Cascading Style Sheets",
-      "Structured Query Language",
-      "Application Programming Interface"
-    ],
-    "testedAttribute": "fullName",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_machina_acr-cpu_machina-acronym-fullname",
-    "entityId": "machina:acr-cpu",
-    "entityType": "acronym",
-    "type": "machina-acronym-fullname",
-    "difficulty": 3,
-    "prompt": "Wofür steht die Abkürzung „CPU“ in der Informatik?",
-    "correctAnswer": "Central Processing Unit",
-    "options": [
-      "Central Processing Unit",
-      "Cascading Style Sheets",
-      "Structured Query Language",
-      "Application Programming Interface"
-    ],
-    "testedAttribute": "fullName",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_machina_acr-gpu_machina-acronym-fullname",
-    "entityId": "machina:acr-gpu",
-    "entityType": "acronym",
-    "type": "machina-acronym-fullname",
-    "difficulty": 3,
-    "prompt": "Wofür steht die Abkürzung „GPU“ in der Informatik?",
-    "correctAnswer": "Graphics Processing Unit",
-    "options": [
-      "Graphics Processing Unit",
-      "Cascading Style Sheets",
-      "Structured Query Language",
-      "Application Programming Interface"
+      "Application Programming Interface",
+      "Uniform Resource Locator"
     ],
     "testedAttribute": "fullName",
     "answerIsName": false,
@@ -6549,46 +9688,8 @@
     "options": [
       "Universal Serial Bus",
       "Cascading Style Sheets",
-      "Structured Query Language",
-      "Application Programming Interface"
-    ],
-    "testedAttribute": "fullName",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_machina_acr-dns_machina-acronym-fullname",
-    "entityId": "machina:acr-dns",
-    "entityType": "acronym",
-    "type": "machina-acronym-fullname",
-    "difficulty": 3,
-    "prompt": "Wofür steht die Abkürzung „DNS“ in der Informatik?",
-    "correctAnswer": "Domain Name System",
-    "options": [
-      "Domain Name System",
-      "Cascading Style Sheets",
-      "Structured Query Language",
-      "Application Programming Interface"
-    ],
-    "testedAttribute": "fullName",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_machina_acr-ip_machina-acronym-fullname",
-    "entityId": "machina:acr-ip",
-    "entityType": "acronym",
-    "type": "machina-acronym-fullname",
-    "difficulty": 3,
-    "prompt": "Wofür steht die Abkürzung „IP“ in der Informatik?",
-    "correctAnswer": "Internet Protocol",
-    "options": [
-      "Internet Protocol",
-      "Cascading Style Sheets",
-      "Structured Query Language",
-      "Application Programming Interface"
+      "Application Programming Interface",
+      "Uniform Resource Locator"
     ],
     "testedAttribute": "fullName",
     "answerIsName": false,
@@ -6606,46 +9707,8 @@
     "options": [
       "Virtual Private Network",
       "Cascading Style Sheets",
-      "Structured Query Language",
-      "Application Programming Interface"
-    ],
-    "testedAttribute": "fullName",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_machina_acr-ssd_machina-acronym-fullname",
-    "entityId": "machina:acr-ssd",
-    "entityType": "acronym",
-    "type": "machina-acronym-fullname",
-    "difficulty": 3,
-    "prompt": "Wofür steht die Abkürzung „SSD“ in der Informatik?",
-    "correctAnswer": "Solid-State Drive",
-    "options": [
-      "Solid-State Drive",
-      "Cascading Style Sheets",
-      "Structured Query Language",
-      "Application Programming Interface"
-    ],
-    "testedAttribute": "fullName",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_machina_acr-hdd_machina-acronym-fullname",
-    "entityId": "machina:acr-hdd",
-    "entityType": "acronym",
-    "type": "machina-acronym-fullname",
-    "difficulty": 3,
-    "prompt": "Wofür steht die Abkürzung „HDD“ in der Informatik?",
-    "correctAnswer": "Hard Disk Drive",
-    "options": [
-      "Hard Disk Drive",
-      "Cascading Style Sheets",
-      "Structured Query Language",
-      "Application Programming Interface"
+      "Application Programming Interface",
+      "Uniform Resource Locator"
     ],
     "testedAttribute": "fullName",
     "answerIsName": false,
@@ -6663,8 +9726,8 @@
     "options": [
       "Graphical User Interface",
       "Cascading Style Sheets",
-      "Structured Query Language",
-      "Application Programming Interface"
+      "Application Programming Interface",
+      "Uniform Resource Locator"
     ],
     "testedAttribute": "fullName",
     "answerIsName": false,
@@ -6682,8 +9745,8 @@
     "options": [
       "Command-Line Interface",
       "Cascading Style Sheets",
-      "Structured Query Language",
-      "Application Programming Interface"
+      "Application Programming Interface",
+      "Uniform Resource Locator"
     ],
     "testedAttribute": "fullName",
     "answerIsName": false,
@@ -6701,8 +9764,8 @@
     "options": [
       "Object-Oriented Programming",
       "Cascading Style Sheets",
-      "Structured Query Language",
-      "Application Programming Interface"
+      "Application Programming Interface",
+      "Uniform Resource Locator"
     ],
     "testedAttribute": "fullName",
     "answerIsName": false,
@@ -6720,8 +9783,8 @@
     "options": [
       "Integrated Development Environment",
       "Cascading Style Sheets",
-      "Structured Query Language",
-      "Application Programming Interface"
+      "Application Programming Interface",
+      "Uniform Resource Locator"
     ],
     "testedAttribute": "fullName",
     "answerIsName": false,
@@ -6739,8 +9802,198 @@
     "options": [
       "Software Development Kit",
       "Cascading Style Sheets",
-      "Structured Query Language",
-      "Application Programming Interface"
+      "Application Programming Interface",
+      "Uniform Resource Locator"
+    ],
+    "testedAttribute": "fullName",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_acr-lan_machina-acronym-fullname",
+    "entityId": "machina:acr-lan",
+    "entityType": "acronym",
+    "type": "machina-acronym-fullname",
+    "difficulty": 3,
+    "prompt": "Wofür steht die Abkürzung „LAN“ in der Informatik?",
+    "correctAnswer": "Local Area Network",
+    "options": [
+      "Local Area Network",
+      "Cascading Style Sheets",
+      "Application Programming Interface",
+      "Uniform Resource Locator"
+    ],
+    "testedAttribute": "fullName",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_acr-wan_machina-acronym-fullname",
+    "entityId": "machina:acr-wan",
+    "entityType": "acronym",
+    "type": "machina-acronym-fullname",
+    "difficulty": 3,
+    "prompt": "Wofür steht die Abkürzung „WAN“ in der Informatik?",
+    "correctAnswer": "Wide Area Network",
+    "options": [
+      "Wide Area Network",
+      "Cascading Style Sheets",
+      "Application Programming Interface",
+      "Uniform Resource Locator"
+    ],
+    "testedAttribute": "fullName",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_acr-wlan_machina-acronym-fullname",
+    "entityId": "machina:acr-wlan",
+    "entityType": "acronym",
+    "type": "machina-acronym-fullname",
+    "difficulty": 3,
+    "prompt": "Wofür steht die Abkürzung „WLAN“ in der Informatik?",
+    "correctAnswer": "Wireless Local Area Network",
+    "options": [
+      "Wireless Local Area Network",
+      "Cascading Style Sheets",
+      "Application Programming Interface",
+      "Uniform Resource Locator"
+    ],
+    "testedAttribute": "fullName",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_acr-raid_machina-acronym-fullname",
+    "entityId": "machina:acr-raid",
+    "entityType": "acronym",
+    "type": "machina-acronym-fullname",
+    "difficulty": 3,
+    "prompt": "Wofür steht die Abkürzung „RAID“ in der Informatik?",
+    "correctAnswer": "Redundant Array of Independent Disks",
+    "options": [
+      "Redundant Array of Independent Disks",
+      "Cascading Style Sheets",
+      "Application Programming Interface",
+      "Uniform Resource Locator"
+    ],
+    "testedAttribute": "fullName",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_acr-uefi_machina-acronym-fullname",
+    "entityId": "machina:acr-uefi",
+    "entityType": "acronym",
+    "type": "machina-acronym-fullname",
+    "difficulty": 3,
+    "prompt": "Wofür steht die Abkürzung „UEFI“ in der Informatik?",
+    "correctAnswer": "Unified Extensible Firmware Interface",
+    "options": [
+      "Unified Extensible Firmware Interface",
+      "Cascading Style Sheets",
+      "Application Programming Interface",
+      "Uniform Resource Locator"
+    ],
+    "testedAttribute": "fullName",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_acr-cdn_machina-acronym-fullname",
+    "entityId": "machina:acr-cdn",
+    "entityType": "acronym",
+    "type": "machina-acronym-fullname",
+    "difficulty": 3,
+    "prompt": "Wofür steht die Abkürzung „CDN“ in der Informatik?",
+    "correctAnswer": "Content Delivery Network",
+    "options": [
+      "Content Delivery Network",
+      "Cascading Style Sheets",
+      "Application Programming Interface",
+      "Uniform Resource Locator"
+    ],
+    "testedAttribute": "fullName",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_acr-saas_machina-acronym-fullname",
+    "entityId": "machina:acr-saas",
+    "entityType": "acronym",
+    "type": "machina-acronym-fullname",
+    "difficulty": 3,
+    "prompt": "Wofür steht die Abkürzung „SaaS“ in der Informatik?",
+    "correctAnswer": "Software as a Service",
+    "options": [
+      "Software as a Service",
+      "Cascading Style Sheets",
+      "Application Programming Interface",
+      "Uniform Resource Locator"
+    ],
+    "testedAttribute": "fullName",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_acr-iot_machina-acronym-fullname",
+    "entityId": "machina:acr-iot",
+    "entityType": "acronym",
+    "type": "machina-acronym-fullname",
+    "difficulty": 3,
+    "prompt": "Wofür steht die Abkürzung „IoT“ in der Informatik?",
+    "correctAnswer": "Internet of Things",
+    "options": [
+      "Internet of Things",
+      "Cascading Style Sheets",
+      "Application Programming Interface",
+      "Uniform Resource Locator"
+    ],
+    "testedAttribute": "fullName",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_acr-os_machina-acronym-fullname",
+    "entityId": "machina:acr-os",
+    "entityType": "acronym",
+    "type": "machina-acronym-fullname",
+    "difficulty": 3,
+    "prompt": "Wofür steht die Abkürzung „OS“ in der Informatik?",
+    "correctAnswer": "Operating System",
+    "options": [
+      "Operating System",
+      "Cascading Style Sheets",
+      "Application Programming Interface",
+      "Uniform Resource Locator"
+    ],
+    "testedAttribute": "fullName",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_acr-vm_machina-acronym-fullname",
+    "entityId": "machina:acr-vm",
+    "entityType": "acronym",
+    "type": "machina-acronym-fullname",
+    "difficulty": 3,
+    "prompt": "Wofür steht die Abkürzung „VM“ in der Informatik?",
+    "correctAnswer": "Virtual Machine",
+    "options": [
+      "Virtual Machine",
+      "Cascading Style Sheets",
+      "Application Programming Interface",
+      "Uniform Resource Locator"
     ],
     "testedAttribute": "fullName",
     "answerIsName": false,
@@ -6757,28 +10010,9 @@
     "correctAnswer": "Webtechnik",
     "options": [
       "Webtechnik",
-      "Datenbanken",
       "Programmierung",
-      "Netzwerk"
-    ],
-    "testedAttribute": "domain",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_machina_acr-sql_machina-acronym-domain",
-    "entityId": "machina:acr-sql",
-    "entityType": "acronym",
-    "type": "machina-acronym-domain",
-    "difficulty": 2,
-    "prompt": "Welchem Teilgebiet der Informatik ist der Begriff „SQL“ zuzuordnen?",
-    "correctAnswer": "Datenbanken",
-    "options": [
-      "Datenbanken",
-      "Webtechnik",
-      "Programmierung",
-      "Netzwerk"
+      "Hardware",
+      "Sicherheit"
     ],
     "testedAttribute": "domain",
     "answerIsName": false,
@@ -6796,8 +10030,8 @@
     "options": [
       "Programmierung",
       "Webtechnik",
-      "Datenbanken",
-      "Netzwerk"
+      "Hardware",
+      "Sicherheit"
     ],
     "testedAttribute": "domain",
     "answerIsName": false,
@@ -6814,47 +10048,9 @@
     "correctAnswer": "Webtechnik",
     "options": [
       "Webtechnik",
-      "Datenbanken",
       "Programmierung",
-      "Netzwerk"
-    ],
-    "testedAttribute": "domain",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_machina_acr-http_machina-acronym-domain",
-    "entityId": "machina:acr-http",
-    "entityType": "acronym",
-    "type": "machina-acronym-domain",
-    "difficulty": 2,
-    "prompt": "Welchem Teilgebiet der Informatik ist der Begriff „HTTP“ zuzuordnen?",
-    "correctAnswer": "Netzwerk",
-    "options": [
-      "Netzwerk",
-      "Webtechnik",
-      "Datenbanken",
-      "Programmierung"
-    ],
-    "testedAttribute": "domain",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_machina_acr-ram_machina-acronym-domain",
-    "entityId": "machina:acr-ram",
-    "entityType": "acronym",
-    "type": "machina-acronym-domain",
-    "difficulty": 2,
-    "prompt": "Welchem Teilgebiet der Informatik ist der Begriff „RAM“ zuzuordnen?",
-    "correctAnswer": "Hardware",
-    "options": [
       "Hardware",
-      "Webtechnik",
-      "Datenbanken",
-      "Programmierung"
+      "Sicherheit"
     ],
     "testedAttribute": "domain",
     "answerIsName": false,
@@ -6872,46 +10068,8 @@
     "options": [
       "Hardware",
       "Webtechnik",
-      "Datenbanken",
-      "Programmierung"
-    ],
-    "testedAttribute": "domain",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_machina_acr-cpu_machina-acronym-domain",
-    "entityId": "machina:acr-cpu",
-    "entityType": "acronym",
-    "type": "machina-acronym-domain",
-    "difficulty": 2,
-    "prompt": "Welchem Teilgebiet der Informatik ist der Begriff „CPU“ zuzuordnen?",
-    "correctAnswer": "Hardware",
-    "options": [
-      "Hardware",
-      "Webtechnik",
-      "Datenbanken",
-      "Programmierung"
-    ],
-    "testedAttribute": "domain",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_machina_acr-gpu_machina-acronym-domain",
-    "entityId": "machina:acr-gpu",
-    "entityType": "acronym",
-    "type": "machina-acronym-domain",
-    "difficulty": 2,
-    "prompt": "Welchem Teilgebiet der Informatik ist der Begriff „GPU“ zuzuordnen?",
-    "correctAnswer": "Hardware",
-    "options": [
-      "Hardware",
-      "Webtechnik",
-      "Datenbanken",
-      "Programmierung"
+      "Programmierung",
+      "Sicherheit"
     ],
     "testedAttribute": "domain",
     "answerIsName": false,
@@ -6929,46 +10087,8 @@
     "options": [
       "Hardware",
       "Webtechnik",
-      "Datenbanken",
-      "Programmierung"
-    ],
-    "testedAttribute": "domain",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_machina_acr-dns_machina-acronym-domain",
-    "entityId": "machina:acr-dns",
-    "entityType": "acronym",
-    "type": "machina-acronym-domain",
-    "difficulty": 2,
-    "prompt": "Welchem Teilgebiet der Informatik ist der Begriff „DNS“ zuzuordnen?",
-    "correctAnswer": "Netzwerk",
-    "options": [
-      "Netzwerk",
-      "Webtechnik",
-      "Datenbanken",
-      "Programmierung"
-    ],
-    "testedAttribute": "domain",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_machina_acr-ip_machina-acronym-domain",
-    "entityId": "machina:acr-ip",
-    "entityType": "acronym",
-    "type": "machina-acronym-domain",
-    "difficulty": 2,
-    "prompt": "Welchem Teilgebiet der Informatik ist der Begriff „IP“ zuzuordnen?",
-    "correctAnswer": "Netzwerk",
-    "options": [
-      "Netzwerk",
-      "Webtechnik",
-      "Datenbanken",
-      "Programmierung"
+      "Programmierung",
+      "Sicherheit"
     ],
     "testedAttribute": "domain",
     "answerIsName": false,
@@ -6986,46 +10106,8 @@
     "options": [
       "Sicherheit",
       "Webtechnik",
-      "Datenbanken",
-      "Programmierung"
-    ],
-    "testedAttribute": "domain",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_machina_acr-ssd_machina-acronym-domain",
-    "entityId": "machina:acr-ssd",
-    "entityType": "acronym",
-    "type": "machina-acronym-domain",
-    "difficulty": 2,
-    "prompt": "Welchem Teilgebiet der Informatik ist der Begriff „SSD“ zuzuordnen?",
-    "correctAnswer": "Hardware",
-    "options": [
-      "Hardware",
-      "Webtechnik",
-      "Datenbanken",
-      "Programmierung"
-    ],
-    "testedAttribute": "domain",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_machina_acr-hdd_machina-acronym-domain",
-    "entityId": "machina:acr-hdd",
-    "entityType": "acronym",
-    "type": "machina-acronym-domain",
-    "difficulty": 2,
-    "prompt": "Welchem Teilgebiet der Informatik ist der Begriff „HDD“ zuzuordnen?",
-    "correctAnswer": "Hardware",
-    "options": [
-      "Hardware",
-      "Webtechnik",
-      "Datenbanken",
-      "Programmierung"
+      "Programmierung",
+      "Hardware"
     ],
     "testedAttribute": "domain",
     "answerIsName": false,
@@ -7043,8 +10125,8 @@
     "options": [
       "Programmierung",
       "Webtechnik",
-      "Datenbanken",
-      "Netzwerk"
+      "Hardware",
+      "Sicherheit"
     ],
     "testedAttribute": "domain",
     "answerIsName": false,
@@ -7062,8 +10144,8 @@
     "options": [
       "Programmierung",
       "Webtechnik",
-      "Datenbanken",
-      "Netzwerk"
+      "Hardware",
+      "Sicherheit"
     ],
     "testedAttribute": "domain",
     "answerIsName": false,
@@ -7081,8 +10163,160 @@
     "options": [
       "Programmierung",
       "Webtechnik",
-      "Datenbanken",
-      "Netzwerk"
+      "Hardware",
+      "Sicherheit"
+    ],
+    "testedAttribute": "domain",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_acr-lan_machina-acronym-domain",
+    "entityId": "machina:acr-lan",
+    "entityType": "acronym",
+    "type": "machina-acronym-domain",
+    "difficulty": 2,
+    "prompt": "Welchem Teilgebiet der Informatik ist der Begriff „LAN“ zuzuordnen?",
+    "correctAnswer": "Netzwerk",
+    "options": [
+      "Netzwerk",
+      "Webtechnik",
+      "Programmierung",
+      "Hardware"
+    ],
+    "testedAttribute": "domain",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_acr-wan_machina-acronym-domain",
+    "entityId": "machina:acr-wan",
+    "entityType": "acronym",
+    "type": "machina-acronym-domain",
+    "difficulty": 2,
+    "prompt": "Welchem Teilgebiet der Informatik ist der Begriff „WAN“ zuzuordnen?",
+    "correctAnswer": "Netzwerk",
+    "options": [
+      "Netzwerk",
+      "Webtechnik",
+      "Programmierung",
+      "Hardware"
+    ],
+    "testedAttribute": "domain",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_acr-wlan_machina-acronym-domain",
+    "entityId": "machina:acr-wlan",
+    "entityType": "acronym",
+    "type": "machina-acronym-domain",
+    "difficulty": 2,
+    "prompt": "Welchem Teilgebiet der Informatik ist der Begriff „WLAN“ zuzuordnen?",
+    "correctAnswer": "Netzwerk",
+    "options": [
+      "Netzwerk",
+      "Webtechnik",
+      "Programmierung",
+      "Hardware"
+    ],
+    "testedAttribute": "domain",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_acr-raid_machina-acronym-domain",
+    "entityId": "machina:acr-raid",
+    "entityType": "acronym",
+    "type": "machina-acronym-domain",
+    "difficulty": 2,
+    "prompt": "Welchem Teilgebiet der Informatik ist der Begriff „RAID“ zuzuordnen?",
+    "correctAnswer": "Hardware",
+    "options": [
+      "Hardware",
+      "Webtechnik",
+      "Programmierung",
+      "Sicherheit"
+    ],
+    "testedAttribute": "domain",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_acr-bios_machina-acronym-domain",
+    "entityId": "machina:acr-bios",
+    "entityType": "acronym",
+    "type": "machina-acronym-domain",
+    "difficulty": 2,
+    "prompt": "Welchem Teilgebiet der Informatik ist der Begriff „BIOS“ zuzuordnen?",
+    "correctAnswer": "Hardware",
+    "options": [
+      "Hardware",
+      "Webtechnik",
+      "Programmierung",
+      "Sicherheit"
+    ],
+    "testedAttribute": "domain",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_acr-uefi_machina-acronym-domain",
+    "entityId": "machina:acr-uefi",
+    "entityType": "acronym",
+    "type": "machina-acronym-domain",
+    "difficulty": 2,
+    "prompt": "Welchem Teilgebiet der Informatik ist der Begriff „UEFI“ zuzuordnen?",
+    "correctAnswer": "Hardware",
+    "options": [
+      "Hardware",
+      "Webtechnik",
+      "Programmierung",
+      "Sicherheit"
+    ],
+    "testedAttribute": "domain",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_acr-cdn_machina-acronym-domain",
+    "entityId": "machina:acr-cdn",
+    "entityType": "acronym",
+    "type": "machina-acronym-domain",
+    "difficulty": 2,
+    "prompt": "Welchem Teilgebiet der Informatik ist der Begriff „CDN“ zuzuordnen?",
+    "correctAnswer": "Netzwerk",
+    "options": [
+      "Netzwerk",
+      "Webtechnik",
+      "Programmierung",
+      "Hardware"
+    ],
+    "testedAttribute": "domain",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_acr-iot_machina-acronym-domain",
+    "entityId": "machina:acr-iot",
+    "entityType": "acronym",
+    "type": "machina-acronym-domain",
+    "difficulty": 2,
+    "prompt": "Welchem Teilgebiet der Informatik ist der Begriff „IoT“ zuzuordnen?",
+    "correctAnswer": "Netzwerk",
+    "options": [
+      "Netzwerk",
+      "Webtechnik",
+      "Programmierung",
+      "Hardware"
     ],
     "testedAttribute": "domain",
     "answerIsName": false,
@@ -7273,6 +10507,310 @@
       "Betriebssysteme",
       "Sicherheit/Kryptografie",
       "Netzwerk"
+    ],
+    "testedAttribute": "category",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_concept-cookie_machina-concept-category",
+    "entityId": "machina:concept-cookie",
+    "entityType": "concept",
+    "type": "machina-concept-category",
+    "difficulty": 3,
+    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Cookie“ zuzuordnen?",
+    "correctAnswer": "Webtechnik",
+    "options": [
+      "Webtechnik",
+      "Programmierung",
+      "Betriebssysteme",
+      "Sicherheit/Kryptografie"
+    ],
+    "testedAttribute": "category",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_concept-ip-address_machina-concept-category",
+    "entityId": "machina:concept-ip-address",
+    "entityType": "concept",
+    "type": "machina-concept-category",
+    "difficulty": 3,
+    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „IP-Adresse“ zuzuordnen?",
+    "correctAnswer": "Netzwerk",
+    "options": [
+      "Netzwerk",
+      "Programmierung",
+      "Betriebssysteme",
+      "Sicherheit/Kryptografie"
+    ],
+    "testedAttribute": "category",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_concept-bandwidth_machina-concept-category",
+    "entityId": "machina:concept-bandwidth",
+    "entityType": "concept",
+    "type": "machina-concept-category",
+    "difficulty": 3,
+    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Bandbreite“ zuzuordnen?",
+    "correctAnswer": "Netzwerk",
+    "options": [
+      "Netzwerk",
+      "Programmierung",
+      "Betriebssysteme",
+      "Sicherheit/Kryptografie"
+    ],
+    "testedAttribute": "category",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_concept-latency_machina-concept-category",
+    "entityId": "machina:concept-latency",
+    "entityType": "concept",
+    "type": "machina-concept-category",
+    "difficulty": 3,
+    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Latenz“ zuzuordnen?",
+    "correctAnswer": "Netzwerk",
+    "options": [
+      "Netzwerk",
+      "Programmierung",
+      "Betriebssysteme",
+      "Sicherheit/Kryptografie"
+    ],
+    "testedAttribute": "category",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_concept-bug_machina-concept-category",
+    "entityId": "machina:concept-bug",
+    "entityType": "concept",
+    "type": "machina-concept-category",
+    "difficulty": 3,
+    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Bug“ zuzuordnen?",
+    "correctAnswer": "Programmierung",
+    "options": [
+      "Programmierung",
+      "Betriebssysteme",
+      "Sicherheit/Kryptografie",
+      "Netzwerk"
+    ],
+    "testedAttribute": "category",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_concept-debugging_machina-concept-category",
+    "entityId": "machina:concept-debugging",
+    "entityType": "concept",
+    "type": "machina-concept-category",
+    "difficulty": 3,
+    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Debugging“ zuzuordnen?",
+    "correctAnswer": "Programmierung",
+    "options": [
+      "Programmierung",
+      "Betriebssysteme",
+      "Sicherheit/Kryptografie",
+      "Netzwerk"
+    ],
+    "testedAttribute": "category",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_concept-backup_machina-concept-category",
+    "entityId": "machina:concept-backup",
+    "entityType": "concept",
+    "type": "machina-concept-category",
+    "difficulty": 3,
+    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Backup“ zuzuordnen?",
+    "correctAnswer": "Betriebssysteme",
+    "options": [
+      "Betriebssysteme",
+      "Programmierung",
+      "Sicherheit/Kryptografie",
+      "Netzwerk"
+    ],
+    "testedAttribute": "category",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_concept-filesystem_machina-concept-category",
+    "entityId": "machina:concept-filesystem",
+    "entityType": "concept",
+    "type": "machina-concept-category",
+    "difficulty": 3,
+    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Dateisystem“ zuzuordnen?",
+    "correctAnswer": "Betriebssysteme",
+    "options": [
+      "Betriebssysteme",
+      "Programmierung",
+      "Sicherheit/Kryptografie",
+      "Netzwerk"
+    ],
+    "testedAttribute": "category",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_concept-pixel_machina-concept-category",
+    "entityId": "machina:concept-pixel",
+    "entityType": "concept",
+    "type": "machina-concept-category",
+    "difficulty": 3,
+    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Pixel“ zuzuordnen?",
+    "correctAnswer": "Webtechnik",
+    "options": [
+      "Webtechnik",
+      "Programmierung",
+      "Betriebssysteme",
+      "Sicherheit/Kryptografie"
+    ],
+    "testedAttribute": "category",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_concept-resolution_machina-concept-category",
+    "entityId": "machina:concept-resolution",
+    "entityType": "concept",
+    "type": "machina-concept-category",
+    "difficulty": 3,
+    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Auflösung (Bildschirm)“ zuzuordnen?",
+    "correctAnswer": "Webtechnik",
+    "options": [
+      "Webtechnik",
+      "Programmierung",
+      "Betriebssysteme",
+      "Sicherheit/Kryptografie"
+    ],
+    "testedAttribute": "category",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_concept-source-vs-machine-code_machina-concept-category",
+    "entityId": "machina:concept-source-vs-machine-code",
+    "entityType": "concept",
+    "type": "machina-concept-category",
+    "difficulty": 3,
+    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Quellcode vs. Maschinencode“ zuzuordnen?",
+    "correctAnswer": "Programmierung",
+    "options": [
+      "Programmierung",
+      "Betriebssysteme",
+      "Sicherheit/Kryptografie",
+      "Netzwerk"
+    ],
+    "testedAttribute": "category",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_concept-library-framework_machina-concept-category",
+    "entityId": "machina:concept-library-framework",
+    "entityType": "concept",
+    "type": "machina-concept-category",
+    "difficulty": 3,
+    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Bibliothek und Framework“ zuzuordnen?",
+    "correctAnswer": "Programmierung",
+    "options": [
+      "Programmierung",
+      "Betriebssysteme",
+      "Sicherheit/Kryptografie",
+      "Netzwerk"
+    ],
+    "testedAttribute": "category",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_concept-version-control_machina-concept-category",
+    "entityId": "machina:concept-version-control",
+    "entityType": "concept",
+    "type": "machina-concept-category",
+    "difficulty": 3,
+    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Versionskontrolle“ zuzuordnen?",
+    "correctAnswer": "Programmierung",
+    "options": [
+      "Programmierung",
+      "Betriebssysteme",
+      "Sicherheit/Kryptografie",
+      "Netzwerk"
+    ],
+    "testedAttribute": "category",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_concept-container_machina-concept-category",
+    "entityId": "machina:concept-container",
+    "entityType": "concept",
+    "type": "machina-concept-category",
+    "difficulty": 3,
+    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Container (Software)“ zuzuordnen?",
+    "correctAnswer": "Betriebssysteme",
+    "options": [
+      "Betriebssysteme",
+      "Programmierung",
+      "Sicherheit/Kryptografie",
+      "Netzwerk"
+    ],
+    "testedAttribute": "category",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_concept-api_machina-concept-category",
+    "entityId": "machina:concept-api",
+    "entityType": "concept",
+    "type": "machina-concept-category",
+    "difficulty": 3,
+    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „API (Konzept)“ zuzuordnen?",
+    "correctAnswer": "Programmierung",
+    "options": [
+      "Programmierung",
+      "Betriebssysteme",
+      "Sicherheit/Kryptografie",
+      "Netzwerk"
+    ],
+    "testedAttribute": "category",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_concept-protocol-stack_machina-concept-category",
+    "entityId": "machina:concept-protocol-stack",
+    "entityType": "concept",
+    "type": "machina-concept-category",
+    "difficulty": 3,
+    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Protokollstack“ zuzuordnen?",
+    "correctAnswer": "Netzwerk",
+    "options": [
+      "Netzwerk",
+      "Programmierung",
+      "Betriebssysteme",
+      "Sicherheit/Kryptografie"
     ],
     "testedAttribute": "category",
     "answerIsName": false,

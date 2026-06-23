@@ -1,0 +1,563 @@
+[
+  {
+    "id": "concept-firewall",
+    "name": "Firewall",
+    "category": "concept",
+    "attributes": {
+      "category": "Sicherheit/Kryptografie",
+      "definition": "System, das den Netzwerkverkehr anhand von Regeln filtert und unerlaubte Verbindungen blockiert, um ein Netzwerk zu schützen"
+    },
+    "funFact": "Der Begriff 'Firewall' stammt ursprünglich aus dem Bauwesen, wo eine Brandschutzmauer das Ausbreiten von Feuer verhindert.",
+    "sourceName": "Wikipedia DE – Firewall",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Firewall",
+    "verifyNote": "Standarddefinition in Netzwerk-Sicherheitslehrbüchern; Wikipedia DE belegt Funktion und Begriffserklärung"
+  },
+  {
+    "id": "concept-cookie",
+    "name": "Cookie",
+    "category": "concept",
+    "attributes": {
+      "category": "Webtechnik",
+      "definition": "Kleines Datenstück, das ein Webserver im Browser des Nutzers speichert, um Sitzungsinformationen oder Einstellungen zu erhalten"
+    },
+    "funFact": "HTTP-Cookies wurden 1994 von Lou Montulli bei Netscape erfunden, um Warenkorb-Inhalte in Online-Shops zu speichern.",
+    "sourceName": "Wikipedia DE – HTTP-Cookie",
+    "sourceUrl": "https://de.wikipedia.org/wiki/HTTP-Cookie",
+    "verifyNote": "Erfindung durch Montulli 1994 und Funktion laut Wikipedia DE und RFC 6265 belegt"
+  },
+  {
+    "id": "concept-ip-address",
+    "name": "IP-Adresse",
+    "category": "concept",
+    "attributes": {
+      "category": "Netzwerk",
+      "definition": "Numerische Adresse, die einem Gerät in einem Netzwerk eindeutig zugewiesen wird und die Übermittlung von Datenpaketen an den richtigen Empfänger ermöglicht"
+    },
+    "funFact": "IPv4-Adressen sind 32 Bit lang und ermöglichen rund 4,3 Milliarden Adressen; IPv6 verwendet 128 Bit für praktisch unbegrenzte Adressen.",
+    "sourceName": "Wikipedia DE – IP-Adresse",
+    "sourceUrl": "https://de.wikipedia.org/wiki/IP-Adresse",
+    "verifyNote": "IPv4 32 Bit / IPv6 128 Bit laut RFC 791 und RFC 2460 belegt"
+  },
+  {
+    "id": "concept-bandwidth",
+    "name": "Bandbreite",
+    "category": "concept",
+    "attributes": {
+      "category": "Netzwerk",
+      "definition": "Maximale Datenmenge, die pro Zeiteinheit über eine Netzwerkverbindung übertragen werden kann; gemessen in Bit pro Sekunde"
+    },
+    "sourceName": "Wikipedia DE – Bandbreite (Nachrichtentechnik)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Bandbreite_(Nachrichtentechnik)",
+    "verifyNote": "Standarddefinition als maximaler Datendurchsatz laut Wikipedia DE und Nachrichtentechnik-Lehrbüchern"
+  },
+  {
+    "id": "concept-latency",
+    "name": "Latenz",
+    "category": "concept",
+    "attributes": {
+      "category": "Netzwerk",
+      "definition": "Zeitverzögerung zwischen dem Absenden eines Datenpaketes und dem Empfang der Antwort; ausgedrückt in Millisekunden"
+    },
+    "funFact": "Bei Videokonferenzen und Online-Spielen ist niedrige Latenz entscheidend — schon 100 ms können spürbare Verzögerungen verursachen.",
+    "sourceName": "Wikipedia DE – Latenz (Technik)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Latenz_(Technik)",
+    "verifyNote": "Standarddefinition als Verzögerungszeit laut Wikipedia DE"
+  },
+  {
+    "id": "concept-bug",
+    "name": "Bug",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmierung",
+      "definition": "Fehler in einem Computerprogramm, der zu unerwartetem oder unerwünschtem Verhalten führt"
+    },
+    "funFact": "Der erste dokumentierte Computerfehler war 1947 eine echte Motte, die Grace Hopper in einem Relais des Harvard Mark II fand.",
+    "sourceName": "Wikipedia DE – Programmfehler",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Programmfehler",
+    "verifyNote": "Historische Motte-Anekdote und Standarddefinition laut Wikipedia DE belegt"
+  },
+  {
+    "id": "concept-debugging",
+    "name": "Debugging",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmierung",
+      "definition": "Prozess des Auffindens, Analysierens und Behebens von Fehlern (Bugs) in einem Computerprogramm"
+    },
+    "sourceName": "Wikipedia DE – Debugger",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Debugger",
+    "verifyNote": "Standarddefinition in jedem Programmierlehrbuch; Wikipedia DE beschreibt Debugging als systematischen Fehlerbehebungsprozess"
+  },
+  {
+    "id": "concept-backup",
+    "name": "Backup",
+    "category": "concept",
+    "attributes": {
+      "category": "Betriebssysteme",
+      "definition": "Sicherungskopie von Daten, die es ermöglicht, verlorene oder beschädigte Daten wiederherzustellen"
+    },
+    "funFact": "Die 3-2-1-Backup-Regel empfiehlt: 3 Kopien der Daten, auf 2 verschiedenen Medien, davon 1 an einem anderen Ort.",
+    "sourceName": "Wikipedia DE – Datensicherung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Datensicherung",
+    "verifyNote": "3-2-1-Regel und Standarddefinition laut Wikipedia DE und IT-Sicherheitslehrbüchern"
+  },
+  {
+    "id": "concept-kernel",
+    "name": "Betriebssystem-Kernel",
+    "category": "concept",
+    "attributes": {
+      "category": "Betriebssysteme",
+      "definition": "Zentraler Kern eines Betriebssystems, der direkt mit der Hardware kommuniziert und Ressourcen wie Prozessor, Speicher und Geräte verwaltet"
+    },
+    "funFact": "Linux ist technisch gesehen nur ein Kernel — das vollständige Betriebssystem entsteht erst durch Kombination mit weiterer Software wie der GNU-Userspace-Umgebung.",
+    "sourceName": "Wikipedia DE – Kernel (Betriebssystem)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Kernel_(Betriebssystem)",
+    "verifyNote": "Standarddefinition des Kernels als Hardware-Schnittstelle laut Wikipedia DE und Betriebssystem-Lehrbüchern"
+  },
+  {
+    "id": "concept-filesystem",
+    "name": "Dateisystem",
+    "category": "concept",
+    "attributes": {
+      "category": "Betriebssysteme",
+      "definition": "Methode und Datenstruktur, mit der ein Betriebssystem Dateien auf einem Speichermedium ablegt, benennt und organisiert"
+    },
+    "funFact": "Das Windows-Dateisystem NTFS unterstützt Einzeldateien bis 16 Exabyte — mehr als je eine einzelne Festplatte fassen könnte.",
+    "sourceName": "Wikipedia DE – Dateisystem",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Dateisystem",
+    "verifyNote": "Standarddefinition und NTFS-Limit laut Wikipedia DE belegt"
+  },
+  {
+    "id": "concept-bit-byte",
+    "name": "Bit und Byte",
+    "category": "concept",
+    "attributes": {
+      "category": "Theoretische Informatik",
+      "definition": "Ein Bit ist die kleinste Informationseinheit (0 oder 1); ein Byte besteht aus 8 Bit und kann 256 verschiedene Werte darstellen"
+    },
+    "funFact": "Der Begriff 'Bit' wurde 1948 von Claude Shannon als Abkürzung für 'binary digit' geprägt.",
+    "sourceName": "Wikipedia DE – Bit",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Bit",
+    "verifyNote": "8 Bit = 1 Byte ist ISO-Standard (IEC 80000-13); Shannon-Zitat laut Wikipedia DE belegt"
+  },
+  {
+    "id": "concept-pixel",
+    "name": "Pixel",
+    "category": "concept",
+    "attributes": {
+      "category": "Webtechnik",
+      "definition": "Kleinste einzeln ansteuerbare Einheit eines digitalen Bildes oder Displays; Kurzform von 'Picture Element'"
+    },
+    "sourceName": "Wikipedia DE – Pixel",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Pixel",
+    "verifyNote": "Standarddefinition als kleinstes Bildelement laut Wikipedia DE"
+  },
+  {
+    "id": "concept-resolution",
+    "name": "Auflösung (Bildschirm)",
+    "category": "concept",
+    "attributes": {
+      "category": "Webtechnik",
+      "definition": "Anzahl der Pixel in Breite und Höhe eines Displays oder Bildes; bestimmt die Detailgenauigkeit der Darstellung (z.B. 1920×1080)"
+    },
+    "sourceName": "Wikipedia DE – Auflösung (Digitale Bildverarbeitung)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Aufl%C3%B6sung_(Digitale_Bildverarbeitung)",
+    "verifyNote": "Standarddefinition als Pixelanzahl laut Wikipedia DE"
+  },
+  {
+    "id": "concept-source-vs-machine-code",
+    "name": "Quellcode vs. Maschinencode",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmierung",
+      "definition": "Quellcode ist von Menschen lesbarer Programmtext; Maschinencode ist die daraus übersetzte binäre Befehlsfolge, die der Prozessor direkt ausführt"
+    },
+    "sourceName": "Wikipedia DE – Quelltext",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Quelltext",
+    "verifyNote": "Standardunterscheidung in Programmierlehrbüchern; Wikipedia DE belegt beide Begriffe"
+  },
+  {
+    "id": "concept-variable",
+    "name": "Variable (Programmierung)",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmierung",
+      "definition": "Benannter Speicherplatz in einem Programm, dem ein Wert zugewiesen werden kann und der sich während der Ausführung ändern darf"
+    },
+    "sourceName": "Wikipedia DE – Variable (Programmierung)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Variable_(Programmierung)",
+    "verifyNote": "Grundkonzept der Programmierung, in jedem Lehrbuch belegt"
+  },
+  {
+    "id": "concept-loop",
+    "name": "Schleife (Programmierung)",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmierung",
+      "definition": "Kontrollstruktur, die einen Codeblock wiederholt ausführt, solange eine Bedingung erfüllt ist oder über eine Sammlung von Elementen iteriert"
+    },
+    "sourceName": "Wikipedia DE – Schleife (Programmierung)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Schleife_(Programmierung)",
+    "verifyNote": "Grundkonzept der Programmierung, in jedem Lehrbuch belegt"
+  },
+  {
+    "id": "concept-condition",
+    "name": "Bedingung (Programmierung)",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmierung",
+      "definition": "Ausdruck, der einen Wahrheitswert (wahr oder falsch) ergibt und die Ausführung unterschiedlicher Codezweige steuert (if/else)"
+    },
+    "sourceName": "Wikipedia DE – Bedingte Anweisung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Bedingte_Anweisung",
+    "verifyNote": "Grundkonzept der Programmierung, in jedem Lehrbuch belegt"
+  },
+  {
+    "id": "concept-function",
+    "name": "Funktion (Programmierung)",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmierung",
+      "definition": "Benannter, wiederverwendbarer Codeblock, der einen bestimmten Teilauftrag ausführt und optional Werte entgegennimmt und zurückgibt"
+    },
+    "sourceName": "Wikipedia DE – Funktion (Programmierung)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Funktion_(Programmierung)",
+    "verifyNote": "Grundkonzept der Programmierung, in jedem Lehrbuch belegt"
+  },
+  {
+    "id": "concept-library-framework",
+    "name": "Bibliothek und Framework",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmierung",
+      "definition": "Eine Bibliothek ist eine Sammlung wiederverwendbarer Funktionen; ein Framework gibt die Grundstruktur einer Anwendung vor und ruft den Entwicklercode auf"
+    },
+    "funFact": "Der Unterschied: Bei einer Bibliothek ruft der Entwickler den Code auf; beim Framework ruft das Framework den Entwicklercode auf (Inversion of Control).",
+    "sourceName": "Wikipedia DE – Programmbibliothek",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Programmbibliothek",
+    "verifyNote": "Inversion-of-Control-Prinzip zur Abgrenzung Framework/Bibliothek ist Lehrbuch-Standard (Martin Fowler)"
+  },
+  {
+    "id": "concept-interface",
+    "name": "Schnittstelle (Programmierung)",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmierung",
+      "definition": "Vereinbarung, die festlegt, welche Methoden oder Eigenschaften ein Objekt oder Modul nach außen anbietet, ohne die Implementierung zu offenbaren"
+    },
+    "sourceName": "Wikipedia DE – Schnittstelle (Objektorientierung)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Schnittstelle_(Objektorientierung)",
+    "verifyNote": "Standardkonzept der OOP; Wikipedia DE belegt Definition"
+  },
+  {
+    "id": "concept-phishing",
+    "name": "Phishing",
+    "category": "concept",
+    "attributes": {
+      "category": "Sicherheit/Kryptografie",
+      "definition": "Angriffsmethode, bei der Angreifer gefälschte E-Mails oder Webseiten nutzen, um Nutzer zur Preisgabe vertraulicher Daten wie Passwörter zu verleiten"
+    },
+    "funFact": "Der Begriff 'Phishing' ist ein Wortspiel aus 'fishing' (Angeln) und 'phreaking' (Telefonhacking) — die Angreifer 'angeln' nach Opfern.",
+    "sourceName": "Wikipedia DE – Phishing",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Phishing",
+    "verifyNote": "Standarddefinition und Etymologie laut Wikipedia DE"
+  },
+  {
+    "id": "concept-malware",
+    "name": "Malware",
+    "category": "concept",
+    "attributes": {
+      "category": "Sicherheit/Kryptografie",
+      "definition": "Oberbegriff für schädliche Software, die ohne Wissen des Nutzers Schaden anrichtet; umfasst Viren, Trojaner, Ransomware und andere Schadprogramme"
+    },
+    "funFact": "Der erste weitverbreitete Computervirus 'Brain' wurde 1986 von zwei pakistanischen Brüdern geschrieben, ursprünglich als Kopierschutz.",
+    "sourceName": "Wikipedia DE – Schadprogramm",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Schadprogramm",
+    "verifyNote": "Standarddefinition und Brain-Virus-Anekdote laut Wikipedia DE belegt"
+  },
+  {
+    "id": "concept-2fa",
+    "name": "Zwei-Faktor-Authentifizierung",
+    "category": "concept",
+    "attributes": {
+      "category": "Sicherheit/Kryptografie",
+      "definition": "Anmeldeverfahren, das neben dem Passwort einen zweiten Beweis der Identität erfordert, z.B. einen per SMS gesendeten Code oder eine Authenticator-App"
+    },
+    "funFact": "Zwei-Faktor-Authentifizierung reduziert das Risiko eines Kontozugriffs durch gestohlene Passwörter um über 99 Prozent.",
+    "sourceName": "Wikipedia DE – Zwei-Faktor-Authentisierung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Zwei-Faktor-Authentisierung",
+    "verifyNote": "Standarddefinition laut Wikipedia DE; Sicherheitswert laut Studien von Google/Microsoft (2019)"
+  },
+  {
+    "id": "concept-public-key-crypto",
+    "name": "Public-Key-Kryptografie",
+    "category": "concept",
+    "attributes": {
+      "category": "Sicherheit/Kryptografie",
+      "definition": "Asymmetrisches Verschlüsselungsverfahren mit zwei mathematisch verknüpften Schlüsseln: ein öffentlicher Schlüssel zum Verschlüsseln, ein privater zum Entschlüsseln"
+    },
+    "funFact": "Public-Key-Kryptografie ermöglicht sichere Kommunikation ohne vorherigen Schlüsselaustausch — eine der wichtigsten Erfindungen der modernen Informatik.",
+    "sourceName": "Wikipedia DE – Asymmetrisches Kryptosystem",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Asymmetrisches_Kryptosystem",
+    "verifyNote": "Grundprinzip laut Wikipedia DE und Lehrbüchern (Diffie-Hellman 1976, RSA 1977)"
+  },
+  {
+    "id": "concept-blockchain",
+    "name": "Blockchain",
+    "category": "concept",
+    "attributes": {
+      "category": "Sicherheit/Kryptografie",
+      "definition": "Dezentrale, unveränderliche Datenstruktur aus verketteten Blöcken, in der Transaktionen fälschungssicher gespeichert werden"
+    },
+    "funFact": "Bitcoin nutzt eine Blockchain als öffentliches Hauptbuch aller Transaktionen — seit 2009 ist keine einzige rückgängig gemacht worden.",
+    "sourceName": "Wikipedia DE – Blockchain",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Blockchain",
+    "verifyNote": "Standarddefinition und Bitcoin-Bezug laut Wikipedia DE"
+  },
+  {
+    "id": "concept-version-control",
+    "name": "Versionskontrolle",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmierung",
+      "definition": "System, das Änderungen an Dateien über die Zeit nachverfolgt und das Zurückkehren zu früheren Versionen sowie die Zusammenarbeit mehrerer Entwickler ermöglicht"
+    },
+    "funFact": "Git, das meistgenutzte Versionskontrollsystem, wurde 2005 von Linus Torvalds in nur zwei Wochen entwickelt.",
+    "sourceName": "Wikipedia DE – Versionsverwaltung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Versionsverwaltung",
+    "verifyNote": "Standarddefinition und Git-Entstehungsgeschichte laut Wikipedia DE"
+  },
+  {
+    "id": "concept-container",
+    "name": "Container (Software)",
+    "category": "concept",
+    "attributes": {
+      "category": "Betriebssysteme",
+      "definition": "Isolierte, leichtgewichtige Laufzeitumgebung, die eine Anwendung mit allen ihren Abhängigkeiten bündelt und auf jedem System gleich ausführbar macht"
+    },
+    "funFact": "Docker, die bekannteste Container-Plattform, wurde 2013 veröffentlicht und hat die Softwareentwicklung und -bereitstellung grundlegend verändert.",
+    "sourceName": "Wikipedia DE – Containervirtualisierung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Containervirtualisierung",
+    "verifyNote": "Standarddefinition und Docker-Entstehung 2013 laut Wikipedia DE belegt"
+  },
+  {
+    "id": "concept-api",
+    "name": "API (Konzept)",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmierung",
+      "definition": "Definierte Schnittstelle, über die Programme miteinander kommunizieren können, ohne interne Implementierungsdetails kennen zu müssen"
+    },
+    "funFact": "Web-APIs ermöglichen es, dass fremde Dienste wie Google Maps oder Wetterdaten in eigene Anwendungen eingebunden werden können.",
+    "sourceName": "Wikipedia DE – Programmierschnittstelle",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Programmierschnittstelle",
+    "verifyNote": "Standarddefinition der API als Abstraktionsschicht in jedem Informatik-Lehrbuch"
+  },
+  {
+    "id": "concept-protocol-stack",
+    "name": "Protokollstack",
+    "category": "concept",
+    "attributes": {
+      "category": "Netzwerk",
+      "definition": "Hierarchisch geordnete Menge von Netzwerkprotokollen, bei der jede Schicht Dienste der darunter liegenden nutzt und der darüber liegenden bereitstellt"
+    },
+    "funFact": "Das TCP/IP-Modell fasst die sieben OSI-Schichten auf vier Schichten zusammen und ist das Fundament des heutigen Internets.",
+    "sourceName": "Wikipedia DE – Internet Protocol Suite",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Internetprotokollfamilie",
+    "verifyNote": "Schichtenmodell-Konzept laut Wikipedia DE und RFC 1122 belegt"
+  },
+  {
+    "id": "acr-ftp",
+    "name": "FTP",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "File Transfer Protocol",
+      "domain": "Netzwerk"
+    },
+    "funFact": "FTP überträgt Daten unverschlüsselt und wurde für sichere Übertragungen weitgehend durch SFTP und FTPS ersetzt.",
+    "sourceName": "RFC 959 – File Transfer Protocol",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc959",
+    "verifyNote": "Vollform laut RFC 959"
+  },
+  {
+    "id": "acr-ssh",
+    "name": "SSH",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Secure Shell",
+      "domain": "Sicherheit"
+    },
+    "funFact": "SSH wurde 1995 von Tatu Ylönen entwickelt und ersetzt das unsichere Telnet für die verschlüsselte Fernverwaltung von Servern.",
+    "sourceName": "RFC 4251 – SSH Protocol Architecture",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc4251",
+    "verifyNote": "Vollform laut RFC 4251"
+  },
+  {
+    "id": "acr-tcp",
+    "name": "TCP",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Transmission Control Protocol",
+      "domain": "Netzwerk"
+    },
+    "funFact": "TCP garantiert durch Sequenznummern und Bestätigungen, dass alle Datenpakete vollständig und in der richtigen Reihenfolge ankommen.",
+    "sourceName": "RFC 9293 – Transmission Control Protocol",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc9293",
+    "verifyNote": "Vollform laut RFC 9293"
+  },
+  {
+    "id": "acr-udp",
+    "name": "UDP",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "User Datagram Protocol",
+      "domain": "Netzwerk"
+    },
+    "funFact": "UDP verzichtet auf Verbindungsaufbau und Fehlerkorrektur, was es für Livestreams und Online-Spiele besonders schnell macht.",
+    "sourceName": "RFC 768 – User Datagram Protocol",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc768",
+    "verifyNote": "Vollform laut RFC 768"
+  },
+  {
+    "id": "acr-lan",
+    "name": "LAN",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Local Area Network",
+      "domain": "Netzwerk"
+    },
+    "funFact": "Ein LAN verbindet Geräte in einem begrenzten Bereich wie einem Büro oder Haus; Ethernet ist das häufigste Übertragungsverfahren.",
+    "sourceName": "Wikipedia DE – Lokales Netzwerk",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Lokales_Netz",
+    "verifyNote": "Vollform ist Lehrbuch-Standard"
+  },
+  {
+    "id": "acr-wan",
+    "name": "WAN",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Wide Area Network",
+      "domain": "Netzwerk"
+    },
+    "funFact": "Das größte WAN der Welt ist das Internet, das Milliarden von Geräten über den gesamten Erdball verbindet.",
+    "sourceName": "Wikipedia DE – Weitverkehrsnetz",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Weitverkehrsnetz",
+    "verifyNote": "Vollform ist Lehrbuch-Standard"
+  },
+  {
+    "id": "acr-wlan",
+    "name": "WLAN",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Wireless Local Area Network",
+      "domain": "Netzwerk"
+    },
+    "funFact": "WLAN basiert auf dem IEEE-802.11-Standard; der Begriff 'Wi-Fi' ist der Markenname der Wi-Fi Alliance für zertifizierte WLAN-Geräte.",
+    "sourceName": "Wikipedia DE – Wireless Local Area Network",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Wireless_Local_Area_Network",
+    "verifyNote": "Vollform und IEEE-802.11-Bezug laut Wikipedia DE; Wi-Fi als Markenname laut Wi-Fi Alliance"
+  },
+  {
+    "id": "acr-raid",
+    "name": "RAID",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Redundant Array of Independent Disks",
+      "domain": "Hardware"
+    },
+    "funFact": "RAID 1 spiegelt Daten auf zwei Festplatten; fällt eine aus, laufen alle Daten auf der zweiten weiter.",
+    "sourceName": "Wikipedia DE – RAID",
+    "sourceUrl": "https://de.wikipedia.org/wiki/RAID",
+    "verifyNote": "Vollform laut ursprünglicher Patterson-Gibson-Katz-Publikation (1988) und Wikipedia DE"
+  },
+  {
+    "id": "acr-bios",
+    "name": "BIOS",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Basic Input/Output System",
+      "domain": "Hardware"
+    },
+    "funFact": "Modernes BIOS heißt UEFI (Unified Extensible Firmware Interface) und bietet eine grafische Oberfläche und Unterstützung für große Festplatten.",
+    "sourceName": "Wikipedia DE – BIOS",
+    "sourceUrl": "https://de.wikipedia.org/wiki/BIOS",
+    "verifyNote": "Vollform ist Lehrbuch-Standard"
+  },
+  {
+    "id": "acr-uefi",
+    "name": "UEFI",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Unified Extensible Firmware Interface",
+      "domain": "Hardware"
+    },
+    "funFact": "UEFI unterstützt im Gegensatz zu BIOS Festplatten über 2 TB und ermöglicht schnellere Startzeiten durch parallele Initialisierung der Hardware.",
+    "sourceName": "Wikipedia DE – Unified Extensible Firmware Interface",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface",
+    "verifyNote": "Vollform laut UEFI-Forum-Spezifikation und Wikipedia DE"
+  },
+  {
+    "id": "acr-cdn",
+    "name": "CDN",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Content Delivery Network",
+      "domain": "Netzwerk"
+    },
+    "funFact": "CDNs speichern Kopien von Webinhalten auf Servern weltweit, sodass Nutzer Inhalte vom nächstgelegenen Server schnell abrufen können.",
+    "sourceName": "Wikipedia DE – Content Delivery Network",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Content_Delivery_Network",
+    "verifyNote": "Vollform ist Lehrbuch-Standard; Funktion laut Wikipedia DE"
+  },
+  {
+    "id": "acr-saas",
+    "name": "SaaS",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Software as a Service",
+      "domain": "Software/OS"
+    },
+    "funFact": "Bekannte SaaS-Anwendungen sind Gmail, Microsoft 365 und Salesforce — der Nutzer kauft eine Lizenz, installiert aber nichts lokal.",
+    "sourceName": "Wikipedia DE – Software as a Service",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Software_as_a_Service",
+    "verifyNote": "Vollform laut NIST SP 800-145 und Wikipedia DE"
+  },
+  {
+    "id": "acr-iot",
+    "name": "IoT",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Internet of Things",
+      "domain": "Netzwerk"
+    },
+    "funFact": "Schätzungen zufolge sind weltweit bereits über 15 Milliarden Geräte mit dem Internet verbunden — von Kühlschränken bis zu Industriemaschinen.",
+    "sourceName": "Wikipedia DE – Internet der Dinge",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Internet_der_Dinge",
+    "verifyNote": "Vollform ist Lehrbuch-Standard; Wikipedia DE belegt Begriff und Verbreitung"
+  },
+  {
+    "id": "acr-os",
+    "name": "OS",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Operating System",
+      "domain": "Software/OS"
+    },
+    "sourceName": "Wikipedia DE – Betriebssystem",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Betriebssystem",
+    "verifyNote": "Vollform ist Lehrbuch-Standard"
+  },
+  {
+    "id": "acr-vm",
+    "name": "VM",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Virtual Machine",
+      "domain": "Software/OS"
+    },
+    "funFact": "Eine virtuelle Maschine verhält sich wie ein vollständiger Computer, läuft aber als Software auf einem physischen Host-Rechner.",
+    "sourceName": "Wikipedia DE – Virtuelle Maschine",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Virtuelle_Maschine",
+    "verifyNote": "Vollform ist Lehrbuch-Standard"
+  }
+]

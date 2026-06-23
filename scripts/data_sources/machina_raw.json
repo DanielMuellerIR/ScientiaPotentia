@@ -932,19 +932,6 @@
     "verifyNote": "Vollform laut W3C-Standard."
   },
   {
-    "id": "acr-sql",
-    "name": "SQL",
-    "category": "acronym",
-    "attributes": {
-      "fullName": "Structured Query Language",
-      "domain": "Datenbanken"
-    },
-    "funFact": "SQL wurde in den 1970er-Jahren bei IBM entwickelt und ist heute die am weitesten verbreitete Datenbankabfragesprache.",
-    "sourceName": "Wikipedia DE – SQL",
-    "sourceUrl": "https://de.wikipedia.org/wiki/SQL",
-    "verifyNote": "Vollform laut ISO/IEC 9075-Standard."
-  },
-  {
     "id": "acr-api",
     "name": "API",
     "category": "acronym",
@@ -971,32 +958,6 @@
     "verifyNote": "Vollform laut RFC 1738/3986."
   },
   {
-    "id": "acr-http",
-    "name": "HTTP",
-    "category": "acronym",
-    "attributes": {
-      "fullName": "Hypertext Transfer Protocol",
-      "domain": "Netzwerk"
-    },
-    "funFact": "HTTP ist das Grundprotokoll des World Wide Web und wurde von Tim Berners-Lee entwickelt.",
-    "sourceName": "Wikipedia DE – HTTP",
-    "sourceUrl": "https://de.wikipedia.org/wiki/Hypertext_Transfer_Protocol",
-    "verifyNote": "Vollform laut RFC 7230."
-  },
-  {
-    "id": "acr-ram",
-    "name": "RAM",
-    "category": "acronym",
-    "attributes": {
-      "fullName": "Random Access Memory",
-      "domain": "Hardware"
-    },
-    "funFact": "RAM ist flüchtiger Speicher — alle Daten gehen beim Ausschalten verloren, da Energie zur Erhaltung nötig ist.",
-    "sourceName": "Wikipedia DE – Arbeitsspeicher",
-    "sourceUrl": "https://de.wikipedia.org/wiki/Arbeitsspeicher",
-    "verifyNote": "Vollform ist Lehrbuch-Standard."
-  },
-  {
     "id": "acr-rom",
     "name": "ROM",
     "category": "acronym",
@@ -1007,32 +968,6 @@
     "funFact": "ROM behält seinen Inhalt dauerhaft auch ohne Stromversorgung und enthält meist Firmware oder BIOS.",
     "sourceName": "Wikipedia DE – Festwertspeicher",
     "sourceUrl": "https://de.wikipedia.org/wiki/Festwertspeicher",
-    "verifyNote": "Vollform ist Lehrbuch-Standard."
-  },
-  {
-    "id": "acr-cpu",
-    "name": "CPU",
-    "category": "acronym",
-    "attributes": {
-      "fullName": "Central Processing Unit",
-      "domain": "Hardware"
-    },
-    "funFact": "Die CPU ist das Hauptrechenwerk eines Computers und führt Milliarden von Befehlen pro Sekunde aus.",
-    "sourceName": "Wikipedia DE – Prozessor",
-    "sourceUrl": "https://de.wikipedia.org/wiki/Prozessor",
-    "verifyNote": "Vollform ist Lehrbuch-Standard."
-  },
-  {
-    "id": "acr-gpu",
-    "name": "GPU",
-    "category": "acronym",
-    "attributes": {
-      "fullName": "Graphics Processing Unit",
-      "domain": "Hardware"
-    },
-    "funFact": "GPUs wurden ursprünglich für 3D-Grafik entwickelt, sind heute aber auch für KI-Berechnungen unverzichtbar.",
-    "sourceName": "Wikipedia DE – Grafikprozessor",
-    "sourceUrl": "https://de.wikipedia.org/wiki/Grafikprozessor",
     "verifyNote": "Vollform ist Lehrbuch-Standard."
   },
   {
@@ -1049,32 +984,6 @@
     "verifyNote": "Vollform laut USB-IF-Spezifikation."
   },
   {
-    "id": "acr-dns",
-    "name": "DNS",
-    "category": "acronym",
-    "attributes": {
-      "fullName": "Domain Name System",
-      "domain": "Netzwerk"
-    },
-    "funFact": "DNS fungiert als Telefonbuch des Internets und übersetzt Domainnamen in IP-Adressen.",
-    "sourceName": "Wikipedia DE – Domain Name System",
-    "sourceUrl": "https://de.wikipedia.org/wiki/Domain_Name_System",
-    "verifyNote": "Vollform laut RFC 1034/1035."
-  },
-  {
-    "id": "acr-ip",
-    "name": "IP",
-    "category": "acronym",
-    "attributes": {
-      "fullName": "Internet Protocol",
-      "domain": "Netzwerk"
-    },
-    "funFact": "IP ist das grundlegende Protokoll für die Adressierung und Weiterleitung von Datenpaketen im Internet.",
-    "sourceName": "Wikipedia DE – Internet Protocol",
-    "sourceUrl": "https://de.wikipedia.org/wiki/Internet_Protocol",
-    "verifyNote": "Vollform laut RFC 791 (IPv4) und RFC 2460 (IPv6)."
-  },
-  {
     "id": "acr-vpn",
     "name": "VPN",
     "category": "acronym",
@@ -1085,32 +994,6 @@
     "funFact": "VPN verschlüsselt den Datenverkehr und ermöglicht sichere Verbindungen über öffentliche Netzwerke.",
     "sourceName": "Wikipedia DE – Virtual Private Network",
     "sourceUrl": "https://de.wikipedia.org/wiki/Virtual_Private_Network",
-    "verifyNote": "Vollform ist Lehrbuch-Standard."
-  },
-  {
-    "id": "acr-ssd",
-    "name": "SSD",
-    "category": "acronym",
-    "attributes": {
-      "fullName": "Solid-State Drive",
-      "domain": "Hardware"
-    },
-    "funFact": "SSDs haben keine beweglichen Teile und sind dadurch deutlich schneller und robuster als klassische Festplatten.",
-    "sourceName": "Wikipedia DE – Solid-State-Drive",
-    "sourceUrl": "https://de.wikipedia.org/wiki/Solid-State-Drive",
-    "verifyNote": "Vollform ist Lehrbuch-Standard."
-  },
-  {
-    "id": "acr-hdd",
-    "name": "HDD",
-    "category": "acronym",
-    "attributes": {
-      "fullName": "Hard Disk Drive",
-      "domain": "Hardware"
-    },
-    "funFact": "HDDs speichern Daten magnetisch auf rotierenden Scheiben und bieten großen Speicherplatz zu niedrigen Kosten.",
-    "sourceName": "Wikipedia DE – Festplatte",
-    "sourceUrl": "https://de.wikipedia.org/wiki/Festplatte",
     "verifyNote": "Vollform ist Lehrbuch-Standard."
   },
   {
@@ -2086,5 +1969,1388 @@
     "sourceName": "Wikipedia DE – BIOS",
     "sourceUrl": "https://de.wikipedia.org/wiki/BIOS",
     "verifyNote": "Funktion und Kategorie Hauptplatine/Bus sind Standardwissen."
+  },
+  {
+    "id": "concept-firewall",
+    "name": "Firewall",
+    "category": "concept",
+    "attributes": {
+      "category": "Sicherheit/Kryptografie",
+      "definition": "System, das den Netzwerkverkehr anhand von Regeln filtert und unerlaubte Verbindungen blockiert, um ein Netzwerk zu schützen"
+    },
+    "funFact": "Der Begriff 'Firewall' stammt ursprünglich aus dem Bauwesen, wo eine Brandschutzmauer das Ausbreiten von Feuer verhindert.",
+    "sourceName": "Wikipedia DE – Firewall",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Firewall",
+    "verifyNote": "Standarddefinition in Netzwerk-Sicherheitslehrbüchern; Wikipedia DE belegt Funktion und Begriffserklärung"
+  },
+  {
+    "id": "concept-cookie",
+    "name": "Cookie",
+    "category": "concept",
+    "attributes": {
+      "category": "Webtechnik",
+      "definition": "Kleines Datenstück, das ein Webserver im Browser des Nutzers speichert, um Sitzungsinformationen oder Einstellungen zu erhalten"
+    },
+    "funFact": "HTTP-Cookies wurden 1994 von Lou Montulli bei Netscape erfunden, um Warenkorb-Inhalte in Online-Shops zu speichern.",
+    "sourceName": "Wikipedia DE – HTTP-Cookie",
+    "sourceUrl": "https://de.wikipedia.org/wiki/HTTP-Cookie",
+    "verifyNote": "Erfindung durch Montulli 1994 und Funktion laut Wikipedia DE und RFC 6265 belegt"
+  },
+  {
+    "id": "concept-ip-address",
+    "name": "IP-Adresse",
+    "category": "concept",
+    "attributes": {
+      "category": "Netzwerk",
+      "definition": "Numerische Adresse, die einem Gerät in einem Netzwerk eindeutig zugewiesen wird und die Übermittlung von Datenpaketen an den richtigen Empfänger ermöglicht"
+    },
+    "funFact": "IPv4-Adressen sind 32 Bit lang und ermöglichen rund 4,3 Milliarden Adressen; IPv6 verwendet 128 Bit für praktisch unbegrenzte Adressen.",
+    "sourceName": "Wikipedia DE – IP-Adresse",
+    "sourceUrl": "https://de.wikipedia.org/wiki/IP-Adresse",
+    "verifyNote": "IPv4 32 Bit / IPv6 128 Bit laut RFC 791 und RFC 2460 belegt"
+  },
+  {
+    "id": "concept-bandwidth",
+    "name": "Bandbreite",
+    "category": "concept",
+    "attributes": {
+      "category": "Netzwerk",
+      "definition": "Maximale Datenmenge, die pro Zeiteinheit über eine Netzwerkverbindung übertragen werden kann; gemessen in Bit pro Sekunde"
+    },
+    "sourceName": "Wikipedia DE – Bandbreite (Nachrichtentechnik)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Bandbreite_(Nachrichtentechnik)",
+    "verifyNote": "Standarddefinition als maximaler Datendurchsatz laut Wikipedia DE und Nachrichtentechnik-Lehrbüchern"
+  },
+  {
+    "id": "concept-latency",
+    "name": "Latenz",
+    "category": "concept",
+    "attributes": {
+      "category": "Netzwerk",
+      "definition": "Zeitverzögerung zwischen dem Absenden eines Datenpaketes und dem Empfang der Antwort; ausgedrückt in Millisekunden"
+    },
+    "funFact": "Bei Videokonferenzen und Online-Spielen ist niedrige Latenz entscheidend — schon 100 ms können spürbare Verzögerungen verursachen.",
+    "sourceName": "Wikipedia DE – Latenz (Technik)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Latenz_(Technik)",
+    "verifyNote": "Standarddefinition als Verzögerungszeit laut Wikipedia DE"
+  },
+  {
+    "id": "concept-bug",
+    "name": "Bug",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmierung",
+      "definition": "Fehler in einem Computerprogramm, der zu unerwartetem oder unerwünschtem Verhalten führt"
+    },
+    "funFact": "Der erste dokumentierte Computerfehler war 1947 eine echte Motte, die Grace Hopper in einem Relais des Harvard Mark II fand.",
+    "sourceName": "Wikipedia DE – Programmfehler",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Programmfehler",
+    "verifyNote": "Historische Motte-Anekdote und Standarddefinition laut Wikipedia DE belegt"
+  },
+  {
+    "id": "concept-debugging",
+    "name": "Debugging",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmierung",
+      "definition": "Prozess des Auffindens, Analysierens und Behebens von Fehlern (Bugs) in einem Computerprogramm"
+    },
+    "sourceName": "Wikipedia DE – Debugger",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Debugger",
+    "verifyNote": "Standarddefinition in jedem Programmierlehrbuch; Wikipedia DE beschreibt Debugging als systematischen Fehlerbehebungsprozess"
+  },
+  {
+    "id": "concept-backup",
+    "name": "Backup",
+    "category": "concept",
+    "attributes": {
+      "category": "Betriebssysteme",
+      "definition": "Sicherungskopie von Daten, die es ermöglicht, verlorene oder beschädigte Daten wiederherzustellen"
+    },
+    "funFact": "Die 3-2-1-Backup-Regel empfiehlt: 3 Kopien der Daten, auf 2 verschiedenen Medien, davon 1 an einem anderen Ort.",
+    "sourceName": "Wikipedia DE – Datensicherung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Datensicherung",
+    "verifyNote": "3-2-1-Regel und Standarddefinition laut Wikipedia DE und IT-Sicherheitslehrbüchern"
+  },
+  {
+    "id": "concept-kernel",
+    "name": "Betriebssystem-Kernel",
+    "category": "concept",
+    "attributes": {
+      "category": "Betriebssysteme",
+      "definition": "Zentraler Kern eines Betriebssystems, der direkt mit der Hardware kommuniziert und Ressourcen wie Prozessor, Speicher und Geräte verwaltet"
+    },
+    "funFact": "Linux ist technisch gesehen nur ein Kernel — das vollständige Betriebssystem entsteht erst durch Kombination mit weiterer Software wie der GNU-Userspace-Umgebung.",
+    "sourceName": "Wikipedia DE – Kernel (Betriebssystem)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Kernel_(Betriebssystem)",
+    "verifyNote": "Standarddefinition des Kernels als Hardware-Schnittstelle laut Wikipedia DE und Betriebssystem-Lehrbüchern"
+  },
+  {
+    "id": "concept-filesystem",
+    "name": "Dateisystem",
+    "category": "concept",
+    "attributes": {
+      "category": "Betriebssysteme",
+      "definition": "Methode und Datenstruktur, mit der ein Betriebssystem Dateien auf einem Speichermedium ablegt, benennt und organisiert"
+    },
+    "funFact": "Das Windows-Dateisystem NTFS unterstützt Einzeldateien bis 16 Exabyte — mehr als je eine einzelne Festplatte fassen könnte.",
+    "sourceName": "Wikipedia DE – Dateisystem",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Dateisystem",
+    "verifyNote": "Standarddefinition und NTFS-Limit laut Wikipedia DE belegt"
+  },
+  {
+    "id": "concept-bit-byte",
+    "name": "Bit und Byte",
+    "category": "concept",
+    "attributes": {
+      "category": "Theoretische Informatik",
+      "definition": "Ein Bit ist die kleinste Informationseinheit (0 oder 1); ein Byte besteht aus 8 Bit und kann 256 verschiedene Werte darstellen"
+    },
+    "funFact": "Der Begriff 'Bit' wurde 1948 von Claude Shannon als Abkürzung für 'binary digit' geprägt.",
+    "sourceName": "Wikipedia DE – Bit",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Bit",
+    "verifyNote": "8 Bit = 1 Byte ist ISO-Standard (IEC 80000-13); Shannon-Zitat laut Wikipedia DE belegt"
+  },
+  {
+    "id": "concept-pixel",
+    "name": "Pixel",
+    "category": "concept",
+    "attributes": {
+      "category": "Webtechnik",
+      "definition": "Kleinste einzeln ansteuerbare Einheit eines digitalen Bildes oder Displays; Kurzform von 'Picture Element'"
+    },
+    "sourceName": "Wikipedia DE – Pixel",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Pixel",
+    "verifyNote": "Standarddefinition als kleinstes Bildelement laut Wikipedia DE"
+  },
+  {
+    "id": "concept-resolution",
+    "name": "Auflösung (Bildschirm)",
+    "category": "concept",
+    "attributes": {
+      "category": "Webtechnik",
+      "definition": "Anzahl der Pixel in Breite und Höhe eines Displays oder Bildes; bestimmt die Detailgenauigkeit der Darstellung (z.B. 1920×1080)"
+    },
+    "sourceName": "Wikipedia DE – Auflösung (Digitale Bildverarbeitung)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Aufl%C3%B6sung_(Digitale_Bildverarbeitung)",
+    "verifyNote": "Standarddefinition als Pixelanzahl laut Wikipedia DE"
+  },
+  {
+    "id": "concept-source-vs-machine-code",
+    "name": "Quellcode vs. Maschinencode",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmierung",
+      "definition": "Quellcode ist von Menschen lesbarer Programmtext; Maschinencode ist die daraus übersetzte binäre Befehlsfolge, die der Prozessor direkt ausführt"
+    },
+    "sourceName": "Wikipedia DE – Quelltext",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Quelltext",
+    "verifyNote": "Standardunterscheidung in Programmierlehrbüchern; Wikipedia DE belegt beide Begriffe"
+  },
+  {
+    "id": "concept-variable",
+    "name": "Variable (Programmierung)",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmierung",
+      "definition": "Benannter Speicherplatz in einem Programm, dem ein Wert zugewiesen werden kann und der sich während der Ausführung ändern darf"
+    },
+    "sourceName": "Wikipedia DE – Variable (Programmierung)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Variable_(Programmierung)",
+    "verifyNote": "Grundkonzept der Programmierung, in jedem Lehrbuch belegt"
+  },
+  {
+    "id": "concept-loop",
+    "name": "Schleife (Programmierung)",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmierung",
+      "definition": "Kontrollstruktur, die einen Codeblock wiederholt ausführt, solange eine Bedingung erfüllt ist oder über eine Sammlung von Elementen iteriert"
+    },
+    "sourceName": "Wikipedia DE – Schleife (Programmierung)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Schleife_(Programmierung)",
+    "verifyNote": "Grundkonzept der Programmierung, in jedem Lehrbuch belegt"
+  },
+  {
+    "id": "concept-condition",
+    "name": "Bedingung (Programmierung)",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmierung",
+      "definition": "Ausdruck, der einen Wahrheitswert (wahr oder falsch) ergibt und die Ausführung unterschiedlicher Codezweige steuert (if/else)"
+    },
+    "sourceName": "Wikipedia DE – Bedingte Anweisung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Bedingte_Anweisung",
+    "verifyNote": "Grundkonzept der Programmierung, in jedem Lehrbuch belegt"
+  },
+  {
+    "id": "concept-function",
+    "name": "Funktion (Programmierung)",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmierung",
+      "definition": "Benannter, wiederverwendbarer Codeblock, der einen bestimmten Teilauftrag ausführt und optional Werte entgegennimmt und zurückgibt"
+    },
+    "sourceName": "Wikipedia DE – Funktion (Programmierung)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Funktion_(Programmierung)",
+    "verifyNote": "Grundkonzept der Programmierung, in jedem Lehrbuch belegt"
+  },
+  {
+    "id": "concept-library-framework",
+    "name": "Bibliothek und Framework",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmierung",
+      "definition": "Eine Bibliothek ist eine Sammlung wiederverwendbarer Funktionen; ein Framework gibt die Grundstruktur einer Anwendung vor und ruft den Entwicklercode auf"
+    },
+    "funFact": "Der Unterschied: Bei einer Bibliothek ruft der Entwickler den Code auf; beim Framework ruft das Framework den Entwicklercode auf (Inversion of Control).",
+    "sourceName": "Wikipedia DE – Programmbibliothek",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Programmbibliothek",
+    "verifyNote": "Inversion-of-Control-Prinzip zur Abgrenzung Framework/Bibliothek ist Lehrbuch-Standard (Martin Fowler)"
+  },
+  {
+    "id": "concept-interface",
+    "name": "Schnittstelle (Programmierung)",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmierung",
+      "definition": "Vereinbarung, die festlegt, welche Methoden oder Eigenschaften ein Objekt oder Modul nach außen anbietet, ohne die Implementierung zu offenbaren"
+    },
+    "sourceName": "Wikipedia DE – Schnittstelle (Objektorientierung)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Schnittstelle_(Objektorientierung)",
+    "verifyNote": "Standardkonzept der OOP; Wikipedia DE belegt Definition"
+  },
+  {
+    "id": "concept-phishing",
+    "name": "Phishing",
+    "category": "concept",
+    "attributes": {
+      "category": "Sicherheit/Kryptografie",
+      "definition": "Angriffsmethode, bei der Angreifer gefälschte E-Mails oder Webseiten nutzen, um Nutzer zur Preisgabe vertraulicher Daten wie Passwörter zu verleiten"
+    },
+    "funFact": "Der Begriff 'Phishing' ist ein Wortspiel aus 'fishing' (Angeln) und 'phreaking' (Telefonhacking) — die Angreifer 'angeln' nach Opfern.",
+    "sourceName": "Wikipedia DE – Phishing",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Phishing",
+    "verifyNote": "Standarddefinition und Etymologie laut Wikipedia DE"
+  },
+  {
+    "id": "concept-malware",
+    "name": "Malware",
+    "category": "concept",
+    "attributes": {
+      "category": "Sicherheit/Kryptografie",
+      "definition": "Oberbegriff für schädliche Software, die ohne Wissen des Nutzers Schaden anrichtet; umfasst Viren, Trojaner, Ransomware und andere Schadprogramme"
+    },
+    "funFact": "Der erste weitverbreitete Computervirus 'Brain' wurde 1986 von zwei pakistanischen Brüdern geschrieben, ursprünglich als Kopierschutz.",
+    "sourceName": "Wikipedia DE – Schadprogramm",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Schadprogramm",
+    "verifyNote": "Standarddefinition und Brain-Virus-Anekdote laut Wikipedia DE belegt"
+  },
+  {
+    "id": "concept-2fa",
+    "name": "Zwei-Faktor-Authentifizierung",
+    "category": "concept",
+    "attributes": {
+      "category": "Sicherheit/Kryptografie",
+      "definition": "Anmeldeverfahren, das neben dem Passwort einen zweiten Beweis der Identität erfordert, z.B. einen per SMS gesendeten Code oder eine Authenticator-App"
+    },
+    "funFact": "Zwei-Faktor-Authentifizierung reduziert das Risiko eines Kontozugriffs durch gestohlene Passwörter um über 99 Prozent.",
+    "sourceName": "Wikipedia DE – Zwei-Faktor-Authentisierung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Zwei-Faktor-Authentisierung",
+    "verifyNote": "Standarddefinition laut Wikipedia DE; Sicherheitswert laut Studien von Google/Microsoft (2019)"
+  },
+  {
+    "id": "concept-public-key-crypto",
+    "name": "Public-Key-Kryptografie",
+    "category": "concept",
+    "attributes": {
+      "category": "Sicherheit/Kryptografie",
+      "definition": "Asymmetrisches Verschlüsselungsverfahren mit zwei mathematisch verknüpften Schlüsseln: ein öffentlicher Schlüssel zum Verschlüsseln, ein privater zum Entschlüsseln"
+    },
+    "funFact": "Public-Key-Kryptografie ermöglicht sichere Kommunikation ohne vorherigen Schlüsselaustausch — eine der wichtigsten Erfindungen der modernen Informatik.",
+    "sourceName": "Wikipedia DE – Asymmetrisches Kryptosystem",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Asymmetrisches_Kryptosystem",
+    "verifyNote": "Grundprinzip laut Wikipedia DE und Lehrbüchern (Diffie-Hellman 1976, RSA 1977)"
+  },
+  {
+    "id": "concept-blockchain",
+    "name": "Blockchain",
+    "category": "concept",
+    "attributes": {
+      "category": "Sicherheit/Kryptografie",
+      "definition": "Dezentrale, unveränderliche Datenstruktur aus verketteten Blöcken, in der Transaktionen fälschungssicher gespeichert werden"
+    },
+    "funFact": "Bitcoin nutzt eine Blockchain als öffentliches Hauptbuch aller Transaktionen — seit 2009 ist keine einzige rückgängig gemacht worden.",
+    "sourceName": "Wikipedia DE – Blockchain",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Blockchain",
+    "verifyNote": "Standarddefinition und Bitcoin-Bezug laut Wikipedia DE"
+  },
+  {
+    "id": "concept-version-control",
+    "name": "Versionskontrolle",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmierung",
+      "definition": "System, das Änderungen an Dateien über die Zeit nachverfolgt und das Zurückkehren zu früheren Versionen sowie die Zusammenarbeit mehrerer Entwickler ermöglicht"
+    },
+    "funFact": "Git, das meistgenutzte Versionskontrollsystem, wurde 2005 von Linus Torvalds in nur zwei Wochen entwickelt.",
+    "sourceName": "Wikipedia DE – Versionsverwaltung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Versionsverwaltung",
+    "verifyNote": "Standarddefinition und Git-Entstehungsgeschichte laut Wikipedia DE"
+  },
+  {
+    "id": "concept-container",
+    "name": "Container (Software)",
+    "category": "concept",
+    "attributes": {
+      "category": "Betriebssysteme",
+      "definition": "Isolierte, leichtgewichtige Laufzeitumgebung, die eine Anwendung mit allen ihren Abhängigkeiten bündelt und auf jedem System gleich ausführbar macht"
+    },
+    "funFact": "Docker, die bekannteste Container-Plattform, wurde 2013 veröffentlicht und hat die Softwareentwicklung und -bereitstellung grundlegend verändert.",
+    "sourceName": "Wikipedia DE – Containervirtualisierung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Containervirtualisierung",
+    "verifyNote": "Standarddefinition und Docker-Entstehung 2013 laut Wikipedia DE belegt"
+  },
+  {
+    "id": "concept-api",
+    "name": "API (Konzept)",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmierung",
+      "definition": "Definierte Schnittstelle, über die Programme miteinander kommunizieren können, ohne interne Implementierungsdetails kennen zu müssen"
+    },
+    "funFact": "Web-APIs ermöglichen es, dass fremde Dienste wie Google Maps oder Wetterdaten in eigene Anwendungen eingebunden werden können.",
+    "sourceName": "Wikipedia DE – Programmierschnittstelle",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Programmierschnittstelle",
+    "verifyNote": "Standarddefinition der API als Abstraktionsschicht in jedem Informatik-Lehrbuch"
+  },
+  {
+    "id": "concept-protocol-stack",
+    "name": "Protokollstack",
+    "category": "concept",
+    "attributes": {
+      "category": "Netzwerk",
+      "definition": "Hierarchisch geordnete Menge von Netzwerkprotokollen, bei der jede Schicht Dienste der darunter liegenden nutzt und der darüber liegenden bereitstellt"
+    },
+    "funFact": "Das TCP/IP-Modell fasst die sieben OSI-Schichten auf vier Schichten zusammen und ist das Fundament des heutigen Internets.",
+    "sourceName": "Wikipedia DE – Internet Protocol Suite",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Internetprotokollfamilie",
+    "verifyNote": "Schichtenmodell-Konzept laut Wikipedia DE und RFC 1122 belegt"
+  },
+  {
+    "id": "acr-lan",
+    "name": "LAN",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Local Area Network",
+      "domain": "Netzwerk"
+    },
+    "funFact": "Ein LAN verbindet Geräte in einem begrenzten Bereich wie einem Büro oder Haus; Ethernet ist das häufigste Übertragungsverfahren.",
+    "sourceName": "Wikipedia DE – Lokales Netzwerk",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Lokales_Netz",
+    "verifyNote": "Vollform ist Lehrbuch-Standard"
+  },
+  {
+    "id": "acr-wan",
+    "name": "WAN",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Wide Area Network",
+      "domain": "Netzwerk"
+    },
+    "funFact": "Das größte WAN der Welt ist das Internet, das Milliarden von Geräten über den gesamten Erdball verbindet.",
+    "sourceName": "Wikipedia DE – Weitverkehrsnetz",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Weitverkehrsnetz",
+    "verifyNote": "Vollform ist Lehrbuch-Standard"
+  },
+  {
+    "id": "acr-wlan",
+    "name": "WLAN",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Wireless Local Area Network",
+      "domain": "Netzwerk"
+    },
+    "funFact": "WLAN basiert auf dem IEEE-802.11-Standard; der Begriff 'Wi-Fi' ist der Markenname der Wi-Fi Alliance für zertifizierte WLAN-Geräte.",
+    "sourceName": "Wikipedia DE – Wireless Local Area Network",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Wireless_Local_Area_Network",
+    "verifyNote": "Vollform und IEEE-802.11-Bezug laut Wikipedia DE; Wi-Fi als Markenname laut Wi-Fi Alliance"
+  },
+  {
+    "id": "acr-raid",
+    "name": "RAID",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Redundant Array of Independent Disks",
+      "domain": "Hardware"
+    },
+    "funFact": "RAID 1 spiegelt Daten auf zwei Festplatten; fällt eine aus, laufen alle Daten auf der zweiten weiter.",
+    "sourceName": "Wikipedia DE – RAID",
+    "sourceUrl": "https://de.wikipedia.org/wiki/RAID",
+    "verifyNote": "Vollform laut ursprünglicher Patterson-Gibson-Katz-Publikation (1988) und Wikipedia DE"
+  },
+  {
+    "id": "acr-bios",
+    "name": "BIOS",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Basic Input/Output System",
+      "domain": "Hardware"
+    },
+    "funFact": "Modernes BIOS heißt UEFI (Unified Extensible Firmware Interface) und bietet eine grafische Oberfläche und Unterstützung für große Festplatten.",
+    "sourceName": "Wikipedia DE – BIOS",
+    "sourceUrl": "https://de.wikipedia.org/wiki/BIOS",
+    "verifyNote": "Vollform ist Lehrbuch-Standard"
+  },
+  {
+    "id": "acr-uefi",
+    "name": "UEFI",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Unified Extensible Firmware Interface",
+      "domain": "Hardware"
+    },
+    "funFact": "UEFI unterstützt im Gegensatz zu BIOS Festplatten über 2 TB und ermöglicht schnellere Startzeiten durch parallele Initialisierung der Hardware.",
+    "sourceName": "Wikipedia DE – Unified Extensible Firmware Interface",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface",
+    "verifyNote": "Vollform laut UEFI-Forum-Spezifikation und Wikipedia DE"
+  },
+  {
+    "id": "acr-cdn",
+    "name": "CDN",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Content Delivery Network",
+      "domain": "Netzwerk"
+    },
+    "funFact": "CDNs speichern Kopien von Webinhalten auf Servern weltweit, sodass Nutzer Inhalte vom nächstgelegenen Server schnell abrufen können.",
+    "sourceName": "Wikipedia DE – Content Delivery Network",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Content_Delivery_Network",
+    "verifyNote": "Vollform ist Lehrbuch-Standard; Funktion laut Wikipedia DE"
+  },
+  {
+    "id": "acr-saas",
+    "name": "SaaS",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Software as a Service",
+      "domain": "Software/OS"
+    },
+    "funFact": "Bekannte SaaS-Anwendungen sind Gmail, Microsoft 365 und Salesforce — der Nutzer kauft eine Lizenz, installiert aber nichts lokal.",
+    "sourceName": "Wikipedia DE – Software as a Service",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Software_as_a_Service",
+    "verifyNote": "Vollform laut NIST SP 800-145 und Wikipedia DE"
+  },
+  {
+    "id": "acr-iot",
+    "name": "IoT",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Internet of Things",
+      "domain": "Netzwerk"
+    },
+    "funFact": "Schätzungen zufolge sind weltweit bereits über 15 Milliarden Geräte mit dem Internet verbunden — von Kühlschränken bis zu Industriemaschinen.",
+    "sourceName": "Wikipedia DE – Internet der Dinge",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Internet_der_Dinge",
+    "verifyNote": "Vollform ist Lehrbuch-Standard; Wikipedia DE belegt Begriff und Verbreitung"
+  },
+  {
+    "id": "acr-os",
+    "name": "OS",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Operating System",
+      "domain": "Software/OS"
+    },
+    "sourceName": "Wikipedia DE – Betriebssystem",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Betriebssystem",
+    "verifyNote": "Vollform ist Lehrbuch-Standard"
+  },
+  {
+    "id": "acr-vm",
+    "name": "VM",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Virtual Machine",
+      "domain": "Software/OS"
+    },
+    "funFact": "Eine virtuelle Maschine verhält sich wie ein vollständiger Computer, läuft aber als Software auf einem physischen Host-Rechner.",
+    "sourceName": "Wikipedia DE – Virtuelle Maschine",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Virtuelle_Maschine",
+    "verifyNote": "Vollform ist Lehrbuch-Standard"
+  },
+  {
+    "id": "fmt-heic",
+    "name": "HEIC",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Bild",
+      "compression": "verlustbehaftet komprimiert",
+      "fullName": "High Efficiency Image Container"
+    },
+    "funFact": "HEIC ist Apples Standard-Bildformat seit iOS 11 und erzielt bei gleicher Qualität etwa halb so große Dateien wie JPEG.",
+    "sourceName": "Wikipedia DE – High Efficiency Image File Format",
+    "sourceUrl": "https://de.wikipedia.org/wiki/High_Efficiency_Image_File_Format",
+    "verifyNote": "Vollform und verlustbehaftete HEVC-Kompression laut Apple-Dokumentation und Wikipedia DE."
+  },
+  {
+    "id": "fmt-ico",
+    "name": "ICO",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Bild",
+      "fullName": "Icon File Format"
+    },
+    "funFact": "ICO-Dateien können mehrere Bildgrößen und Farbtiefen gleichzeitig speichern, damit Windows das passende Symbol je nach Anzeigegröße wählt.",
+    "sourceName": "Wikipedia DE – ICO (Dateiformat)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/ICO_(Dateiformat)",
+    "verifyNote": "Vollform laut Microsoft; compression weggelassen, da ICO intern verschiedene Formate (BMP, PNG) enthalten kann."
+  },
+  {
+    "id": "fmt-psd",
+    "name": "PSD",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Bild",
+      "compression": "verlustfrei komprimiert",
+      "fullName": "Photoshop Document"
+    },
+    "funFact": "PSD-Dateien speichern alle Ebenen, Masken und Effekte eines Adobe-Photoshop-Projekts nicht-destruktiv.",
+    "sourceName": "Wikipedia DE – Photoshop Document",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Photoshop",
+    "verifyNote": "Vollform und verlustfreie Ebenen-Speicherung laut Adobe-Dokumentation; dominant verlustfrei komprimiert (RLE)."
+  },
+  {
+    "id": "fmt-eps",
+    "name": "EPS",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Bild",
+      "compression": "unkomprimiert",
+      "fullName": "Encapsulated PostScript"
+    },
+    "funFact": "EPS ist ein Vektorgrafik-Format, das auf der PostScript-Seitensprache von Adobe basiert und vor allem im Druck eingesetzt wird.",
+    "sourceName": "Wikipedia DE – Encapsulated PostScript",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Encapsulated_PostScript",
+    "verifyNote": "Vollform laut Adobe; als PostScript-Textformat prinzipiell unkomprimiert."
+  },
+  {
+    "id": "fmt-midi",
+    "name": "MIDI",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Audio",
+      "compression": "unkomprimiert",
+      "fullName": "Musical Instrument Digital Interface"
+    },
+    "funFact": "MIDI speichert keine Audiodaten, sondern Steuerungssignale für Instrumente — eine MIDI-Datei enthält also Noten, keine Klänge.",
+    "sourceName": "Wikipedia DE – Musical Instrument Digital Interface",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Musical_Instrument_Digital_Interface",
+    "verifyNote": "Vollform laut MIDI-Standard (MMA/AMEI); unkomprimiertes Binärformat für Steuersignale."
+  },
+  {
+    "id": "fmt-m4a",
+    "name": "M4A",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Audio",
+      "compression": "verlustbehaftet komprimiert",
+      "fullName": "MPEG-4 Audio"
+    },
+    "funFact": "M4A ist das bevorzugte Audioformat im Apple-Ökosystem und im iTunes Store und enthält AAC-kodierte Audiodaten.",
+    "sourceName": "Wikipedia DE – M4A",
+    "sourceUrl": "https://de.wikipedia.org/wiki/MPEG-4_Audio",
+    "verifyNote": "Vollform laut ISO 14496-3; verlustbehaftete AAC-Kompression ist der Standard-Inhalt."
+  },
+  {
+    "id": "fmt-wma",
+    "name": "WMA",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Audio",
+      "compression": "verlustbehaftet komprimiert",
+      "fullName": "Windows Media Audio"
+    },
+    "funFact": "WMA wurde von Microsoft als Konkurrenz zu MP3 entwickelt und ist tief in Windows und Windows Media Player integriert.",
+    "sourceName": "Wikipedia DE – Windows Media Audio",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Windows_Media_Audio",
+    "verifyNote": "Vollform und verlustbehaftete Kompression laut Microsoft-Dokumentation."
+  },
+  {
+    "id": "fmt-wmv",
+    "name": "WMV",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Video",
+      "compression": "verlustbehaftet komprimiert",
+      "fullName": "Windows Media Video"
+    },
+    "funFact": "WMV wurde von Microsoft für das Windows-Media-Ökosystem entwickelt und basiert auf dem VC-1-Videocodec.",
+    "sourceName": "Wikipedia DE – Windows Media Video",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Windows_Media_Video",
+    "verifyNote": "Vollform und verlustbehaftete VC-1-Kompression laut Microsoft-Dokumentation."
+  },
+  {
+    "id": "fmt-flv",
+    "name": "FLV",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Video",
+      "compression": "verlustbehaftet komprimiert",
+      "fullName": "Flash Video"
+    },
+    "funFact": "FLV war das dominierende Streamingformat im frühen Web-Video-Zeitalter und die Basis von YouTube bis etwa 2010.",
+    "sourceName": "Wikipedia DE – Flash Video",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Flash_Video",
+    "verifyNote": "Vollform laut Adobe; verlustbehaftete H.263/VP6-Videokompression ist Standard."
+  },
+  {
+    "id": "fmt-webm",
+    "name": "WebM",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Video",
+      "compression": "verlustbehaftet komprimiert",
+      "fullName": "Web Media"
+    },
+    "funFact": "WebM ist ein offenes, lizenzfreies Videoformat, das von Google für HTML5-Video entwickelt wurde.",
+    "sourceName": "Wikipedia DE – WebM",
+    "sourceUrl": "https://de.wikipedia.org/wiki/WebM",
+    "verifyNote": "Vollform laut Google/WebM-Projektseite; VP8/VP9-Videokompression ist verlustbehaftet."
+  },
+  {
+    "id": "fmt-epub",
+    "name": "EPUB",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Dokument",
+      "compression": "verlustfrei komprimiert",
+      "fullName": "Electronic Publication"
+    },
+    "funFact": "EPUB ist der offene E-Book-Standard des International Digital Publishing Forum und intern ein ZIP-Archiv mit HTML und CSS.",
+    "sourceName": "Wikipedia DE – EPUB",
+    "sourceUrl": "https://de.wikipedia.org/wiki/EPUB",
+    "verifyNote": "Vollform laut IDPF/W3C-Standard; ZIP-basierte verlustfreie Kompression ist definitorisch."
+  },
+  {
+    "id": "fmt-rtf",
+    "name": "RTF",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Dokument",
+      "compression": "unkomprimiert",
+      "fullName": "Rich Text Format"
+    },
+    "funFact": "RTF wurde 1987 von Microsoft entwickelt und ermöglicht den Austausch formatierter Texte zwischen verschiedenen Textverarbeitungsprogrammen.",
+    "sourceName": "Wikipedia DE – Rich Text Format",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Rich_Text_Format",
+    "verifyNote": "Vollform laut Microsoft; RTF ist ein unkomprimiertes Textformat."
+  },
+  {
+    "id": "fmt-odt",
+    "name": "ODT",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Dokument",
+      "compression": "verlustfrei komprimiert",
+      "fullName": "OpenDocument Text"
+    },
+    "funFact": "ODT ist der ISO-Standard für Textdokumente (ISO/IEC 26300) und das native Format von LibreOffice und OpenOffice.",
+    "sourceName": "Wikipedia DE – OpenDocument",
+    "sourceUrl": "https://de.wikipedia.org/wiki/OpenDocument",
+    "verifyNote": "Vollform laut OASIS/ISO 26300; ZIP-basierte Kompression wie DOCX."
+  },
+  {
+    "id": "fmt-xlsx",
+    "name": "XLSX",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Tabellen/Daten",
+      "compression": "verlustfrei komprimiert",
+      "fullName": "Office Open XML Spreadsheet"
+    },
+    "funFact": "XLSX-Dateien sind intern ZIP-Archive mit XML-Dateien und wurden mit Microsoft Office 2007 eingeführt.",
+    "sourceName": "Wikipedia DE – Office Open XML",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Office_Open_XML",
+    "verifyNote": "Vollform und ZIP-basierte Kompression laut ECMA-376-Standard."
+  },
+  {
+    "id": "fmt-yaml",
+    "name": "YAML",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Tabellen/Daten",
+      "compression": "unkomprimiert",
+      "fullName": "YAML Ain't Markup Language"
+    },
+    "funFact": "YAML ist bewusst menschenlesbar gestaltet und wird häufig für Konfigurationsdateien in DevOps-Werkzeugen wie Docker und Kubernetes genutzt.",
+    "sourceName": "Wikipedia DE – YAML",
+    "sourceUrl": "https://de.wikipedia.org/wiki/YAML",
+    "verifyNote": "Vollform (rekursives Akronym) und unkomprimiertes Textformat laut yaml.org-Spezifikation."
+  },
+  {
+    "id": "fmt-ttf",
+    "name": "TTF",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Schriftart",
+      "fullName": "TrueType Font"
+    },
+    "funFact": "TrueType wurde von Apple und Microsoft in den 1980er Jahren als Konkurrenz zum Adobe-PostScript-Format entwickelt.",
+    "sourceName": "Wikipedia DE – TrueType",
+    "sourceUrl": "https://de.wikipedia.org/wiki/TrueType",
+    "verifyNote": "Vollform laut Apple-Dokumentation; compression weggelassen, da TTF-Dateien intern keine eigene Kompression auf Dateiebene definieren."
+  },
+  {
+    "id": "fmt-woff",
+    "name": "WOFF",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Schriftart",
+      "compression": "verlustfrei komprimiert",
+      "fullName": "Web Open Font Format"
+    },
+    "funFact": "WOFF ist der W3C-Standard für Web-Schriftarten und komprimiert TrueType- oder OpenType-Daten für schnellere Übertragung im Browser.",
+    "sourceName": "W3C – WOFF-Spezifikation",
+    "sourceUrl": "https://www.w3.org/TR/WOFF/",
+    "verifyNote": "Vollform und verlustfreie Kompression (zlib) laut W3C-Standard."
+  },
+  {
+    "id": "fmt-iso",
+    "name": "ISO",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Archiv/Kompression",
+      "compression": "unkomprimiert",
+      "fullName": "ISO-Image (Disc Image)"
+    },
+    "funFact": "Eine ISO-Datei ist ein 1:1-Abbild eines optischen Datenträgers und kann direkt eingehängt oder auf CD/DVD gebrannt werden.",
+    "sourceName": "Wikipedia DE – Disc-Image",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Disc-Image",
+    "verifyNote": "Vollform gebräuchlich nach ISO 9660; unkomprimiertes Sektor-für-Sektor-Abbild."
+  },
+  {
+    "id": "fmt-apk",
+    "name": "APK",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Archiv/Kompression",
+      "compression": "verlustfrei komprimiert",
+      "fullName": "Android Package"
+    },
+    "funFact": "APK-Dateien sind ZIP-Archive und enthalten den Code, Ressourcen und das Manifest einer Android-App.",
+    "sourceName": "Wikipedia DE – APK (Dateiformat)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/APK_(Dateiformat)",
+    "verifyNote": "Vollform laut Android-Dokumentation; ZIP-basiert, daher verlustfrei komprimiert."
+  },
+  {
+    "id": "fmt-ini",
+    "name": "INI",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Tabellen/Daten",
+      "compression": "unkomprimiert",
+      "fullName": "Initialization File"
+    },
+    "funFact": "Das INI-Format wurde unter Windows populär und strukturiert Konfigurationsdaten in Abschnitte und Schlüssel-Wert-Paare.",
+    "sourceName": "Wikipedia DE – INI-Datei",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Initialisierungsdatei",
+    "verifyNote": "Vollform gebräuchlich laut Wikipedia; unkomprimiertes Textformat."
+  },
+  {
+    "id": "algo-selectionsort",
+    "name": "Selectionsort",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortieralgorithmus",
+      "avgComplexity": "O(n²)",
+      "purpose": "Sucht wiederholt das kleinste verbleibende Element und tauscht es an die richtige Position"
+    },
+    "funFact": "Selectionsort macht stets n²/2 Vergleiche — unabhängig davon, ob die Liste bereits sortiert ist.",
+    "sourceName": "Cormen et al. – Introduction to Algorithms (CLRS)",
+    "verifyNote": "O(n²) im Best/Average/Worst Case ist lehrbuch-Standard."
+  },
+  {
+    "id": "algo-shellsort",
+    "name": "Shellsort",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortieralgorithmus",
+      "purpose": "Erweiterung des Insertionsorts: sortiert zunächst weit entfernte Elemente, um Inversionen schnell zu reduzieren"
+    },
+    "funFact": "Shellsort wurde 1959 von Donald Shell vorgestellt und war der erste Algorithmus, der wesentlich besser als O(n²) für unsortierte Listen war.",
+    "sourceName": "Wikipedia DE – Shellsort",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Shellsort",
+    "verifyNote": "avgComplexity weggelassen — hängt stark von der Schrittfolge ab, kein lehrbuch-eindeutiger O-Wert."
+  },
+  {
+    "id": "algo-radixsort",
+    "name": "Radixsort",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortieralgorithmus",
+      "avgComplexity": "O(nk)",
+      "purpose": "Sortiert Zahlen oder Zeichenketten stellenweise von der niedrigsten zur höchsten Stelle, ohne Vergleiche"
+    },
+    "funFact": "Radixsort ist vergleichsbasiert nicht möglich — er nutzt die interne Struktur der Schlüssel und kann O(n) erreichen, wenn die Schlüssellänge konstant ist.",
+    "sourceName": "Cormen et al. – Introduction to Algorithms (CLRS)",
+    "verifyNote": "O(n) bei konstanter Schlüssellänge laut CLRS Kap. 8.3."
+  },
+  {
+    "id": "algo-counting-sort",
+    "name": "Counting Sort",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortieralgorithmus",
+      "avgComplexity": "O(n+k)",
+      "purpose": "Zählt Häufigkeiten der Schlüsselwerte und berechnet daraus die sortierte Reihenfolge — ohne direkte Vergleiche"
+    },
+    "sourceName": "Cormen et al. – Introduction to Algorithms (CLRS)",
+    "verifyNote": "O(n+k) mit k = Wertebereich; vereinfacht O(n) bei kleinem k (CLRS Kap. 8.2)."
+  },
+  {
+    "id": "algo-bellman-ford",
+    "name": "Bellman-Ford-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Graphalgorithmus",
+      "avgComplexity": "O(V·E)",
+      "purpose": "Findet kürzeste Pfade in gewichteten Graphen und erkennt negative Zyklen — im Gegensatz zu Dijkstra auch mit negativen Kantengewichten"
+    },
+    "sourceName": "Wikipedia DE – Bellman-Ford-Algorithmus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Bellman-Ford-Algorithmus",
+    "verifyNote": "O(V·E) vereinfacht O(n²) für dichte Graphen laut Wikipedia DE und CLRS Kap. 24.1."
+  },
+  {
+    "id": "algo-floyd-warshall",
+    "name": "Floyd-Warshall-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Graphalgorithmus",
+      "avgComplexity": "O(n³)",
+      "purpose": "Berechnet kürzeste Pfade zwischen allen Knotenpaaren eines gewichteten Graphen"
+    },
+    "funFact": "Floyd-Warshall ist ein klassisches Beispiel für dynamische Programmierung und berechnet alle n² kürzesten Pfade in O(n³).",
+    "sourceName": "Wikipedia DE – Algorithmus von Floyd und Warshall",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Algorithmus_von_Floyd_und_Warshall",
+    "verifyNote": "O(n³) ist lehrbuch-Standard (CLRS Kap. 25.2); hier vereinfacht als O(n²) angegeben — tatsächlich O(n³), avgComplexity-Feld daher besser weggelassen."
+  },
+  {
+    "id": "algo-kruskal",
+    "name": "Kruskal-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Graphalgorithmus",
+      "avgComplexity": "O(E log V)",
+      "purpose": "Findet den minimalen Spannbaum eines gewichteten ungerichteten Graphen durch sukzessives Hinzufügen der günstigsten Kante"
+    },
+    "funFact": "Kruskal nutzt eine Union-Find-Datenstruktur, um Zyklen effizient zu erkennen.",
+    "sourceName": "Wikipedia DE – Algorithmus von Kruskal",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Algorithmus_von_Kruskal",
+    "verifyNote": "O(E log E) ≈ O(n log n) für sparse Graphen laut Wikipedia DE und CLRS Kap. 23.2."
+  },
+  {
+    "id": "algo-prim",
+    "name": "Prim-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Graphalgorithmus",
+      "purpose": "Wächst einen minimalen Spannbaum schrittweise, indem immer die günstigste Kante zum bereits aufgebauten Baum hinzugefügt wird"
+    },
+    "sourceName": "Wikipedia DE – Algorithmus von Prim",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Algorithmus_von_Prim",
+    "verifyNote": "avgComplexity weggelassen — hängt von Implementierung ab (O(E log V) mit Heap); lehrbuch-Standard CLRS Kap. 23.2."
+  },
+  {
+    "id": "algo-aes",
+    "name": "AES",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Kryptografie",
+      "purpose": "Symmetrischer Blockverschlüsselungsalgorithmus mit 128-, 192- oder 256-Bit-Schlüsseln; der weltweite Standard für symmetrische Verschlüsselung"
+    },
+    "funFact": "AES (Advanced Encryption Standard) wurde 2001 vom US-amerikanischen NIST als Nachfolger von DES standardisiert.",
+    "sourceName": "Wikipedia DE – Advanced Encryption Standard",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Advanced_Encryption_Standard",
+    "verifyNote": "Kategorie Kryptografie und Zweck laut NIST FIPS 197."
+  },
+  {
+    "id": "algo-sha",
+    "name": "SHA",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Kryptografie",
+      "purpose": "Familie kryptografischer Hashfunktionen (SHA-1, SHA-256, SHA-3), die Daten auf einen Hashwert fester Länge abbilden"
+    },
+    "funFact": "SHA-256 erzeugt einen 256-Bit-Hashwert und wird bei Bitcoin für das Mining und die Verkettung der Blöcke verwendet.",
+    "sourceName": "Wikipedia DE – Secure Hash Algorithm",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Secure_Hash_Algorithm",
+    "verifyNote": "Kategorie und Zweck laut NIST FIPS 180-4."
+  },
+  {
+    "id": "algo-md5",
+    "name": "MD5",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Kryptografie",
+      "purpose": "Hashfunktion, die eine 128-Bit-Prüfsumme erzeugt — heute nur noch zur Integritätsprüfung, nicht mehr zur sicheren Kryptografie empfohlen"
+    },
+    "funFact": "MD5-Kollisionen sind seit 2004 praktisch erzeugbar, weshalb MD5 für Sicherheitszwecke als gebrochen gilt.",
+    "sourceName": "Wikipedia DE – Message-Digest Algorithm 5",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Message-Digest_Algorithm_5",
+    "verifyNote": "Kategorie Kryptografie und verbreitete Nutzung laut RFC 1321."
+  },
+  {
+    "id": "algo-lzw",
+    "name": "LZW-Kompression",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Kompression",
+      "purpose": "Verlustfreier Kompressionsalgorithmus, der wiederkehrende Byte-Folgen durch Codes ersetzt — Basis von GIF und TIFF"
+    },
+    "funFact": "LZW (Lempel–Ziv–Welch) war Gegenstand eines Patentstreits der 1980er/90er Jahre, der die Open-Source-Bewegung stark beeinflusste.",
+    "sourceName": "Wikipedia DE – Lempel-Ziv-Welch",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Lempel-Ziv-Welch",
+    "verifyNote": "Kategorie Kompression und Zweck laut Wikipedia DE; avgComplexity weggelassen."
+  },
+  {
+    "id": "algo-backtracking",
+    "name": "Backtracking",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Suchalgorithmus",
+      "purpose": "Durchsucht systematisch alle möglichen Lösungen durch Vorwärtsgehen und Zurücksetzen bei Sackgassen — Basis für Sudoku-Löser und N-Damen-Problem"
+    },
+    "funFact": "Backtracking ist die algorithmische Grundlage aller modernen SAT-Solver und damit ein Fundament der theoretischen Informatik.",
+    "sourceName": "Wikipedia DE – Backtracking",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Backtracking",
+    "verifyNote": "Kategorie Suchalgorithmus und Zweck sind lehrbuch-Standard; avgComplexity weggelassen, da problemabhängig."
+  },
+  {
+    "id": "hw-usb-stick",
+    "name": "USB-Stick",
+    "category": "hardware",
+    "attributes": {
+      "category": "Massenspeicher",
+      "function": "Tragbarer Flash-Speicher mit USB-Anschluss zum Transport und Backup von Dateien"
+    },
+    "funFact": "USB-Sticks haben seit ihrer Einführung um 2000 Disketten und CDs als wichtigstes mobiles Speichermedium abgelöst.",
+    "sourceName": "Wikipedia DE – USB-Stick",
+    "sourceUrl": "https://de.wikipedia.org/wiki/USB-Stick",
+    "verifyNote": "Funktion und Kategorie Massenspeicher sind Standardwissen."
+  },
+  {
+    "id": "hw-webcam",
+    "name": "Webcam",
+    "category": "hardware",
+    "attributes": {
+      "category": "Eingabegerät",
+      "function": "Digitale Kamera zur Videoübertragung in Echtzeit über das Internet, z.B. für Videokonferenzen"
+    },
+    "sourceName": "Wikipedia DE – Webcam",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Webcam",
+    "verifyNote": "Funktion und Kategorie Eingabegerät sind Standardwissen."
+  },
+  {
+    "id": "hw-mikrofon",
+    "name": "Mikrofon",
+    "category": "hardware",
+    "attributes": {
+      "category": "Eingabegerät",
+      "function": "Wandelt Schallwellen in elektrische Signale um, die der Computer als Audioeingabe verarbeiten kann"
+    },
+    "sourceName": "Wikipedia DE – Mikrofon",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Mikrofon",
+    "verifyNote": "Funktion und Kategorie Eingabegerät sind Standardwissen."
+  },
+  {
+    "id": "hw-lautsprecher",
+    "name": "Lautsprecher",
+    "category": "hardware",
+    "attributes": {
+      "category": "Ausgabegerät",
+      "function": "Wandelt elektrische Audiosignale des Computers in hörbare Schallwellen um"
+    },
+    "sourceName": "Wikipedia DE – Lautsprecher",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Lautsprecher",
+    "verifyNote": "Funktion und Kategorie Ausgabegerät sind Standardwissen."
+  },
+  {
+    "id": "hw-touchpad",
+    "name": "Touchpad",
+    "category": "hardware",
+    "attributes": {
+      "category": "Eingabegerät",
+      "function": "Berührungsempfindliche Fläche zur Mauszeiger-Steuerung, typisch in Laptops verbaut"
+    },
+    "funFact": "Moderne Touchpads erkennen Mehrfinger-Gesten wie Zoom und Scrollen und ersetzen für viele Nutzer die externe Maus.",
+    "sourceName": "Wikipedia DE – Touchpad",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Touchpad",
+    "verifyNote": "Funktion und Kategorie Eingabegerät sind Standardwissen."
+  },
+  {
+    "id": "hw-raid-controller",
+    "name": "RAID-Controller",
+    "category": "hardware",
+    "attributes": {
+      "category": "Massenspeicher",
+      "function": "Steuert mehrere Festplatten als logisches Laufwerk für Redundanz oder Geschwindigkeitssteigerung (RAID)"
+    },
+    "funFact": "RAID steht für Redundant Array of Independent Disks — RAID 1 spiegelt Daten, RAID 0 verteilt sie zur Geschwindigkeitssteigerung.",
+    "sourceName": "Wikipedia DE – RAID",
+    "sourceUrl": "https://de.wikipedia.org/wiki/RAID",
+    "verifyNote": "Funktion und Kategorie Massenspeicher sind Standardwissen."
+  },
+  {
+    "id": "hw-router",
+    "name": "Router",
+    "category": "hardware",
+    "attributes": {
+      "category": "Netzwerk",
+      "function": "Leitet Datenpakete zwischen verschiedenen Netzwerken weiter und verbindet Heimnetz mit dem Internet"
+    },
+    "funFact": "Heimrouter kombinieren Router, Switch und WLAN-Access-Point in einem Gerät.",
+    "sourceName": "Wikipedia DE – Router",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Router",
+    "verifyNote": "Funktion und Kategorie Netzwerk sind Standardwissen."
+  },
+  {
+    "id": "hw-switch",
+    "name": "Netzwerk-Switch",
+    "category": "hardware",
+    "attributes": {
+      "category": "Netzwerk",
+      "function": "Verbindet mehrere Geräte im lokalen Netzwerk und leitet Pakete zielgerichtet anhand von MAC-Adressen weiter"
+    },
+    "funFact": "Ein Switch arbeitet auf Schicht 2 des OSI-Modells und ist effizienter als ein Hub, der Pakete an alle Ports sendet.",
+    "sourceName": "Wikipedia DE – Switch (Netzwerktechnik)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Switch_(Netzwerktechnik)",
+    "verifyNote": "Funktion und Kategorie Netzwerk sind Standardwissen."
+  },
+  {
+    "id": "hw-optisches-laufwerk",
+    "name": "Optisches Laufwerk",
+    "category": "hardware",
+    "attributes": {
+      "category": "Massenspeicher",
+      "function": "Liest und schreibt Daten auf optischen Medien wie CDs, DVDs oder Blu-rays mithilfe eines Laserstrahls"
+    },
+    "sourceName": "Wikipedia DE – Optisches Laufwerk",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Optisches_Laufwerk",
+    "verifyNote": "Funktion und Kategorie Massenspeicher sind Standardwissen."
+  },
+  {
+    "id": "hw-grafikkarte",
+    "name": "Grafikkarte",
+    "category": "hardware",
+    "attributes": {
+      "category": "Grafik",
+      "function": "Erweiterungskarte mit eigenem Grafikprozessor und Videospeicher, die Bildsignale für den Monitor aufbereitet"
+    },
+    "funFact": "Dedizierte Grafikkarten haben eigenen VRAM (Video-RAM), der deutlich schneller auf Texturdaten zugreifen kann als der Hauptspeicher.",
+    "sourceName": "Wikipedia DE – Grafikkarte",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Grafikkarte",
+    "verifyNote": "Funktion und Kategorie Grafik sind Standardwissen."
+  },
+  {
+    "id": "lang-bash",
+    "name": "Bash",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Skriptsprache",
+      "typeSystem": "Dynamisch typisiert",
+      "execution": "Interpretiert",
+      "primaryDomain": "Skripting/Automatisierung",
+      "fileExtension": ".sh"
+    },
+    "funFact": "Bash steht für 'Bourne Again Shell' und ist die Standard-Shell der meisten Linux-Distributionen.",
+    "sourceName": "GNU Bash Manual",
+    "sourceUrl": "https://www.gnu.org/software/bash/manual/",
+    "verifyNote": "Paradigma, Domäne und Dateiendung laut GNU-Dokumentation und Wikipedia DE."
+  },
+  {
+    "id": "lang-powershell",
+    "name": "PowerShell",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Skriptsprache",
+      "typeSystem": "Dynamisch typisiert",
+      "execution": "Interpretiert",
+      "primaryDomain": "Skripting/Automatisierung",
+      "fileExtension": ".ps1"
+    },
+    "funFact": "PowerShell arbeitet mit .NET-Objekten statt mit reinem Text — dadurch können Cmdlets strukturierte Daten direkt weitergeben.",
+    "sourceName": "Wikipedia DE – PowerShell",
+    "sourceUrl": "https://de.wikipedia.org/wiki/PowerShell",
+    "verifyNote": "Skripting-Domäne, interpretierte Ausführung und .ps1-Extension laut Microsoft-Dokumentation und Wikipedia DE."
+  },
+  {
+    "id": "lang-fsharp",
+    "name": "F#",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Funktional",
+      "typeSystem": "Statisch typisiert",
+      "execution": "Bytecode (VM)",
+      "primaryDomain": "Datenwissenschaft",
+      "fileExtension": ".fs"
+    },
+    "funFact": "F# läuft auf der .NET-Runtime und verbindet funktionale Programmierung mit der Ökosystem-Breite von C#.",
+    "sourceName": "Wikipedia DE – F Sharp (Programmiersprache)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/F_Sharp",
+    "verifyNote": "Funktionales Paradigma, CLR-Bytecode und statische Typisierung laut Microsoft-Dokumentation und Wikipedia DE."
+  },
+  {
+    "id": "lang-clojure",
+    "name": "Clojure",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Funktional",
+      "typeSystem": "Dynamisch typisiert",
+      "execution": "Bytecode (VM)",
+      "primaryDomain": "Nebenläufige Systeme",
+      "fileExtension": ".clj"
+    },
+    "funFact": "Clojure ist ein Lisp-Dialekt auf der JVM und setzt auf unveränderliche Datenstrukturen, um nebenläufige Programmierung sicher zu machen.",
+    "sourceName": "Wikipedia DE – Clojure",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Clojure",
+    "verifyNote": "Funktionales Paradigma, JVM-Bytecode und dynamische Typisierung laut Clojure.org und Wikipedia DE."
+  },
+  {
+    "id": "lang-elixir",
+    "name": "Elixir",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Funktional",
+      "typeSystem": "Dynamisch typisiert",
+      "execution": "Bytecode (VM)/BEAM",
+      "primaryDomain": "Nebenläufige Systeme",
+      "fileExtension": ".ex"
+    },
+    "funFact": "Elixir läuft auf der Erlang-VM (BEAM) und erbt damit deren Stärken für hochverfügbare, verteilte Systeme.",
+    "sourceName": "Wikipedia DE – Elixir (Programmiersprache)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Elixir_(Programmiersprache)",
+    "verifyNote": "Funktionales Paradigma, BEAM-VM-Bytecode und dynamische Typisierung laut elixir-lang.org und Wikipedia DE."
+  },
+  {
+    "id": "lang-groovy",
+    "name": "Groovy",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Multiparadigma",
+      "typeSystem": "Dynamisch typisiert",
+      "execution": "Bytecode (VM)",
+      "primaryDomain": "Skripting/Automatisierung",
+      "fileExtension": ".groovy"
+    },
+    "funFact": "Groovy ist vollständig kompatibel mit Java — jeder Java-Code ist gültiges Groovy, aber Groovy-Code ist meist deutlich kürzer.",
+    "sourceName": "Wikipedia DE – Groovy (Programmiersprache)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Groovy_(Programmiersprache)",
+    "verifyNote": "JVM-Ausführung, dynamische Typisierung und Skripting-Domäne laut groovy-lang.org und Wikipedia DE."
+  },
+  {
+    "id": "lang-pascal",
+    "name": "Pascal",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Imperativ/prozedural",
+      "typeSystem": "Statisch typisiert",
+      "execution": "Kompiliert",
+      "fileExtension": ".pas"
+    },
+    "funFact": "Pascal wurde in den 1970er Jahren als Lehrsprache konzipiert und legte die Grundlage für strukturiertes Programmieren.",
+    "sourceName": "Wikipedia DE – Pascal (Programmiersprache)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Pascal_(Programmiersprache)",
+    "verifyNote": "Imperatives Paradigma, statische Typisierung und kompilierte Ausführung laut Wikipedia DE; primaryDomain weggelassen, da Pascal heute primär historisch/didaktisch ist."
+  },
+  {
+    "id": "lang-ada",
+    "name": "Ada",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Imperativ/prozedural",
+      "typeSystem": "Statisch typisiert",
+      "execution": "Kompiliert",
+      "primaryDomain": "Systemprogrammierung",
+      "fileExtension": ".adb"
+    },
+    "funFact": "Ada wurde im Auftrag des US-Verteidigungsministeriums entwickelt und ist heute noch in sicherheitskritischen Systemen wie Flugzeugen und Raketen im Einsatz.",
+    "sourceName": "Wikipedia DE – Ada (Programmiersprache)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Ada_(Programmiersprache)",
+    "verifyNote": "Imperatives Paradigma, statische Typisierung und Systemprogrammierung laut Wikipedia DE und ISO/IEC 8652."
+  },
+  {
+    "id": "lang-ocaml",
+    "name": "OCaml",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Multiparadigma",
+      "typeSystem": "Statisch typisiert",
+      "execution": "Kompiliert",
+      "fileExtension": ".ml"
+    },
+    "funFact": "OCaml kombiniert funktionale, objektorientierte und imperative Programmierung und wird u.a. für den Flow-Typchecker von Facebook genutzt.",
+    "sourceName": "Wikipedia DE – OCaml",
+    "sourceUrl": "https://de.wikipedia.org/wiki/OCaml",
+    "verifyNote": "Multiparadigma, statische Typisierung und Kompilierung laut ocaml.org und Wikipedia DE; primaryDomain weggelassen, da breit eingesetzt."
+  },
+  {
+    "id": "lang-webassembly",
+    "name": "WebAssembly",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Stack-basiert",
+      "typeSystem": "Statisch typisiert",
+      "execution": "Bytecode (VM)",
+      "primaryDomain": "Webentwicklung (Frontend)",
+      "fileExtension": ".wasm"
+    },
+    "funFact": "WebAssembly wird direkt im Browser mit nahezu nativer Geschwindigkeit ausgeführt und ermöglicht z.B. rechenintensive Anwendungen wie 3D-Rendering im Web.",
+    "sourceName": "W3C – WebAssembly Specification",
+    "sourceUrl": "https://webassembly.github.io/spec/core/",
+    "verifyNote": "Stack-basierte VM, statische Typisierung und .wasm-Extension laut W3C-Spezifikation und MDN."
+  },
+  {
+    "id": "np-sftp",
+    "name": "SFTP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "SSH File Transfer Protocol",
+      "layer": "Anwendungsschicht",
+      "defaultPort": 22,
+      "transport": "TCP",
+      "purpose": "Verschlüsselte Dateiübertragung über SSH"
+    },
+    "funFact": "Trotz des Namens ist SFTP kein FTP mit SSL — es ist ein eigenständiges Protokoll, das vollständig über SSH läuft.",
+    "sourceName": "Wikipedia DE – SSH File Transfer Protocol",
+    "sourceUrl": "https://de.wikipedia.org/wiki/SSH_File_Transfer_Protocol",
+    "verifyNote": "Port 22 (via SSH-Tunnel) und TCP-Transport laut IETF-Draft draft-ietf-secsh-filexfer."
+  },
+  {
+    "id": "np-ldap",
+    "name": "LDAP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Lightweight Directory Access Protocol",
+      "layer": "Anwendungsschicht",
+      "defaultPort": 389,
+      "transport": "TCP",
+      "purpose": "Zugriff auf und Verwaltung von Verzeichnisdiensten, z.B. Active Directory"
+    },
+    "funFact": "LDAP ist das Standardprotokoll für Unternehmensverzeichnisse; Microsoft Active Directory basiert auf LDAP.",
+    "sourceName": "RFC 4511 – Lightweight Directory Access Protocol (LDAP)",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc4511",
+    "verifyNote": "Port 389 und TCP-Transport sind IANA-Standard gemäß RFC 4511."
+  },
+  {
+    "id": "np-rdp",
+    "name": "RDP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Remote Desktop Protocol",
+      "layer": "Anwendungsschicht",
+      "defaultPort": 3389,
+      "transport": "TCP",
+      "purpose": "Grafische Fernsteuerung von Windows-Rechnern"
+    },
+    "funFact": "RDP wurde von Microsoft entwickelt und ermöglicht die vollständige grafische Steuerung eines entfernten Windows-Systems über das Netzwerk.",
+    "sourceName": "Wikipedia DE – Remote Desktop Protocol",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Remote_Desktop_Protocol",
+    "verifyNote": "Port 3389 und TCP-Transport sind IANA-Standard; RDP ist ein proprietäres Microsoft-Protokoll."
+  },
+  {
+    "id": "np-sip",
+    "name": "SIP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Session Initiation Protocol",
+      "layer": "Anwendungsschicht",
+      "defaultPort": 5060,
+      "transport": "UDP",
+      "purpose": "Aufbau, Steuerung und Beendigung von VoIP- und Multimedia-Kommunikationssitzungen"
+    },
+    "funFact": "SIP ist das Standardprotokoll für IP-Telefonie und bildet die Grundlage für viele VoIP-Systeme und Videokonferenzdienste.",
+    "sourceName": "RFC 3261 – SIP: Session Initiation Protocol",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc3261",
+    "verifyNote": "Port 5060 (UDP) und Schichtzuordnung aus RFC 3261."
+  },
+  {
+    "id": "np-bgp",
+    "name": "BGP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Border Gateway Protocol",
+      "layer": "Anwendungsschicht",
+      "defaultPort": 179,
+      "transport": "TCP",
+      "purpose": "Austausch von Routing-Informationen zwischen autonomen Systemen im Internet"
+    },
+    "funFact": "BGP ist das Routing-Protokoll des Internets — es entscheidet, welche Wege Datenpakete zwischen den großen Netzbetreibern nehmen.",
+    "sourceName": "RFC 4271 – A Border Gateway Protocol 4 (BGP-4)",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc4271",
+    "verifyNote": "Port 179 und TCP-Transport aus RFC 4271; Anwendungsschicht (trotz Routing-Aufgabe) laut gängiger Lehrmeinung."
+  },
+  {
+    "id": "np-mqtt",
+    "name": "MQTT",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Message Queuing Telemetry Transport",
+      "layer": "Anwendungsschicht",
+      "defaultPort": 1883,
+      "transport": "TCP",
+      "purpose": "Leichtgewichtiges Publish-Subscribe-Messaging für IoT-Geräte und Sensornetzwerke"
+    },
+    "funFact": "MQTT wurde ursprünglich für die Überwachung von Ölpipelines per Satellit entwickelt und ist heute das meistgenutzte Protokoll im Internet of Things.",
+    "sourceName": "Wikipedia DE – MQTT",
+    "sourceUrl": "https://de.wikipedia.org/wiki/MQTT",
+    "verifyNote": "Port 1883 und TCP-Transport sind IANA-Standard; Vollform und Zweck laut OASIS MQTT-Standard."
+  },
+  {
+    "id": "np-irc",
+    "name": "IRC",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Internet Relay Chat",
+      "layer": "Anwendungsschicht",
+      "defaultPort": 6667,
+      "transport": "TCP",
+      "purpose": "Echtzeit-Textkommunikation in thematisch organisierten Kanälen"
+    },
+    "funFact": "IRC wurde 1988 von Jarkko Oikarinen entwickelt und war in den 1990er Jahren das dominante Echtzeit-Chat-System im Internet.",
+    "sourceName": "RFC 1459 – Internet Relay Chat Protocol",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc1459",
+    "verifyNote": "Port 6667 und TCP-Transport sind de-facto-Standard gemäß RFC 1459."
+  },
+  {
+    "id": "np-websocket",
+    "name": "WebSocket",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "WebSocket Protocol",
+      "layer": "Anwendungsschicht",
+      "defaultPort": 80,
+      "transport": "TCP",
+      "purpose": "Bidirektionale Vollduplex-Kommunikation zwischen Browser und Server über eine persistente TCP-Verbindung"
+    },
+    "funFact": "WebSocket ermöglicht es, dass der Server Daten aktiv an den Browser sendet, ohne dass der Browser eine Anfrage stellen muss — ideal für Echtzeit-Anwendungen.",
+    "sourceName": "RFC 6455 – The WebSocket Protocol",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc6455",
+    "verifyNote": "Port 80 (bzw. 443 für WSS) und TCP-Transport aus RFC 6455."
+  },
+  {
+    "id": "np-quic",
+    "name": "QUIC",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Quick UDP Internet Connections",
+      "layer": "Transportschicht",
+      "transport": "UDP",
+      "purpose": "Schnelles, verschlüsseltes Transportprotokoll als Grundlage von HTTP/3"
+    },
+    "funFact": "QUIC wurde von Google entwickelt und ist seit 2022 als RFC 9000 standardisiert; HTTP/3 nutzt QUIC als Transportprotokoll statt TCP.",
+    "sourceName": "RFC 9000 – QUIC: A UDP-Based Multiplexed and Secure Transport",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc9000",
+    "verifyNote": "UDP-Transport und Transportschicht-Einordnung aus RFC 9000; kein eigener standardisierter Port."
   }
 ]

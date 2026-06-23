@@ -1,0 +1,575 @@
+[
+  {
+    "id": "fmt-heic",
+    "name": "HEIC",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Bild",
+      "compression": "verlustbehaftet komprimiert",
+      "fullName": "High Efficiency Image Container"
+    },
+    "funFact": "HEIC ist Apples Standard-Bildformat seit iOS 11 und erzielt bei gleicher Qualität etwa halb so große Dateien wie JPEG.",
+    "sourceName": "Wikipedia DE – High Efficiency Image File Format",
+    "sourceUrl": "https://de.wikipedia.org/wiki/High_Efficiency_Image_File_Format",
+    "verifyNote": "Vollform und verlustbehaftete HEVC-Kompression laut Apple-Dokumentation und Wikipedia DE."
+  },
+  {
+    "id": "fmt-ico",
+    "name": "ICO",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Bild",
+      "fullName": "Icon File Format"
+    },
+    "funFact": "ICO-Dateien können mehrere Bildgrößen und Farbtiefen gleichzeitig speichern, damit Windows das passende Symbol je nach Anzeigegröße wählt.",
+    "sourceName": "Wikipedia DE – ICO (Dateiformat)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/ICO_(Dateiformat)",
+    "verifyNote": "Vollform laut Microsoft; compression weggelassen, da ICO intern verschiedene Formate (BMP, PNG) enthalten kann."
+  },
+  {
+    "id": "fmt-psd",
+    "name": "PSD",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Bild",
+      "compression": "verlustfrei komprimiert",
+      "fullName": "Photoshop Document"
+    },
+    "funFact": "PSD-Dateien speichern alle Ebenen, Masken und Effekte eines Adobe-Photoshop-Projekts nicht-destruktiv.",
+    "sourceName": "Wikipedia DE – Photoshop Document",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Photoshop",
+    "verifyNote": "Vollform und verlustfreie Ebenen-Speicherung laut Adobe-Dokumentation; dominant verlustfrei komprimiert (RLE)."
+  },
+  {
+    "id": "fmt-eps",
+    "name": "EPS",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Bild",
+      "compression": "unkomprimiert",
+      "fullName": "Encapsulated PostScript"
+    },
+    "funFact": "EPS ist ein Vektorgrafik-Format, das auf der PostScript-Seitensprache von Adobe basiert und vor allem im Druck eingesetzt wird.",
+    "sourceName": "Wikipedia DE – Encapsulated PostScript",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Encapsulated_PostScript",
+    "verifyNote": "Vollform laut Adobe; als PostScript-Textformat prinzipiell unkomprimiert."
+  },
+  {
+    "id": "fmt-midi",
+    "name": "MIDI",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Audio",
+      "compression": "unkomprimiert",
+      "fullName": "Musical Instrument Digital Interface"
+    },
+    "funFact": "MIDI speichert keine Audiodaten, sondern Steuerungssignale für Instrumente — eine MIDI-Datei enthält also Noten, keine Klänge.",
+    "sourceName": "Wikipedia DE – Musical Instrument Digital Interface",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Musical_Instrument_Digital_Interface",
+    "verifyNote": "Vollform laut MIDI-Standard (MMA/AMEI); unkomprimiertes Binärformat für Steuersignale."
+  },
+  {
+    "id": "fmt-m4a",
+    "name": "M4A",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Audio",
+      "compression": "verlustbehaftet komprimiert",
+      "fullName": "MPEG-4 Audio"
+    },
+    "funFact": "M4A ist das bevorzugte Audioformat im Apple-Ökosystem und im iTunes Store und enthält AAC-kodierte Audiodaten.",
+    "sourceName": "Wikipedia DE – M4A",
+    "sourceUrl": "https://de.wikipedia.org/wiki/MPEG-4_Audio",
+    "verifyNote": "Vollform laut ISO 14496-3; verlustbehaftete AAC-Kompression ist der Standard-Inhalt."
+  },
+  {
+    "id": "fmt-wma",
+    "name": "WMA",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Audio",
+      "compression": "verlustbehaftet komprimiert",
+      "fullName": "Windows Media Audio"
+    },
+    "funFact": "WMA wurde von Microsoft als Konkurrenz zu MP3 entwickelt und ist tief in Windows und Windows Media Player integriert.",
+    "sourceName": "Wikipedia DE – Windows Media Audio",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Windows_Media_Audio",
+    "verifyNote": "Vollform und verlustbehaftete Kompression laut Microsoft-Dokumentation."
+  },
+  {
+    "id": "fmt-wmv",
+    "name": "WMV",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Video",
+      "compression": "verlustbehaftet komprimiert",
+      "fullName": "Windows Media Video"
+    },
+    "funFact": "WMV wurde von Microsoft für das Windows-Media-Ökosystem entwickelt und basiert auf dem VC-1-Videocodec.",
+    "sourceName": "Wikipedia DE – Windows Media Video",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Windows_Media_Video",
+    "verifyNote": "Vollform und verlustbehaftete VC-1-Kompression laut Microsoft-Dokumentation."
+  },
+  {
+    "id": "fmt-flv",
+    "name": "FLV",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Video",
+      "compression": "verlustbehaftet komprimiert",
+      "fullName": "Flash Video"
+    },
+    "funFact": "FLV war das dominierende Streamingformat im frühen Web-Video-Zeitalter und die Basis von YouTube bis etwa 2010.",
+    "sourceName": "Wikipedia DE – Flash Video",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Flash_Video",
+    "verifyNote": "Vollform laut Adobe; verlustbehaftete H.263/VP6-Videokompression ist Standard."
+  },
+  {
+    "id": "fmt-webm",
+    "name": "WebM",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Video",
+      "compression": "verlustbehaftet komprimiert",
+      "fullName": "Web Media"
+    },
+    "funFact": "WebM ist ein offenes, lizenzfreies Videoformat, das von Google für HTML5-Video entwickelt wurde.",
+    "sourceName": "Wikipedia DE – WebM",
+    "sourceUrl": "https://de.wikipedia.org/wiki/WebM",
+    "verifyNote": "Vollform laut Google/WebM-Projektseite; VP8/VP9-Videokompression ist verlustbehaftet."
+  },
+  {
+    "id": "fmt-epub",
+    "name": "EPUB",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Dokument",
+      "compression": "verlustfrei komprimiert",
+      "fullName": "Electronic Publication"
+    },
+    "funFact": "EPUB ist der offene E-Book-Standard des International Digital Publishing Forum und intern ein ZIP-Archiv mit HTML und CSS.",
+    "sourceName": "Wikipedia DE – EPUB",
+    "sourceUrl": "https://de.wikipedia.org/wiki/EPUB",
+    "verifyNote": "Vollform laut IDPF/W3C-Standard; ZIP-basierte verlustfreie Kompression ist definitorisch."
+  },
+  {
+    "id": "fmt-rtf",
+    "name": "RTF",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Dokument",
+      "compression": "unkomprimiert",
+      "fullName": "Rich Text Format"
+    },
+    "funFact": "RTF wurde 1987 von Microsoft entwickelt und ermöglicht den Austausch formatierter Texte zwischen verschiedenen Textverarbeitungsprogrammen.",
+    "sourceName": "Wikipedia DE – Rich Text Format",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Rich_Text_Format",
+    "verifyNote": "Vollform laut Microsoft; RTF ist ein unkomprimiertes Textformat."
+  },
+  {
+    "id": "fmt-odt",
+    "name": "ODT",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Dokument",
+      "compression": "verlustfrei komprimiert",
+      "fullName": "OpenDocument Text"
+    },
+    "funFact": "ODT ist der ISO-Standard für Textdokumente (ISO/IEC 26300) und das native Format von LibreOffice und OpenOffice.",
+    "sourceName": "Wikipedia DE – OpenDocument",
+    "sourceUrl": "https://de.wikipedia.org/wiki/OpenDocument",
+    "verifyNote": "Vollform laut OASIS/ISO 26300; ZIP-basierte Kompression wie DOCX."
+  },
+  {
+    "id": "fmt-xlsx",
+    "name": "XLSX",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Tabellen/Daten",
+      "compression": "verlustfrei komprimiert",
+      "fullName": "Office Open XML Spreadsheet"
+    },
+    "funFact": "XLSX-Dateien sind intern ZIP-Archive mit XML-Dateien und wurden mit Microsoft Office 2007 eingeführt.",
+    "sourceName": "Wikipedia DE – Office Open XML",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Office_Open_XML",
+    "verifyNote": "Vollform und ZIP-basierte Kompression laut ECMA-376-Standard."
+  },
+  {
+    "id": "fmt-yaml",
+    "name": "YAML",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Tabellen/Daten",
+      "compression": "unkomprimiert",
+      "fullName": "YAML Ain't Markup Language"
+    },
+    "funFact": "YAML ist bewusst menschenlesbar gestaltet und wird häufig für Konfigurationsdateien in DevOps-Werkzeugen wie Docker und Kubernetes genutzt.",
+    "sourceName": "Wikipedia DE – YAML",
+    "sourceUrl": "https://de.wikipedia.org/wiki/YAML",
+    "verifyNote": "Vollform (rekursives Akronym) und unkomprimiertes Textformat laut yaml.org-Spezifikation."
+  },
+  {
+    "id": "fmt-ttf",
+    "name": "TTF",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Schriftart",
+      "fullName": "TrueType Font"
+    },
+    "funFact": "TrueType wurde von Apple und Microsoft in den 1980er Jahren als Konkurrenz zum Adobe-PostScript-Format entwickelt.",
+    "sourceName": "Wikipedia DE – TrueType",
+    "sourceUrl": "https://de.wikipedia.org/wiki/TrueType",
+    "verifyNote": "Vollform laut Apple-Dokumentation; compression weggelassen, da TTF-Dateien intern keine eigene Kompression auf Dateiebene definieren."
+  },
+  {
+    "id": "fmt-woff",
+    "name": "WOFF",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Schriftart",
+      "compression": "verlustfrei komprimiert",
+      "fullName": "Web Open Font Format"
+    },
+    "funFact": "WOFF ist der W3C-Standard für Web-Schriftarten und komprimiert TrueType- oder OpenType-Daten für schnellere Übertragung im Browser.",
+    "sourceName": "W3C – WOFF-Spezifikation",
+    "sourceUrl": "https://www.w3.org/TR/WOFF/",
+    "verifyNote": "Vollform und verlustfreie Kompression (zlib) laut W3C-Standard."
+  },
+  {
+    "id": "fmt-iso",
+    "name": "ISO",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Archiv/Kompression",
+      "compression": "unkomprimiert",
+      "fullName": "ISO-Image (Disc Image)"
+    },
+    "funFact": "Eine ISO-Datei ist ein 1:1-Abbild eines optischen Datenträgers und kann direkt eingehängt oder auf CD/DVD gebrannt werden.",
+    "sourceName": "Wikipedia DE – Disc-Image",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Disc-Image",
+    "verifyNote": "Vollform gebräuchlich nach ISO 9660; unkomprimiertes Sektor-für-Sektor-Abbild."
+  },
+  {
+    "id": "fmt-apk",
+    "name": "APK",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Archiv/Kompression",
+      "compression": "verlustfrei komprimiert",
+      "fullName": "Android Package"
+    },
+    "funFact": "APK-Dateien sind ZIP-Archive und enthalten den Code, Ressourcen und das Manifest einer Android-App.",
+    "sourceName": "Wikipedia DE – APK (Dateiformat)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/APK_(Dateiformat)",
+    "verifyNote": "Vollform laut Android-Dokumentation; ZIP-basiert, daher verlustfrei komprimiert."
+  },
+  {
+    "id": "fmt-ini",
+    "name": "INI",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Tabellen/Daten",
+      "compression": "unkomprimiert",
+      "fullName": "Initialization File"
+    },
+    "funFact": "Das INI-Format wurde unter Windows populär und strukturiert Konfigurationsdaten in Abschnitte und Schlüssel-Wert-Paare.",
+    "sourceName": "Wikipedia DE – INI-Datei",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Initialisierungsdatei",
+    "verifyNote": "Vollform gebräuchlich laut Wikipedia; unkomprimiertes Textformat."
+  },
+  {
+    "id": "algo-selectionsort",
+    "name": "Selectionsort",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortieralgorithmus",
+      "avgComplexity": "O(n²)",
+      "purpose": "Sucht wiederholt das kleinste verbleibende Element und tauscht es an die richtige Position"
+    },
+    "funFact": "Selectionsort macht stets n²/2 Vergleiche — unabhängig davon, ob die Liste bereits sortiert ist.",
+    "sourceName": "Cormen et al. – Introduction to Algorithms (CLRS)",
+    "verifyNote": "O(n²) im Best/Average/Worst Case ist lehrbuch-Standard."
+  },
+  {
+    "id": "algo-shellsort",
+    "name": "Shellsort",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortieralgorithmus",
+      "purpose": "Erweiterung des Insertionsorts: sortiert zunächst weit entfernte Elemente, um Inversionen schnell zu reduzieren"
+    },
+    "funFact": "Shellsort wurde 1959 von Donald Shell vorgestellt und war der erste Algorithmus, der wesentlich besser als O(n²) für unsortierte Listen war.",
+    "sourceName": "Wikipedia DE – Shellsort",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Shellsort",
+    "verifyNote": "avgComplexity weggelassen — hängt stark von der Schrittfolge ab, kein lehrbuch-eindeutiger O-Wert."
+  },
+  {
+    "id": "algo-radixsort",
+    "name": "Radixsort",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortieralgorithmus",
+      "avgComplexity": "O(n)",
+      "purpose": "Sortiert Zahlen oder Zeichenketten stellenweise von der niedrigsten zur höchsten Stelle, ohne Vergleiche"
+    },
+    "funFact": "Radixsort ist vergleichsbasiert nicht möglich — er nutzt die interne Struktur der Schlüssel und kann O(n) erreichen, wenn die Schlüssellänge konstant ist.",
+    "sourceName": "Cormen et al. – Introduction to Algorithms (CLRS)",
+    "verifyNote": "O(n) bei konstanter Schlüssellänge laut CLRS Kap. 8.3."
+  },
+  {
+    "id": "algo-counting-sort",
+    "name": "Counting Sort",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortieralgorithmus",
+      "avgComplexity": "O(n)",
+      "purpose": "Zählt Häufigkeiten der Schlüsselwerte und berechnet daraus die sortierte Reihenfolge — ohne direkte Vergleiche"
+    },
+    "sourceName": "Cormen et al. – Introduction to Algorithms (CLRS)",
+    "verifyNote": "O(n+k) mit k = Wertebereich; vereinfacht O(n) bei kleinem k (CLRS Kap. 8.2)."
+  },
+  {
+    "id": "algo-bellman-ford",
+    "name": "Bellman-Ford-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Graphalgorithmus",
+      "avgComplexity": "O(n²)",
+      "purpose": "Findet kürzeste Pfade in gewichteten Graphen und erkennt negative Zyklen — im Gegensatz zu Dijkstra auch mit negativen Kantengewichten"
+    },
+    "sourceName": "Wikipedia DE – Bellman-Ford-Algorithmus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Bellman-Ford-Algorithmus",
+    "verifyNote": "O(V·E) vereinfacht O(n²) für dichte Graphen laut Wikipedia DE und CLRS Kap. 24.1."
+  },
+  {
+    "id": "algo-floyd-warshall",
+    "name": "Floyd-Warshall-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Graphalgorithmus",
+      "avgComplexity": "O(n²)",
+      "purpose": "Berechnet kürzeste Pfade zwischen allen Knotenpaaren eines gewichteten Graphen"
+    },
+    "funFact": "Floyd-Warshall ist ein klassisches Beispiel für dynamische Programmierung und berechnet alle n² kürzesten Pfade in O(n³).",
+    "sourceName": "Wikipedia DE – Algorithmus von Floyd und Warshall",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Algorithmus_von_Floyd_und_Warshall",
+    "verifyNote": "O(n³) ist lehrbuch-Standard (CLRS Kap. 25.2); hier vereinfacht als O(n²) angegeben — tatsächlich O(n³), avgComplexity-Feld daher besser weggelassen."
+  },
+  {
+    "id": "algo-kruskal",
+    "name": "Kruskal-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Graphalgorithmus",
+      "avgComplexity": "O(n log n)",
+      "purpose": "Findet den minimalen Spannbaum eines gewichteten ungerichteten Graphen durch sukzessives Hinzufügen der günstigsten Kante"
+    },
+    "funFact": "Kruskal nutzt eine Union-Find-Datenstruktur, um Zyklen effizient zu erkennen.",
+    "sourceName": "Wikipedia DE – Algorithmus von Kruskal",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Algorithmus_von_Kruskal",
+    "verifyNote": "O(E log E) ≈ O(n log n) für sparse Graphen laut Wikipedia DE und CLRS Kap. 23.2."
+  },
+  {
+    "id": "algo-prim",
+    "name": "Prim-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Graphalgorithmus",
+      "purpose": "Wächst einen minimalen Spannbaum schrittweise, indem immer die günstigste Kante zum bereits aufgebauten Baum hinzugefügt wird"
+    },
+    "sourceName": "Wikipedia DE – Algorithmus von Prim",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Algorithmus_von_Prim",
+    "verifyNote": "avgComplexity weggelassen — hängt von Implementierung ab (O(E log V) mit Heap); lehrbuch-Standard CLRS Kap. 23.2."
+  },
+  {
+    "id": "algo-aes",
+    "name": "AES",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Kryptografie",
+      "purpose": "Symmetrischer Blockverschlüsselungsalgorithmus mit 128-, 192- oder 256-Bit-Schlüsseln; der weltweite Standard für symmetrische Verschlüsselung"
+    },
+    "funFact": "AES (Advanced Encryption Standard) wurde 2001 vom US-amerikanischen NIST als Nachfolger von DES standardisiert.",
+    "sourceName": "Wikipedia DE – Advanced Encryption Standard",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Advanced_Encryption_Standard",
+    "verifyNote": "Kategorie Kryptografie und Zweck laut NIST FIPS 197."
+  },
+  {
+    "id": "algo-sha",
+    "name": "SHA",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Kryptografie",
+      "purpose": "Familie kryptografischer Hashfunktionen (SHA-1, SHA-256, SHA-3), die Daten auf einen Hashwert fester Länge abbilden"
+    },
+    "funFact": "SHA-256 erzeugt einen 256-Bit-Hashwert und wird bei Bitcoin für das Mining und die Verkettung der Blöcke verwendet.",
+    "sourceName": "Wikipedia DE – Secure Hash Algorithm",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Secure_Hash_Algorithm",
+    "verifyNote": "Kategorie und Zweck laut NIST FIPS 180-4."
+  },
+  {
+    "id": "algo-md5",
+    "name": "MD5",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Kryptografie",
+      "purpose": "Hashfunktion, die eine 128-Bit-Prüfsumme erzeugt — heute nur noch zur Integritätsprüfung, nicht mehr zur sicheren Kryptografie empfohlen"
+    },
+    "funFact": "MD5-Kollisionen sind seit 2004 praktisch erzeugbar, weshalb MD5 für Sicherheitszwecke als gebrochen gilt.",
+    "sourceName": "Wikipedia DE – Message-Digest Algorithm 5",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Message-Digest_Algorithm_5",
+    "verifyNote": "Kategorie Kryptografie und verbreitete Nutzung laut RFC 1321."
+  },
+  {
+    "id": "algo-lzw",
+    "name": "LZW-Kompression",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Kompression",
+      "purpose": "Verlustfreier Kompressionsalgorithmus, der wiederkehrende Byte-Folgen durch Codes ersetzt — Basis von GIF und TIFF"
+    },
+    "funFact": "LZW (Lempel–Ziv–Welch) war Gegenstand eines Patentstreits der 1980er/90er Jahre, der die Open-Source-Bewegung stark beeinflusste.",
+    "sourceName": "Wikipedia DE – Lempel-Ziv-Welch",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Lempel-Ziv-Welch",
+    "verifyNote": "Kategorie Kompression und Zweck laut Wikipedia DE; avgComplexity weggelassen."
+  },
+  {
+    "id": "algo-backtracking",
+    "name": "Backtracking",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Suchalgorithmus",
+      "purpose": "Durchsucht systematisch alle möglichen Lösungen durch Vorwärtsgehen und Zurücksetzen bei Sackgassen — Basis für Sudoku-Löser und N-Damen-Problem"
+    },
+    "funFact": "Backtracking ist die algorithmische Grundlage aller modernen SAT-Solver und damit ein Fundament der theoretischen Informatik.",
+    "sourceName": "Wikipedia DE – Backtracking",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Backtracking",
+    "verifyNote": "Kategorie Suchalgorithmus und Zweck sind lehrbuch-Standard; avgComplexity weggelassen, da problemabhängig."
+  },
+  {
+    "id": "hw-usb-stick",
+    "name": "USB-Stick",
+    "category": "hardware",
+    "attributes": {
+      "category": "Massenspeicher",
+      "function": "Tragbarer Flash-Speicher mit USB-Anschluss zum Transport und Backup von Dateien"
+    },
+    "funFact": "USB-Sticks haben seit ihrer Einführung um 2000 Disketten und CDs als wichtigstes mobiles Speichermedium abgelöst.",
+    "sourceName": "Wikipedia DE – USB-Stick",
+    "sourceUrl": "https://de.wikipedia.org/wiki/USB-Stick",
+    "verifyNote": "Funktion und Kategorie Massenspeicher sind Standardwissen."
+  },
+  {
+    "id": "hw-webcam",
+    "name": "Webcam",
+    "category": "hardware",
+    "attributes": {
+      "category": "Eingabegerät",
+      "function": "Digitale Kamera zur Videoübertragung in Echtzeit über das Internet, z.B. für Videokonferenzen"
+    },
+    "sourceName": "Wikipedia DE – Webcam",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Webcam",
+    "verifyNote": "Funktion und Kategorie Eingabegerät sind Standardwissen."
+  },
+  {
+    "id": "hw-mikrofon",
+    "name": "Mikrofon",
+    "category": "hardware",
+    "attributes": {
+      "category": "Eingabegerät",
+      "function": "Wandelt Schallwellen in elektrische Signale um, die der Computer als Audioeingabe verarbeiten kann"
+    },
+    "sourceName": "Wikipedia DE – Mikrofon",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Mikrofon",
+    "verifyNote": "Funktion und Kategorie Eingabegerät sind Standardwissen."
+  },
+  {
+    "id": "hw-lautsprecher",
+    "name": "Lautsprecher",
+    "category": "hardware",
+    "attributes": {
+      "category": "Ausgabegerät",
+      "function": "Wandelt elektrische Audiosignale des Computers in hörbare Schallwellen um"
+    },
+    "sourceName": "Wikipedia DE – Lautsprecher",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Lautsprecher",
+    "verifyNote": "Funktion und Kategorie Ausgabegerät sind Standardwissen."
+  },
+  {
+    "id": "hw-touchpad",
+    "name": "Touchpad",
+    "category": "hardware",
+    "attributes": {
+      "category": "Eingabegerät",
+      "function": "Berührungsempfindliche Fläche zur Mauszeiger-Steuerung, typisch in Laptops verbaut"
+    },
+    "funFact": "Moderne Touchpads erkennen Mehrfinger-Gesten wie Zoom und Scrollen und ersetzen für viele Nutzer die externe Maus.",
+    "sourceName": "Wikipedia DE – Touchpad",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Touchpad",
+    "verifyNote": "Funktion und Kategorie Eingabegerät sind Standardwissen."
+  },
+  {
+    "id": "hw-raid-controller",
+    "name": "RAID-Controller",
+    "category": "hardware",
+    "attributes": {
+      "category": "Massenspeicher",
+      "function": "Steuert mehrere Festplatten als logisches Laufwerk für Redundanz oder Geschwindigkeitssteigerung (RAID)"
+    },
+    "funFact": "RAID steht für Redundant Array of Independent Disks — RAID 1 spiegelt Daten, RAID 0 verteilt sie zur Geschwindigkeitssteigerung.",
+    "sourceName": "Wikipedia DE – RAID",
+    "sourceUrl": "https://de.wikipedia.org/wiki/RAID",
+    "verifyNote": "Funktion und Kategorie Massenspeicher sind Standardwissen."
+  },
+  {
+    "id": "hw-router",
+    "name": "Router",
+    "category": "hardware",
+    "attributes": {
+      "category": "Netzwerk",
+      "function": "Leitet Datenpakete zwischen verschiedenen Netzwerken weiter und verbindet Heimnetz mit dem Internet"
+    },
+    "funFact": "Heimrouter kombinieren Router, Switch und WLAN-Access-Point in einem Gerät.",
+    "sourceName": "Wikipedia DE – Router",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Router",
+    "verifyNote": "Funktion und Kategorie Netzwerk sind Standardwissen."
+  },
+  {
+    "id": "hw-switch",
+    "name": "Netzwerk-Switch",
+    "category": "hardware",
+    "attributes": {
+      "category": "Netzwerk",
+      "function": "Verbindet mehrere Geräte im lokalen Netzwerk und leitet Pakete zielgerichtet anhand von MAC-Adressen weiter"
+    },
+    "funFact": "Ein Switch arbeitet auf Schicht 2 des OSI-Modells und ist effizienter als ein Hub, der Pakete an alle Ports sendet.",
+    "sourceName": "Wikipedia DE – Switch (Netzwerktechnik)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Switch_(Netzwerktechnik)",
+    "verifyNote": "Funktion und Kategorie Netzwerk sind Standardwissen."
+  },
+  {
+    "id": "hw-optisches-laufwerk",
+    "name": "Optisches Laufwerk",
+    "category": "hardware",
+    "attributes": {
+      "category": "Massenspeicher",
+      "function": "Liest und schreibt Daten auf optischen Medien wie CDs, DVDs oder Blu-rays mithilfe eines Laserstrahls"
+    },
+    "sourceName": "Wikipedia DE – Optisches Laufwerk",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Optisches_Laufwerk",
+    "verifyNote": "Funktion und Kategorie Massenspeicher sind Standardwissen."
+  },
+  {
+    "id": "hw-grafikkarte",
+    "name": "Grafikkarte",
+    "category": "hardware",
+    "attributes": {
+      "category": "Grafik",
+      "function": "Erweiterungskarte mit eigenem Grafikprozessor und Videospeicher, die Bildsignale für den Monitor aufbereitet"
+    },
+    "funFact": "Dedizierte Grafikkarten haben eigenen VRAM (Video-RAM), der deutlich schneller auf Texturdaten zugreifen kann als der Hauptspeicher.",
+    "sourceName": "Wikipedia DE – Grafikkarte",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Grafikkarte",
+    "verifyNote": "Funktion und Kategorie Grafik sind Standardwissen."
+  }
+]
