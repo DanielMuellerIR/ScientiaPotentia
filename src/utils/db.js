@@ -80,6 +80,13 @@ export function initDB() {
       }
     };
   });
+
+  // WICHTIG: das gerade erzeugte Promise zurueckgeben. Ohne dieses return lieferte
+  // der ERSTE initDB()-Aufruf (dbPromise war noch null) undefined zurueck -> der
+  // Aufrufer bekam `await undefined` und lief beim Cold Start in
+  // „Cannot read properties of undefined (reading 'transaction')". Erst ab dem
+  // zweiten Aufruf griff `if (dbPromise) return dbPromise`.
+  return dbPromise;
 }
 
 /**
