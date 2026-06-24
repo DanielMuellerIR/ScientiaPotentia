@@ -36,6 +36,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+import { pickBalanced } from './lib/quizrandom.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -136,10 +137,11 @@ function isSingleWord(c) {
  * ähnlich sind (mehrdeutige Optionen).
  */
 function pickCategorical(correct, pool, k = 3, conflictFn = null) {
-  return [...new Set(pool.map(String))]
+  // längen-balanciert statt Pool-Reihenfolge: `.slice(0,k)` nahm sonst feste
+  // erste-k Einträge → Längen-Bias (richtige Antwort fast immer längste/kürzeste).
+  return pickBalanced(correct, [...new Set(pool.map(String))]
     .filter(v => v !== String(correct))
-    .filter(v => !conflictFn || !conflictFn(v, String(correct)))
-    .slice(0, k);
+    .filter(v => !conflictFn || !conflictFn(v, String(correct))), k);
 }
 
 /**
@@ -639,10 +641,10 @@ for (const tpl of templates) {
       // Reverse-Korrektheit: Distraktor-Konzepte müssen beim getesteten
       // Attribut einen ANDEREN, nicht überlappenden Wert haben — sonst
       // wären mehrere Optionen richtig.
-      distractors = [...new Set(catPool
+      distractors = pickBalanced(correct, [...new Set(catPool
         .filter(e => e.name !== correct)
         .filter(e => !valuesShareToken(e.value, String(vRaw)))
-        .map(e => e.name))].slice(0, 3);
+        .map(e => e.name))], 3);
     } else if (tpl.kind === 'num') {
       const n = cleanNum(vRaw);
       if (n === null) { skipStats.noValue++; continue; } // "ca. 1.000"-Strings usw.

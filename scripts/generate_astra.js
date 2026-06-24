@@ -17,6 +17,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+import { pickBalanced, deParse } from './lib/quizrandom.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -56,10 +57,16 @@ function roundSig(x, sig = 2) {
 function pickDistractors(correct, pool, numeric) {
   const unique = [...new Set(pool.map(v => String(v)))].filter(v => v !== String(correct));
   if (numeric) {
-    const cNum = Number(correct);
-    unique.sort((a, b) => Math.abs(Number(a) - cNum) - Math.abs(Number(b) - cNum));
+    // deParse statt Number(): einheitsbehaftete Werte („4,5 mag", „7,3 km")
+    // ergeben mit Number()=NaN → die Wertnähe-Sortierung versagte und fiel auf
+    // feste erste-3-Distraktoren zurück (Magnitude-Bug: domainweit Sonne/Sirius/
+    // Beteigeuze als absurde Fix-Distraktoren).
+    const cNum = deParse(correct);
+    unique.sort((a, b) => Math.abs(deParse(a) - cNum) - Math.abs(deParse(b) - cNum));
+    return unique.slice(0, 3);
   }
-  return unique.slice(0, 3);
+  // numeric=false: längen-balanciert statt Pool-Reihenfolge → kein Längen-Bias.
+  return pickBalanced(correct, unique, 3);
 }
 
 // --- deterministischer Mini-Hash (FNV-1a) ---------------------------------

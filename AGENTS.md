@@ -364,6 +364,39 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 | Machina | 756 | 2355 | Wikipedia / RFC/IANA / Lehrbücher | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Funktionsprinzip (v1.47.0) |
 | Historia | 838 | 4251 | Wikipedia / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Zeit/Urheberschaft, Politik-Ausschluss (v1.47.0) |
 
+> **Stand 2026-06-24 (v1.51.0) — Qualitätswelle: faire Distraktoren + Museum-Aufwertung + Bild-Audit:**
+> KEINE neuen Konzepte/Fragen (Zahlen unverändert) — diese Welle macht den BESTAND besser.
+> **(1) Selbstverräter-/Fairness-Fix der Distraktoren (Hauptarbeit).** Ein deterministischer
+> Audit (`scripts/audit_questions.cjs`, `npm run audit:questions`) über ALLE Fragen + ein
+> adversarialer Opus-Workflow (8 Domain-Finder → Verifier → Synthese) fanden denselben
+> systemischen Defekt: Die Picker (`pickCategorical`/`pickNames`/`pickDistractors`) nahmen via
+> `.slice(0,3)` IMMER die ersten drei Pool-Einträge als Distraktoren → die richtige Antwort war
+> systematisch die längste/kürzeste Option (Homo organ-weight-rev 90,5 % „längste", Machina
+> hw-category-rev 89,9 %, Natura plant-sciname-rev 96,4 % „kürzeste" usw.) und über „längste
+> Antwort raten" wissensfrei lösbar. Zusätzlich ein echter Bug: `pickDistractors` (astra/homo)
+> sortierte numerisch über `Number("4,5 mag")`=NaN → Nachbarwert-Sortierung versagte bei
+> einheitsbehafteten Werten und fiel auf feste Distraktoren zurück (astra-star-magnitude: 128/131
+> Fragen mit fixem absurden Tripel Sonne/Sirius/Beteigeuze). **Fix:** neues Modul
+> `scripts/lib/quizrandom.js` (`seededShuffle` reproduzierbar, `pickBalanced` = längen-balancierte
+> Auswahl → richtige Antwort liegt mittig, ~25 % statt ~90 %; `deParse` für dt. Zahlformat).
+> Alle 7 MCQ-Generatoren darauf umgestellt (Terra war schon zufalls-basiert → nie betroffen).
+> Ergebnis: **Bias-Templates 43 → 3** (alle marginal: n≤15 oder Δ<1,5 Zeichen). Zusätzlich Homo
+> Substring-Overlap-Guard (verhindert Doppel-richtig „Verdauung"/„Verdauungssystem").
+> **(2) Museum grafisch aufgewertet** (`MuseumExplorer.jsx` + `index.css`): gerahmte „mattierte"
+> Karten im Pergament-Stil (Doppelrahmen wie `.terra-panel`), Hover-Lift + Bild-Zoom, Museums-
+> Placard (Kategorie-Kapitälchen + Titel), Shimmer-Skelett beim Laden, Lightbox mit Backdrop-Blur.
+> **(3) Bild-Stichprobe** (`check_images.cjs` live gegen Commons, 1926 Bilder): 1923 ok. 3 Flags
+> „license not free" → 2 Fehlalarme (`isFree` erkannte die freien Vorlagen {{Attribution}} /
+> {{Copyrighted free use}} nicht → Heuristik ergänzt), 1 echter Themen-Fehler (astra `messier-43`
+> trug ein M42-Bild → entfernt, `imageSearchTerm` bleibt fürs Nachresolven). Visuelle Themen-
+> Stichprobe von 7 diversen Bildern: alle korrekt. **Verifiziert:** verify_facts 0 Fehler (alle),
+> npm test grün, Build grün, Layout 17/17, Homo-Quiz + Museum browser-verifiziert (0 Konsolen-
+> fehler). **NICHT deployt** (live weiterhin v1.46.1). **Offene Follow-ups (Audit-Report, niedrige
+> Prio):** Homo `system`-Attribut kanonisieren (Verdauung/Verdauungssystem, Sinnesorgan/-organe,
+> Endokrines-System-Varianten); Cultura medium „Leinwand"→„Öl auf Leinwand" (15 Einträge, je
+> einzeln verifizieren); Cognat-/Format-Outlier-Tells (Muster B/C) sind Daten-, keine Generator-
+> Themen; M43 freies Bild nachresolven sobald Commons-Rate-Limit frei.
+>
 > **Stand 2026-06-24 (v1.50.0) — Konzept-Skalierung-Welle 7 (4 Domains unter 5000):**
 > Zweite orchestrierte Welle, **26 Opus-Agenten** (13 `find → verify`-Slices) über die vier noch
 > unter 5000 liegenden Domains; Dedup-Listen/Schema-Karten vor dem Lauf aus den AKTUELLEN (post-

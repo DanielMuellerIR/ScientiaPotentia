@@ -1,0 +1,155 @@
+// Deterministischer Fragen-Integritäts-Audit über ALLE Domains.
+//
+// Fängt die klassischen MCQ-"Selbstverräter" statistisch ab — ohne LLM, über
+// den gesamten Fragenbestand (nicht nur Stichproben):
+//
+//   1. Längen-Bias je Fragetyp: ist die richtige Antwort systematisch die
+//      längste (oder kürzeste) Option? Erwartung bei 4 Optionen ~25 %.
+//      >50 % = die Antwortlänge verrät die Lösung (typischer Template-Fehler).
+//   2. Antwort-im-Fragetext: taucht die richtige Antwort wörtlich im prompt auf?
+//   3. Strukturfehler: Dubletten-Optionen, correctAnswer fehlt in options,
+//      <2 distinkte Optionen.
+//   4. Format-Tell: nur die richtige Option hat Klammer/Zahl/Sonderzeichen,
+//      die Distraktoren nicht (oder umgekehrt).
+//
+// Aufruf: node scripts/audit_questions.cjs [--dump=/tmp/sci_audit]
+//   --dump schreibt je Domain die auffälligen Fälle + eine Zufallsstichprobe
+//   als JSON für die anschließende semantische LLM-Prüfung.
+
+const fs = require('fs');
+const path = require('path');
+
+const DOMAINS = ['astra', 'cultura', 'historia', 'homo', 'lingua', 'machina', 'natura', 'terra'];
+const DATA = path.join(__dirname, '..', 'public', 'data');
+
+const dumpArg = process.argv.find(a => a.startsWith('--dump='));
+const dumpDir = dumpArg ? dumpArg.split('=')[1] : null;
+if (dumpDir) fs.mkdirSync(dumpDir, { recursive: true });
+
+// Normalisierung für Antwort-im-Stamm-Vergleich.
+const norm = s => String(s ?? '')
+  .toLowerCase()
+  .replace(/[„“"»«›‹']/g, '')
+  .replace(/\s+/g, ' ')
+  .trim();
+
+function loadQuestions(domain) {
+  const p = path.join(DATA, `questions_${domain}.json`);
+  if (!fs.existsSync(p)) return null;
+  const d = JSON.parse(fs.readFileSync(p, 'utf8'));
+  return Array.isArray(d) ? d : (d.questions || Object.values(d));
+}
+
+// Pseudo-Zufall mit fixem Seed (reproduzierbare Stichprobe).
+function seeded(seed) {
+  let s = seed >>> 0;
+  return () => { s = (s * 1664525 + 1013904223) >>> 0; return s / 4294967296; };
+}
+
+const summary = [];
+
+for (const domain of DOMAINS) {
+  const qs = loadQuestions(domain);
+  if (!qs) continue;
+
+  const byType = {};                 // type -> Statistik
+  const answerInStem = [];
+  const structural = [];
+  const formatTell = [];
+
+  for (const q of qs) {
+    const opts = q.options || [];
+    const correct = q.correctAnswer ?? opts[0];
+    const prompt = q.prompt || q.question || '';
+    const type = q.type || '?';
+
+    (byType[type] ||= {
+      type, n: 0, longest: 0, shortest: 0,
+      lenCorrect: 0, lenDistract: 0, nDistract: 0,
+    });
+    const t = byType[type];
+
+    // --- Struktur ---
+    const normOpts = opts.map(norm);
+    const dup = new Set(normOpts).size !== normOpts.length;
+    const hasCorrect = normOpts.includes(norm(correct));
+    if (opts.length < 2 || dup || !hasCorrect) {
+      structural.push({ id: q.id, type, reason: opts.length < 2 ? 'zu wenige Optionen' : dup ? 'Dubletten-Option' : 'correctAnswer fehlt in options', prompt, correct, options: opts });
+    }
+
+    // --- Längen-Bias ---
+    if (opts.length >= 3 && hasCorrect) {
+      const lens = opts.map(o => String(o).length);
+      const cLen = String(correct).length;
+      const maxLen = Math.max(...lens), minLen = Math.min(...lens);
+      const isUniqueLongest = cLen === maxLen && lens.filter(l => l === maxLen).length === 1;
+      const isUniqueShortest = cLen === minLen && lens.filter(l => l === minLen).length === 1;
+      t.n++;
+      if (isUniqueLongest) t.longest++;
+      if (isUniqueShortest) t.shortest++;
+      t.lenCorrect += cLen;
+      const dl = lens.filter((_, i) => norm(opts[i]) !== norm(correct));
+      t.lenDistract += dl.reduce((a, b) => a + b, 0);
+      t.nDistract += dl.length;
+    }
+
+    // --- Antwort im Fragetext ---
+    // Nur sinnvoll, wenn die Antwort kein triviales Kurzwort ist und nicht der
+    // erwartete Reverse-Fall (answerIsName + Lemma im Stamm) vorliegt.
+    const nc = norm(correct);
+    const np = norm(prompt);
+    if (nc.length >= 4 && np.includes(nc)) {
+      answerInStem.push({ id: q.id, type, prompt, correct, options: opts });
+    }
+
+    // --- Format-Tell: Klammer/Ziffer nur bei der richtigen Option ---
+    const hasSpecial = s => /[()0-9]/.test(String(s));
+    const correctSpecial = hasSpecial(correct);
+    const distractSpecial = opts.filter(o => norm(o) !== nc).map(hasSpecial);
+    if (distractSpecial.length >= 2 && correctSpecial && distractSpecial.every(x => !x)) {
+      formatTell.push({ id: q.id, type, prompt, correct, options: opts, reason: 'nur richtige Option hat Klammer/Ziffer' });
+    }
+  }
+
+  // Typ-Statistik auswerten — Bias-Flag bei deutlicher Abweichung von 25 %.
+  const typeStats = Object.values(byType).map(t => ({
+    type: t.type, n: t.n,
+    pctLongest: t.n ? +(100 * t.longest / t.n).toFixed(1) : 0,
+    pctShortest: t.n ? +(100 * t.shortest / t.n).toFixed(1) : 0,
+    avgLenCorrect: t.n ? +(t.lenCorrect / t.n).toFixed(1) : 0,
+    avgLenDistract: t.nDistract ? +(t.lenDistract / t.nDistract).toFixed(1) : 0,
+  }));
+  const biasTypes = typeStats.filter(t => t.n >= 8 && (t.pctLongest >= 50 || t.pctShortest >= 55));
+
+  summary.push({ domain, total: qs.length, structural: structural.length, answerInStem: answerInStem.length, formatTell: formatTell.length, biasTypes });
+
+  // Konsolen-Report je Domain
+  console.log(`\n=== ${domain.toUpperCase()}  (${qs.length} Fragen) ===`);
+  console.log(`  Strukturfehler: ${structural.length} | Antwort-im-Stamm: ${answerInStem.length} | Format-Tell: ${formatTell.length}`);
+  if (biasTypes.length) {
+    console.log(`  ⚠ Längen-Bias-Templates (n≥8, longest≥50% oder shortest≥55%):`);
+    biasTypes.sort((a, b) => Math.max(b.pctLongest, b.pctShortest) - Math.max(a.pctLongest, a.pctShortest))
+      .forEach(t => console.log(`     ${t.type}  n=${t.n}  longest=${t.pctLongest}%  shortest=${t.pctShortest}%  (Ø richtig ${t.avgLenCorrect} vs Distr ${t.avgLenDistract})`));
+  } else {
+    console.log(`  ✓ kein auffälliger Längen-Bias auf Template-Ebene`);
+  }
+  if (structural.length) structural.slice(0, 5).forEach(s => console.log(`     STRUKT ${s.id}: ${s.reason}`));
+
+  // --- Dump für LLM-Prüfung ---
+  if (dumpDir) {
+    const rnd = seeded(1234567 + domain.length);
+    const sample = [...qs].sort(() => rnd() - 0.5).slice(0, 50)
+      .map(q => ({ id: q.id, type: q.type, prompt: q.prompt, correctAnswer: q.correctAnswer, options: q.options }));
+    fs.writeFileSync(path.join(dumpDir, `${domain}.json`), JSON.stringify({
+      domain,
+      flagged: { structural, answerInStem: answerInStem.slice(0, 40), formatTell: formatTell.slice(0, 40), biasTypes },
+      randomSample: sample,
+    }, null, 2));
+  }
+}
+
+console.log('\n\n===== GESAMT-ÜBERSICHT =====');
+summary.forEach(s => console.log(
+  `${s.domain.padEnd(9)} ${String(s.total).padStart(6)} Fragen | Strukt ${s.structural} | Ans-im-Stamm ${s.answerInStem} | Format ${s.formatTell} | Bias-Templates ${s.biasTypes.length}`
+));
+if (dumpDir) console.log(`\nStichproben + Flags geschrieben nach: ${dumpDir}`);

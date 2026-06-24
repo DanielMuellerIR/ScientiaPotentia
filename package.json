@@ -1,13 +1,14 @@
 {
   "name": "scientia_potentia",
   "private": true,
-  "version": "1.50.0",
+  "version": "1.51.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
     "check:layout": "node scripts/check_layout_contract.cjs",
+    "audit:questions": "node scripts/audit_questions.cjs",
     "test": "vitest run",
     "test:watch": "vitest"
   },

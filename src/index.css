@@ -49,3 +49,27 @@
   .app-pane-right{width:100%;height:auto;flex:1 1 auto}
   .app-wordmark{display:none}
 }
+
+/* === Museum (Galerie) — gerahmte Karten im klassischen Pergament-Stil ===== */
+/* Karten wirken wie gerahmte, mattierte Drucke an einer Galeriewand: */
+/* Doppelrahmen (analog .terra-panel:before), Hover-Lift + sanfter Bild-Zoom, */
+/* darunter ein Museums-„Placard" (Kategorie · Titel). */
+.museum-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:18px}
+.museum-frame{position:relative;background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--radius-lg);overflow:hidden;cursor:pointer;display:flex;flex-direction:column;box-shadow:0 2px 6px rgba(0,0,0,.07);transition:transform .18s cubic-bezier(.2,.8,.2,1),box-shadow .18s ease,border-color .18s ease}
+.museum-frame:before{content:"";position:absolute;inset:4px;border:1px solid var(--border-double);border-radius:2px;pointer-events:none;z-index:2;transition:border-color .18s ease}
+.museum-frame:hover{transform:translateY(-4px);box-shadow:0 14px 26px rgba(27,48,91,.17);border-color:var(--border-hover)}
+.museum-frame:hover:before{border-color:var(--color-secondary)}
+.museum-frame:hover .museum-img{transform:scale(1.06)}
+.museum-imgwrap{position:relative;padding-bottom:72%;overflow:hidden;background:var(--bg-sidebar);flex-shrink:0}
+.museum-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .45s cubic-bezier(.2,.8,.2,1),opacity .4s ease}
+/* Sanfte Vignette, damit der weiße Bildrand am Mat nicht hart abreißt. */
+.museum-imgwrap:after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;box-shadow:inset 0 0 0 1px rgba(0,0,0,.05),inset 0 -28px 34px -28px rgba(0,0,0,.22)}
+.museum-shimmer{position:absolute;inset:0;background:linear-gradient(100deg,var(--bg-sidebar) 30%,var(--bg-card-hover) 50%,var(--bg-sidebar) 70%);background-size:200% 100%;animation:museum-shimmer 1.3s ease-in-out infinite}
+@keyframes museum-shimmer{0%{background-position:200% 0}to{background-position:-200% 0}}
+.museum-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-family:var(--font-title);font-size:26px;user-select:none}
+.museum-placard{padding:9px 11px 11px;display:flex;flex-direction:column;gap:3px;border-top:1px solid var(--border-double)}
+.museum-cat{font-size:9.5px;font-weight:700;letter-spacing:.7px;text-transform:uppercase}
+.museum-name{font-family:var(--font-title);font-weight:600;font-size:13px;color:var(--text-bright);line-height:1.3;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.museum-badge{position:absolute;top:8px;right:8px;z-index:3;color:#fff;font-size:9.5px;font-weight:700;padding:2px 8px;border-radius:999px;letter-spacing:.4px;backdrop-filter:blur(3px);box-shadow:0 1px 3px rgba(0,0,0,.3)}
+/* Lightbox: leichtes Backdrop-Blur fürs Overlay. */
+.museum-lightbox-overlay{backdrop-filter:blur(4px)}

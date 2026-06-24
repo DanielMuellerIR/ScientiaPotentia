@@ -13,6 +13,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+import { pickBalanced, deParse } from './lib/quizrandom.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -29,14 +30,29 @@ function deNum(value) {
   return value.toLocaleString('de-DE', { maximumFractionDigits: 4 });
 }
 
-/** Bis zu 3 Distraktoren (numerisch: nächstliegende Werte; sonst Reihenfolge). */
+/** Bis zu 3 Distraktoren: numerisch die wertnächsten (Plausibilität bleibt);
+ *  sonst seeded-zufällig aus dem Pool, damit kein systematischer Längen-Bias
+ *  entsteht. seededShuffle/deParse: siehe scripts/lib/quizrandom.js.
+ *  deParse statt Number(): formatierte Werte wie „1.500 g" sortieren sonst nicht
+ *  (Number(„1.500 g")=NaN) und fielen auf feste erste-3-Distraktoren zurück. */
 function pickDistractors(correct, pool, numeric) {
   const unique = [...new Set(pool.map(v => String(v)))].filter(v => v !== String(correct));
   if (numeric) {
-    const cNum = Number(correct);
-    unique.sort((a, b) => Math.abs(parseFloat(a) - cNum) - Math.abs(parseFloat(b) - cNum));
+    const cNum = deParse(correct);
+    unique.sort((a, b) => Math.abs(deParse(a) - cNum) - Math.abs(deParse(b) - cNum));
+    return unique.slice(0, 3);
   }
-  return unique.slice(0, 3);
+  // Substring-überlappende Distraktoren ausschließen: „Verdauung" neben der
+  // korrekten Antwort „Verdauungssystem" wäre eine zweite richtige Option.
+  // norm() entfernt Umlaute/Sonderzeichen, Leerzeichen weg → auch Mehrwort-
+  // Überlappung greift. Bleibt nichts übrig, ungefilterten Pool nutzen
+  // (lieber ein Distraktor als gar keine Frage).
+  const cKey = norm(correct).replace(/ /g, '');
+  const fair = unique.filter(v => {
+    const vKey = norm(v).replace(/ /g, '');
+    return !cKey || !vKey || (!cKey.includes(vKey) && !vKey.includes(cKey));
+  });
+  return pickBalanced(correct, fair.length ? fair : unique, 3);
 }
 
 // Rundet auf „schoene" Zahlen, damit Distraktoren nicht krumm wirken.

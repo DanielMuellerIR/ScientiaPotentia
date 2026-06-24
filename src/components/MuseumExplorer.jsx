@@ -274,12 +274,8 @@ export default function MuseumExplorer({ allDomainData = {} }) {
             Keine Bilder für diesen Filter gefunden.
           </div>
         )}
-        {/* CSS-Grid: 3 Spalten ab 900px, 2 ab 500px, 1 unter 400px */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
-          gap: '14px',
-        }}>
+        {/* Responsives Galerie-Grid (museum-grid: auto-fill, gleichmäßige Rahmen). */}
+        <div className="museum-grid">
           {filteredItems.map(item => (
             <GalleryCard
               key={item.key}
@@ -317,83 +313,45 @@ export default function MuseumExplorer({ allDomainData = {} }) {
 function GalleryCard({ item, onClick }) {
   const [loaded, setLoaded]   = useState(false);
   const [errored, setErrored] = useState(false);
-  // imgRef wird nicht mehr gebraucht — natives loading="lazy" reicht aus.
   const accent = DOMAIN_ACCENT[item.domainId] || 'var(--color-primary)';
 
-  // Thumbnail-Breite: 300px liefert Commons skalierte, bandbreitenschonende Version.
-  const thumbSrc = commonsToDirectUrl(item.imageUrl, 300);
+  // Thumbnail-Breite: 320px liefert Commons skalierte, bandbreitenschonende Version.
+  const thumbSrc = commonsToDirectUrl(item.imageUrl, 320);
 
   return (
-    <div
-      onClick={onClick}
-      style={{
-        background: 'var(--bg-sidebar)', border: '1px solid var(--border-light)',
-        borderRadius: 'var(--radius-lg)', overflow: 'hidden', cursor: 'pointer',
-        transition: 'border-color .15s ease, box-shadow .15s ease',
-        display: 'flex', flexDirection: 'column',
-      }}
-      className="museum-card"
-    >
-      {/* Bild-Container mit festem Seitenverhältnis (4:3) */}
-      <div style={{
-        position: 'relative', paddingBottom: '75%', background: 'var(--bg-card)',
-        overflow: 'hidden', flexShrink: 0,
-      }}>
+    // Gerahmte „mattierte" Karte (.museum-frame trägt Doppelrahmen + Hover-Lift).
+    <div onClick={onClick} className="museum-frame" title={item.name}>
+      <div className="museum-imgwrap">
+        {/* Shimmer-Skelett, solange das Bild lädt (statt „..."). */}
+        {!loaded && !errored && <div className="museum-shimmer" />}
         {!errored && (
           <img
             src={thumbSrc}
             alt={item.name}
-            loading="lazy"        /* natives Lazy-Loading */
+            loading="lazy"
+            className="museum-img"
             onLoad={() => setLoaded(true)}
             onError={() => setErrored(true)}
-            style={{
-              position: 'absolute', inset: 0,
-              width: '100%', height: '100%',
-              objectFit: 'cover',
-              opacity: loaded ? 1 : 0,
-              transition: 'opacity .3s ease',
-            }}
+            style={{ opacity: loaded ? 1 : 0 }}
           />
         )}
-        {/* Lade-Platzhalter / Fehler-Platzhalter */}
-        {(!loaded || errored) && (
-          <div style={{
-            position: 'absolute', inset: 0,
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            color: 'var(--text-muted)', fontSize: 22, userSelect: 'none',
-          }}>
-            {errored ? '?' : '...'}
+        {errored && (
+          <div className="museum-fallback">
+            <Images size={26} style={{ opacity: 0.35 }} />
           </div>
         )}
-        {/* Domain-Badge oben rechts */}
-        <div style={{
-          position: 'absolute', top: 6, right: 7,
-          background: `${accent}cc`, color: '#fff',
-          fontSize: 10, fontWeight: 700, padding: '2px 7px', borderRadius: 999,
-          letterSpacing: 0.4, pointerEvents: 'none', backdropFilter: 'blur(2px)'
-        }}>
+        {/* Domain-Badge oben rechts (akzentfarben je Bereich). */}
+        <div className="museum-badge" style={{ background: `${accent}d9` }}>
           {DOMAIN_LABELS[item.domainId] || item.domainId}
         </div>
       </div>
 
-      {/* Textbereich */}
-      <div style={{ padding: '9px 10px 10px', flex: 1, display: 'flex', flexDirection: 'column', gap: 4 }}>
-        <div style={{
-          fontFamily: 'var(--font-title)', fontWeight: 600, fontSize: 13,
-          color: 'var(--text-bright)', lineHeight: 1.3,
-          overflow: 'hidden', display: '-webkit-box',
-          WebkitLineClamp: 2, WebkitBoxOrient: 'vertical',
-        }}>
-          {item.name}
-        </div>
+      {/* Museums-„Placard": Kategorie (Kapitälchen) + Titel. */}
+      <div className="museum-placard">
         {item.category && (
-          <div style={{
-            fontSize: 10.5, color: accent, fontWeight: 600,
-            opacity: 0.9, marginTop: 2,
-          }}>
-            {catLabel(item.category)}
-          </div>
+          <span className="museum-cat" style={{ color: accent }}>{catLabel(item.category)}</span>
         )}
+        <span className="museum-name">{item.name}</span>
       </div>
     </div>
   );
@@ -420,9 +378,10 @@ function Lightbox({ item, total, idx, onClose, onPrev, onNext }) {
     /* Overlay */
     <div
       onClick={onClose}
+      className="museum-lightbox-overlay"
       style={{
         position: 'fixed', inset: 0, zIndex: 1000,
-        background: 'rgba(10, 10, 15, 0.88)', display: 'flex',
+        background: 'rgba(10, 10, 15, 0.82)', display: 'flex',
         alignItems: 'center', justifyContent: 'center', padding: 16,
       }}
     >

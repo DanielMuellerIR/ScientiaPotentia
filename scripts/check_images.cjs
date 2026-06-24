@@ -30,6 +30,11 @@ function isFree(meta) {
   if (/public domain|^pd|cc0|creativecommons\.org\/publicdomain/.test(blob)) return true;
   if (/cc[- ]by|creativecommons\.org\/licenses\/by/.test(blob)) return true;
   if (/\bfal\b|free art|gfdl/.test(blob)) return true;
+  // Weitere freie Commons-Lizenz-Vorlagen, deren Kurzname keine "cc by"/"pd"-
+  // Tokens trägt und sonst faelschlich als unfrei galt: {{Attribution}} (frei,
+  // nur Namensnennung) und {{Copyrighted free use}} (frei nutzbar). Der NC/ND-
+  // Riegel oben hat "Attribution-NonCommercial" o.Ae. bereits ausgeschlossen.
+  if (/copyrighted free use|free use/.test(blob) || /^attribution\b/.test(lic.toLowerCase().trim())) return true;
   if (copyrighted.toLowerCase() === "false") return true;
   return false;
 }

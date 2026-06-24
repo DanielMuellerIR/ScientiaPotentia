@@ -19,6 +19,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+import { pickBalanced } from './lib/quizrandom.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -59,9 +60,12 @@ function cleanNum(v) {
   return null;
 }
 
-/** k kategorische Distraktoren: erste abweichende Werte in Pool-Reihenfolge. */
+/** k kategorische Distraktoren: seeded-zufällig aus dem Pool (kein Längen-Bias;
+ *  `.slice` nahm sonst feste erste-k Einträge → richtige Antwort fast immer
+ *  längste/kürzeste Option). Deckt auch die Reverse-Namens-Distraktoren ab, die
+ *  über reverseSafeDistractors → pickCategorical laufen. */
 function pickCategorical(correct, pool, k = 3) {
-  return [...new Set(pool.map(String))].filter(v => v !== String(correct)).slice(0, k);
+  return pickBalanced(correct, [...new Set(pool.map(String))].filter(v => v !== String(correct)), k);
 }
 
 /**

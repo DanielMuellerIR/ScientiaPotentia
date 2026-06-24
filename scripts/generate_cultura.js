@@ -44,6 +44,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+import { seededShuffle, pickBalanced } from './lib/quizrandom.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -152,10 +153,11 @@ const GENERIC_TITLE = /^\d+\.\s/;
  * enthalten werden), fliegen raus — sonst zwei vertretbare Antworten.
  */
 function pickCategorical(correct, pool, k = 3) {
-  return [...new Set(pool.map(String))]
+  // längen-balanciert statt Pool-Reihenfolge: `.slice(0,k)` nahm sonst feste
+  // erste-k Einträge → Längen-Bias (richtige Antwort fast immer längste/kürzeste).
+  return pickBalanced(correct, [...new Set(pool.map(String))]
     .filter(v => v !== String(correct))
-    .filter(v => !containsEitherWay(v, correct))
-    .slice(0, k);
+    .filter(v => !containsEitherWay(v, correct)), k);
 }
 
 /**
@@ -180,9 +182,16 @@ function pickNames(correctName, subjectValue, pool, k = 3) {
   const candidates = pool
     .filter(p => p.name !== correctName && norm(p.value) !== subjNorm)
     .filter(p => !containsEitherWay(p.name, correctName));
-  // Klammerfreie Namen zuerst (stabile Sortierung erhält die Pool-Reihenfolge).
-  candidates.sort((a, b) => (a.name.includes('(') ? 1 : 0) - (b.name.includes('(') ? 1 : 0));
-  return [...new Set(candidates.map(p => p.name))].slice(0, k);
+  // Klammerfreie Namen zuerst, dann längen-balanciert (gegen „kürzeste raten"),
+  // Gleichstände seeded gemischt (Variation + stabile Diffs).
+  const cl = String(correctName).length;
+  const shuffled = seededShuffle(candidates, correctName);
+  shuffled.sort((a, b) => {
+    const pa = a.name.includes('(') ? 1 : 0, pb = b.name.includes('(') ? 1 : 0;
+    if (pa !== pb) return pa - pb;
+    return Math.abs(a.name.length - cl) - Math.abs(b.name.length - cl);
+  });
+  return [...new Set(shuffled.map(p => p.name))].slice(0, k);
 }
 
 // --- Faktenbasis laden ----------------------------------------------------
