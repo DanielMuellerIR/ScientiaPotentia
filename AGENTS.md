@@ -396,6 +396,14 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 > Endokrines-System-Varianten); Cultura medium „Leinwand"→„Öl auf Leinwand" (15 Einträge, je
 > einzeln verifizieren); Cognat-/Format-Outlier-Tells (Muster B/C) sind Daten-, keine Generator-
 > Themen; M43 freies Bild nachresolven sobald Commons-Rate-Limit frei.
+> **Strategie-Pläne für die nächsten Wellen** (Multi-Angle-Opus-Recherche, repo-verifiziert):
+> [`docs/homo_erweiterung.md`](docs/homo_erweiterung.md) — Homo jenseits der Anatomie (16 neue
+> faire Kategorien: psych_effect/cell_type/hormone/vitamin/nerve…, netto ~150–200 Konzepte,
+> ehrliche Obergrenze ~2000 Fragen, 5000 für Homo unerreichbar) und
+> [`docs/bildquellen_strategie.md`](docs/bildquellen_strategie.md) — mehr freie Museum-Bilder
+> (Historia 0→~670 via bestehendem P18-Resolver, Machina selektiv ~150–200 + prozedurale SVGs,
+> Gap-Fill der teilabgedeckten Domains ~1000–1200; **Datenfund: lingua_raw QID Q13199
+> ‚Birmanisch' zeigt real auf Rätoromanisch → vor Lingua-Bildlauf prüfen**).
 >
 > **Stand 2026-06-24 (v1.50.0) — Konzept-Skalierung-Welle 7 (4 Domains unter 5000):**
 > Zweite orchestrierte Welle, **26 Opus-Agenten** (13 `find → verify`-Slices) über die vier noch
