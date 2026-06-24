@@ -250,16 +250,42 @@ const templates = [
   // ==== Entdeckungsreisen / Expeditionen (expedition) =====================
   {
     category: 'expedition', attr: 'explorer', kind: 'cat', type: 'historia-expedition-explorer', difficulty: 3,
-    prompt: c => `Wer leitete die Expedition/Reise „${beforeParen(c.name)}“?`
+    prompt: c => `Wer leitete die Expedition/Reise „${beforeParen(c.name)}”?`,
+    // Mehrstimmige Einträge (“Lewis, Clark”) überspringen — kein einzelner Name als Antwort.
+    skip: c => /,/.test(String(c.attributes.explorer || ''))
   },
   {
     category: 'expedition', attr: 'year', kind: 'num', type: 'historia-expedition-year', difficulty: 4,
-    prompt: c => `In welchem Jahr fand „${beforeParen(c.name)}“ statt (Beginn)?`,
+    prompt: c => `In welchem Jahr fand „${beforeParen(c.name)}” statt (Beginn)?`,
     clean: cleanYear, format: yearFmt
   },
   {
     category: 'expedition', attr: 'region', kind: 'cat', type: 'historia-expedition-region', difficulty: 3,
-    prompt: c => `Welche Region war Ziel der Reise „${beforeParen(c.name)}“?`
+    prompt: c => `Welche Region war Ziel der Reise „${beforeParen(c.name)}”?`
+  },
+  // Reverse: Vom Entdecker auf die Expedition.
+  {
+    category: 'expedition', attr: 'explorer', kind: 'name', type: 'historia-expedition-explorer-rev', difficulty: 3,
+    prompt: c => `Welche dieser Expeditionen leitete ${beforeParen(String(c.attributes.explorer))}?`,
+    // Mehrstimmige Einträge und Selbstverräter (Expeditionsname enthält Erkundernamen) ausschließen.
+    skip: c => /,/.test(String(c.attributes.explorer || ''))
+  },
+
+  // ==== Epochen: Endjahr (epoch) ==========================================
+  // cleanYear filtert v.-Chr.-Jahres-Zahlen (negativ) automatisch heraus.
+  {
+    category: 'epoch', attr: 'endYear', kind: 'num', type: 'historia-epoch-end', difficulty: 4,
+    prompt: c => `Um welches Jahr endete die Epoche „${beforeParen(c.name)}"?`,
+    clean: cleanYear, format: yearFmt
+  },
+
+  // ==== Forscher: knownFor Vorwärts (figure) ==============================
+  // Vorwärts: Für welche Leistung ist die genannte Person bekannt?
+  // Selbstverräter-Guard prüft, ob Personenname in der knownFor-Beschreibung steckt.
+  {
+    category: 'figure', attr: 'knownFor', kind: 'cat', type: 'historia-figure-knownfor', difficulty: 3,
+    prompt: c => `Wofür ist ${c.name} in erster Linie bekannt?`,
+    skip: c => !c.attributes.knownFor
   },
 
   // ==== Reverse-Hebel (mehr Fragetypen je Konzept, token-frei) =============

@@ -36,6 +36,18 @@ function deNum(value) {
 }
 
 /**
+ * Rundet auf `sig` signifikante Stellen. Gebraucht für die proportional
+ * gestreuten Distraktoren (spreadNumeric): korrekter Wert UND Distraktoren
+ * werden auf dieselbe Stellenzahl gerundet, damit das Anzeigeformat nicht die
+ * Antwort verrät (sonst stünde z.B. „232,02" exakt neben runden Distraktoren).
+ */
+function roundSig(x, sig = 2) {
+  if (!isFinite(x) || x === 0) return x;
+  const mag = Math.pow(10, sig - Math.ceil(Math.log10(Math.abs(x))));
+  return Math.round(x * mag) / mag;
+}
+
+/**
  * Wählt bis zu 3 Distraktoren aus einem Pool möglicher Werte.
  * - numeric=true: die dem korrekten Wert NAECHSTLIEGENDEN Werte (am verwechselbarsten)
  * - numeric=false: die ersten abweichenden Werte in Pool-Reihenfolge
@@ -670,6 +682,82 @@ const templates = [
     // 'Orion': bekanntes Sternbild, klingt plausibel für einen Nebel (Orionnebel existiert!),
     // aber er entfällt als richtiger Kandidat per Guard -> faires Ablenkmanöver.
     extraDistractors: ['Orion', 'Stier']
+  },
+
+  // ==== Welle-3-Erweiterung (Stand 2026-06-24) ==============================
+  // Fünf neue Fragetypen ausschließlich für Exoplaneten, aus bisher ungenutzten
+  // Attributen mit dem größten Konzepthebel (66-69 Träger je Attribut).
+  //
+  // BEWUSST AUSGELASSEN:
+  //  - exoplanet.hostStar: Wirtsternname steckt bei ~100% der Exoplaneten im
+  //    Konzeptnamen selbst (z. B. "WASP-12 b" -> hostStar "WASP-12") ->
+  //    Selbstverräter-Guard löscht praktisch alle Fragen. Kein sinnvoller Hebel.
+  //  - discoveryMethod Reverse (Methode -> Name): 43 von 66 Exoplaneten nutzen
+  //    "Transit" -> reverseUnique-Guard entfernt alle 43; auch die anderen
+  //    Methoden haben je mehrere Träger -> keine eindeutigen Reverse-Fragen.
+  //  - exoplanet.notableFor: Freier Beschreibungstext, kein kategorialer Wert ->
+  //    nicht als MCQ-Option geeignet.
+  //  - exoplanet.orbitalPeriodYears/starType: zu wenige Träger (< 10).
+
+  // ---- Exoplaneten: Entdeckungsmethode (66 Konzepte) ----------------------
+  // Vier Methoden im Pool: Transit, Radial Velocity, Imaging, Pulsar Timing
+  // -> immer 3 Distraktoren aus der Kategorie verfügbar. Keine Reverse-Frage
+  // (Methode hat viele Träger, Eindeutigkeit nicht gegeben).
+  // Die Rohwerte stehen englisch in den Daten -> hier auf die deutschen
+  // Fachbegriffe abgebildet (das Quiz ist durchgehend deutschsprachig).
+  {
+    category: 'exoplanet', attr: 'discoveryMethod', type: 'astra-exo-discovery-method', difficulty: 3,
+    prompt: c => `Wie wurde der Exoplanet ${c.name} entdeckt?`,
+    format: v => ({
+      'Transit': 'Transitmethode',
+      'Radial Velocity': 'Radialgeschwindigkeitsmethode',
+      'Pulsar Timing': 'Pulsar-Timing',
+      'Imaging': 'Direkte Abbildung'
+    }[v] || v)
+  },
+
+  // ---- Exoplaneten: Umlaufzeit in Tagen (69 Konzepte) --------------------
+  // Alle 69 Werte sind einzigartig -> Vorwärts und Reverse beide möglich.
+  // Vorwärts: spreadNumeric (proportionale Streuung) statt numericByValue —
+  // die Umlaufzeiten häufen sich (viele „heiße" Planeten mit ~Tagen), sodass
+  // Nachbarwerte ununterscheidbar wären. Reverse: reverseUnique-Guard bestätigt
+  // alle 69 (keine doppelten Werte), also 69 Reverse-Fragen.
+  {
+    category: 'exoplanet', attr: 'orbitalPeriodDays', type: 'astra-exo-orbital-period', difficulty: 4,
+    spreadNumeric: true,
+    prompt: c => `Wie lange dauert ein Umlauf des Exoplaneten ${c.name} um seinen Stern?`,
+    format: v => `${deNum(roundSig(v))} Tage`
+  },
+  {
+    category: 'exoplanet', attr: 'orbitalPeriodDays', type: 'astra-exo-orbital-period-rev', difficulty: 5,
+    nameAnswer: true, reverseUnique: true,
+    subject: c => `Umlaufzeit ${deNum(c.attributes.orbitalPeriodDays)} Tage`,
+    format: (_v, c) => c.name,
+    prompt: c => `Welcher Exoplanet umrundet seinen Stern in etwa ${deNum(c.attributes.orbitalPeriodDays)} Tagen?`
+  },
+
+  // ---- Exoplaneten: Radius in Erdradien (67 Konzepte) --------------------
+  // spreadNumeric: die Radien häufen sich stark um ~1 Erdradius (viele
+  // Gesteinsplaneten) -> Nachbarwerte (numericByValue) lägen bei 1,11 vs. 1,12
+  // und wären nicht unterscheidbar. Proportionale Streuung erzeugt faire,
+  // klar verschiedene Optionen derselben Dimension.
+  {
+    category: 'exoplanet', attr: 'radiusEarthRadii', type: 'astra-exo-radius', difficulty: 4,
+    spreadNumeric: true,
+    prompt: c => `Welchen ungefähren Radius hat der Exoplanet ${c.name} (in Erdradien)?`,
+    format: v => `${deNum(roundSig(v))} Erdradien`
+  },
+
+  // ---- Exoplaneten: Masse in Erdmassen (66 Konzepte) ----------------------
+  // spreadNumeric wie bei Radius/Umlaufzeit: die Massen streuen über mehrere
+  // Größenordnungen, häufen sich aber in Gruppen -> proportionale Distraktoren
+  // statt Nachbarwerte. Reverse entfällt bewusst (HR 8799 c und d teilen
+  // 3000 Erdmassen -> über reverseUnique mehrdeutig).
+  {
+    category: 'exoplanet', attr: 'massEarthMasses', type: 'astra-exo-mass', difficulty: 4,
+    spreadNumeric: true,
+    prompt: c => `Welche ungefähre Masse hat der Exoplanet ${c.name} (in Erdmassen)?`,
+    format: v => `${deNum(roundSig(v))} Erdmassen`
   }
 ];
 
@@ -684,7 +772,7 @@ for (const tpl of templates) {
   // der Kategorie (bzw. alle Namen, bei der Konstanten-Frage). Die neuen
   // Welle-1-Mechaniken (reverseUnique/numericByValue) bauen ihre Pools
   // stattdessen pro Frage selbst -> hier leer lassen.
-  const valuePool = (tpl.reverseUnique || tpl.numericByValue) ? [] : conceptsInCat
+  const valuePool = (tpl.reverseUnique || tpl.numericByValue || tpl.spreadNumeric) ? [] : conceptsInCat
     .filter(c => !(tpl.skip && tpl.skip(c)))
     .map(c => (tpl.nameAnswer ? c.name : tpl.format(c.attributes[tpl.attr], c)))
     // Dünn besetzte Attribute (z.B. dwarf_planet.numMoons nur bei einigen
@@ -706,7 +794,7 @@ for (const tpl of templates) {
       const v = c.attributes[tpl.attr];
       if (v === undefined || v === null || v === '') continue;
     }
-    if (tpl.numericByValue && !(typeof rawValue === 'number' && isFinite(rawValue))) continue;
+    if ((tpl.numericByValue || tpl.spreadNumeric) && !(typeof rawValue === 'number' && isFinite(rawValue))) continue;
 
     const correct = tpl.nameAnswer ? c.name : tpl.format(rawValue, c);
 
@@ -748,6 +836,26 @@ for (const tpl of templates) {
         ? namePool.concat(tpl.extraDistractors)
         : namePool;
       distractors = pickDistractors(correct, namePoolWithExtras, false);
+    } else if (tpl.spreadNumeric) {
+      // --- Proportional gestreute Distraktoren (Welle 3) -----------------
+      // Für CLUSTERNDE Attribute (Exoplaneten-Radius/-Masse/-Umlaufzeit häufen
+      // sich stark um ähnliche Werte) liefert die Nachbarwert-Auswahl
+      // (numericByValue) praktisch ununterscheidbare Optionen
+      // (z.B. 1,11 vs. 1,12 Erdradien) -> unfaire Rate-Frage. Stattdessen
+      // plausible Werte DERSELBEN Dimension in klarem Abstand um den korrekten
+      // Wert erzeugen. Korrekter Wert und Distraktoren werden über die format-
+      // Funktion gleich gerundet (roundSig), damit das Format nichts verrät.
+      const n = rawValue;
+      // Faktoren mischen Werte unter und über dem korrekten Wert.
+      const factors = [0.45, 1.7, 0.65, 2.4, 1.35, 3.3, 0.3];
+      const seen = new Set([correct]);
+      const cands = [];
+      for (const f of factors) {
+        const d = tpl.format(roundSig(n * f), c);
+        if (!seen.has(d)) { seen.add(d); cands.push(d); }
+        if (cands.length === 3) break;
+      }
+      distractors = cands;
     } else if (tpl.numericByValue) {
       // --- Numerische Nachbarwert-Distraktoren (Welle 1) ------------------
       // Auswahl auf den ROHEN Zahlen derselben Kategorie (die dem korrekten

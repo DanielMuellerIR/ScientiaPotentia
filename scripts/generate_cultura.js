@@ -525,7 +525,49 @@ const templates = [
     // Distraktoren = Fortsetzungen anderer Zitate.
     category: 'quote', attr: 'completionAnswer', kind: 'cat', type: 'cultura-quote-complete', difficulty: 2,
     skip: c => !c.attributes.completionStem || !c.attributes.completionAnswer,
-    prompt: c => `Vervollständige das Zitat: „${c.attributes.completionStem} …“`
+    prompt: c => `Vervollständige das Zitat: „${c.attributes.completionStem} …”`
+  },
+
+  // ==== Gemälde (artwork) — Breite =========================================
+  // Ergänzt das bestehende heightM-Template. Alle 25 Gemälde haben einen widthM-
+  // Wert; die Werte liegen zwischen 0,31 m und 8,8 m — breit genug gestreut,
+  // um nahegelegene Distraktoren als plausibel (aber abgrenzbar) zu wählen.
+  {
+    category: 'artwork', attr: 'widthM', kind: 'num', type: 'cultura-artwork-width', difficulty: 3,
+    prompt: c => `Wie breit ist das Gemälde „${c.name}”?`,
+    format: v => `${deNum(v)} m`
+  },
+
+  // ==== Literaturepochen (literary_movement) — Endjahr =====================
+  // Spiegelt das bestehende litmovement-year-Template (Anfangsjahr). 24 von 29
+  // Literaturbewegungen haben ein sauberes endYear (Number). Der Pool liefert
+  // 24 verschiedene Jahreszahlen — ausreichend Distraktoren.
+  {
+    category: 'literary_movement', attr: 'endYear', kind: 'num', type: 'cultura-litmovement-endyear', difficulty: 4,
+    prompt: c => `Um welches Jahr endete die Literaturepoche ${beforeParen(c.name)}?`,
+    clean: cleanYear, format: yearFmt
+  },
+
+  // ==== Kunstrichtungen (art_movement) — Zeitraum ==========================
+  // period ist ein Bereichs-String (“ca. 1300–1600”) und daher NICHT als
+  // numerischer Wert abfragbar. Als kategorisches Attribut eignet er sich gut:
+  // jede Epoche hat einen eindeutigen Zeitraum, 26 verschiedene Werte bilden
+  // einen plausiblen Distraktor-Pool (Rater muss Zeiträume zuordnen können).
+  // Slash-Werte und Bereiche werden NICHT durch cleanYear gefiltert, da der
+  // Wert hier als ganzer String verglichen wird (kind='cat').
+  {
+    category: 'art_movement', attr: 'period', kind: 'cat', type: 'cultura-artmovement-period', difficulty: 3,
+    prompt: c => `In welchem Zeitraum existierte die Kunstrichtung ${beforeParen(c.name)}?`
+  },
+
+  // ==== Literaturepochen (literary_movement) — Zeitraum ====================
+  // Analoges Template zu art_movement/period für Literaturbewegungen.
+  // 26 Epochen (Mischung aus art_movement + literary_movement teilen den Wert),
+  // hier nur literary_movement-Konzepte befragt; Distraktoren = andere
+  // Epochen-Zeiträume derselben Kategorie.
+  {
+    category: 'literary_movement', attr: 'period', kind: 'cat', type: 'cultura-litmovement-period', difficulty: 3,
+    prompt: c => `In welchem Zeitraum existierte die Literaturepoche ${beforeParen(c.name)}?`
   }
 ];
 

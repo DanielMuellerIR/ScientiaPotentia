@@ -332,6 +332,102 @@ const templates = [
   {
     category: 'geology', attr: 'vulkantyp', kind: 'cat', type: 'natura-geology-volcanotype', difficulty: 4,
     prompt: c => `Zu welchem Vulkantyp zählt ${c.name}?`
+  },
+  // Geologischer Typ (Canyon, Vulkan, Wasserfall …)
+  {
+    category: 'geology', attr: 'typ', kind: 'cat', type: 'natura-geology-typ', difficulty: 3,
+    prompt: c => `Was für eine geologische Formation ist ${c.name}?`
+  },
+  // Höhe in Metern (Gipfelhöhe, Meeresspiegel etc.) – numerisch
+  {
+    category: 'geology', attr: 'heightM', kind: 'num', type: 'natura-geology-height', difficulty: 3,
+    prompt: c => `Auf welcher Höhe (in Metern über NN) befindet sich ${c.name}?`,
+    format: v => `${deNum(v)} m`
+  },
+  // Reverse: Höhe -> Name
+  {
+    category: 'geology', attr: 'heightM', kind: 'name', type: 'natura-geology-height-rev', difficulty: 4,
+    compareKind: 'num',
+    subject: c => `${deNum(cleanNum(c.attributes.heightM))} m`,
+    prompt: c => `Welche dieser geologischen Formationen liegt auf einer Höhe von ${deNum(cleanNum(c.attributes.heightM))} m?`
+  },
+
+  // ==== Minerale (mineral) — neue Attribute ==============================
+  // Chemische Formel
+  {
+    category: 'mineral', attr: 'chemischeFormel', kind: 'cat', type: 'natura-mineral-formula', difficulty: 4,
+    prompt: c => `Welche chemische Formel hat das Mineral ${c.name}?`
+  },
+  // Reverse: Formel -> Mineralname
+  {
+    category: 'mineral', attr: 'chemischeFormel', kind: 'name', type: 'natura-mineral-formula-rev', difficulty: 5,
+    compareKind: 'cat',
+    subject: c => c.attributes.chemischeFormel,
+    prompt: c => `Welches Mineral hat die chemische Formel „${c.attributes.chemischeFormel}"?`
+  },
+  // Dichte in g/cm³ (numerisch, alle Werte sind saubere Dezimalzahlen)
+  {
+    category: 'mineral', attr: 'dichte', kind: 'num', type: 'natura-mineral-density', difficulty: 4,
+    prompt: c => `Welche Dichte hat das Mineral ${c.name}?`,
+    format: v => `${deNum(v)} g/cm³`
+  },
+  // Reverse: Dichte -> Mineralname
+  {
+    category: 'mineral', attr: 'dichte', kind: 'name', type: 'natura-mineral-density-rev', difficulty: 5,
+    compareKind: 'num',
+    subject: c => `${deNum(cleanNum(c.attributes.dichte))} g/cm³`,
+    prompt: c => `Welches Mineral hat eine Dichte von ${deNum(cleanNum(c.attributes.dichte))} g/cm³?`
+  },
+  // ==== Pflanzen (plant) — neue Attribute ================================
+  // Pflanzenfamilie
+  {
+    category: 'plant', attr: 'family', kind: 'cat', type: 'natura-plant-family', difficulty: 4,
+    prompt: c => `Zu welcher Pflanzenfamilie gehört ${c.name}?`
+  },
+  // Reverse: Familie -> Pflanzenname
+  {
+    category: 'plant', attr: 'family', kind: 'name', type: 'natura-plant-family-rev', difficulty: 4,
+    compareKind: 'cat',
+    subject: c => c.attributes.family,
+    prompt: c => `Welche dieser Pflanzen gehört zur Familie der ${c.attributes.family}?`
+  },
+  // Verwendung (Gewürz / Heilpflanze / Nahrungsmittel / Nutzpflanze)
+  {
+    category: 'plant', attr: 'usedAs', kind: 'cat', type: 'natura-plant-usedas', difficulty: 2,
+    prompt: c => `Wie wird ${c.name} hauptsächlich genutzt?`
+  },
+  // Reverse: Verwendung -> Pflanzenname
+  {
+    category: 'plant', attr: 'usedAs', kind: 'name', type: 'natura-plant-usedas-rev', difficulty: 3,
+    compareKind: 'cat',
+    subject: c => c.attributes.usedAs,
+    prompt: c => `Welche dieser Pflanzen wird hauptsächlich als ${c.attributes.usedAs} genutzt?`
+  },
+
+  // ==== Pilze (fungus) — neue Attribute ==================================
+  // Essbarkeit (essbar / giftig / tödlich giftig / bedingt essbar / ungenießbar)
+  {
+    category: 'fungus', attr: 'essbarkeit', kind: 'cat', type: 'natura-fungus-essbarkeit', difficulty: 2,
+    prompt: c => `Wie ist ${c.name} einzustufen?`
+  },
+  // Reverse: Essbarkeit -> Pilzname
+  {
+    category: 'fungus', attr: 'essbarkeit', kind: 'name', type: 'natura-fungus-essbarkeit-rev', difficulty: 3,
+    compareKind: 'cat',
+    subject: c => c.attributes.essbarkeit,
+    prompt: c => `Welcher dieser Pilze gilt als „${c.attributes.essbarkeit}"?`
+  },
+  // Gattung – Selbstverräter-Guard fängt Überschneidungen wie „Morchel"/„Morcheln".
+  {
+    category: 'fungus', attr: 'gattung', kind: 'cat', type: 'natura-fungus-gattung', difficulty: 4,
+    prompt: c => `Zu welcher Gattung gehört ${c.name}?`
+  },
+  // Reverse: Gattung -> Pilzname
+  {
+    category: 'fungus', attr: 'gattung', kind: 'name', type: 'natura-fungus-gattung-rev', difficulty: 4,
+    compareKind: 'cat',
+    subject: c => c.attributes.gattung,
+    prompt: c => `Welcher dieser Pilze gehört zur Gattung ${c.attributes.gattung}?`
   }
 ];
 

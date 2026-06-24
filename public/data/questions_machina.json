@@ -6761,6 +6761,405 @@
     "mapTargetId": null
   },
   {
+    "id": "q_machina_np-http_machina-protocol-transport-rev",
+    "entityId": "machina:np-http",
+    "entityType": "network_protocol",
+    "type": "machina-protocol-transport-rev",
+    "difficulty": 3,
+    "prompt": "Welches dieser Protokolle nutzt ausschließlich „TCP\" als Transportprotokoll?",
+    "correctAnswer": "HTTP",
+    "options": [
+      "HTTP",
+      "DNS",
+      "UDP",
+      "DHCP"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_np-https_machina-protocol-transport-rev",
+    "entityId": "machina:np-https",
+    "entityType": "network_protocol",
+    "type": "machina-protocol-transport-rev",
+    "difficulty": 3,
+    "prompt": "Welches dieser Protokolle nutzt ausschließlich „TCP\" als Transportprotokoll?",
+    "correctAnswer": "HTTPS",
+    "options": [
+      "HTTPS",
+      "DNS",
+      "UDP",
+      "DHCP"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_np-ftp_machina-protocol-transport-rev",
+    "entityId": "machina:np-ftp",
+    "entityType": "network_protocol",
+    "type": "machina-protocol-transport-rev",
+    "difficulty": 3,
+    "prompt": "Welches dieser Protokolle nutzt ausschließlich „TCP\" als Transportprotokoll?",
+    "correctAnswer": "FTP",
+    "options": [
+      "FTP",
+      "DNS",
+      "UDP",
+      "DHCP"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_np-ssh_machina-protocol-transport-rev",
+    "entityId": "machina:np-ssh",
+    "entityType": "network_protocol",
+    "type": "machina-protocol-transport-rev",
+    "difficulty": 3,
+    "prompt": "Welches dieser Protokolle nutzt ausschließlich „TCP\" als Transportprotokoll?",
+    "correctAnswer": "SSH",
+    "options": [
+      "SSH",
+      "DNS",
+      "UDP",
+      "DHCP"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_np-smtp_machina-protocol-transport-rev",
+    "entityId": "machina:np-smtp",
+    "entityType": "network_protocol",
+    "type": "machina-protocol-transport-rev",
+    "difficulty": 3,
+    "prompt": "Welches dieser Protokolle nutzt ausschließlich „TCP\" als Transportprotokoll?",
+    "correctAnswer": "SMTP",
+    "options": [
+      "SMTP",
+      "DNS",
+      "UDP",
+      "DHCP"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_np-imap_machina-protocol-transport-rev",
+    "entityId": "machina:np-imap",
+    "entityType": "network_protocol",
+    "type": "machina-protocol-transport-rev",
+    "difficulty": 3,
+    "prompt": "Welches dieser Protokolle nutzt ausschließlich „TCP\" als Transportprotokoll?",
+    "correctAnswer": "IMAP",
+    "options": [
+      "IMAP",
+      "DNS",
+      "UDP",
+      "DHCP"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_np-pop3_machina-protocol-transport-rev",
+    "entityId": "machina:np-pop3",
+    "entityType": "network_protocol",
+    "type": "machina-protocol-transport-rev",
+    "difficulty": 3,
+    "prompt": "Welches dieser Protokolle nutzt ausschließlich „TCP\" als Transportprotokoll?",
+    "correctAnswer": "POP3",
+    "options": [
+      "POP3",
+      "DNS",
+      "UDP",
+      "DHCP"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_np-dhcp_machina-protocol-transport-rev",
+    "entityId": "machina:np-dhcp",
+    "entityType": "network_protocol",
+    "type": "machina-protocol-transport-rev",
+    "difficulty": 3,
+    "prompt": "Welches dieser Protokolle nutzt ausschließlich „UDP\" als Transportprotokoll?",
+    "correctAnswer": "DHCP",
+    "options": [
+      "DHCP",
+      "HTTP",
+      "HTTPS",
+      "FTP"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_np-telnet_machina-protocol-transport-rev",
+    "entityId": "machina:np-telnet",
+    "entityType": "network_protocol",
+    "type": "machina-protocol-transport-rev",
+    "difficulty": 3,
+    "prompt": "Welches dieser Protokolle nutzt ausschließlich „TCP\" als Transportprotokoll?",
+    "correctAnswer": "Telnet",
+    "options": [
+      "Telnet",
+      "DNS",
+      "UDP",
+      "DHCP"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_np-ntp_machina-protocol-transport-rev",
+    "entityId": "machina:np-ntp",
+    "entityType": "network_protocol",
+    "type": "machina-protocol-transport-rev",
+    "difficulty": 3,
+    "prompt": "Welches dieser Protokolle nutzt ausschließlich „UDP\" als Transportprotokoll?",
+    "correctAnswer": "NTP",
+    "options": [
+      "NTP",
+      "HTTP",
+      "HTTPS",
+      "FTP"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_np-snmp_machina-protocol-transport-rev",
+    "entityId": "machina:np-snmp",
+    "entityType": "network_protocol",
+    "type": "machina-protocol-transport-rev",
+    "difficulty": 3,
+    "prompt": "Welches dieser Protokolle nutzt ausschließlich „UDP\" als Transportprotokoll?",
+    "correctAnswer": "SNMP",
+    "options": [
+      "SNMP",
+      "HTTP",
+      "HTTPS",
+      "FTP"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_np-tls_machina-protocol-transport-rev",
+    "entityId": "machina:np-tls",
+    "entityType": "network_protocol",
+    "type": "machina-protocol-transport-rev",
+    "difficulty": 3,
+    "prompt": "Welches dieser Protokolle nutzt ausschließlich „TCP\" als Transportprotokoll?",
+    "correctAnswer": "TLS",
+    "options": [
+      "TLS",
+      "DNS",
+      "UDP",
+      "DHCP"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_np-sftp_machina-protocol-transport-rev",
+    "entityId": "machina:np-sftp",
+    "entityType": "network_protocol",
+    "type": "machina-protocol-transport-rev",
+    "difficulty": 3,
+    "prompt": "Welches dieser Protokolle nutzt ausschließlich „TCP\" als Transportprotokoll?",
+    "correctAnswer": "SFTP",
+    "options": [
+      "SFTP",
+      "DNS",
+      "UDP",
+      "DHCP"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_np-ldap_machina-protocol-transport-rev",
+    "entityId": "machina:np-ldap",
+    "entityType": "network_protocol",
+    "type": "machina-protocol-transport-rev",
+    "difficulty": 3,
+    "prompt": "Welches dieser Protokolle nutzt ausschließlich „TCP\" als Transportprotokoll?",
+    "correctAnswer": "LDAP",
+    "options": [
+      "LDAP",
+      "DNS",
+      "UDP",
+      "DHCP"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_np-rdp_machina-protocol-transport-rev",
+    "entityId": "machina:np-rdp",
+    "entityType": "network_protocol",
+    "type": "machina-protocol-transport-rev",
+    "difficulty": 3,
+    "prompt": "Welches dieser Protokolle nutzt ausschließlich „TCP\" als Transportprotokoll?",
+    "correctAnswer": "RDP",
+    "options": [
+      "RDP",
+      "DNS",
+      "UDP",
+      "DHCP"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_np-sip_machina-protocol-transport-rev",
+    "entityId": "machina:np-sip",
+    "entityType": "network_protocol",
+    "type": "machina-protocol-transport-rev",
+    "difficulty": 3,
+    "prompt": "Welches dieser Protokolle nutzt ausschließlich „UDP\" als Transportprotokoll?",
+    "correctAnswer": "SIP",
+    "options": [
+      "SIP",
+      "HTTP",
+      "HTTPS",
+      "FTP"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_np-bgp_machina-protocol-transport-rev",
+    "entityId": "machina:np-bgp",
+    "entityType": "network_protocol",
+    "type": "machina-protocol-transport-rev",
+    "difficulty": 3,
+    "prompt": "Welches dieser Protokolle nutzt ausschließlich „TCP\" als Transportprotokoll?",
+    "correctAnswer": "BGP",
+    "options": [
+      "BGP",
+      "DNS",
+      "UDP",
+      "DHCP"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_np-mqtt_machina-protocol-transport-rev",
+    "entityId": "machina:np-mqtt",
+    "entityType": "network_protocol",
+    "type": "machina-protocol-transport-rev",
+    "difficulty": 3,
+    "prompt": "Welches dieser Protokolle nutzt ausschließlich „TCP\" als Transportprotokoll?",
+    "correctAnswer": "MQTT",
+    "options": [
+      "MQTT",
+      "DNS",
+      "UDP",
+      "DHCP"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_np-irc_machina-protocol-transport-rev",
+    "entityId": "machina:np-irc",
+    "entityType": "network_protocol",
+    "type": "machina-protocol-transport-rev",
+    "difficulty": 3,
+    "prompt": "Welches dieser Protokolle nutzt ausschließlich „TCP\" als Transportprotokoll?",
+    "correctAnswer": "IRC",
+    "options": [
+      "IRC",
+      "DNS",
+      "UDP",
+      "DHCP"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_np-websocket_machina-protocol-transport-rev",
+    "entityId": "machina:np-websocket",
+    "entityType": "network_protocol",
+    "type": "machina-protocol-transport-rev",
+    "difficulty": 3,
+    "prompt": "Welches dieser Protokolle nutzt ausschließlich „TCP\" als Transportprotokoll?",
+    "correctAnswer": "WebSocket",
+    "options": [
+      "WebSocket",
+      "DNS",
+      "UDP",
+      "DHCP"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_np-quic_machina-protocol-transport-rev",
+    "entityId": "machina:np-quic",
+    "entityType": "network_protocol",
+    "type": "machina-protocol-transport-rev",
+    "difficulty": 3,
+    "prompt": "Welches dieser Protokolle nutzt ausschließlich „UDP\" als Transportprotokoll?",
+    "correctAnswer": "QUIC",
+    "options": [
+      "QUIC",
+      "HTTP",
+      "HTTPS",
+      "FTP"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_machina_np-http_machina-protocol-purpose",
     "entityId": "machina:np-http",
     "entityType": "network_protocol",
@@ -10329,7 +10728,7 @@
     "entityType": "concept",
     "type": "machina-concept-category",
     "difficulty": 3,
-    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Rekursion“ zuzuordnen?",
+    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Rekursion” zuzuordnen?",
     "correctAnswer": "Programmierung",
     "options": [
       "Programmierung",
@@ -10348,7 +10747,7 @@
     "entityType": "concept",
     "type": "machina-concept-category",
     "difficulty": 3,
-    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Kompilierung“ zuzuordnen?",
+    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Kompilierung” zuzuordnen?",
     "correctAnswer": "Programmierung",
     "options": [
       "Programmierung",
@@ -10367,7 +10766,7 @@
     "entityType": "concept",
     "type": "machina-concept-category",
     "difficulty": 3,
-    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Virtualisierung“ zuzuordnen?",
+    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Virtualisierung” zuzuordnen?",
     "correctAnswer": "Betriebssysteme",
     "options": [
       "Betriebssysteme",
@@ -10386,7 +10785,7 @@
     "entityType": "concept",
     "type": "machina-concept-category",
     "difficulty": 3,
-    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Caching“ zuzuordnen?",
+    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Caching” zuzuordnen?",
     "correctAnswer": "Betriebssysteme",
     "options": [
       "Betriebssysteme",
@@ -10405,7 +10804,7 @@
     "entityType": "concept",
     "type": "machina-concept-category",
     "difficulty": 3,
-    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Cloud Computing“ zuzuordnen?",
+    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Cloud Computing” zuzuordnen?",
     "correctAnswer": "Netzwerk",
     "options": [
       "Netzwerk",
@@ -10424,7 +10823,7 @@
     "entityType": "concept",
     "type": "machina-concept-category",
     "difficulty": 3,
-    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Maschinelles Lernen“ zuzuordnen?",
+    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Maschinelles Lernen” zuzuordnen?",
     "correctAnswer": "Künstliche Intelligenz",
     "options": [
       "Künstliche Intelligenz",
@@ -10443,7 +10842,7 @@
     "entityType": "concept",
     "type": "machina-concept-category",
     "difficulty": 3,
-    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Neuronales Netz“ zuzuordnen?",
+    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Neuronales Netz” zuzuordnen?",
     "correctAnswer": "Künstliche Intelligenz",
     "options": [
       "Künstliche Intelligenz",
@@ -10462,7 +10861,7 @@
     "entityType": "concept",
     "type": "machina-concept-category",
     "difficulty": 3,
-    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Big Data“ zuzuordnen?",
+    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Big Data” zuzuordnen?",
     "correctAnswer": "Datenbanken",
     "options": [
       "Datenbanken",
@@ -10481,7 +10880,7 @@
     "entityType": "concept",
     "type": "machina-concept-category",
     "difficulty": 3,
-    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Open Source“ zuzuordnen?",
+    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Open Source” zuzuordnen?",
     "correctAnswer": "Programmierung",
     "options": [
       "Programmierung",
@@ -10500,7 +10899,7 @@
     "entityType": "concept",
     "type": "machina-concept-category",
     "difficulty": 3,
-    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Compiler vs. Interpreter“ zuzuordnen?",
+    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Compiler vs. Interpreter” zuzuordnen?",
     "correctAnswer": "Programmierung",
     "options": [
       "Programmierung",
@@ -10519,7 +10918,7 @@
     "entityType": "concept",
     "type": "machina-concept-category",
     "difficulty": 3,
-    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Cookie“ zuzuordnen?",
+    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Cookie” zuzuordnen?",
     "correctAnswer": "Webtechnik",
     "options": [
       "Webtechnik",
@@ -10538,7 +10937,7 @@
     "entityType": "concept",
     "type": "machina-concept-category",
     "difficulty": 3,
-    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „IP-Adresse“ zuzuordnen?",
+    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „IP-Adresse” zuzuordnen?",
     "correctAnswer": "Netzwerk",
     "options": [
       "Netzwerk",
@@ -10557,7 +10956,7 @@
     "entityType": "concept",
     "type": "machina-concept-category",
     "difficulty": 3,
-    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Bandbreite“ zuzuordnen?",
+    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Bandbreite” zuzuordnen?",
     "correctAnswer": "Netzwerk",
     "options": [
       "Netzwerk",
@@ -10576,7 +10975,7 @@
     "entityType": "concept",
     "type": "machina-concept-category",
     "difficulty": 3,
-    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Latenz“ zuzuordnen?",
+    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Latenz” zuzuordnen?",
     "correctAnswer": "Netzwerk",
     "options": [
       "Netzwerk",
@@ -10595,7 +10994,7 @@
     "entityType": "concept",
     "type": "machina-concept-category",
     "difficulty": 3,
-    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Bug“ zuzuordnen?",
+    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Bug” zuzuordnen?",
     "correctAnswer": "Programmierung",
     "options": [
       "Programmierung",
@@ -10614,7 +11013,7 @@
     "entityType": "concept",
     "type": "machina-concept-category",
     "difficulty": 3,
-    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Debugging“ zuzuordnen?",
+    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Debugging” zuzuordnen?",
     "correctAnswer": "Programmierung",
     "options": [
       "Programmierung",
@@ -10633,7 +11032,7 @@
     "entityType": "concept",
     "type": "machina-concept-category",
     "difficulty": 3,
-    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Backup“ zuzuordnen?",
+    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Backup” zuzuordnen?",
     "correctAnswer": "Betriebssysteme",
     "options": [
       "Betriebssysteme",
@@ -10652,7 +11051,7 @@
     "entityType": "concept",
     "type": "machina-concept-category",
     "difficulty": 3,
-    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Dateisystem“ zuzuordnen?",
+    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Dateisystem” zuzuordnen?",
     "correctAnswer": "Betriebssysteme",
     "options": [
       "Betriebssysteme",
@@ -10671,7 +11070,7 @@
     "entityType": "concept",
     "type": "machina-concept-category",
     "difficulty": 3,
-    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Pixel“ zuzuordnen?",
+    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Pixel” zuzuordnen?",
     "correctAnswer": "Webtechnik",
     "options": [
       "Webtechnik",
@@ -10690,7 +11089,7 @@
     "entityType": "concept",
     "type": "machina-concept-category",
     "difficulty": 3,
-    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Auflösung (Bildschirm)“ zuzuordnen?",
+    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Auflösung (Bildschirm)” zuzuordnen?",
     "correctAnswer": "Webtechnik",
     "options": [
       "Webtechnik",
@@ -10709,7 +11108,7 @@
     "entityType": "concept",
     "type": "machina-concept-category",
     "difficulty": 3,
-    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Quellcode vs. Maschinencode“ zuzuordnen?",
+    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Quellcode vs. Maschinencode” zuzuordnen?",
     "correctAnswer": "Programmierung",
     "options": [
       "Programmierung",
@@ -10728,7 +11127,7 @@
     "entityType": "concept",
     "type": "machina-concept-category",
     "difficulty": 3,
-    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Bibliothek und Framework“ zuzuordnen?",
+    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Bibliothek und Framework” zuzuordnen?",
     "correctAnswer": "Programmierung",
     "options": [
       "Programmierung",
@@ -10747,7 +11146,7 @@
     "entityType": "concept",
     "type": "machina-concept-category",
     "difficulty": 3,
-    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Versionskontrolle“ zuzuordnen?",
+    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Versionskontrolle” zuzuordnen?",
     "correctAnswer": "Programmierung",
     "options": [
       "Programmierung",
@@ -10766,7 +11165,7 @@
     "entityType": "concept",
     "type": "machina-concept-category",
     "difficulty": 3,
-    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Container (Software)“ zuzuordnen?",
+    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Container (Software)” zuzuordnen?",
     "correctAnswer": "Betriebssysteme",
     "options": [
       "Betriebssysteme",
@@ -10785,7 +11184,7 @@
     "entityType": "concept",
     "type": "machina-concept-category",
     "difficulty": 3,
-    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „API (Konzept)“ zuzuordnen?",
+    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „API (Konzept)” zuzuordnen?",
     "correctAnswer": "Programmierung",
     "options": [
       "Programmierung",
@@ -10804,7 +11203,7 @@
     "entityType": "concept",
     "type": "machina-concept-category",
     "difficulty": 3,
-    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Protokollstack“ zuzuordnen?",
+    "prompt": "Welchem Teilgebiet der Informatik ist das Konzept „Protokollstack” zuzuordnen?",
     "correctAnswer": "Netzwerk",
     "options": [
       "Netzwerk",
@@ -10814,6 +11213,519 @@
     ],
     "testedAttribute": "category",
     "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_concept-recursion_machina-concept-definition-rev",
+    "entityId": "machina:concept-recursion",
+    "entityType": "concept",
+    "type": "machina-concept-definition-rev",
+    "difficulty": 4,
+    "prompt": "Welches IT-Konzept beschreibt folgende Definition?\n„Eine Funktion, die sich selbst aufruft, um ein Problem durch Zerlegung in kleinere Teilprobleme zu lösen”",
+    "correctAnswer": "Rekursion",
+    "options": [
+      "Rekursion",
+      "Kompilierung",
+      "Virtualisierung",
+      "Caching"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_concept-compilation_machina-concept-definition-rev",
+    "entityId": "machina:concept-compilation",
+    "entityType": "concept",
+    "type": "machina-concept-definition-rev",
+    "difficulty": 4,
+    "prompt": "Welches IT-Konzept beschreibt folgende Definition?\n„Übersetzung von Quellcode einer höheren Programmiersprache in Maschinencode oder Zwischencode durch einen Compiler”",
+    "correctAnswer": "Kompilierung",
+    "options": [
+      "Kompilierung",
+      "Rekursion",
+      "Virtualisierung",
+      "Caching"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_concept-encryption_machina-concept-definition-rev",
+    "entityId": "machina:concept-encryption",
+    "entityType": "concept",
+    "type": "machina-concept-definition-rev",
+    "difficulty": 4,
+    "prompt": "Welches IT-Konzept beschreibt folgende Definition?\n„Umwandlung von lesbaren Daten (Klartext) in eine unleserliche Form (Chiffretext) mithilfe eines Schlüssels, sodass nur Berechtigte die Daten lesen können”",
+    "correctAnswer": "Verschlüsselung",
+    "options": [
+      "Verschlüsselung",
+      "Rekursion",
+      "Kompilierung",
+      "Virtualisierung"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_concept-cloud-computing_machina-concept-definition-rev",
+    "entityId": "machina:concept-cloud-computing",
+    "entityType": "concept",
+    "type": "machina-concept-definition-rev",
+    "difficulty": 4,
+    "prompt": "Welches IT-Konzept beschreibt folgende Definition?\n„Bereitstellung von IT-Ressourcen (Rechenleistung, Speicher, Software) über das Internet als bedarfsgerecht abrufbarer Dienst”",
+    "correctAnswer": "Cloud Computing",
+    "options": [
+      "Cloud Computing",
+      "Rekursion",
+      "Kompilierung",
+      "Virtualisierung"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_concept-big-data_machina-concept-definition-rev",
+    "entityId": "machina:concept-big-data",
+    "entityType": "concept",
+    "type": "machina-concept-definition-rev",
+    "difficulty": 4,
+    "prompt": "Welches IT-Konzept beschreibt folgende Definition?\n„Sehr große, schnell wachsende und vielfältige Datenmengen, die mit herkömmlichen Werkzeugen nicht mehr verarbeitbar sind; charakterisiert durch Volume, Velocity, Variety”",
+    "correctAnswer": "Big Data",
+    "options": [
+      "Big Data",
+      "Rekursion",
+      "Kompilierung",
+      "Virtualisierung"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_concept-open-source_machina-concept-definition-rev",
+    "entityId": "machina:concept-open-source",
+    "entityType": "concept",
+    "type": "machina-concept-definition-rev",
+    "difficulty": 4,
+    "prompt": "Welches IT-Konzept beschreibt folgende Definition?\n„Software, deren Quellcode öffentlich zugänglich ist und von jedem genutzt, verändert und weitergegeben werden darf”",
+    "correctAnswer": "Open Source",
+    "options": [
+      "Open Source",
+      "Rekursion",
+      "Kompilierung",
+      "Virtualisierung"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_concept-boolean-algebra_machina-concept-definition-rev",
+    "entityId": "machina:concept-boolean-algebra",
+    "entityType": "concept",
+    "type": "machina-concept-definition-rev",
+    "difficulty": 4,
+    "prompt": "Welches IT-Konzept beschreibt folgende Definition?\n„Mathematisches System mit zwei Werten (wahr/falsch bzw. 1/0) und Operationen (UND, ODER, NICHT); Grundlage aller digitalen Schaltungen”",
+    "correctAnswer": "Boolesche Algebra",
+    "options": [
+      "Boolesche Algebra",
+      "Rekursion",
+      "Kompilierung",
+      "Virtualisierung"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_concept-binary-system_machina-concept-definition-rev",
+    "entityId": "machina:concept-binary-system",
+    "entityType": "concept",
+    "type": "machina-concept-definition-rev",
+    "difficulty": 4,
+    "prompt": "Welches IT-Konzept beschreibt folgende Definition?\n„Zahlensystem mit der Basis 2, das nur die Ziffern 0 und 1 verwendet; die native Darstellungsform aller digitalen Computer”",
+    "correctAnswer": "Binärsystem",
+    "options": [
+      "Binärsystem",
+      "Rekursion",
+      "Kompilierung",
+      "Virtualisierung"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_concept-firewall_machina-concept-definition-rev",
+    "entityId": "machina:concept-firewall",
+    "entityType": "concept",
+    "type": "machina-concept-definition-rev",
+    "difficulty": 4,
+    "prompt": "Welches IT-Konzept beschreibt folgende Definition?\n„System, das den Netzwerkverkehr anhand von Regeln filtert und unerlaubte Verbindungen blockiert, um ein Netzwerk zu schützen”",
+    "correctAnswer": "Firewall",
+    "options": [
+      "Firewall",
+      "Rekursion",
+      "Kompilierung",
+      "Virtualisierung"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_concept-cookie_machina-concept-definition-rev",
+    "entityId": "machina:concept-cookie",
+    "entityType": "concept",
+    "type": "machina-concept-definition-rev",
+    "difficulty": 4,
+    "prompt": "Welches IT-Konzept beschreibt folgende Definition?\n„Kleines Datenstück, das ein Webserver im Browser des Nutzers speichert, um Sitzungsinformationen oder Einstellungen zu erhalten”",
+    "correctAnswer": "Cookie",
+    "options": [
+      "Cookie",
+      "Rekursion",
+      "Kompilierung",
+      "Virtualisierung"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_concept-bandwidth_machina-concept-definition-rev",
+    "entityId": "machina:concept-bandwidth",
+    "entityType": "concept",
+    "type": "machina-concept-definition-rev",
+    "difficulty": 4,
+    "prompt": "Welches IT-Konzept beschreibt folgende Definition?\n„Maximale Datenmenge, die pro Zeiteinheit über eine Netzwerkverbindung übertragen werden kann; gemessen in Bit pro Sekunde”",
+    "correctAnswer": "Bandbreite",
+    "options": [
+      "Bandbreite",
+      "Rekursion",
+      "Kompilierung",
+      "Virtualisierung"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_concept-latency_machina-concept-definition-rev",
+    "entityId": "machina:concept-latency",
+    "entityType": "concept",
+    "type": "machina-concept-definition-rev",
+    "difficulty": 4,
+    "prompt": "Welches IT-Konzept beschreibt folgende Definition?\n„Zeitverzögerung zwischen dem Absenden eines Datenpaketes und dem Empfang der Antwort; ausgedrückt in Millisekunden”",
+    "correctAnswer": "Latenz",
+    "options": [
+      "Latenz",
+      "Rekursion",
+      "Kompilierung",
+      "Virtualisierung"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_concept-bug_machina-concept-definition-rev",
+    "entityId": "machina:concept-bug",
+    "entityType": "concept",
+    "type": "machina-concept-definition-rev",
+    "difficulty": 4,
+    "prompt": "Welches IT-Konzept beschreibt folgende Definition?\n„Fehler in einem Computerprogramm, der zu unerwartetem oder unerwünschtem Verhalten führt”",
+    "correctAnswer": "Bug",
+    "options": [
+      "Bug",
+      "Rekursion",
+      "Kompilierung",
+      "Virtualisierung"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_concept-debugging_machina-concept-definition-rev",
+    "entityId": "machina:concept-debugging",
+    "entityType": "concept",
+    "type": "machina-concept-definition-rev",
+    "difficulty": 4,
+    "prompt": "Welches IT-Konzept beschreibt folgende Definition?\n„Prozess des Auffindens, Analysierens und Behebens von Fehlern (Bugs) in einem Computerprogramm”",
+    "correctAnswer": "Debugging",
+    "options": [
+      "Debugging",
+      "Rekursion",
+      "Kompilierung",
+      "Virtualisierung"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_concept-backup_machina-concept-definition-rev",
+    "entityId": "machina:concept-backup",
+    "entityType": "concept",
+    "type": "machina-concept-definition-rev",
+    "difficulty": 4,
+    "prompt": "Welches IT-Konzept beschreibt folgende Definition?\n„Sicherungskopie von Daten, die es ermöglicht, verlorene oder beschädigte Daten wiederherzustellen”",
+    "correctAnswer": "Backup",
+    "options": [
+      "Backup",
+      "Rekursion",
+      "Kompilierung",
+      "Virtualisierung"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_concept-pixel_machina-concept-definition-rev",
+    "entityId": "machina:concept-pixel",
+    "entityType": "concept",
+    "type": "machina-concept-definition-rev",
+    "difficulty": 4,
+    "prompt": "Welches IT-Konzept beschreibt folgende Definition?\n„Kleinste einzeln ansteuerbare Einheit eines digitalen Bildes oder Displays; Kurzform von 'Picture Element'”",
+    "correctAnswer": "Pixel",
+    "options": [
+      "Pixel",
+      "Rekursion",
+      "Kompilierung",
+      "Virtualisierung"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_concept-resolution_machina-concept-definition-rev",
+    "entityId": "machina:concept-resolution",
+    "entityType": "concept",
+    "type": "machina-concept-definition-rev",
+    "difficulty": 4,
+    "prompt": "Welches IT-Konzept beschreibt folgende Definition?\n„Anzahl der Pixel in Breite und Höhe eines Displays oder Bildes; bestimmt die Detailgenauigkeit der Darstellung (z.B. 1920×1080)”",
+    "correctAnswer": "Auflösung (Bildschirm)",
+    "options": [
+      "Auflösung (Bildschirm)",
+      "Rekursion",
+      "Kompilierung",
+      "Virtualisierung"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_concept-variable_machina-concept-definition-rev",
+    "entityId": "machina:concept-variable",
+    "entityType": "concept",
+    "type": "machina-concept-definition-rev",
+    "difficulty": 4,
+    "prompt": "Welches IT-Konzept beschreibt folgende Definition?\n„Benannter Speicherplatz in einem Programm, dem ein Wert zugewiesen werden kann und der sich während der Ausführung ändern darf”",
+    "correctAnswer": "Variable (Programmierung)",
+    "options": [
+      "Variable (Programmierung)",
+      "Rekursion",
+      "Kompilierung",
+      "Virtualisierung"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_concept-loop_machina-concept-definition-rev",
+    "entityId": "machina:concept-loop",
+    "entityType": "concept",
+    "type": "machina-concept-definition-rev",
+    "difficulty": 4,
+    "prompt": "Welches IT-Konzept beschreibt folgende Definition?\n„Kontrollstruktur, die einen Codeblock wiederholt ausführt, solange eine Bedingung erfüllt ist oder über eine Sammlung von Elementen iteriert”",
+    "correctAnswer": "Schleife (Programmierung)",
+    "options": [
+      "Schleife (Programmierung)",
+      "Rekursion",
+      "Kompilierung",
+      "Virtualisierung"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_concept-condition_machina-concept-definition-rev",
+    "entityId": "machina:concept-condition",
+    "entityType": "concept",
+    "type": "machina-concept-definition-rev",
+    "difficulty": 4,
+    "prompt": "Welches IT-Konzept beschreibt folgende Definition?\n„Ausdruck, der einen Wahrheitswert (wahr oder falsch) ergibt und die Ausführung unterschiedlicher Codezweige steuert (if/else)”",
+    "correctAnswer": "Bedingung (Programmierung)",
+    "options": [
+      "Bedingung (Programmierung)",
+      "Rekursion",
+      "Kompilierung",
+      "Virtualisierung"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_concept-function_machina-concept-definition-rev",
+    "entityId": "machina:concept-function",
+    "entityType": "concept",
+    "type": "machina-concept-definition-rev",
+    "difficulty": 4,
+    "prompt": "Welches IT-Konzept beschreibt folgende Definition?\n„Benannter, wiederverwendbarer Codeblock, der einen bestimmten Teilauftrag ausführt und optional Werte entgegennimmt und zurückgibt”",
+    "correctAnswer": "Funktion (Programmierung)",
+    "options": [
+      "Funktion (Programmierung)",
+      "Rekursion",
+      "Kompilierung",
+      "Virtualisierung"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_concept-interface_machina-concept-definition-rev",
+    "entityId": "machina:concept-interface",
+    "entityType": "concept",
+    "type": "machina-concept-definition-rev",
+    "difficulty": 4,
+    "prompt": "Welches IT-Konzept beschreibt folgende Definition?\n„Vereinbarung, die festlegt, welche Methoden oder Eigenschaften ein Objekt oder Modul nach außen anbietet, ohne die Implementierung zu offenbaren”",
+    "correctAnswer": "Schnittstelle (Programmierung)",
+    "options": [
+      "Schnittstelle (Programmierung)",
+      "Rekursion",
+      "Kompilierung",
+      "Virtualisierung"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_concept-phishing_machina-concept-definition-rev",
+    "entityId": "machina:concept-phishing",
+    "entityType": "concept",
+    "type": "machina-concept-definition-rev",
+    "difficulty": 4,
+    "prompt": "Welches IT-Konzept beschreibt folgende Definition?\n„Angriffsmethode, bei der Angreifer gefälschte E-Mails oder Webseiten nutzen, um Nutzer zur Preisgabe vertraulicher Daten wie Passwörter zu verleiten”",
+    "correctAnswer": "Phishing",
+    "options": [
+      "Phishing",
+      "Rekursion",
+      "Kompilierung",
+      "Virtualisierung"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_concept-malware_machina-concept-definition-rev",
+    "entityId": "machina:concept-malware",
+    "entityType": "concept",
+    "type": "machina-concept-definition-rev",
+    "difficulty": 4,
+    "prompt": "Welches IT-Konzept beschreibt folgende Definition?\n„Oberbegriff für schädliche Software, die ohne Wissen des Nutzers Schaden anrichtet; umfasst Viren, Trojaner, Ransomware und andere Schadprogramme”",
+    "correctAnswer": "Malware",
+    "options": [
+      "Malware",
+      "Rekursion",
+      "Kompilierung",
+      "Virtualisierung"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_concept-public-key-crypto_machina-concept-definition-rev",
+    "entityId": "machina:concept-public-key-crypto",
+    "entityType": "concept",
+    "type": "machina-concept-definition-rev",
+    "difficulty": 4,
+    "prompt": "Welches IT-Konzept beschreibt folgende Definition?\n„Asymmetrisches Verschlüsselungsverfahren mit zwei mathematisch verknüpften Schlüsseln: ein öffentlicher Schlüssel zum Verschlüsseln, ein privater zum Entschlüsseln”",
+    "correctAnswer": "Public-Key-Kryptografie",
+    "options": [
+      "Public-Key-Kryptografie",
+      "Rekursion",
+      "Kompilierung",
+      "Virtualisierung"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_concept-container_machina-concept-definition-rev",
+    "entityId": "machina:concept-container",
+    "entityType": "concept",
+    "type": "machina-concept-definition-rev",
+    "difficulty": 4,
+    "prompt": "Welches IT-Konzept beschreibt folgende Definition?\n„Isolierte, leichtgewichtige Laufzeitumgebung, die eine Anwendung mit allen ihren Abhängigkeiten bündelt und auf jedem System gleich ausführbar macht”",
+    "correctAnswer": "Container (Software)",
+    "options": [
+      "Container (Software)",
+      "Rekursion",
+      "Kompilierung",
+      "Virtualisierung"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_machina_concept-protocol-stack_machina-concept-definition-rev",
+    "entityId": "machina:concept-protocol-stack",
+    "entityType": "concept",
+    "type": "machina-concept-definition-rev",
+    "difficulty": 4,
+    "prompt": "Welches IT-Konzept beschreibt folgende Definition?\n„Hierarchisch geordnete Menge von Netzwerkprotokollen, bei der jede Schicht Dienste der darunter liegenden nutzt und der darüber liegenden bereitstellt”",
+    "correctAnswer": "Protokollstack",
+    "options": [
+      "Protokollstack",
+      "Rekursion",
+      "Kompilierung",
+      "Virtualisierung"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   },

@@ -356,18 +356,36 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 | Domain | Konzepte | Fragen | Quellen | Visualisierung |
 | :----- | :------- | :----- | :------ | :------------- |
 | Terra  | 1852 | 5217 | Natural Earth / GeoNames / Wikidata | Weltkarte (MapLibre), pro Frage Highlight |
-| Astra  | 455 | 1448 | NASA / IAU / ESA / Wikidata | **3D-Himmelskörper (three.js)** + Kontext-Karte (Bahn/Distanz), Texturen Solar System Scope (CC BY 4.0) |
-| Homo   | 96 | 243 | Gray's Anatomy / Prometheus / NIH | **Anatomiegrafiken (Wikimedia, PD)** + konzeptgenauer Struktur-Marker je Frage |
-| Natura | 606 | 3606 | Wikipedia / USGS / IUCN / IPCC / Wikidata | generische Konzeptkarte (`ConceptVisual`); Tiere via MiniMax-Delegation 49→97 ausgebaut (web-grounded); freies Commons-Foto je Konzept hinterlegt (`concept.image`, fürs spätere Museum) |
-| Lingua | 241 | 988 | Wikipedia / Ethnologue / Wiktionary / Guinness / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Attribut-Labels; Commons-Bild je Konzept hinterlegt (103/103, fürs spätere Museum) |
-| Cultura | 365 | 1580 | Wikipedia (DE/EN) / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Kategorie-/Attribut-Labels; via MiniMax-Delegation ausgebaut (Komponisten Wikidata-geprüft, Werke web-grounded) |
-| Machina | 243 | 760 | Wikipedia / RFC/IANA / Lehrbücher | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Funktionsprinzip (v1.45.2) |
-| Historia | 246 | 1180 | Wikipedia / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Zeit/Urheberschaft, Politik-Ausschluss (v1.45.2) |
+| Astra  | 656 | 2390 | NASA / IAU / ESA / Wikidata | **3D-Himmelskörper (three.js)** + Kontext-Karte (Bahn/Distanz), Texturen Solar System Scope (CC BY 4.0) |
+| Homo   | 211 | 593 | Gray's Anatomy / Prometheus / NIH | **Anatomiegrafiken (Wikimedia, PD)** + konzeptgenauer Struktur-Marker je Frage |
+| Natura | 2402 | 13217 | Wikipedia / USGS / IUCN / IPCC / Wikidata | generische Konzeptkarte (`ConceptVisual`); Tiere via MiniMax-Delegation 49→97 ausgebaut (web-grounded); freies Commons-Foto je Konzept hinterlegt (`concept.image`, fürs spätere Museum) |
+| Lingua | 352 | 1622 | Wikipedia / Ethnologue / Wiktionary / Guinness / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Attribut-Labels; Commons-Bild je Konzept hinterlegt (103/103, fürs spätere Museum) |
+| Cultura | 1205 | 3632 | Wikipedia (DE/EN) / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Kategorie-/Attribut-Labels; via MiniMax-Delegation ausgebaut (Komponisten Wikidata-geprüft, Werke web-grounded) |
+| Machina | 243 | 808 | Wikipedia / RFC/IANA / Lehrbücher | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Funktionsprinzip (v1.45.2) |
+| Historia | 246 | 1232 | Wikipedia / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Zeit/Urheberschaft, Politik-Ausschluss (v1.45.2) |
 
-> Fragenzahlen Astra/Homo/Natura/Lingua/Cultura sind noch weit vom 5000-Ziel — Content-Ausbau (Phase 5) läuft weiter.
-> Astra 1054/303 = ~3.5 F/K, Natura 2693/444 = ~6.1 F/K, Cultura 1292/267 = ~4.8 F/K, Lingua 856/212 = ~4.0 F/K,
-> Homo 266/96 = ~2.8 F/K
-> (Lingua: 22 Fragetypen; 47 heterogene Konzepte aus language_fact/grammar_fact/phonetics/language_curio
+> **Stand 2026-06-24 (v1.46.0) — Generator-Hebel-Welle über alle Bestandsdomains (token-frei):**
+> In 7 parallelen Sonnet-Subagents (je 1 Generator) neue Frage-Templates für bisher
+> UNGENUTZTE, bereits verifizierte Attribute ergänzt — **keine neuen Fakten/Konzepte,
+> nur zusätzliche Lernwinkel**. Ergebnis **+1154 Fragen**: Astra 2053→2390 (Exoplaneten:
+> discoveryMethod, Masse, Radius, Umlaufzeit vor/rückwärts), Natura 12685→13217 (Geologie/
+> Mineral/Pflanze/Pilz: Typ, Formel, Dichte, Familie, Gattung, Verwendung, Essbarkeit, je
+> vor/rückwärts), Lingua 1512→1622 (originalMeaning vor/rückwärts, languagesUsing-rev),
+> Cultura 3557→3632 (widthM, endYear, period), Historia 1180→1232 (knownFor, endYear),
+> Machina 760→808 (transport-rev, definition-rev). Homo: kein faires Template möglich (nur
+> unit/definition ungenutzt) → bewusst nichts ergänzt. **Fairness-Nachbesserung Astra:** die
+> Exoplaneten-Zahlenfragen (Radius/Masse/Umlaufzeit) erzeugten mit Nachbarwert-Distraktoren
+> ununterscheidbare Optionen (1,11 vs. 1,12 Erdradien, weil die Werte clustern) → neuer
+> `spreadNumeric`-Distraktormodus (proportionale Streuung + gleiches Rundungsformat für
+> korrekten Wert UND Distraktoren) ersetzt `numericByValue` nur dort; danach 0/202 zu eng.
+> Alle `verify_facts` 0 Fehler, npm test grün, Layout 17/17, Astra browser-verifiziert
+> (Quiz-Runden, dt. Methoden-Labels, keine neuen Konsolenfehler). Konzeptzahlen unverändert
+> (Beleg Token-Freiheit). **Offen weiter:** echte Konzept-Skalierung Richtung 5000 (Finder-
+> Wellen), Explorer/Museum-Tab für Machina/Historia, Natura-`range`-Attribut (Freitext, für
+> faire MCQ noch zu normalisieren).
+>
+> Fragenzahlen sind weiter vom 5000-Ziel entfernt — Content-Ausbau (Phase 5) läuft weiter.
+> (Lingua: 47 heterogene Konzepte aus language_fact/grammar_fact/phonetics/language_curio
 > bewusst ohne eigene Templates — nur Museum/Distraktor-Pool. Hebel für mehr: dort Templates ergänzen).
 
 ### Visualisierung pro Frage (Stand 2026-06-04)

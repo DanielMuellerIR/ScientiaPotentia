@@ -204,8 +204,16 @@ const templates = [
     prompt: c => `Welche Portnummer ist dem Protokoll ${c.name} standardmäßig zugeordnet?`,
     format: v => `${v}`
   },
-  // (Kein transport-Template: TCP/UDP/"TCP und UDP" — zu wenige, sich gegenseitig
-  //  enthaltende Werte für faire 4-Optionen-Fragen.)
+  // transport Reverse: Antwort = Protokollname. Pool hat nur TCP/UDP/„TCP und UDP";
+  // der Vorwärts-Typ (Antwort = TCP/UDP) scheitert am 2-Distraktoren-Minimum (nur
+  // 1 anderer kategorialer Wert vorhanden). Reverse funktioniert, weil pickNames
+  // aus dem Namens-Pool schöpft — dort genug Kandidaten pro TCP-/UDP-Gruppe.
+  // Sammelwert-Konzepte werden übersprungen; eindeutige Zuordnung nötig.
+  {
+    category: 'network_protocol', attr: 'transport', kind: 'name', type: 'machina-protocol-transport-rev', difficulty: 3,
+    skip: c => /\/|und/i.test(String(c.attributes.transport || '')),
+    prompt: c => `Welches dieser Protokolle nutzt ausschließlich „${c.attributes.transport}" als Transportprotokoll?`
+  },
   {
     category: 'network_protocol', attr: 'purpose', kind: 'cat', type: 'machina-protocol-purpose', difficulty: 2,
     prompt: c => `Wozu dient das Protokoll ${c.name}?`
@@ -269,7 +277,15 @@ const templates = [
   // verraten leicht die Antwort). Reverse über category.
   {
     category: 'concept', attr: 'category', kind: 'cat', type: 'machina-concept-category', difficulty: 3,
-    prompt: c => `Welchem Teilgebiet der Informatik ist das Konzept „${c.name}“ zuzuordnen?`
+    prompt: c => `Welchem Teilgebiet der Informatik ist das Konzept „${c.name}” zuzuordnen?`
+  },
+  // definition Reverse: Antwort = Konzeptname. Freitext-Definitionen verraten
+  // den Namen oft buchstäblich → Selbstverräter-Guard filtert diese heraus (ok).
+  // Die verbleibenden Fragen sind echter Schwierigkeitsgrad 4: nur die Definition,
+  // kein Hinweis auf den Namen.
+  {
+    category: 'concept', attr: 'definition', kind: 'name', type: 'machina-concept-definition-rev', difficulty: 4,
+    prompt: c => `Welches IT-Konzept beschreibt folgende Definition?\n„${c.attributes.definition}”`
   },
 
   // ==== Reverse-Hebel (mehr Fragetypen je Konzept, token-frei) =============

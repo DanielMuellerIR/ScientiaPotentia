@@ -522,6 +522,70 @@ const templates = [
     prompt: c => `Welches dieser Schriftsysteme wurde im Jahr ${c.attributes.inventedYear} erfunden?`,
     // Nur Konzepte mit echtem inventedYear-Wert (Zahl) ins Reverse einbeziehen.
     skip: c => c.attributes.inventedYear == null
+  },
+
+  // ---- etymology.originalMeaning (Vorwärts) — Schwierigkeit 3 -------------
+  // Was bedeutete das Wort „X" ursprünglich?
+  // 52 Etymologie-Konzepte haben originalMeaning; nach Selbstverräter-Guard
+  // (revealsAnswer filtert ~9) bleiben rund 43 faire Fragen.
+  // Werte enthalten oft „Quellwort — deutsche Bedeutung"; fürs Quiz wird
+  // nur der Teil nach dem Gedankenstrich verwendet (extractMeaning), damit
+  // die Optionen prägnant und vergleichbar sind.
+  // Distraktoren: andere deutsche Bedeutungsextrakte aus demselben Etymologie-Pool.
+  // similarGuard deaktiviert: Bedeutungen teilen zufällig Tokens, aber
+  // optionsTooSimilar prüft Kern-Labels; kurze Werte wie „Schwitzbad" und
+  // „Fronarbeit, Zwangsarbeit" sind klar unterscheidbar.
+  {
+    category: 'etymology', attr: 'originalMeaning', kind: 'cat',
+    type: 'lingua-etymology-original-meaning', difficulty: 3,
+    // Bedeutung nach dem Gedankenstrich (falls vorhanden), sonst vollen Wert nehmen.
+    transform: v => { const i = v.indexOf('—'); return i !== -1 ? v.substring(i + 1).trim() : v; },
+    prompt: c => `Was bedeutete das Wort „${displayWord(c)}" ursprünglich?`,
+    subject: c => `das Wort „${displayWord(c)}"`,
+    // Nur Einzelwörter: bei Mehrwort-Konzepten wäre der Prompt grammatisch schief.
+    skip: c => !isSingleWord(c)
+  },
+
+  // ---- etymology.originalMeaning (Reverse) — Schwierigkeit 4 --------------
+  // Welches dieser Wörter bedeutete ursprünglich „…"?
+  // Prompt-Hinweis = extrahierte deutsche Bedeutung; Antwort = Wortname.
+  // Distraktoren = andere Wörter, deren Bedeutung NICHT denselben Token teilt
+  // (valuesShareToken-Guard verhindert mehrdeutige Optionen, z.B. zwei Wörter
+  // die beide „Trank" in der Bedeutung haben).
+  // Nach Selbstverräter-Guard (z.B. „Zucker: Zucker …", „Fenster: Oeffnung,
+  // Fenster") bleiben rund 46 faire Fragen.
+  {
+    category: 'etymology', attr: 'originalMeaning', kind: 'name',
+    type: 'lingua-etymology-original-meaning-rev', difficulty: 4,
+    // subject für revealsAnswer: die extrahierte Bedeutung (ohne Quellwort).
+    subject: c => {
+      const v = String(c.attributes.originalMeaning);
+      const i = v.indexOf('—');
+      return i !== -1 ? v.substring(i + 1).trim() : v;
+    },
+    prompt: c => {
+      const v = String(c.attributes.originalMeaning);
+      const i = v.indexOf('—');
+      const meaning = i !== -1 ? v.substring(i + 1).trim() : v;
+      return `Welches dieser Wörter bedeutete ursprünglich „${meaning}"?`;
+    },
+    nameDisplay: c => displayWord(c)  // „Alkohol (Etymologie)" → „Alkohol"
+  },
+
+  // ---- writing_system.languagesUsing (Reverse) — Schwierigkeit 3 ----------
+  // Welches Schriftsystem wird u.a. für Arabisch, Persisch und Urdu verwendet?
+  // 37 writing_system-Konzepte haben languagesUsing; nach Selbstverräter-Guard
+  // (schriftname-Token in der Sprach-Liste, z.B. „Griechisches Alphabet" ↔
+  // „Griechisch") bleiben rund 21 faire Fragen.
+  // subject = voller languagesUsing-Freitext (revealsAnswer prüft alle Token).
+  // valuesShareToken als Distraktor-Guard: Schriftsysteme mit überlappenden
+  // Sprachenlisten (z.B. Koreanisch in Hangul UND Chinesischen Schriftzeichen)
+  // wären als Distraktor-Paar irreführend → werden ausgesondert.
+  {
+    category: 'writing_system', attr: 'languagesUsing', kind: 'name',
+    type: 'lingua-script-languages-rev', difficulty: 3,
+    subject: c => String(c.attributes.languagesUsing),
+    prompt: c => `Für welches dieser Schriftsysteme wird u. a. folgende Sprach-Gruppe verwendet: „${c.attributes.languagesUsing}"?`
   }
 ];
 
