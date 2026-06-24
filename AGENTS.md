@@ -356,14 +356,40 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 | Domain | Konzepte | Fragen | Quellen | Visualisierung |
 | :----- | :------- | :----- | :------ | :------------- |
 | Terra  | 1852 | 5217 | Natural Earth / GeoNames / Wikidata | Weltkarte (MapLibre), pro Frage Highlight |
-| Astra  | 755 | 2521 | NASA / IAU / ESA / Wikidata | **3D-Himmelskörper (three.js)** + Kontext-Karte (Bahn/Distanz), Texturen Solar System Scope (CC BY 4.0) |
+| Astra  | 859 | 2910 | NASA / IAU / ESA / Wikidata | **3D-Himmelskörper (three.js)** + Kontext-Karte (Bahn/Distanz), Texturen Solar System Scope (CC BY 4.0) |
 | Homo   | 261 | 718 | Gray's Anatomy / Prometheus / NIH | **Anatomiegrafiken (Wikimedia, PD)** + konzeptgenauer Struktur-Marker je Frage |
 | Natura | 2402 | 13217 | Wikipedia / USGS / IUCN / IPCC / Wikidata | generische Konzeptkarte (`ConceptVisual`); Tiere via MiniMax-Delegation 49→97 ausgebaut (web-grounded); freies Commons-Foto je Konzept hinterlegt (`concept.image`, fürs spätere Museum) |
-| Lingua | 458 | 2036 | Wikipedia / Ethnologue / Wiktionary / Guinness / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Attribut-Labels; Commons-Bild je Konzept hinterlegt (103/103, fürs spätere Museum) |
-| Cultura | 1315 | 4175 | Wikipedia (DE/EN) / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Kategorie-/Attribut-Labels; via MiniMax-Delegation ausgebaut (Komponisten Wikidata-geprüft, Werke web-grounded) |
-| Machina | 469 | 1474 | Wikipedia / RFC/IANA / Lehrbücher | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Funktionsprinzip (v1.47.0) |
-| Historia | 446 | 2218 | Wikipedia / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Zeit/Urheberschaft, Politik-Ausschluss (v1.47.0) |
+| Lingua | 586 | 2562 | Wikipedia / Ethnologue / Wiktionary / Guinness / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Attribut-Labels; Commons-Bild je Konzept hinterlegt (103/103, fürs spätere Museum) |
+| Cultura | 1537 | 5042 | Wikipedia (DE/EN) / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Kategorie-/Attribut-Labels; via MiniMax-Delegation ausgebaut (Komponisten Wikidata-geprüft, Werke web-grounded) |
+| Machina | 627 | 1998 | Wikipedia / RFC/IANA / Lehrbücher | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Funktionsprinzip (v1.47.0) |
+| Historia | 617 | 3082 | Wikipedia / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Zeit/Urheberschaft, Politik-Ausschluss (v1.47.0) |
 
+> **Stand 2026-06-24 (v1.49.0) — Konzept-Skalierung-Welle 6 (18-Slice-Workflow, Opus-Welle):**
+> Ein einziger orchestrierter Workflow mit **36 Opus-Agenten** (18 `find → verify`-Slices über die
+> fünf wachsenden Domains, max. parallel): pro Slice ein Opus-Finder (famous-only, Schema +
+> Dedup-Namensliste je Kategorie aus dem raw gespiegelt) → ein adversarialer Opus-Verifier
+> (Datei-in-place bereinigt, unsichere Zahlen web-verifiziert). Merge/Generate/Verify/Test/
+> Stichprobe/Commit deterministisch im Hauptkontext (Subagents nie committet). **+783 Konzepte /
+> +3170 Fragen:** Cultura 1315→1537 K / 4175→**5042** F (über 5000-Ziel! berühmte Gemälde/Skulpturen/
+> Bauwerke/Komponisten/Werke/Strömungen + gemeinfreie Zitate); Historia 446→617 K / 2218→3082 F
+> (Erfindungen/Entdeckungen/verstorbene Forscher/Epochen/Meilensteine, Politik ausgeschlossen);
+> Lingua 458→586 K / 2036→2562 F (Etymologien, Sprachen/Familien, Schriftsysteme); Astra 755→859 K /
+> 2521→2910 F (Messier/NGC-Deep-Sky, benannte Sterne, Exoplaneten/Monde, restl. IAU-Sternbilder);
+> Machina 469→627 K / 1474→1998 F (Sprachen/Protokolle, Formate/Algorithmen, Hardware/Akronyme/
+> Konzepte, Achse Funktionsprinzip). **Verifier-Funde u.a.:** Dubletten gefangen (Konusnebel=
+> Kegelnebel, Kaus Australis/Gienah als Bayer-Bezeichnung im Bestand, Wi-Fi-„Wireless Fidelity"-
+> Mythos, Visual Basic id-Dublette); Fakten korrigiert (Avior/Aspidiske = Falsches Kreuz statt
+> Diamantkreuz, M13 numStars 300.000, McClintock-Transposons 1950, Vitamin K 1934, Calvin-Zyklus =
+> CO₂-Fixierung statt O₂-Quelle, Oberon-Endung `.Mod`, VXLAN Layer-2-Overlay, Sindhi/Mande-
+> Sprecherzahlen). Append additiv via `harvest/append_concepts.cjs` (uniform für alle 5 Domains —
+> `merge_machina_historia.js` existiert nicht mehr; Rebuild-Modell entfällt). Eigene Stichprobe
+> (25 Fakten über 5 Domains) sauber. Alle `verify_facts` 0 Fehler (Machina: 29 strukturelle
+> 3-Optionen-Warnungen bei `format-compression` — vorbestehend, da das `compression`-Attribut nur
+> 4 Werte hat; keine Fehler). npm test grün, Layout 17/17, Cultura + Machina browser-verifiziert
+> (echte 4-Optionen-Fragen, Umlaute, Selbstverräter-Guard, 0 Konsolenfehler). **NICHT deployt.**
+> **Stand vs 5000-Ziel:** über/auf Ziel jetzt Terra (5217), Natura (13217), **Cultura (5042)**;
+> weiterhin drunter: Historia 3082, Astra 2910, Lingua 2562, Machina 1998, Homo 718 (Anatomie-Ceiling).
+>
 > **Stand 2026-06-24 (v1.48.0) — Konzept-Skalierung ALLER Domains unter 5000 (Opus-Welle):**
 > Parallel über alle sechs Domains unter dem 5000-Ziel, Finder + Verifier diesmal mit **Opus**
 > (statt Sonnet): 6 Opus-Finder (famous-only, Schema aus dem jeweiligen raw gespiegelt) → 6 Opus-
