@@ -356,14 +356,37 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 | Domain | Konzepte | Fragen | Quellen | Visualisierung |
 | :----- | :------- | :----- | :------ | :------------- |
 | Terra  | 1852 | 5217 | Natural Earth / GeoNames / Wikidata | Weltkarte (MapLibre), pro Frage Highlight |
-| Astra  | 859 | 2910 | NASA / IAU / ESA / Wikidata | **3D-Himmelskörper (three.js)** + Kontext-Karte (Bahn/Distanz), Texturen Solar System Scope (CC BY 4.0) |
+| Astra  | 937 | 3088 | NASA / IAU / ESA / Wikidata | **3D-Himmelskörper (three.js)** + Kontext-Karte (Bahn/Distanz), Texturen Solar System Scope (CC BY 4.0) |
 | Homo   | 261 | 718 | Gray's Anatomy / Prometheus / NIH | **Anatomiegrafiken (Wikimedia, PD)** + konzeptgenauer Struktur-Marker je Frage |
 | Natura | 2402 | 13217 | Wikipedia / USGS / IUCN / IPCC / Wikidata | generische Konzeptkarte (`ConceptVisual`); Tiere via MiniMax-Delegation 49→97 ausgebaut (web-grounded); freies Commons-Foto je Konzept hinterlegt (`concept.image`, fürs spätere Museum) |
-| Lingua | 586 | 2562 | Wikipedia / Ethnologue / Wiktionary / Guinness / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Attribut-Labels; Commons-Bild je Konzept hinterlegt (103/103, fürs spätere Museum) |
+| Lingua | 795 | 3534 | Wikipedia / Ethnologue / Wiktionary / Guinness / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Attribut-Labels; Commons-Bild je Konzept hinterlegt (103/103, fürs spätere Museum) |
 | Cultura | 1537 | 5042 | Wikipedia (DE/EN) / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Kategorie-/Attribut-Labels; via MiniMax-Delegation ausgebaut (Komponisten Wikidata-geprüft, Werke web-grounded) |
-| Machina | 627 | 1998 | Wikipedia / RFC/IANA / Lehrbücher | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Funktionsprinzip (v1.47.0) |
-| Historia | 617 | 3082 | Wikipedia / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Zeit/Urheberschaft, Politik-Ausschluss (v1.47.0) |
+| Machina | 756 | 2355 | Wikipedia / RFC/IANA / Lehrbücher | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Funktionsprinzip (v1.47.0) |
+| Historia | 838 | 4251 | Wikipedia / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Zeit/Urheberschaft, Politik-Ausschluss (v1.47.0) |
 
+> **Stand 2026-06-24 (v1.50.0) — Konzept-Skalierung-Welle 7 (4 Domains unter 5000):**
+> Zweite orchestrierte Welle, **26 Opus-Agenten** (13 `find → verify`-Slices) über die vier noch
+> unter 5000 liegenden Domains; Dedup-Listen/Schema-Karten vor dem Lauf aus den AKTUELLEN (post-
+> Welle-6) raw-Dateien neu erzeugt, damit Finder nichts doppeln. **+637 Konzepte / +2676 Fragen:**
+> Historia 617→838 K / 3082→**4251** F (Erfindungen/Entdeckungen + **105 verstorbene Forscher/Denker**
+> — Herschel/Dijkstra/Zu Chongzhi/Semmelweis/Hedy Lamarr u.v.a., alle mit birthYear + verstorben-
+> geprüft, keine Politiker; Epochen/Meilensteine/Expeditionen); Lingua 586→795 K / 2562→**3534** F
+> (+131 Etymologien Sklave/Tragödie/Hurrikan/Bonsai u.a., Sprachen/Familien, Schriftsysteme/Phonetik/
+> Grammatik); Astra 859→937 K / 2910→**3088** F (Messier/NGC/Caldwell-Deep-Sky, benannte Sterne
+> Alioth/Schedir, Sternhaufen M7/M11, Kometen West/Borrelly, Monde/Asteroiden — Sternbilder bleiben
+> bei 88/88 komplett); Machina 627→756 K / 1998→**2355** F (Sprachen/Protokolle, Formate/Algorithmen
+> Hierholzer/Johnson/VEB, Hardware/Akronyme NVMe/PCIe, Konzepte). **Verifier-Funde:** Dubletten
+> (Konusnebel=Kegelnebel erneut, Geigerzähler/Tonband/Reibzündholz), Fakten (NGC 3115 Schwarzloch
+> ~2 Mrd M☉, Joule = mechanisches Wärmeäquivalent statt „1. Hauptsatz", Haartrockner Godefroy 1890).
+> **Merge-Lehre:** 3 recycelte/generische ids aus Vorwellen (`expedition-otto-von-kotzebue-weltreise`
+> trug Cabrillo-Inhalt; `etymologie-tycoon`=„Ketzer"; `quechua`=Sprachfamilie) hätten 3 gute neue
+> Konzepte per id-Dedup still verdrängt → vor dem `--write` erkannt, eindeutige `-w7`-ids vergeben,
+> alle 637 gemergt. Eigene Stichprobe (24 Fakten + alle 105 figure-birthYears) sauber. Alle
+> `verify_facts` 0 Fehler (Machina: 32 strukturelle `format-compression`-3-Optionen-Warnungen,
+> vorbestehend). npm test grün, Layout 17/17, Historia + Machina browser-verifiziert (0 Konsolen-
+> fehler). **NICHT deployt.** **Stand vs 5000-Ziel:** auf/über Ziel: Terra (5217), Natura (13217),
+> Cultura (5042); drunter: Historia 4251, Lingua 3534, Astra 3088, Machina 2355, Homo 718.
+>
 > **Stand 2026-06-24 (v1.49.0) — Konzept-Skalierung-Welle 6 (18-Slice-Workflow, Opus-Welle):**
 > Ein einziger orchestrierter Workflow mit **36 Opus-Agenten** (18 `find → verify`-Slices über die
 > fünf wachsenden Domains, max. parallel): pro Slice ein Opus-Finder (famous-only, Schema +
