@@ -356,14 +356,36 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 | Domain | Konzepte | Fragen | Quellen | Visualisierung |
 | :----- | :------- | :----- | :------ | :------------- |
 | Terra  | 1852 | 5217 | Natural Earth / GeoNames / Wikidata | Weltkarte (MapLibre), pro Frage Highlight |
-| Astra  | 656 | 2390 | NASA / IAU / ESA / Wikidata | **3D-Himmelskörper (three.js)** + Kontext-Karte (Bahn/Distanz), Texturen Solar System Scope (CC BY 4.0) |
-| Homo   | 211 | 593 | Gray's Anatomy / Prometheus / NIH | **Anatomiegrafiken (Wikimedia, PD)** + konzeptgenauer Struktur-Marker je Frage |
+| Astra  | 755 | 2521 | NASA / IAU / ESA / Wikidata | **3D-Himmelskörper (three.js)** + Kontext-Karte (Bahn/Distanz), Texturen Solar System Scope (CC BY 4.0) |
+| Homo   | 261 | 718 | Gray's Anatomy / Prometheus / NIH | **Anatomiegrafiken (Wikimedia, PD)** + konzeptgenauer Struktur-Marker je Frage |
 | Natura | 2402 | 13217 | Wikipedia / USGS / IUCN / IPCC / Wikidata | generische Konzeptkarte (`ConceptVisual`); Tiere via MiniMax-Delegation 49→97 ausgebaut (web-grounded); freies Commons-Foto je Konzept hinterlegt (`concept.image`, fürs spätere Museum) |
-| Lingua | 352 | 1622 | Wikipedia / Ethnologue / Wiktionary / Guinness / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Attribut-Labels; Commons-Bild je Konzept hinterlegt (103/103, fürs spätere Museum) |
-| Cultura | 1205 | 3632 | Wikipedia (DE/EN) / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Kategorie-/Attribut-Labels; via MiniMax-Delegation ausgebaut (Komponisten Wikidata-geprüft, Werke web-grounded) |
-| Machina | 384 | 1238 | Wikipedia / RFC/IANA / Lehrbücher | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Funktionsprinzip (v1.47.0) |
-| Historia | 381 | 1909 | Wikipedia / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Zeit/Urheberschaft, Politik-Ausschluss (v1.47.0) |
+| Lingua | 458 | 2036 | Wikipedia / Ethnologue / Wiktionary / Guinness / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Attribut-Labels; Commons-Bild je Konzept hinterlegt (103/103, fürs spätere Museum) |
+| Cultura | 1315 | 4175 | Wikipedia (DE/EN) / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Kategorie-/Attribut-Labels; via MiniMax-Delegation ausgebaut (Komponisten Wikidata-geprüft, Werke web-grounded) |
+| Machina | 469 | 1474 | Wikipedia / RFC/IANA / Lehrbücher | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Funktionsprinzip (v1.47.0) |
+| Historia | 446 | 2218 | Wikipedia / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Zeit/Urheberschaft, Politik-Ausschluss (v1.47.0) |
 
+> **Stand 2026-06-24 (v1.48.0) — Konzept-Skalierung ALLER Domains unter 5000 (Opus-Welle):**
+> Parallel über alle sechs Domains unter dem 5000-Ziel, Finder + Verifier diesmal mit **Opus**
+> (statt Sonnet): 6 Opus-Finder (famous-only, Schema aus dem jeweiligen raw gespiegelt) → 6 Opus-
+> **Verifier** (adversarial, Datei-in-place bereinigt). **+515 Konzepte / +1758 Fragen:**
+> Cultura 1205→1315 K / 3632→4175 F (berühmte Gemälde/Skulpturen/Bauwerke/Komponisten/Werke);
+> Lingua 352→458 K / 1622→2036 F (53 Etymologien, Schriftsysteme, Sprachfamilien, hist. Sprachen);
+> Astra 656→755 K / 2390→2521 F (**+77 IAU-Sternbilder** → 80/88; + neue Generator-Templates
+> `astra-const-abbr`/-rev für die IAU-Kürzel, sonst hätten die Sternbilder kaum Fragen erzeugt);
+> Historia 381→446 K / 1909→2218 F (Pascaline/Jacquard/Quarzuhr, Radiowellen/Mendel/REM-Schlaf,
+> Demokrit/Eratosthenes/Kelvin/Pawlow — alle verstorben geprüft); Machina 384→469 K / 1238→1474 F
+> (C-nahe Sprachen/Brainfuck/Scratch, RTSP/mDNS/STUN, Splay-Baum/Treap, Mutex/Closure/JIT);
+> Homo 211→261 K / 593→718 F (Hand-Phalangen, mimische/tiefe Muskeln, Speicheldrüsen/Hirnkerne,
+> Hominini — Finder meldet das faire Reservoir nun als **weitgehend erschöpft**). **Verifier-Funde:**
+> Astra hellste-Stern-Korrekturen (Fische→Alpherg, Waage→Zubeneschamali), Lingua **72 Platzhalter-
+> Nullen** entfernt (charCount:0/speakers:0), Machina Verilog verworfen + Big-O/Port-Fixes, Historia
+> Linotype 1884, Cultura Moldau 1874. Neuer additiver Helfer `harvest/append_concepts.cjs` (Dedup-
+> Append; die legacy `merge_<domain>.js` mit hartcodierten First-Wave-Dateilisten dürfen NICHT mehr
+> laufen — sie würden spätere Direkt-Appends löschen). Alle `verify_facts` 0 Fehler, npm test grün,
+> Layout 17/17, Cultura browser-verifiziert. NICHT deployt. **Stand vs 5000-Ziel:** über/auf Ziel
+> nur Terra (5217) + Natura (13217); weiterhin drunter: Cultura 4175, Astra 2521, Historia 2218,
+> Lingua 2036, Machina 1474, Homo 718 (Anatomie-Ceiling).
+>
 > **Stand 2026-06-24 (v1.47.0) — Konzept-Skalierung Machina + Historia (Welle 3):**
 > Bewährte Pipeline (6 parallele Sonnet-Finder → Gate `merge_machina_historia.js` → 6 parallele
 > **adversariale** Verifier → `apply_corrections.cjs` → eigene Stichprobe) für berühmte, faire,

@@ -3827,5 +3827,823 @@
       "name": "de.wikipedia.org – Musculus tibialis posterior",
       "url": "https://de.wikipedia.org/wiki/Musculus_tibialis_posterior"
     }
+  },
+  "homo:phalanx_proximalis_manus": {
+    "id": "homo:phalanx_proximalis_manus",
+    "name": "Grundglied des Fingers (Phalanx proximalis manus)",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Arm",
+      "latinName": "Phalanx proximalis manus",
+      "notableFor": "körpernahes Fingerglied, das am Mittelhandknochen ansetzt"
+    },
+    "funFact": "Jeder Finger besteht aus drei Gliedern, nur der Daumen hat zwei - das Grundglied ist davon das längste.",
+    "source": {
+      "name": "Gray's Anatomy / NCBI StatPearls (Anatomy, Hand)",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK556033/"
+    }
+  },
+  "homo:phalanx_media_manus": {
+    "id": "homo:phalanx_media_manus",
+    "name": "Mittelglied des Fingers (Phalanx media manus)",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Arm",
+      "latinName": "Phalanx media manus",
+      "notableFor": "mittleres Fingerglied; beim Daumen nicht vorhanden"
+    },
+    "funFact": "Der Daumen besitzt als einziger Finger kein Mittelglied - daher hat er nur zwei statt drei Knochen.",
+    "source": {
+      "name": "Gray's Anatomy / NCBI StatPearls (Anatomy, Hand)",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK556033/"
+    }
+  },
+  "homo:phalanx_distalis_manus": {
+    "id": "homo:phalanx_distalis_manus",
+    "name": "Endglied des Fingers (Phalanx distalis manus)",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Arm",
+      "latinName": "Phalanx distalis manus",
+      "notableFor": "äußerstes Fingerglied, das den Fingernagel trägt"
+    },
+    "funFact": "Am Endglied jedes Fingers sitzt der Fingernagel, der das empfindliche Tastpolster der Fingerkuppe schützt.",
+    "source": {
+      "name": "Gray's Anatomy / NCBI StatPearls (Anatomy, Hand)",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK556033/"
+    }
+  },
+  "homo:os_metacarpale_1": {
+    "id": "homo:os_metacarpale_1",
+    "name": "Erster Mittelhandknochen (Os metacarpale I)",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Arm",
+      "latinName": "Os metacarpale I",
+      "notableFor": "kürzester und kräftigster Mittelhandknochen, bildet die Basis des Daumens"
+    },
+    "funFact": "Das Sattelgelenk zwischen erstem Mittelhandknochen und Handwurzel macht den Daumen so beweglich, dass er allen Fingern gegenübergestellt werden kann.",
+    "source": {
+      "name": "Gray's Anatomy / NCBI StatPearls (Anatomy, Hand)",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK556033/"
+    }
+  },
+  "homo:os_metatarsale_5": {
+    "id": "homo:os_metatarsale_5",
+    "name": "Fünfter Mittelfußknochen (Os metatarsale V)",
+    "type": "bone",
+    "category": "bone",
+    "attributes": {
+      "region": "Bein",
+      "latinName": "Os metatarsale V",
+      "notableFor": "äußerer Mittelfußknochen mit tastbarem Höcker an der Fußaußenseite"
+    },
+    "funFact": "Der gut tastbare Höcker am hinteren Ende des fünften Mittelfußknochens ist eine der am häufigsten gebrochenen Stellen des Fußes.",
+    "source": {
+      "name": "Gray's Anatomy / NCBI StatPearls (Anatomy, Foot)",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK557447/"
+    }
+  },
+  "homo:brachialis": {
+    "id": "homo:brachialis",
+    "name": "Armbeuger (Musculus brachialis)",
+    "type": "muscle",
+    "category": "muscle",
+    "attributes": {
+      "location": "Oberarm (Vorderseite, unter dem Bizeps)",
+      "function": "Beugt den Unterarm im Ellenbogengelenk, unabhängig von der Handstellung",
+      "notableFor": "Eigentlicher Hauptbeuger des Ellenbogens, liegt verdeckt unter dem Bizeps",
+      "latinName": "Musculus brachialis"
+    },
+    "funFact": "Obwohl der Bizeps berühmter ist, leistet der darunterliegende Brachialis den größten Teil der reinen Ellenbogenbeugung.",
+    "source": {
+      "name": "Gray's Anatomy / NCBI StatPearls",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK551630/"
+    }
+  },
+  "homo:brachioradialis": {
+    "id": "homo:brachioradialis",
+    "name": "Oberarmspeichenmuskel (Musculus brachioradialis)",
+    "type": "muscle",
+    "category": "muscle",
+    "attributes": {
+      "location": "Unterarm (Daumenseite)",
+      "function": "Beugt den Ellenbogen, besonders bei Drehstellung des Unterarms zwischen Pro- und Supination",
+      "notableFor": "Springt bei kräftiger Ellenbogenbeugung als Strang an der Unterarmoberseite hervor",
+      "latinName": "Musculus brachioradialis"
+    },
+    "funFact": "Der Brachioradialis wird auch Bierhebermuskel genannt, weil er beim Anheben eines Glases zum Mund besonders aktiv ist.",
+    "source": {
+      "name": "Gray's Anatomy / NCBI StatPearls",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK526016/"
+    }
+  },
+  "homo:buccinator": {
+    "id": "homo:buccinator",
+    "name": "Wangenmuskel (Musculus buccinator)",
+    "type": "muscle",
+    "category": "muscle",
+    "attributes": {
+      "location": "Wange",
+      "function": "Spannt die Wange an, hält die Nahrung beim Kauen zwischen den Zähnen und presst die Wange beim Blasen nach innen",
+      "notableFor": "Wichtigster Muskel beim Saugen, Pfeifen und Blasen von Blasinstrumenten",
+      "latinName": "Musculus buccinator"
+    },
+    "funFact": "Der lateinische Name Buccinator bedeutet Trompeter, weil dieser Muskel die Wangen beim Blasen eines Instruments zusammendrückt.",
+    "source": {
+      "name": "Gray's Anatomy / NCBI StatPearls",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK526061/"
+    }
+  },
+  "homo:zygomaticus_major": {
+    "id": "homo:zygomaticus_major",
+    "name": "Großer Jochbeinmuskel (Musculus zygomaticus major)",
+    "type": "muscle",
+    "category": "muscle",
+    "attributes": {
+      "location": "Wange / Gesicht",
+      "function": "Zieht die Mundwinkel nach oben und außen und erzeugt damit das Lächeln",
+      "notableFor": "Der eigentliche Lachmuskel des Gesichts",
+      "latinName": "Musculus zygomaticus major"
+    },
+    "funFact": "Bei manchen Menschen ist dieser Muskel geteilt und erzeugt dann beim Lächeln das bekannte Grübchen in der Wange.",
+    "source": {
+      "name": "Gray's Anatomy / NCBI StatPearls",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK545304/"
+    }
+  },
+  "homo:frontalis": {
+    "id": "homo:frontalis",
+    "name": "Stirnmuskel (Venter frontalis des Musculus occipitofrontalis)",
+    "type": "muscle",
+    "category": "muscle",
+    "attributes": {
+      "location": "Stirn",
+      "function": "Hebt die Augenbrauen und legt die Stirn in Querfalten",
+      "notableFor": "Erzeugt das Stirnrunzeln und das Hochziehen der Augenbrauen",
+      "latinName": "Venter frontalis des Musculus occipitofrontalis"
+    },
+    "funFact": "Der Stirnmuskel hat keinen knöchernen Ursprung, sondern ist über eine flächige Sehnenhaube mit dem Hinterhauptmuskel verbunden.",
+    "source": {
+      "name": "Gray's Anatomy / NCBI StatPearls",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK557752/"
+    }
+  },
+  "homo:serratus_anterior": {
+    "id": "homo:serratus_anterior",
+    "name": "Vorderer Sägemuskel (Musculus serratus anterior)",
+    "type": "muscle",
+    "category": "muscle",
+    "attributes": {
+      "location": "Seitliche Brustwand",
+      "function": "Zieht das Schulterblatt nach vorn und dreht es beim Heben des Arms über die Horizontale",
+      "notableFor": "Hält das Schulterblatt an den Brustkorb gepresst; sein Ausfall erzeugt das Engelsflügel-Phänomen",
+      "latinName": "Musculus serratus anterior"
+    },
+    "funFact": "Sein gezackter, an eine Säge erinnernder Ursprung an den oberen Rippen gibt dem Muskel seinen Namen.",
+    "source": {
+      "name": "Gray's Anatomy / NCBI StatPearls",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK531457/"
+    }
+  },
+  "homo:gracilis": {
+    "id": "homo:gracilis",
+    "name": "Schlanker Muskel (Musculus gracilis)",
+    "type": "muscle",
+    "category": "muscle",
+    "attributes": {
+      "location": "Oberschenkel (Innenseite)",
+      "function": "Führt das Bein zur Körpermitte (Adduktion) und unterstützt die Kniebeugung",
+      "notableFor": "Längster und oberflächlichster der Adduktoren an der Oberschenkelinnenseite",
+      "latinName": "Musculus gracilis"
+    },
+    "funFact": "Der Gracilis wird häufig als Sehnentransplantat verwendet, etwa zum Ersatz gerissener Kreuzbänder.",
+    "source": {
+      "name": "Gray's Anatomy / NCBI StatPearls",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK541040/"
+    }
+  },
+  "homo:semimembranosus": {
+    "id": "homo:semimembranosus",
+    "name": "Plattsehniger Muskel (Musculus semimembranosus)",
+    "type": "muscle",
+    "category": "muscle",
+    "attributes": {
+      "location": "Oberschenkel (Rückseite)",
+      "function": "Streckt die Hüfte und beugt das Kniegelenk",
+      "notableFor": "Einer der drei hinteren Oberschenkelmuskeln (ischiocrurale Muskulatur, Hamstrings)",
+      "latinName": "Musculus semimembranosus"
+    },
+    "funFact": "Sein Name kommt von der breiten, häutig flachen Ursprungssehne am Sitzbein.",
+    "source": {
+      "name": "Gray's Anatomy / NCBI StatPearls",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK539694/"
+    }
+  },
+  "homo:fibularis_longus": {
+    "id": "homo:fibularis_longus",
+    "name": "Langer Wadenbeinmuskel (Musculus fibularis longus)",
+    "type": "muscle",
+    "category": "muscle",
+    "attributes": {
+      "location": "Unterschenkel (Außenseite)",
+      "function": "Hebt den äußeren Fußrand (Pronation) und unterstützt das Absenken des Fußes",
+      "notableFor": "Stützt mit seiner Sehne das Quergewölbe des Fußes",
+      "latinName": "Musculus fibularis longus"
+    },
+    "funFact": "Seine Sehne zieht unter der Fußsohle quer hinüber und stützt so das Längs- und Quergewölbe des Fußes.",
+    "source": {
+      "name": "Gray's Anatomy / NCBI StatPearls",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK539817/"
+    }
+  },
+  "homo:rhomboideus_major": {
+    "id": "homo:rhomboideus_major",
+    "name": "Großer Rautenmuskel (Musculus rhomboideus major)",
+    "type": "muscle",
+    "category": "muscle",
+    "attributes": {
+      "location": "Oberer Rücken (zwischen Wirbelsäule und Schulterblatt)",
+      "function": "Zieht das Schulterblatt zur Wirbelsäule hin und fixiert es am Rumpf",
+      "notableFor": "Hält die Schulterblätter zusammen; wichtig für aufrechte Haltung",
+      "latinName": "Musculus rhomboideus major"
+    },
+    "funFact": "Der Muskel hat die Form einer Raute (Rhombus), woraus sich sein Name ableitet.",
+    "source": {
+      "name": "Gray's Anatomy / NCBI StatPearls",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK534856/"
+    }
+  },
+  "homo:levator_scapulae": {
+    "id": "homo:levator_scapulae",
+    "name": "Schulterblattheber (Musculus levator scapulae)",
+    "type": "muscle",
+    "category": "muscle",
+    "attributes": {
+      "location": "Seitlicher Hals / Nacken",
+      "function": "Hebt das Schulterblatt und neigt den Hals zur Seite",
+      "notableFor": "Häufig beteiligt an Nackenverspannungen",
+      "latinName": "Musculus levator scapulae"
+    },
+    "funFact": "Beim Hochziehen der Schultern (Schulterzucken) arbeitet dieser Muskel eng mit dem Trapezmuskel zusammen.",
+    "source": {
+      "name": "Gray's Anatomy / NCBI StatPearls",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK542213/"
+    }
+  },
+  "homo:coracobrachialis": {
+    "id": "homo:coracobrachialis",
+    "name": "Hakenarmmuskel (Musculus coracobrachialis)",
+    "type": "muscle",
+    "category": "muscle",
+    "attributes": {
+      "location": "Oberarm (Innenseite oben)",
+      "function": "Hebt den Arm nach vorn (Anteversion) und führt ihn zum Körper",
+      "notableFor": "Entspringt am Rabenschnabelfortsatz des Schulterblatts",
+      "latinName": "Musculus coracobrachialis"
+    },
+    "funFact": "Der Muskel wird vom Nervus musculocutaneus durchbohrt, was unter den Skelettmuskeln eine Besonderheit ist.",
+    "source": {
+      "name": "Gray's Anatomy / NCBI StatPearls",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK545247/"
+    }
+  },
+  "homo:extensor_carpi_radialis_longus": {
+    "id": "homo:extensor_carpi_radialis_longus",
+    "name": "Langer speichenseitiger Handstrecker (Musculus extensor carpi radialis longus)",
+    "type": "muscle",
+    "category": "muscle",
+    "attributes": {
+      "location": "Unterarm (Streckseite, Daumenseite)",
+      "function": "Streckt das Handgelenk und führt die Hand zur Daumenseite (Radialabduktion)",
+      "notableFor": "Wichtiger Streckmuskel für den festen Faustschluss",
+      "latinName": "Musculus extensor carpi radialis longus"
+    },
+    "funFact": "Beim festen Zugreifen streckt dieser Muskel das Handgelenk, damit die Fingerbeuger ihre volle Kraft entfalten können.",
+    "source": {
+      "name": "Gray's Anatomy / NCBI StatPearls",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK542177/"
+    }
+  },
+  "homo:flexor_carpi_radialis": {
+    "id": "homo:flexor_carpi_radialis",
+    "name": "Speichenseitiger Handbeuger (Musculus flexor carpi radialis)",
+    "type": "muscle",
+    "category": "muscle",
+    "attributes": {
+      "location": "Unterarm (Beugeseite, Daumenseite)",
+      "function": "Beugt das Handgelenk und führt die Hand zur Daumenseite",
+      "notableFor": "Seine Sehne dient am Handgelenk als Tastpunkt für den Radialispuls",
+      "latinName": "Musculus flexor carpi radialis"
+    },
+    "funFact": "Direkt neben der Sehne dieses Muskels tastet man am Handgelenk den Puls der Speichenarterie.",
+    "source": {
+      "name": "Gray's Anatomy / NCBI StatPearls",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK534858/"
+    }
+  },
+  "homo:scalenus_anterior": {
+    "id": "homo:scalenus_anterior",
+    "name": "Vorderer Treppenmuskel (Musculus scalenus anterior)",
+    "type": "muscle",
+    "category": "muscle",
+    "attributes": {
+      "location": "Seitlicher Hals",
+      "function": "Hebt bei der Atmung die oberste Rippe und neigt den Hals zur Seite",
+      "notableFor": "Atemhilfsmuskel; wichtige anatomische Leitstruktur am Hals",
+      "latinName": "Musculus scalenus anterior"
+    },
+    "funFact": "Bei tiefer oder angestrengter Atmung helfen die Treppenmuskeln, den Brustkorb anzuheben.",
+    "source": {
+      "name": "Gray's Anatomy / NCBI StatPearls",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK519058/"
+    }
+  },
+  "homo:popliteus": {
+    "id": "homo:popliteus",
+    "name": "Kniekehlenmuskel (Musculus popliteus)",
+    "type": "muscle",
+    "category": "muscle",
+    "attributes": {
+      "location": "Kniekehle",
+      "function": "Entriegelt das gestreckte Knie durch leichte Innendrehung des Unterschenkels",
+      "notableFor": "Löst die Schlussrotation des Knies und macht so die Beugung erst möglich",
+      "latinName": "Musculus popliteus"
+    },
+    "funFact": "Ohne diesen kleinen Muskel bliebe das durchgestreckte Knie verriegelt - er gibt das Startsignal zum Beugen.",
+    "source": {
+      "name": "Gray's Anatomy / NCBI StatPearls",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK542191/"
+    }
+  },
+  "homo:pterygoideus_lateralis": {
+    "id": "homo:pterygoideus_lateralis",
+    "name": "Äußerer Flügelmuskel (Musculus pterygoideus lateralis)",
+    "type": "muscle",
+    "category": "muscle",
+    "attributes": {
+      "location": "Tiefe Wangen-/Kieferregion",
+      "function": "Öffnet den Mund und schiebt den Unterkiefer nach vorn; ermöglicht das Mahlen beim Kauen",
+      "notableFor": "Einziger Kaumuskel, der den Mund öffnet statt schließt",
+      "latinName": "Musculus pterygoideus lateralis"
+    },
+    "funFact": "Während die anderen drei Kaumuskeln den Kiefer schließen, ist der äußere Flügelmuskel der Muskel, der ihn öffnet.",
+    "source": {
+      "name": "Gray's Anatomy / NCBI StatPearls",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK541041/"
+    }
+  },
+  "homo:mylohyoideus": {
+    "id": "homo:mylohyoideus",
+    "name": "Kiefer-Zungenbein-Muskel (Musculus mylohyoideus)",
+    "type": "muscle",
+    "category": "muscle",
+    "attributes": {
+      "location": "Mundboden",
+      "function": "Bildet den Mundboden, hebt Zungenbein und Zunge beim Schlucken",
+      "notableFor": "Trägt als muskuläre Platte den Boden der Mundhöhle",
+      "latinName": "Musculus mylohyoideus"
+    },
+    "funFact": "Die beiden Mylohyoidmuskeln bilden zusammen eine Art Hängematte, die den gesamten Mundboden trägt.",
+    "source": {
+      "name": "Gray's Anatomy / NCBI StatPearls",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK557752/"
+    }
+  },
+  "homo:glandula_submandibularis": {
+    "id": "homo:glandula_submandibularis",
+    "name": "Unterkieferspeicheldrüse (Glandula submandibularis)",
+    "type": "organ",
+    "category": "organ",
+    "attributes": {
+      "system": "Verdauung",
+      "function": "Bildet einen großen Teil des Speichels und gibt ihn unter der Zunge in die Mundhöhle ab.",
+      "approxWeightGrams": 10
+    },
+    "funFact": "Die Unterkieferdrüse liefert im Ruhezustand den größten Anteil des Speichels von allen großen Speicheldrüsen.",
+    "source": {
+      "name": "Gray's Anatomy / NCBI StatPearls",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK542315/"
+    }
+  },
+  "homo:glandula_sublingualis": {
+    "id": "homo:glandula_sublingualis",
+    "name": "Unterzungenspeicheldrüse (Glandula sublingualis)",
+    "type": "organ",
+    "category": "organ",
+    "attributes": {
+      "system": "Verdauung",
+      "function": "Bildet zähen, schleimreichen Speichel und gibt ihn am Mundboden unter der Zunge ab.",
+      "approxWeightGrams": 3
+    },
+    "funFact": "Sie ist die kleinste der drei großen Speicheldrüsen und produziert vor allem zähflüssigen, schleimigen Speichel.",
+    "source": {
+      "name": "Gray's Anatomy / NCBI StatPearls",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK482353/"
+    }
+  },
+  "homo:augenlinse": {
+    "id": "homo:augenlinse",
+    "name": "Augenlinse (Lens)",
+    "type": "organ",
+    "category": "organ",
+    "attributes": {
+      "system": "Sinnesorgan",
+      "function": "Bündelt das einfallende Licht und stellt durch Formänderung scharf auf Nah und Fern.",
+      "approxWeightGrams": 0.2
+    },
+    "funFact": "Die Augenlinse verändert beim Scharfstellen ihre Wölbung - dieser Mechanismus heißt Akkommodation und lässt mit dem Alter nach.",
+    "source": {
+      "name": "Gray's Anatomy / NCBI StatPearls",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK542301/"
+    }
+  },
+  "homo:iris": {
+    "id": "homo:iris",
+    "name": "Regenbogenhaut (Iris)",
+    "type": "organ",
+    "category": "organ",
+    "attributes": {
+      "system": "Sinnesorgan",
+      "function": "Regelt durch Verengen und Weiten der Pupille die einfallende Lichtmenge.",
+      "approxWeightGrams": 0.1
+    },
+    "funFact": "Die Iris bestimmt mit ihren Farbpigmenten die Augenfarbe und ist bei jedem Menschen einzigartig gemustert.",
+    "source": {
+      "name": "Gray's Anatomy / NCBI StatPearls",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK538494/"
+    }
+  },
+  "homo:cornea": {
+    "id": "homo:cornea",
+    "name": "Hornhaut (Cornea)",
+    "type": "organ",
+    "category": "organ",
+    "attributes": {
+      "system": "Sinnesorgan",
+      "function": "Bildet die klare vordere Wölbung des Auges und bricht das Licht am stärksten von allen Augenstrukturen.",
+      "approxWeightGrams": 0.1
+    },
+    "funFact": "Die Hornhaut besitzt keine Blutgefäße und bezieht ihren Sauerstoff direkt aus der Luft - deshalb kann sie ohne Abstoßung verpflanzt werden.",
+    "source": {
+      "name": "Gray's Anatomy / NCBI StatPearls",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK535428/"
+    }
+  },
+  "homo:trommelfell": {
+    "id": "homo:trommelfell",
+    "name": "Trommelfell (Membrana tympani)",
+    "type": "organ",
+    "category": "organ",
+    "attributes": {
+      "system": "Sinnesorgan",
+      "function": "Wandelt Schallwellen aus der Luft in mechanische Schwingungen um und überträgt sie auf die Gehörknöchelchen.",
+      "approxWeightGrams": 0.01
+    },
+    "funFact": "Das Trommelfell ist nur etwa einen Zehntelmillimeter dünn und schwingt schon bei sehr leisen Geräuschen mit.",
+    "source": {
+      "name": "Gray's Anatomy / NCBI StatPearls",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK535395/"
+    }
+  },
+  "homo:cochlea": {
+    "id": "homo:cochlea",
+    "name": "Hörschnecke (Cochlea)",
+    "type": "organ",
+    "category": "organ",
+    "attributes": {
+      "system": "Sinnesorgan",
+      "function": "Wandelt im Innenohr die Schallschwingungen in Nervenimpulse um, die das Gehirn als Töne deutet.",
+      "approxWeightGrams": 0.1
+    },
+    "funFact": "Die Hörschnecke ist spiralig wie ein Schneckenhaus gewunden; verschiedene Stellen entlang der Windung nehmen unterschiedliche Tonhöhen wahr.",
+    "source": {
+      "name": "Gray's Anatomy / NCBI StatPearls",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK542310/"
+    }
+  },
+  "homo:nebenschilddruese": {
+    "id": "homo:nebenschilddruese",
+    "name": "Nebenschilddrüse (Glandula parathyroidea)",
+    "type": "organ",
+    "category": "organ",
+    "attributes": {
+      "system": "Hormonsystem",
+      "function": "Bildet das Parathormon, das den Kalziumspiegel im Blut anhebt und reguliert.",
+      "approxWeightGrams": 0.04
+    },
+    "funFact": "Meist gibt es vier dieser reiskorngroßen Drüsen, die hinten an der Schilddrüse anliegen und den Kalziumhaushalt steuern.",
+    "source": {
+      "name": "Gray's Anatomy / NCBI StatPearls",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK537203/"
+    }
+  },
+  "homo:mesencephalon": {
+    "id": "homo:mesencephalon",
+    "name": "Mittelhirn (Mesencephalon)",
+    "type": "organ",
+    "category": "organ",
+    "attributes": {
+      "system": "Nervensystem",
+      "function": "Verbindet Großhirn und Hirnstamm und steuert wichtige Seh- und Hörreflexe sowie Augenbewegungen.",
+      "approxWeightGrams": 10
+    },
+    "funFact": "Im Mittelhirn liegt die Substantia nigra, deren dunkle Färbung von einem Farbstoff stammt und die für flüssige Bewegungen wichtig ist.",
+    "source": {
+      "name": "Gray's Anatomy / NCBI StatPearls",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK551509/"
+    }
+  },
+  "homo:thalamus": {
+    "id": "homo:thalamus",
+    "name": "Thalamus (Sehhügel)",
+    "type": "organ",
+    "category": "organ",
+    "attributes": {
+      "system": "Nervensystem",
+      "function": "Schaltet fast alle Sinnesreize um und leitet sie gefiltert an die Großhirnrinde weiter.",
+      "approxWeightGrams": 6
+    },
+    "funFact": "Der Thalamus wird oft Tor zum Bewusstsein genannt, weil nahezu alle Sinnesinformationen ihn passieren, bevor sie bewusst werden.",
+    "source": {
+      "name": "Gray's Anatomy / NCBI StatPearls",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK542179/"
+    }
+  },
+  "homo:hypothalamus": {
+    "id": "homo:hypothalamus",
+    "name": "Hypothalamus",
+    "type": "organ",
+    "category": "organ",
+    "attributes": {
+      "system": "Nervensystem",
+      "function": "Steuert grundlegende Körperfunktionen wie Hunger, Durst, Temperatur, Schlaf und das Hormonsystem.",
+      "approxWeightGrams": 4
+    },
+    "funFact": "Obwohl er nur etwa mandelgroß ist, regelt der Hypothalamus über die Hypophyse einen Großteil des gesamten Hormonhaushalts.",
+    "source": {
+      "name": "Gray's Anatomy / NCBI StatPearls",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK525993/"
+    }
+  },
+  "homo:anzahl_zellen_koerper": {
+    "id": "homo:anzahl_zellen_koerper",
+    "name": "Anzahl Zellen im menschlichen Körper",
+    "type": "body_fact",
+    "category": "body_fact",
+    "attributes": {
+      "value": "ca. 37 Billionen",
+      "unit": "Zellen",
+      "definition": "Der Körper eines erwachsenen Menschen besteht aus schätzungsweise rund 37 Billionen Zellen."
+    },
+    "funFact": "Hinzu kommen noch einmal ähnlich viele Bakterien, vor allem im Darm, die nicht zu den eigenen Körperzellen zählen.",
+    "source": {
+      "name": "PNAS / Annals of Human Biology (Bianconi et al.)",
+      "url": "https://www.pnas.org/doi/10.1073/pnas.2303077120"
+    }
+  },
+  "homo:hoerbereich_frequenz": {
+    "id": "homo:hoerbereich_frequenz",
+    "name": "Hörbereich des menschlichen Ohrs",
+    "type": "body_fact",
+    "category": "body_fact",
+    "attributes": {
+      "value": "20 bis 20000",
+      "unit": "Hertz",
+      "definition": "Das gesunde menschliche Ohr nimmt Töne im Frequenzbereich von etwa 20 bis 20000 Hertz wahr."
+    },
+    "funFact": "Die obere Hörgrenze sinkt mit dem Alter; viele Erwachsene hören die höchsten Töne von 20000 Hertz nicht mehr.",
+    "source": {
+      "name": "NCBI StatPearls (Physiology, Auditory System)",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK532252/"
+    }
+  },
+  "homo:dna_laenge_zelle": {
+    "id": "homo:dna_laenge_zelle",
+    "name": "Länge der DNA in einer Zelle",
+    "type": "body_fact",
+    "category": "body_fact",
+    "attributes": {
+      "value": "ca. 2",
+      "unit": "Meter",
+      "definition": "Würde man die DNA aus dem Kern einer einzigen menschlichen Zelle aneinanderlegen, ergäbe sich ein Faden von rund zwei Metern Länge."
+    },
+    "funFact": "Aneinandergereiht ergäbe die DNA aller Körperzellen eine Länge, die das Sonnensystem viele Male durchqueren würde.",
+    "source": {
+      "name": "NIH National Human Genome Research Institute",
+      "url": "https://www.genome.gov/genetics-glossary/Deoxyribonucleic-Acid"
+    }
+  },
+  "homo:anzahl_gene": {
+    "id": "homo:anzahl_gene",
+    "name": "Anzahl der menschlichen Gene",
+    "type": "body_fact",
+    "category": "body_fact",
+    "attributes": {
+      "value": "ca. 20000",
+      "unit": "proteincodierende Gene",
+      "definition": "Das menschliche Erbgut enthält rund 20000 proteincodierende Gene."
+    },
+    "funFact": "Vor der Entschlüsselung des Genoms hatten viele Forscher mit weit über 100000 Genen gerechnet.",
+    "source": {
+      "name": "NIH National Human Genome Research Institute",
+      "url": "https://www.genome.gov/about-genomics/fact-sheets/A-Brief-Guide-to-Genomics"
+    }
+  },
+  "homo:blutdruck_diastolisch": {
+    "id": "homo:blutdruck_diastolisch",
+    "name": "Blutdruck diastolisch (Normwert)",
+    "type": "body_fact",
+    "category": "body_fact",
+    "attributes": {
+      "value": "unter 80",
+      "unit": "mmHg",
+      "definition": "Der diastolische (untere) Blutdruckwert eines gesunden Erwachsenen liegt im Normalbereich unter 80 mmHg."
+    },
+    "funFact": "Der diastolische Wert misst den Druck in den Gefäßen in der Entspannungsphase des Herzens zwischen zwei Schlägen.",
+    "source": {
+      "name": "American Heart Association",
+      "url": "https://www.heart.org/en/health-topics/high-blood-pressure/understanding-blood-pressure-readings"
+    }
+  },
+  "homo:lebensdauer_geschmacksknospen": {
+    "id": "homo:lebensdauer_geschmacksknospen",
+    "name": "Lebensdauer der Geschmacksknospen",
+    "type": "body_fact",
+    "category": "body_fact",
+    "attributes": {
+      "value": "ca. 10 bis 14",
+      "unit": "Tage",
+      "definition": "Die Sinneszellen der Geschmacksknospen werden ständig erneuert und leben jeweils nur etwa 10 bis 14 Tage."
+    },
+    "funFact": "Weil sich die Geschmackssinneszellen so schnell erneuern, verheilt eine an der Zunge verbrannte Stelle den Geschmack rasch wieder.",
+    "source": {
+      "name": "NCBI StatPearls (Physiology, Taste)",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK545236/"
+    }
+  },
+  "homo:lungenkapazitaet_total": {
+    "id": "homo:lungenkapazitaet_total",
+    "name": "Totale Lungenkapazität",
+    "type": "body_fact",
+    "category": "body_fact",
+    "attributes": {
+      "value": "ca. 6",
+      "unit": "Liter",
+      "definition": "Die totale Lungenkapazität, also das maximale Luftvolumen der Lunge nach tiefster Einatmung, beträgt beim erwachsenen Mann rund 6 Liter."
+    },
+    "funFact": "Selbst nach vollständigem Ausatmen bleibt rund ein Liter Restluft in der Lunge, die nie ganz entleert wird.",
+    "source": {
+      "name": "NCBI StatPearls (Physiology, Lung Capacity)",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK541029/"
+    }
+  },
+  "homo:homo_rudolfensis": {
+    "id": "homo:homo_rudolfensis",
+    "name": "Homo rudolfensis",
+    "type": "species",
+    "category": "species",
+    "attributes": {
+      "epoch": "ca. 2,5 bis 1,8 Millionen Jahre vor heute",
+      "region": "Ostafrika (Turkana-Becken, Kenia)",
+      "notableFor": "Frühe Homo-Art mit größerem, flacherem Gesicht, oft neben Homo habilis diskutiert"
+    },
+    "funFact": "Bekannt wurde diese Art durch den Schädel KNM-ER 1470 vom Turkana-See, dessen Zuordnung lange umstritten war.",
+    "source": {
+      "name": "Smithsonian National Museum of Natural History - Human Origins",
+      "url": "https://humanorigins.si.edu/evidence/human-fossils/species/homo-rudolfensis"
+    }
+  },
+  "homo:homo_ergaster": {
+    "id": "homo:homo_ergaster",
+    "name": "Homo ergaster",
+    "type": "species",
+    "category": "species",
+    "attributes": {
+      "epoch": "ca. 1,9 bis 1,4 Millionen Jahre vor heute",
+      "region": "Ostafrika",
+      "notableFor": "Afrikanische Frühform, von vielen Forschern als afrikanischer Homo erectus eingeordnet"
+    },
+    "funFact": "Zu dieser Form zählt der berühmte Turkana Boy, ein nahezu vollständiges Skelett eines jugendlichen Frühmenschen.",
+    "source": {
+      "name": "Smithsonian National Museum of Natural History - Human Origins",
+      "url": "https://humanorigins.si.edu/evidence/human-fossils/species/homo-erectus"
+    }
+  },
+  "homo:homo_antecessor": {
+    "id": "homo:homo_antecessor",
+    "name": "Homo antecessor",
+    "type": "species",
+    "category": "species",
+    "attributes": {
+      "epoch": "ca. 1,2 Millionen bis 800.000 Jahre vor heute",
+      "region": "Westeuropa (Spanien)",
+      "notableFor": "Eine der ältesten bekannten Menschenarten Europas"
+    },
+    "funFact": "Die Fossilien aus der Sierra de Atapuerca in Spanien gehören zu den ältesten Belegen für Menschen in Europa.",
+    "source": {
+      "name": "Smithsonian National Museum of Natural History - Human Origins",
+      "url": "https://humanorigins.si.edu/evidence/human-fossils/species/homo-antecessor"
+    }
+  },
+  "homo:paranthropus_robustus": {
+    "id": "homo:paranthropus_robustus",
+    "name": "Paranthropus robustus",
+    "type": "species",
+    "category": "species",
+    "attributes": {
+      "epoch": "ca. 2,0 bis 1,2 Millionen Jahre vor heute",
+      "region": "Südafrika",
+      "notableFor": "Robuste Vormenschenform mit massivem Kiefer und großen Backenzähnen für harte Pflanzennahrung"
+    },
+    "funFact": "Sein kräftiger Kauapparat mit knöchernem Scheitelkamm zur Verankerung großer Kaumuskeln brachte ihm den Beinamen Nussknacker-Mensch ein.",
+    "source": {
+      "name": "Smithsonian National Museum of Natural History - Human Origins",
+      "url": "https://humanorigins.si.edu/evidence/human-fossils/species/paranthropus-robustus"
+    }
+  },
+  "homo:paranthropus_aethiopicus": {
+    "id": "homo:paranthropus_aethiopicus",
+    "name": "Paranthropus aethiopicus",
+    "type": "species",
+    "category": "species",
+    "attributes": {
+      "epoch": "ca. 2,7 bis 2,3 Millionen Jahre vor heute",
+      "region": "Ostafrika",
+      "notableFor": "Älteste robuste Paranthropus-Art, bekannt durch den Black Skull"
+    },
+    "funFact": "Der nach Manganablagerungen dunkel verfärbte Black Skull zeigt einen ausgeprägten Knochenkamm auf dem Schädeldach.",
+    "source": {
+      "name": "Smithsonian National Museum of Natural History - Human Origins",
+      "url": "https://humanorigins.si.edu/evidence/human-fossils/species/paranthropus-aethiopicus"
+    }
+  },
+  "homo:australopithecus_sediba": {
+    "id": "homo:australopithecus_sediba",
+    "name": "Australopithecus sediba",
+    "type": "species",
+    "category": "species",
+    "attributes": {
+      "epoch": "ca. 1,98 Millionen Jahre vor heute",
+      "region": "Südafrika",
+      "notableFor": "Mischung aus Australopithecus- und frühen Homo-Merkmalen"
+    },
+    "funFact": "Die gut erhaltenen Skelette wurden 2008 von dem neunjährigen Sohn eines Forschers in der Malapa-Höhle entdeckt.",
+    "source": {
+      "name": "Smithsonian National Museum of Natural History - Human Origins",
+      "url": "https://humanorigins.si.edu/evidence/human-fossils/species/australopithecus-sediba"
+    }
+  },
+  "homo:australopithecus_anamensis": {
+    "id": "homo:australopithecus_anamensis",
+    "name": "Australopithecus anamensis",
+    "type": "species",
+    "category": "species",
+    "attributes": {
+      "epoch": "ca. 4,2 bis 3,8 Millionen Jahre vor heute",
+      "region": "Ostafrika",
+      "notableFor": "Eine der ältesten Australopithecus-Arten, früher Beleg für den aufrechten Gang"
+    },
+    "funFact": "Diese Art gilt als wahrscheinlicher Vorfahre von Australopithecus afarensis, der Art der berühmten Lucy.",
+    "source": {
+      "name": "Smithsonian National Museum of Natural History - Human Origins",
+      "url": "https://humanorigins.si.edu/evidence/human-fossils/species/australopithecus-anamensis"
+    }
+  },
+  "homo:ardipithecus_ramidus": {
+    "id": "homo:ardipithecus_ramidus",
+    "name": "Ardipithecus ramidus",
+    "type": "species",
+    "category": "species",
+    "attributes": {
+      "epoch": "ca. 4,4 Millionen Jahre vor heute",
+      "region": "Ostafrika (Äthiopien)",
+      "notableFor": "Sehr frühe Vormenschenform mit Merkmalen zwischen Baumleben und aufrechtem Gang"
+    },
+    "funFact": "Das Teilskelett mit dem Spitznamen Ardi besaß noch einen abspreizbaren großen Zeh zum Greifen wie bei einem Kletterer.",
+    "source": {
+      "name": "Smithsonian National Museum of Natural History - Human Origins",
+      "url": "https://humanorigins.si.edu/evidence/human-fossils/species/ardipithecus-ramidus"
+    }
+  },
+  "homo:sahelanthropus_tchadensis": {
+    "id": "homo:sahelanthropus_tchadensis",
+    "name": "Sahelanthropus tchadensis",
+    "type": "species",
+    "category": "species",
+    "attributes": {
+      "epoch": "ca. 7 bis 6 Millionen Jahre vor heute",
+      "region": "Zentralafrika (Tschad)",
+      "notableFor": "Eine der ältesten bekannten Arten der Menschenlinie nach der Trennung von den Schimpansen"
+    },
+    "funFact": "Der Schädel mit dem Spitznamen Toumai gilt als einer der ältesten Funde nahe der Aufspaltung von Menschen- und Schimpansenlinie.",
+    "source": {
+      "name": "Smithsonian National Museum of Natural History - Human Origins",
+      "url": "https://humanorigins.si.edu/evidence/human-fossils/species/sahelanthropus-tchadensis"
+    }
   }
 }

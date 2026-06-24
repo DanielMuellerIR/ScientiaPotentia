@@ -4123,6 +4123,120 @@
     "mapTargetId": null
   },
   {
+    "id": "q_astra_stern-mizar_astra-star-constellation",
+    "entityId": "astra:stern-mizar",
+    "entityType": "star",
+    "type": "astra-star-constellation",
+    "difficulty": 3,
+    "prompt": "In welchem Sternbild liegt Mizar?",
+    "correctAnswer": "Großer Bär",
+    "options": [
+      "Großer Bär",
+      "Großer Hund",
+      "Orion",
+      "Zentaur"
+    ],
+    "testedAttribute": "constellation",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_stern-alcor_astra-star-constellation",
+    "entityId": "astra:stern-alcor",
+    "entityType": "star",
+    "type": "astra-star-constellation",
+    "difficulty": 3,
+    "prompt": "In welchem Sternbild liegt Alkor?",
+    "correctAnswer": "Großer Bär",
+    "options": [
+      "Großer Bär",
+      "Großer Hund",
+      "Orion",
+      "Zentaur"
+    ],
+    "testedAttribute": "constellation",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_stern-albireo_astra-star-constellation",
+    "entityId": "astra:stern-albireo",
+    "entityType": "star",
+    "type": "astra-star-constellation",
+    "difficulty": 3,
+    "prompt": "In welchem Sternbild liegt Albireo?",
+    "correctAnswer": "Schwan",
+    "options": [
+      "Schwan",
+      "Großer Hund",
+      "Orion",
+      "Zentaur"
+    ],
+    "testedAttribute": "constellation",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_stern-betelgeuse-mintaka_astra-star-constellation",
+    "entityId": "astra:stern-betelgeuse-mintaka",
+    "entityType": "star",
+    "type": "astra-star-constellation",
+    "difficulty": 3,
+    "prompt": "In welchem Sternbild liegt Mintaka?",
+    "correctAnswer": "Orion",
+    "options": [
+      "Orion",
+      "Großer Hund",
+      "Zentaur",
+      "Kleiner Bär"
+    ],
+    "testedAttribute": "constellation",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_stern-rasalhague_astra-star-constellation",
+    "entityId": "astra:stern-rasalhague",
+    "entityType": "star",
+    "type": "astra-star-constellation",
+    "difficulty": 3,
+    "prompt": "In welchem Sternbild liegt Rasalhague?",
+    "correctAnswer": "Schlangenträger",
+    "options": [
+      "Schlangenträger",
+      "Großer Hund",
+      "Orion",
+      "Zentaur"
+    ],
+    "testedAttribute": "constellation",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_stern-hadar_astra-star-constellation",
+    "entityId": "astra:stern-hadar",
+    "entityType": "star",
+    "type": "astra-star-constellation",
+    "difficulty": 3,
+    "prompt": "In welchem Sternbild liegt Hadar (Beta Centauri)?",
+    "correctAnswer": "Zentaur",
+    "options": [
+      "Zentaur",
+      "Großer Hund",
+      "Orion",
+      "Kleiner Bär"
+    ],
+    "testedAttribute": "constellation",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_astra_sun_astra-star-type",
     "entityId": "astra:sun",
     "entityType": "star",
@@ -6583,6 +6697,120 @@
     "correctAnswer": "Blazar",
     "options": [
       "Blazar",
+      "Balkenspiralgalaxie",
+      "Spiralgalaxie",
+      "Zwerggalaxie"
+    ],
+    "testedAttribute": "type",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_galaxie-messier-49_astra-galaxy-type",
+    "entityId": "astra:galaxie-messier-49",
+    "entityType": "galaxy",
+    "type": "astra-galaxy-type",
+    "difficulty": 3,
+    "prompt": "Welcher Galaxientyp ist Messier 49?",
+    "correctAnswer": "Elliptische Galaxie",
+    "options": [
+      "Elliptische Galaxie",
+      "Balkenspiralgalaxie",
+      "Spiralgalaxie",
+      "Zwerggalaxie"
+    ],
+    "testedAttribute": "type",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_galaxie-messier-60_astra-galaxy-type",
+    "entityId": "astra:galaxie-messier-60",
+    "entityType": "galaxy",
+    "type": "astra-galaxy-type",
+    "difficulty": 3,
+    "prompt": "Welcher Galaxientyp ist Messier 60?",
+    "correctAnswer": "Elliptische Galaxie",
+    "options": [
+      "Elliptische Galaxie",
+      "Balkenspiralgalaxie",
+      "Spiralgalaxie",
+      "Zwerggalaxie"
+    ],
+    "testedAttribute": "type",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_galaxie-messier-105_astra-galaxy-type",
+    "entityId": "astra:galaxie-messier-105",
+    "entityType": "galaxy",
+    "type": "astra-galaxy-type",
+    "difficulty": 3,
+    "prompt": "Welcher Galaxientyp ist Messier 105?",
+    "correctAnswer": "Elliptische Galaxie",
+    "options": [
+      "Elliptische Galaxie",
+      "Balkenspiralgalaxie",
+      "Spiralgalaxie",
+      "Zwerggalaxie"
+    ],
+    "testedAttribute": "type",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_galaxie-messier-110_astra-galaxy-type",
+    "entityId": "astra:galaxie-messier-110",
+    "entityType": "galaxy",
+    "type": "astra-galaxy-type",
+    "difficulty": 3,
+    "prompt": "Welcher Galaxientyp ist Messier 110?",
+    "correctAnswer": "Elliptische Zwerggalaxie",
+    "options": [
+      "Elliptische Zwerggalaxie",
+      "Balkenspiralgalaxie",
+      "Spiralgalaxie",
+      "Zwerggalaxie"
+    ],
+    "testedAttribute": "type",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_galaxie-messier-32_astra-galaxy-type",
+    "entityId": "astra:galaxie-messier-32",
+    "entityType": "galaxy",
+    "type": "astra-galaxy-type",
+    "difficulty": 3,
+    "prompt": "Welcher Galaxientyp ist Messier 32?",
+    "correctAnswer": "Kompakte elliptische Zwerggalaxie",
+    "options": [
+      "Kompakte elliptische Zwerggalaxie",
+      "Balkenspiralgalaxie",
+      "Spiralgalaxie",
+      "Zwerggalaxie"
+    ],
+    "testedAttribute": "type",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_galaxie-antennen-galaxien_astra-galaxy-type",
+    "entityId": "astra:galaxie-antennen-galaxien",
+    "entityType": "galaxy",
+    "type": "astra-galaxy-type",
+    "difficulty": 3,
+    "prompt": "Welcher Galaxientyp ist Antennen-Galaxien?",
+    "correctAnswer": "Kollidierende Spiralgalaxien",
+    "options": [
+      "Kollidierende Spiralgalaxien",
       "Balkenspiralgalaxie",
       "Spiralgalaxie",
       "Zwerggalaxie"
@@ -13747,8 +13975,8 @@
     "options": [
       "Prokyon (Procyon)",
       "Mirfak",
-      "Algol",
-      "Rigel"
+      "Rasalhague",
+      "Algol"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -13765,9 +13993,9 @@
     "correctAnswer": "Fomalhaut",
     "options": [
       "Fomalhaut",
+      "Albireo",
       "Lambda Sagittarii",
-      "Sargas",
-      "Aldebaran"
+      "Sargas"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -13785,8 +14013,8 @@
     "options": [
       "Alphard",
       "Sheliak",
-      "Sabik",
-      "Gacrux"
+      "Albireo",
+      "Sabik"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -15932,8 +16160,8 @@
     "options": [
       "Zigarrengalaxie (M82)",
       "Messier 106",
-      "Hoags Objekt",
-      "Messier 83"
+      "Messier 105",
+      "Hoags Objekt"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -15953,6 +16181,44 @@
       "NGC 4314",
       "Milchstraße",
       "Große Magellansche Wolke"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_galaxie-messier-110_astra-galaxy-type-rev",
+    "entityId": "astra:galaxie-messier-110",
+    "entityType": "galaxy",
+    "type": "astra-galaxy-type-rev",
+    "difficulty": 4,
+    "prompt": "Welche dieser Galaxien gehört zum Typ „Elliptische Zwerggalaxie“?",
+    "correctAnswer": "Messier 110",
+    "options": [
+      "Messier 110",
+      "Sextans-Zwerggalaxie",
+      "Maffei 2",
+      "Barnards Galaxie"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_galaxie-messier-32_astra-galaxy-type-rev",
+    "entityId": "astra:galaxie-messier-32",
+    "entityType": "galaxy",
+    "type": "astra-galaxy-type-rev",
+    "difficulty": 4,
+    "prompt": "Welche dieser Galaxien gehört zum Typ „Kompakte elliptische Zwerggalaxie“?",
+    "correctAnswer": "Messier 32",
+    "options": [
+      "Messier 32",
+      "Sombrero-Galaxie",
+      "Maffei 2",
+      "Sonnenblumengalaxie (M63)"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -21175,6 +21441,158 @@
     "correctAnswer": "Segel des Schiffs",
     "options": [
       "Segel des Schiffs",
+      "Orion",
+      "Leier",
+      "Schlange"
+    ],
+    "testedAttribute": "constellation",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_nebel-rosettennebel_astra-nebula-constellation",
+    "entityId": "astra:nebel-rosettennebel",
+    "entityType": "nebula",
+    "type": "astra-nebula-constellation",
+    "difficulty": 3,
+    "prompt": "In welchem Sternbild liegt der Rosettennebel?",
+    "correctAnswer": "Einhorn",
+    "options": [
+      "Einhorn",
+      "Orion",
+      "Leier",
+      "Schlange"
+    ],
+    "testedAttribute": "constellation",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_nebel-carinanebel_astra-nebula-constellation",
+    "entityId": "astra:nebel-carinanebel",
+    "entityType": "nebula",
+    "type": "astra-nebula-constellation",
+    "difficulty": 3,
+    "prompt": "In welchem Sternbild liegt der Carinanebel?",
+    "correctAnswer": "Kiel des Schiffs",
+    "options": [
+      "Kiel des Schiffs",
+      "Orion",
+      "Leier",
+      "Schlange"
+    ],
+    "testedAttribute": "constellation",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_nebel-tarantelnebel_astra-nebula-constellation",
+    "entityId": "astra:nebel-tarantelnebel",
+    "entityType": "nebula",
+    "type": "astra-nebula-constellation",
+    "difficulty": 3,
+    "prompt": "In welchem Sternbild liegt der Tarantelnebel?",
+    "correctAnswer": "Schwertfisch",
+    "options": [
+      "Schwertfisch",
+      "Orion",
+      "Leier",
+      "Schlange"
+    ],
+    "testedAttribute": "constellation",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_nebel-katzenpfotennebel_astra-nebula-constellation",
+    "entityId": "astra:nebel-katzenpfotennebel",
+    "entityType": "nebula",
+    "type": "astra-nebula-constellation",
+    "difficulty": 3,
+    "prompt": "In welchem Sternbild liegt der Katzenpfotennebel?",
+    "correctAnswer": "Skorpion",
+    "options": [
+      "Skorpion",
+      "Orion",
+      "Leier",
+      "Schlange"
+    ],
+    "testedAttribute": "constellation",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_nebel-kegelnebel_astra-nebula-constellation",
+    "entityId": "astra:nebel-kegelnebel",
+    "entityType": "nebula",
+    "type": "astra-nebula-constellation",
+    "difficulty": 3,
+    "prompt": "In welchem Sternbild liegt der Kegelnebel?",
+    "correctAnswer": "Einhorn",
+    "options": [
+      "Einhorn",
+      "Orion",
+      "Leier",
+      "Schlange"
+    ],
+    "testedAttribute": "constellation",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_nebel-hexenkopfnebel_astra-nebula-constellation",
+    "entityId": "astra:nebel-hexenkopfnebel",
+    "entityType": "nebula",
+    "type": "astra-nebula-constellation",
+    "difficulty": 3,
+    "prompt": "In welchem Sternbild liegt der Hexenkopfnebel?",
+    "correctAnswer": "Eridanus",
+    "options": [
+      "Eridanus",
+      "Orion",
+      "Leier",
+      "Schlange"
+    ],
+    "testedAttribute": "constellation",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_nebel-flammennebel_astra-nebula-constellation",
+    "entityId": "astra:nebel-flammennebel",
+    "entityType": "nebula",
+    "type": "astra-nebula-constellation",
+    "difficulty": 3,
+    "prompt": "In welchem Sternbild liegt der Flammennebel?",
+    "correctAnswer": "Orion",
+    "options": [
+      "Orion",
+      "Leier",
+      "Schlange",
+      "Drache"
+    ],
+    "testedAttribute": "constellation",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_nebel-kaliforniennebel_astra-nebula-constellation",
+    "entityId": "astra:nebel-kaliforniennebel",
+    "entityType": "nebula",
+    "type": "astra-nebula-constellation",
+    "difficulty": 3,
+    "prompt": "In welchem Sternbild liegt der Kaliforniennebel?",
+    "correctAnswer": "Perseus",
+    "options": [
+      "Perseus",
       "Orion",
       "Leier",
       "Schlange"
@@ -33687,6 +34105,25 @@
     "mapTargetId": null
   },
   {
+    "id": "q_astra_meteorstrom-orioniden_astra-shower-peak",
+    "entityId": "astra:meteorstrom-orioniden",
+    "entityType": "meteor_shower",
+    "type": "astra-shower-peak",
+    "difficulty": 2,
+    "prompt": "Wann erreichen die Orioniden ihr jährliches Maximum?",
+    "correctAnswer": "21. Oktober",
+    "options": [
+      "21. Oktober",
+      "12. August",
+      "14. Dezember",
+      "17./18. November"
+    ],
+    "testedAttribute": "peakDate",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_astra_meteorstrom-perseiden_astra-shower-peak-rev",
     "entityId": "astra:meteorstrom-perseiden",
     "entityType": "meteor_shower",
@@ -33753,9 +34190,9 @@
     "correctAnswer": "Quadrantiden",
     "options": [
       "Quadrantiden",
+      "Orioniden",
       "Delta-Aquariiden",
-      "Leoniden",
-      "Ursiden"
+      "Leoniden"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -33773,8 +34210,8 @@
     "options": [
       "Lyriden",
       "Ursiden",
-      "Geminiden",
-      "Delta-Aquariiden"
+      "Orioniden",
+      "Geminiden"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -33793,7 +34230,7 @@
       "Eta-Aquariiden",
       "Draconiden",
       "Leoniden",
-      "Lyriden"
+      "Orioniden"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -33811,8 +34248,8 @@
     "options": [
       "Delta-Aquariiden",
       "Quadrantiden",
-      "Perseiden",
-      "Tauriden"
+      "Orioniden",
+      "Perseiden"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -33850,7 +34287,7 @@
       "Tauriden",
       "Quadrantiden",
       "Geminiden",
-      "Ursiden"
+      "Orioniden"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -33870,6 +34307,25 @@
       "Lyriden",
       "Delta-Aquariiden",
       "Eta-Aquariiden"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_meteorstrom-orioniden_astra-shower-peak-rev",
+    "entityId": "astra:meteorstrom-orioniden",
+    "entityType": "meteor_shower",
+    "type": "astra-shower-peak-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Meteorstrom erreicht sein Maximum am 21. Oktober?",
+    "correctAnswer": "Orioniden",
+    "options": [
+      "Orioniden",
+      "Perseiden",
+      "Draconiden",
+      "Lyriden"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -34067,6 +34523,44 @@
     "mapTargetId": null
   },
   {
+    "id": "q_astra_meteorstrom-orioniden_astra-shower-parent",
+    "entityId": "astra:meteorstrom-orioniden",
+    "entityType": "meteor_shower",
+    "type": "astra-shower-parent",
+    "difficulty": 4,
+    "prompt": "Welcher Himmelskörper ist der Mutterkörper der Orioniden?",
+    "correctAnswer": "1P/Halley (Halleyscher Komet)",
+    "options": [
+      "1P/Halley (Halleyscher Komet)",
+      "109P/Swift-Tuttle",
+      "(3200) Phaethon (Asteroid)",
+      "55P/Tempel-Tuttle"
+    ],
+    "testedAttribute": "parentBody",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_meteorstrom-alpha-capricorniden_astra-shower-parent",
+    "entityId": "astra:meteorstrom-alpha-capricorniden",
+    "entityType": "meteor_shower",
+    "type": "astra-shower-parent",
+    "difficulty": 4,
+    "prompt": "Welcher Himmelskörper ist der Mutterkörper der Alpha-Capricorniden?",
+    "correctAnswer": "169P/NEAT",
+    "options": [
+      "169P/NEAT",
+      "109P/Swift-Tuttle",
+      "(3200) Phaethon (Asteroid)",
+      "55P/Tempel-Tuttle"
+    ],
+    "testedAttribute": "parentBody",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_astra_meteorstrom-perseiden_astra-shower-parent-rev",
     "entityId": "astra:meteorstrom-perseiden",
     "entityType": "meteor_shower",
@@ -34078,7 +34572,7 @@
       "Perseiden",
       "Eta-Aquariiden",
       "Tauriden",
-      "Leoniden"
+      "Alpha-Capricorniden"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -34095,9 +34589,9 @@
     "correctAnswer": "Geminiden",
     "options": [
       "Geminiden",
+      "Alpha-Capricorniden",
       "Delta-Aquariiden",
-      "Eta-Aquariiden",
-      "Draconiden"
+      "Eta-Aquariiden"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -34116,7 +34610,7 @@
       "Leoniden",
       "Tauriden",
       "Perseiden",
-      "Ursiden"
+      "Orioniden"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -34171,9 +34665,9 @@
     "correctAnswer": "Eta-Aquariiden",
     "options": [
       "Eta-Aquariiden",
+      "Alpha-Capricorniden",
       "Leoniden",
-      "Quadrantiden",
-      "Draconiden"
+      "Quadrantiden"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -34210,8 +34704,8 @@
     "options": [
       "Draconiden",
       "Leoniden",
-      "Perseiden",
-      "Quadrantiden"
+      "Alpha-Capricorniden",
+      "Perseiden"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -34250,6 +34744,44 @@
       "Delta-Aquariiden",
       "Leoniden",
       "Eta-Aquariiden"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_meteorstrom-orioniden_astra-shower-parent-rev",
+    "entityId": "astra:meteorstrom-orioniden",
+    "entityType": "meteor_shower",
+    "type": "astra-shower-parent-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Meteorstrom geht auf 1P/Halley (Halleyscher Komet) zurück?",
+    "correctAnswer": "Orioniden",
+    "options": [
+      "Orioniden",
+      "Quadrantiden",
+      "Tauriden",
+      "Alpha-Capricorniden"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_meteorstrom-alpha-capricorniden_astra-shower-parent-rev",
+    "entityId": "astra:meteorstrom-alpha-capricorniden",
+    "entityType": "meteor_shower",
+    "type": "astra-shower-parent-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Meteorstrom geht auf 169P/NEAT zurück?",
+    "correctAnswer": "Alpha-Capricorniden",
+    "options": [
+      "Alpha-Capricorniden",
+      "Delta-Aquariiden",
+      "Eta-Aquariiden",
+      "Lyriden"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -38674,9 +39206,9 @@
     "correctAnswer": "Ringnebel",
     "options": [
       "Ringnebel",
+      "Hexenkopfnebel",
       "Tc 1",
-      "Supernova 185",
-      "Cirrusnebel"
+      "Supernova 185"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -38713,27 +39245,8 @@
     "options": [
       "Katzenaugennebel",
       "FG Sagittae",
-      "Messier 43",
-      "Vela-Supernova"
-    ],
-    "testedAttribute": null,
-    "answerIsName": true,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_30-doradus_astra-nebula-constellation-rev",
-    "entityId": "astra:30-doradus",
-    "entityType": "nebula",
-    "type": "astra-nebula-constellation-rev",
-    "difficulty": 4,
-    "prompt": "Welcher Nebel liegt im Sternbild Schwertfisch?",
-    "correctAnswer": "30 Doradus",
-    "options": [
-      "30 Doradus",
-      "Helixnebel",
-      "Sh2-106",
-      "Ringnebel"
+      "Flammennebel",
+      "Messier 43"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -38779,25 +39292,6 @@
     "mapTargetId": null
   },
   {
-    "id": "q_astra_kleiner-hantelnebel_astra-nebula-constellation-rev",
-    "entityId": "astra:kleiner-hantelnebel",
-    "entityType": "nebula",
-    "type": "astra-nebula-constellation-rev",
-    "difficulty": 4,
-    "prompt": "Welcher Nebel liegt im Sternbild Perseus?",
-    "correctAnswer": "Kleiner Hantelnebel",
-    "options": [
-      "Kleiner Hantelnebel",
-      "Ringnebel",
-      "Cave Nebula",
-      "Orionnebel"
-    ],
-    "testedAttribute": null,
-    "answerIsName": true,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
     "id": "q_astra_stundenglasnebel_astra-nebula-constellation-rev",
     "entityId": "astra:stundenglasnebel",
     "entityType": "nebula",
@@ -38827,8 +39321,8 @@
     "options": [
       "Retina-Nebel",
       "Pelican Nebula",
-      "Cirrusnebel",
-      "Seelennebel"
+      "Hexenkopfnebel",
+      "Cirrusnebel"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -38883,9 +39377,9 @@
     "correctAnswer": "Abell 39",
     "options": [
       "Abell 39",
+      "Katzenpfotennebel",
       "RCW103",
-      "Katzenaugennebel",
-      "CW Leonis"
+      "Katzenaugennebel"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -38904,7 +39398,7 @@
       "CW Leonis",
       "Shapley 1",
       "Ringnebel",
-      "Supernova 185"
+      "Rosettennebel"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -39000,6 +39494,63 @@
       "Hantelnebel",
       "Seelennebel",
       "Nordamerikanebel"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_nebel-carinanebel_astra-nebula-constellation-rev",
+    "entityId": "astra:nebel-carinanebel",
+    "entityType": "nebula",
+    "type": "astra-nebula-constellation-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Nebel liegt im Sternbild Kiel des Schiffs?",
+    "correctAnswer": "Carinanebel",
+    "options": [
+      "Carinanebel",
+      "Shapley 1",
+      "Nordamerikanebel",
+      "Katzenpfotennebel"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_nebel-katzenpfotennebel_astra-nebula-constellation-rev",
+    "entityId": "astra:nebel-katzenpfotennebel",
+    "entityType": "nebula",
+    "type": "astra-nebula-constellation-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Nebel liegt im Sternbild Skorpion?",
+    "correctAnswer": "Katzenpfotennebel",
+    "options": [
+      "Katzenpfotennebel",
+      "CW Leonis",
+      "Messier 78",
+      "Lagunennebel"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_nebel-hexenkopfnebel_astra-nebula-constellation-rev",
+    "entityId": "astra:nebel-hexenkopfnebel",
+    "entityType": "nebula",
+    "type": "astra-nebula-constellation-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Nebel liegt im Sternbild Eridanus?",
+    "correctAnswer": "Hexenkopfnebel",
+    "options": [
+      "Hexenkopfnebel",
+      "Schmetterlingsnebel",
+      "Nordamerikanebel",
+      "RCW103"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -45406,6 +45957,1944 @@
     ],
     "testedAttribute": "massEarthMasses",
     "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-kassiopeia_astra-const-abbr",
+    "entityId": "astra:sternbild-kassiopeia",
+    "entityType": "constellation",
+    "type": "astra-const-abbr",
+    "difficulty": 4,
+    "prompt": "Wie lautet die offizielle IAU-Abkürzung (3 Buchstaben) des Sternbilds „Kassiopeia (Sternbild)\"?",
+    "correctAnswer": "Cas",
+    "options": [
+      "Cas",
+      "Ori",
+      "Cru",
+      "UMa"
+    ],
+    "testedAttribute": "iauAbbreviation",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-kreuz-des-suedens_astra-const-abbr",
+    "entityId": "astra:sternbild-kreuz-des-suedens",
+    "entityType": "constellation",
+    "type": "astra-const-abbr",
+    "difficulty": 4,
+    "prompt": "Wie lautet die offizielle IAU-Abkürzung (3 Buchstaben) des Sternbilds „Kreuz des Südens\"?",
+    "correctAnswer": "Cru",
+    "options": [
+      "Cru",
+      "Ori",
+      "Cas",
+      "UMa"
+    ],
+    "testedAttribute": "iauAbbreviation",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-grosser-baer_astra-const-abbr",
+    "entityId": "astra:sternbild-grosser-baer",
+    "entityType": "constellation",
+    "type": "astra-const-abbr",
+    "difficulty": 4,
+    "prompt": "Wie lautet die offizielle IAU-Abkürzung (3 Buchstaben) des Sternbilds „Großer Bär (Ursa Major)\"?",
+    "correctAnswer": "UMa",
+    "options": [
+      "UMa",
+      "Ori",
+      "Cas",
+      "Cru"
+    ],
+    "testedAttribute": "iauAbbreviation",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-kleiner-baer_astra-const-abbr",
+    "entityId": "astra:sternbild-kleiner-baer",
+    "entityType": "constellation",
+    "type": "astra-const-abbr",
+    "difficulty": 4,
+    "prompt": "Wie lautet die offizielle IAU-Abkürzung (3 Buchstaben) des Sternbilds „Kleiner Bär (Ursa Minor)\"?",
+    "correctAnswer": "UMi",
+    "options": [
+      "UMi",
+      "Ori",
+      "Cas",
+      "Cru"
+    ],
+    "testedAttribute": "iauAbbreviation",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-krebs_astra-const-abbr",
+    "entityId": "astra:sternbild-krebs",
+    "entityType": "constellation",
+    "type": "astra-const-abbr",
+    "difficulty": 4,
+    "prompt": "Wie lautet die offizielle IAU-Abkürzung (3 Buchstaben) des Sternbilds „Krebs (Cancer)\"?",
+    "correctAnswer": "Cnc",
+    "options": [
+      "Cnc",
+      "Ori",
+      "Cas",
+      "Cru"
+    ],
+    "testedAttribute": "iauAbbreviation",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-schuetze_astra-const-abbr",
+    "entityId": "astra:sternbild-schuetze",
+    "entityType": "constellation",
+    "type": "astra-const-abbr",
+    "difficulty": 4,
+    "prompt": "Wie lautet die offizielle IAU-Abkürzung (3 Buchstaben) des Sternbilds „Schütze (Sagittarius)\"?",
+    "correctAnswer": "Sgr",
+    "options": [
+      "Sgr",
+      "Ori",
+      "Cas",
+      "Cru"
+    ],
+    "testedAttribute": "iauAbbreviation",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-wassermann_astra-const-abbr",
+    "entityId": "astra:sternbild-wassermann",
+    "entityType": "constellation",
+    "type": "astra-const-abbr",
+    "difficulty": 4,
+    "prompt": "Wie lautet die offizielle IAU-Abkürzung (3 Buchstaben) des Sternbilds „Wassermann (Aquarius)\"?",
+    "correctAnswer": "Aqr",
+    "options": [
+      "Aqr",
+      "Ori",
+      "Cas",
+      "Cru"
+    ],
+    "testedAttribute": "iauAbbreviation",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-fische_astra-const-abbr",
+    "entityId": "astra:sternbild-fische",
+    "entityType": "constellation",
+    "type": "astra-const-abbr",
+    "difficulty": 4,
+    "prompt": "Wie lautet die offizielle IAU-Abkürzung (3 Buchstaben) des Sternbilds „Fische (Pisces)\"?",
+    "correctAnswer": "Psc",
+    "options": [
+      "Psc",
+      "Ori",
+      "Cas",
+      "Cru"
+    ],
+    "testedAttribute": "iauAbbreviation",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-adler_astra-const-abbr",
+    "entityId": "astra:sternbild-adler",
+    "entityType": "constellation",
+    "type": "astra-const-abbr",
+    "difficulty": 4,
+    "prompt": "Wie lautet die offizielle IAU-Abkürzung (3 Buchstaben) des Sternbilds „Adler (Aquila)\"?",
+    "correctAnswer": "Aql",
+    "options": [
+      "Aql",
+      "Ori",
+      "Cas",
+      "Cru"
+    ],
+    "testedAttribute": "iauAbbreviation",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-noerdliche-krone_astra-const-abbr",
+    "entityId": "astra:sternbild-noerdliche-krone",
+    "entityType": "constellation",
+    "type": "astra-const-abbr",
+    "difficulty": 4,
+    "prompt": "Wie lautet die offizielle IAU-Abkürzung (3 Buchstaben) des Sternbilds „Nördliche Krone (Corona Borealis)\"?",
+    "correctAnswer": "CrB",
+    "options": [
+      "CrB",
+      "Ori",
+      "Cas",
+      "Cru"
+    ],
+    "testedAttribute": "iauAbbreviation",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-zwerg_astra-const-abbr",
+    "entityId": "astra:sternbild-zwerg",
+    "entityType": "constellation",
+    "type": "astra-const-abbr",
+    "difficulty": 4,
+    "prompt": "Wie lautet die offizielle IAU-Abkürzung (3 Buchstaben) des Sternbilds „Kleiner Hund (Canis Minor)\"?",
+    "correctAnswer": "CMi",
+    "options": [
+      "CMi",
+      "Ori",
+      "Cas",
+      "Cru"
+    ],
+    "testedAttribute": "iauAbbreviation",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-grosser-hund_astra-const-abbr",
+    "entityId": "astra:sternbild-grosser-hund",
+    "entityType": "constellation",
+    "type": "astra-const-abbr",
+    "difficulty": 4,
+    "prompt": "Wie lautet die offizielle IAU-Abkürzung (3 Buchstaben) des Sternbilds „Großer Hund (Canis Major)\"?",
+    "correctAnswer": "CMa",
+    "options": [
+      "CMa",
+      "Ori",
+      "Cas",
+      "Cru"
+    ],
+    "testedAttribute": "iauAbbreviation",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-wasserschlange_astra-const-abbr",
+    "entityId": "astra:sternbild-wasserschlange",
+    "entityType": "constellation",
+    "type": "astra-const-abbr",
+    "difficulty": 4,
+    "prompt": "Wie lautet die offizielle IAU-Abkürzung (3 Buchstaben) des Sternbilds „Wasserschlange (Hydra)\"?",
+    "correctAnswer": "Hya",
+    "options": [
+      "Hya",
+      "Ori",
+      "Cas",
+      "Cru"
+    ],
+    "testedAttribute": "iauAbbreviation",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-grosser-wagen-pfeil_astra-const-abbr",
+    "entityId": "astra:sternbild-grosser-wagen-pfeil",
+    "entityType": "constellation",
+    "type": "astra-const-abbr",
+    "difficulty": 4,
+    "prompt": "Wie lautet die offizielle IAU-Abkürzung (3 Buchstaben) des Sternbilds „Pfeil (Sagitta)\"?",
+    "correctAnswer": "Sge",
+    "options": [
+      "Sge",
+      "Ori",
+      "Cas",
+      "Cru"
+    ],
+    "testedAttribute": "iauAbbreviation",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-phoenix_astra-const-abbr",
+    "entityId": "astra:sternbild-phoenix",
+    "entityType": "constellation",
+    "type": "astra-const-abbr",
+    "difficulty": 4,
+    "prompt": "Wie lautet die offizielle IAU-Abkürzung (3 Buchstaben) des Sternbilds „Phönix (Phoenix)\"?",
+    "correctAnswer": "Phe",
+    "options": [
+      "Phe",
+      "Ori",
+      "Cas",
+      "Cru"
+    ],
+    "testedAttribute": "iauAbbreviation",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-suedliche-krone_astra-const-abbr",
+    "entityId": "astra:sternbild-suedliche-krone",
+    "entityType": "constellation",
+    "type": "astra-const-abbr",
+    "difficulty": 4,
+    "prompt": "Wie lautet die offizielle IAU-Abkürzung (3 Buchstaben) des Sternbilds „Südliche Krone (Corona Australis)\"?",
+    "correctAnswer": "CrA",
+    "options": [
+      "CrA",
+      "Ori",
+      "Cas",
+      "Cru"
+    ],
+    "testedAttribute": "iauAbbreviation",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-suedlicher-fisch_astra-const-abbr",
+    "entityId": "astra:sternbild-suedlicher-fisch",
+    "entityType": "constellation",
+    "type": "astra-const-abbr",
+    "difficulty": 4,
+    "prompt": "Wie lautet die offizielle IAU-Abkürzung (3 Buchstaben) des Sternbilds „Südlicher Fisch (Piscis Austrinus)\"?",
+    "correctAnswer": "PsA",
+    "options": [
+      "PsA",
+      "Ori",
+      "Cas",
+      "Cru"
+    ],
+    "testedAttribute": "iauAbbreviation",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-jagdhunde_astra-const-abbr",
+    "entityId": "astra:sternbild-jagdhunde",
+    "entityType": "constellation",
+    "type": "astra-const-abbr",
+    "difficulty": 4,
+    "prompt": "Wie lautet die offizielle IAU-Abkürzung (3 Buchstaben) des Sternbilds „Jagdhunde (Canes Venatici)\"?",
+    "correctAnswer": "CVn",
+    "options": [
+      "CVn",
+      "Ori",
+      "Cas",
+      "Cru"
+    ],
+    "testedAttribute": "iauAbbreviation",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-becher_astra-const-abbr",
+    "entityId": "astra:sternbild-becher",
+    "entityType": "constellation",
+    "type": "astra-const-abbr",
+    "difficulty": 4,
+    "prompt": "Wie lautet die offizielle IAU-Abkürzung (3 Buchstaben) des Sternbilds „Becher (Crater)\"?",
+    "correctAnswer": "Crt",
+    "options": [
+      "Crt",
+      "Ori",
+      "Cas",
+      "Cru"
+    ],
+    "testedAttribute": "iauAbbreviation",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-rabe_astra-const-abbr",
+    "entityId": "astra:sternbild-rabe",
+    "entityType": "constellation",
+    "type": "astra-const-abbr",
+    "difficulty": 4,
+    "prompt": "Wie lautet die offizielle IAU-Abkürzung (3 Buchstaben) des Sternbilds „Rabe (Corvus)\"?",
+    "correctAnswer": "Crv",
+    "options": [
+      "Crv",
+      "Ori",
+      "Cas",
+      "Cru"
+    ],
+    "testedAttribute": "iauAbbreviation",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-schild_astra-const-abbr",
+    "entityId": "astra:sternbild-schild",
+    "entityType": "constellation",
+    "type": "astra-const-abbr",
+    "difficulty": 4,
+    "prompt": "Wie lautet die offizielle IAU-Abkürzung (3 Buchstaben) des Sternbilds „Schild (Scutum)\"?",
+    "correctAnswer": "Sct",
+    "options": [
+      "Sct",
+      "Ori",
+      "Cas",
+      "Cru"
+    ],
+    "testedAttribute": "iauAbbreviation",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-bildhauer_astra-const-abbr",
+    "entityId": "astra:sternbild-bildhauer",
+    "entityType": "constellation",
+    "type": "astra-const-abbr",
+    "difficulty": 4,
+    "prompt": "Wie lautet die offizielle IAU-Abkürzung (3 Buchstaben) des Sternbilds „Bildhauer (Sculptor)\"?",
+    "correctAnswer": "Scl",
+    "options": [
+      "Scl",
+      "Ori",
+      "Cas",
+      "Cru"
+    ],
+    "testedAttribute": "iauAbbreviation",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-orion_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-orion",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Ori\"?",
+    "correctAnswer": "Orion (Sternbild)",
+    "options": [
+      "Orion (Sternbild)",
+      "Kassiopeia (Sternbild)",
+      "Steinbock (Capricornus)",
+      "Eridanus"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-kassiopeia_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-kassiopeia",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Cas\"?",
+    "correctAnswer": "Kassiopeia (Sternbild)",
+    "options": [
+      "Kassiopeia (Sternbild)",
+      "Großer Bär (Ursa Major)",
+      "Wassermann (Aquarius)",
+      "Kreuz des Südens"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-kreuz-des-suedens_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-kreuz-des-suedens",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Cru\"?",
+    "correctAnswer": "Kreuz des Südens",
+    "options": [
+      "Kreuz des Südens",
+      "Tukan (Tucana)",
+      "Krebs (Cancer)",
+      "Achterdeck des Schiffs (Puppis)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-grosser-baer_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-grosser-baer",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „UMa\"?",
+    "correctAnswer": "Großer Bär (Ursa Major)",
+    "options": [
+      "Großer Bär (Ursa Major)",
+      "Skorpion (Scorpius)",
+      "Fuchs (Vulpecula)",
+      "Teleskop (Telescopium)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-kleiner-baer_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-kleiner-baer",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „UMi\"?",
+    "correctAnswer": "Kleiner Bär (Ursa Minor)",
+    "options": [
+      "Kleiner Bär (Ursa Minor)",
+      "Oktant (Octans)",
+      "Schlangenträger (Ophiuchus)",
+      "Mikroskop (Microscopium)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-drache_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-drache",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Dra\"?",
+    "correctAnswer": "Drache (Draco)",
+    "options": [
+      "Drache (Draco)",
+      "Wasserschlange (Hydra)",
+      "Wassermann (Aquarius)",
+      "Kreuz des Südens"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-kepheus_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-kepheus",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Cep\"?",
+    "correctAnswer": "Kepheus (Cepheus)",
+    "options": [
+      "Kepheus (Cepheus)",
+      "Fische (Pisces)",
+      "Jungfrau (Virgo)",
+      "Skorpion (Scorpius)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-andromeda_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-andromeda",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „And\"?",
+    "correctAnswer": "Andromeda (Sternbild)",
+    "options": [
+      "Andromeda (Sternbild)",
+      "Wassermann (Aquarius)",
+      "Orion (Sternbild)",
+      "Südliches Dreieck (Triangulum Australe)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-perseus_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-perseus",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Per\"?",
+    "correctAnswer": "Perseus (Sternbild)",
+    "options": [
+      "Perseus (Sternbild)",
+      "Widder (Aries)",
+      "Altar (Ara)",
+      "Fliege (Musca)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-pegasus_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-pegasus",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Peg\"?",
+    "correctAnswer": "Pegasus (Sternbild)",
+    "options": [
+      "Pegasus (Sternbild)",
+      "Jagdhunde (Canes Venatici)",
+      "Walfisch (Cetus)",
+      "Hase (Lepus)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-stier_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-stier",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Tau\"?",
+    "correctAnswer": "Stier (Taurus)",
+    "options": [
+      "Stier (Taurus)",
+      "Pendeluhr (Horologium)",
+      "Großer Hund (Canis Major)",
+      "Südlicher Fisch (Piscis Austrinus)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-zwillinge_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-zwillinge",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Gem\"?",
+    "correctAnswer": "Zwillinge (Gemini)",
+    "options": [
+      "Zwillinge (Gemini)",
+      "Fliegender Fisch (Volans)",
+      "Haar der Berenike (Coma Berenices)",
+      "Krebs (Cancer)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-krebs_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-krebs",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Cnc\"?",
+    "correctAnswer": "Krebs (Cancer)",
+    "options": [
+      "Krebs (Cancer)",
+      "Segel des Schiffs (Vela)",
+      "Widder (Aries)",
+      "Kreuz des Südens"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-loewe_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-loewe",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Leo\"?",
+    "correctAnswer": "Löwe (Leo)",
+    "options": [
+      "Löwe (Leo)",
+      "Steinbock (Capricornus)",
+      "Krebs (Cancer)",
+      "Indianer (Indus)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-jungfrau_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-jungfrau",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Vir\"?",
+    "correctAnswer": "Jungfrau (Virgo)",
+    "options": [
+      "Jungfrau (Virgo)",
+      "Drache (Draco)",
+      "Kreuz des Südens",
+      "Walfisch (Cetus)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-waage_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-waage",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Lib\"?",
+    "correctAnswer": "Waage (Libra)",
+    "options": [
+      "Waage (Libra)",
+      "Zwillinge (Gemini)",
+      "Schwan (Cygnus)",
+      "Fuchs (Vulpecula)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-skorpion_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-skorpion",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Sco\"?",
+    "correctAnswer": "Skorpion (Scorpius)",
+    "options": [
+      "Skorpion (Scorpius)",
+      "Krebs (Cancer)",
+      "Luchs (Lynx)",
+      "Großer Hund (Canis Major)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-schuetze_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-schuetze",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Sgr\"?",
+    "correctAnswer": "Schütze (Sagittarius)",
+    "options": [
+      "Schütze (Sagittarius)",
+      "Segel des Schiffs (Vela)",
+      "Fuchs (Vulpecula)",
+      "Schlange (Serpens)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-steinbock_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-steinbock",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Cap\"?",
+    "correctAnswer": "Steinbock (Capricornus)",
+    "options": [
+      "Steinbock (Capricornus)",
+      "Luftpumpe (Antlia)",
+      "Pendeluhr (Horologium)",
+      "Sextant (Sextans)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-wassermann_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-wassermann",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Aqr\"?",
+    "correctAnswer": "Wassermann (Aquarius)",
+    "options": [
+      "Wassermann (Aquarius)",
+      "Herkules (Hercules)",
+      "Schwertfisch (Dorado)",
+      "Fuhrmann (Auriga)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-fische_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-fische",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Psc\"?",
+    "correctAnswer": "Fische (Pisces)",
+    "options": [
+      "Fische (Pisces)",
+      "Orion (Sternbild)",
+      "Jungfrau (Virgo)",
+      "Walfisch (Cetus)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-widder_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-widder",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Ari\"?",
+    "correctAnswer": "Widder (Aries)",
+    "options": [
+      "Widder (Aries)",
+      "Sextant (Sextans)",
+      "Skorpion (Scorpius)",
+      "Kleiner Bär (Ursa Minor)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-schwan_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-schwan",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Cyg\"?",
+    "correctAnswer": "Schwan (Cygnus)",
+    "options": [
+      "Schwan (Cygnus)",
+      "Dreieck (Triangulum)",
+      "Leier (Lyra)",
+      "Sextant (Sextans)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-leier_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-leier",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Lyr\"?",
+    "correctAnswer": "Leier (Lyra)",
+    "options": [
+      "Leier (Lyra)",
+      "Nördliche Krone (Corona Borealis)",
+      "Wasserschlange (Hydra)",
+      "Skorpion (Scorpius)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-adler_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-adler",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Aql\"?",
+    "correctAnswer": "Adler (Aquila)",
+    "options": [
+      "Adler (Aquila)",
+      "Kleiner Bär (Ursa Minor)",
+      "Pfau (Pavo)",
+      "Schlange (Serpens)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-bootes_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-bootes",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Boo\"?",
+    "correctAnswer": "Bärenhüter (Boötes)",
+    "options": [
+      "Bärenhüter (Boötes)",
+      "Kepheus (Cepheus)",
+      "Pegasus (Sternbild)",
+      "Pfau (Pavo)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-noerdliche-krone_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-noerdliche-krone",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „CrB\"?",
+    "correctAnswer": "Nördliche Krone (Corona Borealis)",
+    "options": [
+      "Nördliche Krone (Corona Borealis)",
+      "Schild (Scutum)",
+      "Fliegender Fisch (Volans)",
+      "Indianer (Indus)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-herkules_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-herkules",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Her\"?",
+    "correctAnswer": "Herkules (Hercules)",
+    "options": [
+      "Herkules (Hercules)",
+      "Wasserschlange (Hydra)",
+      "Luftpumpe (Antlia)",
+      "Steinbock (Capricornus)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-fuhrmann_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-fuhrmann",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Aur\"?",
+    "correctAnswer": "Fuhrmann (Auriga)",
+    "options": [
+      "Fuhrmann (Auriga)",
+      "Pfeil (Sagitta)",
+      "Chamäleon (Chamaeleon)",
+      "Achterdeck des Schiffs (Puppis)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-zwerg_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-zwerg",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „CMi\"?",
+    "correctAnswer": "Kleiner Hund (Canis Minor)",
+    "options": [
+      "Kleiner Hund (Canis Minor)",
+      "Luchs (Lynx)",
+      "Segel des Schiffs (Vela)",
+      "Delphin (Delphinus)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-grosser-hund_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-grosser-hund",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „CMa\"?",
+    "correctAnswer": "Großer Hund (Canis Major)",
+    "options": [
+      "Großer Hund (Canis Major)",
+      "Altar (Ara)",
+      "Phönix (Phoenix)",
+      "Oktant (Octans)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-walfisch_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-walfisch",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Cet\"?",
+    "correctAnswer": "Walfisch (Cetus)",
+    "options": [
+      "Walfisch (Cetus)",
+      "Taube (Columba)",
+      "Südliches Dreieck (Triangulum Australe)",
+      "Pfau (Pavo)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-eridanus_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-eridanus",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Eri\"?",
+    "correctAnswer": "Eridanus",
+    "options": [
+      "Eridanus",
+      "Maler (Pictor)",
+      "Kompass (Pyxis)",
+      "Perseus (Sternbild)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-wasserschlange_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-wasserschlange",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Hya\"?",
+    "correctAnswer": "Wasserschlange (Hydra)",
+    "options": [
+      "Wasserschlange (Hydra)",
+      "Mikroskop (Microscopium)",
+      "Ofen (Fornax)",
+      "Widder (Aries)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-zentaur_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-zentaur",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Cen\"?",
+    "correctAnswer": "Zentaur (Centaurus)",
+    "options": [
+      "Zentaur (Centaurus)",
+      "Ofen (Fornax)",
+      "Adler (Aquila)",
+      "Jagdhunde (Canes Venatici)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-wolf_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-wolf",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Lup\"?",
+    "correctAnswer": "Wolf (Lupus)",
+    "options": [
+      "Wolf (Lupus)",
+      "Pfau (Pavo)",
+      "Altar (Ara)",
+      "Fische (Pisces)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-schlangentraeger_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-schlangentraeger",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Oph\"?",
+    "correctAnswer": "Schlangenträger (Ophiuchus)",
+    "options": [
+      "Schlangenträger (Ophiuchus)",
+      "Altar (Ara)",
+      "Schwertfisch (Dorado)",
+      "Bärenhüter (Boötes)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-schlange_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-schlange",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Ser\"?",
+    "correctAnswer": "Schlange (Serpens)",
+    "options": [
+      "Schlange (Serpens)",
+      "Kleiner Bär (Ursa Minor)",
+      "Haar der Berenike (Coma Berenices)",
+      "Kepheus (Cepheus)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-grosser-wagen-pfeil_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-grosser-wagen-pfeil",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Sge\"?",
+    "correctAnswer": "Pfeil (Sagitta)",
+    "options": [
+      "Pfeil (Sagitta)",
+      "Fische (Pisces)",
+      "Achterdeck des Schiffs (Puppis)",
+      "Dreieck (Triangulum)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-delphin_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-delphin",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Del\"?",
+    "correctAnswer": "Delphin (Delphinus)",
+    "options": [
+      "Delphin (Delphinus)",
+      "Kiel des Schiffs (Carina)",
+      "Kleiner Hund (Canis Minor)",
+      "Widder (Aries)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-fuchs_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-fuchs",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Vul\"?",
+    "correctAnswer": "Fuchs (Vulpecula)",
+    "options": [
+      "Fuchs (Vulpecula)",
+      "Chamäleon (Chamaeleon)",
+      "Teleskop (Telescopium)",
+      "Schwertfisch (Dorado)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-pfeilschuetze-saule_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-pfeilschuetze-saule",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Cae\"?",
+    "correctAnswer": "Säule (Caelum)",
+    "options": [
+      "Säule (Caelum)",
+      "Waage (Libra)",
+      "Eidechse (Lacerta)",
+      "Großer Hund (Canis Major)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-luftpumpe_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-luftpumpe",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Ant\"?",
+    "correctAnswer": "Luftpumpe (Antlia)",
+    "options": [
+      "Luftpumpe (Antlia)",
+      "Wassermann (Aquarius)",
+      "Bärenhüter (Boötes)",
+      "Sextant (Sextans)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-pfau_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-pfau",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Pav\"?",
+    "correctAnswer": "Pfau (Pavo)",
+    "options": [
+      "Pfau (Pavo)",
+      "Hase (Lepus)",
+      "Pendeluhr (Horologium)",
+      "Teleskop (Telescopium)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-kranich_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-kranich",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Gru\"?",
+    "correctAnswer": "Kranich (Grus)",
+    "options": [
+      "Kranich (Grus)",
+      "Walfisch (Cetus)",
+      "Schütze (Sagittarius)",
+      "Skorpion (Scorpius)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-tukan_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-tukan",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Tuc\"?",
+    "correctAnswer": "Tukan (Tucana)",
+    "options": [
+      "Tukan (Tucana)",
+      "Adler (Aquila)",
+      "Luchs (Lynx)",
+      "Mikroskop (Microscopium)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-phoenix_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-phoenix",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Phe\"?",
+    "correctAnswer": "Phönix (Phoenix)",
+    "options": [
+      "Phönix (Phoenix)",
+      "Teleskop (Telescopium)",
+      "Südliche Krone (Corona Australis)",
+      "Kiel des Schiffs (Carina)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-altar_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-altar",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Ara\"?",
+    "correctAnswer": "Altar (Ara)",
+    "options": [
+      "Altar (Ara)",
+      "Ofen (Fornax)",
+      "Oktant (Octans)",
+      "Sextant (Sextans)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-suedliche-krone_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-suedliche-krone",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „CrA\"?",
+    "correctAnswer": "Südliche Krone (Corona Australis)",
+    "options": [
+      "Südliche Krone (Corona Australis)",
+      "Kreuz des Südens",
+      "Eridanus",
+      "Altar (Ara)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-suedlicher-fisch_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-suedlicher-fisch",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „PsA\"?",
+    "correctAnswer": "Südlicher Fisch (Piscis Austrinus)",
+    "options": [
+      "Südlicher Fisch (Piscis Austrinus)",
+      "Bärenhüter (Boötes)",
+      "Adler (Aquila)",
+      "Tukan (Tucana)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-segel_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-segel",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Vel\"?",
+    "correctAnswer": "Segel des Schiffs (Vela)",
+    "options": [
+      "Segel des Schiffs (Vela)",
+      "Steinbock (Capricornus)",
+      "Eidechse (Lacerta)",
+      "Südliche Krone (Corona Australis)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-kiel_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-kiel",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Car\"?",
+    "correctAnswer": "Kiel des Schiffs (Carina)",
+    "options": [
+      "Kiel des Schiffs (Carina)",
+      "Haar der Berenike (Coma Berenices)",
+      "Jagdhunde (Canes Venatici)",
+      "Pendeluhr (Horologium)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-achterdeck_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-achterdeck",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Pup\"?",
+    "correctAnswer": "Achterdeck des Schiffs (Puppis)",
+    "options": [
+      "Achterdeck des Schiffs (Puppis)",
+      "Herkules (Hercules)",
+      "Kepheus (Cepheus)",
+      "Ofen (Fornax)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-grosser-hund-taube_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-grosser-hund-taube",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Col\"?",
+    "correctAnswer": "Taube (Columba)",
+    "options": [
+      "Taube (Columba)",
+      "Widder (Aries)",
+      "Achterdeck des Schiffs (Puppis)",
+      "Schütze (Sagittarius)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-haar-der-berenike_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-haar-der-berenike",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Com\"?",
+    "correctAnswer": "Haar der Berenike (Coma Berenices)",
+    "options": [
+      "Haar der Berenike (Coma Berenices)",
+      "Eridanus",
+      "Achterdeck des Schiffs (Puppis)",
+      "Waage (Libra)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-jagdhunde_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-jagdhunde",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „CVn\"?",
+    "correctAnswer": "Jagdhunde (Canes Venatici)",
+    "options": [
+      "Jagdhunde (Canes Venatici)",
+      "Steinbock (Capricornus)",
+      "Fische (Pisces)",
+      "Waage (Libra)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-eidechse_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-eidechse",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Lac\"?",
+    "correctAnswer": "Eidechse (Lacerta)",
+    "options": [
+      "Eidechse (Lacerta)",
+      "Südliche Krone (Corona Australis)",
+      "Netz (Reticulum)",
+      "Jungfrau (Virgo)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-luchs_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-luchs",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Lyn\"?",
+    "correctAnswer": "Luchs (Lynx)",
+    "options": [
+      "Luchs (Lynx)",
+      "Luftpumpe (Antlia)",
+      "Orion (Sternbild)",
+      "Netz (Reticulum)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-einhorn_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-einhorn",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Mon\"?",
+    "correctAnswer": "Einhorn (Monoceros)",
+    "options": [
+      "Einhorn (Monoceros)",
+      "Fuhrmann (Auriga)",
+      "Schwertfisch (Dorado)",
+      "Kepheus (Cepheus)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-sextant_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-sextant",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Sex\"?",
+    "correctAnswer": "Sextant (Sextans)",
+    "options": [
+      "Sextant (Sextans)",
+      "Säule (Caelum)",
+      "Eidechse (Lacerta)",
+      "Stier (Taurus)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-becher_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-becher",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Crt\"?",
+    "correctAnswer": "Becher (Crater)",
+    "options": [
+      "Becher (Crater)",
+      "Chamäleon (Chamaeleon)",
+      "Kleiner Hund (Canis Minor)",
+      "Jungfrau (Virgo)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-rabe_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-rabe",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Crv\"?",
+    "correctAnswer": "Rabe (Corvus)",
+    "options": [
+      "Rabe (Corvus)",
+      "Walfisch (Cetus)",
+      "Altar (Ara)",
+      "Schwertfisch (Dorado)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-dreieck_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-dreieck",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Tri\"?",
+    "correctAnswer": "Dreieck (Triangulum)",
+    "options": [
+      "Dreieck (Triangulum)",
+      "Nördliche Krone (Corona Borealis)",
+      "Großer Bär (Ursa Major)",
+      "Pendeluhr (Horologium)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-schild_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-schild",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Sct\"?",
+    "correctAnswer": "Schild (Scutum)",
+    "options": [
+      "Schild (Scutum)",
+      "Oktant (Octans)",
+      "Dreieck (Triangulum)",
+      "Chamäleon (Chamaeleon)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-mikroskop_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-mikroskop",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Mic\"?",
+    "correctAnswer": "Mikroskop (Microscopium)",
+    "options": [
+      "Mikroskop (Microscopium)",
+      "Südlicher Fisch (Piscis Austrinus)",
+      "Walfisch (Cetus)",
+      "Sextant (Sextans)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-teleskop_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-teleskop",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Tel\"?",
+    "correctAnswer": "Teleskop (Telescopium)",
+    "options": [
+      "Teleskop (Telescopium)",
+      "Luchs (Lynx)",
+      "Hase (Lepus)",
+      "Netz (Reticulum)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-indianer_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-indianer",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Ind\"?",
+    "correctAnswer": "Indianer (Indus)",
+    "options": [
+      "Indianer (Indus)",
+      "Steinbock (Capricornus)",
+      "Jungfrau (Virgo)",
+      "Luchs (Lynx)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-kompass_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-kompass",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Pyx\"?",
+    "correctAnswer": "Kompass (Pyxis)",
+    "options": [
+      "Kompass (Pyxis)",
+      "Fuchs (Vulpecula)",
+      "Bärenhüter (Boötes)",
+      "Schlangenträger (Ophiuchus)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-suedliches-dreieck_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-suedliches-dreieck",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „TrA\"?",
+    "correctAnswer": "Südliches Dreieck (Triangulum Australe)",
+    "options": [
+      "Südliches Dreieck (Triangulum Australe)",
+      "Eridanus",
+      "Fuhrmann (Auriga)",
+      "Kreuz des Südens"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-fliege_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-fliege",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Mus\"?",
+    "correctAnswer": "Fliege (Musca)",
+    "options": [
+      "Fliege (Musca)",
+      "Andromeda (Sternbild)",
+      "Herkules (Hercules)",
+      "Südlicher Fisch (Piscis Austrinus)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-chamaeleon_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-chamaeleon",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Cha\"?",
+    "correctAnswer": "Chamäleon (Chamaeleon)",
+    "options": [
+      "Chamäleon (Chamaeleon)",
+      "Schwan (Cygnus)",
+      "Delphin (Delphinus)",
+      "Teleskop (Telescopium)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-oktant_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-oktant",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Oct\"?",
+    "correctAnswer": "Oktant (Octans)",
+    "options": [
+      "Oktant (Octans)",
+      "Becher (Crater)",
+      "Leier (Lyra)",
+      "Pendeluhr (Horologium)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-fliegender-fisch_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-fliegender-fisch",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Vol\"?",
+    "correctAnswer": "Fliegender Fisch (Volans)",
+    "options": [
+      "Fliegender Fisch (Volans)",
+      "Rabe (Corvus)",
+      "Großer Bär (Ursa Major)",
+      "Herkules (Hercules)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-pendeluhr_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-pendeluhr",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Hor\"?",
+    "correctAnswer": "Pendeluhr (Horologium)",
+    "options": [
+      "Pendeluhr (Horologium)",
+      "Zentaur (Centaurus)",
+      "Südliche Krone (Corona Australis)",
+      "Schwertfisch (Dorado)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-netz_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-netz",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Ret\"?",
+    "correctAnswer": "Netz (Reticulum)",
+    "options": [
+      "Netz (Reticulum)",
+      "Fuchs (Vulpecula)",
+      "Delphin (Delphinus)",
+      "Steinbock (Capricornus)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-maler_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-maler",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Pic\"?",
+    "correctAnswer": "Maler (Pictor)",
+    "options": [
+      "Maler (Pictor)",
+      "Kepheus (Cepheus)",
+      "Herkules (Hercules)",
+      "Adler (Aquila)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-bildhauer_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-bildhauer",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Scl\"?",
+    "correctAnswer": "Bildhauer (Sculptor)",
+    "options": [
+      "Bildhauer (Sculptor)",
+      "Bärenhüter (Boötes)",
+      "Schütze (Sagittarius)",
+      "Nördliche Krone (Corona Borealis)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-ofen_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-ofen",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „For\"?",
+    "correctAnswer": "Ofen (Fornax)",
+    "options": [
+      "Ofen (Fornax)",
+      "Kleiner Hund (Canis Minor)",
+      "Großer Hund (Canis Major)",
+      "Becher (Crater)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-meissel_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-meissel",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Lep\"?",
+    "correctAnswer": "Hase (Lepus)",
+    "options": [
+      "Hase (Lepus)",
+      "Großer Hund (Canis Major)",
+      "Pendeluhr (Horologium)",
+      "Schwan (Cygnus)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-schwertfisch_astra-const-abbr-rev",
+    "entityId": "astra:sternbild-schwertfisch",
+    "entityType": "constellation",
+    "type": "astra-const-abbr-rev",
+    "difficulty": 3,
+    "prompt": "Für welches Sternbild steht die offizielle IAU-Abkürzung „Dor\"?",
+    "correctAnswer": "Schwertfisch (Dorado)",
+    "options": [
+      "Schwertfisch (Dorado)",
+      "Teleskop (Telescopium)",
+      "Wasserschlange (Hydra)",
+      "Großer Bär (Ursa Major)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
     "silhouetteSvgPath": null,
     "mapTargetId": null
   }

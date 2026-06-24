@@ -1180,6 +1180,106 @@
     "mapTargetId": null
   },
   {
+    "id": "q_homo_phalanx_proximalis_manus_homo-bone-region",
+    "entityId": "homo:phalanx_proximalis_manus",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt der Knochen mit dem lateinischen Namen „Phalanx proximalis manus\"?",
+    "correctAnswer": "Arm",
+    "options": [
+      "Arm",
+      "Bein",
+      "Kopf",
+      "Rumpf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_phalanx_media_manus_homo-bone-region",
+    "entityId": "homo:phalanx_media_manus",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt der Knochen mit dem lateinischen Namen „Phalanx media manus\"?",
+    "correctAnswer": "Arm",
+    "options": [
+      "Arm",
+      "Bein",
+      "Kopf",
+      "Rumpf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_phalanx_distalis_manus_homo-bone-region",
+    "entityId": "homo:phalanx_distalis_manus",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt der Knochen mit dem lateinischen Namen „Phalanx distalis manus\"?",
+    "correctAnswer": "Arm",
+    "options": [
+      "Arm",
+      "Bein",
+      "Kopf",
+      "Rumpf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_metacarpale_1_homo-bone-region",
+    "entityId": "homo:os_metacarpale_1",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 1,
+    "prompt": "In welcher Körperregion liegt der Knochen „Erster Mittelhandknochen (Os metacarpale I)\"?",
+    "correctAnswer": "Arm",
+    "options": [
+      "Arm",
+      "Bein",
+      "Kopf",
+      "Rumpf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_os_metatarsale_5_homo-bone-region",
+    "entityId": "homo:os_metatarsale_5",
+    "entityType": "bone",
+    "type": "homo-bone-region",
+    "difficulty": 1,
+    "prompt": "In welcher Körperregion liegt der Knochen „Fünfter Mittelfußknochen (Os metatarsale V)\"?",
+    "correctAnswer": "Bein",
+    "options": [
+      "Bein",
+      "Arm",
+      "Kopf",
+      "Rumpf"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_homo_femur_homo-bone-latin",
     "entityId": "homo:femur",
     "entityType": "bone",
@@ -2840,6 +2940,366 @@
     "mapTargetId": null
   },
   {
+    "id": "q_homo_brachialis_homo-muscle-location",
+    "entityId": "homo:brachialis",
+    "entityType": "muscle",
+    "type": "homo-muscle-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt der Muskel „Armbeuger (Musculus brachialis)\"?",
+    "correctAnswer": "Oberarm (Vorderseite, unter dem Bizeps)",
+    "options": [
+      "Oberarm (Vorderseite, unter dem Bizeps)",
+      "Gesäß / Hüfte",
+      "Kiefer / Wange",
+      "Mittelohr"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_brachioradialis_homo-muscle-location",
+    "entityId": "homo:brachioradialis",
+    "entityType": "muscle",
+    "type": "homo-muscle-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt der Muskel „Oberarmspeichenmuskel (Musculus brachioradialis)\"?",
+    "correctAnswer": "Unterarm (Daumenseite)",
+    "options": [
+      "Unterarm (Daumenseite)",
+      "Gesäß / Hüfte",
+      "Kiefer / Wange",
+      "Mittelohr"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_buccinator_homo-muscle-location",
+    "entityId": "homo:buccinator",
+    "entityType": "muscle",
+    "type": "homo-muscle-location",
+    "difficulty": 3,
+    "prompt": "Wo liegt der Muskel mit dem anatomischen Fachbegriff „Musculus buccinator\"?",
+    "correctAnswer": "Wange",
+    "options": [
+      "Wange",
+      "Gesäß / Hüfte",
+      "Kiefer / Wange",
+      "Mittelohr"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_zygomaticus_major_homo-muscle-location",
+    "entityId": "homo:zygomaticus_major",
+    "entityType": "muscle",
+    "type": "homo-muscle-location",
+    "difficulty": 3,
+    "prompt": "Wo liegt der Muskel mit dem anatomischen Fachbegriff „Musculus zygomaticus major\"?",
+    "correctAnswer": "Wange / Gesicht",
+    "options": [
+      "Wange / Gesicht",
+      "Gesäß / Hüfte",
+      "Kiefer / Wange",
+      "Mittelohr"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_frontalis_homo-muscle-location",
+    "entityId": "homo:frontalis",
+    "entityType": "muscle",
+    "type": "homo-muscle-location",
+    "difficulty": 3,
+    "prompt": "Wo liegt der Muskel mit dem anatomischen Fachbegriff „Venter frontalis des Musculus occipitofrontalis\"?",
+    "correctAnswer": "Stirn",
+    "options": [
+      "Stirn",
+      "Gesäß / Hüfte",
+      "Kiefer / Wange",
+      "Mittelohr"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_serratus_anterior_homo-muscle-location",
+    "entityId": "homo:serratus_anterior",
+    "entityType": "muscle",
+    "type": "homo-muscle-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt der Muskel „Vorderer Sägemuskel (Musculus serratus anterior)\"?",
+    "correctAnswer": "Seitliche Brustwand",
+    "options": [
+      "Seitliche Brustwand",
+      "Gesäß / Hüfte",
+      "Kiefer / Wange",
+      "Mittelohr"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_gracilis_homo-muscle-location",
+    "entityId": "homo:gracilis",
+    "entityType": "muscle",
+    "type": "homo-muscle-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt der Muskel „Schlanker Muskel (Musculus gracilis)\"?",
+    "correctAnswer": "Oberschenkel (Innenseite)",
+    "options": [
+      "Oberschenkel (Innenseite)",
+      "Gesäß / Hüfte",
+      "Kiefer / Wange",
+      "Mittelohr"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_semimembranosus_homo-muscle-location",
+    "entityId": "homo:semimembranosus",
+    "entityType": "muscle",
+    "type": "homo-muscle-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt der Muskel „Plattsehniger Muskel (Musculus semimembranosus)\"?",
+    "correctAnswer": "Oberschenkel (Rückseite)",
+    "options": [
+      "Oberschenkel (Rückseite)",
+      "Gesäß / Hüfte",
+      "Kiefer / Wange",
+      "Mittelohr"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_fibularis_longus_homo-muscle-location",
+    "entityId": "homo:fibularis_longus",
+    "entityType": "muscle",
+    "type": "homo-muscle-location",
+    "difficulty": 3,
+    "prompt": "Wo liegt der Muskel mit dem anatomischen Fachbegriff „Musculus fibularis longus\"?",
+    "correctAnswer": "Unterschenkel (Außenseite)",
+    "options": [
+      "Unterschenkel (Außenseite)",
+      "Gesäß / Hüfte",
+      "Kiefer / Wange",
+      "Mittelohr"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_rhomboideus_major_homo-muscle-location",
+    "entityId": "homo:rhomboideus_major",
+    "entityType": "muscle",
+    "type": "homo-muscle-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt der Muskel „Großer Rautenmuskel (Musculus rhomboideus major)\"?",
+    "correctAnswer": "Oberer Rücken (zwischen Wirbelsäule und Schulterblatt)",
+    "options": [
+      "Oberer Rücken (zwischen Wirbelsäule und Schulterblatt)",
+      "Gesäß / Hüfte",
+      "Kiefer / Wange",
+      "Mittelohr"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_levator_scapulae_homo-muscle-location",
+    "entityId": "homo:levator_scapulae",
+    "entityType": "muscle",
+    "type": "homo-muscle-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt der Muskel „Schulterblattheber (Musculus levator scapulae)\"?",
+    "correctAnswer": "Seitlicher Hals / Nacken",
+    "options": [
+      "Seitlicher Hals / Nacken",
+      "Gesäß / Hüfte",
+      "Kiefer / Wange",
+      "Mittelohr"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_coracobrachialis_homo-muscle-location",
+    "entityId": "homo:coracobrachialis",
+    "entityType": "muscle",
+    "type": "homo-muscle-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt der Muskel „Hakenarmmuskel (Musculus coracobrachialis)\"?",
+    "correctAnswer": "Oberarm (Innenseite oben)",
+    "options": [
+      "Oberarm (Innenseite oben)",
+      "Gesäß / Hüfte",
+      "Kiefer / Wange",
+      "Mittelohr"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_extensor_carpi_radialis_longus_homo-muscle-location",
+    "entityId": "homo:extensor_carpi_radialis_longus",
+    "entityType": "muscle",
+    "type": "homo-muscle-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt der Muskel „Langer speichenseitiger Handstrecker (Musculus extensor carpi radialis longus)\"?",
+    "correctAnswer": "Unterarm (Streckseite, Daumenseite)",
+    "options": [
+      "Unterarm (Streckseite, Daumenseite)",
+      "Gesäß / Hüfte",
+      "Kiefer / Wange",
+      "Mittelohr"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_flexor_carpi_radialis_homo-muscle-location",
+    "entityId": "homo:flexor_carpi_radialis",
+    "entityType": "muscle",
+    "type": "homo-muscle-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt der Muskel „Speichenseitiger Handbeuger (Musculus flexor carpi radialis)\"?",
+    "correctAnswer": "Unterarm (Beugeseite, Daumenseite)",
+    "options": [
+      "Unterarm (Beugeseite, Daumenseite)",
+      "Gesäß / Hüfte",
+      "Kiefer / Wange",
+      "Mittelohr"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_scalenus_anterior_homo-muscle-location",
+    "entityId": "homo:scalenus_anterior",
+    "entityType": "muscle",
+    "type": "homo-muscle-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt der Muskel „Vorderer Treppenmuskel (Musculus scalenus anterior)\"?",
+    "correctAnswer": "Seitlicher Hals",
+    "options": [
+      "Seitlicher Hals",
+      "Gesäß / Hüfte",
+      "Kiefer / Wange",
+      "Mittelohr"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_popliteus_homo-muscle-location",
+    "entityId": "homo:popliteus",
+    "entityType": "muscle",
+    "type": "homo-muscle-location",
+    "difficulty": 3,
+    "prompt": "Wo liegt der Muskel mit dem anatomischen Fachbegriff „Musculus popliteus\"?",
+    "correctAnswer": "Kniekehle",
+    "options": [
+      "Kniekehle",
+      "Gesäß / Hüfte",
+      "Kiefer / Wange",
+      "Mittelohr"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_pterygoideus_lateralis_homo-muscle-location",
+    "entityId": "homo:pterygoideus_lateralis",
+    "entityType": "muscle",
+    "type": "homo-muscle-location",
+    "difficulty": 2,
+    "prompt": "In welcher Körperregion liegt der Muskel „Äußerer Flügelmuskel (Musculus pterygoideus lateralis)\"?",
+    "correctAnswer": "Tiefe Wangen-/Kieferregion",
+    "options": [
+      "Tiefe Wangen-/Kieferregion",
+      "Gesäß / Hüfte",
+      "Kiefer / Wange",
+      "Mittelohr"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_mylohyoideus_homo-muscle-location",
+    "entityId": "homo:mylohyoideus",
+    "entityType": "muscle",
+    "type": "homo-muscle-location",
+    "difficulty": 3,
+    "prompt": "Wo liegt der Muskel mit dem anatomischen Fachbegriff „Musculus mylohyoideus\"?",
+    "correctAnswer": "Mundboden",
+    "options": [
+      "Mundboden",
+      "Gesäß / Hüfte",
+      "Kiefer / Wange",
+      "Mittelohr"
+    ],
+    "testedAttribute": "location",
+    "answerIsName": false,
+    "hideConceptIdentity": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_homo_leber_homo-organ-system",
     "entityId": "homo:leber",
     "entityType": "organ",
@@ -3740,6 +4200,226 @@
     "mapTargetId": null
   },
   {
+    "id": "q_homo_glandula_submandibularis_homo-organ-system",
+    "entityId": "homo:glandula_submandibularis",
+    "entityType": "organ",
+    "type": "homo-organ-system",
+    "difficulty": 2,
+    "prompt": "Zu welchem Organsystem gehört „Unterkieferspeicheldrüse (Glandula submandibularis)\" hauptsächlich?",
+    "correctAnswer": "Verdauung",
+    "options": [
+      "Verdauung",
+      "Herz-Kreislauf",
+      "Atmung",
+      "Nervensystem"
+    ],
+    "testedAttribute": "system",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_glandula_sublingualis_homo-organ-system",
+    "entityId": "homo:glandula_sublingualis",
+    "entityType": "organ",
+    "type": "homo-organ-system",
+    "difficulty": 2,
+    "prompt": "Zu welchem Organsystem gehört „Unterzungenspeicheldrüse (Glandula sublingualis)\" hauptsächlich?",
+    "correctAnswer": "Verdauung",
+    "options": [
+      "Verdauung",
+      "Herz-Kreislauf",
+      "Atmung",
+      "Nervensystem"
+    ],
+    "testedAttribute": "system",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_augenlinse_homo-organ-system",
+    "entityId": "homo:augenlinse",
+    "entityType": "organ",
+    "type": "homo-organ-system",
+    "difficulty": 2,
+    "prompt": "Zu welchem Organsystem gehört „Augenlinse (Lens)\" hauptsächlich?",
+    "correctAnswer": "Sinnesorgan",
+    "options": [
+      "Sinnesorgan",
+      "Herz-Kreislauf",
+      "Verdauung",
+      "Atmung"
+    ],
+    "testedAttribute": "system",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_iris_homo-organ-system",
+    "entityId": "homo:iris",
+    "entityType": "organ",
+    "type": "homo-organ-system",
+    "difficulty": 2,
+    "prompt": "Zu welchem Organsystem gehört „Regenbogenhaut (Iris)\" hauptsächlich?",
+    "correctAnswer": "Sinnesorgan",
+    "options": [
+      "Sinnesorgan",
+      "Herz-Kreislauf",
+      "Verdauung",
+      "Atmung"
+    ],
+    "testedAttribute": "system",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_cornea_homo-organ-system",
+    "entityId": "homo:cornea",
+    "entityType": "organ",
+    "type": "homo-organ-system",
+    "difficulty": 2,
+    "prompt": "Zu welchem Organsystem gehört „Hornhaut (Cornea)\" hauptsächlich?",
+    "correctAnswer": "Sinnesorgan",
+    "options": [
+      "Sinnesorgan",
+      "Herz-Kreislauf",
+      "Verdauung",
+      "Atmung"
+    ],
+    "testedAttribute": "system",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_trommelfell_homo-organ-system",
+    "entityId": "homo:trommelfell",
+    "entityType": "organ",
+    "type": "homo-organ-system",
+    "difficulty": 2,
+    "prompt": "Zu welchem Organsystem gehört „Trommelfell (Membrana tympani)\" hauptsächlich?",
+    "correctAnswer": "Sinnesorgan",
+    "options": [
+      "Sinnesorgan",
+      "Herz-Kreislauf",
+      "Verdauung",
+      "Atmung"
+    ],
+    "testedAttribute": "system",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_cochlea_homo-organ-system",
+    "entityId": "homo:cochlea",
+    "entityType": "organ",
+    "type": "homo-organ-system",
+    "difficulty": 2,
+    "prompt": "Zu welchem Organsystem gehört „Hörschnecke (Cochlea)\" hauptsächlich?",
+    "correctAnswer": "Sinnesorgan",
+    "options": [
+      "Sinnesorgan",
+      "Herz-Kreislauf",
+      "Verdauung",
+      "Atmung"
+    ],
+    "testedAttribute": "system",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_nebenschilddruese_homo-organ-system",
+    "entityId": "homo:nebenschilddruese",
+    "entityType": "organ",
+    "type": "homo-organ-system",
+    "difficulty": 2,
+    "prompt": "Zu welchem Organsystem gehört „Nebenschilddrüse (Glandula parathyroidea)\" hauptsächlich?",
+    "correctAnswer": "Hormonsystem",
+    "options": [
+      "Hormonsystem",
+      "Herz-Kreislauf",
+      "Verdauung",
+      "Atmung"
+    ],
+    "testedAttribute": "system",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_mesencephalon_homo-organ-system",
+    "entityId": "homo:mesencephalon",
+    "entityType": "organ",
+    "type": "homo-organ-system",
+    "difficulty": 2,
+    "prompt": "Zu welchem Organsystem gehört „Mittelhirn (Mesencephalon)\" hauptsächlich?",
+    "correctAnswer": "Nervensystem",
+    "options": [
+      "Nervensystem",
+      "Herz-Kreislauf",
+      "Verdauung",
+      "Atmung"
+    ],
+    "testedAttribute": "system",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_thalamus_homo-organ-system",
+    "entityId": "homo:thalamus",
+    "entityType": "organ",
+    "type": "homo-organ-system",
+    "difficulty": 2,
+    "prompt": "Zu welchem Organsystem gehört „Thalamus (Sehhügel)\" hauptsächlich?",
+    "correctAnswer": "Nervensystem",
+    "options": [
+      "Nervensystem",
+      "Herz-Kreislauf",
+      "Verdauung",
+      "Atmung"
+    ],
+    "testedAttribute": "system",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_hypothalamus_homo-organ-system",
+    "entityId": "homo:hypothalamus",
+    "entityType": "organ",
+    "type": "homo-organ-system",
+    "difficulty": 2,
+    "prompt": "Zu welchem Organsystem gehört „Hypothalamus\" hauptsächlich?",
+    "correctAnswer": "Nervensystem",
+    "options": [
+      "Nervensystem",
+      "Herz-Kreislauf",
+      "Verdauung",
+      "Atmung"
+    ],
+    "testedAttribute": "system",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_homo_herz_homo-organ-weight",
     "entityId": "homo:herz",
     "entityType": "organ",
@@ -4429,6 +5109,226 @@
     "correctAnswer": "150 g",
     "options": [
       "150 g",
+      "300 g",
+      "1.500 g",
+      "1.000 g"
+    ],
+    "testedAttribute": "approxWeightGrams",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_glandula_submandibularis_homo-organ-weight",
+    "entityId": "homo:glandula_submandibularis",
+    "entityType": "organ",
+    "type": "homo-organ-weight",
+    "difficulty": 3,
+    "prompt": "Welches ungefähre Gewicht hat „Unterkieferspeicheldrüse (Glandula submandibularis)\" beim Erwachsenen?",
+    "correctAnswer": "10 g",
+    "options": [
+      "10 g",
+      "300 g",
+      "1.500 g",
+      "1.000 g"
+    ],
+    "testedAttribute": "approxWeightGrams",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_glandula_sublingualis_homo-organ-weight",
+    "entityId": "homo:glandula_sublingualis",
+    "entityType": "organ",
+    "type": "homo-organ-weight",
+    "difficulty": 3,
+    "prompt": "Welches ungefähre Gewicht hat „Unterzungenspeicheldrüse (Glandula sublingualis)\" beim Erwachsenen?",
+    "correctAnswer": "3 g",
+    "options": [
+      "3 g",
+      "300 g",
+      "1.500 g",
+      "1.000 g"
+    ],
+    "testedAttribute": "approxWeightGrams",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_augenlinse_homo-organ-weight",
+    "entityId": "homo:augenlinse",
+    "entityType": "organ",
+    "type": "homo-organ-weight",
+    "difficulty": 3,
+    "prompt": "Welches ungefähre Gewicht hat „Augenlinse (Lens)\" beim Erwachsenen?",
+    "correctAnswer": "0,2 g",
+    "options": [
+      "0,2 g",
+      "300 g",
+      "1.500 g",
+      "1.000 g"
+    ],
+    "testedAttribute": "approxWeightGrams",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_iris_homo-organ-weight",
+    "entityId": "homo:iris",
+    "entityType": "organ",
+    "type": "homo-organ-weight",
+    "difficulty": 3,
+    "prompt": "Welches ungefähre Gewicht hat „Regenbogenhaut (Iris)\" beim Erwachsenen?",
+    "correctAnswer": "0,1 g",
+    "options": [
+      "0,1 g",
+      "300 g",
+      "1.500 g",
+      "1.000 g"
+    ],
+    "testedAttribute": "approxWeightGrams",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_cornea_homo-organ-weight",
+    "entityId": "homo:cornea",
+    "entityType": "organ",
+    "type": "homo-organ-weight",
+    "difficulty": 3,
+    "prompt": "Welches ungefähre Gewicht hat „Hornhaut (Cornea)\" beim Erwachsenen?",
+    "correctAnswer": "0,1 g",
+    "options": [
+      "0,1 g",
+      "300 g",
+      "1.500 g",
+      "1.000 g"
+    ],
+    "testedAttribute": "approxWeightGrams",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_trommelfell_homo-organ-weight",
+    "entityId": "homo:trommelfell",
+    "entityType": "organ",
+    "type": "homo-organ-weight",
+    "difficulty": 3,
+    "prompt": "Welches ungefähre Gewicht hat „Trommelfell (Membrana tympani)\" beim Erwachsenen?",
+    "correctAnswer": "0,01 g",
+    "options": [
+      "0,01 g",
+      "300 g",
+      "1.500 g",
+      "1.000 g"
+    ],
+    "testedAttribute": "approxWeightGrams",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_cochlea_homo-organ-weight",
+    "entityId": "homo:cochlea",
+    "entityType": "organ",
+    "type": "homo-organ-weight",
+    "difficulty": 3,
+    "prompt": "Welches ungefähre Gewicht hat „Hörschnecke (Cochlea)\" beim Erwachsenen?",
+    "correctAnswer": "0,1 g",
+    "options": [
+      "0,1 g",
+      "300 g",
+      "1.500 g",
+      "1.000 g"
+    ],
+    "testedAttribute": "approxWeightGrams",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_nebenschilddruese_homo-organ-weight",
+    "entityId": "homo:nebenschilddruese",
+    "entityType": "organ",
+    "type": "homo-organ-weight",
+    "difficulty": 3,
+    "prompt": "Welches ungefähre Gewicht hat „Nebenschilddrüse (Glandula parathyroidea)\" beim Erwachsenen?",
+    "correctAnswer": "0,04 g",
+    "options": [
+      "0,04 g",
+      "300 g",
+      "1.500 g",
+      "1.000 g"
+    ],
+    "testedAttribute": "approxWeightGrams",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_mesencephalon_homo-organ-weight",
+    "entityId": "homo:mesencephalon",
+    "entityType": "organ",
+    "type": "homo-organ-weight",
+    "difficulty": 3,
+    "prompt": "Welches ungefähre Gewicht hat „Mittelhirn (Mesencephalon)\" beim Erwachsenen?",
+    "correctAnswer": "10 g",
+    "options": [
+      "10 g",
+      "300 g",
+      "1.500 g",
+      "1.000 g"
+    ],
+    "testedAttribute": "approxWeightGrams",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_thalamus_homo-organ-weight",
+    "entityId": "homo:thalamus",
+    "entityType": "organ",
+    "type": "homo-organ-weight",
+    "difficulty": 3,
+    "prompt": "Welches ungefähre Gewicht hat „Thalamus (Sehhügel)\" beim Erwachsenen?",
+    "correctAnswer": "6 g",
+    "options": [
+      "6 g",
+      "300 g",
+      "1.500 g",
+      "1.000 g"
+    ],
+    "testedAttribute": "approxWeightGrams",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_hypothalamus_homo-organ-weight",
+    "entityId": "homo:hypothalamus",
+    "entityType": "organ",
+    "type": "homo-organ-weight",
+    "difficulty": 3,
+    "prompt": "Welches ungefähre Gewicht hat „Hypothalamus\" beim Erwachsenen?",
+    "correctAnswer": "4 g",
+    "options": [
+      "4 g",
       "300 g",
       "1.500 g",
       "1.000 g"
@@ -5379,6 +6279,146 @@
     "mapTargetId": null
   },
   {
+    "id": "q_homo_anzahl_zellen_koerper_homo-bodyfact-value",
+    "entityId": "homo:anzahl_zellen_koerper",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-value",
+    "difficulty": 2,
+    "prompt": "Welche Angabe gehört zu: „Anzahl Zellen im menschlichen Körper\"?",
+    "correctAnswer": "ca. 37 Billionen Zellen",
+    "options": [
+      "ca. 37 Billionen Zellen",
+      "ca. 19 Zellen",
+      "ca. 26 Zellen",
+      "ca. 31 Zellen"
+    ],
+    "testedAttribute": "value",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_hoerbereich_frequenz_homo-bodyfact-value",
+    "entityId": "homo:hoerbereich_frequenz",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-value",
+    "difficulty": 2,
+    "prompt": "Welche Angabe gehört zu: „Hörbereich des menschlichen Ohrs\"?",
+    "correctAnswer": "20 bis 20000 Hertz",
+    "options": [
+      "20 bis 20000 Hertz",
+      "10 Hertz",
+      "14 Hertz",
+      "17 Hertz"
+    ],
+    "testedAttribute": "value",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_dna_laenge_zelle_homo-bodyfact-value",
+    "entityId": "homo:dna_laenge_zelle",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-value",
+    "difficulty": 2,
+    "prompt": "Welche Angabe gehört zu: „Länge der DNA in einer Zelle\"?",
+    "correctAnswer": "ca. 2 Meter",
+    "options": [
+      "ca. 2 Meter",
+      "ca. 1 Meter",
+      "ca. 3 Meter",
+      "ca. 4 Meter"
+    ],
+    "testedAttribute": "value",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_anzahl_gene_homo-bodyfact-value",
+    "entityId": "homo:anzahl_gene",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-value",
+    "difficulty": 2,
+    "prompt": "Welche Angabe gehört zu: „Anzahl der menschlichen Gene\"?",
+    "correctAnswer": "ca. 20.000 proteincodierende Gene",
+    "options": [
+      "ca. 20.000 proteincodierende Gene",
+      "ca. 10.000 proteincodierende Gene",
+      "ca. 14.000 proteincodierende Gene",
+      "ca. 17.000 proteincodierende Gene"
+    ],
+    "testedAttribute": "value",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_blutdruck_diastolisch_homo-bodyfact-value",
+    "entityId": "homo:blutdruck_diastolisch",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-value",
+    "difficulty": 2,
+    "prompt": "Welche Angabe gehört zu: „Blutdruck diastolisch (Normwert)\"?",
+    "correctAnswer": "unter 80 mmHg",
+    "options": [
+      "unter 80 mmHg",
+      "40 mmHg",
+      "56 mmHg",
+      "68 mmHg"
+    ],
+    "testedAttribute": "value",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_lebensdauer_geschmacksknospen_homo-bodyfact-value",
+    "entityId": "homo:lebensdauer_geschmacksknospen",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-value",
+    "difficulty": 2,
+    "prompt": "Welche Angabe gehört zu: „Lebensdauer der Geschmacksknospen\"?",
+    "correctAnswer": "ca. 10 bis 14 Tage",
+    "options": [
+      "ca. 10 bis 14 Tage",
+      "ca. 5 Tage",
+      "ca. 7 Tage",
+      "ca. 9 Tage"
+    ],
+    "testedAttribute": "value",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_lungenkapazitaet_total_homo-bodyfact-value",
+    "entityId": "homo:lungenkapazitaet_total",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-value",
+    "difficulty": 2,
+    "prompt": "Welche Angabe gehört zu: „Totale Lungenkapazität\"?",
+    "correctAnswer": "ca. 6 Liter",
+    "options": [
+      "ca. 6 Liter",
+      "ca. 3 Liter",
+      "ca. 4 Liter",
+      "ca. 5 Liter"
+    ],
+    "testedAttribute": "value",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_homo_homo_sapiens_homo-species-epoch",
     "entityId": "homo:homo_sapiens",
     "entityType": "species",
@@ -5588,6 +6628,186 @@
     "correctAnswer": "Spätes Pliozän bis frühes Pleistozän, ca. 3,3 bis 2,1 Millionen Jahre vor heute",
     "options": [
       "Spätes Pliozän bis frühes Pleistozän, ca. 3,3 bis 2,1 Millionen Jahre vor heute",
+      "seit ca. 300.000 Jahren",
+      "ca. 400.000 bis 40.000 Jahre vor heute",
+      "ca. 1,9 Millionen bis 110.000 Jahre vor heute"
+    ],
+    "testedAttribute": "epoch",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_homo_rudolfensis_homo-species-epoch",
+    "entityId": "homo:homo_rudolfensis",
+    "entityType": "species",
+    "type": "homo-species-epoch",
+    "difficulty": 3,
+    "prompt": "In welchen Zeitraum fällt „Homo rudolfensis\"?",
+    "correctAnswer": "ca. 2,5 bis 1,8 Millionen Jahre vor heute",
+    "options": [
+      "ca. 2,5 bis 1,8 Millionen Jahre vor heute",
+      "seit ca. 300.000 Jahren",
+      "ca. 400.000 bis 40.000 Jahre vor heute",
+      "ca. 1,9 Millionen bis 110.000 Jahre vor heute"
+    ],
+    "testedAttribute": "epoch",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_homo_ergaster_homo-species-epoch",
+    "entityId": "homo:homo_ergaster",
+    "entityType": "species",
+    "type": "homo-species-epoch",
+    "difficulty": 3,
+    "prompt": "In welchen Zeitraum fällt „Homo ergaster\"?",
+    "correctAnswer": "ca. 1,9 bis 1,4 Millionen Jahre vor heute",
+    "options": [
+      "ca. 1,9 bis 1,4 Millionen Jahre vor heute",
+      "seit ca. 300.000 Jahren",
+      "ca. 400.000 bis 40.000 Jahre vor heute",
+      "ca. 1,9 Millionen bis 110.000 Jahre vor heute"
+    ],
+    "testedAttribute": "epoch",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_homo_antecessor_homo-species-epoch",
+    "entityId": "homo:homo_antecessor",
+    "entityType": "species",
+    "type": "homo-species-epoch",
+    "difficulty": 3,
+    "prompt": "In welchen Zeitraum fällt „Homo antecessor\"?",
+    "correctAnswer": "ca. 1,2 Millionen bis 800.000 Jahre vor heute",
+    "options": [
+      "ca. 1,2 Millionen bis 800.000 Jahre vor heute",
+      "seit ca. 300.000 Jahren",
+      "ca. 400.000 bis 40.000 Jahre vor heute",
+      "ca. 1,9 Millionen bis 110.000 Jahre vor heute"
+    ],
+    "testedAttribute": "epoch",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_paranthropus_robustus_homo-species-epoch",
+    "entityId": "homo:paranthropus_robustus",
+    "entityType": "species",
+    "type": "homo-species-epoch",
+    "difficulty": 3,
+    "prompt": "In welchen Zeitraum fällt „Paranthropus robustus\"?",
+    "correctAnswer": "ca. 2,0 bis 1,2 Millionen Jahre vor heute",
+    "options": [
+      "ca. 2,0 bis 1,2 Millionen Jahre vor heute",
+      "seit ca. 300.000 Jahren",
+      "ca. 400.000 bis 40.000 Jahre vor heute",
+      "ca. 1,9 Millionen bis 110.000 Jahre vor heute"
+    ],
+    "testedAttribute": "epoch",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_paranthropus_aethiopicus_homo-species-epoch",
+    "entityId": "homo:paranthropus_aethiopicus",
+    "entityType": "species",
+    "type": "homo-species-epoch",
+    "difficulty": 3,
+    "prompt": "In welchen Zeitraum fällt „Paranthropus aethiopicus\"?",
+    "correctAnswer": "ca. 2,7 bis 2,3 Millionen Jahre vor heute",
+    "options": [
+      "ca. 2,7 bis 2,3 Millionen Jahre vor heute",
+      "seit ca. 300.000 Jahren",
+      "ca. 400.000 bis 40.000 Jahre vor heute",
+      "ca. 1,9 Millionen bis 110.000 Jahre vor heute"
+    ],
+    "testedAttribute": "epoch",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_australopithecus_sediba_homo-species-epoch",
+    "entityId": "homo:australopithecus_sediba",
+    "entityType": "species",
+    "type": "homo-species-epoch",
+    "difficulty": 3,
+    "prompt": "In welchen Zeitraum fällt „Australopithecus sediba\"?",
+    "correctAnswer": "ca. 1,98 Millionen Jahre vor heute",
+    "options": [
+      "ca. 1,98 Millionen Jahre vor heute",
+      "seit ca. 300.000 Jahren",
+      "ca. 400.000 bis 40.000 Jahre vor heute",
+      "ca. 1,9 Millionen bis 110.000 Jahre vor heute"
+    ],
+    "testedAttribute": "epoch",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_australopithecus_anamensis_homo-species-epoch",
+    "entityId": "homo:australopithecus_anamensis",
+    "entityType": "species",
+    "type": "homo-species-epoch",
+    "difficulty": 3,
+    "prompt": "In welchen Zeitraum fällt „Australopithecus anamensis\"?",
+    "correctAnswer": "ca. 4,2 bis 3,8 Millionen Jahre vor heute",
+    "options": [
+      "ca. 4,2 bis 3,8 Millionen Jahre vor heute",
+      "seit ca. 300.000 Jahren",
+      "ca. 400.000 bis 40.000 Jahre vor heute",
+      "ca. 1,9 Millionen bis 110.000 Jahre vor heute"
+    ],
+    "testedAttribute": "epoch",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_ardipithecus_ramidus_homo-species-epoch",
+    "entityId": "homo:ardipithecus_ramidus",
+    "entityType": "species",
+    "type": "homo-species-epoch",
+    "difficulty": 3,
+    "prompt": "In welchen Zeitraum fällt „Ardipithecus ramidus\"?",
+    "correctAnswer": "ca. 4,4 Millionen Jahre vor heute",
+    "options": [
+      "ca. 4,4 Millionen Jahre vor heute",
+      "seit ca. 300.000 Jahren",
+      "ca. 400.000 bis 40.000 Jahre vor heute",
+      "ca. 1,9 Millionen bis 110.000 Jahre vor heute"
+    ],
+    "testedAttribute": "epoch",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_sahelanthropus_tchadensis_homo-species-epoch",
+    "entityId": "homo:sahelanthropus_tchadensis",
+    "entityType": "species",
+    "type": "homo-species-epoch",
+    "difficulty": 3,
+    "prompt": "In welchen Zeitraum fällt „Sahelanthropus tchadensis\"?",
+    "correctAnswer": "ca. 7 bis 6 Millionen Jahre vor heute",
+    "options": [
+      "ca. 7 bis 6 Millionen Jahre vor heute",
       "seit ca. 300.000 Jahren",
       "ca. 400.000 bis 40.000 Jahre vor heute",
       "ca. 1,9 Millionen bis 110.000 Jahre vor heute"
@@ -6519,6 +7739,186 @@
     "mapTargetId": null
   },
   {
+    "id": "q_homo_homo_rudolfensis_homo-species-region",
+    "entityId": "homo:homo_rudolfensis",
+    "entityType": "species",
+    "type": "homo-species-region",
+    "difficulty": 2,
+    "prompt": "In welcher Region liegt der Ursprung von „Homo rudolfensis\"?",
+    "correctAnswer": "Ostafrika (Turkana-Becken, Kenia)",
+    "options": [
+      "Ostafrika (Turkana-Becken, Kenia)",
+      "Afrika (Ursprung)",
+      "Europa und Westasien",
+      "Afrika und Asien"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_homo_ergaster_homo-species-region",
+    "entityId": "homo:homo_ergaster",
+    "entityType": "species",
+    "type": "homo-species-region",
+    "difficulty": 2,
+    "prompt": "In welcher Region liegt der Ursprung von „Homo ergaster\"?",
+    "correctAnswer": "Ostafrika",
+    "options": [
+      "Ostafrika",
+      "Afrika (Ursprung)",
+      "Europa und Westasien",
+      "Afrika und Asien"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_homo_antecessor_homo-species-region",
+    "entityId": "homo:homo_antecessor",
+    "entityType": "species",
+    "type": "homo-species-region",
+    "difficulty": 2,
+    "prompt": "In welcher Region liegt der Ursprung von „Homo antecessor\"?",
+    "correctAnswer": "Westeuropa (Spanien)",
+    "options": [
+      "Westeuropa (Spanien)",
+      "Afrika (Ursprung)",
+      "Europa und Westasien",
+      "Afrika und Asien"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_paranthropus_robustus_homo-species-region",
+    "entityId": "homo:paranthropus_robustus",
+    "entityType": "species",
+    "type": "homo-species-region",
+    "difficulty": 2,
+    "prompt": "In welcher Region liegt der Ursprung von „Paranthropus robustus\"?",
+    "correctAnswer": "Südafrika",
+    "options": [
+      "Südafrika",
+      "Afrika (Ursprung)",
+      "Europa und Westasien",
+      "Afrika und Asien"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_paranthropus_aethiopicus_homo-species-region",
+    "entityId": "homo:paranthropus_aethiopicus",
+    "entityType": "species",
+    "type": "homo-species-region",
+    "difficulty": 2,
+    "prompt": "In welcher Region liegt der Ursprung von „Paranthropus aethiopicus\"?",
+    "correctAnswer": "Ostafrika",
+    "options": [
+      "Ostafrika",
+      "Afrika (Ursprung)",
+      "Europa und Westasien",
+      "Afrika und Asien"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_australopithecus_sediba_homo-species-region",
+    "entityId": "homo:australopithecus_sediba",
+    "entityType": "species",
+    "type": "homo-species-region",
+    "difficulty": 2,
+    "prompt": "In welcher Region liegt der Ursprung von „Australopithecus sediba\"?",
+    "correctAnswer": "Südafrika",
+    "options": [
+      "Südafrika",
+      "Afrika (Ursprung)",
+      "Europa und Westasien",
+      "Afrika und Asien"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_australopithecus_anamensis_homo-species-region",
+    "entityId": "homo:australopithecus_anamensis",
+    "entityType": "species",
+    "type": "homo-species-region",
+    "difficulty": 2,
+    "prompt": "In welcher Region liegt der Ursprung von „Australopithecus anamensis\"?",
+    "correctAnswer": "Ostafrika",
+    "options": [
+      "Ostafrika",
+      "Afrika (Ursprung)",
+      "Europa und Westasien",
+      "Afrika und Asien"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_ardipithecus_ramidus_homo-species-region",
+    "entityId": "homo:ardipithecus_ramidus",
+    "entityType": "species",
+    "type": "homo-species-region",
+    "difficulty": 2,
+    "prompt": "In welcher Region liegt der Ursprung von „Ardipithecus ramidus\"?",
+    "correctAnswer": "Ostafrika (Äthiopien)",
+    "options": [
+      "Ostafrika (Äthiopien)",
+      "Afrika (Ursprung)",
+      "Europa und Westasien",
+      "Afrika und Asien"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_sahelanthropus_tchadensis_homo-species-region",
+    "entityId": "homo:sahelanthropus_tchadensis",
+    "entityType": "species",
+    "type": "homo-species-region",
+    "difficulty": 2,
+    "prompt": "In welcher Region liegt der Ursprung von „Sahelanthropus tchadensis\"?",
+    "correctAnswer": "Zentralafrika (Tschad)",
+    "options": [
+      "Zentralafrika (Tschad)",
+      "Afrika (Ursprung)",
+      "Europa und Westasien",
+      "Afrika und Asien"
+    ],
+    "testedAttribute": "region",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_homo_koerpertemperatur_homo-bodyfact-name",
     "entityId": "homo:koerpertemperatur",
     "entityType": "body_fact",
@@ -7179,6 +8579,106 @@
     "mapTargetId": null
   },
   {
+    "id": "q_homo_hoerbereich_frequenz_homo-bodyfact-name",
+    "entityId": "homo:hoerbereich_frequenz",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-name",
+    "difficulty": 3,
+    "prompt": "Welche Körperangabe beträgt ungefähr 20 bis 20000 Hertz?",
+    "correctAnswer": "Hörbereich des menschlichen Ohrs",
+    "options": [
+      "Hörbereich des menschlichen Ohrs",
+      "Anzahl Knochen beim Erwachsenen",
+      "Anzahl Knochen beim Neugeborenen",
+      "Anzahl Zähne beim Erwachsenen"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_dna_laenge_zelle_homo-bodyfact-name",
+    "entityId": "homo:dna_laenge_zelle",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-name",
+    "difficulty": 3,
+    "prompt": "Welche Körperangabe beträgt ungefähr ca. 2 Meter?",
+    "correctAnswer": "Länge der DNA in einer Zelle",
+    "options": [
+      "Länge der DNA in einer Zelle",
+      "Anzahl Knochen beim Erwachsenen",
+      "Anzahl Knochen beim Neugeborenen",
+      "Anzahl Zähne beim Erwachsenen"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_blutdruck_diastolisch_homo-bodyfact-name",
+    "entityId": "homo:blutdruck_diastolisch",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-name",
+    "difficulty": 3,
+    "prompt": "Welche Körperangabe beträgt ungefähr unter 80 mmHg?",
+    "correctAnswer": "Blutdruck diastolisch (Normwert)",
+    "options": [
+      "Blutdruck diastolisch (Normwert)",
+      "Anzahl Knochen beim Erwachsenen",
+      "Anzahl Knochen beim Neugeborenen",
+      "Anzahl Zähne beim Erwachsenen"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_lebensdauer_geschmacksknospen_homo-bodyfact-name",
+    "entityId": "homo:lebensdauer_geschmacksknospen",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-name",
+    "difficulty": 3,
+    "prompt": "Welche Körperangabe beträgt ungefähr ca. 10 bis 14 Tage?",
+    "correctAnswer": "Lebensdauer der Geschmacksknospen",
+    "options": [
+      "Lebensdauer der Geschmacksknospen",
+      "Anzahl Knochen beim Erwachsenen",
+      "Anzahl Knochen beim Neugeborenen",
+      "Anzahl Zähne beim Erwachsenen"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_lungenkapazitaet_total_homo-bodyfact-name",
+    "entityId": "homo:lungenkapazitaet_total",
+    "entityType": "body_fact",
+    "type": "homo-bodyfact-name",
+    "difficulty": 3,
+    "prompt": "Welche Körperangabe beträgt ungefähr ca. 6 Liter?",
+    "correctAnswer": "Totale Lungenkapazität",
+    "options": [
+      "Totale Lungenkapazität",
+      "Anzahl Knochen beim Erwachsenen",
+      "Anzahl Knochen beim Neugeborenen",
+      "Anzahl Zähne beim Erwachsenen"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_homo_herz_homo-organ-function",
     "entityId": "homo:herz",
     "entityType": "organ",
@@ -7748,6 +9248,146 @@
     "correctAnswer": "Wandelt einfallendes Licht in elektrische Nervensignale um, die über den Sehnerv an das Gehirn weitergeleitet werden.",
     "options": [
       "Wandelt einfallendes Licht in elektrische Nervensignale um, die über den Sehnerv an das Gehirn weitergeleitet werden.",
+      "Pumpt Blut durch den Körper und versorgt Gewebe mit Sauerstoff und Nährstoffen.",
+      "Entgiftet das Blut, speichert Nährstoffe und bildet Galle für die Fettverdauung.",
+      "Nimmt Sauerstoff aus der Atemluft auf und gibt Kohlendioxid an die Ausatemluft ab."
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_augenlinse_homo-organ-function",
+    "entityId": "homo:augenlinse",
+    "entityType": "organ",
+    "type": "homo-organ-function",
+    "difficulty": 2,
+    "prompt": "Welche Hauptaufgabe erfüllt das Organ „Augenlinse (Lens)\"?",
+    "correctAnswer": "Bündelt das einfallende Licht und stellt durch Formänderung scharf auf Nah und Fern.",
+    "options": [
+      "Bündelt das einfallende Licht und stellt durch Formänderung scharf auf Nah und Fern.",
+      "Pumpt Blut durch den Körper und versorgt Gewebe mit Sauerstoff und Nährstoffen.",
+      "Entgiftet das Blut, speichert Nährstoffe und bildet Galle für die Fettverdauung.",
+      "Nimmt Sauerstoff aus der Atemluft auf und gibt Kohlendioxid an die Ausatemluft ab."
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_cornea_homo-organ-function",
+    "entityId": "homo:cornea",
+    "entityType": "organ",
+    "type": "homo-organ-function",
+    "difficulty": 2,
+    "prompt": "Welche Hauptaufgabe erfüllt das Organ „Hornhaut (Cornea)\"?",
+    "correctAnswer": "Bildet die klare vordere Wölbung des Auges und bricht das Licht am stärksten von allen Augenstrukturen.",
+    "options": [
+      "Bildet die klare vordere Wölbung des Auges und bricht das Licht am stärksten von allen Augenstrukturen.",
+      "Pumpt Blut durch den Körper und versorgt Gewebe mit Sauerstoff und Nährstoffen.",
+      "Entgiftet das Blut, speichert Nährstoffe und bildet Galle für die Fettverdauung.",
+      "Nimmt Sauerstoff aus der Atemluft auf und gibt Kohlendioxid an die Ausatemluft ab."
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_trommelfell_homo-organ-function",
+    "entityId": "homo:trommelfell",
+    "entityType": "organ",
+    "type": "homo-organ-function",
+    "difficulty": 2,
+    "prompt": "Welche Hauptaufgabe erfüllt das Organ „Trommelfell (Membrana tympani)\"?",
+    "correctAnswer": "Wandelt Schallwellen aus der Luft in mechanische Schwingungen um und überträgt sie auf die Gehörknöchelchen.",
+    "options": [
+      "Wandelt Schallwellen aus der Luft in mechanische Schwingungen um und überträgt sie auf die Gehörknöchelchen.",
+      "Pumpt Blut durch den Körper und versorgt Gewebe mit Sauerstoff und Nährstoffen.",
+      "Entgiftet das Blut, speichert Nährstoffe und bildet Galle für die Fettverdauung.",
+      "Nimmt Sauerstoff aus der Atemluft auf und gibt Kohlendioxid an die Ausatemluft ab."
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_cochlea_homo-organ-function",
+    "entityId": "homo:cochlea",
+    "entityType": "organ",
+    "type": "homo-organ-function",
+    "difficulty": 2,
+    "prompt": "Welche Hauptaufgabe erfüllt das Organ „Hörschnecke (Cochlea)\"?",
+    "correctAnswer": "Wandelt im Innenohr die Schallschwingungen in Nervenimpulse um, die das Gehirn als Töne deutet.",
+    "options": [
+      "Wandelt im Innenohr die Schallschwingungen in Nervenimpulse um, die das Gehirn als Töne deutet.",
+      "Pumpt Blut durch den Körper und versorgt Gewebe mit Sauerstoff und Nährstoffen.",
+      "Entgiftet das Blut, speichert Nährstoffe und bildet Galle für die Fettverdauung.",
+      "Nimmt Sauerstoff aus der Atemluft auf und gibt Kohlendioxid an die Ausatemluft ab."
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_mesencephalon_homo-organ-function",
+    "entityId": "homo:mesencephalon",
+    "entityType": "organ",
+    "type": "homo-organ-function",
+    "difficulty": 2,
+    "prompt": "Welche Hauptaufgabe erfüllt das Organ „Mittelhirn (Mesencephalon)\"?",
+    "correctAnswer": "Verbindet Großhirn und Hirnstamm und steuert wichtige Seh- und Hörreflexe sowie Augenbewegungen.",
+    "options": [
+      "Verbindet Großhirn und Hirnstamm und steuert wichtige Seh- und Hörreflexe sowie Augenbewegungen.",
+      "Pumpt Blut durch den Körper und versorgt Gewebe mit Sauerstoff und Nährstoffen.",
+      "Entgiftet das Blut, speichert Nährstoffe und bildet Galle für die Fettverdauung.",
+      "Nimmt Sauerstoff aus der Atemluft auf und gibt Kohlendioxid an die Ausatemluft ab."
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_thalamus_homo-organ-function",
+    "entityId": "homo:thalamus",
+    "entityType": "organ",
+    "type": "homo-organ-function",
+    "difficulty": 2,
+    "prompt": "Welche Hauptaufgabe erfüllt das Organ „Thalamus (Sehhügel)\"?",
+    "correctAnswer": "Schaltet fast alle Sinnesreize um und leitet sie gefiltert an die Großhirnrinde weiter.",
+    "options": [
+      "Schaltet fast alle Sinnesreize um und leitet sie gefiltert an die Großhirnrinde weiter.",
+      "Pumpt Blut durch den Körper und versorgt Gewebe mit Sauerstoff und Nährstoffen.",
+      "Entgiftet das Blut, speichert Nährstoffe und bildet Galle für die Fettverdauung.",
+      "Nimmt Sauerstoff aus der Atemluft auf und gibt Kohlendioxid an die Ausatemluft ab."
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_hypothalamus_homo-organ-function",
+    "entityId": "homo:hypothalamus",
+    "entityType": "organ",
+    "type": "homo-organ-function",
+    "difficulty": 2,
+    "prompt": "Welche Hauptaufgabe erfüllt das Organ „Hypothalamus\"?",
+    "correctAnswer": "Steuert grundlegende Körperfunktionen wie Hunger, Durst, Temperatur, Schlaf und das Hormonsystem.",
+    "options": [
+      "Steuert grundlegende Körperfunktionen wie Hunger, Durst, Temperatur, Schlaf und das Hormonsystem.",
       "Pumpt Blut durch den Körper und versorgt Gewebe mit Sauerstoff und Nährstoffen.",
       "Entgiftet das Blut, speichert Nährstoffe und bildet Galle für die Fettverdauung.",
       "Nimmt Sauerstoff aus der Atemluft auf und gibt Kohlendioxid an die Ausatemluft ab."
@@ -8928,6 +10568,226 @@
     "correctAnswer": "Plantarflexion und Supination des Fußes; stützt das Längsgewölbe.",
     "options": [
       "Plantarflexion und Supination des Fußes; stützt das Längsgewölbe.",
+      "Streckt das Hüftgelenk, richtet den Rumpf auf und stabilisiert beim Aufstehen und Treppensteigen",
+      "Schließt den Unterkiefer und erzeugt die Kraft zum Kauen und Zerkleinern der Nahrung",
+      "Dämpft die Bewegung des Steigbügels und schützt das Innenohr vor zu lauten Schallreizen"
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_brachialis_homo-muscle-function",
+    "entityId": "homo:brachialis",
+    "entityType": "muscle",
+    "type": "homo-muscle-function",
+    "difficulty": 3,
+    "prompt": "Welche Funktion hat der Muskel „Armbeuger (Musculus brachialis)\" hauptsächlich?",
+    "correctAnswer": "Beugt den Unterarm im Ellenbogengelenk, unabhängig von der Handstellung",
+    "options": [
+      "Beugt den Unterarm im Ellenbogengelenk, unabhängig von der Handstellung",
+      "Streckt das Hüftgelenk, richtet den Rumpf auf und stabilisiert beim Aufstehen und Treppensteigen",
+      "Schließt den Unterkiefer und erzeugt die Kraft zum Kauen und Zerkleinern der Nahrung",
+      "Dämpft die Bewegung des Steigbügels und schützt das Innenohr vor zu lauten Schallreizen"
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_brachioradialis_homo-muscle-function",
+    "entityId": "homo:brachioradialis",
+    "entityType": "muscle",
+    "type": "homo-muscle-function",
+    "difficulty": 3,
+    "prompt": "Welche Funktion hat der Muskel „Oberarmspeichenmuskel (Musculus brachioradialis)\" hauptsächlich?",
+    "correctAnswer": "Beugt den Ellenbogen, besonders bei Drehstellung des Unterarms zwischen Pro- und Supination",
+    "options": [
+      "Beugt den Ellenbogen, besonders bei Drehstellung des Unterarms zwischen Pro- und Supination",
+      "Streckt das Hüftgelenk, richtet den Rumpf auf und stabilisiert beim Aufstehen und Treppensteigen",
+      "Schließt den Unterkiefer und erzeugt die Kraft zum Kauen und Zerkleinern der Nahrung",
+      "Dämpft die Bewegung des Steigbügels und schützt das Innenohr vor zu lauten Schallreizen"
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_zygomaticus_major_homo-muscle-function",
+    "entityId": "homo:zygomaticus_major",
+    "entityType": "muscle",
+    "type": "homo-muscle-function",
+    "difficulty": 3,
+    "prompt": "Welche Funktion hat der Muskel „Großer Jochbeinmuskel (Musculus zygomaticus major)\" hauptsächlich?",
+    "correctAnswer": "Zieht die Mundwinkel nach oben und außen und erzeugt damit das Lächeln",
+    "options": [
+      "Zieht die Mundwinkel nach oben und außen und erzeugt damit das Lächeln",
+      "Streckt das Hüftgelenk, richtet den Rumpf auf und stabilisiert beim Aufstehen und Treppensteigen",
+      "Schließt den Unterkiefer und erzeugt die Kraft zum Kauen und Zerkleinern der Nahrung",
+      "Dämpft die Bewegung des Steigbügels und schützt das Innenohr vor zu lauten Schallreizen"
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_serratus_anterior_homo-muscle-function",
+    "entityId": "homo:serratus_anterior",
+    "entityType": "muscle",
+    "type": "homo-muscle-function",
+    "difficulty": 3,
+    "prompt": "Welche Funktion hat der Muskel „Vorderer Sägemuskel (Musculus serratus anterior)\" hauptsächlich?",
+    "correctAnswer": "Zieht das Schulterblatt nach vorn und dreht es beim Heben des Arms über die Horizontale",
+    "options": [
+      "Zieht das Schulterblatt nach vorn und dreht es beim Heben des Arms über die Horizontale",
+      "Streckt das Hüftgelenk, richtet den Rumpf auf und stabilisiert beim Aufstehen und Treppensteigen",
+      "Schließt den Unterkiefer und erzeugt die Kraft zum Kauen und Zerkleinern der Nahrung",
+      "Dämpft die Bewegung des Steigbügels und schützt das Innenohr vor zu lauten Schallreizen"
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_gracilis_homo-muscle-function",
+    "entityId": "homo:gracilis",
+    "entityType": "muscle",
+    "type": "homo-muscle-function",
+    "difficulty": 3,
+    "prompt": "Welche Funktion hat der Muskel „Schlanker Muskel (Musculus gracilis)\" hauptsächlich?",
+    "correctAnswer": "Führt das Bein zur Körpermitte (Adduktion) und unterstützt die Kniebeugung",
+    "options": [
+      "Führt das Bein zur Körpermitte (Adduktion) und unterstützt die Kniebeugung",
+      "Streckt das Hüftgelenk, richtet den Rumpf auf und stabilisiert beim Aufstehen und Treppensteigen",
+      "Schließt den Unterkiefer und erzeugt die Kraft zum Kauen und Zerkleinern der Nahrung",
+      "Dämpft die Bewegung des Steigbügels und schützt das Innenohr vor zu lauten Schallreizen"
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_semimembranosus_homo-muscle-function",
+    "entityId": "homo:semimembranosus",
+    "entityType": "muscle",
+    "type": "homo-muscle-function",
+    "difficulty": 3,
+    "prompt": "Welche Funktion hat der Muskel „Plattsehniger Muskel (Musculus semimembranosus)\" hauptsächlich?",
+    "correctAnswer": "Streckt die Hüfte und beugt das Kniegelenk",
+    "options": [
+      "Streckt die Hüfte und beugt das Kniegelenk",
+      "Streckt das Hüftgelenk, richtet den Rumpf auf und stabilisiert beim Aufstehen und Treppensteigen",
+      "Schließt den Unterkiefer und erzeugt die Kraft zum Kauen und Zerkleinern der Nahrung",
+      "Dämpft die Bewegung des Steigbügels und schützt das Innenohr vor zu lauten Schallreizen"
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_fibularis_longus_homo-muscle-function",
+    "entityId": "homo:fibularis_longus",
+    "entityType": "muscle",
+    "type": "homo-muscle-function",
+    "difficulty": 3,
+    "prompt": "Welche Funktion hat der Muskel „Langer Wadenbeinmuskel (Musculus fibularis longus)\" hauptsächlich?",
+    "correctAnswer": "Hebt den äußeren Fußrand (Pronation) und unterstützt das Absenken des Fußes",
+    "options": [
+      "Hebt den äußeren Fußrand (Pronation) und unterstützt das Absenken des Fußes",
+      "Streckt das Hüftgelenk, richtet den Rumpf auf und stabilisiert beim Aufstehen und Treppensteigen",
+      "Schließt den Unterkiefer und erzeugt die Kraft zum Kauen und Zerkleinern der Nahrung",
+      "Dämpft die Bewegung des Steigbügels und schützt das Innenohr vor zu lauten Schallreizen"
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_rhomboideus_major_homo-muscle-function",
+    "entityId": "homo:rhomboideus_major",
+    "entityType": "muscle",
+    "type": "homo-muscle-function",
+    "difficulty": 3,
+    "prompt": "Welche Funktion hat der Muskel „Großer Rautenmuskel (Musculus rhomboideus major)\" hauptsächlich?",
+    "correctAnswer": "Zieht das Schulterblatt zur Wirbelsäule hin und fixiert es am Rumpf",
+    "options": [
+      "Zieht das Schulterblatt zur Wirbelsäule hin und fixiert es am Rumpf",
+      "Streckt das Hüftgelenk, richtet den Rumpf auf und stabilisiert beim Aufstehen und Treppensteigen",
+      "Schließt den Unterkiefer und erzeugt die Kraft zum Kauen und Zerkleinern der Nahrung",
+      "Dämpft die Bewegung des Steigbügels und schützt das Innenohr vor zu lauten Schallreizen"
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_coracobrachialis_homo-muscle-function",
+    "entityId": "homo:coracobrachialis",
+    "entityType": "muscle",
+    "type": "homo-muscle-function",
+    "difficulty": 3,
+    "prompt": "Welche Funktion hat der Muskel „Hakenarmmuskel (Musculus coracobrachialis)\" hauptsächlich?",
+    "correctAnswer": "Hebt den Arm nach vorn (Anteversion) und führt ihn zum Körper",
+    "options": [
+      "Hebt den Arm nach vorn (Anteversion) und führt ihn zum Körper",
+      "Streckt das Hüftgelenk, richtet den Rumpf auf und stabilisiert beim Aufstehen und Treppensteigen",
+      "Schließt den Unterkiefer und erzeugt die Kraft zum Kauen und Zerkleinern der Nahrung",
+      "Dämpft die Bewegung des Steigbügels und schützt das Innenohr vor zu lauten Schallreizen"
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_scalenus_anterior_homo-muscle-function",
+    "entityId": "homo:scalenus_anterior",
+    "entityType": "muscle",
+    "type": "homo-muscle-function",
+    "difficulty": 3,
+    "prompt": "Welche Funktion hat der Muskel „Vorderer Treppenmuskel (Musculus scalenus anterior)\" hauptsächlich?",
+    "correctAnswer": "Hebt bei der Atmung die oberste Rippe und neigt den Hals zur Seite",
+    "options": [
+      "Hebt bei der Atmung die oberste Rippe und neigt den Hals zur Seite",
+      "Streckt das Hüftgelenk, richtet den Rumpf auf und stabilisiert beim Aufstehen und Treppensteigen",
+      "Schließt den Unterkiefer und erzeugt die Kraft zum Kauen und Zerkleinern der Nahrung",
+      "Dämpft die Bewegung des Steigbügels und schützt das Innenohr vor zu lauten Schallreizen"
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_pterygoideus_lateralis_homo-muscle-function",
+    "entityId": "homo:pterygoideus_lateralis",
+    "entityType": "muscle",
+    "type": "homo-muscle-function",
+    "difficulty": 3,
+    "prompt": "Welche Funktion hat der Muskel „Äußerer Flügelmuskel (Musculus pterygoideus lateralis)\" hauptsächlich?",
+    "correctAnswer": "Öffnet den Mund und schiebt den Unterkiefer nach vorn; ermöglicht das Mahlen beim Kauen",
+    "options": [
+      "Öffnet den Mund und schiebt den Unterkiefer nach vorn; ermöglicht das Mahlen beim Kauen",
       "Streckt das Hüftgelenk, richtet den Rumpf auf und stabilisiert beim Aufstehen und Treppensteigen",
       "Schließt den Unterkiefer und erzeugt die Kraft zum Kauen und Zerkleinern der Nahrung",
       "Dämpft die Bewegung des Steigbügels und schützt das Innenohr vor zu lauten Schallreizen"
@@ -10599,6 +12459,286 @@
     "mapTargetId": null
   },
   {
+    "id": "q_homo_brachialis_homo-muscle-notable-rev",
+    "entityId": "homo:brachialis",
+    "entityType": "muscle",
+    "type": "homo-muscle-notable-rev",
+    "difficulty": 2,
+    "prompt": "Welcher Muskel wird beschrieben als: „Eigentlicher Hauptbeuger des Ellenbogens, liegt verdeckt unter dem Bizeps\"?",
+    "correctAnswer": "Armbeuger (Musculus brachialis)",
+    "options": [
+      "Armbeuger (Musculus brachialis)",
+      "Großer Gesäßmuskel (Gluteus maximus)",
+      "Kaumuskel (Masseter)",
+      "Steigbügelmuskel (Musculus stapedius)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_brachioradialis_homo-muscle-notable-rev",
+    "entityId": "homo:brachioradialis",
+    "entityType": "muscle",
+    "type": "homo-muscle-notable-rev",
+    "difficulty": 2,
+    "prompt": "Welcher Muskel wird beschrieben als: „Springt bei kräftiger Ellenbogenbeugung als Strang an der Unterarmoberseite hervor\"?",
+    "correctAnswer": "Oberarmspeichenmuskel (Musculus brachioradialis)",
+    "options": [
+      "Oberarmspeichenmuskel (Musculus brachioradialis)",
+      "Großer Gesäßmuskel (Gluteus maximus)",
+      "Kaumuskel (Masseter)",
+      "Steigbügelmuskel (Musculus stapedius)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_buccinator_homo-muscle-notable-rev",
+    "entityId": "homo:buccinator",
+    "entityType": "muscle",
+    "type": "homo-muscle-notable-rev",
+    "difficulty": 2,
+    "prompt": "Welcher Muskel wird beschrieben als: „Wichtigster Muskel beim Saugen, Pfeifen und Blasen von Blasinstrumenten\"?",
+    "correctAnswer": "Wangenmuskel (Musculus buccinator)",
+    "options": [
+      "Wangenmuskel (Musculus buccinator)",
+      "Großer Gesäßmuskel (Gluteus maximus)",
+      "Kaumuskel (Masseter)",
+      "Steigbügelmuskel (Musculus stapedius)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_zygomaticus_major_homo-muscle-notable-rev",
+    "entityId": "homo:zygomaticus_major",
+    "entityType": "muscle",
+    "type": "homo-muscle-notable-rev",
+    "difficulty": 2,
+    "prompt": "Welcher Muskel wird beschrieben als: „Der eigentliche Lachmuskel des Gesichts\"?",
+    "correctAnswer": "Großer Jochbeinmuskel (Musculus zygomaticus major)",
+    "options": [
+      "Großer Jochbeinmuskel (Musculus zygomaticus major)",
+      "Großer Gesäßmuskel (Gluteus maximus)",
+      "Kaumuskel (Masseter)",
+      "Steigbügelmuskel (Musculus stapedius)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_serratus_anterior_homo-muscle-notable-rev",
+    "entityId": "homo:serratus_anterior",
+    "entityType": "muscle",
+    "type": "homo-muscle-notable-rev",
+    "difficulty": 2,
+    "prompt": "Welcher Muskel wird beschrieben als: „Hält das Schulterblatt an den Brustkorb gepresst; sein Ausfall erzeugt das Engelsflügel-Phänomen\"?",
+    "correctAnswer": "Vorderer Sägemuskel (Musculus serratus anterior)",
+    "options": [
+      "Vorderer Sägemuskel (Musculus serratus anterior)",
+      "Großer Gesäßmuskel (Gluteus maximus)",
+      "Kaumuskel (Masseter)",
+      "Steigbügelmuskel (Musculus stapedius)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_gracilis_homo-muscle-notable-rev",
+    "entityId": "homo:gracilis",
+    "entityType": "muscle",
+    "type": "homo-muscle-notable-rev",
+    "difficulty": 2,
+    "prompt": "Welcher Muskel wird beschrieben als: „Längster und oberflächlichster der Adduktoren an der Oberschenkelinnenseite\"?",
+    "correctAnswer": "Schlanker Muskel (Musculus gracilis)",
+    "options": [
+      "Schlanker Muskel (Musculus gracilis)",
+      "Großer Gesäßmuskel (Gluteus maximus)",
+      "Kaumuskel (Masseter)",
+      "Steigbügelmuskel (Musculus stapedius)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_fibularis_longus_homo-muscle-notable-rev",
+    "entityId": "homo:fibularis_longus",
+    "entityType": "muscle",
+    "type": "homo-muscle-notable-rev",
+    "difficulty": 2,
+    "prompt": "Welcher Muskel wird beschrieben als: „Stützt mit seiner Sehne das Quergewölbe des Fußes\"?",
+    "correctAnswer": "Langer Wadenbeinmuskel (Musculus fibularis longus)",
+    "options": [
+      "Langer Wadenbeinmuskel (Musculus fibularis longus)",
+      "Großer Gesäßmuskel (Gluteus maximus)",
+      "Kaumuskel (Masseter)",
+      "Steigbügelmuskel (Musculus stapedius)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_rhomboideus_major_homo-muscle-notable-rev",
+    "entityId": "homo:rhomboideus_major",
+    "entityType": "muscle",
+    "type": "homo-muscle-notable-rev",
+    "difficulty": 2,
+    "prompt": "Welcher Muskel wird beschrieben als: „Hält die Schulterblätter zusammen; wichtig für aufrechte Haltung\"?",
+    "correctAnswer": "Großer Rautenmuskel (Musculus rhomboideus major)",
+    "options": [
+      "Großer Rautenmuskel (Musculus rhomboideus major)",
+      "Großer Gesäßmuskel (Gluteus maximus)",
+      "Kaumuskel (Masseter)",
+      "Steigbügelmuskel (Musculus stapedius)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_levator_scapulae_homo-muscle-notable-rev",
+    "entityId": "homo:levator_scapulae",
+    "entityType": "muscle",
+    "type": "homo-muscle-notable-rev",
+    "difficulty": 2,
+    "prompt": "Welcher Muskel wird beschrieben als: „Häufig beteiligt an Nackenverspannungen\"?",
+    "correctAnswer": "Schulterblattheber (Musculus levator scapulae)",
+    "options": [
+      "Schulterblattheber (Musculus levator scapulae)",
+      "Großer Gesäßmuskel (Gluteus maximus)",
+      "Kaumuskel (Masseter)",
+      "Steigbügelmuskel (Musculus stapedius)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_coracobrachialis_homo-muscle-notable-rev",
+    "entityId": "homo:coracobrachialis",
+    "entityType": "muscle",
+    "type": "homo-muscle-notable-rev",
+    "difficulty": 2,
+    "prompt": "Welcher Muskel wird beschrieben als: „Entspringt am Rabenschnabelfortsatz des Schulterblatts\"?",
+    "correctAnswer": "Hakenarmmuskel (Musculus coracobrachialis)",
+    "options": [
+      "Hakenarmmuskel (Musculus coracobrachialis)",
+      "Großer Gesäßmuskel (Gluteus maximus)",
+      "Kaumuskel (Masseter)",
+      "Steigbügelmuskel (Musculus stapedius)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_extensor_carpi_radialis_longus_homo-muscle-notable-rev",
+    "entityId": "homo:extensor_carpi_radialis_longus",
+    "entityType": "muscle",
+    "type": "homo-muscle-notable-rev",
+    "difficulty": 2,
+    "prompt": "Welcher Muskel wird beschrieben als: „Wichtiger Streckmuskel für den festen Faustschluss\"?",
+    "correctAnswer": "Langer speichenseitiger Handstrecker (Musculus extensor carpi radialis longus)",
+    "options": [
+      "Langer speichenseitiger Handstrecker (Musculus extensor carpi radialis longus)",
+      "Großer Gesäßmuskel (Gluteus maximus)",
+      "Kaumuskel (Masseter)",
+      "Steigbügelmuskel (Musculus stapedius)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_scalenus_anterior_homo-muscle-notable-rev",
+    "entityId": "homo:scalenus_anterior",
+    "entityType": "muscle",
+    "type": "homo-muscle-notable-rev",
+    "difficulty": 2,
+    "prompt": "Welcher Muskel wird beschrieben als: „Atemhilfsmuskel; wichtige anatomische Leitstruktur am Hals\"?",
+    "correctAnswer": "Vorderer Treppenmuskel (Musculus scalenus anterior)",
+    "options": [
+      "Vorderer Treppenmuskel (Musculus scalenus anterior)",
+      "Großer Gesäßmuskel (Gluteus maximus)",
+      "Kaumuskel (Masseter)",
+      "Steigbügelmuskel (Musculus stapedius)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_pterygoideus_lateralis_homo-muscle-notable-rev",
+    "entityId": "homo:pterygoideus_lateralis",
+    "entityType": "muscle",
+    "type": "homo-muscle-notable-rev",
+    "difficulty": 2,
+    "prompt": "Welcher Muskel wird beschrieben als: „Einziger Kaumuskel, der den Mund öffnet statt schließt\"?",
+    "correctAnswer": "Äußerer Flügelmuskel (Musculus pterygoideus lateralis)",
+    "options": [
+      "Äußerer Flügelmuskel (Musculus pterygoideus lateralis)",
+      "Großer Gesäßmuskel (Gluteus maximus)",
+      "Kaumuskel (Masseter)",
+      "Steigbügelmuskel (Musculus stapedius)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_mylohyoideus_homo-muscle-notable-rev",
+    "entityId": "homo:mylohyoideus",
+    "entityType": "muscle",
+    "type": "homo-muscle-notable-rev",
+    "difficulty": 2,
+    "prompt": "Welcher Muskel wird beschrieben als: „Trägt als muskuläre Platte den Boden der Mundhöhle\"?",
+    "correctAnswer": "Kiefer-Zungenbein-Muskel (Musculus mylohyoideus)",
+    "options": [
+      "Kiefer-Zungenbein-Muskel (Musculus mylohyoideus)",
+      "Großer Gesäßmuskel (Gluteus maximus)",
+      "Kaumuskel (Masseter)",
+      "Steigbügelmuskel (Musculus stapedius)"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_homo_herz_homo-organ-weight-rev",
     "entityId": "homo:herz",
     "entityType": "organ",
@@ -11208,6 +13348,226 @@
     "correctAnswer": "Ohrspeicheldrüse (Glandula parotidea)",
     "options": [
       "Ohrspeicheldrüse (Glandula parotidea)",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_glandula_submandibularis_homo-organ-weight-rev",
+    "entityId": "homo:glandula_submandibularis",
+    "entityType": "organ",
+    "type": "homo-organ-weight-rev",
+    "difficulty": 3,
+    "prompt": "Welches Organ wiegt beim Erwachsenen ungefähr 10 Gramm?",
+    "correctAnswer": "Unterkieferspeicheldrüse (Glandula submandibularis)",
+    "options": [
+      "Unterkieferspeicheldrüse (Glandula submandibularis)",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_glandula_sublingualis_homo-organ-weight-rev",
+    "entityId": "homo:glandula_sublingualis",
+    "entityType": "organ",
+    "type": "homo-organ-weight-rev",
+    "difficulty": 3,
+    "prompt": "Welches Organ wiegt beim Erwachsenen ungefähr 3 Gramm?",
+    "correctAnswer": "Unterzungenspeicheldrüse (Glandula sublingualis)",
+    "options": [
+      "Unterzungenspeicheldrüse (Glandula sublingualis)",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_augenlinse_homo-organ-weight-rev",
+    "entityId": "homo:augenlinse",
+    "entityType": "organ",
+    "type": "homo-organ-weight-rev",
+    "difficulty": 3,
+    "prompt": "Welches Organ wiegt beim Erwachsenen ungefähr 0,2 Gramm?",
+    "correctAnswer": "Augenlinse (Lens)",
+    "options": [
+      "Augenlinse (Lens)",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_iris_homo-organ-weight-rev",
+    "entityId": "homo:iris",
+    "entityType": "organ",
+    "type": "homo-organ-weight-rev",
+    "difficulty": 3,
+    "prompt": "Welches Organ wiegt beim Erwachsenen ungefähr 0,1 Gramm?",
+    "correctAnswer": "Regenbogenhaut (Iris)",
+    "options": [
+      "Regenbogenhaut (Iris)",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_cornea_homo-organ-weight-rev",
+    "entityId": "homo:cornea",
+    "entityType": "organ",
+    "type": "homo-organ-weight-rev",
+    "difficulty": 3,
+    "prompt": "Welches Organ wiegt beim Erwachsenen ungefähr 0,1 Gramm?",
+    "correctAnswer": "Hornhaut (Cornea)",
+    "options": [
+      "Hornhaut (Cornea)",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_trommelfell_homo-organ-weight-rev",
+    "entityId": "homo:trommelfell",
+    "entityType": "organ",
+    "type": "homo-organ-weight-rev",
+    "difficulty": 3,
+    "prompt": "Welches Organ wiegt beim Erwachsenen ungefähr 0,01 Gramm?",
+    "correctAnswer": "Trommelfell (Membrana tympani)",
+    "options": [
+      "Trommelfell (Membrana tympani)",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_cochlea_homo-organ-weight-rev",
+    "entityId": "homo:cochlea",
+    "entityType": "organ",
+    "type": "homo-organ-weight-rev",
+    "difficulty": 3,
+    "prompt": "Welches Organ wiegt beim Erwachsenen ungefähr 0,1 Gramm?",
+    "correctAnswer": "Hörschnecke (Cochlea)",
+    "options": [
+      "Hörschnecke (Cochlea)",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_nebenschilddruese_homo-organ-weight-rev",
+    "entityId": "homo:nebenschilddruese",
+    "entityType": "organ",
+    "type": "homo-organ-weight-rev",
+    "difficulty": 3,
+    "prompt": "Welches Organ wiegt beim Erwachsenen ungefähr 0,04 Gramm?",
+    "correctAnswer": "Nebenschilddrüse (Glandula parathyroidea)",
+    "options": [
+      "Nebenschilddrüse (Glandula parathyroidea)",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_mesencephalon_homo-organ-weight-rev",
+    "entityId": "homo:mesencephalon",
+    "entityType": "organ",
+    "type": "homo-organ-weight-rev",
+    "difficulty": 3,
+    "prompt": "Welches Organ wiegt beim Erwachsenen ungefähr 10 Gramm?",
+    "correctAnswer": "Mittelhirn (Mesencephalon)",
+    "options": [
+      "Mittelhirn (Mesencephalon)",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_thalamus_homo-organ-weight-rev",
+    "entityId": "homo:thalamus",
+    "entityType": "organ",
+    "type": "homo-organ-weight-rev",
+    "difficulty": 3,
+    "prompt": "Welches Organ wiegt beim Erwachsenen ungefähr 6 Gramm?",
+    "correctAnswer": "Thalamus (Sehhügel)",
+    "options": [
+      "Thalamus (Sehhügel)",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_hypothalamus_homo-organ-weight-rev",
+    "entityId": "homo:hypothalamus",
+    "entityType": "organ",
+    "type": "homo-organ-weight-rev",
+    "difficulty": 3,
+    "prompt": "Welches Organ wiegt beim Erwachsenen ungefähr 4 Gramm?",
+    "correctAnswer": "Hypothalamus",
+    "options": [
+      "Hypothalamus",
       "Herz",
       "Leber",
       "Lunge"
@@ -11848,6 +14208,146 @@
     "correctAnswer": "Netzhaut (Retina)",
     "options": [
       "Netzhaut (Retina)",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_augenlinse_homo-organ-function-rev",
+    "entityId": "homo:augenlinse",
+    "entityType": "organ",
+    "type": "homo-organ-function-rev",
+    "difficulty": 2,
+    "prompt": "Welches Organ erfüllt folgende Hauptaufgabe: „Bündelt das einfallende Licht und stellt durch Formänderung scharf auf Nah und Fern.\"?",
+    "correctAnswer": "Augenlinse (Lens)",
+    "options": [
+      "Augenlinse (Lens)",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_cornea_homo-organ-function-rev",
+    "entityId": "homo:cornea",
+    "entityType": "organ",
+    "type": "homo-organ-function-rev",
+    "difficulty": 2,
+    "prompt": "Welches Organ erfüllt folgende Hauptaufgabe: „Bildet die klare vordere Wölbung des Auges und bricht das Licht am stärksten von allen Augenstrukturen.\"?",
+    "correctAnswer": "Hornhaut (Cornea)",
+    "options": [
+      "Hornhaut (Cornea)",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_trommelfell_homo-organ-function-rev",
+    "entityId": "homo:trommelfell",
+    "entityType": "organ",
+    "type": "homo-organ-function-rev",
+    "difficulty": 2,
+    "prompt": "Welches Organ erfüllt folgende Hauptaufgabe: „Wandelt Schallwellen aus der Luft in mechanische Schwingungen um und überträgt sie auf die Gehörknöchelchen.\"?",
+    "correctAnswer": "Trommelfell (Membrana tympani)",
+    "options": [
+      "Trommelfell (Membrana tympani)",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_cochlea_homo-organ-function-rev",
+    "entityId": "homo:cochlea",
+    "entityType": "organ",
+    "type": "homo-organ-function-rev",
+    "difficulty": 2,
+    "prompt": "Welches Organ erfüllt folgende Hauptaufgabe: „Wandelt im Innenohr die Schallschwingungen in Nervenimpulse um, die das Gehirn als Töne deutet.\"?",
+    "correctAnswer": "Hörschnecke (Cochlea)",
+    "options": [
+      "Hörschnecke (Cochlea)",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_mesencephalon_homo-organ-function-rev",
+    "entityId": "homo:mesencephalon",
+    "entityType": "organ",
+    "type": "homo-organ-function-rev",
+    "difficulty": 2,
+    "prompt": "Welches Organ erfüllt folgende Hauptaufgabe: „Verbindet Großhirn und Hirnstamm und steuert wichtige Seh- und Hörreflexe sowie Augenbewegungen.\"?",
+    "correctAnswer": "Mittelhirn (Mesencephalon)",
+    "options": [
+      "Mittelhirn (Mesencephalon)",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_thalamus_homo-organ-function-rev",
+    "entityId": "homo:thalamus",
+    "entityType": "organ",
+    "type": "homo-organ-function-rev",
+    "difficulty": 2,
+    "prompt": "Welches Organ erfüllt folgende Hauptaufgabe: „Schaltet fast alle Sinnesreize um und leitet sie gefiltert an die Großhirnrinde weiter.\"?",
+    "correctAnswer": "Thalamus (Sehhügel)",
+    "options": [
+      "Thalamus (Sehhügel)",
+      "Herz",
+      "Leber",
+      "Lunge"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_hypothalamus_homo-organ-function-rev",
+    "entityId": "homo:hypothalamus",
+    "entityType": "organ",
+    "type": "homo-organ-function-rev",
+    "difficulty": 2,
+    "prompt": "Welches Organ erfüllt folgende Hauptaufgabe: „Steuert grundlegende Körperfunktionen wie Hunger, Durst, Temperatur, Schlaf und das Hormonsystem.\"?",
+    "correctAnswer": "Hypothalamus",
+    "options": [
+      "Hypothalamus",
       "Herz",
       "Leber",
       "Lunge"

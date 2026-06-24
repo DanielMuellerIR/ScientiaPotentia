@@ -758,6 +758,26 @@ const templates = [
     spreadNumeric: true,
     prompt: c => `Welche ungefähre Masse hat der Exoplanet ${c.name} (in Erdmassen)?`,
     format: v => `${deNum(roundSig(v))} Erdmassen`
+  },
+
+  // ==== Sternbilder (Welle: +77 IAU-Sternbilder) ===========================
+  // Hebel für die neu aufgenommenen Konstellationen. Genutzt wird ausschließlich
+  // das `iauAbbreviation`-Attribut (offizielles 3-Buchstaben-Kürzel, bei allen 80
+  // Sternbildern gesetzt und eindeutig). `visibility` ist bewusst NICHT getemplatet
+  // (Freitext, uneinheitlich), `notableStars` ebenfalls nicht (Liste statt Einzelwert).
+  // Der Selbstverräter-Guard verwirft automatisch Fälle, in denen das Kürzel den
+  // Namen verrät (z.B. „Ori" → Orion).
+  {
+    category: 'constellation', attr: 'iauAbbreviation', type: 'astra-const-abbr', difficulty: 4,
+    prompt: c => `Wie lautet die offizielle IAU-Abkürzung (3 Buchstaben) des Sternbilds „${c.name}"?`,
+    format: v => v
+  },
+  {
+    category: 'constellation', attr: 'iauAbbreviation', type: 'astra-const-abbr-rev', difficulty: 3,
+    nameAnswer: true, reverseUnique: true,
+    subject: c => `IAU-Abkürzung „${c.attributes.iauAbbreviation}"`,
+    format: (_v, c) => c.name,
+    prompt: c => `Für welches Sternbild steht die offizielle IAU-Abkürzung „${c.attributes.iauAbbreviation}"?`
   }
 ];
 

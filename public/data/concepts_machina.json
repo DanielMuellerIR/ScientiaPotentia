@@ -6520,5 +6520,1405 @@
       "url": "https://de.wikipedia.org/wiki/Whois"
     },
     "image": null
+  },
+  "machina:pl-brainfuck": {
+    "id": "machina:pl-brainfuck",
+    "name": "Brainfuck",
+    "type": "programming_language",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Imperativ/prozedural",
+      "execution": "Interpretiert"
+    },
+    "funFact": "Brainfuck kommt mit nur acht Befehlszeichen aus und gilt als bekannteste esoterische Programmiersprache.",
+    "source": {
+      "name": "Wikipedia DE – Brainfuck",
+      "url": "https://de.wikipedia.org/wiki/Brainfuck"
+    },
+    "image": null
+  },
+  "machina:pl-logo": {
+    "id": "machina:pl-logo",
+    "name": "Logo",
+    "type": "programming_language",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Multiparadigma",
+      "typeSystem": "Dynamisch typisiert",
+      "execution": "Interpretiert",
+      "primaryDomain": "Skripting/Automatisierung"
+    },
+    "funFact": "Logo ist berühmt für die Turtle-Grafik, mit der Lernende eine Schildkröte über den Bildschirm steuern.",
+    "source": {
+      "name": "Wikipedia DE – Logo (Programmiersprache)",
+      "url": "https://de.wikipedia.org/wiki/Logo_(Programmiersprache)"
+    },
+    "image": null
+  },
+  "machina:pl-scratch": {
+    "id": "machina:pl-scratch",
+    "name": "Scratch",
+    "type": "programming_language",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Imperativ/prozedural",
+      "execution": "Interpretiert",
+      "primaryDomain": "Skripting/Automatisierung"
+    },
+    "funFact": "Scratch wurde am MIT entwickelt und lässt Anfänger Programme aus farbigen Bausteinen per Maus zusammensetzen.",
+    "source": {
+      "name": "Wikipedia DE – Scratch (Programmiersprache)",
+      "url": "https://de.wikipedia.org/wiki/Scratch_(Programmiersprache)"
+    },
+    "image": null
+  },
+  "machina:pl-common-lisp": {
+    "id": "machina:pl-common-lisp",
+    "name": "Common Lisp",
+    "type": "programming_language",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Multiparadigma",
+      "typeSystem": "Dynamisch typisiert",
+      "primaryDomain": "Wissenschaftliches Rechnen"
+    },
+    "funFact": "Common Lisp wurde in den 1980ern als Vereinheitlichung der vielen Lisp-Dialekte standardisiert.",
+    "source": {
+      "name": "Wikipedia DE – Common Lisp",
+      "url": "https://de.wikipedia.org/wiki/Common_Lisp"
+    },
+    "image": null
+  },
+  "machina:pl-racket": {
+    "id": "machina:pl-racket",
+    "name": "Racket",
+    "type": "programming_language",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Multiparadigma",
+      "typeSystem": "Dynamisch typisiert",
+      "primaryDomain": "Skripting/Automatisierung"
+    },
+    "funFact": "Racket ging aus PLT Scheme hervor und ist besonders auf das Erstellen eigener Programmiersprachen ausgelegt.",
+    "source": {
+      "name": "Wikipedia DE – Racket (Programmiersprache)",
+      "url": "https://de.wikipedia.org/wiki/Racket_(Programmiersprache)"
+    },
+    "image": null
+  },
+  "machina:pl-glsl": {
+    "id": "machina:pl-glsl",
+    "name": "GLSL",
+    "type": "programming_language",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Imperativ/prozedural",
+      "typeSystem": "Statisch typisiert",
+      "execution": "Kompiliert",
+      "primaryDomain": "Spieleentwicklung"
+    },
+    "funFact": "GLSL ist die Shader-Sprache von OpenGL und läuft direkt auf der Grafikkarte zur Berechnung von Pixeln und Geometrie.",
+    "source": {
+      "name": "Wikipedia DE – OpenGL Shading Language",
+      "url": "https://de.wikipedia.org/wiki/OpenGL_Shading_Language"
+    },
+    "image": null
+  },
+  "machina:pl-plsql": {
+    "id": "machina:pl-plsql",
+    "name": "PL/SQL",
+    "type": "programming_language",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Imperativ/prozedural",
+      "primaryDomain": "Datenbankabfragen"
+    },
+    "funFact": "PL/SQL ist Oracles prozedurale Erweiterung von SQL und erlaubt Schleifen und Variablen direkt in der Datenbank.",
+    "source": {
+      "name": "Wikipedia DE – PL/SQL",
+      "url": "https://de.wikipedia.org/wiki/PL/SQL"
+    },
+    "image": null
+  },
+  "machina:pl-actionscript": {
+    "id": "machina:pl-actionscript",
+    "name": "ActionScript",
+    "type": "programming_language",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Objektorientiert",
+      "typeSystem": "Dynamisch typisiert",
+      "execution": "Bytecode (VM)",
+      "primaryDomain": "Webentwicklung (Frontend)"
+    },
+    "funFact": "ActionScript war die Programmiersprache von Adobe Flash und prägte das interaktive Web der 2000er-Jahre.",
+    "source": {
+      "name": "Wikipedia DE – ActionScript",
+      "url": "https://de.wikipedia.org/wiki/ActionScript"
+    },
+    "image": null
+  },
+  "machina:fmt-pcx": {
+    "id": "machina:fmt-pcx",
+    "name": "PCX",
+    "type": "file_format",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Bild",
+      "compression": "verlustfrei komprimiert"
+    },
+    "funFact": "PCX war eines der ältesten verbreiteten Bildformate auf dem PC und wurde vom Programm PC Paintbrush eingeführt.",
+    "source": {
+      "name": "Wikipedia DE – PCX",
+      "url": "https://de.wikipedia.org/wiki/PCX"
+    },
+    "image": null
+  },
+  "machina:fmt-tga": {
+    "id": "machina:fmt-tga",
+    "name": "TGA",
+    "type": "file_format",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Bild",
+      "fullName": "Truevision Targa"
+    },
+    "funFact": "TGA stammt aus den 1980ern und wird wegen seines Alphakanals bis heute in der 3D- und Spielegrafik genutzt.",
+    "source": {
+      "name": "Wikipedia DE – Targa Image File",
+      "url": "https://de.wikipedia.org/wiki/Targa_Image_File"
+    },
+    "image": null
+  },
+  "machina:fmt-exr": {
+    "id": "machina:fmt-exr",
+    "name": "EXR",
+    "type": "file_format",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Bild",
+      "fullName": "OpenEXR"
+    },
+    "funFact": "OpenEXR wurde von Industrial Light & Magic entwickelt und ist Standard für High-Dynamic-Range-Bilder im Film.",
+    "source": {
+      "name": "Wikipedia DE – OpenEXR",
+      "url": "https://de.wikipedia.org/wiki/OpenEXR"
+    },
+    "image": null
+  },
+  "machina:fmt-djvu": {
+    "id": "machina:fmt-djvu",
+    "name": "DjVu",
+    "type": "file_format",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Dokument",
+      "compression": "verlustbehaftet komprimiert",
+      "fullName": "DjVu"
+    },
+    "funFact": "DjVu wurde für gescannte Dokumente entwickelt und erreicht dabei oft kleinere Dateien als PDF.",
+    "source": {
+      "name": "Wikipedia DE – DjVu",
+      "url": "https://de.wikipedia.org/wiki/DjVu"
+    },
+    "image": null
+  },
+  "machina:fmt-chm": {
+    "id": "machina:fmt-chm",
+    "name": "CHM",
+    "type": "file_format",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Dokument",
+      "compression": "verlustfrei komprimiert",
+      "fullName": "Compiled HTML Help"
+    },
+    "funFact": "CHM war lange das Standardformat für die Hilfedateien unter Microsoft Windows.",
+    "source": {
+      "name": "Wikipedia DE – Microsoft Compiled HTML Help",
+      "url": "https://de.wikipedia.org/wiki/Microsoft_Compiled_HTML_Help"
+    },
+    "image": null
+  },
+  "machina:fmt-ods": {
+    "id": "machina:fmt-ods",
+    "name": "ODS",
+    "type": "file_format",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Tabellen/Daten",
+      "compression": "verlustfrei komprimiert",
+      "fullName": "OpenDocument Spreadsheet"
+    },
+    "funFact": "ODS ist das offene Tabellenformat des OpenDocument-Standards und wird u.a. von LibreOffice Calc genutzt.",
+    "source": {
+      "name": "Wikipedia DE – OpenDocument",
+      "url": "https://de.wikipedia.org/wiki/OpenDocument"
+    },
+    "image": null
+  },
+  "machina:fmt-odp": {
+    "id": "machina:fmt-odp",
+    "name": "ODP",
+    "type": "file_format",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Dokument",
+      "compression": "verlustfrei komprimiert",
+      "fullName": "OpenDocument Presentation"
+    },
+    "funFact": "ODP ist das offene Präsentationsformat des OpenDocument-Standards, das Gegenstück zu PowerPoints PPTX.",
+    "source": {
+      "name": "Wikipedia DE – OpenDocument",
+      "url": "https://de.wikipedia.org/wiki/OpenDocument"
+    },
+    "image": null
+  },
+  "machina:fmt-cab": {
+    "id": "machina:fmt-cab",
+    "name": "CAB",
+    "type": "file_format",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Archiv/Kompression",
+      "compression": "verlustfrei komprimiert",
+      "fullName": "Cabinet"
+    },
+    "funFact": "CAB ist Microsofts Archivformat und wird bis heute bei der Installation von Windows-Komponenten eingesetzt.",
+    "source": {
+      "name": "Wikipedia DE – Cabinet (Dateiformat)",
+      "url": "https://de.wikipedia.org/wiki/Cabinet_(Dateiformat)"
+    },
+    "image": null
+  },
+  "machina:fmt-vhd": {
+    "id": "machina:fmt-vhd",
+    "name": "VHD",
+    "type": "file_format",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Archiv/Kompression",
+      "fullName": "Virtual Hard Disk"
+    },
+    "funFact": "Eine VHD-Datei bildet eine komplette Festplatte als einzelne Datei ab und wird für virtuelle Maschinen genutzt.",
+    "source": {
+      "name": "Wikipedia DE – VHD (Dateiformat)",
+      "url": "https://de.wikipedia.org/wiki/VHD_(Dateiformat)"
+    },
+    "image": null
+  },
+  "machina:fmt-ply": {
+    "id": "machina:fmt-ply",
+    "name": "PLY",
+    "type": "file_format",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "3D-Modell",
+      "fullName": "Polygon File Format"
+    },
+    "funFact": "Das PLY-Format wurde an der Stanford University entwickelt, um eingescannte 3D-Objekte zu speichern.",
+    "source": {
+      "name": "Wikipedia DE – Polygon File Format",
+      "url": "https://de.wikipedia.org/wiki/Polygon_File_Format"
+    },
+    "image": null
+  },
+  "machina:fmt-usdz": {
+    "id": "machina:fmt-usdz",
+    "name": "USDZ",
+    "type": "file_format",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "3D-Modell",
+      "fullName": "Universal Scene Description Zip"
+    },
+    "funFact": "USDZ stammt aus einer Zusammenarbeit von Pixar und Apple und ist Apples Standardformat für Augmented Reality.",
+    "source": {
+      "name": "Wikipedia DE – Universal Scene Description",
+      "url": "https://de.wikipedia.org/wiki/Universal_Scene_Description"
+    },
+    "image": null
+  },
+  "machina:fmt-jp2": {
+    "id": "machina:fmt-jp2",
+    "name": "JP2",
+    "type": "file_format",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Bild",
+      "fullName": "JPEG 2000"
+    },
+    "funFact": "JPEG 2000 nutzt eine Wavelet-Transformation und kann sowohl verlustfrei als auch verlustbehaftet komprimieren.",
+    "source": {
+      "name": "Wikipedia DE – JPEG 2000",
+      "url": "https://de.wikipedia.org/wiki/JPEG_2000"
+    },
+    "image": null
+  },
+  "machina:proto-rtsp": {
+    "id": "machina:proto-rtsp",
+    "name": "RTSP",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "layer": "Anwendungsschicht",
+      "defaultPort": 554,
+      "purpose": "Steuerung von Streaming-Medien (Start, Pause, Stopp)",
+      "fullName": "Real-Time Streaming Protocol"
+    },
+    "funFact": "RTSP funktioniert wie eine Fernbedienung für Medienströme und wird oft mit RTP zur eigentlichen Datenübertragung kombiniert.",
+    "source": {
+      "name": "Wikipedia DE – Real-Time Streaming Protocol",
+      "url": "https://de.wikipedia.org/wiki/Real-Time_Streaming_Protocol"
+    },
+    "image": null
+  },
+  "machina:proto-mdns": {
+    "id": "machina:proto-mdns",
+    "name": "mDNS",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "layer": "Anwendungsschicht",
+      "defaultPort": 5353,
+      "transport": "UDP",
+      "purpose": "Namensauflösung im lokalen Netz ohne zentralen DNS-Server",
+      "fullName": "Multicast DNS"
+    },
+    "funFact": "mDNS ist die Grundlage von Apples Bonjour und findet Drucker oder Geräte im Heimnetz automatisch.",
+    "source": {
+      "name": "Wikipedia DE – Multicast DNS",
+      "url": "https://de.wikipedia.org/wiki/Multicast_DNS"
+    },
+    "image": null
+  },
+  "machina:proto-ssdp": {
+    "id": "machina:proto-ssdp",
+    "name": "SSDP",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "layer": "Anwendungsschicht",
+      "defaultPort": 1900,
+      "transport": "UDP",
+      "purpose": "Auffinden von Geräten und Diensten im lokalen Netz (Teil von UPnP)",
+      "fullName": "Simple Service Discovery Protocol"
+    },
+    "funFact": "SSDP ist der Mechanismus, mit dem UPnP-Geräte wie Smart-TVs und Router einander im Netzwerk entdecken.",
+    "source": {
+      "name": "Wikipedia DE – Simple Service Discovery Protocol",
+      "url": "https://de.wikipedia.org/wiki/Simple_Service_Discovery_Protocol"
+    },
+    "image": null
+  },
+  "machina:proto-rip": {
+    "id": "machina:proto-rip",
+    "name": "RIP",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "layer": "Vermittlungsschicht (Internet)",
+      "defaultPort": 520,
+      "transport": "UDP",
+      "purpose": "Austausch von Routing-Informationen nach dem Distanzvektor-Verfahren",
+      "fullName": "Routing Information Protocol"
+    },
+    "funFact": "RIP ist eines der ältesten Routing-Protokolle und begrenzt die Pfadlänge auf maximal 15 Stationen.",
+    "source": {
+      "name": "Wikipedia DE – Routing Information Protocol",
+      "url": "https://de.wikipedia.org/wiki/Routing_Information_Protocol"
+    },
+    "image": null
+  },
+  "machina:proto-l2tp": {
+    "id": "machina:proto-l2tp",
+    "name": "L2TP",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "layer": "Sicherungsschicht",
+      "defaultPort": 1701,
+      "transport": "UDP",
+      "purpose": "Tunneling für VPN-Verbindungen, meist kombiniert mit IPsec",
+      "fullName": "Layer 2 Tunneling Protocol"
+    },
+    "funFact": "L2TP wird fast immer mit IPsec gekoppelt, da es selbst keine Verschlüsselung mitbringt.",
+    "source": {
+      "name": "Wikipedia DE – Layer 2 Tunneling Protocol",
+      "url": "https://de.wikipedia.org/wiki/Layer_2_Tunneling_Protocol"
+    },
+    "image": null
+  },
+  "machina:proto-pppoe": {
+    "id": "machina:proto-pppoe",
+    "name": "PPPoE",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "layer": "Sicherungsschicht",
+      "purpose": "Aufbau von PPP-Verbindungen über Ethernet, typisch für DSL-Einwahl",
+      "fullName": "Point-to-Point Protocol over Ethernet"
+    },
+    "funFact": "PPPoE wird von vielen DSL-Anbietern genutzt, um die Internet-Einwahl über die Ethernet-Leitung abzuwickeln.",
+    "source": {
+      "name": "Wikipedia DE – PPP over Ethernet",
+      "url": "https://de.wikipedia.org/wiki/PPP_over_Ethernet"
+    },
+    "image": null
+  },
+  "machina:proto-stun": {
+    "id": "machina:proto-stun",
+    "name": "STUN",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "layer": "Anwendungsschicht",
+      "defaultPort": 3478,
+      "purpose": "Ermittlung der eigenen öffentlichen IP-Adresse hinter einem NAT",
+      "fullName": "Session Traversal Utilities for NAT"
+    },
+    "funFact": "STUN hilft Programmen wie Videochats herauszufinden, wie sie hinter einem Router von außen erreichbar sind.",
+    "source": {
+      "name": "Wikipedia DE – STUN",
+      "url": "https://de.wikipedia.org/wiki/STUN"
+    },
+    "image": null
+  },
+  "machina:proto-isis": {
+    "id": "machina:proto-isis",
+    "name": "IS-IS",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "purpose": "Link-State-Routing innerhalb großer Netze, häufig bei Internet-Providern",
+      "fullName": "Intermediate System to Intermediate System"
+    },
+    "funFact": "IS-IS ist wie OSPF ein Link-State-Protokoll und wird wegen seiner Skalierbarkeit in vielen Backbone-Netzen eingesetzt.",
+    "source": {
+      "name": "Wikipedia DE – IS-IS",
+      "url": "https://de.wikipedia.org/wiki/IS-IS"
+    },
+    "image": null
+  },
+  "machina:algo-bucketsort": {
+    "id": "machina:algo-bucketsort",
+    "name": "Bucketsort",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortieralgorithmus",
+      "avgComplexity": "O(n)",
+      "purpose": "Verteilt Elemente auf Eimer (Buckets), sortiert diese einzeln und fügt sie zusammen"
+    },
+    "funFact": "Bucketsort erreicht bei gleichmäßig verteilten Eingaben lineare Laufzeit und gehört damit zu den nicht-vergleichsbasierten Verfahren.",
+    "source": {
+      "name": "Cormen et al. – Introduction to Algorithms (CLRS)",
+      "url": ""
+    },
+    "image": null
+  },
+  "machina:algo-interpolation-search": {
+    "id": "machina:algo-interpolation-search",
+    "name": "Interpolationssuche",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Suchalgorithmus",
+      "purpose": "Schätzt die Position eines Werts in sortierten, gleichverteilten Daten und springt gezielt dorthin"
+    },
+    "funFact": "Bei gleichmäßig verteilten Daten ist die Interpolationssuche noch schneller als die binäre Suche.",
+    "source": {
+      "name": "Wikipedia DE – Interpolationssuche",
+      "url": "https://de.wikipedia.org/wiki/Interpolationssuche"
+    },
+    "image": null
+  },
+  "machina:algo-tarjan-scc": {
+    "id": "machina:algo-tarjan-scc",
+    "name": "Tarjan-Algorithmus",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Graphalgorithmus",
+      "avgComplexity": "O(n)",
+      "purpose": "Findet starke Zusammenhangskomponenten in einem gerichteten Graphen in einem einzigen Tiefendurchlauf"
+    },
+    "funFact": "Robert Tarjan entwickelte mehrere bahnbrechende Graphalgorithmen und erhielt 1986 den Turing-Award.",
+    "source": {
+      "name": "Wikipedia DE – Algorithmus von Tarjan zur Bestimmung starker Zusammenhangskomponenten",
+      "url": "https://de.wikipedia.org/wiki/Algorithmus_von_Tarjan_zur_Bestimmung_starker_Zusammenhangskomponenten"
+    },
+    "image": null
+  },
+  "machina:algo-floyd-cycle": {
+    "id": "machina:algo-floyd-cycle",
+    "name": "Floyd-Zyklussuche",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Graphalgorithmus",
+      "avgComplexity": "O(n)",
+      "purpose": "Erkennt Zyklen in einer Folge oder verketteten Liste mit nur zwei Zeigern unterschiedlicher Geschwindigkeit"
+    },
+    "funFact": "Das Verfahren heißt auch Hase-und-Igel-Algorithmus, weil ein schneller und ein langsamer Zeiger sich im Zyklus treffen.",
+    "source": {
+      "name": "Wikipedia DE – Zyklenerkennung",
+      "url": "https://de.wikipedia.org/wiki/Zyklenerkennung"
+    },
+    "image": null
+  },
+  "machina:algo-aho-corasick": {
+    "id": "machina:algo-aho-corasick",
+    "name": "Aho-Corasick",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "String-Verarbeitung",
+      "avgComplexity": "O(n)",
+      "purpose": "Sucht viele Suchmuster gleichzeitig in einem Text mithilfe eines Automaten"
+    },
+    "funFact": "Aho-Corasick bildet die Grundlage des Unix-Werkzeugs fgrep und vieler Virenscanner.",
+    "source": {
+      "name": "Wikipedia DE – Aho-Corasick-Algorithmus",
+      "url": "https://de.wikipedia.org/wiki/Aho-Corasick-Algorithmus"
+    },
+    "image": null
+  },
+  "machina:algo-miller-rabin": {
+    "id": "machina:algo-miller-rabin",
+    "name": "Miller-Rabin-Test",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Kryptografie",
+      "purpose": "Prüft probabilistisch, ob eine große Zahl eine Primzahl ist — wichtig für die Schlüsselerzeugung"
+    },
+    "funFact": "Der Miller-Rabin-Test liefert kein sicheres Ja, aber die Irrtumswahrscheinlichkeit lässt sich beliebig klein machen.",
+    "source": {
+      "name": "Wikipedia DE – Miller-Rabin-Test",
+      "url": "https://de.wikipedia.org/wiki/Miller-Rabin-Test"
+    },
+    "image": null
+  },
+  "machina:algo-elgamal": {
+    "id": "machina:algo-elgamal",
+    "name": "ElGamal-Verschlüsselung",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Kryptografie",
+      "purpose": "Asymmetrisches Verschlüsselungsverfahren, dessen Sicherheit auf dem diskreten Logarithmus beruht"
+    },
+    "funFact": "Das ElGamal-Verfahren ist die Grundlage des Signaturstandards DSA und kommt u.a. in GnuPG zum Einsatz.",
+    "source": {
+      "name": "Wikipedia DE – ElGamal-Verschlüsselungsverfahren",
+      "url": "https://de.wikipedia.org/wiki/ElGamal-Verschl%C3%BCsselungsverfahren"
+    },
+    "image": null
+  },
+  "machina:algo-chacha20": {
+    "id": "machina:algo-chacha20",
+    "name": "ChaCha20",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Kryptografie",
+      "purpose": "Moderne Stromchiffre zur symmetrischen Verschlüsselung, schnell auch ohne Hardwarebeschleunigung"
+    },
+    "funFact": "ChaCha20 wird in TLS und in VPNs wie WireGuard genutzt, weil es auf Geräten ohne AES-Beschleunigung besonders schnell ist.",
+    "source": {
+      "name": "Wikipedia DE – Salsa20",
+      "url": "https://de.wikipedia.org/wiki/Salsa20"
+    },
+    "image": null
+  },
+  "machina:algo-argon2": {
+    "id": "machina:algo-argon2",
+    "name": "Argon2",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Kryptografie",
+      "purpose": "Speicherintensive Schlüsselableitung zum sicheren Speichern von Passwörtern"
+    },
+    "funFact": "Argon2 gewann 2015 die Password Hashing Competition und gilt seither als empfohlenes Verfahren zur Passwortspeicherung.",
+    "source": {
+      "name": "Wikipedia DE – Argon2",
+      "url": "https://de.wikipedia.org/wiki/Argon2"
+    },
+    "image": null
+  },
+  "machina:algo-scrypt": {
+    "id": "machina:algo-scrypt",
+    "name": "scrypt",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Kryptografie",
+      "purpose": "Speicherintensive Schlüsselableitung, die Brute-Force-Angriffe mit Spezialhardware erschwert"
+    },
+    "funFact": "scrypt wurde absichtlich speicherhungrig entworfen, damit Angriffe mit ASICs und GPUs teuer werden.",
+    "source": {
+      "name": "Wikipedia DE – scrypt",
+      "url": "https://de.wikipedia.org/wiki/Scrypt"
+    },
+    "image": null
+  },
+  "machina:algo-pbkdf2": {
+    "id": "machina:algo-pbkdf2",
+    "name": "PBKDF2",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Kryptografie",
+      "purpose": "Leitet aus einem Passwort durch viele Wiederholungen einen sicheren Schlüssel ab"
+    },
+    "funFact": "PBKDF2 verlangsamt das Knacken von Passwörtern, indem die Hashfunktion zigtausendfach wiederholt wird.",
+    "source": {
+      "name": "Wikipedia DE – PBKDF2",
+      "url": "https://de.wikipedia.org/wiki/PBKDF2"
+    },
+    "image": null
+  },
+  "machina:algo-hmac": {
+    "id": "machina:algo-hmac",
+    "name": "HMAC",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Kryptografie",
+      "purpose": "Erzeugt aus Nachricht und geheimem Schlüssel einen Code zur Prüfung von Echtheit und Integrität"
+    },
+    "funFact": "HMAC kombiniert eine Hashfunktion mit einem geheimen Schlüssel und sichert so viele Internet-Protokolle gegen Manipulation.",
+    "source": {
+      "name": "Wikipedia DE – Keyed-Hash Message Authentication Code",
+      "url": "https://de.wikipedia.org/wiki/Keyed-Hash_Message_Authentication_Code"
+    },
+    "image": null
+  },
+  "machina:algo-brotli": {
+    "id": "machina:algo-brotli",
+    "name": "Brotli",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Kompression",
+      "purpose": "Verlustfreie Kompression für das Web, oft kleiner als gzip bei Textinhalten"
+    },
+    "funFact": "Brotli wurde von Google entwickelt und wird von modernen Browsern zur schnelleren Auslieferung von Webseiten unterstützt.",
+    "source": {
+      "name": "Wikipedia DE – Brotli",
+      "url": "https://de.wikipedia.org/wiki/Brotli"
+    },
+    "image": null
+  },
+  "machina:algo-zstandard": {
+    "id": "machina:algo-zstandard",
+    "name": "Zstandard",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Kompression",
+      "purpose": "Schnelle verlustfreie Kompression mit guter Balance aus Geschwindigkeit und Kompressionsrate"
+    },
+    "funFact": "Zstandard wurde bei Facebook entwickelt und ist heute in Linux-Kernel, Datenbanken und Paketmanagern verbreitet.",
+    "source": {
+      "name": "Wikipedia DE – Zstandard",
+      "url": "https://de.wikipedia.org/wiki/Zstandard"
+    },
+    "image": null
+  },
+  "machina:algo-bwt": {
+    "id": "machina:algo-bwt",
+    "name": "Burrows-Wheeler-Transformation",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Kompression",
+      "avgComplexity": "O(n)",
+      "purpose": "Ordnet Daten so um, dass sie sich anschließend besser komprimieren lassen"
+    },
+    "funFact": "Die Burrows-Wheeler-Transformation ist das Herzstück des Kompressionsprogramms bzip2.",
+    "source": {
+      "name": "Wikipedia DE – Burrows-Wheeler-Transformation",
+      "url": "https://de.wikipedia.org/wiki/Burrows-Wheeler-Transformation"
+    },
+    "image": null
+  },
+  "machina:ds-splay-tree": {
+    "id": "machina:ds-splay-tree",
+    "name": "Splay-Baum",
+    "type": "data_structure",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "purpose": "Selbstanpassender Suchbaum, der zuletzt genutzte Elemente nach oben rotiert für schnellen erneuten Zugriff",
+      "accessComplexity": "O(log n)"
+    },
+    "funFact": "Der Splay-Baum bringt häufig abgefragte Elemente automatisch nahe an die Wurzel und ist damit eine Art selbstoptimierender Cache.",
+    "source": {
+      "name": "Wikipedia DE – Splay-Baum",
+      "url": "https://de.wikipedia.org/wiki/Splay-Baum"
+    },
+    "image": null
+  },
+  "machina:ds-treap": {
+    "id": "machina:ds-treap",
+    "name": "Treap",
+    "type": "data_structure",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "purpose": "Kombiniert Suchbaum und Heap, indem zufällige Prioritäten die Balance wahrscheinlich ausgeglichen halten",
+      "accessComplexity": "O(log n)"
+    },
+    "funFact": "Der Name Treap ist ein Kofferwort aus Tree und Heap, weil die Struktur beide Eigenschaften vereint.",
+    "source": {
+      "name": "Wikipedia DE – Treap",
+      "url": "https://de.wikipedia.org/wiki/Treap"
+    },
+    "image": null
+  },
+  "machina:ds-suffix-array": {
+    "id": "machina:ds-suffix-array",
+    "name": "Suffix-Array",
+    "type": "data_structure",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Lineare Struktur",
+      "purpose": "Sortiertes Feld aller Suffixe eines Textes; ermöglicht schnelle Teilstring-Suche und Volltextindizierung"
+    },
+    "funFact": "Suffix-Arrays brauchen weniger Speicher als Suffix-Bäume und werden in Bioinformatik und Suchmaschinen genutzt.",
+    "source": {
+      "name": "Wikipedia DE – Suffixarray",
+      "url": "https://de.wikipedia.org/wiki/Suffixarray"
+    },
+    "image": null
+  },
+  "machina:ds-octree": {
+    "id": "machina:ds-octree",
+    "name": "Octree",
+    "type": "data_structure",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "purpose": "Unterteilt den dreidimensionalen Raum rekursiv in acht Teilwürfel; Grundlage vieler 3D- und Voxel-Anwendungen"
+    },
+    "funFact": "Der Octree ist das dreidimensionale Gegenstück zum Quadtree und wird in 3D-Grafik und Kollisionsabfragen eingesetzt.",
+    "source": {
+      "name": "Wikipedia DE – Octree",
+      "url": "https://de.wikipedia.org/wiki/Octree"
+    },
+    "image": null
+  },
+  "machina:ds-rope": {
+    "id": "machina:ds-rope",
+    "name": "Rope",
+    "type": "data_structure",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "purpose": "Baumbasierte Darstellung sehr langer Zeichenketten für effizientes Einfügen und Löschen",
+      "accessComplexity": "O(log n)"
+    },
+    "funFact": "Texteditoren nutzen Ropes, um in riesigen Dokumenten ohne ruckeln Text einzufügen oder zu entfernen.",
+    "source": {
+      "name": "Wikipedia DE – Rope (Datenstruktur)",
+      "url": "https://de.wikipedia.org/wiki/Rope_(Datenstruktur)"
+    },
+    "image": null
+  },
+  "machina:ds-adjacency-matrix": {
+    "id": "machina:ds-adjacency-matrix",
+    "name": "Adjazenzmatrix",
+    "type": "data_structure",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Graph",
+      "purpose": "Stellt einen Graphen als quadratische Matrix dar; ein Eintrag zeigt, ob zwei Knoten verbunden sind",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Die Adjazenzmatrix erlaubt das Prüfen einer Kante in konstanter Zeit, braucht aber quadratisch viel Speicher.",
+    "source": {
+      "name": "Wikipedia DE – Adjazenzmatrix",
+      "url": "https://de.wikipedia.org/wiki/Adjazenzmatrix"
+    },
+    "image": null
+  },
+  "machina:hw-chipsatz": {
+    "id": "machina:hw-chipsatz",
+    "name": "Chipsatz",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Hauptplatine/Bus",
+      "function": "Steuert auf der Hauptplatine den Datenfluss zwischen Prozessor, Speicher und Peripherie"
+    },
+    "funFact": "Früher teilte sich der Chipsatz in North- und Southbridge auf; heute sind viele dieser Aufgaben in den Prozessor gewandert.",
+    "source": {
+      "name": "Wikipedia DE – Chipsatz",
+      "url": "https://de.wikipedia.org/wiki/Chipsatz"
+    },
+    "image": null
+  },
+  "machina:hw-tpu": {
+    "id": "machina:hw-tpu",
+    "name": "TPU",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Prozessor/Recheneinheit",
+      "function": "Spezialprozessor von Google zur Beschleunigung von KI-Berechnungen, besonders Matrixoperationen"
+    },
+    "funFact": "Die TPU wurde von Google entwickelt, um neuronale Netze deutlich effizienter zu trainieren als herkömmliche Prozessoren.",
+    "source": {
+      "name": "Wikipedia DE – Tensor Processing Unit",
+      "url": "https://de.wikipedia.org/wiki/Tensor_Processing_Unit"
+    },
+    "image": null
+  },
+  "machina:hw-npu": {
+    "id": "machina:hw-npu",
+    "name": "NPU",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Prozessor/Recheneinheit",
+      "function": "Auf neuronale Netze spezialisierte Recheneinheit, oft direkt in moderne Smartphone- und PC-Chips integriert"
+    },
+    "funFact": "NPUs ermöglichen es, KI-Funktionen wie Spracherkennung direkt auf dem Gerät auszuführen, ohne die Cloud zu benötigen.",
+    "source": {
+      "name": "Wikipedia DE – KI-Beschleuniger",
+      "url": "https://de.wikipedia.org/wiki/KI-Beschleuniger"
+    },
+    "image": null
+  },
+  "machina:hw-asic": {
+    "id": "machina:hw-asic",
+    "name": "ASIC",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Prozessor/Recheneinheit",
+      "function": "Für eine einzige Aufgabe fest verdrahteter Chip, der diese besonders schnell und stromsparend erledigt"
+    },
+    "funFact": "ASICs lassen sich nach der Fertigung nicht mehr umprogrammieren, sind dafür aber extrem effizient — z.B. beim Mining von Kryptowährungen.",
+    "source": {
+      "name": "Wikipedia DE – Anwendungsspezifische integrierte Schaltung",
+      "url": "https://de.wikipedia.org/wiki/Anwendungsspezifische_integrierte_Schaltung"
+    },
+    "image": null
+  },
+  "machina:hw-dockingstation": {
+    "id": "machina:hw-dockingstation",
+    "name": "Dockingstation",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Hauptplatine/Bus",
+      "function": "Erweitert einen Laptop über eine Verbindung um zahlreiche Anschlüsse für Monitor, Netzwerk und Peripherie"
+    },
+    "funFact": "Mit einer Dockingstation wird ein Notebook am Arbeitsplatz mit einem Handgriff zum vollwertigen Desktop-Rechner.",
+    "source": {
+      "name": "Wikipedia DE – Dockingstation",
+      "url": "https://de.wikipedia.org/wiki/Dockingstation"
+    },
+    "image": null
+  },
+  "machina:hw-kvm-switch": {
+    "id": "machina:hw-kvm-switch",
+    "name": "KVM-Switch",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Eingabegerät",
+      "function": "Schaltet eine Tastatur, einen Monitor und eine Maus per Knopfdruck zwischen mehreren Rechnern um"
+    },
+    "funFact": "KVM steht für Keyboard, Video, Mouse — der Switch erspart es, für jeden Rechner ein eigenes Eingabe-Set zu haben.",
+    "source": {
+      "name": "Wikipedia DE – KVM-Switch",
+      "url": "https://de.wikipedia.org/wiki/KVM-Switch"
+    },
+    "image": null
+  },
+  "machina:hw-egpu": {
+    "id": "machina:hw-egpu",
+    "name": "eGPU",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Grafik",
+      "function": "Externe Grafikkarte, die über eine schnelle Schnittstelle wie Thunderbolt an einen Laptop angeschlossen wird"
+    },
+    "funFact": "Mit einer eGPU lässt sich ein schmales Notebook nachträglich um die Grafikleistung einer Desktop-Grafikkarte erweitern.",
+    "source": {
+      "name": "Wikipedia DE – Externe Grafikkarte",
+      "url": "https://de.wikipedia.org/wiki/Externe_Grafikkarte"
+    },
+    "image": null
+  },
+  "machina:hw-lichtgriffel": {
+    "id": "machina:hw-lichtgriffel",
+    "name": "Lichtgriffel",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Eingabegerät",
+      "function": "Stiftförmiges Zeigegerät, das durch direktes Berühren der Bildröhre Punkte auf dem Bildschirm auswählt"
+    },
+    "funFact": "Der Lichtgriffel war eines der ersten grafischen Eingabegeräte und wurde schon in den 1960er-Jahren am Computer genutzt.",
+    "source": {
+      "name": "Wikipedia DE – Lichtgriffel",
+      "url": "https://de.wikipedia.org/wiki/Lichtgriffel"
+    },
+    "image": null
+  },
+  "machina:acr-mime": {
+    "id": "machina:acr-mime",
+    "name": "MIME",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Multipurpose Internet Mail Extensions",
+      "domain": "Netzwerk"
+    },
+    "funFact": "MIME-Typen wie text/html oder image/png teilen Browser und Mailprogramme mit, um welche Art von Inhalt es sich handelt.",
+    "source": {
+      "name": "Wikipedia DE – Multipurpose Internet Mail Extensions",
+      "url": "https://de.wikipedia.org/wiki/Multipurpose_Internet_Mail_Extensions"
+    },
+    "image": null
+  },
+  "machina:acr-cidr": {
+    "id": "machina:acr-cidr",
+    "name": "CIDR",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Classless Inter-Domain Routing",
+      "domain": "Netzwerk"
+    },
+    "funFact": "CIDR löste die starren IP-Adressklassen ab und ermöglicht flexible Netzgrößen durch Schreibweisen wie /24.",
+    "source": {
+      "name": "Wikipedia DE – Classless Inter-Domain Routing",
+      "url": "https://de.wikipedia.org/wiki/Classless_Inter-Domain_Routing"
+    },
+    "image": null
+  },
+  "machina:acr-jwt": {
+    "id": "machina:acr-jwt",
+    "name": "JWT",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "JSON Web Token",
+      "domain": "Sicherheit"
+    },
+    "funFact": "JWTs sind signierte Token, mit denen sich Nutzer nach dem Login gegenüber Web-Diensten ausweisen.",
+    "source": {
+      "name": "Wikipedia DE – JSON Web Token",
+      "url": "https://de.wikipedia.org/wiki/JSON_Web_Token"
+    },
+    "image": null
+  },
+  "machina:acr-sso": {
+    "id": "machina:acr-sso",
+    "name": "SSO",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Single Sign-On",
+      "domain": "Sicherheit"
+    },
+    "funFact": "Dank Single Sign-On meldet man sich einmal an und nutzt danach mehrere Dienste, ohne sich erneut einloggen zu müssen.",
+    "source": {
+      "name": "Wikipedia DE – Single Sign-on",
+      "url": "https://de.wikipedia.org/wiki/Single_Sign-on"
+    },
+    "image": null
+  },
+  "machina:acr-captcha": {
+    "id": "machina:acr-captcha",
+    "name": "CAPTCHA",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Completely Automated Public Turing test to tell Computers and Humans Apart",
+      "domain": "Sicherheit"
+    },
+    "funFact": "CAPTCHAs sollen Menschen von Bots unterscheiden und sind nach dem Informatiker Alan Turing benannt.",
+    "source": {
+      "name": "Wikipedia DE – CAPTCHA",
+      "url": "https://de.wikipedia.org/wiki/CAPTCHA"
+    },
+    "image": null
+  },
+  "machina:acr-olap": {
+    "id": "machina:acr-olap",
+    "name": "OLAP",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Online Analytical Processing",
+      "domain": "Datenbanken"
+    },
+    "funFact": "OLAP-Systeme sind auf komplexe Auswertungen großer Datenbestände ausgelegt, etwa für Berichte und Data Warehouses.",
+    "source": {
+      "name": "Wikipedia DE – Online Analytical Processing",
+      "url": "https://de.wikipedia.org/wiki/Online_Analytical_Processing"
+    },
+    "image": null
+  },
+  "machina:acr-oltp": {
+    "id": "machina:acr-oltp",
+    "name": "OLTP",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Online Transaction Processing",
+      "domain": "Datenbanken"
+    },
+    "funFact": "OLTP-Systeme verarbeiten viele kleine Transaktionen in Echtzeit, etwa Buchungen oder Bestellungen im Onlineshop.",
+    "source": {
+      "name": "Wikipedia DE – Online Transaction Processing",
+      "url": "https://de.wikipedia.org/wiki/Online_Transaction_Processing"
+    },
+    "image": null
+  },
+  "machina:acr-etl": {
+    "id": "machina:acr-etl",
+    "name": "ETL",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Extract, Transform, Load",
+      "domain": "Datenbanken"
+    },
+    "funFact": "ETL beschreibt den dreistufigen Prozess, mit dem Daten aus Quellen extrahiert, aufbereitet und in ein Zielsystem geladen werden.",
+    "source": {
+      "name": "Wikipedia DE – ETL (Datenintegration)",
+      "url": "https://de.wikipedia.org/wiki/ETL-Prozess"
+    },
+    "image": null
+  },
+  "machina:acr-simd": {
+    "id": "machina:acr-simd",
+    "name": "SIMD",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Single Instruction, Multiple Data",
+      "domain": "Hardware"
+    },
+    "funFact": "Mit SIMD führt ein einziger Befehl dieselbe Rechenoperation gleichzeitig auf vielen Datenwerten aus — wichtig für Grafik und KI.",
+    "source": {
+      "name": "Wikipedia DE – SIMD",
+      "url": "https://de.wikipedia.org/wiki/SIMD"
+    },
+    "image": null
+  },
+  "machina:acr-ssid": {
+    "id": "machina:acr-ssid",
+    "name": "SSID",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Service Set Identifier",
+      "domain": "Netzwerk"
+    },
+    "funFact": "Die SSID ist der Name eines WLAN-Funknetzes, den man in der Liste verfügbarer Netzwerke sieht.",
+    "source": {
+      "name": "Wikipedia DE – Service Set",
+      "url": "https://de.wikipedia.org/wiki/Service_Set"
+    },
+    "image": null
+  },
+  "machina:acr-dpi": {
+    "id": "machina:acr-dpi",
+    "name": "DPI",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Dots Per Inch",
+      "domain": "Hardware"
+    },
+    "funFact": "DPI gibt die Punktdichte beim Drucken oder Scannen an — je höher der Wert, desto feiner die Auflösung.",
+    "source": {
+      "name": "Wikipedia DE – Punkte pro Zoll",
+      "url": "https://de.wikipedia.org/wiki/Punktdichte"
+    },
+    "image": null
+  },
+  "machina:concept-mutex": {
+    "id": "machina:concept-mutex",
+    "name": "Mutex",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Betriebssysteme",
+      "definition": "Sperrmechanismus, der sicherstellt, dass immer nur ein Thread gleichzeitig auf eine gemeinsame Ressource zugreift"
+    },
+    "funFact": "Der Name Mutex steht für mutual exclusion — gegenseitiger Ausschluss verhindert, dass sich Threads in die Quere kommen.",
+    "source": {
+      "name": "Wikipedia DE – Mutex",
+      "url": "https://de.wikipedia.org/wiki/Mutex"
+    },
+    "image": null
+  },
+  "machina:concept-semaphore": {
+    "id": "machina:concept-semaphore",
+    "name": "Semaphor",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Betriebssysteme",
+      "definition": "Zähler-basierter Synchronisationsmechanismus, der den gleichzeitigen Zugriff mehrerer Prozesse auf begrenzte Ressourcen steuert"
+    },
+    "funFact": "Das Semaphor-Konzept wurde von Edsger Dijkstra eingeführt und ist nach dem Eisenbahn-Signal benannt.",
+    "source": {
+      "name": "Wikipedia DE – Semaphor (Informatik)",
+      "url": "https://de.wikipedia.org/wiki/Semaphor_(Informatik)"
+    },
+    "image": null
+  },
+  "machina:concept-pipelining": {
+    "id": "machina:concept-pipelining",
+    "name": "Pipelining",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Betriebssysteme",
+      "definition": "Technik in Prozessoren, bei der mehrere Befehle überlappend in aufeinanderfolgenden Stufen abgearbeitet werden"
+    },
+    "funFact": "Pipelining funktioniert wie ein Fließband: Während ein Befehl decodiert wird, kann der nächste schon geladen werden.",
+    "source": {
+      "name": "Wikipedia DE – Pipeline (Prozessor)",
+      "url": "https://de.wikipedia.org/wiki/Pipeline_(Prozessor)"
+    },
+    "image": null
+  },
+  "machina:concept-cache-coherence": {
+    "id": "machina:concept-cache-coherence",
+    "name": "Cache-Kohärenz",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Betriebssysteme",
+      "definition": "Sicherstellung, dass alle Prozessorkerne mit konsistenten Werten arbeiten, wenn sie dieselben Daten zwischenspeichern"
+    },
+    "funFact": "Ohne Cache-Kohärenz könnten zwei CPU-Kerne unterschiedliche, veraltete Werte derselben Speicherstelle sehen.",
+    "source": {
+      "name": "Wikipedia DE – Cache-Kohärenz",
+      "url": "https://de.wikipedia.org/wiki/Cache-Koh%C3%A4renz"
+    },
+    "image": null
+  },
+  "machina:concept-closure": {
+    "id": "machina:concept-closure",
+    "name": "Closure",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmierung",
+      "definition": "Funktion, die Variablen aus ihrem umgebenden Kontext einschließt und auch nach dessen Ende weiter verwenden kann"
+    },
+    "funFact": "Closures sind ein Kernkonzept funktionaler Sprachen und in JavaScript allgegenwärtig.",
+    "source": {
+      "name": "Wikipedia DE – Closure (Funktion)",
+      "url": "https://de.wikipedia.org/wiki/Closure_(Funktion)"
+    },
+    "image": null
+  },
+  "machina:concept-currying": {
+    "id": "machina:concept-currying",
+    "name": "Currying",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmierung",
+      "definition": "Umwandlung einer Funktion mit mehreren Argumenten in eine Kette von Funktionen mit jeweils einem Argument"
+    },
+    "funFact": "Currying ist nach dem Logiker Haskell Curry benannt, nach dem auch die Programmiersprache Haskell heißt.",
+    "source": {
+      "name": "Wikipedia DE – Currying",
+      "url": "https://de.wikipedia.org/wiki/Currying"
+    },
+    "image": null
+  },
+  "machina:concept-idempotence": {
+    "id": "machina:concept-idempotence",
+    "name": "Idempotenz",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmierung",
+      "definition": "Eigenschaft einer Operation, bei der die mehrfache Ausführung dasselbe Ergebnis liefert wie die einmalige"
+    },
+    "funFact": "Idempotenz ist bei Web-APIs wichtig: Ein wiederholter Aufruf darf keine doppelte Bestellung auslösen.",
+    "source": {
+      "name": "Wikipedia DE – Idempotenz",
+      "url": "https://de.wikipedia.org/wiki/Idempotenz"
+    },
+    "image": null
+  },
+  "machina:concept-sharding": {
+    "id": "machina:concept-sharding",
+    "name": "Sharding",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Datenbanken",
+      "definition": "Aufteilung einer Datenbank in mehrere Teile (Shards), die auf verschiedene Server verteilt werden, um die Last zu skalieren"
+    },
+    "funFact": "Große Dienste verteilen ihre Datenbank per Sharding auf viele Server, damit kein einzelner überlastet wird.",
+    "source": {
+      "name": "Wikipedia DE – Sharding",
+      "url": "https://de.wikipedia.org/wiki/Sharding"
+    },
+    "image": null
+  },
+  "machina:concept-replication": {
+    "id": "machina:concept-replication",
+    "name": "Replikation",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Datenbanken",
+      "definition": "Mehrfaches Vorhalten derselben Daten auf verschiedenen Systemen, um Ausfallsicherheit und Leseleistung zu erhöhen"
+    },
+    "funFact": "Durch Replikation bleibt ein Dienst erreichbar, selbst wenn einer der Datenbankserver ausfällt.",
+    "source": {
+      "name": "Wikipedia DE – Replikation (Datenverarbeitung)",
+      "url": "https://de.wikipedia.org/wiki/Replikation_(Datenverarbeitung)"
+    },
+    "image": null
+  },
+  "machina:concept-webhook": {
+    "id": "machina:concept-webhook",
+    "name": "Webhook",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Webtechnik",
+      "definition": "Mechanismus, bei dem ein Dienst bei einem Ereignis automatisch eine vorab hinterlegte URL aufruft und Daten überträgt"
+    },
+    "funFact": "Webhooks kehren das übliche Prinzip um: Statt ständig nachzufragen, wird der Empfänger vom Sender benachrichtigt.",
+    "source": {
+      "name": "Wikipedia DE – Webhook",
+      "url": "https://de.wikipedia.org/wiki/Webhook"
+    },
+    "image": null
+  },
+  "machina:concept-sandbox": {
+    "id": "machina:concept-sandbox",
+    "name": "Sandbox",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Sicherheit/Kryptografie",
+      "definition": "Abgeschottete Ausführungsumgebung, in der Programme laufen, ohne das übrige System beeinflussen oder beschädigen zu können"
+    },
+    "funFact": "Browser führen Webseiten in einer Sandbox aus, damit schädlicher Code nicht auf das restliche System zugreifen kann.",
+    "source": {
+      "name": "Wikipedia DE – Sandbox",
+      "url": "https://de.wikipedia.org/wiki/Sandbox"
+    },
+    "image": null
+  },
+  "machina:concept-honeypot": {
+    "id": "machina:concept-honeypot",
+    "name": "Honeypot",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Sicherheit/Kryptografie",
+      "definition": "Absichtlich angreifbar gestaltetes Lockziel, das Angreifer anlocken und ihre Methoden beobachtbar machen soll"
+    },
+    "funFact": "Ein Honeypot tarnt sich als lohnendes Angriffsziel, um Eindringlinge zu beschäftigen und ihr Vorgehen zu studieren.",
+    "source": {
+      "name": "Wikipedia DE – Honeypot",
+      "url": "https://de.wikipedia.org/wiki/Honeypot"
+    },
+    "image": null
+  },
+  "machina:concept-bytecode": {
+    "id": "machina:concept-bytecode",
+    "name": "Bytecode",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmierung",
+      "definition": "Zwischencode, der zwischen Quellcode und Maschinencode liegt und von einer virtuellen Maschine ausgeführt wird"
+    },
+    "funFact": "Java-Programme werden in Bytecode übersetzt, der dann plattformunabhängig auf der Java Virtual Machine läuft.",
+    "source": {
+      "name": "Wikipedia DE – Bytecode",
+      "url": "https://de.wikipedia.org/wiki/Bytecode"
+    },
+    "image": null
+  },
+  "machina:concept-jit": {
+    "id": "machina:concept-jit",
+    "name": "Just-in-time-Kompilierung",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmierung",
+      "definition": "Übersetzung von Zwischencode in Maschinencode erst zur Laufzeit, um die Geschwindigkeit eines Programms zu erhöhen"
+    },
+    "funFact": "JIT-Compiler kombinieren die Flexibilität interpretierter Sprachen mit der Geschwindigkeit kompilierten Codes.",
+    "source": {
+      "name": "Wikipedia DE – Just-in-time-Kompilierung",
+      "url": "https://de.wikipedia.org/wiki/Just-in-time-Kompilierung"
+    },
+    "image": null
+  },
+  "machina:concept-tail-recursion": {
+    "id": "machina:concept-tail-recursion",
+    "name": "Endrekursion",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmierung",
+      "definition": "Sonderform der Rekursion, bei der der rekursive Aufruf die letzte Operation ist und daher ohne wachsenden Aufrufstapel ausführbar wird"
+    },
+    "funFact": "Viele Compiler wandeln Endrekursion automatisch in eine Schleife um und vermeiden so einen Stapelüberlauf.",
+    "source": {
+      "name": "Wikipedia DE – Endrekursion",
+      "url": "https://de.wikipedia.org/wiki/Endrekursion"
+    },
+    "image": null
+  },
+  "machina:concept-eventual-consistency": {
+    "id": "machina:concept-eventual-consistency",
+    "name": "Eventual Consistency",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Datenbanken",
+      "definition": "Konsistenzmodell verteilter Systeme, bei dem alle Kopien der Daten nach einer gewissen Zeit ohne neue Änderungen denselben Stand erreichen"
+    },
+    "funFact": "Viele große verteilte Datenbanken setzen auf Eventual Consistency, um auch bei Netzwerkproblemen verfügbar zu bleiben.",
+    "source": {
+      "name": "Wikipedia DE – Konsistenz (Datenspeicherung)",
+      "url": "https://de.wikipedia.org/wiki/Konsistenz_(Datenspeicherung)"
+    },
+    "image": null
+  },
+  "machina:concept-lexer-parser": {
+    "id": "machina:concept-lexer-parser",
+    "name": "Lexer und Parser",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Theoretische Informatik",
+      "definition": "Zwei Stufen der Sprachverarbeitung: Der Lexer zerlegt Text in Tokens, der Parser prüft daraus die grammatikalische Struktur"
+    },
+    "funFact": "Jeder Compiler beginnt mit Lexer und Parser, um aus reinem Quelltext eine verarbeitbare Baumstruktur zu gewinnen.",
+    "source": {
+      "name": "Wikipedia DE – Parser",
+      "url": "https://de.wikipedia.org/wiki/Parser"
+    },
+    "image": null
   }
 }
