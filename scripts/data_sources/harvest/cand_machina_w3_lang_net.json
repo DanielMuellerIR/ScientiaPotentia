@@ -1,0 +1,509 @@
+[
+  {
+    "id": "cpp",
+    "name": "C++",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Multiparadigma",
+      "typeSystem": "Statisch typisiert",
+      "execution": "Kompiliert",
+      "primaryDomain": "Systemprogrammierung",
+      "fileExtension": ".cpp"
+    },
+    "funFact": "C++ entstand als Erweiterung von C um objektorientierte Konzepte und wird bis heute in Betriebssystemen, Spielen und eingebetteten Systemen eingesetzt.",
+    "sourceName": "Wikipedia DE – C++ (Programmiersprache)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/C%2B%2B",
+    "verifyNote": "Paradigma, Typsystem und primäre Domäne sind in der Wikipedia-DE-Übersicht zu C++ belegt."
+  },
+  {
+    "id": "csharp",
+    "name": "C#",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Multiparadigma",
+      "typeSystem": "Statisch typisiert",
+      "execution": "Bytecode (VM)",
+      "primaryDomain": "Webentwicklung (Backend)",
+      "fileExtension": ".cs"
+    },
+    "funFact": "C# läuft auf der .NET-Plattform und wird sowohl für Windows-Desktop-Anwendungen als auch für Unity-Spieleentwicklung genutzt.",
+    "sourceName": "Wikipedia DE – C-Sharp (Programmiersprache)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/C-Sharp",
+    "verifyNote": "Bytecode-VM-Ausführung via .NET CLR, statisches Typsystem und Multiparadigma sind in Wikipedia DE belegt."
+  },
+  {
+    "id": "scheme",
+    "name": "Scheme",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Funktional",
+      "typeSystem": "Dynamisch typisiert",
+      "execution": "Interpretiert",
+      "primaryDomain": "Wissenschaftliches Rechnen",
+      "fileExtension": ".scm"
+    },
+    "funFact": "Scheme ist ein Dialekt von Lisp mit minimalistischem Design und wird häufig in der Hochschullehre zur Einführung in die Programmierung verwendet.",
+    "sourceName": "Wikipedia DE – Scheme (Programmiersprache)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Scheme",
+    "verifyNote": "Funktionaler Lisp-Dialekt, dynamisches Typsystem und Lehrkontext sind in Wikipedia DE dokumentiert."
+  },
+  {
+    "id": "smalltalk",
+    "name": "Smalltalk",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Objektorientiert",
+      "typeSystem": "Dynamisch typisiert",
+      "execution": "Bytecode (VM)",
+      "primaryDomain": "Wissenschaftliches Rechnen",
+      "fileExtension": ".st"
+    },
+    "funFact": "Smalltalk gilt als eine der ersten konsequent objektorientierten Sprachen und hat das Design vieler moderner Sprachen wie Ruby und Python stark beeinflusst.",
+    "sourceName": "Wikipedia DE – Smalltalk (Programmiersprache)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Smalltalk_(Programmiersprache)",
+    "verifyNote": "Rein objektorientiertes Paradigma, dynamisches Typsystem und Bytecode-VM sind in Wikipedia DE belegt."
+  },
+  {
+    "id": "delphi",
+    "name": "Delphi",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Objektorientiert",
+      "typeSystem": "Statisch typisiert",
+      "execution": "Kompiliert",
+      "primaryDomain": "Webentwicklung (Backend)",
+      "fileExtension": ".pas"
+    },
+    "funFact": "Delphi basiert auf Object Pascal und war in den 1990er-Jahren eine der populärsten Sprachen für die Windows-Anwendungsentwicklung.",
+    "sourceName": "Wikipedia DE – Delphi (Programmiersprache)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Delphi_(Programmiersprache)",
+    "verifyNote": "Object-Pascal-Grundlage, statisches Typsystem und nativer Compiler sind in Wikipedia DE belegt."
+  },
+  {
+    "id": "basic",
+    "name": "BASIC",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Imperativ/prozedural",
+      "typeSystem": "Dynamisch typisiert",
+      "execution": "Interpretiert",
+      "primaryDomain": "Skripting/Automatisierung",
+      "fileExtension": ".bas"
+    },
+    "funFact": "BASIC wurde 1964 entwickelt, um Programmieranfängern ohne Mathematik-Hintergrund den Einstieg zu erleichtern, und war auf frühen Heimcomputern wie dem Commodore 64 vorinstalliert.",
+    "sourceName": "Wikipedia DE – BASIC",
+    "sourceUrl": "https://de.wikipedia.org/wiki/BASIC",
+    "verifyNote": "Imperative, interpretierte Ausführung und Einsteigerorientierung sind in Wikipedia DE dokumentiert."
+  },
+  {
+    "id": "abap",
+    "name": "ABAP",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Multiparadigma",
+      "typeSystem": "Statisch typisiert",
+      "execution": "Bytecode (VM)",
+      "primaryDomain": "Webentwicklung (Backend)",
+      "fileExtension": ".abap"
+    },
+    "funFact": "ABAP ist die proprietäre Programmiersprache von SAP und wird weltweit in Unternehmenssoftware für ERP-Systeme eingesetzt.",
+    "sourceName": "Wikipedia DE – ABAP",
+    "sourceUrl": "https://de.wikipedia.org/wiki/ABAP",
+    "verifyNote": "SAP-Eigensprache, statisches Typsystem und ABAP-VM-Ausführung sind in Wikipedia DE dokumentiert."
+  },
+  {
+    "id": "forth",
+    "name": "Forth",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Stack-basiert",
+      "typeSystem": "Dynamisch typisiert",
+      "execution": "Interpretiert",
+      "primaryDomain": "Systemprogrammierung",
+      "fileExtension": ".fs"
+    },
+    "funFact": "Forth nutzt ausschließlich einen Stack für die Berechnung und wird noch heute in eingebetteten Systemen und Weltraumsonden eingesetzt.",
+    "sourceName": "Wikipedia DE – Forth (Programmiersprache)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Forth_(Programmiersprache)",
+    "verifyNote": "Stack-basiertes Paradigma, dynamisches Typsystem und Einsatz in Embedded Systems sind in Wikipedia DE belegt."
+  },
+  {
+    "id": "apl",
+    "name": "APL",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Multiparadigma",
+      "typeSystem": "Dynamisch typisiert",
+      "execution": "Interpretiert",
+      "primaryDomain": "Wissenschaftliches Rechnen",
+      "fileExtension": ".apl"
+    },
+    "funFact": "APL verwendet einen eigenen Zeichensatz aus mathematischen Symbolen und ermöglicht es, komplexe Array-Operationen in einer einzigen Zeile auszudrücken.",
+    "sourceName": "Wikipedia DE – APL (Programmiersprache)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/APL_(Programmiersprache)",
+    "verifyNote": "Array-orientiertes Multiparadigma, dynamisches Typsystem und mathematische Notation sind in Wikipedia DE dokumentiert."
+  },
+  {
+    "id": "eiffel",
+    "name": "Eiffel",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Objektorientiert",
+      "typeSystem": "Statisch typisiert",
+      "execution": "Kompiliert",
+      "primaryDomain": "Systemprogrammierung",
+      "fileExtension": ".e"
+    },
+    "funFact": "Eiffel führte das Konzept des «Design by Contract» ein, bei dem Vor- und Nachbedingungen direkt im Quellcode spezifiziert werden.",
+    "sourceName": "Wikipedia DE – Eiffel (Programmiersprache)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Eiffel_(Programmiersprache)",
+    "verifyNote": "Design-by-Contract-Pionier, statisches Typsystem und native Kompilierung sind in Wikipedia DE belegt."
+  },
+  {
+    "id": "tcl",
+    "name": "Tcl",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Skriptsprache",
+      "typeSystem": "Dynamisch typisiert",
+      "execution": "Interpretiert",
+      "primaryDomain": "Skripting/Automatisierung",
+      "fileExtension": ".tcl"
+    },
+    "funFact": "Tcl (Tool Command Language) wurde ursprünglich als einbettbare Skriptsprache für C-Anwendungen entwickelt und ist die Grundlage des GUI-Toolkits Tk.",
+    "sourceName": "Wikipedia DE – Tcl",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Tcl",
+    "verifyNote": "Skriptsprachen-Paradigma, dynamisches Typsystem und Basis von Tk sind in Wikipedia DE dokumentiert."
+  },
+  {
+    "id": "awk",
+    "name": "AWK",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Skriptsprache",
+      "typeSystem": "Dynamisch typisiert",
+      "execution": "Interpretiert",
+      "primaryDomain": "Skripting/Automatisierung",
+      "fileExtension": ".awk"
+    },
+    "funFact": "AWK ist eine zeilenorientierte Skriptsprache, die für die Verarbeitung von Textdateien und strukturierten Daten auf der Unix-Kommandozeile entwickelt wurde.",
+    "sourceName": "Wikipedia DE – AWK",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Awk",
+    "verifyNote": "Musterabgleich-Skriptsprache, dynamisches Typsystem und Unix-Herkunft sind in Wikipedia DE belegt."
+  },
+  {
+    "id": "solidity",
+    "name": "Solidity",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Objektorientiert",
+      "typeSystem": "Statisch typisiert",
+      "execution": "Bytecode (VM)",
+      "primaryDomain": "Webentwicklung (Backend)",
+      "fileExtension": ".sol"
+    },
+    "funFact": "Solidity ist die dominierende Sprache für Smart Contracts auf der Ethereum-Blockchain und hat eine von JavaScript und C++ beeinflusste Syntax.",
+    "sourceName": "Wikipedia EN – Solidity",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Solidity",
+    "verifyNote": "Statisches Typsystem, EVM-Bytecode-Ausführung und Blockchain-Domäne sind in Wikipedia EN belegt."
+  },
+  {
+    "id": "vhdl",
+    "name": "VHDL",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Imperativ/prozedural",
+      "typeSystem": "Statisch typisiert",
+      "execution": "Kompiliert",
+      "primaryDomain": "Systemprogrammierung",
+      "fileExtension": ".vhd"
+    },
+    "funFact": "VHDL wird zur Beschreibung digitaler Schaltkreise verwendet und ist eine Hardwarebeschreibungssprache, kein klassischer Programmcode.",
+    "sourceName": "Wikipedia DE – VHDL",
+    "sourceUrl": "https://de.wikipedia.org/wiki/VHDL",
+    "verifyNote": "Statisches Typsystem, Kompilierung zur Synthese und Hardwarebeschreibungs-Domäne sind in Wikipedia DE dokumentiert."
+  },
+  {
+    "id": "algol",
+    "name": "ALGOL",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Imperativ/prozedural",
+      "typeSystem": "Statisch typisiert",
+      "execution": "Kompiliert",
+      "primaryDomain": "Wissenschaftliches Rechnen",
+      "fileExtension": ".alg"
+    },
+    "funFact": "ALGOL (Algorithmic Language) war maßgeblich für die Entwicklung fast aller modernen Programmiersprachen — C, Pascal und Java lassen sich auf ALGOL zurückführen.",
+    "sourceName": "Wikipedia DE – ALGOL",
+    "sourceUrl": "https://de.wikipedia.org/wiki/ALGOL",
+    "verifyNote": "Prozedurales Paradigma, statisches Typsystem und historischer Einfluss auf C/Pascal sind in Wikipedia DE belegt."
+  },
+  {
+    "id": "simula",
+    "name": "Simula",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Objektorientiert",
+      "typeSystem": "Statisch typisiert",
+      "execution": "Kompiliert",
+      "primaryDomain": "Wissenschaftliches Rechnen",
+      "fileExtension": ".sim"
+    },
+    "funFact": "Simula gilt als die erste objektorientierte Programmiersprache überhaupt und führte Konzepte wie Klassen und Objekte in den 1960er-Jahren ein.",
+    "sourceName": "Wikipedia DE – Simula",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Simula",
+    "verifyNote": "Erste OOP-Sprache mit Klassen/Objekten, statisches Typsystem und native Kompilierung sind in Wikipedia DE belegt."
+  },
+  {
+    "id": "smb",
+    "name": "SMB",
+    "category": "network_protocol",
+    "attributes": {
+      "layer": "Anwendungsschicht",
+      "defaultPort": 445,
+      "transport": "TCP",
+      "purpose": "Netzwerkdatei- und Druckerfreigabe zwischen Computern",
+      "fullName": "Server Message Block"
+    },
+    "funFact": "SMB ist das Protokoll hinter den Windows-Netzwerkfreigaben («\\\\Server\\Freigabe») und wird unter Linux von der Samba-Implementierung bereitgestellt.",
+    "sourceName": "Wikipedia DE – Server Message Block",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Server_Message_Block",
+    "verifyNote": "Port 445, TCP-Transport und Dateifreigabe-Zweck sind in Wikipedia DE und IANA-Port-Registry belegt."
+  },
+  {
+    "id": "nfs",
+    "name": "NFS",
+    "category": "network_protocol",
+    "attributes": {
+      "layer": "Anwendungsschicht",
+      "defaultPort": 2049,
+      "transport": "TCP und UDP",
+      "purpose": "Netzwerkdateisystem für Unix-/Linux-Systeme",
+      "fullName": "Network File System"
+    },
+    "funFact": "NFS wurde von Sun Microsystems entwickelt und ermöglicht es Unix-Systemen, Verzeichnisse über das Netzwerk so einzubinden, als wären sie lokal.",
+    "sourceName": "Wikipedia DE – Network File System",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Network_File_System",
+    "verifyNote": "Port 2049, TCP/UDP-Transport und Unix-Dateifreigabe sind in Wikipedia DE und RFC 7530 belegt."
+  },
+  {
+    "id": "xmpp",
+    "name": "XMPP",
+    "category": "network_protocol",
+    "attributes": {
+      "layer": "Anwendungsschicht",
+      "defaultPort": 5222,
+      "transport": "TCP",
+      "purpose": "Dezentrales Messaging und Präsenz-Management (Instant Messaging)",
+      "fullName": "Extensible Messaging and Presence Protocol"
+    },
+    "funFact": "XMPP (früher Jabber) ist ein offenes, dezentrales Instant-Messaging-Protokoll, das auch von Google Chat und WhatsApp (intern) genutzt wurde.",
+    "sourceName": "Wikipedia DE – Extensible Messaging and Presence Protocol",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Extensible_Messaging_and_Presence_Protocol",
+    "verifyNote": "Port 5222, TCP-Transport und IM-Zweck sind in RFC 6120 und Wikipedia DE belegt."
+  },
+  {
+    "id": "rtp",
+    "name": "RTP",
+    "category": "network_protocol",
+    "attributes": {
+      "layer": "Transportschicht",
+      "transport": "UDP",
+      "purpose": "Echtzeit-Übertragung von Audio- und Videodaten",
+      "fullName": "Real-time Transport Protocol"
+    },
+    "funFact": "RTP überträgt Medienströme in Echtzeit und wird zusammen mit RTCP (Control Protocol) für Videokonferenzen und VoIP genutzt.",
+    "sourceName": "Wikipedia DE – Real-time Transport Protocol",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Real-time_Transport_Protocol",
+    "verifyNote": "UDP-Transport und Echtzeit-Medienübertragung sind in RFC 3550 und Wikipedia DE belegt; kein eindeutiger Standard-Port → weggelassen."
+  },
+  {
+    "id": "ospf",
+    "name": "OSPF",
+    "category": "network_protocol",
+    "attributes": {
+      "layer": "Vermittlungsschicht (Internet)",
+      "transport": "TCP und UDP",
+      "purpose": "Dynamisches Routing innerhalb eines autonomen Systems (Link-State-Protokoll)",
+      "fullName": "Open Shortest Path First"
+    },
+    "funFact": "OSPF berechnet den kürzesten Weg durch ein Netzwerk mit dem Dijkstra-Algorithmus und ist das meistgenutzte Interior-Gateway-Protokoll in großen Unternehmensnetzen.",
+    "sourceName": "Wikipedia DE – OSPF",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Open_Shortest_Path_First",
+    "verifyNote": "Link-State-Routing auf Vermittlungsschicht und Dijkstra-Nutzung sind in RFC 2328 und Wikipedia DE belegt."
+  },
+  {
+    "id": "ipsec",
+    "name": "IPsec",
+    "category": "network_protocol",
+    "attributes": {
+      "layer": "Vermittlungsschicht (Internet)",
+      "transport": "UDP",
+      "purpose": "Verschlüsselung und Authentifizierung von IP-Paketen (VPN-Grundlage)",
+      "fullName": "Internet Protocol Security"
+    },
+    "funFact": "IPsec arbeitet auf der Netzwerkschicht und schützt so alle darüber liegenden Protokolle transparent — es ist die Basis der meisten VPN-Lösungen.",
+    "sourceName": "Wikipedia DE – IPsec",
+    "sourceUrl": "https://de.wikipedia.org/wiki/IPsec",
+    "verifyNote": "Verschlüsselung auf IP-Schicht, VPN-Einsatz und RFC 4301 sind in Wikipedia DE dokumentiert."
+  },
+  {
+    "id": "tftp",
+    "name": "TFTP",
+    "category": "network_protocol",
+    "attributes": {
+      "layer": "Anwendungsschicht",
+      "defaultPort": 69,
+      "transport": "UDP",
+      "purpose": "Einfache Dateiübertragung ohne Authentifizierung (z. B. Firmware-Updates)",
+      "fullName": "Trivial File Transfer Protocol"
+    },
+    "funFact": "TFTP ist bewusst einfach gehalten — ohne Verzeichnislisting, Authentifizierung oder Fehlerkorrektur — und wird für Netzwerk-Boots (PXE) und Router-Firmware verwendet.",
+    "sourceName": "Wikipedia DE – Trivial File Transfer Protocol",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Trivial_File_Transfer_Protocol",
+    "verifyNote": "Port 69, UDP-Transport und PXE-Boot-Einsatz sind in RFC 1350 und Wikipedia DE belegt."
+  },
+  {
+    "id": "coap",
+    "name": "CoAP",
+    "category": "network_protocol",
+    "attributes": {
+      "layer": "Anwendungsschicht",
+      "defaultPort": 5683,
+      "transport": "UDP",
+      "purpose": "Leichtgewichtiges HTTP-ähnliches Protokoll für IoT-Geräte mit begrenzten Ressourcen",
+      "fullName": "Constrained Application Protocol"
+    },
+    "funFact": "CoAP ist das HTTP des Internet of Things: Es bietet ähnliche REST-Semantik wie HTTP, kommt aber mit deutlich weniger Overhead und Energie aus.",
+    "sourceName": "Wikipedia EN – Constrained Application Protocol",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Constrained_Application_Protocol",
+    "verifyNote": "Port 5683, UDP-Transport und IoT-REST-Zweck sind in RFC 7252 belegt."
+  },
+  {
+    "id": "amqp",
+    "name": "AMQP",
+    "category": "network_protocol",
+    "attributes": {
+      "layer": "Anwendungsschicht",
+      "defaultPort": 5672,
+      "transport": "TCP",
+      "purpose": "Zuverlässige Nachrichtenübermittlung zwischen Anwendungen (Message Queuing)",
+      "fullName": "Advanced Message Queuing Protocol"
+    },
+    "funFact": "AMQP ist das Protokoll hinter RabbitMQ und definiert neben dem Transportformat auch Konzepte wie Exchanges und Queues für entkoppelte Kommunikation.",
+    "sourceName": "Wikipedia EN – Advanced Message Queuing Protocol",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Advanced_Message_Queuing_Protocol",
+    "verifyNote": "Port 5672, TCP-Transport und Message-Queue-Zweck sind in ISO/IEC 19464 und Wikipedia EN belegt."
+  },
+  {
+    "id": "sctp",
+    "name": "SCTP",
+    "category": "network_protocol",
+    "attributes": {
+      "layer": "Transportschicht",
+      "transport": "TCP und UDP",
+      "purpose": "Zuverlässiger Nachrichtentransport mit Multi-Homing-Unterstützung",
+      "fullName": "Stream Control Transmission Protocol"
+    },
+    "funFact": "SCTP kombiniert Vorteile von TCP (Zuverlässigkeit) und UDP (Nachrichtengrenzen) und unterstützt Multi-Homing, sodass eine Verbindung über mehrere Netzwerkschnittstellen verlaufen kann.",
+    "sourceName": "Wikipedia DE – Stream Control Transmission Protocol",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Stream_Control_Transmission_Protocol",
+    "verifyNote": "Transportschicht-Einordnung, Zuverlässigkeit und Multi-Homing sind in RFC 4960 und Wikipedia DE belegt."
+  },
+  {
+    "id": "radius",
+    "name": "RADIUS",
+    "category": "network_protocol",
+    "attributes": {
+      "layer": "Anwendungsschicht",
+      "defaultPort": 1812,
+      "transport": "UDP",
+      "purpose": "Zentrale Authentifizierung, Autorisierung und Abrechnung für Netzwerkzugänge (AAA)",
+      "fullName": "Remote Authentication Dial-In User Service"
+    },
+    "funFact": "RADIUS ist der De-facto-Standard für die Authentifizierung in WLAN-Unternehmensnetzen (WPA2-Enterprise) und bei Einwahlservern.",
+    "sourceName": "Wikipedia DE – RADIUS (Protokoll)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/RADIUS_(Protokoll)",
+    "verifyNote": "Port 1812, UDP-Transport und AAA-Zweck sind in RFC 2865 und Wikipedia DE belegt."
+  },
+  {
+    "id": "kerberos",
+    "name": "Kerberos",
+    "category": "network_protocol",
+    "attributes": {
+      "layer": "Anwendungsschicht",
+      "defaultPort": 88,
+      "transport": "TCP und UDP",
+      "purpose": "Ticket-basierte Netzwerkauthentifizierung mittels vertrauenswürdiger dritter Partei",
+      "fullName": "Kerberos"
+    },
+    "funFact": "Kerberos ist nach dem dreiköpfigen Höllenhund der griechischen Mythologie benannt und ist das Standard-Authentifizierungsprotokoll in Windows Active Directory.",
+    "sourceName": "Wikipedia DE – Kerberos (Protokoll)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Kerberos_(Protokoll)",
+    "verifyNote": "Port 88, TCP/UDP-Transport und Ticket-basierte Auth sind in RFC 4120 und Wikipedia DE belegt."
+  },
+  {
+    "id": "nntp",
+    "name": "NNTP",
+    "category": "network_protocol",
+    "attributes": {
+      "layer": "Anwendungsschicht",
+      "defaultPort": 119,
+      "transport": "TCP",
+      "purpose": "Verteilung und Abruf von Usenet-Nachrichten",
+      "fullName": "Network News Transfer Protocol"
+    },
+    "funFact": "NNTP war das Protokoll des Usenet — eines der ältesten dezentralen Online-Diskussionsforen, das seit den 1980er-Jahren existiert und bis heute betrieben wird.",
+    "sourceName": "Wikipedia DE – Network News Transfer Protocol",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Network_News_Transfer_Protocol",
+    "verifyNote": "Port 119, TCP-Transport und Usenet-Zweck sind in RFC 3977 und Wikipedia DE belegt."
+  },
+  {
+    "id": "gopher",
+    "name": "Gopher",
+    "category": "network_protocol",
+    "attributes": {
+      "layer": "Anwendungsschicht",
+      "defaultPort": 70,
+      "transport": "TCP",
+      "purpose": "Hierarchisches Abrufen von Textdokumenten und Dateien (Vorläufer des Web)",
+      "fullName": "Gopher"
+    },
+    "funFact": "Gopher war in den frühen 1990er-Jahren ein direkter Konkurrent des World Wide Web, verlor aber nach der Kommerzialisierung des Internets schnell an Bedeutung.",
+    "sourceName": "Wikipedia DE – Gopher (Protokoll)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Gopher_(Protokoll)",
+    "verifyNote": "Port 70, TCP-Transport und Menü-basiertes Dokumentensystem sind in RFC 1436 und Wikipedia DE belegt."
+  },
+  {
+    "id": "ppp",
+    "name": "PPP",
+    "category": "network_protocol",
+    "attributes": {
+      "layer": "Sicherungsschicht",
+      "transport": "TCP",
+      "purpose": "Punkt-zu-Punkt-Datenübertragung über serielle Verbindungen (z. B. Modem-Einwahl)",
+      "fullName": "Point-to-Point Protocol"
+    },
+    "funFact": "PPP war das Standardprotokoll für Einwahl-Internetverbindungen über analoge Modems in den 1990er-Jahren und unterstützt Authentifizierung via PAP und CHAP.",
+    "sourceName": "Wikipedia DE – Point-to-Point Protocol",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Point-to-Point_Protocol",
+    "verifyNote": "Sicherungsschicht-Einordnung und serielle Punkt-zu-Punkt-Übertragung sind in RFC 1661 und Wikipedia DE belegt."
+  },
+  {
+    "id": "whois",
+    "name": "Whois",
+    "category": "network_protocol",
+    "attributes": {
+      "layer": "Anwendungsschicht",
+      "defaultPort": 43,
+      "transport": "TCP",
+      "purpose": "Abfrage von Registrierungsinformationen zu Domainnamen und IP-Adressen",
+      "fullName": "Whois"
+    },
+    "funFact": "Das Whois-Protokoll ermöglicht es, den Eigentümer einer Domain oder IP-Adresse abzufragen, und ist seit den frühen ARPANET-Tagen ein wichtiges Diagnosewerkzeug.",
+    "sourceName": "Wikipedia DE – Whois",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Whois",
+    "verifyNote": "Port 43, TCP-Transport und Domain-Registrierungs-Abfrage sind in RFC 3912 und Wikipedia DE belegt."
+  }
+]

@@ -1,0 +1,27 @@
+[
+  {
+    "id": "fallschirm-blanchard",
+    "remove": true,
+    "reason": "Blanchard ist nicht der Erfinder des Fallschirms. Er war Ballonpionier und ließ 1785 Tiere per Fallschirm abwerfen, hat das Gerät aber nicht erfunden. Louis-Sébastien Lenormand prägte 1783 den Begriff 'parachute' und führte den ersten dokumentierten Absprung von einem Turm durch. André-Jacques Garnerin vollzog 1797 den ersten Ballon-Absprung. Die Zuschreibung an Blanchard ist historisch nicht haltbar — Konzept ersatzlos entfernen oder mit korrekter Zuschreibung neu anlegen."
+  },
+  {
+    "id": "leuchtstofflampe-cooper-hewitt",
+    "set": { "name": "Quecksilberdampflampe" },
+    "reason": "Cooper Hewitt erfand 1901 die Quecksilberdampflampe (Niederdruck-Gasentladungslampe), nicht die Leuchtstofflampe (Fluorescent lamp). Leuchtstofflampen mit fluoreszierender Beschichtung wurden von Edmund Germer erfunden (Patent 1926/1927, Deutschland) und 1938 von General Electric kommerzialisiert. Da inventor (Hewitt) und year (1901) für die Quecksilberdampflampe korrekt sind, wird nur der Name des Konzepts angepasst."
+  },
+  {
+    "id": "sextant-campbell-hadley",
+    "set": { "inventor": "John Campbell", "year": 1757 },
+    "reason": "Hadley und Godfrey erfanden 1731 den Oktanten (45°-Bogen), nicht den Sextanten. Der Sextant (60°-Bogen) wurde 1757 von John Campbell entwickelt. Die ID (sextant-campbell-hadley) enthält Campbell korrekt, das inventor-Feld nennt aber nur Hadley und Godfrey — das ist inkonsistent und sachlich falsch. Korrektur: inventor auf Campbell, year auf 1757. Country bleibt England."
+  },
+  {
+    "id": "mrt-lauterbur-mansfield",
+    "set": { "year": 1973 },
+    "reason": "Jahr 1977 ist falsch für Lauterbur und Mansfield. Lauterbur veröffentlichte 1973 in Nature die ersten 2D-MRI-Bilder (Nobelpreis 2003 explizit für diese Pionierarbeit). Das Ganzkörperbild von 1977 stammt von Raymond Damadian, nicht von Lauterbur/Mansfield. Korrekt: year 1973."
+  },
+  {
+    "id": "antibabypille-pincus",
+    "set": { "inventor": "Gregory Pincus und Frank B. Colton" },
+    "reason": "Carl Djerassi synthetisierte 1951 Norethindron — das ist aber nicht der Wirkstoff von Enovid (der ersten zugelassenen Pille). Enovid enthielt Noretynodrel, das Frank B. Colton 1953 bei Searle synthetisierte. Djerassi ist historisch wichtig für synthetische Steroide generell, aber als Co-Erfinder der zugelassenen Pille (Enovid) ist Colton die korrekte Zuschreibung neben Pincus als Studienleiter."
+  }
+]

@@ -1,0 +1,656 @@
+[
+  {
+    "id": "avif",
+    "name": "AVIF",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Bild",
+      "compression": "verlustbehaftet komprimiert",
+      "fullName": "AV1 Image File Format"
+    },
+    "funFact": "AVIF erreicht bei gleicher Qualität deutlich kleinere Dateien als JPEG und wird von allen modernen Browsern unterstützt.",
+    "sourceName": "Wikipedia DE – AVIF",
+    "sourceUrl": "https://de.wikipedia.org/wiki/AVIF",
+    "verifyNote": "Kompressionsformat basierend auf AV1-Video-Codec, laut Wikipedia und dem Alliance for Open Media Standard."
+  },
+  {
+    "id": "jxl",
+    "name": "JPEG XL",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Bild",
+      "compression": "verlustfrei komprimiert",
+      "fullName": "JPEG Extended Long-term"
+    },
+    "funFact": "JPEG XL kann bestehende JPEG-Dateien verlustfrei rekodieren und dabei bis zu 20 % Speicherplatz einsparen.",
+    "sourceName": "Wikipedia EN – JPEG XL",
+    "sourceUrl": "https://en.wikipedia.org/wiki/JPEG_XL",
+    "verifyNote": "ISO/IEC 18181 Standard; verlustfreie JPEG-Rekodierung laut offiziellem JPEG XL-Projekt und Wikipedia."
+  },
+  {
+    "id": "pptx",
+    "name": "PPTX",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Dokument",
+      "compression": "verlustfrei komprimiert",
+      "fullName": "Office Open XML Presentation"
+    },
+    "funFact": "Eine PPTX-Datei ist im Kern ein ZIP-Archiv, das XML-Dateien und Medien enthält.",
+    "sourceName": "Wikipedia DE – Office Open XML",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Office_Open_XML",
+    "verifyNote": "ECMA-376-Standard; ZIP-basierte Struktur laut Microsoft-Dokumentation und Wikipedia."
+  },
+  {
+    "id": "mobi",
+    "name": "MOBI",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Dokument",
+      "compression": "verlustfrei komprimiert",
+      "fullName": "Mobipocket E-Book Format"
+    },
+    "funFact": "Das MOBI-Format wurde ursprünglich von Mobipocket entwickelt und später von Amazon für den Kindle übernommen.",
+    "sourceName": "Wikipedia DE – Mobipocket",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Mobipocket",
+    "verifyNote": "Historische Nutzung durch Amazon Kindle laut Wikipedia."
+  },
+  {
+    "id": "gltf",
+    "name": "glTF",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "3D-Modell",
+      "compression": "unkomprimiert",
+      "fullName": "Graphics Language Transmission Format"
+    },
+    "funFact": "glTF wird oft als 'JPEG der 3D-Welt' bezeichnet, weil es für effiziente Übertragung und Darstellung im Web optimiert ist.",
+    "sourceName": "Wikipedia EN – GlTF",
+    "sourceUrl": "https://en.wikipedia.org/wiki/GlTF",
+    "verifyNote": "Khronos-Group-Standard; Bezeichnung als Web-3D-Format laut offizieller Projektseite."
+  },
+  {
+    "id": "stl",
+    "name": "STL",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "3D-Modell",
+      "compression": "unkomprimiert",
+      "fullName": "Stereolithography"
+    },
+    "funFact": "STL ist das meistgenutzte Dateiformat für den 3D-Druck und beschreibt Oberflächen ausschließlich durch Dreiecke.",
+    "sourceName": "Wikipedia DE – STL-Schnittstelle",
+    "sourceUrl": "https://de.wikipedia.org/wiki/STL-Schnittstelle",
+    "verifyNote": "Dreiecks-Tessellation laut Wikipedia und 3D-Druck-Standardliteratur."
+  },
+  {
+    "id": "obj",
+    "name": "OBJ",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "3D-Modell",
+      "compression": "unkomprimiert",
+      "fullName": "Wavefront OBJ"
+    },
+    "funFact": "Das OBJ-Format ist eine einfache Textdatei, die 3D-Geometrien mit Koordinaten und Polygonen beschreibt und von nahezu jeder 3D-Software gelesen werden kann.",
+    "sourceName": "Wikipedia EN – Wavefront .obj file",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Wavefront_.obj_file",
+    "verifyNote": "Textbasiertes Format, ursprünglich von Wavefront Technologies; laut Wikipedia weit verbreitet."
+  },
+  {
+    "id": "dwg",
+    "name": "DWG",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Dokument",
+      "compression": "verlustfrei komprimiert",
+      "fullName": "Drawing"
+    },
+    "funFact": "DWG ist das native Dateiformat von AutoCAD und wird seit 1982 für CAD-Zeichnungen verwendet.",
+    "sourceName": "Wikipedia DE – DWG",
+    "sourceUrl": "https://de.wikipedia.org/wiki/DWG",
+    "verifyNote": "Natives AutoCAD-Format seit Version 1.0 (1982) laut Wikipedia."
+  },
+  {
+    "id": "geojson",
+    "name": "GeoJSON",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Tabellen/Daten",
+      "compression": "unkomprimiert",
+      "fullName": "Geographic JavaScript Object Notation"
+    },
+    "funFact": "GeoJSON ist ein offener Standard für geografische Daten auf Basis von JSON und wird von Webkarten-APIs wie Google Maps und OpenLayers direkt unterstützt.",
+    "sourceName": "Wikipedia EN – GeoJSON",
+    "sourceUrl": "https://en.wikipedia.org/wiki/GeoJSON",
+    "verifyNote": "RFC 7946; JSON-basierter Geodaten-Standard laut IETF-Spezifikation."
+  },
+  {
+    "id": "gpx",
+    "name": "GPX",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Tabellen/Daten",
+      "compression": "unkomprimiert",
+      "fullName": "GPS Exchange Format"
+    },
+    "funFact": "GPX-Dateien speichern GPS-Tracks, Wegpunkte und Routen im XML-Format und werden von Geräten aller Hersteller unterstützt.",
+    "sourceName": "Wikipedia DE – GPS Exchange Format",
+    "sourceUrl": "https://de.wikipedia.org/wiki/GPS_Exchange_Format",
+    "verifyNote": "XML-basiertes offenes Format; herstellerübergreifende Nutzung laut Wikipedia."
+  },
+  {
+    "id": "toml",
+    "name": "TOML",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Tabellen/Daten",
+      "compression": "unkomprimiert",
+      "fullName": "Tom's Obvious, Minimal Language"
+    },
+    "funFact": "TOML wurde 2013 von Tom Preston-Werner, einem Mitgründer von GitHub, als einfach lesbare Konfigurationssprache entwickelt.",
+    "sourceName": "Wikipedia EN – TOML",
+    "sourceUrl": "https://en.wikipedia.org/wiki/TOML",
+    "verifyNote": "Erstveröffentlichung 2013 durch Tom Preston-Werner laut Wikipedia und GitHub-Repository."
+  },
+  {
+    "id": "protobuf",
+    "name": "Protocol Buffers",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Tabellen/Daten",
+      "compression": "verlustfrei komprimiert",
+      "fullName": "Protocol Buffers"
+    },
+    "funFact": "Protocol Buffers wurden von Google entwickelt und sind bis zu zehnmal kleiner und schneller zu verarbeiten als XML.",
+    "sourceName": "Wikipedia EN – Protocol Buffers",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Protocol_Buffers",
+    "verifyNote": "Größenvergleich zu XML laut Google-Dokumentation, referenziert in Wikipedia."
+  },
+  {
+    "id": "bzip2",
+    "name": "BZIP2",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Archiv/Kompression",
+      "compression": "verlustfrei komprimiert",
+      "fullName": "Burrows-Wheeler Algorithmus Kompression 2"
+    },
+    "funFact": "BZIP2 verwendet den Burrows-Wheeler-Algorithmus und erzielt häufig bessere Kompressionsraten als GZIP, braucht dafür aber mehr Rechenzeit.",
+    "sourceName": "Wikipedia DE – Bzip2",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Bzip2",
+    "verifyNote": "BWT-basierte Kompression; Vergleich zu GZIP laut Wikipedia."
+  },
+  {
+    "id": "opus",
+    "name": "Opus",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Audio",
+      "compression": "verlustbehaftet komprimiert",
+      "fullName": "Opus Interactive Audio Codec"
+    },
+    "funFact": "Opus ist ein offener Audio-Codec, der speziell für Internet-Telefonie und Streaming entwickelt wurde und in WebRTC standardmäßig eingesetzt wird.",
+    "sourceName": "Wikipedia DE – Opus (Audioformat)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Opus_(Audioformat)",
+    "verifyNote": "IETF RFC 6716; Einsatz in WebRTC laut IETF-Spezifikation und Wikipedia."
+  },
+  {
+    "id": "aiff",
+    "name": "AIFF",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Audio",
+      "compression": "unkomprimiert",
+      "fullName": "Audio Interchange File Format"
+    },
+    "funFact": "AIFF wurde 1988 von Apple entwickelt und ist wie WAV ein unkomprimiertes Format, das in der professionellen Audiobearbeitung auf Mac-Systemen weit verbreitet ist.",
+    "sourceName": "Wikipedia DE – AIFF",
+    "sourceUrl": "https://de.wikipedia.org/wiki/AIFF",
+    "verifyNote": "Entwicklung durch Apple 1988 laut Wikipedia."
+  },
+  {
+    "id": "otf",
+    "name": "OTF",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Schriftart",
+      "compression": "unkomprimiert",
+      "fullName": "OpenType Font"
+    },
+    "funFact": "OpenType wurde gemeinsam von Microsoft und Adobe entwickelt und unterstützt als erster weit verbreiteter Schriftstandard sowohl lateinische als auch nicht-lateinische Schriftsysteme in einer Datei.",
+    "sourceName": "Wikipedia DE – OpenType",
+    "sourceUrl": "https://de.wikipedia.org/wiki/OpenType",
+    "verifyNote": "Entwicklung durch Microsoft und Adobe; plattformübergreifender Standard laut Wikipedia."
+  },
+  {
+    "id": "woff2",
+    "name": "WOFF2",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Schriftart",
+      "compression": "verlustfrei komprimiert",
+      "fullName": "Web Open Font Format 2"
+    },
+    "funFact": "WOFF2 verwendet den Brotli-Kompressionsalgorithmus und erzielt gegenüber WOFF1 im Durchschnitt 30 % kleinere Dateien.",
+    "sourceName": "Wikipedia EN – Web Open Font Format",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Web_Open_Font_Format",
+    "verifyNote": "Brotli-Kompression und Größenvorteil laut W3C-Spezifikation, referenziert in Wikipedia."
+  },
+  {
+    "id": "xz",
+    "name": "XZ",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Archiv/Kompression",
+      "compression": "verlustfrei komprimiert",
+      "fullName": "XZ Compression Format"
+    },
+    "funFact": "XZ verwendet den LZMA2-Algorithmus und erzielt in der Regel die besten Kompressionsraten unter den gängigen Unix-Kompressionsformaten, ist aber deutlich langsamer als GZIP.",
+    "sourceName": "Wikipedia EN – XZ Utils",
+    "sourceUrl": "https://en.wikipedia.org/wiki/XZ_Utils",
+    "verifyNote": "LZMA2-Basis; Kompressionsvergleich laut Wikipedia und Linux-Dokumentation."
+  },
+  {
+    "id": "kml",
+    "name": "KML",
+    "category": "file_format",
+    "attributes": {
+      "mediaType": "Tabellen/Daten",
+      "compression": "unkomprimiert",
+      "fullName": "Keyhole Markup Language"
+    },
+    "funFact": "KML wurde ursprünglich für Google Earth entwickelt und ist seit 2008 ein offizieller OGC-Standard für Geodaten.",
+    "sourceName": "Wikipedia DE – Keyhole Markup Language",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Keyhole_Markup_Language",
+    "verifyNote": "OGC-Standard seit 2008; Ursprung bei Google Earth laut Wikipedia."
+  },
+  {
+    "id": "kmp",
+    "name": "Knuth-Morris-Pratt",
+    "category": "algorithm",
+    "attributes": {
+      "category": "String-Verarbeitung",
+      "avgComplexity": "O(n)",
+      "purpose": "Effiziente Suche eines Musters in einem Text ohne Rückschritte"
+    },
+    "funFact": "Der KMP-Algorithmus vermeidet redundante Vergleiche, indem er eine Fehlerfunktion vorberechnet, die angibt, wie weit nach einem Mismatch zurückgesprungen werden muss.",
+    "sourceName": "Wikipedia DE – Knuth-Morris-Pratt-Algorithmus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Knuth-Morris-Pratt-Algorithmus",
+    "verifyNote": "Lineare Laufzeit O(n+m) belegt in Knuth/Morris/Pratt (1977) und CLRS-Lehrbuch."
+  },
+  {
+    "id": "boyer-moore",
+    "name": "Boyer-Moore",
+    "category": "algorithm",
+    "attributes": {
+      "category": "String-Verarbeitung",
+      "avgComplexity": "O(n)",
+      "purpose": "Schnelle Mustererkennung in Texten durch Rechts-nach-links-Vergleich"
+    },
+    "funFact": "Boyer-Moore ist in der Praxis oft schneller als KMP, weil es bei langen Mustern ganze Blöcke überspringen kann.",
+    "sourceName": "Wikipedia DE – Boyer-Moore-Algorithmus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Boyer-Moore-Algorithmus",
+    "verifyNote": "Durchschnittliche Laufzeit sublinear in der Praxis; worst-case O(n·m); laut Wikipedia und CLRS."
+  },
+  {
+    "id": "sieb-des-eratosthenes",
+    "name": "Sieb des Eratosthenes",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Suchalgorithmus",
+      "avgComplexity": "O(n log log n)",
+      "purpose": "Berechnung aller Primzahlen bis zu einer gegebenen Grenze"
+    },
+    "funFact": "Das Sieb des Eratosthenes ist einer der ältesten bekannten Algorithmen und wurde bereits im 3. Jahrhundert v. Chr. beschrieben.",
+    "sourceName": "Wikipedia DE – Sieb des Eratosthenes",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Sieb_des_Eratosthenes",
+    "verifyNote": "Laufzeit O(n log log n) laut Standardliteratur zur Zahlentheorie und Wikipedia."
+  },
+  {
+    "id": "euklidischer-algorithmus",
+    "name": "Euklidischer Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Suchalgorithmus",
+      "avgComplexity": "O(log n)",
+      "purpose": "Berechnung des größten gemeinsamen Teilers zweier natürlicher Zahlen"
+    },
+    "funFact": "Der euklidische Algorithmus ist einer der ältesten erhaltenen Algorithmen überhaupt und findet sich bereits in Euklids 'Elementen' aus dem 3. Jahrhundert v. Chr.",
+    "sourceName": "Wikipedia DE – Euklidischer Algorithmus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Euklidischer_Algorithmus",
+    "verifyNote": "Laufzeit O(log min(a,b)) laut CLRS und Wikipedia; historische Quelle: Euklid, Elemente Buch VII."
+  },
+  {
+    "id": "fft",
+    "name": "Schnelle Fouriertransformation (FFT)",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortieralgorithmus",
+      "avgComplexity": "O(n log n)",
+      "purpose": "Effiziente Berechnung der diskreten Fouriertransformation zur Frequenzanalyse von Signalen"
+    },
+    "funFact": "Der Cooley-Tukey-FFT-Algorithmus aus dem Jahr 1965 reduzierte die Rechenkomplexität von O(n²) auf O(n log n) und revolutionierte die digitale Signalverarbeitung.",
+    "sourceName": "Wikipedia DE – Schnelle Fouriertransformation",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Schnelle_Fouriertransformation",
+    "verifyNote": "Laufzeit O(n log n) und historische Einordnung laut Wikipedia; Originalarbeit: Cooley & Tukey (1965)."
+  },
+  {
+    "id": "diffie-hellman",
+    "name": "Diffie-Hellman-Schlüsselaustausch",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Kryptografie",
+      "purpose": "Sicherer Austausch kryptografischer Schlüssel über einen unsicheren Kanal"
+    },
+    "funFact": "Diffie-Hellman war 1976 das erste veröffentlichte Public-Key-Kryptografie-Verfahren und ermöglichte erstmals einen sicheren Schlüsselaustausch ohne vorherigen geheimen Treffpunkt.",
+    "sourceName": "Wikipedia DE – Diffie-Hellman-Schlüsselaustausch",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Diffie-Hellman-Schl%C3%BCsselaustausch",
+    "verifyNote": "Erstveröffentlichung 1976 durch Whitfield Diffie und Martin Hellman laut Wikipedia."
+  },
+  {
+    "id": "bcrypt",
+    "name": "bcrypt",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Kryptografie",
+      "purpose": "Sicheres Hashen von Passwörtern mit einstellbarem Arbeitsfaktor"
+    },
+    "funFact": "bcrypt wurde 1999 von Niels Provos und David Mazières entwickelt und enthält einen konfigurierbaren 'cost factor', der die Berechnungszeit erhöht, um Brute-Force-Angriffe zu erschweren.",
+    "sourceName": "Wikipedia DE – Bcrypt",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Bcrypt",
+    "verifyNote": "Erstveröffentlichung 1999; konfigurierbarer Kostenfaktor laut Wikipedia und USENIX-Paper."
+  },
+  {
+    "id": "deflate",
+    "name": "DEFLATE",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Kompression",
+      "purpose": "Verlustfreie Datenkompression, kombiniert LZ77 und Huffman-Kodierung"
+    },
+    "funFact": "DEFLATE ist der Kern der gängigsten Kompressionsformate wie ZIP, GZIP und PNG und wurde 1993 von Phil Katz entwickelt.",
+    "sourceName": "Wikipedia DE – DEFLATE",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Deflate",
+    "verifyNote": "LZ77 + Huffman-Kombination laut RFC 1951; Nutzung in ZIP/GZIP/PNG laut Wikipedia."
+  },
+  {
+    "id": "timsort",
+    "name": "Timsort",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortieralgorithmus",
+      "avgComplexity": "O(n log n)",
+      "purpose": "Hybrides Sortierverfahren, optimiert für reale Daten mit bereits teilweise geordneten Bereichen"
+    },
+    "funFact": "Timsort ist seit Python 2.3 der Standard-Sortieralgorithmus in Python und wurde auch in Java als Arrays.sort() übernommen.",
+    "sourceName": "Wikipedia DE – Timsort",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Timsort",
+    "verifyNote": "Einsatz in Python und Java laut Wikipedia und offizieller Python-Dokumentation."
+  },
+  {
+    "id": "topologische-sortierung",
+    "name": "Topologische Sortierung",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Graphalgorithmus",
+      "avgComplexity": "O(n)",
+      "purpose": "Anordnung der Knoten eines gerichteten azyklischen Graphen in linearer Reihenfolge gemäß Abhängigkeiten"
+    },
+    "funFact": "Topologische Sortierung ist die Grundlage für Build-Systeme wie Make oder Maven, die Abhängigkeiten zwischen Aufgaben verwalten.",
+    "sourceName": "Wikipedia DE – Topologische Sortierung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Topologische_Sortierung",
+    "verifyNote": "Laufzeit O(V+E) mit DFS laut CLRS; Anwendung in Build-Systemen laut Wikipedia."
+  },
+  {
+    "id": "union-find",
+    "name": "Union-Find",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Graphalgorithmus",
+      "avgComplexity": "O(n)",
+      "purpose": "Verwaltung von Partitionen einer Menge und effiziente Vereinigung von Teilmengen"
+    },
+    "funFact": "Union-Find mit Pfadkompression und Union-by-Rank erreicht eine nahezu konstante amortisierte Laufzeit und ist ein Kernbaustein von Kruskals Algorithmus.",
+    "sourceName": "Wikipedia EN – Disjoint-set data structure",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Disjoint-set_data_structure",
+    "verifyNote": "Amortisierte Laufzeit O(α(n)) laut CLRS Kapitel 21; Einsatz in Kruskal laut Wikipedia."
+  },
+  {
+    "id": "levenshtein-distanz",
+    "name": "Levenshtein-Distanz",
+    "category": "algorithm",
+    "attributes": {
+      "category": "String-Verarbeitung",
+      "avgComplexity": "O(n²)",
+      "purpose": "Berechnung der Editierdistanz zwischen zwei Zeichenketten (minimale Einfüge-/Lösch-/Ersetzungsoperationen)"
+    },
+    "funFact": "Die Levenshtein-Distanz wird in Rechtschreibprüfungen, DNA-Sequenzanalysen und Fuzzy-Such-Algorithmen eingesetzt.",
+    "sourceName": "Wikipedia DE – Levenshtein-Distanz",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Levenshtein-Distanz",
+    "verifyNote": "DP-Laufzeit O(m·n) laut Standardliteratur; Anwendungen laut Wikipedia."
+  },
+  {
+    "id": "lauflangenkodierung",
+    "name": "Lauflängenkodierung",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Kompression",
+      "avgComplexity": "O(n)",
+      "purpose": "Verlustfreie Kompression durch Ersetzen von Wiederholungen gleicher Zeichen durch Zahl und Zeichen"
+    },
+    "funFact": "Lauflängenkodierung wird in alten Fax-Standards (T.4) und dem BMP-Format eingesetzt und ist besonders effizient bei Bildern mit großen einfarbigen Flächen.",
+    "sourceName": "Wikipedia DE – Lauflängenkodierung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Lauflängenkodierung",
+    "verifyNote": "Lineare Laufzeit O(n); Anwendung in Fax-T.4 und BMP laut Wikipedia."
+  },
+  {
+    "id": "crc",
+    "name": "CRC (Zyklische Redundanzprüfung)",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Kryptografie",
+      "avgComplexity": "O(n)",
+      "purpose": "Erkennung von Übertragungsfehlern in Datenströmen durch Berechnung einer Prüfsumme"
+    },
+    "funFact": "CRC-32 wird in ZIP, PNG und Ethernet-Paketen zur Fehlererkennung verwendet und kann alle Einzelbitfehler sowie viele Mehrbitfehler zuverlässig detektieren.",
+    "sourceName": "Wikipedia DE – Zyklische Redundanzprüfung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Zyklische_Redundanzpr%C3%BCfung",
+    "verifyNote": "Einsatz in ZIP/PNG/Ethernet laut Wikipedia; mathematische Grundlage: Polynomdivision über GF(2)."
+  },
+  {
+    "id": "rabin-karp",
+    "name": "Rabin-Karp",
+    "category": "algorithm",
+    "attributes": {
+      "category": "String-Verarbeitung",
+      "avgComplexity": "O(n)",
+      "purpose": "Mustererkennung in Texten mittels rollierendem Hashing"
+    },
+    "funFact": "Rabin-Karp kann durch gleichzeitiges Hashing mehrere Muster in einem einzigen Durchlauf suchen und wird in Plagiatserkennungs-Software eingesetzt.",
+    "sourceName": "Wikipedia EN – Rabin–Karp algorithm",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Rabin%E2%80%93Karp_algorithm",
+    "verifyNote": "Durchschnittliche Laufzeit O(n+m) durch Rolling Hash laut Wikipedia und CLRS Kapitel 32."
+  },
+  {
+    "id": "blowfish",
+    "name": "Blowfish",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Kryptografie",
+      "purpose": "Symmetrisches Blockverschlüsselungsverfahren mit variabler Schlüssellänge"
+    },
+    "funFact": "Blowfish wurde 1993 von Bruce Schneier als patentfreie Alternative zu DES entwickelt und war Wegbereiter des moderneren Nachfolgers Twofish.",
+    "sourceName": "Wikipedia DE – Blowfish (Kryptografie)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Blowfish_(Kryptografie)",
+    "verifyNote": "Entwicklung durch Bruce Schneier 1993; patentfrei laut Wikipedia."
+  },
+  {
+    "id": "newton-verfahren",
+    "name": "Newton-Verfahren",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Suchalgorithmus",
+      "avgComplexity": "O(log n)",
+      "purpose": "Iterative Nullstellenberechnung und Wurzelberechnung mit quadratischer Konvergenz"
+    },
+    "funFact": "Das Newton-Verfahren konvergiert quadratisch, das heißt, die Anzahl korrekter Dezimalstellen verdoppelt sich mit jeder Iteration.",
+    "sourceName": "Wikipedia DE – Newtonsche Methode",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Newtonsche_Methode",
+    "verifyNote": "Quadratische Konvergenz unter Standardbedingungen laut Wikipedia und Numerical Recipes."
+  },
+  {
+    "id": "b-baum",
+    "name": "B-Baum",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "purpose": "Selbst-balancierender Baum für Massenspeicher-Zugriffe mit minimalem I/O-Aufwand",
+      "accessComplexity": "O(log n)"
+    },
+    "funFact": "B-Bäume werden in fast allen relationalen Datenbanken (z. B. MySQL, PostgreSQL) und Dateisystemen (NTFS, ext4) als primäre Indexstruktur eingesetzt.",
+    "sourceName": "Wikipedia DE – B-Baum",
+    "sourceUrl": "https://de.wikipedia.org/wiki/B-Baum",
+    "verifyNote": "Einsatz in Datenbanken und Dateisystemen laut Wikipedia; Laufzeit O(log n) laut CLRS Kapitel 18."
+  },
+  {
+    "id": "b-plus-baum",
+    "name": "B+-Baum",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "purpose": "B-Baum-Variante, bei der alle Datensätze in Blattknoten liegen und sequenzielle Bereiche schnell durchlaufen werden können",
+      "accessComplexity": "O(log n)"
+    },
+    "funFact": "In B+-Bäumen sind alle Blattknoten über Zeiger verkettet, was Bereichsabfragen erheblich beschleunigt — daher bevorzugen ihn Datenbanken wie InnoDB gegenüber dem klassischen B-Baum.",
+    "sourceName": "Wikipedia EN – B+ tree",
+    "sourceUrl": "https://en.wikipedia.org/wiki/B%2B_tree",
+    "verifyNote": "Verkettete Blätter für Bereichsabfragen; Einsatz in InnoDB laut Wikipedia und MySQL-Dokumentation."
+  },
+  {
+    "id": "rot-schwarz-baum",
+    "name": "Rot-Schwarz-Baum",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "purpose": "Selbst-balancierender binärer Suchbaum mit garantiert logarithmischer Zugriffszeit",
+      "accessComplexity": "O(log n)"
+    },
+    "funFact": "Rot-Schwarz-Bäume sind die Grundlage der std::map in C++ und Java's TreeMap, da sie eine garantierte O(log n)-Zeit für alle Operationen bieten.",
+    "sourceName": "Wikipedia DE – Rot-Schwarz-Baum",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Rot-Schwarz-Baum",
+    "verifyNote": "Laufzeit O(log n) laut CLRS Kapitel 13; Einsatz in C++-STL und Java TreeMap laut Wikipedia."
+  },
+  {
+    "id": "skip-liste",
+    "name": "Skip-Liste",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Lineare Struktur",
+      "purpose": "Probabilistische Datenstruktur für geordnete Mengen mit schneller Suche durch mehrschichtige Zeiger",
+      "accessComplexity": "O(log n)"
+    },
+    "funFact": "Skip-Listen werden in Redis als Implementierung von geordneten Mengen (Sorted Sets) eingesetzt und erzielen dabei praktisch dieselbe Leistung wie balancierte Bäume.",
+    "sourceName": "Wikipedia DE – Skip-Liste",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Skip-Liste",
+    "verifyNote": "Erwartete Zugriffszeit O(log n) laut Pugh (1990); Redis-Einsatz laut Redis-Dokumentation."
+  },
+  {
+    "id": "bloom-filter",
+    "name": "Bloom-Filter",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Hash-basiert",
+      "purpose": "Probabilistische Datenstruktur zum speichereffizienten Testen, ob ein Element in einer Menge enthalten ist",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Ein Bloom-Filter kann niemals fälschlicherweise ein Element als fehlend melden (keine False Negatives), aber mit geringer Wahrscheinlichkeit ein fehlendes Element als vorhanden (False Positives).",
+    "sourceName": "Wikipedia DE – Bloomfilter",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Bloomfilter",
+    "verifyNote": "Keine False Negatives, mögliche False Positives laut Wikipedia und Bloom (1970) Originalpaper."
+  },
+  {
+    "id": "prioritaetswarteschlange",
+    "name": "Prioritätswarteschlange",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Heap",
+      "purpose": "Abstrakte Datenstruktur, bei der das Element mit der höchsten Priorität stets als erstes entnommen wird",
+      "accessComplexity": "O(log n)"
+    },
+    "funFact": "Prioritätswarteschlangen sind die Kernkomponente des Dijkstra-Algorithmus und vieler Scheduling-Algorithmen in Betriebssystemen.",
+    "sourceName": "Wikipedia DE – Vorrangwarteschlange",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Vorrangwarteschlange",
+    "verifyNote": "Einsatz in Dijkstra und OS-Scheduling laut Wikipedia; Laufzeit O(log n) via Heap-Implementierung laut CLRS."
+  },
+  {
+    "id": "deque",
+    "name": "Deque",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Lineare Struktur",
+      "purpose": "Doppelendige Warteschlange, bei der Elemente an beiden Enden in O(1) eingefügt und entnommen werden können",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Python's collections.deque ist für das Sliding-Window-Muster optimiert und wird in BFS-Algorithmen als effiziente Queue-Implementierung bevorzugt.",
+    "sourceName": "Wikipedia DE – Deque",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Deque",
+    "verifyNote": "O(1)-Operationen an beiden Enden laut Wikipedia und Python-Dokumentation."
+  },
+  {
+    "id": "segmentbaum",
+    "name": "Segmentbaum",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "purpose": "Datenstruktur für effiziente Bereichsabfragen (z. B. Minimum, Maximum, Summe) auf Arrays",
+      "accessComplexity": "O(log n)"
+    },
+    "funFact": "Segmentbäume ermöglichen sowohl Bereichsabfragen als auch Punkt-Updates in O(log n) und sind daher in kompetitiver Programmierung allgegenwärtig.",
+    "sourceName": "Wikipedia EN – Segment tree",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Segment_tree",
+    "verifyNote": "Laufzeit O(log n) für Abfragen und Updates laut Wikipedia und Standardliteratur zur Algorithmentechnik."
+  },
+  {
+    "id": "fenwick-baum",
+    "name": "Fenwick-Baum (BIT)",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "purpose": "Kompakte Datenstruktur für Präfixsummen und Punkt-Updates in O(log n)",
+      "accessComplexity": "O(log n)"
+    },
+    "funFact": "Ein Fenwick-Baum benötigt nur ein einfaches Array und nutzt die niedrigsten gesetzten Bits der Indizes als cleveren Trick, um ohne Zeiger eine Baumstruktur zu simulieren.",
+    "sourceName": "Wikipedia EN – Fenwick tree",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Fenwick_tree",
+    "verifyNote": "O(log n) Präfixsummen und Updates laut Fenwick (1994); Beschreibung der Bit-Trick-Methode laut Wikipedia."
+  },
+  {
+    "id": "quadtree",
+    "name": "Quadtree",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "purpose": "Rekursive Unterteilung zweidimensionaler Räume in vier Quadranten zur effizienten Verarbeitung räumlicher Daten",
+      "accessComplexity": "O(log n)"
+    },
+    "funFact": "Quadtrees werden in der Bildkompression, Kollisionserkennung in Spielen und in geografischen Informationssystemen zur räumlichen Indizierung eingesetzt.",
+    "sourceName": "Wikipedia DE – Quadtree",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Quadtree",
+    "verifyNote": "Anwendungen in GIS und Spieleentwicklung laut Wikipedia."
+  },
+  {
+    "id": "kd-baum",
+    "name": "k-d-Baum",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "purpose": "Binärer Suchbaum für k-dimensionale Punkte zur effizienten Nearest-Neighbour-Suche",
+      "accessComplexity": "O(log n)"
+    },
+    "funFact": "k-d-Bäume werden in maschinellem Lernen für den k-Nearest-Neighbour-Algorithmus und in der Computergrafik für Raytracing eingesetzt.",
+    "sourceName": "Wikipedia DE – K-d-Baum",
+    "sourceUrl": "https://de.wikipedia.org/wiki/K-d-Baum",
+    "verifyNote": "Durchschnittliche Suchzeit O(log n); Anwendungen laut Wikipedia und Bentley (1975)."
+  }
+]

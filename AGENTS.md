@@ -361,9 +361,34 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 | Natura | 2402 | 13217 | Wikipedia / USGS / IUCN / IPCC / Wikidata | generische Konzeptkarte (`ConceptVisual`); Tiere via MiniMax-Delegation 49→97 ausgebaut (web-grounded); freies Commons-Foto je Konzept hinterlegt (`concept.image`, fürs spätere Museum) |
 | Lingua | 352 | 1622 | Wikipedia / Ethnologue / Wiktionary / Guinness / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Attribut-Labels; Commons-Bild je Konzept hinterlegt (103/103, fürs spätere Museum) |
 | Cultura | 1205 | 3632 | Wikipedia (DE/EN) / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Kategorie-/Attribut-Labels; via MiniMax-Delegation ausgebaut (Komponisten Wikidata-geprüft, Werke web-grounded) |
-| Machina | 243 | 808 | Wikipedia / RFC/IANA / Lehrbücher | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Funktionsprinzip (v1.45.2) |
-| Historia | 246 | 1232 | Wikipedia / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Zeit/Urheberschaft, Politik-Ausschluss (v1.45.2) |
+| Machina | 384 | 1238 | Wikipedia / RFC/IANA / Lehrbücher | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Funktionsprinzip (v1.47.0) |
+| Historia | 381 | 1909 | Wikipedia / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Zeit/Urheberschaft, Politik-Ausschluss (v1.47.0) |
 
+> **Stand 2026-06-24 (v1.47.0) — Konzept-Skalierung Machina + Historia (Welle 3):**
+> Bewährte Pipeline (6 parallele Sonnet-Finder → Gate `merge_machina_historia.js` → 6 parallele
+> **adversariale** Verifier → `apply_corrections.cjs` → eigene Stichprobe) für berühmte, faire,
+> faktensichere NEUE Konzepte. **Machina 243→384 K / 808→1238 F** (+141 Konzepte: C++/C#, Scheme,
+> Smalltalk, ALGOL, Simula u.a. Sprachen; SMB/NFS/OSPF/Kerberos u.a. Protokolle; AVIF/glTF/STL/
+> Protobuf u.a. Formate; KMP/FFT/Diffie-Hellman/Timsort u.a. Algorithmen; B-Baum/Bloom-Filter/
+> Skip-Liste u.a. Strukturen; 3D-Drucker/TPM/FPGA u.a. Hardware; REST/CRUD/ACID u.a. Acronyme;
+> Deadlock/Polymorphie/Turing-Maschine u.a. Konzepte). **Historia 246→381 K / 1232→1909 F**
+> (+135 Konzepte: Voltasäule/Elektronenmikroskop/CT/MRT u.a. Erfindungen; Lichtgeschwindigkeit/
+> Kernspaltung/Dunkle-Materie u.a. Entdeckungen; Aristoteles/al-Chwarizmi/Rutherford/von Neumann
+> u.a. — alle verstorben geprüft; Hellenismus/Belle Époque u.a. Epochen; Intel 4004/CRISPR/
+> Schwarzes-Loch-Foto u.a. Meilensteine; Hudson/Tasman/Franklin u.a. Expeditionen).
+> **Adversariale Verifizierung fing ~38 Sachfehler** (Big-O KMP/Rabin-Karp O(n+m), FFT≠Sortierung,
+> CRC≠Kryptografie, Protokoll-Transport OSPF/IPsec/SCTP laufen direkt über IP, MRT 1973 statt 1977,
+> Sextant-Erfinder, Fallschirm-Erfinder falsch→entfernt, Weimarer Republik→entfernt [Politik],
+> Hellenismus-Ende -30). **Normalizer-Fix in merge_machina_historia.js:** `norm()` kollabierte
+> "C"/"C++"/"C#" (bzw. "B-Baum"/"B+-Baum") auf denselben Schlüssel → C++/C# wurden in ALLEN
+> früheren Wellen als vermeintliche Dubletten verworfen; '+'/'#' bleiben jetzt erhalten. Alle
+> `verify_facts` 0 Fehler, npm test grün, Layout 17/17, Machina browser-verifiziert. NICHT deployt.
+>
+> **Stand 2026-06-24 (v1.46.1) — Cold-Start-Bugfix:** `src/utils/db.js` `initDB()` gab das gecachte
+> `dbPromise` nicht zurück → erster Aufruf lieferte `undefined` → „Cannot read transaction of
+> undefined" beim ersten Laden / nach Storage-Löschung. Fix verifiziert (kalte DB, 0 Fehler).
+> v1.46.0 + v1.46.1 sind LIVE auf dm0.de/sci (deployt 2026-06-24).
+>
 > **Stand 2026-06-24 (v1.46.0) — Generator-Hebel-Welle über alle Bestandsdomains (token-frei):**
 > In 7 parallelen Sonnet-Subagents (je 1 Generator) neue Frage-Templates für bisher
 > UNGENUTZTE, bereits verifizierte Attribute ergänzt — **keine neuen Fakten/Konzepte,

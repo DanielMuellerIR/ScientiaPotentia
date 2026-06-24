@@ -1,0 +1,37 @@
+[
+  {
+    "id": "apl",
+    "set": { "paradigm": "Array-orientiert/Funktional" },
+    "reason": "APL ist primär array-orientiert und funktional – nicht Multiparadigma. Die Sprache wurde gezielt für vektorielle/Array-Operationen mit funktionalem Stil entworfen (laut Wikipedia DE/EN)."
+  },
+  {
+    "id": "rtp",
+    "set": { "layer": "Anwendungsschicht" },
+    "reason": "RTP ist ein Anwendungsschicht-Protokoll (RFC 3550). Es läuft ÜBER UDP (Transportschicht), ist aber selbst auf der Anwendungsschicht angesiedelt. Die Einordnung als 'Transportschicht' ist falsch."
+  },
+  {
+    "id": "ospf",
+    "removeAttr": ["transport"],
+    "reason": "OSPF läuft direkt über IP (Protokollnummer 89) – weder TCP noch UDP. Ein 'transport'-Attribut ist sachlich falsch und muss entfernt werden (RFC 2328)."
+  },
+  {
+    "id": "ipsec",
+    "removeAttr": ["transport"],
+    "reason": "IPsec (AH/ESP) läuft direkt über IP, nicht über UDP. Nur das zugehörige IKE-Protokoll nutzt UDP 500/4500, aber das ist nicht IPsec selbst. Das transport-Attribut 'UDP' ist irreführend und falsch (RFC 4301)."
+  },
+  {
+    "id": "sctp",
+    "removeAttr": ["transport"],
+    "reason": "SCTP ist selbst ein eigenständiges Transportprotokoll (gleichrangig mit TCP und UDP, RFC 4960). Es läuft nicht ÜBER TCP oder UDP – das transport-Attribut 'TCP und UDP' ist sachlich falsch."
+  },
+  {
+    "id": "ppp",
+    "removeAttr": ["transport"],
+    "reason": "PPP ist ein Schicht-2-Protokoll (Sicherungsschicht) das direkt über physikalische Verbindungen (serielle Leitungen, DSL, Modem) läuft – nicht über TCP. Ein transport-Attribut 'TCP' ist sachlich falsch (RFC 1661)."
+  },
+  {
+    "id": "acr-mvc",
+    "set": { "fullName": "Model View Controller" },
+    "reason": "Die kanonische Vollform laut Originalliteratur (Reenskaug 1979) und gängiger Referenz ist ohne Bindestriche: 'Model View Controller', nicht 'Model-View-Controller'."
+  }
+]

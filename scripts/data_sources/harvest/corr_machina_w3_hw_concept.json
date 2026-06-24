@@ -1,0 +1,26 @@
+[
+  {
+    "id": "hw-cpu-kuehler",
+    "remove": true,
+    "reason": "Kategorie 'Prozessor/Recheneinheit' ist sachlich falsch — ein CPU-Kühler ist kein Rechenbaustein, sondern ein Kühlaggregat. Keine der erlaubten Vokabular-Kategorien passt sauber. Lieber weglassen als falsch einordnen."
+  },
+  {
+    "id": "hw-soundkarte",
+    "set": {
+      "attributes.category": "Ausgabegerät"
+    },
+    "reason": "Kategorie 'Hauptplatine/Bus' ist falsch — eine Soundkarte ist kein Bus-Bauteil, sondern ein Audio-DA/AD-Wandler. Primärfunktion ist Audioausgabe (Lautsprecher), sekundär Eingabe (Mikrofon). 'Ausgabegerät' ist die treffendste Kategorie aus dem Vokabular."
+  },
+  {
+    "id": "hw-usv",
+    "remove": true,
+    "reason": "Kategorie 'Hauptplatine/Bus' ist sachlich falsch — eine USV ist ein Stromversorgungsgerät, kein Mainboard-Bestandteil oder Bus. Das Vokabular enthält keine Kategorie 'Stromversorgung'. Lieber weglassen als falsch einordnen."
+  },
+  {
+    "id": "concept-turing-maschine",
+    "set": {
+      "attributes.definition": "Abstraktes theoretisches Rechenmodell mit einem Schreib-Lese-Kopf, der auf einem unendlich langen Band operiert, und das die Grenzen des algorithmisch Berechenbaren definiert"
+    },
+    "reason": "Die ursprüngliche Formulierung 'einen unendlichen Schreib-Lese-Kopf auf einem Band' ist grammatisch missverständlich: 'unendlich' modifiziert scheinbar den Kopf, nicht das Band. Korrekt ist: Das Band ist unendlich, der Kopf ist ein einzelner Schreib-Lese-Kopf."
+  }
+]

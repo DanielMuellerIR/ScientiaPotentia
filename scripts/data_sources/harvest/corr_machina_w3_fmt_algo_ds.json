@@ -1,0 +1,57 @@
+[
+  {
+    "id": "jxl",
+    "set": { "compression": "verlustbehaftet oder verlustfrei komprimiert" },
+    "reason": "JPEG XL unterstuetzt beide Modi (verlustbehaftet fuer Web-Fotos, verlustfrei fuer Archivierung). Nur 'verlustfrei' zu nennen unterschlaegt den wichtigeren Anwendungsfall als JPEG-Nachfolger."
+  },
+  {
+    "id": "jxl",
+    "set": { "fullName": "JPEG XL" },
+    "reason": "Es gibt keinen offiziellen ausgeschriebenen Namen fuer 'XL'. Die ISO-Norm (ISO/IEC 18181) bezeichnet das Format schlicht als 'JPEG XL'. 'JPEG Extended Long-term' ist eine informelle Interpretation, kein Standardname."
+  },
+  {
+    "id": "gltf",
+    "set": { "fullName": "GL Transmission Format" },
+    "reason": "Der offizielle Name laut Khronos Group ist 'GL Transmission Format', nicht 'Graphics Language Transmission Format'."
+  },
+  {
+    "id": "kmp",
+    "set": { "avgComplexity": "O(n+m)" },
+    "reason": "KMP benoetigt O(m) fuer die Vorverarbeitung der Fehlerfunktion und O(n) fuer die Suche (n=Textlaenge, m=Musterlaenge), gesamt O(n+m). Die eigene verifyNote bestaetigt 'O(n+m)'. Der Eintrag 'O(n)' ist unvollstaendig."
+  },
+  {
+    "id": "boyer-moore",
+    "set": { "avgComplexity": "O(n/m)" },
+    "reason": "Boyer-Moore ist im Durchschnitt sublinear mit O(n/m) (bei Alphabetgroesse s und Musterlaenge m). Die verifyNote sagt selbst 'sublinear in der Praxis'. O(n) ist eine Ueberschaetzung des Durchschnitts."
+  },
+  {
+    "id": "fft",
+    "set": { "category": "Signalverarbeitung" },
+    "reason": "Die FFT ist kein Sortieralgorithmus, sondern ein Algorithmus zur effizienten Berechnung der diskreten Fouriertransformation fuer Frequenzanalyse in der Signalverarbeitung."
+  },
+  {
+    "id": "topologische-sortierung",
+    "set": { "avgComplexity": "O(V+E)" },
+    "reason": "Topologische Sortierung via DFS/BFS hat Laufzeit O(V+E) (Knoten V plus Kanten E). Nur O(n) anzugeben ignoriert die Kantenkomplexitaet. Die eigene verifyNote bestaetigt 'O(V+E)'."
+  },
+  {
+    "id": "union-find",
+    "set": { "avgComplexity": "O(α(n))" },
+    "reason": "Union-Find mit Pfadkompression und Union-by-Rank hat amortisierte O(α(n)) pro Operation, wobei α die inverse Ackermann-Funktion ist (praktisch konstant, aber nicht O(n)). Die eigene verifyNote bestaetigt 'O(α(n))'."
+  },
+  {
+    "id": "levenshtein-distanz",
+    "set": { "avgComplexity": "O(n·m)" },
+    "reason": "Die dynamische Programmierung fuer Levenshtein fuellt eine (n+1)×(m+1)-Matrix (n, m = Laengen der beiden Zeichenketten), also O(n·m). O(n²) ist nur korrekt im Spezialfall n=m. Die eigene verifyNote bestaetigt 'O(m·n)'."
+  },
+  {
+    "id": "crc",
+    "set": { "category": "Fehlererkennung" },
+    "reason": "CRC (Zyklische Redundanzpruefung) ist ein Fehlererkennungsverfahren, keine Kryptografie. CRC ist nicht kollisionsresistent und kryptografisch wertlos. Die korrekte Kategorie ist 'Fehlererkennung'."
+  },
+  {
+    "id": "rabin-karp",
+    "set": { "avgComplexity": "O(n+m)" },
+    "reason": "Rabin-Karp hat eine durchschnittliche Laufzeit von O(n+m) (n=Textlaenge, m=Musterlaenge) durch Rolling Hash. Die eigene verifyNote bestaetigt 'O(n+m)'. Der Eintrag O(n) ist unvollstaendig."
+  }
+]

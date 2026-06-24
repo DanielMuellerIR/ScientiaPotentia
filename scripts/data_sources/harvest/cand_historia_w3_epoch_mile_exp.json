@@ -1,0 +1,516 @@
+[
+  {
+    "id": "epoch-palaolithikum",
+    "name": "Paläolithikum",
+    "category": "epoch",
+    "attributes": {
+      "startYear": -3000000,
+      "endYear": -10000,
+      "region": "Weltweit",
+      "precededBy": null
+    },
+    "funFact": "Im Paläolithikum entwickelten Menschen erstmals Werkzeuge aus Stein — die ältesten bekannten Steinwerkzeuge stammen aus Äthiopien und sind rund 3,3 Millionen Jahre alt.",
+    "sourceName": "Wikipedia DE – Altsteinzeit",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Altsteinzeit",
+    "verifyNote": "Zeitrahmen und Bezeichnung nach Standard-Lehrbüchern der Urgeschichte; Beginn orientiert sich an ältesten bekannten Werkzeugfunden (Lomekwi 3)."
+  },
+  {
+    "id": "epoch-mesolithikum",
+    "name": "Mesolithikum",
+    "category": "epoch",
+    "attributes": {
+      "startYear": -10000,
+      "endYear": -5500,
+      "region": "Europa",
+      "precededBy": "Paläolithikum"
+    },
+    "funFact": "Das Mesolithikum ist die Mittelsteinzeit — eine Übergangsphase, in der Jäger und Sammler begannen, sesshafter zu werden und Mikrolithen (winzige Steinwerkzeuge) herzustellen.",
+    "sourceName": "Wikipedia DE – Mittelsteinzeit",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Mittelsteinzeit",
+    "verifyNote": "Zeitrahmen für Mitteleuropa nach gängiger archäologischer Periodisierung."
+  },
+  {
+    "id": "epoch-neolithikum",
+    "name": "Neolithikum",
+    "category": "epoch",
+    "attributes": {
+      "startYear": -5500,
+      "endYear": -2200,
+      "region": "Europa",
+      "precededBy": "Mesolithikum"
+    },
+    "funFact": "Im Neolithikum entstand in Europa die Landwirtschaft — die sogenannte 'Neolithische Revolution' veränderte die Lebensweise der Menschen grundlegend.",
+    "sourceName": "Wikipedia DE – Jungsteinzeit",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Jungsteinzeit",
+    "verifyNote": "Zeitrahmen für Mitteleuropa; in Vorderasien beginnt das Neolithikum deutlich früher (~10 000 v. Chr.)."
+  },
+  {
+    "id": "epoch-hellenismus",
+    "name": "Hellenismus",
+    "category": "epoch",
+    "attributes": {
+      "startYear": -323,
+      "endYear": -31,
+      "region": "Östliches Mittelmeer / Vorderer Orient",
+      "precededBy": "Klassische Antike"
+    },
+    "funFact": "Der Hellenismus begann mit dem Tod Alexanders des Großen (323 v. Chr.) und endete mit der Eingliederung Ägyptens in das Römische Reich — eine Epoche griechisch geprägter Weltkultur.",
+    "sourceName": "Wikipedia DE – Hellenismus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Hellenismus",
+    "verifyNote": "Jahreszahlen nach konventioneller Historiografie: 323 v. Chr. (Tod Alexanders) bis 31 v. Chr. (Schlacht bei Actium)."
+  },
+  {
+    "id": "epoch-roemische-kaiserzeit",
+    "name": "Römische Kaiserzeit",
+    "category": "epoch",
+    "attributes": {
+      "startYear": -27,
+      "endYear": 476,
+      "region": "Römisches Reich",
+      "precededBy": "Römische Republik"
+    },
+    "funFact": "Die Römische Kaiserzeit begann mit Augustus als erstem Kaiser (27 v. Chr.) und endete traditionell 476 n. Chr. mit der Absetzung des letzten weströmischen Kaisers Romulus Augustulus.",
+    "sourceName": "Wikipedia DE – Römische Kaiserzeit",
+    "sourceUrl": "https://de.wikipedia.org/wiki/R%C3%B6mische_Kaiserzeit",
+    "verifyNote": "Jahreszahlen nach Standardperiodisierung der Altertumswissenschaft."
+  },
+  {
+    "id": "epoch-spaetantike",
+    "name": "Spätantike",
+    "category": "epoch",
+    "attributes": {
+      "startYear": 284,
+      "endYear": 600,
+      "region": "Europa / Mittelmeerraum",
+      "precededBy": "Römische Kaiserzeit"
+    },
+    "funFact": "Die Spätantike ist eine Übergangsepoche zwischen der Antike und dem Mittelalter — sie umfasst u. a. die Christianisierung des Römischen Reichs und den Beginn der Völkerwanderung.",
+    "sourceName": "Wikipedia DE – Spätantike",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Sp%C3%A4tantike",
+    "verifyNote": "Beginn mit der Regentschaft Diokletians (284), Ende variiert je nach Historiograf; 600 ist gängige Konvention."
+  },
+  {
+    "id": "epoch-voelkerwanderung",
+    "name": "Völkerwanderung",
+    "category": "epoch",
+    "attributes": {
+      "startYear": 375,
+      "endYear": 568,
+      "region": "Europa",
+      "precededBy": "Spätrömische Kaiserzeit"
+    },
+    "funFact": "Die Völkerwanderung wird traditionell mit dem Einfall der Hunnen in Europa (375 n. Chr.) eingeleitet und endete mit dem Einzug der Langobarden in Italien (568).",
+    "sourceName": "Wikipedia DE – Völkerwanderung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/V%C3%B6lkerwanderung",
+    "verifyNote": "Jahreszahlen nach gängiger Geschichtswissenschaft (Brockhaus, Wikipedia DE)."
+  },
+  {
+    "id": "epoch-viktorianisches-zeitalter",
+    "name": "Viktorianisches Zeitalter",
+    "category": "epoch",
+    "attributes": {
+      "startYear": 1837,
+      "endYear": 1901,
+      "region": "Großbritannien",
+      "precededBy": "Georgianische Ära"
+    },
+    "funFact": "Das Viktorianische Zeitalter umfasst die Regentschaft von Königin Victoria (1837–1901) — eine Epoche des industriellen Aufstiegs, des britischen Weltreichs und tiefgreifenden gesellschaftlichen Wandels.",
+    "sourceName": "Wikipedia DE – Viktorianisches Zeitalter",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Viktorianisches_Zeitalter",
+    "verifyNote": "Zeitrahmen deckungsgleich mit Regentschaft Königin Victorias — eindeutig belegbar."
+  },
+  {
+    "id": "epoch-belle-epoque",
+    "name": "Belle Époque",
+    "category": "epoch",
+    "attributes": {
+      "startYear": 1871,
+      "endYear": 1914,
+      "region": "Westeuropa (v. a. Frankreich)",
+      "precededBy": "Industrielle Revolution"
+    },
+    "funFact": "Die Belle Époque ('Schöne Epoche') bezeichnet die Friedensjahre vor dem Ersten Weltkrieg — eine Zeit kultureller Blüte, technischer Innovationen und wachsenden Wohlstands in Westeuropa.",
+    "sourceName": "Wikipedia DE – Belle Époque",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Belle_%C3%89poque",
+    "verifyNote": "Gängige Jahreszahlen: Ende des Deutsch-Französischen Kriegs (1871) bis Ausbruch des Ersten Weltkriegs (1914)."
+  },
+  {
+    "id": "epoch-weimarer-republik",
+    "name": "Weimarer Republik",
+    "category": "epoch",
+    "attributes": {
+      "startYear": 1919,
+      "endYear": 1933,
+      "region": "Deutschland",
+      "precededBy": "Deutsches Kaiserreich"
+    },
+    "funFact": "Die Weimarer Republik war Deutschlands erste parlamentarische Demokratie — sie begann nach dem Ersten Weltkrieg mit der Weimarer Verfassung (1919) und endete mit Hitlers Machtergreifung 1933.",
+    "sourceName": "Wikipedia DE – Weimarer Republik",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Weimarer_Republik",
+    "verifyNote": "Zeitrahmen eindeutig belegbar: Inkrafttreten der Verfassung 11.08.1919, Ende 30.01.1933."
+  },
+  {
+    "id": "milestone-erste-nierentransplantation",
+    "name": "Erste erfolgreiche Nierentransplantation",
+    "category": "milestone",
+    "attributes": {
+      "year": 1954,
+      "protagonist": "Joseph Murray",
+      "field": "Medizin"
+    },
+    "funFact": "Am 23. Dezember 1954 transplantierte Joseph Murray am Peter Bent Brigham Hospital in Boston die erste dauerhaft erfolgreiche Niere — Spender und Empfänger waren eineiige Zwillinge. Murray erhielt 1990 den Medizin-Nobelpreis.",
+    "sourceName": "Wikipedia DE – Nierentransplantation",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Nierentransplantation",
+    "verifyNote": "Jahr 1954 und Operateur Joseph Murray sind lehrbuchfestes Wissen, vielfach belegt."
+  },
+  {
+    "id": "milestone-erster-mikroprozessor",
+    "name": "Erster Mikroprozessor (Intel 4004)",
+    "category": "milestone",
+    "attributes": {
+      "year": 1971,
+      "protagonist": "Intel / Federico Faggin",
+      "field": "Computertechnik"
+    },
+    "funFact": "Der Intel 4004 (1971) war der erste kommerziell erhältliche Mikroprozessor auf einem einzigen Chip — er hatte 2300 Transistoren und eine Taktrate von 740 kHz.",
+    "sourceName": "Wikipedia DE – Intel 4004",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Intel_4004",
+    "verifyNote": "Jahr 1971 und Bezeichnung Intel 4004 sind eindeutig belegt (Markteinführung November 1971)."
+  },
+  {
+    "id": "milestone-erste-frau-all",
+    "name": "Erste Frau im Weltall",
+    "category": "milestone",
+    "attributes": {
+      "year": 1963,
+      "protagonist": "Valentina Tereschkowa",
+      "field": "Raumfahrt"
+    },
+    "funFact": "Valentina Tereschkowa flog am 16. Juni 1963 mit Wostok 6 ins All — als erste Frau der Geschichte umkreiste sie die Erde 48-mal in knapp drei Tagen.",
+    "sourceName": "Wikipedia DE – Valentina Tereschkowa",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Valentina_Tereschkowa",
+    "verifyNote": "Jahr 1963 und Name Tereschkowa sind sicher; Mission Wostok 6 eindeutig dokumentiert."
+  },
+  {
+    "id": "milestone-erster-weltraumspaziergang",
+    "name": "Erster Weltraumspaziergang",
+    "category": "milestone",
+    "attributes": {
+      "year": 1965,
+      "protagonist": "Alexei Leonow",
+      "field": "Raumfahrt"
+    },
+    "funFact": "Alexei Leonow trat am 18. März 1965 während der Mission Woschod 2 für 12 Minuten in den freien Weltraum — der erste Weltraumspaziergang der Geschichte war beinahe tödlich, weil sein Raumanzug sich aufblähte.",
+    "sourceName": "Wikipedia DE – Alexei Leonow",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Alexei_Archipow itsch_Leonow",
+    "verifyNote": "Jahr 1965, Name Leonow, Mission Woschod 2 — sicher belegt."
+  },
+  {
+    "id": "milestone-erste-raumstation",
+    "name": "Erste Raumstation (Saljut 1)",
+    "category": "milestone",
+    "attributes": {
+      "year": 1971,
+      "protagonist": "Sowjetische Raumfahrtbehörde",
+      "field": "Raumfahrt"
+    },
+    "funFact": "Saljut 1 war die erste Raumstation der Menschheit — sie wurde am 19. April 1971 von der Sowjetunion gestartet und war insgesamt sechs Monate im Orbit.",
+    "sourceName": "Wikipedia DE – Saljut 1",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Saljut_1",
+    "verifyNote": "Startdatum 19.04.1971 und Bezeichnung Saljut 1 als erste Raumstation sind eindeutig belegt."
+  },
+  {
+    "id": "milestone-apollo-8-mondumrundung",
+    "name": "Erste bemannte Mondumrundung (Apollo 8)",
+    "category": "milestone",
+    "attributes": {
+      "year": 1968,
+      "protagonist": "Frank Borman, James Lovell, William Anders",
+      "field": "Raumfahrt"
+    },
+    "funFact": "Apollo 8 (Dezember 1968) war die erste bemannte Mission, die den Mond umrundete — die Crew fotografierte das ikonische 'Earthrise'-Bild, das die Erde über dem Mondhorizont zeigt.",
+    "sourceName": "Wikipedia DE – Apollo 8",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Apollo_8",
+    "verifyNote": "Jahr 1968 und Mission Apollo 8 als erste Mondumrundung sicher belegt."
+  },
+  {
+    "id": "milestone-crispr-genschere",
+    "name": "Entwicklung der CRISPR-Genschere",
+    "category": "milestone",
+    "attributes": {
+      "year": 2012,
+      "protagonist": "Jennifer Doudna, Emmanuelle Charpentier",
+      "field": "Wissenschaft"
+    },
+    "funFact": "2012 veröffentlichten Jennifer Doudna und Emmanuelle Charpentier ihre bahnbrechende Arbeit zur CRISPR-Cas9-Genschere — eine Methode zur präzisen Bearbeitung des Erbguts, die 2020 mit dem Nobelpreis ausgezeichnet wurde.",
+    "sourceName": "Wikipedia DE – CRISPR/Cas-Methode",
+    "sourceUrl": "https://de.wikipedia.org/wiki/CRISPR/Cas-Methode",
+    "verifyNote": "Schlüsselveröffentlichung 2012 in Science; Nobelpreis 2020 bestätigt die Bedeutung."
+  },
+  {
+    "id": "milestone-tiefster-tauchgang-trieste",
+    "name": "Tiefster bemannter Tauchgang (Trieste)",
+    "category": "milestone",
+    "attributes": {
+      "year": 1960,
+      "protagonist": "Jacques Piccard, Don Walsh",
+      "field": "Entdeckung"
+    },
+    "funFact": "Am 23. Januar 1960 erreichten Jacques Piccard und Don Walsh mit dem Bathyscaphen Trieste den Challengertiefetief im Marianengraben — die tiefste bekannte Stelle des Ozeans (ca. 10 916 m).",
+    "sourceName": "Wikipedia DE – Trieste (Bathyscaph)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Trieste_(Bathyscaph)",
+    "verifyNote": "Datum 23.01.1960, Namen und Tiefenangabe vielfach belegt (u. a. NOAA)."
+  },
+  {
+    "id": "milestone-erstbesteigung-k2",
+    "name": "Erstbesteigung des K2",
+    "category": "milestone",
+    "attributes": {
+      "year": 1954,
+      "protagonist": "Achille Compagnoni, Lino Lacedelli",
+      "field": "Entdeckung"
+    },
+    "funFact": "Am 31. Juli 1954 erreichten die Italiener Achille Compagnoni und Lino Lacedelli als erste Menschen den Gipfel des K2 (8611 m) — des zweithöchsten Bergs der Erde und des schwersten Achttausenders.",
+    "sourceName": "Wikipedia DE – K2",
+    "sourceUrl": "https://de.wikipedia.org/wiki/K2",
+    "verifyNote": "Datum 31.07.1954 und Namen Compagnoni/Lacedelli sind gesichert (italienische Karakorum-Expedition 1954)."
+  },
+  {
+    "id": "milestone-erstes-schwarzes-loch-bild",
+    "name": "Erstes Foto eines Schwarzen Lochs",
+    "category": "milestone",
+    "attributes": {
+      "year": 2019,
+      "protagonist": "Event Horizon Telescope-Kollaboration",
+      "field": "Wissenschaft"
+    },
+    "funFact": "Am 10. April 2019 veröffentlichte das Event Horizon Telescope das erste Bild eines Schwarzen Lochs — es zeigt den Schatten des Schwarzen Lochs im Zentrum der Galaxie M87, 55 Millionen Lichtjahre entfernt.",
+    "sourceName": "Wikipedia DE – Event Horizon Telescope",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Event_Horizon_Telescope",
+    "verifyNote": "Datum 10.04.2019 und Objekt M87* sind sicher belegt (Originalpublikation in ApJL)."
+  },
+  {
+    "id": "milestone-new-horizons-pluto",
+    "name": "New Horizons am Pluto",
+    "category": "milestone",
+    "attributes": {
+      "year": 2015,
+      "protagonist": "NASA / New-Horizons-Team",
+      "field": "Raumfahrt"
+    },
+    "funFact": "Am 14. Juli 2015 flog die NASA-Sonde New Horizons in nur 12 500 km Entfernung am Pluto vorbei — die ersten Nahaufnahmen zeigten überraschend Gletscher und Gebirge auf dem Zwergplaneten.",
+    "sourceName": "Wikipedia DE – New Horizons",
+    "sourceUrl": "https://de.wikipedia.org/wiki/New_Horizons",
+    "verifyNote": "Datum 14.07.2015 und Missionsname New Horizons eindeutig belegt (NASA)."
+  },
+  {
+    "id": "milestone-kometenlandung-philae",
+    "name": "Erste Kometenlandung (Philae)",
+    "category": "milestone",
+    "attributes": {
+      "year": 2014,
+      "protagonist": "ESA / Rosetta-Mission",
+      "field": "Raumfahrt"
+    },
+    "funFact": "Am 12. November 2014 landete die ESA-Landesonde Philae als erstes von Menschen geschaffenes Objekt auf einem Kometen — auf dem Kometen 67P/Tschurjumow-Gerasimenko.",
+    "sourceName": "Wikipedia DE – Philae (Raumsonde)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Philae_(Raumsonde)",
+    "verifyNote": "Datum 12.11.2014 und Missionsbeschreibung sicher belegt (ESA-Pressemitteilung)."
+  },
+  {
+    "id": "milestone-erster-pc-ibm",
+    "name": "Erster IBM Personal Computer",
+    "category": "milestone",
+    "attributes": {
+      "year": 1981,
+      "protagonist": "IBM",
+      "field": "Computertechnik"
+    },
+    "funFact": "IBM stellte am 12. August 1981 den IBM PC 5150 vor — er setzte den Standard für Personal Computer und trug zur weltweiten Verbreitung des PCs bei.",
+    "sourceName": "Wikipedia DE – IBM PC",
+    "sourceUrl": "https://de.wikipedia.org/wiki/IBM_Personal_Computer",
+    "verifyNote": "Datum 12.08.1981 und Modellbezeichnung IBM PC 5150 eindeutig belegt."
+  },
+  {
+    "id": "expedition-challenger-tiefsee",
+    "name": "Challenger-Tiefsee-Expedition",
+    "category": "expedition",
+    "attributes": {
+      "explorer": "Charles Wyville Thomson, John Murray",
+      "year": 1872,
+      "region": "Weltmeere (Atlantik, Pazifik, Indischer Ozean)"
+    },
+    "funFact": "Die Challenger-Expedition (1872–1876) gilt als Geburtsstunde der modernen Meeresforschung — das Schiff legte 127 000 km zurück und entdeckte dabei die nach ihr benannte Challenger-Tiefe im Marianengraben.",
+    "sourceName": "Wikipedia DE – HMS Challenger (1872)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/HMS_Challenger_(1872)",
+    "verifyNote": "Startjahr 1872, Expeditionsleiter Thomson sind gesichert; Ergebnisse in 50 Bänden publiziert."
+  },
+  {
+    "id": "expedition-henry-hudson",
+    "name": "Hudsons Nordwestpassage-Suche",
+    "category": "expedition",
+    "attributes": {
+      "explorer": "Henry Hudson",
+      "year": 1609,
+      "region": "Nordostküste Nordamerikas / Hudsonbai"
+    },
+    "funFact": "Henry Hudson erkundete 1609 im Auftrag der Niederländischen Ostindien-Kompanie die nordamerikanische Küste und entdeckte den nach ihm benannten Hudson River — 1610/11 erkundete er die Hudsonbai.",
+    "sourceName": "Wikipedia DE – Henry Hudson",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Henry_Hudson",
+    "verifyNote": "Jahr 1609 für Hudson-River-Reise gesichert; dritte und vierte Fahrt 1610/11 zur Hudsonbai ebenfalls gut belegt."
+  },
+  {
+    "id": "expedition-jacques-cartier",
+    "name": "Jacques Cartiers Kanada-Reisen",
+    "category": "expedition",
+    "attributes": {
+      "explorer": "Jacques Cartier",
+      "year": 1534,
+      "region": "Kanada / Sankt-Lorenz-Strom"
+    },
+    "funFact": "Jacques Cartier erkundete 1534–1542 den Sankt-Lorenz-Strom und legte damit den Grundstein für die französische Kolonisierung Kanadas — er war der erste Europäer, der das Innere Kanadas kartierte.",
+    "sourceName": "Wikipedia DE – Jacques Cartier",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Jacques_Cartier",
+    "verifyNote": "Erste Reise 1534 ist sicher belegt; drei Kanada-Reisen insgesamt (1534, 1535, 1541)."
+  },
+  {
+    "id": "expedition-abel-tasman",
+    "name": "Tasmans Pazifik-Expeditionen",
+    "category": "expedition",
+    "attributes": {
+      "explorer": "Abel Tasman",
+      "year": 1642,
+      "region": "Australien / Neuseeland / Südpazifik"
+    },
+    "funFact": "Abel Tasman war 1642/43 der erste Europäer, der Australien umsegelte, ohne es zu betreten — er entdeckte dabei Tasmanien und Neuseeland und bewies so, dass Australien keine Verbindung zum Südkontinent hat.",
+    "sourceName": "Wikipedia DE – Abel Tasman",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Abel_Tasman",
+    "verifyNote": "Jahr 1642 und Entdeckungen Tasmanien/Neuseeland sind gut belegte historische Fakten."
+  },
+  {
+    "id": "expedition-john-cabot",
+    "name": "John Cabots Nordamerika-Reise",
+    "category": "expedition",
+    "attributes": {
+      "explorer": "John Cabot",
+      "year": 1497,
+      "region": "Nordamerika (Neufundland)"
+    },
+    "funFact": "John Cabot landete 1497 im Auftrag der englischen Krone als erster Europäer (nach den Wikingern) an der nordamerikanischen Ostküste — wahrscheinlich auf Neufundland oder Cape Breton Island.",
+    "sourceName": "Wikipedia DE – John Cabot",
+    "sourceUrl": "https://de.wikipedia.org/wiki/John_Cabot",
+    "verifyNote": "Jahr 1497 und englisches Patent Heinrichs VII. sind dokumentiert; genaue Landestelle bleibt historisch diskutiert."
+  },
+  {
+    "id": "expedition-bellingshausen",
+    "name": "Bellingshausens Antarktisreise",
+    "category": "expedition",
+    "attributes": {
+      "explorer": "Fabian von Bellingshausen",
+      "year": 1819,
+      "region": "Antarktis"
+    },
+    "funFact": "Fabian von Bellingshausen umrundete 1819–1821 als einer der ersten Menschen die Antarktis und sichtete im Januar 1820 das antarktische Festland — fast gleichzeitig mit dem Briten Bransfield und dem Amerikaner Palmer.",
+    "sourceName": "Wikipedia DE – Fabian von Bellingshausen",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Fabian_von_Bellingshausen",
+    "verifyNote": "Jahr 1819 als Beginn der Expedition und Sichtung Antarktikas 1820 sind historisch belegt."
+  },
+  {
+    "id": "expedition-franklin",
+    "name": "Franklins verschollene Nordwestpassage-Expedition",
+    "category": "expedition",
+    "attributes": {
+      "explorer": "John Franklin",
+      "year": 1845,
+      "region": "Arktis / Kanadische Nordwestpassage"
+    },
+    "funFact": "John Franklins Expedition zur Nordwestpassage verschwand 1845 spurlos in der Arktis — alle 129 Besatzungsmitglieder kamen ums Leben; die Wracks der HMS Erebus und Terror wurden erst 2014 und 2016 gefunden.",
+    "sourceName": "Wikipedia DE – Franklin-Expedition",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Franklin-Expedition",
+    "verifyNote": "Jahr 1845 und Schicksale der Expedition sind historisch gut dokumentiert; Wracks 2014/2016 entdeckt (Parks Canada)."
+  },
+  {
+    "id": "expedition-barents",
+    "name": "Barents' Nordpolarmeer-Expeditionen",
+    "category": "expedition",
+    "attributes": {
+      "explorer": "Willem Barents",
+      "year": 1594,
+      "region": "Arktis / Nordpolarmeer (Nowaja Semlja, Spitzbergen)"
+    },
+    "funFact": "Willem Barents führte zwischen 1594 und 1597 drei Expeditionen ins Nordpolarmeer durch — er entdeckte Spitzbergen und sein nach ihm benanntes Barentssee, starb aber auf der dritten Reise in der Eiswüste.",
+    "sourceName": "Wikipedia DE – Willem Barents",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Willem_Barents",
+    "verifyNote": "Erste Expedition 1594; Entdeckung Spitzbergens 1596 und Tod 1597 sind historisch gesichert."
+  },
+  {
+    "id": "expedition-sven-hedin",
+    "name": "Sven Hedins Zentralasien-Expeditionen",
+    "category": "expedition",
+    "attributes": {
+      "explorer": "Sven Hedin",
+      "year": 1893,
+      "region": "Zentralasien (Tibet, Taklamakan, Pamir)"
+    },
+    "funFact": "Sven Hedin unternahm ab 1893 mehrere große Expeditionen durch Zentralasien — er kartierte den Transhimalaya und entdeckte die Quellen von Indus und Brahmaputra, was ihm weltweiten Ruhm einbrachte.",
+    "sourceName": "Wikipedia DE – Sven Hedin",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Sven_Hedin",
+    "verifyNote": "Erste Zentralasienreise 1893/94 ist belegt; Hedin war die prägende Figur der Zentralasienforschung um 1900."
+  },
+  {
+    "id": "expedition-la-perouse",
+    "name": "La Pérouses Weltexpedition",
+    "category": "expedition",
+    "attributes": {
+      "explorer": "Jean-François de Galaup, comte de Lapérouse",
+      "year": 1785,
+      "region": "Pazifik / Asiatische Küsten / Nordamerika"
+    },
+    "funFact": "La Pérouse brach 1785 im Auftrag des französischen Königs zu einer Weltumsegelung auf — die Expedition lieferte wichtige kartografische Daten, bevor sie 1788 spurlos im Pazifik verschwand (Wrack 1826 bei Vanikoro entdeckt).",
+    "sourceName": "Wikipedia DE – Jean-François de Galaup de Lapérouse",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Jean-Fran%C3%A7ois_de_Galaup_de_Lap%C3%A9rouse",
+    "verifyNote": "Startjahr 1785 und Verschwinden 1788 sind sicher belegt; Wracks bei Vanikoro gefunden."
+  },
+  {
+    "id": "expedition-mungo-park",
+    "name": "Mungo Parks Niger-Expeditionen",
+    "category": "expedition",
+    "attributes": {
+      "explorer": "Mungo Park",
+      "year": 1795,
+      "region": "Westafrika / Niger-Fluss"
+    },
+    "funFact": "Mungo Park erkundete 1795/96 als erster Europäer den mittleren Niger und bewies damit, dass der Fluss nach Osten fließt — er starb 1806 auf einer zweiten Expedition in den Nilkatarakten des Niger.",
+    "sourceName": "Wikipedia DE – Mungo Park",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Mungo_Park",
+    "verifyNote": "Erste Expedition 1795–97 gut dokumentiert; Erstbegehung des Niger-Mittellaufs durch Park ist historisch gesichert."
+  },
+  {
+    "id": "expedition-heinrich-barth",
+    "name": "Heinrich Barths Sahara- und Sudanreise",
+    "category": "expedition",
+    "attributes": {
+      "explorer": "Heinrich Barth",
+      "year": 1850,
+      "region": "Nordafrika / Sahara / Sudan / Westzentralafrika"
+    },
+    "funFact": "Heinrich Barth bereiste 1850–1855 rund 20 000 km durch Nordafrika und den Sudan — er erstellte detaillierte ethnografische und kartografische Aufzeichnungen und gilt als einer der bedeutendsten Afrikareisenden des 19. Jahrhunderts.",
+    "sourceName": "Wikipedia DE – Heinrich Barth",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Heinrich_Barth",
+    "verifyNote": "Expeditionsjahre 1850–1855 und Leistungen sicher belegt (Bericht in 5 Bänden publiziert)."
+  },
+  {
+    "id": "expedition-frobishers-nordwestpassage",
+    "name": "Frobishers Nordwestpassage-Suche",
+    "category": "expedition",
+    "attributes": {
+      "explorer": "Martin Frobisher",
+      "year": 1576,
+      "region": "Arktis / Nordostkanada (Baffinland)"
+    },
+    "funFact": "Martin Frobisher unternahm 1576–1578 drei Expeditionen zur Suche nach der Nordwestpassage — er entdeckte dabei die nach ihm benannte Frobisher Bay auf Baffinland und brachte vermeintliches Golderz mit, das sich als wertlos erwies.",
+    "sourceName": "Wikipedia DE – Martin Frobisher",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Martin_Frobisher",
+    "verifyNote": "Erste Reise 1576 ist sicher belegt; drei Reisen insgesamt bis 1578 dokumentiert."
+  }
+]

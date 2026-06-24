@@ -44,7 +44,10 @@ const ASCII_UMLAUT_HINTS = /\b(fuer|ueber|koennen|muessen|groesste|groesser|naec
 function norm(s) {
   return String(s ?? '').toLowerCase()
     .replace(/ß/g, 'ss').replace(/ä/g, 'a').replace(/ö/g, 'o').replace(/ü/g, 'u')
-    .replace(/[^a-z0-9]+/g, ' ').trim();
+    // '+' und '#' bewusst BEHALTEN: sonst kollabieren "C", "C++" und "C#"
+    // (bzw. "B-Baum"/"B+-Baum") auf denselben Schlüssel und die berühmten
+    // Varianten wären als vermeintliche Dubletten unrettbar verworfen worden.
+    .replace(/[^a-z0-9+#]+/g, ' ').trim();
 }
 
 const errors = [];
