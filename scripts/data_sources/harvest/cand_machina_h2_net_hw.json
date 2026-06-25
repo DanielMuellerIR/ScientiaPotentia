@@ -1,0 +1,777 @@
+[
+  {
+    "id": "network_protocol-ssl-vpn-https-h2",
+    "name": "OpenFlow",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "OpenFlow",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 6653,
+      "purpose": "Trennt im Software-Defined Networking die Steuerebene vom Switch und programmiert dessen Weiterleitungstabellen zentral"
+    },
+    "funFact": "OpenFlow gilt als Wegbereiter des Software-Defined Networking, weil ein zentraler Controller die Weiterleitungsregeln vieler Switches steuern kann.",
+    "sourceName": "IANA Service Name and Transport Protocol Port Number Registry",
+    "sourceUrl": "https://www.iana.org/assignments/service-names-port-numbers/",
+    "verifyNote": "Registrierter Port 6653/TCP für OpenFlow laut IANA-Registry."
+  },
+  {
+    "id": "network_protocol-ipp-h2",
+    "name": "IPP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Internet Printing Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 631,
+      "purpose": "Übermittelt Druckaufträge an Netzwerkdrucker und fragt deren Status und Fähigkeiten ab"
+    },
+    "funFact": "IPP setzt auf HTTP auf und ist die Grundlage moderner Treiberlos-Druck-Standards wie AirPrint und IPP Everywhere.",
+    "sourceName": "RFC 8010/8011 – Internet Printing Protocol",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc8011",
+    "verifyNote": "Port 631/TCP ist IANA-Standard; IPP nutzt HTTP als Transport gemäß RFC 8011."
+  },
+  {
+    "id": "network_protocol-lpd-h2",
+    "name": "LPD",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Line Printer Daemon Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 515,
+      "purpose": "Sendet Druckaufträge an einen Druckserver und verwaltet dessen Druckwarteschlange"
+    },
+    "funFact": "LPD stammt aus dem BSD-Unix-Umfeld und war jahrzehntelang der De-facto-Standard für den Netzwerkdruck unter Unix.",
+    "sourceName": "RFC 1179 – Line Printer Daemon Protocol",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc1179",
+    "verifyNote": "Port 515/TCP gemäß RFC 1179 und IANA-Registry."
+  },
+  {
+    "id": "network_protocol-netbios-ns-h2",
+    "name": "NetBIOS",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Network Basic Input/Output System (Name Service)",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 137,
+      "purpose": "Bietet in lokalen Windows-Netzen Namensauflösung und Sitzungsdienste zwischen Rechnern"
+    },
+    "funFact": "NetBIOS stammt aus den frühen 1980er-Jahren und wird in modernen Netzen zunehmend durch DNS und das direkte SMB über TCP ersetzt.",
+    "sourceName": "RFC 1001/1002 – NetBIOS over TCP/IP",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc1002",
+    "verifyNote": "Name Service auf Port 137/UDP gemäß RFC 1002 und IANA-Registry."
+  },
+  {
+    "id": "network_protocol-microsoft-sql-server-h2",
+    "name": "TDS",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Tabular Data Stream",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 1433,
+      "purpose": "Überträgt SQL-Abfragen und Ergebnismengen zwischen Client und Microsoft-SQL-Server-Datenbank"
+    },
+    "funFact": "Der Standardport 1433 von Microsoft SQL Server ist ein beliebtes Ziel automatisierter Scans im Internet.",
+    "sourceName": "IANA Service Name and Transport Protocol Port Number Registry",
+    "sourceUrl": "https://www.iana.org/assignments/service-names-port-numbers/",
+    "verifyNote": "Port 1433/TCP (ms-sql-s) für den SQL-Server-Dienst laut IANA-Registry."
+  },
+  {
+    "id": "network_protocol-mysql-h2",
+    "name": "MySQL-Protokoll",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "MySQL Client/Server Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 3306,
+      "purpose": "Verbindet Anwendungen mit einem MySQL- oder MariaDB-Datenbankserver für Abfragen und Datenübertragung"
+    },
+    "funFact": "Port 3306 ist so eng mit MySQL verbunden, dass er in fast jeder Web-Stack-Konfiguration auftaucht.",
+    "sourceName": "IANA Service Name and Transport Protocol Port Number Registry",
+    "sourceUrl": "https://www.iana.org/assignments/service-names-port-numbers/",
+    "verifyNote": "Port 3306/TCP (mysql) laut IANA-Registry."
+  },
+  {
+    "id": "network_protocol-postgresql-h2",
+    "name": "PostgreSQL-Protokoll",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "PostgreSQL Frontend/Backend Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 5432,
+      "purpose": "Überträgt SQL-Befehle und Resultate zwischen Client und PostgreSQL-Datenbankserver"
+    },
+    "funFact": "Das PostgreSQL-Protokoll trennt klar zwischen Frontend (Client) und Backend (Server) und unterstützt sowohl einfache als auch vorbereitete Abfragen.",
+    "sourceName": "IANA Service Name and Transport Protocol Port Number Registry",
+    "sourceUrl": "https://www.iana.org/assignments/service-names-port-numbers/",
+    "verifyNote": "Port 5432/TCP (postgresql) laut IANA-Registry."
+  },
+  {
+    "id": "network_protocol-redis-h2",
+    "name": "Redis-Protokoll",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Redis Serialization Protocol over TCP",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 6379,
+      "purpose": "Bedient den In-Memory-Datenspeicher Redis mit Schlüssel-Wert-Befehlen über eine Netzverbindung"
+    },
+    "funFact": "Redis lauscht standardmäßig auf Port 6379 – auf der Telefontastatur buchstabiert diese Zahl MERZ, eine Anspielung auf die italienische Showgirl Alessia Merz und ein Insider-Witz des Entwicklers.",
+    "sourceName": "IANA Service Name and Transport Protocol Port Number Registry",
+    "sourceUrl": "https://www.iana.org/assignments/service-names-port-numbers/",
+    "verifyNote": "Port 6379/TCP (redis) laut IANA-Registry."
+  },
+  {
+    "id": "network_protocol-mongodb-h2",
+    "name": "MongoDB-Wire-Protokoll",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "MongoDB Wire Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 27017,
+      "purpose": "Überträgt Dokumente und Abfragen im BSON-Format zwischen Treiber und MongoDB-Server"
+    },
+    "funFact": "Falsch konfigurierte MongoDB-Server auf Port 27017 ohne Authentifizierung führten zu zahlreichen öffentlich gewordenen Datenlecks.",
+    "sourceName": "IANA Service Name and Transport Protocol Port Number Registry",
+    "sourceUrl": "https://www.iana.org/assignments/service-names-port-numbers/",
+    "verifyNote": "Port 27017/TCP (mongod) laut IANA-Registry."
+  },
+  {
+    "id": "network_protocol-dtls-h2",
+    "name": "DTLS",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Datagram Transport Layer Security",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "purpose": "Verschlüsselt datagrammbasierte Kommunikation, ohne die Zuverlässigkeit von TCP vorauszusetzen"
+    },
+    "funFact": "DTLS überträgt die TLS-Sicherheit auf das verbindungslose UDP und sichert damit etwa VoIP- und VPN-Datenströme ab.",
+    "sourceName": "RFC 9147 – DTLS 1.3",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc9147",
+    "verifyNote": "DTLS baut auf UDP auf und überträgt die TLS-Sicherheitsmechanismen gemäß RFC 9147; kein fester Standardport."
+  },
+  {
+    "id": "network_protocol-srtp-h2",
+    "name": "SRTP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Secure Real-time Transport Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "purpose": "Verschlüsselt und authentifiziert Echtzeit-Audio- und Videoströme von RTP"
+    },
+    "funFact": "SRTP sichert die Medienströme moderner Internettelefonie und Videokonferenzen ab, während die Schlüssel oft über DTLS ausgehandelt werden.",
+    "sourceName": "RFC 3711 – Secure Real-time Transport Protocol",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc3711",
+    "verifyNote": "SRTP erweitert RTP um Verschlüsselung und Authentifizierung gemäß RFC 3711; nutzt UDP, kein fester Port."
+  },
+  {
+    "id": "network_protocol-sdp-h2",
+    "name": "SDP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Session Description Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "-",
+      "purpose": "Beschreibt in Textform die Parameter einer Multimedia-Sitzung wie Codecs, Ports und Adressen"
+    },
+    "funFact": "SDP überträgt selbst keine Mediendaten, sondern liefert nur die Beschreibung – meist eingebettet in SIP-Nachrichten.",
+    "sourceName": "RFC 8866 – Session Description Protocol",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc8866",
+    "verifyNote": "SDP ist ein reines Beschreibungsformat ohne eigenen Transport gemäß RFC 8866."
+  },
+  {
+    "id": "network_protocol-rtcp-h2",
+    "name": "RTCP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "RTP Control Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "purpose": "Liefert begleitend zu RTP Statistiken über Paketverlust, Laufzeit und Qualität eines Medienstroms"
+    },
+    "funFact": "RTCP läuft als Begleitkanal zu RTP und nutzt klassisch den nächsthöheren, ungeraden Portnummer neben dem RTP-Strom.",
+    "sourceName": "RFC 3550 – RTP: A Transport Protocol for Real-Time Applications",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc3550",
+    "verifyNote": "RTCP überträgt Steuer- und Qualitätsinformationen zu RTP über UDP gemäß RFC 3550."
+  },
+  {
+    "id": "network_protocol-bootp-h2",
+    "name": "BOOTP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Bootstrap Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 67,
+      "purpose": "Weist plattenlosen Rechnern beim Start automatisch eine IP-Adresse und Startparameter zu"
+    },
+    "funFact": "BOOTP gilt als Vorläufer von DHCP, das dessen Portnummern und Nachrichtenformat weitgehend übernommen hat.",
+    "sourceName": "RFC 951 – Bootstrap Protocol",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc951",
+    "verifyNote": "Server-Port 67/UDP gemäß RFC 951 und IANA-Registry."
+  },
+  {
+    "id": "network_protocol-rpc-portmap-h2",
+    "name": "Portmapper (RPCbind)",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "ONC RPC Portmapper / rpcbind",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 111,
+      "purpose": "Vermittelt zwischen RPC-Programmnummern und den tatsächlichen Ports von Diensten wie NFS"
+    },
+    "funFact": "Der Portmapper auf Port 111 wurde in der Vergangenheit für DDoS-Verstärkungsangriffe missbraucht.",
+    "sourceName": "RFC 1833 – Binding Protocols for ONC RPC",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc1833",
+    "verifyNote": "Port 111 (sunrpc, TCP und UDP) gemäß RFC 1833 und IANA-Registry."
+  },
+  {
+    "id": "network_protocol-ldaps-h2",
+    "name": "LDAPS",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "LDAP over TLS/SSL",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 636,
+      "purpose": "Fragt Verzeichnisdienste wie Active Directory verschlüsselt über eine TLS-gesicherte Verbindung ab"
+    },
+    "funFact": "LDAPS verschlüsselt die gesamte Verzeichnisabfrage und schützt damit Anmeldedaten, die LDAP im Klartext überträgt.",
+    "sourceName": "IANA Service Name and Transport Protocol Port Number Registry",
+    "sourceUrl": "https://www.iana.org/assignments/service-names-port-numbers/",
+    "verifyNote": "Port 636/TCP (ldaps) laut IANA-Registry."
+  },
+  {
+    "id": "network_protocol-rlogin-h2",
+    "name": "rlogin",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Remote Login",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 513,
+      "purpose": "Ermöglicht eine Terminal-Anmeldung an einem entfernten Unix-Rechner über das Netzwerk"
+    },
+    "funFact": "rlogin überträgt Daten unverschlüsselt und wurde aus Sicherheitsgründen weitgehend durch SSH abgelöst.",
+    "sourceName": "RFC 1282 – BSD Rlogin",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc1282",
+    "verifyNote": "Port 513/TCP (login) gemäß RFC 1282 und IANA-Registry."
+  },
+  {
+    "id": "network_protocol-spdy-http2-h2",
+    "name": "HTTP/2",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Hypertext Transfer Protocol Version 2",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 443,
+      "purpose": "Überträgt Webinhalte mit Multiplexing mehrerer Anfragen über eine einzige Verbindung und Header-Komprimierung"
+    },
+    "funFact": "HTTP/2 ging aus Googles experimentellem Protokoll SPDY hervor und beseitigt das Problem blockierter paralleler Verbindungen.",
+    "sourceName": "RFC 9113 – HTTP/2",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc9113",
+    "verifyNote": "HTTP/2 läuft praktisch über TLS auf Port 443 und multiplext Streams gemäß RFC 9113."
+  },
+  {
+    "id": "network_protocol-http3-h2",
+    "name": "HTTP/3",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Hypertext Transfer Protocol Version 3",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 443,
+      "purpose": "Überträgt Webinhalte über das QUIC-Transportprotokoll und vermeidet so kopfblockierende Verzögerungen"
+    },
+    "funFact": "HTTP/3 verlässt erstmals das jahrzehntealte TCP und setzt für Webverkehr auf das UDP-basierte QUIC.",
+    "sourceName": "RFC 9114 – HTTP/3",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc9114",
+    "verifyNote": "HTTP/3 nutzt QUIC über UDP auf Port 443 gemäß RFC 9114."
+  },
+  {
+    "id": "network_protocol-ssdp-upnp-h2",
+    "name": "ESMTP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Extended Simple Mail Transfer Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 587,
+      "purpose": "Reicht E-Mails authentifiziert vom Mailprogramm zum ausgehenden Mailserver ein (Mail Submission)"
+    },
+    "funFact": "Der Submission-Port 587 trennt das Einliefern von Mails durch Nutzer vom serverseitigen Mailtransport auf Port 25.",
+    "sourceName": "RFC 6409 – Message Submission for Mail",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc6409",
+    "verifyNote": "Submission-Port 587/TCP gemäß RFC 6409 und IANA-Registry."
+  },
+  {
+    "id": "network_protocol-msrp-vnc-h2",
+    "name": "X11",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "X Window System Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 6000,
+      "purpose": "Überträgt grafische Fensterinhalte und Eingabeereignisse zwischen X-Server und Anwendungen im Netzwerk"
+    },
+    "funFact": "Beim X-Protokoll läuft der Server lokal beim Nutzer, während die Programme auch auf entfernten Rechnern liegen können – die umgekehrte Sicht gegenüber dem üblichen Client-Server-Bild.",
+    "sourceName": "IANA Service Name and Transport Protocol Port Number Registry",
+    "sourceUrl": "https://www.iana.org/assignments/service-names-port-numbers/",
+    "verifyNote": "X11 nutzt den Portbereich ab 6000/TCP (x11) laut IANA-Registry."
+  },
+  {
+    "id": "network_protocol-socks-h2",
+    "name": "SOCKS",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Socket Secure",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 1080,
+      "purpose": "Leitet beliebigen TCP- und UDP-Verkehr über einen Proxy-Server weiter, ohne den Inhalt auszuwerten"
+    },
+    "funFact": "SOCKS-Proxys arbeiten anders als HTTP-Proxys protokollunabhängig und werden daher oft mit dem Tor-Netzwerk kombiniert.",
+    "sourceName": "RFC 1928 – SOCKS Protocol Version 5",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc1928",
+    "verifyNote": "Port 1080/TCP (socks) gemäß RFC 1928 und IANA-Registry."
+  },
+  {
+    "id": "network_protocol-rip-quic-h2",
+    "name": "WebRTC-Datenkanal",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "WebRTC Data Channel (SCTP over DTLS)",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "purpose": "Ermöglicht direkte, verschlüsselte Echtzeit-Audio-, Video- und Datenverbindungen zwischen Browsern ohne Server"
+    },
+    "funFact": "WebRTC erlaubt Videotelefonie direkt im Browser ohne Plug-in und nutzt ICE/STUN/TURN, um Firewalls und NAT zu durchqueren.",
+    "sourceName": "RFC 8831 – WebRTC Data Channels",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc8831",
+    "verifyNote": "WebRTC-Datenkanäle nutzen SCTP über DTLS über UDP gemäß RFC 8831."
+  },
+  {
+    "id": "network_protocol-turn-h2",
+    "name": "TURN",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Traversal Using Relays around NAT",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 3478,
+      "purpose": "Leitet Medienströme über einen Relay-Server, wenn eine direkte Peer-to-Peer-Verbindung durch NAT verhindert wird"
+    },
+    "funFact": "TURN ergänzt STUN als Fallback: Wenn eine direkte Verbindung scheitert, läuft der Verkehr zwangsweise über einen Vermittlungsserver.",
+    "sourceName": "RFC 8656 – Traversal Using Relays around NAT (TURN)",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc8656",
+    "verifyNote": "Port 3478 (UDP und TCP) gemäß RFC 8656 und IANA-Registry."
+  },
+  {
+    "id": "network_protocol-ospf-eigrp-h2",
+    "name": "Babel",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Babel Routing Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 6696,
+      "purpose": "Berechnet als Distanzvektor-Routingprotokoll schleifenfreie Routen, besonders in drahtlosen Maschennetzen"
+    },
+    "funFact": "Babel ist auf häufig wechselnde Topologien ausgelegt und daher in mobilen Ad-hoc- und Mesh-Netzwerken beliebt.",
+    "sourceName": "RFC 8966 – The Babel Routing Protocol",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc8966",
+    "verifyNote": "Port 6696/UDP gemäß RFC 8966 und IANA-Registry."
+  },
+  {
+    "id": "network_protocol-gemini-h2",
+    "name": "Gemini-Protokoll",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Gemini Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 1965,
+      "purpose": "Überträgt bewusst minimalistische, textorientierte Inhalte als schlanke, datenschutzfreundliche Alternative zum Web"
+    },
+    "funFact": "Das Gemini-Protokoll ist absichtlich einfach gehalten – kein Tracking, kein JavaScript – und positioniert sich zwischen Gopher und HTTP.",
+    "sourceName": "Project Gemini – Protocol Specification",
+    "sourceUrl": "https://geminiprotocol.net/docs/protocol-specification.gmi",
+    "verifyNote": "Gemini nutzt TLS über TCP-Port 1965 laut offizieller Protokollspezifikation."
+  },
+  {
+    "id": "hardware-tpu-tensor-h2",
+    "name": "FPGA",
+    "category": "hardware",
+    "attributes": {
+      "category": "Prozessor",
+      "function": "Lässt sich nach der Fertigung frei mit digitalen Logikschaltungen programmieren und so an eine konkrete Aufgabe anpassen"
+    },
+    "funFact": "Ein FPGA verdrahtet seine Logikblöcke nach dem Laden der Konfiguration neu und kann so Hardware nachbilden, ohne dass ein neuer Chip gefertigt werden muss.",
+    "sourceName": "Wikipedia DE – Field Programmable Gate Array",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Field_Programmable_Gate_Array",
+    "verifyNote": "Frei programmierbare Logik nach der Fertigung ist die Kerneigenschaft eines FPGA (Standardwissen)."
+  },
+  {
+    "id": "hardware-northbridge-h2",
+    "name": "Speichercontroller",
+    "category": "hardware",
+    "attributes": {
+      "category": "Schnittstelle",
+      "function": "Steuert den Datenaustausch zwischen Prozessor und Arbeitsspeicher und verwaltet Lese- und Schreibzugriffe"
+    },
+    "funFact": "Bei modernen CPUs ist der Speichercontroller direkt in den Prozessor integriert, was die früher übliche separate Northbridge überflüssig machte.",
+    "sourceName": "Wikipedia DE – Speichercontroller",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Speichercontroller",
+    "verifyNote": "Funktion als Bindeglied zwischen CPU und RAM ist Standardwissen; Integration in moderne CPUs belegt."
+  },
+  {
+    "id": "hardware-voltage-regulator-vrm-h2",
+    "name": "Spannungsregler (VRM)",
+    "category": "hardware",
+    "attributes": {
+      "category": "Schnittstelle",
+      "function": "Wandelt die Versorgungsspannung des Mainboards in die niedrige, stabile Spannung um, die der Prozessor benötigt"
+    },
+    "funFact": "Das VRM eines Mainboards muss hohe Ströme liefern und wird unter Last so heiß, dass es eigene Kühlkörper bekommt.",
+    "sourceName": "Wikipedia EN – Voltage regulator module",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Voltage_regulator_module",
+    "verifyNote": "VRM versorgt die CPU mit angepasster, stabilisierter Spannung (Standardwissen)."
+  },
+  {
+    "id": "hardware-em-shield-h2",
+    "name": "Schwungrad-USV",
+    "category": "hardware",
+    "attributes": {
+      "category": "Schnittstelle",
+      "function": "Überbrückt kurze Stromausfälle, indem die in einer rotierenden Masse gespeicherte Bewegungsenergie zurück in Strom gewandelt wird"
+    },
+    "funFact": "Schwungrad-Speicher kommen in Rechenzentren als wartungsarme Alternative zu Batterien für die Überbrückung von Sekundenbruchteilen zum Einsatz.",
+    "sourceName": "Wikipedia DE – Schwungrad-Energiespeicher",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Schwungrad-Energiespeicher",
+    "verifyNote": "Kinetische Energiespeicherung im rotierenden Schwungrad zur Netzüberbrückung ist Standardwissen."
+  },
+  {
+    "id": "hardware-optokoppler-h2",
+    "name": "Optokoppler",
+    "category": "hardware",
+    "attributes": {
+      "category": "Schnittstelle",
+      "function": "Überträgt ein elektrisches Signal über Licht und trennt dabei zwei Stromkreise galvanisch voneinander"
+    },
+    "funFact": "Im Optokoppler wandelt eine LED das Signal in Licht, das ein Fototransistor wieder aufnimmt – so können Steuerteil und Leistungsteil unterschiedliche Massen haben.",
+    "sourceName": "Wikipedia DE – Optokoppler",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Optokoppler",
+    "verifyNote": "Lichtgekoppelte galvanische Trennung zweier Stromkreise ist die Kerneigenschaft (Standardwissen)."
+  },
+  {
+    "id": "hardware-thermistor-h2",
+    "name": "Thermistor",
+    "category": "hardware",
+    "attributes": {
+      "category": "Eingabe",
+      "function": "Ändert seinen elektrischen Widerstand temperaturabhängig und dient so als Temperaturfühler"
+    },
+    "funFact": "Thermistoren stecken in vielen Lüftersteuerungen und Akkus, um Überhitzung frühzeitig zu erkennen.",
+    "sourceName": "Wikipedia DE – Thermistor",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Heißleiter",
+    "verifyNote": "Temperaturabhängiger Widerstand als Sensorprinzip ist Standardwissen."
+  },
+  {
+    "id": "hardware-hall-sensor-h2",
+    "name": "Hall-Sensor",
+    "category": "hardware",
+    "attributes": {
+      "category": "Eingabe",
+      "function": "Erzeugt eine messbare Spannung, sobald ein Magnetfeld auf den stromdurchflossenen Leiter wirkt, und erkennt so Magnete oder Drehzahlen"
+    },
+    "funFact": "Hall-Sensoren melden etwa, ob ein Notebook-Deckel geschlossen ist, indem sie einen kleinen verbauten Magneten erkennen.",
+    "sourceName": "Wikipedia DE – Hall-Sensor",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Hall-Sensor",
+    "verifyNote": "Spannungserzeugung im Magnetfeld (Hall-Effekt) als Sensorprinzip ist Standardwissen."
+  },
+  {
+    "id": "hardware-magnetometer-h2",
+    "name": "Magnetometer",
+    "category": "hardware",
+    "attributes": {
+      "category": "Eingabe",
+      "function": "Misst Stärke und Richtung von Magnetfeldern und dient in Geräten als elektronischer Kompass"
+    },
+    "funFact": "Das Magnetometer im Smartphone richtet die Karten-App nach Norden aus, indem es das Erdmagnetfeld erfasst.",
+    "sourceName": "Wikipedia DE – Magnetometer",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Magnetometer",
+    "verifyNote": "Messung von Magnetfeldstärke und -richtung als Kompass ist Standardwissen."
+  },
+  {
+    "id": "hardware-barometer-sensor-h2",
+    "name": "Barometrischer Drucksensor",
+    "category": "hardware",
+    "attributes": {
+      "category": "Eingabe",
+      "function": "Misst den Luftdruck und erlaubt so die Bestimmung der Höhe über dem Meeresspiegel"
+    },
+    "funFact": "Smartphones nutzen den Drucksensor, um Etagenwechsel zu erkennen und die Standortbestimmung beim Navigieren zu verbessern.",
+    "sourceName": "Wikipedia DE – Barometer",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Barometer",
+    "verifyNote": "Luftdruckmessung zur Höhenbestimmung ist Standardwissen."
+  },
+  {
+    "id": "hardware-light-sensor-h2",
+    "name": "Umgebungslichtsensor",
+    "category": "hardware",
+    "attributes": {
+      "category": "Eingabe",
+      "function": "Misst die Helligkeit der Umgebung und regelt damit automatisch die Display-Helligkeit"
+    },
+    "funFact": "Der Umgebungslichtsensor dimmt das Display im Dunkeln und dreht es bei Sonnenlicht hoch, um Strom zu sparen und die Lesbarkeit zu erhalten.",
+    "sourceName": "Wikipedia EN – Ambient light sensor",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Ambient_light_sensor",
+    "verifyNote": "Helligkeitsmessung zur Display-Regelung ist Standardwissen."
+  },
+  {
+    "id": "hardware-proximity-sensor-h2",
+    "name": "Näherungssensor",
+    "category": "hardware",
+    "attributes": {
+      "category": "Eingabe",
+      "function": "Erkennt berührungslos ein nahes Objekt und löst darauf eine Reaktion des Geräts aus"
+    },
+    "funFact": "Beim Telefonieren schaltet der Näherungssensor das Smartphone-Display ab, sobald man es ans Ohr hält, damit keine Tasten versehentlich gedrückt werden.",
+    "sourceName": "Wikipedia DE – Näherungssensor",
+    "sourceUrl": "https://de.wikipedia.org/wiki/N%C3%A4herungssensor",
+    "verifyNote": "Berührungslose Objekterkennung als Sensorprinzip ist Standardwissen."
+  },
+  {
+    "id": "hardware-rtc-h2",
+    "name": "Echtzeituhr (RTC)",
+    "category": "hardware",
+    "attributes": {
+      "category": "Schnittstelle",
+      "function": "Zählt batteriegepuffert Datum und Uhrzeit weiter, auch wenn der Rechner ausgeschaltet ist"
+    },
+    "funFact": "Die kleine Knopfzelle auf dem Mainboard hält die Echtzeituhr und die BIOS-Einstellungen am Leben, wenn der Strom getrennt ist.",
+    "sourceName": "Wikipedia DE – Echtzeituhr",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Echtzeituhr",
+    "verifyNote": "Batteriegepufferte Zeitzählung im ausgeschalteten Zustand ist Standardwissen."
+  },
+  {
+    "id": "hardware-eink-display-h2",
+    "name": "E-Ink-Display",
+    "category": "hardware",
+    "attributes": {
+      "category": "Ausgabe",
+      "function": "Stellt Inhalte mit umkippenden, geladenen Partikeln dar und behält das Bild ohne Stromzufuhr bei"
+    },
+    "funFact": "E-Ink-Displays verbrauchen nur beim Bildwechsel Strom, weshalb E-Book-Reader wochenlang mit einer Akkuladung auskommen.",
+    "sourceName": "Wikipedia DE – Elektronisches Papier",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Elektronisches_Papier",
+    "verifyNote": "Bildstabilität ohne Strom durch bewegliche geladene Partikel ist Standardwissen."
+  },
+  {
+    "id": "hardware-oled-display-h2",
+    "name": "OLED-Display",
+    "category": "hardware",
+    "attributes": {
+      "category": "Ausgabe",
+      "function": "Bringt jeden Bildpunkt durch eine selbstleuchtende organische Leuchtdiode zum Leuchten und braucht daher keine Hintergrundbeleuchtung"
+    },
+    "funFact": "Da OLED-Pixel sich einzeln komplett abschalten können, erreichen die Displays ein perfektes Schwarz und sehr hohe Kontraste.",
+    "sourceName": "Wikipedia DE – Organische Leuchtdiode",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Organische_Leuchtdiode",
+    "verifyNote": "Selbstleuchtende Pixel ohne Hintergrundbeleuchtung ist die Kerneigenschaft von OLED (Standardwissen)."
+  },
+  {
+    "id": "hardware-capacitive-touchscreen-h2",
+    "name": "Kapazitiver Touchscreen",
+    "category": "hardware",
+    "attributes": {
+      "category": "Eingabe",
+      "function": "Erkennt eine Berührung an der Veränderung eines elektrischen Felds durch den leitfähigen Finger"
+    },
+    "funFact": "Weil ein kapazitiver Touchscreen auf die elektrische Leitfähigkeit des Fingers reagiert, funktioniert er mit normalen Handschuhen nicht.",
+    "sourceName": "Wikipedia DE – Touchscreen",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Touchscreen",
+    "verifyNote": "Erkennung über Kapazitätsänderung durch den leitfähigen Finger ist Standardwissen."
+  },
+  {
+    "id": "hardware-de-emmc-flash-h2",
+    "name": "UFS-Speicher",
+    "category": "hardware",
+    "attributes": {
+      "category": "Speicher",
+      "function": "Dient als schneller, fest verbauter Flash-Massenspeicher in Smartphones und löst den langsameren eMMC-Standard ab"
+    },
+    "funFact": "UFS überträgt anders als eMMC gleichzeitig in beide Richtungen und ist dadurch in mobilen Geräten deutlich schneller.",
+    "sourceName": "Wikipedia DE – Universal Flash Storage",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Universal_Flash_Storage",
+    "verifyNote": "Fest verbauter Flash-Massenspeicher mit Vollduplex als Nachfolger von eMMC ist Standardwissen."
+  },
+  {
+    "id": "hardware-optical-drive-bd-h2",
+    "name": "Blu-ray-Laufwerk",
+    "category": "hardware",
+    "attributes": {
+      "category": "Massenspeicher",
+      "function": "Liest und beschreibt optische Discs mit einem blauen Laser, dessen kurze Wellenlänge mehr Daten pro Fläche zulässt"
+    },
+    "funFact": "Der blaue Laser der Blu-ray hat eine kürzere Wellenlänge als der rote der DVD, weshalb auf gleicher Fläche deutlich mehr Daten Platz finden.",
+    "sourceName": "Wikipedia DE – Blu-ray Disc",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Blu-ray_Disc",
+    "verifyNote": "Kürzere Wellenlänge des blauen Lasers erhöht die Datendichte (Standardwissen)."
+  },
+  {
+    "id": "hardware-graphics-tablet-pen-display-h2",
+    "name": "Stift-Display",
+    "category": "hardware",
+    "attributes": {
+      "category": "Eingabe",
+      "function": "Verbindet einen Bildschirm mit einem druckempfindlichen Stift, sodass direkt auf dem angezeigten Bild gezeichnet wird"
+    },
+    "funFact": "Im Unterschied zum klassischen Grafiktablett ohne Bildschirm zeichnet man beim Stift-Display direkt dort, wo der Strich entsteht.",
+    "sourceName": "Wikipedia DE – Grafiktablett",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Grafiktablett",
+    "verifyNote": "Kombination aus Display und druckempfindlichem Stift für direktes Zeichnen ist Standardwissen."
+  },
+  {
+    "id": "hardware-numpad-h2",
+    "name": "MIDI-Keyboard",
+    "category": "hardware",
+    "attributes": {
+      "category": "Eingabe",
+      "function": "Sendet beim Tastendruck Steuerbefehle an den Rechner, die ein Programm in Klänge umsetzt, statt selbst Töne zu erzeugen"
+    },
+    "funFact": "Ein MIDI-Keyboard erzeugt selbst keinen Ton, sondern überträgt nur, welche Taste wie stark angeschlagen wurde – den Klang liefert die Software.",
+    "sourceName": "Wikipedia DE – MIDI",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Musical_Instrument_Digital_Interface",
+    "verifyNote": "Übertragung von Steuerdaten statt Audiosignalen ist die Kerneigenschaft von MIDI (Standardwissen)."
+  },
+  {
+    "id": "hardware-pcie-riser-h2",
+    "name": "M.2-Steckplatz",
+    "category": "hardware",
+    "attributes": {
+      "category": "Schnittstelle",
+      "function": "Nimmt kompakte Steckkarten wie NVMe-SSDs oder WLAN-Module direkt auf dem Mainboard auf"
+    },
+    "funFact": "Der M.2-Steckplatz kann je nach Ausführung sowohl PCIe- als auch SATA-Signale führen, weshalb nicht jede M.2-SSD in jeden Slot passt.",
+    "sourceName": "Wikipedia DE – M.2",
+    "sourceUrl": "https://de.wikipedia.org/wiki/M.2",
+    "verifyNote": "Kompakter Onboard-Steckplatz für NVMe/SATA-SSDs und Funkmodule ist Standardwissen."
+  },
+  {
+    "id": "hardware-network-bridge-h2",
+    "name": "Medienkonverter",
+    "category": "hardware",
+    "attributes": {
+      "category": "Netzwerk",
+      "function": "Wandelt Netzwerksignale zwischen zwei Übertragungsmedien um, etwa von Kupferkabel auf Glasfaser"
+    },
+    "funFact": "Medienkonverter erlauben es, eine kupferbasierte Verkabelung über lange Strecken auf störungsarme Glasfaser umzusetzen.",
+    "sourceName": "Wikipedia DE – Medienkonverter",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Medienkonverter",
+    "verifyNote": "Umsetzung zwischen Kupfer- und Glasfasermedium ist Standardwissen."
+  },
+  {
+    "id": "hardware-poe-injector-h2",
+    "name": "PoE-Injektor",
+    "category": "hardware",
+    "attributes": {
+      "category": "Netzwerk",
+      "function": "Speist elektrische Energie in ein Netzwerkkabel ein, damit ein Gerät über dieselbe Leitung Daten und Strom erhält"
+    },
+    "funFact": "Dank Power over Ethernet kommen WLAN-Access-Points und IP-Kameras mit einem einzigen Kabel aus, das zugleich Strom liefert.",
+    "sourceName": "Wikipedia DE – Power over Ethernet",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Power_over_Ethernet",
+    "verifyNote": "Einspeisung von Strom in das Datenkabel (PoE) ist Standardwissen."
+  },
+  {
+    "id": "hardware-sd-card-reader-h2",
+    "name": "Kartenleser",
+    "category": "hardware",
+    "attributes": {
+      "category": "Schnittstelle",
+      "function": "Stellt den Inhalt von Speicherkarten wie SD oder microSD dem Rechner als Laufwerk zur Verfügung"
+    },
+    "funFact": "Ein Kartenleser enthält selbst keinen Speicher, sondern überträgt nur die Daten der eingelegten Karte an den Rechner.",
+    "sourceName": "Wikipedia DE – Kartenleser",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Kartenleser",
+    "verifyNote": "Brücke zwischen Speicherkarte und Rechner ohne eigenen Speicher ist Standardwissen."
+  },
+  {
+    "id": "hardware-tape-library-h2",
+    "name": "Bandlaufwerk",
+    "category": "hardware",
+    "attributes": {
+      "category": "Massenspeicher",
+      "function": "Schreibt große Datenmengen sequenziell auf Magnetband und eignet sich dadurch für langlebige Archivierung"
+    },
+    "funFact": "Magnetbänder gelten dank niedriger Kosten pro Terabyte und langer Haltbarkeit weiterhin als bevorzugtes Medium für die Langzeitarchivierung.",
+    "sourceName": "Wikipedia DE – Magnetbandlaufwerk",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Bandlaufwerk",
+    "verifyNote": "Sequenzielles Beschreiben von Magnetband zur Archivierung ist Standardwissen."
+  },
+  {
+    "id": "hardware-laser-printer-h2",
+    "name": "Laserdrucker",
+    "category": "hardware",
+    "attributes": {
+      "category": "Ausgabe",
+      "function": "Überträgt mit einem Laser ein elektrostatisches Bild auf eine Trommel, die Tonerpulver aufnimmt und auf Papier fixiert"
+    },
+    "funFact": "Beim Laserdruck zieht eine elektrisch geladene Bildtrommel das Tonerpulver an den belichteten Stellen an, bevor Hitze es dauerhaft ins Papier einbrennt.",
+    "sourceName": "Wikipedia DE – Laserdrucker",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Laserdrucker",
+    "verifyNote": "Elektrofotografisches Druckprinzip mit Trommel, Toner und Fixierung ist Standardwissen."
+  },
+  {
+    "id": "hardware-inkjet-printer-h2",
+    "name": "Tintenstrahldrucker",
+    "category": "hardware",
+    "attributes": {
+      "category": "Ausgabe",
+      "function": "Spritzt winzige Tintentröpfchen gezielt aus Düsen auf das Papier und setzt daraus Text und Bilder zusammen"
+    },
+    "funFact": "Viele Tintenstrahldrucker erzeugen die Tröpfchen durch kurzzeitiges Erhitzen der Tinte, die als Dampfblase aus der Düse geschossen wird.",
+    "sourceName": "Wikipedia DE – Tintenstrahldrucker",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Tintenstrahldrucker",
+    "verifyNote": "Gezieltes Aufspritzen winziger Tintentröpfchen ist das Kernprinzip (Standardwissen)."
+  },
+  {
+    "id": "hardware-tpm-discrete-h2",
+    "name": "Sicherheitsschlüssel (FIDO2-Token)",
+    "category": "hardware",
+    "attributes": {
+      "category": "Eingabe",
+      "function": "Bestätigt per Knopfdruck eine Anmeldung durch ein im Gerät gespeichertes, nicht auslesbares kryptografisches Geheimnis"
+    },
+    "funFact": "Ein FIDO2-Sicherheitsschlüssel schützt vor Phishing, weil der private Schlüssel das Gerät nie verlässt und an die echte Webadresse gebunden ist.",
+    "sourceName": "Wikipedia EN – FIDO2 Project",
+    "sourceUrl": "https://en.wikipedia.org/wiki/FIDO2_Project",
+    "verifyNote": "Hardware-gebundene, phishing-resistente Authentifizierung über nicht auslesbaren Schlüssel ist Standardwissen."
+  },
+  {
+    "id": "hardware-kvm-over-ip-h2",
+    "name": "Capture-Karte",
+    "category": "hardware",
+    "attributes": {
+      "category": "Schnittstelle",
+      "function": "Nimmt ein eingehendes Video- und Audiosignal entgegen und digitalisiert es zur Aufnahme oder Weiterleitung im Rechner"
+    },
+    "funFact": "Capture-Karten erlauben es, das HDMI-Signal einer Spielkonsole abzugreifen und live zu streamen, ohne die Konsole selbst zu belasten.",
+    "sourceName": "Wikipedia EN – Video capture",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Video_capture",
+    "verifyNote": "Digitalisierung eines externen Videosignals zur Aufnahme/Streaming ist Standardwissen."
+  }
+]

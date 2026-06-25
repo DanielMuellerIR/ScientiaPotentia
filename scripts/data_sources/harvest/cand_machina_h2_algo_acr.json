@@ -1,0 +1,899 @@
+[
+  {
+    "id": "algorithm-kadane-algorithmus-h2",
+    "name": "Kadane-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Dynamische Programmierung",
+      "avgComplexity": "O(n)",
+      "purpose": "Findet die zusammenhängende Teilfolge mit maximaler Summe in einem Array in einem einzigen Durchlauf"
+    },
+    "funFact": "Kadanes Idee besteht darin, an jeder Position zu entscheiden, ob man die bisherige Teilsumme fortsetzt oder neu beginnt — dadurch genügt ein einziger Durchlauf.",
+    "sourceName": "Wikipedia EN – Maximum subarray problem",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Maximum_subarray_problem",
+    "verifyNote": "Kadanes Algorithmus löst das Maximum-Subarray-Problem in O(n) Zeit (Standard)."
+  },
+  {
+    "id": "algorithm-manacher-algorithmus-h2",
+    "name": "Manacher-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Zeichenketten",
+      "avgComplexity": "O(n)",
+      "purpose": "Findet das längste palindromische Teilwort einer Zeichenkette in linearer Zeit"
+    },
+    "funFact": "Naiv kostet die Suche nach dem längsten Palindrom O(n²); Manacher nutzt bereits berechnete Palindrom-Radien geschickt wieder und erreicht O(n).",
+    "sourceName": "Wikipedia EN – Longest palindromic substring",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Longest_palindromic_substring",
+    "verifyNote": "Manachers Algorithmus läuft in O(n) (Standard-Resultat)."
+  },
+  {
+    "id": "algorithm-z-algorithmus-h2",
+    "name": "Z-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Zeichenketten",
+      "avgComplexity": "O(n + m)",
+      "purpose": "Berechnet das Z-Array und ermöglicht damit lineare Mustersuche in Texten"
+    },
+    "funFact": "Das Z-Array gibt für jede Position die Länge des längsten Teilworts an, das zugleich Präfix der Zeichenkette ist — daraus folgt direkt eine Mustersuche in linearer Zeit.",
+    "sourceName": "cp-algorithms – Z-function",
+    "sourceUrl": "https://cp-algorithms.com/string/z-function.html",
+    "verifyNote": "Z-Funktion und damit Mustersuche in O(n+m), n=Text, m=Muster (Standard)."
+  },
+  {
+    "id": "algorithm-boyer-moore-mehrheitsvotum-h2",
+    "name": "Boyer-Moore-Mehrheitsvotum",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Streaming/Auswahl",
+      "avgComplexity": "O(n)",
+      "purpose": "Findet ein mögliches Mehrheitselement (über die Hälfte der Vorkommen) mit konstantem Zusatzspeicher"
+    },
+    "funFact": "Der Algorithmus merkt sich nur einen Kandidaten und einen Zähler — er kommt mit O(1) zusätzlichem Speicher aus, obwohl er einen ganzen Datenstrom verarbeitet.",
+    "sourceName": "Wikipedia EN – Boyer–Moore majority vote algorithm",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_majority_vote_algorithm",
+    "verifyNote": "Linearer Durchlauf O(n), O(1) Speicher (Standard)."
+  },
+  {
+    "id": "algorithm-hopcroft-karp-algorithmus-h2",
+    "name": "Hopcroft-Karp-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Graph",
+      "avgComplexity": "O(E·√V)",
+      "purpose": "Berechnet ein maximales Matching in einem bipartiten Graphen"
+    },
+    "funFact": "Hopcroft-Karp findet in jeder Phase mehrere kürzeste augmentierende Pfade gleichzeitig und ist dadurch schneller als das einfache Augmentieren einzelner Pfade.",
+    "sourceName": "Wikipedia EN – Hopcroft–Karp algorithm",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Hopcroft%E2%80%93Karp_algorithm",
+    "verifyNote": "Laufzeit O(E·√V) per WebSearch 2026-06-25 und Wikipedia bestätigt."
+  },
+  {
+    "id": "algorithm-dinic-algorithmus-h2",
+    "name": "Dinic-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Graph",
+      "avgComplexity": "O(V²·E)",
+      "purpose": "Berechnet den maximalen Fluss in einem Flussnetzwerk mithilfe von Schichtgraphen und Sperrflüssen"
+    },
+    "funFact": "Auf Einheitskapazitäts-Netzwerken (z. B. bipartites Matching) sinkt Dinics Laufzeit auf O(E·√V).",
+    "sourceName": "Wikipedia EN – Dinic's algorithm",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Dinic%27s_algorithm",
+    "verifyNote": "Allgemeine Laufzeit O(V²·E) per WebSearch 2026-06-25 und Wikipedia bestätigt."
+  },
+  {
+    "id": "algorithm-ungarische-methode-h2",
+    "name": "Ungarische Methode",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Optimierung",
+      "avgComplexity": "O(n³)",
+      "purpose": "Löst das Zuordnungsproblem (minimale Gesamtkosten der Zuweisung von Aufgaben zu Akteuren) exakt"
+    },
+    "funFact": "Die Methode heißt ungarisch, weil sie auf Arbeiten der Mathematiker Kőnig und Egerváry aufbaut; Harold Kuhn gab ihr 1955 diesen Namen.",
+    "sourceName": "Wikipedia EN – Hungarian algorithm",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Hungarian_algorithm",
+    "verifyNote": "Laufzeit O(n³) per WebSearch 2026-06-25 und Wikipedia bestätigt."
+  },
+  {
+    "id": "algorithm-bron-kerbosch-algorithmus-h2",
+    "name": "Bron-Kerbosch-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Graph",
+      "avgComplexity": "O(3^(V/3))",
+      "purpose": "Findet alle maximalen Cliquen in einem ungerichteten Graphen per Backtracking"
+    },
+    "funFact": "Die Schranke O(3^(V/3)) ist optimal, weil ein Graph bis zu 3^(V/3) maximale Cliquen besitzen kann (Moon-Moser-Graphen).",
+    "sourceName": "Wikipedia EN – Bron–Kerbosch algorithm",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Bron%E2%80%93Kerbosch_algorithm",
+    "verifyNote": "Worst-Case O(3^(n/3)) entspricht der maximalen Anzahl maximaler Cliquen (Standard)."
+  },
+  {
+    "id": "algorithm-welsh-powell-algorithmus-h2",
+    "name": "Welsh-Powell-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Graph",
+      "avgComplexity": "O(V²)",
+      "purpose": "Heuristische Graphfärbung: weist Knoten in absteigender Gradreihenfolge möglichst wenige Farben zu"
+    },
+    "funFact": "Welsh-Powell sortiert die Knoten zuerst nach Grad und färbt die hochgradigen zuerst — eine einfache Greedy-Heuristik, die oft mit wenigen Farben auskommt.",
+    "sourceName": "Wikipedia EN – Greedy coloring",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Greedy_coloring",
+    "verifyNote": "Greedy-Färbung mit Gradsortierung; dominanter Kostenanteil O(V²) (Standard)."
+  },
+  {
+    "id": "algorithm-introsort-h2",
+    "name": "Introsort",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortierung",
+      "avgComplexity": "O(n log n)",
+      "purpose": "Hybride Sortierung, die mit Quicksort startet und bei zu tiefer Rekursion auf Heapsort umschaltet"
+    },
+    "funFact": "Introsort vermeidet Quicksorts O(n²)-Worst-Case, indem es ab einer Rekursionstiefe von etwa 2·log₂(n) auf Heapsort wechselt — es steckt in vielen C++-Standardbibliotheken.",
+    "sourceName": "Wikipedia EN – Introsort",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Introsort",
+    "verifyNote": "Garantiert O(n log n) im Worst Case durch Umschalten auf Heapsort (Standard)."
+  },
+  {
+    "id": "algorithm-comb-sort-h2",
+    "name": "Comb Sort",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortierung",
+      "avgComplexity": "O(n²)",
+      "purpose": "Verbessert Bubblesort, indem es zunächst weit auseinanderliegende Elemente vergleicht und den Abstand schrittweise verkleinert"
+    },
+    "funFact": "Durch das Verkleinern des Vergleichsabstands mit dem Faktor 1,3 beseitigt Comb Sort kleine, weit hinten liegende Werte (Turtles) viel schneller als reines Bubblesort.",
+    "sourceName": "Wikipedia EN – Comb sort",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Comb_sort",
+    "verifyNote": "Durchschnittlich besser als Bubblesort, aber Worst Case O(n²) (Standard)."
+  },
+  {
+    "id": "algorithm-pancake-sort-h2",
+    "name": "Pancake Sort",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortierung",
+      "avgComplexity": "O(n²)",
+      "purpose": "Sortiert eine Folge ausschließlich durch wiederholtes Umdrehen von Präfixen (wie ein Pfannkuchenstapel)"
+    },
+    "funFact": "Das Pfannkuchen-Sortierproblem ist eines der wenigen mathematischen Probleme, zu denen Bill Gates eine Forschungsarbeit veröffentlicht hat.",
+    "sourceName": "Wikipedia EN – Pancake sorting",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Pancake_sorting",
+    "verifyNote": "Einfacher Ansatz benötigt O(n) Flips und O(n²) Vergleiche (Standard)."
+  },
+  {
+    "id": "algorithm-cycle-sort-h2",
+    "name": "Cycle Sort",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortierung",
+      "avgComplexity": "O(n²)",
+      "purpose": "Sortiert mit der theoretisch minimalen Anzahl von Schreiboperationen, indem es Elemente entlang ihrer Permutationszyklen platziert"
+    },
+    "funFact": "Cycle Sort minimiert Schreibzugriffe und ist deshalb interessant für Speichermedien, bei denen Schreiben teuer ist (etwa Flash mit begrenzten Schreibzyklen).",
+    "sourceName": "Wikipedia EN – Cycle sort",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Cycle_sort",
+    "verifyNote": "O(n²) Vergleiche, aber minimale Anzahl Schreibvorgänge (Standard)."
+  },
+  {
+    "id": "algorithm-horner-schema-h2",
+    "name": "Horner-Schema",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(n)",
+      "purpose": "Wertet ein Polynom vom Grad n mit nur n Multiplikationen und n Additionen aus"
+    },
+    "funFact": "Statt jede Potenz einzeln zu berechnen, klammert das Horner-Schema das Polynom schrittweise aus und spart so einen Großteil der Multiplikationen.",
+    "sourceName": "Wikipedia DE – Horner-Schema",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Horner-Schema",
+    "verifyNote": "Auswertung eines Grad-n-Polynoms in O(n) Operationen (Standard)."
+  },
+  {
+    "id": "algorithm-bisektionsverfahren-h2",
+    "name": "Bisektionsverfahren",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(log(1/ε))",
+      "purpose": "Findet eine Nullstelle einer stetigen Funktion durch fortlaufende Halbierung eines Intervalls mit Vorzeichenwechsel"
+    },
+    "funFact": "Das Verfahren halbiert pro Schritt die Fehlerschranke und konvergiert deshalb garantiert, ist aber langsamer als das quadratisch konvergierende Newton-Verfahren.",
+    "sourceName": "Wikipedia DE – Bisektion",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Bisektion",
+    "verifyNote": "Zahl der Schritte für Genauigkeit ε ist O(log(1/ε)) (Standard)."
+  },
+  {
+    "id": "algorithm-sekantenverfahren-h2",
+    "name": "Sekantenverfahren",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "superlinear (Ordnung ≈ 1,618)",
+      "purpose": "Nähert eine Nullstelle iterativ über Sekanten an, ohne die Ableitung zu benötigen"
+    },
+    "funFact": "Die Konvergenzordnung des Sekantenverfahrens ist der goldene Schnitt (≈1,618) — schneller als linear, aber langsamer als das quadratische Newton-Verfahren.",
+    "sourceName": "Wikipedia DE – Sekantenverfahren",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Sekantenverfahren",
+    "verifyNote": "Superlineare Konvergenz mit Ordnung des goldenen Schnitts (Standard)."
+  },
+  {
+    "id": "algorithm-dpll-algorithmus-h2",
+    "name": "DPLL-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Logik/Suche",
+      "avgComplexity": "O(2^n)",
+      "purpose": "Entscheidet die Erfüllbarkeit aussagenlogischer Formeln (SAT) durch Backtracking mit Unit-Propagation"
+    },
+    "funFact": "DPLL bildet bis heute das Grundgerüst praktisch aller modernen SAT-Solver, die durch Erweiterungen wie Klausel-Lernen ergänzt werden.",
+    "sourceName": "Wikipedia EN – DPLL algorithm",
+    "sourceUrl": "https://en.wikipedia.org/wiki/DPLL_algorithm",
+    "verifyNote": "SAT ist NP-vollständig; DPLL hat Worst Case O(2^n) (Standard)."
+  },
+  {
+    "id": "algorithm-reservoir-sampling-h2",
+    "name": "Reservoir Sampling",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Streaming/Stochastik",
+      "avgComplexity": "O(n)",
+      "purpose": "Zieht eine gleichverteilte Zufallsstichprobe fester Größe aus einem Datenstrom unbekannter Länge"
+    },
+    "funFact": "Reservoir Sampling funktioniert auch dann, wenn man die Gesamtanzahl der Elemente vorher nicht kennt — jedes Element landet mit gleicher Wahrscheinlichkeit in der Stichprobe.",
+    "sourceName": "Wikipedia EN – Reservoir sampling",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Reservoir_sampling",
+    "verifyNote": "Ein Durchlauf O(n), konstanter Speicher für Stichprobengröße k (Standard)."
+  },
+  {
+    "id": "algorithm-lloyd-algorithmus-h2",
+    "name": "Lloyd-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Maschinelles Lernen",
+      "avgComplexity": "O(n·k·d·i)",
+      "purpose": "Standarditerationsverfahren für k-Means: weist Punkte den nächsten Zentren zu und verschiebt die Zentren in die Cluster-Mittel"
+    },
+    "funFact": "Der Lloyd-Algorithmus ist das eigentliche Iterationsverfahren hinter dem Begriff k-Means und konvergiert garantiert, allerdings nur zu einem lokalen Optimum.",
+    "sourceName": "Wikipedia EN – Lloyd's algorithm",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Lloyd%27s_algorithm",
+    "verifyNote": "Pro Iteration O(n·k·d); i Iterationen, n Punkte, k Cluster, d Dimensionen (Standard)."
+  },
+  {
+    "id": "algorithm-gauss-seidel-verfahren-h2",
+    "name": "Gauß-Seidel-Verfahren",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(n²) pro Iteration",
+      "purpose": "Löst lineare Gleichungssysteme iterativ, indem berechnete Werte sofort innerhalb derselben Iteration weiterverwendet werden"
+    },
+    "funFact": "Im Gegensatz zum Jacobi-Verfahren nutzt Gauß-Seidel bereits aktualisierte Werte sofort weiter und konvergiert dadurch oft schneller.",
+    "sourceName": "Wikipedia DE – Gauß-Seidel-Verfahren",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Gau%C3%9F-Seidel-Verfahren",
+    "verifyNote": "Pro Iteration O(n²) für volle Matrix; Iterationszahl abhängig von Konvergenz (Standard)."
+  },
+  {
+    "id": "algorithm-ecdsa-h2",
+    "name": "ECDSA",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Kryptografie",
+      "avgComplexity": "polynomial in der Schlüssellänge",
+      "purpose": "Erzeugt und prüft digitale Signaturen auf Basis elliptischer Kurven"
+    },
+    "funFact": "ECDSA erreicht mit deutlich kürzeren Schlüsseln dieselbe Sicherheit wie RSA — ein 256-Bit-ECDSA-Schlüssel gilt als etwa so stark wie ein 3072-Bit-RSA-Schlüssel.",
+    "sourceName": "Wikipedia EN – Elliptic Curve Digital Signature Algorithm",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm",
+    "verifyNote": "Signaturverfahren über elliptische Kurven; Sicherheit beruht auf dem ECDLP (Standard)."
+  },
+  {
+    "id": "algorithm-ecdh-h2",
+    "name": "ECDH",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Kryptografie",
+      "avgComplexity": "polynomial in der Schlüssellänge",
+      "purpose": "Vereinbart über einen unsicheren Kanal ein gemeinsames Geheimnis mittels elliptischer Kurven"
+    },
+    "funFact": "ECDH ist die Elliptische-Kurven-Variante des Diffie-Hellman-Verfahrens und bildet die Grundlage moderner TLS-Handshakes mit Forward Secrecy.",
+    "sourceName": "Wikipedia EN – Elliptic-curve Diffie–Hellman",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Elliptic-curve_Diffie%E2%80%93Hellman",
+    "verifyNote": "Schlüsselaustausch über elliptische Kurven; Sicherheit beruht auf dem ECDLP (Standard)."
+  },
+  {
+    "id": "algorithm-sha-3-keccak-h2",
+    "name": "SHA-3 (Keccak)",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Kryptografie",
+      "avgComplexity": "O(n)",
+      "purpose": "Kryptografische Hashfunktion, die Daten beliebiger Länge auf einen Hashwert fester Länge abbildet"
+    },
+    "funFact": "SHA-3 nutzt mit der Schwamm-Konstruktion (Sponge) ein völlig anderes Prinzip als die SHA-2-Familie und wurde 2012 als Sieger eines NIST-Wettbewerbs ausgewählt.",
+    "sourceName": "Wikipedia EN – SHA-3",
+    "sourceUrl": "https://en.wikipedia.org/wiki/SHA-3",
+    "verifyNote": "Hashberechnung linear zur Eingabelänge O(n); Sponge-Konstruktion (Standard)."
+  },
+  {
+    "id": "algorithm-blake2-h2",
+    "name": "BLAKE2",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Kryptografie",
+      "avgComplexity": "O(n)",
+      "purpose": "Schnelle kryptografische Hashfunktion als Alternative zu MD5/SHA-2 mit hoher Geschwindigkeit"
+    },
+    "funFact": "BLAKE2 ist oft schneller als MD5, gilt aber zugleich als kryptografisch sicher — es wird unter anderem in Versionskontroll- und Passwort-Hashing-Werkzeugen eingesetzt.",
+    "sourceName": "Wikipedia EN – BLAKE (hash function)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/BLAKE_(hash_function)",
+    "verifyNote": "Hashberechnung linear zur Eingabelänge O(n) (Standard)."
+  },
+  {
+    "id": "algorithm-des-h2",
+    "name": "DES",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Kryptografie",
+      "avgComplexity": "O(n) (Blockverschlüsselung)",
+      "purpose": "Symmetrische Blockchiffre mit 64-Bit-Blöcken und 56-Bit-Schlüssel auf Basis eines Feistel-Netzwerks"
+    },
+    "funFact": "DES gilt seit den 1990ern wegen seines kurzen 56-Bit-Schlüssels als per Brute-Force angreifbar und wurde durch AES abgelöst.",
+    "sourceName": "Wikipedia EN – Data Encryption Standard",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Data_Encryption_Standard",
+    "verifyNote": "Feistel-Chiffre, 64-Bit-Blöcke, effektiv 56-Bit-Schlüssel (Standard)."
+  },
+  {
+    "id": "algorithm-triple-des-h2",
+    "name": "Triple DES",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Kryptografie",
+      "avgComplexity": "O(n) (Blockverschlüsselung)",
+      "purpose": "Verstärkt DES, indem die DES-Verschlüsselung dreifach mit mehreren Schlüsseln angewendet wird"
+    },
+    "funFact": "Triple DES wendet DES dreimal an (Verschlüsseln–Entschlüsseln–Verschlüsseln), um die Sicherheit zu erhöhen, ohne das DES-Verfahren selbst neu entwerfen zu müssen.",
+    "sourceName": "Wikipedia EN – Triple DES",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Triple_DES",
+    "verifyNote": "Dreifache DES-Anwendung (EDE) mit bis zu drei Schlüsseln (Standard)."
+  },
+  {
+    "id": "algorithm-twofish-h2",
+    "name": "Twofish",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Kryptografie",
+      "avgComplexity": "O(n) (Blockverschlüsselung)",
+      "purpose": "Symmetrische Blockchiffre mit 128-Bit-Blöcken und Schlüssellängen bis 256 Bit"
+    },
+    "funFact": "Twofish war einer der fünf Finalisten im AES-Wettbewerb, unterlag aber Rijndael, das zum AES-Standard wurde.",
+    "sourceName": "Wikipedia EN – Twofish",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Twofish",
+    "verifyNote": "128-Bit-Blockchiffre, AES-Finalist, Schlüssel bis 256 Bit (Standard)."
+  },
+  {
+    "id": "algorithm-rc4-h2",
+    "name": "RC4",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Kryptografie",
+      "avgComplexity": "O(n) (Stromchiffre)",
+      "purpose": "Stromchiffre, die einen Pseudozufalls-Schlüsselstrom erzeugt und ihn per XOR mit dem Klartext verknüpft"
+    },
+    "funFact": "RC4 war jahrelang in WEP und frühen TLS-Versionen verbreitet, gilt heute aber wegen statistischer Schwächen im Schlüsselstrom als unsicher und veraltet.",
+    "sourceName": "Wikipedia EN – RC4",
+    "sourceUrl": "https://en.wikipedia.org/wiki/RC4",
+    "verifyNote": "Stromchiffre, linear zur Datenmenge; gilt als gebrochen/veraltet (Standard)."
+  },
+  {
+    "id": "algorithm-salsa20-h2",
+    "name": "Salsa20",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Kryptografie",
+      "avgComplexity": "O(n) (Stromchiffre)",
+      "purpose": "Schnelle, moderne Stromchiffre, die einen Schlüsselstrom über eine Reihe von Additions-, Rotations- und XOR-Operationen erzeugt"
+    },
+    "funFact": "Salsa20 stammt wie ChaCha20 von Daniel J. Bernstein und basiert ausschließlich auf einfachen ARX-Operationen (Add-Rotate-XOR), die ohne Tabellen-Lookups laufen.",
+    "sourceName": "Wikipedia EN – Salsa20",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Salsa20",
+    "verifyNote": "ARX-Stromchiffre, Vorläufer von ChaCha20 (Standard)."
+  },
+  {
+    "id": "algorithm-schnelle-modulare-exponentiation-h2",
+    "name": "Schnelle modulare Exponentiation",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Kryptografie/Numerik",
+      "avgComplexity": "O(log e) Multiplikationen",
+      "purpose": "Berechnet (b hoch e) modulo m effizient durch wiederholtes Quadrieren und Multiplizieren"
+    },
+    "funFact": "Diese Technik (Square-and-Multiply) macht RSA überhaupt praktikabel — sie reduziert die Zahl der Multiplikationen von der Größenordnung des Exponenten auf dessen Bitlänge.",
+    "sourceName": "Wikipedia EN – Modular exponentiation",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Modular_exponentiation",
+    "verifyNote": "Square-and-Multiply benötigt O(log e) modulare Multiplikationen (Standard)."
+  },
+  {
+    "id": "algorithm-erweiterter-euklidischer-algorithmus-h2",
+    "name": "Erweiterter euklidischer Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Zahlentheorie",
+      "avgComplexity": "O(log(min(a, b)))",
+      "purpose": "Berechnet den größten gemeinsamen Teiler zweier Zahlen und zugleich die Koeffizienten der Bézout-Identität"
+    },
+    "funFact": "Aus den Bézout-Koeffizienten lässt sich direkt das multiplikative Inverse modulo m gewinnen — ein Kernbaustein von RSA und vielen kryptografischen Verfahren.",
+    "sourceName": "Wikipedia EN – Extended Euclidean algorithm",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm",
+    "verifyNote": "Anzahl Schritte O(log(min(a,b))) wie beim klassischen Euklid (Standard)."
+  },
+  {
+    "id": "algorithm-johnson-trotter-algorithmus-h2",
+    "name": "Johnson-Trotter-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Kombinatorik",
+      "avgComplexity": "O(n!)",
+      "purpose": "Erzeugt alle Permutationen einer Folge so, dass aufeinanderfolgende Permutationen sich nur durch eine benachbarte Vertauschung unterscheiden"
+    },
+    "funFact": "Da jede neue Permutation aus der vorherigen durch genau einen Nachbartausch entsteht, ist der Übergang minimal aufwendig — nützlich, wenn das Generieren teuer ist.",
+    "sourceName": "Wikipedia EN – Steinhaus–Johnson–Trotter algorithm",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Steinhaus%E2%80%93Johnson%E2%80%93Trotter_algorithm",
+    "verifyNote": "Erzeugt alle n! Permutationen, jeweils durch einen Nachbartausch (Standard)."
+  },
+  {
+    "id": "algorithm-boyer-moore-horspool-h2",
+    "name": "Boyer-Moore-Horspool",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Zeichenketten",
+      "avgComplexity": "O(n)",
+      "purpose": "Vereinfachte Variante des Boyer-Moore-Verfahrens zur schnellen Mustersuche mit einer einzigen Sprungtabelle"
+    },
+    "funFact": "Horspool reduziert Boyer-Moore auf nur die Bad-Character-Regel und ist dadurch einfacher zu implementieren, in der Praxis aber meist trotzdem sehr schnell.",
+    "sourceName": "Wikipedia EN – Boyer–Moore–Horspool algorithm",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Boyer%E2%80%93Moore%E2%80%93Horspool_algorithm",
+    "verifyNote": "Durchschnittlich O(n), Worst Case O(n·m), n=Text, m=Muster (Standard)."
+  },
+  {
+    "id": "algorithm-de-casteljau-algorithmus-h2",
+    "name": "De-Casteljau-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Computergrafik/Numerik",
+      "avgComplexity": "O(n²)",
+      "purpose": "Wertet Bézier-Kurven numerisch stabil durch wiederholte lineare Interpolation der Kontrollpunkte aus"
+    },
+    "funFact": "Der Algorithmus erlaubt es, eine Bézier-Kurve an einer Stelle exakt in zwei Teilkurven zu zerlegen — Grundlage vieler Vektorgrafik- und Schrift-Renderer.",
+    "sourceName": "Wikipedia EN – De Casteljau's algorithm",
+    "sourceUrl": "https://en.wikipedia.org/wiki/De_Casteljau%27s_algorithm",
+    "verifyNote": "Auswertung einer Grad-n-Bézier-Kurve in O(n²) Interpolationsschritten (Standard)."
+  },
+  {
+    "id": "algorithm-marching-cubes-h2",
+    "name": "Marching Cubes",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Computergrafik",
+      "avgComplexity": "O(n)",
+      "purpose": "Erzeugt aus einem 3D-Skalarfeld eine Dreiecksnetz-Oberfläche (Isofläche), z. B. aus medizinischen Volumendaten"
+    },
+    "funFact": "Marching Cubes verarbeitet das Volumen Würfel für Würfel und bestimmt anhand einer Tabelle von 256 Fällen, wie die Oberfläche durch jeden Würfel verläuft.",
+    "sourceName": "Wikipedia EN – Marching cubes",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Marching_cubes",
+    "verifyNote": "Linear zur Anzahl der Voxel/Gitterzellen O(n) (Standard)."
+  },
+  {
+    "id": "algorithm-z-buffer-verfahren-h2",
+    "name": "Z-Buffer-Verfahren",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Computergrafik",
+      "avgComplexity": "O(n) (pro Fragment)",
+      "purpose": "Löst das Verdeckungsproblem, indem für jedes Pixel die Tiefe gespeichert und nur das jeweils vorderste Fragment gezeichnet wird"
+    },
+    "funFact": "Der Z-Buffer ist das Standardverfahren zur Sichtbarkeitsbestimmung in praktisch jeder modernen Grafikkarte und arbeitet vollständig pixelweise.",
+    "sourceName": "Wikipedia EN – Z-buffering",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Z-buffering",
+    "verifyNote": "Tiefenvergleich pro Fragment, linear zur Fragmentzahl (Standard)."
+  },
+  {
+    "id": "algorithm-flood-fill-h2",
+    "name": "Flood Fill",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Computergrafik/Suche",
+      "avgComplexity": "O(n)",
+      "purpose": "Füllt einen zusammenhängenden Bereich gleicher Farbe ausgehend von einem Startpixel mit einer neuen Farbe"
+    },
+    "funFact": "Flood Fill steckt hinter dem Farbeimer-Werkzeug in Grafikprogrammen und entspricht im Kern einer Breiten- oder Tiefensuche auf dem Pixelgitter.",
+    "sourceName": "Wikipedia EN – Flood fill",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Flood_fill",
+    "verifyNote": "Besucht jedes betroffene Pixel einmal, linear zur Bereichsgröße O(n) (Standard)."
+  },
+  {
+    "id": "algorithm-cohen-sutherland-algorithmus-h2",
+    "name": "Cohen-Sutherland-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Computergrafik",
+      "avgComplexity": "O(1) pro Strecke",
+      "purpose": "Schneidet Linien effizient an einem rechteckigen Fenster ab (Line Clipping) mithilfe von Bereichscodes"
+    },
+    "funFact": "Der Algorithmus weist jedem Endpunkt einen 4-Bit-Bereichscode zu und kann dadurch viele komplett sichtbare oder komplett unsichtbare Linien sofort entscheiden.",
+    "sourceName": "Wikipedia EN – Cohen–Sutherland algorithm",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Cohen%E2%80%93Sutherland_algorithm",
+    "verifyNote": "Wenige Iterationen pro Strecke über 4-Bit-Outcodes, effektiv O(1) (Standard)."
+  },
+  {
+    "id": "algorithm-banker-runden-h2",
+    "name": "Kaufmännisches Runden zur geraden Zahl",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(1)",
+      "purpose": "Rundungsregel, die genau auf der Hälfte liegende Werte zur nächsten geraden Zahl rundet, um systematische Verzerrung zu vermeiden"
+    },
+    "funFact": "Dieses Banker's Rounding ist die Standardrundung der IEEE-754-Gleitkommaarithmetik, weil reines Aufrunden bei vielen Summen einen systematischen Fehler erzeugt.",
+    "sourceName": "Wikipedia EN – Rounding (Round half to even)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Rounding#Round_half_to_even",
+    "verifyNote": "Round-half-to-even ist IEEE-754-Standardrundung (Standard)."
+  },
+  {
+    "id": "acronym-dkim-h2",
+    "name": "DKIM",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "DomainKeys Identified Mail",
+      "domain": "Sicherheit"
+    },
+    "funFact": "DKIM versieht ausgehende E-Mails mit einer digitalen Signatur, sodass der empfangende Server prüfen kann, ob die Nachricht unterwegs verändert wurde und wirklich von der Domain stammt.",
+    "sourceName": "Wikipedia EN – DKIM",
+    "sourceUrl": "https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail",
+    "verifyNote": "Vollform laut RFC 6376 (Standard)."
+  },
+  {
+    "id": "acronym-spf-h2",
+    "name": "SPF",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Sender Policy Framework",
+      "domain": "Sicherheit"
+    },
+    "funFact": "SPF legt in einem DNS-Eintrag fest, welche Server für eine Domain E-Mails versenden dürfen — ein Grundbaustein gegen das Fälschen von Absenderadressen (Spoofing).",
+    "sourceName": "Wikipedia EN – Sender Policy Framework",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Sender_Policy_Framework",
+    "verifyNote": "Vollform laut RFC 7208 (Standard)."
+  },
+  {
+    "id": "acronym-dmarc-h2",
+    "name": "DMARC",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Domain-based Message Authentication, Reporting and Conformance",
+      "domain": "Sicherheit"
+    },
+    "funFact": "DMARC baut auf SPF und DKIM auf und legt fest, wie ein Empfänger mit Mails verfahren soll, die diese Prüfungen nicht bestehen — etwa ablehnen oder in den Spam verschieben.",
+    "sourceName": "Wikipedia EN – DMARC",
+    "sourceUrl": "https://en.wikipedia.org/wiki/DMARC",
+    "verifyNote": "Vollform laut RFC 7489 (Standard)."
+  },
+  {
+    "id": "acronym-saml-h2",
+    "name": "SAML",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Security Assertion Markup Language",
+      "domain": "Sicherheit"
+    },
+    "funFact": "SAML ist ein XML-basierter Standard für Single Sign-on, mit dem ein Identitätsanbieter Anmeldedaten an mehrere Dienste weitergibt, ohne dass man sich überall neu anmelden muss.",
+    "sourceName": "Wikipedia EN – SAML",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language",
+    "verifyNote": "Vollform laut OASIS-SAML-Standard (Standard)."
+  },
+  {
+    "id": "acronym-ldap-h2",
+    "name": "LDAP",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Lightweight Directory Access Protocol",
+      "domain": "Netzwerk"
+    },
+    "funFact": "LDAP dient dem Zugriff auf Verzeichnisdienste und steckt unter anderem hinter Microsofts Active Directory, in dem Benutzer, Gruppen und Rechte zentral verwaltet werden.",
+    "sourceName": "Wikipedia EN – LDAP",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol",
+    "verifyNote": "Vollform laut RFC 4511 (Standard)."
+  },
+  {
+    "id": "acronym-yaml-h2",
+    "name": "YAML",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "YAML Ain't Markup Language",
+      "domain": "Datenformate"
+    },
+    "funFact": "YAML steht rekursiv für YAML Ain't Markup Language; ursprünglich hieß es Yet Another Markup Language, wurde aber umgedeutet, um seinen Datenfokus zu betonen.",
+    "sourceName": "Wikipedia EN – YAML",
+    "sourceUrl": "https://en.wikipedia.org/wiki/YAML",
+    "verifyNote": "Rekursive Vollform laut offizieller YAML-Spezifikation (Standard)."
+  },
+  {
+    "id": "acronym-toml-h2",
+    "name": "TOML",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Tom's Obvious, Minimal Language",
+      "domain": "Datenformate"
+    },
+    "funFact": "TOML wurde von Tom Preston-Werner, einem GitHub-Mitgründer, entworfen und ist heute das Standard-Format für Konfigurationsdateien wie Rusts Cargo.toml.",
+    "sourceName": "Wikipedia EN – TOML",
+    "sourceUrl": "https://en.wikipedia.org/wiki/TOML",
+    "verifyNote": "Vollform laut offizieller TOML-Spezifikation (Standard)."
+  },
+  {
+    "id": "acronym-grpc-h2",
+    "name": "gRPC",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "gRPC Remote Procedure Calls",
+      "domain": "Web"
+    },
+    "funFact": "gRPC ist ein von Google entwickeltes RPC-Framework, das auf HTTP/2 aufsetzt und Daten standardmäßig im kompakten Protocol-Buffers-Format überträgt.",
+    "sourceName": "Wikipedia EN – gRPC",
+    "sourceUrl": "https://en.wikipedia.org/wiki/GRPC",
+    "verifyNote": "Rekursive Vollform laut gRPC-Projektdokumentation (Standard)."
+  },
+  {
+    "id": "acronym-graphql-h2",
+    "name": "GraphQL",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Graph Query Language",
+      "domain": "Web"
+    },
+    "funFact": "GraphQL wurde 2012 bei Facebook entwickelt und erlaubt es Clients, in einer einzigen Anfrage genau die benötigten Felder abzurufen — gegen das Über- und Unterabrufen von REST-APIs.",
+    "sourceName": "Wikipedia EN – GraphQL",
+    "sourceUrl": "https://en.wikipedia.org/wiki/GraphQL",
+    "verifyNote": "Vollform laut GraphQL-Spezifikation (Standard)."
+  },
+  {
+    "id": "acronym-rpc-h2",
+    "name": "RPC",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Remote Procedure Call",
+      "domain": "Netzwerk"
+    },
+    "funFact": "Bei einem RPC ruft ein Programm eine Funktion auf einem entfernten Rechner so auf, als wäre sie lokal — die Netzwerkkommunikation bleibt für den Entwickler weitgehend verborgen.",
+    "sourceName": "Wikipedia EN – Remote procedure call",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Remote_procedure_call",
+    "verifyNote": "Vollform ist Lehrbuch-Standard."
+  },
+  {
+    "id": "acronym-soap-h2",
+    "name": "SOAP",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Simple Object Access Protocol",
+      "domain": "Web"
+    },
+    "funFact": "SOAP war lange der dominierende Standard für Web Services und tauscht Nachrichten in einem strikt strukturierten XML-Format aus — heute oft durch leichtgewichtigeres REST ersetzt.",
+    "sourceName": "Wikipedia EN – SOAP",
+    "sourceUrl": "https://en.wikipedia.org/wiki/SOAP",
+    "verifyNote": "Vollform laut W3C-SOAP-Spezifikation (Standard)."
+  },
+  {
+    "id": "acronym-wsdl-h2",
+    "name": "WSDL",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Web Services Description Language",
+      "domain": "Web"
+    },
+    "funFact": "WSDL beschreibt in XML, welche Operationen ein Web Service anbietet und wie man sie aufruft — vergleichbar mit einer maschinenlesbaren Bedienungsanleitung der Schnittstelle.",
+    "sourceName": "Wikipedia EN – Web Services Description Language",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Web_Services_Description_Language",
+    "verifyNote": "Vollform laut W3C-WSDL-Spezifikation (Standard)."
+  },
+  {
+    "id": "acronym-orm-h2",
+    "name": "ORM",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Object-Relational Mapping",
+      "domain": "Datenbank"
+    },
+    "funFact": "Ein ORM bildet Datenbanktabellen automatisch auf Objekte einer Programmiersprache ab, sodass Entwickler mit Objekten statt mit handgeschriebenem SQL arbeiten können.",
+    "sourceName": "Wikipedia EN – Object–relational mapping",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping",
+    "verifyNote": "Vollform ist Lehrbuch-Standard."
+  },
+  {
+    "id": "acronym-json-h2",
+    "name": "JSON",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "JavaScript Object Notation",
+      "domain": "Datenformate"
+    },
+    "funFact": "JSON entstand aus der Objektsyntax von JavaScript, ist aber sprachunabhängig und hat sich als leichtgewichtiges Standardformat für den Datenaustausch im Web durchgesetzt.",
+    "sourceName": "Wikipedia EN – JSON",
+    "sourceUrl": "https://en.wikipedia.org/wiki/JSON",
+    "verifyNote": "Vollform laut RFC 8259 (Standard)."
+  },
+  {
+    "id": "acronym-bson-h2",
+    "name": "BSON",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Binary JSON",
+      "domain": "Datenbank"
+    },
+    "funFact": "BSON ist das binäre Speicherformat hinter der Datenbank MongoDB; es erweitert JSON um zusätzliche Datentypen wie Datum und Binärdaten und lässt sich schneller durchsuchen.",
+    "sourceName": "Wikipedia EN – BSON",
+    "sourceUrl": "https://en.wikipedia.org/wiki/BSON",
+    "verifyNote": "Vollform laut BSON-Spezifikation (Standard)."
+  },
+  {
+    "id": "acronym-ssh-h2",
+    "name": "SSH",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Secure Shell",
+      "domain": "Netzwerk"
+    },
+    "funFact": "SSH ersetzte das unverschlüsselte Telnet und ermöglicht eine verschlüsselte Fernsteuerung von Rechnern über das Netz, standardmäßig auf Port 22.",
+    "sourceName": "Wikipedia EN – Secure Shell",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Secure_Shell",
+    "verifyNote": "Vollform laut RFC 4251; Standard-Port 22 (Standard)."
+  },
+  {
+    "id": "acronym-smtp-h2",
+    "name": "SMTP",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Simple Mail Transfer Protocol",
+      "domain": "Netzwerk"
+    },
+    "funFact": "SMTP ist das Standardprotokoll zum Versenden und Weiterleiten von E-Mails zwischen Mailservern und nutzt traditionell Port 25.",
+    "sourceName": "Wikipedia EN – Simple Mail Transfer Protocol",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol",
+    "verifyNote": "Vollform laut RFC 5321; Standard-Port 25 (Standard)."
+  },
+  {
+    "id": "acronym-imap-h2",
+    "name": "IMAP",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Internet Message Access Protocol",
+      "domain": "Netzwerk"
+    },
+    "funFact": "Anders als POP3 lässt IMAP die E-Mails auf dem Server liegen und synchronisiert sie über mehrere Geräte hinweg — Grundlage des heutigen Mehrgeräte-Mailalltags.",
+    "sourceName": "Wikipedia EN – Internet Message Access Protocol",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol",
+    "verifyNote": "Vollform laut RFC 3501; Standard-Port 143 (Standard)."
+  },
+  {
+    "id": "acronym-pop3-h2",
+    "name": "POP3",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Post Office Protocol Version 3",
+      "domain": "Netzwerk"
+    },
+    "funFact": "POP3 lädt E-Mails klassisch auf ein Gerät herunter und entfernt sie meist vom Server — praktisch bei nur einem Gerät, unhandlich bei mehreren.",
+    "sourceName": "Wikipedia EN – Post Office Protocol",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Post_Office_Protocol",
+    "verifyNote": "Vollform laut RFC 1939; Standard-Port 110 (Standard)."
+  },
+  {
+    "id": "acronym-mqtt-h2",
+    "name": "MQTT",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Message Queuing Telemetry Transport",
+      "domain": "Netzwerk"
+    },
+    "funFact": "MQTT ist ein extrem leichtgewichtiges Publish-Subscribe-Protokoll und deshalb im Internet der Dinge (IoT) verbreitet, wo Geräte oft wenig Strom und Bandbreite haben.",
+    "sourceName": "Wikipedia EN – MQTT",
+    "sourceUrl": "https://en.wikipedia.org/wiki/MQTT",
+    "verifyNote": "Vollform laut OASIS-MQTT-Standard (Standard)."
+  },
+  {
+    "id": "acronym-ci-cd-h2",
+    "name": "CI/CD",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Continuous Integration / Continuous Delivery",
+      "domain": "Softwareentwicklung"
+    },
+    "funFact": "CI/CD-Pipelines bauen, testen und liefern Software nach jeder Codeänderung automatisiert aus, wodurch Fehler früh auffallen und Releases häufiger und zuverlässiger werden.",
+    "sourceName": "Wikipedia EN – CI/CD",
+    "sourceUrl": "https://en.wikipedia.org/wiki/CI/CD",
+    "verifyNote": "Vollform ist Branchen-Standard (CD auch als Continuous Deployment)."
+  },
+  {
+    "id": "acronym-ssg-h2",
+    "name": "WYSIWYG",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "What You See Is What You Get",
+      "domain": "Software"
+    },
+    "funFact": "WYSIWYG-Editoren zeigen das Dokument schon beim Bearbeiten so an, wie es später gedruckt oder veröffentlicht wird — ein Prinzip, das Textverarbeitung und Webdesign massentauglich machte.",
+    "sourceName": "Wikipedia EN – WYSIWYG",
+    "sourceUrl": "https://en.wikipedia.org/wiki/WYSIWYG",
+    "verifyNote": "Vollform ist Lehrbuch-Standard."
+  },
+  {
+    "id": "acronym-dto-h2",
+    "name": "DTO",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Data Transfer Object",
+      "domain": "Softwareentwicklung"
+    },
+    "funFact": "Ein DTO bündelt mehrere Datenfelder zu einem einzigen Objekt, um sie gemeinsam zwischen Schichten oder über das Netz zu übertragen und so die Zahl der Aufrufe zu senken.",
+    "sourceName": "Wikipedia EN – Data transfer object",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Data_transfer_object",
+    "verifyNote": "Vollform ist Lehrbuch-Standard (Fowler, PoEAA)."
+  },
+  {
+    "id": "acronym-rbac-h2",
+    "name": "RBAC",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Role-Based Access Control",
+      "domain": "Sicherheit"
+    },
+    "funFact": "Bei RBAC werden Rechte nicht einzelnen Personen, sondern Rollen zugewiesen — Nutzer erhalten Berechtigungen automatisch über ihre Rolle, was die Verwaltung großer Systeme vereinfacht.",
+    "sourceName": "Wikipedia EN – Role-based access control",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Role-based_access_control",
+    "verifyNote": "Vollform laut NIST-RBAC-Modell (Standard)."
+  },
+  {
+    "id": "acronym-tcp-ip-h2",
+    "name": "TCP/IP",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Transmission Control Protocol / Internet Protocol",
+      "domain": "Netzwerk"
+    },
+    "funFact": "TCP/IP bezeichnet die Protokollfamilie, auf der das gesamte Internet aufbaut: IP übernimmt die Adressierung und Wegfindung, TCP die zuverlässige, geordnete Datenübertragung.",
+    "sourceName": "Wikipedia EN – Internet protocol suite",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Internet_protocol_suite",
+    "verifyNote": "Vollform ist Lehrbuch-Standard (RFC 793 / RFC 791)."
+  },
+  {
+    "id": "acronym-poco-h2",
+    "name": "DAO",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Data Access Object",
+      "domain": "Softwareentwicklung"
+    },
+    "funFact": "Ein DAO kapselt sämtliche Zugriffe auf eine Datenquelle hinter einer einheitlichen Schnittstelle, sodass die restliche Anwendung nicht weiß, ob die Daten aus einer Datenbank oder Datei kommen.",
+    "sourceName": "Wikipedia EN – Data access object",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Data_access_object",
+    "verifyNote": "Vollform ist Lehrbuch-Standard (Java-EE-/Entwurfsmuster)."
+  },
+  {
+    "id": "acronym-utf-16-h2",
+    "name": "UTF-16",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "16-bit Unicode Transformation Format",
+      "domain": "Datenformate"
+    },
+    "funFact": "UTF-16 kodiert die meisten Zeichen in 16 Bit, nutzt für selten benötigte Zeichen aber Paare aus zwei 16-Bit-Einheiten (Surrogate) — es ist die interne Zeichenkodierung von Java und Windows.",
+    "sourceName": "Wikipedia EN – UTF-16",
+    "sourceUrl": "https://en.wikipedia.org/wiki/UTF-16",
+    "verifyNote": "Vollform laut Unicode-Standard (Standard)."
+  }
+]

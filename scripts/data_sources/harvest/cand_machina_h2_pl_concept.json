@@ -1,0 +1,735 @@
+[
+  {
+    "id": "programming_language-v-h2",
+    "name": "V",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Imperativ/strukturiert",
+      "execution": "kompiliert",
+      "fileExtension": ".v",
+      "primaryDomain": "Systemprogrammierung"
+    },
+    "funFact": "V transpiliert standardmäßig nach C und nutzt dessen Compiler, wodurch sehr schnelle Build-Zeiten beworben werden.",
+    "sourceName": "Wikipedia EN – V (programming language)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/V_(programming_language)",
+    "verifyNote": "Kompilierte Systemsprache, Dateiendung .v laut offizieller Doku und Wikipedia."
+  },
+  {
+    "id": "programming_language-gleam-h2",
+    "name": "Gleam",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Funktional",
+      "execution": "Bytecode/VM",
+      "fileExtension": ".gleam",
+      "primaryDomain": "Nebenläufige Backend-Systeme"
+    },
+    "funFact": "Gleam läuft auf der Erlang-VM (BEAM) und kann dadurch dieselbe Aktor-basierte Nebenläufigkeit wie Erlang und Elixir nutzen.",
+    "sourceName": "Wikipedia EN – Gleam (programming language)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Gleam_(programming_language)",
+    "verifyNote": "Statisch typisierte funktionale Sprache für die BEAM, Endung .gleam laut offizieller Website."
+  },
+  {
+    "id": "programming_language-odin-h2",
+    "name": "Odin",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Imperativ/prozedural",
+      "execution": "kompiliert",
+      "fileExtension": ".odin",
+      "primaryDomain": "Systemprogrammierung"
+    },
+    "funFact": "Odin wurde unter anderem für die Spiele- und Grafikprogrammierung entworfen und bringt eingebaute Unterstützung für SIMD-Vektoren mit.",
+    "sourceName": "Wikipedia EN – Odin (programming language)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Odin_(programming_language)",
+    "verifyNote": "Kompilierte Systemsprache, Endung .odin laut offizieller Dokumentation."
+  },
+  {
+    "id": "programming_language-hare-h2",
+    "name": "Hare",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Imperativ/prozedural",
+      "execution": "kompiliert",
+      "fileExtension": ".ha",
+      "primaryDomain": "Systemprogrammierung"
+    },
+    "funFact": "Hare ist bewusst minimalistisch gehalten und nutzt eine eigene, von C unabhängige Standardbibliothek ohne Abhängigkeit von libc.",
+    "sourceName": "Wikipedia EN – Hare (programming language)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Hare_(programming_language)",
+    "verifyNote": "Kompilierte Systemsprache, Endung .ha laut offizieller Spezifikation."
+  },
+  {
+    "id": "programming_language-roc-h2",
+    "name": "Roc",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Funktional",
+      "execution": "kompiliert",
+      "fileExtension": ".roc",
+      "primaryDomain": "Anwendungsentwicklung"
+    },
+    "funFact": "Roc ist rein funktional und kompiliert zu nativem Maschinencode, um die Geschwindigkeit imperativer Sprachen zu erreichen.",
+    "sourceName": "Roc – Offizielle Website",
+    "sourceUrl": "https://www.roc-lang.org/",
+    "verifyNote": "Rein funktionale, kompilierte Sprache, Endung .roc laut offizieller Website."
+  },
+  {
+    "id": "programming_language-unison-h2",
+    "name": "Unison",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Funktional",
+      "execution": "Bytecode/VM",
+      "fileExtension": ".u",
+      "primaryDomain": "Verteilte Systeme"
+    },
+    "funFact": "In Unison wird Code über den Hash seines Inhalts identifiziert, sodass jede Definition unveränderlich ist und Umbenennungen keine Neukompilierung auslösen.",
+    "sourceName": "Wikipedia EN – Unison (programming language)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Unison_(programming_language)",
+    "verifyNote": "Funktionale Sprache mit inhalts-adressiertem Code, Endung .u laut offizieller Doku."
+  },
+  {
+    "id": "programming_language-raku-h2",
+    "name": "Raku",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Multiparadigma",
+      "execution": "interpretiert",
+      "fileExtension": ".raku",
+      "primaryDomain": "Skripting und Textverarbeitung"
+    },
+    "funFact": "Raku hieß bis 2019 Perl 6 und wurde dann umbenannt, um sich klar von Perl 5 als eigenständige Sprache abzugrenzen.",
+    "sourceName": "Wikipedia DE – Raku (Programmiersprache)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Raku_(Programmiersprache)",
+    "verifyNote": "Ehemals Perl 6, Endung .raku laut offizieller Dokumentation."
+  },
+  {
+    "id": "programming_language-pony-h2",
+    "name": "Pony",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Objektorientiert/aktorbasiert",
+      "execution": "kompiliert",
+      "fileExtension": ".pony",
+      "primaryDomain": "Nebenläufige Hochleistungssysteme"
+    },
+    "funFact": "Pony nutzt sogenannte Reference Capabilities, um Daten-Wettläufe schon zur Übersetzungszeit auszuschließen.",
+    "sourceName": "Wikipedia EN – Pony (programming language)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Pony_(programming_language)",
+    "verifyNote": "Aktorbasierte, kompilierte Sprache, Endung .pony laut offizieller Doku."
+  },
+  {
+    "id": "programming_language-chapel-h2",
+    "name": "Chapel",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Imperativ/parallel",
+      "execution": "kompiliert",
+      "fileExtension": ".chpl",
+      "primaryDomain": "Hochleistungsrechnen (HPC)"
+    },
+    "funFact": "Chapel wurde von Cray für das Hochleistungsrechnen entwickelt und macht Parallelität zu einem Kernbestandteil der Sprache.",
+    "sourceName": "Wikipedia EN – Chapel (programming language)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Chapel_(programming_language)",
+    "verifyNote": "Parallele HPC-Sprache von Cray, Endung .chpl laut offizieller Doku."
+  },
+  {
+    "id": "programming_language-factor-h2",
+    "name": "Factor",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Konkatenativ/stapelbasiert",
+      "execution": "Bytecode/VM",
+      "fileExtension": ".factor",
+      "primaryDomain": "Allzweck-Skripting"
+    },
+    "funFact": "Factor ist eine konkatenative Sprache: Werte werden über einen Datenstapel übergeben statt über benannte Variablen, ähnlich wie bei Forth.",
+    "sourceName": "Wikipedia EN – Factor (programming language)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Factor_(programming_language)",
+    "verifyNote": "Konkatenative, stapelbasierte Sprache, Endung .factor laut offizieller Doku."
+  },
+  {
+    "id": "programming_language-io-h2",
+    "name": "Io",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Objektorientiert (prototypbasiert)",
+      "execution": "interpretiert",
+      "fileExtension": ".io",
+      "primaryDomain": "Eingebettetes Skripting"
+    },
+    "funFact": "Io kennt keine Klassen, sondern nur Objekte, die per Klonen von Prototypen erzeugt werden.",
+    "sourceName": "Wikipedia EN – Io (programming language)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Io_(programming_language)",
+    "verifyNote": "Prototypbasierte, interpretierte Sprache, Endung .io laut offizieller Doku."
+  },
+  {
+    "id": "programming_language-self-h2",
+    "name": "Self",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Objektorientiert (prototypbasiert)",
+      "execution": "Bytecode/VM",
+      "fileExtension": ".self",
+      "primaryDomain": "Forschung/Sprachdesign"
+    },
+    "funFact": "Self führte das prototypbasierte Objektmodell ein und beeinflusste damit später JavaScript stark.",
+    "sourceName": "Wikipedia DE – Self (Programmiersprache)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Self_(Programmiersprache)",
+    "verifyNote": "Prototypbasierte Sprache, lief über eine eigene VM mit JIT-Technik."
+  },
+  {
+    "id": "programming_language-mercury-h2",
+    "name": "Mercury",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Logisch/funktional",
+      "execution": "kompiliert",
+      "fileExtension": ".m",
+      "primaryDomain": "Logikprogrammierung"
+    },
+    "funFact": "Mercury ist eine rein deklarative Logiksprache mit statischer Typ- und Modusprüfung, anders als das dynamische Prolog.",
+    "sourceName": "Wikipedia EN – Mercury (programming language)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Mercury_(programming_language)",
+    "verifyNote": "Logisch-funktionale, kompilierte Sprache, Endung .m laut offizieller Doku."
+  },
+  {
+    "id": "programming_language-clean-h2",
+    "name": "Clean",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Funktional",
+      "execution": "kompiliert",
+      "fileExtension": ".icl",
+      "primaryDomain": "Forschung/Sprachdesign"
+    },
+    "funFact": "Clean nutzt Uniqueness Typing, um Seiteneffekte wie Ein- und Ausgabe in einer rein funktionalen Sprache sicher zu handhaben.",
+    "sourceName": "Wikipedia EN – Clean (programming language)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Clean_(programming_language)",
+    "verifyNote": "Rein funktionale, lazy ausgewertete Sprache, Implementierungsendung .icl laut offizieller Doku."
+  },
+  {
+    "id": "programming_language-wren-h2",
+    "name": "Wren",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Objektorientiert",
+      "execution": "Bytecode/VM",
+      "fileExtension": ".wren",
+      "primaryDomain": "Eingebettetes Skripting"
+    },
+    "funFact": "Wren ist eine kleine, schnelle Skriptsprache, die gezielt zum Einbetten in Anwendungen wie Spiele entworfen wurde.",
+    "sourceName": "Wren – Offizielle Website",
+    "sourceUrl": "https://wren.io/",
+    "verifyNote": "Klassenbasierte Skriptsprache mit Bytecode-VM, Endung .wren laut offizieller Website."
+  },
+  {
+    "id": "programming_language-janet-h2",
+    "name": "Janet",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Funktional/imperativ (Lisp-artig)",
+      "execution": "Bytecode/VM",
+      "fileExtension": ".janet",
+      "primaryDomain": "Eingebettetes Skripting"
+    },
+    "funFact": "Janet ist ein Lisp-Dialekt, dessen gesamte Laufzeitumgebung in eine einzige C-Datei eingebettet werden kann.",
+    "sourceName": "Janet – Offizielle Website",
+    "sourceUrl": "https://janet-lang.org/",
+    "verifyNote": "Lisp-artige Sprache mit Bytecode-VM, Endung .janet laut offizieller Website."
+  },
+  {
+    "id": "programming_language-squirrel-h2",
+    "name": "Squirrel",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Objektorientiert/imperativ",
+      "execution": "Bytecode/VM",
+      "fileExtension": ".nut",
+      "primaryDomain": "Spiele-Skripting"
+    },
+    "funFact": "Squirrel ist von Lua inspiriert und wurde unter anderem als Skriptsprache in kommerziellen Videospielen eingesetzt.",
+    "sourceName": "Wikipedia EN – Squirrel (programming language)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Squirrel_(programming_language)",
+    "verifyNote": "Skriptsprache mit Bytecode-VM, Endung .nut laut offizieller Doku."
+  },
+  {
+    "id": "programming_language-red-h2",
+    "name": "Red",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Multiparadigma",
+      "execution": "interpretiert",
+      "fileExtension": ".red",
+      "primaryDomain": "Allzweck/GUI"
+    },
+    "funFact": "Red ist von REBOL inspiriert und reicht von einer Hochsprache bis hinunter zu einem systemnahen Dialekt namens Red/System.",
+    "sourceName": "Wikipedia EN – Red (programming language)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Red_(programming_language)",
+    "verifyNote": "REBOL-inspirierte Sprache, Endung .red laut offizieller Doku."
+  },
+  {
+    "id": "programming_language-pike-h2",
+    "name": "Pike",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Objektorientiert/imperativ",
+      "execution": "Bytecode/VM",
+      "fileExtension": ".pike",
+      "primaryDomain": "Server- und Netzwerkanwendungen"
+    },
+    "funFact": "Pike hat eine C-ähnliche Syntax und wurde unter anderem für Hochlast-Webserver wie das Roxen-Projekt verwendet.",
+    "sourceName": "Wikipedia EN – Pike (programming language)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Pike_(programming_language)",
+    "verifyNote": "Dynamische, C-ähnliche Sprache mit Bytecode-Interpreter, Endung .pike laut offizieller Doku."
+  },
+  {
+    "id": "programming_language-befunge-h2",
+    "name": "Befunge",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Esoterisch/stapelbasiert",
+      "execution": "interpretiert",
+      "fileExtension": ".bf",
+      "primaryDomain": "Esoterische Programmierung"
+    },
+    "funFact": "Befunge ist zweidimensional: Der Programmzeiger kann sich nach oben, unten, links und rechts durch ein Gitter aus Befehlen bewegen.",
+    "sourceName": "Wikipedia DE – Befunge",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Befunge",
+    "verifyNote": "Esoterische, zweidimensionale stapelbasierte Sprache laut Wikipedia."
+  },
+  {
+    "id": "programming_language-malbolge-h2",
+    "name": "Malbolge",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Esoterisch",
+      "execution": "interpretiert",
+      "fileExtension": ".mal",
+      "primaryDomain": "Esoterische Programmierung"
+    },
+    "funFact": "Malbolge wurde bewusst so entworfen, dass das Programmieren nahezu unmöglich ist; das erste funktionierende Programm wurde von einem Suchalgorithmus erzeugt.",
+    "sourceName": "Wikipedia DE – Malbolge",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Malbolge",
+    "verifyNote": "Absichtlich schwer programmierbare esoterische Sprache laut Wikipedia."
+  },
+  {
+    "id": "programming_language-processing-h2",
+    "name": "Processing",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Objektorientiert/imperativ",
+      "execution": "Bytecode/VM",
+      "fileExtension": ".pde",
+      "primaryDomain": "Kreativcodierung/Visualisierung"
+    },
+    "funFact": "Processing baut auf Java auf und wurde geschaffen, um Künstlern und Designern den Einstieg in die Programmierung visueller Werke zu erleichtern.",
+    "sourceName": "Wikipedia DE – Processing (Programmiersprache)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Processing_(Programmiersprache)",
+    "verifyNote": "Java-basierte Sprache/Umgebung für visuelle Kunst, Endung .pde laut offizieller Doku."
+  },
+  {
+    "id": "concept-memoization-h2",
+    "name": "Memoisierung",
+    "category": "concept",
+    "attributes": {
+      "category": "Algorithmik",
+      "definition": "Zwischenspeichern bereits berechneter Funktionsergebnisse, um bei gleichen Eingaben eine erneute Berechnung zu vermeiden"
+    },
+    "funFact": "Memoisierung verwandelt rekursive Algorithmen mit überlappenden Teilproblemen, etwa die Fibonacci-Berechnung, von exponentieller in lineare Laufzeit.",
+    "sourceName": "Wikipedia DE – Memoisation",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Memoisation",
+    "verifyNote": "Standardtechnik der dynamischen Programmierung, in jedem Algorithmen-Lehrbuch belegt."
+  },
+  {
+    "id": "concept-referential-transparency-h2",
+    "name": "Referenzielle Transparenz",
+    "category": "concept",
+    "attributes": {
+      "category": "Funktionale Programmierung",
+      "definition": "Eigenschaft eines Ausdrucks, der jederzeit durch seinen Wert ersetzt werden kann, ohne das Verhalten des Programms zu ändern"
+    },
+    "funFact": "Diese Eigenschaft setzt voraus, dass eine Funktion keine Seiteneffekte hat und bei gleichen Eingaben immer dasselbe Ergebnis liefert.",
+    "sourceName": "Wikipedia DE – Referenzielle Transparenz",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Referenzielle_Transparenz",
+    "verifyNote": "Kernbegriff der funktionalen Programmierung, Standarddefinition."
+  },
+  {
+    "id": "concept-pure-function-h2",
+    "name": "Reine Funktion",
+    "category": "concept",
+    "attributes": {
+      "category": "Funktionale Programmierung",
+      "definition": "Eine Funktion, die ausschließlich von ihren Argumenten abhängt und keine beobachtbaren Seiteneffekte erzeugt"
+    },
+    "funFact": "Reine Funktionen lassen sich gefahrlos parallel ausführen, weil sie keinen gemeinsamen Zustand verändern.",
+    "sourceName": "Wikipedia EN – Pure function",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Pure_function",
+    "verifyNote": "Standarddefinition der funktionalen Programmierung."
+  },
+  {
+    "id": "concept-side-effect-h2",
+    "name": "Seiteneffekt",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmierung",
+      "definition": "Eine beobachtbare Zustandsänderung außerhalb des Rückgabewerts einer Funktion, etwa das Ändern globaler Variablen oder Ein-/Ausgabe"
+    },
+    "funFact": "Funktionen ohne Seiteneffekte gelten als leichter testbar, da ihr Verhalten allein von den Eingabeparametern abhängt.",
+    "sourceName": "Wikipedia DE – Seiteneffekt (Informatik)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Seiteneffekt_(Informatik)",
+    "verifyNote": "Grundbegriff der Programmierung, Standarddefinition."
+  },
+  {
+    "id": "concept-higher-order-function-h2",
+    "name": "Funktion höherer Ordnung",
+    "category": "concept",
+    "attributes": {
+      "category": "Funktionale Programmierung",
+      "definition": "Eine Funktion, die andere Funktionen als Argumente entgegennimmt oder als Ergebnis zurückgibt"
+    },
+    "funFact": "Klassische Beispiele sind map, filter und reduce, die jeweils eine Funktion auf eine Sammlung von Werten anwenden.",
+    "sourceName": "Wikipedia DE – Funktion höherer Ordnung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Funktion_h%C3%B6herer_Ordnung",
+    "verifyNote": "Standardbegriff der funktionalen Programmierung."
+  },
+  {
+    "id": "concept-type-inference-h2",
+    "name": "Typinferenz",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmiersprachen",
+      "definition": "Automatisches Herleiten des Datentyps eines Ausdrucks durch den Compiler, ohne dass dieser explizit angegeben werden muss"
+    },
+    "funFact": "Sprachen wie Haskell und ML nutzen den Hindley-Milner-Algorithmus, um Typen vollständig automatisch herzuleiten.",
+    "sourceName": "Wikipedia DE – Typinferenz",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Typinferenz",
+    "verifyNote": "Standardbegriff der Programmiersprachentheorie."
+  },
+  {
+    "id": "concept-duck-typing-h2",
+    "name": "Duck-Typing",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmiersprachen",
+      "definition": "Ein Ansatz, bei dem die Eignung eines Objekts nicht an seinem Typ, sondern am Vorhandensein der benötigten Methoden festgemacht wird"
+    },
+    "funFact": "Der Name stammt vom Spruch: Wenn es wie eine Ente läuft und quakt, behandeln wir es wie eine Ente.",
+    "sourceName": "Wikipedia DE – Duck-Typing",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Duck-Typing",
+    "verifyNote": "Standardbegriff dynamischer Programmiersprachen."
+  },
+  {
+    "id": "concept-reference-counting-h2",
+    "name": "Referenzzählung",
+    "category": "concept",
+    "attributes": {
+      "category": "Speicherverwaltung",
+      "definition": "Eine Technik, bei der für jedes Objekt mitgezählt wird, wie viele Verweise darauf zeigen, um es bei null Verweisen freizugeben"
+    },
+    "funFact": "Reine Referenzzählung kann zyklische Verweise nicht erkennen, weshalb sie oft mit einem ergänzenden Zyklen-Sammler kombiniert wird.",
+    "sourceName": "Wikipedia DE – Referenzzählung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Referenzz%C3%A4hlung",
+    "verifyNote": "Standardtechnik der automatischen Speicherverwaltung."
+  },
+  {
+    "id": "concept-memory-leak-h2",
+    "name": "Speicherleck",
+    "category": "concept",
+    "attributes": {
+      "category": "Speicherverwaltung",
+      "definition": "Ein Fehler, bei dem belegter Arbeitsspeicher nicht mehr freigegeben wird, obwohl er nicht länger benötigt wird"
+    },
+    "funFact": "In Programmen mit langer Laufzeit können kleine Speicherlecks sich anhäufen, bis das Programm schließlich den gesamten verfügbaren Speicher aufbraucht.",
+    "sourceName": "Wikipedia DE – Speicherleck",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Speicherleck",
+    "verifyNote": "Standardbegriff der Speicherverwaltung."
+  },
+  {
+    "id": "concept-stack-vs-heap-h2",
+    "name": "Stapel- und Haldenspeicher",
+    "category": "concept",
+    "attributes": {
+      "category": "Speicherverwaltung",
+      "definition": "Zwei Speicherbereiche eines Programms: der eine verwaltet automatisch lokale Aufrufdaten, der andere dynamisch angeforderten Speicher mit freier Lebensdauer"
+    },
+    "funFact": "Lokale Variablen liegen meist auf dem Stapel und werden beim Verlassen einer Funktion automatisch freigegeben, dynamische Objekte dagegen auf der Halde.",
+    "sourceName": "Wikipedia EN – Stack-based memory allocation",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Stack-based_memory_allocation",
+    "verifyNote": "Standardunterscheidung der Speicherorganisation in Lehrbüchern."
+  },
+  {
+    "id": "concept-thread-safety-h2",
+    "name": "Thread-Sicherheit",
+    "category": "concept",
+    "attributes": {
+      "category": "Nebenläufigkeit",
+      "definition": "Eigenschaft von Code, der von mehreren Ausführungssträngen gleichzeitig korrekt genutzt werden kann, ohne Daten zu verfälschen"
+    },
+    "funFact": "Unveränderliche Objekte sind automatisch thread-sicher, weil ihr Zustand nach der Erzeugung nicht mehr verändert werden kann.",
+    "sourceName": "Wikipedia DE – Threadsicherheit",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Threadsicherheit",
+    "verifyNote": "Standardbegriff der nebenläufigen Programmierung."
+  },
+  {
+    "id": "concept-atomic-operation-h2",
+    "name": "Atomare Operation",
+    "category": "concept",
+    "attributes": {
+      "category": "Nebenläufigkeit",
+      "definition": "Eine Operation, die ununterbrechbar als Ganzes ausgeführt wird und von außen niemals in einem halbfertigen Zustand beobachtbar ist"
+    },
+    "funFact": "Prozessoren bieten spezielle Befehle wie Compare-and-Swap an, um atomare Aktualisierungen ohne Sperren zu ermöglichen.",
+    "sourceName": "Wikipedia EN – Linearizability",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Linearizability",
+    "verifyNote": "Standardbegriff der nebenläufigen Programmierung."
+  },
+  {
+    "id": "concept-busy-waiting-h2",
+    "name": "Aktives Warten",
+    "category": "concept",
+    "attributes": {
+      "category": "Nebenläufigkeit",
+      "definition": "Eine Technik, bei der ein Prozess wiederholt eine Bedingung abfragt, statt sich schlafen zu legen und geweckt zu werden"
+    },
+    "funFact": "Aktives Warten verschwendet Rechenzeit, kann aber bei sehr kurzen Wartezeiten schneller sein als das Schlafenlegen und Aufwecken eines Threads.",
+    "sourceName": "Wikipedia DE – Aktives Warten",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Aktives_Warten",
+    "verifyNote": "Standardbegriff der Betriebssysteme/Nebenläufigkeit."
+  },
+  {
+    "id": "concept-coroutine-h2",
+    "name": "Koroutine",
+    "category": "concept",
+    "attributes": {
+      "category": "Nebenläufigkeit",
+      "definition": "Ein Unterprogramm, dessen Ausführung an definierten Stellen angehalten und später genau dort fortgesetzt werden kann"
+    },
+    "funFact": "Koroutinen bilden die Grundlage moderner async/await-Mechanismen, mit denen sich nebenläufiger Code wie sequenzieller lesen lässt.",
+    "sourceName": "Wikipedia DE – Koroutine",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Koroutine",
+    "verifyNote": "Standardbegriff der Programmiersprachen/Nebenläufigkeit."
+  },
+  {
+    "id": "concept-callback-h2",
+    "name": "Rückruffunktion (Callback)",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmierung",
+      "definition": "Eine Funktion, die einer anderen Routine übergeben wird, damit diese sie zu einem späteren Zeitpunkt aufruft"
+    },
+    "funFact": "Tief verschachtelte Rückruffunktionen führen zur sogenannten Callback-Hölle, weshalb viele Sprachen Promises oder async/await einführten.",
+    "sourceName": "Wikipedia DE – Rückruffunktion",
+    "sourceUrl": "https://de.wikipedia.org/wiki/R%C3%BCckruffunktion",
+    "verifyNote": "Standardbegriff der ereignisgesteuerten Programmierung."
+  },
+  {
+    "id": "concept-event-loop-h2",
+    "name": "Ereignisschleife",
+    "category": "concept",
+    "attributes": {
+      "category": "Nebenläufigkeit",
+      "definition": "Ein Mechanismus, der fortlaufend eintreffende Ereignisse aus einer Warteschlange entnimmt und die zugehörigen Handler ausführt"
+    },
+    "funFact": "Node.js und Browser nutzen eine einzige Ereignisschleife, um viele gleichzeitige Verbindungen ohne mehrere Threads zu bedienen.",
+    "sourceName": "Wikipedia EN – Event loop",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Event_loop",
+    "verifyNote": "Standardbegriff ereignisgesteuerter, asynchroner Systeme."
+  },
+  {
+    "id": "concept-backpressure-h2",
+    "name": "Gegendruck (Backpressure)",
+    "category": "concept",
+    "attributes": {
+      "category": "Verteilte Systeme",
+      "definition": "Ein Mechanismus, mit dem ein überlasteter Empfänger einem schnelleren Sender signalisiert, die Datenrate zu drosseln"
+    },
+    "funFact": "Ohne Gegendruck kann ein schneller Produzent die Warteschlange eines langsamen Konsumenten überlaufen lassen und so Speicher erschöpfen.",
+    "sourceName": "Wikipedia EN – Back pressure",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Back_pressure",
+    "verifyNote": "Standardbegriff in Stream-Verarbeitung und reaktiven Systemen."
+  },
+  {
+    "id": "concept-throttling-h2",
+    "name": "Drosselung (Rate Limiting)",
+    "category": "concept",
+    "attributes": {
+      "category": "Verteilte Systeme",
+      "definition": "Das Begrenzen der Anzahl erlaubter Anfragen oder Aktionen pro Zeiteinheit, um Ressourcen vor Überlastung zu schützen"
+    },
+    "funFact": "Ein verbreitetes Verfahren ist der Token-Bucket: Anfragen verbrauchen Tokens, die mit fester Rate nachgefüllt werden.",
+    "sourceName": "Wikipedia EN – Rate limiting",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Rate_limiting",
+    "verifyNote": "Standardbegriff bei APIs und Netzwerken."
+  },
+  {
+    "id": "concept-circuit-breaker-h2",
+    "name": "Schutzschalter (Circuit Breaker)",
+    "category": "concept",
+    "attributes": {
+      "category": "Verteilte Systeme",
+      "definition": "Ein Entwurfsmuster, das Aufrufe an einen ausgefallenen Dienst vorübergehend blockiert, um Folgefehler zu verhindern"
+    },
+    "funFact": "Das Muster ist dem elektrischen Sicherungsschalter nachempfunden, der bei Überlast den Stromkreis öffnet.",
+    "sourceName": "Wikipedia EN – Circuit breaker design pattern",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Circuit_breaker_design_pattern",
+    "verifyNote": "Standardmuster resilienter verteilter Systeme."
+  },
+  {
+    "id": "concept-graceful-degradation-h2",
+    "name": "Sanfte Verschlechterung (Graceful Degradation)",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwarearchitektur",
+      "definition": "Die Fähigkeit eines Systems, bei Ausfall einzelner Teile mit eingeschränktem Funktionsumfang weiterzuarbeiten statt vollständig auszufallen"
+    },
+    "funFact": "Eine Webseite, die ohne JavaScript zwar weniger Komfort, aber noch grundlegende Funktionen bietet, ist ein klassisches Beispiel.",
+    "sourceName": "Wikipedia EN – Graceful degradation",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Fault_tolerance#Graceful_degradation",
+    "verifyNote": "Standardbegriff der Fehlertoleranz/Architektur."
+  },
+  {
+    "id": "concept-statelessness-h2",
+    "name": "Zustandslosigkeit",
+    "category": "concept",
+    "attributes": {
+      "category": "Verteilte Systeme",
+      "definition": "Eine Eigenschaft, bei der jede Anfrage alle nötigen Informationen mitbringt und der Server keine Sitzungsdaten zwischen Anfragen speichert"
+    },
+    "funFact": "Zustandslosigkeit erleichtert horizontale Skalierung, weil jede Anfrage von einem beliebigen Server beantwortet werden kann.",
+    "sourceName": "Wikipedia EN – Stateless protocol",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Stateless_protocol",
+    "verifyNote": "Kernprinzip von HTTP und REST, Standarddefinition."
+  },
+  {
+    "id": "concept-data-race-h2",
+    "name": "Datenwettlauf",
+    "category": "concept",
+    "attributes": {
+      "category": "Nebenläufigkeit",
+      "definition": "Eine Situation, in der zwei Ausführungsstränge ohne Synchronisierung auf dieselbe Speicherstelle zugreifen und mindestens einer schreibt"
+    },
+    "funFact": "Datenwettläufe führen oft zu schwer reproduzierbaren Fehlern, weil das Ergebnis vom zufälligen zeitlichen Ablauf der Threads abhängt.",
+    "sourceName": "Wikipedia EN – Race condition",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Race_condition#Data_race",
+    "verifyNote": "Präzisere Variante der Wettlaufsituation, Standarddefinition."
+  },
+  {
+    "id": "concept-livelock-h2",
+    "name": "Livelock",
+    "category": "concept",
+    "attributes": {
+      "category": "Nebenläufigkeit",
+      "definition": "Ein Zustand, in dem mehrere Prozesse zwar aktiv bleiben und reagieren, aber durch ständiges gegenseitiges Ausweichen keinen Fortschritt erzielen"
+    },
+    "funFact": "Im Unterschied zum Deadlock sind die Beteiligten beim Livelock nicht blockiert, sondern unentwegt beschäftigt, ohne ihr Ziel zu erreichen.",
+    "sourceName": "Wikipedia EN – Deadlock (Livelock)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Deadlock#Livelock",
+    "verifyNote": "Standardbegriff der Nebenläufigkeit, Abgrenzung zum Deadlock."
+  },
+  {
+    "id": "concept-starvation-h2",
+    "name": "Verhungern (Starvation)",
+    "category": "concept",
+    "attributes": {
+      "category": "Nebenläufigkeit",
+      "definition": "Ein Zustand, in dem ein Prozess dauerhaft keine benötigten Ressourcen erhält, weil andere ihn ständig verdrängen"
+    },
+    "funFact": "Verhungern entsteht oft durch unfaire Planungsstrategien, die ständig höher priorisierte Aufgaben bevorzugen.",
+    "sourceName": "Wikipedia DE – Aushungern (Informatik)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Aushungern_(Informatik)",
+    "verifyNote": "Standardbegriff der Prozessplanung/Nebenläufigkeit."
+  },
+  {
+    "id": "concept-amdahls-law-h2",
+    "name": "Amdahlsches Gesetz",
+    "category": "concept",
+    "attributes": {
+      "category": "Parallelität",
+      "definition": "Eine Aussage, dass der Geschwindigkeitsgewinn durch Parallelisierung durch den nicht parallelisierbaren Anteil eines Programms begrenzt wird"
+    },
+    "funFact": "Selbst bei unendlich vielen Prozessoren ist die maximale Beschleunigung durch den seriellen Restanteil hart nach oben begrenzt.",
+    "sourceName": "Wikipedia DE – Amdahlsches Gesetz",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Amdahlsches_Gesetz",
+    "verifyNote": "Grundgesetz der parallelen Programmierung, Standarddefinition."
+  },
+  {
+    "id": "concept-tail-call-h2",
+    "name": "Endaufruf (Tail Call)",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmiersprachen",
+      "definition": "Ein Funktionsaufruf, der als letzte Aktion einer Funktion erfolgt, sodass kein weiterer Code nach seiner Rückkehr ausgeführt wird"
+    },
+    "funFact": "Compiler können Endaufrufe optimieren, indem sie den aktuellen Stapelrahmen wiederverwenden und so einen Stapelüberlauf bei tiefer Rekursion vermeiden.",
+    "sourceName": "Wikipedia EN – Tail call",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Tail_call",
+    "verifyNote": "Standardbegriff der Programmiersprachen, Grundlage der Endaufruf-Optimierung."
+  },
+  {
+    "id": "concept-boilerplate-h2",
+    "name": "Standardgerüst (Boilerplate)",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwareentwicklung",
+      "definition": "Wiederkehrender, kaum veränderter Code, der nötig ist, aber wenig zur eigentlichen Logik beiträgt"
+    },
+    "funFact": "Der Begriff stammt aus dem Druckwesen, wo vorgefertigte Metallplatten mit Standardtexten an Zeitungen verteilt wurden.",
+    "sourceName": "Wikipedia EN – Boilerplate code",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Boilerplate_code",
+    "verifyNote": "Gängiger Begriff der Softwareentwicklung."
+  },
+  {
+    "id": "concept-technical-debt-h2",
+    "name": "Technische Schuld",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwareentwicklung",
+      "definition": "Die langfristigen Mehrkosten, die entstehen, wenn schnelle, aber unsaubere Lösungen späteren Mehraufwand verursachen"
+    },
+    "funFact": "Der Begriff wurde von Ward Cunningham geprägt, der schnelle Lösungen mit einem Kredit verglich, dessen Zinsen man später abarbeiten muss.",
+    "sourceName": "Wikipedia DE – Technische Schulden",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Technische_Schulden",
+    "verifyNote": "Etablierter Begriff der Softwareentwicklung."
+  },
+  {
+    "id": "concept-code-smell-h2",
+    "name": "Code Smell",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwareentwicklung",
+      "definition": "Ein Merkmal im Quellcode, das auf ein tieferliegendes Entwurfsproblem hindeutet, ohne selbst ein Fehler zu sein"
+    },
+    "funFact": "Sehr lange Methoden oder Klassen mit zu vielen Aufgaben gelten als klassische Hinweise, die häufig zum Refactoring einladen.",
+    "sourceName": "Wikipedia DE – Code-Smell",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Code-Smell",
+    "verifyNote": "Etablierter Begriff aus dem Refactoring-Umfeld."
+  },
+  {
+    "id": "concept-feature-flag-h2",
+    "name": "Feature-Flag",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwareentwicklung",
+      "definition": "Ein Schalter, mit dem sich Funktionen zur Laufzeit ein- oder ausschalten lassen, ohne den Code neu auszuliefern"
+    },
+    "funFact": "Feature-Flags erlauben es, neue Funktionen zunächst nur für eine kleine Nutzergruppe freizuschalten und bei Problemen sofort zurückzunehmen.",
+    "sourceName": "Wikipedia EN – Feature toggle",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Feature_toggle",
+    "verifyNote": "Etablierte Technik in Continuous Delivery."
+  },
+  {
+    "id": "concept-concurrency-control-h2",
+    "name": "Nebenläufigkeitskontrolle (Optimistisch vs. Pessimistisch)",
+    "category": "concept",
+    "attributes": {
+      "category": "Datenbanken",
+      "definition": "Zwei Strategien zur Vermeidung von Konflikten bei gleichzeitigen Zugriffen: Sperren im Voraus oder erst beim Schreiben auf Konflikte prüfen"
+    },
+    "funFact": "Die optimistische Variante geht davon aus, dass Konflikte selten sind, und prüft erst beim Speichern, ob die Daten zwischenzeitlich verändert wurden.",
+    "sourceName": "Wikipedia EN – Optimistic concurrency control",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Optimistic_concurrency_control",
+    "verifyNote": "Standardunterscheidung der Datenbank-Nebenläufigkeitskontrolle."
+  }
+]
