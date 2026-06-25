@@ -24497,5 +24497,2076 @@
       "url": "https://de.wikipedia.org/wiki/Bitfeld"
     },
     "image": null
+  },
+  "machina:acronym-paas-h5": {
+    "id": "machina:acronym-paas-h5",
+    "name": "PaaS",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Platform as a Service",
+      "domain": "Webtechnik"
+    },
+    "funFact": "Bei PaaS stellt der Anbieter die komplette Laufzeitumgebung bereit, sodass Entwickler sich nur um den eigenen Code statt um Server kümmern müssen.",
+    "source": {
+      "name": "Wikipedia DE – Platform as a Service",
+      "url": "https://de.wikipedia.org/wiki/Platform_as_a_Service"
+    },
+    "image": null
+  },
+  "machina:acronym-iaas-h5": {
+    "id": "machina:acronym-iaas-h5",
+    "name": "IaaS",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Infrastructure as a Service",
+      "domain": "Webtechnik"
+    },
+    "funFact": "IaaS vermietet rohe Rechen-, Speicher- und Netzressourcen virtuell, sodass Kunden nur für tatsächlich genutzte Kapazität zahlen.",
+    "source": {
+      "name": "Wikipedia DE – Infrastructure as a Service",
+      "url": "https://de.wikipedia.org/wiki/Infrastructure_as_a_Service"
+    },
+    "image": null
+  },
+  "machina:acronym-blob-h5": {
+    "id": "machina:acronym-blob-h5",
+    "name": "BLOB",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Binary Large Object",
+      "domain": "Datenbanken"
+    },
+    "funFact": "Ein BLOB speichert große Binärdaten wie Bilder oder Videos direkt in der Datenbank, statt nur einen Dateipfad abzulegen.",
+    "source": {
+      "name": "Wikipedia DE – Binary Large Object",
+      "url": "https://de.wikipedia.org/wiki/Binary_Large_Object"
+    },
+    "image": null
+  },
+  "machina:acronym-qos-h5": {
+    "id": "machina:acronym-qos-h5",
+    "name": "QoS",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Quality of Service",
+      "domain": "Netzwerk"
+    },
+    "funFact": "QoS priorisiert zeitkritischen Verkehr wie Sprachtelefonie gegenüber unkritischen Downloads, damit Gespräche nicht abreißen.",
+    "source": {
+      "name": "Wikipedia DE – Quality of Service",
+      "url": "https://de.wikipedia.org/wiki/Dienstg%C3%BCte"
+    },
+    "image": null
+  },
+  "machina:acronym-2fa-h5": {
+    "id": "machina:acronym-2fa-h5",
+    "name": "2FA",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Two-Factor Authentication",
+      "domain": "IT-Sicherheit"
+    },
+    "funFact": "2FA kombiniert zwei unabhängige Nachweise — etwa Passwort plus Einmalcode — sodass ein gestohlenes Passwort allein nicht zum Login reicht.",
+    "source": {
+      "name": "Wikipedia DE – Zwei-Faktor-Authentisierung",
+      "url": "https://de.wikipedia.org/wiki/Zwei-Faktor-Authentisierung"
+    },
+    "image": null
+  },
+  "machina:acronym-csr-h5": {
+    "id": "machina:acronym-csr-h5",
+    "name": "CSR",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Certificate Signing Request",
+      "domain": "IT-Sicherheit"
+    },
+    "funFact": "Ein CSR enthält den öffentlichen Schlüssel und die Antragsdaten, die eine Zertifizierungsstelle signiert, um ein TLS-Zertifikat auszustellen.",
+    "source": {
+      "name": "Wikipedia DE – Certificate Signing Request",
+      "url": "https://de.wikipedia.org/wiki/Certificate_Signing_Request"
+    },
+    "image": null
+  },
+  "machina:acronym-worm-h5": {
+    "id": "machina:acronym-worm-h5",
+    "name": "WORM",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Write Once, Read Many",
+      "domain": "Datenträger"
+    },
+    "funFact": "WORM-Speicher lässt sich nur einmal beschreiben, danach beliebig oft lesen — ideal für revisionssichere Archive, die nicht nachträglich verändert werden dürfen.",
+    "source": {
+      "name": "Wikipedia DE – Write Once Read Many",
+      "url": "https://de.wikipedia.org/wiki/Write_Once_Read_Many"
+    },
+    "image": null
+  },
+  "machina:acronym-jbod-h5": {
+    "id": "machina:acronym-jbod-h5",
+    "name": "JBOD",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Just a Bunch Of Disks",
+      "domain": "Hardware"
+    },
+    "funFact": "JBOD fasst mehrere Festplatten ohne RAID-Verbund einfach zusammen — ohne Redundanz, aber mit voller Summe der Einzelkapazitäten.",
+    "source": {
+      "name": "Wikipedia DE – JBOD",
+      "url": "https://de.wikipedia.org/wiki/JBOD"
+    },
+    "image": null
+  },
+  "machina:acronym-slo-h5": {
+    "id": "machina:acronym-slo-h5",
+    "name": "SLO",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Service Level Objective",
+      "domain": "Systemtechnik"
+    },
+    "funFact": "Ein SLO legt das interne Zielmaß für Verfügbarkeit oder Latenz fest und ist meist strenger als das vertragliche SLA gegenüber dem Kunden.",
+    "source": {
+      "name": "Wikipedia EN – Service-level objective",
+      "url": "https://en.wikipedia.org/wiki/Service-level_objective"
+    },
+    "image": null
+  },
+  "machina:acronym-lru-h5": {
+    "id": "machina:acronym-lru-h5",
+    "name": "LRU",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Least Recently Used",
+      "domain": "Speicherverwaltung"
+    },
+    "funFact": "Die LRU-Strategie verdrängt beim Cache-Überlauf genau jenen Eintrag, der am längsten nicht mehr abgerufen wurde.",
+    "source": {
+      "name": "Wikipedia DE – Cache (Verdrängungsstrategien)",
+      "url": "https://de.wikipedia.org/wiki/Cache#Verdr%C3%A4ngungsstrategien"
+    },
+    "image": null
+  },
+  "machina:acronym-mtbf-h5": {
+    "id": "machina:acronym-mtbf-h5",
+    "name": "MTBF",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Mean Time Between Failures",
+      "domain": "Systemtechnik"
+    },
+    "funFact": "Die MTBF gibt die mittlere fehlerfreie Betriebszeit eines Systems an und dient als zentrale Kennzahl für Zuverlässigkeit von Hardware.",
+    "source": {
+      "name": "Wikipedia DE – Mean Time Between Failures",
+      "url": "https://de.wikipedia.org/wiki/Mean_Time_Between_Failures"
+    },
+    "image": null
+  },
+  "machina:acronym-mttr-h5": {
+    "id": "machina:acronym-mttr-h5",
+    "name": "MTTR",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Mean Time To Repair",
+      "domain": "Systemtechnik"
+    },
+    "funFact": "Die MTTR misst die mittlere Reparaturdauer nach einem Ausfall und fließt zusammen mit der MTBF in die Berechnung der Verfügbarkeit ein.",
+    "source": {
+      "name": "Wikipedia DE – Mean Time To Repair",
+      "url": "https://de.wikipedia.org/wiki/Mean_Time_To_Repair"
+    },
+    "image": null
+  },
+  "machina:acronym-rpo-h5": {
+    "id": "machina:acronym-rpo-h5",
+    "name": "RPO",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Recovery Point Objective",
+      "domain": "Systemtechnik"
+    },
+    "funFact": "Das RPO legt fest, wie viel Datenverlust nach einem Ausfall maximal toleriert wird — es bestimmt damit den nötigen Backup-Abstand.",
+    "source": {
+      "name": "Wikipedia DE – Recovery Point Objective",
+      "url": "https://de.wikipedia.org/wiki/Recovery_Point_Objective"
+    },
+    "image": null
+  },
+  "machina:acronym-cqrs-h5": {
+    "id": "machina:acronym-cqrs-h5",
+    "name": "CQRS",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Command Query Responsibility Segregation",
+      "domain": "Softwarearchitektur"
+    },
+    "funFact": "CQRS trennt das Schreib- vom Lesemodell einer Anwendung, sodass beide Pfade unabhängig optimiert und skaliert werden können.",
+    "source": {
+      "name": "Wikipedia EN – Command Query Responsibility Segregation",
+      "url": "https://en.wikipedia.org/wiki/Command_Query_Responsibility_Segregation"
+    },
+    "image": null
+  },
+  "machina:acronym-rdbms-h5": {
+    "id": "machina:acronym-rdbms-h5",
+    "name": "RDBMS",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Relational Database Management System",
+      "domain": "Datenbanken"
+    },
+    "funFact": "Ein RDBMS organisiert Daten in Tabellen mit Beziehungen und nutzt SQL als Abfragesprache — Beispiele sind PostgreSQL, MySQL und Oracle.",
+    "source": {
+      "name": "Wikipedia DE – Relationales Datenbankmanagementsystem",
+      "url": "https://de.wikipedia.org/wiki/Relationales_Datenbankmanagementsystem"
+    },
+    "image": null
+  },
+  "machina:acronym-spof-h5": {
+    "id": "machina:acronym-spof-h5",
+    "name": "SPOF",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Single Point of Failure",
+      "domain": "Systemtechnik"
+    },
+    "funFact": "Ein SPOF ist eine Komponente, deren Ausfall das gesamte System lahmlegt — redundante Auslegung soll genau das verhindern.",
+    "source": {
+      "name": "Wikipedia DE – Single Point of Failure",
+      "url": "https://de.wikipedia.org/wiki/Single_Point_of_Failure"
+    },
+    "image": null
+  },
+  "machina:acronym-sse-h5": {
+    "id": "machina:acronym-sse-h5",
+    "name": "SSE",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Server-Sent Events",
+      "domain": "Webtechnik"
+    },
+    "funFact": "SSE öffnet einen einseitigen Datenstrom vom Server zum Browser über HTTP — leichter als WebSockets, wenn nur der Server senden muss.",
+    "source": {
+      "name": "MDN Web Docs – Server-sent events",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events"
+    },
+    "image": null
+  },
+  "machina:acronym-csp-h5": {
+    "id": "machina:acronym-csp-h5",
+    "name": "CSP",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Content Security Policy",
+      "domain": "Webtechnik"
+    },
+    "funFact": "Eine CSP weist den Browser an, nur Skripte aus erlaubten Quellen auszuführen, und entschärft so Cross-Site-Scripting-Angriffe.",
+    "source": {
+      "name": "MDN Web Docs – Content Security Policy (CSP)",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP"
+    },
+    "image": null
+  },
+  "machina:concept-heartbeat-h5": {
+    "id": "machina:concept-heartbeat-h5",
+    "name": "Heartbeat (Verteilte Systeme)",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Verteilte Systeme",
+      "definition": "Periodisches Signal zwischen Komponenten, dessen Ausbleiben einen Ausfall des Senders anzeigt und ein Failover auslöst"
+    },
+    "funFact": "Fällt das Signal mehrfach hintereinander aus, gilt der Knoten als tot — die Wahl des Intervalls ist ein Kompromiss zwischen schneller Erkennung und Fehlalarmen.",
+    "source": {
+      "name": "Wikipedia EN – Heartbeat (computing)",
+      "url": "https://en.wikipedia.org/wiki/Heartbeat_(computing)"
+    },
+    "image": null
+  },
+  "machina:concept-bulkhead-h5": {
+    "id": "machina:concept-bulkhead-h5",
+    "name": "Schott (Bulkhead)",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwarearchitektur",
+      "definition": "Aufteilung von Ressourcen in isolierte Abschnitte, sodass die Überlastung eines Bereichs nicht das ganze System mitreißt"
+    },
+    "funFact": "Das Muster ist nach den Schotten im Schiffsrumpf benannt — läuft ein Abteil voll, bleiben die übrigen dicht und das Schiff schwimmt weiter.",
+    "source": {
+      "name": "Microsoft – Bulkhead pattern",
+      "url": "https://learn.microsoft.com/en-us/azure/architecture/patterns/bulkhead"
+    },
+    "image": null
+  },
+  "machina:concept-zwei-phasen-commit-h5": {
+    "id": "machina:concept-zwei-phasen-commit-h5",
+    "name": "Zwei-Phasen-Commit",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Verteilte Systeme",
+      "definition": "Protokoll, das eine Transaktion über mehrere Knoten atomar abschließt, indem ein Koordinator erst Bereitschaft einholt und dann den Abschluss befiehlt"
+    },
+    "funFact": "Sein Schwachpunkt ist der Koordinator: Fällt er nach der Abstimmphase aus, bleiben die Teilnehmer blockiert und warten unbestimmt lange.",
+    "source": {
+      "name": "Wikipedia DE – Zwei-Phasen-Commit-Protokoll",
+      "url": "https://de.wikipedia.org/wiki/Zwei-Phasen-Commit-Protokoll"
+    },
+    "image": null
+  },
+  "machina:concept-saga-muster-h5": {
+    "id": "machina:concept-saga-muster-h5",
+    "name": "Saga-Muster",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Verteilte Systeme",
+      "definition": "Abfolge lokaler Transaktionen über mehrere Dienste, die bei Fehlern durch ausgleichende Gegentransaktionen zurückgerollt wird"
+    },
+    "funFact": "Statt alles in einer großen verteilten Transaktion zu sperren, akzeptiert eine Saga zwischenzeitliche Inkonsistenz und korrigiert sie nachträglich.",
+    "source": {
+      "name": "Microsoft – Saga distributed transactions pattern",
+      "url": "https://learn.microsoft.com/en-us/azure/architecture/patterns/saga"
+    },
+    "image": null
+  },
+  "machina:concept-failover-h5": {
+    "id": "machina:concept-failover-h5",
+    "name": "Ausfallsicherung (Failover)",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Verteilte Systeme",
+      "definition": "Automatisches Umschalten auf eine Reservekomponente, sobald die primäre Komponente als ausgefallen erkannt wird"
+    },
+    "funFact": "Damit der Wechsel sauber klappt, muss das System einen echten Ausfall sicher von einer kurzen Netzstörung unterscheiden — sonst droht ein Split-Brain.",
+    "source": {
+      "name": "Wikipedia DE – Failover",
+      "url": "https://de.wikipedia.org/wiki/Failover"
+    },
+    "image": null
+  },
+  "machina:concept-load-shedding-h5": {
+    "id": "machina:concept-load-shedding-h5",
+    "name": "Lastabwurf (Load Shedding)",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Verteilte Systeme",
+      "definition": "Gezieltes Abweisen von Anfragen bei Überlast, um den Kern eines Dienstes funktionsfähig zu halten statt komplett zusammenzubrechen"
+    },
+    "funFact": "Der Begriff stammt aus der Stromnetztechnik, wo gezielte Teilabschaltungen einen flächendeckenden Blackout verhindern.",
+    "source": {
+      "name": "Google SRE Book – Handling Overload",
+      "url": "https://sre.google/sre-book/handling-overload/"
+    },
+    "image": null
+  },
+  "machina:concept-exponentielles-backoff-h5": {
+    "id": "machina:concept-exponentielles-backoff-h5",
+    "name": "Exponentielles Backoff",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Verteilte Systeme",
+      "definition": "Wiederholungsstrategie, bei der die Wartezeit zwischen fehlgeschlagenen Versuchen exponentiell ansteigt, um überlastete Systeme zu entlasten"
+    },
+    "funFact": "Ein zufälliger Zusatz (Jitter) verhindert, dass alle Clients nach derselben Wartezeit gleichzeitig erneut zuschlagen und den Server doppelt fluten.",
+    "source": {
+      "name": "Wikipedia EN – Exponential backoff",
+      "url": "https://en.wikipedia.org/wiki/Exponential_backoff"
+    },
+    "image": null
+  },
+  "machina:concept-dead-letter-queue-h5": {
+    "id": "machina:concept-dead-letter-queue-h5",
+    "name": "Dead-Letter-Queue",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwarearchitektur",
+      "definition": "Sonderwarteschlange, in die Nachrichten verschoben werden, die nach mehreren Versuchen nicht zugestellt oder verarbeitet werden konnten"
+    },
+    "funFact": "Statt fehlerhafte Nachrichten endlos zu wiederholen oder zu verwerfen, parkt das System sie hier, damit Entwickler die Ursache später analysieren können.",
+    "source": {
+      "name": "Wikipedia EN – Dead letter queue",
+      "url": "https://en.wikipedia.org/wiki/Dead_letter_queue"
+    },
+    "image": null
+  },
+  "machina:concept-service-mesh-h5": {
+    "id": "machina:concept-service-mesh-h5",
+    "name": "Service-Mesh",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwarearchitektur",
+      "definition": "Infrastrukturschicht, die die Kommunikation zwischen Microservices über eingeschleuste Proxys steuert, absichert und beobachtbar macht"
+    },
+    "funFact": "Ein Service-Mesh nimmt den Diensten Aufgaben wie Verschlüsselung, Wiederholungen und Lastverteilung ab, ohne dass deren Code dafür angepasst werden muss.",
+    "source": {
+      "name": "Wikipedia EN – Service mesh",
+      "url": "https://en.wikipedia.org/wiki/Service_mesh"
+    },
+    "image": null
+  },
+  "machina:concept-api-gateway-h5": {
+    "id": "machina:concept-api-gateway-h5",
+    "name": "API-Gateway",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwarearchitektur",
+      "definition": "Zentraler Einstiegspunkt, der eingehende Anfragen entgegennimmt und an die passenden Backend-Dienste weiterleitet"
+    },
+    "funFact": "Es bündelt Querschnittsaufgaben wie Authentifizierung, Drosselung und Protokollumsetzung an einer Stelle, statt sie in jedem Dienst zu wiederholen.",
+    "source": {
+      "name": "Microsoft – Gateway Aggregation pattern",
+      "url": "https://learn.microsoft.com/en-us/azure/architecture/patterns/gateway-aggregation"
+    },
+    "image": null
+  },
+  "machina:concept-reverse-proxy-h5": {
+    "id": "machina:concept-reverse-proxy-h5",
+    "name": "Reverse-Proxy",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Netzwerk",
+      "definition": "Server, der Anfragen von Clients entgegennimmt und stellvertretend an dahinterliegende Server weiterleitet, deren Identität dabei verborgen bleibt"
+    },
+    "funFact": "Im Gegensatz zum klassischen Proxy schützt ein Reverse-Proxy nicht den Client, sondern die Server — er übernimmt oft auch TLS-Terminierung und Lastverteilung.",
+    "source": {
+      "name": "Wikipedia DE – Reverse Proxy",
+      "url": "https://de.wikipedia.org/wiki/Reverse_Proxy"
+    },
+    "image": null
+  },
+  "machina:concept-sticky-session-h5": {
+    "id": "machina:concept-sticky-session-h5",
+    "name": "Sticky-Session",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Netzwerk",
+      "definition": "Lastverteilungsverfahren, das alle Anfragen eines Nutzers während einer Sitzung an denselben Backend-Server bindet"
+    },
+    "funFact": "Sticky-Sessions vereinfachen die Zustandshaltung, erschweren aber das gleichmäßige Verteilen der Last und das nahtlose Wegrollen einzelner Server.",
+    "source": {
+      "name": "Wikipedia EN – Load balancing (Persistence)",
+      "url": "https://en.wikipedia.org/wiki/Load_balancing_(computing)#Persistence"
+    },
+    "image": null
+  },
+  "machina:concept-feature-toggle-h5": {
+    "id": "machina:concept-feature-toggle-h5",
+    "name": "Feature-Toggle",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwareentwicklung",
+      "definition": "Schalter im Code, der Funktionen zur Laufzeit aktiviert oder deaktiviert, ohne dass ein neuer Build oder Deploy nötig ist"
+    },
+    "funFact": "Damit lässt sich neuer Code bereits ausliefern, aber erst nach und nach für ausgewählte Nutzer freischalten — und bei Problemen sofort wieder abschalten.",
+    "source": {
+      "name": "Wikipedia EN – Feature toggle",
+      "url": "https://en.wikipedia.org/wiki/Feature_toggle"
+    },
+    "image": null
+  },
+  "machina:concept-chaos-engineering-h5": {
+    "id": "machina:concept-chaos-engineering-h5",
+    "name": "Chaos Engineering",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwaretechnik",
+      "definition": "Disziplin, die absichtlich Störungen in ein laufendes System einspeist, um dessen Widerstandsfähigkeit gegen reale Ausfälle zu prüfen"
+    },
+    "funFact": "Netflix machte den Ansatz mit dem Werkzeug Chaos Monkey populär, das zufällig Produktivserver abschaltet, um robuste Architekturen zu erzwingen.",
+    "source": {
+      "name": "Wikipedia EN – Chaos engineering",
+      "url": "https://en.wikipedia.org/wiki/Chaos_engineering"
+    },
+    "image": null
+  },
+  "machina:concept-observability-h5": {
+    "id": "machina:concept-observability-h5",
+    "name": "Beobachtbarkeit (Observability)",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwaretechnik",
+      "definition": "Eigenschaft eines Systems, aus seinen externen Ausgaben wie Logs, Metriken und Traces auf den inneren Zustand schließen zu können"
+    },
+    "funFact": "Die drei Säulen — Logs, Metriken und Traces — erlauben es, auch unvorhergesehene Probleme nachträglich zu verstehen, nicht nur vorab definierte Fehler.",
+    "source": {
+      "name": "Wikipedia EN – Observability (software)",
+      "url": "https://en.wikipedia.org/wiki/Observability_(software)"
+    },
+    "image": null
+  },
+  "machina:concept-verteiltes-tracing-h5": {
+    "id": "machina:concept-verteiltes-tracing-h5",
+    "name": "Verteiltes Tracing",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Verteilte Systeme",
+      "definition": "Verfolgung einer einzelnen Anfrage über alle beteiligten Dienste hinweg, indem jeder Schritt mit einer gemeinsamen Korrelations-Kennung markiert wird"
+    },
+    "funFact": "So lässt sich nachträglich genau ablesen, in welchem von Dutzenden Microservices eine Anfrage hängen blieb oder Zeit verlor.",
+    "source": {
+      "name": "Wikipedia EN – Tracing (software) – Distributed tracing",
+      "url": "https://en.wikipedia.org/wiki/Tracing_(software)"
+    },
+    "image": null
+  },
+  "machina:concept-write-through-h5": {
+    "id": "machina:concept-write-through-h5",
+    "name": "Schreibdurchschreibung (Write-Through)",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Speicherverwaltung",
+      "definition": "Cache-Strategie, bei der jeder Schreibvorgang gleichzeitig in den Cache und in den dahinterliegenden Speicher geschrieben wird"
+    },
+    "funFact": "Write-Through hält Cache und Hauptspeicher stets konsistent, bezahlt das aber mit langsameren Schreibzugriffen als die Write-Back-Variante.",
+    "source": {
+      "name": "Wikipedia EN – Cache (computing) – Writing policies",
+      "url": "https://en.wikipedia.org/wiki/Cache_(computing)#Writing_policies"
+    },
+    "image": null
+  },
+  "machina:concept-gossip-protokoll-h5": {
+    "id": "machina:concept-gossip-protokoll-h5",
+    "name": "Gossip-Protokoll",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Verteilte Systeme",
+      "definition": "Verfahren, bei dem Knoten Informationen wie ein Gerücht an zufällig gewählte Nachbarn weitergeben, bis sie sich im ganzen Netz verbreitet haben"
+    },
+    "funFact": "Wie ein Gerücht erreicht die Information so in logarithmisch wenigen Runden alle Knoten — ohne dass eine zentrale Stelle die Verteilung steuern muss.",
+    "source": {
+      "name": "Wikipedia EN – Gossip protocol",
+      "url": "https://en.wikipedia.org/wiki/Gossip_protocol"
+    },
+    "image": null
+  },
+  "machina:concept-event-sourcing-h5": {
+    "id": "machina:concept-event-sourcing-h5",
+    "name": "Ereignisbeschaffung (Event Sourcing)",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwarearchitektur",
+      "definition": "Speicherprinzip, bei dem nicht der aktuelle Zustand, sondern die lückenlose Folge aller zustandsverändernden Ereignisse abgelegt wird"
+    },
+    "funFact": "Der aktuelle Zustand entsteht durch erneutes Abspielen aller Ereignisse — dadurch lässt sich jeder frühere Stand exakt rekonstruieren.",
+    "source": {
+      "name": "Microsoft – Event Sourcing pattern",
+      "url": "https://learn.microsoft.com/en-us/azure/architecture/patterns/event-sourcing"
+    },
+    "image": null
+  },
+  "machina:concept-snapshot-isolation-h5": {
+    "id": "machina:concept-snapshot-isolation-h5",
+    "name": "Snapshot-Isolation",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Datenbanken",
+      "definition": "Transaktionsverfahren, bei dem jede Transaktion auf einem konsistenten Abbild der Daten zum Startzeitpunkt arbeitet"
+    },
+    "funFact": "Lesende Transaktionen blockieren so nie die schreibenden und umgekehrt — der Preis ist die mögliche Anomalie des Write-Skew.",
+    "source": {
+      "name": "Wikipedia EN – Snapshot isolation",
+      "url": "https://en.wikipedia.org/wiki/Snapshot_isolation"
+    },
+    "image": null
+  },
+  "machina:concept-zero-copy-h5": {
+    "id": "machina:concept-zero-copy-h5",
+    "name": "Zero-Copy",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Betriebssysteme",
+      "definition": "Technik, die Daten zwischen Puffern überträgt, ohne sie unnötig zwischen Kernel- und Benutzerspeicher zu kopieren"
+    },
+    "funFact": "Indem es überflüssige Kopiervorgänge einspart, beschleunigt Zero-Copy etwa das Ausliefern großer Dateien über das Netz erheblich.",
+    "source": {
+      "name": "Wikipedia EN – Zero-copy",
+      "url": "https://en.wikipedia.org/wiki/Zero-copy"
+    },
+    "image": null
+  },
+  "machina:concept-false-sharing-h5": {
+    "id": "machina:concept-false-sharing-h5",
+    "name": "Falsche Gemeinsamnutzung (False Sharing)",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Nebenläufigkeit",
+      "definition": "Leistungsverlust, der entsteht, wenn mehrere Kerne unabhängige Variablen auf derselben Cache-Zeile verändern und sich gegenseitig ausbremsen"
+    },
+    "funFact": "Obwohl die Threads logisch getrennte Daten bearbeiten, zwingt die gemeinsame Cache-Zeile die Hardware zu ständigem Abgleich — ein tückischer, unsichtbarer Bremsklotz.",
+    "source": {
+      "name": "Wikipedia EN – False sharing",
+      "url": "https://en.wikipedia.org/wiki/False_sharing"
+    },
+    "image": null
+  },
+  "machina:concept-spekulative-ausfuehrung-h5": {
+    "id": "machina:concept-spekulative-ausfuehrung-h5",
+    "name": "Spekulative Ausführung",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Rechnerarchitektur",
+      "definition": "Technik, bei der ein Prozessor Befehle ausführt, bevor feststeht, ob sie wirklich benötigt werden, und die Ergebnisse bei Fehlspekulation verwirft"
+    },
+    "funFact": "Sie beschleunigt moderne CPUs enorm, öffnete aber mit Spectre und Meltdown 2018 eine ganze Klasse von Sicherheitslücken.",
+    "source": {
+      "name": "Wikipedia DE – Spekulative Ausführung",
+      "url": "https://de.wikipedia.org/wiki/Spekulative_Ausf%C3%BChrung"
+    },
+    "image": null
+  },
+  "machina:concept-onion-architektur-h5": {
+    "id": "machina:concept-onion-architektur-h5",
+    "name": "Zwiebelarchitektur",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwarearchitektur",
+      "definition": "Schichtenmodell, in dem die Geschäftslogik im Kern liegt und Abhängigkeiten ausschließlich von außen nach innen zeigen"
+    },
+    "funFact": "Weil der Kern nichts über Datenbank oder Oberfläche weiß, lassen sich diese äußeren Schichten austauschen, ohne die Geschäftslogik anzufassen.",
+    "source": {
+      "name": "Wikipedia EN – Hexagonal architecture (software)",
+      "url": "https://en.wikipedia.org/wiki/Hexagonal_architecture_(software)"
+    },
+    "image": null
+  },
+  "machina:concept-prefetching-h5": {
+    "id": "machina:concept-prefetching-h5",
+    "name": "Vorausschauendes Laden (Prefetching)",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Speicherverwaltung",
+      "definition": "Technik, die Daten in den Cache holt, bevor sie tatsächlich angefordert werden, um spätere Wartezeiten zu vermeiden"
+    },
+    "funFact": "Errät der Vorlader das Zugriffsmuster richtig, liegen die Daten bei Bedarf schon bereit — liegt er falsch, verdrängt er nutzlos andere nützliche Einträge.",
+    "source": {
+      "name": "Wikipedia EN – Cache prefetching",
+      "url": "https://en.wikipedia.org/wiki/Cache_prefetching"
+    },
+    "image": null
+  },
+  "machina:concept-tombstone-h5": {
+    "id": "machina:concept-tombstone-h5",
+    "name": "Tombstone (Datenbank)",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Datenbanken",
+      "definition": "Markierung, die ein gelöschtes Datum nicht sofort entfernt, sondern es zunächst als gelöscht kennzeichnet, damit sich die Löschung im Cluster ausbreiten kann"
+    },
+    "funFact": "Ohne diese Grabstein-Markierung könnte ein verspäteter Knoten den bereits gelöschten Eintrag fälschlich wieder zum Leben erwecken.",
+    "source": {
+      "name": "Wikipedia EN – Tombstone (data store)",
+      "url": "https://en.wikipedia.org/wiki/Tombstone_(data_store)"
+    },
+    "image": null
+  },
+  "machina:concept-lsm-baum-h5": {
+    "id": "machina:concept-lsm-baum-h5",
+    "name": "Log-strukturierter Merge-Baum",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Datenbanken",
+      "definition": "Speicherstruktur, die Schreibzugriffe zunächst sequenziell sammelt und sortierte Datenblöcke später im Hintergrund zu größeren Einheiten verschmilzt"
+    },
+    "funFact": "Weil Schreibvorgänge nur angehängt statt eingestreut werden, sind solche Strukturen extrem schreibschnell — Grundlage von Datenbanken wie RocksDB und Cassandra.",
+    "source": {
+      "name": "Wikipedia EN – Log-structured merge-tree",
+      "url": "https://en.wikipedia.org/wiki/Log-structured_merge-tree"
+    },
+    "image": null
+  },
+  "machina:concept-idempotenzschluessel-h5": {
+    "id": "machina:concept-idempotenzschluessel-h5",
+    "name": "Idempotenzschlüssel",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Webtechnik",
+      "definition": "Eindeutige Kennung, die ein Client einer Anfrage mitgibt, damit der Server eine versehentlich doppelt gesendete Anfrage nur einmal ausführt"
+    },
+    "funFact": "Zahlungs-Schnittstellen nutzen ihn, damit ein erneuter Klick oder ein Netz-Timeout nicht aus Versehen zweimal abbucht.",
+    "source": {
+      "name": "Stripe API – Idempotent Requests",
+      "url": "https://docs.stripe.com/api/idempotent_requests"
+    },
+    "image": null
+  },
+  "machina:file_format-nef-h5": {
+    "id": "machina:file_format-nef-h5",
+    "name": "NEF",
+    "type": "file_format",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Nikon Electronic Format",
+      "compression": "verlustfrei komprimiert",
+      "mediaType": "Bild (Rohdaten)"
+    },
+    "funFact": "NEF ist Nikons Rohdatenformat und speichert die unbearbeiteten Sensordaten der Kamera, sodass Belichtung und Weißabgleich nachträglich verlustarm angepasst werden können.",
+    "source": {
+      "name": "Wikipedia DE – Rohdatenformat (Fotografie)",
+      "url": "https://de.wikipedia.org/wiki/Rohdatenformat_(Fotografie)"
+    },
+    "image": null
+  },
+  "machina:file_format-arw-h5": {
+    "id": "machina:file_format-arw-h5",
+    "name": "ARW",
+    "type": "file_format",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Sony Alpha Raw",
+      "compression": "verlustbehaftet komprimiert",
+      "mediaType": "Bild (Rohdaten)"
+    },
+    "funFact": "ARW ist das Rohdatenformat der Sony-Alpha-Kameras und basiert technisch auf der TIFF/EP-Spezifikation.",
+    "source": {
+      "name": "Wikipedia EN – Raw image format",
+      "url": "https://en.wikipedia.org/wiki/Raw_image_format"
+    },
+    "image": null
+  },
+  "machina:file_format-hevc-h5": {
+    "id": "machina:file_format-hevc-h5",
+    "name": "HEVC",
+    "type": "file_format",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "High Efficiency Video Coding",
+      "compression": "verlustbehaftet komprimiert",
+      "mediaType": "Video"
+    },
+    "funFact": "HEVC (auch H.265 genannt) erreicht bei gleicher Bildqualität etwa die halbe Datenrate seines Vorgängers H.264 und ist der Codec hinter 4K-Streaming und vielen UHD-Blu-rays.",
+    "source": {
+      "name": "Wikipedia DE – High Efficiency Video Coding",
+      "url": "https://de.wikipedia.org/wiki/High_Efficiency_Video_Coding"
+    },
+    "image": null
+  },
+  "machina:file_format-prores-h5": {
+    "id": "machina:file_format-prores-h5",
+    "name": "ProRes",
+    "type": "file_format",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Apple ProRes",
+      "compression": "verlustbehaftet komprimiert",
+      "mediaType": "Video"
+    },
+    "funFact": "ProRes ist ein professionelles Zwischencodierformat von Apple für die Videobearbeitung, das hohe Qualität mit moderater Datenrate verbindet und das Schneiden flüssiger macht als hochkomprimierte Aufnahmeformate.",
+    "source": {
+      "name": "Wikipedia DE – ProRes",
+      "url": "https://de.wikipedia.org/wiki/ProRes"
+    },
+    "image": null
+  },
+  "machina:file_format-dnxhd-h5": {
+    "id": "machina:file_format-dnxhd-h5",
+    "name": "DNxHD",
+    "type": "file_format",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Digital Nonlinear Extensible High Definition",
+      "compression": "verlustbehaftet komprimiert",
+      "mediaType": "Video"
+    },
+    "funFact": "DNxHD ist Avids Gegenstück zu Apples ProRes und ein verbreitetes Zwischencodierformat in der professionellen Postproduktion.",
+    "source": {
+      "name": "Wikipedia EN – Avid DNxHD",
+      "url": "https://en.wikipedia.org/wiki/Avid_DNxHD"
+    },
+    "image": null
+  },
+  "machina:file_format-cinepak-h5": {
+    "id": "machina:file_format-cinepak-h5",
+    "name": "Cinepak",
+    "type": "file_format",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Cinepak",
+      "compression": "verlustbehaftet komprimiert",
+      "mediaType": "Video"
+    },
+    "funFact": "Cinepak war Anfang der 1990er einer der ersten Videocodecs, mit denen sich Filme von CD-ROM auf damaligen PCs ruckelfrei abspielen ließen.",
+    "source": {
+      "name": "Wikipedia EN – Cinepak",
+      "url": "https://en.wikipedia.org/wiki/Cinepak"
+    },
+    "image": null
+  },
+  "machina:file_format-truehd-h5": {
+    "id": "machina:file_format-truehd-h5",
+    "name": "TrueHD",
+    "type": "file_format",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Dolby TrueHD",
+      "compression": "verlustfrei komprimiert",
+      "mediaType": "Audio"
+    },
+    "funFact": "Dolby TrueHD ist ein verlustfreies Mehrkanal-Tonformat, das auf Blu-rays die ursprüngliche Studioqualität bitgenau wiedergibt.",
+    "source": {
+      "name": "Wikipedia DE – Dolby TrueHD",
+      "url": "https://de.wikipedia.org/wiki/Dolby_TrueHD"
+    },
+    "image": null
+  },
+  "machina:file_format-dts-hd-h5": {
+    "id": "machina:file_format-dts-hd-h5",
+    "name": "DTS-HD Master Audio",
+    "type": "file_format",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "DTS-HD Master Audio",
+      "compression": "verlustfrei komprimiert",
+      "mediaType": "Audio"
+    },
+    "funFact": "DTS-HD Master Audio ist das verlustfreie Pendant zum bekannten DTS und konkurriert auf Blu-rays direkt mit Dolby TrueHD.",
+    "source": {
+      "name": "Wikipedia DE – DTS-HD Master Audio",
+      "url": "https://de.wikipedia.org/wiki/DTS-HD_Master_Audio"
+    },
+    "image": null
+  },
+  "machina:file_format-azw-h5": {
+    "id": "machina:file_format-azw-h5",
+    "name": "AZW",
+    "type": "file_format",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Amazon Kindle Format",
+      "compression": "verlustfrei komprimiert",
+      "mediaType": "Dokument"
+    },
+    "funFact": "AZW ist das ursprüngliche E-Book-Format des Amazon Kindle und baut technisch auf dem älteren MOBI-Format auf.",
+    "source": {
+      "name": "Wikipedia EN – Kindle File Format",
+      "url": "https://en.wikipedia.org/wiki/Kindle_File_Format"
+    },
+    "image": null
+  },
+  "machina:file_format-cbr-h5": {
+    "id": "machina:file_format-cbr-h5",
+    "name": "CBR",
+    "type": "file_format",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Comic Book RAR",
+      "compression": "verlustfrei komprimiert",
+      "mediaType": "Dokument"
+    },
+    "funFact": "CBR ist im Grunde ein umbenanntes RAR-Archiv voller durchnummerierter Bilddateien — der Comic-Reader zeigt sie einfach Seite für Seite an.",
+    "source": {
+      "name": "Wikipedia DE – Comic Book Archive",
+      "url": "https://de.wikipedia.org/wiki/Comic_Book_Archive"
+    },
+    "image": null
+  },
+  "machina:file_format-realaudio-h5": {
+    "id": "machina:file_format-realaudio-h5",
+    "name": "RealAudio",
+    "type": "file_format",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "RealAudio",
+      "compression": "verlustbehaftet komprimiert",
+      "mediaType": "Audio"
+    },
+    "funFact": "RealAudio (.ra) war Mitte der 1990er das dominierende Format für Audio-Streaming über langsame Modemverbindungen.",
+    "source": {
+      "name": "Wikipedia DE – RealAudio",
+      "url": "https://de.wikipedia.org/wiki/RealAudio"
+    },
+    "image": null
+  },
+  "machina:file_format-mod-h5": {
+    "id": "machina:file_format-mod-h5",
+    "name": "MOD",
+    "type": "file_format",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Module (Tracker Music)",
+      "compression": "unkomprimiert",
+      "mediaType": "Audio"
+    },
+    "funFact": "MOD-Dateien stammen vom Commodore Amiga und speichern Musik als Notenmuster plus kurze Sample-Schnipsel — die Demoszene baute damit ganze Soundtracks in winzige Dateien.",
+    "source": {
+      "name": "Wikipedia EN – Module file",
+      "url": "https://en.wikipedia.org/wiki/Module_file"
+    },
+    "image": null
+  },
+  "machina:file_format-pdb-h5": {
+    "id": "machina:file_format-pdb-h5",
+    "name": "PDB",
+    "type": "file_format",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Palm Database",
+      "compression": "unkomprimiert",
+      "mediaType": "Daten"
+    },
+    "funFact": "Die PDB-Container der Palm-Handhelds dienten als universeller Behälter für Adressbücher, Notizen und E-Books — viele frühe Reader-Formate steckten in einem PDB.",
+    "source": {
+      "name": "Wikipedia EN – PDB (Palm OS)",
+      "url": "https://en.wikipedia.org/wiki/PDB_(Palm_OS)"
+    },
+    "image": null
+  },
+  "machina:algorithm-cocktail-sort-h5": {
+    "id": "machina:algorithm-cocktail-sort-h5",
+    "name": "Cocktail-Shaker-Sort",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortieralgorithmus",
+      "avgComplexity": "O(n²)",
+      "purpose": "Variante des Bubblesort, die abwechselnd vor- und rückwärts durch die Liste läuft, um große und kleine Elemente schneller an ihren Platz zu bringen"
+    },
+    "funFact": "Der Name kommt vom Hin- und Herschütteln wie bei einem Cocktailshaker — der bidirektionale Durchlauf beseitigt das Bubblesort-Problem langsam wandernder kleiner Werte am Listenende.",
+    "source": {
+      "name": "Wikipedia EN – Cocktail shaker sort",
+      "url": "https://en.wikipedia.org/wiki/Cocktail_shaker_sort"
+    },
+    "image": null
+  },
+  "machina:algorithm-ford-johnson-h5": {
+    "id": "machina:algorithm-ford-johnson-h5",
+    "name": "Merge-Insertion-Sort (Ford-Johnson)",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortieralgorithmus",
+      "avgComplexity": "O(n log n)",
+      "purpose": "Vergleichsbasiertes Sortieren, das mit einer minimalen Zahl von Vergleichen auskommt, indem es Elemente paart und dann geschickt einfügt"
+    },
+    "funFact": "Der Ford-Johnson-Algorithmus benötigt für kleine Eingaben die theoretisch geringste Anzahl an Vergleichen und liegt damit sehr nah an der Informationstheorie-Untergrenze.",
+    "source": {
+      "name": "Wikipedia EN – Merge-insertion sort",
+      "url": "https://en.wikipedia.org/wiki/Merge-insertion_sort"
+    },
+    "image": null
+  },
+  "machina:algorithm-tree-sort-h5": {
+    "id": "machina:algorithm-tree-sort-h5",
+    "name": "Tree-Sort",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortieralgorithmus",
+      "avgComplexity": "O(n log n)",
+      "purpose": "Fügt alle Elemente in einen binären Suchbaum ein und liest sie per In-Order-Durchlauf sortiert wieder aus"
+    },
+    "funFact": "Tree-Sort ist nur so gut wie sein Baum: Mit einem ausgeglichenen Suchbaum bleibt es bei O(n log n), bei einer bereits sortierten Eingabe und unbalanciertem Baum entartet es zu O(n²).",
+    "source": {
+      "name": "Wikipedia EN – Tree sort",
+      "url": "https://en.wikipedia.org/wiki/Tree_sort"
+    },
+    "image": null
+  },
+  "machina:algorithm-strand-sort-h5": {
+    "id": "machina:algorithm-strand-sort-h5",
+    "name": "Strand-Sort",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortieralgorithmus",
+      "avgComplexity": "O(n²)",
+      "purpose": "Zieht wiederholt bereits aufsteigende Teilfolgen aus der Eingabe heraus und verschmilzt diese 'Stränge' zur sortierten Ausgabe"
+    },
+    "funFact": "Strand-Sort ist besonders effizient, wenn die Daten schon viele lange aufsteigende Läufe enthalten — dann muss es kaum noch mischen.",
+    "source": {
+      "name": "Wikipedia EN – Strand sort",
+      "url": "https://en.wikipedia.org/wiki/Strand_sort"
+    },
+    "image": null
+  },
+  "machina:algorithm-block-sort-h5": {
+    "id": "machina:algorithm-block-sort-h5",
+    "name": "Block-Sort",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortieralgorithmus",
+      "avgComplexity": "O(n log n)",
+      "purpose": "Stabiles Sortieren in konstantem Zusatzspeicher, indem die Daten in feste Blöcke zerlegt und vor Ort verschmolzen werden"
+    },
+    "funFact": "Block-Sort (auch WikiSort genannt) erreicht das seltene Kunststück, gleichzeitig stabil, O(n log n) und nahezu speicherlos (in-place) zu sein.",
+    "source": {
+      "name": "Wikipedia EN – Block sort",
+      "url": "https://en.wikipedia.org/wiki/Block_sort"
+    },
+    "image": null
+  },
+  "machina:algorithm-tournament-sort-h5": {
+    "id": "machina:algorithm-tournament-sort-h5",
+    "name": "Tournament-Sort",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortieralgorithmus",
+      "avgComplexity": "O(n log n)",
+      "purpose": "Bestimmt das kleinste Element über ein Turnierbaum-Schema von paarweisen Vergleichen, ähnlich einem K.-o.-Turnier"
+    },
+    "funFact": "Tournament-Sort ist eng mit dem Auswahl- und dem Heapsort-Prinzip verwandt — der 'Sieger' jedes Turniers ist das nächste sortierte Element.",
+    "source": {
+      "name": "Wikipedia EN – Tournament sort",
+      "url": "https://en.wikipedia.org/wiki/Tournament_sort"
+    },
+    "image": null
+  },
+  "machina:algorithm-pigeonhole-sort-h5": {
+    "id": "machina:algorithm-pigeonhole-sort-h5",
+    "name": "Taubenschlag-Sortierung",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortieralgorithmus",
+      "avgComplexity": "O(n + k)",
+      "purpose": "Verteilt Elemente direkt in vorbereitete Fächer ('Taubenschläge') entsprechend ihrem Schlüssel und liest sie geordnet wieder aus"
+    },
+    "funFact": "Die Taubenschlag-Sortierung lohnt sich nur, wenn der Wertebereich k nicht viel größer als die Elementzahl n ist — sonst stehen zu viele leere Fächer herum.",
+    "source": {
+      "name": "Wikipedia EN – Pigeonhole sort",
+      "url": "https://en.wikipedia.org/wiki/Pigeonhole_sort"
+    },
+    "image": null
+  },
+  "machina:algorithm-bead-sort-h5": {
+    "id": "machina:algorithm-bead-sort-h5",
+    "name": "Bead-Sort",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortieralgorithmus",
+      "avgComplexity": "O(n²)",
+      "purpose": "Sortiert positive ganze Zahlen, indem 'Perlen' wie an einem Abakus unter Schwerkraft nach unten fallen und sich Stapel sortierter Höhe bilden"
+    },
+    "funFact": "Bead-Sort (Gravitationssortierung) ist von der Schwerkraft inspiriert: In einer idealen Parallel-Hardware fallen alle Perlen gleichzeitig und sortieren in konstanter Zeit.",
+    "source": {
+      "name": "Wikipedia EN – Bead sort",
+      "url": "https://en.wikipedia.org/wiki/Bead_sort"
+    },
+    "image": null
+  },
+  "machina:algorithm-slowsort-h5": {
+    "id": "machina:algorithm-slowsort-h5",
+    "name": "Slowsort",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortieralgorithmus",
+      "avgComplexity": "O(n^(log n))",
+      "purpose": "Bewusst ineffizientes 'Multiply and Surrender'-Lehrbeispiel, das ein Problem in immer größere Teilprobleme zerlegt"
+    },
+    "funFact": "Slowsort wurde als humorvolles Gegenstück zu Divide-and-Conquer erfunden ('Multiply and Surrender') und ist absichtlich extrem langsam.",
+    "source": {
+      "name": "Wikipedia EN – Slowsort",
+      "url": "https://en.wikipedia.org/wiki/Slowsort"
+    },
+    "image": null
+  },
+  "machina:algorithm-binary-insertion-sort-h5": {
+    "id": "machina:algorithm-binary-insertion-sort-h5",
+    "name": "Binäres Insertionsort",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortieralgorithmus",
+      "avgComplexity": "O(n²)",
+      "purpose": "Variante des Insertionsort, die die Einfügeposition per binärer Suche statt linear bestimmt und so die Zahl der Vergleiche senkt"
+    },
+    "funFact": "Binäres Insertionsort spart Vergleiche, nicht aber Verschiebungen — deshalb bleibt die Laufzeit im Mittel weiter bei O(n²).",
+    "source": {
+      "name": "Wikipedia EN – Insertion sort (binary)",
+      "url": "https://en.wikipedia.org/wiki/Insertion_sort"
+    },
+    "image": null
+  },
+  "machina:algorithm-ternary-search-h5": {
+    "id": "machina:algorithm-ternary-search-h5",
+    "name": "Ternäre Suche",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Suchalgorithmus",
+      "avgComplexity": "O(log n)",
+      "purpose": "Findet das Extremum einer unimodalen Funktion oder durchsucht ein sortiertes Feld, indem der Bereich in jedem Schritt in drei Teile geteilt wird"
+    },
+    "funFact": "Trotz Dreiteilung ist die ternäre Suche meist nicht schneller als die binäre Suche, weil sie pro Schritt mehr Vergleiche braucht.",
+    "source": {
+      "name": "Wikipedia EN – Ternary search",
+      "url": "https://en.wikipedia.org/wiki/Ternary_search"
+    },
+    "image": null
+  },
+  "machina:algorithm-commentz-walter-h5": {
+    "id": "machina:algorithm-commentz-walter-h5",
+    "name": "Commentz-Walter-Algorithmus",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "String-Verarbeitung",
+      "avgComplexity": "O(mn)",
+      "purpose": "Sucht mehrere Muster gleichzeitig in einem Text und kombiniert dafür die Sprungtechnik von Boyer-Moore mit der Mehrmuster-Suche von Aho-Corasick"
+    },
+    "funFact": "Commentz-Walter vereint zwei Klassiker: Es überspringt wie Boyer-Moore unpassende Textbereiche, kann aber wie Aho-Corasick nach vielen Mustern auf einmal fahnden.",
+    "source": {
+      "name": "Wikipedia EN – Commentz-Walter algorithm",
+      "url": "https://en.wikipedia.org/wiki/Commentz-Walter_algorithm"
+    },
+    "image": null
+  },
+  "machina:algorithm-bwt-mtf-h5": {
+    "id": "machina:algorithm-bwt-mtf-h5",
+    "name": "Move-to-Front-Kodierung",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Kompressionsalgorithmus",
+      "avgComplexity": "O(n)",
+      "purpose": "Wandelt eine Folge in Indizes einer ständig umsortierten Liste um, sodass häufige Zeichen kleine Zahlen ergeben und sich besser komprimieren lassen"
+    },
+    "funFact": "Move-to-Front ist ein wichtiger Zwischenschritt in der bzip2-Kompression: Nach der Burrows-Wheeler-Transformation macht es lokale Häufungen für die Entropie-Kodierung sichtbar.",
+    "source": {
+      "name": "Wikipedia EN – Move-to-front transform",
+      "url": "https://en.wikipedia.org/wiki/Move-to-front_transform"
+    },
+    "image": null
+  },
+  "machina:algorithm-arithmetic-coding-h5": {
+    "id": "machina:algorithm-arithmetic-coding-h5",
+    "name": "Arithmetische Kodierung",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Kompressionsalgorithmus",
+      "avgComplexity": "O(n)",
+      "purpose": "Stellt eine ganze Nachricht als einzelne Bruchzahl in einem Intervall dar und erreicht damit eine Kompression nahe der Entropiegrenze"
+    },
+    "funFact": "Arithmetische Kodierung schlägt die Huffman-Kodierung bei der Effizienz, weil sie nicht an ganze Bits pro Symbol gebunden ist — moderne Codecs wie H.265 nutzen Varianten davon.",
+    "source": {
+      "name": "Wikipedia DE – Arithmetische Kodierung",
+      "url": "https://de.wikipedia.org/wiki/Arithmetische_Kodierung"
+    },
+    "image": null
+  },
+  "machina:algorithm-shamir-secret-h5": {
+    "id": "machina:algorithm-shamir-secret-h5",
+    "name": "Shamir's Secret Sharing",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Kryptografie",
+      "avgComplexity": "O(n²)",
+      "purpose": "Teilt ein Geheimnis in n Teile auf, von denen erst eine Mindestanzahl k zusammen das Geheimnis rekonstruieren kann"
+    },
+    "funFact": "Shamirs Verfahren beruht darauf, dass ein Polynom vom Grad k-1 erst durch k Punkte eindeutig bestimmt ist — weniger Teile verraten mathematisch nichts über das Geheimnis.",
+    "source": {
+      "name": "Wikipedia DE – Shamirs Secret Sharing",
+      "url": "https://de.wikipedia.org/wiki/Shamirs_Secret_Sharing"
+    },
+    "image": null
+  },
+  "machina:algorithm-elliptic-curve-h5": {
+    "id": "machina:algorithm-elliptic-curve-h5",
+    "name": "Elliptische-Kurven-Kryptografie",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Kryptografie",
+      "avgComplexity": "O(n³)",
+      "purpose": "Asymmetrische Verschlüsselung auf Basis der Punktarithmetik elliptischer Kurven, die bei kurzen Schlüsseln hohe Sicherheit bietet"
+    },
+    "funFact": "Elliptische-Kurven-Kryptografie erreicht mit einem 256-Bit-Schlüssel etwa die Sicherheit eines 3072-Bit-RSA-Schlüssels und steckt heute in TLS, Signal und vielen Kryptowährungen.",
+    "source": {
+      "name": "Wikipedia DE – Elliptic Curve Cryptography",
+      "url": "https://de.wikipedia.org/wiki/Elliptic_Curve_Cryptography"
+    },
+    "image": null
+  },
+  "machina:algorithm-bresenham-circle-h5": {
+    "id": "machina:algorithm-bresenham-circle-h5",
+    "name": "Mittelpunkt-Kreisalgorithmus",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Geometrischer Algorithmus",
+      "avgComplexity": "O(n)",
+      "purpose": "Zeichnet einen Kreis im Rasterbild nur mit ganzzahliger Addition und Symmetrie, ohne Wurzeln oder Gleitkommarechnung"
+    },
+    "funFact": "Der Mittelpunkt-Kreisalgorithmus berechnet nur ein Achtel des Kreises und spiegelt es achtfach — ein Trick, der ihn auf alter Hardware blitzschnell machte.",
+    "source": {
+      "name": "Wikipedia DE – Bresenham-Algorithmus",
+      "url": "https://de.wikipedia.org/wiki/Bresenham-Algorithmus"
+    },
+    "image": null
+  },
+  "machina:algorithm-quickhull-h5": {
+    "id": "machina:algorithm-quickhull-h5",
+    "name": "Quickhull",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Geometrischer Algorithmus",
+      "avgComplexity": "O(n log n)",
+      "purpose": "Berechnet die konvexe Hülle einer Punktmenge nach dem Divide-and-Conquer-Prinzip ähnlich wie Quicksort"
+    },
+    "funFact": "Quickhull verdankt seinen Namen der Verwandtschaft mit Quicksort: Es wählt extreme Punkte als 'Pivot' und teilt die restlichen Punkte rekursiv auf.",
+    "source": {
+      "name": "Wikipedia EN – Quickhull",
+      "url": "https://en.wikipedia.org/wiki/Quickhull"
+    },
+    "image": null
+  },
+  "machina:algorithm-fortune-h5": {
+    "id": "machina:algorithm-fortune-h5",
+    "name": "Fortune-Algorithmus",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Geometrischer Algorithmus",
+      "avgComplexity": "O(n log n)",
+      "purpose": "Konstruiert das Voronoi-Diagramm einer Punktmenge mit einer von links nach rechts wandernden 'Sweep Line'"
+    },
+    "funFact": "Der Fortune-Algorithmus nutzt eine raffinierte parabolische 'Strandlinie', um Voronoi-Zellen optimal in O(n log n) zu berechnen.",
+    "source": {
+      "name": "Wikipedia EN – Fortune's algorithm",
+      "url": "https://en.wikipedia.org/wiki/Fortune%27s_algorithm"
+    },
+    "image": null
+  },
+  "machina:algorithm-hierarchical-clustering-h5": {
+    "id": "machina:algorithm-hierarchical-clustering-h5",
+    "name": "Hierarchisches Clustering",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Clustering-Algorithmus",
+      "avgComplexity": "O(n³)",
+      "purpose": "Gruppiert Datenpunkte schrittweise zu einer Baumstruktur (Dendrogramm), indem es jeweils die ähnlichsten Cluster verschmilzt"
+    },
+    "funFact": "Anders als k-Means muss man beim hierarchischen Clustering die Zahl der Cluster nicht vorab festlegen — man schneidet das Dendrogramm einfach auf der gewünschten Höhe.",
+    "source": {
+      "name": "Wikipedia DE – Hierarchische Clusteranalyse",
+      "url": "https://de.wikipedia.org/wiki/Hierarchische_Clusteranalyse"
+    },
+    "image": null
+  },
+  "machina:algorithm-mean-shift-h5": {
+    "id": "machina:algorithm-mean-shift-h5",
+    "name": "Mean-Shift",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Clustering-Algorithmus",
+      "avgComplexity": "O(n²)",
+      "purpose": "Verschiebt jeden Datenpunkt iterativ in Richtung der höchsten lokalen Dichte, sodass sich Cluster um die Dichtemaxima bilden"
+    },
+    "funFact": "Mean-Shift braucht im Gegensatz zu k-Means keine vorgegebene Clusterzahl und wird unter anderem für die Objektverfolgung in Videos genutzt.",
+    "source": {
+      "name": "Wikipedia EN – Mean shift",
+      "url": "https://en.wikipedia.org/wiki/Mean_shift"
+    },
+    "image": null
+  },
+  "machina:algorithm-gaussian-mixture-h5": {
+    "id": "machina:algorithm-gaussian-mixture-h5",
+    "name": "Gauß'sche Mischverteilung (EM)",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Clustering-Algorithmus",
+      "avgComplexity": "O(n k d²)",
+      "purpose": "Modelliert Daten als Mischung mehrerer Normalverteilungen und schätzt deren Parameter per Erwartungs-Maximierungs-Verfahren"
+    },
+    "funFact": "Gauß'sche Mischmodelle erlauben weiche Clusterzugehörigkeit — ein Punkt kann mit 70 Prozent zu Cluster A und 30 Prozent zu Cluster B gehören, statt nur zu einem.",
+    "source": {
+      "name": "Wikipedia DE – EM-Algorithmus",
+      "url": "https://de.wikipedia.org/wiki/EM-Algorithmus"
+    },
+    "image": null
+  },
+  "machina:algorithm-floyd-cycle-tortoise-h5": {
+    "id": "machina:algorithm-floyd-cycle-tortoise-h5",
+    "name": "Hase-und-Igel-Zyklensuche",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Graphalgorithmus",
+      "avgComplexity": "O(n)",
+      "purpose": "Erkennt einen Zyklus in einer Folge oder verketteten Liste mit zwei unterschiedlich schnellen Zeigern bei konstantem Speicher"
+    },
+    "funFact": "Bei der Hase-und-Igel-Methode läuft ein Zeiger doppelt so schnell wie der andere — gibt es einen Zyklus, holt der schnelle den langsamen zwangsläufig ein.",
+    "source": {
+      "name": "Wikipedia EN – Cycle detection (Floyd)",
+      "url": "https://en.wikipedia.org/wiki/Cycle_detection"
+    },
+    "image": null
+  },
+  "machina:network_protocol-ipsec-ike-h5": {
+    "id": "machina:network_protocol-ipsec-ike-h5",
+    "name": "IKEv2",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Internet Key Exchange Version 2",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 500,
+      "purpose": "Aushandeln von Sicherheitsparametern und Schlüsseln für IPsec-VPN-Tunnel"
+    },
+    "funFact": "IKEv2 baut bei Netzwechsel (etwa von WLAN auf Mobilfunk) dank MOBIKE die VPN-Verbindung automatisch wieder auf, ohne dass der Nutzer es merkt.",
+    "source": {
+      "name": "RFC 7296 – Internet Key Exchange Protocol Version 2 (IKEv2)",
+      "url": "https://www.rfc-editor.org/rfc/rfc7296"
+    },
+    "image": null
+  },
+  "machina:network_protocol-ice-h5": {
+    "id": "machina:network_protocol-ice-h5",
+    "name": "ICE",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Interactive Connectivity Establishment",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "purpose": "Findet den besten möglichen Verbindungsweg zwischen zwei Geräten trotz NAT und Firewalls"
+    },
+    "funFact": "ICE sammelt mehrere Verbindungswege, prüft sie alle parallel und wählt den ersten, der durchkommt, damit ein Videochat fast immer eine Verbindung findet.",
+    "source": {
+      "name": "RFC 8445 – Interactive Connectivity Establishment (ICE)",
+      "url": "https://www.rfc-editor.org/rfc/rfc8445"
+    },
+    "image": null
+  },
+  "machina:network_protocol-quic-h5": {
+    "id": "machina:network_protocol-quic-h5",
+    "name": "MASQUE",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Multiplexed Application Substrate over QUIC Encryption",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 443,
+      "purpose": "Tunnelung von UDP- und IP-Verkehr über HTTP/3, etwa für moderne Proxy- und VPN-Dienste"
+    },
+    "funFact": "MASQUE steckt hinter Apples iCloud Private Relay und leitet den Verkehr über zwei Stationen, sodass keine einzelne Stelle Nutzer und Ziel zugleich kennt.",
+    "source": {
+      "name": "RFC 9298 – Proxying UDP in HTTP",
+      "url": "https://www.rfc-editor.org/rfc/rfc9298"
+    },
+    "image": null
+  },
+  "machina:network_protocol-mpls-h5": {
+    "id": "machina:network_protocol-mpls-h5",
+    "name": "MPLS",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Multiprotocol Label Switching",
+      "layer": "Vermittlungsschicht",
+      "transport": "IP",
+      "purpose": "Schnelle Paketweiterleitung anhand kurzer Labels statt vollständiger IP-Routing-Suche"
+    },
+    "funFact": "MPLS wird oft als Schicht 2,5 bezeichnet, weil es zwischen Sicherungs- und Vermittlungsschicht arbeitet und Pakete nur am Label entlang lenkt.",
+    "source": {
+      "name": "RFC 3031 – Multiprotocol Label Switching Architecture",
+      "url": "https://www.rfc-editor.org/rfc/rfc3031"
+    },
+    "image": null
+  },
+  "machina:network_protocol-ldp-h5": {
+    "id": "machina:network_protocol-ldp-h5",
+    "name": "LDP",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Label Distribution Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 646,
+      "purpose": "Verteilung von MPLS-Labels zwischen Routern zum Aufbau von Label-Switched-Pfaden"
+    },
+    "funFact": "LDP sorgt dafür, dass alle Router in einem MPLS-Netz sich auf dieselben Labels für einen Pfad einigen, ähnlich einem abgestimmten Wegweiser-System.",
+    "source": {
+      "name": "RFC 5036 – LDP Specification",
+      "url": "https://www.rfc-editor.org/rfc/rfc5036"
+    },
+    "image": null
+  },
+  "machina:network_protocol-quic-multipath-h5": {
+    "id": "machina:network_protocol-quic-multipath-h5",
+    "name": "MP-TCP",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Multipath TCP",
+      "layer": "Transportschicht",
+      "transport": "TCP",
+      "purpose": "Nutzt mehrere Netzwerkwege gleichzeitig für eine einzige TCP-Verbindung"
+    },
+    "funFact": "Mit Multipath TCP kann ein Smartphone WLAN und Mobilfunk gleichzeitig für dieselbe Verbindung verwenden und nahtlos zwischen beiden wechseln.",
+    "source": {
+      "name": "RFC 8684 – TCP Extensions for Multipath Operation with Multiple Addresses",
+      "url": "https://www.rfc-editor.org/rfc/rfc8684"
+    },
+    "image": null
+  },
+  "machina:network_protocol-radius-h5": {
+    "id": "machina:network_protocol-radius-h5",
+    "name": "RADIUS-Server",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Remote Authentication Dial-In User Service",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 1812,
+      "purpose": "Zentrale Authentifizierung, Autorisierung und Abrechnung von Netzwerkzugängen"
+    },
+    "funFact": "RADIUS steckt hinter vielen WLAN-Anmeldungen an Universitäten und Firmen, bei denen jeder Nutzer eigene Zugangsdaten statt eines gemeinsamen Passworts verwendet.",
+    "source": {
+      "name": "RFC 2865 – Remote Authentication Dial In User Service (RADIUS)",
+      "url": "https://www.rfc-editor.org/rfc/rfc2865"
+    },
+    "image": null
+  },
+  "machina:network_protocol-syslog-tls-h5": {
+    "id": "machina:network_protocol-syslog-tls-h5",
+    "name": "Syslog über TLS",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Transport Layer Security Transport Mapping for Syslog",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 6514,
+      "purpose": "Verschlüsselter Versand von Systemprotokoll-Meldungen an einen zentralen Log-Server"
+    },
+    "funFact": "Syslog sammelt die Statusmeldungen vieler Server an einer Stelle; über TLS sind diese Protokolle vor Mitlesen und Manipulation geschützt.",
+    "source": {
+      "name": "RFC 5425 – Transport Layer Security (TLS) Transport Mapping for Syslog",
+      "url": "https://www.rfc-editor.org/rfc/rfc5425"
+    },
+    "image": null
+  },
+  "machina:network_protocol-nts-h5": {
+    "id": "machina:network_protocol-nts-h5",
+    "name": "NTS",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Network Time Security",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 4460,
+      "purpose": "Authentifizierung und Manipulationsschutz für die Zeitsynchronisation per NTP"
+    },
+    "funFact": "NTS verhindert, dass ein Angreifer Rechnern eine falsche Uhrzeit unterschiebt, was sonst etwa abgelaufene Zertifikate wieder gültig erscheinen lassen könnte.",
+    "source": {
+      "name": "RFC 8915 – Network Time Security for the Network Time Protocol",
+      "url": "https://www.rfc-editor.org/rfc/rfc8915"
+    },
+    "image": null
+  },
+  "machina:network_protocol-sips-tls-h5": {
+    "id": "machina:network_protocol-sips-tls-h5",
+    "name": "SIP über TLS",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Session Initiation Protocol Secure",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 5061,
+      "purpose": "Verschlüsselter Auf- und Abbau von Internet-Telefonie- und Videogesprächen"
+    },
+    "funFact": "SIP regelt bei vielen VoIP-Telefonen nur das Klingeln und Verbinden; die eigentliche Sprache läuft danach getrennt per RTP.",
+    "source": {
+      "name": "RFC 3261 – SIP: Session Initiation Protocol",
+      "url": "https://www.rfc-editor.org/rfc/rfc3261"
+    },
+    "image": null
+  },
+  "machina:network_protocol-ospf-h5": {
+    "id": "machina:network_protocol-ospf-h5",
+    "name": "OSPFv3",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Open Shortest Path First Version 3",
+      "layer": "Vermittlungsschicht",
+      "transport": "IP",
+      "purpose": "Berechnung kürzester Routen innerhalb eines Netzes per Link-State-Verfahren für IPv6"
+    },
+    "funFact": "OSPF lässt jeden Router eine vollständige Karte des Netzes aufbauen und daraus mit Dijkstras Algorithmus den kürzesten Weg berechnen.",
+    "source": {
+      "name": "RFC 5340 – OSPF for IPv6",
+      "url": "https://www.rfc-editor.org/rfc/rfc5340"
+    },
+    "image": null
+  },
+  "machina:network_protocol-ntp-pool-h5": {
+    "id": "machina:network_protocol-ntp-pool-h5",
+    "name": "PTP",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Precision Time Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 319,
+      "purpose": "Hochgenaue Zeitsynchronisation im lokalen Netz bis in den Mikro- und Nanosekundenbereich"
+    },
+    "funFact": "PTP ist deutlich genauer als das verbreitete NTP und wird etwa in Börsen-Handelssystemen und Mobilfunknetzen für präzise Zeitstempel eingesetzt.",
+    "source": {
+      "name": "IEEE 1588 / Wikipedia DE – Precision Time Protocol",
+      "url": "https://de.wikipedia.org/wiki/Precision_Time_Protocol"
+    },
+    "image": null
+  },
+  "machina:network_protocol-sieve-h5": {
+    "id": "machina:network_protocol-sieve-h5",
+    "name": "WebPush",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Web Push Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 443,
+      "purpose": "Zustellung von Benachrichtigungen an Webbrowser, auch wenn die Webseite gerade nicht geöffnet ist"
+    },
+    "funFact": "Dank Web Push kann eine Webseite einem Nutzer noch Hinweise schicken, nachdem der Tab längst geschlossen wurde, ähnlich einer App-Benachrichtigung.",
+    "source": {
+      "name": "RFC 8030 – Generic Event Delivery Using HTTP Push",
+      "url": "https://www.rfc-editor.org/rfc/rfc8030"
+    },
+    "image": null
+  },
+  "machina:network_protocol-coap-block-h5": {
+    "id": "machina:network_protocol-coap-block-h5",
+    "name": "OCSP-Stapling",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Online Certificate Status Protocol Stapling",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "purpose": "Mitliefern eines aktuellen Sperrstatus-Nachweises für ein TLS-Zertifikat durch den Server"
+    },
+    "funFact": "Beim OCSP-Stapling holt der Server den Gültigkeitsnachweis seines Zertifikats selbst und reicht ihn beim Verbindungsaufbau gleich mit, was den Besucher schneller und privater macht.",
+    "source": {
+      "name": "RFC 6066 – TLS Extensions: Certificate Status Request",
+      "url": "https://www.rfc-editor.org/rfc/rfc6066"
+    },
+    "image": null
+  },
+  "machina:network_protocol-snmp-trap-tls-h5": {
+    "id": "machina:network_protocol-snmp-trap-tls-h5",
+    "name": "DTLS-SRTP",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Datagram Transport Layer Security for Secure RTP",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "purpose": "Schlüsselaustausch über DTLS zum Verschlüsseln von Echtzeit-Medienströmen in WebRTC"
+    },
+    "funFact": "DTLS-SRTP handelt im Browser-Videochat die Schlüssel direkt zwischen den Teilnehmern aus, sodass selbst der vermittelnde Server die Medien nicht mitlesen kann.",
+    "source": {
+      "name": "RFC 5764 – DTLS Extension to Establish Keys for SRTP",
+      "url": "https://www.rfc-editor.org/rfc/rfc5764"
+    },
+    "image": null
+  },
+  "machina:network_protocol-bgp-mp-h5": {
+    "id": "machina:network_protocol-bgp-mp-h5",
+    "name": "BGP-Routenreflektor",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Border Gateway Protocol Route Reflector",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 179,
+      "purpose": "Verteilung von Routing-Informationen im Internet zwischen autonomen Systemen"
+    },
+    "funFact": "BGP ist das Protokoll, das die großen Netzbetreiber des Internets miteinander verbindet; Fehlkonfigurationen dabei haben schon ganze Länder offline genommen.",
+    "source": {
+      "name": "RFC 4271 – A Border Gateway Protocol 4 (BGP-4)",
+      "url": "https://www.rfc-editor.org/rfc/rfc4271"
+    },
+    "image": null
+  },
+  "machina:hardware-dsp-h5": {
+    "id": "machina:hardware-dsp-h5",
+    "name": "DSP",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Prozessor/Recheneinheit",
+      "function": "Spezialprozessor, der Audio-, Sprach- und Signaldaten in Echtzeit filtert und verarbeitet"
+    },
+    "funFact": "Ein digitaler Signalprozessor steckt in Kopfhörern mit Geräuschunterdrückung und berechnet blitzschnell den Gegenschall, der den Umgebungslärm auslöscht.",
+    "source": {
+      "name": "Wikipedia DE – Digitaler Signalprozessor",
+      "url": "https://de.wikipedia.org/wiki/Digitaler_Signalprozessor"
+    },
+    "image": null
+  },
+  "machina:hardware-soc-h5": {
+    "id": "machina:hardware-soc-h5",
+    "name": "System-on-a-Chip",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Prozessor/Recheneinheit",
+      "function": "Vereint Prozessor, Grafik, Speichercontroller und weitere Bausteine auf einem einzigen Chip"
+    },
+    "funFact": "In fast jedem Smartphone steckt ein SoC, das CPU, GPU und viele weitere Funktionen auf einem fingernagelgroßen Chip vereint, um Platz und Strom zu sparen.",
+    "source": {
+      "name": "Wikipedia DE – System-on-a-Chip",
+      "url": "https://de.wikipedia.org/wiki/System-on-a-Chip"
+    },
+    "image": null
+  },
+  "machina:hardware-ldo-regler-h5": {
+    "id": "machina:hardware-ldo-regler-h5",
+    "name": "Linearregler (LDO)",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Stromversorgung",
+      "function": "Liefert eine sehr saubere, konstante Ausgangsspannung knapp unterhalb der Eingangsspannung"
+    },
+    "funFact": "Ein Low-Dropout-Regler erzeugt eine besonders störungsarme Spannung und versorgt deshalb gern empfindliche Analog- und Funkbausteine.",
+    "source": {
+      "name": "Wikipedia DE – Low-Dropout-Regler",
+      "url": "https://de.wikipedia.org/wiki/Low-Dropout-Regler"
+    },
+    "image": null
+  },
+  "machina:hardware-oszillator-h5": {
+    "id": "machina:hardware-oszillator-h5",
+    "name": "Quarzoszillator-Modul",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Taktgeber",
+      "function": "Erzeugt mithilfe eines schwingenden Quarzkristalls ein präzises Taktsignal als Zeitbasis für digitale Schaltungen"
+    },
+    "funFact": "Ein winziger Quarzkristall schwingt mit sehr stabiler Frequenz und gibt so den Takt vor, nach dem fast alle digitalen Geräte ihre Schritte ausführen.",
+    "source": {
+      "name": "Wikipedia DE – Schwingquarz",
+      "url": "https://de.wikipedia.org/wiki/Schwingquarz"
+    },
+    "image": null
+  },
+  "machina:hardware-ram-dimm-h5": {
+    "id": "machina:hardware-ram-dimm-h5",
+    "name": "SO-DIMM-Modul",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Speichermodul",
+      "function": "Kompaktes Arbeitsspeicher-Steckmodul für Notebooks und kleine Geräte mit verkürzter Bauform"
+    },
+    "funFact": "SO-DIMMs sind die kürzeren Speicherriegel in Laptops; sie passen platzbedingt nicht in die längeren DIMM-Steckplätze normaler Desktop-Mainboards.",
+    "source": {
+      "name": "Wikipedia DE – DIMM",
+      "url": "https://de.wikipedia.org/wiki/Dual_Inline_Memory_Module"
+    },
+    "image": null
+  },
+  "machina:hardware-bios-chip-h5": {
+    "id": "machina:hardware-bios-chip-h5",
+    "name": "UEFI-Flash-Chip",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Speicherchip",
+      "function": "Nichtflüchtiger Speicherbaustein, der die Firmware zum Starten des Rechners vor dem Betriebssystem enthält"
+    },
+    "funFact": "Auf diesem kleinen Chip liegt der erste Code, den ein PC nach dem Einschalten ausführt, lange bevor das Betriebssystem geladen wird.",
+    "source": {
+      "name": "Wikipedia DE – UEFI",
+      "url": "https://de.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface"
+    },
+    "image": null
+  },
+  "machina:hardware-rtc-modul-h5": {
+    "id": "machina:hardware-rtc-modul-h5",
+    "name": "RTC-Modul",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Taktgeber",
+      "function": "Hält Datum und Uhrzeit auch bei ausgeschaltetem Gerät mithilfe einer kleinen Pufferbatterie weiter"
+    },
+    "funFact": "Dank der Echtzeituhr und ihrer Knopfzelle weiß ein Computer auch nach Tagen ohne Strom noch, welcher Tag und welche Uhrzeit gerade sind.",
+    "source": {
+      "name": "Wikipedia DE – Echtzeituhr",
+      "url": "https://de.wikipedia.org/wiki/Echtzeituhr"
+    },
+    "image": null
+  },
+  "machina:hardware-spannungswandler-dcdc-h5": {
+    "id": "machina:hardware-spannungswandler-dcdc-h5",
+    "name": "DC-DC-Wandler",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Stromversorgung",
+      "function": "Wandelt eine Gleichspannung in eine andere höhere oder niedrigere Gleichspannung um"
+    },
+    "funFact": "Ein DC-DC-Wandler erzeugt aus einer einzigen Akkuspannung die vielen verschiedenen Spannungen, die die Bauteile eines Geräts gleichzeitig brauchen.",
+    "source": {
+      "name": "Wikipedia DE – Gleichspannungswandler",
+      "url": "https://de.wikipedia.org/wiki/Gleichspannungswandler"
+    },
+    "image": null
+  },
+  "machina:hardware-egpu-gehaeuse-h5": {
+    "id": "machina:hardware-egpu-gehaeuse-h5",
+    "name": "eGPU-Gehäuse",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Erweiterung",
+      "function": "Externes Gehäuse, das eine vollwertige Grafikkarte per Thunderbolt an ein Notebook anbindet"
+    },
+    "funFact": "Mit einem eGPU-Gehäuse kann ein schlankes Notebook für anspruchsvolle Spiele oder 3D-Arbeit eine externe Desktop-Grafikkarte nutzen.",
+    "source": {
+      "name": "Wikipedia DE – Externe Grafikkarte",
+      "url": "https://de.wikipedia.org/wiki/Externe_Grafikkarte"
+    },
+    "image": null
+  },
+  "machina:hardware-npu-h5": {
+    "id": "machina:hardware-npu-h5",
+    "name": "KI-Beschleuniger (NPU)",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Prozessor/Recheneinheit",
+      "function": "Recheneinheit, die typische KI-Operationen wie neuronale Netze besonders energiesparend ausführt"
+    },
+    "funFact": "Viele moderne Smartphone-Chips enthalten eine NPU, die Aufgaben wie Bilderkennung direkt auf dem Gerät erledigt, ohne Daten in die Cloud zu schicken.",
+    "source": {
+      "name": "Wikipedia DE – KI-Beschleuniger",
+      "url": "https://de.wikipedia.org/wiki/KI-Beschleuniger"
+    },
+    "image": null
+  },
+  "machina:hardware-asic-miner-h5": {
+    "id": "machina:hardware-asic-miner-h5",
+    "name": "Anwendungsspezifischer ASIC",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Prozessor/Recheneinheit",
+      "function": "Fest verdrahteter Chip, der für genau eine Aufgabe optimiert ist und diese besonders schnell und sparsam erledigt"
+    },
+    "funFact": "ASICs sind nach der Fertigung nicht mehr umprogrammierbar, dafür schlagen sie bei ihrer Spezialaufgabe jede flexible CPU oder GPU deutlich.",
+    "source": {
+      "name": "Wikipedia DE – Anwendungsspezifische integrierte Schaltung",
+      "url": "https://de.wikipedia.org/wiki/Anwendungsspezifische_integrierte_Schaltung"
+    },
+    "image": null
+  },
+  "machina:hardware-pcie-switch-h5": {
+    "id": "machina:hardware-pcie-switch-h5",
+    "name": "PCIe-Switch",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Hauptplatine/Bus",
+      "function": "Verteilt die PCIe-Datenleitungen des Prozessors auf mehrere Steckplätze oder Geräte"
+    },
+    "funFact": "Ein PCIe-Switch arbeitet wie eine Weiche und erlaubt es, mehr Erweiterungskarten anzuschließen, als der Prozessor direkt mit Leitungen versorgen könnte.",
+    "source": {
+      "name": "Wikipedia DE – PCI Express",
+      "url": "https://de.wikipedia.org/wiki/PCI_Express"
+    },
+    "image": null
+  },
+  "machina:hardware-temperatursensor-h5": {
+    "id": "machina:hardware-temperatursensor-h5",
+    "name": "Digitaler Temperatursensor",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Sensor",
+      "function": "Misst die Temperatur und liefert den Wert direkt als digitales Signal an die Steuerelektronik"
+    },
+    "funFact": "Solche Sensoren sitzen an vielen Stellen im Rechner und melden steigende Temperaturen, woraufhin Lüfter schneller drehen oder die Leistung gedrosselt wird.",
+    "source": {
+      "name": "Wikipedia DE – Temperatursensor",
+      "url": "https://de.wikipedia.org/wiki/Temperatursensor"
+    },
+    "image": null
+  },
+  "machina:hardware-pwm-luefter-controller-h5": {
+    "id": "machina:hardware-pwm-luefter-controller-h5",
+    "name": "PWM-Lüftersteuerung",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Kühlung",
+      "function": "Regelt die Lüfterdrehzahl über ein pulsweitenmoduliertes Signal je nach gemessener Temperatur"
+    },
+    "funFact": "Per Pulsweitenmodulation wird der Lüfter sehr schnell ein- und ausgeschaltet, wodurch sich seine Drehzahl fein und leise an die Wärmeentwicklung anpassen lässt.",
+    "source": {
+      "name": "Wikipedia DE – Pulsweitenmodulation",
+      "url": "https://de.wikipedia.org/wiki/Pulsweitenmodulation"
+    },
+    "image": null
+  },
+  "machina:hardware-supercap-h5": {
+    "id": "machina:hardware-supercap-h5",
+    "name": "Superkondensator",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Stromversorgung",
+      "function": "Speichert elektrische Energie sehr schnell und überbrückt kurze Stromausfälle ohne chemische Batterie"
+    },
+    "funFact": "Superkondensatoren laden und entladen sich viel schneller als Akkus und sichern etwa in SSDs den Cache, falls plötzlich der Strom ausfällt.",
+    "source": {
+      "name": "Wikipedia DE – Superkondensator",
+      "url": "https://de.wikipedia.org/wiki/Superkondensator"
+    },
+    "image": null
+  },
+  "machina:hardware-mosfet-h5": {
+    "id": "machina:hardware-mosfet-h5",
+    "name": "MOSFET",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Bauteil",
+      "function": "Elektronischer Schalter und Verstärker, dessen Stromfluss über eine Steuerspannung am Gate geregelt wird"
+    },
+    "funFact": "Der MOSFET ist der meistgebaute Baustein der Geschichte; Milliarden davon bilden als winzige Schalter die Logik moderner Prozessoren.",
+    "source": {
+      "name": "Wikipedia DE – Feldeffekttransistor",
+      "url": "https://de.wikipedia.org/wiki/Feldeffekttransistor"
+    },
+    "image": null
+  },
+  "machina:hardware-thermoelektrisches-modul-h5": {
+    "id": "machina:hardware-thermoelektrisches-modul-h5",
+    "name": "Peltier-Element",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Kühlung",
+      "function": "Erzeugt durch elektrischen Strom eine kalte und eine warme Seite und kühlt so aktiv ohne bewegliche Teile"
+    },
+    "funFact": "Legt man Strom an ein Peltier-Element, wird eine Seite kalt und die andere heiß; das nutzt man für lautlose Kühlung ohne Lüfter.",
+    "source": {
+      "name": "Wikipedia DE – Peltier-Element",
+      "url": "https://de.wikipedia.org/wiki/Peltier-Element"
+    },
+    "image": null
+  },
+  "machina:data_structure-binary-indexed-2d-h5": {
+    "id": "machina:data_structure-binary-indexed-2d-h5",
+    "name": "Zweidimensionaler Fenwick-Baum",
+    "type": "data_structure",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "purpose": "Berechnet und aktualisiert Teilsummen über ein rechteckiges Gitter von Werten effizient",
+      "accessComplexity": "O(log n · log m)"
+    },
+    "funFact": "Der zweidimensionale Fenwick-Baum beantwortet Summenanfragen über beliebige Rechteckbereiche eines Gitters viel schneller, als jedes Feld einzeln zu addieren.",
+    "source": {
+      "name": "Wikipedia EN – Fenwick tree",
+      "url": "https://en.wikipedia.org/wiki/Fenwick_tree"
+    },
+    "image": null
+  },
+  "machina:data_structure-hyperloglog-plus-h5": {
+    "id": "machina:data_structure-hyperloglog-plus-h5",
+    "name": "HyperLogLog++",
+    "type": "data_structure",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Hash-basiert",
+      "purpose": "Schätzt die Zahl verschiedener Elemente einer riesigen Menge mit sehr wenig Speicher",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Mit nur wenigen Kilobyte schätzt HyperLogLog die Anzahl eindeutiger Besucher einer Website ab, statt jeden einzelnen merken zu müssen.",
+    "source": {
+      "name": "Wikipedia EN – HyperLogLog",
+      "url": "https://en.wikipedia.org/wiki/HyperLogLog"
+    },
+    "image": null
+  },
+  "machina:data_structure-suffix-trie-h5": {
+    "id": "machina:data_structure-suffix-trie-h5",
+    "name": "Generalisierter Suffixbaum",
+    "type": "data_structure",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumbasierte Struktur (Trie)",
+      "purpose": "Speichert alle Endstücke mehrerer Zeichenketten für schnelle Such- und Vergleichsoperationen",
+      "accessComplexity": "O(m)"
+    },
+    "funFact": "Mit einem Suffixbaum lässt sich blitzschnell prüfen, ob ein Suchwort in einem langen Text vorkommt, und gemeinsame Teilstücke mehrerer Texte finden.",
+    "source": {
+      "name": "Wikipedia EN – Generalized suffix tree",
+      "url": "https://en.wikipedia.org/wiki/Generalized_suffix_tree"
+    },
+    "image": null
+  },
+  "machina:data_structure-persistent-array-h5": {
+    "id": "machina:data_structure-persistent-array-h5",
+    "name": "Persistentes Array",
+    "type": "data_structure",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Lineare Struktur",
+      "purpose": "Erlaubt Änderungen, ohne ältere Versionen zu zerstören, sodass jeder frühere Zustand abrufbar bleibt",
+      "accessComplexity": "O(log n)"
+    },
+    "funFact": "Persistente Strukturen bewahren bei jeder Änderung die alte Version, weshalb funktionale Programmiersprachen und Undo-Funktionen sie gern verwenden.",
+    "source": {
+      "name": "Wikipedia EN – Persistent data structure",
+      "url": "https://en.wikipedia.org/wiki/Persistent_data_structure"
+    },
+    "image": null
+  },
+  "machina:data_structure-bloom-filter-counting-h5": {
+    "id": "machina:data_structure-bloom-filter-counting-h5",
+    "name": "Zählender Bloom-Filter",
+    "type": "data_structure",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Hash-basiert",
+      "purpose": "Bloom-Filter mit Zählern, der zusätzlich das Entfernen von Elementen erlaubt",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Während ein normaler Bloom-Filter nur hinzufügen kann, erlaubt der zählende Bloom-Filter dank kleiner Zähler pro Position auch das Löschen von Einträgen.",
+    "source": {
+      "name": "Wikipedia EN – Bloom filter (Counting filters)",
+      "url": "https://en.wikipedia.org/wiki/Bloom_filter"
+    },
+    "image": null
+  },
+  "machina:data_structure-segment-tree-lazy-h5": {
+    "id": "machina:data_structure-segment-tree-lazy-h5",
+    "name": "Segmentbaum mit Lazy-Propagation",
+    "type": "data_structure",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "purpose": "Beantwortet und ändert Bereichsanfragen über einem Array effizient durch verzögerte Aktualisierung",
+      "accessComplexity": "O(log n)"
+    },
+    "funFact": "Lazy-Propagation merkt sich ausstehende Änderungen an einem ganzen Bereich und führt sie erst aus, wenn ein Teil davon wirklich gebraucht wird.",
+    "source": {
+      "name": "Wikipedia EN – Segment tree",
+      "url": "https://en.wikipedia.org/wiki/Segment_tree"
+    },
+    "image": null
+  },
+  "machina:data_structure-merkle-patricia-trie-h5": {
+    "id": "machina:data_structure-merkle-patricia-trie-h5",
+    "name": "Merkle-Patricia-Trie",
+    "type": "data_structure",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumbasierte Struktur (Trie)",
+      "purpose": "Verbindet Trie und Hash-Baum, um Schlüssel-Wert-Daten manipulationssicher zu speichern",
+      "accessComplexity": "O(log n)"
+    },
+    "funFact": "Die Ethereum-Blockchain nutzt den Merkle-Patricia-Trie, um den gesamten Kontostand-Zustand kompakt und fälschungssicher in einem einzigen Hash abzubilden.",
+    "source": {
+      "name": "Wikipedia EN – Merkle tree / Trie",
+      "url": "https://en.wikipedia.org/wiki/Merkle_tree"
+    },
+    "image": null
+  },
+  "machina:data_structure-lru-k-cache-h5": {
+    "id": "machina:data_structure-lru-k-cache-h5",
+    "name": "LFU-Cache",
+    "type": "data_structure",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Cache-Struktur",
+      "purpose": "Verdrängt beim Vollwerden des Caches die am seltensten genutzten Einträge zuerst",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Anders als der LRU-Cache wirft der LFU-Cache nicht das zuletzt am längsten ungenutzte, sondern das insgesamt am seltensten abgerufene Element hinaus.",
+    "source": {
+      "name": "Wikipedia EN – Cache replacement policies (LFU)",
+      "url": "https://en.wikipedia.org/wiki/Cache_replacement_policies"
+    },
+    "image": null
+  },
+  "machina:data_structure-circular-buffer-h5": {
+    "id": "machina:data_structure-circular-buffer-h5",
+    "name": "Doppelendige Prioritätswarteschlange",
+    "type": "data_structure",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Heap",
+      "purpose": "Erlaubt das schnelle Entnehmen sowohl des kleinsten als auch des größten Elements",
+      "accessComplexity": "O(log n)"
+    },
+    "funFact": "Anders als ein normaler Heap, der nur an einem Ende das Extremum liefert, gibt eine doppelendige Prioritätswarteschlange Minimum und Maximum gleichermaßen schnell heraus.",
+    "source": {
+      "name": "Wikipedia EN – Double-ended priority queue",
+      "url": "https://en.wikipedia.org/wiki/Double-ended_priority_queue"
+    },
+    "image": null
   }
 }

@@ -1,0 +1,599 @@
+[
+  {
+    "id": "network_protocol-ipsec-ike-h5",
+    "name": "IKEv2",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Internet Key Exchange Version 2",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 500,
+      "purpose": "Aushandeln von Sicherheitsparametern und Schlüsseln für IPsec-VPN-Tunnel"
+    },
+    "funFact": "IKEv2 baut bei Netzwechsel (etwa von WLAN auf Mobilfunk) dank MOBIKE die VPN-Verbindung automatisch wieder auf, ohne dass der Nutzer es merkt.",
+    "sourceName": "RFC 7296 – Internet Key Exchange Protocol Version 2 (IKEv2)",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc7296",
+    "verifyNote": "Port 500/UDP und Schlüsselaustausch-Zweck aus RFC 7296."
+  },
+  {
+    "id": "network_protocol-ice-h5",
+    "name": "ICE",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Interactive Connectivity Establishment",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "purpose": "Findet den besten möglichen Verbindungsweg zwischen zwei Geräten trotz NAT und Firewalls"
+    },
+    "funFact": "ICE sammelt mehrere Verbindungswege, prüft sie alle parallel und wählt den ersten, der durchkommt, damit ein Videochat fast immer eine Verbindung findet.",
+    "sourceName": "RFC 8445 – Interactive Connectivity Establishment (ICE)",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc8445",
+    "verifyNote": "NAT-Traversal durch Kandidaten-Prüfung aus RFC 8445."
+  },
+  {
+    "id": "network_protocol-quic-h5",
+    "name": "MASQUE",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Multiplexed Application Substrate over QUIC Encryption",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 443,
+      "purpose": "Tunnelung von UDP- und IP-Verkehr über HTTP/3, etwa für moderne Proxy- und VPN-Dienste"
+    },
+    "funFact": "MASQUE steckt hinter Apples iCloud Private Relay und leitet den Verkehr über zwei Stationen, sodass keine einzelne Stelle Nutzer und Ziel zugleich kennt.",
+    "sourceName": "RFC 9298 – Proxying UDP in HTTP",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc9298",
+    "verifyNote": "UDP-Tunnelung über HTTP/3 (QUIC) aus RFC 9298."
+  },
+  {
+    "id": "network_protocol-mpls-h5",
+    "name": "MPLS",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Multiprotocol Label Switching",
+      "layer": "Vermittlungsschicht",
+      "transport": "IP",
+      "purpose": "Schnelle Paketweiterleitung anhand kurzer Labels statt vollständiger IP-Routing-Suche"
+    },
+    "funFact": "MPLS wird oft als Schicht 2,5 bezeichnet, weil es zwischen Sicherungs- und Vermittlungsschicht arbeitet und Pakete nur am Label entlang lenkt.",
+    "sourceName": "RFC 3031 – Multiprotocol Label Switching Architecture",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc3031",
+    "verifyNote": "Label-Switching-Prinzip und Architektur aus RFC 3031."
+  },
+  {
+    "id": "network_protocol-ldp-h5",
+    "name": "LDP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Label Distribution Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 646,
+      "purpose": "Verteilung von MPLS-Labels zwischen Routern zum Aufbau von Label-Switched-Pfaden"
+    },
+    "funFact": "LDP sorgt dafür, dass alle Router in einem MPLS-Netz sich auf dieselben Labels für einen Pfad einigen, ähnlich einem abgestimmten Wegweiser-System.",
+    "sourceName": "RFC 5036 – LDP Specification",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc5036",
+    "verifyNote": "Port 646/TCP und Label-Verteilungszweck aus RFC 5036."
+  },
+  {
+    "id": "network_protocol-quic-multipath-h5",
+    "name": "MP-TCP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Multipath TCP",
+      "layer": "Transportschicht",
+      "transport": "TCP",
+      "purpose": "Nutzt mehrere Netzwerkwege gleichzeitig für eine einzige TCP-Verbindung"
+    },
+    "funFact": "Mit Multipath TCP kann ein Smartphone WLAN und Mobilfunk gleichzeitig für dieselbe Verbindung verwenden und nahtlos zwischen beiden wechseln.",
+    "sourceName": "RFC 8684 – TCP Extensions for Multipath Operation with Multiple Addresses",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc8684",
+    "verifyNote": "Mehrwege-Nutzung einer TCP-Verbindung aus RFC 8684."
+  },
+  {
+    "id": "network_protocol-radius-h5",
+    "name": "RADIUS-Server",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Remote Authentication Dial-In User Service",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 1812,
+      "purpose": "Zentrale Authentifizierung, Autorisierung und Abrechnung von Netzwerkzugängen"
+    },
+    "funFact": "RADIUS steckt hinter vielen WLAN-Anmeldungen an Universitäten und Firmen, bei denen jeder Nutzer eigene Zugangsdaten statt eines gemeinsamen Passworts verwendet.",
+    "sourceName": "RFC 2865 – Remote Authentication Dial In User Service (RADIUS)",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc2865",
+    "verifyNote": "Port 1812/UDP und AAA-Zweck aus RFC 2865."
+  },
+  {
+    "id": "network_protocol-syslog-tls-h5",
+    "name": "Syslog über TLS",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Transport Layer Security Transport Mapping for Syslog",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 6514,
+      "purpose": "Verschlüsselter Versand von Systemprotokoll-Meldungen an einen zentralen Log-Server"
+    },
+    "funFact": "Syslog sammelt die Statusmeldungen vieler Server an einer Stelle; über TLS sind diese Protokolle vor Mitlesen und Manipulation geschützt.",
+    "sourceName": "RFC 5425 – Transport Layer Security (TLS) Transport Mapping for Syslog",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc5425",
+    "verifyNote": "Port 6514/TCP und TLS-Transport aus RFC 5425."
+  },
+  {
+    "id": "network_protocol-nts-h5",
+    "name": "NTS",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Network Time Security",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 4460,
+      "purpose": "Authentifizierung und Manipulationsschutz für die Zeitsynchronisation per NTP"
+    },
+    "funFact": "NTS verhindert, dass ein Angreifer Rechnern eine falsche Uhrzeit unterschiebt, was sonst etwa abgelaufene Zertifikate wieder gültig erscheinen lassen könnte.",
+    "sourceName": "RFC 8915 – Network Time Security for the Network Time Protocol",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc8915",
+    "verifyNote": "Port 4460 (NTS-KE) und Zeitschutz-Zweck aus RFC 8915."
+  },
+  {
+    "id": "network_protocol-sips-tls-h5",
+    "name": "SIP über TLS",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Session Initiation Protocol Secure",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 5061,
+      "purpose": "Verschlüsselter Auf- und Abbau von Internet-Telefonie- und Videogesprächen"
+    },
+    "funFact": "SIP regelt bei vielen VoIP-Telefonen nur das Klingeln und Verbinden; die eigentliche Sprache läuft danach getrennt per RTP.",
+    "sourceName": "RFC 3261 – SIP: Session Initiation Protocol",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc3261",
+    "verifyNote": "Port 5061 für SIP über TLS und Signalisierungszweck aus RFC 3261."
+  },
+  {
+    "id": "network_protocol-ospf-h5",
+    "name": "OSPFv3",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Open Shortest Path First Version 3",
+      "layer": "Vermittlungsschicht",
+      "transport": "IP",
+      "purpose": "Berechnung kürzester Routen innerhalb eines Netzes per Link-State-Verfahren für IPv6"
+    },
+    "funFact": "OSPF lässt jeden Router eine vollständige Karte des Netzes aufbauen und daraus mit Dijkstras Algorithmus den kürzesten Weg berechnen.",
+    "sourceName": "RFC 5340 – OSPF for IPv6",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc5340",
+    "verifyNote": "Link-State-Prinzip und IPv6-Bezug aus RFC 5340."
+  },
+  {
+    "id": "network_protocol-ntp-pool-h5",
+    "name": "PTP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Precision Time Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 319,
+      "purpose": "Hochgenaue Zeitsynchronisation im lokalen Netz bis in den Mikro- und Nanosekundenbereich"
+    },
+    "funFact": "PTP ist deutlich genauer als das verbreitete NTP und wird etwa in Börsen-Handelssystemen und Mobilfunknetzen für präzise Zeitstempel eingesetzt.",
+    "sourceName": "IEEE 1588 / Wikipedia DE – Precision Time Protocol",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Precision_Time_Protocol",
+    "verifyNote": "Port 319 (Event-Nachrichten) und hohe Genauigkeit gemäß IEEE 1588."
+  },
+  {
+    "id": "network_protocol-sieve-h5",
+    "name": "WebPush",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Web Push Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 443,
+      "purpose": "Zustellung von Benachrichtigungen an Webbrowser, auch wenn die Webseite gerade nicht geöffnet ist"
+    },
+    "funFact": "Dank Web Push kann eine Webseite einem Nutzer noch Hinweise schicken, nachdem der Tab längst geschlossen wurde, ähnlich einer App-Benachrichtigung.",
+    "sourceName": "RFC 8030 – Generic Event Delivery Using HTTP Push",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc8030",
+    "verifyNote": "HTTPS-basierte Push-Zustellung an Browser aus RFC 8030."
+  },
+  {
+    "id": "network_protocol-coap-block-h5",
+    "name": "OCSP-Stapling",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Online Certificate Status Protocol Stapling",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "purpose": "Mitliefern eines aktuellen Sperrstatus-Nachweises für ein TLS-Zertifikat durch den Server"
+    },
+    "funFact": "Beim OCSP-Stapling holt der Server den Gültigkeitsnachweis seines Zertifikats selbst und reicht ihn beim Verbindungsaufbau gleich mit, was den Besucher schneller und privater macht.",
+    "sourceName": "RFC 6066 – TLS Extensions: Certificate Status Request",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc6066",
+    "verifyNote": "Mitgeliefertes OCSP-Statusantwort über die TLS-Erweiterung aus RFC 6066."
+  },
+  {
+    "id": "network_protocol-snmp-trap-tls-h5",
+    "name": "DTLS-SRTP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Datagram Transport Layer Security for Secure RTP",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "purpose": "Schlüsselaustausch über DTLS zum Verschlüsseln von Echtzeit-Medienströmen in WebRTC"
+    },
+    "funFact": "DTLS-SRTP handelt im Browser-Videochat die Schlüssel direkt zwischen den Teilnehmern aus, sodass selbst der vermittelnde Server die Medien nicht mitlesen kann.",
+    "sourceName": "RFC 5764 – DTLS Extension to Establish Keys for SRTP",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc5764",
+    "verifyNote": "DTLS-Schlüsselaustausch für SRTP in WebRTC aus RFC 5764."
+  },
+  {
+    "id": "network_protocol-bgp-mp-h5",
+    "name": "BGP-Routenreflektor",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Border Gateway Protocol Route Reflector",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 179,
+      "purpose": "Verteilung von Routing-Informationen im Internet zwischen autonomen Systemen"
+    },
+    "funFact": "BGP ist das Protokoll, das die großen Netzbetreiber des Internets miteinander verbindet; Fehlkonfigurationen dabei haben schon ganze Länder offline genommen.",
+    "sourceName": "RFC 4271 – A Border Gateway Protocol 4 (BGP-4)",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc4271",
+    "verifyNote": "Port 179/TCP und Inter-AS-Routing aus RFC 4271."
+  },
+  {
+    "id": "hardware-dsp-h5",
+    "name": "DSP",
+    "category": "hardware",
+    "attributes": {
+      "category": "Prozessor/Recheneinheit",
+      "function": "Spezialprozessor, der Audio-, Sprach- und Signaldaten in Echtzeit filtert und verarbeitet"
+    },
+    "funFact": "Ein digitaler Signalprozessor steckt in Kopfhörern mit Geräuschunterdrückung und berechnet blitzschnell den Gegenschall, der den Umgebungslärm auslöscht.",
+    "sourceName": "Wikipedia DE – Digitaler Signalprozessor",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Digitaler_Signalprozessor",
+    "verifyNote": "Echtzeit-Signalverarbeitung als Funktion ist Standardlehrbuch-Wissen."
+  },
+  {
+    "id": "hardware-soc-h5",
+    "name": "System-on-a-Chip",
+    "category": "hardware",
+    "attributes": {
+      "category": "Prozessor/Recheneinheit",
+      "function": "Vereint Prozessor, Grafik, Speichercontroller und weitere Bausteine auf einem einzigen Chip"
+    },
+    "funFact": "In fast jedem Smartphone steckt ein SoC, das CPU, GPU und viele weitere Funktionen auf einem fingernagelgroßen Chip vereint, um Platz und Strom zu sparen.",
+    "sourceName": "Wikipedia DE – System-on-a-Chip",
+    "sourceUrl": "https://de.wikipedia.org/wiki/System-on-a-Chip",
+    "verifyNote": "Integration mehrerer Komponenten auf einem Chip ist Standardwissen."
+  },
+  {
+    "id": "hardware-ldo-regler-h5",
+    "name": "Linearregler (LDO)",
+    "category": "hardware",
+    "attributes": {
+      "category": "Stromversorgung",
+      "function": "Liefert eine sehr saubere, konstante Ausgangsspannung knapp unterhalb der Eingangsspannung"
+    },
+    "funFact": "Ein Low-Dropout-Regler erzeugt eine besonders störungsarme Spannung und versorgt deshalb gern empfindliche Analog- und Funkbausteine.",
+    "sourceName": "Wikipedia DE – Low-Dropout-Regler",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Low-Dropout-Regler",
+    "verifyNote": "Funktion der rauscharmen, knapp unter Eingang liegenden Ausgangsspannung ist Standardwissen."
+  },
+  {
+    "id": "hardware-oszillator-h5",
+    "name": "Quarzoszillator-Modul",
+    "category": "hardware",
+    "attributes": {
+      "category": "Taktgeber",
+      "function": "Erzeugt mithilfe eines schwingenden Quarzkristalls ein präzises Taktsignal als Zeitbasis für digitale Schaltungen"
+    },
+    "funFact": "Ein winziger Quarzkristall schwingt mit sehr stabiler Frequenz und gibt so den Takt vor, nach dem fast alle digitalen Geräte ihre Schritte ausführen.",
+    "sourceName": "Wikipedia DE – Schwingquarz",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Schwingquarz",
+    "verifyNote": "Taktgenerierung durch Quarzschwingung ist physikalisches Standardwissen."
+  },
+  {
+    "id": "hardware-ram-dimm-h5",
+    "name": "SO-DIMM-Modul",
+    "category": "hardware",
+    "attributes": {
+      "category": "Speichermodul",
+      "function": "Kompaktes Arbeitsspeicher-Steckmodul für Notebooks und kleine Geräte mit verkürzter Bauform"
+    },
+    "funFact": "SO-DIMMs sind die kürzeren Speicherriegel in Laptops; sie passen platzbedingt nicht in die längeren DIMM-Steckplätze normaler Desktop-Mainboards.",
+    "sourceName": "Wikipedia DE – DIMM",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Dual_Inline_Memory_Module",
+    "verifyNote": "SO-DIMM als kompakte Notebook-Bauform ist Standardwissen."
+  },
+  {
+    "id": "hardware-bios-chip-h5",
+    "name": "UEFI-Flash-Chip",
+    "category": "hardware",
+    "attributes": {
+      "category": "Speicherchip",
+      "function": "Nichtflüchtiger Speicherbaustein, der die Firmware zum Starten des Rechners vor dem Betriebssystem enthält"
+    },
+    "funFact": "Auf diesem kleinen Chip liegt der erste Code, den ein PC nach dem Einschalten ausführt, lange bevor das Betriebssystem geladen wird.",
+    "sourceName": "Wikipedia DE – UEFI",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Unified_Extensible_Firmware_Interface",
+    "verifyNote": "Firmware-Speicher für den Startvorgang ist Standardwissen."
+  },
+  {
+    "id": "hardware-rtc-modul-h5",
+    "name": "RTC-Modul",
+    "category": "hardware",
+    "attributes": {
+      "category": "Taktgeber",
+      "function": "Hält Datum und Uhrzeit auch bei ausgeschaltetem Gerät mithilfe einer kleinen Pufferbatterie weiter"
+    },
+    "funFact": "Dank der Echtzeituhr und ihrer Knopfzelle weiß ein Computer auch nach Tagen ohne Strom noch, welcher Tag und welche Uhrzeit gerade sind.",
+    "sourceName": "Wikipedia DE – Echtzeituhr",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Echtzeituhr",
+    "verifyNote": "Batteriegepufferte Zeithaltung ist Standardwissen."
+  },
+  {
+    "id": "hardware-spannungswandler-dcdc-h5",
+    "name": "DC-DC-Wandler",
+    "category": "hardware",
+    "attributes": {
+      "category": "Stromversorgung",
+      "function": "Wandelt eine Gleichspannung in eine andere höhere oder niedrigere Gleichspannung um"
+    },
+    "funFact": "Ein DC-DC-Wandler erzeugt aus einer einzigen Akkuspannung die vielen verschiedenen Spannungen, die die Bauteile eines Geräts gleichzeitig brauchen.",
+    "sourceName": "Wikipedia DE – Gleichspannungswandler",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Gleichspannungswandler",
+    "verifyNote": "Funktion der Gleichspannungsumwandlung ist Standardwissen."
+  },
+  {
+    "id": "hardware-egpu-gehaeuse-h5",
+    "name": "eGPU-Gehäuse",
+    "category": "hardware",
+    "attributes": {
+      "category": "Erweiterung",
+      "function": "Externes Gehäuse, das eine vollwertige Grafikkarte per Thunderbolt an ein Notebook anbindet"
+    },
+    "funFact": "Mit einem eGPU-Gehäuse kann ein schlankes Notebook für anspruchsvolle Spiele oder 3D-Arbeit eine externe Desktop-Grafikkarte nutzen.",
+    "sourceName": "Wikipedia DE – Externe Grafikkarte",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Externe_Grafikkarte",
+    "verifyNote": "Externe GPU-Anbindung per Thunderbolt ist Standardwissen."
+  },
+  {
+    "id": "hardware-npu-h5",
+    "name": "KI-Beschleuniger (NPU)",
+    "category": "hardware",
+    "attributes": {
+      "category": "Prozessor/Recheneinheit",
+      "function": "Recheneinheit, die typische KI-Operationen wie neuronale Netze besonders energiesparend ausführt"
+    },
+    "funFact": "Viele moderne Smartphone-Chips enthalten eine NPU, die Aufgaben wie Bilderkennung direkt auf dem Gerät erledigt, ohne Daten in die Cloud zu schicken.",
+    "sourceName": "Wikipedia DE – KI-Beschleuniger",
+    "sourceUrl": "https://de.wikipedia.org/wiki/KI-Beschleuniger",
+    "verifyNote": "NPU als energieeffizienter KI-Beschleuniger ist Standardwissen."
+  },
+  {
+    "id": "hardware-asic-miner-h5",
+    "name": "Anwendungsspezifischer ASIC",
+    "category": "hardware",
+    "attributes": {
+      "category": "Prozessor/Recheneinheit",
+      "function": "Fest verdrahteter Chip, der für genau eine Aufgabe optimiert ist und diese besonders schnell und sparsam erledigt"
+    },
+    "funFact": "ASICs sind nach der Fertigung nicht mehr umprogrammierbar, dafür schlagen sie bei ihrer Spezialaufgabe jede flexible CPU oder GPU deutlich.",
+    "sourceName": "Wikipedia DE – Anwendungsspezifische integrierte Schaltung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Anwendungsspezifische_integrierte_Schaltung",
+    "verifyNote": "Festverdrahtung und Spezialisierung sind Standardlehrbuch-Wissen."
+  },
+  {
+    "id": "hardware-pcie-switch-h5",
+    "name": "PCIe-Switch",
+    "category": "hardware",
+    "attributes": {
+      "category": "Hauptplatine/Bus",
+      "function": "Verteilt die PCIe-Datenleitungen des Prozessors auf mehrere Steckplätze oder Geräte"
+    },
+    "funFact": "Ein PCIe-Switch arbeitet wie eine Weiche und erlaubt es, mehr Erweiterungskarten anzuschließen, als der Prozessor direkt mit Leitungen versorgen könnte.",
+    "sourceName": "Wikipedia DE – PCI Express",
+    "sourceUrl": "https://de.wikipedia.org/wiki/PCI_Express",
+    "verifyNote": "PCIe-Lane-Verteilung durch Switch ist Standardwissen."
+  },
+  {
+    "id": "hardware-temperatursensor-h5",
+    "name": "Digitaler Temperatursensor",
+    "category": "hardware",
+    "attributes": {
+      "category": "Sensor",
+      "function": "Misst die Temperatur und liefert den Wert direkt als digitales Signal an die Steuerelektronik"
+    },
+    "funFact": "Solche Sensoren sitzen an vielen Stellen im Rechner und melden steigende Temperaturen, woraufhin Lüfter schneller drehen oder die Leistung gedrosselt wird.",
+    "sourceName": "Wikipedia DE – Temperatursensor",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Temperatursensor",
+    "verifyNote": "Temperaturmessung mit digitaler Ausgabe ist Standardwissen."
+  },
+  {
+    "id": "hardware-pwm-luefter-controller-h5",
+    "name": "PWM-Lüftersteuerung",
+    "category": "hardware",
+    "attributes": {
+      "category": "Kühlung",
+      "function": "Regelt die Lüfterdrehzahl über ein pulsweitenmoduliertes Signal je nach gemessener Temperatur"
+    },
+    "funFact": "Per Pulsweitenmodulation wird der Lüfter sehr schnell ein- und ausgeschaltet, wodurch sich seine Drehzahl fein und leise an die Wärmeentwicklung anpassen lässt.",
+    "sourceName": "Wikipedia DE – Pulsweitenmodulation",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Pulsweitenmodulation",
+    "verifyNote": "PWM-basierte Drehzahlregelung ist Standardwissen."
+  },
+  {
+    "id": "hardware-supercap-h5",
+    "name": "Superkondensator",
+    "category": "hardware",
+    "attributes": {
+      "category": "Stromversorgung",
+      "function": "Speichert elektrische Energie sehr schnell und überbrückt kurze Stromausfälle ohne chemische Batterie"
+    },
+    "funFact": "Superkondensatoren laden und entladen sich viel schneller als Akkus und sichern etwa in SSDs den Cache, falls plötzlich der Strom ausfällt.",
+    "sourceName": "Wikipedia DE – Superkondensator",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Superkondensator",
+    "verifyNote": "Schnelle Lade-/Entladefähigkeit und Pufferfunktion sind Standardwissen."
+  },
+  {
+    "id": "hardware-mosfet-h5",
+    "name": "MOSFET",
+    "category": "hardware",
+    "attributes": {
+      "category": "Bauteil",
+      "function": "Elektronischer Schalter und Verstärker, dessen Stromfluss über eine Steuerspannung am Gate geregelt wird"
+    },
+    "funFact": "Der MOSFET ist der meistgebaute Baustein der Geschichte; Milliarden davon bilden als winzige Schalter die Logik moderner Prozessoren.",
+    "sourceName": "Wikipedia DE – Feldeffekttransistor",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Feldeffekttransistor",
+    "verifyNote": "Spannungsgesteuerter Schalter/Verstärker ist Standardlehrbuch-Wissen."
+  },
+  {
+    "id": "hardware-thermoelektrisches-modul-h5",
+    "name": "Peltier-Element",
+    "category": "hardware",
+    "attributes": {
+      "category": "Kühlung",
+      "function": "Erzeugt durch elektrischen Strom eine kalte und eine warme Seite und kühlt so aktiv ohne bewegliche Teile"
+    },
+    "funFact": "Legt man Strom an ein Peltier-Element, wird eine Seite kalt und die andere heiß; das nutzt man für lautlose Kühlung ohne Lüfter.",
+    "sourceName": "Wikipedia DE – Peltier-Element",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Peltier-Element",
+    "verifyNote": "Thermoelektrische Kühlung per Peltier-Effekt ist physikalisches Standardwissen."
+  },
+  {
+    "id": "data_structure-binary-indexed-2d-h5",
+    "name": "Zweidimensionaler Fenwick-Baum",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "purpose": "Berechnet und aktualisiert Teilsummen über ein rechteckiges Gitter von Werten effizient",
+      "accessComplexity": "O(log n · log m)"
+    },
+    "funFact": "Der zweidimensionale Fenwick-Baum beantwortet Summenanfragen über beliebige Rechteckbereiche eines Gitters viel schneller, als jedes Feld einzeln zu addieren.",
+    "sourceName": "Wikipedia EN – Fenwick tree",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Fenwick_tree",
+    "verifyNote": "O(log n · log m) für Bereichssumme und Update im 2D-Fenwick-Baum ist Standardwissen."
+  },
+  {
+    "id": "data_structure-hyperloglog-plus-h5",
+    "name": "HyperLogLog++",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Hash-basiert",
+      "purpose": "Schätzt die Zahl verschiedener Elemente einer riesigen Menge mit sehr wenig Speicher",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Mit nur wenigen Kilobyte schätzt HyperLogLog die Anzahl eindeutiger Besucher einer Website ab, statt jeden einzelnen merken zu müssen.",
+    "sourceName": "Wikipedia EN – HyperLogLog",
+    "sourceUrl": "https://en.wikipedia.org/wiki/HyperLogLog",
+    "verifyNote": "O(1) Aktualisierung pro Element und Speicherersparnis sind Standardwissen."
+  },
+  {
+    "id": "data_structure-suffix-trie-h5",
+    "name": "Generalisierter Suffixbaum",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumbasierte Struktur (Trie)",
+      "purpose": "Speichert alle Endstücke mehrerer Zeichenketten für schnelle Such- und Vergleichsoperationen",
+      "accessComplexity": "O(m)"
+    },
+    "funFact": "Mit einem Suffixbaum lässt sich blitzschnell prüfen, ob ein Suchwort in einem langen Text vorkommt, und gemeinsame Teilstücke mehrerer Texte finden.",
+    "sourceName": "Wikipedia EN – Generalized suffix tree",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Generalized_suffix_tree",
+    "verifyNote": "O(m) Suchzeit für ein Muster der Länge m ist Standardwissen."
+  },
+  {
+    "id": "data_structure-persistent-array-h5",
+    "name": "Persistentes Array",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Lineare Struktur",
+      "purpose": "Erlaubt Änderungen, ohne ältere Versionen zu zerstören, sodass jeder frühere Zustand abrufbar bleibt",
+      "accessComplexity": "O(log n)"
+    },
+    "funFact": "Persistente Strukturen bewahren bei jeder Änderung die alte Version, weshalb funktionale Programmiersprachen und Undo-Funktionen sie gern verwenden.",
+    "sourceName": "Wikipedia EN – Persistent data structure",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Persistent_data_structure",
+    "verifyNote": "O(log n) Zugriff in baumbasierten persistenten Arrays ist Standardwissen."
+  },
+  {
+    "id": "data_structure-bloom-filter-counting-h5",
+    "name": "Zählender Bloom-Filter",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Hash-basiert",
+      "purpose": "Bloom-Filter mit Zählern, der zusätzlich das Entfernen von Elementen erlaubt",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Während ein normaler Bloom-Filter nur hinzufügen kann, erlaubt der zählende Bloom-Filter dank kleiner Zähler pro Position auch das Löschen von Einträgen.",
+    "sourceName": "Wikipedia EN – Bloom filter (Counting filters)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Bloom_filter",
+    "verifyNote": "O(1) Einfügen/Löschen über Zähler statt Bits ist Standardwissen."
+  },
+  {
+    "id": "data_structure-segment-tree-lazy-h5",
+    "name": "Segmentbaum mit Lazy-Propagation",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "purpose": "Beantwortet und ändert Bereichsanfragen über einem Array effizient durch verzögerte Aktualisierung",
+      "accessComplexity": "O(log n)"
+    },
+    "funFact": "Lazy-Propagation merkt sich ausstehende Änderungen an einem ganzen Bereich und führt sie erst aus, wenn ein Teil davon wirklich gebraucht wird.",
+    "sourceName": "Wikipedia EN – Segment tree",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Segment_tree",
+    "verifyNote": "O(log n) für Bereichsanfrage und -update mit Lazy-Propagation ist Standardwissen."
+  },
+  {
+    "id": "data_structure-merkle-patricia-trie-h5",
+    "name": "Merkle-Patricia-Trie",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumbasierte Struktur (Trie)",
+      "purpose": "Verbindet Trie und Hash-Baum, um Schlüssel-Wert-Daten manipulationssicher zu speichern",
+      "accessComplexity": "O(log n)"
+    },
+    "funFact": "Die Ethereum-Blockchain nutzt den Merkle-Patricia-Trie, um den gesamten Kontostand-Zustand kompakt und fälschungssicher in einem einzigen Hash abzubilden.",
+    "sourceName": "Wikipedia EN – Merkle tree / Trie",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Merkle_tree",
+    "verifyNote": "Kombination aus Trie und Hash-Verkettung mit O(log n) Pfadlänge ist Standardwissen."
+  },
+  {
+    "id": "data_structure-lru-k-cache-h5",
+    "name": "LFU-Cache",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Cache-Struktur",
+      "purpose": "Verdrängt beim Vollwerden des Caches die am seltensten genutzten Einträge zuerst",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Anders als der LRU-Cache wirft der LFU-Cache nicht das zuletzt am längsten ungenutzte, sondern das insgesamt am seltensten abgerufene Element hinaus.",
+    "sourceName": "Wikipedia EN – Cache replacement policies (LFU)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Cache_replacement_policies",
+    "verifyNote": "O(1) Zugriff/Verdrängung mit passender Hash- und Listenstruktur ist Standardwissen."
+  },
+  {
+    "id": "data_structure-circular-buffer-h5",
+    "name": "Doppelendige Prioritätswarteschlange",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Heap",
+      "purpose": "Erlaubt das schnelle Entnehmen sowohl des kleinsten als auch des größten Elements",
+      "accessComplexity": "O(log n)"
+    },
+    "funFact": "Anders als ein normaler Heap, der nur an einem Ende das Extremum liefert, gibt eine doppelendige Prioritätswarteschlange Minimum und Maximum gleichermaßen schnell heraus.",
+    "sourceName": "Wikipedia EN – Double-ended priority queue",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Double-ended_priority_queue",
+    "verifyNote": "O(log n) für Entnahme von Minimum und Maximum ist Standardwissen."
+  }
+]

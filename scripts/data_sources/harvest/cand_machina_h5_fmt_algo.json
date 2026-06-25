@@ -1,0 +1,506 @@
+[
+  {
+    "id": "file_format-nef-h5",
+    "name": "NEF",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Nikon Electronic Format",
+      "compression": "verlustfrei komprimiert",
+      "mediaType": "Bild (Rohdaten)"
+    },
+    "funFact": "NEF ist Nikons Rohdatenformat und speichert die unbearbeiteten Sensordaten der Kamera, sodass Belichtung und Weißabgleich nachträglich verlustarm angepasst werden können.",
+    "sourceName": "Wikipedia DE – Rohdatenformat (Fotografie)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Rohdatenformat_(Fotografie)",
+    "verifyNote": "NEF als Nikon-Rohformat laut Wikipedia DE; Nikon bietet verlustfrei komprimierte NEF an."
+  },
+  {
+    "id": "file_format-arw-h5",
+    "name": "ARW",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Sony Alpha Raw",
+      "compression": "verlustbehaftet komprimiert",
+      "mediaType": "Bild (Rohdaten)"
+    },
+    "funFact": "ARW ist das Rohdatenformat der Sony-Alpha-Kameras und basiert technisch auf der TIFF/EP-Spezifikation.",
+    "sourceName": "Wikipedia EN – Raw image format",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Raw_image_format",
+    "verifyNote": "ARW als Sony-Raw-Format in der Formattabelle der Wikipedia gelistet; Standard-ARW nutzt verlustbehaftete Kompression."
+  },
+  {
+    "id": "file_format-hevc-h5",
+    "name": "HEVC",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "High Efficiency Video Coding",
+      "compression": "verlustbehaftet komprimiert",
+      "mediaType": "Video"
+    },
+    "funFact": "HEVC (auch H.265 genannt) erreicht bei gleicher Bildqualität etwa die halbe Datenrate seines Vorgängers H.264 und ist der Codec hinter 4K-Streaming und vielen UHD-Blu-rays.",
+    "sourceName": "Wikipedia DE – High Efficiency Video Coding",
+    "sourceUrl": "https://de.wikipedia.org/wiki/High_Efficiency_Video_Coding",
+    "verifyNote": "Vollform und verlustbehaftete Kompression laut Wikipedia DE."
+  },
+  {
+    "id": "file_format-prores-h5",
+    "name": "ProRes",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Apple ProRes",
+      "compression": "verlustbehaftet komprimiert",
+      "mediaType": "Video"
+    },
+    "funFact": "ProRes ist ein professionelles Zwischencodierformat von Apple für die Videobearbeitung, das hohe Qualität mit moderater Datenrate verbindet und das Schneiden flüssiger macht als hochkomprimierte Aufnahmeformate.",
+    "sourceName": "Wikipedia DE – ProRes",
+    "sourceUrl": "https://de.wikipedia.org/wiki/ProRes",
+    "verifyNote": "Apple ProRes als verlustbehaftetes Intermediate-Codec laut Wikipedia DE."
+  },
+  {
+    "id": "file_format-dnxhd-h5",
+    "name": "DNxHD",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Digital Nonlinear Extensible High Definition",
+      "compression": "verlustbehaftet komprimiert",
+      "mediaType": "Video"
+    },
+    "funFact": "DNxHD ist Avids Gegenstück zu Apples ProRes und ein verbreitetes Zwischencodierformat in der professionellen Postproduktion.",
+    "sourceName": "Wikipedia EN – Avid DNxHD",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Avid_DNxHD",
+    "verifyNote": "DNxHD als verlustbehaftetes Intermediate-Codec von Avid laut Wikipedia."
+  },
+  {
+    "id": "file_format-cinepak-h5",
+    "name": "Cinepak",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Cinepak",
+      "compression": "verlustbehaftet komprimiert",
+      "mediaType": "Video"
+    },
+    "funFact": "Cinepak war Anfang der 1990er einer der ersten Videocodecs, mit denen sich Filme von CD-ROM auf damaligen PCs ruckelfrei abspielen ließen.",
+    "sourceName": "Wikipedia EN – Cinepak",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Cinepak",
+    "verifyNote": "Cinepak als früher verlustbehafteter Videocodec (Vektorquantisierung) laut Wikipedia."
+  },
+  {
+    "id": "file_format-truehd-h5",
+    "name": "TrueHD",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Dolby TrueHD",
+      "compression": "verlustfrei komprimiert",
+      "mediaType": "Audio"
+    },
+    "funFact": "Dolby TrueHD ist ein verlustfreies Mehrkanal-Tonformat, das auf Blu-rays die ursprüngliche Studioqualität bitgenau wiedergibt.",
+    "sourceName": "Wikipedia DE – Dolby TrueHD",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Dolby_TrueHD",
+    "verifyNote": "Verlustfreie Mehrkanal-Kompression laut Wikipedia DE."
+  },
+  {
+    "id": "file_format-dts-hd-h5",
+    "name": "DTS-HD Master Audio",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "DTS-HD Master Audio",
+      "compression": "verlustfrei komprimiert",
+      "mediaType": "Audio"
+    },
+    "funFact": "DTS-HD Master Audio ist das verlustfreie Pendant zum bekannten DTS und konkurriert auf Blu-rays direkt mit Dolby TrueHD.",
+    "sourceName": "Wikipedia DE – DTS-HD Master Audio",
+    "sourceUrl": "https://de.wikipedia.org/wiki/DTS-HD_Master_Audio",
+    "verifyNote": "Verlustfreie Audiokompression laut Wikipedia DE."
+  },
+  {
+    "id": "file_format-azw-h5",
+    "name": "AZW",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Amazon Kindle Format",
+      "compression": "verlustfrei komprimiert",
+      "mediaType": "Dokument"
+    },
+    "funFact": "AZW ist das ursprüngliche E-Book-Format des Amazon Kindle und baut technisch auf dem älteren MOBI-Format auf.",
+    "sourceName": "Wikipedia EN – Kindle File Format",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Kindle_File_Format",
+    "verifyNote": "AZW als Kindle-Format auf Basis von MOBI laut Wikipedia."
+  },
+  {
+    "id": "file_format-cbr-h5",
+    "name": "CBR",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Comic Book RAR",
+      "compression": "verlustfrei komprimiert",
+      "mediaType": "Dokument"
+    },
+    "funFact": "CBR ist im Grunde ein umbenanntes RAR-Archiv voller durchnummerierter Bilddateien — der Comic-Reader zeigt sie einfach Seite für Seite an.",
+    "sourceName": "Wikipedia DE – Comic Book Archive",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Comic_Book_Archive",
+    "verifyNote": "CBR als RAR-basiertes Comic-Archiv laut Wikipedia DE (CBZ-Pendant zu ZIP ist bereits im Bestand)."
+  },
+  {
+    "id": "file_format-realaudio-h5",
+    "name": "RealAudio",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "RealAudio",
+      "compression": "verlustbehaftet komprimiert",
+      "mediaType": "Audio"
+    },
+    "funFact": "RealAudio (.ra) war Mitte der 1990er das dominierende Format für Audio-Streaming über langsame Modemverbindungen.",
+    "sourceName": "Wikipedia DE – RealAudio",
+    "sourceUrl": "https://de.wikipedia.org/wiki/RealAudio",
+    "verifyNote": "RealAudio als verlustbehaftetes Streaming-Audioformat laut Wikipedia DE."
+  },
+  {
+    "id": "file_format-mod-h5",
+    "name": "MOD",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Module (Tracker Music)",
+      "compression": "unkomprimiert",
+      "mediaType": "Audio"
+    },
+    "funFact": "MOD-Dateien stammen vom Commodore Amiga und speichern Musik als Notenmuster plus kurze Sample-Schnipsel — die Demoszene baute damit ganze Soundtracks in winzige Dateien.",
+    "sourceName": "Wikipedia EN – Module file",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Module_file",
+    "verifyNote": "MOD als Tracker-Modulformat mit eingebetteten unkomprimierten Samples laut Wikipedia."
+  },
+  {
+    "id": "file_format-pdb-h5",
+    "name": "PDB",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Palm Database",
+      "compression": "unkomprimiert",
+      "mediaType": "Daten"
+    },
+    "funFact": "Die PDB-Container der Palm-Handhelds dienten als universeller Behälter für Adressbücher, Notizen und E-Books — viele frühe Reader-Formate steckten in einem PDB.",
+    "sourceName": "Wikipedia EN – PDB (Palm OS)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/PDB_(Palm_OS)",
+    "verifyNote": "PDB als Palm-OS-Datencontainer laut Wikipedia; roher Container ist unkomprimiert."
+  },
+  {
+    "id": "algorithm-cocktail-sort-h5",
+    "name": "Cocktail-Shaker-Sort",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortieralgorithmus",
+      "avgComplexity": "O(n²)",
+      "purpose": "Variante des Bubblesort, die abwechselnd vor- und rückwärts durch die Liste läuft, um große und kleine Elemente schneller an ihren Platz zu bringen"
+    },
+    "funFact": "Der Name kommt vom Hin- und Herschütteln wie bei einem Cocktailshaker — der bidirektionale Durchlauf beseitigt das Bubblesort-Problem langsam wandernder kleiner Werte am Listenende.",
+    "sourceName": "Wikipedia EN – Cocktail shaker sort",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Cocktail_shaker_sort",
+    "verifyNote": "O(n²) Durchschnitt/Worst Case laut Wikipedia (bidirektionaler Bubblesort)."
+  },
+  {
+    "id": "algorithm-ford-johnson-h5",
+    "name": "Merge-Insertion-Sort (Ford-Johnson)",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortieralgorithmus",
+      "avgComplexity": "O(n log n)",
+      "purpose": "Vergleichsbasiertes Sortieren, das mit einer minimalen Zahl von Vergleichen auskommt, indem es Elemente paart und dann geschickt einfügt"
+    },
+    "funFact": "Der Ford-Johnson-Algorithmus benötigt für kleine Eingaben die theoretisch geringste Anzahl an Vergleichen und liegt damit sehr nah an der Informationstheorie-Untergrenze.",
+    "sourceName": "Wikipedia EN – Merge-insertion sort",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Merge-insertion_sort",
+    "verifyNote": "O(n log n) und vergleichsminimal laut Wikipedia."
+  },
+  {
+    "id": "algorithm-tree-sort-h5",
+    "name": "Tree-Sort",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortieralgorithmus",
+      "avgComplexity": "O(n log n)",
+      "purpose": "Fügt alle Elemente in einen binären Suchbaum ein und liest sie per In-Order-Durchlauf sortiert wieder aus"
+    },
+    "funFact": "Tree-Sort ist nur so gut wie sein Baum: Mit einem ausgeglichenen Suchbaum bleibt es bei O(n log n), bei einer bereits sortierten Eingabe und unbalanciertem Baum entartet es zu O(n²).",
+    "sourceName": "Wikipedia EN – Tree sort",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Tree_sort",
+    "verifyNote": "O(n log n) Durchschnitt (ausgeglichener Baum) laut Wikipedia."
+  },
+  {
+    "id": "algorithm-strand-sort-h5",
+    "name": "Strand-Sort",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortieralgorithmus",
+      "avgComplexity": "O(n²)",
+      "purpose": "Zieht wiederholt bereits aufsteigende Teilfolgen aus der Eingabe heraus und verschmilzt diese 'Stränge' zur sortierten Ausgabe"
+    },
+    "funFact": "Strand-Sort ist besonders effizient, wenn die Daten schon viele lange aufsteigende Läufe enthalten — dann muss es kaum noch mischen.",
+    "sourceName": "Wikipedia EN – Strand sort",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Strand_sort",
+    "verifyNote": "O(n²) im Durchschnitt/Worst Case laut Wikipedia."
+  },
+  {
+    "id": "algorithm-block-sort-h5",
+    "name": "Block-Sort",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortieralgorithmus",
+      "avgComplexity": "O(n log n)",
+      "purpose": "Stabiles Sortieren in konstantem Zusatzspeicher, indem die Daten in feste Blöcke zerlegt und vor Ort verschmolzen werden"
+    },
+    "funFact": "Block-Sort (auch WikiSort genannt) erreicht das seltene Kunststück, gleichzeitig stabil, O(n log n) und nahezu speicherlos (in-place) zu sein.",
+    "sourceName": "Wikipedia EN – Block sort",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Block_sort",
+    "verifyNote": "O(n log n), stabil, in-place laut Wikipedia."
+  },
+  {
+    "id": "algorithm-tournament-sort-h5",
+    "name": "Tournament-Sort",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortieralgorithmus",
+      "avgComplexity": "O(n log n)",
+      "purpose": "Bestimmt das kleinste Element über ein Turnierbaum-Schema von paarweisen Vergleichen, ähnlich einem K.-o.-Turnier"
+    },
+    "funFact": "Tournament-Sort ist eng mit dem Auswahl- und dem Heapsort-Prinzip verwandt — der 'Sieger' jedes Turniers ist das nächste sortierte Element.",
+    "sourceName": "Wikipedia EN – Tournament sort",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Tournament_sort",
+    "verifyNote": "O(n log n) laut Wikipedia (turnierbaumbasiertes Auswahlsortieren)."
+  },
+  {
+    "id": "algorithm-pigeonhole-sort-h5",
+    "name": "Taubenschlag-Sortierung",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortieralgorithmus",
+      "avgComplexity": "O(n + k)",
+      "purpose": "Verteilt Elemente direkt in vorbereitete Fächer ('Taubenschläge') entsprechend ihrem Schlüssel und liest sie geordnet wieder aus"
+    },
+    "funFact": "Die Taubenschlag-Sortierung lohnt sich nur, wenn der Wertebereich k nicht viel größer als die Elementzahl n ist — sonst stehen zu viele leere Fächer herum.",
+    "sourceName": "Wikipedia EN – Pigeonhole sort",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Pigeonhole_sort",
+    "verifyNote": "O(n + k) laut Wikipedia (Verteilsortierverfahren)."
+  },
+  {
+    "id": "algorithm-bead-sort-h5",
+    "name": "Bead-Sort",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortieralgorithmus",
+      "avgComplexity": "O(n²)",
+      "purpose": "Sortiert positive ganze Zahlen, indem 'Perlen' wie an einem Abakus unter Schwerkraft nach unten fallen und sich Stapel sortierter Höhe bilden"
+    },
+    "funFact": "Bead-Sort (Gravitationssortierung) ist von der Schwerkraft inspiriert: In einer idealen Parallel-Hardware fallen alle Perlen gleichzeitig und sortieren in konstanter Zeit.",
+    "sourceName": "Wikipedia EN – Bead sort",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Bead_sort",
+    "verifyNote": "Serielle Komplexität O(n²) laut Wikipedia (Gravitationssortierung)."
+  },
+  {
+    "id": "algorithm-slowsort-h5",
+    "name": "Slowsort",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortieralgorithmus",
+      "avgComplexity": "O(n^(log n))",
+      "purpose": "Bewusst ineffizientes 'Multiply and Surrender'-Lehrbeispiel, das ein Problem in immer größere Teilprobleme zerlegt"
+    },
+    "funFact": "Slowsort wurde als humorvolles Gegenstück zu Divide-and-Conquer erfunden ('Multiply and Surrender') und ist absichtlich extrem langsam.",
+    "sourceName": "Wikipedia EN – Slowsort",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Slowsort",
+    "verifyNote": "Superpolynomiale Laufzeit (in O-Notation gültig) laut Wikipedia."
+  },
+  {
+    "id": "algorithm-binary-insertion-sort-h5",
+    "name": "Binäres Insertionsort",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortieralgorithmus",
+      "avgComplexity": "O(n²)",
+      "purpose": "Variante des Insertionsort, die die Einfügeposition per binärer Suche statt linear bestimmt und so die Zahl der Vergleiche senkt"
+    },
+    "funFact": "Binäres Insertionsort spart Vergleiche, nicht aber Verschiebungen — deshalb bleibt die Laufzeit im Mittel weiter bei O(n²).",
+    "sourceName": "Wikipedia EN – Insertion sort (binary)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Insertion_sort",
+    "verifyNote": "O(n²) trotz binärer Positionssuche (Verschiebungen dominieren) laut Wikipedia."
+  },
+  {
+    "id": "algorithm-ternary-search-h5",
+    "name": "Ternäre Suche",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Suchalgorithmus",
+      "avgComplexity": "O(log n)",
+      "purpose": "Findet das Extremum einer unimodalen Funktion oder durchsucht ein sortiertes Feld, indem der Bereich in jedem Schritt in drei Teile geteilt wird"
+    },
+    "funFact": "Trotz Dreiteilung ist die ternäre Suche meist nicht schneller als die binäre Suche, weil sie pro Schritt mehr Vergleiche braucht.",
+    "sourceName": "Wikipedia EN – Ternary search",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Ternary_search",
+    "verifyNote": "O(log n) laut Wikipedia (logarithmische Dreiteilung)."
+  },
+  {
+    "id": "algorithm-commentz-walter-h5",
+    "name": "Commentz-Walter-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "String-Verarbeitung",
+      "avgComplexity": "O(mn)",
+      "purpose": "Sucht mehrere Muster gleichzeitig in einem Text und kombiniert dafür die Sprungtechnik von Boyer-Moore mit der Mehrmuster-Suche von Aho-Corasick"
+    },
+    "funFact": "Commentz-Walter vereint zwei Klassiker: Es überspringt wie Boyer-Moore unpassende Textbereiche, kann aber wie Aho-Corasick nach vielen Mustern auf einmal fahnden.",
+    "sourceName": "Wikipedia EN – Commentz-Walter algorithm",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Commentz-Walter_algorithm",
+    "verifyNote": "Worst-Case-Laufzeit O(mn) (von Boyer-Moore geerbt) laut Wikipedia; Mehrmuster-Suche als Boyer-Moore/Aho-Corasick-Kombination."
+  },
+  {
+    "id": "algorithm-bwt-mtf-h5",
+    "name": "Move-to-Front-Kodierung",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Kompressionsalgorithmus",
+      "avgComplexity": "O(n)",
+      "purpose": "Wandelt eine Folge in Indizes einer ständig umsortierten Liste um, sodass häufige Zeichen kleine Zahlen ergeben und sich besser komprimieren lassen"
+    },
+    "funFact": "Move-to-Front ist ein wichtiger Zwischenschritt in der bzip2-Kompression: Nach der Burrows-Wheeler-Transformation macht es lokale Häufungen für die Entropie-Kodierung sichtbar.",
+    "sourceName": "Wikipedia EN – Move-to-front transform",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Move-to-front_transform",
+    "verifyNote": "Lineare Laufzeit, Einsatz in bzip2 laut Wikipedia."
+  },
+  {
+    "id": "algorithm-arithmetic-coding-h5",
+    "name": "Arithmetische Kodierung",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Kompressionsalgorithmus",
+      "avgComplexity": "O(n)",
+      "purpose": "Stellt eine ganze Nachricht als einzelne Bruchzahl in einem Intervall dar und erreicht damit eine Kompression nahe der Entropiegrenze"
+    },
+    "funFact": "Arithmetische Kodierung schlägt die Huffman-Kodierung bei der Effizienz, weil sie nicht an ganze Bits pro Symbol gebunden ist — moderne Codecs wie H.265 nutzen Varianten davon.",
+    "sourceName": "Wikipedia DE – Arithmetische Kodierung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Arithmetische_Kodierung",
+    "verifyNote": "Lineare Laufzeit und Entropie-Optimalität laut Wikipedia DE."
+  },
+  {
+    "id": "algorithm-shamir-secret-h5",
+    "name": "Shamir's Secret Sharing",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Kryptografie",
+      "avgComplexity": "O(n²)",
+      "purpose": "Teilt ein Geheimnis in n Teile auf, von denen erst eine Mindestanzahl k zusammen das Geheimnis rekonstruieren kann"
+    },
+    "funFact": "Shamirs Verfahren beruht darauf, dass ein Polynom vom Grad k-1 erst durch k Punkte eindeutig bestimmt ist — weniger Teile verraten mathematisch nichts über das Geheimnis.",
+    "sourceName": "Wikipedia DE – Shamirs Secret Sharing",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Shamirs_Secret_Sharing",
+    "verifyNote": "Schwellenwert-Geheimnisteilung über Polynom-Interpolation laut Wikipedia DE."
+  },
+  {
+    "id": "algorithm-elliptic-curve-h5",
+    "name": "Elliptische-Kurven-Kryptografie",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Kryptografie",
+      "avgComplexity": "O(n³)",
+      "purpose": "Asymmetrische Verschlüsselung auf Basis der Punktarithmetik elliptischer Kurven, die bei kurzen Schlüsseln hohe Sicherheit bietet"
+    },
+    "funFact": "Elliptische-Kurven-Kryptografie erreicht mit einem 256-Bit-Schlüssel etwa die Sicherheit eines 3072-Bit-RSA-Schlüssels und steckt heute in TLS, Signal und vielen Kryptowährungen.",
+    "sourceName": "Wikipedia DE – Elliptic Curve Cryptography",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Elliptic_Curve_Cryptography",
+    "verifyNote": "Kürzere Schlüssel bei gleicher Sicherheit laut Wikipedia DE."
+  },
+  {
+    "id": "algorithm-bresenham-circle-h5",
+    "name": "Mittelpunkt-Kreisalgorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Geometrischer Algorithmus",
+      "avgComplexity": "O(n)",
+      "purpose": "Zeichnet einen Kreis im Rasterbild nur mit ganzzahliger Addition und Symmetrie, ohne Wurzeln oder Gleitkommarechnung"
+    },
+    "funFact": "Der Mittelpunkt-Kreisalgorithmus berechnet nur ein Achtel des Kreises und spiegelt es achtfach — ein Trick, der ihn auf alter Hardware blitzschnell machte.",
+    "sourceName": "Wikipedia DE – Bresenham-Algorithmus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Bresenham-Algorithmus",
+    "verifyNote": "Ganzzahliger Kreis-Rasteralgorithmus mit Achtelsymmetrie laut Wikipedia DE."
+  },
+  {
+    "id": "algorithm-quickhull-h5",
+    "name": "Quickhull",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Geometrischer Algorithmus",
+      "avgComplexity": "O(n log n)",
+      "purpose": "Berechnet die konvexe Hülle einer Punktmenge nach dem Divide-and-Conquer-Prinzip ähnlich wie Quicksort"
+    },
+    "funFact": "Quickhull verdankt seinen Namen der Verwandtschaft mit Quicksort: Es wählt extreme Punkte als 'Pivot' und teilt die restlichen Punkte rekursiv auf.",
+    "sourceName": "Wikipedia EN – Quickhull",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Quickhull",
+    "verifyNote": "O(n log n) Durchschnitt für konvexe Hülle laut Wikipedia."
+  },
+  {
+    "id": "algorithm-fortune-h5",
+    "name": "Fortune-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Geometrischer Algorithmus",
+      "avgComplexity": "O(n log n)",
+      "purpose": "Konstruiert das Voronoi-Diagramm einer Punktmenge mit einer von links nach rechts wandernden 'Sweep Line'"
+    },
+    "funFact": "Der Fortune-Algorithmus nutzt eine raffinierte parabolische 'Strandlinie', um Voronoi-Zellen optimal in O(n log n) zu berechnen.",
+    "sourceName": "Wikipedia EN – Fortune's algorithm",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Fortune%27s_algorithm",
+    "verifyNote": "O(n log n) für Voronoi-Diagramm laut Wikipedia."
+  },
+  {
+    "id": "algorithm-hierarchical-clustering-h5",
+    "name": "Hierarchisches Clustering",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Clustering-Algorithmus",
+      "avgComplexity": "O(n³)",
+      "purpose": "Gruppiert Datenpunkte schrittweise zu einer Baumstruktur (Dendrogramm), indem es jeweils die ähnlichsten Cluster verschmilzt"
+    },
+    "funFact": "Anders als k-Means muss man beim hierarchischen Clustering die Zahl der Cluster nicht vorab festlegen — man schneidet das Dendrogramm einfach auf der gewünschten Höhe.",
+    "sourceName": "Wikipedia DE – Hierarchische Clusteranalyse",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Hierarchische_Clusteranalyse",
+    "verifyNote": "Naive agglomerative Variante O(n³) laut Wikipedia (Dendrogramm-Aufbau)."
+  },
+  {
+    "id": "algorithm-mean-shift-h5",
+    "name": "Mean-Shift",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Clustering-Algorithmus",
+      "avgComplexity": "O(n²)",
+      "purpose": "Verschiebt jeden Datenpunkt iterativ in Richtung der höchsten lokalen Dichte, sodass sich Cluster um die Dichtemaxima bilden"
+    },
+    "funFact": "Mean-Shift braucht im Gegensatz zu k-Means keine vorgegebene Clusterzahl und wird unter anderem für die Objektverfolgung in Videos genutzt.",
+    "sourceName": "Wikipedia EN – Mean shift",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Mean_shift",
+    "verifyNote": "O(n²) pro Iteration laut Wikipedia (dichtebasiertes Clustering)."
+  },
+  {
+    "id": "algorithm-gaussian-mixture-h5",
+    "name": "Gauß'sche Mischverteilung (EM)",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Clustering-Algorithmus",
+      "avgComplexity": "O(n k d²)",
+      "purpose": "Modelliert Daten als Mischung mehrerer Normalverteilungen und schätzt deren Parameter per Erwartungs-Maximierungs-Verfahren"
+    },
+    "funFact": "Gauß'sche Mischmodelle erlauben weiche Clusterzugehörigkeit — ein Punkt kann mit 70 Prozent zu Cluster A und 30 Prozent zu Cluster B gehören, statt nur zu einem.",
+    "sourceName": "Wikipedia DE – EM-Algorithmus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/EM-Algorithmus",
+    "verifyNote": "EM-Schätzung für Mischverteilungen laut Wikipedia DE; Kosten pro Iteration O(n k d²)."
+  },
+  {
+    "id": "algorithm-floyd-cycle-tortoise-h5",
+    "name": "Hase-und-Igel-Zyklensuche",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Graphalgorithmus",
+      "avgComplexity": "O(n)",
+      "purpose": "Erkennt einen Zyklus in einer Folge oder verketteten Liste mit zwei unterschiedlich schnellen Zeigern bei konstantem Speicher"
+    },
+    "funFact": "Bei der Hase-und-Igel-Methode läuft ein Zeiger doppelt so schnell wie der andere — gibt es einen Zyklus, holt der schnelle den langsamen zwangsläufig ein.",
+    "sourceName": "Wikipedia EN – Cycle detection (Floyd)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Cycle_detection",
+    "verifyNote": "O(n) Zeit, O(1) Speicher für Floyds Zyklensuche laut Wikipedia."
+  }
+]

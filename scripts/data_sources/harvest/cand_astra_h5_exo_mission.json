@@ -1,0 +1,612 @@
+[
+  {
+    "id": "mission-psyche-h5",
+    "name": "Psyche (Raumsonde)",
+    "category": "mission",
+    "attributes": {
+      "operator": "NASA",
+      "launchYear": 2023,
+      "launchMassKg": 2747
+    },
+    "funFact": "Die Psyche-Sonde fliegt zum gleichnamigen Metall-Asteroiden 16 Psyche, der womöglich der freigelegte Kern eines frühen Planetesimals ist. Sie nutzt einen elektrischen Hall-Effekt-Antrieb für den langen Weg.",
+    "sourceName": "NASA Science — Psyche",
+    "sourceUrl": "https://science.nasa.gov/mission/psyche/",
+    "verifyNote": "Start 2023-10-13, Betreiber NASA, Startmasse rund 2747 kg laut NASA-Missionsseite und NSSDCA."
+  },
+  {
+    "id": "mission-dragonfly-h5",
+    "name": "Dragonfly",
+    "category": "mission",
+    "attributes": {
+      "operator": "NASA",
+      "launchYear": 2028
+    },
+    "funFact": "Dragonfly ist ein nuklearbetriebener Drehflügler, der über die Oberfläche des Saturnmonds Titan fliegen soll — die dichte Atmosphäre und geringe Schwerkraft machen Fliegen dort besonders leicht.",
+    "sourceName": "NASA Science — Dragonfly",
+    "sourceUrl": "https://science.nasa.gov/mission/dragonfly/",
+    "verifyNote": "Geplanter Start 2028 (Stand 2025), Betreiber NASA laut NASA-Missionsseite; Startmasse offiziell noch nicht final, daher weggelassen."
+  },
+  {
+    "id": "mission-hera-h5",
+    "name": "Hera",
+    "category": "mission",
+    "attributes": {
+      "operator": "ESA",
+      "launchYear": 2024,
+      "launchMassKg": 1128
+    },
+    "funFact": "Hera fliegt zum Doppelasteroiden Didymos, um den Krater zu vermessen, den die NASA-Sonde DART 2022 in den Mond Dimorphos schlug — die Nachbeobachtung des ersten Tests planetarer Verteidigung.",
+    "sourceName": "ESA — Hera",
+    "sourceUrl": "https://www.esa.int/Space_Safety/Hera",
+    "verifyNote": "Start 2024-10-07, Betreiber ESA, Startmasse rund 1128 kg laut ESA-Missionsseite."
+  },
+  {
+    "id": "mission-spherex-h5",
+    "name": "SPHEREx",
+    "category": "mission",
+    "attributes": {
+      "operator": "NASA",
+      "launchYear": 2025
+    },
+    "funFact": "SPHEREx erstellt eine spektroskopische Karte des gesamten Himmels in nahem Infrarot und untersucht damit die Entstehung von Galaxien sowie die Verteilung von Wasser und organischen Molekülen.",
+    "sourceName": "NASA Science — SPHEREx",
+    "sourceUrl": "https://science.nasa.gov/mission/spherex/",
+    "verifyNote": "Start 2025-03-11, Betreiber NASA laut NASA-Missionsseite; präzise Startmasse nicht prominent veröffentlicht, daher weggelassen."
+  },
+  {
+    "id": "mission-roman-h5",
+    "name": "Nancy Grace Roman Space Telescope",
+    "category": "mission",
+    "attributes": {
+      "operator": "NASA",
+      "launchYear": 2027
+    },
+    "funFact": "Das Roman-Teleskop hat denselben Spiegeldurchmesser wie Hubble, aber ein rund hundertmal größeres Sichtfeld — ideal für großflächige Durchmusterungen zu Dunkler Energie und Exoplaneten.",
+    "sourceName": "NASA Science — Roman Space Telescope",
+    "sourceUrl": "https://science.nasa.gov/mission/roman-space-telescope/",
+    "verifyNote": "Geplanter Start bis 2027, Betreiber NASA laut NASA-Missionsseite; Startmasse noch nicht final, daher weggelassen."
+  },
+  {
+    "id": "mission-plato-h5",
+    "name": "PLATO",
+    "category": "mission",
+    "attributes": {
+      "operator": "ESA",
+      "launchYear": 2026
+    },
+    "funFact": "PLATO sucht mit 26 Kameras gleichzeitig nach erdähnlichen Planeten um sonnenähnliche Sterne und konzentriert sich besonders auf Planeten in der habitablen Zone.",
+    "sourceName": "ESA — PLATO",
+    "sourceUrl": "https://www.esa.int/Science_Exploration/Space_Science/Plato",
+    "verifyNote": "Geplanter Start 2026, Betreiber ESA laut ESA-Missionsseite; Startmasse noch nicht final, daher weggelassen."
+  },
+  {
+    "id": "mission-cheops-h5",
+    "name": "CHEOPS",
+    "category": "mission",
+    "attributes": {
+      "operator": "ESA",
+      "launchYear": 2019,
+      "launchMassKg": 273
+    },
+    "funFact": "CHEOPS beobachtet bereits bekannte Exoplaneten besonders präzise, um ihre Größen genau zu bestimmen, und entdeckte unter anderem eine resonante Kette aus sechs Sub-Neptunen.",
+    "sourceName": "ESA — CHEOPS",
+    "sourceUrl": "https://www.esa.int/Science_Exploration/Space_Science/Cheops",
+    "verifyNote": "Start 2019-12-18, Betreiber ESA, Startmasse rund 273 kg laut ESA-Missionsseite."
+  },
+  {
+    "id": "mission-ariel-h5",
+    "name": "ARIEL",
+    "category": "mission",
+    "attributes": {
+      "operator": "ESA",
+      "launchYear": 2029
+    },
+    "funFact": "ARIEL soll die Atmosphären von rund tausend bekannten Exoplaneten chemisch durchmustern und damit erstmals eine große statistische Stichprobe ferner Planetenwelten liefern.",
+    "sourceName": "ESA — Ariel",
+    "sourceUrl": "https://www.esa.int/Science_Exploration/Space_Science/Ariel",
+    "verifyNote": "Geplanter Start 2029, Betreiber ESA laut ESA-Missionsseite; Startmasse noch nicht final, daher weggelassen."
+  },
+  {
+    "id": "mission-capstone-h5",
+    "name": "CAPSTONE",
+    "category": "mission",
+    "attributes": {
+      "operator": "NASA",
+      "launchYear": 2022,
+      "launchMassKg": 25
+    },
+    "funFact": "CAPSTONE ist ein nur kofferraumgrosser CubeSat, der als erste Sonde die ungewöhnliche Halo-Umlaufbahn am Mond erprobte, die später die bemannte Raumstation Gateway nutzen soll.",
+    "sourceName": "NASA Science — CAPSTONE",
+    "sourceUrl": "https://science.nasa.gov/mission/capstone/",
+    "verifyNote": "Start 2022-06-28, Betreiber NASA, Startmasse rund 25 kg (12U-CubeSat) laut NASA-Missionsseite."
+  },
+  {
+    "id": "mission-xrism-h5",
+    "name": "XRISM",
+    "category": "mission",
+    "attributes": {
+      "operator": "JAXA",
+      "launchYear": 2023
+    },
+    "funFact": "XRISM misst Röntgenstrahlung mit höchster spektraler Auflösung und kann so die Bewegung von heißem Gas in Galaxienhaufen und um Schwarze Löcher messen.",
+    "sourceName": "JAXA — XRISM",
+    "sourceUrl": "https://www.jaxa.jp/projects/sas/xrism/index_e.html",
+    "verifyNote": "Start 2023-09-06, Betreiber JAXA (mit NASA und ESA) laut JAXA-Projektseite; präzise Startmasse nicht prominent veröffentlicht, daher weggelassen."
+  },
+  {
+    "id": "mission-nustar-h5",
+    "name": "NuSTAR",
+    "category": "mission",
+    "attributes": {
+      "operator": "NASA",
+      "launchYear": 2012,
+      "launchMassKg": 350
+    },
+    "funFact": "NuSTAR ist das erste Teleskop, das hochenergetische Röntgenstrahlung scharf abbilden kann — möglich durch einen ausfahrbaren, zehn Meter langen Mast zwischen Optik und Detektoren.",
+    "sourceName": "NASA Science — NuSTAR",
+    "sourceUrl": "https://science.nasa.gov/mission/nustar/",
+    "verifyNote": "Start 2012-06-13, Betreiber NASA, Startmasse rund 350 kg laut NASA-Missionsseite und NSSDCA."
+  },
+  {
+    "id": "mission-swift-h5",
+    "name": "Swift (Neil Gehrels Swift Observatory)",
+    "category": "mission",
+    "attributes": {
+      "operator": "NASA",
+      "launchYear": 2004,
+      "launchMassKg": 1470
+    },
+    "funFact": "Swift schwenkt innerhalb von Sekunden auf Gammablitze ein — die hellsten Explosionen im Universum — und ermöglicht so deren Nachbeobachtung in mehreren Wellenlängen.",
+    "sourceName": "NASA Science — Swift",
+    "sourceUrl": "https://science.nasa.gov/mission/swift/",
+    "verifyNote": "Start 2004-11-20, Betreiber NASA, Startmasse rund 1470 kg laut NASA-Missionsseite und NSSDCA."
+  },
+  {
+    "id": "mission-fermi-h5",
+    "name": "Fermi Gamma-ray Space Telescope",
+    "category": "mission",
+    "attributes": {
+      "operator": "NASA",
+      "launchYear": 2008,
+      "launchMassKg": 4303
+    },
+    "funFact": "Das Fermi-Teleskop kartiert den gesamten Gammahimmel und entdeckte gigantische, von der Milchstraße ausgehende Blasen aus energiereicher Strahlung, die nach ihm Fermi-Blasen heißen.",
+    "sourceName": "NASA Science — Fermi",
+    "sourceUrl": "https://science.nasa.gov/mission/fermi/",
+    "verifyNote": "Start 2008-06-11, Betreiber NASA, Startmasse rund 4303 kg laut NASA-Missionsseite und NSSDCA."
+  },
+  {
+    "id": "mission-integral-h5",
+    "name": "INTEGRAL",
+    "category": "mission",
+    "attributes": {
+      "operator": "ESA",
+      "launchYear": 2002,
+      "launchMassKg": 4000
+    },
+    "funFact": "INTEGRAL beobachtet Gamma- und Röntgenstrahlung gleichzeitig und half, die Herkunft schwerer Elemente sowie die Verschmelzung von Neutronensternen besser zu verstehen.",
+    "sourceName": "ESA — INTEGRAL",
+    "sourceUrl": "https://www.esa.int/Science_Exploration/Space_Science/Integral",
+    "verifyNote": "Start 2002-10-17, Betreiber ESA, Startmasse rund 4000 kg laut ESA-Missionsseite."
+  },
+  {
+    "id": "mission-herschel-h5",
+    "name": "Herschel-Weltraumteleskop",
+    "category": "mission",
+    "attributes": {
+      "operator": "ESA",
+      "launchYear": 2009,
+      "launchMassKg": 3400
+    },
+    "funFact": "Herschel trug mit 3,5 Metern den größten je ins All gebrachten Einzelspiegel und beobachtete im fernen Infrarot kalte Staub- und Gaswolken, in denen neue Sterne entstehen.",
+    "sourceName": "ESA — Herschel",
+    "sourceUrl": "https://www.esa.int/Science_Exploration/Space_Science/Herschel",
+    "verifyNote": "Start 2009-05-14, Betreiber ESA, Startmasse rund 3400 kg laut ESA-Missionsseite."
+  },
+  {
+    "id": "mission-planck-h5",
+    "name": "Planck (Weltraumteleskop)",
+    "category": "mission",
+    "attributes": {
+      "operator": "ESA",
+      "launchYear": 2009,
+      "launchMassKg": 1950
+    },
+    "funFact": "Planck vermass die kosmische Hintergrundstrahlung mit bisher unerreichter Genauigkeit und lieferte die bislang präzisesten Werte für Alter und Zusammensetzung des Universums.",
+    "sourceName": "ESA — Planck",
+    "sourceUrl": "https://www.esa.int/Science_Exploration/Space_Science/Planck",
+    "verifyNote": "Start 2009-05-14 (mit Herschel), Betreiber ESA, Startmasse rund 1950 kg laut ESA-Missionsseite."
+  },
+  {
+    "id": "mission-wise-h5",
+    "name": "WISE",
+    "category": "mission",
+    "attributes": {
+      "operator": "NASA",
+      "launchYear": 2009,
+      "launchMassKg": 661
+    },
+    "funFact": "WISE durchmusterte den gesamten Himmel im Infrarot und entdeckte hunderte Millionen Objekte; als NEOWISE reaktiviert spürte es zahlreiche erdnahe Asteroiden und Kometen auf.",
+    "sourceName": "NASA Science — WISE/NEOWISE",
+    "sourceUrl": "https://science.nasa.gov/mission/neowise/",
+    "verifyNote": "Start 2009-12-14, Betreiber NASA, Startmasse rund 661 kg laut NASA-Missionsseite und NSSDCA."
+  },
+  {
+    "id": "mission-hinode-h5",
+    "name": "Hinode",
+    "category": "mission",
+    "attributes": {
+      "operator": "JAXA",
+      "launchYear": 2006,
+      "launchMassKg": 875
+    },
+    "funFact": "Hinode (japanisch für Sonnenaufgang) beobachtet die Sonne in sichtbarem Licht, Röntgen- und UV-Strahlung und lieferte detaillierte Bilder der Magnetfelder in der Sonnenatmosphäre.",
+    "sourceName": "NASA Science — Hinode",
+    "sourceUrl": "https://science.nasa.gov/mission/hinode/",
+    "verifyNote": "Start 2006-09-22, Betreiber JAXA (mit NASA, ESA, STFC), Startmasse rund 875 kg laut NASA-Missionsseite und NSSDCA."
+  },
+  {
+    "id": "mission-iris-h5",
+    "name": "IRIS (Sonnenobservatorium)",
+    "category": "mission",
+    "attributes": {
+      "operator": "NASA",
+      "launchYear": 2013,
+      "launchMassKg": 200
+    },
+    "funFact": "IRIS untersucht die dünne Übergangsschicht zwischen Sonnenoberfläche und Korona und half zu verstehen, warum die Korona millionenfach heißer ist als die sichtbare Oberfläche.",
+    "sourceName": "NASA Science — IRIS",
+    "sourceUrl": "https://science.nasa.gov/mission/iris/",
+    "verifyNote": "Start 2013-06-27, Betreiber NASA, Startmasse rund 200 kg laut NASA-Missionsseite und NSSDCA."
+  },
+  {
+    "id": "mission-tianwen-2-h5",
+    "name": "Tianwen-2",
+    "category": "mission",
+    "attributes": {
+      "operator": "CNSA",
+      "launchYear": 2025
+    },
+    "funFact": "Tianwen-2 soll eine Probe vom erdnahen Asteroiden Kamoʻoalewa holen — einem Quasi-Mond der Erde — und anschließend zu einem Hauptgürtel-Kometen weiterfliegen.",
+    "sourceName": "Wikipedia EN — Tianwen-2",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Tianwen-2",
+    "verifyNote": "Start 2025-05-28, Betreiber CNSA laut Wikipedia; präzise Startmasse nicht belastbar veröffentlicht, daher weggelassen."
+  },
+  {
+    "id": "mission-davinci-h5",
+    "name": "DAVINCI",
+    "category": "mission",
+    "attributes": {
+      "operator": "NASA",
+      "launchYear": 2029
+    },
+    "funFact": "DAVINCI soll eine Sonde durch die dichte Venusatmosphäre fallen lassen, die während des Abstiegs deren Zusammensetzung misst und erstmals hochauflösende Bilder der Venusoberfläche aufnimmt.",
+    "sourceName": "NASA Science — DAVINCI",
+    "sourceUrl": "https://science.nasa.gov/mission/davinci/",
+    "verifyNote": "Geplanter Start gegen 2029, Betreiber NASA laut NASA-Missionsseite; Startmasse noch nicht final, daher weggelassen."
+  },
+  {
+    "id": "mission-veritas-h5",
+    "name": "VERITAS",
+    "category": "mission",
+    "attributes": {
+      "operator": "NASA",
+      "launchYear": 2031
+    },
+    "funFact": "VERITAS soll die Venus aus der Umlaufbahn radar-kartieren und ihre geologische Geschichte rekonstruieren — etwa, ob es dort noch aktive Vulkane gibt.",
+    "sourceName": "NASA Science — VERITAS",
+    "sourceUrl": "https://science.nasa.gov/mission/veritas/",
+    "verifyNote": "Geplanter Start (Stand 2025 nicht vor 2031), Betreiber NASA laut NASA-Missionsseite; Startmasse noch nicht final, daher weggelassen."
+  },
+  {
+    "id": "mission-comet-interceptor-h5",
+    "name": "Comet Interceptor",
+    "category": "mission",
+    "attributes": {
+      "operator": "ESA",
+      "launchYear": 2029
+    },
+    "funFact": "Comet Interceptor wird zuerst im All geparkt und wartet dort auf einen frisch entdeckten, noch unberührten Kometen aus den Tiefen des Sonnensystems, um ihn dann anzufliegen.",
+    "sourceName": "ESA — Comet Interceptor",
+    "sourceUrl": "https://www.esa.int/Science_Exploration/Space_Science/Comet_Interceptor",
+    "verifyNote": "Geplanter Start 2029, Betreiber ESA (mit JAXA) laut ESA-Missionsseite; Startmasse noch nicht final, daher weggelassen."
+  },
+  {
+    "id": "mission-luna-25-h5",
+    "name": "Luna 25",
+    "category": "mission",
+    "attributes": {
+      "operator": "Roskosmos",
+      "launchYear": 2023,
+      "launchMassKg": 1750
+    },
+    "funFact": "Luna 25 war Russlands erste Mondmission seit 1976, zerschellte aber im August 2023 beim Anflug auf den lunaren Südpol, kurz bevor Indiens Chandrayaan-3 dort erfolgreich landete.",
+    "sourceName": "NASA NSSDCA — Luna 25",
+    "sourceUrl": "https://nssdc.gsfc.nasa.gov/nmc/spacecraft/display.action?id=2023-118A",
+    "verifyNote": "Start 2023-08-10, Betreiber Roskosmos, Startmasse rund 1750 kg laut NSSDCA-Katalog."
+  },
+  {
+    "id": "mission-zhurong-h5",
+    "name": "Zhurong",
+    "category": "mission",
+    "attributes": {
+      "operator": "CNSA",
+      "launchYear": 2020,
+      "launchMassKg": 240
+    },
+    "funFact": "Zhurong war Chinas erster Mars-Rover und Teil der Mission Tianwen-1; er landete 2021 in der Tiefebene Utopia Planitia und machte China zur zweiten Nation mit einem fahrenden Mars-Roboter.",
+    "sourceName": "Wikipedia EN — Zhurong (rover)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Zhurong_(rover)",
+    "verifyNote": "Start mit Tianwen-1 2020-07-23, Landung 2021-05-14, Betreiber CNSA, Rover-Masse rund 240 kg; NSSDCA-Eintrag laeuft unter Tianwen-1 (2020-049A), kein eigener Rover-Katalogeintrag."
+  },
+  {
+    "id": "mission-viking-2-h5",
+    "name": "Viking 2",
+    "category": "mission",
+    "attributes": {
+      "operator": "NASA",
+      "launchYear": 1975,
+      "launchMassKg": 3527
+    },
+    "funFact": "Viking 2 landete 1976 als zweite Sonde erfolgreich auf dem Mars und führte dort Experimente zur Suche nach Leben durch; ihr Orbiter fotografierte zudem große Teile der Marsoberfläche.",
+    "sourceName": "NASA Science — Viking",
+    "sourceUrl": "https://science.nasa.gov/mission/viking/",
+    "verifyNote": "Start 1975-09-09, Landung 1976-09-03, Betreiber NASA, Startmasse Lander plus Orbiter rund 3527 kg laut NSSDCA."
+  },
+  {
+    "id": "mission-chandrayaan-2-h5",
+    "name": "Chandrayaan-2",
+    "category": "mission",
+    "attributes": {
+      "operator": "ISRO",
+      "launchYear": 2019,
+      "launchMassKg": 3850
+    },
+    "funFact": "Chandrayaan-2 brachte Indiens ersten Mondorbiter mit hochauflösender Kamera ins All; der Lander Vikram zerschellte zwar 2019, doch der Orbiter umkreist und kartiert den Mond bis heute.",
+    "sourceName": "ISRO — Chandrayaan-2",
+    "sourceUrl": "https://www.isro.gov.in/Chandrayaan2.html",
+    "verifyNote": "Start 2019-07-22, Betreiber ISRO, Startmasse rund 3850 kg laut ISRO-Missionsseite."
+  },
+  {
+    "id": "mission-stereo-h5",
+    "name": "STEREO",
+    "category": "mission",
+    "attributes": {
+      "operator": "NASA",
+      "launchYear": 2006
+    },
+    "funFact": "STEREO besteht aus zwei baugleichen Sonden, die voraus und hinter der Erde laufen und so erstmals dreidimensionale Bilder der Sonne und ihrer koronalen Massenauswürfe lieferten.",
+    "sourceName": "NASA Science — STEREO",
+    "sourceUrl": "https://science.nasa.gov/mission/stereo/",
+    "verifyNote": "Start 2006-10-26, Betreiber NASA laut NASA-Missionsseite; Startmasse je Sonde rund 620 kg, Gesamtangabe uneinheitlich, daher weggelassen."
+  },
+  {
+    "id": "mission-ladee-h5",
+    "name": "LADEE",
+    "category": "mission",
+    "attributes": {
+      "operator": "NASA",
+      "launchYear": 2013,
+      "launchMassKg": 383
+    },
+    "funFact": "LADEE untersuchte die hauchdünne Mondatmosphäre und Staubpartikel und testete dabei eine Laser-Datenübertragung mit Rekord-Datenrate vom Mond zur Erde.",
+    "sourceName": "NASA Science — LADEE",
+    "sourceUrl": "https://science.nasa.gov/mission/ladee/",
+    "verifyNote": "Start 2013-09-07, Betreiber NASA, Startmasse rund 383 kg laut NASA-Missionsseite und NSSDCA."
+  },
+  {
+    "id": "mission-xmm-newton-h5",
+    "name": "XMM-Newton",
+    "category": "mission",
+    "attributes": {
+      "operator": "ESA",
+      "launchYear": 1999,
+      "launchMassKg": 3800
+    },
+    "funFact": "XMM-Newton ist das größte je von Europa gebaute wissenschaftliche Satelliten und sammelt mit drei Röntgenteleskopen das schwache Licht heißer kosmischer Quellen wie Schwarzer Löcher.",
+    "sourceName": "ESA — XMM-Newton",
+    "sourceUrl": "https://www.esa.int/Science_Exploration/Space_Science/XMM-Newton",
+    "verifyNote": "Start 1999-12-10, Betreiber ESA, Startmasse rund 3800 kg laut ESA-Missionsseite."
+  },
+  {
+    "id": "exoplanet-toi-715-b-h5",
+    "name": "TOI-715 b",
+    "category": "exoplanet",
+    "attributes": {
+      "discoveryMethod": "Transit",
+      "discoveredYear": 2024,
+      "distanceLy": 137,
+      "orbitalPeriodDays": 19.3,
+      "radiusEarthRadii": 1.55
+    },
+    "funFact": "TOI-715 b ist eine Supererde in der konservativen habitablen Zone eines nahen Roten Zwergs und gehört zu den vielversprechenden Zielen für künftige Atmosphären-Untersuchungen.",
+    "sourceName": "NASA Exoplanet Archive — TOI-715 b",
+    "sourceUrl": "https://exoplanetarchive.ipac.caltech.edu/overview/TOI-715%20b",
+    "verifyNote": "Transit, Entdeckung 2024, Umlaufzeit rund 19,3 d und Radius rund 1,55 Erdradien laut NASA Exoplanet Archive."
+  },
+  {
+    "id": "exoplanet-wasp-69-b-h5",
+    "name": "WASP-69 b",
+    "category": "exoplanet",
+    "attributes": {
+      "discoveryMethod": "Transit",
+      "discoveredYear": 2014,
+      "distanceLy": 163,
+      "orbitalPeriodDays": 3.87,
+      "radiusEarthRadii": 11.8
+    },
+    "funFact": "WASP-69 b verliert seine Atmosphäre so stark, dass er einen kometenartigen Gasschweif hinter sich herzieht, der zehntausende Kilometer lang ist.",
+    "sourceName": "NASA Exoplanet Archive — WASP-69 b",
+    "sourceUrl": "https://exoplanetarchive.ipac.caltech.edu/overview/WASP-69%20b",
+    "verifyNote": "Transit, Entdeckung 2014, Umlaufzeit rund 3,87 d laut NASA Exoplanet Archive."
+  },
+  {
+    "id": "exoplanet-wasp-80-b-h5",
+    "name": "WASP-80 b",
+    "category": "exoplanet",
+    "attributes": {
+      "discoveryMethod": "Transit",
+      "discoveredYear": 2013,
+      "distanceLy": 162,
+      "orbitalPeriodDays": 3.07
+    },
+    "funFact": "WASP-80 b ist ein heißer Jupiter um einen kühlen Stern, dessen Atmosphäre mit JWST untersucht wurde und Methan zeigte — ein vergleichsweise seltener Nachweis bei einem Exoplaneten.",
+    "sourceName": "NASA Exoplanet Archive — WASP-80 b",
+    "sourceUrl": "https://exoplanetarchive.ipac.caltech.edu/overview/WASP-80%20b",
+    "verifyNote": "Transit, Entdeckung 2013, Umlaufzeit rund 3,07 d laut NASA Exoplanet Archive."
+  },
+  {
+    "id": "exoplanet-lhs-475-b-h5",
+    "name": "LHS 475 b",
+    "category": "exoplanet",
+    "attributes": {
+      "discoveryMethod": "Transit",
+      "discoveredYear": 2023,
+      "distanceLy": 41,
+      "orbitalPeriodDays": 2.03,
+      "radiusEarthRadii": 0.99
+    },
+    "funFact": "LHS 475 b war der erste Exoplanet, dessen Existenz vom James-Webb-Teleskop bestätigt wurde — ein nahezu erdgroßer Gesteinsplanet um einen Roten Zwerg.",
+    "sourceName": "NASA Exoplanet Archive — LHS 475 b",
+    "sourceUrl": "https://exoplanetarchive.ipac.caltech.edu/overview/LHS%20475%20b",
+    "verifyNote": "Transit, Entdeckung 2023, Radius rund 0,99 Erdradien laut NASA Exoplanet Archive und NASA/JWST-Pressemitteilung."
+  },
+  {
+    "id": "exoplanet-wasp-49-b-h5",
+    "name": "WASP-49 b",
+    "category": "exoplanet",
+    "attributes": {
+      "discoveryMethod": "Transit",
+      "discoveredYear": 2012,
+      "distanceLy": 635,
+      "orbitalPeriodDays": 2.78
+    },
+    "funFact": "WASP-49 b ist ein heißer Gasriese, in dessen Umfeld eine ausgedehnte Natriumwolke beobachtet wurde, die möglicherweise von einem aktiven Begleitkörper stammt.",
+    "sourceName": "NASA Exoplanet Archive — WASP-49 b",
+    "sourceUrl": "https://exoplanetarchive.ipac.caltech.edu/overview/WASP-49%20b",
+    "verifyNote": "Transit, Entdeckung 2012, Umlaufzeit rund 2,78 d laut NASA Exoplanet Archive."
+  },
+  {
+    "id": "exoplanet-gj-1002-b-h5",
+    "name": "GJ 1002 b",
+    "category": "exoplanet",
+    "attributes": {
+      "discoveryMethod": "Radialgeschwindigkeit",
+      "discoveredYear": 2022,
+      "distanceLy": 16,
+      "orbitalPeriodDays": 10.3
+    },
+    "funFact": "GJ 1002 b ist eine erdähnliche Planetenmasse in der habitablen Zone eines sehr nahen Roten Zwergs und gilt als gutes Ziel für die Suche nach Biosignaturen.",
+    "sourceName": "NASA Exoplanet Archive — GJ 1002 b",
+    "sourceUrl": "https://exoplanetarchive.ipac.caltech.edu/overview/GJ%201002%20b",
+    "verifyNote": "Radialgeschwindigkeit, Entdeckung 2022, Umlaufzeit rund 10,3 d und Distanz rund 16 Lj laut NASA Exoplanet Archive und ESO-Mitteilung."
+  },
+  {
+    "id": "exoplanet-gj-1002-c-h5",
+    "name": "GJ 1002 c",
+    "category": "exoplanet",
+    "attributes": {
+      "discoveryMethod": "Radialgeschwindigkeit",
+      "discoveredYear": 2022,
+      "distanceLy": 16,
+      "orbitalPeriodDays": 21.2
+    },
+    "funFact": "GJ 1002 c ist der äußere von zwei potenziell habitablen Planeten um den nahen Roten Zwerg GJ 1002 und liegt nur 16 Lichtjahre entfernt.",
+    "sourceName": "NASA Exoplanet Archive — GJ 1002 c",
+    "sourceUrl": "https://exoplanetarchive.ipac.caltech.edu/overview/GJ%201002%20c",
+    "verifyNote": "Radialgeschwindigkeit, Entdeckung 2022, Umlaufzeit rund 21,2 d laut NASA Exoplanet Archive."
+  },
+  {
+    "id": "exoplanet-wolf-1069-b-h5",
+    "name": "Wolf 1069 b",
+    "category": "exoplanet",
+    "attributes": {
+      "discoveryMethod": "Radialgeschwindigkeit",
+      "discoveredYear": 2023,
+      "distanceLy": 31,
+      "orbitalPeriodDays": 15.6
+    },
+    "funFact": "Wolf 1069 b ist eine erdmassereiche Welt in der habitablen Zone, die ihrem Stern wahrscheinlich stets dieselbe Seite zuwendet — eine gebundene Rotation wie beim Erdmond.",
+    "sourceName": "NASA Exoplanet Archive — Wolf 1069 b",
+    "sourceUrl": "https://exoplanetarchive.ipac.caltech.edu/overview/Wolf%201069%20b",
+    "verifyNote": "Radialgeschwindigkeit, Entdeckung 2023, Umlaufzeit rund 15,6 d laut NASA Exoplanet Archive."
+  },
+  {
+    "id": "exoplanet-k2-415-b-h5",
+    "name": "K2-415 b",
+    "category": "exoplanet",
+    "attributes": {
+      "discoveryMethod": "Transit",
+      "discoveredYear": 2023,
+      "distanceLy": 72,
+      "orbitalPeriodDays": 4.02,
+      "radiusEarthRadii": 1.02
+    },
+    "funFact": "K2-415 b ist ein nahezu erdgroßer Planet um einen der massearmsten bekannten Roten Zwerge mit Transitplanet und damit ein interessantes Vergleichsobjekt für kleine Welten.",
+    "sourceName": "NASA Exoplanet Archive — K2-415 b",
+    "sourceUrl": "https://exoplanetarchive.ipac.caltech.edu/overview/K2-415%20b",
+    "verifyNote": "Transit, Entdeckung 2023, Radius rund 1,02 Erdradien laut NASA Exoplanet Archive."
+  },
+  {
+    "id": "exoplanet-toi-2257-b-h5",
+    "name": "TOI-2257 b",
+    "category": "exoplanet",
+    "attributes": {
+      "discoveryMethod": "Transit",
+      "discoveredYear": 2022,
+      "distanceLy": 124,
+      "orbitalPeriodDays": 35.2,
+      "radiusEarthRadii": 2.2
+    },
+    "funFact": "TOI-2257 b umkreist seinen Roten Zwerg auf einer ungewöhnlich exzentrischen Bahn und ist einer der Sub-Neptune mit der längsten bekannten Umlaufzeit in der habitablen Zone solcher Sterne.",
+    "sourceName": "NASA Exoplanet Archive — TOI-2257 b",
+    "sourceUrl": "https://exoplanetarchive.ipac.caltech.edu/overview/TOI-2257%20b",
+    "verifyNote": "Transit, Entdeckung 2022, Umlaufzeit rund 35 d laut NASA Exoplanet Archive."
+  },
+  {
+    "id": "exoplanet-hd-110067-b-h5",
+    "name": "HD 110067 b",
+    "category": "exoplanet",
+    "attributes": {
+      "discoveryMethod": "Transit",
+      "discoveredYear": 2023,
+      "distanceLy": 105,
+      "orbitalPeriodDays": 9.11,
+      "radiusEarthRadii": 2.2
+    },
+    "funFact": "HD 110067 b gehört zu einem seltenen System aus sechs Sub-Neptunen, die in perfekter resonanter Kette umlaufen — ihre Umlaufzeiten stehen in exakten ganzzahligen Verhältnissen.",
+    "sourceName": "NASA Exoplanet Archive — HD 110067 b",
+    "sourceUrl": "https://exoplanetarchive.ipac.caltech.edu/overview/HD%20110067%20b",
+    "verifyNote": "Transit, Entdeckung 2023, Resonanzkette aus ESA/CHEOPS-Pressemitteilung bestätigt; Umlaufzeit rund 9,1 d laut NASA Exoplanet Archive."
+  },
+  {
+    "id": "exoplanet-wasp-77-a-b-h5",
+    "name": "WASP-77 A b",
+    "category": "exoplanet",
+    "attributes": {
+      "discoveryMethod": "Transit",
+      "discoveredYear": 2012,
+      "distanceLy": 340,
+      "orbitalPeriodDays": 1.36
+    },
+    "funFact": "WASP-77 A b ist ein heißer Jupiter, dessen Atmosphäre präzise auf Wasser und Kohlenmonoxid vermessen wurde — ein Maßstab für Studien zur chemischen Zusammensetzung von Gasriesen.",
+    "sourceName": "NASA Exoplanet Archive — WASP-77 A b",
+    "sourceUrl": "https://exoplanetarchive.ipac.caltech.edu/overview/WASP-77%20A%20b",
+    "verifyNote": "Transit, Entdeckung 2012, Umlaufzeit rund 1,36 d laut NASA Exoplanet Archive."
+  },
+  {
+    "id": "exoplanet-wasp-178-b-h5",
+    "name": "WASP-178 b",
+    "category": "exoplanet",
+    "attributes": {
+      "discoveryMethod": "Transit",
+      "discoveredYear": 2019,
+      "distanceLy": 1380,
+      "orbitalPeriodDays": 3.34
+    },
+    "funFact": "WASP-178 b ist ein ultraheißer Jupiter, in dessen Atmosphäre Siliziummonoxid und starke Winde nachgewiesen wurden — Bedingungen, unter denen Gestein verdampfen kann.",
+    "sourceName": "NASA Exoplanet Archive — WASP-178 b",
+    "sourceUrl": "https://exoplanetarchive.ipac.caltech.edu/overview/WASP-178%20b",
+    "verifyNote": "Transit, Entdeckung 2019, Umlaufzeit rund 3,34 d laut NASA Exoplanet Archive."
+  }
+]

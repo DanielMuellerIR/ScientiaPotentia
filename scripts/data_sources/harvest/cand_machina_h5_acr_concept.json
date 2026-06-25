@@ -1,0 +1,600 @@
+[
+  {
+    "id": "acronym-paas-h5",
+    "name": "PaaS",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Platform as a Service",
+      "domain": "Webtechnik"
+    },
+    "funFact": "Bei PaaS stellt der Anbieter die komplette Laufzeitumgebung bereit, sodass Entwickler sich nur um den eigenen Code statt um Server kümmern müssen.",
+    "sourceName": "Wikipedia DE – Platform as a Service",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Platform_as_a_Service",
+    "verifyNote": "Vollform laut Cloud-Computing-Standardliteratur und NIST-Definition."
+  },
+  {
+    "id": "acronym-iaas-h5",
+    "name": "IaaS",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Infrastructure as a Service",
+      "domain": "Webtechnik"
+    },
+    "funFact": "IaaS vermietet rohe Rechen-, Speicher- und Netzressourcen virtuell, sodass Kunden nur für tatsächlich genutzte Kapazität zahlen.",
+    "sourceName": "Wikipedia DE – Infrastructure as a Service",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Infrastructure_as_a_Service",
+    "verifyNote": "Vollform laut NIST-Cloud-Definition (SP 800-145)."
+  },
+  {
+    "id": "acronym-blob-h5",
+    "name": "BLOB",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Binary Large Object",
+      "domain": "Datenbanken"
+    },
+    "funFact": "Ein BLOB speichert große Binärdaten wie Bilder oder Videos direkt in der Datenbank, statt nur einen Dateipfad abzulegen.",
+    "sourceName": "Wikipedia DE – Binary Large Object",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Binary_Large_Object",
+    "verifyNote": "Vollform ist Standardbegriff in SQL-Datenbanksystemen."
+  },
+  {
+    "id": "acronym-qos-h5",
+    "name": "QoS",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Quality of Service",
+      "domain": "Netzwerk"
+    },
+    "funFact": "QoS priorisiert zeitkritischen Verkehr wie Sprachtelefonie gegenüber unkritischen Downloads, damit Gespräche nicht abreißen.",
+    "sourceName": "Wikipedia DE – Quality of Service",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Dienstg%C3%BCte",
+    "verifyNote": "Vollform laut Netzwerktechnik-Standardliteratur."
+  },
+  {
+    "id": "acronym-2fa-h5",
+    "name": "2FA",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Two-Factor Authentication",
+      "domain": "IT-Sicherheit"
+    },
+    "funFact": "2FA kombiniert zwei unabhängige Nachweise — etwa Passwort plus Einmalcode — sodass ein gestohlenes Passwort allein nicht zum Login reicht.",
+    "sourceName": "Wikipedia DE – Zwei-Faktor-Authentisierung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Zwei-Faktor-Authentisierung",
+    "verifyNote": "Vollform ist Standard in der IT-Sicherheitsliteratur."
+  },
+  {
+    "id": "acronym-csr-h5",
+    "name": "CSR",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Certificate Signing Request",
+      "domain": "IT-Sicherheit"
+    },
+    "funFact": "Ein CSR enthält den öffentlichen Schlüssel und die Antragsdaten, die eine Zertifizierungsstelle signiert, um ein TLS-Zertifikat auszustellen.",
+    "sourceName": "Wikipedia DE – Certificate Signing Request",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Certificate_Signing_Request",
+    "verifyNote": "Vollform laut PKI-Standard PKCS#10."
+  },
+  {
+    "id": "acronym-worm-h5",
+    "name": "WORM",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Write Once, Read Many",
+      "domain": "Datenträger"
+    },
+    "funFact": "WORM-Speicher lässt sich nur einmal beschreiben, danach beliebig oft lesen — ideal für revisionssichere Archive, die nicht nachträglich verändert werden dürfen.",
+    "sourceName": "Wikipedia DE – Write Once Read Many",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Write_Once_Read_Many",
+    "verifyNote": "Vollform ist Standardbegriff in der Speichertechnik."
+  },
+  {
+    "id": "acronym-jbod-h5",
+    "name": "JBOD",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Just a Bunch Of Disks",
+      "domain": "Hardware"
+    },
+    "funFact": "JBOD fasst mehrere Festplatten ohne RAID-Verbund einfach zusammen — ohne Redundanz, aber mit voller Summe der Einzelkapazitäten.",
+    "sourceName": "Wikipedia DE – JBOD",
+    "sourceUrl": "https://de.wikipedia.org/wiki/JBOD",
+    "verifyNote": "Vollform ist Standardbegriff in der Speichertechnik."
+  },
+  {
+    "id": "acronym-slo-h5",
+    "name": "SLO",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Service Level Objective",
+      "domain": "Systemtechnik"
+    },
+    "funFact": "Ein SLO legt das interne Zielmaß für Verfügbarkeit oder Latenz fest und ist meist strenger als das vertragliche SLA gegenüber dem Kunden.",
+    "sourceName": "Wikipedia EN – Service-level objective",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Service-level_objective",
+    "verifyNote": "Vollform laut Site-Reliability-Engineering-Standardliteratur."
+  },
+  {
+    "id": "acronym-lru-h5",
+    "name": "LRU",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Least Recently Used",
+      "domain": "Speicherverwaltung"
+    },
+    "funFact": "Die LRU-Strategie verdrängt beim Cache-Überlauf genau jenen Eintrag, der am längsten nicht mehr abgerufen wurde.",
+    "sourceName": "Wikipedia DE – Cache (Verdrängungsstrategien)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Cache#Verdr%C3%A4ngungsstrategien",
+    "verifyNote": "Vollform ist Standardbegriff in der Betriebssystemtheorie."
+  },
+  {
+    "id": "acronym-mtbf-h5",
+    "name": "MTBF",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Mean Time Between Failures",
+      "domain": "Systemtechnik"
+    },
+    "funFact": "Die MTBF gibt die mittlere fehlerfreie Betriebszeit eines Systems an und dient als zentrale Kennzahl für Zuverlässigkeit von Hardware.",
+    "sourceName": "Wikipedia DE – Mean Time Between Failures",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Mean_Time_Between_Failures",
+    "verifyNote": "Vollform laut Zuverlässigkeitstechnik-Standardliteratur."
+  },
+  {
+    "id": "acronym-mttr-h5",
+    "name": "MTTR",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Mean Time To Repair",
+      "domain": "Systemtechnik"
+    },
+    "funFact": "Die MTTR misst die mittlere Reparaturdauer nach einem Ausfall und fließt zusammen mit der MTBF in die Berechnung der Verfügbarkeit ein.",
+    "sourceName": "Wikipedia DE – Mean Time To Repair",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Mean_Time_To_Repair",
+    "verifyNote": "Vollform laut Zuverlässigkeitstechnik-Standardliteratur."
+  },
+  {
+    "id": "acronym-rpo-h5",
+    "name": "RPO",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Recovery Point Objective",
+      "domain": "Systemtechnik"
+    },
+    "funFact": "Das RPO legt fest, wie viel Datenverlust nach einem Ausfall maximal toleriert wird — es bestimmt damit den nötigen Backup-Abstand.",
+    "sourceName": "Wikipedia DE – Recovery Point Objective",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Recovery_Point_Objective",
+    "verifyNote": "Vollform ist Standardbegriff im Notfall- und Wiederherstellungsmanagement."
+  },
+  {
+    "id": "acronym-cqrs-h5",
+    "name": "CQRS",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Command Query Responsibility Segregation",
+      "domain": "Softwarearchitektur"
+    },
+    "funFact": "CQRS trennt das Schreib- vom Lesemodell einer Anwendung, sodass beide Pfade unabhängig optimiert und skaliert werden können.",
+    "sourceName": "Wikipedia EN – Command Query Responsibility Segregation",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Command_Query_Responsibility_Segregation",
+    "verifyNote": "Vollform laut Domain-Driven-Design-Standardliteratur."
+  },
+  {
+    "id": "acronym-rdbms-h5",
+    "name": "RDBMS",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Relational Database Management System",
+      "domain": "Datenbanken"
+    },
+    "funFact": "Ein RDBMS organisiert Daten in Tabellen mit Beziehungen und nutzt SQL als Abfragesprache — Beispiele sind PostgreSQL, MySQL und Oracle.",
+    "sourceName": "Wikipedia DE – Relationales Datenbankmanagementsystem",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Relationales_Datenbankmanagementsystem",
+    "verifyNote": "Vollform ist Lehrbuch-Standard der Datenbanktheorie."
+  },
+  {
+    "id": "acronym-spof-h5",
+    "name": "SPOF",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Single Point of Failure",
+      "domain": "Systemtechnik"
+    },
+    "funFact": "Ein SPOF ist eine Komponente, deren Ausfall das gesamte System lahmlegt — redundante Auslegung soll genau das verhindern.",
+    "sourceName": "Wikipedia DE – Single Point of Failure",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Single_Point_of_Failure",
+    "verifyNote": "Vollform ist Standardbegriff der Verfügbarkeits- und Systemtechnik."
+  },
+  {
+    "id": "acronym-sse-h5",
+    "name": "SSE",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Server-Sent Events",
+      "domain": "Webtechnik"
+    },
+    "funFact": "SSE öffnet einen einseitigen Datenstrom vom Server zum Browser über HTTP — leichter als WebSockets, wenn nur der Server senden muss.",
+    "sourceName": "MDN Web Docs – Server-sent events",
+    "sourceUrl": "https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events",
+    "verifyNote": "Vollform laut HTML-Living-Standard (WHATWG)."
+  },
+  {
+    "id": "acronym-csp-h5",
+    "name": "CSP",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Content Security Policy",
+      "domain": "Webtechnik"
+    },
+    "funFact": "Eine CSP weist den Browser an, nur Skripte aus erlaubten Quellen auszuführen, und entschärft so Cross-Site-Scripting-Angriffe.",
+    "sourceName": "MDN Web Docs – Content Security Policy (CSP)",
+    "sourceUrl": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP",
+    "verifyNote": "Vollform laut W3C-CSP-Spezifikation."
+  },
+  {
+    "id": "concept-heartbeat-h5",
+    "name": "Heartbeat (Verteilte Systeme)",
+    "category": "concept",
+    "attributes": {
+      "category": "Verteilte Systeme",
+      "definition": "Periodisches Signal zwischen Komponenten, dessen Ausbleiben einen Ausfall des Senders anzeigt und ein Failover auslöst"
+    },
+    "funFact": "Fällt das Signal mehrfach hintereinander aus, gilt der Knoten als tot — die Wahl des Intervalls ist ein Kompromiss zwischen schneller Erkennung und Fehlalarmen.",
+    "sourceName": "Wikipedia EN – Heartbeat (computing)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Heartbeat_(computing)",
+    "verifyNote": "Standardmechanismus der Hochverfügbarkeits- und Cluster-Technik."
+  },
+  {
+    "id": "concept-bulkhead-h5",
+    "name": "Schott (Bulkhead)",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwarearchitektur",
+      "definition": "Aufteilung von Ressourcen in isolierte Abschnitte, sodass die Überlastung eines Bereichs nicht das ganze System mitreißt"
+    },
+    "funFact": "Das Muster ist nach den Schotten im Schiffsrumpf benannt — läuft ein Abteil voll, bleiben die übrigen dicht und das Schiff schwimmt weiter.",
+    "sourceName": "Microsoft – Bulkhead pattern",
+    "sourceUrl": "https://learn.microsoft.com/en-us/azure/architecture/patterns/bulkhead",
+    "verifyNote": "Etabliertes Resilienz-Entwurfsmuster verteilter Systeme."
+  },
+  {
+    "id": "concept-zwei-phasen-commit-h5",
+    "name": "Zwei-Phasen-Commit",
+    "category": "concept",
+    "attributes": {
+      "category": "Verteilte Systeme",
+      "definition": "Protokoll, das eine Transaktion über mehrere Knoten atomar abschließt, indem ein Koordinator erst Bereitschaft einholt und dann den Abschluss befiehlt"
+    },
+    "funFact": "Sein Schwachpunkt ist der Koordinator: Fällt er nach der Abstimmphase aus, bleiben die Teilnehmer blockiert und warten unbestimmt lange.",
+    "sourceName": "Wikipedia DE – Zwei-Phasen-Commit-Protokoll",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Zwei-Phasen-Commit-Protokoll",
+    "verifyNote": "Lehrbuch-Standard verteilter Datenbanktransaktionen."
+  },
+  {
+    "id": "concept-saga-muster-h5",
+    "name": "Saga-Muster",
+    "category": "concept",
+    "attributes": {
+      "category": "Verteilte Systeme",
+      "definition": "Abfolge lokaler Transaktionen über mehrere Dienste, die bei Fehlern durch ausgleichende Gegentransaktionen zurückgerollt wird"
+    },
+    "funFact": "Statt alles in einer großen verteilten Transaktion zu sperren, akzeptiert eine Saga zwischenzeitliche Inkonsistenz und korrigiert sie nachträglich.",
+    "sourceName": "Microsoft – Saga distributed transactions pattern",
+    "sourceUrl": "https://learn.microsoft.com/en-us/azure/architecture/patterns/saga",
+    "verifyNote": "Etabliertes Muster für langlebige Microservice-Transaktionen."
+  },
+  {
+    "id": "concept-failover-h5",
+    "name": "Ausfallsicherung (Failover)",
+    "category": "concept",
+    "attributes": {
+      "category": "Verteilte Systeme",
+      "definition": "Automatisches Umschalten auf eine Reservekomponente, sobald die primäre Komponente als ausgefallen erkannt wird"
+    },
+    "funFact": "Damit der Wechsel sauber klappt, muss das System einen echten Ausfall sicher von einer kurzen Netzstörung unterscheiden — sonst droht ein Split-Brain.",
+    "sourceName": "Wikipedia DE – Failover",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Failover",
+    "verifyNote": "Grundkonzept der Hochverfügbarkeitstechnik."
+  },
+  {
+    "id": "concept-load-shedding-h5",
+    "name": "Lastabwurf (Load Shedding)",
+    "category": "concept",
+    "attributes": {
+      "category": "Verteilte Systeme",
+      "definition": "Gezieltes Abweisen von Anfragen bei Überlast, um den Kern eines Dienstes funktionsfähig zu halten statt komplett zusammenzubrechen"
+    },
+    "funFact": "Der Begriff stammt aus der Stromnetztechnik, wo gezielte Teilabschaltungen einen flächendeckenden Blackout verhindern.",
+    "sourceName": "Google SRE Book – Handling Overload",
+    "sourceUrl": "https://sre.google/sre-book/handling-overload/",
+    "verifyNote": "Standardtechnik im Site Reliability Engineering."
+  },
+  {
+    "id": "concept-exponentielles-backoff-h5",
+    "name": "Exponentielles Backoff",
+    "category": "concept",
+    "attributes": {
+      "category": "Verteilte Systeme",
+      "definition": "Wiederholungsstrategie, bei der die Wartezeit zwischen fehlgeschlagenen Versuchen exponentiell ansteigt, um überlastete Systeme zu entlasten"
+    },
+    "funFact": "Ein zufälliger Zusatz (Jitter) verhindert, dass alle Clients nach derselben Wartezeit gleichzeitig erneut zuschlagen und den Server doppelt fluten.",
+    "sourceName": "Wikipedia EN – Exponential backoff",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Exponential_backoff",
+    "verifyNote": "Klassische Technik, u. a. im Ethernet-CSMA/CD-Verfahren verankert."
+  },
+  {
+    "id": "concept-dead-letter-queue-h5",
+    "name": "Dead-Letter-Queue",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwarearchitektur",
+      "definition": "Sonderwarteschlange, in die Nachrichten verschoben werden, die nach mehreren Versuchen nicht zugestellt oder verarbeitet werden konnten"
+    },
+    "funFact": "Statt fehlerhafte Nachrichten endlos zu wiederholen oder zu verwerfen, parkt das System sie hier, damit Entwickler die Ursache später analysieren können.",
+    "sourceName": "Wikipedia EN – Dead letter queue",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Dead_letter_queue",
+    "verifyNote": "Standardkonzept nachrichtenorientierter Middleware."
+  },
+  {
+    "id": "concept-service-mesh-h5",
+    "name": "Service-Mesh",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwarearchitektur",
+      "definition": "Infrastrukturschicht, die die Kommunikation zwischen Microservices über eingeschleuste Proxys steuert, absichert und beobachtbar macht"
+    },
+    "funFact": "Ein Service-Mesh nimmt den Diensten Aufgaben wie Verschlüsselung, Wiederholungen und Lastverteilung ab, ohne dass deren Code dafür angepasst werden muss.",
+    "sourceName": "Wikipedia EN – Service mesh",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Service_mesh",
+    "verifyNote": "Etabliertes Architekturkonzept (Istio, Linkerd)."
+  },
+  {
+    "id": "concept-api-gateway-h5",
+    "name": "API-Gateway",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwarearchitektur",
+      "definition": "Zentraler Einstiegspunkt, der eingehende Anfragen entgegennimmt und an die passenden Backend-Dienste weiterleitet"
+    },
+    "funFact": "Es bündelt Querschnittsaufgaben wie Authentifizierung, Drosselung und Protokollumsetzung an einer Stelle, statt sie in jedem Dienst zu wiederholen.",
+    "sourceName": "Microsoft – Gateway Aggregation pattern",
+    "sourceUrl": "https://learn.microsoft.com/en-us/azure/architecture/patterns/gateway-aggregation",
+    "verifyNote": "Standardkomponente von Microservice-Architekturen."
+  },
+  {
+    "id": "concept-reverse-proxy-h5",
+    "name": "Reverse-Proxy",
+    "category": "concept",
+    "attributes": {
+      "category": "Netzwerk",
+      "definition": "Server, der Anfragen von Clients entgegennimmt und stellvertretend an dahinterliegende Server weiterleitet, deren Identität dabei verborgen bleibt"
+    },
+    "funFact": "Im Gegensatz zum klassischen Proxy schützt ein Reverse-Proxy nicht den Client, sondern die Server — er übernimmt oft auch TLS-Terminierung und Lastverteilung.",
+    "sourceName": "Wikipedia DE – Reverse Proxy",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Reverse_Proxy",
+    "verifyNote": "Standardbegriff der Webserver- und Netzwerktechnik."
+  },
+  {
+    "id": "concept-sticky-session-h5",
+    "name": "Sticky-Session",
+    "category": "concept",
+    "attributes": {
+      "category": "Netzwerk",
+      "definition": "Lastverteilungsverfahren, das alle Anfragen eines Nutzers während einer Sitzung an denselben Backend-Server bindet"
+    },
+    "funFact": "Sticky-Sessions vereinfachen die Zustandshaltung, erschweren aber das gleichmäßige Verteilen der Last und das nahtlose Wegrollen einzelner Server.",
+    "sourceName": "Wikipedia EN – Load balancing (Persistence)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Load_balancing_(computing)#Persistence",
+    "verifyNote": "Standardbegriff der Lastverteilung."
+  },
+  {
+    "id": "concept-feature-toggle-h5",
+    "name": "Feature-Toggle",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwareentwicklung",
+      "definition": "Schalter im Code, der Funktionen zur Laufzeit aktiviert oder deaktiviert, ohne dass ein neuer Build oder Deploy nötig ist"
+    },
+    "funFact": "Damit lässt sich neuer Code bereits ausliefern, aber erst nach und nach für ausgewählte Nutzer freischalten — und bei Problemen sofort wieder abschalten.",
+    "sourceName": "Wikipedia EN – Feature toggle",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Feature_toggle",
+    "verifyNote": "Etablierte Continuous-Delivery-Praxis."
+  },
+  {
+    "id": "concept-chaos-engineering-h5",
+    "name": "Chaos Engineering",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwaretechnik",
+      "definition": "Disziplin, die absichtlich Störungen in ein laufendes System einspeist, um dessen Widerstandsfähigkeit gegen reale Ausfälle zu prüfen"
+    },
+    "funFact": "Netflix machte den Ansatz mit dem Werkzeug Chaos Monkey populär, das zufällig Produktivserver abschaltet, um robuste Architekturen zu erzwingen.",
+    "sourceName": "Wikipedia EN – Chaos engineering",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Chaos_engineering",
+    "verifyNote": "Etablierte Zuverlässigkeitspraxis großer Cloud-Betreiber."
+  },
+  {
+    "id": "concept-observability-h5",
+    "name": "Beobachtbarkeit (Observability)",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwaretechnik",
+      "definition": "Eigenschaft eines Systems, aus seinen externen Ausgaben wie Logs, Metriken und Traces auf den inneren Zustand schließen zu können"
+    },
+    "funFact": "Die drei Säulen — Logs, Metriken und Traces — erlauben es, auch unvorhergesehene Probleme nachträglich zu verstehen, nicht nur vorab definierte Fehler.",
+    "sourceName": "Wikipedia EN – Observability (software)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Observability_(software)",
+    "verifyNote": "Etablierter Begriff des modernen Systembetriebs."
+  },
+  {
+    "id": "concept-verteiltes-tracing-h5",
+    "name": "Verteiltes Tracing",
+    "category": "concept",
+    "attributes": {
+      "category": "Verteilte Systeme",
+      "definition": "Verfolgung einer einzelnen Anfrage über alle beteiligten Dienste hinweg, indem jeder Schritt mit einer gemeinsamen Korrelations-Kennung markiert wird"
+    },
+    "funFact": "So lässt sich nachträglich genau ablesen, in welchem von Dutzenden Microservices eine Anfrage hängen blieb oder Zeit verlor.",
+    "sourceName": "Wikipedia EN – Tracing (software) – Distributed tracing",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Tracing_(software)",
+    "verifyNote": "Standardtechnik der Microservice-Diagnose (OpenTelemetry)."
+  },
+  {
+    "id": "concept-write-through-h5",
+    "name": "Schreibdurchschreibung (Write-Through)",
+    "category": "concept",
+    "attributes": {
+      "category": "Speicherverwaltung",
+      "definition": "Cache-Strategie, bei der jeder Schreibvorgang gleichzeitig in den Cache und in den dahinterliegenden Speicher geschrieben wird"
+    },
+    "funFact": "Write-Through hält Cache und Hauptspeicher stets konsistent, bezahlt das aber mit langsameren Schreibzugriffen als die Write-Back-Variante.",
+    "sourceName": "Wikipedia EN – Cache (computing) – Writing policies",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Cache_(computing)#Writing_policies",
+    "verifyNote": "Lehrbuch-Standard der Rechnerarchitektur."
+  },
+  {
+    "id": "concept-gossip-protokoll-h5",
+    "name": "Gossip-Protokoll",
+    "category": "concept",
+    "attributes": {
+      "category": "Verteilte Systeme",
+      "definition": "Verfahren, bei dem Knoten Informationen wie ein Gerücht an zufällig gewählte Nachbarn weitergeben, bis sie sich im ganzen Netz verbreitet haben"
+    },
+    "funFact": "Wie ein Gerücht erreicht die Information so in logarithmisch wenigen Runden alle Knoten — ohne dass eine zentrale Stelle die Verteilung steuern muss.",
+    "sourceName": "Wikipedia EN – Gossip protocol",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Gossip_protocol",
+    "verifyNote": "Etabliertes Verfahren der Mitgliedschafts- und Zustandsverbreitung (z. B. Cassandra)."
+  },
+  {
+    "id": "concept-event-sourcing-h5",
+    "name": "Ereignisbeschaffung (Event Sourcing)",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwarearchitektur",
+      "definition": "Speicherprinzip, bei dem nicht der aktuelle Zustand, sondern die lückenlose Folge aller zustandsverändernden Ereignisse abgelegt wird"
+    },
+    "funFact": "Der aktuelle Zustand entsteht durch erneutes Abspielen aller Ereignisse — dadurch lässt sich jeder frühere Stand exakt rekonstruieren.",
+    "sourceName": "Microsoft – Event Sourcing pattern",
+    "sourceUrl": "https://learn.microsoft.com/en-us/azure/architecture/patterns/event-sourcing",
+    "verifyNote": "Etabliertes Architekturmuster, oft mit CQRS kombiniert."
+  },
+  {
+    "id": "concept-snapshot-isolation-h5",
+    "name": "Snapshot-Isolation",
+    "category": "concept",
+    "attributes": {
+      "category": "Datenbanken",
+      "definition": "Transaktionsverfahren, bei dem jede Transaktion auf einem konsistenten Abbild der Daten zum Startzeitpunkt arbeitet"
+    },
+    "funFact": "Lesende Transaktionen blockieren so nie die schreibenden und umgekehrt — der Preis ist die mögliche Anomalie des Write-Skew.",
+    "sourceName": "Wikipedia EN – Snapshot isolation",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Snapshot_isolation",
+    "verifyNote": "Standard-Isolationsstufe vieler MVCC-Datenbanken."
+  },
+  {
+    "id": "concept-zero-copy-h5",
+    "name": "Zero-Copy",
+    "category": "concept",
+    "attributes": {
+      "category": "Betriebssysteme",
+      "definition": "Technik, die Daten zwischen Puffern überträgt, ohne sie unnötig zwischen Kernel- und Benutzerspeicher zu kopieren"
+    },
+    "funFact": "Indem es überflüssige Kopiervorgänge einspart, beschleunigt Zero-Copy etwa das Ausliefern großer Dateien über das Netz erheblich.",
+    "sourceName": "Wikipedia EN – Zero-copy",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Zero-copy",
+    "verifyNote": "Etablierte Betriebssystem-Optimierung (z. B. sendfile)."
+  },
+  {
+    "id": "concept-false-sharing-h5",
+    "name": "Falsche Gemeinsamnutzung (False Sharing)",
+    "category": "concept",
+    "attributes": {
+      "category": "Nebenläufigkeit",
+      "definition": "Leistungsverlust, der entsteht, wenn mehrere Kerne unabhängige Variablen auf derselben Cache-Zeile verändern und sich gegenseitig ausbremsen"
+    },
+    "funFact": "Obwohl die Threads logisch getrennte Daten bearbeiten, zwingt die gemeinsame Cache-Zeile die Hardware zu ständigem Abgleich — ein tückischer, unsichtbarer Bremsklotz.",
+    "sourceName": "Wikipedia EN – False sharing",
+    "sourceUrl": "https://en.wikipedia.org/wiki/False_sharing",
+    "verifyNote": "Bekanntes Phänomen der Mehrkern-Parallelprogrammierung."
+  },
+  {
+    "id": "concept-spekulative-ausfuehrung-h5",
+    "name": "Spekulative Ausführung",
+    "category": "concept",
+    "attributes": {
+      "category": "Rechnerarchitektur",
+      "definition": "Technik, bei der ein Prozessor Befehle ausführt, bevor feststeht, ob sie wirklich benötigt werden, und die Ergebnisse bei Fehlspekulation verwirft"
+    },
+    "funFact": "Sie beschleunigt moderne CPUs enorm, öffnete aber mit Spectre und Meltdown 2018 eine ganze Klasse von Sicherheitslücken.",
+    "sourceName": "Wikipedia DE – Spekulative Ausführung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Spekulative_Ausf%C3%BChrung",
+    "verifyNote": "Grundtechnik moderner Out-of-Order-Prozessoren."
+  },
+  {
+    "id": "concept-onion-architektur-h5",
+    "name": "Zwiebelarchitektur",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwarearchitektur",
+      "definition": "Schichtenmodell, in dem die Geschäftslogik im Kern liegt und Abhängigkeiten ausschließlich von außen nach innen zeigen"
+    },
+    "funFact": "Weil der Kern nichts über Datenbank oder Oberfläche weiß, lassen sich diese äußeren Schichten austauschen, ohne die Geschäftslogik anzufassen.",
+    "sourceName": "Wikipedia EN – Hexagonal architecture (software)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Hexagonal_architecture_(software)",
+    "verifyNote": "Etabliertes Architekturmuster, verwandt mit Ports-and-Adapters."
+  },
+  {
+    "id": "concept-prefetching-h5",
+    "name": "Vorausschauendes Laden (Prefetching)",
+    "category": "concept",
+    "attributes": {
+      "category": "Speicherverwaltung",
+      "definition": "Technik, die Daten in den Cache holt, bevor sie tatsächlich angefordert werden, um spätere Wartezeiten zu vermeiden"
+    },
+    "funFact": "Errät der Vorlader das Zugriffsmuster richtig, liegen die Daten bei Bedarf schon bereit — liegt er falsch, verdrängt er nutzlos andere nützliche Einträge.",
+    "sourceName": "Wikipedia EN – Cache prefetching",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Cache_prefetching",
+    "verifyNote": "Etablierte Optimierung in CPUs, Browsern und Datenbanken."
+  },
+  {
+    "id": "concept-tombstone-h5",
+    "name": "Tombstone (Datenbank)",
+    "category": "concept",
+    "attributes": {
+      "category": "Datenbanken",
+      "definition": "Markierung, die ein gelöschtes Datum nicht sofort entfernt, sondern es zunächst als gelöscht kennzeichnet, damit sich die Löschung im Cluster ausbreiten kann"
+    },
+    "funFact": "Ohne diese Grabstein-Markierung könnte ein verspäteter Knoten den bereits gelöschten Eintrag fälschlich wieder zum Leben erwecken.",
+    "sourceName": "Wikipedia EN – Tombstone (data store)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Tombstone_(data_store)",
+    "verifyNote": "Standardmechanismus verteilter Datenbanken (z. B. Cassandra)."
+  },
+  {
+    "id": "concept-lsm-baum-h5",
+    "name": "Log-strukturierter Merge-Baum",
+    "category": "concept",
+    "attributes": {
+      "category": "Datenbanken",
+      "definition": "Speicherstruktur, die Schreibzugriffe zunächst sequenziell sammelt und sortierte Datenblöcke später im Hintergrund zu größeren Einheiten verschmilzt"
+    },
+    "funFact": "Weil Schreibvorgänge nur angehängt statt eingestreut werden, sind solche Strukturen extrem schreibschnell — Grundlage von Datenbanken wie RocksDB und Cassandra.",
+    "sourceName": "Wikipedia EN – Log-structured merge-tree",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Log-structured_merge-tree",
+    "verifyNote": "Etablierte Speicher-Engine moderner NoSQL-Datenbanken."
+  },
+  {
+    "id": "concept-idempotenzschluessel-h5",
+    "name": "Idempotenzschlüssel",
+    "category": "concept",
+    "attributes": {
+      "category": "Webtechnik",
+      "definition": "Eindeutige Kennung, die ein Client einer Anfrage mitgibt, damit der Server eine versehentlich doppelt gesendete Anfrage nur einmal ausführt"
+    },
+    "funFact": "Zahlungs-Schnittstellen nutzen ihn, damit ein erneuter Klick oder ein Netz-Timeout nicht aus Versehen zweimal abbucht.",
+    "sourceName": "Stripe API – Idempotent Requests",
+    "sourceUrl": "https://docs.stripe.com/api/idempotent_requests",
+    "verifyNote": "Etablierte Praxis robuster Web-APIs."
+  }
+]
