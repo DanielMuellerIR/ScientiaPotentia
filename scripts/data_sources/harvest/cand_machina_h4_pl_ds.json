@@ -1,0 +1,621 @@
+[
+  {
+    "id": "programming_language-vim-script-h4",
+    "name": "Vim Script",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Imperativ/prozedural",
+      "execution": "Interpretiert",
+      "fileExtension": ".vim",
+      "primaryDomain": "Editor-Konfiguration und -Skripting"
+    },
+    "funFact": "Vim Script (auch Vimscript) steuert Konfiguration und Plugins des Editors Vim und wird beim Start aus der .vimrc geladen.",
+    "sourceName": "Wikipedia EN - Vim (text editor) / Vim script",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Vim_(text_editor)",
+    "verifyNote": "Vim Script wird vom Vim-Editor interpretiert; Skriptdateien tragen .vim, Konfiguration in .vimrc."
+  },
+  {
+    "id": "programming_language-emacs-lisp-h4",
+    "name": "Emacs Lisp",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Funktional",
+      "execution": "Bytecode (VM)",
+      "fileExtension": ".el",
+      "primaryDomain": "Editor-Erweiterung (Emacs)"
+    },
+    "funFact": "Praktisch der gesamte Editor GNU Emacs ist in Emacs Lisp geschrieben, weshalb er als 'erweiterbar bis zur Selbstmodifikation' gilt.",
+    "sourceName": "Wikipedia DE - Emacs Lisp",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Emacs_Lisp",
+    "verifyNote": "Emacs Lisp ist ein Lisp-Dialekt; Quelldateien .el werden zu .elc-Bytecode kompiliert und vom Emacs-Interpreter ausgeführt."
+  },
+  {
+    "id": "programming_language-moonscript-h4",
+    "name": "MoonScript",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Multiparadigma",
+      "execution": "Kompiliert",
+      "fileExtension": ".moon",
+      "primaryDomain": "Skripting (kompiliert nach Lua)"
+    },
+    "funFact": "MoonScript kompiliert zu Lua-Code und bringt CoffeeScript-ähnliche Syntax samt Klassen in die Lua-Welt.",
+    "sourceName": "Wikipedia EN - MoonScript",
+    "sourceUrl": "https://en.wikipedia.org/wiki/MoonScript",
+    "verifyNote": "MoonScript wird zu Lua transpiliert (kompiliert); Dateiendung .moon laut offizieller Doku."
+  },
+  {
+    "id": "programming_language-livescript-h4",
+    "name": "LiveScript",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Multiparadigma",
+      "execution": "Kompiliert",
+      "fileExtension": ".ls",
+      "primaryDomain": "Webentwicklung (kompiliert nach JavaScript)"
+    },
+    "funFact": "LiveScript ist ein indirekter Nachfahre von CoffeeScript und kompiliert ebenfalls nach JavaScript.",
+    "sourceName": "Wikipedia EN - LiveScript (compiler)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/LiveScript_(compiler)",
+    "verifyNote": "LiveScript transpiliert nach JavaScript; funktional/OOP-Mischung, Endung .ls laut offizieller Doku."
+  },
+  {
+    "id": "programming_language-freebasic-h4",
+    "name": "FreeBASIC",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Multiparadigma",
+      "execution": "Kompiliert",
+      "fileExtension": ".bas",
+      "primaryDomain": "Allzweck-/Hobbyprogrammierung"
+    },
+    "funFact": "FreeBASIC ist ein quelloffener BASIC-Compiler, der weitgehend syntaxkompatibel zum klassischen QuickBASIC ist.",
+    "sourceName": "Wikipedia EN - FreeBASIC",
+    "sourceUrl": "https://en.wikipedia.org/wiki/FreeBASIC",
+    "verifyNote": "FreeBASIC ist ein nativer Compiler (übersetzt zu Maschinencode); Endung .bas laut Projekt-Doku."
+  },
+  {
+    "id": "programming_language-octave-h4",
+    "name": "GNU Octave",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Imperativ/prozedural",
+      "execution": "Interpretiert",
+      "fileExtension": ".m",
+      "primaryDomain": "Numerik / wissenschaftliches Rechnen"
+    },
+    "funFact": "GNU Octave ist weitgehend syntaxkompatibel zu MATLAB und dient als freie Alternative für numerische Berechnungen.",
+    "sourceName": "Wikipedia DE - GNU Octave",
+    "sourceUrl": "https://de.wikipedia.org/wiki/GNU_Octave",
+    "verifyNote": "Octave ist interpretiert, nutzt MATLAB-kompatible .m-Dateien; Numerik-Domäne laut Wikipedia."
+  },
+  {
+    "id": "programming_language-maple-h4",
+    "name": "Maple",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Multiparadigma",
+      "execution": "Interpretiert",
+      "fileExtension": ".mpl",
+      "primaryDomain": "Computeralgebra / Symbolische Mathematik"
+    },
+    "funFact": "Maple gehört zu den führenden Computeralgebrasystemen und kann Gleichungen symbolisch (exakt) statt nur numerisch lösen.",
+    "sourceName": "Wikipedia DE - Maple (Software)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Maple_(Software)",
+    "verifyNote": "Maple ist ein interpretiertes Computeralgebrasystem; Skriptendung .mpl laut Maplesoft-Doku."
+  },
+  {
+    "id": "programming_language-occam-h4",
+    "name": "Occam",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Nebenläufig (CSP)",
+      "execution": "Kompiliert",
+      "fileExtension": ".occ",
+      "primaryDomain": "Parallel-/Transputer-Programmierung"
+    },
+    "funFact": "Occam wurde für die Transputer-Prozessoren entworfen und baut direkt auf Hoares CSP-Modell der nebenläufigen Prozesse auf.",
+    "sourceName": "Wikipedia EN - Occam (programming language)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Occam_(programming_language)",
+    "verifyNote": "Occam basiert auf CSP, wurde für Transputer kompiliert; Endung .occ laut Wikipedia/INMOS-Doku."
+  },
+  {
+    "id": "programming_language-icon-h4",
+    "name": "Icon",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Imperativ/prozedural",
+      "execution": "Bytecode (VM)",
+      "fileExtension": ".icn",
+      "primaryDomain": "Textverarbeitung / String-Manipulation"
+    },
+    "funFact": "Icon führte das Konzept der zielgerichteten Auswertung mit Generatoren und automatischem Backtracking ein.",
+    "sourceName": "Wikipedia EN - Icon (programming language)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Icon_(programming_language)",
+    "verifyNote": "Icon (Nachfolger von SNOBOL) läuft über eine virtuelle Maschine; Endung .icn laut Wikipedia."
+  },
+  {
+    "id": "programming_language-snobol-h4",
+    "name": "SNOBOL",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Imperativ/prozedural",
+      "execution": "Interpretiert",
+      "fileExtension": ".sno",
+      "primaryDomain": "Textverarbeitung / Mustererkennung"
+    },
+    "funFact": "SNOBOL (1960er, Bell Labs) war Vorreiter beim Pattern-Matching auf Zeichenketten, lange vor den heutigen regulären Ausdrücken.",
+    "sourceName": "Wikipedia EN - SNOBOL",
+    "sourceUrl": "https://en.wikipedia.org/wiki/SNOBOL",
+    "verifyNote": "SNOBOL ist auf String-Pattern-Matching spezialisiert; SNOBOL4 wird interpretiert (SPITBOL-Implementierung kompiliert) laut Wikipedia."
+  },
+  {
+    "id": "programming_language-stata-h4",
+    "name": "Stata",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Imperativ/prozedural",
+      "execution": "Interpretiert",
+      "fileExtension": ".do",
+      "primaryDomain": "Statistik / Datenanalyse"
+    },
+    "funFact": "Stata-Skripte heissen 'Do-Files' und werden vor allem in den Sozial- und Wirtschaftswissenschaften zur Datenanalyse genutzt.",
+    "sourceName": "Wikipedia DE - Stata",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Stata",
+    "verifyNote": "Stata ist ein interpretiertes Statistikpaket mit eigener Skriptsprache (Do-Files, .do) laut Wikipedia."
+  },
+  {
+    "id": "programming_language-nix-h4",
+    "name": "Nix",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Funktional",
+      "execution": "Interpretiert",
+      "fileExtension": ".nix",
+      "primaryDomain": "Paketmanagement / reproduzierbare Builds"
+    },
+    "funFact": "Nix ist eine rein funktionale, lazy ausgewertete Sprache, die den gleichnamigen Paketmanager und reproduzierbare Builds steuert.",
+    "sourceName": "Wikipedia EN - Nix (package manager)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Nix_(package_manager)",
+    "verifyNote": "Die Nix-Expression-Sprache ist rein funktional und lazy, wird vom Nix-Tool interpretiert; Endung .nix laut Doku."
+  },
+  {
+    "id": "programming_language-jq-h4",
+    "name": "jq",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Funktional",
+      "execution": "Interpretiert",
+      "fileExtension": ".jq",
+      "primaryDomain": "JSON-Verarbeitung auf der Kommandozeile"
+    },
+    "funFact": "jq arbeitet wie sed/awk für JSON: ein Programm beschreibt als Filter-Pipeline, wie JSON-Daten transformiert werden.",
+    "sourceName": "Wikipedia EN - jq (programming language)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Jq_(programming_language)",
+    "verifyNote": "jq ist eine interpretierte, funktionale Filter-/Abfragesprache für JSON; Endung .jq laut offizieller Doku."
+  },
+  {
+    "id": "programming_language-starlark-h4",
+    "name": "Starlark",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Imperativ/prozedural",
+      "execution": "Interpretiert",
+      "fileExtension": ".bzl",
+      "primaryDomain": "Build-Konfiguration (Bazel)"
+    },
+    "funFact": "Starlark ist ein deterministischer Python-Dialekt, der als Konfigurationssprache für das Build-System Bazel dient.",
+    "sourceName": "Wikipedia EN - Starlark (programming language)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Starlark_(programming_language)",
+    "verifyNote": "Starlark ist ein Python-ähnlicher, deterministischer Dialekt für Bazel-Builds; Erweiterungsdateien .bzl laut Bazel-Doku."
+  },
+  {
+    "id": "programming_language-fish-h4",
+    "name": "Fish",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Imperativ/prozedural",
+      "execution": "Interpretiert",
+      "fileExtension": ".fish",
+      "primaryDomain": "Shell-Skripting / Kommandozeile"
+    },
+    "funFact": "Fish ('Friendly Interactive Shell') bietet von Haus aus Syntax-Hervorhebung und Autovervollständigung aus der Befehlshistorie.",
+    "sourceName": "Wikipedia DE - Fish (Shell)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Fish_(Shell)",
+    "verifyNote": "Fish ist eine interaktive Unix-Shell, Skripte werden interpretiert; Endung .fish laut offizieller Doku."
+  },
+  {
+    "id": "programming_language-zsh-h4",
+    "name": "Zsh",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Imperativ/prozedural",
+      "execution": "Interpretiert",
+      "fileExtension": ".zsh",
+      "primaryDomain": "Shell-Skripting / Kommandozeile"
+    },
+    "funFact": "Zsh ist seit macOS Catalina (2019) die Standard-Login-Shell von Apple und löste die Bash ab.",
+    "sourceName": "Wikipedia DE - Z shell",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Z_shell",
+    "verifyNote": "Zsh ist eine interpretierte Unix-Shell (seit macOS Catalina Default); Skriptendung .zsh laut Wikipedia/Apple-Doku."
+  },
+  {
+    "id": "programming_language-autohotkey-h4",
+    "name": "AutoHotkey",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Imperativ/prozedural",
+      "execution": "Interpretiert",
+      "fileExtension": ".ahk",
+      "primaryDomain": "Automatisierung / Tastenkürzel (Windows)"
+    },
+    "funFact": "AutoHotkey wird vor allem genutzt, um unter Windows beliebige Tastenkombinationen und Makros frei zu belegen.",
+    "sourceName": "Wikipedia DE - AutoHotkey",
+    "sourceUrl": "https://de.wikipedia.org/wiki/AutoHotkey",
+    "verifyNote": "AutoHotkey ist eine interpretierte Skriptsprache zur Automatisierung unter Windows; Endung .ahk laut Wikipedia."
+  },
+  {
+    "id": "programming_language-autoit-h4",
+    "name": "AutoIt",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Imperativ/prozedural",
+      "execution": "Interpretiert",
+      "fileExtension": ".au3",
+      "primaryDomain": "GUI-Automatisierung (Windows)"
+    },
+    "funFact": "AutoIt entstand zur automatisierten Software-Installation und kann Maus, Tastatur und Fenster unter Windows fernsteuern.",
+    "sourceName": "Wikipedia DE - AutoIt",
+    "sourceUrl": "https://de.wikipedia.org/wiki/AutoIt",
+    "verifyNote": "AutoIt ist eine interpretierte Automatisierungs-Skriptsprache für Windows; Endung .au3 laut Wikipedia."
+  },
+  {
+    "id": "programming_language-cmake-h4",
+    "name": "CMake",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Imperativ/prozedural",
+      "execution": "Interpretiert",
+      "fileExtension": ".cmake",
+      "primaryDomain": "Build-Konfiguration (C/C++)"
+    },
+    "funFact": "CMake erzeugt aus plattformunabhängigen Skripten die eigentlichen Build-Dateien (Makefiles, Visual-Studio-Projekte usw.).",
+    "sourceName": "Wikipedia DE - CMake",
+    "sourceUrl": "https://de.wikipedia.org/wiki/CMake",
+    "verifyNote": "CMake nutzt eine interpretierte Skriptsprache (CMakeLists.txt / .cmake) zum Generieren von Buildsystemen laut Wikipedia."
+  },
+  {
+    "id": "programming_language-gnu-make-h4",
+    "name": "GNU Make",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Deklarativ (regelbasiert)",
+      "execution": "Interpretiert",
+      "fileExtension": "Makefile",
+      "primaryDomain": "Build-Automatisierung"
+    },
+    "funFact": "Make-Regeln beschreiben Abhängigkeiten zwischen Dateien; nur veraltete Ziele werden neu gebaut, was inkrementelle Builds ermöglicht.",
+    "sourceName": "Wikipedia DE - Make",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Make",
+    "verifyNote": "Make ist deklarativ/regelbasiert und interpretiert eine Makefile; inkrementelles Bauen über Zeitstempel laut Wikipedia."
+  },
+  {
+    "id": "programming_language-sed-h4",
+    "name": "sed",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Imperativ/prozedural",
+      "execution": "Interpretiert",
+      "fileExtension": ".sed",
+      "primaryDomain": "Stream-Textbearbeitung (Unix)"
+    },
+    "funFact": "sed ('Stream Editor') verarbeitet Text zeilenweise im Durchlauf und ist berühmt für Such-und-Ersetz-Befehle wie s/alt/neu/.",
+    "sourceName": "Wikipedia DE - sed (Unix)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Sed_(Unix)",
+    "verifyNote": "sed ist ein interpretierter, zeilenorientierter Stream-Editor; Skripte .sed laut Wikipedia/POSIX."
+  },
+  {
+    "id": "programming_language-q-kdb-h4",
+    "name": "q (kdb+)",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Array-orientiert",
+      "execution": "Interpretiert",
+      "fileExtension": ".q",
+      "primaryDomain": "Zeitreihen-/Finanzdatenbanken"
+    },
+    "funFact": "Die Sprache q steuert die kdb+-Datenbank und ist im Finanzsektor für extrem schnelle Zeitreihen-Analysen verbreitet.",
+    "sourceName": "Wikipedia EN - Q (programming language from Kx Systems)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Q_(programming_language_from_Kx_Systems)",
+    "verifyNote": "q ist eine array-orientierte, interpretierte Sprache (auf k aufbauend) für kdb+; Endung .q laut Kx-Doku."
+  },
+  {
+    "id": "programming_language-supercollider-h4",
+    "name": "SuperCollider",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Objektorientiert",
+      "execution": "Interpretiert",
+      "fileExtension": ".scd",
+      "primaryDomain": "Audiosynthese / Live-Coding-Musik"
+    },
+    "funFact": "SuperCollider trennt Sprache (Client) und Audio-Server, sodass Klang in Echtzeit während des Programmierens verändert werden kann.",
+    "sourceName": "Wikipedia DE - SuperCollider",
+    "sourceUrl": "https://de.wikipedia.org/wiki/SuperCollider",
+    "verifyNote": "SuperCollider ist eine interpretierte, objektorientierte Sprache für Audiosynthese; Endung .scd laut Wikipedia."
+  },
+  {
+    "id": "data_structure-multiset-h4",
+    "name": "Multimenge (Multiset)",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Menge",
+      "purpose": "Wie eine Menge, erlaubt aber mehrfaches Vorkommen desselben Elements und zählt dessen Häufigkeit",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Im Gegensatz zur klassischen Menge merkt sich eine Multimenge, wie oft jedes Element enthalten ist.",
+    "sourceName": "Wikipedia DE - Multimenge",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Multimenge",
+    "verifyNote": "Multimenge erlaubt Duplikate mit Vielfachheit; bei Hash-basierter Umsetzung O(1) im Durchschnitt für Einfügen/Zählen."
+  },
+  {
+    "id": "data_structure-tuple-h4",
+    "name": "Tupel",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Lineare Struktur",
+      "purpose": "Geordnete, oft unveränderliche Zusammenfassung fester Länge von Elementen möglicherweise verschiedener Typen",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Anders als eine Liste hat ein Tupel meist eine feste Länge und ist in vielen Sprachen (z.B. Python) unveränderlich.",
+    "sourceName": "Wikipedia DE - Tupel (Informatik)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Tupel",
+    "verifyNote": "Tupel: geordnete feste Folge, Zugriff per Position in O(1); Unveränderlichkeit z.B. bei Python-Tupeln."
+  },
+  {
+    "id": "data_structure-record-h4",
+    "name": "Verbund (Record)",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Lineare Struktur",
+      "purpose": "Fasst benannte Felder möglicherweise unterschiedlicher Typen zu einem zusammengesetzten Datensatz zusammen",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Der Verbund (in C 'struct') ist die Grundlage fast aller zusammengesetzten Datentypen in imperativen Sprachen.",
+    "sourceName": "Wikipedia DE - Verbund (Datentyp)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Verbund_(Datentyp)",
+    "verifyNote": "Verbund/Record gruppiert benannte Felder; Feldzugriff über festen Offset in O(1)."
+  },
+  {
+    "id": "data_structure-open-addressing-hashtable-h4",
+    "name": "Offen adressierte Hashtabelle",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Hash-basiert",
+      "purpose": "Hashtabelle, die Kollisionen durch Sondieren weiterer Plätze im selben Array statt durch Verkettung auflöst",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Bei offener Adressierung liegen alle Einträge direkt im Array, was die Cache-Nutzung gegenüber der Verkettung verbessert.",
+    "sourceName": "Cormen et al. - Introduction to Algorithms (CLRS)",
+    "verifyNote": "Offene Adressierung löst Kollisionen durch Sondierfolgen; O(1) Durchschnitt bei niedrigem Lastfaktor (CLRS Kap. 11.4)."
+  },
+  {
+    "id": "data_structure-chained-hashtable-h4",
+    "name": "Verkettete Hashtabelle",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Hash-basiert",
+      "purpose": "Hashtabelle, die Kollisionen durch eine verkettete Liste pro Eimer (Bucket) auflöst",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Bei der Verkettung wachsen kollidierende Einträge in einer Liste pro Bucket; im Worst Case degeneriert das zu O(n).",
+    "sourceName": "Cormen et al. - Introduction to Algorithms (CLRS)",
+    "verifyNote": "Verkettung (separate chaining) löst Kollisionen über Listen je Bucket; O(1) Durchschnitt (CLRS Kap. 11.2)."
+  },
+  {
+    "id": "data_structure-linear-probing-h4",
+    "name": "Lineare Sondierung",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Hash-basiert",
+      "purpose": "Kollisionsauflösung in offener Adressierung, die bei Belegung die nächste freie Zelle in fester Schrittweite sucht",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Lineare Sondierung ist cache-freundlich, neigt aber zu 'Clustering' - lange belegte Bereiche, die das Suchen verlangsamen.",
+    "sourceName": "Cormen et al. - Introduction to Algorithms (CLRS)",
+    "verifyNote": "Lineare Sondierung probiert h(k)+i mod m; O(1) Durchschnitt bei niedrigem Lastfaktor, Primärclustering laut CLRS Kap. 11.4."
+  },
+  {
+    "id": "data_structure-quadratic-probing-h4",
+    "name": "Quadratische Sondierung",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Hash-basiert",
+      "purpose": "Kollisionsauflösung in offener Adressierung mit quadratisch wachsendem Abstand zur Ausgangszelle",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Quadratische Sondierung vermeidet das Primärclustering der linearen Sondierung, kann aber Sekundärcluster bilden.",
+    "sourceName": "Cormen et al. - Introduction to Algorithms (CLRS)",
+    "verifyNote": "Quadratische Sondierung nutzt h(k)+c1*i+c2*i^2 mod m; reduziert Primärclustering laut CLRS Kap. 11.4."
+  },
+  {
+    "id": "data_structure-double-hashing-h4",
+    "name": "Doppeltes Hashing",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Hash-basiert",
+      "purpose": "Kollisionsauflösung in offener Adressierung, bei der eine zweite Hashfunktion die Sondier-Schrittweite bestimmt",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Doppeltes Hashing gilt als eine der besten offenen Adressierungsstrategien, weil die Sondierfolge vom Schlüssel selbst abhängt.",
+    "sourceName": "Cormen et al. - Introduction to Algorithms (CLRS)",
+    "verifyNote": "Doppeltes Hashing nutzt h1(k)+i*h2(k) mod m; vermeidet Clustering, O(1) Durchschnitt laut CLRS Kap. 11.4."
+  },
+  {
+    "id": "data_structure-robin-hood-hashing-h4",
+    "name": "Robin-Hood-Hashing",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Hash-basiert",
+      "purpose": "Variante der offenen Adressierung, die Einträge mit kürzerer Sondierdistanz zugunsten weiter verschobener Einträge umordnet",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Der Name spielt darauf an, dass 'reiche' Einträge (nah am Idealplatz) Platz an 'arme' (weit verschobene) abgeben.",
+    "sourceName": "Wikipedia EN - Hash table (Robin Hood hashing)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Hash_table#Robin_Hood_hashing",
+    "verifyNote": "Robin-Hood-Hashing minimiert die Varianz der Sondierdistanzen; O(1) Durchschnitt laut Wikipedia."
+  },
+  {
+    "id": "data_structure-sparse-set-h4",
+    "name": "Sparse-Set",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Menge",
+      "purpose": "Mengenstruktur aus zwei Arrays, die ohne Initialisierung schnelles Einfügen, Löschen und Iterieren über kleine Schlüsselbereiche erlaubt",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Das Sparse-Set kann sogar ohne Nullsetzen seines Speichers korrekt arbeiten und wird gern in ECS-Spiele-Engines genutzt.",
+    "sourceName": "GeeksforGeeks - Sparse Set",
+    "sourceUrl": "https://www.geeksforgeeks.org/dsa/sparse-set/",
+    "verifyNote": "Sparse-Set: dense+sparse Array, O(1) für Einfügen/Löschen/Enthaltensein, keine Speicherinitialisierung nötig."
+  },
+  {
+    "id": "data_structure-perfect-hashing-h4",
+    "name": "Perfektes Hashing",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Hash-basiert",
+      "purpose": "Hashverfahren für eine feste Schlüsselmenge, das garantiert kollisionsfrei ist und so Zugriff im Worst Case beschleunigt",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Perfektes Hashing garantiert für eine bekannte, unveränderliche Schlüsselmenge O(1) im Worst Case - ganz ohne Kollisionen.",
+    "sourceName": "Cormen et al. - Introduction to Algorithms (CLRS)",
+    "verifyNote": "Perfektes Hashing für statische Schlüsselmengen ist kollisionsfrei, Worst-Case-Zugriff O(1) (CLRS Kap. 11.5)."
+  },
+  {
+    "id": "data_structure-sorted-array-h4",
+    "name": "Sortiertes Array",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Lineare Struktur",
+      "purpose": "Array, dessen Elemente in Sortierreihenfolge gehalten werden, sodass binäre Suche möglich ist",
+      "accessComplexity": "O(log n)"
+    },
+    "funFact": "Ein sortiertes Array erlaubt binäre Suche in O(log n), bezahlt das aber mit O(n) beim Einfügen an beliebiger Stelle.",
+    "sourceName": "Wikipedia EN - Sorted array",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Sorted_array",
+    "verifyNote": "Sortiertes Array: binäre Suche O(log n), Einfügen/Löschen O(n) wegen Verschieben laut Wikipedia."
+  },
+  {
+    "id": "data_structure-prefix-sum-array-h4",
+    "name": "Präfixsummen-Array",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Lineare Struktur",
+      "purpose": "Vorberechnetes Array kumulativer Summen, das Bereichssummen eines statischen Arrays in konstanter Zeit beantwortet",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Nach einmaliger O(n)-Vorberechnung liefert das Präfixsummen-Array jede Teilbereichssumme durch eine einzige Subtraktion.",
+    "sourceName": "Wikipedia EN - Prefix sum",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Prefix_sum",
+    "verifyNote": "Präfixsummen: O(n) Aufbau, danach Bereichssumme in O(1) über p[r]-p[l-1] laut Wikipedia."
+  },
+  {
+    "id": "data_structure-difference-array-h4",
+    "name": "Differenz-Array",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Lineare Struktur",
+      "purpose": "Hilfsarray der Nachbardifferenzen, mit dem sich ein konstanter Wert auf einen ganzen Bereich in konstanter Zeit addieren lässt",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Das Differenz-Array ist das Gegenstück zur Präfixsumme: erst markiert man Bereichsupdates in O(1), dann rekonstruiert man das Array per Präfixsumme.",
+    "sourceName": "Wikipedia EN - Prefix sum (difference array)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Prefix_sum",
+    "verifyNote": "Differenz-Array: Bereichsaddition in O(1) durch zwei Randmarkierungen, Rekonstruktion per Präfixsumme in O(n)."
+  },
+  {
+    "id": "data_structure-monotonic-stack-h4",
+    "name": "Monotoner Stack",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Lineare Struktur",
+      "purpose": "Stack, dessen Elemente stets monoton (steigend oder fallend) gehalten werden, um z.B. das nächstgrößere Element effizient zu finden",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Mit einem monotonen Stack löst man das 'Next Greater Element'-Problem für ein ganzes Array in nur O(n).",
+    "sourceName": "GeeksforGeeks - Introduction to Monotonic Stack",
+    "sourceUrl": "https://www.geeksforgeeks.org/dsa/introduction-to-monotonic-stack-2/",
+    "verifyNote": "Monotoner Stack: Push/Pop amortisiert O(1), löst Next-Greater-Element in O(n) gesamt."
+  },
+  {
+    "id": "data_structure-inverted-index-h4",
+    "name": "Invertierter Index",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Index",
+      "purpose": "Bildet jeden Suchbegriff auf die Liste der Dokumente ab, in denen er vorkommt - Kern jeder Volltextsuche",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Der invertierte Index ist das Herzstück von Suchmaschinen wie Google und Bibliotheken wie Lucene/Elasticsearch.",
+    "sourceName": "Wikipedia DE - Invertierter Index",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Invertierter_Index",
+    "verifyNote": "Invertierter Index ordnet Term -> Dokumentliste zu; Term-Lookup über Hash/Wörterbuch in O(1) laut Wikipedia."
+  },
+  {
+    "id": "data_structure-persistent-data-structure-h4",
+    "name": "Persistente Datenstruktur",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Konzeptklasse",
+      "purpose": "Datenstruktur, die bei Änderungen alte Versionen erhält, sodass frühere Zustände weiter abfragbar bleiben",
+      "accessComplexity": "O(log n)"
+    },
+    "funFact": "Persistente Strukturen ändern nie bestehende Knoten, sondern teilen unveränderte Teile zwischen Versionen ('structural sharing').",
+    "sourceName": "Wikipedia EN - Persistent data structure",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Persistent_data_structure",
+    "verifyNote": "Persistente (unveränderliche) Strukturen bewahren Vorversionen via Structural Sharing; baum-basiert typ. O(log n) Zugriff."
+  },
+  {
+    "id": "data_structure-hash-set-h4",
+    "name": "Hash-Set",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Menge",
+      "purpose": "Mengenimplementierung auf Basis einer Hashtabelle; speichert nur Schlüssel und prüft Enthaltensein sehr schnell",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Ein Hash-Set ist im Kern eine Hashtabelle ohne Werte - es interessiert nur, ob ein Element vorhanden ist.",
+    "sourceName": "Wikipedia EN - Set (abstract data type)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Set_(abstract_data_type)",
+    "verifyNote": "Hash-Set speichert eindeutige Schlüssel in einer Hashtabelle; Enthaltensein/Einfügen O(1) im Durchschnitt."
+  },
+  {
+    "id": "data_structure-spanning-tree-h4",
+    "name": "Spannbaum",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Graphstruktur",
+      "purpose": "Teilgraph eines zusammenhängenden Graphen, der alle Knoten kreisfrei mit minimaler Kantenzahl verbindet",
+      "accessComplexity": "O(n)"
+    },
+    "funFact": "Der minimale Spannbaum (z.B. per Kruskal oder Prim) verbindet alle Knoten mit der geringstmöglichen Gesamtkantengewichtung.",
+    "sourceName": "Wikipedia DE - Spannbaum",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Spannbaum",
+    "verifyNote": "Ein Spannbaum eines Graphen mit n Knoten hat n-1 Kanten und ist kreisfrei; Traversierung O(n) laut Wikipedia."
+  },
+  {
+    "id": "data_structure-bit-field-h4",
+    "name": "Bitfeld",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Lineare Struktur",
+      "purpose": "Kompakte Folge einzelner Bits, die mehrere Flags oder Boolesche Werte platzsparend in Maschinenwörtern bündelt",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Mit Bitfeldern lassen sich 32 Ja/Nein-Flags in einem einzigen 32-Bit-Integer speichern und per Bitoperationen abfragen.",
+    "sourceName": "Wikipedia DE - Bitfeld",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Bitfeld",
+    "verifyNote": "Bitfeld packt einzelne Bits dicht; Setzen/Lesen eines Bits per Maske in O(1) laut Wikipedia."
+  }
+]

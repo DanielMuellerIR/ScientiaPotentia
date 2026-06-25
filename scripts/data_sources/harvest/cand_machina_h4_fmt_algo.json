@@ -1,0 +1,702 @@
+[
+  {
+    "id": "file_format-targa-h4",
+    "name": "Targa",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Truevision Advanced Raster Graphics Adapter",
+      "compression": "verlustfrei komprimiert",
+      "mediaType": "Bild"
+    },
+    "funFact": "Das TGA-Format stammt von der Grafikkarte Truevision TARGA der 1980er und wird bis heute in der 3D- und Spielebranche für Texturen genutzt.",
+    "sourceName": "Wikipedia DE – Targa Image File",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Targa_Image_File",
+    "verifyNote": "Optionale verlustfreie RLE-Kompression laut Wikipedia DE; Vollform Truevision."
+  },
+  {
+    "id": "file_format-sgi-h4",
+    "name": "SGI",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Silicon Graphics Image",
+      "compression": "verlustfrei komprimiert",
+      "mediaType": "Bild"
+    },
+    "funFact": "Das SGI-Bildformat stammt von den legendären Silicon-Graphics-Workstations und wird bis heute in einigen 3D- und Effekt-Pipelines genutzt.",
+    "sourceName": "Wikipedia EN – Silicon Graphics Image",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Silicon_Graphics_Image",
+    "verifyNote": "Optionale verlustfreie RLE-Kompression laut Wikipedia."
+  },
+  {
+    "id": "file_format-pict-h4",
+    "name": "PICT",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "QuickDraw Picture",
+      "compression": "verlustfrei komprimiert",
+      "mediaType": "Bild"
+    },
+    "funFact": "PICT war jahrelang das Standard-Bildformat des klassischen Mac OS und konnte sowohl Pixel- als auch Vektordaten speichern.",
+    "sourceName": "Wikipedia EN – PICT",
+    "sourceUrl": "https://en.wikipedia.org/wiki/PICT",
+    "verifyNote": "QuickDraw-basiertes Apple-Format laut Wikipedia; RLE/PackBits verlustfrei."
+  },
+  {
+    "id": "file_format-xbm-h4",
+    "name": "XBM",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "X BitMap",
+      "compression": "unkomprimiert",
+      "mediaType": "Bild"
+    },
+    "funFact": "XBM-Dateien sind eigentlich gültiger C-Quellcode – das Bild wird als Array von Bytes direkt im Programm definiert.",
+    "sourceName": "Wikipedia EN – X BitMap",
+    "sourceUrl": "https://en.wikipedia.org/wiki/X_BitMap",
+    "verifyNote": "Monochrome Bilder als C-Array, keine Kompression laut Wikipedia."
+  },
+  {
+    "id": "file_format-xpm-h4",
+    "name": "XPM",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "X PixMap",
+      "compression": "unkomprimiert",
+      "mediaType": "Bild"
+    },
+    "funFact": "XPM erweitert das ältere XBM um Farben und wird wie dieses als lesbarer C-Code gespeichert.",
+    "sourceName": "Wikipedia EN – X PixMap",
+    "sourceUrl": "https://en.wikipedia.org/wiki/X_PixMap",
+    "verifyNote": "Farbiges Pendant zu XBM, Textformat ohne Kompression laut Wikipedia."
+  },
+  {
+    "id": "file_format-apng-h4",
+    "name": "APNG",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Animated Portable Network Graphics",
+      "compression": "verlustfrei komprimiert",
+      "mediaType": "Bild"
+    },
+    "funFact": "APNG erweitert PNG um Animationen und bleibt zu normalen PNG-Betrachtern abwärtskompatibel, die nur das erste Vollbild zeigen.",
+    "sourceName": "Wikipedia DE – APNG",
+    "sourceUrl": "https://de.wikipedia.org/wiki/APNG",
+    "verifyNote": "PNG-basiert und damit verlustfrei laut Wikipedia DE."
+  },
+  {
+    "id": "file_format-wbmp-h4",
+    "name": "WBMP",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Wireless Bitmap",
+      "compression": "unkomprimiert",
+      "mediaType": "Bild"
+    },
+    "funFact": "WBMP wurde für die WAP-Handys der späten 1990er entwickelt und speichert rein schwarz-weisse Bilder für kleine Displays.",
+    "sourceName": "Wikipedia EN – Wireless Application Protocol Bitmap Format",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Wireless_Application_Protocol_Bitmap_Format",
+    "verifyNote": "1-Bit-Monochrom-Format ohne Kompression laut Wikipedia."
+  },
+  {
+    "id": "file_format-jbig2-h4",
+    "name": "JBIG2",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Joint Bi-level Image Experts Group 2",
+      "compression": "verlustbehaftet komprimiert",
+      "mediaType": "Bild"
+    },
+    "funFact": "JBIG2 komprimiert gescannte Schwarz-Weiss-Dokumente extrem stark, geriet aber in Verruf, weil es bei Xerox-Scannern Ziffern verwechselte.",
+    "sourceName": "Wikipedia DE – JBIG2",
+    "sourceUrl": "https://de.wikipedia.org/wiki/JBIG2",
+    "verifyNote": "Unterstützt verlustbehaftete Mustersubstitution; bekannter Xerox-Bug laut Wikipedia."
+  },
+  {
+    "id": "file_format-emf-h4",
+    "name": "EMF",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Enhanced Metafile",
+      "compression": "unkomprimiert",
+      "mediaType": "Bild"
+    },
+    "funFact": "EMF ist das Vektor-Metaformat von Windows und speichert Zeichenbefehle statt Pixel, weshalb es verlustfrei skaliert.",
+    "sourceName": "Wikipedia DE – Enhanced Metafile",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Enhanced_Metafile",
+    "verifyNote": "Vektor-Befehlsliste ohne Bildkompression laut Wikipedia DE."
+  },
+  {
+    "id": "file_format-wmf-h4",
+    "name": "WMF",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Windows Metafile",
+      "compression": "unkomprimiert",
+      "mediaType": "Bild"
+    },
+    "funFact": "WMF ist der ältere 16-Bit-Vorgänger von EMF und stammt noch aus der Windows-3.x-Ära.",
+    "sourceName": "Wikipedia DE – Windows Metafile",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Windows_Metafile",
+    "verifyNote": "Vektorbasiertes Metaformat ohne Bildkompression laut Wikipedia DE."
+  },
+  {
+    "id": "file_format-cgm-h4",
+    "name": "CGM",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Computer Graphics Metafile",
+      "compression": "unkomprimiert",
+      "mediaType": "Bild"
+    },
+    "funFact": "CGM ist ein ISO-genormtes Vektorformat, das vor allem in der technischen Dokumentation der Luftfahrt eingesetzt wird.",
+    "sourceName": "Wikipedia DE – Computer Graphics Metafile",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Computer_Graphics_Metafile",
+    "verifyNote": "ISO/IEC 8632 Vektorformat laut Wikipedia DE."
+  },
+  {
+    "id": "file_format-vrml-h4",
+    "name": "VRML",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Virtual Reality Modeling Language",
+      "compression": "unkomprimiert",
+      "mediaType": "3D-Modell"
+    },
+    "funFact": "VRML sollte in den 1990ern interaktive 3D-Welten ins Web bringen und gilt als Vorläufer des heutigen X3D.",
+    "sourceName": "Wikipedia DE – VRML",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Virtual_Reality_Modeling_Language",
+    "verifyNote": "Textbasiertes 3D-Szenenformat ohne Kompression laut Wikipedia DE."
+  },
+  {
+    "id": "file_format-x3d-h4",
+    "name": "X3D",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Extensible 3D",
+      "compression": "unkomprimiert",
+      "mediaType": "3D-Modell"
+    },
+    "funFact": "X3D ist der ISO-genormte XML-Nachfolger von VRML für interaktive 3D-Szenen im Web.",
+    "sourceName": "Wikipedia DE – X3D",
+    "sourceUrl": "https://de.wikipedia.org/wiki/X3D",
+    "verifyNote": "XML-basiertes 3D-Format ohne Kompression laut Wikipedia DE."
+  },
+  {
+    "id": "file_format-3ds-h4",
+    "name": "3DS",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "3D Studio",
+      "compression": "unkomprimiert",
+      "mediaType": "3D-Modell"
+    },
+    "funFact": "Das 3DS-Format stammt vom DOS-Programm Autodesk 3D Studio und ist trotz seines Alters bis heute ein verbreitetes Austauschformat.",
+    "sourceName": "Wikipedia EN – .3ds",
+    "sourceUrl": "https://en.wikipedia.org/wiki/.3ds",
+    "verifyNote": "Binäres Chunk-Format ohne allgemeine Kompression laut Wikipedia."
+  },
+  {
+    "id": "file_format-collada-h4",
+    "name": "COLLADA",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Collaborative Design Activity",
+      "compression": "unkomprimiert",
+      "mediaType": "3D-Modell"
+    },
+    "funFact": "COLLADA nutzt die Dateiendung .dae und diente lange als offenes Austauschformat zwischen 3D-Programmen, bevor glTF es weitgehend ablöste.",
+    "sourceName": "Wikipedia DE – COLLADA",
+    "sourceUrl": "https://de.wikipedia.org/wiki/COLLADA",
+    "verifyNote": "XML-basiertes 3D-Austauschformat ohne Kompression laut Wikipedia DE."
+  },
+  {
+    "id": "file_format-asciidoc-h4",
+    "name": "AsciiDoc",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "ASCII Document",
+      "compression": "unkomprimiert",
+      "mediaType": "Dokument"
+    },
+    "funFact": "AsciiDoc ist eine Markup-Sprache für technische Doku, die mächtiger als Markdown ist und sich nach HTML, PDF oder DocBook wandeln lässt.",
+    "sourceName": "Wikipedia EN – AsciiDoc",
+    "sourceUrl": "https://en.wikipedia.org/wiki/AsciiDoc",
+    "verifyNote": "Reines Text-Markup ohne Kompression laut Wikipedia."
+  },
+  {
+    "id": "file_format-restructuredtext-h4",
+    "name": "reStructuredText",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "reStructuredText",
+      "compression": "unkomprimiert",
+      "mediaType": "Dokument"
+    },
+    "funFact": "reStructuredText (Endung .rst) ist das Standard-Markup der Python-Dokumentation und wird vom Werkzeug Sphinx verarbeitet.",
+    "sourceName": "Wikipedia EN – reStructuredText",
+    "sourceUrl": "https://en.wikipedia.org/wiki/ReStructuredText",
+    "verifyNote": "Klartext-Markup ohne Kompression laut Wikipedia."
+  },
+  {
+    "id": "file_format-vtt-h4",
+    "name": "WebVTT",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Web Video Text Tracks",
+      "compression": "unkomprimiert",
+      "mediaType": "Dokument"
+    },
+    "funFact": "WebVTT ist das HTML5-Standardformat für Untertitel und Kapitelmarken und wird per <track>-Element in Videos eingebunden.",
+    "sourceName": "Wikipedia EN – WebVTT",
+    "sourceUrl": "https://en.wikipedia.org/wiki/WebVTT",
+    "verifyNote": "Textbasiertes Untertitelformat ohne Kompression laut Wikipedia."
+  },
+  {
+    "id": "file_format-ass-h4",
+    "name": "ASS",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Advanced SubStation Alpha",
+      "compression": "unkomprimiert",
+      "mediaType": "Dokument"
+    },
+    "funFact": "Das ASS-Untertitelformat erlaubt aufwendiges Karaoke- und Typografie-Styling und ist deshalb in der Anime-Fansub-Szene beliebt.",
+    "sourceName": "Wikipedia EN – SubStation Alpha",
+    "sourceUrl": "https://en.wikipedia.org/wiki/SubStation_Alpha",
+    "verifyNote": "Textbasiertes Untertitelformat mit Styling, keine Kompression laut Wikipedia."
+  },
+  {
+    "id": "file_format-m3u-h4",
+    "name": "M3U",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "MP3 URL",
+      "compression": "unkomprimiert",
+      "mediaType": "Dokument"
+    },
+    "funFact": "M3U-Dateien speichern keine Musik, sondern nur eine Liste von Pfaden oder URLs – sie sind das verbreitetste Playlist-Format.",
+    "sourceName": "Wikipedia DE – M3U",
+    "sourceUrl": "https://de.wikipedia.org/wiki/M3U",
+    "verifyNote": "Reine Textplaylist ohne Kompression laut Wikipedia DE."
+  },
+  {
+    "id": "file_format-cue-h4",
+    "name": "CUE-Sheet",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Cue Sheet",
+      "compression": "unkomprimiert",
+      "mediaType": "Dokument"
+    },
+    "funFact": "Eine CUE-Datei beschreibt die Track-Aufteilung und Indizes einer CD-Abbild-Datei, oft begleitend zu einem grossen BIN- oder FLAC-Image.",
+    "sourceName": "Wikipedia DE – Cue-Sheet",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Cue-Sheet",
+    "verifyNote": "Textuelle Metadatei zur CD-Aufteilung, keine Kompression laut Wikipedia DE."
+  },
+  {
+    "id": "file_format-pgn-h4",
+    "name": "PGN",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Portable Game Notation",
+      "compression": "unkomprimiert",
+      "mediaType": "Dokument"
+    },
+    "funFact": "PGN ist das Standardformat für Schachpartien und speichert Züge als lesbaren Text, was es zwischen allen Schachprogrammen austauschbar macht.",
+    "sourceName": "Wikipedia DE – Portable Game Notation",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Portable_Game_Notation",
+    "verifyNote": "Textbasierte Schachnotation ohne Kompression laut Wikipedia DE."
+  },
+  {
+    "id": "file_format-rm-h4",
+    "name": "RealMedia",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "RealMedia",
+      "compression": "verlustbehaftet komprimiert",
+      "mediaType": "Video"
+    },
+    "funFact": "RealMedia (.rm) war um 2000 das dominierende Streaming-Format im Web, bevor Flash Video und später H.264 es verdrängten.",
+    "sourceName": "Wikipedia DE – RealMedia",
+    "sourceUrl": "https://de.wikipedia.org/wiki/RealMedia",
+    "verifyNote": "Container für verlustbehaftete RealVideo/RealAudio-Streams laut Wikipedia DE."
+  },
+  {
+    "id": "file_format-divx-h4",
+    "name": "DivX",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "DivX",
+      "compression": "verlustbehaftet komprimiert",
+      "mediaType": "Video"
+    },
+    "funFact": "DivX machte es um 2000 erstmals praktikabel, einen ganzen Spielfilm auf eine einzelne CD zu pressen.",
+    "sourceName": "Wikipedia DE – DivX",
+    "sourceUrl": "https://de.wikipedia.org/wiki/DivX",
+    "verifyNote": "Verlustbehafteter MPEG-4-ASP-Videocodec laut Wikipedia DE."
+  },
+  {
+    "id": "file_format-xvid-h4",
+    "name": "Xvid",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Xvid",
+      "compression": "verlustbehaftet komprimiert",
+      "mediaType": "Video"
+    },
+    "funFact": "Xvid ist die freie Open-Source-Antwort auf den kommerziellen DivX-Codec und implementiert denselben MPEG-4-Standard.",
+    "sourceName": "Wikipedia DE – Xvid",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Xvid",
+    "verifyNote": "Freier verlustbehafteter MPEG-4-ASP-Codec laut Wikipedia DE."
+  },
+  {
+    "id": "file_format-mts-h4",
+    "name": "AVCHD",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Advanced Video Coding High Definition",
+      "compression": "verlustbehaftet komprimiert",
+      "mediaType": "Video"
+    },
+    "funFact": "AVCHD mit der Endung .mts ist das HD-Aufnahmeformat vieler Camcorder von Sony und Panasonic und nutzt intern H.264.",
+    "sourceName": "Wikipedia DE – AVCHD",
+    "sourceUrl": "https://de.wikipedia.org/wiki/AVCHD",
+    "verifyNote": "H.264-basiertes verlustbehaftetes Camcorder-Format laut Wikipedia DE."
+  },
+  {
+    "id": "file_format-dpx-h4",
+    "name": "DPX",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Digital Picture Exchange",
+      "compression": "unkomprimiert",
+      "mediaType": "Bild"
+    },
+    "funFact": "DPX ist ein SMPTE-genormtes Einzelbildformat aus der digitalen Filmproduktion, in der jeder Frame einzeln als hochaufgelöste Datei vorliegt.",
+    "sourceName": "Wikipedia EN – Digital Picture Exchange",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Digital_Picture_Exchange",
+    "verifyNote": "SMPTE-268M Film-Frame-Format, typischerweise unkomprimiert laut Wikipedia."
+  },
+  {
+    "id": "file_format-flif-h4",
+    "name": "FLIF",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Free Lossless Image Format",
+      "compression": "verlustfrei komprimiert",
+      "mediaType": "Bild"
+    },
+    "funFact": "FLIF warb damit, für fast jede Bildart kleiner als PNG, JPEG-2000-lossless und WebP zu sein, wurde aber später zugunsten von JPEG XL eingestellt.",
+    "sourceName": "Wikipedia EN – FLIF",
+    "sourceUrl": "https://en.wikipedia.org/wiki/FLIF",
+    "verifyNote": "Verlustfreies Bildformat laut Wikipedia; Name enthält 'Lossless'."
+  },
+  {
+    "id": "file_format-openraster-h4",
+    "name": "OpenRaster",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "OpenRaster",
+      "compression": "verlustfrei komprimiert",
+      "mediaType": "Bild"
+    },
+    "funFact": "OpenRaster (.ora) ist ein offenes, ebenenbasiertes Bildformat, das intern ein ZIP-Archiv aus PNG-Ebenen ist – das freie Pendant zu Photoshops PSD.",
+    "sourceName": "Wikipedia EN – OpenRaster",
+    "sourceUrl": "https://en.wikipedia.org/wiki/OpenRaster",
+    "verifyNote": "ZIP aus verlustfreien PNG-Ebenen laut Wikipedia."
+  },
+  {
+    "id": "file_format-mng-h4",
+    "name": "MNG",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Multiple-image Network Graphics",
+      "compression": "verlustfrei komprimiert",
+      "mediaType": "Bild"
+    },
+    "funFact": "MNG ist die animierte Schwesterspezifikation von PNG, konnte sich aber nie durchsetzen, weil Browser stattdessen GIF und später APNG bevorzugten.",
+    "sourceName": "Wikipedia DE – Multiple-image Network Graphics",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Multiple-image_Network_Graphics",
+    "verifyNote": "PNG-basierte Animation, verlustfrei laut Wikipedia DE."
+  },
+  {
+    "id": "file_format-fb2-h4",
+    "name": "FictionBook",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "FictionBook",
+      "compression": "unkomprimiert",
+      "mediaType": "Dokument"
+    },
+    "funFact": "FictionBook (.fb2) ist ein XML-basiertes E-Book-Format, das vor allem im russischsprachigen Raum stark verbreitet ist.",
+    "sourceName": "Wikipedia DE – FictionBook",
+    "sourceUrl": "https://de.wikipedia.org/wiki/FictionBook",
+    "verifyNote": "Einzelne XML-Datei ohne Kompression laut Wikipedia DE (Container .fb2)."
+  },
+  {
+    "id": "file_format-dbf-h4",
+    "name": "DBF",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Database File",
+      "compression": "unkomprimiert",
+      "mediaType": "Tabellen/Daten"
+    },
+    "funFact": "Das dBASE-DBF-Format stammt aus den 1980ern und lebt bis heute weiter, etwa als Attributtabelle des GIS-Shapefile-Formats.",
+    "sourceName": "Wikipedia DE – dBASE",
+    "sourceUrl": "https://de.wikipedia.org/wiki/DBASE",
+    "verifyNote": "Binäres Tabellenformat mit fester Satzlänge ohne Kompression laut Wikipedia DE."
+  },
+  {
+    "id": "file_format-properties-h4",
+    "name": "Java-Properties",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Java Properties",
+      "compression": "unkomprimiert",
+      "mediaType": "Dokument"
+    },
+    "funFact": "Java-Properties-Dateien speichern Konfiguration als simple Schlüssel-gleich-Wert-Zeilen und sind das klassische Konfigurationsformat der Java-Welt.",
+    "sourceName": "Wikipedia EN – .properties",
+    "sourceUrl": "https://en.wikipedia.org/wiki/.properties",
+    "verifyNote": "Klartext Key=Value-Konfiguration ohne Kompression laut Wikipedia."
+  },
+  {
+    "id": "file_format-svgz-h4",
+    "name": "SVGZ",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Compressed Scalable Vector Graphics",
+      "compression": "verlustfrei komprimiert",
+      "mediaType": "Bild"
+    },
+    "funFact": "SVGZ ist schlicht eine mit Gzip gepackte SVG-Datei – die Vektorgrafik bleibt verlustfrei, wird aber deutlich kleiner übertragen.",
+    "sourceName": "Wikipedia EN – Scalable Vector Graphics",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Scalable_Vector_Graphics",
+    "verifyNote": "Gzip-komprimiertes SVG, verlustfrei laut Wikipedia."
+  },
+  {
+    "id": "algorithm-pigeonhole-sort-h4",
+    "name": "Pigeonhole-Sort",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortieralgorithmus",
+      "avgComplexity": "O(n + k)",
+      "purpose": "Verteilt Elemente direkt in Fächer passend zu ihrem Schlüsselwert und liest sie geordnet wieder aus"
+    },
+    "funFact": "Pigeonhole-Sort ist nur effizient, wenn die Anzahl der möglichen Schlüsselwerte k nicht viel größer als die Elementanzahl n ist.",
+    "sourceName": "Wikipedia EN – Pigeonhole sort",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Pigeonhole_sort",
+    "verifyNote": "Laufzeit O(n + k) laut Wikipedia, k = Wertebereich."
+  },
+  {
+    "id": "algorithm-bitonisches-sortieren-h4",
+    "name": "Bitonisches Sortieren",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortieralgorithmus",
+      "avgComplexity": "O(n log² n)",
+      "purpose": "Baut ein festes Vergleichsnetzwerk auf, das sich gut parallel auf GPUs ausführen lässt"
+    },
+    "funFact": "Bitonisches Sortieren ist ein Sortiernetzwerk mit datenunabhängiger Vergleichsfolge und deshalb auf paralleler Hardware sehr beliebt.",
+    "sourceName": "Wikipedia DE – Bitonischer Sortieralgorithmus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Bitonischer_Sortieralgorithmus",
+    "verifyNote": "O(n log² n) Vergleiche laut Wikipedia DE."
+  },
+  {
+    "id": "algorithm-odd-even-sort-h4",
+    "name": "Odd-Even-Sort",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortieralgorithmus",
+      "avgComplexity": "O(n²)",
+      "purpose": "Vergleicht abwechselnd gerade und ungerade Indexpaare, gut für parallele Prozessornetze geeignet"
+    },
+    "funFact": "Odd-Even-Sort ist eine Variante von Bubblesort, die wegen ihrer regelmäßigen Struktur leicht auf Parallelrechnern umsetzbar ist.",
+    "sourceName": "Wikipedia EN – Odd–even sort",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Odd%E2%80%93even_sort",
+    "verifyNote": "O(n²) sequenziell laut Wikipedia."
+  },
+  {
+    "id": "algorithm-smoothsort-h4",
+    "name": "Smoothsort",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortieralgorithmus",
+      "avgComplexity": "O(n log n)",
+      "purpose": "Heapsort-Variante, die bei bereits vorsortierten Eingaben gegen O(n) tendiert"
+    },
+    "funFact": "Smoothsort wurde von Edsger Dijkstra entworfen und nutzt sogenannte Leonardo-Heaps, um nahezu sortierte Daten besonders schnell zu verarbeiten.",
+    "sourceName": "Wikipedia EN – Smoothsort",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Smoothsort",
+    "verifyNote": "O(n log n) Worst Case, O(n) Best Case laut Wikipedia."
+  },
+  {
+    "id": "algorithm-bogosort-h4",
+    "name": "Bogosort",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortieralgorithmus",
+      "avgComplexity": "O((n+1)!)",
+      "purpose": "Mischt die Liste zufällig durch, bis sie zufällig sortiert ist – ein bewusst absurder Lehrbeispiel-Algorithmus"
+    },
+    "funFact": "Bogosort dient als humorvolles Negativbeispiel: Im Mittel braucht er für n Elemente etwa (n+1)! Versuche, was schon bei kleinen Listen astronomisch wird.",
+    "sourceName": "Wikipedia DE – Bogosort",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Bogosort",
+    "verifyNote": "Erwartete Laufzeit O((n+1)!) laut Wikipedia DE."
+  },
+  {
+    "id": "algorithm-sprungsuche-h4",
+    "name": "Sprungsuche",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Suchalgorithmus",
+      "avgComplexity": "O(√n)",
+      "purpose": "Springt in festen Schritten durch ein sortiertes Array und sucht dann linear im gefundenen Block"
+    },
+    "funFact": "Bei der Sprungsuche ist die optimale Schrittweite die Wurzel aus n, weshalb ihre Laufzeit O(Wurzel n) beträgt – langsamer als binäre, aber mit weniger Rücksprüngen.",
+    "sourceName": "Wikipedia EN – Jump search",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Jump_search",
+    "verifyNote": "O(√n) bei optimaler Schrittweite laut Wikipedia."
+  },
+  {
+    "id": "algorithm-exponentielle-suche-h4",
+    "name": "Exponentielle Suche",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Suchalgorithmus",
+      "avgComplexity": "O(log i)",
+      "purpose": "Verdoppelt den Suchbereich, bis er das Ziel umschliesst, und sucht dann binär darin"
+    },
+    "funFact": "Die exponentielle Suche eignet sich besonders für unbeschränkte oder sehr grosse Listen, da ihre Laufzeit von der Position i des Treffers abhängt, nicht von der Gesamtlänge.",
+    "sourceName": "Wikipedia EN – Exponential search",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Exponential_search",
+    "verifyNote": "O(log i) mit i = Trefferposition laut Wikipedia."
+  },
+  {
+    "id": "algorithm-fibonacci-suche-h4",
+    "name": "Fibonacci-Suche",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Suchalgorithmus",
+      "avgComplexity": "O(log n)",
+      "purpose": "Teilt das sortierte Array anhand von Fibonacci-Zahlen statt mittig wie die binäre Suche"
+    },
+    "funFact": "Die Fibonacci-Suche kommt mit Addition und Subtraktion aus und vermeidet die Division der binären Suche – ein Vorteil auf sehr einfacher Hardware.",
+    "sourceName": "Wikipedia EN – Fibonacci search technique",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Fibonacci_search_technique",
+    "verifyNote": "O(log n) Vergleiche laut Wikipedia."
+  },
+  {
+    "id": "algorithm-hamming-distanz-h4",
+    "name": "Hamming-Distanz",
+    "category": "algorithm",
+    "attributes": {
+      "category": "String-Verarbeitung",
+      "avgComplexity": "O(n)",
+      "purpose": "Zählt die Stellen, an denen sich zwei gleich lange Zeichenketten unterscheiden"
+    },
+    "funFact": "Die Hamming-Distanz ist die Grundlage vieler fehlerkorrigierender Codes, da sie misst, wie viele Bits sich zwischen zwei Codewörtern unterscheiden.",
+    "sourceName": "Wikipedia DE – Hamming-Abstand",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Hamming-Abstand",
+    "verifyNote": "Linearer Stellen-Vergleich gleich langer Strings, O(n) laut Wikipedia DE."
+  },
+  {
+    "id": "algorithm-jaro-winkler-h4",
+    "name": "Jaro-Winkler-Distanz",
+    "category": "algorithm",
+    "attributes": {
+      "category": "String-Verarbeitung",
+      "avgComplexity": "O(n²)",
+      "purpose": "Misst die Ähnlichkeit zweier Zeichenketten und gewichtet übereinstimmende Anfangsbuchstaben stärker"
+    },
+    "funFact": "Die Jaro-Winkler-Distanz wurde für den Abgleich von Personennamen entwickelt und belohnt gemeinsame Wortanfänge besonders.",
+    "sourceName": "Wikipedia EN – Jaro–Winkler distance",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Jaro%E2%80%93Winkler_distance",
+    "verifyNote": "Speziell für Namensabgleich; quadratisch in der Stringlänge laut Wikipedia."
+  },
+  {
+    "id": "algorithm-soundex-h4",
+    "name": "Soundex",
+    "category": "algorithm",
+    "attributes": {
+      "category": "String-Verarbeitung",
+      "avgComplexity": "O(n)",
+      "purpose": "Bildet ähnlich klingende Namen auf denselben Code ab, um Tippfehler bei der Suche zu überbrücken"
+    },
+    "funFact": "Soundex wurde bereits 1918 für US-Volkszählungen patentiert und gruppiert Namen nach Klang statt nach Schreibweise.",
+    "sourceName": "Wikipedia DE – Soundex",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Soundex",
+    "verifyNote": "Phonetischer Code, linear in der Wortlänge laut Wikipedia DE."
+  },
+  {
+    "id": "algorithm-bitap-algorithmus-h4",
+    "name": "Bitap-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "String-Verarbeitung",
+      "avgComplexity": "O(n)",
+      "purpose": "Sucht ein Muster mit Bit-Operationen und kann dabei auch unscharfe Treffer mit Fehlern finden"
+    },
+    "funFact": "Der Bitap-Algorithmus bildet die Suche auf schnelle Bitschiebe- und Und-Operationen ab und steckt im Kern des Unix-Werkzeugs agrep.",
+    "sourceName": "Wikipedia EN – Bitap algorithm",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Bitap_algorithm",
+    "verifyNote": "O(n) bei Mustern bis Wortbreite; Basis von agrep laut Wikipedia."
+  },
+  {
+    "id": "algorithm-hirschberg-algorithmus-h4",
+    "name": "Hirschberg-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "String-Verarbeitung",
+      "avgComplexity": "O(nm)",
+      "purpose": "Berechnet ein optimales Alignment zweier Sequenzen mit nur linearem Speicherbedarf"
+    },
+    "funFact": "Der Hirschberg-Algorithmus liefert dasselbe Ergebnis wie Needleman-Wunsch, braucht dank Teile-und-herrsche aber nur linearen statt quadratischen Speicher.",
+    "sourceName": "Wikipedia EN – Hirschberg's algorithm",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Hirschberg%27s_algorithm",
+    "verifyNote": "Laufzeit O(nm), Speicher linear laut Wikipedia."
+  },
+  {
+    "id": "algorithm-flashsort-h4",
+    "name": "Flashsort",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortieralgorithmus",
+      "avgComplexity": "O(n)",
+      "purpose": "Verteilt Elemente anhand ihres Werts in Klassen und sortiert dann fast geordnete Daten nach"
+    },
+    "funFact": "Flashsort erreicht bei gleichmäßig verteilten Daten lineare Laufzeit, weil es die Werte zunächst grob in Klassen einsortiert.",
+    "sourceName": "Wikipedia EN – Flashsort",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Flashsort",
+    "verifyNote": "O(n) bei gleichverteilten Daten laut Wikipedia (Distributionssort)."
+  },
+  {
+    "id": "algorithm-stooge-sort-h4",
+    "name": "Stooge-Sort",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortieralgorithmus",
+      "avgComplexity": "O(n^2.71)",
+      "purpose": "Rekursiver, bewusst ineffizienter Sortieralgorithmus als Lehr- und Anschauungsbeispiel"
+    },
+    "funFact": "Stooge-Sort sortiert rekursiv jeweils die ersten und letzten zwei Drittel und ist langsamer als die meisten naiven Verfahren – ein reines Lehrbeispiel.",
+    "sourceName": "Wikipedia EN – Stooge sort",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Stooge_sort",
+    "verifyNote": "Laufzeit O(n^(log 3 / log 1.5)) ≈ O(n^2.71) laut Wikipedia."
+  },
+  {
+    "id": "algorithm-patience-sort-h4",
+    "name": "Patience-Sort",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortieralgorithmus",
+      "avgComplexity": "O(n log n)",
+      "purpose": "Bildet wie beim Kartenspiel Stapel und mischt sie zusammen, liefert nebenbei die längste steigende Teilfolge"
+    },
+    "funFact": "Patience-Sort ist nach dem Kartenspiel Solitär benannt und wird genutzt, um die längste aufsteigende Teilfolge einer Zahlenreihe zu bestimmen.",
+    "sourceName": "Wikipedia EN – Patience sorting",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Patience_sorting",
+    "verifyNote": "O(n log n) Vergleiche laut Wikipedia."
+  }
+]

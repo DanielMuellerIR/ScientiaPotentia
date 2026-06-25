@@ -16985,5 +16985,3062 @@
     "sourceName": "Wikipedia DE – Ukkonens Algorithmus",
     "sourceUrl": "https://de.wikipedia.org/wiki/Ukkonens_Algorithmus",
     "verifyNote": "Lineare Laufzeit O(n) bei konstantem Alphabet (Ukkonen 1995)."
+  },
+  {
+    "id": "acronym-tdd-h4",
+    "name": "TDD",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Test-Driven Development",
+      "domain": "Softwareentwicklung"
+    },
+    "funFact": "Bei TDD wird zuerst ein fehlschlagender Test geschrieben und erst danach der Code, der ihn erfüllt – der sogenannte Red-Green-Refactor-Zyklus.",
+    "sourceName": "Wikipedia DE – Testgetriebene Entwicklung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Testgetriebene_Entwicklung",
+    "verifyNote": "Vollform laut Standard-Literatur (Kent Beck)."
+  },
+  {
+    "id": "acronym-bdd-h4",
+    "name": "BDD",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Behavior-Driven Development",
+      "domain": "Softwareentwicklung"
+    },
+    "funFact": "BDD beschreibt Anforderungen in natürlicher Sprache nach dem Given-When-Then-Schema, damit auch Nicht-Programmierer die Tests verstehen.",
+    "sourceName": "Wikipedia DE – Behavior Driven Development",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Behavior_Driven_Development",
+    "verifyNote": "Vollform ist Lehrbuch-Standard."
+  },
+  {
+    "id": "acronym-ddd-h4",
+    "name": "DDD",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Domain-Driven Design",
+      "domain": "Softwarearchitektur"
+    },
+    "funFact": "Der Begriff wurde 2003 von Eric Evans geprägt und stellt die Fachdomäne und eine gemeinsame Sprache (Ubiquitous Language) in den Mittelpunkt des Entwurfs.",
+    "sourceName": "Wikipedia DE – Domain-driven Design",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Domain-driven_Design",
+    "verifyNote": "Vollform laut Eric Evans (2003)."
+  },
+  {
+    "id": "acronym-solid-h4",
+    "name": "SOLID",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Single Responsibility, Open-Closed, Liskov Substitution, Interface Segregation, Dependency Inversion",
+      "domain": "Softwarearchitektur"
+    },
+    "funFact": "SOLID ist ein Akronym aus den fünf objektorientierten Designprinzipien, das von Robert C. Martin populär gemacht wurde.",
+    "sourceName": "Wikipedia DE – Prinzipien objektorientierten Designs",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Prinzipien_objektorientierten_Designs",
+    "verifyNote": "Akronym der fünf Prinzipien laut Robert C. Martin."
+  },
+  {
+    "id": "acronym-dry-h4",
+    "name": "DRY",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Don't Repeat Yourself",
+      "domain": "Softwareentwicklung"
+    },
+    "funFact": "Das DRY-Prinzip aus 'The Pragmatic Programmer' (1999) besagt, dass jede Wissenseinheit im System eine einzige, eindeutige Repräsentation haben soll.",
+    "sourceName": "Wikipedia DE – Don’t repeat yourself",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Don%E2%80%99t_repeat_yourself",
+    "verifyNote": "Vollform laut Hunt & Thomas (1999)."
+  },
+  {
+    "id": "acronym-kiss-h4",
+    "name": "KISS",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Keep It Simple, Stupid",
+      "domain": "Softwareentwicklung"
+    },
+    "funFact": "Das KISS-Prinzip stammt ursprünglich aus der Luftfahrttechnik der US-Marine und fordert möglichst einfache Lösungen statt unnötiger Komplexität.",
+    "sourceName": "Wikipedia DE – KISS-Prinzip",
+    "sourceUrl": "https://de.wikipedia.org/wiki/KISS-Prinzip",
+    "verifyNote": "Gängige Vollform des Prinzips."
+  },
+  {
+    "id": "acronym-yagni-h4",
+    "name": "YAGNI",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "You Aren't Gonna Need It",
+      "domain": "Softwareentwicklung"
+    },
+    "funFact": "YAGNI ist ein Prinzip des Extreme Programming und warnt davor, Funktionen einzubauen, bevor sie tatsächlich gebraucht werden.",
+    "sourceName": "Wikipedia EN – You aren't gonna need it",
+    "sourceUrl": "https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it",
+    "verifyNote": "Vollform aus dem Extreme Programming."
+  },
+  {
+    "id": "acronym-gc-h4",
+    "name": "GC",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Garbage Collection",
+      "domain": "Speicherverwaltung"
+    },
+    "funFact": "Die automatische Speicherbereinigung wurde bereits 1959 von John McCarthy für die Programmiersprache Lisp eingeführt.",
+    "sourceName": "Wikipedia DE – Garbage Collection",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Garbage_Collection",
+    "verifyNote": "Vollform ist Lehrbuch-Standard."
+  },
+  {
+    "id": "acronym-jvm-h4",
+    "name": "JVM",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Java Virtual Machine",
+      "domain": "Laufzeitumgebung"
+    },
+    "funFact": "Die JVM führt plattformunabhängigen Bytecode aus – daher das Java-Motto 'Write once, run anywhere'.",
+    "sourceName": "Wikipedia DE – Java Virtual Machine",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Java_Virtual_Machine",
+    "verifyNote": "Vollform laut Oracle/JVM-Spezifikation."
+  },
+  {
+    "id": "acronym-clr-h4",
+    "name": "CLR",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Common Language Runtime",
+      "domain": "Laufzeitumgebung"
+    },
+    "funFact": "Die CLR ist die Laufzeitumgebung von Microsofts .NET und führt Code verschiedener Sprachen wie C#, F# und VB.NET über eine gemeinsame Zwischensprache aus.",
+    "sourceName": "Wikipedia DE – Common Language Runtime",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Common_Language_Runtime",
+    "verifyNote": "Vollform laut Microsoft-.NET-Doku."
+  },
+  {
+    "id": "acronym-wasm-h4",
+    "name": "WASM",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "WebAssembly",
+      "domain": "Webtechnik"
+    },
+    "funFact": "WebAssembly ist ein binäres Befehlsformat, das im Browser nahezu mit nativer Geschwindigkeit läuft und seit 2019 ein W3C-Standard ist.",
+    "sourceName": "W3C – WebAssembly",
+    "sourceUrl": "https://webassembly.org/",
+    "verifyNote": "Kurzform 'WASM' und Vollform laut W3C."
+  },
+  {
+    "id": "acronym-fp-h4",
+    "name": "FP",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Functional Programming",
+      "domain": "Programmierung"
+    },
+    "funFact": "Funktionale Programmierung behandelt Berechnung als Auswertung mathematischer Funktionen und meidet veränderbaren Zustand.",
+    "sourceName": "Wikipedia DE – Funktionale Programmierung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Funktionale_Programmierung",
+    "verifyNote": "Gängige englische Abkürzung des Paradigmas."
+  },
+  {
+    "id": "acronym-svg-color-h4",
+    "name": "WebGL",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Web Graphics Library",
+      "domain": "Computergrafik"
+    },
+    "funFact": "WebGL bringt hardwarebeschleunigte 3D-Grafik in den Browser, indem es eine JavaScript-Anbindung an OpenGL ES bereitstellt.",
+    "sourceName": "Wikipedia DE – WebGL",
+    "sourceUrl": "https://de.wikipedia.org/wiki/WebGL",
+    "verifyNote": "Vollform laut Khronos-Group-Spezifikation."
+  },
+  {
+    "id": "acronym-dpi-print-h4",
+    "name": "RAII",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Resource Acquisition Is Initialization",
+      "domain": "Programmierung"
+    },
+    "funFact": "RAII ist ein in C++ verbreitetes Muster, bei dem Ressourcen an die Lebensdauer eines Objekts gebunden und beim Verlassen des Gültigkeitsbereichs automatisch freigegeben werden.",
+    "sourceName": "Wikipedia DE – RAII",
+    "sourceUrl": "https://de.wikipedia.org/wiki/RAII",
+    "verifyNote": "Vollform geht auf Bjarne Stroustrup zurück."
+  },
+  {
+    "id": "acronym-mvvm-h4",
+    "name": "MVVM",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Model-View-ViewModel",
+      "domain": "Softwarearchitektur"
+    },
+    "funFact": "MVVM trennt die Benutzeroberfläche über ein ViewModel von der Logik und wurde populär durch Microsofts WPF und später Frameworks wie Vue und SwiftUI.",
+    "sourceName": "Wikipedia DE – Model View ViewModel",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Model_View_ViewModel",
+    "verifyNote": "Vollform ist Architektur-Standard."
+  },
+  {
+    "id": "acronym-spa-h4",
+    "name": "SPA",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Single-Page Application",
+      "domain": "Webtechnik"
+    },
+    "funFact": "Eine SPA lädt nur einmal eine HTML-Seite und tauscht danach Inhalte dynamisch per JavaScript aus, ohne die Seite komplett neu zu laden.",
+    "sourceName": "Wikipedia DE – Single-Page-Webanwendung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Single-Page-Webanwendung",
+    "verifyNote": "Vollform ist Webentwicklungs-Standard."
+  },
+  {
+    "id": "acronym-pwa-h4",
+    "name": "PWA",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Progressive Web App",
+      "domain": "Webtechnik"
+    },
+    "funFact": "PWAs lassen sich wie native Apps installieren und funktionieren dank Service Workern auch offline.",
+    "sourceName": "Wikipedia DE – Progressive Web App",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Progressive_Web_App",
+    "verifyNote": "Vollform laut MDN/Google-Doku."
+  },
+  {
+    "id": "acronym-ssr-h4",
+    "name": "SSR",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Server-Side Rendering",
+      "domain": "Webtechnik"
+    },
+    "funFact": "Beim Server-Side Rendering erzeugt der Server das fertige HTML, was die Ladezeit der ersten Seite und die Auffindbarkeit durch Suchmaschinen verbessert.",
+    "sourceName": "Wikipedia EN – Server-side scripting",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Server-side_scripting",
+    "verifyNote": "Gängige Vollform in der Webentwicklung."
+  },
+  {
+    "id": "acronym-ssg-h4",
+    "name": "SSG",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Static Site Generator",
+      "domain": "Webtechnik"
+    },
+    "funFact": "Ein Static Site Generator erzeugt aus Vorlagen und Inhalten fertige HTML-Dateien, die ohne Datenbank ausgeliefert werden – Beispiele sind Jekyll, Hugo und Eleventy.",
+    "sourceName": "Wikipedia EN – Static site generator",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Static_site_generator",
+    "verifyNote": "Gängige Vollform in der Webentwicklung."
+  },
+  {
+    "id": "acronym-csrf-h4",
+    "name": "CSRF",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Cross-Site Request Forgery",
+      "domain": "IT-Sicherheit"
+    },
+    "funFact": "Bei CSRF wird ein eingeloggter Nutzer dazu gebracht, unbemerkt eine ungewollte Aktion auf einer Website auszuführen, der er vertraut.",
+    "sourceName": "Wikipedia DE – Cross-Site-Request-Forgery",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Cross-Site-Request-Forgery",
+    "verifyNote": "Vollform laut OWASP."
+  },
+  {
+    "id": "acronym-rce-h4",
+    "name": "RCE",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Remote Code Execution",
+      "domain": "IT-Sicherheit"
+    },
+    "funFact": "Eine RCE-Schwachstelle erlaubt es Angreifern, beliebigen Code aus der Ferne auf einem fremden System auszuführen, und zählt zu den gefährlichsten Lücken.",
+    "sourceName": "Wikipedia EN – Arbitrary code execution",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Arbitrary_code_execution",
+    "verifyNote": "Gängige Vollform in der IT-Sicherheit."
+  },
+  {
+    "id": "acronym-waf-h4",
+    "name": "WAF",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Web Application Firewall",
+      "domain": "IT-Sicherheit"
+    },
+    "funFact": "Eine WAF filtert HTTP-Verkehr und schützt Webanwendungen gezielt vor Angriffen wie SQL-Injection und Cross-Site-Scripting.",
+    "sourceName": "Wikipedia EN – Web application firewall",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Web_application_firewall",
+    "verifyNote": "Vollform laut OWASP."
+  },
+  {
+    "id": "acronym-ci-h4",
+    "name": "IIFE",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Immediately Invoked Function Expression",
+      "domain": "Programmierung"
+    },
+    "funFact": "Eine IIFE ist eine JavaScript-Funktion, die sofort nach ihrer Definition aufgerufen wird, um einen eigenen Gültigkeitsbereich zu schaffen.",
+    "sourceName": "MDN – IIFE",
+    "sourceUrl": "https://developer.mozilla.org/de/docs/Glossary/IIFE",
+    "verifyNote": "Vollform laut MDN-Glossar."
+  },
+  {
+    "id": "acronym-dns-record-h4",
+    "name": "WAI-ARIA",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Web Accessibility Initiative – Accessible Rich Internet Applications",
+      "domain": "Webtechnik"
+    },
+    "funFact": "ARIA-Attribute machen dynamische Weboberflächen für Screenreader zugänglich, indem sie Rollen und Zustände von Elementen beschreiben.",
+    "sourceName": "W3C – WAI-ARIA",
+    "sourceUrl": "https://www.w3.org/WAI/standards-guidelines/aria/",
+    "verifyNote": "Vollform laut W3C-WAI."
+  },
+  {
+    "id": "acronym-sla-h4",
+    "name": "SLA",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Service Level Agreement",
+      "domain": "Systemtechnik"
+    },
+    "funFact": "Ein SLA legt vertraglich messbare Qualitätsziele wie Verfügbarkeit fest – 'drei Neunen' (99,9 %) erlauben nur rund 8,7 Stunden Ausfall pro Jahr.",
+    "sourceName": "Wikipedia DE – Service-Level-Agreement",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Service-Level-Agreement",
+    "verifyNote": "Vollform ist Branchen-Standard."
+  },
+  {
+    "id": "acronym-rng-h4",
+    "name": "PRNG",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Pseudo-Random Number Generator",
+      "domain": "Algorithmik"
+    },
+    "funFact": "Ein PRNG erzeugt aus einem Startwert (Seed) eine deterministische, aber zufällig wirkende Zahlenfolge – bei gleichem Seed kommt stets dieselbe Folge.",
+    "sourceName": "Wikipedia DE – Pseudozufallszahlengenerator",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Pseudozufallszahlengenerator",
+    "verifyNote": "Vollform ist Lehrbuch-Standard."
+  },
+  {
+    "id": "acronym-tui-h4",
+    "name": "TUI",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Text-based User Interface",
+      "domain": "Software"
+    },
+    "funFact": "Eine TUI baut eine textbasierte, aber interaktive Oberfläche im Terminal auf – bekannte Beispiele sind der Midnight Commander und htop.",
+    "sourceName": "Wikipedia EN – Text-based user interface",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Text-based_user_interface",
+    "verifyNote": "Gängige Vollform, Abgrenzung zur GUI."
+  },
+  {
+    "id": "acronym-ux-h4",
+    "name": "UX",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "User Experience",
+      "domain": "Softwareentwicklung"
+    },
+    "funFact": "UX umfasst das gesamte Erleben eines Nutzers mit einem Produkt, während die UI (User Interface) nur die konkrete Bedienoberfläche meint.",
+    "sourceName": "Wikipedia DE – User Experience",
+    "sourceUrl": "https://de.wikipedia.org/wiki/User_Experience",
+    "verifyNote": "Vollform ist Branchen-Standard."
+  },
+  {
+    "id": "acronym-cdn-edge-h4",
+    "name": "FaaS",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Function as a Service",
+      "domain": "Systemtechnik"
+    },
+    "funFact": "Bei FaaS wird einzelner Code als kurzlebige Funktion in der Cloud ausgeführt – die Grundlage des sogenannten Serverless Computing.",
+    "sourceName": "Wikipedia EN – Function as a service",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Function_as_a_service",
+    "verifyNote": "Vollform ist Cloud-Standard."
+  },
+  {
+    "id": "acronym-iac-h4",
+    "name": "IaC",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Infrastructure as Code",
+      "domain": "Systemtechnik"
+    },
+    "funFact": "Bei Infrastructure as Code wird Server- und Netzwerkkonfiguration in versionierbaren Textdateien beschrieben – bekannte Werkzeuge sind Terraform und Ansible.",
+    "sourceName": "Wikipedia EN – Infrastructure as code",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Infrastructure_as_code",
+    "verifyNote": "Vollform ist DevOps-Standard."
+  },
+  {
+    "id": "acronym-acl-h4",
+    "name": "ACL",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Access Control List",
+      "domain": "IT-Sicherheit"
+    },
+    "funFact": "Eine ACL ordnet jedem Objekt eine Liste von Berechtigungen zu und legt fest, welcher Nutzer oder Prozess welche Zugriffe ausführen darf.",
+    "sourceName": "Wikipedia DE – Access Control List",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Access_Control_List",
+    "verifyNote": "Vollform ist Lehrbuch-Standard."
+  },
+  {
+    "id": "acronym-otp-h4",
+    "name": "OTP",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "One-Time Password",
+      "domain": "IT-Sicherheit"
+    },
+    "funFact": "Ein Einmalpasswort ist nur für eine einzige Anmeldung gültig und bildet die Grundlage gängiger Zwei-Faktor-Verfahren per Authenticator-App.",
+    "sourceName": "Wikipedia DE – Einmalkennwort",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Einmalkennwort",
+    "verifyNote": "Vollform ist Sicherheits-Standard."
+  },
+  {
+    "id": "acronym-aot-h4",
+    "name": "AOT",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Ahead-of-Time Compilation",
+      "domain": "Programmierung"
+    },
+    "funFact": "Im Gegensatz zur Just-in-time-Kompilierung übersetzt ein AOT-Compiler den Code vollständig vor der Ausführung, was schnellere Startzeiten ermöglicht.",
+    "sourceName": "Wikipedia EN – Ahead-of-time compilation",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Ahead-of-time_compilation",
+    "verifyNote": "Vollform ist Compiler-Standard, Abgrenzung zu JIT."
+  },
+  {
+    "id": "acronym-dto-mapper-h4",
+    "name": "POJO",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Plain Old Java Object",
+      "domain": "Programmierung"
+    },
+    "funFact": "Der Begriff POJO wurde 2000 geprägt, um einfache Java-Objekte ohne Bindung an ein spezielles Framework von komplexen Enterprise-Beans abzugrenzen.",
+    "sourceName": "Wikipedia EN – Plain old Java object",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Plain_old_Java_object",
+    "verifyNote": "Vollform laut Fowler/Rice/Mackinnon."
+  },
+  {
+    "id": "concept-atomicity-h4",
+    "name": "Atomarität",
+    "category": "concept",
+    "attributes": {
+      "category": "Datenbanken",
+      "definition": "Eigenschaft, nach der eine Folge von Operationen entweder vollständig oder gar nicht ausgeführt wird, ohne sichtbaren Zwischenzustand"
+    },
+    "funFact": "Atomarität ist das 'A' in ACID und sorgt dafür, dass eine Datenbanktransaktion bei einem Fehler komplett zurückgesetzt wird.",
+    "sourceName": "Wikipedia DE – ACID",
+    "sourceUrl": "https://de.wikipedia.org/wiki/ACID",
+    "verifyNote": "Standarddefinition aus Datenbank-Lehrbüchern (ACID)."
+  },
+  {
+    "id": "concept-consistency-h4",
+    "name": "Konsistenz (Datenbank)",
+    "category": "concept",
+    "attributes": {
+      "category": "Datenbanken",
+      "definition": "Eigenschaft, nach der eine Transaktion die Datenbank stets von einem gültigen Zustand in einen anderen gültigen Zustand überführt und alle Integritätsregeln wahrt"
+    },
+    "funFact": "Konsistenz ist das 'C' in ACID – verletzt eine Transaktion eine Integritätsbedingung, wird sie abgewiesen.",
+    "sourceName": "Wikipedia DE – ACID",
+    "sourceUrl": "https://de.wikipedia.org/wiki/ACID",
+    "verifyNote": "Standarddefinition aus Datenbank-Lehrbüchern (ACID)."
+  },
+  {
+    "id": "concept-durability-h4",
+    "name": "Dauerhaftigkeit (Persistenz)",
+    "category": "concept",
+    "attributes": {
+      "category": "Datenbanken",
+      "definition": "Eigenschaft, nach der die Ergebnisse einer erfolgreich abgeschlossenen Transaktion dauerhaft gespeichert bleiben, auch bei einem anschließenden Systemausfall"
+    },
+    "funFact": "Dauerhaftigkeit ist das 'D' in ACID und wird oft durch ein Write-Ahead-Log abgesichert, das Änderungen vor dem eigentlichen Schreiben protokolliert.",
+    "sourceName": "Wikipedia DE – ACID",
+    "sourceUrl": "https://de.wikipedia.org/wiki/ACID",
+    "verifyNote": "Standarddefinition aus Datenbank-Lehrbüchern (ACID)."
+  },
+  {
+    "id": "concept-isolation-h4",
+    "name": "Isolation (Transaktion)",
+    "category": "concept",
+    "attributes": {
+      "category": "Datenbanken",
+      "definition": "Eigenschaft, nach der gleichzeitig laufende Transaktionen sich gegenseitig nicht beeinflussen, sodass jede so wirkt, als liefe sie allein"
+    },
+    "funFact": "Isolation ist das 'I' in ACID; verschiedene Isolationsstufen wie 'Read Committed' oder 'Serializable' wägen Korrektheit gegen Geschwindigkeit ab.",
+    "sourceName": "Wikipedia DE – ACID",
+    "sourceUrl": "https://de.wikipedia.org/wiki/ACID",
+    "verifyNote": "Standarddefinition aus Datenbank-Lehrbüchern (ACID)."
+  },
+  {
+    "id": "concept-deserialization-h4",
+    "name": "Deserialisierung",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmierung",
+      "definition": "Umwandlung eines gespeicherten oder übertragenen Datenstroms zurück in ein Objekt oder eine Datenstruktur im Arbeitsspeicher"
+    },
+    "funFact": "Unsichere Deserialisierung gehört zu den OWASP-Top-10-Risiken, weil manipulierte Datenströme dabei Schadcode einschleusen können.",
+    "sourceName": "Wikipedia DE – Serialisierung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Serialisierung",
+    "verifyNote": "Standardbegriff, Umkehrung der Serialisierung."
+  },
+  {
+    "id": "concept-polling-h4",
+    "name": "Polling (Abfrage)",
+    "category": "concept",
+    "attributes": {
+      "category": "Systemtechnik",
+      "definition": "Wiederholtes, aktives Abfragen eines Geräts oder einer Ressource in festen Abständen, um deren Zustand oder neue Daten zu ermitteln"
+    },
+    "funFact": "Polling ist einfach umzusetzen, vergeudet aber Rechenzeit – der ereignisgesteuerte Gegenentwurf ist der Interrupt, der nur bei Bedarf meldet.",
+    "sourceName": "Wikipedia DE – Polling (Informatik)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Polling_(Informatik)",
+    "verifyNote": "Standardbegriff, Abgrenzung zum Interrupt."
+  },
+  {
+    "id": "concept-containerization-h4",
+    "name": "Containerisierung",
+    "category": "concept",
+    "attributes": {
+      "category": "Betriebssysteme",
+      "definition": "Methode, eine Anwendung samt ihrer Abhängigkeiten in einer isolierten, vom Host-Betriebssystem gemeinsam genutzten Laufzeitumgebung zu bündeln"
+    },
+    "funFact": "Container teilen sich den Kernel des Wirtssystems und sind dadurch deutlich leichtgewichtiger als vollständige virtuelle Maschinen – Docker machte das Verfahren 2013 populär.",
+    "sourceName": "Wikipedia DE – Containervirtualisierung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Containervirtualisierung",
+    "verifyNote": "Standardbegriff, Abgrenzung zur Virtualisierung."
+  },
+  {
+    "id": "concept-orchestration-h4",
+    "name": "Orchestrierung (Container)",
+    "category": "concept",
+    "attributes": {
+      "category": "Verteilte Systeme",
+      "definition": "Automatisierte Verwaltung, Verteilung, Skalierung und Überwachung vieler Container über mehrere Rechner hinweg"
+    },
+    "funFact": "Das bekannteste Orchestrierungssystem ist Kubernetes, dessen Kürzel 'K8s' für die acht Buchstaben zwischen K und s steht.",
+    "sourceName": "Wikipedia DE – Kubernetes",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Kubernetes",
+    "verifyNote": "Standardbegriff der Container-Verwaltung."
+  },
+  {
+    "id": "concept-long-polling-h4",
+    "name": "Long Polling",
+    "category": "concept",
+    "attributes": {
+      "category": "Netzwerk",
+      "definition": "Technik, bei der ein Server eine HTTP-Anfrage des Clients absichtlich offen hält, bis neue Daten vorliegen, um Echtzeit-Updates zu simulieren"
+    },
+    "funFact": "Long Polling diente vor der Verbreitung von WebSockets als gängiger Trick, um serverseitige Ereignisse möglichst zeitnah an den Browser zu schicken.",
+    "sourceName": "Wikipedia EN – Push technology",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Push_technology#Long_polling",
+    "verifyNote": "Standardtechnik, Abgrenzung zu WebSocket/SSE."
+  },
+  {
+    "id": "concept-message-broker-h4",
+    "name": "Message Broker",
+    "category": "concept",
+    "attributes": {
+      "category": "Verteilte Systeme",
+      "definition": "Vermittlungsdienst, der Nachrichten zwischen Sendern und Empfängern entkoppelt entgegennimmt, zwischenspeichert und an die passenden Abnehmer weiterleitet"
+    },
+    "funFact": "Bekannte Message Broker wie RabbitMQ oder Apache Kafka entkoppeln Dienste zeitlich, sodass ein Empfänger Nachrichten auch dann erhält, wenn er kurz offline war.",
+    "sourceName": "Wikipedia EN – Message broker",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Message_broker",
+    "verifyNote": "Standardbegriff verteilter Systeme."
+  },
+  {
+    "id": "concept-rate-limiting-h4",
+    "name": "Token-Bucket",
+    "category": "concept",
+    "attributes": {
+      "category": "Netzwerk",
+      "definition": "Verfahren zur Durchsatzbegrenzung, bei dem für jede Aktion ein Token aus einem mit konstanter Rate aufgefüllten Eimer entnommen werden muss"
+    },
+    "funFact": "Der Token-Bucket-Algorithmus erlaubt kurze Lastspitzen bis zur Eimergröße, während er den Durchschnittsdurchsatz langfristig deckelt – ein Klassiker für API-Rate-Limiting.",
+    "sourceName": "Wikipedia DE – Token Bucket",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Token_Bucket",
+    "verifyNote": "Standardalgorithmus zur Ratenbegrenzung."
+  },
+  {
+    "id": "concept-idempotency-key-h4",
+    "name": "Optimistische Sperre",
+    "category": "concept",
+    "attributes": {
+      "category": "Datenbanken",
+      "definition": "Verfahren der Nebenläufigkeitskontrolle, das Daten beim Lesen nicht sperrt, sondern erst beim Schreiben prüft, ob sie zwischenzeitlich verändert wurden"
+    },
+    "funFact": "Die optimistische Sperre nutzt oft eine Versionsnummer; stimmt sie beim Speichern nicht mehr, wird der Schreibvorgang abgewiesen statt blockiert.",
+    "sourceName": "Wikipedia DE – Optimistic Concurrency",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Optimistic_Concurrency",
+    "verifyNote": "Standardbegriff der Nebenläufigkeitskontrolle."
+  },
+  {
+    "id": "concept-cap-availability-h4",
+    "name": "Idempotenter Endpunkt",
+    "category": "concept",
+    "attributes": {
+      "category": "Webtechnik",
+      "definition": "Schnittstellenaufruf, dessen mehrfache Ausführung mit denselben Daten denselben Zustand erzeugt wie ein einmaliger Aufruf"
+    },
+    "funFact": "In REST gelten GET, PUT und DELETE als idempotent, POST dagegen nicht – deshalb können Retries bei PUT gefahrlos wiederholt werden.",
+    "sourceName": "MDN – HTTP-Methoden (Idempotent)",
+    "sourceUrl": "https://developer.mozilla.org/de/docs/Glossary/Idempotent",
+    "verifyNote": "Standarddefinition laut HTTP-Semantik (RFC 9110)."
+  },
+  {
+    "id": "concept-graceful-shutdown-h4",
+    "name": "Graceful Shutdown",
+    "category": "concept",
+    "attributes": {
+      "category": "Systemtechnik",
+      "definition": "Geordnetes Herunterfahren eines Dienstes, bei dem laufende Aufgaben abgeschlossen und Ressourcen freigegeben werden, bevor der Prozess endet"
+    },
+    "funFact": "Unter Unix signalisiert SIGTERM einen Graceful Shutdown, während SIGKILL einen Prozess sofort und ohne Aufräumen beendet.",
+    "sourceName": "Wikipedia EN – Signal (IPC)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Signal_(IPC)",
+    "verifyNote": "Standardbegriff der Prozessverwaltung."
+  },
+  {
+    "id": "concept-blue-green-h4",
+    "name": "Blue-Green-Deployment",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwareentwicklung",
+      "definition": "Veröffentlichungsstrategie mit zwei identischen Produktivumgebungen, bei der der Verkehr nach erfolgreichem Test schlagartig von der alten auf die neue Umgebung umgeschaltet wird"
+    },
+    "funFact": "Beim Blue-Green-Deployment lässt sich im Fehlerfall sofort auf die alte 'blaue' Umgebung zurückschalten, was die Ausfallzeit minimiert.",
+    "sourceName": "Wikipedia EN – Blue-green deployment",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Blue-green_deployment",
+    "verifyNote": "Standardbegriff aus DevOps/CD."
+  },
+  {
+    "id": "concept-canary-h4",
+    "name": "Canary-Release",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwareentwicklung",
+      "definition": "Stufenweise Veröffentlichung, bei der eine neue Version zunächst nur an einen kleinen Teil der Nutzer ausgeliefert wird, um Probleme früh zu erkennen"
+    },
+    "funFact": "Der Name spielt auf die Kanarienvögel an, die früher in Kohlebergwerken vor giftigen Gasen warnten.",
+    "sourceName": "Wikipedia EN – Feature toggle (Canary release)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Feature_toggle",
+    "verifyNote": "Standardbegriff schrittweiser Rollouts."
+  },
+  {
+    "id": "concept-eventual-vs-strong-h4",
+    "name": "Starke Konsistenz",
+    "category": "concept",
+    "attributes": {
+      "category": "Verteilte Systeme",
+      "definition": "Konsistenzmodell, bei dem nach einem Schreibvorgang jeder folgende Lesezugriff garantiert den aktuellsten Wert zurückliefert"
+    },
+    "funFact": "Starke Konsistenz ist der Gegenpol zur Eventual Consistency; das CAP-Theorem zwingt verteilte Systeme bei Netzpartitionen zu einer Wahl zwischen Konsistenz und Verfügbarkeit.",
+    "sourceName": "Wikipedia EN – Strong consistency",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Strong_consistency",
+    "verifyNote": "Standardbegriff verteilter Systeme."
+  },
+  {
+    "id": "concept-shadow-dom-h4",
+    "name": "Shadow DOM",
+    "category": "concept",
+    "attributes": {
+      "category": "Webtechnik",
+      "definition": "Web-Standard, der einem Element einen gekapselten, eigenen DOM-Teilbaum samt isoliertem Styling zuordnet, getrennt vom übrigen Dokument"
+    },
+    "funFact": "Das Shadow DOM ist die Grundlage von Web Components und verhindert, dass das CSS einer Komponente unbeabsichtigt den Rest der Seite beeinflusst.",
+    "sourceName": "MDN – Shadow DOM",
+    "sourceUrl": "https://developer.mozilla.org/de/docs/Web/API/Web_components/Using_shadow_DOM",
+    "verifyNote": "Standardbegriff laut MDN/Web-Components."
+  },
+  {
+    "id": "concept-virtual-dom-h4",
+    "name": "Virtuelles DOM",
+    "category": "concept",
+    "attributes": {
+      "category": "Webtechnik",
+      "definition": "Im Speicher gehaltene Abbildung der Benutzeroberfläche, die mit einer neuen Fassung verglichen wird, um nur die tatsächlich geänderten Teile im echten DOM zu aktualisieren"
+    },
+    "funFact": "Das virtuelle DOM wurde durch React populär und beschleunigt Aktualisierungen, indem teure direkte Zugriffe auf das echte DOM minimiert werden.",
+    "sourceName": "Wikipedia EN – React (Virtual DOM)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/React_(software)",
+    "verifyNote": "Standardbegriff moderner Frontend-Frameworks."
+  },
+  {
+    "id": "concept-tree-shaking-h4",
+    "name": "Tree Shaking",
+    "category": "concept",
+    "attributes": {
+      "category": "Webtechnik",
+      "definition": "Verfahren beim Bündeln von Code, das ungenutzte Module und Funktionen anhand statischer Analyse entfernt, um die Auslieferungsgröße zu verringern"
+    },
+    "funFact": "Tree Shaking funktioniert dank der statisch analysierbaren Import-Struktur von ES-Modulen, weshalb tote Code-Pfade zuverlässig 'abgeschüttelt' werden können.",
+    "sourceName": "MDN – Tree shaking",
+    "sourceUrl": "https://developer.mozilla.org/de/docs/Glossary/Tree_shaking",
+    "verifyNote": "Standardbegriff laut MDN-Glossar."
+  },
+  {
+    "id": "concept-hot-reload-h4",
+    "name": "Hot Reloading",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwareentwicklung",
+      "definition": "Entwicklungstechnik, bei der Codeänderungen sofort in die laufende Anwendung übernommen werden, ohne sie komplett neu zu starten oder den Zustand zu verlieren"
+    },
+    "funFact": "Hot Reloading verkürzt die Rückmeldeschleife beim Entwickeln drastisch, da man Änderungen unmittelbar sieht, ohne durch die App neu navigieren zu müssen.",
+    "sourceName": "Wikipedia EN – Hot swapping (software)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Hot_swapping",
+    "verifyNote": "Standardbegriff moderner Entwicklungswerkzeuge."
+  },
+  {
+    "id": "concept-data-binding-h4",
+    "name": "Datenbindung",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwareentwicklung",
+      "definition": "Automatische Synchronisation zwischen einer Datenquelle und ihrer Darstellung in der Benutzeroberfläche, sodass Änderungen beidseitig übernommen werden"
+    },
+    "funFact": "Bei der Zwei-Wege-Datenbindung aktualisiert eine Eingabe im Formular sofort das zugrunde liegende Modell und umgekehrt – ein Kernkonzept von Frameworks wie Angular und Vue.",
+    "sourceName": "Wikipedia EN – Data binding",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Data_binding",
+    "verifyNote": "Standardbegriff der UI-Entwicklung."
+  },
+  {
+    "id": "concept-reflection-h4",
+    "name": "Reflexion (Programmierung)",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmierung",
+      "definition": "Fähigkeit eines Programms, zur Laufzeit seine eigene Struktur wie Klassen, Methoden und Felder zu untersuchen und zu verändern"
+    },
+    "funFact": "Reflexion ermöglicht mächtige Frameworks, ist aber langsamer als direkter Code und kann statische Sicherheitsprüfungen des Compilers umgehen.",
+    "sourceName": "Wikipedia DE – Reflexion (Programmierung)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Reflexion_(Programmierung)",
+    "verifyNote": "Standardbegriff der Programmiersprachen."
+  },
+  {
+    "id": "concept-annotation-h4",
+    "name": "Annotation (Metadaten)",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmierung",
+      "definition": "Im Quellcode notierte Metadaten, die Klassen, Methoden oder Variablen zusätzliche Informationen für Compiler, Werkzeuge oder Laufzeitumgebung zuordnen"
+    },
+    "funFact": "Annotationen wie '@Override' in Java oder Decorators in Python beeinflussen oft nicht das Verhalten direkt, sondern werden von Frameworks per Reflexion ausgewertet.",
+    "sourceName": "Wikipedia EN – Java annotation",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Java_annotation",
+    "verifyNote": "Standardbegriff der Programmiersprachen."
+  },
+  {
+    "id": "concept-generics-h4",
+    "name": "Generische Programmierung",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmiersprachen",
+      "definition": "Schreibweise von Code mit Typ-Platzhaltern, sodass dieselbe Logik typsicher für verschiedene Datentypen wiederverwendet werden kann"
+    },
+    "funFact": "Generics erlauben etwa eine Liste, die wahlweise Zahlen oder Texte typsicher hält, ohne den Code zu duplizieren – in C++ heißt das Konzept Templates.",
+    "sourceName": "Wikipedia DE – Generische Programmierung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Generische_Programmierung",
+    "verifyNote": "Standardbegriff der Programmiersprachen."
+  },
+  {
+    "id": "concept-iterator-h4",
+    "name": "Iterator",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmierung",
+      "definition": "Objekt, das die Elemente einer Sammlung der Reihe nach zugänglich macht, ohne deren interne Struktur offenzulegen"
+    },
+    "funFact": "Iteratoren sind die Grundlage der 'for-each'-Schleifen vieler Sprachen; ein Generator ist eine spezielle Form, die Werte erst bei Bedarf erzeugt.",
+    "sourceName": "Wikipedia DE – Iterator",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Iterator",
+    "verifyNote": "Standardbegriff, Entwurfsmuster (GoF)."
+  },
+  {
+    "id": "concept-generator-h4",
+    "name": "Generator (Programmierung)",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmierung",
+      "definition": "Spezielle Funktion, die ihre Ausführung an Yield-Punkten unterbricht und nacheinander Werte liefert, statt alle auf einmal zu berechnen"
+    },
+    "funFact": "Generatoren ermöglichen das Verarbeiten potenziell unendlicher Datenströme, da sie Werte verzögert (lazy) erst bei der Abfrage erzeugen.",
+    "sourceName": "Wikipedia EN – Generator (computer programming)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Generator_(computer_programming)",
+    "verifyNote": "Standardbegriff der Programmiersprachen."
+  },
+  {
+    "id": "concept-promise-h4",
+    "name": "Promise (Future)",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmierung",
+      "definition": "Platzhalterobjekt für ein Ergebnis, das erst in der Zukunft verfügbar wird und das Weiterarbeiten ermöglicht, ohne auf den Abschluss zu warten"
+    },
+    "funFact": "Ein Promise kann die Zustände 'pending', 'fulfilled' oder 'rejected' annehmen und ist die Grundlage der modernen asynchronen Programmierung in JavaScript.",
+    "sourceName": "MDN – Promise",
+    "sourceUrl": "https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+    "verifyNote": "Standardbegriff der asynchronen Programmierung."
+  },
+  {
+    "id": "concept-thread-pool-h4",
+    "name": "Thread-Pool",
+    "category": "concept",
+    "attributes": {
+      "category": "Nebenläufigkeit",
+      "definition": "Vorrat bereits erzeugter Threads, die wiederverwendet werden, um anfallende Aufgaben abzuarbeiten, statt für jede Aufgabe einen neuen Thread zu starten"
+    },
+    "funFact": "Thread-Pools vermeiden den teuren Mehraufwand ständiger Thread-Erzeugung und begrenzen zugleich die Zahl gleichzeitig laufender Aufgaben.",
+    "sourceName": "Wikipedia DE – Thread Pool",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Thread_Pool",
+    "verifyNote": "Standardbegriff der Nebenläufigkeit."
+  },
+  {
+    "id": "concept-connection-pool-h4",
+    "name": "Connection-Pool",
+    "category": "concept",
+    "attributes": {
+      "category": "Datenbanken",
+      "definition": "Vorrat offen gehaltener Datenbankverbindungen, die wiederverwendet werden, um den teuren Auf- und Abbau bei jeder Anfrage zu vermeiden"
+    },
+    "funFact": "Das Aufbauen einer Datenbankverbindung ist vergleichsweise langsam; ein Connection-Pool steigert daher den Durchsatz vielbesuchter Anwendungen erheblich.",
+    "sourceName": "Wikipedia EN – Connection pool",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Connection_pool",
+    "verifyNote": "Standardbegriff der Datenbankanbindung."
+  },
+  {
+    "id": "concept-foreign-key-h4",
+    "name": "Fremdschlüssel",
+    "category": "concept",
+    "attributes": {
+      "category": "Datenbanken",
+      "definition": "Attribut in einer Datenbanktabelle, das auf den Primärschlüssel einer anderen Tabelle verweist und so eine Beziehung zwischen beiden herstellt"
+    },
+    "funFact": "Fremdschlüssel sichern die referenzielle Integrität: Die Datenbank verhindert, dass ein Datensatz verweist, dessen Ziel gar nicht existiert.",
+    "sourceName": "Wikipedia DE – Fremdschlüssel",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Fremdschl%C3%BCssel",
+    "verifyNote": "Standardbegriff relationaler Datenbanken."
+  },
+  {
+    "id": "concept-primary-key-h4",
+    "name": "Primärschlüssel",
+    "category": "concept",
+    "attributes": {
+      "category": "Datenbanken",
+      "definition": "Attribut oder Attributkombination, die jeden Datensatz einer Tabelle eindeutig identifiziert und nicht leer sein darf"
+    },
+    "funFact": "Jede Tabelle einer relationalen Datenbank sollte genau einen Primärschlüssel haben; oft dient dafür eine künstlich erzeugte fortlaufende ID.",
+    "sourceName": "Wikipedia DE – Schlüssel (Datenbank)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Schl%C3%BCssel_(Datenbank)",
+    "verifyNote": "Standardbegriff relationaler Datenbanken."
+  },
+  {
+    "id": "concept-stored-procedure-h4",
+    "name": "Gespeicherte Prozedur",
+    "category": "concept",
+    "attributes": {
+      "category": "Datenbanken",
+      "definition": "In der Datenbank abgelegte und dort ausgeführte Folge von SQL-Befehlen, die als benannte Einheit aufgerufen werden kann"
+    },
+    "funFact": "Gespeicherte Prozeduren laufen direkt im Datenbankserver und sparen so Netzwerk-Roundtrips, binden die Logik aber stärker an das jeweilige Datenbanksystem.",
+    "sourceName": "Wikipedia DE – Gespeicherte Prozedur",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Gespeicherte_Prozedur",
+    "verifyNote": "Standardbegriff relationaler Datenbanken."
+  },
+  {
+    "id": "concept-database-view-h4",
+    "name": "Datenbanksicht (View)",
+    "category": "concept",
+    "attributes": {
+      "category": "Datenbanken",
+      "definition": "Benannte, gespeicherte Abfrage, die sich wie eine virtuelle Tabelle verhält, ihre Daten aber dynamisch aus zugrunde liegenden Tabellen bezieht"
+    },
+    "funFact": "Eine Sicht speichert keine eigenen Daten, sondern bündelt eine wiederkehrende Abfrage; eine 'materialisierte Sicht' hält das Ergebnis dagegen physisch vor.",
+    "sourceName": "Wikipedia DE – Sicht (Datenbank)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Sicht_(Datenbank)",
+    "verifyNote": "Standardbegriff relationaler Datenbanken."
+  },
+  {
+    "id": "concept-orm-mapping-h4",
+    "name": "Objektrelationale Abbildung",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwarearchitektur",
+      "definition": "Technik, die Objekte einer Programmiersprache automatisch auf Zeilen relationaler Datenbanktabellen abbildet und umgekehrt"
+    },
+    "funFact": "Die Diskrepanz zwischen Objektmodell und Tabellenmodell nennt man 'Object-Relational Impedance Mismatch' – genau diese Lücke schließen ORM-Werkzeuge wie Hibernate.",
+    "sourceName": "Wikipedia DE – Objektrelationale Abbildung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Objektrelationale_Abbildung",
+    "verifyNote": "Standardbegriff der Softwarearchitektur."
+  },
+  {
+    "id": "concept-mvc-pattern-h4",
+    "name": "Model-View-Controller",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwarearchitektur",
+      "definition": "Architekturmuster, das eine Anwendung in Datenmodell, Darstellung und Steuerungslogik aufteilt, um diese unabhängig voneinander zu entwickeln"
+    },
+    "funFact": "MVC wurde bereits in den 1970er-Jahren für die Sprache Smalltalk entworfen und prägt bis heute zahlreiche Web-Frameworks.",
+    "sourceName": "Wikipedia DE – Model View Controller",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Model_View_Controller",
+    "verifyNote": "Standardbegriff der Softwarearchitektur."
+  },
+  {
+    "id": "concept-singleton-h4",
+    "name": "Singleton (Entwurfsmuster)",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwarearchitektur",
+      "definition": "Entwurfsmuster, das sicherstellt, dass von einer Klasse nur eine einzige Instanz existiert, und einen globalen Zugriffspunkt darauf bietet"
+    },
+    "funFact": "Das Singleton zählt zu den GoF-Mustern, gilt heute aber oft als Anti-Pattern, weil es verstecktem globalem Zustand Vorschub leistet und Tests erschwert.",
+    "sourceName": "Wikipedia DE – Singleton (Entwurfsmuster)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Singleton_(Entwurfsmuster)",
+    "verifyNote": "Standardbegriff, GoF-Entwurfsmuster."
+  },
+  {
+    "id": "concept-observer-h4",
+    "name": "Beobachter (Entwurfsmuster)",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwarearchitektur",
+      "definition": "Entwurfsmuster, bei dem ein Objekt eine Liste abhängiger Objekte führt und sie bei Zustandsänderungen automatisch benachrichtigt"
+    },
+    "funFact": "Das Beobachter-Muster ist die konzeptionelle Grundlage von Event-Systemen und dem Publish-Subscribe-Ansatz vieler Benutzeroberflächen.",
+    "sourceName": "Wikipedia DE – Beobachter (Entwurfsmuster)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Beobachter_(Entwurfsmuster)",
+    "verifyNote": "Standardbegriff, GoF-Entwurfsmuster."
+  },
+  {
+    "id": "concept-factory-h4",
+    "name": "Fabrikmethode (Entwurfsmuster)",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwarearchitektur",
+      "definition": "Entwurfsmuster, das die Objekterzeugung an eine eigene Methode auslagert, damit Unterklassen entscheiden können, welche konkrete Klasse erzeugt wird"
+    },
+    "funFact": "Die Fabrikmethode entkoppelt den aufrufenden Code von konkreten Klassen, sodass neue Varianten ergänzt werden können, ohne bestehenden Code zu ändern.",
+    "sourceName": "Wikipedia DE – Fabrikmethode",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Fabrikmethode",
+    "verifyNote": "Standardbegriff, GoF-Entwurfsmuster."
+  },
+  {
+    "id": "concept-adapter-h4",
+    "name": "Adapter (Entwurfsmuster)",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwarearchitektur",
+      "definition": "Entwurfsmuster, das die Schnittstelle einer Klasse in eine andere, vom Aufrufer erwartete Schnittstelle übersetzt, damit inkompatible Klassen zusammenarbeiten"
+    },
+    "funFact": "Das Adapter-Muster funktioniert wie ein Reisestecker-Adapter: Es passt vorhandene Komponenten an, ohne deren inneren Code zu verändern.",
+    "sourceName": "Wikipedia DE – Adapter (Entwurfsmuster)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Adapter_(Entwurfsmuster)",
+    "verifyNote": "Standardbegriff, GoF-Entwurfsmuster."
+  },
+  {
+    "id": "concept-inversion-of-control-h4",
+    "name": "Steuerungsumkehr (IoC)",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwarearchitektur",
+      "definition": "Entwurfsprinzip, bei dem ein Framework den Kontrollfluss übernimmt und den anwendungsspezifischen Code zu passenden Zeitpunkten aufruft, statt umgekehrt"
+    },
+    "funFact": "Steuerungsumkehr wird auch 'Hollywood-Prinzip' genannt: 'Ruf uns nicht an, wir rufen dich an' – Dependency Injection ist eine konkrete Ausprägung davon.",
+    "sourceName": "Wikipedia DE – Inversion of Control",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Inversion_of_Control",
+    "verifyNote": "Standardbegriff der Softwarearchitektur."
+  },
+  {
+    "id": "concept-mutation-testing-h4",
+    "name": "Mutationstest",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwaretechnik",
+      "definition": "Testverfahren, das absichtlich kleine Fehler in den Code einschleust, um zu prüfen, ob die vorhandenen Tests diese Veränderungen erkennen"
+    },
+    "funFact": "Bleibt ein Testlauf trotz eingebauter 'Mutation' grün, deckt die Testsuite diese Stelle nicht ab – Mutationstests messen so die echte Aussagekraft von Tests.",
+    "sourceName": "Wikipedia DE – Mutationstest",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Mutationstest",
+    "verifyNote": "Standardbegriff der Softwaretechnik."
+  },
+  {
+    "id": "concept-code-coverage-h4",
+    "name": "Testabdeckung",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwaretechnik",
+      "definition": "Maß dafür, welcher Anteil des Quellcodes durch automatisierte Tests tatsächlich ausgeführt wird"
+    },
+    "funFact": "Eine hohe Testabdeckung garantiert keine fehlerfreien Tests – sie zeigt nur, welcher Code ausgeführt, nicht ob sein Verhalten sinnvoll geprüft wurde.",
+    "sourceName": "Wikipedia DE – Testabdeckung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Testabdeckung",
+    "verifyNote": "Standardbegriff der Softwaretechnik."
+  },
+  {
+    "id": "concept-mocking-h4",
+    "name": "Mock-Objekt",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwaretechnik",
+      "definition": "Im Test eingesetztes Ersatzobjekt, das eine echte Abhängigkeit nachbildet, um eine Komponente isoliert und vorhersehbar prüfen zu können"
+    },
+    "funFact": "Mit Mocks lassen sich langsame oder unzuverlässige Abhängigkeiten wie Netzwerk und Datenbank im Unit-Test durch kontrollierte Attrappen ersetzen.",
+    "sourceName": "Wikipedia DE – Mock-Objekt",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Mock-Objekt",
+    "verifyNote": "Standardbegriff der Softwaretechnik."
+  },
+  {
+    "id": "concept-feature-branch-h4",
+    "name": "Feature-Branch",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwareentwicklung",
+      "definition": "Eigener Entwicklungszweig in der Versionsverwaltung, in dem eine Funktion isoliert entwickelt und erst nach Fertigstellung in den Hauptzweig zusammengeführt wird"
+    },
+    "funFact": "Feature-Branches halten unfertige Arbeit vom stabilen Hauptzweig fern; der konkurrierende Ansatz 'Trunk-Based Development' setzt dagegen auf sehr kurzlebige Zweige.",
+    "sourceName": "Wikipedia EN – Branching (version control)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Branching_(version_control)",
+    "verifyNote": "Standardbegriff der Versionsverwaltung."
+  },
+  {
+    "id": "concept-merge-conflict-h4",
+    "name": "Merge-Konflikt",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwareentwicklung",
+      "definition": "Situation beim Zusammenführen zweier Entwicklungszweige, in der dieselbe Stelle unterschiedlich geändert wurde und die Versionsverwaltung nicht automatisch entscheiden kann"
+    },
+    "funFact": "Bei einem Merge-Konflikt markiert Git die strittigen Stellen im Code und überlässt die endgültige Auflösung dem Entwickler.",
+    "sourceName": "Wikipedia EN – Merge (version control)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Merge_(version_control)",
+    "verifyNote": "Standardbegriff der Versionsverwaltung."
+  },
+  {
+    "id": "concept-semantic-versioning-h4",
+    "name": "Semantische Versionierung",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwareentwicklung",
+      "definition": "Konvention, Versionsnummern nach dem Schema Major.Minor.Patch zu vergeben, um Art und Tragweite von Änderungen erkennbar zu machen"
+    },
+    "funFact": "Nach der Regel von Semantic Versioning signalisiert eine erhöhte Major-Nummer eine inkompatible Änderung, eine Minor-Nummer neue abwärtskompatible Funktionen.",
+    "sourceName": "Semantic Versioning – Spezifikation",
+    "sourceUrl": "https://semver.org/lang/de/",
+    "verifyNote": "Vollständige Regel laut SemVer-Spezifikation."
+  },
+  {
+    "id": "file_format-targa-h4",
+    "name": "Targa",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Truevision Advanced Raster Graphics Adapter",
+      "compression": "verlustfrei komprimiert",
+      "mediaType": "Bild"
+    },
+    "funFact": "Das TGA-Format stammt von der Grafikkarte Truevision TARGA der 1980er und wird bis heute in der 3D- und Spielebranche für Texturen genutzt.",
+    "sourceName": "Wikipedia DE – Targa Image File",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Targa_Image_File",
+    "verifyNote": "Optionale verlustfreie RLE-Kompression laut Wikipedia DE; Vollform Truevision."
+  },
+  {
+    "id": "file_format-sgi-h4",
+    "name": "SGI",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Silicon Graphics Image",
+      "compression": "verlustfrei komprimiert",
+      "mediaType": "Bild"
+    },
+    "funFact": "Das SGI-Bildformat stammt von den legendären Silicon-Graphics-Workstations und wird bis heute in einigen 3D- und Effekt-Pipelines genutzt.",
+    "sourceName": "Wikipedia EN – Silicon Graphics Image",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Silicon_Graphics_Image",
+    "verifyNote": "Optionale verlustfreie RLE-Kompression laut Wikipedia."
+  },
+  {
+    "id": "file_format-pict-h4",
+    "name": "PICT",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "QuickDraw Picture",
+      "compression": "verlustfrei komprimiert",
+      "mediaType": "Bild"
+    },
+    "funFact": "PICT war jahrelang das Standard-Bildformat des klassischen Mac OS und konnte sowohl Pixel- als auch Vektordaten speichern.",
+    "sourceName": "Wikipedia EN – PICT",
+    "sourceUrl": "https://en.wikipedia.org/wiki/PICT",
+    "verifyNote": "QuickDraw-basiertes Apple-Format laut Wikipedia; RLE/PackBits verlustfrei."
+  },
+  {
+    "id": "file_format-xbm-h4",
+    "name": "XBM",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "X BitMap",
+      "compression": "unkomprimiert",
+      "mediaType": "Bild"
+    },
+    "funFact": "XBM-Dateien sind eigentlich gültiger C-Quellcode – das Bild wird als Array von Bytes direkt im Programm definiert.",
+    "sourceName": "Wikipedia EN – X BitMap",
+    "sourceUrl": "https://en.wikipedia.org/wiki/X_BitMap",
+    "verifyNote": "Monochrome Bilder als C-Array, keine Kompression laut Wikipedia."
+  },
+  {
+    "id": "file_format-xpm-h4",
+    "name": "XPM",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "X PixMap",
+      "compression": "unkomprimiert",
+      "mediaType": "Bild"
+    },
+    "funFact": "XPM erweitert das ältere XBM um Farben und wird wie dieses als lesbarer C-Code gespeichert.",
+    "sourceName": "Wikipedia EN – X PixMap",
+    "sourceUrl": "https://en.wikipedia.org/wiki/X_PixMap",
+    "verifyNote": "Farbiges Pendant zu XBM, Textformat ohne Kompression laut Wikipedia."
+  },
+  {
+    "id": "file_format-apng-h4",
+    "name": "APNG",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Animated Portable Network Graphics",
+      "compression": "verlustfrei komprimiert",
+      "mediaType": "Bild"
+    },
+    "funFact": "APNG erweitert PNG um Animationen und bleibt zu normalen PNG-Betrachtern abwärtskompatibel, die nur das erste Vollbild zeigen.",
+    "sourceName": "Wikipedia DE – APNG",
+    "sourceUrl": "https://de.wikipedia.org/wiki/APNG",
+    "verifyNote": "PNG-basiert und damit verlustfrei laut Wikipedia DE."
+  },
+  {
+    "id": "file_format-wbmp-h4",
+    "name": "WBMP",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Wireless Bitmap",
+      "compression": "unkomprimiert",
+      "mediaType": "Bild"
+    },
+    "funFact": "WBMP wurde für die WAP-Handys der späten 1990er entwickelt und speichert rein schwarz-weisse Bilder für kleine Displays.",
+    "sourceName": "Wikipedia EN – Wireless Application Protocol Bitmap Format",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Wireless_Application_Protocol_Bitmap_Format",
+    "verifyNote": "1-Bit-Monochrom-Format ohne Kompression laut Wikipedia."
+  },
+  {
+    "id": "file_format-jbig2-h4",
+    "name": "JBIG2",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Joint Bi-level Image Experts Group 2",
+      "compression": "verlustbehaftet komprimiert",
+      "mediaType": "Bild"
+    },
+    "funFact": "JBIG2 komprimiert gescannte Schwarz-Weiss-Dokumente extrem stark, geriet aber in Verruf, weil es bei Xerox-Scannern Ziffern verwechselte.",
+    "sourceName": "Wikipedia DE – JBIG2",
+    "sourceUrl": "https://de.wikipedia.org/wiki/JBIG2",
+    "verifyNote": "Unterstützt verlustbehaftete Mustersubstitution; bekannter Xerox-Bug laut Wikipedia."
+  },
+  {
+    "id": "file_format-emf-h4",
+    "name": "EMF",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Enhanced Metafile",
+      "compression": "unkomprimiert",
+      "mediaType": "Bild"
+    },
+    "funFact": "EMF ist das Vektor-Metaformat von Windows und speichert Zeichenbefehle statt Pixel, weshalb es verlustfrei skaliert.",
+    "sourceName": "Wikipedia DE – Enhanced Metafile",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Enhanced_Metafile",
+    "verifyNote": "Vektor-Befehlsliste ohne Bildkompression laut Wikipedia DE."
+  },
+  {
+    "id": "file_format-wmf-h4",
+    "name": "WMF",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Windows Metafile",
+      "compression": "unkomprimiert",
+      "mediaType": "Bild"
+    },
+    "funFact": "WMF ist der ältere 16-Bit-Vorgänger von EMF und stammt noch aus der Windows-3.x-Ära.",
+    "sourceName": "Wikipedia DE – Windows Metafile",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Windows_Metafile",
+    "verifyNote": "Vektorbasiertes Metaformat ohne Bildkompression laut Wikipedia DE."
+  },
+  {
+    "id": "file_format-cgm-h4",
+    "name": "CGM",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Computer Graphics Metafile",
+      "compression": "unkomprimiert",
+      "mediaType": "Bild"
+    },
+    "funFact": "CGM ist ein ISO-genormtes Vektorformat, das vor allem in der technischen Dokumentation der Luftfahrt eingesetzt wird.",
+    "sourceName": "Wikipedia DE – Computer Graphics Metafile",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Computer_Graphics_Metafile",
+    "verifyNote": "ISO/IEC 8632 Vektorformat laut Wikipedia DE."
+  },
+  {
+    "id": "file_format-vrml-h4",
+    "name": "VRML",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Virtual Reality Modeling Language",
+      "compression": "unkomprimiert",
+      "mediaType": "3D-Modell"
+    },
+    "funFact": "VRML sollte in den 1990ern interaktive 3D-Welten ins Web bringen und gilt als Vorläufer des heutigen X3D.",
+    "sourceName": "Wikipedia DE – VRML",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Virtual_Reality_Modeling_Language",
+    "verifyNote": "Textbasiertes 3D-Szenenformat ohne Kompression laut Wikipedia DE."
+  },
+  {
+    "id": "file_format-x3d-h4",
+    "name": "X3D",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Extensible 3D",
+      "compression": "unkomprimiert",
+      "mediaType": "3D-Modell"
+    },
+    "funFact": "X3D ist der ISO-genormte XML-Nachfolger von VRML für interaktive 3D-Szenen im Web.",
+    "sourceName": "Wikipedia DE – X3D",
+    "sourceUrl": "https://de.wikipedia.org/wiki/X3D",
+    "verifyNote": "XML-basiertes 3D-Format ohne Kompression laut Wikipedia DE."
+  },
+  {
+    "id": "file_format-3ds-h4",
+    "name": "3DS",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "3D Studio",
+      "compression": "unkomprimiert",
+      "mediaType": "3D-Modell"
+    },
+    "funFact": "Das 3DS-Format stammt vom DOS-Programm Autodesk 3D Studio und ist trotz seines Alters bis heute ein verbreitetes Austauschformat.",
+    "sourceName": "Wikipedia EN – .3ds",
+    "sourceUrl": "https://en.wikipedia.org/wiki/.3ds",
+    "verifyNote": "Binäres Chunk-Format ohne allgemeine Kompression laut Wikipedia."
+  },
+  {
+    "id": "file_format-collada-h4",
+    "name": "COLLADA",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Collaborative Design Activity",
+      "compression": "unkomprimiert",
+      "mediaType": "3D-Modell"
+    },
+    "funFact": "COLLADA nutzt die Dateiendung .dae und diente lange als offenes Austauschformat zwischen 3D-Programmen, bevor glTF es weitgehend ablöste.",
+    "sourceName": "Wikipedia DE – COLLADA",
+    "sourceUrl": "https://de.wikipedia.org/wiki/COLLADA",
+    "verifyNote": "XML-basiertes 3D-Austauschformat ohne Kompression laut Wikipedia DE."
+  },
+  {
+    "id": "file_format-asciidoc-h4",
+    "name": "AsciiDoc",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "ASCII Document",
+      "compression": "unkomprimiert",
+      "mediaType": "Dokument"
+    },
+    "funFact": "AsciiDoc ist eine Markup-Sprache für technische Doku, die mächtiger als Markdown ist und sich nach HTML, PDF oder DocBook wandeln lässt.",
+    "sourceName": "Wikipedia EN – AsciiDoc",
+    "sourceUrl": "https://en.wikipedia.org/wiki/AsciiDoc",
+    "verifyNote": "Reines Text-Markup ohne Kompression laut Wikipedia."
+  },
+  {
+    "id": "file_format-restructuredtext-h4",
+    "name": "reStructuredText",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "reStructuredText",
+      "compression": "unkomprimiert",
+      "mediaType": "Dokument"
+    },
+    "funFact": "reStructuredText (Endung .rst) ist das Standard-Markup der Python-Dokumentation und wird vom Werkzeug Sphinx verarbeitet.",
+    "sourceName": "Wikipedia EN – reStructuredText",
+    "sourceUrl": "https://en.wikipedia.org/wiki/ReStructuredText",
+    "verifyNote": "Klartext-Markup ohne Kompression laut Wikipedia."
+  },
+  {
+    "id": "file_format-vtt-h4",
+    "name": "WebVTT",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Web Video Text Tracks",
+      "compression": "unkomprimiert",
+      "mediaType": "Dokument"
+    },
+    "funFact": "WebVTT ist das HTML5-Standardformat für Untertitel und Kapitelmarken und wird per <track>-Element in Videos eingebunden.",
+    "sourceName": "Wikipedia EN – WebVTT",
+    "sourceUrl": "https://en.wikipedia.org/wiki/WebVTT",
+    "verifyNote": "Textbasiertes Untertitelformat ohne Kompression laut Wikipedia."
+  },
+  {
+    "id": "file_format-ass-h4",
+    "name": "ASS",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Advanced SubStation Alpha",
+      "compression": "unkomprimiert",
+      "mediaType": "Dokument"
+    },
+    "funFact": "Das ASS-Untertitelformat erlaubt aufwendiges Karaoke- und Typografie-Styling und ist deshalb in der Anime-Fansub-Szene beliebt.",
+    "sourceName": "Wikipedia EN – SubStation Alpha",
+    "sourceUrl": "https://en.wikipedia.org/wiki/SubStation_Alpha",
+    "verifyNote": "Textbasiertes Untertitelformat mit Styling, keine Kompression laut Wikipedia."
+  },
+  {
+    "id": "file_format-m3u-h4",
+    "name": "M3U",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "MP3 URL",
+      "compression": "unkomprimiert",
+      "mediaType": "Dokument"
+    },
+    "funFact": "M3U-Dateien speichern keine Musik, sondern nur eine Liste von Pfaden oder URLs – sie sind das verbreitetste Playlist-Format.",
+    "sourceName": "Wikipedia DE – M3U",
+    "sourceUrl": "https://de.wikipedia.org/wiki/M3U",
+    "verifyNote": "Reine Textplaylist ohne Kompression laut Wikipedia DE."
+  },
+  {
+    "id": "file_format-cue-h4",
+    "name": "CUE-Sheet",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Cue Sheet",
+      "compression": "unkomprimiert",
+      "mediaType": "Dokument"
+    },
+    "funFact": "Eine CUE-Datei beschreibt die Track-Aufteilung und Indizes einer CD-Abbild-Datei, oft begleitend zu einem grossen BIN- oder FLAC-Image.",
+    "sourceName": "Wikipedia DE – Cue-Sheet",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Cue-Sheet",
+    "verifyNote": "Textuelle Metadatei zur CD-Aufteilung, keine Kompression laut Wikipedia DE."
+  },
+  {
+    "id": "file_format-pgn-h4",
+    "name": "PGN",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Portable Game Notation",
+      "compression": "unkomprimiert",
+      "mediaType": "Dokument"
+    },
+    "funFact": "PGN ist das Standardformat für Schachpartien und speichert Züge als lesbaren Text, was es zwischen allen Schachprogrammen austauschbar macht.",
+    "sourceName": "Wikipedia DE – Portable Game Notation",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Portable_Game_Notation",
+    "verifyNote": "Textbasierte Schachnotation ohne Kompression laut Wikipedia DE."
+  },
+  {
+    "id": "file_format-rm-h4",
+    "name": "RealMedia",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "RealMedia",
+      "compression": "verlustbehaftet komprimiert",
+      "mediaType": "Video"
+    },
+    "funFact": "RealMedia (.rm) war um 2000 das dominierende Streaming-Format im Web, bevor Flash Video und später H.264 es verdrängten.",
+    "sourceName": "Wikipedia DE – RealMedia",
+    "sourceUrl": "https://de.wikipedia.org/wiki/RealMedia",
+    "verifyNote": "Container für verlustbehaftete RealVideo/RealAudio-Streams laut Wikipedia DE."
+  },
+  {
+    "id": "file_format-divx-h4",
+    "name": "DivX",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "DivX",
+      "compression": "verlustbehaftet komprimiert",
+      "mediaType": "Video"
+    },
+    "funFact": "DivX machte es um 2000 erstmals praktikabel, einen ganzen Spielfilm auf eine einzelne CD zu pressen.",
+    "sourceName": "Wikipedia DE – DivX",
+    "sourceUrl": "https://de.wikipedia.org/wiki/DivX",
+    "verifyNote": "Verlustbehafteter MPEG-4-ASP-Videocodec laut Wikipedia DE."
+  },
+  {
+    "id": "file_format-xvid-h4",
+    "name": "Xvid",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Xvid",
+      "compression": "verlustbehaftet komprimiert",
+      "mediaType": "Video"
+    },
+    "funFact": "Xvid ist die freie Open-Source-Antwort auf den kommerziellen DivX-Codec und implementiert denselben MPEG-4-Standard.",
+    "sourceName": "Wikipedia DE – Xvid",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Xvid",
+    "verifyNote": "Freier verlustbehafteter MPEG-4-ASP-Codec laut Wikipedia DE."
+  },
+  {
+    "id": "file_format-mts-h4",
+    "name": "AVCHD",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Advanced Video Coding High Definition",
+      "compression": "verlustbehaftet komprimiert",
+      "mediaType": "Video"
+    },
+    "funFact": "AVCHD mit der Endung .mts ist das HD-Aufnahmeformat vieler Camcorder von Sony und Panasonic und nutzt intern H.264.",
+    "sourceName": "Wikipedia DE – AVCHD",
+    "sourceUrl": "https://de.wikipedia.org/wiki/AVCHD",
+    "verifyNote": "H.264-basiertes verlustbehaftetes Camcorder-Format laut Wikipedia DE."
+  },
+  {
+    "id": "file_format-dpx-h4",
+    "name": "DPX",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Digital Picture Exchange",
+      "compression": "unkomprimiert",
+      "mediaType": "Bild"
+    },
+    "funFact": "DPX ist ein SMPTE-genormtes Einzelbildformat aus der digitalen Filmproduktion, in der jeder Frame einzeln als hochaufgelöste Datei vorliegt.",
+    "sourceName": "Wikipedia EN – Digital Picture Exchange",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Digital_Picture_Exchange",
+    "verifyNote": "SMPTE-268M Film-Frame-Format, typischerweise unkomprimiert laut Wikipedia."
+  },
+  {
+    "id": "file_format-flif-h4",
+    "name": "FLIF",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Free Lossless Image Format",
+      "compression": "verlustfrei komprimiert",
+      "mediaType": "Bild"
+    },
+    "funFact": "FLIF warb damit, für fast jede Bildart kleiner als PNG, JPEG-2000-lossless und WebP zu sein, wurde aber später zugunsten von JPEG XL eingestellt.",
+    "sourceName": "Wikipedia EN – FLIF",
+    "sourceUrl": "https://en.wikipedia.org/wiki/FLIF",
+    "verifyNote": "Verlustfreies Bildformat laut Wikipedia; Name enthält 'Lossless'."
+  },
+  {
+    "id": "file_format-openraster-h4",
+    "name": "OpenRaster",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "OpenRaster",
+      "compression": "verlustfrei komprimiert",
+      "mediaType": "Bild"
+    },
+    "funFact": "OpenRaster (.ora) ist ein offenes, ebenenbasiertes Bildformat, das intern ein ZIP-Archiv aus PNG-Ebenen ist – das freie Pendant zu Photoshops PSD.",
+    "sourceName": "Wikipedia EN – OpenRaster",
+    "sourceUrl": "https://en.wikipedia.org/wiki/OpenRaster",
+    "verifyNote": "ZIP aus verlustfreien PNG-Ebenen laut Wikipedia."
+  },
+  {
+    "id": "file_format-mng-h4",
+    "name": "MNG",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Multiple-image Network Graphics",
+      "compression": "verlustfrei komprimiert",
+      "mediaType": "Bild"
+    },
+    "funFact": "MNG ist die animierte Schwesterspezifikation von PNG, konnte sich aber nie durchsetzen, weil Browser stattdessen GIF und später APNG bevorzugten.",
+    "sourceName": "Wikipedia DE – Multiple-image Network Graphics",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Multiple-image_Network_Graphics",
+    "verifyNote": "PNG-basierte Animation, verlustfrei laut Wikipedia DE."
+  },
+  {
+    "id": "file_format-fb2-h4",
+    "name": "FictionBook",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "FictionBook",
+      "compression": "unkomprimiert",
+      "mediaType": "Dokument"
+    },
+    "funFact": "FictionBook (.fb2) ist ein XML-basiertes E-Book-Format, das vor allem im russischsprachigen Raum stark verbreitet ist.",
+    "sourceName": "Wikipedia DE – FictionBook",
+    "sourceUrl": "https://de.wikipedia.org/wiki/FictionBook",
+    "verifyNote": "Einzelne XML-Datei ohne Kompression laut Wikipedia DE (Container .fb2)."
+  },
+  {
+    "id": "file_format-dbf-h4",
+    "name": "DBF",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Database File",
+      "compression": "unkomprimiert",
+      "mediaType": "Tabellen/Daten"
+    },
+    "funFact": "Das dBASE-DBF-Format stammt aus den 1980ern und lebt bis heute weiter, etwa als Attributtabelle des GIS-Shapefile-Formats.",
+    "sourceName": "Wikipedia DE – dBASE",
+    "sourceUrl": "https://de.wikipedia.org/wiki/DBASE",
+    "verifyNote": "Binäres Tabellenformat mit fester Satzlänge ohne Kompression laut Wikipedia DE."
+  },
+  {
+    "id": "file_format-properties-h4",
+    "name": "Java-Properties",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Java Properties",
+      "compression": "unkomprimiert",
+      "mediaType": "Dokument"
+    },
+    "funFact": "Java-Properties-Dateien speichern Konfiguration als simple Schlüssel-gleich-Wert-Zeilen und sind das klassische Konfigurationsformat der Java-Welt.",
+    "sourceName": "Wikipedia EN – .properties",
+    "sourceUrl": "https://en.wikipedia.org/wiki/.properties",
+    "verifyNote": "Klartext Key=Value-Konfiguration ohne Kompression laut Wikipedia."
+  },
+  {
+    "id": "file_format-svgz-h4",
+    "name": "SVGZ",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Compressed Scalable Vector Graphics",
+      "compression": "verlustfrei komprimiert",
+      "mediaType": "Bild"
+    },
+    "funFact": "SVGZ ist schlicht eine mit Gzip gepackte SVG-Datei – die Vektorgrafik bleibt verlustfrei, wird aber deutlich kleiner übertragen.",
+    "sourceName": "Wikipedia EN – Scalable Vector Graphics",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Scalable_Vector_Graphics",
+    "verifyNote": "Gzip-komprimiertes SVG, verlustfrei laut Wikipedia."
+  },
+  {
+    "id": "algorithm-pigeonhole-sort-h4",
+    "name": "Pigeonhole-Sort",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortieralgorithmus",
+      "avgComplexity": "O(n + k)",
+      "purpose": "Verteilt Elemente direkt in Fächer passend zu ihrem Schlüsselwert und liest sie geordnet wieder aus"
+    },
+    "funFact": "Pigeonhole-Sort ist nur effizient, wenn die Anzahl der möglichen Schlüsselwerte k nicht viel größer als die Elementanzahl n ist.",
+    "sourceName": "Wikipedia EN – Pigeonhole sort",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Pigeonhole_sort",
+    "verifyNote": "Laufzeit O(n + k) laut Wikipedia, k = Wertebereich."
+  },
+  {
+    "id": "algorithm-bitonisches-sortieren-h4",
+    "name": "Bitonisches Sortieren",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortieralgorithmus",
+      "avgComplexity": "O(n log² n)",
+      "purpose": "Baut ein festes Vergleichsnetzwerk auf, das sich gut parallel auf GPUs ausführen lässt"
+    },
+    "funFact": "Bitonisches Sortieren ist ein Sortiernetzwerk mit datenunabhängiger Vergleichsfolge und deshalb auf paralleler Hardware sehr beliebt.",
+    "sourceName": "Wikipedia DE – Bitonischer Sortieralgorithmus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Bitonischer_Sortieralgorithmus",
+    "verifyNote": "O(n log² n) Vergleiche laut Wikipedia DE."
+  },
+  {
+    "id": "algorithm-odd-even-sort-h4",
+    "name": "Odd-Even-Sort",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortieralgorithmus",
+      "avgComplexity": "O(n²)",
+      "purpose": "Vergleicht abwechselnd gerade und ungerade Indexpaare, gut für parallele Prozessornetze geeignet"
+    },
+    "funFact": "Odd-Even-Sort ist eine Variante von Bubblesort, die wegen ihrer regelmäßigen Struktur leicht auf Parallelrechnern umsetzbar ist.",
+    "sourceName": "Wikipedia EN – Odd–even sort",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Odd%E2%80%93even_sort",
+    "verifyNote": "O(n²) sequenziell laut Wikipedia."
+  },
+  {
+    "id": "algorithm-smoothsort-h4",
+    "name": "Smoothsort",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortieralgorithmus",
+      "avgComplexity": "O(n log n)",
+      "purpose": "Heapsort-Variante, die bei bereits vorsortierten Eingaben gegen O(n) tendiert"
+    },
+    "funFact": "Smoothsort wurde von Edsger Dijkstra entworfen und nutzt sogenannte Leonardo-Heaps, um nahezu sortierte Daten besonders schnell zu verarbeiten.",
+    "sourceName": "Wikipedia EN – Smoothsort",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Smoothsort",
+    "verifyNote": "O(n log n) Worst Case, O(n) Best Case laut Wikipedia."
+  },
+  {
+    "id": "algorithm-bogosort-h4",
+    "name": "Bogosort",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortieralgorithmus",
+      "avgComplexity": "O((n+1)!)",
+      "purpose": "Mischt die Liste zufällig durch, bis sie zufällig sortiert ist – ein bewusst absurder Lehrbeispiel-Algorithmus"
+    },
+    "funFact": "Bogosort dient als humorvolles Negativbeispiel: Im Mittel braucht er für n Elemente etwa (n+1)! Versuche, was schon bei kleinen Listen astronomisch wird.",
+    "sourceName": "Wikipedia DE – Bogosort",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Bogosort",
+    "verifyNote": "Erwartete Laufzeit O((n+1)!) laut Wikipedia DE."
+  },
+  {
+    "id": "algorithm-sprungsuche-h4",
+    "name": "Sprungsuche",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Suchalgorithmus",
+      "avgComplexity": "O(√n)",
+      "purpose": "Springt in festen Schritten durch ein sortiertes Array und sucht dann linear im gefundenen Block"
+    },
+    "funFact": "Bei der Sprungsuche ist die optimale Schrittweite die Wurzel aus n, weshalb ihre Laufzeit O(Wurzel n) beträgt – langsamer als binäre, aber mit weniger Rücksprüngen.",
+    "sourceName": "Wikipedia EN – Jump search",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Jump_search",
+    "verifyNote": "O(√n) bei optimaler Schrittweite laut Wikipedia."
+  },
+  {
+    "id": "algorithm-exponentielle-suche-h4",
+    "name": "Exponentielle Suche",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Suchalgorithmus",
+      "avgComplexity": "O(log i)",
+      "purpose": "Verdoppelt den Suchbereich, bis er das Ziel umschliesst, und sucht dann binär darin"
+    },
+    "funFact": "Die exponentielle Suche eignet sich besonders für unbeschränkte oder sehr grosse Listen, da ihre Laufzeit von der Position i des Treffers abhängt, nicht von der Gesamtlänge.",
+    "sourceName": "Wikipedia EN – Exponential search",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Exponential_search",
+    "verifyNote": "O(log i) mit i = Trefferposition laut Wikipedia."
+  },
+  {
+    "id": "algorithm-fibonacci-suche-h4",
+    "name": "Fibonacci-Suche",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Suchalgorithmus",
+      "avgComplexity": "O(log n)",
+      "purpose": "Teilt das sortierte Array anhand von Fibonacci-Zahlen statt mittig wie die binäre Suche"
+    },
+    "funFact": "Die Fibonacci-Suche kommt mit Addition und Subtraktion aus und vermeidet die Division der binären Suche – ein Vorteil auf sehr einfacher Hardware.",
+    "sourceName": "Wikipedia EN – Fibonacci search technique",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Fibonacci_search_technique",
+    "verifyNote": "O(log n) Vergleiche laut Wikipedia."
+  },
+  {
+    "id": "algorithm-hamming-distanz-h4",
+    "name": "Hamming-Distanz",
+    "category": "algorithm",
+    "attributes": {
+      "category": "String-Verarbeitung",
+      "avgComplexity": "O(n)",
+      "purpose": "Zählt die Stellen, an denen sich zwei gleich lange Zeichenketten unterscheiden"
+    },
+    "funFact": "Die Hamming-Distanz ist die Grundlage vieler fehlerkorrigierender Codes, da sie misst, wie viele Bits sich zwischen zwei Codewörtern unterscheiden.",
+    "sourceName": "Wikipedia DE – Hamming-Abstand",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Hamming-Abstand",
+    "verifyNote": "Linearer Stellen-Vergleich gleich langer Strings, O(n) laut Wikipedia DE."
+  },
+  {
+    "id": "algorithm-jaro-winkler-h4",
+    "name": "Jaro-Winkler-Distanz",
+    "category": "algorithm",
+    "attributes": {
+      "category": "String-Verarbeitung",
+      "avgComplexity": "O(n²)",
+      "purpose": "Misst die Ähnlichkeit zweier Zeichenketten und gewichtet übereinstimmende Anfangsbuchstaben stärker"
+    },
+    "funFact": "Die Jaro-Winkler-Distanz wurde für den Abgleich von Personennamen entwickelt und belohnt gemeinsame Wortanfänge besonders.",
+    "sourceName": "Wikipedia EN – Jaro–Winkler distance",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Jaro%E2%80%93Winkler_distance",
+    "verifyNote": "Speziell für Namensabgleich; quadratisch in der Stringlänge laut Wikipedia."
+  },
+  {
+    "id": "algorithm-soundex-h4",
+    "name": "Soundex",
+    "category": "algorithm",
+    "attributes": {
+      "category": "String-Verarbeitung",
+      "avgComplexity": "O(n)",
+      "purpose": "Bildet ähnlich klingende Namen auf denselben Code ab, um Tippfehler bei der Suche zu überbrücken"
+    },
+    "funFact": "Soundex wurde bereits 1918 für US-Volkszählungen patentiert und gruppiert Namen nach Klang statt nach Schreibweise.",
+    "sourceName": "Wikipedia DE – Soundex",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Soundex",
+    "verifyNote": "Phonetischer Code, linear in der Wortlänge laut Wikipedia DE."
+  },
+  {
+    "id": "algorithm-bitap-algorithmus-h4",
+    "name": "Bitap-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "String-Verarbeitung",
+      "avgComplexity": "O(n)",
+      "purpose": "Sucht ein Muster mit Bit-Operationen und kann dabei auch unscharfe Treffer mit Fehlern finden"
+    },
+    "funFact": "Der Bitap-Algorithmus bildet die Suche auf schnelle Bitschiebe- und Und-Operationen ab und steckt im Kern des Unix-Werkzeugs agrep.",
+    "sourceName": "Wikipedia EN – Bitap algorithm",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Bitap_algorithm",
+    "verifyNote": "O(n) bei Mustern bis Wortbreite; Basis von agrep laut Wikipedia."
+  },
+  {
+    "id": "algorithm-hirschberg-algorithmus-h4",
+    "name": "Hirschberg-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "String-Verarbeitung",
+      "avgComplexity": "O(nm)",
+      "purpose": "Berechnet ein optimales Alignment zweier Sequenzen mit nur linearem Speicherbedarf"
+    },
+    "funFact": "Der Hirschberg-Algorithmus liefert dasselbe Ergebnis wie Needleman-Wunsch, braucht dank Teile-und-herrsche aber nur linearen statt quadratischen Speicher.",
+    "sourceName": "Wikipedia EN – Hirschberg's algorithm",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Hirschberg%27s_algorithm",
+    "verifyNote": "Laufzeit O(nm), Speicher linear laut Wikipedia."
+  },
+  {
+    "id": "algorithm-flashsort-h4",
+    "name": "Flashsort",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortieralgorithmus",
+      "avgComplexity": "O(n)",
+      "purpose": "Verteilt Elemente anhand ihres Werts in Klassen und sortiert dann fast geordnete Daten nach"
+    },
+    "funFact": "Flashsort erreicht bei gleichmäßig verteilten Daten lineare Laufzeit, weil es die Werte zunächst grob in Klassen einsortiert.",
+    "sourceName": "Wikipedia EN – Flashsort",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Flashsort",
+    "verifyNote": "O(n) bei gleichverteilten Daten laut Wikipedia (Distributionssort)."
+  },
+  {
+    "id": "algorithm-stooge-sort-h4",
+    "name": "Stooge-Sort",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortieralgorithmus",
+      "avgComplexity": "O(n^2.71)",
+      "purpose": "Rekursiver, bewusst ineffizienter Sortieralgorithmus als Lehr- und Anschauungsbeispiel"
+    },
+    "funFact": "Stooge-Sort sortiert rekursiv jeweils die ersten und letzten zwei Drittel und ist langsamer als die meisten naiven Verfahren – ein reines Lehrbeispiel.",
+    "sourceName": "Wikipedia EN – Stooge sort",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Stooge_sort",
+    "verifyNote": "Laufzeit O(n^(log 3 / log 1.5)) ≈ O(n^2.71) laut Wikipedia."
+  },
+  {
+    "id": "algorithm-patience-sort-h4",
+    "name": "Patience-Sort",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortieralgorithmus",
+      "avgComplexity": "O(n log n)",
+      "purpose": "Bildet wie beim Kartenspiel Stapel und mischt sie zusammen, liefert nebenbei die längste steigende Teilfolge"
+    },
+    "funFact": "Patience-Sort ist nach dem Kartenspiel Solitär benannt und wird genutzt, um die längste aufsteigende Teilfolge einer Zahlenreihe zu bestimmen.",
+    "sourceName": "Wikipedia EN – Patience sorting",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Patience_sorting",
+    "verifyNote": "O(n log n) Vergleiche laut Wikipedia."
+  },
+  {
+    "id": "network_protocol-esp-h4",
+    "name": "ESP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Encapsulating Security Payload",
+      "layer": "Vermittlungsschicht",
+      "transport": "IP",
+      "purpose": "Verschlüsselt und authentifiziert IP-Pakete innerhalb von IPsec-VPNs"
+    },
+    "funFact": "ESP nutzt die eigene IP-Protokollnummer 50 und nicht TCP oder UDP, weshalb es von einfachen NAT-Routern oft blockiert wird.",
+    "sourceName": "RFC 4303 – IP Encapsulating Security Payload",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc4303",
+    "verifyNote": "IP-Protokollnummer 50 und ESP-Funktion gemäß RFC 4303 und IANA Protocol Numbers."
+  },
+  {
+    "id": "network_protocol-ah-h4",
+    "name": "AH",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Authentication Header",
+      "layer": "Vermittlungsschicht",
+      "transport": "IP",
+      "purpose": "Sichert die Integrität und Authentizität von IP-Paketen ohne Verschlüsselung"
+    },
+    "funFact": "AH schützt im Gegensatz zu ESP auch Teile des IP-Headers, scheitert aber genau dadurch an NAT, weil NAT diese Felder verändert.",
+    "sourceName": "RFC 4302 – IP Authentication Header",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc4302",
+    "verifyNote": "IP-Protokollnummer 51 und Integritätsschutz ohne Verschlüsselung gemäß RFC 4302."
+  },
+  {
+    "id": "network_protocol-igrp-h4",
+    "name": "IGRP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Interior Gateway Routing Protocol",
+      "layer": "Vermittlungsschicht",
+      "transport": "IP",
+      "purpose": "Cisco-eigenes Distanzvektor-Routingprotokoll, Vorläufer von EIGRP"
+    },
+    "funFact": "IGRP nutzt die IP-Protokollnummer 9 und wurde von Cisco entwickelt, um die Hop-Count-Grenze von RIP zu überwinden.",
+    "sourceName": "IANA – Protocol Numbers",
+    "sourceUrl": "https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml",
+    "verifyNote": "IP-Protokollnummer 9 für IGRP gemäß IANA Protocol Numbers Registry."
+  },
+  {
+    "id": "network_protocol-radmin-isakmp-h4",
+    "name": "ISAKMP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Internet Security Association and Key Management Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 500,
+      "purpose": "Aushandlung von Sicherheitsbeziehungen und Schlüsseln für IPsec (IKE)"
+    },
+    "funFact": "ISAKMP bildet das Rahmenwerk für IKE und läuft auf UDP-Port 500, der typische Startpunkt jeder IPsec-VPN-Verhandlung.",
+    "sourceName": "RFC 7296 – Internet Key Exchange Protocol Version 2",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc7296",
+    "verifyNote": "UDP-Port 500 für IKE/ISAKMP gemäß IANA Service Name and Port Registry."
+  },
+  {
+    "id": "network_protocol-snmp-inform-h4",
+    "name": "RDAP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Registration Data Access Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 443,
+      "purpose": "Abfrage von Domain- und IP-Registrierungsdaten über eine HTTPS-REST-Schnittstelle"
+    },
+    "funFact": "RDAP löst das alte textbasierte WHOIS-Protokoll ab und liefert die Antworten als strukturiertes JSON statt als Freitext.",
+    "sourceName": "RFC 7482 – Registration Data Access Protocol (RDAP) Query Format",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc7482",
+    "verifyNote": "RDAP über HTTPS (Port 443) gemäß RFC 7480 und RFC 7482."
+  },
+  {
+    "id": "network_protocol-smb-direct-h4",
+    "name": "CIFS",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Common Internet File System",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 445,
+      "purpose": "Netzwerkdateifreigabe unter Windows, der historische Name des SMB-Dialekts"
+    },
+    "funFact": "CIFS ist eigentlich nur ein alter Markenname für SMB 1.0, weshalb beim Einbinden von Windows-Freigaben unter Linux oft mount.cifs heißt.",
+    "sourceName": "Microsoft – CIFS/SMB Technical Reference",
+    "sourceUrl": "https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-cifs/d416ff7c-c536-406e-a951-4f04b2fd1d2b",
+    "verifyNote": "TCP-Port 445 für SMB/CIFS Direct Hosting gemäß Microsoft-Spezifikation und IANA."
+  },
+  {
+    "id": "network_protocol-ldap-gc-h4",
+    "name": "WebFinger",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "WebFinger",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 443,
+      "purpose": "Auffinden von Informationen über Personen oder Entitäten anhand einer URI"
+    },
+    "funFact": "WebFinger ermöglicht es im Fediverse (z.B. Mastodon), Benutzer über eine E-Mail-ähnliche Adresse wie @name@server zu finden.",
+    "sourceName": "RFC 7033 – WebFinger",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc7033",
+    "verifyNote": "WebFinger nutzt HTTPS (Port 443) am festen Pfad /.well-known/webfinger gemäß RFC 7033."
+  },
+  {
+    "id": "network_protocol-tcp-bbr-h4",
+    "name": "SPDY",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "SPDY",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 443,
+      "purpose": "Von Google entwickeltes Protokoll zur Beschleunigung von HTTP, Vorläufer von HTTP/2"
+    },
+    "funFact": "SPDY führte Multiplexing und Header-Kompression ein und floss direkt in den HTTP/2-Standard ein, woraufhin Google es 2016 einstellte.",
+    "sourceName": "Chromium Blog – A QUICk update on Googles transport",
+    "sourceUrl": "https://blog.chromium.org/2016/02/transitioning-from-spdy-to-http2.html",
+    "verifyNote": "SPDY lief über TLS auf Port 443 und wurde 2016 zugunsten von HTTP/2 abgeschaltet."
+  },
+  {
+    "id": "network_protocol-quic-h4",
+    "name": "ACME",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Automatic Certificate Management Environment",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 443,
+      "purpose": "Automatisierte Ausstellung und Erneuerung von TLS-Zertifikaten"
+    },
+    "funFact": "ACME ist das Protokoll hinter Lets Encrypt und automatisiert die Zertifikatsausstellung, die früher Tage und Geld kostete.",
+    "sourceName": "RFC 8555 – Automatic Certificate Management Environment (ACME)",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc8555",
+    "verifyNote": "ACME läuft als HTTPS-basiertes API-Protokoll über Port 443 gemäß RFC 8555."
+  },
+  {
+    "id": "network_protocol-sieve-h4",
+    "name": "NTPv4",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Network Time Protocol Version 4",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 123,
+      "purpose": "Hochpräzise Zeitsynchronisation von Computern über das Internet"
+    },
+    "funFact": "NTP kann die Uhren über das Internet auf wenige Millisekunden genau halten, in lokalen Netzen sogar im Mikrosekundenbereich.",
+    "sourceName": "RFC 5905 – Network Time Protocol Version 4",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc5905",
+    "verifyNote": "UDP-Port 123 und Zeitsynchronisations-Funktion gemäß RFC 5905."
+  },
+  {
+    "id": "network_protocol-stomp-h4",
+    "name": "STOMP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Simple Text Oriented Messaging Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 61613,
+      "purpose": "Einfaches textbasiertes Protokoll für Nachrichten-Broker und Message Queues"
+    },
+    "funFact": "STOMP ist bewusst so simpel gehalten, dass man einen Client per Telnet von Hand bedienen kann, ähnlich wie bei HTTP.",
+    "sourceName": "STOMP Protocol Specification 1.2",
+    "sourceUrl": "https://stomp.github.io/stomp-specification-1.2.html",
+    "verifyNote": "STOMP ist textbasiert über TCP; Port 61613 ist die übliche Broker-Konvention (z.B. ActiveMQ)."
+  },
+  {
+    "id": "network_protocol-graphite-h4",
+    "name": "WebSub",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "WebSub",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 443,
+      "purpose": "Publish-Subscribe-Benachrichtigungen über HTTP-Webhooks statt Polling"
+    },
+    "funFact": "WebSub hieß früher PubSubHubbub und benachrichtigt Abonnenten von Feeds in Echtzeit, statt sie ständig nachfragen zu lassen.",
+    "sourceName": "W3C – WebSub Recommendation",
+    "sourceUrl": "https://www.w3.org/TR/websub/",
+    "verifyNote": "WebSub nutzt HTTP/HTTPS-Webhooks (Port 443) gemäß W3C-Recommendation."
+  },
+  {
+    "id": "network_protocol-grpc-web-h4",
+    "name": "Thrift",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Apache Thrift",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "purpose": "Sprachübergreifendes RPC-Framework mit kompaktem Binärprotokoll"
+    },
+    "funFact": "Thrift wurde ursprünglich bei Facebook entwickelt, um Dienste in C++, Java, Python und weiteren Sprachen nahtlos kommunizieren zu lassen.",
+    "sourceName": "Apache Thrift – Documentation",
+    "sourceUrl": "https://thrift.apache.org/docs/",
+    "verifyNote": "Thrift ist ein binäres RPC-Protokoll über TCP; offizielle Apache-Dokumentation."
+  },
+  {
+    "id": "network_protocol-msrp-relay-h4",
+    "name": "SOCKS5",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "SOCKS Protocol Version 5",
+      "layer": "Sitzungsschicht",
+      "transport": "TCP",
+      "defaultPort": 1080,
+      "purpose": "Allgemeiner Proxy zum Weiterleiten beliebiger TCP- und UDP-Verbindungen"
+    },
+    "funFact": "SOCKS5 arbeitet protokollunabhängig auf Verbindungsebene und wird daher oft für Tor und für SSH-Tunnel genutzt.",
+    "sourceName": "RFC 1928 – SOCKS Protocol Version 5",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc1928",
+    "verifyNote": "SOCKS-Standardport 1080 und Proxy-Funktion gemäß RFC 1928."
+  },
+  {
+    "id": "network_protocol-coap-observe-h4",
+    "name": "LwM2M",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Lightweight Machine-to-Machine",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 5683,
+      "purpose": "Geräteverwaltung und Datenübertragung für ressourcenarme IoT-Geräte"
+    },
+    "funFact": "LwM2M setzt auf CoAP auf und ermöglicht es, Millionen batteriebetriebener Sensoren über sehr sparsame Funkverbindungen zu verwalten.",
+    "sourceName": "OMA SpecWorks – Lightweight M2M",
+    "sourceUrl": "https://www.openmobilealliance.org/release/LightweightM2M/",
+    "verifyNote": "LwM2M nutzt CoAP über UDP-Port 5683 gemäß OMA-Spezifikation."
+  },
+  {
+    "id": "network_protocol-pop3-uidl-h4",
+    "name": "JMAP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "JSON Meta Application Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 443,
+      "purpose": "Moderner JSON-basierter Ersatz für IMAP zum Synchronisieren von E-Mails"
+    },
+    "funFact": "JMAP wurde von Fastmail entwickelt, um mobile E-Mail-Apps schneller und akkuschonender zu machen als das alte IMAP.",
+    "sourceName": "RFC 8620 – The JSON Meta Application Protocol (JMAP)",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc8620",
+    "verifyNote": "JMAP läuft über HTTPS (Port 443) gemäß RFC 8620 und RFC 8621."
+  },
+  {
+    "id": "network_protocol-mqtt-sn-h4",
+    "name": "AMQP-1.0",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Advanced Message Queuing Protocol 1.0",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 5671,
+      "purpose": "Standardisiertes Binärprotokoll für zuverlässige Nachrichtenübermittlung über TLS"
+    },
+    "funFact": "AMQP entstand aus dem Bedarf von Banken nach einem herstellerunabhängigen Messaging-Standard und ist heute ein OASIS- und ISO-Standard.",
+    "sourceName": "ISO/IEC 19464 – AMQP v1.0 Specification",
+    "sourceUrl": "https://www.amqp.org/resources/specifications",
+    "verifyNote": "AMQP über TLS nutzt IANA-Port 5671; Klartext-AMQP nutzt 5672."
+  },
+  {
+    "id": "network_protocol-ssh-sftp-subsystem-h4",
+    "name": "SCP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Secure Copy Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 22,
+      "purpose": "Verschlüsselte Dateiübertragung über eine bestehende SSH-Verbindung"
+    },
+    "funFact": "SCP nutzt denselben Port 22 wie SSH und gilt heute als veraltet, da OpenSSH die Übertragung intern auf SFTP umgestellt hat.",
+    "sourceName": "OpenSSH – scp Manual",
+    "sourceUrl": "https://man.openbsd.org/scp",
+    "verifyNote": "SCP tunnelt über SSH (Port 22) gemäß OpenSSH-Dokumentation."
+  },
+  {
+    "id": "network_protocol-srt-protokoll-h4",
+    "name": "SRT-Protokoll",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Secure Reliable Transport",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "purpose": "Verlustarme, latenzarme Übertragung von Live-Video über unzuverlässige Netze"
+    },
+    "funFact": "SRT wurde von Haivision entwickelt und ermöglicht störungsfreie Live-Übertragungen über das öffentliche Internet statt teurer Satellitenstrecken.",
+    "sourceName": "Haivision – SRT Protocol Overview",
+    "sourceUrl": "https://www.haivision.com/products/srt-secure-reliable-transport/",
+    "verifyNote": "SRT setzt auf UDP auf und fügt eigene Fehlerkorrektur und Verschlüsselung hinzu (Open-Source-Referenzimplementierung)."
+  },
+  {
+    "id": "network_protocol-dnscrypt-h4",
+    "name": "DNSCrypt",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "DNSCrypt",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "purpose": "Authentifizierung und Verschlüsselung von DNS-Anfragen zwischen Client und Resolver"
+    },
+    "funFact": "DNSCrypt war einer der ersten verbreiteten Wege, DNS-Anfragen vor dem Mitlesen durch Provider zu schützen, noch vor DoH und DoT.",
+    "sourceName": "DNSCrypt – Protocol Specification",
+    "sourceUrl": "https://dnscrypt.info/protocol/",
+    "verifyNote": "DNSCrypt verschlüsselt DNS über UDP/TCP, häufig auf Port 443; offizielle Protokollspezifikation."
+  },
+  {
+    "id": "network_protocol-sip-tls-h4",
+    "name": "SIPS",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Session Initiation Protocol Secure",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 5061,
+      "purpose": "Auf- und Abbau verschlüsselter VoIP- und Videoanrufe über TLS"
+    },
+    "funFact": "Während unverschlüsseltes SIP auf Port 5060 läuft, nutzt das TLS-gesicherte SIPS den benachbarten Port 5061.",
+    "sourceName": "RFC 3261 – SIP: Session Initiation Protocol",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc3261",
+    "verifyNote": "TLS-gesichertes SIP nutzt IANA-Port 5061 gemäß RFC 3261."
+  },
+  {
+    "id": "network_protocol-tacacs-h4",
+    "name": "Diameter-Base",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Diameter Base Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 3868,
+      "purpose": "Authentifizierung, Autorisierung und Abrechnung (AAA) in Mobilfunknetzen"
+    },
+    "funFact": "Der Name Diameter ist ein Wortspiel: Es ist der Nachfolger von RADIUS und damit doppelt so leistungsfähig wie der Radius eines Kreises.",
+    "sourceName": "RFC 6733 – Diameter Base Protocol",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc6733",
+    "verifyNote": "Diameter nutzt TCP/SCTP-Port 3868 gemäß RFC 6733 und IANA."
+  },
+  {
+    "id": "network_protocol-ldap-sasl-h4",
+    "name": "SCRAM",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Salted Challenge Response Authentication Mechanism",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "purpose": "Challenge-Response-Anmeldeverfahren, das Passwörter nie im Klartext überträgt"
+    },
+    "funFact": "SCRAM wird unter anderem von PostgreSQL und MongoDB als sicherer Standard-Login genutzt und schützt selbst dann, wenn die Verbindung mitgelesen wird.",
+    "sourceName": "RFC 5802 – Salted Challenge Response Authentication Mechanism (SCRAM)",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc5802",
+    "verifyNote": "SCRAM ist ein SASL-Mechanismus über bestehende TCP-Verbindungen gemäß RFC 5802."
+  },
+  {
+    "id": "network_protocol-multicast-pgm-h4",
+    "name": "SAP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Session Announcement Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 9875,
+      "purpose": "Ankündigung von Multicast-Sitzungen wie Internet-Radio oder IPTV-Streams"
+    },
+    "funFact": "SAP verteilt SDP-Beschreibungen periodisch per Multicast, sodass Empfänger laufende Streams entdecken können, ohne einen zentralen Server zu fragen.",
+    "sourceName": "RFC 2974 – Session Announcement Protocol",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc2974",
+    "verifyNote": "SAP nutzt UDP-Port 9875 gemäß RFC 2974 und IANA."
+  },
+  {
+    "id": "network_protocol-vxlan-gpe-h4",
+    "name": "NVGRE",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Network Virtualization using GRE",
+      "layer": "Sicherungsschicht",
+      "transport": "IP",
+      "purpose": "Tunnelt virtuelle Layer-2-Netze über IP, Microsofts Gegenstück zu VXLAN"
+    },
+    "funFact": "NVGRE war Microsofts Antwort auf VXLAN zur Netzwerkvirtualisierung in Rechenzentren, konnte sich gegen VXLAN aber nicht durchsetzen.",
+    "sourceName": "RFC 7637 – NVGRE: Network Virtualization Using GRE",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc7637",
+    "verifyNote": "NVGRE kapselt Ethernet-Frames in GRE über IP gemäß RFC 7637."
+  },
+  {
+    "id": "network_protocol-radius-coa-h4",
+    "name": "EAP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Extensible Authentication Protocol",
+      "layer": "Sicherungsschicht",
+      "transport": "über 802.1X / RADIUS",
+      "purpose": "Flexibles Rahmenwerk für Anmeldeverfahren in WLAN- und VPN-Zugängen"
+    },
+    "funFact": "EAP ist kein einzelnes Verfahren, sondern ein Container: Varianten wie EAP-TLS oder PEAP stecken die eigentliche Authentifizierung hinein.",
+    "sourceName": "RFC 3748 – Extensible Authentication Protocol (EAP)",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc3748",
+    "verifyNote": "EAP läuft über 802.1X (Layer 2) und wird per RADIUS transportiert gemäß RFC 3748."
+  },
+  {
+    "id": "network_protocol-snmp-v3-h4",
+    "name": "IPFIX",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "IP Flow Information Export",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 4739,
+      "purpose": "Export von Verkehrsfluss-Statistiken von Routern zu Analysesystemen"
+    },
+    "funFact": "IPFIX ist der herstellerneutrale Nachfolger von Ciscos NetFlow und liefert die Datenbasis für Netzwerk-Monitoring und Abrechnung.",
+    "sourceName": "RFC 7011 – Specification of the IPFIX Protocol",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc7011",
+    "verifyNote": "IPFIX nutzt IANA-Port 4739 (UDP/TCP/SCTP) gemäß RFC 7011."
+  },
+  {
+    "id": "network_protocol-rsvp-h4",
+    "name": "RSVP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Resource Reservation Protocol",
+      "layer": "Vermittlungsschicht",
+      "transport": "IP",
+      "purpose": "Reservierung von Bandbreite entlang eines Pfades für Dienstgüte (QoS)"
+    },
+    "funFact": "RSVP wird in der Variante RSVP-TE genutzt, um in großen Backbone-Netzen MPLS-Pfade mit garantierter Bandbreite einzurichten.",
+    "sourceName": "RFC 2205 – Resource ReSerVation Protocol (RSVP)",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc2205",
+    "verifyNote": "RSVP nutzt die IP-Protokollnummer 46 gemäß RFC 2205 und IANA."
+  },
+  {
+    "id": "hardware-backplane-h4",
+    "name": "Backplane",
+    "category": "hardware",
+    "attributes": {
+      "category": "Verbindungstechnik",
+      "function": "Passive Hauptplatine mit Steckplätzen, die mehrere Module ohne eigene Verkabelung verbindet"
+    },
+    "funFact": "Im Gegensatz zum Mainboard trägt eine reine Backplane meist keine aktiven Bauteile, sondern dient nur als gemeinsamer Steckverbinder und Bus.",
+    "sourceName": "Wikipedia DE – Backplane",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Backplane",
+    "verifyNote": "Funktion als passive Verbindungsplatine ist Standard-Hardwarewissen."
+  },
+  {
+    "id": "hardware-daughterboard-h4",
+    "name": "Tochterplatine",
+    "category": "hardware",
+    "attributes": {
+      "category": "Erweiterung",
+      "function": "Kleine Zusatzplatine, die direkt auf eine Hauptplatine gesteckt wird und deren Funktion erweitert"
+    },
+    "funFact": "Eine Tochterplatine (Daughterboard) erweitert das Mainboard ohne den Umweg über einen normalen Steckplatz, etwa für Sound- oder Funkmodule.",
+    "sourceName": "Wikipedia EN – Daughterboard",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Daughterboard",
+    "verifyNote": "Definition als aufsteckbare Erweiterungsplatine ist Standard-Hardwarewissen."
+  },
+  {
+    "id": "hardware-riser-card-h4",
+    "name": "Riser-Karte",
+    "category": "hardware",
+    "attributes": {
+      "category": "Erweiterung",
+      "function": "Adapterkarte, die Steckplätze um 90 Grad dreht, damit Karten flach im Gehäuse liegen"
+    },
+    "funFact": "Riser-Karten sind der Grund, warum in flachen 1-HE-Servern und Mini-PCs überhaupt vollwertige PCIe-Steckkarten Platz finden.",
+    "sourceName": "Wikipedia EN – Riser card",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Riser_card",
+    "verifyNote": "Funktion als platzsparende Steckplatz-Umlenkung ist Standard-Hardwarewissen."
+  },
+  {
+    "id": "hardware-print-server-h4",
+    "name": "Printserver",
+    "category": "hardware",
+    "attributes": {
+      "category": "Netzwerk",
+      "function": "Gerät, das einen oder mehrere Drucker im Netzwerk für viele Rechner bereitstellt"
+    },
+    "funFact": "Ein Printserver hängt einen reinen USB- oder Parallel-Drucker direkt ans Netzwerk, sodass kein PC dauerhaft als Druckvermittler laufen muss.",
+    "sourceName": "Wikipedia DE – Druckserver",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Druckserver",
+    "verifyNote": "Funktion als Netzwerk-Druckvermittler ist Standard-Hardwarewissen."
+  },
+  {
+    "id": "hardware-network-bridge-h4",
+    "name": "Netzwerk-Bridge",
+    "category": "hardware",
+    "attributes": {
+      "category": "Netzwerk",
+      "function": "Verbindet zwei Netzwerksegmente auf Sicherungsschicht-Ebene und filtert den Verkehr nach MAC-Adressen"
+    },
+    "funFact": "Die Bridge ist der konzeptionelle Vorläufer des Switches: Ein Switch ist im Grunde eine Bridge mit sehr vielen Ports in Hardware.",
+    "sourceName": "Wikipedia DE – Bridge (Netzwerk)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Bridge_(Netzwerk)",
+    "verifyNote": "Funktion auf OSI-Schicht 2 mit MAC-Filterung ist Standard-Netzwerkwissen."
+  },
+  {
+    "id": "hardware-medienkonverter-glasfaser-h4",
+    "name": "SFP-Modul",
+    "category": "hardware",
+    "attributes": {
+      "category": "Netzwerk",
+      "function": "Steckbarer Transceiver, der den Port eines Switches auf Kupfer oder Glasfaser umrüstet"
+    },
+    "funFact": "Dank SFP-Modulen lässt sich derselbe Switch-Port wahlweise mit Kupfer oder verschiedenen Glasfaser-Reichweiten bestücken, einfach durch Tauschen des Steckmoduls.",
+    "sourceName": "Wikipedia DE – Small Form-factor Pluggable",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Small_Form-factor_Pluggable",
+    "verifyNote": "Funktion als steckbarer Netzwerk-Transceiver ist Standard-Hardwarewissen."
+  },
+  {
+    "id": "hardware-patchpanel-h4",
+    "name": "Patchpanel",
+    "category": "hardware",
+    "attributes": {
+      "category": "Netzwerk",
+      "function": "Rangierfeld im Serverschrank, das fest verlegte Kabel auf flexible Patchkabel auflegt"
+    },
+    "funFact": "Das Patchpanel trennt die fest in den Wänden verlegten Kabel von der flexiblen Verkabelung im Schrank, sodass Umstecken nie die Wandkabel belastet.",
+    "sourceName": "Wikipedia DE – Patchfeld",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Patchfeld",
+    "verifyNote": "Funktion als Rangierfeld der strukturierten Verkabelung ist Standardwissen."
+  },
+  {
+    "id": "hardware-kvm-extender-h4",
+    "name": "KVM-Extender",
+    "category": "hardware",
+    "attributes": {
+      "category": "Peripherie",
+      "function": "Verlängert Tastatur-, Video- und Maus-Signale über große Distanzen per Netzwerkkabel"
+    },
+    "funFact": "Mit einem KVM-Extender lässt sich ein lauter Server im Keller betreiben, während Bildschirm, Maus und Tastatur entfernt im ruhigen Büro stehen.",
+    "sourceName": "Wikipedia EN – KVM switch",
+    "sourceUrl": "https://en.wikipedia.org/wiki/KVM_switch",
+    "verifyNote": "Funktion als KVM-Signalverlängerung ist Standard-Hardwarewissen."
+  },
+  {
+    "id": "hardware-grafikkartenstuetze-h4",
+    "name": "TV-Karte",
+    "category": "hardware",
+    "attributes": {
+      "category": "Erweiterung",
+      "function": "Steckkarte oder USB-Stick, der Fernsehsignale empfängt und im PC digitalisiert"
+    },
+    "funFact": "TV-Karten mit DVB-Tuner machten den PC zum Videorekorder, indem sie ausgestrahlte Sendungen direkt auf die Festplatte aufnahmen.",
+    "sourceName": "Wikipedia DE – TV-Karte",
+    "sourceUrl": "https://de.wikipedia.org/wiki/TV-Karte",
+    "verifyNote": "Funktion als TV-Empfangs- und Digitalisierungskarte ist Standardwissen."
+  },
+  {
+    "id": "hardware-soundinterface-h4",
+    "name": "Audio-Interface",
+    "category": "hardware",
+    "attributes": {
+      "category": "Audio",
+      "function": "Externe Soundhardware mit hochwertigen Wandlern und Anschlüssen für Mikrofone und Instrumente"
+    },
+    "funFact": "Ein Audio-Interface ist die externe Profi-Variante der Soundkarte und wird bevorzugt per USB oder Thunderbolt angeschlossen, um Störgeräusche aus dem PC-Gehäuse zu vermeiden.",
+    "sourceName": "Wikipedia DE – Audio-Interface",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Audio-Interface",
+    "verifyNote": "Funktion als externe Audio-Wandlerhardware ist Standardwissen."
+  },
+  {
+    "id": "hardware-pcie-extender-riser-h4",
+    "name": "PCIe-Riser-Kabel",
+    "category": "hardware",
+    "attributes": {
+      "category": "Verbindungstechnik",
+      "function": "Flexibles Kabel, das eine PCIe-Karte versetzt zum Steckplatz montiert"
+    },
+    "funFact": "PCIe-Riser-Kabel ermöglichen die senkrechte Montage der Grafikkarte hinter einem Sichtfenster, wie in vielen modernen Gaming-Gehäusen.",
+    "sourceName": "Wikipedia EN – Riser card",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Riser_card",
+    "verifyNote": "Funktion als flexible PCIe-Steckplatzverlängerung ist Standard-Hardwarewissen."
+  },
+  {
+    "id": "hardware-stromverteiler-pdu-h4",
+    "name": "PDU (Stromverteilerleiste)",
+    "category": "hardware",
+    "attributes": {
+      "category": "Stromversorgung",
+      "function": "Rackmontierte Steckdosenleiste, die viele Server zentral mit Strom versorgt und überwacht"
+    },
+    "funFact": "Verwaltbare PDUs können einzelne Steckdosen per Netzwerk fernschalten, sodass ein hängender Server per Befehl aus der Ferne neu gestartet werden kann.",
+    "sourceName": "Wikipedia EN – Power distribution unit",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Power_distribution_unit",
+    "verifyNote": "Funktion als Rack-Stromverteilung ist Standard-Rechenzentrumswissen."
+  },
+  {
+    "id": "hardware-hotswap-rahmen-h4",
+    "name": "Wechselrahmen (Hot-Swap)",
+    "category": "hardware",
+    "attributes": {
+      "category": "Massenspeicher",
+      "function": "Einschubrahmen, der Festplatten im laufenden Betrieb tauschbar macht"
+    },
+    "funFact": "Hot-Swap-Rahmen erlauben den Austausch einer defekten RAID-Platte, ohne den Server auszuschalten, sodass der Betrieb ununterbrochen weiterläuft.",
+    "sourceName": "Wikipedia EN – Hot swapping",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Hot_swapping",
+    "verifyNote": "Funktion als Wechselrahmen für laufenden Plattentausch ist Standardwissen."
+  },
+  {
+    "id": "hardware-passiver-kuehler-northbridge-h4",
+    "name": "Spannungsregler-Kühler",
+    "category": "hardware",
+    "attributes": {
+      "category": "Kühlung",
+      "function": "Kühlkörper, der die heißen Spannungswandler (VRM) rund um den Prozessorsockel kühlt"
+    },
+    "funFact": "Unter hoher CPU-Last werden die VRM-Spannungswandler oft heißer als der Prozessor selbst, weshalb sie einen eigenen Kühlkörper bekommen.",
+    "sourceName": "Wikipedia DE – Spannungswandler (Elektrotechnik)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Spannungswandler",
+    "verifyNote": "Funktion als VRM-Kühlung ist Standard-Hardwarewissen."
+  },
+  {
+    "id": "hardware-luftkanal-shroud-h4",
+    "name": "Luftleitblech",
+    "category": "hardware",
+    "attributes": {
+      "category": "Kühlung",
+      "function": "Kunststoff- oder Blechkanal, der den Luftstrom gezielt über heiße Bauteile lenkt"
+    },
+    "funFact": "Luftleitbleche (Shrouds) in Servern zwingen die Luft direkt über CPU und RAM, statt sie ungenutzt durchs Gehäuse strömen zu lassen.",
+    "sourceName": "Wikipedia EN – Computer fan",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Computer_fan",
+    "verifyNote": "Funktion als Luftstromführung in Gehäusen ist Standard-Kühlungswissen."
+  },
+  {
+    "id": "hardware-staubfilter-h4",
+    "name": "Staubfilter",
+    "category": "hardware",
+    "attributes": {
+      "category": "Kühlung",
+      "function": "Feinmaschiges Gitter vor Lüftungsöffnungen, das Staub aus dem Gehäuse fernhält"
+    },
+    "funFact": "Staubfilter an den Lufteinlässen verhindern, dass sich Staub auf Kühlkörpern absetzt, was die Kühlleistung mit der Zeit deutlich verschlechtern würde.",
+    "sourceName": "Wikipedia EN – Computer fan",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Computer_fan",
+    "verifyNote": "Funktion als Staubschutz an Gehäuse-Lüftungsöffnungen ist Standardwissen."
+  },
+  {
+    "id": "hardware-poe-splitter-h4",
+    "name": "PoE-Splitter",
+    "category": "hardware",
+    "attributes": {
+      "category": "Netzwerk",
+      "function": "Trennt aus einem PoE-Netzwerkkabel wieder Strom und Daten für nicht-PoE-Geräte"
+    },
+    "funFact": "Ein PoE-Splitter ist das Gegenstück zum PoE-Injektor: Er entnimmt dem Netzwerkkabel die Versorgungsspannung für etwa eine normale Kamera ohne PoE-Eingang.",
+    "sourceName": "Wikipedia DE – Power over Ethernet",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Power_over_Ethernet",
+    "verifyNote": "Funktion als PoE-Trenner für Strom und Daten gemäß IEEE 802.3af/at."
+  },
+  {
+    "id": "hardware-grafikkarten-luefter-h4",
+    "name": "Blindblende (Slotblech)",
+    "category": "hardware",
+    "attributes": {
+      "category": "Gehäuse",
+      "function": "Abdeckblech für ungenutzte Steckplatz-Öffnungen an der Gehäuserückseite"
+    },
+    "funFact": "Blindblenden über leeren Slots sind nicht nur Optik: Sie halten den vom Lüfter erzeugten Luftstrom im Gehäuse, statt ihn durch die Löcher entweichen zu lassen.",
+    "sourceName": "Wikipedia EN – Computer case",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Computer_case",
+    "verifyNote": "Funktion als Slot-Abdeckung zur Luftstromführung ist Standard-Hardwarewissen."
+  },
+  {
+    "id": "hardware-wlan-antenne-h4",
+    "name": "WLAN-Antenne",
+    "category": "hardware",
+    "attributes": {
+      "category": "Netzwerk",
+      "function": "Wandelt Funksignale in elektrische Signale für drahtlose Netzwerkverbindungen"
+    },
+    "funFact": "Moderne WLAN-Router nutzen mehrere Antennen gleichzeitig (MIMO), um über mehrere Funkströme parallel höhere Datenraten zu erreichen.",
+    "sourceName": "Wikipedia DE – Antenne",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Antenne",
+    "verifyNote": "Funktion als Funksignal-Wandler und MIMO-Nutzung sind Standard-Funkwissen."
+  },
+  {
+    "id": "programming_language-vim-script-h4",
+    "name": "Vim Script",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Imperativ/prozedural",
+      "execution": "Interpretiert",
+      "fileExtension": ".vim",
+      "primaryDomain": "Editor-Konfiguration und -Skripting"
+    },
+    "funFact": "Vim Script (auch Vimscript) steuert Konfiguration und Plugins des Editors Vim und wird beim Start aus der .vimrc geladen.",
+    "sourceName": "Wikipedia EN - Vim (text editor) / Vim script",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Vim_(text_editor)",
+    "verifyNote": "Vim Script wird vom Vim-Editor interpretiert; Skriptdateien tragen .vim, Konfiguration in .vimrc."
+  },
+  {
+    "id": "programming_language-emacs-lisp-h4",
+    "name": "Emacs Lisp",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Funktional",
+      "execution": "Bytecode (VM)",
+      "fileExtension": ".el",
+      "primaryDomain": "Editor-Erweiterung (Emacs)"
+    },
+    "funFact": "Praktisch der gesamte Editor GNU Emacs ist in Emacs Lisp geschrieben, weshalb er als 'erweiterbar bis zur Selbstmodifikation' gilt.",
+    "sourceName": "Wikipedia DE - Emacs Lisp",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Emacs_Lisp",
+    "verifyNote": "Emacs Lisp ist ein Lisp-Dialekt; Quelldateien .el werden zu .elc-Bytecode kompiliert und vom Emacs-Interpreter ausgeführt."
+  },
+  {
+    "id": "programming_language-moonscript-h4",
+    "name": "MoonScript",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Multiparadigma",
+      "execution": "Kompiliert",
+      "fileExtension": ".moon",
+      "primaryDomain": "Skripting (kompiliert nach Lua)"
+    },
+    "funFact": "MoonScript kompiliert zu Lua-Code und bringt CoffeeScript-ähnliche Syntax samt Klassen in die Lua-Welt.",
+    "sourceName": "Wikipedia EN - MoonScript",
+    "sourceUrl": "https://en.wikipedia.org/wiki/MoonScript",
+    "verifyNote": "MoonScript wird zu Lua transpiliert (kompiliert); Dateiendung .moon laut offizieller Doku."
+  },
+  {
+    "id": "programming_language-livescript-h4",
+    "name": "LiveScript",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Multiparadigma",
+      "execution": "Kompiliert",
+      "fileExtension": ".ls",
+      "primaryDomain": "Webentwicklung (kompiliert nach JavaScript)"
+    },
+    "funFact": "LiveScript ist ein indirekter Nachfahre von CoffeeScript und kompiliert ebenfalls nach JavaScript.",
+    "sourceName": "Wikipedia EN - LiveScript (compiler)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/LiveScript_(compiler)",
+    "verifyNote": "LiveScript transpiliert nach JavaScript; funktional/OOP-Mischung, Endung .ls laut offizieller Doku."
+  },
+  {
+    "id": "programming_language-freebasic-h4",
+    "name": "FreeBASIC",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Multiparadigma",
+      "execution": "Kompiliert",
+      "fileExtension": ".bas",
+      "primaryDomain": "Allzweck-/Hobbyprogrammierung"
+    },
+    "funFact": "FreeBASIC ist ein quelloffener BASIC-Compiler, der weitgehend syntaxkompatibel zum klassischen QuickBASIC ist.",
+    "sourceName": "Wikipedia EN - FreeBASIC",
+    "sourceUrl": "https://en.wikipedia.org/wiki/FreeBASIC",
+    "verifyNote": "FreeBASIC ist ein nativer Compiler (übersetzt zu Maschinencode); Endung .bas laut Projekt-Doku."
+  },
+  {
+    "id": "programming_language-octave-h4",
+    "name": "GNU Octave",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Imperativ/prozedural",
+      "execution": "Interpretiert",
+      "fileExtension": ".m",
+      "primaryDomain": "Numerik / wissenschaftliches Rechnen"
+    },
+    "funFact": "GNU Octave ist weitgehend syntaxkompatibel zu MATLAB und dient als freie Alternative für numerische Berechnungen.",
+    "sourceName": "Wikipedia DE - GNU Octave",
+    "sourceUrl": "https://de.wikipedia.org/wiki/GNU_Octave",
+    "verifyNote": "Octave ist interpretiert, nutzt MATLAB-kompatible .m-Dateien; Numerik-Domäne laut Wikipedia."
+  },
+  {
+    "id": "programming_language-maple-h4",
+    "name": "Maple",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Multiparadigma",
+      "execution": "Interpretiert",
+      "fileExtension": ".mpl",
+      "primaryDomain": "Computeralgebra / Symbolische Mathematik"
+    },
+    "funFact": "Maple gehört zu den führenden Computeralgebrasystemen und kann Gleichungen symbolisch (exakt) statt nur numerisch lösen.",
+    "sourceName": "Wikipedia DE - Maple (Software)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Maple_(Software)",
+    "verifyNote": "Maple ist ein interpretiertes Computeralgebrasystem; Skriptendung .mpl laut Maplesoft-Doku."
+  },
+  {
+    "id": "programming_language-occam-h4",
+    "name": "Occam",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Nebenläufig (CSP)",
+      "execution": "Kompiliert",
+      "fileExtension": ".occ",
+      "primaryDomain": "Parallel-/Transputer-Programmierung"
+    },
+    "funFact": "Occam wurde für die Transputer-Prozessoren entworfen und baut direkt auf Hoares CSP-Modell der nebenläufigen Prozesse auf.",
+    "sourceName": "Wikipedia EN - Occam (programming language)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Occam_(programming_language)",
+    "verifyNote": "Occam basiert auf CSP, wurde für Transputer kompiliert; Endung .occ laut Wikipedia/INMOS-Doku."
+  },
+  {
+    "id": "programming_language-icon-h4",
+    "name": "Icon",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Imperativ/prozedural",
+      "execution": "Bytecode (VM)",
+      "fileExtension": ".icn",
+      "primaryDomain": "Textverarbeitung / String-Manipulation"
+    },
+    "funFact": "Icon führte das Konzept der zielgerichteten Auswertung mit Generatoren und automatischem Backtracking ein.",
+    "sourceName": "Wikipedia EN - Icon (programming language)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Icon_(programming_language)",
+    "verifyNote": "Icon (Nachfolger von SNOBOL) läuft über eine virtuelle Maschine; Endung .icn laut Wikipedia."
+  },
+  {
+    "id": "programming_language-snobol-h4",
+    "name": "SNOBOL",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Imperativ/prozedural",
+      "execution": "Interpretiert",
+      "fileExtension": ".sno",
+      "primaryDomain": "Textverarbeitung / Mustererkennung"
+    },
+    "funFact": "SNOBOL (1960er, Bell Labs) war Vorreiter beim Pattern-Matching auf Zeichenketten, lange vor den heutigen regulären Ausdrücken.",
+    "sourceName": "Wikipedia EN - SNOBOL",
+    "sourceUrl": "https://en.wikipedia.org/wiki/SNOBOL",
+    "verifyNote": "SNOBOL ist auf String-Pattern-Matching spezialisiert; SNOBOL4 wird interpretiert (SPITBOL-Implementierung kompiliert) laut Wikipedia."
+  },
+  {
+    "id": "programming_language-stata-h4",
+    "name": "Stata",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Imperativ/prozedural",
+      "execution": "Interpretiert",
+      "fileExtension": ".do",
+      "primaryDomain": "Statistik / Datenanalyse"
+    },
+    "funFact": "Stata-Skripte heissen 'Do-Files' und werden vor allem in den Sozial- und Wirtschaftswissenschaften zur Datenanalyse genutzt.",
+    "sourceName": "Wikipedia DE - Stata",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Stata",
+    "verifyNote": "Stata ist ein interpretiertes Statistikpaket mit eigener Skriptsprache (Do-Files, .do) laut Wikipedia."
+  },
+  {
+    "id": "programming_language-nix-h4",
+    "name": "Nix",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Funktional",
+      "execution": "Interpretiert",
+      "fileExtension": ".nix",
+      "primaryDomain": "Paketmanagement / reproduzierbare Builds"
+    },
+    "funFact": "Nix ist eine rein funktionale, lazy ausgewertete Sprache, die den gleichnamigen Paketmanager und reproduzierbare Builds steuert.",
+    "sourceName": "Wikipedia EN - Nix (package manager)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Nix_(package_manager)",
+    "verifyNote": "Die Nix-Expression-Sprache ist rein funktional und lazy, wird vom Nix-Tool interpretiert; Endung .nix laut Doku."
+  },
+  {
+    "id": "programming_language-jq-h4",
+    "name": "jq",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Funktional",
+      "execution": "Interpretiert",
+      "fileExtension": ".jq",
+      "primaryDomain": "JSON-Verarbeitung auf der Kommandozeile"
+    },
+    "funFact": "jq arbeitet wie sed/awk für JSON: ein Programm beschreibt als Filter-Pipeline, wie JSON-Daten transformiert werden.",
+    "sourceName": "Wikipedia EN - jq (programming language)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Jq_(programming_language)",
+    "verifyNote": "jq ist eine interpretierte, funktionale Filter-/Abfragesprache für JSON; Endung .jq laut offizieller Doku."
+  },
+  {
+    "id": "programming_language-starlark-h4",
+    "name": "Starlark",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Imperativ/prozedural",
+      "execution": "Interpretiert",
+      "fileExtension": ".bzl",
+      "primaryDomain": "Build-Konfiguration (Bazel)"
+    },
+    "funFact": "Starlark ist ein deterministischer Python-Dialekt, der als Konfigurationssprache für das Build-System Bazel dient.",
+    "sourceName": "Wikipedia EN - Starlark (programming language)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Starlark_(programming_language)",
+    "verifyNote": "Starlark ist ein Python-ähnlicher, deterministischer Dialekt für Bazel-Builds; Erweiterungsdateien .bzl laut Bazel-Doku."
+  },
+  {
+    "id": "programming_language-fish-h4",
+    "name": "Fish",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Imperativ/prozedural",
+      "execution": "Interpretiert",
+      "fileExtension": ".fish",
+      "primaryDomain": "Shell-Skripting / Kommandozeile"
+    },
+    "funFact": "Fish ('Friendly Interactive Shell') bietet von Haus aus Syntax-Hervorhebung und Autovervollständigung aus der Befehlshistorie.",
+    "sourceName": "Wikipedia DE - Fish (Shell)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Fish_(Shell)",
+    "verifyNote": "Fish ist eine interaktive Unix-Shell, Skripte werden interpretiert; Endung .fish laut offizieller Doku."
+  },
+  {
+    "id": "programming_language-zsh-h4",
+    "name": "Zsh",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Imperativ/prozedural",
+      "execution": "Interpretiert",
+      "fileExtension": ".zsh",
+      "primaryDomain": "Shell-Skripting / Kommandozeile"
+    },
+    "funFact": "Zsh ist seit macOS Catalina (2019) die Standard-Login-Shell von Apple und löste die Bash ab.",
+    "sourceName": "Wikipedia DE - Z shell",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Z_shell",
+    "verifyNote": "Zsh ist eine interpretierte Unix-Shell (seit macOS Catalina Default); Skriptendung .zsh laut Wikipedia/Apple-Doku."
+  },
+  {
+    "id": "programming_language-autohotkey-h4",
+    "name": "AutoHotkey",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Imperativ/prozedural",
+      "execution": "Interpretiert",
+      "fileExtension": ".ahk",
+      "primaryDomain": "Automatisierung / Tastenkürzel (Windows)"
+    },
+    "funFact": "AutoHotkey wird vor allem genutzt, um unter Windows beliebige Tastenkombinationen und Makros frei zu belegen.",
+    "sourceName": "Wikipedia DE - AutoHotkey",
+    "sourceUrl": "https://de.wikipedia.org/wiki/AutoHotkey",
+    "verifyNote": "AutoHotkey ist eine interpretierte Skriptsprache zur Automatisierung unter Windows; Endung .ahk laut Wikipedia."
+  },
+  {
+    "id": "programming_language-autoit-h4",
+    "name": "AutoIt",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Imperativ/prozedural",
+      "execution": "Interpretiert",
+      "fileExtension": ".au3",
+      "primaryDomain": "GUI-Automatisierung (Windows)"
+    },
+    "funFact": "AutoIt entstand zur automatisierten Software-Installation und kann Maus, Tastatur und Fenster unter Windows fernsteuern.",
+    "sourceName": "Wikipedia DE - AutoIt",
+    "sourceUrl": "https://de.wikipedia.org/wiki/AutoIt",
+    "verifyNote": "AutoIt ist eine interpretierte Automatisierungs-Skriptsprache für Windows; Endung .au3 laut Wikipedia."
+  },
+  {
+    "id": "programming_language-cmake-h4",
+    "name": "CMake",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Imperativ/prozedural",
+      "execution": "Interpretiert",
+      "fileExtension": ".cmake",
+      "primaryDomain": "Build-Konfiguration (C/C++)"
+    },
+    "funFact": "CMake erzeugt aus plattformunabhängigen Skripten die eigentlichen Build-Dateien (Makefiles, Visual-Studio-Projekte usw.).",
+    "sourceName": "Wikipedia DE - CMake",
+    "sourceUrl": "https://de.wikipedia.org/wiki/CMake",
+    "verifyNote": "CMake nutzt eine interpretierte Skriptsprache (CMakeLists.txt / .cmake) zum Generieren von Buildsystemen laut Wikipedia."
+  },
+  {
+    "id": "programming_language-gnu-make-h4",
+    "name": "GNU Make",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Deklarativ (regelbasiert)",
+      "execution": "Interpretiert",
+      "fileExtension": "Makefile",
+      "primaryDomain": "Build-Automatisierung"
+    },
+    "funFact": "Make-Regeln beschreiben Abhängigkeiten zwischen Dateien; nur veraltete Ziele werden neu gebaut, was inkrementelle Builds ermöglicht.",
+    "sourceName": "Wikipedia DE - Make",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Make",
+    "verifyNote": "Make ist deklarativ/regelbasiert und interpretiert eine Makefile; inkrementelles Bauen über Zeitstempel laut Wikipedia."
+  },
+  {
+    "id": "programming_language-sed-h4",
+    "name": "sed",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Imperativ/prozedural",
+      "execution": "Interpretiert",
+      "fileExtension": ".sed",
+      "primaryDomain": "Stream-Textbearbeitung (Unix)"
+    },
+    "funFact": "sed ('Stream Editor') verarbeitet Text zeilenweise im Durchlauf und ist berühmt für Such-und-Ersetz-Befehle wie s/alt/neu/.",
+    "sourceName": "Wikipedia DE - sed (Unix)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Sed_(Unix)",
+    "verifyNote": "sed ist ein interpretierter, zeilenorientierter Stream-Editor; Skripte .sed laut Wikipedia/POSIX."
+  },
+  {
+    "id": "programming_language-q-kdb-h4",
+    "name": "q (kdb+)",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Array-orientiert",
+      "execution": "Interpretiert",
+      "fileExtension": ".q",
+      "primaryDomain": "Zeitreihen-/Finanzdatenbanken"
+    },
+    "funFact": "Die Sprache q steuert die kdb+-Datenbank und ist im Finanzsektor für extrem schnelle Zeitreihen-Analysen verbreitet.",
+    "sourceName": "Wikipedia EN - Q (programming language from Kx Systems)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Q_(programming_language_from_Kx_Systems)",
+    "verifyNote": "q ist eine array-orientierte, interpretierte Sprache (auf k aufbauend) für kdb+; Endung .q laut Kx-Doku."
+  },
+  {
+    "id": "programming_language-supercollider-h4",
+    "name": "SuperCollider",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Objektorientiert",
+      "execution": "Interpretiert",
+      "fileExtension": ".scd",
+      "primaryDomain": "Audiosynthese / Live-Coding-Musik"
+    },
+    "funFact": "SuperCollider trennt Sprache (Client) und Audio-Server, sodass Klang in Echtzeit während des Programmierens verändert werden kann.",
+    "sourceName": "Wikipedia DE - SuperCollider",
+    "sourceUrl": "https://de.wikipedia.org/wiki/SuperCollider",
+    "verifyNote": "SuperCollider ist eine interpretierte, objektorientierte Sprache für Audiosynthese; Endung .scd laut Wikipedia."
+  },
+  {
+    "id": "data_structure-multiset-h4",
+    "name": "Multimenge (Multiset)",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Menge",
+      "purpose": "Wie eine Menge, erlaubt aber mehrfaches Vorkommen desselben Elements und zählt dessen Häufigkeit",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Im Gegensatz zur klassischen Menge merkt sich eine Multimenge, wie oft jedes Element enthalten ist.",
+    "sourceName": "Wikipedia DE - Multimenge",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Multimenge",
+    "verifyNote": "Multimenge erlaubt Duplikate mit Vielfachheit; bei Hash-basierter Umsetzung O(1) im Durchschnitt für Einfügen/Zählen."
+  },
+  {
+    "id": "data_structure-tuple-h4",
+    "name": "Tupel",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Lineare Struktur",
+      "purpose": "Geordnete, oft unveränderliche Zusammenfassung fester Länge von Elementen möglicherweise verschiedener Typen",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Anders als eine Liste hat ein Tupel meist eine feste Länge und ist in vielen Sprachen (z.B. Python) unveränderlich.",
+    "sourceName": "Wikipedia DE - Tupel (Informatik)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Tupel",
+    "verifyNote": "Tupel: geordnete feste Folge, Zugriff per Position in O(1); Unveränderlichkeit z.B. bei Python-Tupeln."
+  },
+  {
+    "id": "data_structure-record-h4",
+    "name": "Verbund (Record)",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Lineare Struktur",
+      "purpose": "Fasst benannte Felder möglicherweise unterschiedlicher Typen zu einem zusammengesetzten Datensatz zusammen",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Der Verbund (in C 'struct') ist die Grundlage fast aller zusammengesetzten Datentypen in imperativen Sprachen.",
+    "sourceName": "Wikipedia DE - Verbund (Datentyp)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Verbund_(Datentyp)",
+    "verifyNote": "Verbund/Record gruppiert benannte Felder; Feldzugriff über festen Offset in O(1)."
+  },
+  {
+    "id": "data_structure-open-addressing-hashtable-h4",
+    "name": "Offen adressierte Hashtabelle",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Hash-basiert",
+      "purpose": "Hashtabelle, die Kollisionen durch Sondieren weiterer Plätze im selben Array statt durch Verkettung auflöst",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Bei offener Adressierung liegen alle Einträge direkt im Array, was die Cache-Nutzung gegenüber der Verkettung verbessert.",
+    "sourceName": "Cormen et al. - Introduction to Algorithms (CLRS)",
+    "verifyNote": "Offene Adressierung löst Kollisionen durch Sondierfolgen; O(1) Durchschnitt bei niedrigem Lastfaktor (CLRS Kap. 11.4)."
+  },
+  {
+    "id": "data_structure-chained-hashtable-h4",
+    "name": "Verkettete Hashtabelle",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Hash-basiert",
+      "purpose": "Hashtabelle, die Kollisionen durch eine verkettete Liste pro Eimer (Bucket) auflöst",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Bei der Verkettung wachsen kollidierende Einträge in einer Liste pro Bucket; im Worst Case degeneriert das zu O(n).",
+    "sourceName": "Cormen et al. - Introduction to Algorithms (CLRS)",
+    "verifyNote": "Verkettung (separate chaining) löst Kollisionen über Listen je Bucket; O(1) Durchschnitt (CLRS Kap. 11.2)."
+  },
+  {
+    "id": "data_structure-linear-probing-h4",
+    "name": "Lineare Sondierung",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Hash-basiert",
+      "purpose": "Kollisionsauflösung in offener Adressierung, die bei Belegung die nächste freie Zelle in fester Schrittweite sucht",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Lineare Sondierung ist cache-freundlich, neigt aber zu 'Clustering' - lange belegte Bereiche, die das Suchen verlangsamen.",
+    "sourceName": "Cormen et al. - Introduction to Algorithms (CLRS)",
+    "verifyNote": "Lineare Sondierung probiert h(k)+i mod m; O(1) Durchschnitt bei niedrigem Lastfaktor, Primärclustering laut CLRS Kap. 11.4."
+  },
+  {
+    "id": "data_structure-quadratic-probing-h4",
+    "name": "Quadratische Sondierung",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Hash-basiert",
+      "purpose": "Kollisionsauflösung in offener Adressierung mit quadratisch wachsendem Abstand zur Ausgangszelle",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Quadratische Sondierung vermeidet das Primärclustering der linearen Sondierung, kann aber Sekundärcluster bilden.",
+    "sourceName": "Cormen et al. - Introduction to Algorithms (CLRS)",
+    "verifyNote": "Quadratische Sondierung nutzt h(k)+c1*i+c2*i^2 mod m; reduziert Primärclustering laut CLRS Kap. 11.4."
+  },
+  {
+    "id": "data_structure-double-hashing-h4",
+    "name": "Doppeltes Hashing",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Hash-basiert",
+      "purpose": "Kollisionsauflösung in offener Adressierung, bei der eine zweite Hashfunktion die Sondier-Schrittweite bestimmt",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Doppeltes Hashing gilt als eine der besten offenen Adressierungsstrategien, weil die Sondierfolge vom Schlüssel selbst abhängt.",
+    "sourceName": "Cormen et al. - Introduction to Algorithms (CLRS)",
+    "verifyNote": "Doppeltes Hashing nutzt h1(k)+i*h2(k) mod m; vermeidet Clustering, O(1) Durchschnitt laut CLRS Kap. 11.4."
+  },
+  {
+    "id": "data_structure-robin-hood-hashing-h4",
+    "name": "Robin-Hood-Hashing",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Hash-basiert",
+      "purpose": "Variante der offenen Adressierung, die Einträge mit kürzerer Sondierdistanz zugunsten weiter verschobener Einträge umordnet",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Der Name spielt darauf an, dass 'reiche' Einträge (nah am Idealplatz) Platz an 'arme' (weit verschobene) abgeben.",
+    "sourceName": "Wikipedia EN - Hash table (Robin Hood hashing)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Hash_table#Robin_Hood_hashing",
+    "verifyNote": "Robin-Hood-Hashing minimiert die Varianz der Sondierdistanzen; O(1) Durchschnitt laut Wikipedia."
+  },
+  {
+    "id": "data_structure-sparse-set-h4",
+    "name": "Sparse-Set",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Menge",
+      "purpose": "Mengenstruktur aus zwei Arrays, die ohne Initialisierung schnelles Einfügen, Löschen und Iterieren über kleine Schlüsselbereiche erlaubt",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Das Sparse-Set kann sogar ohne Nullsetzen seines Speichers korrekt arbeiten und wird gern in ECS-Spiele-Engines genutzt.",
+    "sourceName": "GeeksforGeeks - Sparse Set",
+    "sourceUrl": "https://www.geeksforgeeks.org/dsa/sparse-set/",
+    "verifyNote": "Sparse-Set: dense+sparse Array, O(1) für Einfügen/Löschen/Enthaltensein, keine Speicherinitialisierung nötig."
+  },
+  {
+    "id": "data_structure-perfect-hashing-h4",
+    "name": "Perfektes Hashing",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Hash-basiert",
+      "purpose": "Hashverfahren für eine feste Schlüsselmenge, das garantiert kollisionsfrei ist und so Zugriff im Worst Case beschleunigt",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Perfektes Hashing garantiert für eine bekannte, unveränderliche Schlüsselmenge O(1) im Worst Case - ganz ohne Kollisionen.",
+    "sourceName": "Cormen et al. - Introduction to Algorithms (CLRS)",
+    "verifyNote": "Perfektes Hashing für statische Schlüsselmengen ist kollisionsfrei, Worst-Case-Zugriff O(1) (CLRS Kap. 11.5)."
+  },
+  {
+    "id": "data_structure-sorted-array-h4",
+    "name": "Sortiertes Array",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Lineare Struktur",
+      "purpose": "Array, dessen Elemente in Sortierreihenfolge gehalten werden, sodass binäre Suche möglich ist",
+      "accessComplexity": "O(log n)"
+    },
+    "funFact": "Ein sortiertes Array erlaubt binäre Suche in O(log n), bezahlt das aber mit O(n) beim Einfügen an beliebiger Stelle.",
+    "sourceName": "Wikipedia EN - Sorted array",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Sorted_array",
+    "verifyNote": "Sortiertes Array: binäre Suche O(log n), Einfügen/Löschen O(n) wegen Verschieben laut Wikipedia."
+  },
+  {
+    "id": "data_structure-prefix-sum-array-h4",
+    "name": "Präfixsummen-Array",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Lineare Struktur",
+      "purpose": "Vorberechnetes Array kumulativer Summen, das Bereichssummen eines statischen Arrays in konstanter Zeit beantwortet",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Nach einmaliger O(n)-Vorberechnung liefert das Präfixsummen-Array jede Teilbereichssumme durch eine einzige Subtraktion.",
+    "sourceName": "Wikipedia EN - Prefix sum",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Prefix_sum",
+    "verifyNote": "Präfixsummen: O(n) Aufbau, danach Bereichssumme in O(1) über p[r]-p[l-1] laut Wikipedia."
+  },
+  {
+    "id": "data_structure-difference-array-h4",
+    "name": "Differenz-Array",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Lineare Struktur",
+      "purpose": "Hilfsarray der Nachbardifferenzen, mit dem sich ein konstanter Wert auf einen ganzen Bereich in konstanter Zeit addieren lässt",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Das Differenz-Array ist das Gegenstück zur Präfixsumme: erst markiert man Bereichsupdates in O(1), dann rekonstruiert man das Array per Präfixsumme.",
+    "sourceName": "Wikipedia EN - Prefix sum (difference array)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Prefix_sum",
+    "verifyNote": "Differenz-Array: Bereichsaddition in O(1) durch zwei Randmarkierungen, Rekonstruktion per Präfixsumme in O(n)."
+  },
+  {
+    "id": "data_structure-monotonic-stack-h4",
+    "name": "Monotoner Stack",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Lineare Struktur",
+      "purpose": "Stack, dessen Elemente stets monoton (steigend oder fallend) gehalten werden, um z.B. das nächstgrößere Element effizient zu finden",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Mit einem monotonen Stack löst man das 'Next Greater Element'-Problem für ein ganzes Array in nur O(n).",
+    "sourceName": "GeeksforGeeks - Introduction to Monotonic Stack",
+    "sourceUrl": "https://www.geeksforgeeks.org/dsa/introduction-to-monotonic-stack-2/",
+    "verifyNote": "Monotoner Stack: Push/Pop amortisiert O(1), löst Next-Greater-Element in O(n) gesamt."
+  },
+  {
+    "id": "data_structure-inverted-index-h4",
+    "name": "Invertierter Index",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Index",
+      "purpose": "Bildet jeden Suchbegriff auf die Liste der Dokumente ab, in denen er vorkommt - Kern jeder Volltextsuche",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Der invertierte Index ist das Herzstück von Suchmaschinen wie Google und Bibliotheken wie Lucene/Elasticsearch.",
+    "sourceName": "Wikipedia DE - Invertierter Index",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Invertierter_Index",
+    "verifyNote": "Invertierter Index ordnet Term -> Dokumentliste zu; Term-Lookup über Hash/Wörterbuch in O(1) laut Wikipedia."
+  },
+  {
+    "id": "data_structure-persistent-data-structure-h4",
+    "name": "Persistente Datenstruktur",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Konzeptklasse",
+      "purpose": "Datenstruktur, die bei Änderungen alte Versionen erhält, sodass frühere Zustände weiter abfragbar bleiben",
+      "accessComplexity": "O(log n)"
+    },
+    "funFact": "Persistente Strukturen ändern nie bestehende Knoten, sondern teilen unveränderte Teile zwischen Versionen ('structural sharing').",
+    "sourceName": "Wikipedia EN - Persistent data structure",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Persistent_data_structure",
+    "verifyNote": "Persistente (unveränderliche) Strukturen bewahren Vorversionen via Structural Sharing; baum-basiert typ. O(log n) Zugriff."
+  },
+  {
+    "id": "data_structure-hash-set-h4",
+    "name": "Hash-Set",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Menge",
+      "purpose": "Mengenimplementierung auf Basis einer Hashtabelle; speichert nur Schlüssel und prüft Enthaltensein sehr schnell",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Ein Hash-Set ist im Kern eine Hashtabelle ohne Werte - es interessiert nur, ob ein Element vorhanden ist.",
+    "sourceName": "Wikipedia EN - Set (abstract data type)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Set_(abstract_data_type)",
+    "verifyNote": "Hash-Set speichert eindeutige Schlüssel in einer Hashtabelle; Enthaltensein/Einfügen O(1) im Durchschnitt."
+  },
+  {
+    "id": "data_structure-spanning-tree-h4",
+    "name": "Spannbaum",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Graphstruktur",
+      "purpose": "Teilgraph eines zusammenhängenden Graphen, der alle Knoten kreisfrei mit minimaler Kantenzahl verbindet",
+      "accessComplexity": "O(n)"
+    },
+    "funFact": "Der minimale Spannbaum (z.B. per Kruskal oder Prim) verbindet alle Knoten mit der geringstmöglichen Gesamtkantengewichtung.",
+    "sourceName": "Wikipedia DE - Spannbaum",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Spannbaum",
+    "verifyNote": "Ein Spannbaum eines Graphen mit n Knoten hat n-1 Kanten und ist kreisfrei; Traversierung O(n) laut Wikipedia."
+  },
+  {
+    "id": "data_structure-bit-field-h4",
+    "name": "Bitfeld",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Lineare Struktur",
+      "purpose": "Kompakte Folge einzelner Bits, die mehrere Flags oder Boolesche Werte platzsparend in Maschinenwörtern bündelt",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Mit Bitfeldern lassen sich 32 Ja/Nein-Flags in einem einzigen 32-Bit-Integer speichern und per Bitoperationen abfragen.",
+    "sourceName": "Wikipedia DE - Bitfeld",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Bitfeld",
+    "verifyNote": "Bitfeld packt einzelne Bits dicht; Setzen/Lesen eines Bits per Maske in O(1) laut Wikipedia."
   }
 ]

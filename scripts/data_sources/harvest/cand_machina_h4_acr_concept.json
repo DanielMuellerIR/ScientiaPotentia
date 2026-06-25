@@ -1,0 +1,1055 @@
+[
+  {
+    "id": "acronym-tdd-h4",
+    "name": "TDD",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Test-Driven Development",
+      "domain": "Softwareentwicklung"
+    },
+    "funFact": "Bei TDD wird zuerst ein fehlschlagender Test geschrieben und erst danach der Code, der ihn erfüllt – der sogenannte Red-Green-Refactor-Zyklus.",
+    "sourceName": "Wikipedia DE – Testgetriebene Entwicklung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Testgetriebene_Entwicklung",
+    "verifyNote": "Vollform laut Standard-Literatur (Kent Beck)."
+  },
+  {
+    "id": "acronym-bdd-h4",
+    "name": "BDD",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Behavior-Driven Development",
+      "domain": "Softwareentwicklung"
+    },
+    "funFact": "BDD beschreibt Anforderungen in natürlicher Sprache nach dem Given-When-Then-Schema, damit auch Nicht-Programmierer die Tests verstehen.",
+    "sourceName": "Wikipedia DE – Behavior Driven Development",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Behavior_Driven_Development",
+    "verifyNote": "Vollform ist Lehrbuch-Standard."
+  },
+  {
+    "id": "acronym-ddd-h4",
+    "name": "DDD",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Domain-Driven Design",
+      "domain": "Softwarearchitektur"
+    },
+    "funFact": "Der Begriff wurde 2003 von Eric Evans geprägt und stellt die Fachdomäne und eine gemeinsame Sprache (Ubiquitous Language) in den Mittelpunkt des Entwurfs.",
+    "sourceName": "Wikipedia DE – Domain-driven Design",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Domain-driven_Design",
+    "verifyNote": "Vollform laut Eric Evans (2003)."
+  },
+  {
+    "id": "acronym-solid-h4",
+    "name": "SOLID",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Single Responsibility, Open-Closed, Liskov Substitution, Interface Segregation, Dependency Inversion",
+      "domain": "Softwarearchitektur"
+    },
+    "funFact": "SOLID ist ein Akronym aus den fünf objektorientierten Designprinzipien, das von Robert C. Martin populär gemacht wurde.",
+    "sourceName": "Wikipedia DE – Prinzipien objektorientierten Designs",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Prinzipien_objektorientierten_Designs",
+    "verifyNote": "Akronym der fünf Prinzipien laut Robert C. Martin."
+  },
+  {
+    "id": "acronym-dry-h4",
+    "name": "DRY",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Don't Repeat Yourself",
+      "domain": "Softwareentwicklung"
+    },
+    "funFact": "Das DRY-Prinzip aus 'The Pragmatic Programmer' (1999) besagt, dass jede Wissenseinheit im System eine einzige, eindeutige Repräsentation haben soll.",
+    "sourceName": "Wikipedia DE – Don’t repeat yourself",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Don%E2%80%99t_repeat_yourself",
+    "verifyNote": "Vollform laut Hunt & Thomas (1999)."
+  },
+  {
+    "id": "acronym-kiss-h4",
+    "name": "KISS",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Keep It Simple, Stupid",
+      "domain": "Softwareentwicklung"
+    },
+    "funFact": "Das KISS-Prinzip stammt ursprünglich aus der Luftfahrttechnik der US-Marine und fordert möglichst einfache Lösungen statt unnötiger Komplexität.",
+    "sourceName": "Wikipedia DE – KISS-Prinzip",
+    "sourceUrl": "https://de.wikipedia.org/wiki/KISS-Prinzip",
+    "verifyNote": "Gängige Vollform des Prinzips."
+  },
+  {
+    "id": "acronym-yagni-h4",
+    "name": "YAGNI",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "You Aren't Gonna Need It",
+      "domain": "Softwareentwicklung"
+    },
+    "funFact": "YAGNI ist ein Prinzip des Extreme Programming und warnt davor, Funktionen einzubauen, bevor sie tatsächlich gebraucht werden.",
+    "sourceName": "Wikipedia EN – You aren't gonna need it",
+    "sourceUrl": "https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it",
+    "verifyNote": "Vollform aus dem Extreme Programming."
+  },
+  {
+    "id": "acronym-gc-h4",
+    "name": "GC",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Garbage Collection",
+      "domain": "Speicherverwaltung"
+    },
+    "funFact": "Die automatische Speicherbereinigung wurde bereits 1959 von John McCarthy für die Programmiersprache Lisp eingeführt.",
+    "sourceName": "Wikipedia DE – Garbage Collection",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Garbage_Collection",
+    "verifyNote": "Vollform ist Lehrbuch-Standard."
+  },
+  {
+    "id": "acronym-jvm-h4",
+    "name": "JVM",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Java Virtual Machine",
+      "domain": "Laufzeitumgebung"
+    },
+    "funFact": "Die JVM führt plattformunabhängigen Bytecode aus – daher das Java-Motto 'Write once, run anywhere'.",
+    "sourceName": "Wikipedia DE – Java Virtual Machine",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Java_Virtual_Machine",
+    "verifyNote": "Vollform laut Oracle/JVM-Spezifikation."
+  },
+  {
+    "id": "acronym-clr-h4",
+    "name": "CLR",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Common Language Runtime",
+      "domain": "Laufzeitumgebung"
+    },
+    "funFact": "Die CLR ist die Laufzeitumgebung von Microsofts .NET und führt Code verschiedener Sprachen wie C#, F# und VB.NET über eine gemeinsame Zwischensprache aus.",
+    "sourceName": "Wikipedia DE – Common Language Runtime",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Common_Language_Runtime",
+    "verifyNote": "Vollform laut Microsoft-.NET-Doku."
+  },
+  {
+    "id": "acronym-wasm-h4",
+    "name": "WASM",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "WebAssembly",
+      "domain": "Webtechnik"
+    },
+    "funFact": "WebAssembly ist ein binäres Befehlsformat, das im Browser nahezu mit nativer Geschwindigkeit läuft und seit 2019 ein W3C-Standard ist.",
+    "sourceName": "W3C – WebAssembly",
+    "sourceUrl": "https://webassembly.org/",
+    "verifyNote": "Kurzform 'WASM' und Vollform laut W3C."
+  },
+  {
+    "id": "acronym-fp-h4",
+    "name": "FP",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Functional Programming",
+      "domain": "Programmierung"
+    },
+    "funFact": "Funktionale Programmierung behandelt Berechnung als Auswertung mathematischer Funktionen und meidet veränderbaren Zustand.",
+    "sourceName": "Wikipedia DE – Funktionale Programmierung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Funktionale_Programmierung",
+    "verifyNote": "Gängige englische Abkürzung des Paradigmas."
+  },
+  {
+    "id": "acronym-svg-color-h4",
+    "name": "WebGL",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Web Graphics Library",
+      "domain": "Computergrafik"
+    },
+    "funFact": "WebGL bringt hardwarebeschleunigte 3D-Grafik in den Browser, indem es eine JavaScript-Anbindung an OpenGL ES bereitstellt.",
+    "sourceName": "Wikipedia DE – WebGL",
+    "sourceUrl": "https://de.wikipedia.org/wiki/WebGL",
+    "verifyNote": "Vollform laut Khronos-Group-Spezifikation."
+  },
+  {
+    "id": "acronym-dpi-print-h4",
+    "name": "RAII",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Resource Acquisition Is Initialization",
+      "domain": "Programmierung"
+    },
+    "funFact": "RAII ist ein in C++ verbreitetes Muster, bei dem Ressourcen an die Lebensdauer eines Objekts gebunden und beim Verlassen des Gültigkeitsbereichs automatisch freigegeben werden.",
+    "sourceName": "Wikipedia DE – RAII",
+    "sourceUrl": "https://de.wikipedia.org/wiki/RAII",
+    "verifyNote": "Vollform geht auf Bjarne Stroustrup zurück."
+  },
+  {
+    "id": "acronym-mvvm-h4",
+    "name": "MVVM",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Model-View-ViewModel",
+      "domain": "Softwarearchitektur"
+    },
+    "funFact": "MVVM trennt die Benutzeroberfläche über ein ViewModel von der Logik und wurde populär durch Microsofts WPF und später Frameworks wie Vue und SwiftUI.",
+    "sourceName": "Wikipedia DE – Model View ViewModel",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Model_View_ViewModel",
+    "verifyNote": "Vollform ist Architektur-Standard."
+  },
+  {
+    "id": "acronym-spa-h4",
+    "name": "SPA",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Single-Page Application",
+      "domain": "Webtechnik"
+    },
+    "funFact": "Eine SPA lädt nur einmal eine HTML-Seite und tauscht danach Inhalte dynamisch per JavaScript aus, ohne die Seite komplett neu zu laden.",
+    "sourceName": "Wikipedia DE – Single-Page-Webanwendung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Single-Page-Webanwendung",
+    "verifyNote": "Vollform ist Webentwicklungs-Standard."
+  },
+  {
+    "id": "acronym-pwa-h4",
+    "name": "PWA",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Progressive Web App",
+      "domain": "Webtechnik"
+    },
+    "funFact": "PWAs lassen sich wie native Apps installieren und funktionieren dank Service Workern auch offline.",
+    "sourceName": "Wikipedia DE – Progressive Web App",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Progressive_Web_App",
+    "verifyNote": "Vollform laut MDN/Google-Doku."
+  },
+  {
+    "id": "acronym-ssr-h4",
+    "name": "SSR",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Server-Side Rendering",
+      "domain": "Webtechnik"
+    },
+    "funFact": "Beim Server-Side Rendering erzeugt der Server das fertige HTML, was die Ladezeit der ersten Seite und die Auffindbarkeit durch Suchmaschinen verbessert.",
+    "sourceName": "Wikipedia EN – Server-side scripting",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Server-side_scripting",
+    "verifyNote": "Gängige Vollform in der Webentwicklung."
+  },
+  {
+    "id": "acronym-ssg-h4",
+    "name": "SSG",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Static Site Generator",
+      "domain": "Webtechnik"
+    },
+    "funFact": "Ein Static Site Generator erzeugt aus Vorlagen und Inhalten fertige HTML-Dateien, die ohne Datenbank ausgeliefert werden – Beispiele sind Jekyll, Hugo und Eleventy.",
+    "sourceName": "Wikipedia EN – Static site generator",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Static_site_generator",
+    "verifyNote": "Gängige Vollform in der Webentwicklung."
+  },
+  {
+    "id": "acronym-csrf-h4",
+    "name": "CSRF",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Cross-Site Request Forgery",
+      "domain": "IT-Sicherheit"
+    },
+    "funFact": "Bei CSRF wird ein eingeloggter Nutzer dazu gebracht, unbemerkt eine ungewollte Aktion auf einer Website auszuführen, der er vertraut.",
+    "sourceName": "Wikipedia DE – Cross-Site-Request-Forgery",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Cross-Site-Request-Forgery",
+    "verifyNote": "Vollform laut OWASP."
+  },
+  {
+    "id": "acronym-rce-h4",
+    "name": "RCE",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Remote Code Execution",
+      "domain": "IT-Sicherheit"
+    },
+    "funFact": "Eine RCE-Schwachstelle erlaubt es Angreifern, beliebigen Code aus der Ferne auf einem fremden System auszuführen, und zählt zu den gefährlichsten Lücken.",
+    "sourceName": "Wikipedia EN – Arbitrary code execution",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Arbitrary_code_execution",
+    "verifyNote": "Gängige Vollform in der IT-Sicherheit."
+  },
+  {
+    "id": "acronym-waf-h4",
+    "name": "WAF",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Web Application Firewall",
+      "domain": "IT-Sicherheit"
+    },
+    "funFact": "Eine WAF filtert HTTP-Verkehr und schützt Webanwendungen gezielt vor Angriffen wie SQL-Injection und Cross-Site-Scripting.",
+    "sourceName": "Wikipedia EN – Web application firewall",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Web_application_firewall",
+    "verifyNote": "Vollform laut OWASP."
+  },
+  {
+    "id": "acronym-ci-h4",
+    "name": "IIFE",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Immediately Invoked Function Expression",
+      "domain": "Programmierung"
+    },
+    "funFact": "Eine IIFE ist eine JavaScript-Funktion, die sofort nach ihrer Definition aufgerufen wird, um einen eigenen Gültigkeitsbereich zu schaffen.",
+    "sourceName": "MDN – IIFE",
+    "sourceUrl": "https://developer.mozilla.org/de/docs/Glossary/IIFE",
+    "verifyNote": "Vollform laut MDN-Glossar."
+  },
+  {
+    "id": "acronym-dns-record-h4",
+    "name": "WAI-ARIA",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Web Accessibility Initiative – Accessible Rich Internet Applications",
+      "domain": "Webtechnik"
+    },
+    "funFact": "ARIA-Attribute machen dynamische Weboberflächen für Screenreader zugänglich, indem sie Rollen und Zustände von Elementen beschreiben.",
+    "sourceName": "W3C – WAI-ARIA",
+    "sourceUrl": "https://www.w3.org/WAI/standards-guidelines/aria/",
+    "verifyNote": "Vollform laut W3C-WAI."
+  },
+  {
+    "id": "acronym-sla-h4",
+    "name": "SLA",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Service Level Agreement",
+      "domain": "Systemtechnik"
+    },
+    "funFact": "Ein SLA legt vertraglich messbare Qualitätsziele wie Verfügbarkeit fest – 'drei Neunen' (99,9 %) erlauben nur rund 8,7 Stunden Ausfall pro Jahr.",
+    "sourceName": "Wikipedia DE – Service-Level-Agreement",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Service-Level-Agreement",
+    "verifyNote": "Vollform ist Branchen-Standard."
+  },
+  {
+    "id": "acronym-rng-h4",
+    "name": "PRNG",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Pseudo-Random Number Generator",
+      "domain": "Algorithmik"
+    },
+    "funFact": "Ein PRNG erzeugt aus einem Startwert (Seed) eine deterministische, aber zufällig wirkende Zahlenfolge – bei gleichem Seed kommt stets dieselbe Folge.",
+    "sourceName": "Wikipedia DE – Pseudozufallszahlengenerator",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Pseudozufallszahlengenerator",
+    "verifyNote": "Vollform ist Lehrbuch-Standard."
+  },
+  {
+    "id": "acronym-tui-h4",
+    "name": "TUI",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Text-based User Interface",
+      "domain": "Software"
+    },
+    "funFact": "Eine TUI baut eine textbasierte, aber interaktive Oberfläche im Terminal auf – bekannte Beispiele sind der Midnight Commander und htop.",
+    "sourceName": "Wikipedia EN – Text-based user interface",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Text-based_user_interface",
+    "verifyNote": "Gängige Vollform, Abgrenzung zur GUI."
+  },
+  {
+    "id": "acronym-ux-h4",
+    "name": "UX",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "User Experience",
+      "domain": "Softwareentwicklung"
+    },
+    "funFact": "UX umfasst das gesamte Erleben eines Nutzers mit einem Produkt, während die UI (User Interface) nur die konkrete Bedienoberfläche meint.",
+    "sourceName": "Wikipedia DE – User Experience",
+    "sourceUrl": "https://de.wikipedia.org/wiki/User_Experience",
+    "verifyNote": "Vollform ist Branchen-Standard."
+  },
+  {
+    "id": "acronym-cdn-edge-h4",
+    "name": "FaaS",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Function as a Service",
+      "domain": "Systemtechnik"
+    },
+    "funFact": "Bei FaaS wird einzelner Code als kurzlebige Funktion in der Cloud ausgeführt – die Grundlage des sogenannten Serverless Computing.",
+    "sourceName": "Wikipedia EN – Function as a service",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Function_as_a_service",
+    "verifyNote": "Vollform ist Cloud-Standard."
+  },
+  {
+    "id": "acronym-iac-h4",
+    "name": "IaC",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Infrastructure as Code",
+      "domain": "Systemtechnik"
+    },
+    "funFact": "Bei Infrastructure as Code wird Server- und Netzwerkkonfiguration in versionierbaren Textdateien beschrieben – bekannte Werkzeuge sind Terraform und Ansible.",
+    "sourceName": "Wikipedia EN – Infrastructure as code",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Infrastructure_as_code",
+    "verifyNote": "Vollform ist DevOps-Standard."
+  },
+  {
+    "id": "acronym-acl-h4",
+    "name": "ACL",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Access Control List",
+      "domain": "IT-Sicherheit"
+    },
+    "funFact": "Eine ACL ordnet jedem Objekt eine Liste von Berechtigungen zu und legt fest, welcher Nutzer oder Prozess welche Zugriffe ausführen darf.",
+    "sourceName": "Wikipedia DE – Access Control List",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Access_Control_List",
+    "verifyNote": "Vollform ist Lehrbuch-Standard."
+  },
+  {
+    "id": "acronym-otp-h4",
+    "name": "OTP",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "One-Time Password",
+      "domain": "IT-Sicherheit"
+    },
+    "funFact": "Ein Einmalpasswort ist nur für eine einzige Anmeldung gültig und bildet die Grundlage gängiger Zwei-Faktor-Verfahren per Authenticator-App.",
+    "sourceName": "Wikipedia DE – Einmalkennwort",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Einmalkennwort",
+    "verifyNote": "Vollform ist Sicherheits-Standard."
+  },
+  {
+    "id": "acronym-aot-h4",
+    "name": "AOT",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Ahead-of-Time Compilation",
+      "domain": "Programmierung"
+    },
+    "funFact": "Im Gegensatz zur Just-in-time-Kompilierung übersetzt ein AOT-Compiler den Code vollständig vor der Ausführung, was schnellere Startzeiten ermöglicht.",
+    "sourceName": "Wikipedia EN – Ahead-of-time compilation",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Ahead-of-time_compilation",
+    "verifyNote": "Vollform ist Compiler-Standard, Abgrenzung zu JIT."
+  },
+  {
+    "id": "acronym-dto-mapper-h4",
+    "name": "POJO",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Plain Old Java Object",
+      "domain": "Programmierung"
+    },
+    "funFact": "Der Begriff POJO wurde 2000 geprägt, um einfache Java-Objekte ohne Bindung an ein spezielles Framework von komplexen Enterprise-Beans abzugrenzen.",
+    "sourceName": "Wikipedia EN – Plain old Java object",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Plain_old_Java_object",
+    "verifyNote": "Vollform laut Fowler/Rice/Mackinnon."
+  },
+  {
+    "id": "concept-atomicity-h4",
+    "name": "Atomarität",
+    "category": "concept",
+    "attributes": {
+      "category": "Datenbanken",
+      "definition": "Eigenschaft, nach der eine Folge von Operationen entweder vollständig oder gar nicht ausgeführt wird, ohne sichtbaren Zwischenzustand"
+    },
+    "funFact": "Atomarität ist das 'A' in ACID und sorgt dafür, dass eine Datenbanktransaktion bei einem Fehler komplett zurückgesetzt wird.",
+    "sourceName": "Wikipedia DE – ACID",
+    "sourceUrl": "https://de.wikipedia.org/wiki/ACID",
+    "verifyNote": "Standarddefinition aus Datenbank-Lehrbüchern (ACID)."
+  },
+  {
+    "id": "concept-consistency-h4",
+    "name": "Konsistenz (Datenbank)",
+    "category": "concept",
+    "attributes": {
+      "category": "Datenbanken",
+      "definition": "Eigenschaft, nach der eine Transaktion die Datenbank stets von einem gültigen Zustand in einen anderen gültigen Zustand überführt und alle Integritätsregeln wahrt"
+    },
+    "funFact": "Konsistenz ist das 'C' in ACID – verletzt eine Transaktion eine Integritätsbedingung, wird sie abgewiesen.",
+    "sourceName": "Wikipedia DE – ACID",
+    "sourceUrl": "https://de.wikipedia.org/wiki/ACID",
+    "verifyNote": "Standarddefinition aus Datenbank-Lehrbüchern (ACID)."
+  },
+  {
+    "id": "concept-durability-h4",
+    "name": "Dauerhaftigkeit (Persistenz)",
+    "category": "concept",
+    "attributes": {
+      "category": "Datenbanken",
+      "definition": "Eigenschaft, nach der die Ergebnisse einer erfolgreich abgeschlossenen Transaktion dauerhaft gespeichert bleiben, auch bei einem anschließenden Systemausfall"
+    },
+    "funFact": "Dauerhaftigkeit ist das 'D' in ACID und wird oft durch ein Write-Ahead-Log abgesichert, das Änderungen vor dem eigentlichen Schreiben protokolliert.",
+    "sourceName": "Wikipedia DE – ACID",
+    "sourceUrl": "https://de.wikipedia.org/wiki/ACID",
+    "verifyNote": "Standarddefinition aus Datenbank-Lehrbüchern (ACID)."
+  },
+  {
+    "id": "concept-isolation-h4",
+    "name": "Isolation (Transaktion)",
+    "category": "concept",
+    "attributes": {
+      "category": "Datenbanken",
+      "definition": "Eigenschaft, nach der gleichzeitig laufende Transaktionen sich gegenseitig nicht beeinflussen, sodass jede so wirkt, als liefe sie allein"
+    },
+    "funFact": "Isolation ist das 'I' in ACID; verschiedene Isolationsstufen wie 'Read Committed' oder 'Serializable' wägen Korrektheit gegen Geschwindigkeit ab.",
+    "sourceName": "Wikipedia DE – ACID",
+    "sourceUrl": "https://de.wikipedia.org/wiki/ACID",
+    "verifyNote": "Standarddefinition aus Datenbank-Lehrbüchern (ACID)."
+  },
+  {
+    "id": "concept-deserialization-h4",
+    "name": "Deserialisierung",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmierung",
+      "definition": "Umwandlung eines gespeicherten oder übertragenen Datenstroms zurück in ein Objekt oder eine Datenstruktur im Arbeitsspeicher"
+    },
+    "funFact": "Unsichere Deserialisierung gehört zu den OWASP-Top-10-Risiken, weil manipulierte Datenströme dabei Schadcode einschleusen können.",
+    "sourceName": "Wikipedia DE – Serialisierung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Serialisierung",
+    "verifyNote": "Standardbegriff, Umkehrung der Serialisierung."
+  },
+  {
+    "id": "concept-polling-h4",
+    "name": "Polling (Abfrage)",
+    "category": "concept",
+    "attributes": {
+      "category": "Systemtechnik",
+      "definition": "Wiederholtes, aktives Abfragen eines Geräts oder einer Ressource in festen Abständen, um deren Zustand oder neue Daten zu ermitteln"
+    },
+    "funFact": "Polling ist einfach umzusetzen, vergeudet aber Rechenzeit – der ereignisgesteuerte Gegenentwurf ist der Interrupt, der nur bei Bedarf meldet.",
+    "sourceName": "Wikipedia DE – Polling (Informatik)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Polling_(Informatik)",
+    "verifyNote": "Standardbegriff, Abgrenzung zum Interrupt."
+  },
+  {
+    "id": "concept-containerization-h4",
+    "name": "Containerisierung",
+    "category": "concept",
+    "attributes": {
+      "category": "Betriebssysteme",
+      "definition": "Methode, eine Anwendung samt ihrer Abhängigkeiten in einer isolierten, vom Host-Betriebssystem gemeinsam genutzten Laufzeitumgebung zu bündeln"
+    },
+    "funFact": "Container teilen sich den Kernel des Wirtssystems und sind dadurch deutlich leichtgewichtiger als vollständige virtuelle Maschinen – Docker machte das Verfahren 2013 populär.",
+    "sourceName": "Wikipedia DE – Containervirtualisierung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Containervirtualisierung",
+    "verifyNote": "Standardbegriff, Abgrenzung zur Virtualisierung."
+  },
+  {
+    "id": "concept-orchestration-h4",
+    "name": "Orchestrierung (Container)",
+    "category": "concept",
+    "attributes": {
+      "category": "Verteilte Systeme",
+      "definition": "Automatisierte Verwaltung, Verteilung, Skalierung und Überwachung vieler Container über mehrere Rechner hinweg"
+    },
+    "funFact": "Das bekannteste Orchestrierungssystem ist Kubernetes, dessen Kürzel 'K8s' für die acht Buchstaben zwischen K und s steht.",
+    "sourceName": "Wikipedia DE – Kubernetes",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Kubernetes",
+    "verifyNote": "Standardbegriff der Container-Verwaltung."
+  },
+  {
+    "id": "concept-long-polling-h4",
+    "name": "Long Polling",
+    "category": "concept",
+    "attributes": {
+      "category": "Netzwerk",
+      "definition": "Technik, bei der ein Server eine HTTP-Anfrage des Clients absichtlich offen hält, bis neue Daten vorliegen, um Echtzeit-Updates zu simulieren"
+    },
+    "funFact": "Long Polling diente vor der Verbreitung von WebSockets als gängiger Trick, um serverseitige Ereignisse möglichst zeitnah an den Browser zu schicken.",
+    "sourceName": "Wikipedia EN – Push technology",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Push_technology#Long_polling",
+    "verifyNote": "Standardtechnik, Abgrenzung zu WebSocket/SSE."
+  },
+  {
+    "id": "concept-message-broker-h4",
+    "name": "Message Broker",
+    "category": "concept",
+    "attributes": {
+      "category": "Verteilte Systeme",
+      "definition": "Vermittlungsdienst, der Nachrichten zwischen Sendern und Empfängern entkoppelt entgegennimmt, zwischenspeichert und an die passenden Abnehmer weiterleitet"
+    },
+    "funFact": "Bekannte Message Broker wie RabbitMQ oder Apache Kafka entkoppeln Dienste zeitlich, sodass ein Empfänger Nachrichten auch dann erhält, wenn er kurz offline war.",
+    "sourceName": "Wikipedia EN – Message broker",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Message_broker",
+    "verifyNote": "Standardbegriff verteilter Systeme."
+  },
+  {
+    "id": "concept-rate-limiting-h4",
+    "name": "Token-Bucket",
+    "category": "concept",
+    "attributes": {
+      "category": "Netzwerk",
+      "definition": "Verfahren zur Durchsatzbegrenzung, bei dem für jede Aktion ein Token aus einem mit konstanter Rate aufgefüllten Eimer entnommen werden muss"
+    },
+    "funFact": "Der Token-Bucket-Algorithmus erlaubt kurze Lastspitzen bis zur Eimergröße, während er den Durchschnittsdurchsatz langfristig deckelt – ein Klassiker für API-Rate-Limiting.",
+    "sourceName": "Wikipedia DE – Token Bucket",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Token_Bucket",
+    "verifyNote": "Standardalgorithmus zur Ratenbegrenzung."
+  },
+  {
+    "id": "concept-idempotency-key-h4",
+    "name": "Optimistische Sperre",
+    "category": "concept",
+    "attributes": {
+      "category": "Datenbanken",
+      "definition": "Verfahren der Nebenläufigkeitskontrolle, das Daten beim Lesen nicht sperrt, sondern erst beim Schreiben prüft, ob sie zwischenzeitlich verändert wurden"
+    },
+    "funFact": "Die optimistische Sperre nutzt oft eine Versionsnummer; stimmt sie beim Speichern nicht mehr, wird der Schreibvorgang abgewiesen statt blockiert.",
+    "sourceName": "Wikipedia DE – Optimistic Concurrency",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Optimistic_Concurrency",
+    "verifyNote": "Standardbegriff der Nebenläufigkeitskontrolle."
+  },
+  {
+    "id": "concept-cap-availability-h4",
+    "name": "Idempotenter Endpunkt",
+    "category": "concept",
+    "attributes": {
+      "category": "Webtechnik",
+      "definition": "Schnittstellenaufruf, dessen mehrfache Ausführung mit denselben Daten denselben Zustand erzeugt wie ein einmaliger Aufruf"
+    },
+    "funFact": "In REST gelten GET, PUT und DELETE als idempotent, POST dagegen nicht – deshalb können Retries bei PUT gefahrlos wiederholt werden.",
+    "sourceName": "MDN – HTTP-Methoden (Idempotent)",
+    "sourceUrl": "https://developer.mozilla.org/de/docs/Glossary/Idempotent",
+    "verifyNote": "Standarddefinition laut HTTP-Semantik (RFC 9110)."
+  },
+  {
+    "id": "concept-graceful-shutdown-h4",
+    "name": "Graceful Shutdown",
+    "category": "concept",
+    "attributes": {
+      "category": "Systemtechnik",
+      "definition": "Geordnetes Herunterfahren eines Dienstes, bei dem laufende Aufgaben abgeschlossen und Ressourcen freigegeben werden, bevor der Prozess endet"
+    },
+    "funFact": "Unter Unix signalisiert SIGTERM einen Graceful Shutdown, während SIGKILL einen Prozess sofort und ohne Aufräumen beendet.",
+    "sourceName": "Wikipedia EN – Signal (IPC)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Signal_(IPC)",
+    "verifyNote": "Standardbegriff der Prozessverwaltung."
+  },
+  {
+    "id": "concept-blue-green-h4",
+    "name": "Blue-Green-Deployment",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwareentwicklung",
+      "definition": "Veröffentlichungsstrategie mit zwei identischen Produktivumgebungen, bei der der Verkehr nach erfolgreichem Test schlagartig von der alten auf die neue Umgebung umgeschaltet wird"
+    },
+    "funFact": "Beim Blue-Green-Deployment lässt sich im Fehlerfall sofort auf die alte 'blaue' Umgebung zurückschalten, was die Ausfallzeit minimiert.",
+    "sourceName": "Wikipedia EN – Blue-green deployment",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Blue-green_deployment",
+    "verifyNote": "Standardbegriff aus DevOps/CD."
+  },
+  {
+    "id": "concept-canary-h4",
+    "name": "Canary-Release",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwareentwicklung",
+      "definition": "Stufenweise Veröffentlichung, bei der eine neue Version zunächst nur an einen kleinen Teil der Nutzer ausgeliefert wird, um Probleme früh zu erkennen"
+    },
+    "funFact": "Der Name spielt auf die Kanarienvögel an, die früher in Kohlebergwerken vor giftigen Gasen warnten.",
+    "sourceName": "Wikipedia EN – Feature toggle (Canary release)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Feature_toggle",
+    "verifyNote": "Standardbegriff schrittweiser Rollouts."
+  },
+  {
+    "id": "concept-eventual-vs-strong-h4",
+    "name": "Starke Konsistenz",
+    "category": "concept",
+    "attributes": {
+      "category": "Verteilte Systeme",
+      "definition": "Konsistenzmodell, bei dem nach einem Schreibvorgang jeder folgende Lesezugriff garantiert den aktuellsten Wert zurückliefert"
+    },
+    "funFact": "Starke Konsistenz ist der Gegenpol zur Eventual Consistency; das CAP-Theorem zwingt verteilte Systeme bei Netzpartitionen zu einer Wahl zwischen Konsistenz und Verfügbarkeit.",
+    "sourceName": "Wikipedia EN – Strong consistency",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Strong_consistency",
+    "verifyNote": "Standardbegriff verteilter Systeme."
+  },
+  {
+    "id": "concept-shadow-dom-h4",
+    "name": "Shadow DOM",
+    "category": "concept",
+    "attributes": {
+      "category": "Webtechnik",
+      "definition": "Web-Standard, der einem Element einen gekapselten, eigenen DOM-Teilbaum samt isoliertem Styling zuordnet, getrennt vom übrigen Dokument"
+    },
+    "funFact": "Das Shadow DOM ist die Grundlage von Web Components und verhindert, dass das CSS einer Komponente unbeabsichtigt den Rest der Seite beeinflusst.",
+    "sourceName": "MDN – Shadow DOM",
+    "sourceUrl": "https://developer.mozilla.org/de/docs/Web/API/Web_components/Using_shadow_DOM",
+    "verifyNote": "Standardbegriff laut MDN/Web-Components."
+  },
+  {
+    "id": "concept-virtual-dom-h4",
+    "name": "Virtuelles DOM",
+    "category": "concept",
+    "attributes": {
+      "category": "Webtechnik",
+      "definition": "Im Speicher gehaltene Abbildung der Benutzeroberfläche, die mit einer neuen Fassung verglichen wird, um nur die tatsächlich geänderten Teile im echten DOM zu aktualisieren"
+    },
+    "funFact": "Das virtuelle DOM wurde durch React populär und beschleunigt Aktualisierungen, indem teure direkte Zugriffe auf das echte DOM minimiert werden.",
+    "sourceName": "Wikipedia EN – React (Virtual DOM)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/React_(software)",
+    "verifyNote": "Standardbegriff moderner Frontend-Frameworks."
+  },
+  {
+    "id": "concept-tree-shaking-h4",
+    "name": "Tree Shaking",
+    "category": "concept",
+    "attributes": {
+      "category": "Webtechnik",
+      "definition": "Verfahren beim Bündeln von Code, das ungenutzte Module und Funktionen anhand statischer Analyse entfernt, um die Auslieferungsgröße zu verringern"
+    },
+    "funFact": "Tree Shaking funktioniert dank der statisch analysierbaren Import-Struktur von ES-Modulen, weshalb tote Code-Pfade zuverlässig 'abgeschüttelt' werden können.",
+    "sourceName": "MDN – Tree shaking",
+    "sourceUrl": "https://developer.mozilla.org/de/docs/Glossary/Tree_shaking",
+    "verifyNote": "Standardbegriff laut MDN-Glossar."
+  },
+  {
+    "id": "concept-hot-reload-h4",
+    "name": "Hot Reloading",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwareentwicklung",
+      "definition": "Entwicklungstechnik, bei der Codeänderungen sofort in die laufende Anwendung übernommen werden, ohne sie komplett neu zu starten oder den Zustand zu verlieren"
+    },
+    "funFact": "Hot Reloading verkürzt die Rückmeldeschleife beim Entwickeln drastisch, da man Änderungen unmittelbar sieht, ohne durch die App neu navigieren zu müssen.",
+    "sourceName": "Wikipedia EN – Hot swapping (software)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Hot_swapping",
+    "verifyNote": "Standardbegriff moderner Entwicklungswerkzeuge."
+  },
+  {
+    "id": "concept-data-binding-h4",
+    "name": "Datenbindung",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwareentwicklung",
+      "definition": "Automatische Synchronisation zwischen einer Datenquelle und ihrer Darstellung in der Benutzeroberfläche, sodass Änderungen beidseitig übernommen werden"
+    },
+    "funFact": "Bei der Zwei-Wege-Datenbindung aktualisiert eine Eingabe im Formular sofort das zugrunde liegende Modell und umgekehrt – ein Kernkonzept von Frameworks wie Angular und Vue.",
+    "sourceName": "Wikipedia EN – Data binding",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Data_binding",
+    "verifyNote": "Standardbegriff der UI-Entwicklung."
+  },
+  {
+    "id": "concept-reflection-h4",
+    "name": "Reflexion (Programmierung)",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmierung",
+      "definition": "Fähigkeit eines Programms, zur Laufzeit seine eigene Struktur wie Klassen, Methoden und Felder zu untersuchen und zu verändern"
+    },
+    "funFact": "Reflexion ermöglicht mächtige Frameworks, ist aber langsamer als direkter Code und kann statische Sicherheitsprüfungen des Compilers umgehen.",
+    "sourceName": "Wikipedia DE – Reflexion (Programmierung)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Reflexion_(Programmierung)",
+    "verifyNote": "Standardbegriff der Programmiersprachen."
+  },
+  {
+    "id": "concept-annotation-h4",
+    "name": "Annotation (Metadaten)",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmierung",
+      "definition": "Im Quellcode notierte Metadaten, die Klassen, Methoden oder Variablen zusätzliche Informationen für Compiler, Werkzeuge oder Laufzeitumgebung zuordnen"
+    },
+    "funFact": "Annotationen wie '@Override' in Java oder Decorators in Python beeinflussen oft nicht das Verhalten direkt, sondern werden von Frameworks per Reflexion ausgewertet.",
+    "sourceName": "Wikipedia EN – Java annotation",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Java_annotation",
+    "verifyNote": "Standardbegriff der Programmiersprachen."
+  },
+  {
+    "id": "concept-generics-h4",
+    "name": "Generische Programmierung",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmiersprachen",
+      "definition": "Schreibweise von Code mit Typ-Platzhaltern, sodass dieselbe Logik typsicher für verschiedene Datentypen wiederverwendet werden kann"
+    },
+    "funFact": "Generics erlauben etwa eine Liste, die wahlweise Zahlen oder Texte typsicher hält, ohne den Code zu duplizieren – in C++ heißt das Konzept Templates.",
+    "sourceName": "Wikipedia DE – Generische Programmierung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Generische_Programmierung",
+    "verifyNote": "Standardbegriff der Programmiersprachen."
+  },
+  {
+    "id": "concept-iterator-h4",
+    "name": "Iterator",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmierung",
+      "definition": "Objekt, das die Elemente einer Sammlung der Reihe nach zugänglich macht, ohne deren interne Struktur offenzulegen"
+    },
+    "funFact": "Iteratoren sind die Grundlage der 'for-each'-Schleifen vieler Sprachen; ein Generator ist eine spezielle Form, die Werte erst bei Bedarf erzeugt.",
+    "sourceName": "Wikipedia DE – Iterator",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Iterator",
+    "verifyNote": "Standardbegriff, Entwurfsmuster (GoF)."
+  },
+  {
+    "id": "concept-generator-h4",
+    "name": "Generator (Programmierung)",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmierung",
+      "definition": "Spezielle Funktion, die ihre Ausführung an Yield-Punkten unterbricht und nacheinander Werte liefert, statt alle auf einmal zu berechnen"
+    },
+    "funFact": "Generatoren ermöglichen das Verarbeiten potenziell unendlicher Datenströme, da sie Werte verzögert (lazy) erst bei der Abfrage erzeugen.",
+    "sourceName": "Wikipedia EN – Generator (computer programming)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Generator_(computer_programming)",
+    "verifyNote": "Standardbegriff der Programmiersprachen."
+  },
+  {
+    "id": "concept-promise-h4",
+    "name": "Promise (Future)",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmierung",
+      "definition": "Platzhalterobjekt für ein Ergebnis, das erst in der Zukunft verfügbar wird und das Weiterarbeiten ermöglicht, ohne auf den Abschluss zu warten"
+    },
+    "funFact": "Ein Promise kann die Zustände 'pending', 'fulfilled' oder 'rejected' annehmen und ist die Grundlage der modernen asynchronen Programmierung in JavaScript.",
+    "sourceName": "MDN – Promise",
+    "sourceUrl": "https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+    "verifyNote": "Standardbegriff der asynchronen Programmierung."
+  },
+  {
+    "id": "concept-thread-pool-h4",
+    "name": "Thread-Pool",
+    "category": "concept",
+    "attributes": {
+      "category": "Nebenläufigkeit",
+      "definition": "Vorrat bereits erzeugter Threads, die wiederverwendet werden, um anfallende Aufgaben abzuarbeiten, statt für jede Aufgabe einen neuen Thread zu starten"
+    },
+    "funFact": "Thread-Pools vermeiden den teuren Mehraufwand ständiger Thread-Erzeugung und begrenzen zugleich die Zahl gleichzeitig laufender Aufgaben.",
+    "sourceName": "Wikipedia DE – Thread Pool",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Thread_Pool",
+    "verifyNote": "Standardbegriff der Nebenläufigkeit."
+  },
+  {
+    "id": "concept-connection-pool-h4",
+    "name": "Connection-Pool",
+    "category": "concept",
+    "attributes": {
+      "category": "Datenbanken",
+      "definition": "Vorrat offen gehaltener Datenbankverbindungen, die wiederverwendet werden, um den teuren Auf- und Abbau bei jeder Anfrage zu vermeiden"
+    },
+    "funFact": "Das Aufbauen einer Datenbankverbindung ist vergleichsweise langsam; ein Connection-Pool steigert daher den Durchsatz vielbesuchter Anwendungen erheblich.",
+    "sourceName": "Wikipedia EN – Connection pool",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Connection_pool",
+    "verifyNote": "Standardbegriff der Datenbankanbindung."
+  },
+  {
+    "id": "concept-foreign-key-h4",
+    "name": "Fremdschlüssel",
+    "category": "concept",
+    "attributes": {
+      "category": "Datenbanken",
+      "definition": "Attribut in einer Datenbanktabelle, das auf den Primärschlüssel einer anderen Tabelle verweist und so eine Beziehung zwischen beiden herstellt"
+    },
+    "funFact": "Fremdschlüssel sichern die referenzielle Integrität: Die Datenbank verhindert, dass ein Datensatz verweist, dessen Ziel gar nicht existiert.",
+    "sourceName": "Wikipedia DE – Fremdschlüssel",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Fremdschl%C3%BCssel",
+    "verifyNote": "Standardbegriff relationaler Datenbanken."
+  },
+  {
+    "id": "concept-primary-key-h4",
+    "name": "Primärschlüssel",
+    "category": "concept",
+    "attributes": {
+      "category": "Datenbanken",
+      "definition": "Attribut oder Attributkombination, die jeden Datensatz einer Tabelle eindeutig identifiziert und nicht leer sein darf"
+    },
+    "funFact": "Jede Tabelle einer relationalen Datenbank sollte genau einen Primärschlüssel haben; oft dient dafür eine künstlich erzeugte fortlaufende ID.",
+    "sourceName": "Wikipedia DE – Schlüssel (Datenbank)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Schl%C3%BCssel_(Datenbank)",
+    "verifyNote": "Standardbegriff relationaler Datenbanken."
+  },
+  {
+    "id": "concept-stored-procedure-h4",
+    "name": "Gespeicherte Prozedur",
+    "category": "concept",
+    "attributes": {
+      "category": "Datenbanken",
+      "definition": "In der Datenbank abgelegte und dort ausgeführte Folge von SQL-Befehlen, die als benannte Einheit aufgerufen werden kann"
+    },
+    "funFact": "Gespeicherte Prozeduren laufen direkt im Datenbankserver und sparen so Netzwerk-Roundtrips, binden die Logik aber stärker an das jeweilige Datenbanksystem.",
+    "sourceName": "Wikipedia DE – Gespeicherte Prozedur",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Gespeicherte_Prozedur",
+    "verifyNote": "Standardbegriff relationaler Datenbanken."
+  },
+  {
+    "id": "concept-database-view-h4",
+    "name": "Datenbanksicht (View)",
+    "category": "concept",
+    "attributes": {
+      "category": "Datenbanken",
+      "definition": "Benannte, gespeicherte Abfrage, die sich wie eine virtuelle Tabelle verhält, ihre Daten aber dynamisch aus zugrunde liegenden Tabellen bezieht"
+    },
+    "funFact": "Eine Sicht speichert keine eigenen Daten, sondern bündelt eine wiederkehrende Abfrage; eine 'materialisierte Sicht' hält das Ergebnis dagegen physisch vor.",
+    "sourceName": "Wikipedia DE – Sicht (Datenbank)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Sicht_(Datenbank)",
+    "verifyNote": "Standardbegriff relationaler Datenbanken."
+  },
+  {
+    "id": "concept-orm-mapping-h4",
+    "name": "Objektrelationale Abbildung",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwarearchitektur",
+      "definition": "Technik, die Objekte einer Programmiersprache automatisch auf Zeilen relationaler Datenbanktabellen abbildet und umgekehrt"
+    },
+    "funFact": "Die Diskrepanz zwischen Objektmodell und Tabellenmodell nennt man 'Object-Relational Impedance Mismatch' – genau diese Lücke schließen ORM-Werkzeuge wie Hibernate.",
+    "sourceName": "Wikipedia DE – Objektrelationale Abbildung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Objektrelationale_Abbildung",
+    "verifyNote": "Standardbegriff der Softwarearchitektur."
+  },
+  {
+    "id": "concept-mvc-pattern-h4",
+    "name": "Model-View-Controller",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwarearchitektur",
+      "definition": "Architekturmuster, das eine Anwendung in Datenmodell, Darstellung und Steuerungslogik aufteilt, um diese unabhängig voneinander zu entwickeln"
+    },
+    "funFact": "MVC wurde bereits in den 1970er-Jahren für die Sprache Smalltalk entworfen und prägt bis heute zahlreiche Web-Frameworks.",
+    "sourceName": "Wikipedia DE – Model View Controller",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Model_View_Controller",
+    "verifyNote": "Standardbegriff der Softwarearchitektur."
+  },
+  {
+    "id": "concept-singleton-h4",
+    "name": "Singleton (Entwurfsmuster)",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwarearchitektur",
+      "definition": "Entwurfsmuster, das sicherstellt, dass von einer Klasse nur eine einzige Instanz existiert, und einen globalen Zugriffspunkt darauf bietet"
+    },
+    "funFact": "Das Singleton zählt zu den GoF-Mustern, gilt heute aber oft als Anti-Pattern, weil es verstecktem globalem Zustand Vorschub leistet und Tests erschwert.",
+    "sourceName": "Wikipedia DE – Singleton (Entwurfsmuster)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Singleton_(Entwurfsmuster)",
+    "verifyNote": "Standardbegriff, GoF-Entwurfsmuster."
+  },
+  {
+    "id": "concept-observer-h4",
+    "name": "Beobachter (Entwurfsmuster)",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwarearchitektur",
+      "definition": "Entwurfsmuster, bei dem ein Objekt eine Liste abhängiger Objekte führt und sie bei Zustandsänderungen automatisch benachrichtigt"
+    },
+    "funFact": "Das Beobachter-Muster ist die konzeptionelle Grundlage von Event-Systemen und dem Publish-Subscribe-Ansatz vieler Benutzeroberflächen.",
+    "sourceName": "Wikipedia DE – Beobachter (Entwurfsmuster)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Beobachter_(Entwurfsmuster)",
+    "verifyNote": "Standardbegriff, GoF-Entwurfsmuster."
+  },
+  {
+    "id": "concept-factory-h4",
+    "name": "Fabrikmethode (Entwurfsmuster)",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwarearchitektur",
+      "definition": "Entwurfsmuster, das die Objekterzeugung an eine eigene Methode auslagert, damit Unterklassen entscheiden können, welche konkrete Klasse erzeugt wird"
+    },
+    "funFact": "Die Fabrikmethode entkoppelt den aufrufenden Code von konkreten Klassen, sodass neue Varianten ergänzt werden können, ohne bestehenden Code zu ändern.",
+    "sourceName": "Wikipedia DE – Fabrikmethode",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Fabrikmethode",
+    "verifyNote": "Standardbegriff, GoF-Entwurfsmuster."
+  },
+  {
+    "id": "concept-adapter-h4",
+    "name": "Adapter (Entwurfsmuster)",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwarearchitektur",
+      "definition": "Entwurfsmuster, das die Schnittstelle einer Klasse in eine andere, vom Aufrufer erwartete Schnittstelle übersetzt, damit inkompatible Klassen zusammenarbeiten"
+    },
+    "funFact": "Das Adapter-Muster funktioniert wie ein Reisestecker-Adapter: Es passt vorhandene Komponenten an, ohne deren inneren Code zu verändern.",
+    "sourceName": "Wikipedia DE – Adapter (Entwurfsmuster)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Adapter_(Entwurfsmuster)",
+    "verifyNote": "Standardbegriff, GoF-Entwurfsmuster."
+  },
+  {
+    "id": "concept-inversion-of-control-h4",
+    "name": "Steuerungsumkehr (IoC)",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwarearchitektur",
+      "definition": "Entwurfsprinzip, bei dem ein Framework den Kontrollfluss übernimmt und den anwendungsspezifischen Code zu passenden Zeitpunkten aufruft, statt umgekehrt"
+    },
+    "funFact": "Steuerungsumkehr wird auch 'Hollywood-Prinzip' genannt: 'Ruf uns nicht an, wir rufen dich an' – Dependency Injection ist eine konkrete Ausprägung davon.",
+    "sourceName": "Wikipedia DE – Inversion of Control",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Inversion_of_Control",
+    "verifyNote": "Standardbegriff der Softwarearchitektur."
+  },
+  {
+    "id": "concept-mutation-testing-h4",
+    "name": "Mutationstest",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwaretechnik",
+      "definition": "Testverfahren, das absichtlich kleine Fehler in den Code einschleust, um zu prüfen, ob die vorhandenen Tests diese Veränderungen erkennen"
+    },
+    "funFact": "Bleibt ein Testlauf trotz eingebauter 'Mutation' grün, deckt die Testsuite diese Stelle nicht ab – Mutationstests messen so die echte Aussagekraft von Tests.",
+    "sourceName": "Wikipedia DE – Mutationstest",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Mutationstest",
+    "verifyNote": "Standardbegriff der Softwaretechnik."
+  },
+  {
+    "id": "concept-code-coverage-h4",
+    "name": "Testabdeckung",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwaretechnik",
+      "definition": "Maß dafür, welcher Anteil des Quellcodes durch automatisierte Tests tatsächlich ausgeführt wird"
+    },
+    "funFact": "Eine hohe Testabdeckung garantiert keine fehlerfreien Tests – sie zeigt nur, welcher Code ausgeführt, nicht ob sein Verhalten sinnvoll geprüft wurde.",
+    "sourceName": "Wikipedia DE – Testabdeckung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Testabdeckung",
+    "verifyNote": "Standardbegriff der Softwaretechnik."
+  },
+  {
+    "id": "concept-mocking-h4",
+    "name": "Mock-Objekt",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwaretechnik",
+      "definition": "Im Test eingesetztes Ersatzobjekt, das eine echte Abhängigkeit nachbildet, um eine Komponente isoliert und vorhersehbar prüfen zu können"
+    },
+    "funFact": "Mit Mocks lassen sich langsame oder unzuverlässige Abhängigkeiten wie Netzwerk und Datenbank im Unit-Test durch kontrollierte Attrappen ersetzen.",
+    "sourceName": "Wikipedia DE – Mock-Objekt",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Mock-Objekt",
+    "verifyNote": "Standardbegriff der Softwaretechnik."
+  },
+  {
+    "id": "concept-feature-branch-h4",
+    "name": "Feature-Branch",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwareentwicklung",
+      "definition": "Eigener Entwicklungszweig in der Versionsverwaltung, in dem eine Funktion isoliert entwickelt und erst nach Fertigstellung in den Hauptzweig zusammengeführt wird"
+    },
+    "funFact": "Feature-Branches halten unfertige Arbeit vom stabilen Hauptzweig fern; der konkurrierende Ansatz 'Trunk-Based Development' setzt dagegen auf sehr kurzlebige Zweige.",
+    "sourceName": "Wikipedia EN – Branching (version control)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Branching_(version_control)",
+    "verifyNote": "Standardbegriff der Versionsverwaltung."
+  },
+  {
+    "id": "concept-merge-conflict-h4",
+    "name": "Merge-Konflikt",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwareentwicklung",
+      "definition": "Situation beim Zusammenführen zweier Entwicklungszweige, in der dieselbe Stelle unterschiedlich geändert wurde und die Versionsverwaltung nicht automatisch entscheiden kann"
+    },
+    "funFact": "Bei einem Merge-Konflikt markiert Git die strittigen Stellen im Code und überlässt die endgültige Auflösung dem Entwickler.",
+    "sourceName": "Wikipedia EN – Merge (version control)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Merge_(version_control)",
+    "verifyNote": "Standardbegriff der Versionsverwaltung."
+  },
+  {
+    "id": "concept-semantic-versioning-h4",
+    "name": "Semantische Versionierung",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwareentwicklung",
+      "definition": "Konvention, Versionsnummern nach dem Schema Major.Minor.Patch zu vergeben, um Art und Tragweite von Änderungen erkennbar zu machen"
+    },
+    "funFact": "Nach der Regel von Semantic Versioning signalisiert eine erhöhte Major-Nummer eine inkompatible Änderung, eine Minor-Nummer neue abwärtskompatible Funktionen.",
+    "sourceName": "Semantic Versioning – Spezifikation",
+    "sourceUrl": "https://semver.org/lang/de/",
+    "verifyNote": "Vollständige Regel laut SemVer-Spezifikation."
+  }
+]

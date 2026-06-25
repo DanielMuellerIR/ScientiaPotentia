@@ -1,0 +1,703 @@
+[
+  {
+    "id": "network_protocol-esp-h4",
+    "name": "ESP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Encapsulating Security Payload",
+      "layer": "Vermittlungsschicht",
+      "transport": "IP",
+      "purpose": "Verschlüsselt und authentifiziert IP-Pakete innerhalb von IPsec-VPNs"
+    },
+    "funFact": "ESP nutzt die eigene IP-Protokollnummer 50 und nicht TCP oder UDP, weshalb es von einfachen NAT-Routern oft blockiert wird.",
+    "sourceName": "RFC 4303 – IP Encapsulating Security Payload",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc4303",
+    "verifyNote": "IP-Protokollnummer 50 und ESP-Funktion gemäß RFC 4303 und IANA Protocol Numbers."
+  },
+  {
+    "id": "network_protocol-ah-h4",
+    "name": "AH",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Authentication Header",
+      "layer": "Vermittlungsschicht",
+      "transport": "IP",
+      "purpose": "Sichert die Integrität und Authentizität von IP-Paketen ohne Verschlüsselung"
+    },
+    "funFact": "AH schützt im Gegensatz zu ESP auch Teile des IP-Headers, scheitert aber genau dadurch an NAT, weil NAT diese Felder verändert.",
+    "sourceName": "RFC 4302 – IP Authentication Header",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc4302",
+    "verifyNote": "IP-Protokollnummer 51 und Integritätsschutz ohne Verschlüsselung gemäß RFC 4302."
+  },
+  {
+    "id": "network_protocol-igrp-h4",
+    "name": "IGRP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Interior Gateway Routing Protocol",
+      "layer": "Vermittlungsschicht",
+      "transport": "IP",
+      "purpose": "Cisco-eigenes Distanzvektor-Routingprotokoll, Vorläufer von EIGRP"
+    },
+    "funFact": "IGRP nutzt die IP-Protokollnummer 9 und wurde von Cisco entwickelt, um die Hop-Count-Grenze von RIP zu überwinden.",
+    "sourceName": "IANA – Protocol Numbers",
+    "sourceUrl": "https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml",
+    "verifyNote": "IP-Protokollnummer 9 für IGRP gemäß IANA Protocol Numbers Registry."
+  },
+  {
+    "id": "network_protocol-radmin-isakmp-h4",
+    "name": "ISAKMP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Internet Security Association and Key Management Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 500,
+      "purpose": "Aushandlung von Sicherheitsbeziehungen und Schlüsseln für IPsec (IKE)"
+    },
+    "funFact": "ISAKMP bildet das Rahmenwerk für IKE und läuft auf UDP-Port 500, der typische Startpunkt jeder IPsec-VPN-Verhandlung.",
+    "sourceName": "RFC 7296 – Internet Key Exchange Protocol Version 2",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc7296",
+    "verifyNote": "UDP-Port 500 für IKE/ISAKMP gemäß IANA Service Name and Port Registry."
+  },
+  {
+    "id": "network_protocol-snmp-inform-h4",
+    "name": "RDAP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Registration Data Access Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 443,
+      "purpose": "Abfrage von Domain- und IP-Registrierungsdaten über eine HTTPS-REST-Schnittstelle"
+    },
+    "funFact": "RDAP löst das alte textbasierte WHOIS-Protokoll ab und liefert die Antworten als strukturiertes JSON statt als Freitext.",
+    "sourceName": "RFC 7482 – Registration Data Access Protocol (RDAP) Query Format",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc7482",
+    "verifyNote": "RDAP über HTTPS (Port 443) gemäß RFC 7480 und RFC 7482."
+  },
+  {
+    "id": "network_protocol-smb-direct-h4",
+    "name": "CIFS",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Common Internet File System",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 445,
+      "purpose": "Netzwerkdateifreigabe unter Windows, der historische Name des SMB-Dialekts"
+    },
+    "funFact": "CIFS ist eigentlich nur ein alter Markenname für SMB 1.0, weshalb beim Einbinden von Windows-Freigaben unter Linux oft mount.cifs heißt.",
+    "sourceName": "Microsoft – CIFS/SMB Technical Reference",
+    "sourceUrl": "https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-cifs/d416ff7c-c536-406e-a951-4f04b2fd1d2b",
+    "verifyNote": "TCP-Port 445 für SMB/CIFS Direct Hosting gemäß Microsoft-Spezifikation und IANA."
+  },
+  {
+    "id": "network_protocol-ldap-gc-h4",
+    "name": "WebFinger",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "WebFinger",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 443,
+      "purpose": "Auffinden von Informationen über Personen oder Entitäten anhand einer URI"
+    },
+    "funFact": "WebFinger ermöglicht es im Fediverse (z.B. Mastodon), Benutzer über eine E-Mail-ähnliche Adresse wie @name@server zu finden.",
+    "sourceName": "RFC 7033 – WebFinger",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc7033",
+    "verifyNote": "WebFinger nutzt HTTPS (Port 443) am festen Pfad /.well-known/webfinger gemäß RFC 7033."
+  },
+  {
+    "id": "network_protocol-tcp-bbr-h4",
+    "name": "SPDY",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "SPDY",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 443,
+      "purpose": "Von Google entwickeltes Protokoll zur Beschleunigung von HTTP, Vorläufer von HTTP/2"
+    },
+    "funFact": "SPDY führte Multiplexing und Header-Kompression ein und floss direkt in den HTTP/2-Standard ein, woraufhin Google es 2016 einstellte.",
+    "sourceName": "Chromium Blog – A QUICk update on Googles transport",
+    "sourceUrl": "https://blog.chromium.org/2016/02/transitioning-from-spdy-to-http2.html",
+    "verifyNote": "SPDY lief über TLS auf Port 443 und wurde 2016 zugunsten von HTTP/2 abgeschaltet."
+  },
+  {
+    "id": "network_protocol-quic-h4",
+    "name": "ACME",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Automatic Certificate Management Environment",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 443,
+      "purpose": "Automatisierte Ausstellung und Erneuerung von TLS-Zertifikaten"
+    },
+    "funFact": "ACME ist das Protokoll hinter Lets Encrypt und automatisiert die Zertifikatsausstellung, die früher Tage und Geld kostete.",
+    "sourceName": "RFC 8555 – Automatic Certificate Management Environment (ACME)",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc8555",
+    "verifyNote": "ACME läuft als HTTPS-basiertes API-Protokoll über Port 443 gemäß RFC 8555."
+  },
+  {
+    "id": "network_protocol-sieve-h4",
+    "name": "NTPv4",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Network Time Protocol Version 4",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 123,
+      "purpose": "Hochpräzise Zeitsynchronisation von Computern über das Internet"
+    },
+    "funFact": "NTP kann die Uhren über das Internet auf wenige Millisekunden genau halten, in lokalen Netzen sogar im Mikrosekundenbereich.",
+    "sourceName": "RFC 5905 – Network Time Protocol Version 4",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc5905",
+    "verifyNote": "UDP-Port 123 und Zeitsynchronisations-Funktion gemäß RFC 5905."
+  },
+  {
+    "id": "network_protocol-stomp-h4",
+    "name": "STOMP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Simple Text Oriented Messaging Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 61613,
+      "purpose": "Einfaches textbasiertes Protokoll für Nachrichten-Broker und Message Queues"
+    },
+    "funFact": "STOMP ist bewusst so simpel gehalten, dass man einen Client per Telnet von Hand bedienen kann, ähnlich wie bei HTTP.",
+    "sourceName": "STOMP Protocol Specification 1.2",
+    "sourceUrl": "https://stomp.github.io/stomp-specification-1.2.html",
+    "verifyNote": "STOMP ist textbasiert über TCP; Port 61613 ist die übliche Broker-Konvention (z.B. ActiveMQ)."
+  },
+  {
+    "id": "network_protocol-graphite-h4",
+    "name": "WebSub",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "WebSub",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 443,
+      "purpose": "Publish-Subscribe-Benachrichtigungen über HTTP-Webhooks statt Polling"
+    },
+    "funFact": "WebSub hieß früher PubSubHubbub und benachrichtigt Abonnenten von Feeds in Echtzeit, statt sie ständig nachfragen zu lassen.",
+    "sourceName": "W3C – WebSub Recommendation",
+    "sourceUrl": "https://www.w3.org/TR/websub/",
+    "verifyNote": "WebSub nutzt HTTP/HTTPS-Webhooks (Port 443) gemäß W3C-Recommendation."
+  },
+  {
+    "id": "network_protocol-grpc-web-h4",
+    "name": "Thrift",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Apache Thrift",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "purpose": "Sprachübergreifendes RPC-Framework mit kompaktem Binärprotokoll"
+    },
+    "funFact": "Thrift wurde ursprünglich bei Facebook entwickelt, um Dienste in C++, Java, Python und weiteren Sprachen nahtlos kommunizieren zu lassen.",
+    "sourceName": "Apache Thrift – Documentation",
+    "sourceUrl": "https://thrift.apache.org/docs/",
+    "verifyNote": "Thrift ist ein binäres RPC-Protokoll über TCP; offizielle Apache-Dokumentation."
+  },
+  {
+    "id": "network_protocol-msrp-relay-h4",
+    "name": "SOCKS5",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "SOCKS Protocol Version 5",
+      "layer": "Sitzungsschicht",
+      "transport": "TCP",
+      "defaultPort": 1080,
+      "purpose": "Allgemeiner Proxy zum Weiterleiten beliebiger TCP- und UDP-Verbindungen"
+    },
+    "funFact": "SOCKS5 arbeitet protokollunabhängig auf Verbindungsebene und wird daher oft für Tor und für SSH-Tunnel genutzt.",
+    "sourceName": "RFC 1928 – SOCKS Protocol Version 5",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc1928",
+    "verifyNote": "SOCKS-Standardport 1080 und Proxy-Funktion gemäß RFC 1928."
+  },
+  {
+    "id": "network_protocol-ftp-data-h4",
+    "name": "BOOTP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Bootstrap Protocol Server",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 67,
+      "purpose": "Vergabe von IP-Adressen und Boot-Parametern beim Netzwerkstart von Geräten"
+    },
+    "funFact": "BOOTP war der Vorläufer von DHCP und teilte sich mit ihm die UDP-Ports 67 und 68, weshalb DHCP abwärtskompatibel zu BOOTP-Relays bleibt.",
+    "sourceName": "RFC 951 – Bootstrap Protocol (BOOTP)",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc951",
+    "verifyNote": "UDP-Port 67 (Server) gemäß RFC 951; DHCP baut auf BOOTP auf."
+  },
+  {
+    "id": "network_protocol-coap-observe-h4",
+    "name": "LwM2M",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Lightweight Machine-to-Machine",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 5683,
+      "purpose": "Geräteverwaltung und Datenübertragung für ressourcenarme IoT-Geräte"
+    },
+    "funFact": "LwM2M setzt auf CoAP auf und ermöglicht es, Millionen batteriebetriebener Sensoren über sehr sparsame Funkverbindungen zu verwalten.",
+    "sourceName": "OMA SpecWorks – Lightweight M2M",
+    "sourceUrl": "https://www.openmobilealliance.org/release/LightweightM2M/",
+    "verifyNote": "LwM2M nutzt CoAP über UDP-Port 5683 gemäß OMA-Spezifikation."
+  },
+  {
+    "id": "network_protocol-pop3-uidl-h4",
+    "name": "JMAP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "JSON Meta Application Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 443,
+      "purpose": "Moderner JSON-basierter Ersatz für IMAP zum Synchronisieren von E-Mails"
+    },
+    "funFact": "JMAP wurde von Fastmail entwickelt, um mobile E-Mail-Apps schneller und akkuschonender zu machen als das alte IMAP.",
+    "sourceName": "RFC 8620 – The JSON Meta Application Protocol (JMAP)",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc8620",
+    "verifyNote": "JMAP läuft über HTTPS (Port 443) gemäß RFC 8620 und RFC 8621."
+  },
+  {
+    "id": "network_protocol-mqtt-sn-h4",
+    "name": "AMQP-1.0",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Advanced Message Queuing Protocol 1.0",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 5671,
+      "purpose": "Standardisiertes Binärprotokoll für zuverlässige Nachrichtenübermittlung über TLS"
+    },
+    "funFact": "AMQP entstand aus dem Bedarf von Banken nach einem herstellerunabhängigen Messaging-Standard und ist heute ein OASIS- und ISO-Standard.",
+    "sourceName": "ISO/IEC 19464 – AMQP v1.0 Specification",
+    "sourceUrl": "https://www.amqp.org/resources/specifications",
+    "verifyNote": "AMQP über TLS nutzt IANA-Port 5671; Klartext-AMQP nutzt 5672."
+  },
+  {
+    "id": "network_protocol-ssh-sftp-subsystem-h4",
+    "name": "SCP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Secure Copy Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 22,
+      "purpose": "Verschlüsselte Dateiübertragung über eine bestehende SSH-Verbindung"
+    },
+    "funFact": "SCP nutzt denselben Port 22 wie SSH und gilt heute als veraltet, da OpenSSH die Übertragung intern auf SFTP umgestellt hat.",
+    "sourceName": "OpenSSH – scp Manual",
+    "sourceUrl": "https://man.openbsd.org/scp",
+    "verifyNote": "SCP tunnelt über SSH (Port 22) gemäß OpenSSH-Dokumentation."
+  },
+  {
+    "id": "network_protocol-srt-protokoll-h4",
+    "name": "SRT-Protokoll",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Secure Reliable Transport",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "purpose": "Verlustarme, latenzarme Übertragung von Live-Video über unzuverlässige Netze"
+    },
+    "funFact": "SRT wurde von Haivision entwickelt und ermöglicht störungsfreie Live-Übertragungen über das öffentliche Internet statt teurer Satellitenstrecken.",
+    "sourceName": "Haivision – SRT Protocol Overview",
+    "sourceUrl": "https://www.haivision.com/products/srt-secure-reliable-transport/",
+    "verifyNote": "SRT setzt auf UDP auf und fügt eigene Fehlerkorrektur und Verschlüsselung hinzu (Open-Source-Referenzimplementierung)."
+  },
+  {
+    "id": "network_protocol-dnscrypt-h4",
+    "name": "DNSCrypt",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "DNSCrypt",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "purpose": "Authentifizierung und Verschlüsselung von DNS-Anfragen zwischen Client und Resolver"
+    },
+    "funFact": "DNSCrypt war einer der ersten verbreiteten Wege, DNS-Anfragen vor dem Mitlesen durch Provider zu schützen, noch vor DoH und DoT.",
+    "sourceName": "DNSCrypt – Protocol Specification",
+    "sourceUrl": "https://dnscrypt.info/protocol/",
+    "verifyNote": "DNSCrypt verschlüsselt DNS über UDP/TCP, häufig auf Port 443; offizielle Protokollspezifikation."
+  },
+  {
+    "id": "network_protocol-sip-tls-h4",
+    "name": "SIPS",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Session Initiation Protocol Secure",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 5061,
+      "purpose": "Auf- und Abbau verschlüsselter VoIP- und Videoanrufe über TLS"
+    },
+    "funFact": "Während unverschlüsseltes SIP auf Port 5060 läuft, nutzt das TLS-gesicherte SIPS den benachbarten Port 5061.",
+    "sourceName": "RFC 3261 – SIP: Session Initiation Protocol",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc3261",
+    "verifyNote": "TLS-gesichertes SIP nutzt IANA-Port 5061 gemäß RFC 3261."
+  },
+  {
+    "id": "network_protocol-tacacs-h4",
+    "name": "Diameter-Base",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Diameter Base Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 3868,
+      "purpose": "Authentifizierung, Autorisierung und Abrechnung (AAA) in Mobilfunknetzen"
+    },
+    "funFact": "Der Name Diameter ist ein Wortspiel: Es ist der Nachfolger von RADIUS und damit doppelt so leistungsfähig wie der Radius eines Kreises.",
+    "sourceName": "RFC 6733 – Diameter Base Protocol",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc6733",
+    "verifyNote": "Diameter nutzt TCP/SCTP-Port 3868 gemäß RFC 6733 und IANA."
+  },
+  {
+    "id": "network_protocol-ldap-sasl-h4",
+    "name": "SCRAM",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Salted Challenge Response Authentication Mechanism",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "purpose": "Challenge-Response-Anmeldeverfahren, das Passwörter nie im Klartext überträgt"
+    },
+    "funFact": "SCRAM wird unter anderem von PostgreSQL und MongoDB als sicherer Standard-Login genutzt und schützt selbst dann, wenn die Verbindung mitgelesen wird.",
+    "sourceName": "RFC 5802 – Salted Challenge Response Authentication Mechanism (SCRAM)",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc5802",
+    "verifyNote": "SCRAM ist ein SASL-Mechanismus über bestehende TCP-Verbindungen gemäß RFC 5802."
+  },
+  {
+    "id": "network_protocol-multicast-pgm-h4",
+    "name": "SAP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Session Announcement Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 9875,
+      "purpose": "Ankündigung von Multicast-Sitzungen wie Internet-Radio oder IPTV-Streams"
+    },
+    "funFact": "SAP verteilt SDP-Beschreibungen periodisch per Multicast, sodass Empfänger laufende Streams entdecken können, ohne einen zentralen Server zu fragen.",
+    "sourceName": "RFC 2974 – Session Announcement Protocol",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc2974",
+    "verifyNote": "SAP nutzt UDP-Port 9875 gemäß RFC 2974 und IANA."
+  },
+  {
+    "id": "network_protocol-vxlan-gpe-h4",
+    "name": "NVGRE",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Network Virtualization using GRE",
+      "layer": "Sicherungsschicht",
+      "transport": "IP",
+      "purpose": "Tunnelt virtuelle Layer-2-Netze über IP, Microsofts Gegenstück zu VXLAN"
+    },
+    "funFact": "NVGRE war Microsofts Antwort auf VXLAN zur Netzwerkvirtualisierung in Rechenzentren, konnte sich gegen VXLAN aber nicht durchsetzen.",
+    "sourceName": "RFC 7637 – NVGRE: Network Virtualization Using GRE",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc7637",
+    "verifyNote": "NVGRE kapselt Ethernet-Frames in GRE über IP gemäß RFC 7637."
+  },
+  {
+    "id": "network_protocol-radius-coa-h4",
+    "name": "EAP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Extensible Authentication Protocol",
+      "layer": "Sicherungsschicht",
+      "transport": "über 802.1X / RADIUS",
+      "purpose": "Flexibles Rahmenwerk für Anmeldeverfahren in WLAN- und VPN-Zugängen"
+    },
+    "funFact": "EAP ist kein einzelnes Verfahren, sondern ein Container: Varianten wie EAP-TLS oder PEAP stecken die eigentliche Authentifizierung hinein.",
+    "sourceName": "RFC 3748 – Extensible Authentication Protocol (EAP)",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc3748",
+    "verifyNote": "EAP läuft über 802.1X (Layer 2) und wird per RADIUS transportiert gemäß RFC 3748."
+  },
+  {
+    "id": "network_protocol-snmp-v3-h4",
+    "name": "IPFIX",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "IP Flow Information Export",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 4739,
+      "purpose": "Export von Verkehrsfluss-Statistiken von Routern zu Analysesystemen"
+    },
+    "funFact": "IPFIX ist der herstellerneutrale Nachfolger von Ciscos NetFlow und liefert die Datenbasis für Netzwerk-Monitoring und Abrechnung.",
+    "sourceName": "RFC 7011 – Specification of the IPFIX Protocol",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc7011",
+    "verifyNote": "IPFIX nutzt IANA-Port 4739 (UDP/TCP/SCTP) gemäß RFC 7011."
+  },
+  {
+    "id": "network_protocol-rsvp-h4",
+    "name": "RSVP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Resource Reservation Protocol",
+      "layer": "Vermittlungsschicht",
+      "transport": "IP",
+      "purpose": "Reservierung von Bandbreite entlang eines Pfades für Dienstgüte (QoS)"
+    },
+    "funFact": "RSVP wird in der Variante RSVP-TE genutzt, um in großen Backbone-Netzen MPLS-Pfade mit garantierter Bandbreite einzurichten.",
+    "sourceName": "RFC 2205 – Resource ReSerVation Protocol (RSVP)",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc2205",
+    "verifyNote": "RSVP nutzt die IP-Protokollnummer 46 gemäß RFC 2205 und IANA."
+  },
+  {
+    "id": "hardware-backplane-h4",
+    "name": "Backplane",
+    "category": "hardware",
+    "attributes": {
+      "category": "Verbindungstechnik",
+      "function": "Passive Hauptplatine mit Steckplätzen, die mehrere Module ohne eigene Verkabelung verbindet"
+    },
+    "funFact": "Im Gegensatz zum Mainboard trägt eine reine Backplane meist keine aktiven Bauteile, sondern dient nur als gemeinsamer Steckverbinder und Bus.",
+    "sourceName": "Wikipedia DE – Backplane",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Backplane",
+    "verifyNote": "Funktion als passive Verbindungsplatine ist Standard-Hardwarewissen."
+  },
+  {
+    "id": "hardware-daughterboard-h4",
+    "name": "Tochterplatine",
+    "category": "hardware",
+    "attributes": {
+      "category": "Erweiterung",
+      "function": "Kleine Zusatzplatine, die direkt auf eine Hauptplatine gesteckt wird und deren Funktion erweitert"
+    },
+    "funFact": "Eine Tochterplatine (Daughterboard) erweitert das Mainboard ohne den Umweg über einen normalen Steckplatz, etwa für Sound- oder Funkmodule.",
+    "sourceName": "Wikipedia EN – Daughterboard",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Daughterboard",
+    "verifyNote": "Definition als aufsteckbare Erweiterungsplatine ist Standard-Hardwarewissen."
+  },
+  {
+    "id": "hardware-riser-card-h4",
+    "name": "Riser-Karte",
+    "category": "hardware",
+    "attributes": {
+      "category": "Erweiterung",
+      "function": "Adapterkarte, die Steckplätze um 90 Grad dreht, damit Karten flach im Gehäuse liegen"
+    },
+    "funFact": "Riser-Karten sind der Grund, warum in flachen 1-HE-Servern und Mini-PCs überhaupt vollwertige PCIe-Steckkarten Platz finden.",
+    "sourceName": "Wikipedia EN – Riser card",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Riser_card",
+    "verifyNote": "Funktion als platzsparende Steckplatz-Umlenkung ist Standard-Hardwarewissen."
+  },
+  {
+    "id": "hardware-print-server-h4",
+    "name": "Printserver",
+    "category": "hardware",
+    "attributes": {
+      "category": "Netzwerk",
+      "function": "Gerät, das einen oder mehrere Drucker im Netzwerk für viele Rechner bereitstellt"
+    },
+    "funFact": "Ein Printserver hängt einen reinen USB- oder Parallel-Drucker direkt ans Netzwerk, sodass kein PC dauerhaft als Druckvermittler laufen muss.",
+    "sourceName": "Wikipedia DE – Druckserver",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Druckserver",
+    "verifyNote": "Funktion als Netzwerk-Druckvermittler ist Standard-Hardwarewissen."
+  },
+  {
+    "id": "hardware-network-bridge-h4",
+    "name": "Netzwerk-Bridge",
+    "category": "hardware",
+    "attributes": {
+      "category": "Netzwerk",
+      "function": "Verbindet zwei Netzwerksegmente auf Sicherungsschicht-Ebene und filtert den Verkehr nach MAC-Adressen"
+    },
+    "funFact": "Die Bridge ist der konzeptionelle Vorläufer des Switches: Ein Switch ist im Grunde eine Bridge mit sehr vielen Ports in Hardware.",
+    "sourceName": "Wikipedia DE – Bridge (Netzwerk)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Bridge_(Netzwerk)",
+    "verifyNote": "Funktion auf OSI-Schicht 2 mit MAC-Filterung ist Standard-Netzwerkwissen."
+  },
+  {
+    "id": "hardware-medienkonverter-glasfaser-h4",
+    "name": "SFP-Modul",
+    "category": "hardware",
+    "attributes": {
+      "category": "Netzwerk",
+      "function": "Steckbarer Transceiver, der den Port eines Switches auf Kupfer oder Glasfaser umrüstet"
+    },
+    "funFact": "Dank SFP-Modulen lässt sich derselbe Switch-Port wahlweise mit Kupfer oder verschiedenen Glasfaser-Reichweiten bestücken, einfach durch Tauschen des Steckmoduls.",
+    "sourceName": "Wikipedia DE – Small Form-factor Pluggable",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Small_Form-factor_Pluggable",
+    "verifyNote": "Funktion als steckbarer Netzwerk-Transceiver ist Standard-Hardwarewissen."
+  },
+  {
+    "id": "hardware-patchpanel-h4",
+    "name": "Patchpanel",
+    "category": "hardware",
+    "attributes": {
+      "category": "Netzwerk",
+      "function": "Rangierfeld im Serverschrank, das fest verlegte Kabel auf flexible Patchkabel auflegt"
+    },
+    "funFact": "Das Patchpanel trennt die fest in den Wänden verlegten Kabel von der flexiblen Verkabelung im Schrank, sodass Umstecken nie die Wandkabel belastet.",
+    "sourceName": "Wikipedia DE – Patchfeld",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Patchfeld",
+    "verifyNote": "Funktion als Rangierfeld der strukturierten Verkabelung ist Standardwissen."
+  },
+  {
+    "id": "hardware-kvm-extender-h4",
+    "name": "KVM-Extender",
+    "category": "hardware",
+    "attributes": {
+      "category": "Peripherie",
+      "function": "Verlängert Tastatur-, Video- und Maus-Signale über große Distanzen per Netzwerkkabel"
+    },
+    "funFact": "Mit einem KVM-Extender lässt sich ein lauter Server im Keller betreiben, während Bildschirm, Maus und Tastatur entfernt im ruhigen Büro stehen.",
+    "sourceName": "Wikipedia EN – KVM switch",
+    "sourceUrl": "https://en.wikipedia.org/wiki/KVM_switch",
+    "verifyNote": "Funktion als KVM-Signalverlängerung ist Standard-Hardwarewissen."
+  },
+  {
+    "id": "hardware-grafikkartenstuetze-h4",
+    "name": "TV-Karte",
+    "category": "hardware",
+    "attributes": {
+      "category": "Erweiterung",
+      "function": "Steckkarte oder USB-Stick, der Fernsehsignale empfängt und im PC digitalisiert"
+    },
+    "funFact": "TV-Karten mit DVB-Tuner machten den PC zum Videorekorder, indem sie ausgestrahlte Sendungen direkt auf die Festplatte aufnahmen.",
+    "sourceName": "Wikipedia DE – TV-Karte",
+    "sourceUrl": "https://de.wikipedia.org/wiki/TV-Karte",
+    "verifyNote": "Funktion als TV-Empfangs- und Digitalisierungskarte ist Standardwissen."
+  },
+  {
+    "id": "hardware-soundinterface-h4",
+    "name": "Audio-Interface",
+    "category": "hardware",
+    "attributes": {
+      "category": "Audio",
+      "function": "Externe Soundhardware mit hochwertigen Wandlern und Anschlüssen für Mikrofone und Instrumente"
+    },
+    "funFact": "Ein Audio-Interface ist die externe Profi-Variante der Soundkarte und wird bevorzugt per USB oder Thunderbolt angeschlossen, um Störgeräusche aus dem PC-Gehäuse zu vermeiden.",
+    "sourceName": "Wikipedia DE – Audio-Interface",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Audio-Interface",
+    "verifyNote": "Funktion als externe Audio-Wandlerhardware ist Standardwissen."
+  },
+  {
+    "id": "hardware-pcie-extender-riser-h4",
+    "name": "PCIe-Riser-Kabel",
+    "category": "hardware",
+    "attributes": {
+      "category": "Verbindungstechnik",
+      "function": "Flexibles Kabel, das eine PCIe-Karte versetzt zum Steckplatz montiert"
+    },
+    "funFact": "PCIe-Riser-Kabel ermöglichen die senkrechte Montage der Grafikkarte hinter einem Sichtfenster, wie in vielen modernen Gaming-Gehäusen.",
+    "sourceName": "Wikipedia EN – Riser card",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Riser_card",
+    "verifyNote": "Funktion als flexible PCIe-Steckplatzverlängerung ist Standard-Hardwarewissen."
+  },
+  {
+    "id": "hardware-stromverteiler-pdu-h4",
+    "name": "PDU (Stromverteilerleiste)",
+    "category": "hardware",
+    "attributes": {
+      "category": "Stromversorgung",
+      "function": "Rackmontierte Steckdosenleiste, die viele Server zentral mit Strom versorgt und überwacht"
+    },
+    "funFact": "Verwaltbare PDUs können einzelne Steckdosen per Netzwerk fernschalten, sodass ein hängender Server per Befehl aus der Ferne neu gestartet werden kann.",
+    "sourceName": "Wikipedia EN – Power distribution unit",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Power_distribution_unit",
+    "verifyNote": "Funktion als Rack-Stromverteilung ist Standard-Rechenzentrumswissen."
+  },
+  {
+    "id": "hardware-hotswap-rahmen-h4",
+    "name": "Wechselrahmen (Hot-Swap)",
+    "category": "hardware",
+    "attributes": {
+      "category": "Massenspeicher",
+      "function": "Einschubrahmen, der Festplatten im laufenden Betrieb tauschbar macht"
+    },
+    "funFact": "Hot-Swap-Rahmen erlauben den Austausch einer defekten RAID-Platte, ohne den Server auszuschalten, sodass der Betrieb ununterbrochen weiterläuft.",
+    "sourceName": "Wikipedia EN – Hot swapping",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Hot_swapping",
+    "verifyNote": "Funktion als Wechselrahmen für laufenden Plattentausch ist Standardwissen."
+  },
+  {
+    "id": "hardware-passiver-kuehler-northbridge-h4",
+    "name": "Spannungsregler-Kühler",
+    "category": "hardware",
+    "attributes": {
+      "category": "Kühlung",
+      "function": "Kühlkörper, der die heißen Spannungswandler (VRM) rund um den Prozessorsockel kühlt"
+    },
+    "funFact": "Unter hoher CPU-Last werden die VRM-Spannungswandler oft heißer als der Prozessor selbst, weshalb sie einen eigenen Kühlkörper bekommen.",
+    "sourceName": "Wikipedia DE – Spannungswandler (Elektrotechnik)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Spannungswandler",
+    "verifyNote": "Funktion als VRM-Kühlung ist Standard-Hardwarewissen."
+  },
+  {
+    "id": "hardware-luftkanal-shroud-h4",
+    "name": "Luftleitblech",
+    "category": "hardware",
+    "attributes": {
+      "category": "Kühlung",
+      "function": "Kunststoff- oder Blechkanal, der den Luftstrom gezielt über heiße Bauteile lenkt"
+    },
+    "funFact": "Luftleitbleche (Shrouds) in Servern zwingen die Luft direkt über CPU und RAM, statt sie ungenutzt durchs Gehäuse strömen zu lassen.",
+    "sourceName": "Wikipedia EN – Computer fan",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Computer_fan",
+    "verifyNote": "Funktion als Luftstromführung in Gehäusen ist Standard-Kühlungswissen."
+  },
+  {
+    "id": "hardware-staubfilter-h4",
+    "name": "Staubfilter",
+    "category": "hardware",
+    "attributes": {
+      "category": "Kühlung",
+      "function": "Feinmaschiges Gitter vor Lüftungsöffnungen, das Staub aus dem Gehäuse fernhält"
+    },
+    "funFact": "Staubfilter an den Lufteinlässen verhindern, dass sich Staub auf Kühlkörpern absetzt, was die Kühlleistung mit der Zeit deutlich verschlechtern würde.",
+    "sourceName": "Wikipedia EN – Computer fan",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Computer_fan",
+    "verifyNote": "Funktion als Staubschutz an Gehäuse-Lüftungsöffnungen ist Standardwissen."
+  },
+  {
+    "id": "hardware-poe-splitter-h4",
+    "name": "PoE-Splitter",
+    "category": "hardware",
+    "attributes": {
+      "category": "Netzwerk",
+      "function": "Trennt aus einem PoE-Netzwerkkabel wieder Strom und Daten für nicht-PoE-Geräte"
+    },
+    "funFact": "Ein PoE-Splitter ist das Gegenstück zum PoE-Injektor: Er entnimmt dem Netzwerkkabel die Versorgungsspannung für etwa eine normale Kamera ohne PoE-Eingang.",
+    "sourceName": "Wikipedia DE – Power over Ethernet",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Power_over_Ethernet",
+    "verifyNote": "Funktion als PoE-Trenner für Strom und Daten gemäß IEEE 802.3af/at."
+  },
+  {
+    "id": "hardware-grafikkarten-luefter-h4",
+    "name": "Blindblende (Slotblech)",
+    "category": "hardware",
+    "attributes": {
+      "category": "Gehäuse",
+      "function": "Abdeckblech für ungenutzte Steckplatz-Öffnungen an der Gehäuserückseite"
+    },
+    "funFact": "Blindblenden über leeren Slots sind nicht nur Optik: Sie halten den vom Lüfter erzeugten Luftstrom im Gehäuse, statt ihn durch die Löcher entweichen zu lassen.",
+    "sourceName": "Wikipedia EN – Computer case",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Computer_case",
+    "verifyNote": "Funktion als Slot-Abdeckung zur Luftstromführung ist Standard-Hardwarewissen."
+  },
+  {
+    "id": "hardware-wlan-antenne-h4",
+    "name": "WLAN-Antenne",
+    "category": "hardware",
+    "attributes": {
+      "category": "Netzwerk",
+      "function": "Wandelt Funksignale in elektrische Signale für drahtlose Netzwerkverbindungen"
+    },
+    "funFact": "Moderne WLAN-Router nutzen mehrere Antennen gleichzeitig (MIMO), um über mehrere Funkströme parallel höhere Datenraten zu erreichen.",
+    "sourceName": "Wikipedia DE – Antenne",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Antenne",
+    "verifyNote": "Funktion als Funksignal-Wandler und MIMO-Nutzung sind Standard-Funkwissen."
+  }
+]
