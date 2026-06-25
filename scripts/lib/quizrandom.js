@@ -82,3 +82,111 @@ export function deParse(value) {
   if (!m) return NaN;
   return parseFloat(m[0].replace(/\./g, '').replace(',', '.'));
 }
+
+// ---------------------------------------------------------------------------
+// GRÖSSENORDNUNGS-DISTRAKTOREN (Magnitude-Spread, Nutzerwunsch 2026-06-25)
+//
+// Problem: Bei numerischen Fragen mit eng gehäuften Nachbarwert-Distraktoren
+// (z.B. Schlangenlänge „59/60/63/65 cm") braucht man Maschinen-Präzision statt
+// Größenordnungs-Gespür — eine ungefähre Ahnung hilft nicht. Fairer ist eine
+// Streuung über Größenordnungen: EIN Distraktor ~eine Größenordnung kleiner,
+// EINER ~eine Größenordnung größer, EINER mäßig nah (gleiche Größenordnung,
+// aber klar verschieden). Wer die Größenordnung kennt, schließt die zwei
+// Ausreißer aus und steht vor einer fairen 50:50-Entscheidung.
+//
+// Var-B (vom Nutzer gewählt): Es werden ECHTE Pool-Werte gewählt (Werte, die
+// ein anderes Konzept derselben Kategorie wirklich hat), nicht erfundene Zahlen.
+// Das hält die Distraktoren „in der Welt" und vermeidet absurde Out-of-Range-
+// Werte an den Rändern (ein ×10 des größten Werts existiert schlicht nicht im
+// Pool -> es wird der nächste reale Wert in Log-Distanz genommen).
+//
+// Anwendung NUR, wenn die Werte echte, über Größenordnungen streuende Maße sind
+// (Längen, Gewichte, Distanzen, Höhen, Flächen, Zählungen). NICHT bei
+// Jahreszahlen, beschränkten Skalen (Mohshärte, scheinbare Sternhelligkeit) oder
+// Identifikatoren (Ports) — die werden über shouldMagnitudeSpread ausgeschlossen.
+// ---------------------------------------------------------------------------
+
+// Attribute, die zwar rechnerisch ≥2 Größenordnungen streuen, aber KEINE
+// magnitude-skalierbaren Maße sind (Identifikatoren / beschränkte bzw.
+// logarithmische Skalen / kleine Index-Zählungen). Sie bleiben auf Nachbarwert.
+const MAGNITUDE_EXCLUDE_ATTRS = new Set([
+  'defaultPort',         // Netzwerk-Port = Identifikator, kein Maß
+  'apparentMagnitude',   // scheinbare Helligkeit = logarithmische, beschränkte Skala
+  'numMoons',            // kleine Index-Zählung (Mond-Anzahl)
+  'messierNumber',       // Katalognummer = Identifikator
+  'orderFromSun'         // Ordinalzahl
+]);
+
+/**
+ * Entscheidet, ob für ein numerisches Attribut Größenordnungs-Distraktoren statt
+ * Nachbarwerte fair sind. Kriterien: positiver Wertebereich, Pool spannt ≥100×
+ * (zwei Größenordnungen), genügend distinkte Werte, nicht ausgeschlossen.
+ */
+export function shouldMagnitudeSpread(correctNum, poolNums, attr) {
+  if (MAGNITUDE_EXCLUDE_ATTRS.has(attr)) return false;
+  if (!(typeof correctNum === 'number' && isFinite(correctNum) && correctNum > 0)) return false;
+  const pos = [...new Set(poolNums)].filter(n => typeof n === 'number' && isFinite(n) && n > 0);
+  if (pos.length < 6) return false;          // zu kleiner Pool -> Nachbarwert
+  const ratio = Math.max(...pos) / Math.min(...pos);
+  return ratio >= 100;                       // ≥ 2 Größenordnungen Spannweite
+}
+
+/**
+ * Größenordnungs-Distraktoren aus ECHTEN Pool-Werten (Var-B).
+ * Wählt für drei Log-Ziele (≈ correct/10, ein mäßig naher Wert, ≈ correct×10)
+ * jeweils den im Log-Abstand nächstgelegenen, noch ungenutzten realen Pool-Wert
+ * und formatiert ihn. Liefert `null`, wenn keine 3 distinkten Distraktoren
+ * zustande kommen (dann nutzt der Aufrufer seinen bestehenden Fallback).
+ *
+ * Der „mäßig nahe" Wert liegt seed-abhängig mal unter, mal über dem korrekten
+ * Wert (Faktor ~0,5× oder ~1,8×), damit die richtige Antwort nicht systematisch
+ * die obere/untere der beiden nahen Optionen ist.
+ *
+ * @param format  (value, ctx) => string — dieselbe Formatfunktion wie für die
+ *                richtige Antwort, damit das Format nichts verrät.
+ */
+export function magnitudeSpreadDistractors(correctNum, poolNums, format, opts = {}) {
+  const { seed = String(correctNum), ctx = null, k = 3 } = opts;
+  const pool = [...new Set(poolNums)]
+    .filter(n => typeof n === 'number' && isFinite(n) && n > 0 && n !== correctNum);
+  if (pool.length < k) return null;
+
+  // Seite des mäßig nahen Distraktors aus dem Seed bestimmen (unter/über).
+  const rng = makeRng(String(seed));
+  const moderateFactor = rng() < 0.5
+    ? (0.45 + rng() * 0.15)   // ~0,45–0,60×  (deutlich kleiner, gleiche Größenordnung)
+    : (1.7 + rng() * 0.6);    // ~1,7–2,3×    (deutlich größer, gleiche Größenordnung)
+  // Reihenfolge: klein (÷10), groß (×10), mäßig nah. Klein+groß zuerst sichern.
+  const targets = [correctNum * 0.1, correctNum * 10, correctNum * moderateFactor];
+
+  const usedNums = new Set();
+  const usedStr = new Set([String(format(correctNum, ctx))]);
+  const out = [];
+  for (const target of targets) {
+    if (out.length >= k) break;
+    const logT = Math.log(target);
+    // realer Pool-Wert mit minimalem Log-Abstand zum Ziel, noch ungenutzt
+    const cand = pool
+      .filter(n => !usedNums.has(n))
+      .sort((a, b) => Math.abs(Math.log(a) - logT) - Math.abs(Math.log(b) - logT))[0];
+    if (cand === undefined) continue;
+    const str = String(format(cand, ctx));
+    if (usedStr.has(str)) { usedNums.add(cand); continue; } // Format-Dublette -> nächstes Ziel
+    usedNums.add(cand); usedStr.add(str); out.push(str);
+  }
+  // Falls ein Ziel keinen frischen Wert lieferte: mit weiteren Pool-Werten auffüllen,
+  // bevorzugt log-weit vom korrekten Wert entfernt (erhält den Spreiz-Charakter).
+  if (out.length < k) {
+    const logC = Math.log(correctNum);
+    const rest = pool
+      .filter(n => !usedNums.has(n))
+      .sort((a, b) => Math.abs(Math.log(b) - logC) - Math.abs(Math.log(a) - logC));
+    for (const n of rest) {
+      if (out.length >= k) break;
+      const str = String(format(n, ctx));
+      if (usedStr.has(str)) continue;
+      usedStr.add(str); out.push(str);
+    }
+  }
+  return out.length >= k ? out : null;
+}

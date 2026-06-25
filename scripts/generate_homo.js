@@ -13,7 +13,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import { pickBalanced, deParse } from './lib/quizrandom.js';
+import { pickBalanced, deParse, shouldMagnitudeSpread, magnitudeSpreadDistractors } from './lib/quizrandom.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -735,9 +735,23 @@ for (const tpl of templates) {
     if (tpl.valueUnit) {
       distractors = bodyFactDistractors(c);
     } else {
-      let pool = valuePool.slice();
-      if (tpl.extraDistractors) pool = pool.concat(tpl.extraDistractors);
-      distractors = pickDistractors(correct, pool, tpl.numeric);
+      // Organgewicht streut über Größenordnungen (Zirbeldrüse ~0,1 g bis Haut/
+      // Leber ~kg) -> echte Pool-Werte log-gespreizt statt enger Nachbarwerte.
+      const rawPool = tpl.numeric
+        ? conceptsInCat.filter(o => !(tpl.skip && tpl.skip(o)))
+            .map(o => o.attributes[tpl.attr])
+            .filter(v => typeof v === 'number' && isFinite(v))
+        : [];
+      const mag = tpl.numeric && typeof rawValue === 'number'
+        && shouldMagnitudeSpread(rawValue, rawPool, tpl.attr)
+        && magnitudeSpreadDistractors(rawValue, rawPool, (v) => tpl.format(v, c), { seed: c.id });
+      if (mag) {
+        distractors = mag;
+      } else {
+        let pool = valuePool.slice();
+        if (tpl.extraDistractors) pool = pool.concat(tpl.extraDistractors);
+        distractors = pickDistractors(correct, pool, tpl.numeric);
+      }
     }
     if (distractors.length < 1) continue;
 

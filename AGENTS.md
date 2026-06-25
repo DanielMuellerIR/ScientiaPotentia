@@ -364,6 +364,27 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 | Machina | 1958 | 5698 | Wikipedia / RFC/IANA / Lehrbücher / DIN 8580 | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Funktionsprinzip (v1.47.0); ab v1.71 auch klassische Technik (Handwerk/Mechanik/Maschinenbau): tool/machine_element/engine/manufacturing_process/material/simple_machine; 124 Museumsbilder (hardware) |
 | Historia | 1244 | 6332 | Wikipedia / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Zeit/Urheberschaft, Politik-Ausschluss (v1.47.0); 1023 Museumsbilder |
 
+> **Stand 2026-06-25 (v1.72.0) — Größenordnungs-Distraktoren für numerische Maße (Fairness, Nutzerwunsch):**
+> Numerische Fragen mit eng gehäuften Nachbarwert-Distraktoren (z.B. Schlangenlänge „59/60/63/65 cm",
+> Galaxien-Distanz) verlangten Maschinen-Präzision — Größenordnungs-Gespür half nicht. Neuer **Magnitude-
+> Spread** (`shouldMagnitudeSpread` + `magnitudeSpreadDistractors` in `scripts/lib/quizrandom.js`): wo ein
+> Maß über **≥2 Größenordnungen** streut, werden die Distraktoren als EIN Wert ~÷10, EIN Wert ~×10 und EIN
+> mäßig naher Wert (gleiche Größenordnung, seed-abhängig drüber/drunter) gesetzt — aus **echten Pool-Werten**
+> (Var-B: Werte, die ein anderes Konzept derselben Kategorie wirklich hat, keine erfundenen Zahlen; an den
+> Rändern automatisch der nächste reale Wert in Log-Distanz statt absurder Out-of-Range-Werte). Wer die
+> Größenordnung kennt, schließt die zwei Ausreißer aus → faire 50:50 statt blindem Raten. **Datengetrieben
+> über alle Domains** (Pool-Spanne ≥100×, positiv): greift bei Natura (Tier-Länge/-Gewicht/-Tempo,
+> Pflanzenhöhe/-alter), Astra (Stern-/Galaxien-/Nebel-Distanz, Mond-/Asteroiden-Durchmesser, Umlaufzeiten,
+> Sternzahl, Masse), Lingua (Sprecher-/Zeichen-/Sprachenzahl), Cultura (Skulpturhöhe), Homo (Organgewicht).
+> **Bewusst ausgeschlossen** (`MAGNITUDE_EXCLUDE_ATTRS` + Span-Heuristik): Jahreszahlen (spannen <100× →
+> bleiben Nachbarwert), beschränkte/log. Skalen (Mohshärte, scheinbare Sternhelligkeit), Identifikatoren
+> (defaultPort, Katalognummern, Ordinalzahlen). Jeder Aufrufer behält seinen Fallback (Nachbarwert bzw.
+> astra-`spreadNumeric` bei eng häufenden Exoplaneten-Radien); der Helfer liefert `null` bei Nicht-Eignung.
+> Beispiele nachher: Lanzenotter 6/31/60/600 cm · Andromeda 260k/2,5M/4,47M/25M Lj · Herz 30/150/300/1500 g.
+> **Audit:** Bias-Templates unverändert (astra/lingua/natura je 1 vorbestehend-marginal, **kein** Magnitude-
+> Template darunter — die korrekte Antwort liegt bauartbedingt in der Mitte → ~25 %). Alle `verify_facts`
+> 0 Fehler, npm test grün, Build grün, Live-verifiziert (Schlange/Andromeda über den Dev-Server). **NICHT deployt.**
+>
 > **Stand 2026-06-25 (v1.71.0) — Machina über die IT hinaus: klassische Technik (Handwerk/Mechanik/Maschinenbau):**
 > Machinas Achse ist „Funktionsprinzip" — laut Bereichs-Abgrenzung ausdrücklich „Funktionsprinzip von …
 > Geräten, Verfahren", bislang aber nur mit IT befüllt. Auf Nutzerwunsch (Technik jenseits Software/

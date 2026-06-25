@@ -17,7 +17,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import { pickBalanced, deParse } from './lib/quizrandom.js';
+import { pickBalanced, deParse, shouldMagnitudeSpread, magnitudeSpreadDistractors } from './lib/quizrandom.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -873,16 +873,29 @@ for (const tpl of templates) {
       // Wert erzeugen. Korrekter Wert und Distraktoren werden über die format-
       // Funktion gleich gerundet (roundSig), damit das Format nichts verrät.
       const n = rawValue;
-      // Faktoren mischen Werte unter und über dem korrekten Wert.
-      const factors = [0.45, 1.7, 0.65, 2.4, 1.35, 3.3, 0.3];
-      const seen = new Set([correct]);
-      const cands = [];
-      for (const f of factors) {
-        const d = tpl.format(roundSig(n * f), c);
-        if (!seen.has(d)) { seen.add(d); cands.push(d); }
-        if (cands.length === 3) break;
+      // Wo das Maß über ≥2 Größenordnungen streut (Masse/Umlaufzeit), echte
+      // Pool-Werte log-gespreizt nutzen (Var-B). Sonst (z.B. Radius, der sich
+      // eng um ~1 Erdradius häuft) bei der proportionalen Synthese bleiben.
+      const spreadPool = [...new Set(conceptsInCat
+        .filter(o => o !== c && !(tpl.skip && tpl.skip(o)))
+        .map(o => o.attributes[tpl.attr])
+        .filter(v => typeof v === 'number' && isFinite(v)))];
+      const mag = shouldMagnitudeSpread(n, spreadPool, tpl.attr)
+        && magnitudeSpreadDistractors(n, spreadPool, (v) => tpl.format(v, c), { seed: c.id });
+      if (mag) {
+        distractors = mag;
+      } else {
+        // Faktoren mischen Werte unter und über dem korrekten Wert.
+        const factors = [0.45, 1.7, 0.65, 2.4, 1.35, 3.3, 0.3];
+        const seen = new Set([correct]);
+        const cands = [];
+        for (const f of factors) {
+          const d = tpl.format(roundSig(n * f), c);
+          if (!seen.has(d)) { seen.add(d); cands.push(d); }
+          if (cands.length === 3) break;
+        }
+        distractors = cands;
       }
-      distractors = cands;
     } else if (tpl.numericByValue) {
       // --- Numerische Nachbarwert-Distraktoren (Welle 1) ------------------
       // Auswahl auf den ROHEN Zahlen derselben Kategorie (die dem korrekten
@@ -894,16 +907,37 @@ for (const tpl of templates) {
         .map(o => o.attributes[tpl.attr])
         .filter(v => typeof v === 'number' && isFinite(v)))]
         .filter(v => v !== rawValue);
-      rawNums.sort((a, b) => Math.abs(a - rawValue) - Math.abs(b - rawValue));
-      distractors = [...new Set(rawNums.map(v => tpl.format(v, c)))]
-        .filter(d => d !== correct)
-        .slice(0, 3);
+      // Größenordnungs-Distraktoren bei über ≥2 Größenordnungen streuenden Maßen
+      // (Distanzen, Durchmesser, Umlaufzeiten, Sternzahlen); apparentMagnitude
+      // u.a. beschränkte/Index-Werte sind in shouldMagnitudeSpread ausgeschlossen
+      // und fallen auf den Nachbarwert zurück.
+      const fmt = (v) => tpl.format(v, c);
+      distractors = (shouldMagnitudeSpread(rawValue, rawNums, tpl.attr)
+        && magnitudeSpreadDistractors(rawValue, rawNums, fmt, { seed: c.id }))
+        || (() => {
+          rawNums.sort((a, b) => Math.abs(a - rawValue) - Math.abs(b - rawValue));
+          return [...new Set(rawNums.map(fmt))].filter(d => d !== correct).slice(0, 3);
+        })();
     } else {
-      // --- Bestandsweg (unverändert) ---------------------------------------
-      // Distraktoren aus dem Kategorie-Pool ziehen, optional feste Extras ergänzen
-      let pool = valuePool.slice();
-      if (tpl.extraDistractors) pool = pool.concat(tpl.extraDistractors);
-      distractors = pickDistractors(correct, pool, tpl.numeric);
+      // --- Bestandsweg ------------------------------------------------------
+      // Numerische Maße (numeric:true), die über ≥2 Größenordnungen streuen
+      // (Stern-/Galaxien-Distanz u.a.): echte Pool-Werte log-gespreizt (Var-B)
+      // statt enger Nachbarwerte. Sonst Distraktoren aus dem Kategorie-Pool.
+      const rawPool = tpl.numeric
+        ? conceptsInCat.filter(o => o !== c && !(tpl.skip && tpl.skip(o)))
+            .map(o => o.attributes[tpl.attr])
+            .filter(v => typeof v === 'number' && isFinite(v))
+        : [];
+      const mag = tpl.numeric && typeof rawValue === 'number'
+        && shouldMagnitudeSpread(rawValue, rawPool, tpl.attr)
+        && magnitudeSpreadDistractors(rawValue, rawPool, (v) => tpl.format(v, c), { seed: c.id });
+      if (mag) {
+        distractors = mag;
+      } else {
+        let pool = valuePool.slice();
+        if (tpl.extraDistractors) pool = pool.concat(tpl.extraDistractors);
+        distractors = pickDistractors(correct, pool, tpl.numeric);
+      }
     }
 
     // Faire Frage braucht mind. 1 Distraktor; wir streben 3 an. Weniger als 2

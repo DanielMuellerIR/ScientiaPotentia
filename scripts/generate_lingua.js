@@ -36,7 +36,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import { pickBalanced } from './lib/quizrandom.js';
+import { pickBalanced, shouldMagnitudeSpread, magnitudeSpreadDistractors } from './lib/quizrandom.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -649,7 +649,11 @@ for (const tpl of templates) {
       const n = cleanNum(vRaw);
       if (n === null) { skipStats.noValue++; continue; } // "ca. 1.000"-Strings usw.
       correct = tpl.format(n);
-      distractors = pickNumeric(n, numPool, tpl.format);
+      // Größenordnungs-Distraktoren bei über ≥2 Größenordnungen streuenden Maßen
+      // (Sprecherzahlen, Zeichenzahl, Sprachenzahl); inventedYear bleibt Nachbarwert.
+      distractors = (shouldMagnitudeSpread(n, numPool, tpl.attr)
+        && magnitudeSpreadDistractors(n, numPool, tpl.format, { seed: c.id }))
+        || pickNumeric(n, numPool, tpl.format);
     } else { // 'cat'
       if (vRaw === undefined || vRaw === null || vRaw === '') { skipStats.noValue++; continue; }
       correct = String(transform(vRaw));

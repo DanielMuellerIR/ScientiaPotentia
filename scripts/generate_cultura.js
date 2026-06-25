@@ -44,7 +44,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import { seededShuffle, pickBalanced } from './lib/quizrandom.js';
+import { seededShuffle, pickBalanced, shouldMagnitudeSpread, magnitudeSpreadDistractors } from './lib/quizrandom.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -633,7 +633,11 @@ for (const tpl of templates) {
       const n = clean(rawValue);
       if (n === null) { countSkip(tpl, 'kein sauberer Zahlenwert (Bereich/v. Chr./Text)'); continue; }
       correct = tpl.format(n);
-      distractors = pickNumeric(n, numPool, tpl.format);
+      // Größenordnungs-Distraktoren bei über ≥2 Größenordnungen streuenden Maßen
+      // (z.B. Skulpturhöhe 0,1–180 m); Jahre/enge Maße bleiben auf Nachbarwert.
+      distractors = (shouldMagnitudeSpread(n, numPool, tpl.attr)
+        && magnitudeSpreadDistractors(n, numPool, tpl.format, { seed: c.id }))
+        || pickNumeric(n, numPool, tpl.format);
     } else { // 'cat'
       // Slash-Werte ("Barock / Holländisches Goldenes Zeitalter") und
       // Sammel-Angaben ("verschiedene Dynastien") sind als korrekte Antwort

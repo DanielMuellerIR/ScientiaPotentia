@@ -19,7 +19,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import { pickBalanced } from './lib/quizrandom.js';
+import { pickBalanced, shouldMagnitudeSpread, magnitudeSpreadDistractors } from './lib/quizrandom.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -492,7 +492,11 @@ for (const tpl of templates) {
       const n = cleanNum(c.attributes[tpl.attr]);
       if (n === null) continue;
       correct = tpl.format(n);
-      distractors = pickNumeric(n, numPool, tpl.format);
+      // Größenordnungs-Distraktoren, wo das Maß über ≥2 Größenordnungen streut
+      // (Tier-Länge/-Gewicht/-Tempo, Pflanzenhöhe/-alter); sonst Nachbarwert.
+      distractors = (shouldMagnitudeSpread(n, numPool, tpl.attr)
+        && magnitudeSpreadDistractors(n, numPool, tpl.format, { seed: c.id }))
+        || pickNumeric(n, numPool, tpl.format);
     } else { // 'cat'
       const v = c.attributes[tpl.attr];
       if (v === undefined || v === null || v === '') continue;
