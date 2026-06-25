@@ -27093,5 +27093,2560 @@
     "sourceName": "Wikipedia DE – Keilriemen",
     "sourceUrl": "https://de.wikipedia.org/wiki/Keilriemen",
     "verifyNote": "Keilriemengetriebe mit Keilwirkung ist Maschinenbau-Standardstoff"
+  },
+  {
+    "id": "tool-bandmass",
+    "name": "Bandmaß",
+    "category": "tool",
+    "attributes": {
+      "trade": "Mess- und Anreißtechnik",
+      "function": "Messen größerer Längen mit einem aufrollbaren biegsamen Band"
+    },
+    "funFact": "Geeichte Stahlbänder gelten exakt nur bei 20 °C; bei Wärme dehnen sie sich messbar aus.",
+    "sourceName": "Wikipedia DE – Bandmaß",
+    "verifyNote": "Funktion und Temperaturabhängigkeit nach Wikipedia DE – Bandmaß."
+  },
+  {
+    "id": "tool-buegelmessschraube",
+    "name": "Bügelmessschraube",
+    "category": "tool",
+    "attributes": {
+      "trade": "Mess- und Anreißtechnik",
+      "function": "Präzises Messen von Außenmaßen im Hundertstelmillimeter-Bereich über ein Feingewinde"
+    },
+    "funFact": "Das Messprinzip beruht auf einem feinen Schraubengewinde, weshalb das Gerät auch Mikrometer heißt.",
+    "sourceName": "Wikipedia DE – Bügelmessschraube",
+    "verifyNote": "Messprinzip über Feingewinde nach Wikipedia DE – Bügelmessschraube."
+  },
+  {
+    "id": "tool-streichmass",
+    "name": "Streichmaß",
+    "category": "tool",
+    "attributes": {
+      "trade": "Holzbearbeitung",
+      "function": "Anreißen paralleler Linien im festen Abstand zur Werkstückkante"
+    },
+    "sourceName": "Wikipedia DE – Streichmaß",
+    "verifyNote": "Funktion (Parallelanriss zur Kante) nach Wikipedia DE – Streichmaß."
+  },
+  {
+    "id": "tool-hoehenreisser",
+    "name": "Höhenreißer",
+    "category": "tool",
+    "attributes": {
+      "trade": "Metallbearbeitung",
+      "function": "Anreißen waagrechter Linien in genau einstellbarer Höhe über einer Bezugsfläche"
+    },
+    "sourceName": "Wikipedia DE – Höhenreißer",
+    "verifyNote": "Funktion (höhengenauer Anriss von der Anreißplatte) nach Wikipedia DE – Höhenreißer."
+  },
+  {
+    "id": "tool-winkelmass",
+    "name": "Winkelmesser (Gradscheibe)",
+    "category": "tool",
+    "attributes": {
+      "trade": "Mess- und Anreißtechnik",
+      "function": "Messen und Anreißen beliebiger Winkel an Werkstücken"
+    },
+    "sourceName": "Wikipedia DE – Winkelmesser",
+    "verifyNote": "Funktion (Winkel messen/anreißen) nach Wikipedia DE – Winkelmesser."
+  },
+  {
+    "id": "tool-tiefenmass",
+    "name": "Tiefenmaß",
+    "category": "tool",
+    "attributes": {
+      "trade": "Mess- und Anreißtechnik",
+      "function": "Ausmessen der Tiefe von Nuten, Bohrungen und Absätzen"
+    },
+    "sourceName": "Wikipedia DE – Tiefenmaß",
+    "verifyNote": "Funktion (Tiefenmessung) nach Wikipedia DE – Tiefenmaß."
+  },
+  {
+    "id": "tool-zirkel",
+    "name": "Zirkel",
+    "category": "tool",
+    "attributes": {
+      "trade": "Mess- und Anreißtechnik",
+      "function": "Anreißen von Kreisen und Bögen sowie Übertragen von Maßen"
+    },
+    "sourceName": "Wikipedia DE – Zirkel",
+    "verifyNote": "Funktion (Kreise schlagen, Maße abtragen) nach Wikipedia DE – Zirkel."
+  },
+  {
+    "id": "tool-spannzwinge",
+    "name": "Spannzwinge (Klemme)",
+    "category": "tool",
+    "attributes": {
+      "trade": "Holzbearbeitung",
+      "function": "Schnelles Fixieren von Werkstücken und Leimverbindungen mit verschiebbarem Bügel"
+    },
+    "sourceName": "Wikipedia DE – Schraubzwinge",
+    "verifyNote": "Funktion (Werkstücke spannen) nach Wikipedia DE – Schraubzwinge."
+  },
+  {
+    "id": "tool-eckzwinge",
+    "name": "Eckzwinge",
+    "category": "tool",
+    "attributes": {
+      "trade": "Holzbearbeitung",
+      "function": "Spannen zweier Teile im rechten Winkel für winkeltreue Verbindungen"
+    },
+    "sourceName": "Wikipedia DE – Eckzwinge",
+    "verifyNote": "Funktion (rechtwinkliges Spannen) nach Wikipedia DE – Eckzwinge."
+  },
+  {
+    "id": "tool-rohrzange",
+    "name": "Rohrzange (Stillson)",
+    "category": "tool",
+    "attributes": {
+      "trade": "Allgemein",
+      "function": "Greifen und Drehen runder Werkstücke durch selbstklemmende Verzahnung"
+    },
+    "sourceName": "Wikipedia DE – Rohrzange",
+    "verifyNote": "Funktion (selbstklemmendes Greifen) nach Wikipedia DE – Rohrzange."
+  },
+  {
+    "id": "tool-abziehstein",
+    "name": "Abziehstein (Wetzstein)",
+    "category": "tool",
+    "attributes": {
+      "trade": "Allgemein",
+      "function": "Schärfen von Schneidwerkzeugen durch feines Abschleifen der Schneide"
+    },
+    "sourceName": "Wikipedia DE – Schleifstein",
+    "verifyNote": "Funktion (Schärfen durch Abschleifen) nach Wikipedia DE – Schleifstein."
+  },
+  {
+    "id": "tool-schnitzmesser",
+    "name": "Schnitzmesser",
+    "category": "tool",
+    "attributes": {
+      "trade": "Holzbearbeitung",
+      "function": "Freihändiges Schnitzen von Figuren und Ornamenten aus Holz"
+    },
+    "sourceName": "Wikipedia DE – Schnitzmesser",
+    "verifyNote": "Funktion (Freiformschnitzen) nach Wikipedia DE – Schnitzmesser."
+  },
+  {
+    "id": "tool-hohlbeitel",
+    "name": "Hohlbeitel",
+    "category": "tool",
+    "attributes": {
+      "trade": "Holzbearbeitung",
+      "function": "Ausstechen konkaver Kurven und Hohlkehlen im Holz mit gebogener Schneide"
+    },
+    "sourceName": "Wikipedia DE – Hohlbeitel",
+    "verifyNote": "Funktion (Ausstechen von Hohlformen) nach Wikipedia DE – Hohlbeitel."
+  },
+  {
+    "id": "tool-zugsaege",
+    "name": "Zugsäge (Ryoba)",
+    "category": "tool",
+    "attributes": {
+      "trade": "Holzbearbeitung",
+      "function": "Trennen von Holz beim Ziehen für besonders dünne, gratfreie Schnitte"
+    },
+    "sourceName": "Wikipedia DE – Japansäge",
+    "verifyNote": "Funktion (Schnitt auf Zug) nach Wikipedia DE – Japansäge."
+  },
+  {
+    "id": "tool-bogensaege",
+    "name": "Bogensäge",
+    "category": "tool",
+    "attributes": {
+      "trade": "Garten/Landwirtschaft",
+      "function": "Trennen von Ästen und Holz mit einem im Rahmen gespannten schmalen Blatt"
+    },
+    "sourceName": "Wikipedia DE – Bügelsäge",
+    "verifyNote": "Funktion (gespanntes Blatt im Rahmen) nach Wikipedia DE – Bügelsäge."
+  },
+  {
+    "id": "tool-nagelzieher",
+    "name": "Nagelzieher (Kuhfuß)",
+    "category": "tool",
+    "attributes": {
+      "trade": "Holzbearbeitung",
+      "function": "Herausziehen eingeschlagener Nägel über eine Hebelwirkung"
+    },
+    "sourceName": "Wikipedia DE – Nageleisen",
+    "verifyNote": "Funktion (Nägel hebeln) nach Wikipedia DE – Nageleisen."
+  },
+  {
+    "id": "tool-gewindeschneideisen",
+    "name": "Gewindeschneidkluppe",
+    "category": "tool",
+    "attributes": {
+      "trade": "Metallbearbeitung",
+      "function": "Schneiden von Außengewinden auf Rundmaterial von Hand"
+    },
+    "sourceName": "Wikipedia DE – Schneideisen",
+    "verifyNote": "Funktion (Außengewinde schneiden) nach Wikipedia DE – Schneideisen."
+  },
+  {
+    "id": "tool-senker",
+    "name": "Senker (Handsenker)",
+    "category": "tool",
+    "attributes": {
+      "trade": "Metallbearbeitung",
+      "function": "Ansenken von Bohrungsrändern für versenkte Schraubenköpfe"
+    },
+    "sourceName": "Wikipedia DE – Senker",
+    "verifyNote": "Funktion (Ansenken von Bohrungen) nach Wikipedia DE – Senker."
+  },
+  {
+    "id": "tool-reibahle",
+    "name": "Reibahle",
+    "category": "tool",
+    "attributes": {
+      "trade": "Metallbearbeitung",
+      "function": "Nachbearbeiten vorhandener Bohrungen auf genaues Passmaß"
+    },
+    "sourceName": "Wikipedia DE – Reibahle",
+    "verifyNote": "Funktion (Bohrung auf Passmaß) nach Wikipedia DE – Reibahle."
+  },
+  {
+    "id": "tool-schraubenzieherzange",
+    "name": "Gripzange",
+    "category": "tool",
+    "attributes": {
+      "trade": "Metallbearbeitung",
+      "function": "Festhalten von Werkstücken durch eine einstellbare, arretierende Klemmwirkung"
+    },
+    "sourceName": "Wikipedia DE – Gripzange",
+    "verifyNote": "Funktion (arretierendes Klemmen) nach Wikipedia DE – Gripzange."
+  },
+  {
+    "id": "tool-rohrschneider",
+    "name": "Rohrschneider",
+    "category": "tool",
+    "attributes": {
+      "trade": "Allgemein",
+      "function": "Durchtrennen von Rohren mit einem umlaufend angedrückten Schneidrad"
+    },
+    "sourceName": "Wikipedia DE – Rohrabschneider",
+    "verifyNote": "Funktion (Schneidrad statt Säge) nach Wikipedia DE – Rohrabschneider."
+  },
+  {
+    "id": "tool-biegerollenzange",
+    "name": "Rohrbiegezange",
+    "category": "tool",
+    "attributes": {
+      "trade": "Allgemein",
+      "function": "Kaltbiegen dünner Metallrohre ohne Quetschen oder Knicken"
+    },
+    "sourceName": "Wikipedia DE – Rohrbiegen",
+    "verifyNote": "Funktion (knickfreies Kaltbiegen) nach Wikipedia DE – Rohrbiegen."
+  },
+  {
+    "id": "tool-presszange",
+    "name": "Presszange (Crimpzange)",
+    "category": "tool",
+    "attributes": {
+      "trade": "Elektroinstallation",
+      "function": "Verpressen von Aderendhülsen und Steckverbindern auf Leitungsenden"
+    },
+    "sourceName": "Wikipedia DE – Crimpen",
+    "verifyNote": "Funktion (Verpressen von Verbindern) nach Wikipedia DE – Crimpen."
+  },
+  {
+    "id": "tool-kabelschere",
+    "name": "Kabelschere",
+    "category": "tool",
+    "attributes": {
+      "trade": "Elektroinstallation",
+      "function": "Sauberes Durchtrennen von Leitungen ohne Quetschen der Adern"
+    },
+    "sourceName": "Wikipedia DE – Kabelschere",
+    "verifyNote": "Funktion (quetschfreies Trennen) nach Wikipedia DE – Kabelschere."
+  },
+  {
+    "id": "tool-lochzange",
+    "name": "Lochzange",
+    "category": "tool",
+    "attributes": {
+      "trade": "Allgemein",
+      "function": "Stanzen runder Löcher in Leder, Gummi oder dünnen Kunststoff"
+    },
+    "sourceName": "Wikipedia DE – Lochzange",
+    "verifyNote": "Funktion (Löcher stanzen) nach Wikipedia DE – Lochzange."
+  },
+  {
+    "id": "tool-abstandshalter",
+    "name": "Fugenkreuze (Fliesen-Abstandshalter)",
+    "category": "tool",
+    "attributes": {
+      "trade": "Mauern/Beton",
+      "function": "Einhalten gleichmäßiger Fugenbreiten beim Verlegen von Fliesen"
+    },
+    "sourceName": "Wikipedia DE – Fugenkreuz",
+    "verifyNote": "Funktion (gleichmäßige Fugen) nach Wikipedia DE – Fugenkreuz."
+  },
+  {
+    "id": "tool-zahnkelle",
+    "name": "Zahnkelle",
+    "category": "tool",
+    "attributes": {
+      "trade": "Mauern/Beton",
+      "function": "Auftragen und Kämmen von Kleber zu gleichmäßigen Haftrippen"
+    },
+    "sourceName": "Wikipedia DE – Zahnkelle",
+    "verifyNote": "Funktion (Kleber zu Rippen kämmen) nach Wikipedia DE – Zahnkelle."
+  },
+  {
+    "id": "tool-fugenkratzer",
+    "name": "Fugenkratzer",
+    "category": "tool",
+    "attributes": {
+      "trade": "Mauern/Beton",
+      "function": "Ausräumen von altem Mörtel aus Fugen vor dem Neuverfugen"
+    },
+    "sourceName": "Wikipedia DE – Fugenkratzer",
+    "verifyNote": "Funktion (alten Mörtel ausräumen) nach Wikipedia DE – Fugenkratzer."
+  },
+  {
+    "id": "tool-rebschere",
+    "name": "Rebschere (Gartenschere)",
+    "category": "tool",
+    "attributes": {
+      "trade": "Garten/Landwirtschaft",
+      "function": "Schneiden frischer Triebe und dünner Zweige mit einer Einhandschere"
+    },
+    "sourceName": "Wikipedia DE – Gartenschere",
+    "verifyNote": "Funktion (Triebe einhändig schneiden) nach Wikipedia DE – Gartenschere."
+  },
+  {
+    "id": "tool-baumschere",
+    "name": "Baumschere (Langstielschere)",
+    "category": "tool",
+    "attributes": {
+      "trade": "Garten/Landwirtschaft",
+      "function": "Schneiden höher gelegener Äste über einen verlängerten Hebelarm"
+    },
+    "sourceName": "Wikipedia DE – Astschere",
+    "verifyNote": "Funktion (lange Hebel für hohe Äste) nach Wikipedia DE – Astschere."
+  },
+  {
+    "id": "tool-pflanzholz",
+    "name": "Pflanzholz (Dibber)",
+    "category": "tool",
+    "attributes": {
+      "trade": "Garten/Landwirtschaft",
+      "function": "Stechen von Pflanzlöchern für Setzlinge und Zwiebeln im Boden"
+    },
+    "sourceName": "Wikipedia DE – Pflanzholz",
+    "verifyNote": "Funktion (Pflanzlöcher stechen) nach Wikipedia DE – Pflanzholz."
+  },
+  {
+    "id": "tool-spachtel-breit",
+    "name": "Breitspachtel",
+    "category": "tool",
+    "attributes": {
+      "trade": "Mauern/Beton",
+      "function": "Auftragen und Glätten von Spachtelmasse auf großen Flächen"
+    },
+    "sourceName": "Wikipedia DE – Spachtel (Werkzeug)",
+    "verifyNote": "Funktion (Masse auftragen/glätten) nach Wikipedia DE – Spachtel (Werkzeug)."
+  },
+  {
+    "id": "tool-flachrundzange",
+    "name": "Flachzange",
+    "category": "tool",
+    "attributes": {
+      "trade": "Metallbearbeitung",
+      "function": "Greifen, Halten und Biegen von Draht und kleinen Blechteilen mit flachen Backen"
+    },
+    "sourceName": "Wikipedia DE – Flachzange",
+    "verifyNote": "Funktion (flache Backen zum Greifen/Biegen) nach Wikipedia DE – Flachzange."
+  },
+  {
+    "id": "tool-rundzange",
+    "name": "Rundzange",
+    "category": "tool",
+    "attributes": {
+      "trade": "Metallbearbeitung",
+      "function": "Formen von Drahtösen und Ringen mit kegelförmig runden Backen"
+    },
+    "sourceName": "Wikipedia DE – Rundzange",
+    "verifyNote": "Funktion (Ösen formen über runde Backen) nach Wikipedia DE – Rundzange."
+  },
+  {
+    "id": "tool-ziehklinge",
+    "name": "Ziehklinge (Schabhobel)",
+    "category": "tool",
+    "attributes": {
+      "trade": "Holzbearbeitung",
+      "function": "Feinschlichten von Holzoberflächen durch Abschaben mit einem dünnen Stahlblatt"
+    },
+    "sourceName": "Wikipedia DE – Ziehklinge",
+    "verifyNote": "Funktion (Oberfläche abschaben) nach Wikipedia DE – Ziehklinge."
+  },
+  {
+    "id": "elem-axiallager",
+    "name": "Axiallager",
+    "category": "machine_element",
+    "attributes": {
+      "category": "Lager/Führung",
+      "function": "Aufnahme von Kräften parallel zur Wellenachse (Axialkräfte)"
+    },
+    "funFact": "Axiallager werden z. B. in Schiffsantrieben eingesetzt, um den Schub der Schiffsschraube auf den Rumpf zu übertragen.",
+    "sourceName": "Wikipedia DE – Axiallager",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Axiallager",
+    "verifyNote": "Standardlehrbuch-Wissen Maschinenelemente; Wikipedia DE bestätigt Funktion und Anwendungsbeispiel."
+  },
+  {
+    "id": "elem-pendelkugellager",
+    "name": "Pendelkugellager",
+    "category": "machine_element",
+    "attributes": {
+      "category": "Lager/Führung",
+      "function": "Aufnahme radialer Lasten bei geringen Winkelfluchtungsfehlern durch selbsteinstellende Laufbahn"
+    },
+    "sourceName": "Wikipedia DE – Pendelkugellager",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Pendelkugellager",
+    "verifyNote": "Katalog SKF und Wikipedia DE: Pendelkugellager gleichen Winkelfehler bis ca. 2–3° aus."
+  },
+  {
+    "id": "elem-zylinderrollenlager",
+    "name": "Zylinderrollenlager",
+    "category": "machine_element",
+    "attributes": {
+      "category": "Lager/Führung",
+      "function": "Aufnahme hoher Radiallasten durch linienförmige Berührung der zylindrischen Rollen"
+    },
+    "sourceName": "Wikipedia DE – Zylinderrollenlager",
+    "sourceUrl": "https://de.wikipedia.org/wiki/W%C3%A4lzlager#Zylinderrollenlager",
+    "verifyNote": "Standardkatalog FAG/SKF; Wikipedia bestätigt Linienkontakt und Tragfähigkeit."
+  },
+  {
+    "id": "elem-rillenkugellager",
+    "name": "Rillenkugellager",
+    "category": "machine_element",
+    "attributes": {
+      "category": "Lager/Führung",
+      "function": "Aufnahme kombinierter Radial- und Axialkräfte; meistgenutzter Wälzlagertyp"
+    },
+    "funFact": "Das Rillenkugellager ist das am häufigsten eingesetzte Wälzlager weltweit und findet sich in Elektromotoren, Haushaltsgeräten und Fahrrädern.",
+    "sourceName": "Wikipedia DE – Rillenkugellager",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Rillenkugellager",
+    "verifyNote": "Wikipedia DE, SKF-Katalog: Rillenkugellager trägt Radial- und Axialkräfte in beiden Richtungen."
+  },
+  {
+    "id": "elem-gleitlagerbuchse",
+    "name": "Gleitlagerbuchse",
+    "category": "machine_element",
+    "attributes": {
+      "category": "Lager/Führung",
+      "function": "Führung einer rotierenden oder gleitenden Welle durch direkten Flächenkontakt mit reduzierter Reibung"
+    },
+    "sourceName": "Wikipedia DE – Gleitlager",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Gleitlager",
+    "verifyNote": "Gleitlagerbuchse ist die häufigste Bauform des Gleitlagers; Wikipedia und Normen DIN 1850 bestätigen."
+  },
+  {
+    "id": "elem-hohlrad",
+    "name": "Hohlrad",
+    "category": "machine_element",
+    "attributes": {
+      "category": "Getriebeelement",
+      "function": "Innenverzahntes äußeres Ringelement, auf dem die Planeten im Planetengetriebe abrollen"
+    },
+    "sourceName": "Wikipedia DE – Planetengetriebe",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Planetengetriebe",
+    "verifyNote": "Wikipedia DE Planetengetriebe: Hohlrad (Innenzahnrad) ist festes oder angetriebenes Außenelement."
+  },
+  {
+    "id": "elem-planetenrad",
+    "name": "Planetenrad",
+    "category": "machine_element",
+    "attributes": {
+      "category": "Getriebeelement",
+      "function": "Zwischenrad im Planetengetriebe, das auf dem Sonnenrad abrollt und im Hohlrad läuft"
+    },
+    "sourceName": "Wikipedia DE – Planetengetriebe",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Planetengetriebe",
+    "verifyNote": "Wikipedia DE: Planetenräder rollen auf Sonnenrad und Hohlrad und werden vom Steg geführt."
+  },
+  {
+    "id": "elem-kronenrad",
+    "name": "Kronenrad",
+    "category": "machine_element",
+    "attributes": {
+      "category": "Getriebeelement",
+      "function": "Rad mit stirnseitiger Verzahnung auf der Kreisfläche, das mit einem Stirnrad die Drehachse umlenkt"
+    },
+    "sourceName": "Wikipedia DE – Kronenrad",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Kronenrad",
+    "verifyNote": "Wikipedia DE: Kronenrad hat stirnseitige Verzahnung und greift mit einem Stirnrad oder Ritzel zusammen."
+  },
+  {
+    "id": "elem-schnecke",
+    "name": "Schnecke (Schneckengetriebe)",
+    "category": "machine_element",
+    "attributes": {
+      "category": "Getriebeelement",
+      "function": "Schraubenförmiges Antriebselement, das im Schneckengetriebe ein großes Übersetzungsverhältnis erzeugt"
+    },
+    "funFact": "Schneckengetriebe sind selbsthemmend, d. h. das Schneckenrad kann die Schnecke nicht zurückdrehen – genutzt z. B. in Aufzügen.",
+    "sourceName": "Wikipedia DE – Schneckengetriebe",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Schneckengetriebe",
+    "verifyNote": "Wikipedia DE: Schnecke treibt Schneckenrad an; Selbsthemmung bei kleinen Steigungswinkeln."
+  },
+  {
+    "id": "elem-ritzel",
+    "name": "Ritzel",
+    "category": "machine_element",
+    "attributes": {
+      "category": "Getriebeelement",
+      "function": "Kleineres Rad eines Zahnradpaares, das meist antreibt und die höhere Drehzahl überträgt"
+    },
+    "sourceName": "Wikipedia DE – Ritzel (Technik)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Ritzel_(Technik)",
+    "verifyNote": "Wikipedia DE: Ritzel ist das kleinere der beiden kämmenden Zahnräder in einem Getriebe."
+  },
+  {
+    "id": "elem-stiftschraube",
+    "name": "Stiftschraube",
+    "category": "machine_element",
+    "attributes": {
+      "category": "Verbindungselement",
+      "function": "Beidseitig gewindetragendes Befestigungselement ohne Kopf zum Verbinden von Bauteilen mit Mutter"
+    },
+    "sourceName": "Wikipedia DE – Stiftschraube",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Stiftschraube",
+    "verifyNote": "DIN 835/938/939; Wikipedia DE bestätigt Gewindestift mit zwei Gewindeenden."
+  },
+  {
+    "id": "elem-madenschraube",
+    "name": "Madenschraube",
+    "category": "machine_element",
+    "attributes": {
+      "category": "Verbindungselement",
+      "function": "Kopflose Schraube zur Fixierung von Teilen auf Wellen durch Klemmkraft"
+    },
+    "sourceName": "Wikipedia DE – Madenschraube",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Madenschraube",
+    "verifyNote": "DIN 913–916; Wikipedia DE: Madenschraube hat keinen Kopf und wird vollständig in den Werkstoff eingeschraubt."
+  },
+  {
+    "id": "elem-spannstift",
+    "name": "Spannstift",
+    "category": "machine_element",
+    "attributes": {
+      "category": "Verbindungselement",
+      "function": "Geschlitzter Zylinderstift, der sich durch Federwirkung im Bohrloch verspannt"
+    },
+    "sourceName": "Wikipedia DE – Spannstift",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Spannstift",
+    "verifyNote": "DIN EN ISO 8752; Wikipedia DE bestätigt Klemmwirkung durch Schlitzfeder."
+  },
+  {
+    "id": "elem-zahnscheibe",
+    "name": "Zahnscheibe",
+    "category": "machine_element",
+    "attributes": {
+      "category": "Verbindungselement",
+      "function": "Sicherungsscheibe mit eingeprägten Zähnen zur Sicherung von Schraubenverbindungen gegen Lösen"
+    },
+    "sourceName": "Wikipedia DE – Sicherungsscheibe",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Sicherungsscheibe",
+    "verifyNote": "DIN 6797; Wikipedia DE: Zahnscheibe verkrallt sich in Werkstück und Schraubenkopf."
+  },
+  {
+    "id": "elem-keil",
+    "name": "Keil (Verbindungselement)",
+    "category": "machine_element",
+    "attributes": {
+      "category": "Verbindungselement",
+      "function": "Formschlüssige Drehmomentübertragung zwischen Welle und Nabe"
+    },
+    "sourceName": "Wikipedia DE – Keil (Maschinenbau)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Keil_(Maschinenbau)",
+    "verifyNote": "Wikipedia DE Maschinenelemente: Keil überträgt Drehmoment formschlüssig, DIN 6880."
+  },
+  {
+    "id": "elem-sprengring",
+    "name": "Sprengring",
+    "category": "machine_element",
+    "attributes": {
+      "category": "Verbindungselement",
+      "function": "Federnde axiale Sicherung von Bauteilen in einer Nut"
+    },
+    "funFact": "Sprengringe werden mit Sprengringzangen montiert und können trotz ihrer Kleinheit Axialkräfte von mehreren Kilonewton aufnehmen.",
+    "sourceName": "Wikipedia DE – Sprengring",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Sprengring",
+    "verifyNote": "DIN 471/472; Wikipedia DE bestätigt Federstahlring zur Axialsicherung."
+  },
+  {
+    "id": "elem-gewindestange",
+    "name": "Gewindestange",
+    "category": "machine_element",
+    "attributes": {
+      "category": "Verbindungselement",
+      "function": "Vollständig gewindetragende Stange zur Verbindung und Einstellung von Bauteilen"
+    },
+    "sourceName": "Wikipedia DE – Gewindestange",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Gewindestange",
+    "verifyNote": "DIN 975/976; Standard-Befestigungselement im Maschinenbau und Bauwesen."
+  },
+  {
+    "id": "elem-klauenkupplung",
+    "name": "Klauenkupplung",
+    "category": "machine_element",
+    "attributes": {
+      "category": "Getriebeelement",
+      "function": "Formschlüssige Übertragung von Drehmoment über ineinandergreifende Klauen"
+    },
+    "sourceName": "Wikipedia DE – Klauenkupplung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Klauenkupplung",
+    "verifyNote": "Wikipedia DE: Klauenkupplung überträgt Drehmoment formschlüssig ohne Schlupf."
+  },
+  {
+    "id": "elem-lamellenkupplung",
+    "name": "Lamellenkupplung",
+    "category": "machine_element",
+    "attributes": {
+      "category": "Getriebeelement",
+      "function": "Reibschlüssige Drehmomentübertragung über wechselnde Innen- und Außenlamellen"
+    },
+    "funFact": "Lamellenkupplungen sind das Herzstück moderner Automatikgetriebe und ermöglichen das stufenlose Schalten unter Last.",
+    "sourceName": "Wikipedia DE – Lamellenkupplung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Lamellenkupplung",
+    "verifyNote": "Wikipedia DE: Lamellenkupplungen übertragen Kraft reibschlüssig über gepresste Lamellenpaare."
+  },
+  {
+    "id": "elem-rutschkupplung",
+    "name": "Rutschkupplung",
+    "category": "machine_element",
+    "attributes": {
+      "category": "Getriebeelement",
+      "function": "Überlastsicherung, die bei Überschreiten eines eingestellten Drehmomentes durchrutscht"
+    },
+    "sourceName": "Wikipedia DE – Rutschkupplung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Rutschkupplung",
+    "verifyNote": "Wikipedia DE: Rutschkupplung schützt Antriebsstrang vor Überlast durch definierten Schlupf."
+  },
+  {
+    "id": "elem-zahnkupplung",
+    "name": "Zahnkupplung",
+    "category": "machine_element",
+    "attributes": {
+      "category": "Getriebeelement",
+      "function": "Formschlüssige Wellenkupplung mit Innen- und Außenverzahnung zum Ausgleich von Wellenversatz"
+    },
+    "sourceName": "Wikipedia DE – Zahnkupplung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Zahnkupplung",
+    "verifyNote": "Wikipedia DE: Zahnkupplung gleicht Winkel- und radialen Versatz durch ballige Verzahnung aus."
+  },
+  {
+    "id": "elem-drehfeder",
+    "name": "Drehfeder",
+    "category": "machine_element",
+    "attributes": {
+      "category": "Feder/Dämpfung",
+      "function": "Speicherung von Rotationsenergie durch Torsion eines Federdrahtes oder -stabes"
+    },
+    "sourceName": "Wikipedia DE – Drehfeder",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Drehfeder",
+    "verifyNote": "Wikipedia DE: Drehfeder (Torsionsfeder) erzeugt Rückstellmoment proportional zum Verdrehwinkel."
+  },
+  {
+    "id": "elem-gasdruckfeder",
+    "name": "Gasdruckfeder",
+    "category": "machine_element",
+    "attributes": {
+      "category": "Feder/Dämpfung",
+      "function": "Speicherung von Energie durch komprimiertes Gas zur gedämpften Kraftunterstützung"
+    },
+    "funFact": "Gasdruckfedern werden in Kfz-Heckklappen und Bürostühlen eingesetzt und können im Gegensatz zu Stahlfedern nahezu konstante Kräfte über den gesamten Hub liefern.",
+    "sourceName": "Wikipedia DE – Gasdruckfeder",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Gasdruckfeder",
+    "verifyNote": "Wikipedia DE: Gasdruckfeder arbeitet mit komprimiertem Stickstoff hinter einem Kolben."
+  },
+  {
+    "id": "elem-spiralfeder",
+    "name": "Spiralfeder",
+    "category": "machine_element",
+    "attributes": {
+      "category": "Feder/Dämpfung",
+      "function": "Speicherung von Rotationsenergie durch Aufwickeln eines flachen Federbandes in einer Ebene"
+    },
+    "funFact": "Die Spiralfeder ist das antreibende Element in mechanischen Uhren und war dort bis zur Erfindung der Batterie der einzige Energiespeicher.",
+    "sourceName": "Wikipedia DE – Spiralfeder",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Spiralfeder",
+    "verifyNote": "Wikipedia DE: Spiralfeder (auch Flachspiralfeder) speichert Torsionsenergie; bekannt aus Uhrwerken."
+  },
+  {
+    "id": "elem-gummifeder",
+    "name": "Gummifeder",
+    "category": "machine_element",
+    "attributes": {
+      "category": "Feder/Dämpfung",
+      "function": "Schwingungsdämpfung und Federwirkung durch Verformung von Elastomermaterial"
+    },
+    "sourceName": "Wikipedia DE – Gummifeder",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Gummifeder",
+    "verifyNote": "Wikipedia DE: Gummifedern dämpfen Schall und Schwingung durch innere Dämpfung des Elastomers."
+  },
+  {
+    "id": "elem-stopfbuchse",
+    "name": "Stopfbuchse",
+    "category": "machine_element",
+    "attributes": {
+      "category": "Dichtung",
+      "function": "Abdichtung einer rotierenden oder hin- und herbewegten Welle gegenüber dem Gehäuse durch komprimierte Dichtpackungen"
+    },
+    "funFact": "Stopfbuchsen waren jahrhundertelang die einzige Möglichkeit, Schiffspropellerwellen wasserdicht durch den Rumpf zu führen.",
+    "sourceName": "Wikipedia DE – Stopfbuchse",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Stopfbuchse",
+    "verifyNote": "Wikipedia DE: Stopfbuchse dichtet mittels verpresster Packungsringe aus Weichstoff- oder Grafitfaser."
+  },
+  {
+    "id": "elem-nutring",
+    "name": "Nutring",
+    "category": "machine_element",
+    "attributes": {
+      "category": "Dichtung",
+      "function": "Dynamische Dichtung für hin- und hergehende Bewegungen in Hydraulik- und Pneumatikzylindern"
+    },
+    "sourceName": "Wikipedia DE – Nutring",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Nutring",
+    "verifyNote": "Wikipedia DE: Nutring (U-Ring) dichtet Hydraulik- und Pneumatikzylinder durch Lippen-Anpressdruck."
+  },
+  {
+    "id": "elem-radialdichtring",
+    "name": "Radialdichtring",
+    "category": "machine_element",
+    "attributes": {
+      "category": "Dichtung",
+      "function": "Abdichtung einer rotierenden Welle radial nach außen; verhindert Ölaustritt aus Gehäusen"
+    },
+    "sourceName": "Wikipedia DE – Wellendichtring",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Wellendichtring",
+    "verifyNote": "Radialdichtring ist Oberbegriff; Simmerring (Markenname) die bekannteste Ausführung; DIN 3760."
+  },
+  {
+    "id": "elem-kolbenring",
+    "name": "Kolbenring",
+    "category": "machine_element",
+    "attributes": {
+      "category": "Dichtung",
+      "function": "Abdichtung des Brennraums im Zylinder und Ableitung von Wärme an die Zylinderwand"
+    },
+    "funFact": "Ein Verbrennungsmotor hat typischerweise zwei Kompressions- und einen Ölabstreifring pro Kolben – insgesamt oft zwölf Kolbenringe bei einem Vierzylindermotor.",
+    "sourceName": "Wikipedia DE – Kolbenring",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Kolbenring",
+    "verifyNote": "Wikipedia DE: Kolbenringe dichten Brennraum ab und leiten Wärme über Zylinderwand ab."
+  },
+  {
+    "id": "elem-rollenkette",
+    "name": "Rollenkette",
+    "category": "machine_element",
+    "attributes": {
+      "category": "Zugmittel",
+      "function": "Formschlüssiges Zugmittel zur Drehmomentübertragung über Kettenräder mit definierten Übersetzungen"
+    },
+    "funFact": "Die Rollenkette wurde 1880 von Hans Renold patentiert und ist das entscheidende Element, das das Fahrrad zum effizienten Fortbewegungsmittel machte.",
+    "sourceName": "Wikipedia DE – Rollenkette",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Rollenkette",
+    "verifyNote": "Wikipedia DE: Rollenkette nach DIN 8187/ISO 606; Rollen reduzieren Reibung beim Eingriff ins Kettenrad."
+  },
+  {
+    "id": "elem-zahnkette",
+    "name": "Zahnkette",
+    "category": "machine_element",
+    "attributes": {
+      "category": "Zugmittel",
+      "function": "Ruhig laufendes Zugmittel mit zahnartig geformten Laschen für leise und präzise Kraftübertragung"
+    },
+    "sourceName": "Wikipedia DE – Zahnkette",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Zahnkette",
+    "verifyNote": "Wikipedia DE: Zahnkette (Silent Chain) läuft leiser als Rollenkette und wird z. B. in Motorsteuertrieben eingesetzt."
+  },
+  {
+    "id": "elem-steckwelle",
+    "name": "Steckwelle",
+    "category": "machine_element",
+    "attributes": {
+      "category": "Welle/Achse",
+      "function": "Herausnehmbare Welle zur schnellen werkzeuglosen Demontage von Baugruppen"
+    },
+    "sourceName": "Wikipedia DE – Steckwelle",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Steckwelle",
+    "verifyNote": "Wikipedia DE: Steckwellen werden z. B. bei Fahrrad-Hinterrädern und Motorsportfahrzeugen für schnellen Radwechsel eingesetzt."
+  },
+  {
+    "id": "elem-torsionsstab",
+    "name": "Torsionsstab",
+    "category": "machine_element",
+    "attributes": {
+      "category": "Feder/Dämpfung",
+      "function": "Federelement, das Energie durch Verdrillung eines geraden Stabs um seine Längsachse speichert"
+    },
+    "funFact": "Torsionsstabfedern wurden ab den 1930er-Jahren im Fahrzeugbau eingesetzt und ermöglichen eine besonders flache Bauweise der Vorderachsfederung.",
+    "sourceName": "Wikipedia DE – Drehstabfeder",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Drehstabfeder",
+    "verifyNote": "Wikipedia DE: Drehstab speichert Energie durch Torsion (Verdrillung um die Längsachse); Federrate hängt von Länge und Durchmesser ab."
+  },
+  {
+    "id": "elem-profilwelle",
+    "name": "Profilwelle",
+    "category": "machine_element",
+    "attributes": {
+      "category": "Welle/Achse",
+      "function": "Welle mit unrundem Querschnitt (Polygonprofil, Keilwellenprofil) zur formschlüssigen Drehmomentübertragung"
+    },
+    "sourceName": "Wikipedia DE – Keilwelle",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Keilwelle",
+    "verifyNote": "DIN 5464/5471; Wikipedia DE: Keilwelle als häufigste Profilwellenform, formschlüssig und axial verschiebbar."
+  },
+  {
+    "id": "elem-kardangelenk",
+    "name": "Kardangelenk",
+    "category": "machine_element",
+    "attributes": {
+      "category": "Getriebeelement",
+      "function": "Übertragung von Drehbewegungen zwischen Wellen mit wechselndem Winkel"
+    },
+    "funFact": "Das Kardangelenk ist nach dem italienischen Mathematiker Gerolamo Cardano benannt, obwohl es bereits früher von anderen Erfindern beschrieben wurde.",
+    "sourceName": "Wikipedia DE – Kardangelenk",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Kardangelenk",
+    "verifyNote": "Wikipedia DE: Kardangelenk überträgt Drehmoment bei Winkelversatz; Nachteil: ungleichförmige Übersetzung."
+  },
+  {
+    "id": "elem-gleichlaufgelenk",
+    "name": "Gleichlaufgelenk",
+    "category": "machine_element",
+    "attributes": {
+      "category": "Getriebeelement",
+      "function": "Winkelbewegliches Wellengelenk, das Drehmoment ohne Drehungleichförmigkeit überträgt"
+    },
+    "sourceName": "Wikipedia DE – Gleichlaufgelenk",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Gleichlaufgelenk",
+    "verifyNote": "Wikipedia DE: Gleichlaufgelenk (CV-Gelenk) überträgt gleichmäßige Drehzahl bei beliebigem Beugewinkel; Standard in Antriebswellen."
+  },
+  {
+    "id": "elem-gelenkkopf",
+    "name": "Gelenkkopf",
+    "category": "machine_element",
+    "attributes": {
+      "category": "Lager/Führung",
+      "function": "Kugelgelagertes Verbindungselement zum Ausgleich von Winkel- und Achsversatz in Gestängen"
+    },
+    "sourceName": "Wikipedia DE – Gelenkkopf",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Gelenkkopf",
+    "verifyNote": "DIN ISO 12240; Wikipedia DE: Gelenkkopf mit Innen- oder Außengewinde und Kugelgelenkpfanne."
+  },
+  {
+    "id": "elem-freilauf",
+    "name": "Freilauf",
+    "category": "machine_element",
+    "attributes": {
+      "category": "Getriebeelement",
+      "function": "Kraftübertragung nur in einer Drehrichtung; in Gegenrichtung dreht die Welle frei ohne Mitnahme"
+    },
+    "funFact": "Der Freilauf am Fahrradhinterrad ermöglicht das Rollen ohne Pedalieren und schützt den Antrieb beim Bergabfahren.",
+    "sourceName": "Wikipedia DE – Freilauf (Technik)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Freilauf_(Technik)",
+    "verifyNote": "Wikipedia DE: Freilauf (Einwegkupplung) sperrt in einer, gibt in der anderen Richtung frei."
+  },
+  {
+    "id": "elem-schraubrad",
+    "name": "Schraubrad",
+    "category": "machine_element",
+    "attributes": {
+      "category": "Getriebeelement",
+      "function": "Schräg- oder spiralverzahntes Zahnrad zur Übertragung von Bewegung zwischen sich kreuzenden Achsen"
+    },
+    "sourceName": "Wikipedia DE – Schraubradgetriebe",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Schraubradgetriebe",
+    "verifyNote": "Wikipedia DE: Schraubradgetriebe übertragen Drehmoment zwischen kreuzenden Achsen durch Punktberührung."
+  },
+  {
+    "id": "engine-reihensechszylinder",
+    "name": "Reihensechszylindermotor",
+    "category": "engine",
+    "attributes": {
+      "type": "Verbrennungsmotor",
+      "energySource": "Benzin",
+      "principle": "Sechs Zylinder in einer Reihe angeordnet; perfekter Massenausgleich durch symmetrische Anordnung der Kurbelwellenkröpfungen"
+    },
+    "funFact": "Der Reihensechszylinder ist der einzige Hubkolbenmotor, der vollständigen Primär- und Sekundärmassenausgleich ohne Ausgleichswellen erreicht.",
+    "sourceName": "Wikipedia DE – Reihensechszylindermotor",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Reihensechszylindermotor",
+    "verifyNote": "Massenausgleich-Eigenschaft ist Lehrbuchmaterial der Motorenkunde"
+  },
+  {
+    "id": "engine-v8-motor",
+    "name": "V8-Motor",
+    "category": "engine",
+    "attributes": {
+      "type": "Verbrennungsmotor",
+      "energySource": "Benzin",
+      "principle": "Acht Zylinder im V-Winkel (meist 90°) angeordnet; hohe Leistungsdichte durch kurze Bauweise und acht Arbeitstakte pro Kurbelwellenumdrehung"
+    },
+    "funFact": "V8-Motoren mit 90°-Bankwinkel haben einen natürlichen Zündabstand von 90°, was einen gleichmäßigen Lauf ohne Ausgleichswellen ermöglicht.",
+    "sourceName": "Wikipedia DE – V8-Motor",
+    "sourceUrl": "https://de.wikipedia.org/wiki/V8-Motor",
+    "verifyNote": "Zündabstand und Bankwinkel sind standardisierte Motorenkunde-Inhalte"
+  },
+  {
+    "id": "engine-w-motor",
+    "name": "W-Motor",
+    "category": "engine",
+    "attributes": {
+      "type": "Verbrennungsmotor",
+      "principle": "Drei oder vier Zylinderreihen in W-Formation auf einer gemeinsamen Kurbelwelle; extrem kompakte Bauweise für hohe Zylinderzahlen"
+    },
+    "funFact": "Volkswagens W16-Motor im Bugatti Veyron vereint vier Zylinderreihen auf einer Länge, die kürzer ist als ein konventioneller V8.",
+    "sourceName": "Wikipedia DE – W-Motor",
+    "sourceUrl": "https://de.wikipedia.org/wiki/W-Motor",
+    "verifyNote": "VW-W16-Bauart ist dokumentiert und bekannt aus Motorenpresse"
+  },
+  {
+    "id": "engine-sternmotor",
+    "name": "Sternmotor",
+    "category": "engine",
+    "attributes": {
+      "type": "Verbrennungsmotor",
+      "energySource": "Benzin",
+      "principle": "Zylinder strahlenförmig um eine zentrale Kurbelwelle angeordnet; alle Pleuelstangen greifen an einem gemeinsamen Kurbelzapfen an"
+    },
+    "funFact": "Sternmotoren wurden vor allem in der Luftfahrt eingesetzt, weil ihre kurze Bauform und Luftkühlung bei Flugzeugantrieben Gewichtsvorteile boten.",
+    "sourceName": "Wikipedia DE – Sternmotor",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Sternmotor",
+    "verifyNote": "Bauform und Luftfahrtbezug sind Standard-Motorenkundewissen"
+  },
+  {
+    "id": "engine-gegenkolbenmotor",
+    "name": "Gegenkolbenmotor",
+    "category": "engine",
+    "attributes": {
+      "type": "Verbrennungsmotor",
+      "principle": "Zwei gegenläufige Kolben teilen sich einen Zylinder; der Verbrennungsraum entsteht zwischen den Kolbenböden, kein Zylinderkopf notwendig"
+    },
+    "sourceName": "Wikipedia DE – Gegenkolbenmotor",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Gegenkolbenmotor",
+    "verifyNote": "Bauform ohne Zylinderkopf ist definierendes Merkmal laut Wikipedia"
+  },
+  {
+    "id": "engine-vorkammer-diesel",
+    "name": "Vorkammer-Dieselmotor",
+    "category": "engine",
+    "attributes": {
+      "type": "Verbrennungsmotor",
+      "energySource": "Diesel",
+      "principle": "Kraftstoff wird in eine Vorkammer eingedüst; dort erfolgt Vorzündung, bevor das Gemisch in den Hauptbrennraum expandiert — ruhiger Lauf durch weichen Druckanstieg"
+    },
+    "funFact": "Vorkammer-Dieselmotoren liefen deutlich leiser als Direkteinspritzer und wurden deshalb lange in PKW bevorzugt.",
+    "sourceName": "Wikipedia DE – Vorkammer-Dieselmotor",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Vorkammermotor",
+    "verifyNote": "Vorkammer-Prinzip und ruhiger Lauf sind Standardlehrstoff der Motorentechnik"
+  },
+  {
+    "id": "engine-common-rail-diesel",
+    "name": "Common-Rail-Dieselmotor",
+    "category": "engine",
+    "attributes": {
+      "type": "Verbrennungsmotor",
+      "energySource": "Diesel",
+      "principle": "Alle Einspritzdüsen werden aus einem gemeinsamen Hochdruckspeicher (Rail) versorgt; Einspritzdruck und -zeitpunkt sind elektronisch unabhängig steuerbar"
+    },
+    "funFact": "Common-Rail-Systeme arbeiten mit Einspritzdrücken über 2000 bar und ermöglichen Mehrfacheinspritzungen pro Arbeitstakt.",
+    "sourceName": "Wikipedia DE – Common-Rail",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Common_Rail",
+    "verifyNote": "Druckwerte und Funktionsprinzip laut Wikipedia Common Rail"
+  },
+  {
+    "id": "engine-reluktanzmotor",
+    "name": "Reluktanzmotor",
+    "category": "engine",
+    "attributes": {
+      "type": "Elektrische Maschine",
+      "energySource": "Strom",
+      "principle": "Rotor dreht sich in Richtung des geringsten magnetischen Widerstands (Reluktanz); keine Permanentmagnete oder Wicklungen im Rotor"
+    },
+    "funFact": "Geschaltete Reluktanzmotoren (SRM) kommen ohne seltene Erdmetalle aus und gelten deshalb als zukunftsträchtig für Elektrofahrzeuge.",
+    "sourceName": "Wikipedia DE – Reluktanzmotor",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Reluktanzmotor",
+    "verifyNote": "Funktionsprinzip und Magnete-Freiheit laut Wikipedia"
+  },
+  {
+    "id": "engine-universalmotor",
+    "name": "Universalmotor",
+    "category": "engine",
+    "attributes": {
+      "type": "Elektrische Maschine",
+      "energySource": "Strom",
+      "principle": "Reihenschluss-Kollektormotor, der sowohl mit Gleich- als auch mit Wechselstrom betrieben werden kann; hohe Drehzahlen und Anlaufmomente"
+    },
+    "funFact": "Haushaltsmixer, Staubsauger und elektrische Zahnbürsten nutzen oft Universalmotoren, weil sie klein und leistungsstark sind.",
+    "sourceName": "Wikipedia DE – Universalmotor",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Universalmotor",
+    "verifyNote": "Betrieb mit AC und DC sowie typische Anwendungen laut Wikipedia"
+  },
+  {
+    "id": "engine-spaltpolmotor",
+    "name": "Spaltpolmotor",
+    "category": "engine",
+    "attributes": {
+      "type": "Elektrische Maschine",
+      "energySource": "Strom",
+      "principle": "Ein Kurzschlussring (Spaltpolring) erzeugt einen Phasenverzug im Magnetfeld; das resultierende Wanderfeld setzt den Rotor in Bewegung — kein Anlaufkondensator nötig"
+    },
+    "funFact": "Spaltpolmotoren sind sehr robust und kostengünstig, haben aber einen schlechten Wirkungsgrad von oft unter 30 %.",
+    "sourceName": "Wikipedia DE – Spaltpolmotor",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Spaltpolmotor",
+    "verifyNote": "Wirkungsgrad und Kurzschlussring-Prinzip laut Wikipedia"
+  },
+  {
+    "id": "engine-darrieus-turbine",
+    "name": "Darrieus-Turbine",
+    "category": "engine",
+    "attributes": {
+      "type": "Wind-/Wasserkraft",
+      "energySource": "Wind",
+      "principle": "Vertikalachsige Windturbine mit gebogenen (tropoiden) oder geraden Rotorblättern; Antrieb durch Auftriebskräfte an den Blättern, nicht durch Widerstand"
+    },
+    "funFact": "Die Darrieus-Turbine dreht sich unabhängig von der Windrichtung und benötigt keine Windnachführung.",
+    "sourceName": "Wikipedia DE – Darrieus-Rotor",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Darrieus-Rotor",
+    "verifyNote": "Vertikalachse und Richtungsunabhängigkeit laut Wikipedia"
+  },
+  {
+    "id": "engine-durchstroemturbine",
+    "name": "Durchströmturbine",
+    "category": "engine",
+    "attributes": {
+      "type": "Strömungsmaschine (Turbine)",
+      "energySource": "Wasser",
+      "principle": "Wasser durchströmt das Laufrad zweimal: erst von außen nach innen, dann von innen nach außen — einfache Bauweise für kleine Wasserkraftanlagen"
+    },
+    "sourceName": "Wikipedia DE – Durchströmturbine",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Durchstr%C3%B6mturbine",
+    "verifyNote": "Doppeldurchströmung als Konstruktionsmerkmal laut Wikipedia (Banki-Michell-Turbine)"
+  },
+  {
+    "id": "engine-dampfturbine-impulsbauart",
+    "name": "Impulsturbine (Dampf)",
+    "category": "engine",
+    "attributes": {
+      "type": "Dampfkraftmaschine",
+      "energySource": "Dampf",
+      "principle": "Druckabfall des Dampfes erfolgt ausschließlich in feststehenden Düsen; die Laufschaufeln werden nur durch den Impuls des auftreffenden Dampfstrahls angetrieben"
+    },
+    "sourceName": "Wikipedia DE – Dampfturbine",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Dampfturbine",
+    "verifyNote": "Unterschied Impuls- vs. Überdruckturbine ist Standardlehrstoff der Thermodynamik"
+  },
+  {
+    "id": "engine-dampfturbine-ueberdruck",
+    "name": "Überdruckturbine (Dampf)",
+    "category": "engine",
+    "attributes": {
+      "type": "Dampfkraftmaschine",
+      "energySource": "Dampf",
+      "principle": "Druckabfall des Dampfes erfolgt sowohl in den Leitschaufeln als auch in den Laufschaufeln; Reaktionskraft des beschleunigten Dampfes treibt das Laufrad an"
+    },
+    "sourceName": "Wikipedia DE – Dampfturbine",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Dampfturbine",
+    "verifyNote": "Überdruckprinzip (Reaktionsturbine) laut Wikipedia-Abschnitt Bauarten"
+  },
+  {
+    "id": "engine-dampfmaschine-kondensation",
+    "name": "Kondensationsdampfmaschine",
+    "category": "engine",
+    "attributes": {
+      "type": "Dampfkraftmaschine",
+      "energySource": "Dampf",
+      "principle": "Nach der Expansion wird der Dampf in einem separaten Kondensator niedergeschlagen; das Vakuum erhöht die Druckdifferenz und damit den Wirkungsgrad erheblich"
+    },
+    "funFact": "James Watt verdoppelte den Wirkungsgrad der Dampfmaschine, indem er Kondensation und Zylinder trennte und so unnötige Abkühlung des Arbeitszylinders vermied.",
+    "sourceName": "Wikipedia DE – Dampfmaschine",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Dampfmaschine",
+    "verifyNote": "Watts Kondensator-Innovation ist gut belegtes Technikgeschichtswissen (hier als Bauartmerkmal)"
+  },
+  {
+    "id": "engine-dreizylindermotor",
+    "name": "Dreizylindermotor",
+    "category": "engine",
+    "attributes": {
+      "type": "Verbrennungsmotor",
+      "principle": "Drei Zylinder in Reihe mit gleichmäßigem Zündabstand von 240°; kompakt und leicht, benötigt jedoch eine Ausgleichswelle gegen primäre Massenkräfte"
+    },
+    "funFact": "Dreizylindermotoren erleben in modernen Kleinst-Turbomotoren eine Renaissance, weil ihr geringes Gewicht und kleines Volumen den Verbrauch senken.",
+    "sourceName": "Wikipedia DE – Dreizylindermotor",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Dreizylindermotor",
+    "verifyNote": "Zündabstand 240° und Ausgleichswellenbedarf laut Wikipedia"
+  },
+  {
+    "id": "engine-wasserstoffmotor",
+    "name": "Wasserstoffmotor",
+    "category": "engine",
+    "attributes": {
+      "type": "Verbrennungsmotor",
+      "energySource": "Gas",
+      "principle": "Hubkolbenmotor verbrennt Wasserstoff statt fossiler Kraftstoffe; Zündung per Fremdzündung oder angepasster Selbstzündung, Abgas ist nahezu reiner Wasserdampf"
+    },
+    "sourceName": "Wikipedia DE – Wasserstoffmotor",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Wasserstoffmotor",
+    "verifyNote": "Funktionsprinzip und Abgascharakteristik laut Wikipedia"
+  },
+  {
+    "id": "engine-ramjet",
+    "name": "Staustrahltriebwerk (Ramjet)",
+    "category": "engine",
+    "attributes": {
+      "energySource": "Gas",
+      "principle": "Luftverdichtung erfolgt ausschließlich durch den Staudruck der Fahrtgeschwindigkeit; keine rotierenden Teile — nur bei Überschallgeschwindigkeit effizient"
+    },
+    "funFact": "Ramjets haben keinerlei bewegliche Teile im Triebwerk und müssen auf Betriebsgeschwindigkeit gebracht werden, bevor sie eigenständig arbeiten können.",
+    "sourceName": "Wikipedia DE – Staustrahltriebwerk",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Staustrahltriebwerk",
+    "verifyNote": "Keine beweglichen Teile und Minimalgeschwindigkeit laut Wikipedia"
+  },
+  {
+    "id": "engine-pulsojet",
+    "name": "Pulsstrahltriebwerk",
+    "category": "engine",
+    "attributes": {
+      "energySource": "Gas",
+      "principle": "Verbrennung erfolgt in diskontinuierlichen Impulsen durch sich öffnende und schließende Einlassventile; einfachste Form des luftatmenden Strahlantriebs"
+    },
+    "sourceName": "Wikipedia DE – Pulsstrahltriebwerk",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Pulsstrahltriebwerk",
+    "verifyNote": "Funktionsprinzip (gepulste Verbrennung mit Einlassventilen) laut Wikipedia"
+  },
+  {
+    "id": "engine-magnetmotor-linear",
+    "name": "Linearer Asynchronmotor",
+    "category": "engine",
+    "attributes": {
+      "type": "Elektrische Maschine",
+      "energySource": "Strom",
+      "principle": "Abgerollte Version des Asynchronmotors; das Wanderfeld des Stators treibt einen flachen Läufer (Reaktionsschiene) gradlinig an statt rotatorisch"
+    },
+    "funFact": "Magnetschwebebahnen wie der Transrapid nutzen Linearmotoren, weil kein mechanischer Kontakt zwischen Fahrzeug und Führungsschiene besteht.",
+    "sourceName": "Wikipedia DE – Linearmotor",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Linearmotor",
+    "verifyNote": "Funktionsprinzip als abgerollter Asynchronmotor laut Wikipedia"
+  },
+  {
+    "id": "engine-dampflok-triebwerk",
+    "name": "Dampflok-Triebwerk",
+    "category": "engine",
+    "attributes": {
+      "type": "Dampfkraftmaschine",
+      "energySource": "Dampf",
+      "principle": "Doppelwirkende Kolbendampfmaschine treibt über Kuppelstangen direkt die Treibachsen an; Expansion des Hochdruckdampfes erzeugt Schubkraft auf Kolbenstange und Kreuzkopf"
+    },
+    "funFact": "Dampflokomotiven wurden in Deutschland bis 1977 im Planbetrieb der Deutschen Bundesbahn eingesetzt.",
+    "sourceName": "Wikipedia DE – Dampflokomotive",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Dampflokomotive",
+    "verifyNote": "Kuppelstangen-Direktantrieb und DB-Planbetrieb laut Wikipedia"
+  },
+  {
+    "id": "engine-verbundmaschine-dampf",
+    "name": "Verbund-Dampfmaschine",
+    "category": "engine",
+    "attributes": {
+      "type": "Dampfkraftmaschine",
+      "energySource": "Dampf",
+      "principle": "Dampf expandiert in zwei oder mehr Zylindern hintereinander (Hochdruck- und Niederdruckzylinder); höherer Wirkungsgrad durch bessere Nutzung des Druckgefälles"
+    },
+    "sourceName": "Wikipedia DE – Verbunddampfmaschine",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Verbundmaschine_(Dampfmaschine)",
+    "verifyNote": "Zweistufige Expansion als Kernmerkmal laut Wikipedia"
+  },
+  {
+    "id": "engine-zwillingsdampfmaschine",
+    "name": "Zwillings-Dampfmaschine",
+    "category": "engine",
+    "attributes": {
+      "type": "Dampfkraftmaschine",
+      "energySource": "Dampf",
+      "principle": "Zwei gleichartige einfachwirkende Zylinder mit 90° Kurbelversatz; gleichmäßigeres Drehmoment und sicherer Anlauf in jeder Stellung"
+    },
+    "sourceName": "Wikipedia DE – Dampfmaschine",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Dampfmaschine",
+    "verifyNote": "90°-Kurbelversatz zur Anlauf-Sicherheit ist Standardlehrstoff der Dampfmaschinengeschichte"
+  },
+  {
+    "id": "engine-permanentmagnet-synchronmotor",
+    "name": "Permanentmagnet-Synchronmotor",
+    "category": "engine",
+    "attributes": {
+      "type": "Elektrische Maschine",
+      "energySource": "Strom",
+      "principle": "Rotor enthält Permanentmagnete; dreht sich synchron mit dem Drehfeld des Stators — hoher Wirkungsgrad durch keine Rotorerwärmung und präzise Drehzahlregelung"
+    },
+    "funFact": "Viele moderne Elektroautos (z. B. Tesla Model 3 Hinterradantrieb) nutzen Permanentmagnet-Synchronmotoren wegen ihres hohen Wirkungsgrads.",
+    "sourceName": "Wikipedia DE – Synchronmaschine",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Synchronmaschine",
+    "verifyNote": "Permanentmagnet-Rotor und hoher Wirkungsgrad laut Wikipedia"
+  },
+  {
+    "id": "engine-windrad-auftriebslaeufer",
+    "name": "Auftriebsläufer (Windturbine)",
+    "category": "engine",
+    "attributes": {
+      "type": "Wind-/Wasserkraft",
+      "energySource": "Wind",
+      "principle": "Rotorblätter mit Flügelprofil erzeugen Auftrieb durch Druckunterschied; dieser Auftrieb — nicht der Windwiderstand — treibt das Laufrad an"
+    },
+    "funFact": "Alle modernen Dreiblatt-Windkraftanlagen sind Auftriebsläufer — der Wirkungsgrad liegt weit über dem des widerstandsgetriebenen Savonius-Rotors.",
+    "sourceName": "Wikipedia DE – Windkraftanlage",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Windkraftanlage",
+    "verifyNote": "Auftriebsprinzip vs. Widerstandsprinzip laut Wikipedia-Abschnitt Funktionsprinzip"
+  },
+  {
+    "id": "engine-elektromotor-aussenlaeufer",
+    "name": "Außenläufer-Elektromotor",
+    "category": "engine",
+    "attributes": {
+      "type": "Elektrische Maschine",
+      "energySource": "Strom",
+      "principle": "Magnete sitzen auf dem äußeren rotierenden Gehäuse, der feststehende Stator befindet sich innen; großes Trägheitsmoment und hohes Drehmoment bei niedrigen Drehzahlen"
+    },
+    "funFact": "Drohnen und Modellflugzeuge verwenden fast ausschließlich bürstenlose Außenläufer, weil sie leicht sind und beim Antrieb von Propellern optimale Drehzahlen liefern.",
+    "sourceName": "Wikipedia DE – Außenläufer",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Au%C3%9Fenl%C3%A4ufer",
+    "verifyNote": "Außenrotor-Bauweise und Drohnenanwendung laut Wikipedia"
+  },
+  {
+    "id": "mfg-kokillenguss",
+    "name": "Kokillenguss",
+    "category": "manufacturing_process",
+    "attributes": {
+      "mainGroup": "Urformen",
+      "purpose": "Erzeugen von Metallteilen durch Erstarren von Schmelze in wiederverwendbaren Dauerformen aus Stahl oder Gusseisen"
+    },
+    "funFact": "Der Kokillenguss erzeugt feinkörnigere Gefüge als Sandguss, weil die Metallform die Schmelze schneller abkühlt.",
+    "sourceName": "Wikipedia DE – Kokillenguss",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Kokillenguss",
+    "verifyNote": "DIN-8580-Gruppe Urformen; Dauerform aus Metall als Hauptmerkmal laut Wikipedia."
+  },
+  {
+    "id": "mfg-stranggiessen",
+    "name": "Stranggießen",
+    "category": "manufacturing_process",
+    "attributes": {
+      "mainGroup": "Urformen",
+      "purpose": "Kontinuierliches Erstarren von Metallschmelze zu endlosen Strängen wie Brammen, Knüppeln und Vorblöcken"
+    },
+    "funFact": "Über 90 Prozent des weltweit erzeugten Rohstahls werden heute im Stranggussverfahren vergossen.",
+    "sourceName": "Wikipedia DE – Stranggießen",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Stranggie%C3%9Fen",
+    "verifyNote": "Kernfakt (90 %-Anteil) aus Wikipedia DE, Abschnitt Bedeutung."
+  },
+  {
+    "id": "mfg-vakuumgiessen",
+    "name": "Vakuumgießen",
+    "category": "manufacturing_process",
+    "attributes": {
+      "mainGroup": "Urformen",
+      "purpose": "Erstarren von Metall unter Vakuum, um Gaseinschlüsse und Oxidation in der Schmelze zu vermeiden"
+    },
+    "sourceName": "Wikipedia EN – Vacuum casting",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Vacuum_casting",
+    "verifyNote": "Einordnung in DIN-8580-Urformen und Zweck aus Wikipedia EN bestätigt."
+  },
+  {
+    "id": "mfg-pulvermetallurgie",
+    "name": "Pulvermetallurgie",
+    "category": "manufacturing_process",
+    "attributes": {
+      "mainGroup": "Urformen",
+      "purpose": "Herstellen von Formteilen aus Metallpulver durch Verdichten und anschließendes Verbinden bei Hitze ohne vollständiges Aufschmelzen"
+    },
+    "funFact": "Pulvermetallurgisch hergestellte Hartmetall-Wendeschneidplatten ermöglichen das Zerspanen von gehärtetem Stahl.",
+    "sourceName": "Wikipedia DE – Pulvermetallurgie",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Pulvermetallurgie",
+    "verifyNote": "DIN-8580-Urformen-Einordnung und Prozessbeschreibung aus Wikipedia DE."
+  },
+  {
+    "id": "mfg-stereolithografie",
+    "name": "Stereolithografie (SLA)",
+    "category": "manufacturing_process",
+    "attributes": {
+      "mainGroup": "Urformen",
+      "purpose": "Schichtweises Aufbauen von Kunststoffteilen durch UV-Aushärtung flüssigen Photopolymers"
+    },
+    "funFact": "SLA war das erste kommerzielle 3D-Druckverfahren; Charles Hull patentierte es 1984.",
+    "sourceName": "Wikipedia DE – Stereolithografie",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Stereolithografie",
+    "verifyNote": "Einordnung Urformen und Jahreszahl aus Wikipedia DE bestätigt."
+  },
+  {
+    "id": "mfg-blasformen",
+    "name": "Blasformen",
+    "category": "manufacturing_process",
+    "attributes": {
+      "mainGroup": "Urformen",
+      "purpose": "Aufweiten eines Kunststoff-Vorformlings durch Druckluft in eine Hohlform zur Herstellung von Hohlkörpern wie Flaschen"
+    },
+    "funFact": "Die meisten PET-Getränkeflaschen entstehen durch Streckblasen, eine Variante des Blasformens.",
+    "sourceName": "Wikipedia DE – Blasformen",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Blasformen",
+    "verifyNote": "DIN-8580-Urformen; PET-Flaschenfakt aus Wikipedia DE, Abschnitt Streckblasformen."
+  },
+  {
+    "id": "mfg-rotationsformen",
+    "name": "Rotationsformen",
+    "category": "manufacturing_process",
+    "attributes": {
+      "mainGroup": "Urformen",
+      "purpose": "Herstellen großer Hohlkörper aus Kunststoffpulver durch zweiachsiges Drehen einer beheizten Form"
+    },
+    "sourceName": "Wikipedia DE – Rotationsformen",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Rotationsformen",
+    "verifyNote": "Einordnung Urformen und Prozessbeschreibung aus Wikipedia DE."
+  },
+  {
+    "id": "mfg-kaltisostatisches-pressen",
+    "name": "Kaltisostatisches Pressen",
+    "category": "manufacturing_process",
+    "attributes": {
+      "mainGroup": "Urformen",
+      "purpose": "Verdichten von Metall- oder Keramikpulver unter allseitigem Flüssigkeitsdruck bei Raumtemperatur"
+    },
+    "sourceName": "Wikipedia EN – Cold isostatic pressing",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Cold_isostatic_pressing",
+    "verifyNote": "DIN-8580-Urformen-Einordnung aus Fachliteratur; Prozessbeschreibung via Wikipedia EN."
+  },
+  {
+    "id": "mfg-gesenkbiegen",
+    "name": "Gesenkbiegen",
+    "category": "manufacturing_process",
+    "attributes": {
+      "mainGroup": "Umformen",
+      "purpose": "Abkanten von Blechzuschnitten zwischen Stempel und Matrize zu definierten Winkeln"
+    },
+    "sourceName": "Wikipedia DE – Gesenkbiegen",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Gesenkbiegen",
+    "verifyNote": "DIN-8580-Umformen; Werkzeugprinzip aus Wikipedia DE."
+  },
+  {
+    "id": "mfg-fliesspressen",
+    "name": "Fließpressen",
+    "category": "manufacturing_process",
+    "attributes": {
+      "mainGroup": "Umformen",
+      "purpose": "Umformen von Rohlingen durch hohen Stempeldruck, der den Werkstoff in eine Matrize fließen lässt"
+    },
+    "funFact": "Aluminium-Zahnpastatuben entstehen in einem einzigen Hub aus einem kleinen Rondell.",
+    "sourceName": "Wikipedia DE – Fließpressen",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Flie%C3%9Fpressen",
+    "verifyNote": "Einordnung DIN-8580-Umformen und Tuben-Fakt aus Wikipedia DE."
+  },
+  {
+    "id": "mfg-rollformen",
+    "name": "Rollformen",
+    "category": "manufacturing_process",
+    "attributes": {
+      "mainGroup": "Umformen",
+      "purpose": "Schrittweises Biegen von Bandmaterial zu einem gleichmäßigen Profil durch eine Folge von Rollenpaaren"
+    },
+    "sourceName": "Wikipedia DE – Rollformen",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Rollformen",
+    "verifyNote": "DIN-8580-Umformen; Prinzip Rollenpaar-Folge aus Wikipedia DE."
+  },
+  {
+    "id": "mfg-gewinderollen",
+    "name": "Gewinderollen",
+    "category": "manufacturing_process",
+    "attributes": {
+      "mainGroup": "Umformen",
+      "purpose": "Kaltformen von Gewinden durch Eindrücken von Rollwerkzeugen ohne Materialabtrag, mit Kaltverfestigung"
+    },
+    "funFact": "Gerollte Gewinde sind fester als geschnittene, weil der Werkstoff verdichtet statt abgetragen wird.",
+    "sourceName": "Wikipedia EN – Thread rolling",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Thread_rolling",
+    "verifyNote": "DIN-8580-Umformen; Festigkeitsvorteil aus Wikipedia EN bestätigt."
+  },
+  {
+    "id": "mfg-druecken-metall",
+    "name": "Drücken (Metalldrücken)",
+    "category": "manufacturing_process",
+    "attributes": {
+      "mainGroup": "Umformen",
+      "purpose": "Umformen rotationssymmetrischer Blechteile über einen rotierenden Dorn mit einem Drückwerkzeug"
+    },
+    "sourceName": "Wikipedia DE – Drücken (Fertigungsverfahren)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Dr%C3%BCcken_(Fertigungsverfahren)",
+    "verifyNote": "Einordnung Umformen und Prozessbeschreibung aus Wikipedia DE."
+  },
+  {
+    "id": "mfg-streckziehen",
+    "name": "Streckziehen",
+    "category": "manufacturing_process",
+    "attributes": {
+      "mainGroup": "Umformen",
+      "purpose": "Umformen von Blechen durch gleichzeitiges Strecken und Biegen über ein Formwerkzeug, vor allem für Karosserieteile"
+    },
+    "sourceName": "Wikipedia EN – Stretch forming",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Stretch_forming",
+    "verifyNote": "DIN-8580-Umformen; Anwendung Karosseriebau aus Wikipedia EN."
+  },
+  {
+    "id": "mfg-stauchen",
+    "name": "Stauchen",
+    "category": "manufacturing_process",
+    "attributes": {
+      "mainGroup": "Umformen",
+      "purpose": "Vergrößern des Querschnitts eines Werkstücks durch Druck in Längsrichtung, wobei die Länge abnimmt"
+    },
+    "sourceName": "Wikipedia DE – Stauchen",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Stauchen",
+    "verifyNote": "DIN-8580-Umformen-Zuordnung aus Wikipedia DE."
+  },
+  {
+    "id": "mfg-haemmern-recken",
+    "name": "Hämmern (Recken)",
+    "category": "manufacturing_process",
+    "attributes": {
+      "mainGroup": "Umformen",
+      "purpose": "Verlängern und Verjüngen von Schmiedestücken durch wiederholte Schläge von mehreren Seiten"
+    },
+    "sourceName": "Wikipedia DE – Schmieden",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Schmieden",
+    "verifyNote": "Recken als Unterform des Schmiedens in DIN-8580-Umformen aus Wikipedia DE."
+  },
+  {
+    "id": "mfg-reiben",
+    "name": "Reiben",
+    "category": "manufacturing_process",
+    "attributes": {
+      "mainGroup": "Trennen",
+      "purpose": "Feinbearbeiten von Bohrungen auf genaues Maß und glatte Oberfläche durch spanenden Abtrag"
+    },
+    "sourceName": "Wikipedia DE – Reiben (Fertigungsverfahren)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Reiben_(Fertigungsverfahren)",
+    "verifyNote": "DIN-8580-Trennen; Funktion Maßgenauigkeit/Oberflächengüte aus Wikipedia DE."
+  },
+  {
+    "id": "mfg-gewindeschneiden",
+    "name": "Gewindeschneiden",
+    "category": "manufacturing_process",
+    "attributes": {
+      "mainGroup": "Trennen",
+      "purpose": "Erzeugen von Innen- oder Außengewinden durch spanenden Abtrag mit definierten Schneiden"
+    },
+    "sourceName": "Wikipedia DE – Gewindeschneiden",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Gewindeschneiden",
+    "verifyNote": "DIN-8580-Trennen (Spanen mit geometrisch bestimmter Schneide); Wikipedia DE."
+  },
+  {
+    "id": "mfg-plasmaschneiden",
+    "name": "Plasmaschneiden",
+    "category": "manufacturing_process",
+    "attributes": {
+      "mainGroup": "Trennen",
+      "purpose": "Trennen elektrisch leitfähiger Werkstoffe durch einen fokussierten Plasmastrahl mit Temperaturen bis 30000 °C"
+    },
+    "funFact": "Plasmaschneiden trennt auch nichtrostenden Stahl und Aluminium, die mit Autogenschneiden nicht trennbar sind.",
+    "sourceName": "Wikipedia DE – Plasmaschneiden",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Plasmaschneiden",
+    "verifyNote": "DIN-8580-Trennen; Temperaturfakt und Werkstoffvorteil aus Wikipedia DE."
+  },
+  {
+    "id": "mfg-senkerodieren",
+    "name": "Senkerodieren (EDM-Senken)",
+    "category": "manufacturing_process",
+    "attributes": {
+      "mainGroup": "Trennen",
+      "purpose": "Abtragen leitfähigen Werkstoffs durch elektrische Funkenentladungen, wobei eine Negativform eingesenkt wird"
+    },
+    "sourceName": "Wikipedia DE – Funkenerosion",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Funkenerosion",
+    "verifyNote": "Senken als Unterform der Funkenerosion (DIN-8580-Trennen) aus Wikipedia DE."
+  },
+  {
+    "id": "mfg-drahterodieren",
+    "name": "Drahterodieren (EDM-Draht)",
+    "category": "manufacturing_process",
+    "attributes": {
+      "mainGroup": "Trennen",
+      "purpose": "Trennen leitfähigen Materials mit einem durchlaufenden Messingdraht als Elektrode durch Funkenentladung"
+    },
+    "sourceName": "Wikipedia DE – Funkenerosion",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Funkenerosion",
+    "verifyNote": "Drahterosion als Unterform der Funkenerosion aus Wikipedia DE."
+  },
+  {
+    "id": "mfg-scherschneiden",
+    "name": "Scherschneiden",
+    "category": "manufacturing_process",
+    "attributes": {
+      "mainGroup": "Trennen",
+      "purpose": "Trennen von Blech oder Profilen durch gegenläufige Schneidkanten ohne Verdampfen oder Schmelzen"
+    },
+    "sourceName": "Wikipedia DE – Scherschneiden",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Scherschneiden",
+    "verifyNote": "DIN-8580-Trennen (Zerteilen); Prinzip Schneidkanten aus Wikipedia DE."
+  },
+  {
+    "id": "mfg-entgraten",
+    "name": "Entgraten",
+    "category": "manufacturing_process",
+    "attributes": {
+      "mainGroup": "Trennen",
+      "purpose": "Entfernen von Graten und scharfen Kanten an bearbeiteten oder gestanzten Werkstücken"
+    },
+    "sourceName": "Wikipedia DE – Entgraten",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Entgraten",
+    "verifyNote": "DIN-8580-Trennen; Prozessziel Gratentfernung aus Wikipedia DE."
+  },
+  {
+    "id": "mfg-senken",
+    "name": "Senken (Kegelsenken)",
+    "category": "manufacturing_process",
+    "attributes": {
+      "mainGroup": "Trennen",
+      "purpose": "Aufweiten oder Anschrägen von Bohrungen, etwa für versenkte Schraubenköpfe oder Passungen"
+    },
+    "sourceName": "Wikipedia DE – Senken (Fertigungsverfahren)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Senken_(Fertigungsverfahren)",
+    "verifyNote": "DIN-8580-Trennen (Spanen); Anwendung Schraubenköpfe aus Wikipedia DE."
+  },
+  {
+    "id": "mfg-laserstrahlschweissen",
+    "name": "Laserstrahlschweißen",
+    "category": "manufacturing_process",
+    "attributes": {
+      "mainGroup": "Fügen",
+      "purpose": "Dauerhaftes Verbinden von Bauteilen durch einen hochkonzentrierten Strahl mit schmaler Naht und geringem Wärmeeintrag"
+    },
+    "sourceName": "Wikipedia DE – Laserstrahlschweißen",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Laserstrahlschwei%C3%9Fen",
+    "verifyNote": "DIN-8580-Fügen; schmale Naht und geringer Verzug aus Wikipedia DE."
+  },
+  {
+    "id": "mfg-reibschweissen",
+    "name": "Reibschweißen",
+    "category": "manufacturing_process",
+    "attributes": {
+      "mainGroup": "Fügen",
+      "purpose": "Verbinden von Werkstücken durch Reibungswärme unter Axialdruck ohne Schmelzen des Grundwerkstoffs"
+    },
+    "funFact": "Reibschweißen kann auch artfremde Werkstoffe wie Aluminium und Stahl dauerhaft verbinden.",
+    "sourceName": "Wikipedia DE – Reibschweißen",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Reibschwei%C3%9Fen",
+    "verifyNote": "DIN-8580-Fügen; Mischverbindung Alu/Stahl aus Wikipedia DE."
+  },
+  {
+    "id": "mfg-ultraschallschweissen",
+    "name": "Ultraschallschweißen",
+    "category": "manufacturing_process",
+    "attributes": {
+      "mainGroup": "Fügen",
+      "purpose": "Verbinden von Kunststoffteilen durch hochfrequente Schwingungen, die Reibungswärme an der Fügezone erzeugen"
+    },
+    "sourceName": "Wikipedia DE – Ultraschallschweißen",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Ultraschallschwei%C3%9Fen",
+    "verifyNote": "DIN-8580-Fügen; Kunststoffanwendung aus Wikipedia DE."
+  },
+  {
+    "id": "mfg-diffusionsschweissen",
+    "name": "Diffusionsschweißen",
+    "category": "manufacturing_process",
+    "attributes": {
+      "mainGroup": "Fügen",
+      "purpose": "Verbinden von Werkstoffen durch Druck und Temperatur unterhalb des Schmelzpunkts, wobei Atome über die Fügefläche wandern"
+    },
+    "sourceName": "Wikipedia DE – Diffusionsschweißen",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Diffusionsschwei%C3%9Fen",
+    "verifyNote": "DIN-8580-Fügen; Festkörperfügen durch Diffusion aus Wikipedia DE."
+  },
+  {
+    "id": "mfg-falzen",
+    "name": "Falzen",
+    "category": "manufacturing_process",
+    "attributes": {
+      "mainGroup": "Fügen",
+      "purpose": "Verbinden von Blechrändern durch Umfalten und gegenseitiges Einfalten ohne Schweißen oder Nieten"
+    },
+    "funFact": "Konservendosen werden an Boden und Deckel meist durch Falzverbindungen dicht verschlossen.",
+    "sourceName": "Wikipedia DE – Falzen (Fügen)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Falzen_(F%C3%BCgen)",
+    "verifyNote": "DIN-8580-Fügen; Dosenbeispiel aus Wikipedia DE."
+  },
+  {
+    "id": "mfg-pressverbinden",
+    "name": "Pressverbinden",
+    "category": "manufacturing_process",
+    "attributes": {
+      "mainGroup": "Fügen",
+      "purpose": "Kraftschlüssiges Verbinden von Fügepartnern durch Übermaß, wobei die elastische Aufweitung die Haltekraft erzeugt"
+    },
+    "sourceName": "Wikipedia DE – Pressverbindung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Pressverbindung",
+    "verifyNote": "DIN-8580-Fügen; Kraftschluss durch Übermaß aus Wikipedia DE."
+  },
+  {
+    "id": "mfg-pvd-beschichten",
+    "name": "PVD-Beschichten",
+    "category": "manufacturing_process",
+    "attributes": {
+      "mainGroup": "Beschichten",
+      "purpose": "Aufbringen dünner Hartstoffschichten aus Nitriden oder Oxiden im Vakuum durch physikalische Verdampfung"
+    },
+    "funFact": "PVD-beschichtete Bohrer und Fräser tragen oft eine goldfarbene Titannitrid-Schicht.",
+    "sourceName": "Wikipedia DE – Physikalische Gasphasenabscheidung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Physikalische_Gasphasenabscheidung",
+    "verifyNote": "DIN-8580-Beschichten; TiN-Goldfarbe aus Wikipedia DE bestätigt."
+  },
+  {
+    "id": "mfg-cvd-beschichten",
+    "name": "CVD-Beschichten",
+    "category": "manufacturing_process",
+    "attributes": {
+      "mainGroup": "Beschichten",
+      "purpose": "Aufbringen von Schichten aus der Gasphase durch chemische Reaktion an der beheizten Werkstückoberfläche"
+    },
+    "sourceName": "Wikipedia DE – Chemische Gasphasenabscheidung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Chemische_Gasphasenabscheidung",
+    "verifyNote": "DIN-8580-Beschichten; Abscheide-Mechanismus aus Wikipedia DE."
+  },
+  {
+    "id": "mfg-thermisches-spritzen",
+    "name": "Thermisches Spritzen",
+    "category": "manufacturing_process",
+    "attributes": {
+      "mainGroup": "Beschichten",
+      "purpose": "Aufbringen aufgeschmolzener oder plastifizierter Partikel aus Metall oder Keramik als Schutz- oder Funktionsschicht"
+    },
+    "sourceName": "Wikipedia DE – Thermisches Spritzen",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Thermisches_Spritzen",
+    "verifyNote": "DIN-8580-Beschichten; Partikelaufspritzen aus Wikipedia DE."
+  },
+  {
+    "id": "mfg-bruenieren",
+    "name": "Brünieren",
+    "category": "manufacturing_process",
+    "attributes": {
+      "mainGroup": "Beschichten",
+      "purpose": "Erzeugen einer schwarzen Eisenoxidschicht auf Stahloberflächen als Korrosions- und Reflexionsschutz"
+    },
+    "funFact": "Die Brünierung verleiht Werkzeugstahl und Waffenläufen ihre charakteristische schwarze Oberfläche.",
+    "sourceName": "Wikipedia DE – Brünieren",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Br%C3%BCnieren",
+    "verifyNote": "DIN-8580-Beschichten (Korrosionsschutzschicht); Magnetit-Schicht und Anwendungsbeispiel aus Wikipedia DE."
+  },
+  {
+    "id": "mfg-phosphatieren",
+    "name": "Phosphatieren",
+    "category": "manufacturing_process",
+    "attributes": {
+      "mainGroup": "Beschichten",
+      "purpose": "Chemisches Aufbringen einer Phosphatschicht auf Metall als Korrosionsschutz und Haftgrund für Lacke"
+    },
+    "sourceName": "Wikipedia DE – Phosphatieren",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Phosphatieren",
+    "verifyNote": "DIN-8580-Beschichten (Konversionsschicht); Haftvermittlerfunktion aus Wikipedia DE."
+  },
+  {
+    "id": "mfg-verchromen",
+    "name": "Verchromen (Galvanisches Verchromen)",
+    "category": "manufacturing_process",
+    "attributes": {
+      "mainGroup": "Beschichten",
+      "purpose": "Galvanisches Aufbringen einer Chromschicht auf Metall für Korrosionsschutz, Härte und dekorativen Glanz"
+    },
+    "sourceName": "Wikipedia DE – Verchromen",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Verchromen",
+    "verifyNote": "DIN-8580-Beschichten; galvanisches Prinzip aus Wikipedia DE."
+  },
+  {
+    "id": "mfg-randschichthaerten",
+    "name": "Randschichthärten",
+    "category": "manufacturing_process",
+    "attributes": {
+      "mainGroup": "Stoffeigenschaft ändern",
+      "purpose": "Gezieltes Härten der Randzone eines Stahlbauteils bei weichem, zähem Kern durch lokale Wärmebehandlung"
+    },
+    "sourceName": "Wikipedia DE – Randschichthärten",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Randschichth%C3%A4rten",
+    "verifyNote": "DIN-8580-Stoffeigenschaft ändern; Rand/Kern-Prinzip aus Wikipedia DE."
+  },
+  {
+    "id": "mfg-induktionshaerten",
+    "name": "Induktionshärten",
+    "category": "manufacturing_process",
+    "attributes": {
+      "mainGroup": "Stoffeigenschaft ändern",
+      "purpose": "Schnelles lokales Erwärmen von Stahlbauteilen durch Induktionsströme und sofortiges Abschrecken zur Härtung der Randzone"
+    },
+    "funFact": "Induktionshärten dauert oft nur Sekunden und eignet sich gut für Zahnräder und Kurbelwellen.",
+    "sourceName": "Wikipedia DE – Induktionshärten",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Induktionsh%C3%A4rten",
+    "verifyNote": "DIN-8580-Stoffeigenschaft ändern; Anwendung Zahnräder aus Wikipedia DE."
+  },
+  {
+    "id": "mfg-aufkohlen",
+    "name": "Aufkohlen",
+    "category": "manufacturing_process",
+    "attributes": {
+      "mainGroup": "Stoffeigenschaft ändern",
+      "purpose": "Anreichern der Randschicht kohlenstoffarmen Stahls mit Kohlenstoff bei hoher Temperatur, um die Oberfläche härtbar zu machen"
+    },
+    "sourceName": "Wikipedia DE – Aufkohlen",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Aufkohlen",
+    "verifyNote": "DIN-8580-Stoffeigenschaft ändern; thermochemische Behandlung aus Wikipedia DE."
+  },
+  {
+    "id": "mfg-carbonitrieren",
+    "name": "Carbonitrieren",
+    "category": "manufacturing_process",
+    "attributes": {
+      "mainGroup": "Stoffeigenschaft ändern",
+      "purpose": "Gleichzeitiges Anreichern der Stahlrandschicht mit Kohlenstoff und Stickstoff zur Steigerung von Härte und Verschleißfestigkeit"
+    },
+    "sourceName": "Wikipedia DE – Carbonitrieren",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Carbonitrieren",
+    "verifyNote": "DIN-8580-Stoffeigenschaft ändern; Doppeleinbringen C+N aus Wikipedia DE."
+  },
+  {
+    "id": "mfg-spannungsarmgluehen",
+    "name": "Spannungsarmglühen",
+    "category": "manufacturing_process",
+    "attributes": {
+      "mainGroup": "Stoffeigenschaft ändern",
+      "purpose": "Abbau innerer Spannungen in Stahl oder Schweißnähten durch langsames Erwärmen auf etwa 550 bis 650 °C und gleichmäßiges Abkühlen"
+    },
+    "sourceName": "Wikipedia DE – Glühen (Metallurgie)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Gl%C3%BChen_(Metallurgie)",
+    "verifyNote": "DIN-8580-Stoffeigenschaft ändern; Temperaturbereich Spannungsarmglühen aus Wikipedia DE."
+  },
+  {
+    "id": "mfg-normalgluehen",
+    "name": "Normalglühen",
+    "category": "manufacturing_process",
+    "attributes": {
+      "mainGroup": "Stoffeigenschaft ändern",
+      "purpose": "Erzeugen eines gleichmäßigen, feinkörnigen Gefüges in Stahl durch Erwärmen über die Umwandlungstemperatur und ruhiges Abkühlen an Luft"
+    },
+    "sourceName": "Wikipedia DE – Normalglühen",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Normalgl%C3%BChen",
+    "verifyNote": "DIN-8580-Stoffeigenschaft ändern; Gefügenormalisierung aus Wikipedia DE."
+  },
+  {
+    "id": "mfg-auslagern",
+    "name": "Auslagern (Aushärten)",
+    "category": "manufacturing_process",
+    "attributes": {
+      "mainGroup": "Stoffeigenschaft ändern",
+      "purpose": "Erhöhen der Festigkeit aushärtbarer Aluminium- oder Titanlegierungen durch gesteuerte Ausscheidungsbildung nach vorherigem Lösungsglühen"
+    },
+    "funFact": "Hochfeste Aluminiumlegierungen in Flugzeugrahmen werden durch Auslagern auf ihre Endfestigkeit gebracht.",
+    "sourceName": "Wikipedia DE – Ausscheidungshärten",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Ausscheidungsh%C3%A4rten",
+    "verifyNote": "DIN-8580-Stoffeigenschaft ändern; Aushärten von Aluminiumlegierungen aus Wikipedia DE."
+  },
+  {
+    "id": "mat-schnellarbeitsstahl",
+    "name": "Schnellarbeitsstahl (HSS)",
+    "category": "material",
+    "attributes": {
+      "materialClass": "Eisenwerkstoff",
+      "property": "Warmhärte bis ca. 600 °C; für Bohrer, Fräser und Drehmeißel"
+    },
+    "funFact": "HSS-Werkzeuge behalten ihre Schneide noch bei Rotglut, weshalb deutlich höhere Schnittgeschwindigkeiten als mit älterem Kohlenstoffstahl möglich sind.",
+    "sourceName": "Wikipedia DE – Schnellarbeitsstahl",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Schnellarbeitsstahl",
+    "verifyNote": "Werkstoffkundliche Standardquelle; Warmhärtebereich und Anwendung gesichert."
+  },
+  {
+    "id": "mat-manganstahl",
+    "name": "Manganstahl (Hadfield-Stahl)",
+    "category": "material",
+    "attributes": {
+      "materialClass": "Eisenwerkstoff",
+      "property": "Extrem verschleißfest durch Kaltverfestigung; eingesetzt in Brechern und Gleisweichen"
+    },
+    "funFact": "Manganstahl wird durch Schlag- und Druckbelastung im Betrieb erst richtig hart – je mehr er beansprucht wird, desto stabiler wird die Oberfläche.",
+    "sourceName": "Wikipedia DE – Manganstahl",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Manganstahl",
+    "verifyNote": "Kaltverfestigung und Hadfield-Zusammensetzung (~13 % Mn) in Standardlehrbüchern belegt."
+  },
+  {
+    "id": "mat-temperguss",
+    "name": "Temperguss",
+    "category": "material",
+    "attributes": {
+      "materialClass": "Eisenwerkstoff",
+      "property": "Duktiler Gusswerkstoff; durch Glühbehandlung entsteht Temperkohle statt Lamellengraphit"
+    },
+    "sourceName": "Wikipedia DE – Temperguss",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Temperguss",
+    "verifyNote": "Herstellungsweg und Gefüge in Gießerei-Lehrbüchern (DIN EN 1562) gesichert; Eisenwerkstoff bestätigt."
+  },
+  {
+    "id": "mat-sphaeroguss",
+    "name": "Sphäroguss (Kugelgraphitguss)",
+    "category": "material",
+    "attributes": {
+      "materialClass": "Eisenwerkstoff",
+      "property": "Hohe Zähigkeit durch kugelförmigen Graphit; Ersatz für Stahlguss in Kurbelwellen"
+    },
+    "funFact": "Durch Zugabe von wenigen Zehntelprozent Magnesium wird der Graphit beim Erstarren von Lamellen zu Kugeln umgeformt – was die Festigkeit drastisch erhöht.",
+    "sourceName": "Wikipedia DE – Sphäroguss",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Sph%C3%A4roguss",
+    "verifyNote": "Magnesium-Behandlung und Kugelgraphit-Mikrostruktur nach DIN EN 1563 gesichert; Eisenwerkstoff bestätigt."
+  },
+  {
+    "id": "mat-cortenstahl",
+    "name": "Cortenstahl (wetterfester Baustahl)",
+    "category": "material",
+    "attributes": {
+      "materialClass": "Eisenwerkstoff",
+      "property": "Bildet schützende Rostpatina; korrosionsbeständig ohne Beschichtung im Außenbereich"
+    },
+    "funFact": "Die typische rotbraune Patina des Cortenstahls schützt das Material selbst – weshalb er für Brücken, Fassaden und Kunstskulpturen im Freien unbehandelt eingesetzt wird.",
+    "sourceName": "Wikipedia DE – Wetterfester Stahl",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Wetterfester_Stahl",
+    "verifyNote": "Patinaschutz und typische Legierungselemente (Cu, Cr, Ni) in Fachliteratur gesichert."
+  },
+  {
+    "id": "mat-nitrierstahl",
+    "name": "Nitrierstahl",
+    "category": "material",
+    "attributes": {
+      "materialClass": "Eisenwerkstoff",
+      "property": "Durch Nitrieren oberflächengehärtet; sehr hohe Verschleißfestigkeit ohne Verzug"
+    },
+    "sourceName": "Wikipedia DE – Nitrieren",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Nitrieren",
+    "verifyNote": "Verfahren und typische Legierung (z. B. 34CrAlNi7) in Werkstofftechnik-Lehrbüchern belegt."
+  },
+  {
+    "id": "mat-rotguss",
+    "name": "Rotguss",
+    "category": "material",
+    "attributes": {
+      "materialClass": "Nichteisenmetall",
+      "property": "Korrosionsbeständig und gut gießbar; druck- und trinkwassertauglich für Armaturen und Ventile"
+    },
+    "funFact": "Rotguss ist seit dem Altertum bekannt und heute noch Standardwerkstoff für Wasserhähne und Feuerwehrarmaturen, weil er korrosionsbeständig und gießfähig ist.",
+    "sourceName": "Wikipedia DE – Rotguss",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Rotguss",
+    "verifyNote": "Kupferbasislegierung (DIN EN 1982); Trinkwassereignung gesichert. property auf Eigenschaft/Verwendung umgestellt (Legierungsangabe verriet die Antwort)."
+  },
+  {
+    "id": "mat-neusilber",
+    "name": "Neusilber (Alpaka)",
+    "category": "material",
+    "attributes": {
+      "materialClass": "Nichteisenmetall",
+      "property": "Silberfarben glänzend, korrosionsbeständig; für Besteck, Schmuck und Münzen"
+    },
+    "funFact": "Neusilber enthält kein einziges Gramm Silber – seinen Namen verdankt es nur dem silberglänzenden Aussehen, das durch den Nickelanteil entsteht.",
+    "sourceName": "Wikipedia DE – Neusilber",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Neusilber",
+    "verifyNote": "Kupfer-Nickel-Zink-Basis in Metallkunde-Lehrbüchern belegt. property auf Aussehen/Verwendung umgestellt (Legierungsangabe verriet die Antwort)."
+  },
+  {
+    "id": "mat-hartmetall",
+    "name": "Hartmetall (Wolframcarbid-Cobalt)",
+    "category": "material",
+    "attributes": {
+      "materialClass": "Verbundwerkstoff",
+      "property": "Extreme Härte bei ausreichender Zähigkeit; für Schneidplatten, Bohrer und Verschleißteile"
+    },
+    "funFact": "Hartmetallschneidplatten sind so hart, dass sie selbst gehärteten Stahl zerspanen können – die zähe Metallmatrix sorgt dafür, dass die spröden Hartstoffkörner nicht splittern.",
+    "sourceName": "Wikipedia DE – Hartmetall",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Hartmetall",
+    "verifyNote": "WC-Co ist ein gesinterter Hartstoff-in-Metallmatrix-Verbund (Cermet-artig: keramische Carbidkörner in metallischem Binder) → konventionell als Verbundwerkstoff eingeordnet, nicht als reines Nichteisenmetall. property auf Eigenschaft/Verwendung umgestellt."
+  },
+  {
+    "id": "mat-magnesiumlegierung",
+    "name": "Magnesiumlegierung",
+    "category": "material",
+    "attributes": {
+      "materialClass": "Nichteisenmetall",
+      "property": "Leichtestes Konstruktionsmetall; für Gehäuse in Luft- und Raumfahrt sowie Automobil"
+    },
+    "funFact": "Magnesiumlegierungen sind noch leichter als Aluminium und werden daher in Flugzeug-Getriebegehäusen und Lenkrädern eingesetzt, wo jedes Gramm zählt.",
+    "sourceName": "Wikipedia DE – Magnesiumlegierung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Magnesiumlegierungen",
+    "verifyNote": "Dichte (~1,8 g/cm³) und Anwendungen in Leichtbau-Fachliteratur gesichert."
+  },
+  {
+    "id": "mat-zamak",
+    "name": "Zinkdruckguss (Zamak)",
+    "category": "material",
+    "attributes": {
+      "materialClass": "Nichteisenmetall",
+      "property": "Sehr gut druckgießbar mit engen Toleranzen; für maßgenaue Kleinteile ohne Nachbearbeitung"
+    },
+    "funFact": "Zamak lässt sich mit extrem hohem Druck in Stahlformen spritzen und ergibt maßgenaue Kleinteile wie Türknäufe, Reißverschlüsse oder Spielzeugautos – oft komplett ohne Nachbearbeitung.",
+    "sourceName": "Wikipedia DE – Zamak",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Zamak",
+    "verifyNote": "Zinkbasis-Druckgusslegierung (ZnAl4) gesichert. property auf Eigenschaft/Verwendung umgestellt (Legierungsangabe verriet die Antwort)."
+  },
+  {
+    "id": "mat-konstantan",
+    "name": "Konstantan",
+    "category": "material",
+    "attributes": {
+      "materialClass": "Nichteisenmetall",
+      "property": "Nahezu temperaturunabhängiger elektrischer Widerstand; für Messwiderstände und Thermoelemente"
+    },
+    "sourceName": "Wikipedia DE – Konstantan",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Konstantan",
+    "verifyNote": "Kupfer-Nickel-Basis; Temperaturkoeffizient nahe null und Thermoelement-Typ in Messtechnik-Literatur gesichert. property auf Eigenschaft umgestellt (Legierungsangabe verriet die Antwort)."
+  },
+  {
+    "id": "mat-inconel",
+    "name": "Nickelbasislegierung (Inconel)",
+    "category": "material",
+    "attributes": {
+      "materialClass": "Nichteisenmetall",
+      "property": "Hochtemperaturfest bis über 1000 °C; für Turbinenschaufeln und Raketentriebwerke"
+    },
+    "funFact": "Inconel-Turbinenschaufeln in Strahltriebwerken werden innen durch Luftkanäle gekühlt – ohne diese Kühlung würden sie bei den auftretenden Temperaturen versagen, obwohl sie aus Hochtemperaturlegierung bestehen.",
+    "sourceName": "Wikipedia EN – Inconel",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Inconel",
+    "verifyNote": "Nickel-Chrom-Basis-Superlegierung; Einsatztemperatur in Fachliteratur gesichert. Nichteisenmetall bestätigt."
+  },
+  {
+    "id": "mat-weissgold",
+    "name": "Weißgold",
+    "category": "material",
+    "attributes": {
+      "materialClass": "Nichteisenmetall",
+      "property": "Silberweiß glänzendes Edelmetall; für Schmuck als Platin-Alternative"
+    },
+    "sourceName": "Wikipedia DE – Weißgold",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Wei%C3%9Fgold",
+    "verifyNote": "Gold-Legierung (750/1000 Au + Pd oder Ni) in Edelmetall-Normen belegt. property auf Aussehen/Verwendung umgestellt (Legierungsangabe verriet die Antwort)."
+  },
+  {
+    "id": "mat-polycarbonat",
+    "name": "Polycarbonat (PC)",
+    "category": "material",
+    "attributes": {
+      "materialClass": "Kunststoff",
+      "property": "Schlagzähes, transparentes Thermoplast; für Sicherheitsscheiben, Helme und CDs"
+    },
+    "funFact": "Polycarbonat ist um ein Vielfaches schlagzäher als gewöhnliches Glas – weshalb es für Schutzscheiben, Motorradhelme und Scheinwerferabdeckungen eingesetzt wird.",
+    "sourceName": "Wikipedia DE – Polycarbonat",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Polycarbonat",
+    "verifyNote": "Schlagzähigkeit und typische Anwendungen in Kunststofftechnik-Lehrbüchern gesichert; konkreter '250-mal'-Faktor entschärft."
+  },
+  {
+    "id": "mat-abs",
+    "name": "ABS (Acrylnitril-Butadien-Styrol)",
+    "category": "material",
+    "attributes": {
+      "materialClass": "Kunststoff",
+      "property": "Zähes, gut bearbeitbares Thermoplast; für Gehäuse, Spielzeug (Lego) und 3D-Druck"
+    },
+    "funFact": "Die berühmten Lego-Steine werden seit Jahrzehnten aus ABS gefertigt – der Werkstoff ermöglicht die millimetergenaue Passung, die das Stecksystem erst funktionsfähig macht.",
+    "sourceName": "Wikipedia DE – Acrylnitril-Butadien-Styrol",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Acrylnitril-Butadien-Styrol-Copolymer",
+    "verifyNote": "Zusammensetzung und Lego-Verwendung in Kunststoff-Fachliteratur gesichert."
+  },
+  {
+    "id": "mat-pom",
+    "name": "POM (Polyoxymethylen / Polyacetal)",
+    "category": "material",
+    "attributes": {
+      "materialClass": "Kunststoff",
+      "property": "Hohe Steifigkeit und geringer Reibwert; Ersatz für Metallzahnräder und Gleitelemente"
+    },
+    "sourceName": "Wikipedia DE – Polyoxymethylen",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Polyoxymethylen",
+    "verifyNote": "Gleiteigenschaften und Präzisionsteil-Einsatz in Kunststofftechnik-Normen (DIN EN ISO 9988) belegt."
+  },
+  {
+    "id": "mat-pet",
+    "name": "PET (Polyethylenterephthalat)",
+    "category": "material",
+    "attributes": {
+      "materialClass": "Kunststoff",
+      "property": "Transparentes, lebensmitteltaugliches Thermoplast; für Flaschen, Folien und Textilfasern"
+    },
+    "funFact": "PET-Flaschen werden nach dem Gebrauch zu Polyesterfasern recycelt – aus einigen Dutzend Einliterflaschen lässt sich ein Fleecepullover herstellen.",
+    "sourceName": "Wikipedia DE – Polyethylenterephthalat",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Polyethylenterephthalat",
+    "verifyNote": "Lebensmittelzulassung und Recyclingweg in Kunststoff-Fachliteratur gesichert; exakte Flaschenzahl entschärft."
+  },
+  {
+    "id": "mat-polyurethan",
+    "name": "Polyurethan (PUR/PU)",
+    "category": "material",
+    "attributes": {
+      "materialClass": "Kunststoff",
+      "property": "Vielseitiger Duroplast oder Elastomer; für Schaumstoff, Lacke, Dichtungen und Skateboardrollen"
+    },
+    "funFact": "Polyurethan-Hartschaum in Kühlschrankwänden ist einer der besten handelsüblichen Wärmedämmstoffe – bei gleicher Dicke dämmt er deutlich besser als Mineralwolle.",
+    "sourceName": "Wikipedia DE – Polyurethan",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Polyurethan",
+    "verifyNote": "Dämmeigenschaften und Anwendungsbreite in Werkstoffkunde-Standardwerken gesichert."
+  },
+  {
+    "id": "mat-silikonkautschuk",
+    "name": "Silikonkautschuk",
+    "category": "material",
+    "attributes": {
+      "materialClass": "Kunststoff",
+      "property": "Elastomer mit großem Temperaturbereich (−60 bis +200 °C); für Dichtungen, Backformen und Medizintechnik"
+    },
+    "sourceName": "Wikipedia DE – Siliconkautschuk",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Siliconkautschuk",
+    "verifyNote": "Temperaturbeständigkeit und Lebensmittelzulassung in Fachliteratur belegt."
+  },
+  {
+    "id": "mat-melaminharz",
+    "name": "Melaminharz",
+    "category": "material",
+    "attributes": {
+      "materialClass": "Kunststoff",
+      "property": "Duroplast; kratz- und feuchtefeste Beschichtung für Möbelplatten und Küchenarbeitsplatten"
+    },
+    "sourceName": "Wikipedia DE – Melaminharz",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Melaminharz",
+    "verifyNote": "Verwendung als Dekorschicht (HPL) in Möbelnorm EN 438 gesichert."
+  },
+  {
+    "id": "mat-naturkautschuk",
+    "name": "Naturkautschuk (Latex)",
+    "category": "material",
+    "attributes": {
+      "materialClass": "Kunststoff",
+      "property": "Natürliches Elastomer vom Kautschukbaum; für Reifen, Handschuhe und elastische Produkte"
+    },
+    "funFact": "Trotz über 100 Jahren synthetischer Gummiforschung wird ein erheblicher Teil des weltweiten Kautschukbedarfs weiterhin als Naturkautschuk gedeckt – etwa bei stark beanspruchten Flugzeugreifen.",
+    "sourceName": "Wikipedia DE – Naturkautschuk",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Naturkautschuk",
+    "verifyNote": "Marktanteil und Flugreifen-Verwendung in Kautschuk-Fachpublikationen belegt; exakte Prozentzahl entschärft."
+  },
+  {
+    "id": "mat-vulkanfiber",
+    "name": "Vulkanfiber",
+    "category": "material",
+    "attributes": {
+      "materialClass": "Verbundwerkstoff",
+      "property": "Verdichtetes Cellulosematerial; für Schleifscheiben-Träger, Koffergehäuse und Elektro-Isolation"
+    },
+    "funFact": "Vulkanfiber ist kein Kunststoff im modernen Sinne, sondern ein rein zellulosischer Werkstoff – hergestellt durch Imprägnieren von Papier mit Zinkchloridlösung und Verpressen.",
+    "sourceName": "Wikipedia DE – Vulkanfiber",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Vulkanfiber",
+    "verifyNote": "Herstellungsprozess und Schleifscheiben-Norm (EN 12413) in Fachliteratur gesichert."
+  },
+  {
+    "id": "mat-aramidfaser",
+    "name": "Aramidfaser-Verbund (Kevlar)",
+    "category": "material",
+    "attributes": {
+      "materialClass": "Verbundwerkstoff",
+      "property": "Extrem zugfestes Faserverbundmaterial; für Schutzwesten, Helme und schnittfeste Handschuhe"
+    },
+    "funFact": "Kevlar ist bei gleichem Gewicht ein Vielfaches zugfester als Stahl – weshalb eine dünne Schutzweste aus Aramid mehrere Lagen Stahl ersetzen kann.",
+    "sourceName": "Wikipedia DE – Aramidfaser",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Aramidfaser",
+    "verifyNote": "Zugfestigkeit und Schutzwesten-Verwendung in Datenblättern und Fachliteratur belegt; konkreter Faktor entschärft."
+  },
+  {
+    "id": "mat-glaslaminat",
+    "name": "Glaslaminat (Verbundglas)",
+    "category": "material",
+    "attributes": {
+      "materialClass": "Verbundwerkstoff",
+      "property": "Glasscheiben mit Kunststofffolie verbunden; Splitterschutz für Fahrzeug- und Schaufensterscheiben"
+    },
+    "funFact": "Verbundglas bricht zwar bei starkem Aufprall, bleibt aber dank der PVB-Folie im Rahmen – das verhindert, dass Glassplitter ins Fahrzeuginnere fliegen.",
+    "sourceName": "Wikipedia DE – Verbundglas",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Verbundglas",
+    "verifyNote": "PVB-Folie und Splitterschutz nach DIN EN ISO 12543 in Fachliteratur gesichert."
+  },
+  {
+    "id": "mat-hartpapier",
+    "name": "Hartpapier (Pertinax)",
+    "category": "material",
+    "attributes": {
+      "materialClass": "Verbundwerkstoff",
+      "property": "Phenolharz-getränktes Papiergewebe; für Leiterplattensubstrate und Isolierplatten"
+    },
+    "sourceName": "Wikipedia DE – Hartpapier",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Hartpapier",
+    "verifyNote": "Phenolharz-Imprägnierung und IEC-Bezeichnung FR-2 in Elektroniknormen belegt."
+  },
+  {
+    "id": "mat-faserbeton",
+    "name": "Faserbeton (Stahlfaserbeton)",
+    "category": "material",
+    "attributes": {
+      "materialClass": "Verbundwerkstoff",
+      "property": "Beton mit eingemischten Stahl- oder Glasfasern; für Industrieböden, Tunnelschalen und Fertigteile"
+    },
+    "sourceName": "Wikipedia DE – Faserbeton",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Faserbeton",
+    "verifyNote": "Faserzugabe und erhöhte Biegezugfestigkeit in DIN EN 14889 und Fachliteratur gesichert."
+  },
+  {
+    "id": "mat-cermet",
+    "name": "Cermet",
+    "category": "material",
+    "attributes": {
+      "materialClass": "Verbundwerkstoff",
+      "property": "Keramik-Metall-Verbund; verbindet Härte der Keramik mit Zähigkeit des Metalls für Schneidwerkzeuge"
+    },
+    "sourceName": "Wikipedia DE – Cermet",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Cermet",
+    "verifyNote": "Zusammensetzung (z. B. TiC in Ni-Matrix) und Schneidanwendungen in Werkzeugkunde belegt; Verbundwerkstoff bestätigt."
+  },
+  {
+    "id": "mat-zirkonoxid",
+    "name": "Zirkonoxid (Zirkondioxid)",
+    "category": "material",
+    "attributes": {
+      "materialClass": "Keramik",
+      "property": "Hochfeste technische Keramik; für Zahnersatz, Messerklingen und Wälzlager"
+    },
+    "funFact": "Zirkonoxid-Keramik ist so fest, dass daraus Messer hergestellt werden, die scharf bleiben und nicht rosten – das Material ist allerdings spröde und kann bei Stoßbelastung abplatzen.",
+    "sourceName": "Wikipedia DE – Zirconiumdioxid",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Zirconiumdioxid",
+    "verifyNote": "Technische Keramik (nicht natürliches Mineral); Festigkeit und Dentalanwendung in Norm ISO 13356 und Werkstoffkunde gesichert."
+  },
+  {
+    "id": "mat-steatit",
+    "name": "Steatit (Speckstein-Keramik)",
+    "category": "material",
+    "attributes": {
+      "materialClass": "Keramik",
+      "property": "Gebrannte Talkum-Keramik; hervorragender elektrischer Isolator für Zündkerzen und Hochfrequenz-Bauteile"
+    },
+    "sourceName": "Wikipedia DE – Steatit",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Steatit",
+    "verifyNote": "Gebrannte (nicht roher Speckstein) technische Keramik; elektrische Isoliereigenschaften und Zündkerzen-Einsatz in Elektrotechnik-Literatur gesichert."
+  },
+  {
+    "id": "mat-bornitrid",
+    "name": "Bornitrid",
+    "category": "material",
+    "attributes": {
+      "materialClass": "Keramik",
+      "property": "Weiche oder superharte Keramik (je nach Phase); für Hochtemperatur-Isolatoren und als Schleifmittel"
+    },
+    "funFact": "Kubisches Bornitrid (cBN) ist nach Diamant das härteste bekannte Material und wird zum Schleifen von Stahl verwendet – Diamant selbst wäre dafür ungeeignet, weil er bei hoher Temperatur mit Stahl reagiert.",
+    "sourceName": "Wikipedia DE – Bornitrid",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Bornitrid",
+    "verifyNote": "Synthetische Keramik; hexagonale und kubische Phase sowie Härtevergleich in Materialwissenschaft-Standardwerken belegt."
+  },
+  {
+    "id": "mat-ferrit",
+    "name": "Ferrit (Keramik)",
+    "category": "material",
+    "attributes": {
+      "materialClass": "Keramik",
+      "property": "Eisenoxid-basierter Magnetwerkstoff; für Transformatorkerne, Antennen und Permanentmagnete"
+    },
+    "funFact": "Ferritmagnete sind die häufigsten Permanentmagnete der Welt – günstig und in fast jedem Lautsprecher, Fahrraddynamo oder Kühlschrankmagnet verbaut.",
+    "sourceName": "Wikipedia DE – Ferrit (Werkstoff)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Ferrit_(Werkstoff)",
+    "verifyNote": "Keramischer (oxidischer) Magnetwerkstoff – korrekt als Keramik, nicht als Eisenwerkstoff; magnetische Eigenschaften in Elektrotechnik-Literatur gesichert. Tippfehler 'Fahrraddinamo' korrigiert."
+  },
+  {
+    "id": "mat-leichtbeton",
+    "name": "Leichtbeton",
+    "category": "material",
+    "attributes": {
+      "materialClass": "Baustoff",
+      "property": "Beton mit porigen Zuschlägen (Blähton, Bimsstein); für wärmedämmende Mauerwerke und leichte Deckenkonstruktionen"
+    },
+    "sourceName": "Wikipedia DE – Leichtbeton",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Leichtbeton",
+    "verifyNote": "Rohdichte unter 2000 kg/m³ und Wärmedämm-Anwendung nach DIN EN 206 gesichert."
+  },
+  {
+    "id": "mat-porenbeton",
+    "name": "Porenbeton (Gasbeton / Ytong)",
+    "category": "material",
+    "attributes": {
+      "materialClass": "Baustoff",
+      "property": "Hochporöser Leichtbeton; sehr gute Wärmedämmung und einfache Bearbeitbarkeit für Mauerwerk"
+    },
+    "funFact": "Porenbeton lässt sich mit einer normalen Säge schneiden und mit Nägeln bearbeiten wie Holz – trotzdem ist er nicht brennbar und aus anorganischen Rohstoffen hergestellt.",
+    "sourceName": "Wikipedia DE – Porenbeton",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Porenbeton",
+    "verifyNote": "Rohdichte und Bearbeitbarkeit nach DIN EN 771-4 und Herstellerquellen gesichert."
+  },
+  {
+    "id": "mat-bitumen",
+    "name": "Bitumen",
+    "category": "material",
+    "attributes": {
+      "materialClass": "Baustoff",
+      "property": "Schwarzes Erdölprodukt; Bindemittel in Asphalt sowie Abdichtungsmaterial für Dächer"
+    },
+    "funFact": "Die Straßen der modernen Welt bestehen großteils aus Asphalt – und der Klebstoff, der Schotter und Sand zusammenhält, ist Bitumen, ein schweres Rückstandsprodukt der Erdölraffinerie.",
+    "sourceName": "Wikipedia DE – Bitumen",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Bitumen",
+    "verifyNote": "Industriell gewonnenes Erdölprodukt, kein Naturmineral; Verwendung als Straßen- und Dachabdichtungsbaustoff in DIN EN 12591 gesichert."
+  },
+  {
+    "id": "mat-lehm",
+    "name": "Lehm / Lehmziegel",
+    "category": "material",
+    "attributes": {
+      "materialClass": "Baustoff",
+      "property": "Ungebranntes Ton-Sand-Gemisch; feuchtigkeitsregulierend für ökologisches Bauen und Stampflehmwände"
+    },
+    "funFact": "Lehmbau ist mit über 10 000 Jahren Geschichte einer der ältesten Baustoffe der Menschheit – und erlebt heute im ökologischen Bauen eine Renaissance, weil Lehm Feuchtigkeit reguliert.",
+    "sourceName": "Wikipedia DE – Lehmbau",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Lehmbau",
+    "verifyNote": "Grenzfall Natura/Material: als verarbeiteter BAUSTOFF (Lehmziegel, Stampflehmwand) gefasst → behalten. Feuchteregulierung und historische Verwendung in Bautechnik-Literatur gesichert; nicht belegbare CO₂-Aussage aus funFact entfernt; Grammatik (Ton-Sand-Gemisch) korrigiert."
+  },
+  {
+    "id": "mat-glasbaustein",
+    "name": "Glasbaustein",
+    "category": "material",
+    "attributes": {
+      "materialClass": "Baustoff",
+      "property": "Hohlglas-Mauerelement; lichtdurchlässig bei gleichzeitiger Wärmedämmung und Sichtschutz"
+    },
+    "sourceName": "Wikipedia DE – Glasbaustein",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Glasbaustein",
+    "verifyNote": "Lichtdurchlässigkeit und Dämmwert in Baufachliteratur gesichert."
+  },
+  {
+    "id": "mat-faserzement",
+    "name": "Faserzement",
+    "category": "material",
+    "attributes": {
+      "materialClass": "Baustoff",
+      "property": "Zement mit Zellulose- oder PVA-Fasern; für langlebige Fassadenplatten und Dachschindeln"
+    },
+    "funFact": "Faserzement-Fassadenplatten sind weitgehend wartungsfrei und halten Jahrzehnte – sie gelten als asbestfreier Ersatz für die früher verwendeten Asbestzementplatten.",
+    "sourceName": "Wikipedia DE – Faserzement",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Faserzement",
+    "verifyNote": "Zusammensetzung und Asbestersatz-Funktion in Baunormen und Fachliteratur gesichert. Als Baustoff geführt (zementgebundene Bauplatte), konsistent mit der Baustoff-Linie."
+  },
+  {
+    "id": "mat-osb",
+    "name": "OSB-Platte",
+    "category": "material",
+    "attributes": {
+      "materialClass": "Verbundwerkstoff",
+      "property": "Grobspanplatte mit kreuzweise orientierten Holzspänen; für tragende Wand- und Deckenschalungen im Holzbau"
+    },
+    "sourceName": "Wikipedia DE – OSB-Platte",
+    "sourceUrl": "https://de.wikipedia.org/wiki/OSB-Platte",
+    "verifyNote": "Holzspan-Bindemittel-Verbund; Orientierung der Deckschichten und Tragfähigkeit nach EN 300 in Baufachliteratur gesichert."
+  },
+  {
+    "id": "simple-scherenheber",
+    "name": "Scherenheber",
+    "category": "simple_machine",
+    "attributes": {
+      "function": "Vertikales Anheben schwerer Lasten über einen kleinen Kraftaufwand",
+      "principle": "Zwei gekreuzte Hebelpaare (Schere) wandeln eine horizontale Schraubbewegung in eine vertikale Hubbewegung um; Kraftverstärkung durch das Hebel- und Schraubenprinzip kombiniert"
+    },
+    "funFact": "Ein handelsüblicher Scherenheber kann mit wenigen Kilogramm Handkraft ein Auto von über einer Tonne anheben.",
+    "sourceName": "Wikipedia DE – Wagenheber",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Wagenheber",
+    "verifyNote": "Funktionsprinzip Scherenheber aus Wikipedia-Artikel Wagenheber, Abschnitt Scherenheber"
+  },
+  {
+    "id": "simple-spindelheber",
+    "name": "Spindelheber",
+    "category": "simple_machine",
+    "attributes": {
+      "function": "Anheben einer Last durch lineare Bewegung einer rotierenden Gewindespindel",
+      "principle": "Drehbewegung der Spindel wird über das Schraubenprinzip (geneigte Ebene, aufgewickelt) in eine Axialkraft umgesetzt; jede Umdrehung hebt die Last um eine Steigungshöhe"
+    },
+    "sourceName": "Wikipedia DE – Wagenheber",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Wagenheber",
+    "verifyNote": "Spindelheber als Unterart des Wagenhebers, Funktionsprinzip in Wikipedia beschrieben"
+  },
+  {
+    "id": "simple-schnecke-schneckenrad",
+    "name": "Schnecke und Schneckenrad",
+    "category": "simple_machine",
+    "attributes": {
+      "function": "Übertragung von Drehbewegung zwischen zwei rechtwinklig zueinander stehenden Wellen mit hoher Untersetzung",
+      "principle": "Die wendelförmige Schnecke kämmt mit den Zähnen des Schneckenrads; durch den kleinen Steigungswinkel ergibt sich ein großes Übersetzungsverhältnis und Selbsthemmung bei niedrigem Wirkungsgrad"
+    },
+    "funFact": "Schneckengetriebe sind selbsthemmend — das Schneckenrad kann die Schnecke nicht antreiben, was sie als Bremse ohne Rücklaufsperre nutzbar macht.",
+    "sourceName": "Wikipedia DE – Schneckengetriebe",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Schneckengetriebe",
+    "verifyNote": "Selbsthemmungseigenschaft und Wirkprinzip aus Wikipedia-Artikel Schneckengetriebe"
+  },
+  {
+    "id": "simple-kugelgewindetrieb",
+    "name": "Kugelgewindetrieb",
+    "category": "simple_machine",
+    "attributes": {
+      "function": "Reibungsarme Umwandlung einer Drehbewegung in eine präzise Linearbewegung",
+      "principle": "Stahlkugeln wälzen sich in der Gewindenut zwischen Spindel und Mutter ab und ersetzen Gleitreibung durch Rollreibung; dadurch sehr hoher Wirkungsgrad und keine Selbsthemmung"
+    },
+    "funFact": "Kugelgewindetriebe erreichen Wirkungsgrade von über 90 %, während konventionelle Gleitschrauben oft unter 30 % liegen.",
+    "sourceName": "Wikipedia DE – Kugelgewindetrieb",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Kugelgewindetrieb",
+    "verifyNote": "Wirkprinzip und Wirkungsgradangabe aus Wikipedia-Artikel Kugelgewindetrieb"
+  },
+  {
+    "id": "simple-stufenscheibe",
+    "name": "Stufenscheibe",
+    "category": "simple_machine",
+    "attributes": {
+      "function": "Stufenweise Veränderung der Drehzahlübersetzung zwischen Antrieb und Abtrieb",
+      "principle": "Ein Riemen wird auf eine von mehreren konzentrischen Scheiben unterschiedlichen Durchmessers gelegt; das Verhältnis der Durchmesser bestimmt die Übersetzung"
+    },
+    "sourceName": "Wikipedia DE – Stufenscheibe",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Stufenscheibe",
+    "verifyNote": "Funktionsprinzip Stufenscheibe aus Wikipedia"
+  },
+  {
+    "id": "simple-freilauf",
+    "name": "Freilauf",
+    "category": "simple_machine",
+    "attributes": {
+      "function": "Übertragung von Drehbewegung nur in einer Richtung; in Gegenrichtung dreht die Nabe frei",
+      "principle": "Klemm- oder Klinkenmechanismus greift nur ein, wenn die Antriebsseite schneller dreht als die Abtriebsseite; bei Umkehr kein Formschluss"
+    },
+    "funFact": "Der Freilauf am Fahrrad ermöglicht das Rollen ohne Mittreten der Pedale — eine Erfindung, die Ende des 19. Jahrhunderts das moderne Fahrradfahren erst möglich machte.",
+    "sourceName": "Wikipedia DE – Freilauf (Technik)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Freilauf_(Technik)",
+    "verifyNote": "Klemm- und Klinkenprinzip sowie Fahrradbeispiel aus Wikipedia-Artikel Freilauf"
+  },
+  {
+    "id": "simple-klinkwerk",
+    "name": "Klinkwerk (Klinkengetriebe)",
+    "category": "simple_machine",
+    "attributes": {
+      "function": "Umwandlung einer hin- und hergehenden Bewegung in eine schrittweise Drehbewegung in nur einer Richtung",
+      "principle": "Eine Schaltklinke greift bei der Vorwärtsbewegung in die Zähne eines Schaltrades ein und dreht es weiter; eine Sperrklinke verhindert das Zurückdrehen"
+    },
+    "sourceName": "Wikipedia DE – Klinkengetriebe",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Klinkengetriebe",
+    "verifyNote": "Funktionsprinzip Klinkwerk aus Wikipedia-Artikel Klinkengetriebe"
+  },
+  {
+    "id": "simple-schrittschaltwerk",
+    "name": "Schrittschaltwerk (Genfer Getriebe)",
+    "category": "simple_machine",
+    "attributes": {
+      "function": "Umwandlung einer gleichförmigen Drehbewegung in eine intermittierende, schrittweise Drehung",
+      "principle": "Ein Antriebsstift greift periodisch in die Schlitze einer Malteserkreuzscheibe (Genfer Scheibe); zwischen den Schritten hält eine Sperrscheibe das Ausgangsrad arretiert"
+    },
+    "funFact": "Das verwandte Genfer Sperrrad wurde in mechanischen Uhren genutzt, um das Überspannen der Antriebsfeder zu verhindern.",
+    "sourceName": "Wikipedia DE – Genfer Getriebe",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Genfer_Getriebe",
+    "verifyNote": "Funktionsprinzip und Uhren-Sperrrad aus Wikipedia-Artikel Genfer Getriebe"
+  },
+  {
+    "id": "simple-wendegetriebe",
+    "name": "Wendegetriebe",
+    "category": "simple_machine",
+    "attributes": {
+      "function": "Umkehr der Drehrichtung der Abtriebswelle bei gleichbleibender Antriebsdrehrichtung",
+      "principle": "Durch Einschalten eines Zwischenrades (Umkehrrad) oder eines Planetengetriebesatzes wird die Drehrichtung umgekehrt; das Übersetzungsverhältnis bleibt gleich"
+    },
+    "sourceName": "Wikipedia DE – Wendegetriebe",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Wendegetriebe",
+    "verifyNote": "Funktionsprinzip Wendegetriebe aus Wikipedia"
+  },
+  {
+    "id": "simple-taumelscheibe",
+    "name": "Taumelscheibe",
+    "category": "simple_machine",
+    "attributes": {
+      "function": "Umwandlung einer Rotationsbewegung in eine axiale Hubbewegung mehrerer Kolben",
+      "principle": "Eine schräg auf der Antriebswelle sitzende Scheibe bewegt beim Rotieren die anliegenden Pleuel oder Stößel axial auf und ab; der Hubbetrag hängt vom Neigungswinkel ab"
+    },
+    "funFact": "Taumelscheibenpumpen (Axialkolbenpumpen) werden in der Hydraulik eingesetzt, weil sie mit geringem Bauvolumen hohe Drücke erzeugen.",
+    "sourceName": "Wikipedia DE – Taumelscheibe",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Taumelscheibe",
+    "verifyNote": "Funktionsprinzip aus Wikipedia-Artikel Taumelscheibe und Axialkolbenmaschine"
+  },
+  {
+    "id": "simple-kreuzschubkurbel",
+    "name": "Kreuzschubkurbel",
+    "category": "simple_machine",
+    "attributes": {
+      "function": "Umwandlung einer Drehbewegung in eine geradlinige Hin- und Herbewegung eines Schiebers ohne Pleuelstange",
+      "principle": "Der Kurbelzapfen läuft direkt in einem querliegenden Schlitz (Kulisse) des Schiebers; der Schieber ist quer geführt, sodass nur die Längskomponente der Kurbelbewegung übertragen wird und er rein sinusförmig hin- und hergleitet"
+    },
+    "sourceName": "Wikipedia DE – Kreuzschubkurbel",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Kreuzschubkurbel",
+    "verifyNote": "Funktionsprinzip (Schlitzführung ohne Pleuel) aus Wikipedia-Artikel Kreuzschubkurbel"
+  },
+  {
+    "id": "simple-wattgestaenge",
+    "name": "Watt'sches Gestänge (Geradführung)",
+    "category": "simple_machine",
+    "attributes": {
+      "function": "Annähernde Geradführung eines Punktes mit rein gelenkigen Verbindungsstäben ohne Schienen",
+      "principle": "Zwei gleich lange Hebel sind an beiden Enden drehbar gelagert und in der Mitte durch einen Verbindungsstab verbunden; der Mittelpunkt des Verbindungsstabs beschreibt näherungsweise eine gerade Bahn"
+    },
+    "funFact": "James Watt hielt diese Geradführung für seine wichtigste Erfindung — wichtiger als die Dampfmaschine selbst.",
+    "sourceName": "Wikipedia DE – Watt'sches Gestänge",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Watt%27sches_Geradführungsgestänge",
+    "verifyNote": "Funktionsprinzip und Watt-Zitat aus Wikipedia-Artikel Watt'sches Gestänge"
+  },
+  {
+    "id": "simple-peaucellier-lipkin",
+    "name": "Peaucellier-Lipkin-Gestänge",
+    "category": "simple_machine",
+    "attributes": {
+      "function": "Exakte Geradführung eines Punktes mit ausschließlich gelenkigen Stäben",
+      "principle": "Acht Stäbe bestimmter Längen bilden ein rhombusähnliches Gitter; durch die geometrische Beziehung der Stablängen beschreibt ein Gelenkpunkt exakt eine Gerade (nicht nur näherungsweise)"
+    },
+    "funFact": "Das Peaucellier-Gestänge war 1864 das erste mathematisch exakte mechanische Geradführungsgestänge — vorher galt eine exakte Geradführung ohne Führungsschiene als unmöglich.",
+    "sourceName": "Wikipedia DE – Peaucellier-Lipkin-Gestänge",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Peaucellier-Lipkin-Gestänge",
+    "verifyNote": "Historische Bedeutung und Funktionsprinzip aus Wikipedia-Artikel Peaucellier-Lipkin-Gestänge"
+  },
+  {
+    "id": "simple-pantograph",
+    "name": "Pantograph (Storchschnabel)",
+    "category": "simple_machine",
+    "attributes": {
+      "function": "Maßstäbliches Vergrößern oder Verkleinern einer Bewegungsbahn oder Zeichnung",
+      "principle": "Vier gelenkig verbundene Stäbe bilden ein Parallelogramm; ein fester Drehpunkt, ein Tastzapfen und ein Zeichenstift liegen kollinear, sodass der Zeichenstift jeden Weg des Tastzapfens in festem Verhältnis nachfährt"
+    },
+    "funFact": "Pantographen wurden bis ins 20. Jahrhundert zur Vervielfältigung von Landkarten und zur Herstellung von Druckplatten in verschiedenen Maßstäben eingesetzt.",
+    "sourceName": "Wikipedia DE – Pantograph",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Pantograph",
+    "verifyNote": "Funktionsprinzip und historische Nutzung aus Wikipedia-Artikel Pantograph"
+  },
+  {
+    "id": "simple-gleichlaufgelenk",
+    "name": "Gleichlaufgelenk (Homokinetisches Gelenk)",
+    "category": "simple_machine",
+    "attributes": {
+      "function": "Übertragung von Drehbewegung zwischen zwei abgewinkelten Wellen ohne Drehzahlschwankung",
+      "principle": "Durch spezielle Kugelführungen liegt der Übertragungspunkt immer auf der winkelhalbierenden Ebene der beiden Wellenachsen; dadurch drehen An- und Abtriebswelle exakt synchron, unabhängig vom Beugewinkel"
+    },
+    "funFact": "Ohne Gleichlaufgelenke wäre das moderne Frontantriebsauto mit lenkbaren Antriebsrädern nicht fahrbar — das Kreuzgelenk würde bei lenkeingeschlagenen Rädern starke Drehzahlschwankungen erzeugen.",
+    "sourceName": "Wikipedia DE – Gleichlaufgelenk",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Gleichlaufgelenk",
+    "verifyNote": "Wirkprinzip und Vergleich mit Kreuzgelenk aus Wikipedia-Artikel Gleichlaufgelenk"
+  },
+  {
+    "id": "simple-hebelwaage",
+    "name": "Hebelwaage",
+    "category": "simple_machine",
+    "attributes": {
+      "function": "Vergleich oder Bestimmung von Massen durch Gleichgewicht zweier Gewichtskräfte an einem Hebel",
+      "principle": "Im Gleichgewicht sind die Drehmomente beider Seiten gleich (Kraft mal Abstand vom Drehpunkt); bei gleichen Armlängen entspricht Gleichgewicht der Massengleichheit beider Seiten"
+    },
+    "funFact": "Die Hebelwaage ist eines der ältesten bekannten Messinstrumente — ägyptische Darstellungen belegen ihren Einsatz bereits um 1500 v. Chr.",
+    "sourceName": "Wikipedia DE – Waage (Messgerät)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Waage_(Messgerät)",
+    "verifyNote": "Messprinzip und historisches Alter aus Wikipedia-Artikel Waage"
+  },
+  {
+    "id": "simple-potenzflaschenzug",
+    "name": "Potenzflaschenzug",
+    "category": "simple_machine",
+    "attributes": {
+      "function": "Stufenweise Vervielfachung der Zugkraft durch mehrere hintereinandergeschaltete Flaschenzüge",
+      "principle": "Jede Flaschenzugstufe halbiert die benötigte Zugkraft; durch Hintereinanderschalten von n Stufen ergibt sich eine Kraftübersetzung von 2ⁿ bei entsprechend längerem Zugweg"
+    },
+    "sourceName": "Wikipedia DE – Flaschenzug",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Flaschenzug",
+    "verifyNote": "Potenzflaschenzug als Sonderform mit gestufter Kraftübersetzung in Wikipedia-Artikel Flaschenzug erwähnt"
+  },
+  {
+    "id": "simple-differentialflaschenzug",
+    "name": "Differentialflaschenzug",
+    "category": "simple_machine",
+    "attributes": {
+      "function": "Heben schwerer Lasten mit geringer Zugkraft bei gleichzeitiger Selbsthemmung (kein Rücklauf)",
+      "principle": "Zwei Kettenräder geringfügig unterschiedlichen Durchmessers sitzen auf derselben Achse; die Differenz der Kettenradumfänge bestimmt den Lasthub pro Kettenumlauf — je kleiner die Differenz, desto größer die Kraftübersetzung"
+    },
+    "funFact": "Differentialflaschenzüge halten die Last ohne Bremse in der Luft, weil die kleine Umfangsdifferenz Selbsthemmung erzeugt.",
+    "sourceName": "Wikipedia DE – Differentialflaschenzug",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Differentialflaschenzug",
+    "verifyNote": "Funktionsprinzip und Selbsthemmung aus Wikipedia-Artikel Differentialflaschenzug"
+  },
+  {
+    "id": "simple-spannschloss",
+    "name": "Spannschloss",
+    "category": "simple_machine",
+    "attributes": {
+      "function": "Längenverstellung und Vorspannung von Zugstangen, Drähten oder Seilen ohne Lösen der Verbindungsenden",
+      "principle": "Ein zylindrisches Gehäuse mit Innengewinde (links und rechts) verschraubt zwei gegenläufig gewindete Stangen; durch Drehen des Gehäuses werden beide Stangen eingezogen oder herausgezogen"
+    },
+    "sourceName": "Wikipedia DE – Spannschloss",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Spannschloss",
+    "verifyNote": "Funktionsprinzip aus Wikipedia-Artikel Spannschloss"
+  },
+  {
+    "id": "simple-riemenscheiben-uebersetzung",
+    "name": "Riemenscheiben-Übersetzung",
+    "category": "simple_machine",
+    "attributes": {
+      "function": "Veränderung von Drehzahl und Drehmoment zwischen zwei Wellen durch unterschiedlich große Scheiben",
+      "principle": "Das Drehzahlverhältnis zweier Riemenscheiben ist umgekehrt proportional zu ihrem Durchmesserverhältnis; Kraft wird über Reibung oder Formschluss (Zahnriemen) übertragen"
+    },
+    "sourceName": "Wikipedia DE – Riementrieb",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Riementrieb",
+    "verifyNote": "Übersetzungsverhältnis Riemenscheiben aus Wikipedia-Artikel Riementrieb"
+  },
+  {
+    "id": "simple-wellrad-haspel",
+    "name": "Wellrad (Winde/Haspel)",
+    "category": "simple_machine",
+    "attributes": {
+      "function": "Aufwickeln eines Seils zum Heben oder Ziehen einer Last",
+      "principle": "Eine Trommel auf einer Welle wickelt das Seil auf; die Kurbel am Wellenende wirkt als Hebel — das Verhältnis von Kurbelarm zu Trommelradius bestimmt die Kraftübersetzung"
+    },
+    "sourceName": "Wikipedia DE – Haspel",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Haspel_(Maschine)",
+    "verifyNote": "Wellrad und Haspel als einfache Maschine in Wikipedia unter Haspel und Winde beschrieben"
+  },
+  {
+    "id": "simple-exzenterantrieb",
+    "name": "Exzenterantrieb",
+    "category": "simple_machine",
+    "attributes": {
+      "function": "Erzeugung einer hin- und hergehenden Hubbewegung aus einer gleichförmigen Drehbewegung ohne Pleuelstange",
+      "principle": "Eine Scheibe ist nicht mittig auf der Antriebswelle befestigt; ihr Außenrand beschreibt beim Drehen eine Kreisbahn, die über einen umgreifenden Exzenterring in eine lineare Hin- und Herbewegung umgesetzt wird"
+    },
+    "sourceName": "Wikipedia DE – Exzenter (Maschinenelement)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Exzenter_(Maschinenelement)",
+    "verifyNote": "Exzenterantrieb als Variante des Kurbeltriebs ohne Zapfen in Wikipedia beschrieben"
+  },
+  {
+    "id": "simple-toggle-kniehebel-sonderform",
+    "name": "Kniehebel-Spannvorrichtung",
+    "category": "simple_machine",
+    "attributes": {
+      "function": "Aufbringen einer sehr hohen Klemmkraft, die sich bei Überstreckung selbst hält, ohne dauernde Kraftzufuhr",
+      "principle": "Wenn zwei Hebel die Strecklage erreichen (Kniepunkt), steigt die theoretische Kraftübersetzung gegen unendlich; in der gestreckten Lage hält der Mechanismus selbsttätig ohne weitere Haltekraft"
+    },
+    "funFact": "Kniehebel-Spannvorrichtungen werden in der Blechbearbeitung eingesetzt, weil sie im Totpunkt Kräfte erzeugen, die weit über die Handkraft hinausgehen — und die gespannte Lage ohne Energiezufuhr halten.",
+    "sourceName": "Wikipedia DE – Kniehebel",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Kniehebel",
+    "verifyNote": "Selbsthaltung und Kraftübersetzung am Totpunkt aus Wikipedia-Artikel Kniehebel"
+  },
+  {
+    "id": "simple-rollenschraube",
+    "name": "Rollenschraubtrieb (Planetenrollengetriebe)",
+    "category": "simple_machine",
+    "attributes": {
+      "function": "Reibungsarme Umwandlung einer Drehbewegung in eine Linearbewegung mit hoher Kraftdichte",
+      "principle": "Mehrere gewindete Rollen wälzen sich zwischen Spindel und Mutter ab; durch die gleichmäßige Lastverteilung auf viele Kontaktpunkte wird eine höhere Tragfähigkeit als beim Kugelgewindetrieb erreicht"
+    },
+    "sourceName": "Wikipedia DE – Planetenrollengetriebe",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Planetenrollengetriebe",
+    "verifyNote": "Wirkprinzip und Vergleich mit Kugelgewindetrieb aus Wikipedia-Artikel Planetenrollengetriebe"
+  },
+  {
+    "id": "simple-zahnstangen-hubwerk",
+    "name": "Zahnstangen-Hubwerk",
+    "category": "simple_machine",
+    "attributes": {
+      "function": "Vertikales Heben oder Positionieren einer Last durch Rotation eines Ritzels an einer festen Zahnstange",
+      "principle": "Ein motorisches oder handgeführtes Ritzel greift in eine senkrechte Zahnstange; die Drehbewegung des Ritzels erzwingt seine Linearbewegung entlang der Stange und hebt so die Last"
+    },
+    "sourceName": "Wikipedia DE – Zahnstange",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Zahnstange",
+    "verifyNote": "Hubwerk-Anwendung der Zahnstange in Wikipedia-Artikel Zahnstange beschrieben"
   }
 ]

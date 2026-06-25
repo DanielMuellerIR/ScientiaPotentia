@@ -361,9 +361,23 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 | Natura | 2402 | 13217 | Wikipedia / USGS / IUCN / IPCC / Wikidata | generische Konzeptkarte (`ConceptVisual`); Tiere via MiniMax-Delegation 49→97 ausgebaut (web-grounded); freies Commons-Foto je Konzept hinterlegt (`concept.image`, fürs spätere Museum) |
 | Lingua | 1207 | 5540 | Wikipedia / Ethnologue / Wiktionary / Guinness / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Attribut-Labels; 184 Museumsbilder (writing_system/language_family) |
 | Cultura | 1798 | 6332 | Wikipedia (DE/EN) / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Kategorie-/Attribut-Labels; via MiniMax-Delegation ausgebaut (Komponisten Wikidata-geprüft, Werke web-grounded); 865 Museumsbilder |
-| Machina | 1958 | 5698 | Wikipedia / RFC/IANA / Lehrbücher / DIN 8580 | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Funktionsprinzip (v1.47.0); ab v1.71 auch klassische Technik (Handwerk/Mechanik/Maschinenbau): tool/machine_element/engine/manufacturing_process/material/simple_machine; 124 Museumsbilder (hardware) |
+| Machina | 2165 | 6131 | Wikipedia / RFC/IANA / Lehrbücher / DIN 8580 | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Funktionsprinzip (v1.47.0); ab v1.71 auch klassische Technik (Handwerk/Mechanik/Maschinenbau): tool/machine_element/engine/manufacturing_process/material/simple_machine (2 Wellen, v1.71+v1.73); 124 Museumsbilder (hardware) |
 | Historia | 1244 | 6332 | Wikipedia / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Zeit/Urheberschaft, Politik-Ausschluss (v1.47.0); 1023 Museumsbilder |
 
+> **Stand 2026-06-25 (v1.73.0) — Machina klassische Technik Welle 2 (Vertiefung) + Deploy:**
+> Zweite Welle über dieselben 6 Technik-Kategorien (Dedup-Listen aus dem Bestand an die Finder), bewährte
+> Pipeline (6 Sonnet-Finder → Gate → 6 adversariale Opus-Verifier → append). **+207 Konzepte / +433 Fragen:
+> Machina 1958→2165 K / 5698→6131 F.** Verifier-Funde u.a.: erfundenes „Beißring (Sprengringlehre)",
+> Kreuzschubkurbel-Physik (Scotch Yoke hat KEINE Pleuelstange → Schlitzführung), Hartmetall umklassifiziert
+> (Nichteisenmetall→Verbundwerkstoff), Ramjet/Pulsojet/Hydraulikmotor `type` entfernt (Staustrahl/Verdränger
+> = keine Turbine, „lieber weglassen als raten"), Legierungs-Antwort-Leaks in `property` entschärft, Kronenrad
+> (kein Kegelrad), Torsionsstab (Torsion statt Biegung). 3 fragenlose Engines (weder type noch energySource →
+> 0 Fragen) bewusst verworfen statt als Dead-Weight zu führen. tool-Finder hatte `sourceName` vergessen →
+> Verifier ergänzt. Alle `verify_facts` 0 Fehler, audit Machina Strukt 0 / Bias-Templates 0, npm test grün,
+> Build/Layout 17/17. **Reservoir der klassischen Technik damit weitgehend ausgeschöpft** (Welle-2-Verifier
+> sortierten zunehmend Obskures aus — weitere Wellen brächten v.a. Nischenbegriffe; Qualität vor Menge).
+> **Mit v1.71/v1.72 zusammen deployt (dm0.de/sci).**
+>
 > **Stand 2026-06-25 (v1.72.0) — Größenordnungs-Distraktoren für numerische Maße (Fairness, Nutzerwunsch):**
 > Numerische Fragen mit eng gehäuften Nachbarwert-Distraktoren (z.B. Schlangenlänge „59/60/63/65 cm",
 > Galaxien-Distanz) verlangten Maschinen-Präzision — Größenordnungs-Gespür half nicht. Neuer **Magnitude-
