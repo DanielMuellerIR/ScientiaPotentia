@@ -357,13 +357,39 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 | :----- | :------- | :----- | :------ | :------------- |
 | Terra  | 1852 | 5217 | Natural Earth / GeoNames / Wikidata | Weltkarte (MapLibre), pro Frage Highlight |
 | Astra  | 937 | 3088 | NASA / IAU / ESA / Wikidata | **3D-Himmelskörper (three.js)** + Kontext-Karte (Bahn/Distanz), Texturen Solar System Scope (CC BY 4.0) |
-| Homo   | 261 | 718 | Gray's Anatomy / Prometheus / NIH | **Anatomiegrafiken (Wikimedia, PD)** + konzeptgenauer Struktur-Marker je Frage |
+| Homo   | 413 | 1195 | Gray's Anatomy / Prometheus / NIH / MedlinePlus / StatPearls / OpenStax | **Anatomiegrafiken (Wikimedia, PD)** + konzeptgenauer Struktur-Marker je Frage; ab v1.52 zehn Physiologie-Kategorien jenseits der Anatomie |
 | Natura | 2402 | 13217 | Wikipedia / USGS / IUCN / IPCC / Wikidata | generische Konzeptkarte (`ConceptVisual`); Tiere via MiniMax-Delegation 49→97 ausgebaut (web-grounded); freies Commons-Foto je Konzept hinterlegt (`concept.image`, fürs spätere Museum) |
 | Lingua | 795 | 3534 | Wikipedia / Ethnologue / Wiktionary / Guinness / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Attribut-Labels; Commons-Bild je Konzept hinterlegt (103/103, fürs spätere Museum) |
 | Cultura | 1537 | 5042 | Wikipedia (DE/EN) / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Kategorie-/Attribut-Labels; via MiniMax-Delegation ausgebaut (Komponisten Wikidata-geprüft, Werke web-grounded) |
 | Machina | 756 | 2355 | Wikipedia / RFC/IANA / Lehrbücher | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Funktionsprinzip (v1.47.0) |
 | Historia | 838 | 4251 | Wikipedia / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Zeit/Urheberschaft, Politik-Ausschluss (v1.47.0) |
 
+> **Stand 2026-06-25 (v1.52.0–v1.58.0) — Homo-Physiologie-Ausbau (3 Wellen) + Museum-Bildoffensive (6 Domains):**
+> **(A) Homo jenseits der Anatomie (261/718 → 413/1195, +152 Konzepte/+477 Fragen)** nach
+> [`docs/homo_erweiterung.md`](docs/homo_erweiterung.md) in 3 Wellen, je Opus-Finder + adversariale
+> Opus-Verifier (Workflow), eigene Fakt-Stichprobe, deterministischer ASCII→Umlaut-Fix (nur Welle 1
+> nötig — ab Welle 2 explizite Umlaut-Vorgabe im Prompt), `append_concepts` + `audit:questions`-Gate:
+> **v1.52** cell_type(31)/hormone(20)/vitamin(13)/sense(6); **v1.53** digestive_enzyme(12)/nerve(13)/
+> psych_effect(30); **v1.54** nutrient_macro(13)/development_stage(10)/brain_lobe(4). 33 neue Generator-
+> Templates in `generate_homo.js` (Engine unverändert: `byCategory`/`pickBalanced`/`revealsAnswer`);
+> dt. Labels für 10 Kategorien + Attribute in `HomoVisual.jsx`+`ConceptVisual.jsx`; `characteristic`
+> zu POST_ANSWER_ATTRS. Fairness-Fixes pro Welle (Klammernamen entschärft, gland-Vorwärtsfrage wegen
+> 4-Werte-Längenbias weggelassen). **Homos ehrliches Ceiling ~1500 Fragen ist damit weitgehend
+> erreicht** (docs/homo_erweiterung.md §4) — weitere Kategorien wären obskur/Krankheits-Grauzone.
+> **(B) Museum-Bilder ~1926 → ~3884 (+~1958 freie Bilder)** über den **gebündelten** Resolver
+> (`resolve_images_batched.cjs`, 50 Einheiten/Request → kein Rate-Limit, ~2 min/Domain statt Stunden;
+> der per-Konzept-Resolver wurde verworfen). Resolver gehärtet: TARGETS um historia/homo/machina
+> erweitert, `redirects=1` + Redirect-Kette, echter NC/ND-Lizenzriegel (SA bleibt frei). `check_images.cjs`
+> live als strenge Endkontrolle (Lizenz/MIME/Existenz) + programmatischer Scan auf Nicht-Bild/Karten/
+> nicht-lateinische Dateinamen + Stichprobe je Domain: **historia 0→652** (v1.55, war Null-Bild-Domain),
+> **natura 1093→1878 (+785, größter Hebel)** (v1.56), **homo 83→168 / machina 0→56** (v1.57),
+> **cultura 428→734 / astra 182→256** (v1.58). Entfernt wurden je Domain wenige Videos (webm/ogv),
+> PDF-Notenblätter, streng-unfreie Porträts und 2 natura-Fehltreffer (hebr. Schmuckbild, Verbreitungs-
+> karte). Alle `verify_facts` 0 Fehler, Build grün, Homo-Quiz + Museum browser-verifiziert. **Bewusst
+> NICHT gebaut** (docs/bildquellen_strategie.md): Foto-Zwang für Text-Kategorien (quote/etymology/
+> constant/exoplanet) und die prozeduralen Machina-SVG-Generatoren (separater Großaufwand). **NICHT
+> deployt (live weiterhin v1.46.1).**
+>
 > **Stand 2026-06-24 (v1.51.0) — Qualitätswelle: faire Distraktoren + Museum-Aufwertung + Bild-Audit:**
 > KEINE neuen Konzepte/Fragen (Zahlen unverändert) — diese Welle macht den BESTAND besser.
 > **(1) Selbstverräter-/Fairness-Fix der Distraktoren (Hauptarbeit).** Ein deterministischer
