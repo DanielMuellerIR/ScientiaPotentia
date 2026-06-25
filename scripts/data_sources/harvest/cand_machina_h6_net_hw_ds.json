@@ -1,0 +1,593 @@
+[
+  {
+    "id": "network_protocol-dhcpv6-h6",
+    "name": "DHCPv6",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Dynamic Host Configuration Protocol for IPv6",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 547,
+      "purpose": "Automatische Vergabe von IPv6-Adressen und Konfigurationsdaten an Clients im Netzwerk"
+    },
+    "funFact": "DHCPv6 nutzt nicht mehr die MAC-Adresse, sondern eine eigene DUID, um ein Gerät dauerhaft wiederzuerkennen.",
+    "sourceName": "RFC 8415 – Dynamic Host Configuration Protocol for IPv6 (DHCPv6)",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc8415",
+    "verifyNote": "Server-Port 547/UDP und Zweck der Adressvergabe aus RFC 8415."
+  },
+  {
+    "id": "network_protocol-slaac-h6",
+    "name": "SLAAC",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Stateless Address Autoconfiguration",
+      "layer": "Vermittlungsschicht",
+      "transport": "IP",
+      "purpose": "Erlaubt IPv6-Geräten, sich ohne zentralen Server selbst eine Adresse zu vergeben"
+    },
+    "funFact": "Bei SLAAC hört ein Gerät einfach die Router-Advertisements ab und bildet sich daraus selbst eine gültige IPv6-Adresse.",
+    "sourceName": "RFC 4862 – IPv6 Stateless Address Autoconfiguration",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc4862",
+    "verifyNote": "Zustandsloses Verfahren auf Basis von Router-Advertisements aus RFC 4862."
+  },
+  {
+    "id": "network_protocol-llmnr-h6",
+    "name": "LLMNR",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Link-Local Multicast Name Resolution",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 5355,
+      "purpose": "Namensauflösung im lokalen Netz ohne DNS-Server, vor allem unter Windows"
+    },
+    "funFact": "LLMNR springt ein, wenn kein DNS-Server antwortet – wird aber oft deaktiviert, weil Angreifer damit Anmeldedaten abgreifen können.",
+    "sourceName": "RFC 4795 – Link-Local Multicast Name Resolution (LLMNR)",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc4795",
+    "verifyNote": "Port 5355/UDP und Zweck der lokalen Namensauflösung aus RFC 4795."
+  },
+  {
+    "id": "network_protocol-fcoe-h6",
+    "name": "FCoE",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Fibre Channel over Ethernet",
+      "layer": "Sicherungsschicht",
+      "transport": "Ethernet",
+      "purpose": "Transportiert Speichernetz-Daten (Fibre Channel) direkt über Ethernet-Frames"
+    },
+    "funFact": "FCoE bündelt Speicher- und Datenverkehr über dieselbe Ethernet-Verkabelung und spart so im Rechenzentrum getrennte Kabelstränge.",
+    "sourceName": "Wikipedia DE – Fibre Channel over Ethernet",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Fibre_Channel_over_Ethernet",
+    "verifyNote": "Kapselung von Fibre Channel in Ethernet-Frames als Layer-2-Protokoll."
+  },
+  {
+    "id": "network_protocol-hls-h6",
+    "name": "HLS",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "HTTP Live Streaming",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "purpose": "Adaptives Video-Streaming, das den Strom in kleine über HTTP geladene Segmente zerlegt"
+    },
+    "funFact": "HLS wurde von Apple eingeführt und passt die Videoqualität dynamisch an die Bandbreite an, indem es zwischen mehreren Segmentlisten umschaltet.",
+    "sourceName": "RFC 8216 – HTTP Live Streaming",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc8216",
+    "verifyNote": "Segmentbasiertes adaptives Streaming über HTTP aus RFC 8216."
+  },
+  {
+    "id": "network_protocol-dash-h6",
+    "name": "MPEG-DASH",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Dynamic Adaptive Streaming over HTTP",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "purpose": "Herstellerneutrales adaptives Video-Streaming über HTTP mit umschaltbaren Qualitätsstufen"
+    },
+    "funFact": "MPEG-DASH ist der offene Standard-Gegenpart zu Apples HLS und arbeitet bewusst codec-unabhängig.",
+    "sourceName": "Wikipedia DE – Dynamic Adaptive Streaming over HTTP",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP",
+    "verifyNote": "Offener ISO-Standard für adaptives HTTP-Streaming, Gegenstück zu HLS."
+  },
+  {
+    "id": "network_protocol-pop3s-h6",
+    "name": "Gratuitous ARP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Gratuitous Address Resolution Protocol",
+      "layer": "Sicherungsschicht",
+      "transport": "Ethernet",
+      "purpose": "Ungefragtes ARP-Paket, mit dem ein Gerät seine eigene IP-MAC-Zuordnung im Netz bekanntgibt"
+    },
+    "funFact": "Bei einem Failover schickt der übernehmende Server ein Gratuitous ARP, damit alle Geräte sofort auf die neue MAC-Adresse umlernen.",
+    "sourceName": "RFC 5227 – IPv4 Address Conflict Detection",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc5227",
+    "verifyNote": "Ungefragte ARP-Ankündigung zur Aktualisierung von ARP-Caches aus RFC 5227."
+  },
+  {
+    "id": "network_protocol-rtsp-control-h6",
+    "name": "ONVIF",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Open Network Video Interface Forum",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "purpose": "Herstellerübergreifende Steuerung von IP-Überwachungskameras und Videorekordern"
+    },
+    "funFact": "Dank ONVIF kann eine Überwachungssoftware Kameras verschiedener Hersteller ansteuern, ohne für jede Marke eine eigene Schnittstelle zu brauchen.",
+    "sourceName": "Wikipedia DE – ONVIF",
+    "sourceUrl": "https://de.wikipedia.org/wiki/ONVIF",
+    "verifyNote": "Herstellerübergreifender Standard für die Steuerung von Netzwerk-Videogeräten."
+  },
+  {
+    "id": "network_protocol-mqtt-sn-h6",
+    "name": "MQTT-SN",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "MQTT for Sensor Networks",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "purpose": "Schlanke MQTT-Variante für sehr kleine Sensorgeräte und drahtlose Netze"
+    },
+    "funFact": "MQTT-SN ersetzt lange Topic-Namen durch kurze numerische IDs, damit selbst winzige batteriebetriebene Sensoren sparsam funken können.",
+    "sourceName": "Wikipedia DE – MQTT",
+    "sourceUrl": "https://de.wikipedia.org/wiki/MQTT",
+    "verifyNote": "Für Sensornetze optimierte MQTT-Variante über UDP statt TCP."
+  },
+  {
+    "id": "network_protocol-igmp-snooping-h6",
+    "name": "IGMP-Snooping",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Internet Group Management Protocol Snooping",
+      "layer": "Sicherungsschicht",
+      "transport": "Ethernet",
+      "purpose": "Switch lauscht IGMP-Nachrichten ab und leitet Multicast nur an interessierte Ports"
+    },
+    "funFact": "Ohne IGMP-Snooping würde ein Switch Multicast-Video an alle Ports fluten – mit Snooping bekommt es nur, wer die Gruppe abonniert hat.",
+    "sourceName": "RFC 4541 – Considerations for IGMP and MLD Snooping Switches",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc4541",
+    "verifyNote": "Layer-2-Optimierung von Multicast-Weiterleitung durch Mithören von IGMP aus RFC 4541."
+  },
+  {
+    "id": "network_protocol-lacp-h6",
+    "name": "LACP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Link Aggregation Control Protocol",
+      "layer": "Sicherungsschicht",
+      "transport": "Ethernet",
+      "purpose": "Bündelt mehrere physische Ethernet-Leitungen zu einer logischen Verbindung"
+    },
+    "funFact": "LACP fasst etwa vier Gigabit-Leitungen zu einem 4-Gigabit-Kanal zusammen und sorgt zugleich für Ausfallsicherheit, wenn ein Kabel stirbt.",
+    "sourceName": "Wikipedia DE – Link Aggregation",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Link_Aggregation",
+    "verifyNote": "Standardisiertes Bündeln mehrerer Links zu einer logischen Leitung (IEEE 802.1AX)."
+  },
+  {
+    "id": "network_protocol-ssh-tunnel-h6",
+    "name": "Telnet über TLS",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Telnet over Transport Layer Security",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 992,
+      "purpose": "Verschlüsselte Variante des Terminal-Protokolls Telnet über eine TLS-Schicht"
+    },
+    "funFact": "Telnet über TLS hört auf Port 992 und sollte den unverschlüsselten Klassiker Telnet ersetzen – in der Praxis hat sich aber SSH durchgesetzt.",
+    "sourceName": "IANA – Service Name and Transport Protocol Port Number Registry",
+    "sourceUrl": "https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml",
+    "verifyNote": "Port 992 (telnets) als TLS-gesichertes Telnet im IANA-Portregister."
+  },
+  {
+    "id": "network_protocol-coap-observe-h6",
+    "name": "ZeroConf",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Zero Configuration Networking",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "purpose": "Sammelbegriff für Verfahren, die ein Netz ohne manuelle Konfiguration nutzbar machen"
+    },
+    "funFact": "ZeroConf sorgt dafür, dass ein neuer Drucker im WLAN sofort auftaucht, ohne dass jemand IP-Adressen oder DNS-Einträge eintippen muss.",
+    "sourceName": "Wikipedia DE – Zeroconf",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Zeroconf",
+    "verifyNote": "Sammelbegriff für selbstkonfigurierende Netzdienste (u. a. mDNS, Link-Local-Adressen)."
+  },
+  {
+    "id": "network_protocol-rtcp-feedback-h6",
+    "name": "WebTransport",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "WebTransport",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "purpose": "Moderne Browser-Schnittstelle für bidirektionale, latenzarme Datenströme über HTTP/3"
+    },
+    "funFact": "WebTransport baut auf QUIC auf und erlaubt im Browser sowohl zuverlässige als auch verlustbehaftete Datenströme – ideal für Spiele und Live-Streams.",
+    "sourceName": "MDN Web Docs – WebTransport API",
+    "sourceUrl": "https://developer.mozilla.org/de/docs/Web/API/WebTransport_API",
+    "verifyNote": "Browser-API für Streams über HTTP/3/QUIC laut MDN."
+  },
+  {
+    "id": "network_protocol-https-alt-h6",
+    "name": "STARTTLS",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Opportunistic TLS via STARTTLS",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "purpose": "Schaltet eine bestehende Klartextverbindung (z. B. SMTP, IMAP) nachträglich auf TLS um"
+    },
+    "funFact": "STARTTLS nutzt denselben Port wie die unverschlüsselte Verbindung und verschlüsselt erst nach einem Umschalt-Kommando mitten in der Sitzung.",
+    "sourceName": "RFC 3207 – SMTP Service Extension for Secure SMTP over Transport Layer Security",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc3207",
+    "verifyNote": "Nachträgliches Hochstufen einer Klartextverbindung auf TLS aus RFC 3207."
+  },
+  {
+    "id": "hardware-ddr-sdram-h6",
+    "name": "DDR-SDRAM",
+    "category": "hardware",
+    "attributes": {
+      "category": "Arbeitsspeicher",
+      "function": "Schneller Arbeitsspeicher, der Daten an steigender und fallender Taktflanke überträgt"
+    },
+    "funFact": "Das Double Data Rate in DDR-RAM bedeutet, dass pro Taktzyklus zweimal Daten übertragen werden – einmal bei steigender, einmal bei fallender Flanke.",
+    "sourceName": "Wikipedia DE – DDR-SDRAM",
+    "sourceUrl": "https://de.wikipedia.org/wiki/DDR-SDRAM",
+    "verifyNote": "Datenübertragung an beiden Taktflanken als Kernmerkmal von DDR-SDRAM."
+  },
+  {
+    "id": "hardware-bga-h6",
+    "name": "BGA-Gehäuse",
+    "category": "hardware",
+    "attributes": {
+      "category": "Verbindungstechnik",
+      "function": "Chipgehäuse, dessen Anschlüsse als Raster winziger Lotkugeln auf der Unterseite liegen"
+    },
+    "funFact": "Beim Ball Grid Array sitzen die Lötkontakte als Kugelraster unter dem Chip – das spart Platz, macht aber ein Nachlöten von Hand fast unmöglich.",
+    "sourceName": "Wikipedia DE – Ball Grid Array",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Ball_Grid_Array",
+    "verifyNote": "Gehäusebauform mit Lotkugelraster auf der Unterseite des Chips."
+  },
+  {
+    "id": "hardware-zif-sockel-h6",
+    "name": "ZIF-Sockel",
+    "category": "hardware",
+    "attributes": {
+      "category": "Hauptplatine/Bus",
+      "function": "Prozessorsockel, in den der Chip ohne Kraftaufwand eingelegt und per Hebel verriegelt wird"
+    },
+    "funFact": "Der Hebel am ZIF-Sockel (Zero Insertion Force) klemmt die Pins erst nach dem Einlegen fest, sodass keine Pins verbiegen.",
+    "sourceName": "Wikipedia DE – Zero Insertion Force",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Zero_Insertion_Force",
+    "verifyNote": "Sockel mit Hebelmechanik zum kraftlosen Einsetzen von CPUs."
+  },
+  {
+    "id": "hardware-voltage-regulator-module-h6",
+    "name": "Spannungswandlermodul (VRM)",
+    "category": "hardware",
+    "attributes": {
+      "category": "Stromversorgung",
+      "function": "Wandelt die Netzteilspannung in die niedrige, präzise Versorgungsspannung des Prozessors"
+    },
+    "funFact": "Ein VRM auf dem Mainboard senkt die 12 Volt des Netzteils auf rund 1 Volt für die CPU – und muss dabei viele Ampere stabil liefern.",
+    "sourceName": "Wikipedia DE – Spannungsregler",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Spannungsregler",
+    "verifyNote": "Mehrphasige Spannungswandlung von 12 V auf CPU-Kernspannung als VRM-Aufgabe."
+  },
+  {
+    "id": "hardware-pwm-fan-header-h6",
+    "name": "Lüfteranschluss (4-Pin)",
+    "category": "hardware",
+    "attributes": {
+      "category": "Kühlung",
+      "function": "Steckplatz auf dem Mainboard, der einen Lüfter mit Strom versorgt und seine Drehzahl regelt"
+    },
+    "funFact": "Beim 4-Pin-Lüfteranschluss steuert die vierte Leitung per PWM-Signal die Drehzahl, während ältere 3-Pin-Anschlüsse nur über die Spannung regeln.",
+    "sourceName": "Intel – 4-Wire Pulse Width Modulation (PWM) Controlled Fans Specification",
+    "sourceUrl": "https://www.intel.com/content/www/us/en/support/articles/000007024/processors.html",
+    "verifyNote": "4-Pin-PWM-Lüftersteuerung mit separater Drehzahlleitung nach Intel-Spezifikation."
+  },
+  {
+    "id": "hardware-vapor-chamber-h6",
+    "name": "Vapor Chamber",
+    "category": "hardware",
+    "attributes": {
+      "category": "Kühlung",
+      "function": "Flacher, mit Flüssigkeit gefüllter Hohlkörper, der Wärme über Verdampfung großflächig verteilt"
+    },
+    "funFact": "Eine Vapor Chamber arbeitet wie eine flachgedrückte Heatpipe: Die Flüssigkeit verdampft über dem heißen Chip und verteilt die Wärme schlagartig auf die ganze Fläche.",
+    "sourceName": "Wikipedia EN – Vapor chamber",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Vapor_chamber",
+    "verifyNote": "Zweiphasige Wärmeverteilung über Verdampfung in flachem Hohlkörper."
+  },
+  {
+    "id": "hardware-pci-slot-h6",
+    "name": "PCI-Steckplatz",
+    "category": "hardware",
+    "attributes": {
+      "category": "Erweiterung",
+      "function": "Älterer paralleler Bus-Steckplatz für Erweiterungskarten auf dem Mainboard"
+    },
+    "funFact": "Der klassische PCI-Steckplatz wurde fast vollständig vom schnelleren, seriellen PCI Express verdrängt, das pro Leitung deutlich mehr Daten überträgt.",
+    "sourceName": "Wikipedia DE – Peripheral Component Interconnect",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Peripheral_Component_Interconnect",
+    "verifyNote": "Paralleler Erweiterungsbus, Vorgänger von PCI Express."
+  },
+  {
+    "id": "hardware-ddr-dimm-slot-h6",
+    "name": "RAM-Steckplatz (DIMM-Slot)",
+    "category": "hardware",
+    "attributes": {
+      "category": "Hauptplatine/Bus",
+      "function": "Steckplatz auf dem Mainboard zur Aufnahme der Arbeitsspeicher-Riegel"
+    },
+    "funFact": "Die kleine Kerbe im DIMM-Slot ist gegen Verpolung gedacht und sitzt bei jeder RAM-Generation an anderer Stelle, damit kein DDR4-Riegel in einen DDR5-Slot passt.",
+    "sourceName": "Wikipedia DE – Dual Inline Memory Module",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Dual_Inline_Memory_Module",
+    "verifyNote": "Steckplatz für DIMM-Speichermodule mit generationsabhängiger Kodierkerbe."
+  },
+  {
+    "id": "hardware-thermal-throttling-sensor-h6",
+    "name": "Stromschiene (Power Rail)",
+    "category": "hardware",
+    "attributes": {
+      "category": "Stromversorgung",
+      "function": "Versorgungsleitung eines Netzteils, die eine bestimmte Spannung wie 12 V bereitstellt"
+    },
+    "funFact": "PC-Netzteile haben getrennte Schienen für 3,3 V, 5 V und 12 V – die 12-Volt-Schiene trägt heute die Hauptlast für CPU und Grafikkarte.",
+    "sourceName": "Wikipedia DE – Computernetzteil",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Computernetzteil",
+    "verifyNote": "Getrennte Spannungsschienen (3,3/5/12 V) als Standardaufbau von PC-Netzteilen."
+  },
+  {
+    "id": "hardware-em-pcb-trace-h6",
+    "name": "Leiterbahn",
+    "category": "hardware",
+    "attributes": {
+      "category": "Verbindungstechnik",
+      "function": "Aufgedruckte Kupferbahn auf der Platine, die Bauteile elektrisch miteinander verbindet"
+    },
+    "funFact": "Leiterbahnen auf einer Platine ersetzen einzelne Drähte – bei schnellen Signalen muss ihre Länge sogar exakt abgestimmt sein, damit Daten gleichzeitig ankommen.",
+    "sourceName": "Wikipedia DE – Leiterbahn",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Leiterbahn",
+    "verifyNote": "Aufgedruckte leitende Bahn zur Verbindung von Bauteilen auf einer Leiterplatte."
+  },
+  {
+    "id": "hardware-soldering-pad-h6",
+    "name": "Wärmeleitkleber",
+    "category": "hardware",
+    "attributes": {
+      "category": "Kühlung",
+      "function": "Klebstoff, der einen Kühlkörper dauerhaft fixiert und zugleich Wärme ableitet"
+    },
+    "funFact": "Anders als Wärmeleitpaste härtet Wärmeleitkleber aus und hält kleine Kühlkörper ohne Klammer oder Schraube fest auf dem Chip.",
+    "sourceName": "Wikipedia DE – Wärmeleitpaste",
+    "sourceUrl": "https://de.wikipedia.org/wiki/W%C3%A4rmeleitpaste",
+    "verifyNote": "Aushärtender wärmeleitender Klebstoff zur Befestigung von Kühlkörpern."
+  },
+  {
+    "id": "hardware-front-panel-connector-h6",
+    "name": "Front-Panel-Anschluss",
+    "category": "hardware",
+    "attributes": {
+      "category": "Hauptplatine/Bus",
+      "function": "Pin-Leiste, die Power-Taster, Reset und Status-LEDs des Gehäuses mit dem Mainboard verbindet"
+    },
+    "funFact": "Der Front-Panel-Anschluss ist berüchtigt, weil seine winzigen, einzeln steckbaren Pins für Power-Knopf und LEDs leicht verkehrt herum landen.",
+    "sourceName": "Wikipedia EN – Front panel header",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Front_panel_header",
+    "verifyNote": "Pin-Header zur Verbindung von Gehäusetastern und LEDs mit dem Mainboard."
+  },
+  {
+    "id": "hardware-cpu-heat-spreader-h6",
+    "name": "Heatspreader (IHS)",
+    "category": "hardware",
+    "attributes": {
+      "category": "Kühlung",
+      "function": "Metalldeckel auf dem Prozessor, der die Wärme des Chips großflächig an den Kühler weitergibt"
+    },
+    "funFact": "Der Heatspreader schützt den empfindlichen Silizium-Die und verteilt dessen punktuelle Hitze auf eine größere Fläche, an die der Kühler andocken kann.",
+    "sourceName": "Wikipedia EN – Integrated heat spreader",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Integrated_heat_spreader",
+    "verifyNote": "Metalldeckel zur Wärmeverteilung zwischen CPU-Die und Kühler."
+  },
+  {
+    "id": "hardware-m2-keying-h6",
+    "name": "M.2-Kodierung (Keying)",
+    "category": "hardware",
+    "attributes": {
+      "category": "Anschluss",
+      "function": "Kerbe im M.2-Stecker, die festlegt, welche Module in welchen Steckplatz passen"
+    },
+    "funFact": "Die Kerben B-Key und M-Key bei M.2 verhindern, dass eine reine SATA-SSD in einen Steckplatz wandert, der nur NVMe per PCIe unterstützt.",
+    "sourceName": "Wikipedia DE – M.2",
+    "sourceUrl": "https://de.wikipedia.org/wiki/M.2",
+    "verifyNote": "Kodierkerben (B-/M-Key) zur mechanischen Unterscheidung von M.2-Modultypen."
+  },
+  {
+    "id": "hardware-backlight-inverter-h6",
+    "name": "Display-Backlight",
+    "category": "hardware",
+    "attributes": {
+      "category": "Ausgabe",
+      "function": "Hintergrundbeleuchtung eines LCD-Bildschirms, ohne die das Panel kein Bild zeigt"
+    },
+    "funFact": "Ein LCD erzeugt selbst kein Licht – erst die LED-Hintergrundbeleuchtung macht das Bild sichtbar, weshalb sich darüber die Helligkeit regelt.",
+    "sourceName": "Wikipedia DE – Hintergrundbeleuchtung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Hintergrundbeleuchtung",
+    "verifyNote": "Hintergrundbeleuchtung als notwendige Lichtquelle eines LCD-Panels."
+  },
+  {
+    "id": "data_structure-skip-list-h6",
+    "name": "Sprungliste (Skip List)",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Lineare Struktur",
+      "purpose": "Sortierte Liste mit mehreren Express-Ebenen, die Suchen im Schnitt logarithmisch macht",
+      "accessComplexity": "O(log n)"
+    },
+    "funFact": "Die Skip List legt zufällig zusätzliche Überholspuren über die Liste – dadurch ist sie im Schnitt so schnell wie ein Suchbaum, aber viel einfacher zu programmieren.",
+    "sourceName": "Wikipedia DE – Sprungliste",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Sprungliste",
+    "verifyNote": "Mehrstufige verkettete Liste mit erwarteter O(log n)-Suche."
+  },
+  {
+    "id": "data_structure-circular-buffer-h6",
+    "name": "Ringpuffer (Circular Buffer)",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Lineare Struktur",
+      "purpose": "Puffer fester Größe, dessen Ende gedanklich wieder an den Anfang anschließt",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Ein Ringpuffer überschreibt beim Volllaufen die ältesten Daten und eignet sich deshalb perfekt für laufende Audio- oder Sensorströme.",
+    "sourceName": "Wikipedia DE – Ringpuffer",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Ringpuffer",
+    "verifyNote": "Puffer fester Größe mit umlaufendem Schreib-/Lesezeiger und O(1)-Zugriff."
+  },
+  {
+    "id": "data_structure-separate-chaining-h6",
+    "name": "Verkettungs-Hashverfahren (Separate Chaining)",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Hash-basiert",
+      "purpose": "Hashtabelle, die Kollisionen auflöst, indem jeder Platz auf eine Liste gleicher Hashwerte verweist",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Beim Separate Chaining hängt die Hashtabelle kollidierende Einträge einfach in eine verkettete Liste – fällt die Hashfunktion schlecht aus, wird daraus aber im schlimmsten Fall eine lange Kette.",
+    "sourceName": "Cormen et al. – Introduction to Algorithms (CLRS)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Hashtabelle#Verkettung_der_%C3%9Cberl%C3%A4ufer",
+    "verifyNote": "Kollisionsauflösung per Listen je Bucket; im Schnitt O(1)-Zugriff (CLRS Kap. 11.2)."
+  },
+  {
+    "id": "data_structure-binary-heap-h6",
+    "name": "Binärer Heap",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Heap",
+      "purpose": "Vollständiger Binärbaum mit Heap-Eigenschaft, der stets das kleinste oder größte Element oben hält",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Der binäre Heap lässt sich platzsparend in einem einfachen Array darstellen, weil sich Eltern und Kinder über simple Indexrechnung finden.",
+    "sourceName": "Cormen et al. – Introduction to Algorithms (CLRS)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Bin%C3%A4rer_Heap",
+    "verifyNote": "Zugriff auf das Minimum/Maximum in O(1), als Array darstellbar (CLRS Kap. 6)."
+  },
+  {
+    "id": "data_structure-stack-h6",
+    "name": "Kellerspeicher (Stack)",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Lineare Struktur",
+      "purpose": "Lineare Struktur nach dem LIFO-Prinzip: zuletzt abgelegtes Element wird zuerst entnommen",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Jeder Funktionsaufruf in einem Programm landet auf dem Aufruf-Stack – läuft er über, gibt es den berühmten Stack Overflow.",
+    "sourceName": "Wikipedia DE – Stapelspeicher",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Stapelspeicher",
+    "verifyNote": "LIFO-Prinzip mit O(1) für Push und Pop, Lehrbuch-Standard."
+  },
+  {
+    "id": "data_structure-queue-h6",
+    "name": "Warteschlange (Queue)",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Lineare Struktur",
+      "purpose": "Lineare Struktur nach dem FIFO-Prinzip: zuerst abgelegtes Element wird zuerst entnommen",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Die Queue arbeitet wie die Schlange an der Supermarktkasse: Wer zuerst ansteht, kommt zuerst dran – das FIFO-Prinzip.",
+    "sourceName": "Wikipedia DE – Warteschlange (Datenstruktur)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Warteschlange_(Datenstruktur)",
+    "verifyNote": "FIFO-Prinzip mit O(1) für Einreihen und Entnehmen, Lehrbuch-Standard."
+  },
+  {
+    "id": "data_structure-bit-vector-h6",
+    "name": "Bitvektor",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Lineare Struktur",
+      "purpose": "Kompaktes Array einzelner Bits, das Mengen oder Flags platzsparend kodiert",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Ein Bitvektor speichert 64 Wahrheitswerte in einem einzigen 64-Bit-Wort und erlaubt Mengenoperationen wie Schnitt und Vereinigung per einzelnem CPU-Befehl.",
+    "sourceName": "Wikipedia DE – Bitkette",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Bitkette",
+    "verifyNote": "Bitweise Speicherung mit O(1)-Zugriff und maschinennahen Mengenoperationen."
+  },
+  {
+    "id": "data_structure-priority-queue-adt-h6",
+    "name": "Vorrangwarteschlange",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Abstrakter Datentyp",
+      "purpose": "Warteschlange, die Elemente nach Priorität statt nach Eingangsreihenfolge ausgibt",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Die Vorrangwarteschlange gibt immer das wichtigste Element zuerst heraus – meist wird sie hinter den Kulissen mit einem Heap umgesetzt.",
+    "sourceName": "Wikipedia DE – Vorrangwarteschlange",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Vorrangwarteschlange",
+    "verifyNote": "Abstrakter Datentyp mit prioritätsbasierter Entnahme; Minimum-Zugriff O(1)."
+  },
+  {
+    "id": "data_structure-graph-adt-h6",
+    "name": "Graph (abstrakter Datentyp)",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Graph",
+      "purpose": "Struktur aus Knoten und sie verbindenden Kanten zur Modellierung von Beziehungen",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Ob soziale Netzwerke, Straßenkarten oder Webseiten-Verlinkungen – fast alles, was aus Verbindungen besteht, lässt sich als Graph modellieren.",
+    "sourceName": "Wikipedia DE – Graph (Graphentheorie)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Graph_(Graphentheorie)",
+    "verifyNote": "Knoten-Kanten-Struktur als abstrakter Datentyp; O(1)-Zugriff auf einen Knoten."
+  },
+  {
+    "id": "data_structure-tuple-record-h6",
+    "name": "Assoziatives Feld (Map)",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Abbildung",
+      "purpose": "Bildet eindeutige Schlüssel auf zugehörige Werte ab (Schlüssel-Wert-Speicher)",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Das assoziative Feld – in Python Dictionary, in Java Map genannt – ist die Alltags-Datenstruktur schlechthin und steckt fast immer eine Hashtabelle dahinter.",
+    "sourceName": "Wikipedia DE – Assoziatives Datenfeld",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Assoziatives_Datenfeld",
+    "verifyNote": "Schlüssel-Wert-Abbildung mit im Schnitt O(1)-Zugriff (Hash-basiert)."
+  },
+  {
+    "id": "data_structure-deque-h6",
+    "name": "Doppelschlange (Deque)",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Lineare Struktur",
+      "purpose": "Warteschlange, in die an beiden Enden eingefügt und entnommen werden kann",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Die Deque (Double-Ended Queue) vereint Stack und Queue, weil man an beiden Enden gleich schnell hinzufügen und entfernen kann.",
+    "sourceName": "Wikipedia DE – Deque",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Deque",
+    "verifyNote": "Beidseitiges Einfügen/Entnehmen in O(1), Lehrbuch-Standard."
+  },
+  {
+    "id": "data_structure-association-list-h6",
+    "name": "Assoziationsliste",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Abbildung",
+      "purpose": "Einfache Schlüssel-Wert-Abbildung als verkettete Liste von Paaren",
+      "accessComplexity": "O(n)"
+    },
+    "funFact": "Die Assoziationsliste ist die simpelste Map: eine Liste von Schlüssel-Wert-Paaren, die man der Reihe nach durchsucht – langsam, aber in Lisp allgegenwärtig.",
+    "sourceName": "Wikipedia EN – Association list",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Association_list",
+    "verifyNote": "Lineare Schlüssel-Wert-Liste mit O(n)-Lookup."
+  }
+]

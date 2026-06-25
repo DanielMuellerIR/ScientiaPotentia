@@ -26640,5 +26640,2306 @@
       "url": "https://en.wikipedia.org/wiki/Double-ended_priority_queue"
     },
     "image": null
+  },
+  "machina:concept-swapping-h6": {
+    "id": "machina:concept-swapping-h6",
+    "name": "Swapping",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Betriebssysteme",
+      "definition": "Das Auslagern ganzer Prozesse oder Speicherseiten aus dem Arbeitsspeicher auf einen langsameren Hintergrundspeicher, um Platz für aktive Prozesse zu schaffen"
+    },
+    "funFact": "Übermäßiges Auslagern führt zum sogenannten Thrashing, bei dem das System fast nur noch Speicherseiten hin- und herschiebt statt zu rechnen.",
+    "source": {
+      "name": "Wikipedia DE – Swapping",
+      "url": "https://de.wikipedia.org/wiki/Auslagerungsdatei"
+    },
+    "image": null
+  },
+  "machina:concept-kontextwechsel-h6": {
+    "id": "machina:concept-kontextwechsel-h6",
+    "name": "Kontextwechsel",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Betriebssysteme",
+      "definition": "Das Sichern des Zustands eines laufenden Prozesses und das Laden des Zustands eines anderen, damit ein Prozessor mehrere Aufgaben scheinbar gleichzeitig ausführen kann"
+    },
+    "funFact": "Jeder Kontextwechsel kostet Rechenzeit, weil Registerinhalte gespeichert und Caches teilweise ungültig werden – deshalb sind sie nicht beliebig billig.",
+    "source": {
+      "name": "Wikipedia DE – Kontextwechsel",
+      "url": "https://de.wikipedia.org/wiki/Kontextwechsel"
+    },
+    "image": null
+  },
+  "machina:concept-systemaufruf-h6": {
+    "id": "machina:concept-systemaufruf-h6",
+    "name": "Systemaufruf",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Betriebssysteme",
+      "definition": "Eine kontrollierte Anforderung eines Programms an den Betriebssystem-Kern, um privilegierte Dienste wie Datei- oder Netzwerkzugriff auszuführen"
+    },
+    "funFact": "Ein Systemaufruf wechselt vom Benutzer- in den Kernmodus des Prozessors – dieser Moduswechsel ist die Schutzgrenze zwischen Anwendung und Betriebssystem.",
+    "source": {
+      "name": "Wikipedia DE – Systemaufruf",
+      "url": "https://de.wikipedia.org/wiki/Systemaufruf"
+    },
+    "image": null
+  },
+  "machina:concept-verzweigungsvorhersage-h6": {
+    "id": "machina:concept-verzweigungsvorhersage-h6",
+    "name": "Verzweigungsvorhersage",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Rechnerarchitektur",
+      "definition": "Eine Technik moderner Prozessoren, die den wahrscheinlichen Ausgang einer bedingten Verzweigung rät, um die Befehls-Pipeline nicht anhalten zu müssen"
+    },
+    "funFact": "Eine falsche Vorhersage verwirft alle spekulativ begonnenen Befehle – genau dieser Mechanismus wurde 2018 für die Spectre-Sicherheitslücke ausgenutzt.",
+    "source": {
+      "name": "Wikipedia DE – Sprungvorhersage",
+      "url": "https://de.wikipedia.org/wiki/Sprungvorhersage"
+    },
+    "image": null
+  },
+  "machina:concept-programmzaehler-h6": {
+    "id": "machina:concept-programmzaehler-h6",
+    "name": "Programmzähler",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Rechnerarchitektur",
+      "definition": "Ein Prozessorregister, das die Adresse des nächsten auszuführenden Maschinenbefehls enthält"
+    },
+    "funFact": "Sprünge und Schleifen funktionieren technisch dadurch, dass der Programmzähler gezielt auf eine andere Adresse gesetzt wird, statt einfach weiterzuzählen.",
+    "source": {
+      "name": "Wikipedia DE – Befehlszähler",
+      "url": "https://de.wikipedia.org/wiki/Befehlsz%C3%A4hler"
+    },
+    "image": null
+  },
+  "machina:concept-iteration-h6": {
+    "id": "machina:concept-iteration-h6",
+    "name": "Iteration",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmierung",
+      "definition": "Das wiederholte Ausführen eines Anweisungsblocks mittels einer Schleife, bis eine Abbruchbedingung erfüllt ist"
+    },
+    "funFact": "Viele rekursive Lösungen lassen sich in iterative umschreiben – das spart den Aufrufstapel und vermeidet Stapelüberläufe bei großer Tiefe.",
+    "source": {
+      "name": "Wikipedia DE – Iteration",
+      "url": "https://de.wikipedia.org/wiki/Iteration"
+    },
+    "image": null
+  },
+  "machina:concept-linter-h6": {
+    "id": "machina:concept-linter-h6",
+    "name": "Linter",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwareentwicklung",
+      "definition": "Ein Werkzeug zur statischen Analyse von Quellcode, das ohne Ausführung mögliche Fehler, Stilverstöße und verdächtige Muster meldet"
+    },
+    "funFact": "Der Name geht auf das Unix-Programm „lint“ von 1978 zurück, das Fusseln (engl. lint) im C-Code aufspüren sollte.",
+    "source": {
+      "name": "Wikipedia DE – Lint (Programmierwerkzeug)",
+      "url": "https://de.wikipedia.org/wiki/Lint_(Programmierwerkzeug)"
+    },
+    "image": null
+  },
+  "machina:concept-debugger-h6": {
+    "id": "machina:concept-debugger-h6",
+    "name": "Debugger",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwareentwicklung",
+      "definition": "Ein Werkzeug, das die kontrollierte Ausführung eines Programms erlaubt, um den Zustand an beliebigen Stellen zu untersuchen und Fehler aufzuspüren"
+    },
+    "funFact": "Ein Debugger kann ein Programm an Haltepunkten anhalten und Schritt für Schritt weiterlaufen lassen, um Variablenwerte live zu beobachten.",
+    "source": {
+      "name": "Wikipedia DE – Debugger",
+      "url": "https://de.wikipedia.org/wiki/Debugger"
+    },
+    "image": null
+  },
+  "machina:concept-profiler-h6": {
+    "id": "machina:concept-profiler-h6",
+    "name": "Profiler",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwareentwicklung",
+      "definition": "Ein Werkzeug, das während der Ausführung misst, wie viel Zeit oder Speicher einzelne Programmteile verbrauchen, um Engpässe zu finden"
+    },
+    "funFact": "Profiler offenbaren oft, dass die wenigen wirklich heißen Codepfade fast die gesamte Laufzeit ausmachen – die berühmte 80/20-Regel der Optimierung.",
+    "source": {
+      "name": "Wikipedia DE – Profiler (Programmierung)",
+      "url": "https://de.wikipedia.org/wiki/Profiler_(Programmierung)"
+    },
+    "image": null
+  },
+  "machina:concept-breakpoint-h6": {
+    "id": "machina:concept-breakpoint-h6",
+    "name": "Breakpoint",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwareentwicklung",
+      "definition": "Eine vom Entwickler gesetzte Markierung im Code, an der ein Debugger die Programmausführung automatisch anhält"
+    },
+    "funFact": "Technisch funktionieren Haltepunkte oft, indem der Debugger an der Stelle heimlich einen speziellen Unterbrechungs-Befehl in den Maschinencode einsetzt.",
+    "source": {
+      "name": "Wikipedia DE – Haltepunkt",
+      "url": "https://de.wikipedia.org/wiki/Haltepunkt"
+    },
+    "image": null
+  },
+  "machina:concept-tokenisierung-h6": {
+    "id": "machina:concept-tokenisierung-h6",
+    "name": "Tokenisierung",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmiersprachen",
+      "definition": "Das Zerlegen eines Zeichenstroms in eine Folge bedeutungstragender Einheiten wie Schlüsselwörter, Bezeichner und Operatoren"
+    },
+    "funFact": "Tokenisierung ist die erste Stufe jedes Compilers oder Interpreters – erst danach kann der Parser die grammatische Struktur erkennen.",
+    "source": {
+      "name": "Wikipedia DE – Tokenisierung",
+      "url": "https://de.wikipedia.org/wiki/Tokenisierung"
+    },
+    "image": null
+  },
+  "machina:concept-abstrakter-syntaxbaum-h6": {
+    "id": "machina:concept-abstrakter-syntaxbaum-h6",
+    "name": "Abstrakter Syntaxbaum",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmiersprachen",
+      "definition": "Eine Baumdarstellung der grammatischen Struktur eines Quelltextes, in der jeder Knoten ein Sprachkonstrukt repräsentiert"
+    },
+    "funFact": "Compiler, Linter und Code-Formatierer arbeiten alle auf diesem Baum statt direkt auf dem Text, weil die Struktur dort eindeutig vorliegt.",
+    "source": {
+      "name": "Wikipedia DE – Abstrakter Syntaxbaum",
+      "url": "https://de.wikipedia.org/wiki/Abstrakter_Syntaxbaum"
+    },
+    "image": null
+  },
+  "machina:concept-pufferueberlauf-h6": {
+    "id": "machina:concept-pufferueberlauf-h6",
+    "name": "Pufferüberlauf",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Sicherheit/Kryptografie",
+      "definition": "Ein Fehler, bei dem mehr Daten in einen Speicherbereich geschrieben werden, als dieser fasst, wodurch angrenzender Speicher überschrieben wird"
+    },
+    "funFact": "Der Internet-Wurm von 1988 nutzte einen Pufferüberlauf aus und gilt als einer der ersten großflächigen Angriffe dieser bis heute gefährlichen Klasse.",
+    "source": {
+      "name": "Wikipedia DE – Pufferüberlauf",
+      "url": "https://de.wikipedia.org/wiki/Puffer%C3%BCberlauf"
+    },
+    "image": null
+  },
+  "machina:concept-eingabevalidierung-h6": {
+    "id": "machina:concept-eingabevalidierung-h6",
+    "name": "Eingabevalidierung",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Sicherheit/Kryptografie",
+      "definition": "Das Prüfen von Benutzer- oder Schnittstellen-Eingaben auf erlaubtes Format und erlaubten Inhalt, bevor sie weiterverarbeitet werden"
+    },
+    "funFact": "Fehlende Eingabevalidierung ist die gemeinsame Wurzel vieler Angriffe wie SQL-Injection und Cross-Site-Scripting.",
+    "source": {
+      "name": "OWASP – Input Validation Cheat Sheet",
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html"
+    },
+    "image": null
+  },
+  "machina:concept-sandboxing-h6": {
+    "id": "machina:concept-sandboxing-h6",
+    "name": "Sandboxing",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Sicherheit/Kryptografie",
+      "definition": "Das Ausführen von Programmcode in einer abgeschotteten Umgebung mit stark eingeschränkten Rechten, um Schäden am Restsystem zu verhindern"
+    },
+    "funFact": "Webbrowser führen den Code jeder Seite in einer Sandbox aus, damit eine bösartige Website nicht einfach auf lokale Dateien zugreifen kann.",
+    "source": {
+      "name": "Wikipedia DE – Sandbox (Computersicherheit)",
+      "url": "https://de.wikipedia.org/wiki/Sandbox"
+    },
+    "image": null
+  },
+  "machina:concept-rechteausweitung-h6": {
+    "id": "machina:concept-rechteausweitung-h6",
+    "name": "Rechteausweitung",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Sicherheit/Kryptografie",
+      "definition": "Ein Angriff oder Fehler, durch den ein Akteur höhere Zugriffsrechte erlangt, als ihm eigentlich zustehen"
+    },
+    "funFact": "Man unterscheidet vertikale Rechteausweitung (vom Nutzer zum Administrator) und horizontale (Zugriff auf Konten gleichrangiger Nutzer).",
+    "source": {
+      "name": "Wikipedia DE – Rechteausweitung",
+      "url": "https://de.wikipedia.org/wiki/Rechteausweitung"
+    },
+    "image": null
+  },
+  "machina:concept-spaltenorientierte-datenbank-h6": {
+    "id": "machina:concept-spaltenorientierte-datenbank-h6",
+    "name": "Spaltenorientierte Datenbank",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Datenbanken",
+      "definition": "Ein Datenbankmodell, das Werte gleicher Spalten zusammenhängend speichert statt ganze Datensätze, um analytische Abfragen über wenige Spalten zu beschleunigen"
+    },
+    "funFact": "Weil gleichartige Werte beieinanderliegen, lassen sie sich besonders gut komprimieren – ein Grund, warum dieses Modell in Analyse-Datenbanken dominiert.",
+    "source": {
+      "name": "Wikipedia DE – Spaltenorientierte Datenbank",
+      "url": "https://de.wikipedia.org/wiki/Spaltenorientierte_Datenbank"
+    },
+    "image": null
+  },
+  "machina:concept-abfrageoptimierer-h6": {
+    "id": "machina:concept-abfrageoptimierer-h6",
+    "name": "Abfrageoptimierer",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Datenbanken",
+      "definition": "Die Komponente eines Datenbanksystems, die für eine SQL-Anfrage aus vielen möglichen Ausführungswegen einen kostengünstigen auswählt"
+    },
+    "funFact": "Der Optimierer entscheidet etwa, ob ein Index genutzt oder die ganze Tabelle durchsucht wird – oft anhand geschätzter Statistiken über die Datenverteilung.",
+    "source": {
+      "name": "Wikipedia DE – Anfrageoptimierung",
+      "url": "https://de.wikipedia.org/wiki/Anfrageoptimierung"
+    },
+    "image": null
+  },
+  "machina:concept-sperre-h6": {
+    "id": "machina:concept-sperre-h6",
+    "name": "Sperre (Lock)",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Nebenläufigkeit",
+      "definition": "Ein Mechanismus, der einer Ausführungseinheit exklusiven oder geteilten Zugriff auf eine Ressource sichert, um gleichzeitige widersprüchliche Zugriffe zu verhindern"
+    },
+    "funFact": "Zu grobe Sperren bremsen die Nebenläufigkeit aus, zu feine erhöhen das Risiko von Verklemmungen – die Balance ist eine Kernkunst der Parallelprogrammierung.",
+    "source": {
+      "name": "Wikipedia DE – Sperrverfahren",
+      "url": "https://de.wikipedia.org/wiki/Sperrverfahren"
+    },
+    "image": null
+  },
+  "machina:concept-drei-wege-handschlag-h6": {
+    "id": "machina:concept-drei-wege-handschlag-h6",
+    "name": "Drei-Wege-Handschlag",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Netzwerk",
+      "definition": "Das dreistufige Verfahren (SYN, SYN-ACK, ACK), mit dem zwei Rechner eine TCP-Verbindung aufbauen und Sequenznummern abstimmen"
+    },
+    "funFact": "Eine Flut halb geöffneter Verbindungen, der SYN-Flood-Angriff, missbraucht genau diesen Handschlag, um einen Server lahmzulegen.",
+    "source": {
+      "name": "Wikipedia DE – Verbindungsaufbau (TCP)",
+      "url": "https://de.wikipedia.org/wiki/Transmission_Control_Protocol#Verbindungsaufbau"
+    },
+    "image": null
+  },
+  "machina:concept-subnetzmaske-h6": {
+    "id": "machina:concept-subnetzmaske-h6",
+    "name": "Subnetzmaske",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Netzwerk",
+      "definition": "Eine Bitmaske, die eine IP-Adresse in einen Netzwerk- und einen Hostanteil aufteilt und so die Grenzen eines Teilnetzes festlegt"
+    },
+    "funFact": "Aus der Maske ergibt sich direkt, ob ein Zielrechner im selben Netz liegt oder ob das Paket an einen Router weitergereicht werden muss.",
+    "source": {
+      "name": "Wikipedia DE – Netzmaske",
+      "url": "https://de.wikipedia.org/wiki/Netzmaske"
+    },
+    "image": null
+  },
+  "machina:concept-mac-adresse-h6": {
+    "id": "machina:concept-mac-adresse-h6",
+    "name": "MAC-Adresse",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Netzwerk",
+      "definition": "Eine hardwarenahe, meist weltweit eindeutige Kennung einer Netzwerkschnittstelle auf der Sicherungsschicht"
+    },
+    "funFact": "Die ersten drei Bytes identifizieren den Hersteller; aus ihnen lässt sich oft ablesen, von welcher Firma eine Netzwerkkarte stammt.",
+    "source": {
+      "name": "Wikipedia DE – MAC-Adresse",
+      "url": "https://de.wikipedia.org/wiki/MAC-Adresse"
+    },
+    "image": null
+  },
+  "machina:concept-turing-vollstaendigkeit-h6": {
+    "id": "machina:concept-turing-vollstaendigkeit-h6",
+    "name": "Turing-Vollständigkeit",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Theoretische Informatik",
+      "definition": "Die Eigenschaft eines Berechnungssystems, jede Funktion berechnen zu können, die auch eine Turingmaschine berechnen kann"
+    },
+    "funFact": "Überraschend viele Systeme sind turing-vollständig – sogar die Tabellenkalkulation Excel oder das Kartenspiel Magic: The Gathering.",
+    "source": {
+      "name": "Wikipedia DE – Turing-Vollständigkeit",
+      "url": "https://de.wikipedia.org/wiki/Turing-Vollst%C3%A4ndigkeit"
+    },
+    "image": null
+  },
+  "machina:concept-entscheidbarkeit-h6": {
+    "id": "machina:concept-entscheidbarkeit-h6",
+    "name": "Entscheidbarkeit",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Theoretische Informatik",
+      "definition": "Die Eigenschaft eines Problems, durch einen Algorithmus, der für jede Eingabe nach endlicher Zeit mit Ja oder Nein hält, lösbar zu sein"
+    },
+    "funFact": "Das Halteproblem ist das berühmteste unentscheidbare Problem: Kein Algorithmus kann für alle Programme zuverlässig vorhersagen, ob sie anhalten.",
+    "source": {
+      "name": "Wikipedia DE – Entscheidbarkeit",
+      "url": "https://de.wikipedia.org/wiki/Entscheidbarkeit"
+    },
+    "image": null
+  },
+  "machina:concept-amortisierte-laufzeit-h6": {
+    "id": "machina:concept-amortisierte-laufzeit-h6",
+    "name": "Hashkollision",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Algorithmik",
+      "definition": "Der Fall, dass zwei verschiedene Eingaben von einer Hashfunktion auf denselben Hashwert abgebildet werden"
+    },
+    "funFact": "Kollisionen sind bei begrenztem Wertebereich unvermeidbar – das Schubfachprinzip garantiert sie, sobald es mehr Eingaben als mögliche Hashwerte gibt.",
+    "source": {
+      "name": "Wikipedia DE – Kollision (Hashfunktion)",
+      "url": "https://de.wikipedia.org/wiki/Kollision_(Hashfunktion)"
+    },
+    "image": null
+  },
+  "machina:concept-garbage-collection-mark-sweep-h6": {
+    "id": "machina:concept-garbage-collection-mark-sweep-h6",
+    "name": "Speicherausrichtung",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Rechnerarchitektur",
+      "definition": "Die Anordnung von Daten an Speicheradressen, die ein Vielfaches ihrer Größe sind, damit der Prozessor effizient darauf zugreifen kann"
+    },
+    "funFact": "Compiler fügen oft unsichtbare Füllbytes zwischen Strukturfelder ein (Padding), nur um die Ausrichtung einzuhalten – das vergrößert Datenstrukturen.",
+    "source": {
+      "name": "Wikipedia DE – Speicherausrichtung",
+      "url": "https://de.wikipedia.org/wiki/Speicherausrichtung"
+    },
+    "image": null
+  },
+  "machina:concept-zero-trust-h6": {
+    "id": "machina:concept-zero-trust-h6",
+    "name": "Zero-Trust-Architektur",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Sicherheit/Kryptografie",
+      "definition": "Ein Sicherheitsmodell, das keinem Nutzer oder Gerät allein aufgrund seiner Netzwerkposition vertraut und jeden Zugriff einzeln prüft und autorisiert"
+    },
+    "funFact": "Der Leitsatz lautet „never trust, always verify“ – es gibt kein internes Netz, das pauschal als sicher gilt.",
+    "source": {
+      "name": "Wikipedia DE – Zero Trust",
+      "url": "https://de.wikipedia.org/wiki/Zero_Trust"
+    },
+    "image": null
+  },
+  "machina:acr-cve-h6": {
+    "id": "machina:acr-cve-h6",
+    "name": "CVE",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Common Vulnerabilities and Exposures",
+      "domain": "IT-Sicherheit"
+    },
+    "funFact": "Jede öffentlich bekannte Schwachstelle erhält eine eindeutige Kennung wie CVE-2021-44228 (Log4Shell), unter der sie weltweit referenziert wird.",
+    "source": {
+      "name": "MITRE – CVE Program",
+      "url": "https://www.cve.org/"
+    },
+    "image": null
+  },
+  "machina:acr-cwe-h6": {
+    "id": "machina:acr-cwe-h6",
+    "name": "CWE",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Common Weakness Enumeration",
+      "domain": "IT-Sicherheit"
+    },
+    "funFact": "Während CVE konkrete Schwachstellen listet, beschreibt CWE die zugrunde liegenden Fehlerklassen, etwa „Pufferüberlauf“ als CWE-120.",
+    "source": {
+      "name": "MITRE – CWE",
+      "url": "https://cwe.mitre.org/"
+    },
+    "image": null
+  },
+  "machina:acr-siem-h6": {
+    "id": "machina:acr-siem-h6",
+    "name": "SIEM",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Security Information and Event Management",
+      "domain": "IT-Sicherheit"
+    },
+    "funFact": "Ein SIEM sammelt Protokolldaten aus dem ganzen Unternehmen an einer Stelle und korreliert sie, um Angriffe an verteilten Spuren zu erkennen.",
+    "source": {
+      "name": "Wikipedia DE – Security Information and Event Management",
+      "url": "https://de.wikipedia.org/wiki/Security_Information_and_Event_Management"
+    },
+    "image": null
+  },
+  "machina:acr-dmz-h6": {
+    "id": "machina:acr-dmz-h6",
+    "name": "DMZ",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Demilitarized Zone",
+      "domain": "Netzwerksicherheit"
+    },
+    "funFact": "In einer DMZ stehen von außen erreichbare Server wie Webserver, getrennt durch Firewalls vom internen Netz – ein Einbruch dort erreicht nicht sofort das Firmennetz.",
+    "source": {
+      "name": "Wikipedia DE – Demilitarized Zone (Informatik)",
+      "url": "https://de.wikipedia.org/wiki/Demilitarisierte_Zone_(Informationstechnik)"
+    },
+    "image": null
+  },
+  "machina:acr-ids-h6": {
+    "id": "machina:acr-ids-h6",
+    "name": "IDS",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Intrusion Detection System",
+      "domain": "Netzwerksicherheit"
+    },
+    "funFact": "Ein IDS erkennt und meldet verdächtigen Datenverkehr, greift aber selbst nicht ein – das aktive Blockieren übernimmt ein IPS.",
+    "source": {
+      "name": "Wikipedia DE – Intrusion Detection System",
+      "url": "https://de.wikipedia.org/wiki/Intrusion_Detection_System"
+    },
+    "image": null
+  },
+  "machina:acr-ips-h6": {
+    "id": "machina:acr-ips-h6",
+    "name": "IPS",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Intrusion Prevention System",
+      "domain": "Netzwerksicherheit"
+    },
+    "funFact": "Ein IPS liegt direkt im Datenpfad und kann erkannten Angriffsverkehr aktiv verwerfen, während ein reines IDS nur Alarm schlägt.",
+    "source": {
+      "name": "Wikipedia DE – Intrusion Prevention System",
+      "url": "https://de.wikipedia.org/wiki/Intrusion_Prevention_System"
+    },
+    "image": null
+  },
+  "machina:acr-ietf-h6": {
+    "id": "machina:acr-ietf-h6",
+    "name": "IETF",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Internet Engineering Task Force",
+      "domain": "Netzwerk"
+    },
+    "funFact": "Die IETF entwickelt die technischen Standards des Internets als RFC-Dokumente und arbeitet nach dem Motto „rough consensus and running code“.",
+    "source": {
+      "name": "IETF – About",
+      "url": "https://www.ietf.org/about/"
+    },
+    "image": null
+  },
+  "machina:acr-icann-h6": {
+    "id": "machina:acr-icann-h6",
+    "name": "ICANN",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Internet Corporation for Assigned Names and Numbers",
+      "domain": "Netzwerk"
+    },
+    "funFact": "Die ICANN koordiniert weltweit die Vergabe von Domainnamen und der obersten DNS-Ebene – sie entscheidet etwa über die Einführung neuer Top-Level-Domains.",
+    "source": {
+      "name": "ICANN – Welcome",
+      "url": "https://www.icann.org/"
+    },
+    "image": null
+  },
+  "machina:acr-iana-h6": {
+    "id": "machina:acr-iana-h6",
+    "name": "IANA",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Internet Assigned Numbers Authority",
+      "domain": "Netzwerk"
+    },
+    "funFact": "Die IANA verwaltet die globalen Zahlenräume des Internets, darunter die Liste, welche Portnummer welchem Dienst zugeordnet ist (z. B. 80 für HTTP).",
+    "source": {
+      "name": "IANA",
+      "url": "https://www.iana.org/"
+    },
+    "image": null
+  },
+  "machina:acr-owasp-h6": {
+    "id": "machina:acr-owasp-h6",
+    "name": "OWASP",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Open Worldwide Application Security Project",
+      "domain": "IT-Sicherheit"
+    },
+    "funFact": "Die OWASP Top Ten ist eine regelmäßig aktualisierte Liste der kritischsten Risiken für Webanwendungen und gilt als Industrie-Referenz.",
+    "source": {
+      "name": "OWASP Foundation",
+      "url": "https://owasp.org/"
+    },
+    "image": null
+  },
+  "machina:acr-ssrf-h6": {
+    "id": "machina:acr-ssrf-h6",
+    "name": "SSRF",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Server-Side Request Forgery",
+      "domain": "IT-Sicherheit"
+    },
+    "funFact": "Bei SSRF bringt ein Angreifer den Server dazu, selbst Anfragen zu stellen – oft an interne Adressen, die von außen gar nicht erreichbar wären.",
+    "source": {
+      "name": "OWASP – Server Side Request Forgery",
+      "url": "https://owasp.org/www-community/attacks/Server_Side_Request_Forgery"
+    },
+    "image": null
+  },
+  "machina:acr-xxe-h6": {
+    "id": "machina:acr-xxe-h6",
+    "name": "XXE",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "XML External Entity",
+      "domain": "IT-Sicherheit"
+    },
+    "funFact": "Ein XXE-Angriff missbraucht externe Entitäten in XML-Dokumenten, um etwa lokale Dateien des Servers auszulesen.",
+    "source": {
+      "name": "OWASP – XML External Entity (XXE) Processing",
+      "url": "https://owasp.org/www-community/vulnerabilities/XML_External_Entity_(XXE)_Processing"
+    },
+    "image": null
+  },
+  "machina:acr-oidc-h6": {
+    "id": "machina:acr-oidc-h6",
+    "name": "OIDC",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "OpenID Connect",
+      "domain": "IT-Sicherheit"
+    },
+    "funFact": "OIDC setzt auf OAuth 2.0 auf und ergänzt es um eine standardisierte Identitätsschicht – die Grundlage vieler „Mit Google anmelden“-Buttons.",
+    "source": {
+      "name": "OpenID Foundation – OpenID Connect",
+      "url": "https://openid.net/developers/how-connect-works/"
+    },
+    "image": null
+  },
+  "machina:acr-mvcc-h6": {
+    "id": "machina:acr-mvcc-h6",
+    "name": "MVCC",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Multiversion Concurrency Control",
+      "domain": "Datenbanken"
+    },
+    "funFact": "MVCC lässt Leser und Schreiber gleichzeitig arbeiten, indem jeder Leser eine konsistente ältere Version der Daten sieht – Grundlage etwa von PostgreSQL.",
+    "source": {
+      "name": "Wikipedia DE – Multiversion Concurrency Control",
+      "url": "https://de.wikipedia.org/wiki/Multiversion_Concurrency_Control"
+    },
+    "image": null
+  },
+  "machina:acr-repl-h6": {
+    "id": "machina:acr-repl-h6",
+    "name": "REPL",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Read-Eval-Print Loop",
+      "domain": "Programmierung"
+    },
+    "funFact": "Eine REPL liest eine Eingabe, wertet sie aus, gibt das Ergebnis aus und wartet auf die nächste – die interaktive Eingabeaufforderung von Python ist ein bekanntes Beispiel.",
+    "source": {
+      "name": "Wikipedia DE – Read-eval-print loop",
+      "url": "https://de.wikipedia.org/wiki/Read-eval-print_loop"
+    },
+    "image": null
+  },
+  "machina:acr-abac-h6": {
+    "id": "machina:acr-abac-h6",
+    "name": "ABAC",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Attribute-Based Access Control",
+      "domain": "IT-Sicherheit"
+    },
+    "funFact": "ABAC entscheidet Zugriffe anhand von Attributen wie Abteilung, Uhrzeit oder Standort und ist damit feingranularer als das rollenbasierte RBAC.",
+    "source": {
+      "name": "Wikipedia DE – Attribute-based access control",
+      "url": "https://de.wikipedia.org/wiki/Attribute-based_access_control"
+    },
+    "image": null
+  },
+  "machina:acr-sdn-h6": {
+    "id": "machina:acr-sdn-h6",
+    "name": "SDN",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Software-Defined Networking",
+      "domain": "Netzwerk"
+    },
+    "funFact": "SDN trennt die Steuerungsebene von der Weiterleitungsebene, sodass sich das Verhalten ganzer Netze zentral per Software programmieren lässt.",
+    "source": {
+      "name": "Wikipedia DE – Software-defined networking",
+      "url": "https://de.wikipedia.org/wiki/Software-defined_networking"
+    },
+    "image": null
+  },
+  "machina:acr-cap-h6": {
+    "id": "machina:acr-cap-h6",
+    "name": "CAP",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Consistency, Availability, Partition tolerance",
+      "domain": "Verteilte Systeme"
+    },
+    "funFact": "Das CAP-Theorem besagt, dass ein verteiltes System bei einer Netzpartition nur zwei dieser drei Eigenschaften zugleich garantieren kann.",
+    "source": {
+      "name": "Wikipedia DE – CAP-Theorem",
+      "url": "https://de.wikipedia.org/wiki/CAP-Theorem"
+    },
+    "image": null
+  },
+  "machina:acr-fqdn-h6": {
+    "id": "machina:acr-fqdn-h6",
+    "name": "FQDN",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Fully Qualified Domain Name",
+      "domain": "Netzwerk"
+    },
+    "funFact": "Ein FQDN ist der vollständige Domainname inklusive aller Ebenen bis zur Wurzel, korrekt sogar mit abschließendem Punkt wie „www.example.com.“.",
+    "source": {
+      "name": "Wikipedia DE – Fully-Qualified Domain Name",
+      "url": "https://de.wikipedia.org/wiki/Fully-Qualified_Host_Name"
+    },
+    "image": null
+  },
+  "machina:acr-sast-h6": {
+    "id": "machina:acr-sast-h6",
+    "name": "SAST",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Static Application Security Testing",
+      "domain": "IT-Sicherheit"
+    },
+    "funFact": "SAST analysiert den Quellcode, ohne ihn auszuführen, und findet so Schwachstellen schon früh in der Entwicklung – das Gegenstück ist das laufzeitbasierte DAST.",
+    "source": {
+      "name": "OWASP – Static Application Security Testing",
+      "url": "https://owasp.org/www-community/Source_Code_Analysis_Tools"
+    },
+    "image": null
+  },
+  "machina:acr-pkce-h6": {
+    "id": "machina:acr-pkce-h6",
+    "name": "PKCE",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Proof Key for Code Exchange",
+      "domain": "IT-Sicherheit"
+    },
+    "funFact": "PKCE sichert den OAuth-Anmeldefluss in Apps ohne Geheimnis ab und verhindert, dass ein abgefangener Autorisierungscode missbraucht werden kann.",
+    "source": {
+      "name": "IETF – RFC 7636",
+      "url": "https://datatracker.ietf.org/doc/html/rfc7636"
+    },
+    "image": null
+  },
+  "machina:algorithm-fermat-primzahltest-h6": {
+    "id": "machina:algorithm-fermat-primzahltest-h6",
+    "name": "Fermat-Test",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(k log³ n)",
+      "purpose": "Probabilistischer Primzahltest, der den kleinen Satz von Fermat nutzt, um zusammengesetzte Zahlen zu erkennen"
+    },
+    "funFact": "Carmichael-Zahlen täuschen den Fermat-Test als prim vor — deshalb gilt in der Praxis der robustere Miller-Rabin-Test als Standard.",
+    "source": {
+      "name": "Wikipedia DE – Fermatscher Primzahltest",
+      "url": "https://de.wikipedia.org/wiki/Fermatscher_Primzahltest"
+    },
+    "image": null
+  },
+  "machina:algorithm-sieb-von-atkin-h6": {
+    "id": "machina:algorithm-sieb-von-atkin-h6",
+    "name": "Sieb von Atkin",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(n / log log n)",
+      "purpose": "Findet alle Primzahlen bis zu einer Schranke über quadratische Formen, asymptotisch schneller als das Sieb des Eratosthenes"
+    },
+    "funFact": "Das Sieb von Atkin wurde erst 2003 veröffentlicht und ist eine moderne Verfeinerung des über 2000 Jahre alten Sieb des Eratosthenes.",
+    "source": {
+      "name": "Wikipedia DE – Sieb von Atkin",
+      "url": "https://de.wikipedia.org/wiki/Sieb_von_Atkin"
+    },
+    "image": null
+  },
+  "machina:algorithm-chinesischer-restsatz-h6": {
+    "id": "machina:algorithm-chinesischer-restsatz-h6",
+    "name": "Chinesischer Restsatz",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(n²)",
+      "purpose": "Rekonstruiert eine Zahl aus ihren Resten modulo paarweise teilerfremder Moduln und löst Systeme von Kongruenzen"
+    },
+    "funFact": "Der Satz taucht bereits in einem chinesischen Mathematikbuch aus dem 3. Jahrhundert auf und wird heute in RSA-Implementierungen zur Beschleunigung genutzt.",
+    "source": {
+      "name": "Wikipedia DE – Chinesischer Restsatz",
+      "url": "https://de.wikipedia.org/wiki/Chinesischer_Restsatz"
+    },
+    "image": null
+  },
+  "machina:algorithm-schnelle-inverse-wurzel-h6": {
+    "id": "machina:algorithm-schnelle-inverse-wurzel-h6",
+    "name": "Schnelle inverse Wurzel",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(1)",
+      "purpose": "Berechnet 1/√x näherungsweise über Bit-Manipulation der Gleitkommadarstellung plus einem Newton-Schritt"
+    },
+    "funFact": "Berühmt geworden durch den Quellcode von Quake III Arena mit der magischen Konstante 0x5f3759df.",
+    "source": {
+      "name": "Wikipedia EN – Fast inverse square root",
+      "url": "https://en.wikipedia.org/wiki/Fast_inverse_square_root"
+    },
+    "image": null
+  },
+  "machina:algorithm-cordic-h6": {
+    "id": "machina:algorithm-cordic-h6",
+    "name": "CORDIC",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(n)",
+      "purpose": "Berechnet trigonometrische und andere Funktionen nur mit Additionen, Schiebeoperationen und einer Tabelle, ohne Multiplizierer"
+    },
+    "funFact": "CORDIC steckte in vielen frühen Taschenrechnern, weil es ohne teure Hardware-Multiplizierer auskommt.",
+    "source": {
+      "name": "Wikipedia DE – CORDIC",
+      "url": "https://de.wikipedia.org/wiki/CORDIC"
+    },
+    "image": null
+  },
+  "machina:algorithm-kahan-summation-h6": {
+    "id": "machina:algorithm-kahan-summation-h6",
+    "name": "Kahan-Summation",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(n)",
+      "purpose": "Summiert Gleitkommazahlen und korrigiert dabei den durch Rundung verlorenen Anteil, um den Fehler klein zu halten"
+    },
+    "funFact": "Die naive Summe vieler Float-Werte verliert Stellen — Kahans Trick führt einen separaten Kompensationsterm mit.",
+    "source": {
+      "name": "Wikipedia DE – Kahan-Summationsalgorithmus",
+      "url": "https://de.wikipedia.org/wiki/Kahan-Summationsalgorithmus"
+    },
+    "image": null
+  },
+  "machina:algorithm-newton-raphson-h6": {
+    "id": "machina:algorithm-newton-raphson-h6",
+    "name": "Newton-Raphson-Iteration",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(log n)",
+      "purpose": "Findet Nullstellen einer Funktion durch wiederholtes Anlegen der Tangente und quadratisch schnelle Annäherung"
+    },
+    "funFact": "Bei guter Startwahl verdoppelt sich die Anzahl korrekter Stellen ungefähr in jedem Schritt (quadratische Konvergenz).",
+    "source": {
+      "name": "Wikipedia DE – Newtonverfahren",
+      "url": "https://de.wikipedia.org/wiki/Newtonverfahren"
+    },
+    "image": null
+  },
+  "machina:algorithm-trapezregel-h6": {
+    "id": "machina:algorithm-trapezregel-h6",
+    "name": "Trapezregel",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(n)",
+      "purpose": "Nähert ein bestimmtes Integral, indem die Fläche unter der Kurve durch Trapeze approximiert wird"
+    },
+    "funFact": "Sie ist die einfachste Quadraturformel und schon für stückweise lineare Funktionen exakt.",
+    "source": {
+      "name": "Wikipedia DE – Trapezregel",
+      "url": "https://de.wikipedia.org/wiki/Trapezregel"
+    },
+    "image": null
+  },
+  "machina:algorithm-simpson-regel-h6": {
+    "id": "machina:algorithm-simpson-regel-h6",
+    "name": "Simpson-Regel",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(n)",
+      "purpose": "Nähert ein Integral, indem die Funktion abschnittsweise durch Parabeln statt Geraden ersetzt wird"
+    },
+    "funFact": "Die Simpson-Regel integriert Polynome bis zum dritten Grad exakt, obwohl sie nur Parabeln verwendet.",
+    "source": {
+      "name": "Wikipedia DE – Simpsonregel",
+      "url": "https://de.wikipedia.org/wiki/Simpsonregel"
+    },
+    "image": null
+  },
+  "machina:algorithm-gradientenabstieg-h6": {
+    "id": "machina:algorithm-gradientenabstieg-h6",
+    "name": "Gradientenabstieg",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(n)",
+      "purpose": "Minimiert eine Funktion, indem man iterativ kleine Schritte entgegen der Richtung des steilsten Anstiegs macht"
+    },
+    "funFact": "Der Gradientenabstieg ist das Arbeitspferd des maschinellen Lernens und steckt hinter dem Training fast aller neuronalen Netze.",
+    "source": {
+      "name": "Wikipedia DE – Gradientenverfahren",
+      "url": "https://de.wikipedia.org/wiki/Gradientenverfahren"
+    },
+    "image": null
+  },
+  "machina:algorithm-cooley-tukey-fft-h6": {
+    "id": "machina:algorithm-cooley-tukey-fft-h6",
+    "name": "Cooley-Tukey-FFT",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(n log n)",
+      "purpose": "Berechnet die diskrete Fouriertransformation schnell, indem eine Transformation rekursiv in kleinere zerlegt wird"
+    },
+    "funFact": "Die Idee geht im Kern auf Gauß zurück, wurde aber erst 1965 durch Cooley und Tukey zur Grundlage der modernen Signalverarbeitung.",
+    "source": {
+      "name": "Wikipedia DE – Schnelle Fourier-Transformation",
+      "url": "https://de.wikipedia.org/wiki/Schnelle_Fourier-Transformation"
+    },
+    "image": null
+  },
+  "machina:algorithm-tonelli-shanks-h6": {
+    "id": "machina:algorithm-tonelli-shanks-h6",
+    "name": "Tonelli-Shanks-Algorithmus",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(log² p)",
+      "purpose": "Berechnet eine modulare Quadratwurzel, also löst x² ≡ n modulo einer Primzahl p"
+    },
+    "funFact": "Das Verfahren ist ein Baustein elliptischer Kurvenkryptografie, etwa um aus einer x-Koordinate die zugehörige y-Koordinate zu gewinnen.",
+    "source": {
+      "name": "Wikipedia EN – Tonelli–Shanks algorithm",
+      "url": "https://en.wikipedia.org/wiki/Tonelli%E2%80%93Shanks_algorithm"
+    },
+    "image": null
+  },
+  "machina:algorithm-pollard-p-minus-1-h6": {
+    "id": "machina:algorithm-pollard-p-minus-1-h6",
+    "name": "Pollard-p-1-Methode",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(B log B log² n)",
+      "purpose": "Faktorisiert eine Zahl effizient, wenn ein Primfaktor p existiert, bei dem p−1 nur kleine Primteiler hat"
+    },
+    "funFact": "Wegen dieser Methode wählt man für RSA bewusst sichere Primzahlen, bei denen p−1 einen großen Primfaktor besitzt.",
+    "source": {
+      "name": "Wikipedia DE – Pollard-p-1-Methode",
+      "url": "https://de.wikipedia.org/wiki/Pollard-p_%E2%88%92_1-Methode"
+    },
+    "image": null
+  },
+  "machina:algorithm-ramer-douglas-peucker-h6": {
+    "id": "machina:algorithm-ramer-douglas-peucker-h6",
+    "name": "Ramer-Douglas-Peucker-Algorithmus",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Geometrie",
+      "avgComplexity": "O(n log n)",
+      "purpose": "Vereinfacht einen Linienzug, indem Punkte entfernt werden, die kaum vom vereinfachten Verlauf abweichen"
+    },
+    "funFact": "Praktisch jede Karten-App nutzt dieses Verfahren, um Küstenlinien und Routen je nach Zoomstufe zu glätten.",
+    "source": {
+      "name": "Wikipedia DE – Douglas-Peucker-Algorithmus",
+      "url": "https://de.wikipedia.org/wiki/Douglas-Peucker-Algorithmus"
+    },
+    "image": null
+  },
+  "machina:algorithm-bentley-ottmann-h6": {
+    "id": "machina:algorithm-bentley-ottmann-h6",
+    "name": "Bentley-Ottmann-Algorithmus",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Geometrie",
+      "avgComplexity": "O((n + k) log n)",
+      "purpose": "Findet alle Schnittpunkte einer Menge von Strecken mit einem Sweep-Line-Verfahren"
+    },
+    "funFact": "Statt jedes Streckenpaar zu prüfen, wandert eine gedachte Linie über die Ebene und prüft nur benachbarte Strecken.",
+    "source": {
+      "name": "Wikipedia DE – Bentley-Ottmann-Algorithmus",
+      "url": "https://de.wikipedia.org/wiki/Bentley-Ottmann-Algorithmus"
+    },
+    "image": null
+  },
+  "machina:algorithm-andrew-monotonkette-h6": {
+    "id": "machina:algorithm-andrew-monotonkette-h6",
+    "name": "Andrews Monotonketten-Algorithmus",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Geometrie",
+      "avgComplexity": "O(n log n)",
+      "purpose": "Berechnet die konvexe Hülle einer Punktmenge, indem nach Sortierung eine obere und eine untere Kette gebildet werden"
+    },
+    "funFact": "Diese Variante des Graham-Scans kommt ohne Winkelberechnungen aus und ist dadurch numerisch robuster.",
+    "source": {
+      "name": "Wikipedia EN – Convex hull algorithms (Monotone chain)",
+      "url": "https://en.wikipedia.org/wiki/Convex_hull_algorithms"
+    },
+    "image": null
+  },
+  "machina:algorithm-sutherland-hodgman-h6": {
+    "id": "machina:algorithm-sutherland-hodgman-h6",
+    "name": "Sutherland-Hodgman-Algorithmus",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Geometrie",
+      "avgComplexity": "O(n)",
+      "purpose": "Schneidet ein Polygon an einem konvexen Fenster ab, indem es Kante für Kante des Fensters geclippt wird"
+    },
+    "funFact": "Das Verfahren ist ein Klassiker der Computergrafik und sorgt dafür, dass nur sichtbare Teile einer Form gerendert werden.",
+    "source": {
+      "name": "Wikipedia DE – Algorithmus von Sutherland-Hodgman",
+      "url": "https://de.wikipedia.org/wiki/Algorithmus_von_Sutherland-Hodgman"
+    },
+    "image": null
+  },
+  "machina:algorithm-k-means-plus-plus-h6": {
+    "id": "machina:algorithm-k-means-plus-plus-h6",
+    "name": "k-Means++",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Clustering",
+      "avgComplexity": "O(n k d)",
+      "purpose": "Wählt die Startzentren für k-Means klug verteilt, sodass das Clustering schneller und genauer konvergiert"
+    },
+    "funFact": "Allein durch die bessere Startwahl liefert k-Means++ nachweislich Ergebnisse nahe am Optimum, wo zufällige Starts oft scheitern.",
+    "source": {
+      "name": "Wikipedia DE – k-Means-Algorithmus (k-means++)",
+      "url": "https://de.wikipedia.org/wiki/K-Means-Algorithmus"
+    },
+    "image": null
+  },
+  "machina:algorithm-optics-h6": {
+    "id": "machina:algorithm-optics-h6",
+    "name": "OPTICS",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Clustering",
+      "avgComplexity": "O(n log n)",
+      "purpose": "Findet dichtebasierte Cluster verschiedener Dichte, ohne dass die Dichteschwelle vorab fest gewählt werden muss"
+    },
+    "funFact": "OPTICS erweitert DBSCAN und erzeugt eine Erreichbarkeits-Darstellung, aus der sich Cluster unterschiedlicher Dichte ablesen lassen.",
+    "source": {
+      "name": "Wikipedia DE – OPTICS",
+      "url": "https://de.wikipedia.org/wiki/OPTICS"
+    },
+    "image": null
+  },
+  "machina:algorithm-hierarchisches-clustering-agglomerativ-h6": {
+    "id": "machina:algorithm-hierarchisches-clustering-agglomerativ-h6",
+    "name": "Agglomeratives hierarchisches Clustering",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Clustering",
+      "avgComplexity": "O(n³)",
+      "purpose": "Baut eine Cluster-Hierarchie auf, indem zu Beginn jeder Punkt ein Cluster ist und die nächsten Cluster verschmolzen werden"
+    },
+    "funFact": "Das Ergebnis lässt sich als Dendrogramm darstellen, einer Baumgrafik, die zeigt, in welcher Reihenfolge die Cluster verschmolzen.",
+    "source": {
+      "name": "Wikipedia DE – Hierarchische Clusteranalyse",
+      "url": "https://de.wikipedia.org/wiki/Hierarchische_Clusteranalyse"
+    },
+    "image": null
+  },
+  "machina:algorithm-wagner-fischer-h6": {
+    "id": "machina:algorithm-wagner-fischer-h6",
+    "name": "Wagner-Fischer-Algorithmus",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "String-Verarbeitung",
+      "avgComplexity": "O(n m)",
+      "purpose": "Berechnet die Levenshtein-Distanz zweier Zeichenketten per dynamischer Programmierung über eine Distanzmatrix"
+    },
+    "funFact": "Dieselbe Matrix-Idee steckt in jeder Rechtschreibkorrektur, die ähnliche Wörter vorschlägt.",
+    "source": {
+      "name": "Wikipedia EN – Wagner–Fischer algorithm",
+      "url": "https://en.wikipedia.org/wiki/Wagner%E2%80%93Fischer_algorithm"
+    },
+    "image": null
+  },
+  "machina:algorithm-shannon-fano-h6": {
+    "id": "machina:algorithm-shannon-fano-h6",
+    "name": "Shannon-Fano-Kodierung",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Kompression",
+      "avgComplexity": "O(n log n)",
+      "purpose": "Erzeugt einen präfixfreien Code, indem Symbole nach Häufigkeit sortiert und rekursiv in zwei möglichst gleich wahrscheinliche Gruppen geteilt werden"
+    },
+    "funFact": "Shannon-Fano ist der historische Vorläufer der Huffman-Kodierung, die jedoch garantiert optimale Codelängen liefert.",
+    "source": {
+      "name": "Wikipedia DE – Shannon-Fano-Kodierung",
+      "url": "https://de.wikipedia.org/wiki/Shannon-Fano-Kodierung"
+    },
+    "image": null
+  },
+  "machina:algorithm-elias-gamma-h6": {
+    "id": "machina:algorithm-elias-gamma-h6",
+    "name": "Elias-Gamma-Kodierung",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Kompression",
+      "avgComplexity": "O(log n)",
+      "purpose": "Kodiert positive ganze Zahlen variabel lang, sodass kleine Zahlen weniger Bits brauchen, ohne dass die Länge vorab bekannt sein muss"
+    },
+    "funFact": "Elias-Codes werden in invertierten Indizes von Suchmaschinen genutzt, um lange Listen kleiner Zahlen kompakt zu speichern.",
+    "source": {
+      "name": "Wikipedia EN – Elias gamma coding",
+      "url": "https://en.wikipedia.org/wiki/Elias_gamma_coding"
+    },
+    "image": null
+  },
+  "machina:algorithm-bwt-mtf-pipeline-h6": {
+    "id": "machina:algorithm-bwt-mtf-pipeline-h6",
+    "name": "Move-to-Front mit BWT",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Kompression",
+      "avgComplexity": "O(n)",
+      "purpose": "Wandelt nach der Burrows-Wheeler-Transformation häufige Symbole in kleine Zahlen um und macht den Datenstrom besser komprimierbar"
+    },
+    "funFact": "Diese Kombination ist das Herz von bzip2, das dadurch oft kompakter als gzip packt.",
+    "source": {
+      "name": "Wikipedia DE – Move-to-front",
+      "url": "https://de.wikipedia.org/wiki/Move-to-front"
+    },
+    "image": null
+  },
+  "machina:algorithm-reed-solomon-h6": {
+    "id": "machina:algorithm-reed-solomon-h6",
+    "name": "Reed-Solomon-Code",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(n²)",
+      "purpose": "Fügt Daten Prüfsymbole hinzu, mit denen sich mehrere fehlerhafte Symbole erkennen und korrigieren lassen"
+    },
+    "funFact": "Reed-Solomon schützt die Daten auf CDs, DVDs, QR-Codes und sogar auf den Funkstrecken von Raumsonden vor Lesefehlern.",
+    "source": {
+      "name": "Wikipedia DE – Reed-Solomon-Code",
+      "url": "https://de.wikipedia.org/wiki/Reed-Solomon-Code"
+    },
+    "image": null
+  },
+  "machina:algorithm-hamming-code-h6": {
+    "id": "machina:algorithm-hamming-code-h6",
+    "name": "Hamming-Code",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(n)",
+      "purpose": "Fügt Paritätsbits an bestimmten Positionen ein, sodass ein einzelner Bitfehler erkannt und korrigiert werden kann"
+    },
+    "funFact": "ECC-Arbeitsspeicher nutzt Hamming-artige Codes, um durch kosmische Strahlung gekippte Bits automatisch zu reparieren.",
+    "source": {
+      "name": "Wikipedia DE – Hamming-Code",
+      "url": "https://de.wikipedia.org/wiki/Hamming-Code"
+    },
+    "image": null
+  },
+  "machina:algorithm-adler-32-h6": {
+    "id": "machina:algorithm-adler-32-h6",
+    "name": "Adler-32",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(n)",
+      "purpose": "Berechnet eine 32-Bit-Prüfsumme aus zwei laufenden Summen, um Übertragungsfehler schnell zu erkennen"
+    },
+    "funFact": "Adler-32 steckt im zlib-Format und ist schneller zu berechnen als eine CRC-Prüfsumme, dafür etwas weniger zuverlässig.",
+    "source": {
+      "name": "Wikipedia DE – Adler-32",
+      "url": "https://de.wikipedia.org/wiki/Adler-32"
+    },
+    "image": null
+  },
+  "machina:algorithm-murmurhash-h6": {
+    "id": "machina:algorithm-murmurhash-h6",
+    "name": "MurmurHash",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(n)",
+      "purpose": "Erzeugt eine schnelle, gut streuende Nicht-kryptografische Hashsumme für Hashtabellen und Bloom-Filter"
+    },
+    "funFact": "Der Name spielt auf die Kernoperationen Multiply und Rotate an; MurmurHash ist in vielen Datenbanken und Sprachlaufzeiten verbaut.",
+    "source": {
+      "name": "Wikipedia EN – MurmurHash",
+      "url": "https://en.wikipedia.org/wiki/MurmurHash"
+    },
+    "image": null
+  },
+  "machina:algorithm-fnv-hash-h6": {
+    "id": "machina:algorithm-fnv-hash-h6",
+    "name": "FNV-Hash",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(n)",
+      "purpose": "Berechnet eine einfache, schnelle Hashsumme durch abwechselndes Multiplizieren mit einer Primzahl und XOR der Bytes"
+    },
+    "funFact": "Wegen seiner Einfachheit ist Fowler-Noll-Vo einer der am häufigsten von Hand implementierten Hashes überhaupt.",
+    "source": {
+      "name": "Wikipedia EN – Fowler–Noll–Vo hash function",
+      "url": "https://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function"
+    },
+    "image": null
+  },
+  "machina:algorithm-booth-multiplikation-h6": {
+    "id": "machina:algorithm-booth-multiplikation-h6",
+    "name": "Booth-Multiplikation",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(n)",
+      "purpose": "Multipliziert vorzeichenbehaftete Binärzahlen im Zweierkomplement effizient durch Betrachten von Bitgruppen"
+    },
+    "funFact": "Booths Verfahren reduziert die Zahl nötiger Additionen und ist in vielen Hardware-Multiplizierern von Prozessoren umgesetzt.",
+    "source": {
+      "name": "Wikipedia DE – Booth-Algorithmus",
+      "url": "https://de.wikipedia.org/wiki/Booth-Algorithmus"
+    },
+    "image": null
+  },
+  "machina:algorithm-morris-traversierung-h6": {
+    "id": "machina:algorithm-morris-traversierung-h6",
+    "name": "Morris-Traversierung",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Suche",
+      "avgComplexity": "O(n)",
+      "purpose": "Durchläuft einen Binärbaum ohne Stack oder Rekursion, indem temporär Fäden zu Vorgängerknoten gesetzt werden"
+    },
+    "funFact": "Die Morris-Traversierung kommt mit konstantem Zusatzspeicher aus, wo eine rekursive Lösung O(h) Stack braucht.",
+    "source": {
+      "name": "Wikipedia EN – Tree traversal (Morris)",
+      "url": "https://en.wikipedia.org/wiki/Tree_traversal"
+    },
+    "image": null
+  },
+  "machina:algorithm-powerset-konstruktion-h6": {
+    "id": "machina:algorithm-powerset-konstruktion-h6",
+    "name": "Potenzmengenkonstruktion",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "String-Verarbeitung",
+      "avgComplexity": "O(2ⁿ)",
+      "purpose": "Wandelt einen nichtdeterministischen endlichen Automaten in einen äquivalenten deterministischen um"
+    },
+    "funFact": "Sie ist der Grund, warum sich jeder reguläre Ausdruck letztlich als deterministischer Automat ausführen lässt.",
+    "source": {
+      "name": "Wikipedia DE – Potenzmengenkonstruktion",
+      "url": "https://de.wikipedia.org/wiki/Potenzmengenkonstruktion"
+    },
+    "image": null
+  },
+  "machina:algorithm-hopcroft-minimierung-h6": {
+    "id": "machina:algorithm-hopcroft-minimierung-h6",
+    "name": "Hopcroft-Minimierung",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "String-Verarbeitung",
+      "avgComplexity": "O(n log n)",
+      "purpose": "Reduziert einen deterministischen endlichen Automaten auf die kleinste äquivalente Zustandsmenge"
+    },
+    "funFact": "Der Algorithmus verfeinert Partitionen von Zuständen, bis nur noch wirklich unterscheidbare Zustände übrig sind.",
+    "source": {
+      "name": "Wikipedia EN – DFA minimization (Hopcroft)",
+      "url": "https://en.wikipedia.org/wiki/DFA_minimization"
+    },
+    "image": null
+  },
+  "machina:algorithm-boyer-moore-majority-h6": {
+    "id": "machina:algorithm-boyer-moore-majority-h6",
+    "name": "Boyer-Moore-Mehrheitsalgorithmus",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Suche",
+      "avgComplexity": "O(n)",
+      "purpose": "Findet ein in mehr als der Hälfte der Elemente vorkommendes Mehrheitselement mit nur konstantem Zusatzspeicher"
+    },
+    "funFact": "Das Verfahren merkt sich nur einen Kandidaten und einen Zähler und kommt damit in einem einzigen Durchlauf aus.",
+    "source": {
+      "name": "Wikipedia EN – Boyer–Moore majority vote algorithm",
+      "url": "https://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_majority_vote_algorithm"
+    },
+    "image": null
+  },
+  "machina:algorithm-floyd-heapaufbau-h6": {
+    "id": "machina:algorithm-floyd-heapaufbau-h6",
+    "name": "Floyd-Heapaufbau",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortierung",
+      "avgComplexity": "O(n)",
+      "purpose": "Baut aus einem unsortierten Array einen Heap auf, indem von unten nach oben jeder Teilbaum versickert wird"
+    },
+    "funFact": "Überraschenderweise kostet der Heapaufbau nur O(n) und nicht O(n log n), obwohl pro Element ein Versickern nötig scheint.",
+    "source": {
+      "name": "Wikipedia EN – Binary heap (Building a heap)",
+      "url": "https://en.wikipedia.org/wiki/Binary_heap"
+    },
+    "image": null
+  },
+  "machina:file_format-elf-h6": {
+    "id": "machina:file_format-elf-h6",
+    "name": "ELF",
+    "type": "file_format",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Executable and Linkable Format",
+      "compression": "unkomprimiert",
+      "mediaType": "Programm"
+    },
+    "funFact": "ELF ist das Standardformat für ausführbare Dateien und Bibliotheken auf Linux und vielen anderen Unix-Systemen.",
+    "source": {
+      "name": "Wikipedia DE – Executable and Linkable Format",
+      "url": "https://de.wikipedia.org/wiki/Executable_and_Linking_Format"
+    },
+    "image": null
+  },
+  "machina:file_format-mach-o-h6": {
+    "id": "machina:file_format-mach-o-h6",
+    "name": "Mach-O",
+    "type": "file_format",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Mach Object File Format",
+      "compression": "unkomprimiert",
+      "mediaType": "Programm"
+    },
+    "funFact": "Mach-O ist das Format ausführbarer Dateien auf macOS und iOS und kann als Fat Binary Code für mehrere Prozessorarchitekturen enthalten.",
+    "source": {
+      "name": "Wikipedia DE – Mach-O",
+      "url": "https://de.wikipedia.org/wiki/Mach-O"
+    },
+    "image": null
+  },
+  "machina:file_format-pe-h6": {
+    "id": "machina:file_format-pe-h6",
+    "name": "PE",
+    "type": "file_format",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Portable Executable",
+      "compression": "unkomprimiert",
+      "mediaType": "Programm"
+    },
+    "funFact": "Das PE-Format ist die Grundlage von EXE- und DLL-Dateien unter Windows und enthält einen kleinen DOS-Stub aus historischen Gründen.",
+    "source": {
+      "name": "Wikipedia DE – Portable Executable",
+      "url": "https://de.wikipedia.org/wiki/Portable_Executable"
+    },
+    "image": null
+  },
+  "machina:file_format-war-h6": {
+    "id": "machina:file_format-war-h6",
+    "name": "WAR",
+    "type": "file_format",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Web Application Archive",
+      "compression": "verlustfrei komprimiert",
+      "mediaType": "Archiv"
+    },
+    "funFact": "Eine WAR-Datei bündelt eine komplette Java-Webanwendung in einem einzigen ZIP-basierten Archiv, das ein Server direkt ausrollen kann.",
+    "source": {
+      "name": "Wikipedia EN – WAR (file format)",
+      "url": "https://en.wikipedia.org/wiki/WAR_(file_format)"
+    },
+    "image": null
+  },
+  "machina:file_format-appimage-h6": {
+    "id": "machina:file_format-appimage-h6",
+    "name": "AppImage",
+    "type": "file_format",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "AppImage",
+      "compression": "verlustfrei komprimiert",
+      "mediaType": "Programm"
+    },
+    "funFact": "Ein AppImage bündelt eine Linux-Anwendung samt Abhängigkeiten in einer einzigen Datei, die ohne Installation direkt startbar ist.",
+    "source": {
+      "name": "Wikipedia EN – AppImage",
+      "url": "https://en.wikipedia.org/wiki/AppImage"
+    },
+    "image": null
+  },
+  "machina:file_format-flatpak-h6": {
+    "id": "machina:file_format-flatpak-h6",
+    "name": "Flatpak",
+    "type": "file_format",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Flatpak",
+      "compression": "verlustfrei komprimiert",
+      "mediaType": "Programm"
+    },
+    "funFact": "Flatpak verteilt Linux-Anwendungen sandbox-isoliert und unabhängig von der Distribution, ähnlich wie App-Stores auf dem Smartphone.",
+    "source": {
+      "name": "Wikipedia DE – Flatpak",
+      "url": "https://de.wikipedia.org/wiki/Flatpak"
+    },
+    "image": null
+  },
+  "machina:file_format-snap-h6": {
+    "id": "machina:file_format-snap-h6",
+    "name": "Snap",
+    "type": "file_format",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Snap-Paket",
+      "compression": "verlustfrei komprimiert",
+      "mediaType": "Programm"
+    },
+    "funFact": "Snap-Pakete von Canonical enthalten alle Abhängigkeiten und werden als komprimiertes SquashFS-Image eingebunden.",
+    "source": {
+      "name": "Wikipedia EN – Snap (software)",
+      "url": "https://en.wikipedia.org/wiki/Snap_(software)"
+    },
+    "image": null
+  },
+  "machina:file_format-xlsm-h6": {
+    "id": "machina:file_format-xlsm-h6",
+    "name": "XLSM",
+    "type": "file_format",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Excel Macro-Enabled Workbook",
+      "compression": "verlustfrei komprimiert",
+      "mediaType": "Tabellenkalkulation"
+    },
+    "funFact": "XLSM gleicht XLSX, erlaubt aber zusätzlich eingebettete Makros — weshalb solche Dateien als häufiger Weg für Schadcode gelten.",
+    "source": {
+      "name": "Wikipedia EN – Office Open XML",
+      "url": "https://en.wikipedia.org/wiki/Office_Open_XML"
+    },
+    "image": null
+  },
+  "machina:file_format-vsdx-h6": {
+    "id": "machina:file_format-vsdx-h6",
+    "name": "VSDX",
+    "type": "file_format",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Visio Drawing",
+      "compression": "verlustfrei komprimiert",
+      "mediaType": "Vektorgrafik"
+    },
+    "funFact": "VSDX ist das Diagrammformat von Microsoft Visio und speichert Flussdiagramme und Pläne XML-basiert in einem ZIP-Container.",
+    "source": {
+      "name": "Wikipedia EN – Microsoft Visio",
+      "url": "https://en.wikipedia.org/wiki/Microsoft_Visio"
+    },
+    "image": null
+  },
+  "machina:file_format-class-h6": {
+    "id": "machina:file_format-class-h6",
+    "name": "Class",
+    "type": "file_format",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Java Class File",
+      "compression": "unkomprimiert",
+      "mediaType": "Bytecode"
+    },
+    "funFact": "Jede .class-Datei beginnt mit der Signatur 0xCAFEBABE und enthält den Bytecode, den die Java Virtual Machine ausführt.",
+    "source": {
+      "name": "Wikipedia DE – Java-Class-Datei",
+      "url": "https://de.wikipedia.org/wiki/Java-Class-Datei"
+    },
+    "image": null
+  },
+  "machina:file_format-wasm-h6": {
+    "id": "machina:file_format-wasm-h6",
+    "name": "WASM-Binärformat",
+    "type": "file_format",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "WebAssembly Binary Format",
+      "compression": "unkomprimiert",
+      "mediaType": "Bytecode"
+    },
+    "funFact": "Das WASM-Binärformat lässt nahezu native Rechenleistung im Browser zu und ist als kompaktes Stack-Maschinen-Bytecode aufgebaut.",
+    "source": {
+      "name": "Wikipedia DE – WebAssembly",
+      "url": "https://de.wikipedia.org/wiki/WebAssembly"
+    },
+    "image": null
+  },
+  "machina:file_format-dockerfile-h6": {
+    "id": "machina:file_format-dockerfile-h6",
+    "name": "Dockerfile",
+    "type": "file_format",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Dockerfile",
+      "compression": "unkomprimiert",
+      "mediaType": "Text"
+    },
+    "funFact": "Ein Dockerfile beschreibt Schritt für Schritt in Textform, wie ein Container-Image aufgebaut wird, und macht Umgebungen reproduzierbar.",
+    "source": {
+      "name": "Wikipedia DE – Docker (Software)",
+      "url": "https://de.wikipedia.org/wiki/Docker_(Software)"
+    },
+    "image": null
+  },
+  "machina:file_format-pem-x509-h6": {
+    "id": "machina:file_format-pem-x509-h6",
+    "name": "PFX",
+    "type": "file_format",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Personal Information Exchange (PKCS#12)",
+      "compression": "unkomprimiert",
+      "mediaType": "Zertifikat"
+    },
+    "funFact": "Eine PFX/PKCS#12-Datei bündelt ein Zertifikat samt privatem Schlüssel passwortgeschützt in einem Container — praktisch zum Umziehen von Schlüsseln.",
+    "source": {
+      "name": "Wikipedia EN – PKCS 12",
+      "url": "https://en.wikipedia.org/wiki/PKCS_12"
+    },
+    "image": null
+  },
+  "machina:network_protocol-dhcpv6-h6": {
+    "id": "machina:network_protocol-dhcpv6-h6",
+    "name": "DHCPv6",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Dynamic Host Configuration Protocol for IPv6",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 547,
+      "purpose": "Automatische Vergabe von IPv6-Adressen und Konfigurationsdaten an Clients im Netzwerk"
+    },
+    "funFact": "DHCPv6 nutzt nicht mehr die MAC-Adresse, sondern eine eigene DUID, um ein Gerät dauerhaft wiederzuerkennen.",
+    "source": {
+      "name": "RFC 8415 – Dynamic Host Configuration Protocol for IPv6 (DHCPv6)",
+      "url": "https://www.rfc-editor.org/rfc/rfc8415"
+    },
+    "image": null
+  },
+  "machina:network_protocol-slaac-h6": {
+    "id": "machina:network_protocol-slaac-h6",
+    "name": "SLAAC",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Stateless Address Autoconfiguration",
+      "layer": "Vermittlungsschicht",
+      "transport": "IP",
+      "purpose": "Erlaubt IPv6-Geräten, sich ohne zentralen Server selbst eine Adresse zu vergeben"
+    },
+    "funFact": "Bei SLAAC hört ein Gerät einfach die Router-Advertisements ab und bildet sich daraus selbst eine gültige IPv6-Adresse.",
+    "source": {
+      "name": "RFC 4862 – IPv6 Stateless Address Autoconfiguration",
+      "url": "https://www.rfc-editor.org/rfc/rfc4862"
+    },
+    "image": null
+  },
+  "machina:network_protocol-llmnr-h6": {
+    "id": "machina:network_protocol-llmnr-h6",
+    "name": "LLMNR",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Link-Local Multicast Name Resolution",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 5355,
+      "purpose": "Namensauflösung im lokalen Netz ohne DNS-Server, vor allem unter Windows"
+    },
+    "funFact": "LLMNR springt ein, wenn kein DNS-Server antwortet – wird aber oft deaktiviert, weil Angreifer damit Anmeldedaten abgreifen können.",
+    "source": {
+      "name": "RFC 4795 – Link-Local Multicast Name Resolution (LLMNR)",
+      "url": "https://www.rfc-editor.org/rfc/rfc4795"
+    },
+    "image": null
+  },
+  "machina:network_protocol-fcoe-h6": {
+    "id": "machina:network_protocol-fcoe-h6",
+    "name": "FCoE",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Fibre Channel over Ethernet",
+      "layer": "Sicherungsschicht",
+      "transport": "Ethernet",
+      "purpose": "Transportiert Speichernetz-Daten (Fibre Channel) direkt über Ethernet-Frames"
+    },
+    "funFact": "FCoE bündelt Speicher- und Datenverkehr über dieselbe Ethernet-Verkabelung und spart so im Rechenzentrum getrennte Kabelstränge.",
+    "source": {
+      "name": "Wikipedia DE – Fibre Channel over Ethernet",
+      "url": "https://de.wikipedia.org/wiki/Fibre_Channel_over_Ethernet"
+    },
+    "image": null
+  },
+  "machina:network_protocol-hls-h6": {
+    "id": "machina:network_protocol-hls-h6",
+    "name": "HLS",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "HTTP Live Streaming",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "purpose": "Adaptives Video-Streaming, das den Strom in kleine über HTTP geladene Segmente zerlegt"
+    },
+    "funFact": "HLS wurde von Apple eingeführt und passt die Videoqualität dynamisch an die Bandbreite an, indem es zwischen mehreren Segmentlisten umschaltet.",
+    "source": {
+      "name": "RFC 8216 – HTTP Live Streaming",
+      "url": "https://www.rfc-editor.org/rfc/rfc8216"
+    },
+    "image": null
+  },
+  "machina:network_protocol-dash-h6": {
+    "id": "machina:network_protocol-dash-h6",
+    "name": "MPEG-DASH",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Dynamic Adaptive Streaming over HTTP",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "purpose": "Herstellerneutrales adaptives Video-Streaming über HTTP mit umschaltbaren Qualitätsstufen"
+    },
+    "funFact": "MPEG-DASH ist der offene Standard-Gegenpart zu Apples HLS und arbeitet bewusst codec-unabhängig.",
+    "source": {
+      "name": "Wikipedia DE – Dynamic Adaptive Streaming over HTTP",
+      "url": "https://de.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP"
+    },
+    "image": null
+  },
+  "machina:network_protocol-pop3s-h6": {
+    "id": "machina:network_protocol-pop3s-h6",
+    "name": "Gratuitous ARP",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Gratuitous Address Resolution Protocol",
+      "layer": "Sicherungsschicht",
+      "transport": "Ethernet",
+      "purpose": "Ungefragtes ARP-Paket, mit dem ein Gerät seine eigene IP-MAC-Zuordnung im Netz bekanntgibt"
+    },
+    "funFact": "Bei einem Failover schickt der übernehmende Server ein Gratuitous ARP, damit alle Geräte sofort auf die neue MAC-Adresse umlernen.",
+    "source": {
+      "name": "RFC 5227 – IPv4 Address Conflict Detection",
+      "url": "https://www.rfc-editor.org/rfc/rfc5227"
+    },
+    "image": null
+  },
+  "machina:network_protocol-rtsp-control-h6": {
+    "id": "machina:network_protocol-rtsp-control-h6",
+    "name": "ONVIF",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Open Network Video Interface Forum",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "purpose": "Herstellerübergreifende Steuerung von IP-Überwachungskameras und Videorekordern"
+    },
+    "funFact": "Dank ONVIF kann eine Überwachungssoftware Kameras verschiedener Hersteller ansteuern, ohne für jede Marke eine eigene Schnittstelle zu brauchen.",
+    "source": {
+      "name": "Wikipedia DE – ONVIF",
+      "url": "https://de.wikipedia.org/wiki/ONVIF"
+    },
+    "image": null
+  },
+  "machina:network_protocol-mqtt-sn-h6": {
+    "id": "machina:network_protocol-mqtt-sn-h6",
+    "name": "MQTT-SN",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "MQTT for Sensor Networks",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "purpose": "Schlanke MQTT-Variante für sehr kleine Sensorgeräte und drahtlose Netze"
+    },
+    "funFact": "MQTT-SN ersetzt lange Topic-Namen durch kurze numerische IDs, damit selbst winzige batteriebetriebene Sensoren sparsam funken können.",
+    "source": {
+      "name": "Wikipedia DE – MQTT",
+      "url": "https://de.wikipedia.org/wiki/MQTT"
+    },
+    "image": null
+  },
+  "machina:network_protocol-igmp-snooping-h6": {
+    "id": "machina:network_protocol-igmp-snooping-h6",
+    "name": "IGMP-Snooping",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Internet Group Management Protocol Snooping",
+      "layer": "Sicherungsschicht",
+      "transport": "Ethernet",
+      "purpose": "Switch lauscht IGMP-Nachrichten ab und leitet Multicast nur an interessierte Ports"
+    },
+    "funFact": "Ohne IGMP-Snooping würde ein Switch Multicast-Video an alle Ports fluten – mit Snooping bekommt es nur, wer die Gruppe abonniert hat.",
+    "source": {
+      "name": "RFC 4541 – Considerations for IGMP and MLD Snooping Switches",
+      "url": "https://www.rfc-editor.org/rfc/rfc4541"
+    },
+    "image": null
+  },
+  "machina:network_protocol-lacp-h6": {
+    "id": "machina:network_protocol-lacp-h6",
+    "name": "LACP",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Link Aggregation Control Protocol",
+      "layer": "Sicherungsschicht",
+      "transport": "Ethernet",
+      "purpose": "Bündelt mehrere physische Ethernet-Leitungen zu einer logischen Verbindung"
+    },
+    "funFact": "LACP fasst etwa vier Gigabit-Leitungen zu einem 4-Gigabit-Kanal zusammen und sorgt zugleich für Ausfallsicherheit, wenn ein Kabel stirbt.",
+    "source": {
+      "name": "Wikipedia DE – Link Aggregation",
+      "url": "https://de.wikipedia.org/wiki/Link_Aggregation"
+    },
+    "image": null
+  },
+  "machina:network_protocol-ssh-tunnel-h6": {
+    "id": "machina:network_protocol-ssh-tunnel-h6",
+    "name": "Telnet über TLS",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Telnet over Transport Layer Security",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 992,
+      "purpose": "Verschlüsselte Variante des Terminal-Protokolls Telnet über eine TLS-Schicht"
+    },
+    "funFact": "Telnet über TLS hört auf Port 992 und sollte den unverschlüsselten Klassiker Telnet ersetzen – in der Praxis hat sich aber SSH durchgesetzt.",
+    "source": {
+      "name": "IANA – Service Name and Transport Protocol Port Number Registry",
+      "url": "https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml"
+    },
+    "image": null
+  },
+  "machina:network_protocol-coap-observe-h6": {
+    "id": "machina:network_protocol-coap-observe-h6",
+    "name": "ZeroConf",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Zero Configuration Networking",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "purpose": "Sammelbegriff für Verfahren, die ein Netz ohne manuelle Konfiguration nutzbar machen"
+    },
+    "funFact": "ZeroConf sorgt dafür, dass ein neuer Drucker im WLAN sofort auftaucht, ohne dass jemand IP-Adressen oder DNS-Einträge eintippen muss.",
+    "source": {
+      "name": "Wikipedia DE – Zeroconf",
+      "url": "https://de.wikipedia.org/wiki/Zeroconf"
+    },
+    "image": null
+  },
+  "machina:network_protocol-rtcp-feedback-h6": {
+    "id": "machina:network_protocol-rtcp-feedback-h6",
+    "name": "WebTransport",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "WebTransport",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "purpose": "Moderne Browser-Schnittstelle für bidirektionale, latenzarme Datenströme über HTTP/3"
+    },
+    "funFact": "WebTransport baut auf QUIC auf und erlaubt im Browser sowohl zuverlässige als auch verlustbehaftete Datenströme – ideal für Spiele und Live-Streams.",
+    "source": {
+      "name": "MDN Web Docs – WebTransport API",
+      "url": "https://developer.mozilla.org/de/docs/Web/API/WebTransport_API"
+    },
+    "image": null
+  },
+  "machina:network_protocol-https-alt-h6": {
+    "id": "machina:network_protocol-https-alt-h6",
+    "name": "STARTTLS",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Opportunistic TLS via STARTTLS",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "purpose": "Schaltet eine bestehende Klartextverbindung (z. B. SMTP, IMAP) nachträglich auf TLS um"
+    },
+    "funFact": "STARTTLS nutzt denselben Port wie die unverschlüsselte Verbindung und verschlüsselt erst nach einem Umschalt-Kommando mitten in der Sitzung.",
+    "source": {
+      "name": "RFC 3207 – SMTP Service Extension for Secure SMTP over Transport Layer Security",
+      "url": "https://www.rfc-editor.org/rfc/rfc3207"
+    },
+    "image": null
+  },
+  "machina:hardware-ddr-sdram-h6": {
+    "id": "machina:hardware-ddr-sdram-h6",
+    "name": "DDR-SDRAM",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Arbeitsspeicher",
+      "function": "Schneller Arbeitsspeicher, der Daten an steigender und fallender Taktflanke überträgt"
+    },
+    "funFact": "Das Double Data Rate in DDR-RAM bedeutet, dass pro Taktzyklus zweimal Daten übertragen werden – einmal bei steigender, einmal bei fallender Flanke.",
+    "source": {
+      "name": "Wikipedia DE – DDR-SDRAM",
+      "url": "https://de.wikipedia.org/wiki/DDR-SDRAM"
+    },
+    "image": null
+  },
+  "machina:hardware-bga-h6": {
+    "id": "machina:hardware-bga-h6",
+    "name": "BGA-Gehäuse",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Verbindungstechnik",
+      "function": "Chipgehäuse, dessen Anschlüsse als Raster winziger Lotkugeln auf der Unterseite liegen"
+    },
+    "funFact": "Beim Ball Grid Array sitzen die Lötkontakte als Kugelraster unter dem Chip – das spart Platz, macht aber ein Nachlöten von Hand fast unmöglich.",
+    "source": {
+      "name": "Wikipedia DE – Ball Grid Array",
+      "url": "https://de.wikipedia.org/wiki/Ball_Grid_Array"
+    },
+    "image": null
+  },
+  "machina:hardware-zif-sockel-h6": {
+    "id": "machina:hardware-zif-sockel-h6",
+    "name": "ZIF-Sockel",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Hauptplatine/Bus",
+      "function": "Prozessorsockel, in den der Chip ohne Kraftaufwand eingelegt und per Hebel verriegelt wird"
+    },
+    "funFact": "Der Hebel am ZIF-Sockel (Zero Insertion Force) klemmt die Pins erst nach dem Einlegen fest, sodass keine Pins verbiegen.",
+    "source": {
+      "name": "Wikipedia DE – Zero Insertion Force",
+      "url": "https://de.wikipedia.org/wiki/Zero_Insertion_Force"
+    },
+    "image": null
+  },
+  "machina:hardware-voltage-regulator-module-h6": {
+    "id": "machina:hardware-voltage-regulator-module-h6",
+    "name": "Spannungswandlermodul (VRM)",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Stromversorgung",
+      "function": "Wandelt die Netzteilspannung in die niedrige, präzise Versorgungsspannung des Prozessors"
+    },
+    "funFact": "Ein VRM auf dem Mainboard senkt die 12 Volt des Netzteils auf rund 1 Volt für die CPU – und muss dabei viele Ampere stabil liefern.",
+    "source": {
+      "name": "Wikipedia DE – Spannungsregler",
+      "url": "https://de.wikipedia.org/wiki/Spannungsregler"
+    },
+    "image": null
+  },
+  "machina:hardware-pwm-fan-header-h6": {
+    "id": "machina:hardware-pwm-fan-header-h6",
+    "name": "Lüfteranschluss (4-Pin)",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Kühlung",
+      "function": "Steckplatz auf dem Mainboard, der einen Lüfter mit Strom versorgt und seine Drehzahl regelt"
+    },
+    "funFact": "Beim 4-Pin-Lüfteranschluss steuert die vierte Leitung per PWM-Signal die Drehzahl, während ältere 3-Pin-Anschlüsse nur über die Spannung regeln.",
+    "source": {
+      "name": "Intel – 4-Wire Pulse Width Modulation (PWM) Controlled Fans Specification",
+      "url": "https://www.intel.com/content/www/us/en/support/articles/000007024/processors.html"
+    },
+    "image": null
+  },
+  "machina:hardware-vapor-chamber-h6": {
+    "id": "machina:hardware-vapor-chamber-h6",
+    "name": "Vapor Chamber",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Kühlung",
+      "function": "Flacher, mit Flüssigkeit gefüllter Hohlkörper, der Wärme über Verdampfung großflächig verteilt"
+    },
+    "funFact": "Eine Vapor Chamber arbeitet wie eine flachgedrückte Heatpipe: Die Flüssigkeit verdampft über dem heißen Chip und verteilt die Wärme schlagartig auf die ganze Fläche.",
+    "source": {
+      "name": "Wikipedia EN – Vapor chamber",
+      "url": "https://en.wikipedia.org/wiki/Vapor_chamber"
+    },
+    "image": null
+  },
+  "machina:hardware-pci-slot-h6": {
+    "id": "machina:hardware-pci-slot-h6",
+    "name": "PCI-Steckplatz",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Erweiterung",
+      "function": "Älterer paralleler Bus-Steckplatz für Erweiterungskarten auf dem Mainboard"
+    },
+    "funFact": "Der klassische PCI-Steckplatz wurde fast vollständig vom schnelleren, seriellen PCI Express verdrängt, das pro Leitung deutlich mehr Daten überträgt.",
+    "source": {
+      "name": "Wikipedia DE – Peripheral Component Interconnect",
+      "url": "https://de.wikipedia.org/wiki/Peripheral_Component_Interconnect"
+    },
+    "image": null
+  },
+  "machina:hardware-ddr-dimm-slot-h6": {
+    "id": "machina:hardware-ddr-dimm-slot-h6",
+    "name": "RAM-Steckplatz (DIMM-Slot)",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Hauptplatine/Bus",
+      "function": "Steckplatz auf dem Mainboard zur Aufnahme der Arbeitsspeicher-Riegel"
+    },
+    "funFact": "Die kleine Kerbe im DIMM-Slot ist gegen Verpolung gedacht und sitzt bei jeder RAM-Generation an anderer Stelle, damit kein DDR4-Riegel in einen DDR5-Slot passt.",
+    "source": {
+      "name": "Wikipedia DE – Dual Inline Memory Module",
+      "url": "https://de.wikipedia.org/wiki/Dual_Inline_Memory_Module"
+    },
+    "image": null
+  },
+  "machina:hardware-thermal-throttling-sensor-h6": {
+    "id": "machina:hardware-thermal-throttling-sensor-h6",
+    "name": "Stromschiene (Power Rail)",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Stromversorgung",
+      "function": "Versorgungsleitung eines Netzteils, die eine bestimmte Spannung wie 12 V bereitstellt"
+    },
+    "funFact": "PC-Netzteile haben getrennte Schienen für 3,3 V, 5 V und 12 V – die 12-Volt-Schiene trägt heute die Hauptlast für CPU und Grafikkarte.",
+    "source": {
+      "name": "Wikipedia DE – Computernetzteil",
+      "url": "https://de.wikipedia.org/wiki/Computernetzteil"
+    },
+    "image": null
+  },
+  "machina:hardware-em-pcb-trace-h6": {
+    "id": "machina:hardware-em-pcb-trace-h6",
+    "name": "Leiterbahn",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Verbindungstechnik",
+      "function": "Aufgedruckte Kupferbahn auf der Platine, die Bauteile elektrisch miteinander verbindet"
+    },
+    "funFact": "Leiterbahnen auf einer Platine ersetzen einzelne Drähte – bei schnellen Signalen muss ihre Länge sogar exakt abgestimmt sein, damit Daten gleichzeitig ankommen.",
+    "source": {
+      "name": "Wikipedia DE – Leiterbahn",
+      "url": "https://de.wikipedia.org/wiki/Leiterbahn"
+    },
+    "image": null
+  },
+  "machina:hardware-soldering-pad-h6": {
+    "id": "machina:hardware-soldering-pad-h6",
+    "name": "Wärmeleitkleber",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Kühlung",
+      "function": "Klebstoff, der einen Kühlkörper dauerhaft fixiert und zugleich Wärme ableitet"
+    },
+    "funFact": "Anders als Wärmeleitpaste härtet Wärmeleitkleber aus und hält kleine Kühlkörper ohne Klammer oder Schraube fest auf dem Chip.",
+    "source": {
+      "name": "Wikipedia DE – Wärmeleitpaste",
+      "url": "https://de.wikipedia.org/wiki/W%C3%A4rmeleitpaste"
+    },
+    "image": null
+  },
+  "machina:hardware-front-panel-connector-h6": {
+    "id": "machina:hardware-front-panel-connector-h6",
+    "name": "Front-Panel-Anschluss",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Hauptplatine/Bus",
+      "function": "Pin-Leiste, die Power-Taster, Reset und Status-LEDs des Gehäuses mit dem Mainboard verbindet"
+    },
+    "funFact": "Der Front-Panel-Anschluss ist berüchtigt, weil seine winzigen, einzeln steckbaren Pins für Power-Knopf und LEDs leicht verkehrt herum landen.",
+    "source": {
+      "name": "Wikipedia EN – Front panel header",
+      "url": "https://en.wikipedia.org/wiki/Front_panel_header"
+    },
+    "image": null
+  },
+  "machina:hardware-cpu-heat-spreader-h6": {
+    "id": "machina:hardware-cpu-heat-spreader-h6",
+    "name": "Heatspreader (IHS)",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Kühlung",
+      "function": "Metalldeckel auf dem Prozessor, der die Wärme des Chips großflächig an den Kühler weitergibt"
+    },
+    "funFact": "Der Heatspreader schützt den empfindlichen Silizium-Die und verteilt dessen punktuelle Hitze auf eine größere Fläche, an die der Kühler andocken kann.",
+    "source": {
+      "name": "Wikipedia EN – Integrated heat spreader",
+      "url": "https://en.wikipedia.org/wiki/Integrated_heat_spreader"
+    },
+    "image": null
+  },
+  "machina:hardware-m2-keying-h6": {
+    "id": "machina:hardware-m2-keying-h6",
+    "name": "M.2-Kodierung (Keying)",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Anschluss",
+      "function": "Kerbe im M.2-Stecker, die festlegt, welche Module in welchen Steckplatz passen"
+    },
+    "funFact": "Die Kerben B-Key und M-Key bei M.2 verhindern, dass eine reine SATA-SSD in einen Steckplatz wandert, der nur NVMe per PCIe unterstützt.",
+    "source": {
+      "name": "Wikipedia DE – M.2",
+      "url": "https://de.wikipedia.org/wiki/M.2"
+    },
+    "image": null
+  },
+  "machina:hardware-backlight-inverter-h6": {
+    "id": "machina:hardware-backlight-inverter-h6",
+    "name": "Display-Backlight",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Ausgabe",
+      "function": "Hintergrundbeleuchtung eines LCD-Bildschirms, ohne die das Panel kein Bild zeigt"
+    },
+    "funFact": "Ein LCD erzeugt selbst kein Licht – erst die LED-Hintergrundbeleuchtung macht das Bild sichtbar, weshalb sich darüber die Helligkeit regelt.",
+    "source": {
+      "name": "Wikipedia DE – Hintergrundbeleuchtung",
+      "url": "https://de.wikipedia.org/wiki/Hintergrundbeleuchtung"
+    },
+    "image": null
+  },
+  "machina:data_structure-skip-list-h6": {
+    "id": "machina:data_structure-skip-list-h6",
+    "name": "Sprungliste (Skip List)",
+    "type": "data_structure",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Lineare Struktur",
+      "purpose": "Sortierte Liste mit mehreren Express-Ebenen, die Suchen im Schnitt logarithmisch macht",
+      "accessComplexity": "O(log n)"
+    },
+    "funFact": "Die Skip List legt zufällig zusätzliche Überholspuren über die Liste – dadurch ist sie im Schnitt so schnell wie ein Suchbaum, aber viel einfacher zu programmieren.",
+    "source": {
+      "name": "Wikipedia DE – Sprungliste",
+      "url": "https://de.wikipedia.org/wiki/Sprungliste"
+    },
+    "image": null
+  },
+  "machina:data_structure-circular-buffer-h6": {
+    "id": "machina:data_structure-circular-buffer-h6",
+    "name": "Ringpuffer (Circular Buffer)",
+    "type": "data_structure",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Lineare Struktur",
+      "purpose": "Puffer fester Größe, dessen Ende gedanklich wieder an den Anfang anschließt",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Ein Ringpuffer überschreibt beim Volllaufen die ältesten Daten und eignet sich deshalb perfekt für laufende Audio- oder Sensorströme.",
+    "source": {
+      "name": "Wikipedia DE – Ringpuffer",
+      "url": "https://de.wikipedia.org/wiki/Ringpuffer"
+    },
+    "image": null
+  },
+  "machina:data_structure-separate-chaining-h6": {
+    "id": "machina:data_structure-separate-chaining-h6",
+    "name": "Verkettungs-Hashverfahren (Separate Chaining)",
+    "type": "data_structure",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Hash-basiert",
+      "purpose": "Hashtabelle, die Kollisionen auflöst, indem jeder Platz auf eine Liste gleicher Hashwerte verweist",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Beim Separate Chaining hängt die Hashtabelle kollidierende Einträge einfach in eine verkettete Liste – fällt die Hashfunktion schlecht aus, wird daraus aber im schlimmsten Fall eine lange Kette.",
+    "source": {
+      "name": "Cormen et al. – Introduction to Algorithms (CLRS)",
+      "url": "https://de.wikipedia.org/wiki/Hashtabelle#Verkettung_der_%C3%9Cberl%C3%A4ufer"
+    },
+    "image": null
+  },
+  "machina:data_structure-binary-heap-h6": {
+    "id": "machina:data_structure-binary-heap-h6",
+    "name": "Binärer Heap",
+    "type": "data_structure",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Heap",
+      "purpose": "Vollständiger Binärbaum mit Heap-Eigenschaft, der stets das kleinste oder größte Element oben hält",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Der binäre Heap lässt sich platzsparend in einem einfachen Array darstellen, weil sich Eltern und Kinder über simple Indexrechnung finden.",
+    "source": {
+      "name": "Cormen et al. – Introduction to Algorithms (CLRS)",
+      "url": "https://de.wikipedia.org/wiki/Bin%C3%A4rer_Heap"
+    },
+    "image": null
+  },
+  "machina:data_structure-stack-h6": {
+    "id": "machina:data_structure-stack-h6",
+    "name": "Kellerspeicher (Stack)",
+    "type": "data_structure",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Lineare Struktur",
+      "purpose": "Lineare Struktur nach dem LIFO-Prinzip: zuletzt abgelegtes Element wird zuerst entnommen",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Jeder Funktionsaufruf in einem Programm landet auf dem Aufruf-Stack – läuft er über, gibt es den berühmten Stack Overflow.",
+    "source": {
+      "name": "Wikipedia DE – Stapelspeicher",
+      "url": "https://de.wikipedia.org/wiki/Stapelspeicher"
+    },
+    "image": null
+  },
+  "machina:data_structure-queue-h6": {
+    "id": "machina:data_structure-queue-h6",
+    "name": "Warteschlange (Queue)",
+    "type": "data_structure",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Lineare Struktur",
+      "purpose": "Lineare Struktur nach dem FIFO-Prinzip: zuerst abgelegtes Element wird zuerst entnommen",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Die Queue arbeitet wie die Schlange an der Supermarktkasse: Wer zuerst ansteht, kommt zuerst dran – das FIFO-Prinzip.",
+    "source": {
+      "name": "Wikipedia DE – Warteschlange (Datenstruktur)",
+      "url": "https://de.wikipedia.org/wiki/Warteschlange_(Datenstruktur)"
+    },
+    "image": null
+  },
+  "machina:data_structure-bit-vector-h6": {
+    "id": "machina:data_structure-bit-vector-h6",
+    "name": "Bitvektor",
+    "type": "data_structure",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Lineare Struktur",
+      "purpose": "Kompaktes Array einzelner Bits, das Mengen oder Flags platzsparend kodiert",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Ein Bitvektor speichert 64 Wahrheitswerte in einem einzigen 64-Bit-Wort und erlaubt Mengenoperationen wie Schnitt und Vereinigung per einzelnem CPU-Befehl.",
+    "source": {
+      "name": "Wikipedia DE – Bitkette",
+      "url": "https://de.wikipedia.org/wiki/Bitkette"
+    },
+    "image": null
+  },
+  "machina:data_structure-priority-queue-adt-h6": {
+    "id": "machina:data_structure-priority-queue-adt-h6",
+    "name": "Vorrangwarteschlange",
+    "type": "data_structure",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Abstrakter Datentyp",
+      "purpose": "Warteschlange, die Elemente nach Priorität statt nach Eingangsreihenfolge ausgibt",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Die Vorrangwarteschlange gibt immer das wichtigste Element zuerst heraus – meist wird sie hinter den Kulissen mit einem Heap umgesetzt.",
+    "source": {
+      "name": "Wikipedia DE – Vorrangwarteschlange",
+      "url": "https://de.wikipedia.org/wiki/Vorrangwarteschlange"
+    },
+    "image": null
+  },
+  "machina:data_structure-graph-adt-h6": {
+    "id": "machina:data_structure-graph-adt-h6",
+    "name": "Graph (abstrakter Datentyp)",
+    "type": "data_structure",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Graph",
+      "purpose": "Struktur aus Knoten und sie verbindenden Kanten zur Modellierung von Beziehungen",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Ob soziale Netzwerke, Straßenkarten oder Webseiten-Verlinkungen – fast alles, was aus Verbindungen besteht, lässt sich als Graph modellieren.",
+    "source": {
+      "name": "Wikipedia DE – Graph (Graphentheorie)",
+      "url": "https://de.wikipedia.org/wiki/Graph_(Graphentheorie)"
+    },
+    "image": null
+  },
+  "machina:data_structure-tuple-record-h6": {
+    "id": "machina:data_structure-tuple-record-h6",
+    "name": "Assoziatives Feld (Map)",
+    "type": "data_structure",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Abbildung",
+      "purpose": "Bildet eindeutige Schlüssel auf zugehörige Werte ab (Schlüssel-Wert-Speicher)",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Das assoziative Feld – in Python Dictionary, in Java Map genannt – ist die Alltags-Datenstruktur schlechthin und steckt fast immer eine Hashtabelle dahinter.",
+    "source": {
+      "name": "Wikipedia DE – Assoziatives Datenfeld",
+      "url": "https://de.wikipedia.org/wiki/Assoziatives_Datenfeld"
+    },
+    "image": null
+  },
+  "machina:data_structure-deque-h6": {
+    "id": "machina:data_structure-deque-h6",
+    "name": "Doppelschlange (Deque)",
+    "type": "data_structure",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Lineare Struktur",
+      "purpose": "Warteschlange, in die an beiden Enden eingefügt und entnommen werden kann",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Die Deque (Double-Ended Queue) vereint Stack und Queue, weil man an beiden Enden gleich schnell hinzufügen und entfernen kann.",
+    "source": {
+      "name": "Wikipedia DE – Deque",
+      "url": "https://de.wikipedia.org/wiki/Deque"
+    },
+    "image": null
+  },
+  "machina:data_structure-association-list-h6": {
+    "id": "machina:data_structure-association-list-h6",
+    "name": "Assoziationsliste",
+    "type": "data_structure",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Abbildung",
+      "purpose": "Einfache Schlüssel-Wert-Abbildung als verkettete Liste von Paaren",
+      "accessComplexity": "O(n)"
+    },
+    "funFact": "Die Assoziationsliste ist die simpelste Map: eine Liste von Schlüssel-Wert-Paaren, die man der Reihe nach durchsucht – langsam, aber in Lisp allgegenwärtig.",
+    "source": {
+      "name": "Wikipedia EN – Association list",
+      "url": "https://en.wikipedia.org/wiki/Association_list"
+    },
+    "image": null
   }
 }

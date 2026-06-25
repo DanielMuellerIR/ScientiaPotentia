@@ -21794,5 +21794,1892 @@
     "sourceName": "Wikipedia EN – Double-ended priority queue",
     "sourceUrl": "https://en.wikipedia.org/wiki/Double-ended_priority_queue",
     "verifyNote": "O(log n) für Entnahme von Minimum und Maximum ist Standardwissen."
+  },
+  {
+    "id": "concept-swapping-h6",
+    "name": "Swapping",
+    "category": "concept",
+    "attributes": {
+      "category": "Betriebssysteme",
+      "definition": "Das Auslagern ganzer Prozesse oder Speicherseiten aus dem Arbeitsspeicher auf einen langsameren Hintergrundspeicher, um Platz für aktive Prozesse zu schaffen"
+    },
+    "funFact": "Übermäßiges Auslagern führt zum sogenannten Thrashing, bei dem das System fast nur noch Speicherseiten hin- und herschiebt statt zu rechnen.",
+    "sourceName": "Wikipedia DE – Swapping",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Auslagerungsdatei",
+    "verifyNote": "Standardthema in Betriebssysteme-Lehrbüchern (Tanenbaum)."
+  },
+  {
+    "id": "concept-kontextwechsel-h6",
+    "name": "Kontextwechsel",
+    "category": "concept",
+    "attributes": {
+      "category": "Betriebssysteme",
+      "definition": "Das Sichern des Zustands eines laufenden Prozesses und das Laden des Zustands eines anderen, damit ein Prozessor mehrere Aufgaben scheinbar gleichzeitig ausführen kann"
+    },
+    "funFact": "Jeder Kontextwechsel kostet Rechenzeit, weil Registerinhalte gespeichert und Caches teilweise ungültig werden – deshalb sind sie nicht beliebig billig.",
+    "sourceName": "Wikipedia DE – Kontextwechsel",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Kontextwechsel",
+    "verifyNote": "Grundbegriff der Prozessverwaltung, in jedem OS-Lehrbuch."
+  },
+  {
+    "id": "concept-systemaufruf-h6",
+    "name": "Systemaufruf",
+    "category": "concept",
+    "attributes": {
+      "category": "Betriebssysteme",
+      "definition": "Eine kontrollierte Anforderung eines Programms an den Betriebssystem-Kern, um privilegierte Dienste wie Datei- oder Netzwerkzugriff auszuführen"
+    },
+    "funFact": "Ein Systemaufruf wechselt vom Benutzer- in den Kernmodus des Prozessors – dieser Moduswechsel ist die Schutzgrenze zwischen Anwendung und Betriebssystem.",
+    "sourceName": "Wikipedia DE – Systemaufruf",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Systemaufruf",
+    "verifyNote": "Standarddefinition in Betriebssysteme-Lehrbüchern."
+  },
+  {
+    "id": "concept-verzweigungsvorhersage-h6",
+    "name": "Verzweigungsvorhersage",
+    "category": "concept",
+    "attributes": {
+      "category": "Rechnerarchitektur",
+      "definition": "Eine Technik moderner Prozessoren, die den wahrscheinlichen Ausgang einer bedingten Verzweigung rät, um die Befehls-Pipeline nicht anhalten zu müssen"
+    },
+    "funFact": "Eine falsche Vorhersage verwirft alle spekulativ begonnenen Befehle – genau dieser Mechanismus wurde 2018 für die Spectre-Sicherheitslücke ausgenutzt.",
+    "sourceName": "Wikipedia DE – Sprungvorhersage",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Sprungvorhersage",
+    "verifyNote": "Etabliertes Konzept der Rechnerarchitektur."
+  },
+  {
+    "id": "concept-programmzaehler-h6",
+    "name": "Programmzähler",
+    "category": "concept",
+    "attributes": {
+      "category": "Rechnerarchitektur",
+      "definition": "Ein Prozessorregister, das die Adresse des nächsten auszuführenden Maschinenbefehls enthält"
+    },
+    "funFact": "Sprünge und Schleifen funktionieren technisch dadurch, dass der Programmzähler gezielt auf eine andere Adresse gesetzt wird, statt einfach weiterzuzählen.",
+    "sourceName": "Wikipedia DE – Befehlszähler",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Befehlsz%C3%A4hler",
+    "verifyNote": "Grundbaustein jeder CPU, Lehrbuch-Standard."
+  },
+  {
+    "id": "concept-iteration-h6",
+    "name": "Iteration",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmierung",
+      "definition": "Das wiederholte Ausführen eines Anweisungsblocks mittels einer Schleife, bis eine Abbruchbedingung erfüllt ist"
+    },
+    "funFact": "Viele rekursive Lösungen lassen sich in iterative umschreiben – das spart den Aufrufstapel und vermeidet Stapelüberläufe bei großer Tiefe.",
+    "sourceName": "Wikipedia DE – Iteration",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Iteration",
+    "verifyNote": "Grundkonzept der Programmierung."
+  },
+  {
+    "id": "concept-linter-h6",
+    "name": "Linter",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwareentwicklung",
+      "definition": "Ein Werkzeug zur statischen Analyse von Quellcode, das ohne Ausführung mögliche Fehler, Stilverstöße und verdächtige Muster meldet"
+    },
+    "funFact": "Der Name geht auf das Unix-Programm „lint“ von 1978 zurück, das Fusseln (engl. lint) im C-Code aufspüren sollte.",
+    "sourceName": "Wikipedia DE – Lint (Programmierwerkzeug)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Lint_(Programmierwerkzeug)",
+    "verifyNote": "Etabliertes Werkzeugkonzept der Softwareentwicklung."
+  },
+  {
+    "id": "concept-debugger-h6",
+    "name": "Debugger",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwareentwicklung",
+      "definition": "Ein Werkzeug, das die kontrollierte Ausführung eines Programms erlaubt, um den Zustand an beliebigen Stellen zu untersuchen und Fehler aufzuspüren"
+    },
+    "funFact": "Ein Debugger kann ein Programm an Haltepunkten anhalten und Schritt für Schritt weiterlaufen lassen, um Variablenwerte live zu beobachten.",
+    "sourceName": "Wikipedia DE – Debugger",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Debugger",
+    "verifyNote": "Standardwerkzeug der Softwareentwicklung."
+  },
+  {
+    "id": "concept-profiler-h6",
+    "name": "Profiler",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwareentwicklung",
+      "definition": "Ein Werkzeug, das während der Ausführung misst, wie viel Zeit oder Speicher einzelne Programmteile verbrauchen, um Engpässe zu finden"
+    },
+    "funFact": "Profiler offenbaren oft, dass die wenigen wirklich heißen Codepfade fast die gesamte Laufzeit ausmachen – die berühmte 80/20-Regel der Optimierung.",
+    "sourceName": "Wikipedia DE – Profiler (Programmierung)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Profiler_(Programmierung)",
+    "verifyNote": "Etabliertes Performance-Werkzeug."
+  },
+  {
+    "id": "concept-breakpoint-h6",
+    "name": "Breakpoint",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwareentwicklung",
+      "definition": "Eine vom Entwickler gesetzte Markierung im Code, an der ein Debugger die Programmausführung automatisch anhält"
+    },
+    "funFact": "Technisch funktionieren Haltepunkte oft, indem der Debugger an der Stelle heimlich einen speziellen Unterbrechungs-Befehl in den Maschinencode einsetzt.",
+    "sourceName": "Wikipedia DE – Haltepunkt",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Haltepunkt",
+    "verifyNote": "Grundbegriff des Debuggens."
+  },
+  {
+    "id": "concept-tokenisierung-h6",
+    "name": "Tokenisierung",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmiersprachen",
+      "definition": "Das Zerlegen eines Zeichenstroms in eine Folge bedeutungstragender Einheiten wie Schlüsselwörter, Bezeichner und Operatoren"
+    },
+    "funFact": "Tokenisierung ist die erste Stufe jedes Compilers oder Interpreters – erst danach kann der Parser die grammatische Struktur erkennen.",
+    "sourceName": "Wikipedia DE – Tokenisierung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Tokenisierung",
+    "verifyNote": "Standardbegriff aus dem Compilerbau."
+  },
+  {
+    "id": "concept-abstrakter-syntaxbaum-h6",
+    "name": "Abstrakter Syntaxbaum",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmiersprachen",
+      "definition": "Eine Baumdarstellung der grammatischen Struktur eines Quelltextes, in der jeder Knoten ein Sprachkonstrukt repräsentiert"
+    },
+    "funFact": "Compiler, Linter und Code-Formatierer arbeiten alle auf diesem Baum statt direkt auf dem Text, weil die Struktur dort eindeutig vorliegt.",
+    "sourceName": "Wikipedia DE – Abstrakter Syntaxbaum",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Abstrakter_Syntaxbaum",
+    "verifyNote": "Kernkonzept des Compilerbaus."
+  },
+  {
+    "id": "concept-pufferueberlauf-h6",
+    "name": "Pufferüberlauf",
+    "category": "concept",
+    "attributes": {
+      "category": "Sicherheit/Kryptografie",
+      "definition": "Ein Fehler, bei dem mehr Daten in einen Speicherbereich geschrieben werden, als dieser fasst, wodurch angrenzender Speicher überschrieben wird"
+    },
+    "funFact": "Der Internet-Wurm von 1988 nutzte einen Pufferüberlauf aus und gilt als einer der ersten großflächigen Angriffe dieser bis heute gefährlichen Klasse.",
+    "sourceName": "Wikipedia DE – Pufferüberlauf",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Puffer%C3%BCberlauf",
+    "verifyNote": "Klassische Schwachstellenklasse, gut dokumentiert."
+  },
+  {
+    "id": "concept-eingabevalidierung-h6",
+    "name": "Eingabevalidierung",
+    "category": "concept",
+    "attributes": {
+      "category": "Sicherheit/Kryptografie",
+      "definition": "Das Prüfen von Benutzer- oder Schnittstellen-Eingaben auf erlaubtes Format und erlaubten Inhalt, bevor sie weiterverarbeitet werden"
+    },
+    "funFact": "Fehlende Eingabevalidierung ist die gemeinsame Wurzel vieler Angriffe wie SQL-Injection und Cross-Site-Scripting.",
+    "sourceName": "OWASP – Input Validation Cheat Sheet",
+    "sourceUrl": "https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html",
+    "verifyNote": "Anerkanntes Sicherheitsprinzip laut OWASP."
+  },
+  {
+    "id": "concept-sandboxing-h6",
+    "name": "Sandboxing",
+    "category": "concept",
+    "attributes": {
+      "category": "Sicherheit/Kryptografie",
+      "definition": "Das Ausführen von Programmcode in einer abgeschotteten Umgebung mit stark eingeschränkten Rechten, um Schäden am Restsystem zu verhindern"
+    },
+    "funFact": "Webbrowser führen den Code jeder Seite in einer Sandbox aus, damit eine bösartige Website nicht einfach auf lokale Dateien zugreifen kann.",
+    "sourceName": "Wikipedia DE – Sandbox (Computersicherheit)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Sandbox",
+    "verifyNote": "Etabliertes Sicherheitskonzept."
+  },
+  {
+    "id": "concept-rechteausweitung-h6",
+    "name": "Rechteausweitung",
+    "category": "concept",
+    "attributes": {
+      "category": "Sicherheit/Kryptografie",
+      "definition": "Ein Angriff oder Fehler, durch den ein Akteur höhere Zugriffsrechte erlangt, als ihm eigentlich zustehen"
+    },
+    "funFact": "Man unterscheidet vertikale Rechteausweitung (vom Nutzer zum Administrator) und horizontale (Zugriff auf Konten gleichrangiger Nutzer).",
+    "sourceName": "Wikipedia DE – Rechteausweitung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Rechteausweitung",
+    "verifyNote": "Etablierter Begriff der IT-Sicherheit."
+  },
+  {
+    "id": "concept-spaltenorientierte-datenbank-h6",
+    "name": "Spaltenorientierte Datenbank",
+    "category": "concept",
+    "attributes": {
+      "category": "Datenbanken",
+      "definition": "Ein Datenbankmodell, das Werte gleicher Spalten zusammenhängend speichert statt ganze Datensätze, um analytische Abfragen über wenige Spalten zu beschleunigen"
+    },
+    "funFact": "Weil gleichartige Werte beieinanderliegen, lassen sie sich besonders gut komprimieren – ein Grund, warum dieses Modell in Analyse-Datenbanken dominiert.",
+    "sourceName": "Wikipedia DE – Spaltenorientierte Datenbank",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Spaltenorientierte_Datenbank",
+    "verifyNote": "Etabliertes Datenbankkonzept (OLAP)."
+  },
+  {
+    "id": "concept-abfrageoptimierer-h6",
+    "name": "Abfrageoptimierer",
+    "category": "concept",
+    "attributes": {
+      "category": "Datenbanken",
+      "definition": "Die Komponente eines Datenbanksystems, die für eine SQL-Anfrage aus vielen möglichen Ausführungswegen einen kostengünstigen auswählt"
+    },
+    "funFact": "Der Optimierer entscheidet etwa, ob ein Index genutzt oder die ganze Tabelle durchsucht wird – oft anhand geschätzter Statistiken über die Datenverteilung.",
+    "sourceName": "Wikipedia DE – Anfrageoptimierung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Anfrageoptimierung",
+    "verifyNote": "Kernkomponente relationaler Datenbanken."
+  },
+  {
+    "id": "concept-sperre-h6",
+    "name": "Sperre (Lock)",
+    "category": "concept",
+    "attributes": {
+      "category": "Nebenläufigkeit",
+      "definition": "Ein Mechanismus, der einer Ausführungseinheit exklusiven oder geteilten Zugriff auf eine Ressource sichert, um gleichzeitige widersprüchliche Zugriffe zu verhindern"
+    },
+    "funFact": "Zu grobe Sperren bremsen die Nebenläufigkeit aus, zu feine erhöhen das Risiko von Verklemmungen – die Balance ist eine Kernkunst der Parallelprogrammierung.",
+    "sourceName": "Wikipedia DE – Sperrverfahren",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Sperrverfahren",
+    "verifyNote": "Grundbegriff der Nebenläufigkeitskontrolle."
+  },
+  {
+    "id": "concept-drei-wege-handschlag-h6",
+    "name": "Drei-Wege-Handschlag",
+    "category": "concept",
+    "attributes": {
+      "category": "Netzwerk",
+      "definition": "Das dreistufige Verfahren (SYN, SYN-ACK, ACK), mit dem zwei Rechner eine TCP-Verbindung aufbauen und Sequenznummern abstimmen"
+    },
+    "funFact": "Eine Flut halb geöffneter Verbindungen, der SYN-Flood-Angriff, missbraucht genau diesen Handschlag, um einen Server lahmzulegen.",
+    "sourceName": "Wikipedia DE – Verbindungsaufbau (TCP)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Transmission_Control_Protocol#Verbindungsaufbau",
+    "verifyNote": "Standardmechanismus von TCP."
+  },
+  {
+    "id": "concept-subnetzmaske-h6",
+    "name": "Subnetzmaske",
+    "category": "concept",
+    "attributes": {
+      "category": "Netzwerk",
+      "definition": "Eine Bitmaske, die eine IP-Adresse in einen Netzwerk- und einen Hostanteil aufteilt und so die Grenzen eines Teilnetzes festlegt"
+    },
+    "funFact": "Aus der Maske ergibt sich direkt, ob ein Zielrechner im selben Netz liegt oder ob das Paket an einen Router weitergereicht werden muss.",
+    "sourceName": "Wikipedia DE – Netzmaske",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Netzmaske",
+    "verifyNote": "Grundbegriff der IP-Adressierung."
+  },
+  {
+    "id": "concept-mac-adresse-h6",
+    "name": "MAC-Adresse",
+    "category": "concept",
+    "attributes": {
+      "category": "Netzwerk",
+      "definition": "Eine hardwarenahe, meist weltweit eindeutige Kennung einer Netzwerkschnittstelle auf der Sicherungsschicht"
+    },
+    "funFact": "Die ersten drei Bytes identifizieren den Hersteller; aus ihnen lässt sich oft ablesen, von welcher Firma eine Netzwerkkarte stammt.",
+    "sourceName": "Wikipedia DE – MAC-Adresse",
+    "sourceUrl": "https://de.wikipedia.org/wiki/MAC-Adresse",
+    "verifyNote": "Standardbegriff der Netzwerktechnik."
+  },
+  {
+    "id": "concept-turing-vollstaendigkeit-h6",
+    "name": "Turing-Vollständigkeit",
+    "category": "concept",
+    "attributes": {
+      "category": "Theoretische Informatik",
+      "definition": "Die Eigenschaft eines Berechnungssystems, jede Funktion berechnen zu können, die auch eine Turingmaschine berechnen kann"
+    },
+    "funFact": "Überraschend viele Systeme sind turing-vollständig – sogar die Tabellenkalkulation Excel oder das Kartenspiel Magic: The Gathering.",
+    "sourceName": "Wikipedia DE – Turing-Vollständigkeit",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Turing-Vollst%C3%A4ndigkeit",
+    "verifyNote": "Kernbegriff der Berechenbarkeitstheorie."
+  },
+  {
+    "id": "concept-entscheidbarkeit-h6",
+    "name": "Entscheidbarkeit",
+    "category": "concept",
+    "attributes": {
+      "category": "Theoretische Informatik",
+      "definition": "Die Eigenschaft eines Problems, durch einen Algorithmus, der für jede Eingabe nach endlicher Zeit mit Ja oder Nein hält, lösbar zu sein"
+    },
+    "funFact": "Das Halteproblem ist das berühmteste unentscheidbare Problem: Kein Algorithmus kann für alle Programme zuverlässig vorhersagen, ob sie anhalten.",
+    "sourceName": "Wikipedia DE – Entscheidbarkeit",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Entscheidbarkeit",
+    "verifyNote": "Grundbegriff der Berechenbarkeitstheorie."
+  },
+  {
+    "id": "concept-amortisierte-laufzeit-h6",
+    "name": "Hashkollision",
+    "category": "concept",
+    "attributes": {
+      "category": "Algorithmik",
+      "definition": "Der Fall, dass zwei verschiedene Eingaben von einer Hashfunktion auf denselben Hashwert abgebildet werden"
+    },
+    "funFact": "Kollisionen sind bei begrenztem Wertebereich unvermeidbar – das Schubfachprinzip garantiert sie, sobald es mehr Eingaben als mögliche Hashwerte gibt.",
+    "sourceName": "Wikipedia DE – Kollision (Hashfunktion)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Kollision_(Hashfunktion)",
+    "verifyNote": "Grundbegriff bei Hashtabellen und Hashfunktionen."
+  },
+  {
+    "id": "concept-garbage-collection-mark-sweep-h6",
+    "name": "Speicherausrichtung",
+    "category": "concept",
+    "attributes": {
+      "category": "Rechnerarchitektur",
+      "definition": "Die Anordnung von Daten an Speicheradressen, die ein Vielfaches ihrer Größe sind, damit der Prozessor effizient darauf zugreifen kann"
+    },
+    "funFact": "Compiler fügen oft unsichtbare Füllbytes zwischen Strukturfelder ein (Padding), nur um die Ausrichtung einzuhalten – das vergrößert Datenstrukturen.",
+    "sourceName": "Wikipedia DE – Speicherausrichtung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Speicherausrichtung",
+    "verifyNote": "Grundbegriff der maschinennahen Programmierung."
+  },
+  {
+    "id": "concept-zero-trust-h6",
+    "name": "Zero-Trust-Architektur",
+    "category": "concept",
+    "attributes": {
+      "category": "Sicherheit/Kryptografie",
+      "definition": "Ein Sicherheitsmodell, das keinem Nutzer oder Gerät allein aufgrund seiner Netzwerkposition vertraut und jeden Zugriff einzeln prüft und autorisiert"
+    },
+    "funFact": "Der Leitsatz lautet „never trust, always verify“ – es gibt kein internes Netz, das pauschal als sicher gilt.",
+    "sourceName": "Wikipedia DE – Zero Trust",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Zero_Trust",
+    "verifyNote": "Etabliertes modernes Sicherheitsmodell."
+  },
+  {
+    "id": "acr-cve-h6",
+    "name": "CVE",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Common Vulnerabilities and Exposures",
+      "domain": "IT-Sicherheit"
+    },
+    "funFact": "Jede öffentlich bekannte Schwachstelle erhält eine eindeutige Kennung wie CVE-2021-44228 (Log4Shell), unter der sie weltweit referenziert wird.",
+    "sourceName": "MITRE – CVE Program",
+    "sourceUrl": "https://www.cve.org/",
+    "verifyNote": "Offizielle Vollform laut MITRE/CVE-Programm."
+  },
+  {
+    "id": "acr-cwe-h6",
+    "name": "CWE",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Common Weakness Enumeration",
+      "domain": "IT-Sicherheit"
+    },
+    "funFact": "Während CVE konkrete Schwachstellen listet, beschreibt CWE die zugrunde liegenden Fehlerklassen, etwa „Pufferüberlauf“ als CWE-120.",
+    "sourceName": "MITRE – CWE",
+    "sourceUrl": "https://cwe.mitre.org/",
+    "verifyNote": "Offizielle Vollform laut MITRE."
+  },
+  {
+    "id": "acr-siem-h6",
+    "name": "SIEM",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Security Information and Event Management",
+      "domain": "IT-Sicherheit"
+    },
+    "funFact": "Ein SIEM sammelt Protokolldaten aus dem ganzen Unternehmen an einer Stelle und korreliert sie, um Angriffe an verteilten Spuren zu erkennen.",
+    "sourceName": "Wikipedia DE – Security Information and Event Management",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Security_Information_and_Event_Management",
+    "verifyNote": "Etablierte Vollform der IT-Sicherheit."
+  },
+  {
+    "id": "acr-dmz-h6",
+    "name": "DMZ",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Demilitarized Zone",
+      "domain": "Netzwerksicherheit"
+    },
+    "funFact": "In einer DMZ stehen von außen erreichbare Server wie Webserver, getrennt durch Firewalls vom internen Netz – ein Einbruch dort erreicht nicht sofort das Firmennetz.",
+    "sourceName": "Wikipedia DE – Demilitarized Zone (Informatik)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Demilitarisierte_Zone_(Informationstechnik)",
+    "verifyNote": "Etablierte Vollform der Netzwerksicherheit."
+  },
+  {
+    "id": "acr-ids-h6",
+    "name": "IDS",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Intrusion Detection System",
+      "domain": "Netzwerksicherheit"
+    },
+    "funFact": "Ein IDS erkennt und meldet verdächtigen Datenverkehr, greift aber selbst nicht ein – das aktive Blockieren übernimmt ein IPS.",
+    "sourceName": "Wikipedia DE – Intrusion Detection System",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Intrusion_Detection_System",
+    "verifyNote": "Etablierte Vollform der IT-Sicherheit."
+  },
+  {
+    "id": "acr-ips-h6",
+    "name": "IPS",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Intrusion Prevention System",
+      "domain": "Netzwerksicherheit"
+    },
+    "funFact": "Ein IPS liegt direkt im Datenpfad und kann erkannten Angriffsverkehr aktiv verwerfen, während ein reines IDS nur Alarm schlägt.",
+    "sourceName": "Wikipedia DE – Intrusion Prevention System",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Intrusion_Prevention_System",
+    "verifyNote": "Etablierte Vollform der IT-Sicherheit."
+  },
+  {
+    "id": "acr-ietf-h6",
+    "name": "IETF",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Internet Engineering Task Force",
+      "domain": "Netzwerk"
+    },
+    "funFact": "Die IETF entwickelt die technischen Standards des Internets als RFC-Dokumente und arbeitet nach dem Motto „rough consensus and running code“.",
+    "sourceName": "IETF – About",
+    "sourceUrl": "https://www.ietf.org/about/",
+    "verifyNote": "Offizielle Vollform laut IETF."
+  },
+  {
+    "id": "acr-icann-h6",
+    "name": "ICANN",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Internet Corporation for Assigned Names and Numbers",
+      "domain": "Netzwerk"
+    },
+    "funFact": "Die ICANN koordiniert weltweit die Vergabe von Domainnamen und der obersten DNS-Ebene – sie entscheidet etwa über die Einführung neuer Top-Level-Domains.",
+    "sourceName": "ICANN – Welcome",
+    "sourceUrl": "https://www.icann.org/",
+    "verifyNote": "Offizielle Vollform laut ICANN."
+  },
+  {
+    "id": "acr-iana-h6",
+    "name": "IANA",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Internet Assigned Numbers Authority",
+      "domain": "Netzwerk"
+    },
+    "funFact": "Die IANA verwaltet die globalen Zahlenräume des Internets, darunter die Liste, welche Portnummer welchem Dienst zugeordnet ist (z. B. 80 für HTTP).",
+    "sourceName": "IANA",
+    "sourceUrl": "https://www.iana.org/",
+    "verifyNote": "Offizielle Vollform laut IANA."
+  },
+  {
+    "id": "acr-owasp-h6",
+    "name": "OWASP",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Open Worldwide Application Security Project",
+      "domain": "IT-Sicherheit"
+    },
+    "funFact": "Die OWASP Top Ten ist eine regelmäßig aktualisierte Liste der kritischsten Risiken für Webanwendungen und gilt als Industrie-Referenz.",
+    "sourceName": "OWASP Foundation",
+    "sourceUrl": "https://owasp.org/",
+    "verifyNote": "Offizielle Vollform laut OWASP-Stiftung."
+  },
+  {
+    "id": "acr-ssrf-h6",
+    "name": "SSRF",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Server-Side Request Forgery",
+      "domain": "IT-Sicherheit"
+    },
+    "funFact": "Bei SSRF bringt ein Angreifer den Server dazu, selbst Anfragen zu stellen – oft an interne Adressen, die von außen gar nicht erreichbar wären.",
+    "sourceName": "OWASP – Server Side Request Forgery",
+    "sourceUrl": "https://owasp.org/www-community/attacks/Server_Side_Request_Forgery",
+    "verifyNote": "Etablierte Vollform laut OWASP."
+  },
+  {
+    "id": "acr-xxe-h6",
+    "name": "XXE",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "XML External Entity",
+      "domain": "IT-Sicherheit"
+    },
+    "funFact": "Ein XXE-Angriff missbraucht externe Entitäten in XML-Dokumenten, um etwa lokale Dateien des Servers auszulesen.",
+    "sourceName": "OWASP – XML External Entity (XXE) Processing",
+    "sourceUrl": "https://owasp.org/www-community/vulnerabilities/XML_External_Entity_(XXE)_Processing",
+    "verifyNote": "Etablierte Vollform laut OWASP."
+  },
+  {
+    "id": "acr-oidc-h6",
+    "name": "OIDC",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "OpenID Connect",
+      "domain": "IT-Sicherheit"
+    },
+    "funFact": "OIDC setzt auf OAuth 2.0 auf und ergänzt es um eine standardisierte Identitätsschicht – die Grundlage vieler „Mit Google anmelden“-Buttons.",
+    "sourceName": "OpenID Foundation – OpenID Connect",
+    "sourceUrl": "https://openid.net/developers/how-connect-works/",
+    "verifyNote": "Offizielle Vollform laut OpenID Foundation."
+  },
+  {
+    "id": "acr-mvcc-h6",
+    "name": "MVCC",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Multiversion Concurrency Control",
+      "domain": "Datenbanken"
+    },
+    "funFact": "MVCC lässt Leser und Schreiber gleichzeitig arbeiten, indem jeder Leser eine konsistente ältere Version der Daten sieht – Grundlage etwa von PostgreSQL.",
+    "sourceName": "Wikipedia DE – Multiversion Concurrency Control",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Multiversion_Concurrency_Control",
+    "verifyNote": "Etablierte Vollform der Datenbanktechnik."
+  },
+  {
+    "id": "acr-repl-h6",
+    "name": "REPL",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Read-Eval-Print Loop",
+      "domain": "Programmierung"
+    },
+    "funFact": "Eine REPL liest eine Eingabe, wertet sie aus, gibt das Ergebnis aus und wartet auf die nächste – die interaktive Eingabeaufforderung von Python ist ein bekanntes Beispiel.",
+    "sourceName": "Wikipedia DE – Read-eval-print loop",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Read-eval-print_loop",
+    "verifyNote": "Etablierte Vollform der Programmierumgebungen."
+  },
+  {
+    "id": "acr-abac-h6",
+    "name": "ABAC",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Attribute-Based Access Control",
+      "domain": "IT-Sicherheit"
+    },
+    "funFact": "ABAC entscheidet Zugriffe anhand von Attributen wie Abteilung, Uhrzeit oder Standort und ist damit feingranularer als das rollenbasierte RBAC.",
+    "sourceName": "Wikipedia DE – Attribute-based access control",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Attribute-based_access_control",
+    "verifyNote": "Etablierte Vollform der Zugriffskontrolle."
+  },
+  {
+    "id": "acr-sdn-h6",
+    "name": "SDN",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Software-Defined Networking",
+      "domain": "Netzwerk"
+    },
+    "funFact": "SDN trennt die Steuerungsebene von der Weiterleitungsebene, sodass sich das Verhalten ganzer Netze zentral per Software programmieren lässt.",
+    "sourceName": "Wikipedia DE – Software-defined networking",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Software-defined_networking",
+    "verifyNote": "Etablierte Vollform der Netzwerktechnik."
+  },
+  {
+    "id": "acr-cap-h6",
+    "name": "CAP",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Consistency, Availability, Partition tolerance",
+      "domain": "Verteilte Systeme"
+    },
+    "funFact": "Das CAP-Theorem besagt, dass ein verteiltes System bei einer Netzpartition nur zwei dieser drei Eigenschaften zugleich garantieren kann.",
+    "sourceName": "Wikipedia DE – CAP-Theorem",
+    "sourceUrl": "https://de.wikipedia.org/wiki/CAP-Theorem",
+    "verifyNote": "Etablierte Auflösung des CAP-Theorems."
+  },
+  {
+    "id": "acr-fqdn-h6",
+    "name": "FQDN",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Fully Qualified Domain Name",
+      "domain": "Netzwerk"
+    },
+    "funFact": "Ein FQDN ist der vollständige Domainname inklusive aller Ebenen bis zur Wurzel, korrekt sogar mit abschließendem Punkt wie „www.example.com.“.",
+    "sourceName": "Wikipedia DE – Fully-Qualified Domain Name",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Fully-Qualified_Host_Name",
+    "verifyNote": "Etablierte Vollform der DNS-Terminologie."
+  },
+  {
+    "id": "acr-sast-h6",
+    "name": "SAST",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Static Application Security Testing",
+      "domain": "IT-Sicherheit"
+    },
+    "funFact": "SAST analysiert den Quellcode, ohne ihn auszuführen, und findet so Schwachstellen schon früh in der Entwicklung – das Gegenstück ist das laufzeitbasierte DAST.",
+    "sourceName": "OWASP – Static Application Security Testing",
+    "sourceUrl": "https://owasp.org/www-community/Source_Code_Analysis_Tools",
+    "verifyNote": "Etablierte Vollform laut OWASP."
+  },
+  {
+    "id": "acr-pkce-h6",
+    "name": "PKCE",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Proof Key for Code Exchange",
+      "domain": "IT-Sicherheit"
+    },
+    "funFact": "PKCE sichert den OAuth-Anmeldefluss in Apps ohne Geheimnis ab und verhindert, dass ein abgefangener Autorisierungscode missbraucht werden kann.",
+    "sourceName": "IETF – RFC 7636",
+    "sourceUrl": "https://datatracker.ietf.org/doc/html/rfc7636",
+    "verifyNote": "Vollform laut RFC 7636."
+  },
+  {
+    "id": "algorithm-fermat-primzahltest-h6",
+    "name": "Fermat-Test",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(k log³ n)",
+      "purpose": "Probabilistischer Primzahltest, der den kleinen Satz von Fermat nutzt, um zusammengesetzte Zahlen zu erkennen"
+    },
+    "funFact": "Carmichael-Zahlen täuschen den Fermat-Test als prim vor — deshalb gilt in der Praxis der robustere Miller-Rabin-Test als Standard.",
+    "sourceName": "Wikipedia DE – Fermatscher Primzahltest",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Fermatscher_Primzahltest",
+    "verifyNote": "Beruht auf a^(n-1) ≡ 1 (mod n); Carmichael-Zahlen als Schwäche laut Wikipedia."
+  },
+  {
+    "id": "algorithm-sieb-von-atkin-h6",
+    "name": "Sieb von Atkin",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(n / log log n)",
+      "purpose": "Findet alle Primzahlen bis zu einer Schranke über quadratische Formen, asymptotisch schneller als das Sieb des Eratosthenes"
+    },
+    "funFact": "Das Sieb von Atkin wurde erst 2003 veröffentlicht und ist eine moderne Verfeinerung des über 2000 Jahre alten Sieb des Eratosthenes.",
+    "sourceName": "Wikipedia DE – Sieb von Atkin",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Sieb_von_Atkin",
+    "verifyNote": "Atkin & Bernstein 2003; nutzt Restklassen quadratischer Formen statt Vielfachen."
+  },
+  {
+    "id": "algorithm-chinesischer-restsatz-h6",
+    "name": "Chinesischer Restsatz",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(n²)",
+      "purpose": "Rekonstruiert eine Zahl aus ihren Resten modulo paarweise teilerfremder Moduln und löst Systeme von Kongruenzen"
+    },
+    "funFact": "Der Satz taucht bereits in einem chinesischen Mathematikbuch aus dem 3. Jahrhundert auf und wird heute in RSA-Implementierungen zur Beschleunigung genutzt.",
+    "sourceName": "Wikipedia DE – Chinesischer Restsatz",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Chinesischer_Restsatz",
+    "verifyNote": "Konstruktive Lösung über erweiterten Euklid; RSA-CRT als bekannte Anwendung."
+  },
+  {
+    "id": "algorithm-schnelle-inverse-wurzel-h6",
+    "name": "Schnelle inverse Wurzel",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(1)",
+      "purpose": "Berechnet 1/√x näherungsweise über Bit-Manipulation der Gleitkommadarstellung plus einem Newton-Schritt"
+    },
+    "funFact": "Berühmt geworden durch den Quellcode von Quake III Arena mit der magischen Konstante 0x5f3759df.",
+    "sourceName": "Wikipedia EN – Fast inverse square root",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Fast_inverse_square_root",
+    "verifyNote": "Bit-Hack auf IEEE-754-Float plus ein Newton-Verfahren-Schritt; Quake-III-Herkunft belegt."
+  },
+  {
+    "id": "algorithm-cordic-h6",
+    "name": "CORDIC",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(n)",
+      "purpose": "Berechnet trigonometrische und andere Funktionen nur mit Additionen, Schiebeoperationen und einer Tabelle, ohne Multiplizierer"
+    },
+    "funFact": "CORDIC steckte in vielen frühen Taschenrechnern, weil es ohne teure Hardware-Multiplizierer auskommt.",
+    "sourceName": "Wikipedia DE – CORDIC",
+    "sourceUrl": "https://de.wikipedia.org/wiki/CORDIC",
+    "verifyNote": "COordinate Rotation DIgital Computer (Volder 1959); iterative Rotationen mit Shift-Add."
+  },
+  {
+    "id": "algorithm-kahan-summation-h6",
+    "name": "Kahan-Summation",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(n)",
+      "purpose": "Summiert Gleitkommazahlen und korrigiert dabei den durch Rundung verlorenen Anteil, um den Fehler klein zu halten"
+    },
+    "funFact": "Die naive Summe vieler Float-Werte verliert Stellen — Kahans Trick führt einen separaten Kompensationsterm mit.",
+    "sourceName": "Wikipedia DE – Kahan-Summationsalgorithmus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Kahan-Summationsalgorithmus",
+    "verifyNote": "Kompensierte Summation (Kahan 1965); reduziert den akkumulierten Rundungsfehler."
+  },
+  {
+    "id": "algorithm-newton-raphson-h6",
+    "name": "Newton-Raphson-Iteration",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(log n)",
+      "purpose": "Findet Nullstellen einer Funktion durch wiederholtes Anlegen der Tangente und quadratisch schnelle Annäherung"
+    },
+    "funFact": "Bei guter Startwahl verdoppelt sich die Anzahl korrekter Stellen ungefähr in jedem Schritt (quadratische Konvergenz).",
+    "sourceName": "Wikipedia DE – Newtonverfahren",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Newtonverfahren",
+    "verifyNote": "x_{n+1} = x_n − f(x_n)/f'(x_n); quadratische Konvergenz nahe einfacher Nullstelle."
+  },
+  {
+    "id": "algorithm-trapezregel-h6",
+    "name": "Trapezregel",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(n)",
+      "purpose": "Nähert ein bestimmtes Integral, indem die Fläche unter der Kurve durch Trapeze approximiert wird"
+    },
+    "funFact": "Sie ist die einfachste Quadraturformel und schon für stückweise lineare Funktionen exakt.",
+    "sourceName": "Wikipedia DE – Trapezregel",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Trapezregel",
+    "verifyNote": "Newton-Cotes-Formel ersten Grades; Fehlerordnung O(h²) bei n Teilintervallen."
+  },
+  {
+    "id": "algorithm-simpson-regel-h6",
+    "name": "Simpson-Regel",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(n)",
+      "purpose": "Nähert ein Integral, indem die Funktion abschnittsweise durch Parabeln statt Geraden ersetzt wird"
+    },
+    "funFact": "Die Simpson-Regel integriert Polynome bis zum dritten Grad exakt, obwohl sie nur Parabeln verwendet.",
+    "sourceName": "Wikipedia DE – Simpsonregel",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Simpsonregel",
+    "verifyNote": "Newton-Cotes-Formel zweiten Grades; exakt bis Grad 3, Fehlerordnung O(h⁴)."
+  },
+  {
+    "id": "algorithm-gradientenabstieg-h6",
+    "name": "Gradientenabstieg",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(n)",
+      "purpose": "Minimiert eine Funktion, indem man iterativ kleine Schritte entgegen der Richtung des steilsten Anstiegs macht"
+    },
+    "funFact": "Der Gradientenabstieg ist das Arbeitspferd des maschinellen Lernens und steckt hinter dem Training fast aller neuronalen Netze.",
+    "sourceName": "Wikipedia DE – Gradientenverfahren",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Gradientenverfahren",
+    "verifyNote": "Schritt entgegen ∇f; Kosten pro Schritt linear in der Dimension n."
+  },
+  {
+    "id": "algorithm-cooley-tukey-fft-h6",
+    "name": "Cooley-Tukey-FFT",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(n log n)",
+      "purpose": "Berechnet die diskrete Fouriertransformation schnell, indem eine Transformation rekursiv in kleinere zerlegt wird"
+    },
+    "funFact": "Die Idee geht im Kern auf Gauß zurück, wurde aber erst 1965 durch Cooley und Tukey zur Grundlage der modernen Signalverarbeitung.",
+    "sourceName": "Wikipedia DE – Schnelle Fourier-Transformation",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Schnelle_Fourier-Transformation",
+    "verifyNote": "Divide-and-Conquer-Zerlegung der DFT; senkt O(n²) auf O(n log n)."
+  },
+  {
+    "id": "algorithm-tonelli-shanks-h6",
+    "name": "Tonelli-Shanks-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(log² p)",
+      "purpose": "Berechnet eine modulare Quadratwurzel, also löst x² ≡ n modulo einer Primzahl p"
+    },
+    "funFact": "Das Verfahren ist ein Baustein elliptischer Kurvenkryptografie, etwa um aus einer x-Koordinate die zugehörige y-Koordinate zu gewinnen.",
+    "sourceName": "Wikipedia EN – Tonelli–Shanks algorithm",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Tonelli%E2%80%93Shanks_algorithm",
+    "verifyNote": "Löst quadratische Reste modulo p; Laufzeit polynomial in log p."
+  },
+  {
+    "id": "algorithm-pollard-p-minus-1-h6",
+    "name": "Pollard-p-1-Methode",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(B log B log² n)",
+      "purpose": "Faktorisiert eine Zahl effizient, wenn ein Primfaktor p existiert, bei dem p−1 nur kleine Primteiler hat"
+    },
+    "funFact": "Wegen dieser Methode wählt man für RSA bewusst sichere Primzahlen, bei denen p−1 einen großen Primfaktor besitzt.",
+    "sourceName": "Wikipedia DE – Pollard-p-1-Methode",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Pollard-p_%E2%88%92_1-Methode",
+    "verifyNote": "Nutzt den kleinen Satz von Fermat über glatte p−1; Schranke B steuert Erfolg."
+  },
+  {
+    "id": "algorithm-ramer-douglas-peucker-h6",
+    "name": "Ramer-Douglas-Peucker-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Geometrie",
+      "avgComplexity": "O(n log n)",
+      "purpose": "Vereinfacht einen Linienzug, indem Punkte entfernt werden, die kaum vom vereinfachten Verlauf abweichen"
+    },
+    "funFact": "Praktisch jede Karten-App nutzt dieses Verfahren, um Küstenlinien und Routen je nach Zoomstufe zu glätten.",
+    "sourceName": "Wikipedia DE – Douglas-Peucker-Algorithmus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Douglas-Peucker-Algorithmus",
+    "verifyNote": "Rekursive Punktreduktion über Abstandsschwelle; übliche Laufzeit O(n log n)."
+  },
+  {
+    "id": "algorithm-bentley-ottmann-h6",
+    "name": "Bentley-Ottmann-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Geometrie",
+      "avgComplexity": "O((n + k) log n)",
+      "purpose": "Findet alle Schnittpunkte einer Menge von Strecken mit einem Sweep-Line-Verfahren"
+    },
+    "funFact": "Statt jedes Streckenpaar zu prüfen, wandert eine gedachte Linie über die Ebene und prüft nur benachbarte Strecken.",
+    "sourceName": "Wikipedia DE – Bentley-Ottmann-Algorithmus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Bentley-Ottmann-Algorithmus",
+    "verifyNote": "Sweep-Line mit Ereigniswarteschlange; k = Anzahl der Schnittpunkte."
+  },
+  {
+    "id": "algorithm-andrew-monotonkette-h6",
+    "name": "Andrews Monotonketten-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Geometrie",
+      "avgComplexity": "O(n log n)",
+      "purpose": "Berechnet die konvexe Hülle einer Punktmenge, indem nach Sortierung eine obere und eine untere Kette gebildet werden"
+    },
+    "funFact": "Diese Variante des Graham-Scans kommt ohne Winkelberechnungen aus und ist dadurch numerisch robuster.",
+    "sourceName": "Wikipedia EN – Convex hull algorithms (Monotone chain)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Convex_hull_algorithms",
+    "verifyNote": "Andrew 1979; Sortierkosten dominieren mit O(n log n)."
+  },
+  {
+    "id": "algorithm-sutherland-hodgman-h6",
+    "name": "Sutherland-Hodgman-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Geometrie",
+      "avgComplexity": "O(n)",
+      "purpose": "Schneidet ein Polygon an einem konvexen Fenster ab, indem es Kante für Kante des Fensters geclippt wird"
+    },
+    "funFact": "Das Verfahren ist ein Klassiker der Computergrafik und sorgt dafür, dass nur sichtbare Teile einer Form gerendert werden.",
+    "sourceName": "Wikipedia DE – Algorithmus von Sutherland-Hodgman",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Algorithmus_von_Sutherland-Hodgman",
+    "verifyNote": "Polygon-Clipping gegen konvexes Fenster; linear in der Kantenzahl pro Clip-Ebene."
+  },
+  {
+    "id": "algorithm-k-means-plus-plus-h6",
+    "name": "k-Means++",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Clustering",
+      "avgComplexity": "O(n k d)",
+      "purpose": "Wählt die Startzentren für k-Means klug verteilt, sodass das Clustering schneller und genauer konvergiert"
+    },
+    "funFact": "Allein durch die bessere Startwahl liefert k-Means++ nachweislich Ergebnisse nahe am Optimum, wo zufällige Starts oft scheitern.",
+    "sourceName": "Wikipedia DE – k-Means-Algorithmus (k-means++)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/K-Means-Algorithmus",
+    "verifyNote": "Arthur & Vassilvitskii 2007; gewichtete Startwahl proportional zum Abstandsquadrat."
+  },
+  {
+    "id": "algorithm-optics-h6",
+    "name": "OPTICS",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Clustering",
+      "avgComplexity": "O(n log n)",
+      "purpose": "Findet dichtebasierte Cluster verschiedener Dichte, ohne dass die Dichteschwelle vorab fest gewählt werden muss"
+    },
+    "funFact": "OPTICS erweitert DBSCAN und erzeugt eine Erreichbarkeits-Darstellung, aus der sich Cluster unterschiedlicher Dichte ablesen lassen.",
+    "sourceName": "Wikipedia DE – OPTICS",
+    "sourceUrl": "https://de.wikipedia.org/wiki/OPTICS",
+    "verifyNote": "Ankerst et al. 1999; mit räumlichem Index O(n log n)."
+  },
+  {
+    "id": "algorithm-hierarchisches-clustering-agglomerativ-h6",
+    "name": "Agglomeratives hierarchisches Clustering",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Clustering",
+      "avgComplexity": "O(n³)",
+      "purpose": "Baut eine Cluster-Hierarchie auf, indem zu Beginn jeder Punkt ein Cluster ist und die nächsten Cluster verschmolzen werden"
+    },
+    "funFact": "Das Ergebnis lässt sich als Dendrogramm darstellen, einer Baumgrafik, die zeigt, in welcher Reihenfolge die Cluster verschmolzen.",
+    "sourceName": "Wikipedia DE – Hierarchische Clusteranalyse",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Hierarchische_Clusteranalyse",
+    "verifyNote": "Bottom-up-Verschmelzung; naive Implementierung O(n³), optimiert bis O(n² log n)."
+  },
+  {
+    "id": "algorithm-wagner-fischer-h6",
+    "name": "Wagner-Fischer-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "String-Verarbeitung",
+      "avgComplexity": "O(n m)",
+      "purpose": "Berechnet die Levenshtein-Distanz zweier Zeichenketten per dynamischer Programmierung über eine Distanzmatrix"
+    },
+    "funFact": "Dieselbe Matrix-Idee steckt in jeder Rechtschreibkorrektur, die ähnliche Wörter vorschlägt.",
+    "sourceName": "Wikipedia EN – Wagner–Fischer algorithm",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Wagner%E2%80%93Fischer_algorithm",
+    "verifyNote": "DP-Matrix der Größe n×m; Standardverfahren zur Editierdistanz."
+  },
+  {
+    "id": "algorithm-shannon-fano-h6",
+    "name": "Shannon-Fano-Kodierung",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Kompression",
+      "avgComplexity": "O(n log n)",
+      "purpose": "Erzeugt einen präfixfreien Code, indem Symbole nach Häufigkeit sortiert und rekursiv in zwei möglichst gleich wahrscheinliche Gruppen geteilt werden"
+    },
+    "funFact": "Shannon-Fano ist der historische Vorläufer der Huffman-Kodierung, die jedoch garantiert optimale Codelängen liefert.",
+    "sourceName": "Wikipedia DE – Shannon-Fano-Kodierung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Shannon-Fano-Kodierung",
+    "verifyNote": "Top-down-Aufteilung nach Wahrscheinlichkeit; nicht immer optimal im Gegensatz zu Huffman."
+  },
+  {
+    "id": "algorithm-elias-gamma-h6",
+    "name": "Elias-Gamma-Kodierung",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Kompression",
+      "avgComplexity": "O(log n)",
+      "purpose": "Kodiert positive ganze Zahlen variabel lang, sodass kleine Zahlen weniger Bits brauchen, ohne dass die Länge vorab bekannt sein muss"
+    },
+    "funFact": "Elias-Codes werden in invertierten Indizes von Suchmaschinen genutzt, um lange Listen kleiner Zahlen kompakt zu speichern.",
+    "sourceName": "Wikipedia EN – Elias gamma coding",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Elias_gamma_coding",
+    "verifyNote": "Selbstbegrenzender Code; Länge wächst mit 2⌊log₂ n⌋+1 Bits."
+  },
+  {
+    "id": "algorithm-bwt-mtf-pipeline-h6",
+    "name": "Move-to-Front mit BWT",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Kompression",
+      "avgComplexity": "O(n)",
+      "purpose": "Wandelt nach der Burrows-Wheeler-Transformation häufige Symbole in kleine Zahlen um und macht den Datenstrom besser komprimierbar"
+    },
+    "funFact": "Diese Kombination ist das Herz von bzip2, das dadurch oft kompakter als gzip packt.",
+    "sourceName": "Wikipedia DE – Move-to-front",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Move-to-front",
+    "verifyNote": "MTF folgt typischerweise der BWT in bzip2; linearer Einzeldurchlauf."
+  },
+  {
+    "id": "algorithm-reed-solomon-h6",
+    "name": "Reed-Solomon-Code",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(n²)",
+      "purpose": "Fügt Daten Prüfsymbole hinzu, mit denen sich mehrere fehlerhafte Symbole erkennen und korrigieren lassen"
+    },
+    "funFact": "Reed-Solomon schützt die Daten auf CDs, DVDs, QR-Codes und sogar auf den Funkstrecken von Raumsonden vor Lesefehlern.",
+    "sourceName": "Wikipedia DE – Reed-Solomon-Code",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Reed-Solomon-Code",
+    "verifyNote": "Fehlerkorrektur über Polynome im endlichen Körper; klassische Dekodierung O(n²)."
+  },
+  {
+    "id": "algorithm-hamming-code-h6",
+    "name": "Hamming-Code",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(n)",
+      "purpose": "Fügt Paritätsbits an bestimmten Positionen ein, sodass ein einzelner Bitfehler erkannt und korrigiert werden kann"
+    },
+    "funFact": "ECC-Arbeitsspeicher nutzt Hamming-artige Codes, um durch kosmische Strahlung gekippte Bits automatisch zu reparieren.",
+    "sourceName": "Wikipedia DE – Hamming-Code",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Hamming-Code",
+    "verifyNote": "Single-Error-Correcting; Paritätsbits an Zweierpotenz-Positionen."
+  },
+  {
+    "id": "algorithm-adler-32-h6",
+    "name": "Adler-32",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(n)",
+      "purpose": "Berechnet eine 32-Bit-Prüfsumme aus zwei laufenden Summen, um Übertragungsfehler schnell zu erkennen"
+    },
+    "funFact": "Adler-32 steckt im zlib-Format und ist schneller zu berechnen als eine CRC-Prüfsumme, dafür etwas weniger zuverlässig.",
+    "sourceName": "Wikipedia DE – Adler-32",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Adler-32",
+    "verifyNote": "Zwei modulo-65521-Summen; eingesetzt in zlib/DEFLATE-Streams."
+  },
+  {
+    "id": "algorithm-murmurhash-h6",
+    "name": "MurmurHash",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(n)",
+      "purpose": "Erzeugt eine schnelle, gut streuende Nicht-kryptografische Hashsumme für Hashtabellen und Bloom-Filter"
+    },
+    "funFact": "Der Name spielt auf die Kernoperationen Multiply und Rotate an; MurmurHash ist in vielen Datenbanken und Sprachlaufzeiten verbaut.",
+    "sourceName": "Wikipedia EN – MurmurHash",
+    "sourceUrl": "https://en.wikipedia.org/wiki/MurmurHash",
+    "verifyNote": "Nicht-kryptografische Hashfunktion (Appleby 2008); linear über die Eingabe."
+  },
+  {
+    "id": "algorithm-fnv-hash-h6",
+    "name": "FNV-Hash",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(n)",
+      "purpose": "Berechnet eine einfache, schnelle Hashsumme durch abwechselndes Multiplizieren mit einer Primzahl und XOR der Bytes"
+    },
+    "funFact": "Wegen seiner Einfachheit ist Fowler-Noll-Vo einer der am häufigsten von Hand implementierten Hashes überhaupt.",
+    "sourceName": "Wikipedia EN – Fowler–Noll–Vo hash function",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function",
+    "verifyNote": "Multiply-XOR-Schleife mit FNV-Prime; nicht-kryptografisch, linear."
+  },
+  {
+    "id": "algorithm-booth-multiplikation-h6",
+    "name": "Booth-Multiplikation",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(n)",
+      "purpose": "Multipliziert vorzeichenbehaftete Binärzahlen im Zweierkomplement effizient durch Betrachten von Bitgruppen"
+    },
+    "funFact": "Booths Verfahren reduziert die Zahl nötiger Additionen und ist in vielen Hardware-Multiplizierern von Prozessoren umgesetzt.",
+    "sourceName": "Wikipedia DE – Booth-Algorithmus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Booth-Algorithmus",
+    "verifyNote": "Booth 1951; arbeitet direkt auf Zweierkomplement-Darstellung."
+  },
+  {
+    "id": "algorithm-morris-traversierung-h6",
+    "name": "Morris-Traversierung",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Suche",
+      "avgComplexity": "O(n)",
+      "purpose": "Durchläuft einen Binärbaum ohne Stack oder Rekursion, indem temporär Fäden zu Vorgängerknoten gesetzt werden"
+    },
+    "funFact": "Die Morris-Traversierung kommt mit konstantem Zusatzspeicher aus, wo eine rekursive Lösung O(h) Stack braucht.",
+    "sourceName": "Wikipedia EN – Tree traversal (Morris)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Tree_traversal",
+    "verifyNote": "In-Order ohne Hilfsspeicher über temporäre Threaded-Links; O(1) Zusatzspeicher."
+  },
+  {
+    "id": "algorithm-powerset-konstruktion-h6",
+    "name": "Potenzmengenkonstruktion",
+    "category": "algorithm",
+    "attributes": {
+      "category": "String-Verarbeitung",
+      "avgComplexity": "O(2ⁿ)",
+      "purpose": "Wandelt einen nichtdeterministischen endlichen Automaten in einen äquivalenten deterministischen um"
+    },
+    "funFact": "Sie ist der Grund, warum sich jeder reguläre Ausdruck letztlich als deterministischer Automat ausführen lässt.",
+    "sourceName": "Wikipedia DE – Potenzmengenkonstruktion",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Potenzmengenkonstruktion",
+    "verifyNote": "NFA→DFA-Umwandlung; im Worst Case exponentiell viele Zustände."
+  },
+  {
+    "id": "algorithm-hopcroft-minimierung-h6",
+    "name": "Hopcroft-Minimierung",
+    "category": "algorithm",
+    "attributes": {
+      "category": "String-Verarbeitung",
+      "avgComplexity": "O(n log n)",
+      "purpose": "Reduziert einen deterministischen endlichen Automaten auf die kleinste äquivalente Zustandsmenge"
+    },
+    "funFact": "Der Algorithmus verfeinert Partitionen von Zuständen, bis nur noch wirklich unterscheidbare Zustände übrig sind.",
+    "sourceName": "Wikipedia EN – DFA minimization (Hopcroft)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/DFA_minimization",
+    "verifyNote": "Hopcroft 1971; Partitionsverfeinerung in O(n log n)."
+  },
+  {
+    "id": "algorithm-boyer-moore-majority-h6",
+    "name": "Boyer-Moore-Mehrheitsalgorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Suche",
+      "avgComplexity": "O(n)",
+      "purpose": "Findet ein in mehr als der Hälfte der Elemente vorkommendes Mehrheitselement mit nur konstantem Zusatzspeicher"
+    },
+    "funFact": "Das Verfahren merkt sich nur einen Kandidaten und einen Zähler und kommt damit in einem einzigen Durchlauf aus.",
+    "sourceName": "Wikipedia EN – Boyer–Moore majority vote algorithm",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_majority_vote_algorithm",
+    "verifyNote": "Ein Durchlauf, O(1) Speicher; findet absolutes Mehrheitselement falls vorhanden."
+  },
+  {
+    "id": "algorithm-floyd-heapaufbau-h6",
+    "name": "Floyd-Heapaufbau",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortierung",
+      "avgComplexity": "O(n)",
+      "purpose": "Baut aus einem unsortierten Array einen Heap auf, indem von unten nach oben jeder Teilbaum versickert wird"
+    },
+    "funFact": "Überraschenderweise kostet der Heapaufbau nur O(n) und nicht O(n log n), obwohl pro Element ein Versickern nötig scheint.",
+    "sourceName": "Wikipedia EN – Binary heap (Building a heap)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Binary_heap",
+    "verifyNote": "Bottom-up-Heapify (Floyd 1964); lineare Gesamtkosten trotz O(log n) pro Versickern."
+  },
+  {
+    "id": "file_format-elf-h6",
+    "name": "ELF",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Executable and Linkable Format",
+      "compression": "unkomprimiert",
+      "mediaType": "Programm"
+    },
+    "funFact": "ELF ist das Standardformat für ausführbare Dateien und Bibliotheken auf Linux und vielen anderen Unix-Systemen.",
+    "sourceName": "Wikipedia DE – Executable and Linkable Format",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Executable_and_Linking_Format",
+    "verifyNote": "Vollform und Verwendung als Linux-Binärformat laut Wikipedia; Binärcontainer ohne eigene Kompression."
+  },
+  {
+    "id": "file_format-mach-o-h6",
+    "name": "Mach-O",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Mach Object File Format",
+      "compression": "unkomprimiert",
+      "mediaType": "Programm"
+    },
+    "funFact": "Mach-O ist das Format ausführbarer Dateien auf macOS und iOS und kann als Fat Binary Code für mehrere Prozessorarchitekturen enthalten.",
+    "sourceName": "Wikipedia DE – Mach-O",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Mach-O",
+    "verifyNote": "Apple-Binärformat; Fat-Binary-Eigenschaft laut Wikipedia; unkomprimierter Container."
+  },
+  {
+    "id": "file_format-pe-h6",
+    "name": "PE",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Portable Executable",
+      "compression": "unkomprimiert",
+      "mediaType": "Programm"
+    },
+    "funFact": "Das PE-Format ist die Grundlage von EXE- und DLL-Dateien unter Windows und enthält einen kleinen DOS-Stub aus historischen Gründen.",
+    "sourceName": "Wikipedia DE – Portable Executable",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Portable_Executable",
+    "verifyNote": "Windows-Binärformat für EXE/DLL; DOS-Stub-Detail laut Wikipedia."
+  },
+  {
+    "id": "file_format-war-h6",
+    "name": "WAR",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Web Application Archive",
+      "compression": "verlustfrei komprimiert",
+      "mediaType": "Archiv"
+    },
+    "funFact": "Eine WAR-Datei bündelt eine komplette Java-Webanwendung in einem einzigen ZIP-basierten Archiv, das ein Server direkt ausrollen kann.",
+    "sourceName": "Wikipedia EN – WAR (file format)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/WAR_(file_format)",
+    "verifyNote": "ZIP-basiertes Java-Web-Archiv; verlustfreie Kompression über das ZIP-Format."
+  },
+  {
+    "id": "file_format-appimage-h6",
+    "name": "AppImage",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "AppImage",
+      "compression": "verlustfrei komprimiert",
+      "mediaType": "Programm"
+    },
+    "funFact": "Ein AppImage bündelt eine Linux-Anwendung samt Abhängigkeiten in einer einzigen Datei, die ohne Installation direkt startbar ist.",
+    "sourceName": "Wikipedia EN – AppImage",
+    "sourceUrl": "https://en.wikipedia.org/wiki/AppImage",
+    "verifyNote": "Selbstausführendes Image mit komprimiertem SquashFS; portable Linux-App."
+  },
+  {
+    "id": "file_format-flatpak-h6",
+    "name": "Flatpak",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Flatpak",
+      "compression": "verlustfrei komprimiert",
+      "mediaType": "Programm"
+    },
+    "funFact": "Flatpak verteilt Linux-Anwendungen sandbox-isoliert und unabhängig von der Distribution, ähnlich wie App-Stores auf dem Smartphone.",
+    "sourceName": "Wikipedia DE – Flatpak",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Flatpak",
+    "verifyNote": "Distributionsübergreifendes Paket-/Sandbox-Format; Inhalte als komprimiertes OSTree-Repo."
+  },
+  {
+    "id": "file_format-snap-h6",
+    "name": "Snap",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Snap-Paket",
+      "compression": "verlustfrei komprimiert",
+      "mediaType": "Programm"
+    },
+    "funFact": "Snap-Pakete von Canonical enthalten alle Abhängigkeiten und werden als komprimiertes SquashFS-Image eingebunden.",
+    "sourceName": "Wikipedia EN – Snap (software)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Snap_(software)",
+    "verifyNote": "SquashFS-basiertes Paketformat; verlustfreie Kompression des Images."
+  },
+  {
+    "id": "file_format-xlsm-h6",
+    "name": "XLSM",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Excel Macro-Enabled Workbook",
+      "compression": "verlustfrei komprimiert",
+      "mediaType": "Tabellenkalkulation"
+    },
+    "funFact": "XLSM gleicht XLSX, erlaubt aber zusätzlich eingebettete Makros — weshalb solche Dateien als häufiger Weg für Schadcode gelten.",
+    "sourceName": "Wikipedia EN – Office Open XML",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Office_Open_XML",
+    "verifyNote": "ZIP-basiertes OOXML mit aktivierten Makros; verlustfreie ZIP-Kompression."
+  },
+  {
+    "id": "file_format-vsdx-h6",
+    "name": "VSDX",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Visio Drawing",
+      "compression": "verlustfrei komprimiert",
+      "mediaType": "Vektorgrafik"
+    },
+    "funFact": "VSDX ist das Diagrammformat von Microsoft Visio und speichert Flussdiagramme und Pläne XML-basiert in einem ZIP-Container.",
+    "sourceName": "Wikipedia EN – Microsoft Visio",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Microsoft_Visio",
+    "verifyNote": "OPC/ZIP-basiertes XML-Format für Visio-Diagramme; verlustfreie Kompression."
+  },
+  {
+    "id": "file_format-class-h6",
+    "name": "Class",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Java Class File",
+      "compression": "unkomprimiert",
+      "mediaType": "Bytecode"
+    },
+    "funFact": "Jede .class-Datei beginnt mit der Signatur 0xCAFEBABE und enthält den Bytecode, den die Java Virtual Machine ausführt.",
+    "sourceName": "Wikipedia DE – Java-Class-Datei",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Java-Class-Datei",
+    "verifyNote": "JVM-Bytecode-Container; Magic Number CAFEBABE laut Wikipedia; nicht komprimiert."
+  },
+  {
+    "id": "file_format-wasm-h6",
+    "name": "WASM-Binärformat",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "WebAssembly Binary Format",
+      "compression": "unkomprimiert",
+      "mediaType": "Bytecode"
+    },
+    "funFact": "Das WASM-Binärformat lässt nahezu native Rechenleistung im Browser zu und ist als kompaktes Stack-Maschinen-Bytecode aufgebaut.",
+    "sourceName": "Wikipedia DE – WebAssembly",
+    "sourceUrl": "https://de.wikipedia.org/wiki/WebAssembly",
+    "verifyNote": "Portables Stack-Maschinen-Bytecode für das Web; Binärformat ohne eigene Kompression."
+  },
+  {
+    "id": "file_format-dockerfile-h6",
+    "name": "Dockerfile",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Dockerfile",
+      "compression": "unkomprimiert",
+      "mediaType": "Text"
+    },
+    "funFact": "Ein Dockerfile beschreibt Schritt für Schritt in Textform, wie ein Container-Image aufgebaut wird, und macht Umgebungen reproduzierbar.",
+    "sourceName": "Wikipedia DE – Docker (Software)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Docker_(Software)",
+    "verifyNote": "Textbasierte Bauanleitung für Container-Images; reines Textformat."
+  },
+  {
+    "id": "file_format-pem-x509-h6",
+    "name": "PFX",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Personal Information Exchange (PKCS#12)",
+      "compression": "unkomprimiert",
+      "mediaType": "Zertifikat"
+    },
+    "funFact": "Eine PFX/PKCS#12-Datei bündelt ein Zertifikat samt privatem Schlüssel passwortgeschützt in einem Container — praktisch zum Umziehen von Schlüsseln.",
+    "sourceName": "Wikipedia EN – PKCS 12",
+    "sourceUrl": "https://en.wikipedia.org/wiki/PKCS_12",
+    "verifyNote": "PKCS#12-Container für Zertifikat und privaten Schlüssel; verschlüsselt, nicht komprimiert."
+  },
+  {
+    "id": "network_protocol-dhcpv6-h6",
+    "name": "DHCPv6",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Dynamic Host Configuration Protocol for IPv6",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 547,
+      "purpose": "Automatische Vergabe von IPv6-Adressen und Konfigurationsdaten an Clients im Netzwerk"
+    },
+    "funFact": "DHCPv6 nutzt nicht mehr die MAC-Adresse, sondern eine eigene DUID, um ein Gerät dauerhaft wiederzuerkennen.",
+    "sourceName": "RFC 8415 – Dynamic Host Configuration Protocol for IPv6 (DHCPv6)",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc8415",
+    "verifyNote": "Server-Port 547/UDP und Zweck der Adressvergabe aus RFC 8415."
+  },
+  {
+    "id": "network_protocol-slaac-h6",
+    "name": "SLAAC",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Stateless Address Autoconfiguration",
+      "layer": "Vermittlungsschicht",
+      "transport": "IP",
+      "purpose": "Erlaubt IPv6-Geräten, sich ohne zentralen Server selbst eine Adresse zu vergeben"
+    },
+    "funFact": "Bei SLAAC hört ein Gerät einfach die Router-Advertisements ab und bildet sich daraus selbst eine gültige IPv6-Adresse.",
+    "sourceName": "RFC 4862 – IPv6 Stateless Address Autoconfiguration",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc4862",
+    "verifyNote": "Zustandsloses Verfahren auf Basis von Router-Advertisements aus RFC 4862."
+  },
+  {
+    "id": "network_protocol-llmnr-h6",
+    "name": "LLMNR",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Link-Local Multicast Name Resolution",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 5355,
+      "purpose": "Namensauflösung im lokalen Netz ohne DNS-Server, vor allem unter Windows"
+    },
+    "funFact": "LLMNR springt ein, wenn kein DNS-Server antwortet – wird aber oft deaktiviert, weil Angreifer damit Anmeldedaten abgreifen können.",
+    "sourceName": "RFC 4795 – Link-Local Multicast Name Resolution (LLMNR)",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc4795",
+    "verifyNote": "Port 5355/UDP und Zweck der lokalen Namensauflösung aus RFC 4795."
+  },
+  {
+    "id": "network_protocol-fcoe-h6",
+    "name": "FCoE",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Fibre Channel over Ethernet",
+      "layer": "Sicherungsschicht",
+      "transport": "Ethernet",
+      "purpose": "Transportiert Speichernetz-Daten (Fibre Channel) direkt über Ethernet-Frames"
+    },
+    "funFact": "FCoE bündelt Speicher- und Datenverkehr über dieselbe Ethernet-Verkabelung und spart so im Rechenzentrum getrennte Kabelstränge.",
+    "sourceName": "Wikipedia DE – Fibre Channel over Ethernet",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Fibre_Channel_over_Ethernet",
+    "verifyNote": "Kapselung von Fibre Channel in Ethernet-Frames als Layer-2-Protokoll."
+  },
+  {
+    "id": "network_protocol-hls-h6",
+    "name": "HLS",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "HTTP Live Streaming",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "purpose": "Adaptives Video-Streaming, das den Strom in kleine über HTTP geladene Segmente zerlegt"
+    },
+    "funFact": "HLS wurde von Apple eingeführt und passt die Videoqualität dynamisch an die Bandbreite an, indem es zwischen mehreren Segmentlisten umschaltet.",
+    "sourceName": "RFC 8216 – HTTP Live Streaming",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc8216",
+    "verifyNote": "Segmentbasiertes adaptives Streaming über HTTP aus RFC 8216."
+  },
+  {
+    "id": "network_protocol-dash-h6",
+    "name": "MPEG-DASH",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Dynamic Adaptive Streaming over HTTP",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "purpose": "Herstellerneutrales adaptives Video-Streaming über HTTP mit umschaltbaren Qualitätsstufen"
+    },
+    "funFact": "MPEG-DASH ist der offene Standard-Gegenpart zu Apples HLS und arbeitet bewusst codec-unabhängig.",
+    "sourceName": "Wikipedia DE – Dynamic Adaptive Streaming over HTTP",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP",
+    "verifyNote": "Offener ISO-Standard für adaptives HTTP-Streaming, Gegenstück zu HLS."
+  },
+  {
+    "id": "network_protocol-pop3s-h6",
+    "name": "Gratuitous ARP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Gratuitous Address Resolution Protocol",
+      "layer": "Sicherungsschicht",
+      "transport": "Ethernet",
+      "purpose": "Ungefragtes ARP-Paket, mit dem ein Gerät seine eigene IP-MAC-Zuordnung im Netz bekanntgibt"
+    },
+    "funFact": "Bei einem Failover schickt der übernehmende Server ein Gratuitous ARP, damit alle Geräte sofort auf die neue MAC-Adresse umlernen.",
+    "sourceName": "RFC 5227 – IPv4 Address Conflict Detection",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc5227",
+    "verifyNote": "Ungefragte ARP-Ankündigung zur Aktualisierung von ARP-Caches aus RFC 5227."
+  },
+  {
+    "id": "network_protocol-rtsp-control-h6",
+    "name": "ONVIF",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Open Network Video Interface Forum",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "purpose": "Herstellerübergreifende Steuerung von IP-Überwachungskameras und Videorekordern"
+    },
+    "funFact": "Dank ONVIF kann eine Überwachungssoftware Kameras verschiedener Hersteller ansteuern, ohne für jede Marke eine eigene Schnittstelle zu brauchen.",
+    "sourceName": "Wikipedia DE – ONVIF",
+    "sourceUrl": "https://de.wikipedia.org/wiki/ONVIF",
+    "verifyNote": "Herstellerübergreifender Standard für die Steuerung von Netzwerk-Videogeräten."
+  },
+  {
+    "id": "network_protocol-mqtt-sn-h6",
+    "name": "MQTT-SN",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "MQTT for Sensor Networks",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "purpose": "Schlanke MQTT-Variante für sehr kleine Sensorgeräte und drahtlose Netze"
+    },
+    "funFact": "MQTT-SN ersetzt lange Topic-Namen durch kurze numerische IDs, damit selbst winzige batteriebetriebene Sensoren sparsam funken können.",
+    "sourceName": "Wikipedia DE – MQTT",
+    "sourceUrl": "https://de.wikipedia.org/wiki/MQTT",
+    "verifyNote": "Für Sensornetze optimierte MQTT-Variante über UDP statt TCP."
+  },
+  {
+    "id": "network_protocol-igmp-snooping-h6",
+    "name": "IGMP-Snooping",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Internet Group Management Protocol Snooping",
+      "layer": "Sicherungsschicht",
+      "transport": "Ethernet",
+      "purpose": "Switch lauscht IGMP-Nachrichten ab und leitet Multicast nur an interessierte Ports"
+    },
+    "funFact": "Ohne IGMP-Snooping würde ein Switch Multicast-Video an alle Ports fluten – mit Snooping bekommt es nur, wer die Gruppe abonniert hat.",
+    "sourceName": "RFC 4541 – Considerations for IGMP and MLD Snooping Switches",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc4541",
+    "verifyNote": "Layer-2-Optimierung von Multicast-Weiterleitung durch Mithören von IGMP aus RFC 4541."
+  },
+  {
+    "id": "network_protocol-lacp-h6",
+    "name": "LACP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Link Aggregation Control Protocol",
+      "layer": "Sicherungsschicht",
+      "transport": "Ethernet",
+      "purpose": "Bündelt mehrere physische Ethernet-Leitungen zu einer logischen Verbindung"
+    },
+    "funFact": "LACP fasst etwa vier Gigabit-Leitungen zu einem 4-Gigabit-Kanal zusammen und sorgt zugleich für Ausfallsicherheit, wenn ein Kabel stirbt.",
+    "sourceName": "Wikipedia DE – Link Aggregation",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Link_Aggregation",
+    "verifyNote": "Standardisiertes Bündeln mehrerer Links zu einer logischen Leitung (IEEE 802.1AX)."
+  },
+  {
+    "id": "network_protocol-ssh-tunnel-h6",
+    "name": "Telnet über TLS",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Telnet over Transport Layer Security",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 992,
+      "purpose": "Verschlüsselte Variante des Terminal-Protokolls Telnet über eine TLS-Schicht"
+    },
+    "funFact": "Telnet über TLS hört auf Port 992 und sollte den unverschlüsselten Klassiker Telnet ersetzen – in der Praxis hat sich aber SSH durchgesetzt.",
+    "sourceName": "IANA – Service Name and Transport Protocol Port Number Registry",
+    "sourceUrl": "https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml",
+    "verifyNote": "Port 992 (telnets) als TLS-gesichertes Telnet im IANA-Portregister."
+  },
+  {
+    "id": "network_protocol-coap-observe-h6",
+    "name": "ZeroConf",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Zero Configuration Networking",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "purpose": "Sammelbegriff für Verfahren, die ein Netz ohne manuelle Konfiguration nutzbar machen"
+    },
+    "funFact": "ZeroConf sorgt dafür, dass ein neuer Drucker im WLAN sofort auftaucht, ohne dass jemand IP-Adressen oder DNS-Einträge eintippen muss.",
+    "sourceName": "Wikipedia DE – Zeroconf",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Zeroconf",
+    "verifyNote": "Sammelbegriff für selbstkonfigurierende Netzdienste (u. a. mDNS, Link-Local-Adressen)."
+  },
+  {
+    "id": "network_protocol-rtcp-feedback-h6",
+    "name": "WebTransport",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "WebTransport",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "purpose": "Moderne Browser-Schnittstelle für bidirektionale, latenzarme Datenströme über HTTP/3"
+    },
+    "funFact": "WebTransport baut auf QUIC auf und erlaubt im Browser sowohl zuverlässige als auch verlustbehaftete Datenströme – ideal für Spiele und Live-Streams.",
+    "sourceName": "MDN Web Docs – WebTransport API",
+    "sourceUrl": "https://developer.mozilla.org/de/docs/Web/API/WebTransport_API",
+    "verifyNote": "Browser-API für Streams über HTTP/3/QUIC laut MDN."
+  },
+  {
+    "id": "network_protocol-https-alt-h6",
+    "name": "STARTTLS",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Opportunistic TLS via STARTTLS",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "purpose": "Schaltet eine bestehende Klartextverbindung (z. B. SMTP, IMAP) nachträglich auf TLS um"
+    },
+    "funFact": "STARTTLS nutzt denselben Port wie die unverschlüsselte Verbindung und verschlüsselt erst nach einem Umschalt-Kommando mitten in der Sitzung.",
+    "sourceName": "RFC 3207 – SMTP Service Extension for Secure SMTP over Transport Layer Security",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc3207",
+    "verifyNote": "Nachträgliches Hochstufen einer Klartextverbindung auf TLS aus RFC 3207."
+  },
+  {
+    "id": "hardware-ddr-sdram-h6",
+    "name": "DDR-SDRAM",
+    "category": "hardware",
+    "attributes": {
+      "category": "Arbeitsspeicher",
+      "function": "Schneller Arbeitsspeicher, der Daten an steigender und fallender Taktflanke überträgt"
+    },
+    "funFact": "Das Double Data Rate in DDR-RAM bedeutet, dass pro Taktzyklus zweimal Daten übertragen werden – einmal bei steigender, einmal bei fallender Flanke.",
+    "sourceName": "Wikipedia DE – DDR-SDRAM",
+    "sourceUrl": "https://de.wikipedia.org/wiki/DDR-SDRAM",
+    "verifyNote": "Datenübertragung an beiden Taktflanken als Kernmerkmal von DDR-SDRAM."
+  },
+  {
+    "id": "hardware-bga-h6",
+    "name": "BGA-Gehäuse",
+    "category": "hardware",
+    "attributes": {
+      "category": "Verbindungstechnik",
+      "function": "Chipgehäuse, dessen Anschlüsse als Raster winziger Lotkugeln auf der Unterseite liegen"
+    },
+    "funFact": "Beim Ball Grid Array sitzen die Lötkontakte als Kugelraster unter dem Chip – das spart Platz, macht aber ein Nachlöten von Hand fast unmöglich.",
+    "sourceName": "Wikipedia DE – Ball Grid Array",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Ball_Grid_Array",
+    "verifyNote": "Gehäusebauform mit Lotkugelraster auf der Unterseite des Chips."
+  },
+  {
+    "id": "hardware-zif-sockel-h6",
+    "name": "ZIF-Sockel",
+    "category": "hardware",
+    "attributes": {
+      "category": "Hauptplatine/Bus",
+      "function": "Prozessorsockel, in den der Chip ohne Kraftaufwand eingelegt und per Hebel verriegelt wird"
+    },
+    "funFact": "Der Hebel am ZIF-Sockel (Zero Insertion Force) klemmt die Pins erst nach dem Einlegen fest, sodass keine Pins verbiegen.",
+    "sourceName": "Wikipedia DE – Zero Insertion Force",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Zero_Insertion_Force",
+    "verifyNote": "Sockel mit Hebelmechanik zum kraftlosen Einsetzen von CPUs."
+  },
+  {
+    "id": "hardware-voltage-regulator-module-h6",
+    "name": "Spannungswandlermodul (VRM)",
+    "category": "hardware",
+    "attributes": {
+      "category": "Stromversorgung",
+      "function": "Wandelt die Netzteilspannung in die niedrige, präzise Versorgungsspannung des Prozessors"
+    },
+    "funFact": "Ein VRM auf dem Mainboard senkt die 12 Volt des Netzteils auf rund 1 Volt für die CPU – und muss dabei viele Ampere stabil liefern.",
+    "sourceName": "Wikipedia DE – Spannungsregler",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Spannungsregler",
+    "verifyNote": "Mehrphasige Spannungswandlung von 12 V auf CPU-Kernspannung als VRM-Aufgabe."
+  },
+  {
+    "id": "hardware-pwm-fan-header-h6",
+    "name": "Lüfteranschluss (4-Pin)",
+    "category": "hardware",
+    "attributes": {
+      "category": "Kühlung",
+      "function": "Steckplatz auf dem Mainboard, der einen Lüfter mit Strom versorgt und seine Drehzahl regelt"
+    },
+    "funFact": "Beim 4-Pin-Lüfteranschluss steuert die vierte Leitung per PWM-Signal die Drehzahl, während ältere 3-Pin-Anschlüsse nur über die Spannung regeln.",
+    "sourceName": "Intel – 4-Wire Pulse Width Modulation (PWM) Controlled Fans Specification",
+    "sourceUrl": "https://www.intel.com/content/www/us/en/support/articles/000007024/processors.html",
+    "verifyNote": "4-Pin-PWM-Lüftersteuerung mit separater Drehzahlleitung nach Intel-Spezifikation."
+  },
+  {
+    "id": "hardware-vapor-chamber-h6",
+    "name": "Vapor Chamber",
+    "category": "hardware",
+    "attributes": {
+      "category": "Kühlung",
+      "function": "Flacher, mit Flüssigkeit gefüllter Hohlkörper, der Wärme über Verdampfung großflächig verteilt"
+    },
+    "funFact": "Eine Vapor Chamber arbeitet wie eine flachgedrückte Heatpipe: Die Flüssigkeit verdampft über dem heißen Chip und verteilt die Wärme schlagartig auf die ganze Fläche.",
+    "sourceName": "Wikipedia EN – Vapor chamber",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Vapor_chamber",
+    "verifyNote": "Zweiphasige Wärmeverteilung über Verdampfung in flachem Hohlkörper."
+  },
+  {
+    "id": "hardware-pci-slot-h6",
+    "name": "PCI-Steckplatz",
+    "category": "hardware",
+    "attributes": {
+      "category": "Erweiterung",
+      "function": "Älterer paralleler Bus-Steckplatz für Erweiterungskarten auf dem Mainboard"
+    },
+    "funFact": "Der klassische PCI-Steckplatz wurde fast vollständig vom schnelleren, seriellen PCI Express verdrängt, das pro Leitung deutlich mehr Daten überträgt.",
+    "sourceName": "Wikipedia DE – Peripheral Component Interconnect",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Peripheral_Component_Interconnect",
+    "verifyNote": "Paralleler Erweiterungsbus, Vorgänger von PCI Express."
+  },
+  {
+    "id": "hardware-ddr-dimm-slot-h6",
+    "name": "RAM-Steckplatz (DIMM-Slot)",
+    "category": "hardware",
+    "attributes": {
+      "category": "Hauptplatine/Bus",
+      "function": "Steckplatz auf dem Mainboard zur Aufnahme der Arbeitsspeicher-Riegel"
+    },
+    "funFact": "Die kleine Kerbe im DIMM-Slot ist gegen Verpolung gedacht und sitzt bei jeder RAM-Generation an anderer Stelle, damit kein DDR4-Riegel in einen DDR5-Slot passt.",
+    "sourceName": "Wikipedia DE – Dual Inline Memory Module",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Dual_Inline_Memory_Module",
+    "verifyNote": "Steckplatz für DIMM-Speichermodule mit generationsabhängiger Kodierkerbe."
+  },
+  {
+    "id": "hardware-thermal-throttling-sensor-h6",
+    "name": "Stromschiene (Power Rail)",
+    "category": "hardware",
+    "attributes": {
+      "category": "Stromversorgung",
+      "function": "Versorgungsleitung eines Netzteils, die eine bestimmte Spannung wie 12 V bereitstellt"
+    },
+    "funFact": "PC-Netzteile haben getrennte Schienen für 3,3 V, 5 V und 12 V – die 12-Volt-Schiene trägt heute die Hauptlast für CPU und Grafikkarte.",
+    "sourceName": "Wikipedia DE – Computernetzteil",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Computernetzteil",
+    "verifyNote": "Getrennte Spannungsschienen (3,3/5/12 V) als Standardaufbau von PC-Netzteilen."
+  },
+  {
+    "id": "hardware-em-pcb-trace-h6",
+    "name": "Leiterbahn",
+    "category": "hardware",
+    "attributes": {
+      "category": "Verbindungstechnik",
+      "function": "Aufgedruckte Kupferbahn auf der Platine, die Bauteile elektrisch miteinander verbindet"
+    },
+    "funFact": "Leiterbahnen auf einer Platine ersetzen einzelne Drähte – bei schnellen Signalen muss ihre Länge sogar exakt abgestimmt sein, damit Daten gleichzeitig ankommen.",
+    "sourceName": "Wikipedia DE – Leiterbahn",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Leiterbahn",
+    "verifyNote": "Aufgedruckte leitende Bahn zur Verbindung von Bauteilen auf einer Leiterplatte."
+  },
+  {
+    "id": "hardware-soldering-pad-h6",
+    "name": "Wärmeleitkleber",
+    "category": "hardware",
+    "attributes": {
+      "category": "Kühlung",
+      "function": "Klebstoff, der einen Kühlkörper dauerhaft fixiert und zugleich Wärme ableitet"
+    },
+    "funFact": "Anders als Wärmeleitpaste härtet Wärmeleitkleber aus und hält kleine Kühlkörper ohne Klammer oder Schraube fest auf dem Chip.",
+    "sourceName": "Wikipedia DE – Wärmeleitpaste",
+    "sourceUrl": "https://de.wikipedia.org/wiki/W%C3%A4rmeleitpaste",
+    "verifyNote": "Aushärtender wärmeleitender Klebstoff zur Befestigung von Kühlkörpern."
+  },
+  {
+    "id": "hardware-front-panel-connector-h6",
+    "name": "Front-Panel-Anschluss",
+    "category": "hardware",
+    "attributes": {
+      "category": "Hauptplatine/Bus",
+      "function": "Pin-Leiste, die Power-Taster, Reset und Status-LEDs des Gehäuses mit dem Mainboard verbindet"
+    },
+    "funFact": "Der Front-Panel-Anschluss ist berüchtigt, weil seine winzigen, einzeln steckbaren Pins für Power-Knopf und LEDs leicht verkehrt herum landen.",
+    "sourceName": "Wikipedia EN – Front panel header",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Front_panel_header",
+    "verifyNote": "Pin-Header zur Verbindung von Gehäusetastern und LEDs mit dem Mainboard."
+  },
+  {
+    "id": "hardware-cpu-heat-spreader-h6",
+    "name": "Heatspreader (IHS)",
+    "category": "hardware",
+    "attributes": {
+      "category": "Kühlung",
+      "function": "Metalldeckel auf dem Prozessor, der die Wärme des Chips großflächig an den Kühler weitergibt"
+    },
+    "funFact": "Der Heatspreader schützt den empfindlichen Silizium-Die und verteilt dessen punktuelle Hitze auf eine größere Fläche, an die der Kühler andocken kann.",
+    "sourceName": "Wikipedia EN – Integrated heat spreader",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Integrated_heat_spreader",
+    "verifyNote": "Metalldeckel zur Wärmeverteilung zwischen CPU-Die und Kühler."
+  },
+  {
+    "id": "hardware-m2-keying-h6",
+    "name": "M.2-Kodierung (Keying)",
+    "category": "hardware",
+    "attributes": {
+      "category": "Anschluss",
+      "function": "Kerbe im M.2-Stecker, die festlegt, welche Module in welchen Steckplatz passen"
+    },
+    "funFact": "Die Kerben B-Key und M-Key bei M.2 verhindern, dass eine reine SATA-SSD in einen Steckplatz wandert, der nur NVMe per PCIe unterstützt.",
+    "sourceName": "Wikipedia DE – M.2",
+    "sourceUrl": "https://de.wikipedia.org/wiki/M.2",
+    "verifyNote": "Kodierkerben (B-/M-Key) zur mechanischen Unterscheidung von M.2-Modultypen."
+  },
+  {
+    "id": "hardware-backlight-inverter-h6",
+    "name": "Display-Backlight",
+    "category": "hardware",
+    "attributes": {
+      "category": "Ausgabe",
+      "function": "Hintergrundbeleuchtung eines LCD-Bildschirms, ohne die das Panel kein Bild zeigt"
+    },
+    "funFact": "Ein LCD erzeugt selbst kein Licht – erst die LED-Hintergrundbeleuchtung macht das Bild sichtbar, weshalb sich darüber die Helligkeit regelt.",
+    "sourceName": "Wikipedia DE – Hintergrundbeleuchtung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Hintergrundbeleuchtung",
+    "verifyNote": "Hintergrundbeleuchtung als notwendige Lichtquelle eines LCD-Panels."
+  },
+  {
+    "id": "data_structure-skip-list-h6",
+    "name": "Sprungliste (Skip List)",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Lineare Struktur",
+      "purpose": "Sortierte Liste mit mehreren Express-Ebenen, die Suchen im Schnitt logarithmisch macht",
+      "accessComplexity": "O(log n)"
+    },
+    "funFact": "Die Skip List legt zufällig zusätzliche Überholspuren über die Liste – dadurch ist sie im Schnitt so schnell wie ein Suchbaum, aber viel einfacher zu programmieren.",
+    "sourceName": "Wikipedia DE – Sprungliste",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Sprungliste",
+    "verifyNote": "Mehrstufige verkettete Liste mit erwarteter O(log n)-Suche."
+  },
+  {
+    "id": "data_structure-circular-buffer-h6",
+    "name": "Ringpuffer (Circular Buffer)",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Lineare Struktur",
+      "purpose": "Puffer fester Größe, dessen Ende gedanklich wieder an den Anfang anschließt",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Ein Ringpuffer überschreibt beim Volllaufen die ältesten Daten und eignet sich deshalb perfekt für laufende Audio- oder Sensorströme.",
+    "sourceName": "Wikipedia DE – Ringpuffer",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Ringpuffer",
+    "verifyNote": "Puffer fester Größe mit umlaufendem Schreib-/Lesezeiger und O(1)-Zugriff."
+  },
+  {
+    "id": "data_structure-separate-chaining-h6",
+    "name": "Verkettungs-Hashverfahren (Separate Chaining)",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Hash-basiert",
+      "purpose": "Hashtabelle, die Kollisionen auflöst, indem jeder Platz auf eine Liste gleicher Hashwerte verweist",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Beim Separate Chaining hängt die Hashtabelle kollidierende Einträge einfach in eine verkettete Liste – fällt die Hashfunktion schlecht aus, wird daraus aber im schlimmsten Fall eine lange Kette.",
+    "sourceName": "Cormen et al. – Introduction to Algorithms (CLRS)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Hashtabelle#Verkettung_der_%C3%9Cberl%C3%A4ufer",
+    "verifyNote": "Kollisionsauflösung per Listen je Bucket; im Schnitt O(1)-Zugriff (CLRS Kap. 11.2)."
+  },
+  {
+    "id": "data_structure-binary-heap-h6",
+    "name": "Binärer Heap",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Heap",
+      "purpose": "Vollständiger Binärbaum mit Heap-Eigenschaft, der stets das kleinste oder größte Element oben hält",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Der binäre Heap lässt sich platzsparend in einem einfachen Array darstellen, weil sich Eltern und Kinder über simple Indexrechnung finden.",
+    "sourceName": "Cormen et al. – Introduction to Algorithms (CLRS)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Bin%C3%A4rer_Heap",
+    "verifyNote": "Zugriff auf das Minimum/Maximum in O(1), als Array darstellbar (CLRS Kap. 6)."
+  },
+  {
+    "id": "data_structure-stack-h6",
+    "name": "Kellerspeicher (Stack)",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Lineare Struktur",
+      "purpose": "Lineare Struktur nach dem LIFO-Prinzip: zuletzt abgelegtes Element wird zuerst entnommen",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Jeder Funktionsaufruf in einem Programm landet auf dem Aufruf-Stack – läuft er über, gibt es den berühmten Stack Overflow.",
+    "sourceName": "Wikipedia DE – Stapelspeicher",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Stapelspeicher",
+    "verifyNote": "LIFO-Prinzip mit O(1) für Push und Pop, Lehrbuch-Standard."
+  },
+  {
+    "id": "data_structure-queue-h6",
+    "name": "Warteschlange (Queue)",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Lineare Struktur",
+      "purpose": "Lineare Struktur nach dem FIFO-Prinzip: zuerst abgelegtes Element wird zuerst entnommen",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Die Queue arbeitet wie die Schlange an der Supermarktkasse: Wer zuerst ansteht, kommt zuerst dran – das FIFO-Prinzip.",
+    "sourceName": "Wikipedia DE – Warteschlange (Datenstruktur)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Warteschlange_(Datenstruktur)",
+    "verifyNote": "FIFO-Prinzip mit O(1) für Einreihen und Entnehmen, Lehrbuch-Standard."
+  },
+  {
+    "id": "data_structure-bit-vector-h6",
+    "name": "Bitvektor",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Lineare Struktur",
+      "purpose": "Kompaktes Array einzelner Bits, das Mengen oder Flags platzsparend kodiert",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Ein Bitvektor speichert 64 Wahrheitswerte in einem einzigen 64-Bit-Wort und erlaubt Mengenoperationen wie Schnitt und Vereinigung per einzelnem CPU-Befehl.",
+    "sourceName": "Wikipedia DE – Bitkette",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Bitkette",
+    "verifyNote": "Bitweise Speicherung mit O(1)-Zugriff und maschinennahen Mengenoperationen."
+  },
+  {
+    "id": "data_structure-priority-queue-adt-h6",
+    "name": "Vorrangwarteschlange",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Abstrakter Datentyp",
+      "purpose": "Warteschlange, die Elemente nach Priorität statt nach Eingangsreihenfolge ausgibt",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Die Vorrangwarteschlange gibt immer das wichtigste Element zuerst heraus – meist wird sie hinter den Kulissen mit einem Heap umgesetzt.",
+    "sourceName": "Wikipedia DE – Vorrangwarteschlange",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Vorrangwarteschlange",
+    "verifyNote": "Abstrakter Datentyp mit prioritätsbasierter Entnahme; Minimum-Zugriff O(1)."
+  },
+  {
+    "id": "data_structure-graph-adt-h6",
+    "name": "Graph (abstrakter Datentyp)",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Graph",
+      "purpose": "Struktur aus Knoten und sie verbindenden Kanten zur Modellierung von Beziehungen",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Ob soziale Netzwerke, Straßenkarten oder Webseiten-Verlinkungen – fast alles, was aus Verbindungen besteht, lässt sich als Graph modellieren.",
+    "sourceName": "Wikipedia DE – Graph (Graphentheorie)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Graph_(Graphentheorie)",
+    "verifyNote": "Knoten-Kanten-Struktur als abstrakter Datentyp; O(1)-Zugriff auf einen Knoten."
+  },
+  {
+    "id": "data_structure-tuple-record-h6",
+    "name": "Assoziatives Feld (Map)",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Abbildung",
+      "purpose": "Bildet eindeutige Schlüssel auf zugehörige Werte ab (Schlüssel-Wert-Speicher)",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Das assoziative Feld – in Python Dictionary, in Java Map genannt – ist die Alltags-Datenstruktur schlechthin und steckt fast immer eine Hashtabelle dahinter.",
+    "sourceName": "Wikipedia DE – Assoziatives Datenfeld",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Assoziatives_Datenfeld",
+    "verifyNote": "Schlüssel-Wert-Abbildung mit im Schnitt O(1)-Zugriff (Hash-basiert)."
+  },
+  {
+    "id": "data_structure-deque-h6",
+    "name": "Doppelschlange (Deque)",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Lineare Struktur",
+      "purpose": "Warteschlange, in die an beiden Enden eingefügt und entnommen werden kann",
+      "accessComplexity": "O(1)"
+    },
+    "funFact": "Die Deque (Double-Ended Queue) vereint Stack und Queue, weil man an beiden Enden gleich schnell hinzufügen und entfernen kann.",
+    "sourceName": "Wikipedia DE – Deque",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Deque",
+    "verifyNote": "Beidseitiges Einfügen/Entnehmen in O(1), Lehrbuch-Standard."
+  },
+  {
+    "id": "data_structure-association-list-h6",
+    "name": "Assoziationsliste",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Abbildung",
+      "purpose": "Einfache Schlüssel-Wert-Abbildung als verkettete Liste von Paaren",
+      "accessComplexity": "O(n)"
+    },
+    "funFact": "Die Assoziationsliste ist die simpelste Map: eine Liste von Schlüssel-Wert-Paaren, die man der Reihe nach durchsucht – langsam, aber in Lisp allgegenwärtig.",
+    "sourceName": "Wikipedia EN – Association list",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Association_list",
+    "verifyNote": "Lineare Schlüssel-Wert-Liste mit O(n)-Lookup."
   }
 ]

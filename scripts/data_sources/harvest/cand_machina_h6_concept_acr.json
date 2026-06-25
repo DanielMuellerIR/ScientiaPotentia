@@ -1,0 +1,626 @@
+[
+  {
+    "id": "concept-swapping-h6",
+    "name": "Swapping",
+    "category": "concept",
+    "attributes": {
+      "category": "Betriebssysteme",
+      "definition": "Das Auslagern ganzer Prozesse oder Speicherseiten aus dem Arbeitsspeicher auf einen langsameren Hintergrundspeicher, um Platz für aktive Prozesse zu schaffen"
+    },
+    "funFact": "Übermäßiges Auslagern führt zum sogenannten Thrashing, bei dem das System fast nur noch Speicherseiten hin- und herschiebt statt zu rechnen.",
+    "sourceName": "Wikipedia DE – Swapping",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Auslagerungsdatei",
+    "verifyNote": "Standardthema in Betriebssysteme-Lehrbüchern (Tanenbaum)."
+  },
+  {
+    "id": "concept-kontextwechsel-h6",
+    "name": "Kontextwechsel",
+    "category": "concept",
+    "attributes": {
+      "category": "Betriebssysteme",
+      "definition": "Das Sichern des Zustands eines laufenden Prozesses und das Laden des Zustands eines anderen, damit ein Prozessor mehrere Aufgaben scheinbar gleichzeitig ausführen kann"
+    },
+    "funFact": "Jeder Kontextwechsel kostet Rechenzeit, weil Registerinhalte gespeichert und Caches teilweise ungültig werden – deshalb sind sie nicht beliebig billig.",
+    "sourceName": "Wikipedia DE – Kontextwechsel",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Kontextwechsel",
+    "verifyNote": "Grundbegriff der Prozessverwaltung, in jedem OS-Lehrbuch."
+  },
+  {
+    "id": "concept-systemaufruf-h6",
+    "name": "Systemaufruf",
+    "category": "concept",
+    "attributes": {
+      "category": "Betriebssysteme",
+      "definition": "Eine kontrollierte Anforderung eines Programms an den Betriebssystem-Kern, um privilegierte Dienste wie Datei- oder Netzwerkzugriff auszuführen"
+    },
+    "funFact": "Ein Systemaufruf wechselt vom Benutzer- in den Kernmodus des Prozessors – dieser Moduswechsel ist die Schutzgrenze zwischen Anwendung und Betriebssystem.",
+    "sourceName": "Wikipedia DE – Systemaufruf",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Systemaufruf",
+    "verifyNote": "Standarddefinition in Betriebssysteme-Lehrbüchern."
+  },
+  {
+    "id": "concept-verzweigungsvorhersage-h6",
+    "name": "Verzweigungsvorhersage",
+    "category": "concept",
+    "attributes": {
+      "category": "Rechnerarchitektur",
+      "definition": "Eine Technik moderner Prozessoren, die den wahrscheinlichen Ausgang einer bedingten Verzweigung rät, um die Befehls-Pipeline nicht anhalten zu müssen"
+    },
+    "funFact": "Eine falsche Vorhersage verwirft alle spekulativ begonnenen Befehle – genau dieser Mechanismus wurde 2018 für die Spectre-Sicherheitslücke ausgenutzt.",
+    "sourceName": "Wikipedia DE – Sprungvorhersage",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Sprungvorhersage",
+    "verifyNote": "Etabliertes Konzept der Rechnerarchitektur."
+  },
+  {
+    "id": "concept-programmzaehler-h6",
+    "name": "Programmzähler",
+    "category": "concept",
+    "attributes": {
+      "category": "Rechnerarchitektur",
+      "definition": "Ein Prozessorregister, das die Adresse des nächsten auszuführenden Maschinenbefehls enthält"
+    },
+    "funFact": "Sprünge und Schleifen funktionieren technisch dadurch, dass der Programmzähler gezielt auf eine andere Adresse gesetzt wird, statt einfach weiterzuzählen.",
+    "sourceName": "Wikipedia DE – Befehlszähler",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Befehlsz%C3%A4hler",
+    "verifyNote": "Grundbaustein jeder CPU, Lehrbuch-Standard."
+  },
+  {
+    "id": "concept-iteration-h6",
+    "name": "Iteration",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmierung",
+      "definition": "Das wiederholte Ausführen eines Anweisungsblocks mittels einer Schleife, bis eine Abbruchbedingung erfüllt ist"
+    },
+    "funFact": "Viele rekursive Lösungen lassen sich in iterative umschreiben – das spart den Aufrufstapel und vermeidet Stapelüberläufe bei großer Tiefe.",
+    "sourceName": "Wikipedia DE – Iteration",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Iteration",
+    "verifyNote": "Grundkonzept der Programmierung."
+  },
+  {
+    "id": "concept-linter-h6",
+    "name": "Linter",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwareentwicklung",
+      "definition": "Ein Werkzeug zur statischen Analyse von Quellcode, das ohne Ausführung mögliche Fehler, Stilverstöße und verdächtige Muster meldet"
+    },
+    "funFact": "Der Name geht auf das Unix-Programm „lint“ von 1978 zurück, das Fusseln (engl. lint) im C-Code aufspüren sollte.",
+    "sourceName": "Wikipedia DE – Lint (Programmierwerkzeug)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Lint_(Programmierwerkzeug)",
+    "verifyNote": "Etabliertes Werkzeugkonzept der Softwareentwicklung."
+  },
+  {
+    "id": "concept-debugger-h6",
+    "name": "Debugger",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwareentwicklung",
+      "definition": "Ein Werkzeug, das die kontrollierte Ausführung eines Programms erlaubt, um den Zustand an beliebigen Stellen zu untersuchen und Fehler aufzuspüren"
+    },
+    "funFact": "Ein Debugger kann ein Programm an Haltepunkten anhalten und Schritt für Schritt weiterlaufen lassen, um Variablenwerte live zu beobachten.",
+    "sourceName": "Wikipedia DE – Debugger",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Debugger",
+    "verifyNote": "Standardwerkzeug der Softwareentwicklung."
+  },
+  {
+    "id": "concept-profiler-h6",
+    "name": "Profiler",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwareentwicklung",
+      "definition": "Ein Werkzeug, das während der Ausführung misst, wie viel Zeit oder Speicher einzelne Programmteile verbrauchen, um Engpässe zu finden"
+    },
+    "funFact": "Profiler offenbaren oft, dass die wenigen wirklich heißen Codepfade fast die gesamte Laufzeit ausmachen – die berühmte 80/20-Regel der Optimierung.",
+    "sourceName": "Wikipedia DE – Profiler (Programmierung)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Profiler_(Programmierung)",
+    "verifyNote": "Etabliertes Performance-Werkzeug."
+  },
+  {
+    "id": "concept-breakpoint-h6",
+    "name": "Breakpoint",
+    "category": "concept",
+    "attributes": {
+      "category": "Softwareentwicklung",
+      "definition": "Eine vom Entwickler gesetzte Markierung im Code, an der ein Debugger die Programmausführung automatisch anhält"
+    },
+    "funFact": "Technisch funktionieren Haltepunkte oft, indem der Debugger an der Stelle heimlich einen speziellen Unterbrechungs-Befehl in den Maschinencode einsetzt.",
+    "sourceName": "Wikipedia DE – Haltepunkt",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Haltepunkt",
+    "verifyNote": "Grundbegriff des Debuggens."
+  },
+  {
+    "id": "concept-tokenisierung-h6",
+    "name": "Tokenisierung",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmiersprachen",
+      "definition": "Das Zerlegen eines Zeichenstroms in eine Folge bedeutungstragender Einheiten wie Schlüsselwörter, Bezeichner und Operatoren"
+    },
+    "funFact": "Tokenisierung ist die erste Stufe jedes Compilers oder Interpreters – erst danach kann der Parser die grammatische Struktur erkennen.",
+    "sourceName": "Wikipedia DE – Tokenisierung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Tokenisierung",
+    "verifyNote": "Standardbegriff aus dem Compilerbau."
+  },
+  {
+    "id": "concept-abstrakter-syntaxbaum-h6",
+    "name": "Abstrakter Syntaxbaum",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmiersprachen",
+      "definition": "Eine Baumdarstellung der grammatischen Struktur eines Quelltextes, in der jeder Knoten ein Sprachkonstrukt repräsentiert"
+    },
+    "funFact": "Compiler, Linter und Code-Formatierer arbeiten alle auf diesem Baum statt direkt auf dem Text, weil die Struktur dort eindeutig vorliegt.",
+    "sourceName": "Wikipedia DE – Abstrakter Syntaxbaum",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Abstrakter_Syntaxbaum",
+    "verifyNote": "Kernkonzept des Compilerbaus."
+  },
+  {
+    "id": "concept-pufferueberlauf-h6",
+    "name": "Pufferüberlauf",
+    "category": "concept",
+    "attributes": {
+      "category": "Sicherheit/Kryptografie",
+      "definition": "Ein Fehler, bei dem mehr Daten in einen Speicherbereich geschrieben werden, als dieser fasst, wodurch angrenzender Speicher überschrieben wird"
+    },
+    "funFact": "Der Internet-Wurm von 1988 nutzte einen Pufferüberlauf aus und gilt als einer der ersten großflächigen Angriffe dieser bis heute gefährlichen Klasse.",
+    "sourceName": "Wikipedia DE – Pufferüberlauf",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Puffer%C3%BCberlauf",
+    "verifyNote": "Klassische Schwachstellenklasse, gut dokumentiert."
+  },
+  {
+    "id": "concept-eingabevalidierung-h6",
+    "name": "Eingabevalidierung",
+    "category": "concept",
+    "attributes": {
+      "category": "Sicherheit/Kryptografie",
+      "definition": "Das Prüfen von Benutzer- oder Schnittstellen-Eingaben auf erlaubtes Format und erlaubten Inhalt, bevor sie weiterverarbeitet werden"
+    },
+    "funFact": "Fehlende Eingabevalidierung ist die gemeinsame Wurzel vieler Angriffe wie SQL-Injection und Cross-Site-Scripting.",
+    "sourceName": "OWASP – Input Validation Cheat Sheet",
+    "sourceUrl": "https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html",
+    "verifyNote": "Anerkanntes Sicherheitsprinzip laut OWASP."
+  },
+  {
+    "id": "concept-sandboxing-h6",
+    "name": "Sandboxing",
+    "category": "concept",
+    "attributes": {
+      "category": "Sicherheit/Kryptografie",
+      "definition": "Das Ausführen von Programmcode in einer abgeschotteten Umgebung mit stark eingeschränkten Rechten, um Schäden am Restsystem zu verhindern"
+    },
+    "funFact": "Webbrowser führen den Code jeder Seite in einer Sandbox aus, damit eine bösartige Website nicht einfach auf lokale Dateien zugreifen kann.",
+    "sourceName": "Wikipedia DE – Sandbox (Computersicherheit)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Sandbox",
+    "verifyNote": "Etabliertes Sicherheitskonzept."
+  },
+  {
+    "id": "concept-rechteausweitung-h6",
+    "name": "Rechteausweitung",
+    "category": "concept",
+    "attributes": {
+      "category": "Sicherheit/Kryptografie",
+      "definition": "Ein Angriff oder Fehler, durch den ein Akteur höhere Zugriffsrechte erlangt, als ihm eigentlich zustehen"
+    },
+    "funFact": "Man unterscheidet vertikale Rechteausweitung (vom Nutzer zum Administrator) und horizontale (Zugriff auf Konten gleichrangiger Nutzer).",
+    "sourceName": "Wikipedia DE – Rechteausweitung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Rechteausweitung",
+    "verifyNote": "Etablierter Begriff der IT-Sicherheit."
+  },
+  {
+    "id": "concept-spaltenorientierte-datenbank-h6",
+    "name": "Spaltenorientierte Datenbank",
+    "category": "concept",
+    "attributes": {
+      "category": "Datenbanken",
+      "definition": "Ein Datenbankmodell, das Werte gleicher Spalten zusammenhängend speichert statt ganze Datensätze, um analytische Abfragen über wenige Spalten zu beschleunigen"
+    },
+    "funFact": "Weil gleichartige Werte beieinanderliegen, lassen sie sich besonders gut komprimieren – ein Grund, warum dieses Modell in Analyse-Datenbanken dominiert.",
+    "sourceName": "Wikipedia DE – Spaltenorientierte Datenbank",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Spaltenorientierte_Datenbank",
+    "verifyNote": "Etabliertes Datenbankkonzept (OLAP)."
+  },
+  {
+    "id": "concept-abfrageoptimierer-h6",
+    "name": "Abfrageoptimierer",
+    "category": "concept",
+    "attributes": {
+      "category": "Datenbanken",
+      "definition": "Die Komponente eines Datenbanksystems, die für eine SQL-Anfrage aus vielen möglichen Ausführungswegen einen kostengünstigen auswählt"
+    },
+    "funFact": "Der Optimierer entscheidet etwa, ob ein Index genutzt oder die ganze Tabelle durchsucht wird – oft anhand geschätzter Statistiken über die Datenverteilung.",
+    "sourceName": "Wikipedia DE – Anfrageoptimierung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Anfrageoptimierung",
+    "verifyNote": "Kernkomponente relationaler Datenbanken."
+  },
+  {
+    "id": "concept-sperre-h6",
+    "name": "Sperre (Lock)",
+    "category": "concept",
+    "attributes": {
+      "category": "Nebenläufigkeit",
+      "definition": "Ein Mechanismus, der einer Ausführungseinheit exklusiven oder geteilten Zugriff auf eine Ressource sichert, um gleichzeitige widersprüchliche Zugriffe zu verhindern"
+    },
+    "funFact": "Zu grobe Sperren bremsen die Nebenläufigkeit aus, zu feine erhöhen das Risiko von Verklemmungen – die Balance ist eine Kernkunst der Parallelprogrammierung.",
+    "sourceName": "Wikipedia DE – Sperrverfahren",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Sperrverfahren",
+    "verifyNote": "Grundbegriff der Nebenläufigkeitskontrolle."
+  },
+  {
+    "id": "concept-drei-wege-handschlag-h6",
+    "name": "Drei-Wege-Handschlag",
+    "category": "concept",
+    "attributes": {
+      "category": "Netzwerk",
+      "definition": "Das dreistufige Verfahren (SYN, SYN-ACK, ACK), mit dem zwei Rechner eine TCP-Verbindung aufbauen und Sequenznummern abstimmen"
+    },
+    "funFact": "Eine Flut halb geöffneter Verbindungen, der SYN-Flood-Angriff, missbraucht genau diesen Handschlag, um einen Server lahmzulegen.",
+    "sourceName": "Wikipedia DE – Verbindungsaufbau (TCP)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Transmission_Control_Protocol#Verbindungsaufbau",
+    "verifyNote": "Standardmechanismus von TCP."
+  },
+  {
+    "id": "concept-subnetzmaske-h6",
+    "name": "Subnetzmaske",
+    "category": "concept",
+    "attributes": {
+      "category": "Netzwerk",
+      "definition": "Eine Bitmaske, die eine IP-Adresse in einen Netzwerk- und einen Hostanteil aufteilt und so die Grenzen eines Teilnetzes festlegt"
+    },
+    "funFact": "Aus der Maske ergibt sich direkt, ob ein Zielrechner im selben Netz liegt oder ob das Paket an einen Router weitergereicht werden muss.",
+    "sourceName": "Wikipedia DE – Netzmaske",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Netzmaske",
+    "verifyNote": "Grundbegriff der IP-Adressierung."
+  },
+  {
+    "id": "concept-mac-adresse-h6",
+    "name": "MAC-Adresse",
+    "category": "concept",
+    "attributes": {
+      "category": "Netzwerk",
+      "definition": "Eine hardwarenahe, meist weltweit eindeutige Kennung einer Netzwerkschnittstelle auf der Sicherungsschicht"
+    },
+    "funFact": "Die ersten drei Bytes identifizieren den Hersteller; aus ihnen lässt sich oft ablesen, von welcher Firma eine Netzwerkkarte stammt.",
+    "sourceName": "Wikipedia DE – MAC-Adresse",
+    "sourceUrl": "https://de.wikipedia.org/wiki/MAC-Adresse",
+    "verifyNote": "Standardbegriff der Netzwerktechnik."
+  },
+  {
+    "id": "concept-turing-vollstaendigkeit-h6",
+    "name": "Turing-Vollständigkeit",
+    "category": "concept",
+    "attributes": {
+      "category": "Theoretische Informatik",
+      "definition": "Die Eigenschaft eines Berechnungssystems, jede Funktion berechnen zu können, die auch eine Turingmaschine berechnen kann"
+    },
+    "funFact": "Überraschend viele Systeme sind turing-vollständig – sogar die Tabellenkalkulation Excel oder das Kartenspiel Magic: The Gathering.",
+    "sourceName": "Wikipedia DE – Turing-Vollständigkeit",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Turing-Vollst%C3%A4ndigkeit",
+    "verifyNote": "Kernbegriff der Berechenbarkeitstheorie."
+  },
+  {
+    "id": "concept-entscheidbarkeit-h6",
+    "name": "Entscheidbarkeit",
+    "category": "concept",
+    "attributes": {
+      "category": "Theoretische Informatik",
+      "definition": "Die Eigenschaft eines Problems, durch einen Algorithmus, der für jede Eingabe nach endlicher Zeit mit Ja oder Nein hält, lösbar zu sein"
+    },
+    "funFact": "Das Halteproblem ist das berühmteste unentscheidbare Problem: Kein Algorithmus kann für alle Programme zuverlässig vorhersagen, ob sie anhalten.",
+    "sourceName": "Wikipedia DE – Entscheidbarkeit",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Entscheidbarkeit",
+    "verifyNote": "Grundbegriff der Berechenbarkeitstheorie."
+  },
+  {
+    "id": "concept-amortisierte-laufzeit-h6",
+    "name": "Hashkollision",
+    "category": "concept",
+    "attributes": {
+      "category": "Algorithmik",
+      "definition": "Der Fall, dass zwei verschiedene Eingaben von einer Hashfunktion auf denselben Hashwert abgebildet werden"
+    },
+    "funFact": "Kollisionen sind bei begrenztem Wertebereich unvermeidbar – das Schubfachprinzip garantiert sie, sobald es mehr Eingaben als mögliche Hashwerte gibt.",
+    "sourceName": "Wikipedia DE – Kollision (Hashfunktion)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Kollision_(Hashfunktion)",
+    "verifyNote": "Grundbegriff bei Hashtabellen und Hashfunktionen."
+  },
+  {
+    "id": "concept-garbage-collection-mark-sweep-h6",
+    "name": "Speicherausrichtung",
+    "category": "concept",
+    "attributes": {
+      "category": "Rechnerarchitektur",
+      "definition": "Die Anordnung von Daten an Speicheradressen, die ein Vielfaches ihrer Größe sind, damit der Prozessor effizient darauf zugreifen kann"
+    },
+    "funFact": "Compiler fügen oft unsichtbare Füllbytes zwischen Strukturfelder ein (Padding), nur um die Ausrichtung einzuhalten – das vergrößert Datenstrukturen.",
+    "sourceName": "Wikipedia DE – Speicherausrichtung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Speicherausrichtung",
+    "verifyNote": "Grundbegriff der maschinennahen Programmierung."
+  },
+  {
+    "id": "concept-zero-trust-h6",
+    "name": "Zero-Trust-Architektur",
+    "category": "concept",
+    "attributes": {
+      "category": "Sicherheit/Kryptografie",
+      "definition": "Ein Sicherheitsmodell, das keinem Nutzer oder Gerät allein aufgrund seiner Netzwerkposition vertraut und jeden Zugriff einzeln prüft und autorisiert"
+    },
+    "funFact": "Der Leitsatz lautet „never trust, always verify“ – es gibt kein internes Netz, das pauschal als sicher gilt.",
+    "sourceName": "Wikipedia DE – Zero Trust",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Zero_Trust",
+    "verifyNote": "Etabliertes modernes Sicherheitsmodell."
+  },
+  {
+    "id": "acr-cve-h6",
+    "name": "CVE",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Common Vulnerabilities and Exposures",
+      "domain": "IT-Sicherheit"
+    },
+    "funFact": "Jede öffentlich bekannte Schwachstelle erhält eine eindeutige Kennung wie CVE-2021-44228 (Log4Shell), unter der sie weltweit referenziert wird.",
+    "sourceName": "MITRE – CVE Program",
+    "sourceUrl": "https://www.cve.org/",
+    "verifyNote": "Offizielle Vollform laut MITRE/CVE-Programm."
+  },
+  {
+    "id": "acr-cwe-h6",
+    "name": "CWE",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Common Weakness Enumeration",
+      "domain": "IT-Sicherheit"
+    },
+    "funFact": "Während CVE konkrete Schwachstellen listet, beschreibt CWE die zugrunde liegenden Fehlerklassen, etwa „Pufferüberlauf“ als CWE-120.",
+    "sourceName": "MITRE – CWE",
+    "sourceUrl": "https://cwe.mitre.org/",
+    "verifyNote": "Offizielle Vollform laut MITRE."
+  },
+  {
+    "id": "acr-siem-h6",
+    "name": "SIEM",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Security Information and Event Management",
+      "domain": "IT-Sicherheit"
+    },
+    "funFact": "Ein SIEM sammelt Protokolldaten aus dem ganzen Unternehmen an einer Stelle und korreliert sie, um Angriffe an verteilten Spuren zu erkennen.",
+    "sourceName": "Wikipedia DE – Security Information and Event Management",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Security_Information_and_Event_Management",
+    "verifyNote": "Etablierte Vollform der IT-Sicherheit."
+  },
+  {
+    "id": "acr-dmz-h6",
+    "name": "DMZ",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Demilitarized Zone",
+      "domain": "Netzwerksicherheit"
+    },
+    "funFact": "In einer DMZ stehen von außen erreichbare Server wie Webserver, getrennt durch Firewalls vom internen Netz – ein Einbruch dort erreicht nicht sofort das Firmennetz.",
+    "sourceName": "Wikipedia DE – Demilitarized Zone (Informatik)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Demilitarisierte_Zone_(Informationstechnik)",
+    "verifyNote": "Etablierte Vollform der Netzwerksicherheit."
+  },
+  {
+    "id": "acr-ids-h6",
+    "name": "IDS",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Intrusion Detection System",
+      "domain": "Netzwerksicherheit"
+    },
+    "funFact": "Ein IDS erkennt und meldet verdächtigen Datenverkehr, greift aber selbst nicht ein – das aktive Blockieren übernimmt ein IPS.",
+    "sourceName": "Wikipedia DE – Intrusion Detection System",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Intrusion_Detection_System",
+    "verifyNote": "Etablierte Vollform der IT-Sicherheit."
+  },
+  {
+    "id": "acr-ips-h6",
+    "name": "IPS",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Intrusion Prevention System",
+      "domain": "Netzwerksicherheit"
+    },
+    "funFact": "Ein IPS liegt direkt im Datenpfad und kann erkannten Angriffsverkehr aktiv verwerfen, während ein reines IDS nur Alarm schlägt.",
+    "sourceName": "Wikipedia DE – Intrusion Prevention System",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Intrusion_Prevention_System",
+    "verifyNote": "Etablierte Vollform der IT-Sicherheit."
+  },
+  {
+    "id": "acr-ietf-h6",
+    "name": "IETF",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Internet Engineering Task Force",
+      "domain": "Netzwerk"
+    },
+    "funFact": "Die IETF entwickelt die technischen Standards des Internets als RFC-Dokumente und arbeitet nach dem Motto „rough consensus and running code“.",
+    "sourceName": "IETF – About",
+    "sourceUrl": "https://www.ietf.org/about/",
+    "verifyNote": "Offizielle Vollform laut IETF."
+  },
+  {
+    "id": "acr-icann-h6",
+    "name": "ICANN",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Internet Corporation for Assigned Names and Numbers",
+      "domain": "Netzwerk"
+    },
+    "funFact": "Die ICANN koordiniert weltweit die Vergabe von Domainnamen und der obersten DNS-Ebene – sie entscheidet etwa über die Einführung neuer Top-Level-Domains.",
+    "sourceName": "ICANN – Welcome",
+    "sourceUrl": "https://www.icann.org/",
+    "verifyNote": "Offizielle Vollform laut ICANN."
+  },
+  {
+    "id": "acr-iana-h6",
+    "name": "IANA",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Internet Assigned Numbers Authority",
+      "domain": "Netzwerk"
+    },
+    "funFact": "Die IANA verwaltet die globalen Zahlenräume des Internets, darunter die Liste, welche Portnummer welchem Dienst zugeordnet ist (z. B. 80 für HTTP).",
+    "sourceName": "IANA",
+    "sourceUrl": "https://www.iana.org/",
+    "verifyNote": "Offizielle Vollform laut IANA."
+  },
+  {
+    "id": "acr-owasp-h6",
+    "name": "OWASP",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Open Worldwide Application Security Project",
+      "domain": "IT-Sicherheit"
+    },
+    "funFact": "Die OWASP Top Ten ist eine regelmäßig aktualisierte Liste der kritischsten Risiken für Webanwendungen und gilt als Industrie-Referenz.",
+    "sourceName": "OWASP Foundation",
+    "sourceUrl": "https://owasp.org/",
+    "verifyNote": "Offizielle Vollform laut OWASP-Stiftung."
+  },
+  {
+    "id": "acr-ssrf-h6",
+    "name": "SSRF",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Server-Side Request Forgery",
+      "domain": "IT-Sicherheit"
+    },
+    "funFact": "Bei SSRF bringt ein Angreifer den Server dazu, selbst Anfragen zu stellen – oft an interne Adressen, die von außen gar nicht erreichbar wären.",
+    "sourceName": "OWASP – Server Side Request Forgery",
+    "sourceUrl": "https://owasp.org/www-community/attacks/Server_Side_Request_Forgery",
+    "verifyNote": "Etablierte Vollform laut OWASP."
+  },
+  {
+    "id": "acr-xxe-h6",
+    "name": "XXE",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "XML External Entity",
+      "domain": "IT-Sicherheit"
+    },
+    "funFact": "Ein XXE-Angriff missbraucht externe Entitäten in XML-Dokumenten, um etwa lokale Dateien des Servers auszulesen.",
+    "sourceName": "OWASP – XML External Entity (XXE) Processing",
+    "sourceUrl": "https://owasp.org/www-community/vulnerabilities/XML_External_Entity_(XXE)_Processing",
+    "verifyNote": "Etablierte Vollform laut OWASP."
+  },
+  {
+    "id": "acr-oidc-h6",
+    "name": "OIDC",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "OpenID Connect",
+      "domain": "IT-Sicherheit"
+    },
+    "funFact": "OIDC setzt auf OAuth 2.0 auf und ergänzt es um eine standardisierte Identitätsschicht – die Grundlage vieler „Mit Google anmelden“-Buttons.",
+    "sourceName": "OpenID Foundation – OpenID Connect",
+    "sourceUrl": "https://openid.net/developers/how-connect-works/",
+    "verifyNote": "Offizielle Vollform laut OpenID Foundation."
+  },
+  {
+    "id": "acr-mvcc-h6",
+    "name": "MVCC",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Multiversion Concurrency Control",
+      "domain": "Datenbanken"
+    },
+    "funFact": "MVCC lässt Leser und Schreiber gleichzeitig arbeiten, indem jeder Leser eine konsistente ältere Version der Daten sieht – Grundlage etwa von PostgreSQL.",
+    "sourceName": "Wikipedia DE – Multiversion Concurrency Control",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Multiversion_Concurrency_Control",
+    "verifyNote": "Etablierte Vollform der Datenbanktechnik."
+  },
+  {
+    "id": "acr-repl-h6",
+    "name": "REPL",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Read-Eval-Print Loop",
+      "domain": "Programmierung"
+    },
+    "funFact": "Eine REPL liest eine Eingabe, wertet sie aus, gibt das Ergebnis aus und wartet auf die nächste – die interaktive Eingabeaufforderung von Python ist ein bekanntes Beispiel.",
+    "sourceName": "Wikipedia DE – Read-eval-print loop",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Read-eval-print_loop",
+    "verifyNote": "Etablierte Vollform der Programmierumgebungen."
+  },
+  {
+    "id": "acr-abac-h6",
+    "name": "ABAC",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Attribute-Based Access Control",
+      "domain": "IT-Sicherheit"
+    },
+    "funFact": "ABAC entscheidet Zugriffe anhand von Attributen wie Abteilung, Uhrzeit oder Standort und ist damit feingranularer als das rollenbasierte RBAC.",
+    "sourceName": "Wikipedia DE – Attribute-based access control",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Attribute-based_access_control",
+    "verifyNote": "Etablierte Vollform der Zugriffskontrolle."
+  },
+  {
+    "id": "acr-sdn-h6",
+    "name": "SDN",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Software-Defined Networking",
+      "domain": "Netzwerk"
+    },
+    "funFact": "SDN trennt die Steuerungsebene von der Weiterleitungsebene, sodass sich das Verhalten ganzer Netze zentral per Software programmieren lässt.",
+    "sourceName": "Wikipedia DE – Software-defined networking",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Software-defined_networking",
+    "verifyNote": "Etablierte Vollform der Netzwerktechnik."
+  },
+  {
+    "id": "acr-cap-h6",
+    "name": "CAP",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Consistency, Availability, Partition tolerance",
+      "domain": "Verteilte Systeme"
+    },
+    "funFact": "Das CAP-Theorem besagt, dass ein verteiltes System bei einer Netzpartition nur zwei dieser drei Eigenschaften zugleich garantieren kann.",
+    "sourceName": "Wikipedia DE – CAP-Theorem",
+    "sourceUrl": "https://de.wikipedia.org/wiki/CAP-Theorem",
+    "verifyNote": "Etablierte Auflösung des CAP-Theorems."
+  },
+  {
+    "id": "acr-fqdn-h6",
+    "name": "FQDN",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Fully Qualified Domain Name",
+      "domain": "Netzwerk"
+    },
+    "funFact": "Ein FQDN ist der vollständige Domainname inklusive aller Ebenen bis zur Wurzel, korrekt sogar mit abschließendem Punkt wie „www.example.com.“.",
+    "sourceName": "Wikipedia DE – Fully-Qualified Domain Name",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Fully-Qualified_Host_Name",
+    "verifyNote": "Etablierte Vollform der DNS-Terminologie."
+  },
+  {
+    "id": "acr-sast-h6",
+    "name": "SAST",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Static Application Security Testing",
+      "domain": "IT-Sicherheit"
+    },
+    "funFact": "SAST analysiert den Quellcode, ohne ihn auszuführen, und findet so Schwachstellen schon früh in der Entwicklung – das Gegenstück ist das laufzeitbasierte DAST.",
+    "sourceName": "OWASP – Static Application Security Testing",
+    "sourceUrl": "https://owasp.org/www-community/Source_Code_Analysis_Tools",
+    "verifyNote": "Etablierte Vollform laut OWASP."
+  },
+  {
+    "id": "acr-pkce-h6",
+    "name": "PKCE",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Proof Key for Code Exchange",
+      "domain": "IT-Sicherheit"
+    },
+    "funFact": "PKCE sichert den OAuth-Anmeldefluss in Apps ohne Geheimnis ab und verhindert, dass ein abgefangener Autorisierungscode missbraucht werden kann.",
+    "sourceName": "IETF – RFC 7636",
+    "sourceUrl": "https://datatracker.ietf.org/doc/html/rfc7636",
+    "verifyNote": "Vollform laut RFC 7636."
+  }
+]

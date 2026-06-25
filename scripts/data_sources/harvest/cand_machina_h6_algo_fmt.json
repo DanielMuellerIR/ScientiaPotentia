@@ -1,0 +1,674 @@
+[
+  {
+    "id": "algorithm-fermat-primzahltest-h6",
+    "name": "Fermat-Test",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(k log³ n)",
+      "purpose": "Probabilistischer Primzahltest, der den kleinen Satz von Fermat nutzt, um zusammengesetzte Zahlen zu erkennen"
+    },
+    "funFact": "Carmichael-Zahlen täuschen den Fermat-Test als prim vor — deshalb gilt in der Praxis der robustere Miller-Rabin-Test als Standard.",
+    "sourceName": "Wikipedia DE – Fermatscher Primzahltest",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Fermatscher_Primzahltest",
+    "verifyNote": "Beruht auf a^(n-1) ≡ 1 (mod n); Carmichael-Zahlen als Schwäche laut Wikipedia."
+  },
+  {
+    "id": "algorithm-sieb-von-atkin-h6",
+    "name": "Sieb von Atkin",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(n / log log n)",
+      "purpose": "Findet alle Primzahlen bis zu einer Schranke über quadratische Formen, asymptotisch schneller als das Sieb des Eratosthenes"
+    },
+    "funFact": "Das Sieb von Atkin wurde erst 2003 veröffentlicht und ist eine moderne Verfeinerung des über 2000 Jahre alten Sieb des Eratosthenes.",
+    "sourceName": "Wikipedia DE – Sieb von Atkin",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Sieb_von_Atkin",
+    "verifyNote": "Atkin & Bernstein 2003; nutzt Restklassen quadratischer Formen statt Vielfachen."
+  },
+  {
+    "id": "algorithm-chinesischer-restsatz-h6",
+    "name": "Chinesischer Restsatz",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(n²)",
+      "purpose": "Rekonstruiert eine Zahl aus ihren Resten modulo paarweise teilerfremder Moduln und löst Systeme von Kongruenzen"
+    },
+    "funFact": "Der Satz taucht bereits in einem chinesischen Mathematikbuch aus dem 3. Jahrhundert auf und wird heute in RSA-Implementierungen zur Beschleunigung genutzt.",
+    "sourceName": "Wikipedia DE – Chinesischer Restsatz",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Chinesischer_Restsatz",
+    "verifyNote": "Konstruktive Lösung über erweiterten Euklid; RSA-CRT als bekannte Anwendung."
+  },
+  {
+    "id": "algorithm-schnelle-inverse-wurzel-h6",
+    "name": "Schnelle inverse Wurzel",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(1)",
+      "purpose": "Berechnet 1/√x näherungsweise über Bit-Manipulation der Gleitkommadarstellung plus einem Newton-Schritt"
+    },
+    "funFact": "Berühmt geworden durch den Quellcode von Quake III Arena mit der magischen Konstante 0x5f3759df.",
+    "sourceName": "Wikipedia EN – Fast inverse square root",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Fast_inverse_square_root",
+    "verifyNote": "Bit-Hack auf IEEE-754-Float plus ein Newton-Verfahren-Schritt; Quake-III-Herkunft belegt."
+  },
+  {
+    "id": "algorithm-cordic-h6",
+    "name": "CORDIC",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(n)",
+      "purpose": "Berechnet trigonometrische und andere Funktionen nur mit Additionen, Schiebeoperationen und einer Tabelle, ohne Multiplizierer"
+    },
+    "funFact": "CORDIC steckte in vielen frühen Taschenrechnern, weil es ohne teure Hardware-Multiplizierer auskommt.",
+    "sourceName": "Wikipedia DE – CORDIC",
+    "sourceUrl": "https://de.wikipedia.org/wiki/CORDIC",
+    "verifyNote": "COordinate Rotation DIgital Computer (Volder 1959); iterative Rotationen mit Shift-Add."
+  },
+  {
+    "id": "algorithm-kahan-summation-h6",
+    "name": "Kahan-Summation",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(n)",
+      "purpose": "Summiert Gleitkommazahlen und korrigiert dabei den durch Rundung verlorenen Anteil, um den Fehler klein zu halten"
+    },
+    "funFact": "Die naive Summe vieler Float-Werte verliert Stellen — Kahans Trick führt einen separaten Kompensationsterm mit.",
+    "sourceName": "Wikipedia DE – Kahan-Summationsalgorithmus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Kahan-Summationsalgorithmus",
+    "verifyNote": "Kompensierte Summation (Kahan 1965); reduziert den akkumulierten Rundungsfehler."
+  },
+  {
+    "id": "algorithm-newton-raphson-h6",
+    "name": "Newton-Raphson-Iteration",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(log n)",
+      "purpose": "Findet Nullstellen einer Funktion durch wiederholtes Anlegen der Tangente und quadratisch schnelle Annäherung"
+    },
+    "funFact": "Bei guter Startwahl verdoppelt sich die Anzahl korrekter Stellen ungefähr in jedem Schritt (quadratische Konvergenz).",
+    "sourceName": "Wikipedia DE – Newtonverfahren",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Newtonverfahren",
+    "verifyNote": "x_{n+1} = x_n − f(x_n)/f'(x_n); quadratische Konvergenz nahe einfacher Nullstelle."
+  },
+  {
+    "id": "algorithm-trapezregel-h6",
+    "name": "Trapezregel",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(n)",
+      "purpose": "Nähert ein bestimmtes Integral, indem die Fläche unter der Kurve durch Trapeze approximiert wird"
+    },
+    "funFact": "Sie ist die einfachste Quadraturformel und schon für stückweise lineare Funktionen exakt.",
+    "sourceName": "Wikipedia DE – Trapezregel",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Trapezregel",
+    "verifyNote": "Newton-Cotes-Formel ersten Grades; Fehlerordnung O(h²) bei n Teilintervallen."
+  },
+  {
+    "id": "algorithm-simpson-regel-h6",
+    "name": "Simpson-Regel",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(n)",
+      "purpose": "Nähert ein Integral, indem die Funktion abschnittsweise durch Parabeln statt Geraden ersetzt wird"
+    },
+    "funFact": "Die Simpson-Regel integriert Polynome bis zum dritten Grad exakt, obwohl sie nur Parabeln verwendet.",
+    "sourceName": "Wikipedia DE – Simpsonregel",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Simpsonregel",
+    "verifyNote": "Newton-Cotes-Formel zweiten Grades; exakt bis Grad 3, Fehlerordnung O(h⁴)."
+  },
+  {
+    "id": "algorithm-gradientenabstieg-h6",
+    "name": "Gradientenabstieg",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(n)",
+      "purpose": "Minimiert eine Funktion, indem man iterativ kleine Schritte entgegen der Richtung des steilsten Anstiegs macht"
+    },
+    "funFact": "Der Gradientenabstieg ist das Arbeitspferd des maschinellen Lernens und steckt hinter dem Training fast aller neuronalen Netze.",
+    "sourceName": "Wikipedia DE – Gradientenverfahren",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Gradientenverfahren",
+    "verifyNote": "Schritt entgegen ∇f; Kosten pro Schritt linear in der Dimension n."
+  },
+  {
+    "id": "algorithm-cooley-tukey-fft-h6",
+    "name": "Cooley-Tukey-FFT",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(n log n)",
+      "purpose": "Berechnet die diskrete Fouriertransformation schnell, indem eine Transformation rekursiv in kleinere zerlegt wird"
+    },
+    "funFact": "Die Idee geht im Kern auf Gauß zurück, wurde aber erst 1965 durch Cooley und Tukey zur Grundlage der modernen Signalverarbeitung.",
+    "sourceName": "Wikipedia DE – Schnelle Fourier-Transformation",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Schnelle_Fourier-Transformation",
+    "verifyNote": "Divide-and-Conquer-Zerlegung der DFT; senkt O(n²) auf O(n log n)."
+  },
+  {
+    "id": "algorithm-tonelli-shanks-h6",
+    "name": "Tonelli-Shanks-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(log² p)",
+      "purpose": "Berechnet eine modulare Quadratwurzel, also löst x² ≡ n modulo einer Primzahl p"
+    },
+    "funFact": "Das Verfahren ist ein Baustein elliptischer Kurvenkryptografie, etwa um aus einer x-Koordinate die zugehörige y-Koordinate zu gewinnen.",
+    "sourceName": "Wikipedia EN – Tonelli–Shanks algorithm",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Tonelli%E2%80%93Shanks_algorithm",
+    "verifyNote": "Löst quadratische Reste modulo p; Laufzeit polynomial in log p."
+  },
+  {
+    "id": "algorithm-pollard-p-minus-1-h6",
+    "name": "Pollard-p-1-Methode",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(B log B log² n)",
+      "purpose": "Faktorisiert eine Zahl effizient, wenn ein Primfaktor p existiert, bei dem p−1 nur kleine Primteiler hat"
+    },
+    "funFact": "Wegen dieser Methode wählt man für RSA bewusst sichere Primzahlen, bei denen p−1 einen großen Primfaktor besitzt.",
+    "sourceName": "Wikipedia DE – Pollard-p-1-Methode",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Pollard-p_%E2%88%92_1-Methode",
+    "verifyNote": "Nutzt den kleinen Satz von Fermat über glatte p−1; Schranke B steuert Erfolg."
+  },
+  {
+    "id": "algorithm-ramer-douglas-peucker-h6",
+    "name": "Ramer-Douglas-Peucker-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Geometrie",
+      "avgComplexity": "O(n log n)",
+      "purpose": "Vereinfacht einen Linienzug, indem Punkte entfernt werden, die kaum vom vereinfachten Verlauf abweichen"
+    },
+    "funFact": "Praktisch jede Karten-App nutzt dieses Verfahren, um Küstenlinien und Routen je nach Zoomstufe zu glätten.",
+    "sourceName": "Wikipedia DE – Douglas-Peucker-Algorithmus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Douglas-Peucker-Algorithmus",
+    "verifyNote": "Rekursive Punktreduktion über Abstandsschwelle; übliche Laufzeit O(n log n)."
+  },
+  {
+    "id": "algorithm-bentley-ottmann-h6",
+    "name": "Bentley-Ottmann-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Geometrie",
+      "avgComplexity": "O((n + k) log n)",
+      "purpose": "Findet alle Schnittpunkte einer Menge von Strecken mit einem Sweep-Line-Verfahren"
+    },
+    "funFact": "Statt jedes Streckenpaar zu prüfen, wandert eine gedachte Linie über die Ebene und prüft nur benachbarte Strecken.",
+    "sourceName": "Wikipedia DE – Bentley-Ottmann-Algorithmus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Bentley-Ottmann-Algorithmus",
+    "verifyNote": "Sweep-Line mit Ereigniswarteschlange; k = Anzahl der Schnittpunkte."
+  },
+  {
+    "id": "algorithm-andrew-monotonkette-h6",
+    "name": "Andrews Monotonketten-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Geometrie",
+      "avgComplexity": "O(n log n)",
+      "purpose": "Berechnet die konvexe Hülle einer Punktmenge, indem nach Sortierung eine obere und eine untere Kette gebildet werden"
+    },
+    "funFact": "Diese Variante des Graham-Scans kommt ohne Winkelberechnungen aus und ist dadurch numerisch robuster.",
+    "sourceName": "Wikipedia EN – Convex hull algorithms (Monotone chain)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Convex_hull_algorithms",
+    "verifyNote": "Andrew 1979; Sortierkosten dominieren mit O(n log n)."
+  },
+  {
+    "id": "algorithm-sutherland-hodgman-h6",
+    "name": "Sutherland-Hodgman-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Geometrie",
+      "avgComplexity": "O(n)",
+      "purpose": "Schneidet ein Polygon an einem konvexen Fenster ab, indem es Kante für Kante des Fensters geclippt wird"
+    },
+    "funFact": "Das Verfahren ist ein Klassiker der Computergrafik und sorgt dafür, dass nur sichtbare Teile einer Form gerendert werden.",
+    "sourceName": "Wikipedia DE – Algorithmus von Sutherland-Hodgman",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Algorithmus_von_Sutherland-Hodgman",
+    "verifyNote": "Polygon-Clipping gegen konvexes Fenster; linear in der Kantenzahl pro Clip-Ebene."
+  },
+  {
+    "id": "algorithm-k-means-plus-plus-h6",
+    "name": "k-Means++",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Clustering",
+      "avgComplexity": "O(n k d)",
+      "purpose": "Wählt die Startzentren für k-Means klug verteilt, sodass das Clustering schneller und genauer konvergiert"
+    },
+    "funFact": "Allein durch die bessere Startwahl liefert k-Means++ nachweislich Ergebnisse nahe am Optimum, wo zufällige Starts oft scheitern.",
+    "sourceName": "Wikipedia DE – k-Means-Algorithmus (k-means++)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/K-Means-Algorithmus",
+    "verifyNote": "Arthur & Vassilvitskii 2007; gewichtete Startwahl proportional zum Abstandsquadrat."
+  },
+  {
+    "id": "algorithm-optics-h6",
+    "name": "OPTICS",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Clustering",
+      "avgComplexity": "O(n log n)",
+      "purpose": "Findet dichtebasierte Cluster verschiedener Dichte, ohne dass die Dichteschwelle vorab fest gewählt werden muss"
+    },
+    "funFact": "OPTICS erweitert DBSCAN und erzeugt eine Erreichbarkeits-Darstellung, aus der sich Cluster unterschiedlicher Dichte ablesen lassen.",
+    "sourceName": "Wikipedia DE – OPTICS",
+    "sourceUrl": "https://de.wikipedia.org/wiki/OPTICS",
+    "verifyNote": "Ankerst et al. 1999; mit räumlichem Index O(n log n)."
+  },
+  {
+    "id": "algorithm-hierarchisches-clustering-agglomerativ-h6",
+    "name": "Agglomeratives hierarchisches Clustering",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Clustering",
+      "avgComplexity": "O(n³)",
+      "purpose": "Baut eine Cluster-Hierarchie auf, indem zu Beginn jeder Punkt ein Cluster ist und die nächsten Cluster verschmolzen werden"
+    },
+    "funFact": "Das Ergebnis lässt sich als Dendrogramm darstellen, einer Baumgrafik, die zeigt, in welcher Reihenfolge die Cluster verschmolzen.",
+    "sourceName": "Wikipedia DE – Hierarchische Clusteranalyse",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Hierarchische_Clusteranalyse",
+    "verifyNote": "Bottom-up-Verschmelzung; naive Implementierung O(n³), optimiert bis O(n² log n)."
+  },
+  {
+    "id": "algorithm-wagner-fischer-h6",
+    "name": "Wagner-Fischer-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "String-Verarbeitung",
+      "avgComplexity": "O(n m)",
+      "purpose": "Berechnet die Levenshtein-Distanz zweier Zeichenketten per dynamischer Programmierung über eine Distanzmatrix"
+    },
+    "funFact": "Dieselbe Matrix-Idee steckt in jeder Rechtschreibkorrektur, die ähnliche Wörter vorschlägt.",
+    "sourceName": "Wikipedia EN – Wagner–Fischer algorithm",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Wagner%E2%80%93Fischer_algorithm",
+    "verifyNote": "DP-Matrix der Größe n×m; Standardverfahren zur Editierdistanz."
+  },
+  {
+    "id": "algorithm-shannon-fano-h6",
+    "name": "Shannon-Fano-Kodierung",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Kompression",
+      "avgComplexity": "O(n log n)",
+      "purpose": "Erzeugt einen präfixfreien Code, indem Symbole nach Häufigkeit sortiert und rekursiv in zwei möglichst gleich wahrscheinliche Gruppen geteilt werden"
+    },
+    "funFact": "Shannon-Fano ist der historische Vorläufer der Huffman-Kodierung, die jedoch garantiert optimale Codelängen liefert.",
+    "sourceName": "Wikipedia DE – Shannon-Fano-Kodierung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Shannon-Fano-Kodierung",
+    "verifyNote": "Top-down-Aufteilung nach Wahrscheinlichkeit; nicht immer optimal im Gegensatz zu Huffman."
+  },
+  {
+    "id": "algorithm-elias-gamma-h6",
+    "name": "Elias-Gamma-Kodierung",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Kompression",
+      "avgComplexity": "O(log n)",
+      "purpose": "Kodiert positive ganze Zahlen variabel lang, sodass kleine Zahlen weniger Bits brauchen, ohne dass die Länge vorab bekannt sein muss"
+    },
+    "funFact": "Elias-Codes werden in invertierten Indizes von Suchmaschinen genutzt, um lange Listen kleiner Zahlen kompakt zu speichern.",
+    "sourceName": "Wikipedia EN – Elias gamma coding",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Elias_gamma_coding",
+    "verifyNote": "Selbstbegrenzender Code; Länge wächst mit 2⌊log₂ n⌋+1 Bits."
+  },
+  {
+    "id": "algorithm-bwt-mtf-pipeline-h6",
+    "name": "Move-to-Front mit BWT",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Kompression",
+      "avgComplexity": "O(n)",
+      "purpose": "Wandelt nach der Burrows-Wheeler-Transformation häufige Symbole in kleine Zahlen um und macht den Datenstrom besser komprimierbar"
+    },
+    "funFact": "Diese Kombination ist das Herz von bzip2, das dadurch oft kompakter als gzip packt.",
+    "sourceName": "Wikipedia DE – Move-to-front",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Move-to-front",
+    "verifyNote": "MTF folgt typischerweise der BWT in bzip2; linearer Einzeldurchlauf."
+  },
+  {
+    "id": "algorithm-reed-solomon-h6",
+    "name": "Reed-Solomon-Code",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(n²)",
+      "purpose": "Fügt Daten Prüfsymbole hinzu, mit denen sich mehrere fehlerhafte Symbole erkennen und korrigieren lassen"
+    },
+    "funFact": "Reed-Solomon schützt die Daten auf CDs, DVDs, QR-Codes und sogar auf den Funkstrecken von Raumsonden vor Lesefehlern.",
+    "sourceName": "Wikipedia DE – Reed-Solomon-Code",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Reed-Solomon-Code",
+    "verifyNote": "Fehlerkorrektur über Polynome im endlichen Körper; klassische Dekodierung O(n²)."
+  },
+  {
+    "id": "algorithm-hamming-code-h6",
+    "name": "Hamming-Code",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(n)",
+      "purpose": "Fügt Paritätsbits an bestimmten Positionen ein, sodass ein einzelner Bitfehler erkannt und korrigiert werden kann"
+    },
+    "funFact": "ECC-Arbeitsspeicher nutzt Hamming-artige Codes, um durch kosmische Strahlung gekippte Bits automatisch zu reparieren.",
+    "sourceName": "Wikipedia DE – Hamming-Code",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Hamming-Code",
+    "verifyNote": "Single-Error-Correcting; Paritätsbits an Zweierpotenz-Positionen."
+  },
+  {
+    "id": "algorithm-adler-32-h6",
+    "name": "Adler-32",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(n)",
+      "purpose": "Berechnet eine 32-Bit-Prüfsumme aus zwei laufenden Summen, um Übertragungsfehler schnell zu erkennen"
+    },
+    "funFact": "Adler-32 steckt im zlib-Format und ist schneller zu berechnen als eine CRC-Prüfsumme, dafür etwas weniger zuverlässig.",
+    "sourceName": "Wikipedia DE – Adler-32",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Adler-32",
+    "verifyNote": "Zwei modulo-65521-Summen; eingesetzt in zlib/DEFLATE-Streams."
+  },
+  {
+    "id": "algorithm-murmurhash-h6",
+    "name": "MurmurHash",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(n)",
+      "purpose": "Erzeugt eine schnelle, gut streuende Nicht-kryptografische Hashsumme für Hashtabellen und Bloom-Filter"
+    },
+    "funFact": "Der Name spielt auf die Kernoperationen Multiply und Rotate an; MurmurHash ist in vielen Datenbanken und Sprachlaufzeiten verbaut.",
+    "sourceName": "Wikipedia EN – MurmurHash",
+    "sourceUrl": "https://en.wikipedia.org/wiki/MurmurHash",
+    "verifyNote": "Nicht-kryptografische Hashfunktion (Appleby 2008); linear über die Eingabe."
+  },
+  {
+    "id": "algorithm-fnv-hash-h6",
+    "name": "FNV-Hash",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(n)",
+      "purpose": "Berechnet eine einfache, schnelle Hashsumme durch abwechselndes Multiplizieren mit einer Primzahl und XOR der Bytes"
+    },
+    "funFact": "Wegen seiner Einfachheit ist Fowler-Noll-Vo einer der am häufigsten von Hand implementierten Hashes überhaupt.",
+    "sourceName": "Wikipedia EN – Fowler–Noll–Vo hash function",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function",
+    "verifyNote": "Multiply-XOR-Schleife mit FNV-Prime; nicht-kryptografisch, linear."
+  },
+  {
+    "id": "algorithm-booth-multiplikation-h6",
+    "name": "Booth-Multiplikation",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Numerik",
+      "avgComplexity": "O(n)",
+      "purpose": "Multipliziert vorzeichenbehaftete Binärzahlen im Zweierkomplement effizient durch Betrachten von Bitgruppen"
+    },
+    "funFact": "Booths Verfahren reduziert die Zahl nötiger Additionen und ist in vielen Hardware-Multiplizierern von Prozessoren umgesetzt.",
+    "sourceName": "Wikipedia DE – Booth-Algorithmus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Booth-Algorithmus",
+    "verifyNote": "Booth 1951; arbeitet direkt auf Zweierkomplement-Darstellung."
+  },
+  {
+    "id": "algorithm-morris-traversierung-h6",
+    "name": "Morris-Traversierung",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Suche",
+      "avgComplexity": "O(n)",
+      "purpose": "Durchläuft einen Binärbaum ohne Stack oder Rekursion, indem temporär Fäden zu Vorgängerknoten gesetzt werden"
+    },
+    "funFact": "Die Morris-Traversierung kommt mit konstantem Zusatzspeicher aus, wo eine rekursive Lösung O(h) Stack braucht.",
+    "sourceName": "Wikipedia EN – Tree traversal (Morris)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Tree_traversal",
+    "verifyNote": "In-Order ohne Hilfsspeicher über temporäre Threaded-Links; O(1) Zusatzspeicher."
+  },
+  {
+    "id": "algorithm-powerset-konstruktion-h6",
+    "name": "Potenzmengenkonstruktion",
+    "category": "algorithm",
+    "attributes": {
+      "category": "String-Verarbeitung",
+      "avgComplexity": "O(2ⁿ)",
+      "purpose": "Wandelt einen nichtdeterministischen endlichen Automaten in einen äquivalenten deterministischen um"
+    },
+    "funFact": "Sie ist der Grund, warum sich jeder reguläre Ausdruck letztlich als deterministischer Automat ausführen lässt.",
+    "sourceName": "Wikipedia DE – Potenzmengenkonstruktion",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Potenzmengenkonstruktion",
+    "verifyNote": "NFA→DFA-Umwandlung; im Worst Case exponentiell viele Zustände."
+  },
+  {
+    "id": "algorithm-hopcroft-minimierung-h6",
+    "name": "Hopcroft-Minimierung",
+    "category": "algorithm",
+    "attributes": {
+      "category": "String-Verarbeitung",
+      "avgComplexity": "O(n log n)",
+      "purpose": "Reduziert einen deterministischen endlichen Automaten auf die kleinste äquivalente Zustandsmenge"
+    },
+    "funFact": "Der Algorithmus verfeinert Partitionen von Zuständen, bis nur noch wirklich unterscheidbare Zustände übrig sind.",
+    "sourceName": "Wikipedia EN – DFA minimization (Hopcroft)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/DFA_minimization",
+    "verifyNote": "Hopcroft 1971; Partitionsverfeinerung in O(n log n)."
+  },
+  {
+    "id": "algorithm-boyer-moore-majority-h6",
+    "name": "Boyer-Moore-Mehrheitsalgorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Suche",
+      "avgComplexity": "O(n)",
+      "purpose": "Findet ein in mehr als der Hälfte der Elemente vorkommendes Mehrheitselement mit nur konstantem Zusatzspeicher"
+    },
+    "funFact": "Das Verfahren merkt sich nur einen Kandidaten und einen Zähler und kommt damit in einem einzigen Durchlauf aus.",
+    "sourceName": "Wikipedia EN – Boyer–Moore majority vote algorithm",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_majority_vote_algorithm",
+    "verifyNote": "Ein Durchlauf, O(1) Speicher; findet absolutes Mehrheitselement falls vorhanden."
+  },
+  {
+    "id": "algorithm-floyd-heapaufbau-h6",
+    "name": "Floyd-Heapaufbau",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Sortierung",
+      "avgComplexity": "O(n)",
+      "purpose": "Baut aus einem unsortierten Array einen Heap auf, indem von unten nach oben jeder Teilbaum versickert wird"
+    },
+    "funFact": "Überraschenderweise kostet der Heapaufbau nur O(n) und nicht O(n log n), obwohl pro Element ein Versickern nötig scheint.",
+    "sourceName": "Wikipedia EN – Binary heap (Building a heap)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Binary_heap",
+    "verifyNote": "Bottom-up-Heapify (Floyd 1964); lineare Gesamtkosten trotz O(log n) pro Versickern."
+  },
+  {
+    "id": "file_format-elf-h6",
+    "name": "ELF",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Executable and Linkable Format",
+      "compression": "unkomprimiert",
+      "mediaType": "Programm"
+    },
+    "funFact": "ELF ist das Standardformat für ausführbare Dateien und Bibliotheken auf Linux und vielen anderen Unix-Systemen.",
+    "sourceName": "Wikipedia DE – Executable and Linkable Format",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Executable_and_Linking_Format",
+    "verifyNote": "Vollform und Verwendung als Linux-Binärformat laut Wikipedia; Binärcontainer ohne eigene Kompression."
+  },
+  {
+    "id": "file_format-mach-o-h6",
+    "name": "Mach-O",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Mach Object File Format",
+      "compression": "unkomprimiert",
+      "mediaType": "Programm"
+    },
+    "funFact": "Mach-O ist das Format ausführbarer Dateien auf macOS und iOS und kann als Fat Binary Code für mehrere Prozessorarchitekturen enthalten.",
+    "sourceName": "Wikipedia DE – Mach-O",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Mach-O",
+    "verifyNote": "Apple-Binärformat; Fat-Binary-Eigenschaft laut Wikipedia; unkomprimierter Container."
+  },
+  {
+    "id": "file_format-pe-h6",
+    "name": "PE",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Portable Executable",
+      "compression": "unkomprimiert",
+      "mediaType": "Programm"
+    },
+    "funFact": "Das PE-Format ist die Grundlage von EXE- und DLL-Dateien unter Windows und enthält einen kleinen DOS-Stub aus historischen Gründen.",
+    "sourceName": "Wikipedia DE – Portable Executable",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Portable_Executable",
+    "verifyNote": "Windows-Binärformat für EXE/DLL; DOS-Stub-Detail laut Wikipedia."
+  },
+  {
+    "id": "file_format-war-h6",
+    "name": "WAR",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Web Application Archive",
+      "compression": "verlustfrei komprimiert",
+      "mediaType": "Archiv"
+    },
+    "funFact": "Eine WAR-Datei bündelt eine komplette Java-Webanwendung in einem einzigen ZIP-basierten Archiv, das ein Server direkt ausrollen kann.",
+    "sourceName": "Wikipedia EN – WAR (file format)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/WAR_(file_format)",
+    "verifyNote": "ZIP-basiertes Java-Web-Archiv; verlustfreie Kompression über das ZIP-Format."
+  },
+  {
+    "id": "file_format-appimage-h6",
+    "name": "AppImage",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "AppImage",
+      "compression": "verlustfrei komprimiert",
+      "mediaType": "Programm"
+    },
+    "funFact": "Ein AppImage bündelt eine Linux-Anwendung samt Abhängigkeiten in einer einzigen Datei, die ohne Installation direkt startbar ist.",
+    "sourceName": "Wikipedia EN – AppImage",
+    "sourceUrl": "https://en.wikipedia.org/wiki/AppImage",
+    "verifyNote": "Selbstausführendes Image mit komprimiertem SquashFS; portable Linux-App."
+  },
+  {
+    "id": "file_format-flatpak-h6",
+    "name": "Flatpak",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Flatpak",
+      "compression": "verlustfrei komprimiert",
+      "mediaType": "Programm"
+    },
+    "funFact": "Flatpak verteilt Linux-Anwendungen sandbox-isoliert und unabhängig von der Distribution, ähnlich wie App-Stores auf dem Smartphone.",
+    "sourceName": "Wikipedia DE – Flatpak",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Flatpak",
+    "verifyNote": "Distributionsübergreifendes Paket-/Sandbox-Format; Inhalte als komprimiertes OSTree-Repo."
+  },
+  {
+    "id": "file_format-snap-h6",
+    "name": "Snap",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Snap-Paket",
+      "compression": "verlustfrei komprimiert",
+      "mediaType": "Programm"
+    },
+    "funFact": "Snap-Pakete von Canonical enthalten alle Abhängigkeiten und werden als komprimiertes SquashFS-Image eingebunden.",
+    "sourceName": "Wikipedia EN – Snap (software)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Snap_(software)",
+    "verifyNote": "SquashFS-basiertes Paketformat; verlustfreie Kompression des Images."
+  },
+  {
+    "id": "file_format-xlsm-h6",
+    "name": "XLSM",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Excel Macro-Enabled Workbook",
+      "compression": "verlustfrei komprimiert",
+      "mediaType": "Tabellenkalkulation"
+    },
+    "funFact": "XLSM gleicht XLSX, erlaubt aber zusätzlich eingebettete Makros — weshalb solche Dateien als häufiger Weg für Schadcode gelten.",
+    "sourceName": "Wikipedia EN – Office Open XML",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Office_Open_XML",
+    "verifyNote": "ZIP-basiertes OOXML mit aktivierten Makros; verlustfreie ZIP-Kompression."
+  },
+  {
+    "id": "file_format-vsdx-h6",
+    "name": "VSDX",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Visio Drawing",
+      "compression": "verlustfrei komprimiert",
+      "mediaType": "Vektorgrafik"
+    },
+    "funFact": "VSDX ist das Diagrammformat von Microsoft Visio und speichert Flussdiagramme und Pläne XML-basiert in einem ZIP-Container.",
+    "sourceName": "Wikipedia EN – Microsoft Visio",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Microsoft_Visio",
+    "verifyNote": "OPC/ZIP-basiertes XML-Format für Visio-Diagramme; verlustfreie Kompression."
+  },
+  {
+    "id": "file_format-class-h6",
+    "name": "Class",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Java Class File",
+      "compression": "unkomprimiert",
+      "mediaType": "Bytecode"
+    },
+    "funFact": "Jede .class-Datei beginnt mit der Signatur 0xCAFEBABE und enthält den Bytecode, den die Java Virtual Machine ausführt.",
+    "sourceName": "Wikipedia DE – Java-Class-Datei",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Java-Class-Datei",
+    "verifyNote": "JVM-Bytecode-Container; Magic Number CAFEBABE laut Wikipedia; nicht komprimiert."
+  },
+  {
+    "id": "file_format-wasm-h6",
+    "name": "WASM-Binärformat",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "WebAssembly Binary Format",
+      "compression": "unkomprimiert",
+      "mediaType": "Bytecode"
+    },
+    "funFact": "Das WASM-Binärformat lässt nahezu native Rechenleistung im Browser zu und ist als kompaktes Stack-Maschinen-Bytecode aufgebaut.",
+    "sourceName": "Wikipedia DE – WebAssembly",
+    "sourceUrl": "https://de.wikipedia.org/wiki/WebAssembly",
+    "verifyNote": "Portables Stack-Maschinen-Bytecode für das Web; Binärformat ohne eigene Kompression."
+  },
+  {
+    "id": "file_format-dockerfile-h6",
+    "name": "Dockerfile",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Dockerfile",
+      "compression": "unkomprimiert",
+      "mediaType": "Text"
+    },
+    "funFact": "Ein Dockerfile beschreibt Schritt für Schritt in Textform, wie ein Container-Image aufgebaut wird, und macht Umgebungen reproduzierbar.",
+    "sourceName": "Wikipedia DE – Docker (Software)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Docker_(Software)",
+    "verifyNote": "Textbasierte Bauanleitung für Container-Images; reines Textformat."
+  },
+  {
+    "id": "file_format-pem-x509-h6",
+    "name": "PFX",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Personal Information Exchange (PKCS#12)",
+      "compression": "unkomprimiert",
+      "mediaType": "Zertifikat"
+    },
+    "funFact": "Eine PFX/PKCS#12-Datei bündelt ein Zertifikat samt privatem Schlüssel passwortgeschützt in einem Container — praktisch zum Umziehen von Schlüsseln.",
+    "sourceName": "Wikipedia EN – PKCS 12",
+    "sourceUrl": "https://en.wikipedia.org/wiki/PKCS_12",
+    "verifyNote": "PKCS#12-Container für Zertifikat und privaten Schlüssel; verschlüsselt, nicht komprimiert."
+  }
+]
