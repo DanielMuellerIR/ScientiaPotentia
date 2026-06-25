@@ -359,12 +359,12 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 | Astra  | 1560 | 5035 | NASA / IAU / ESA / Wikidata | **3D-Himmelskörper (three.js)** + Kontext-Karte (Bahn/Distanz), Texturen Solar System Scope (CC BY 4.0); 478 Museumsbilder |
 | Homo   | 413 | 1195 | Gray's Anatomy / Prometheus / NIH / MedlinePlus / StatPearls / OpenStax | **Anatomiegrafiken (Wikimedia, PD)** + konzeptgenauer Struktur-Marker je Frage; ab v1.52 zehn Physiologie-Kategorien jenseits der Anatomie |
 | Natura | 2402 | 13217 | Wikipedia / USGS / IUCN / IPCC / Wikidata | generische Konzeptkarte (`ConceptVisual`); Tiere via MiniMax-Delegation 49→97 ausgebaut (web-grounded); freies Commons-Foto je Konzept hinterlegt (`concept.image`, fürs spätere Museum) |
-| Lingua | 1094 | 5025 | Wikipedia / Ethnologue / Wiktionary / Guinness / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Attribut-Labels; 184 Museumsbilder (writing_system/language_family) |
-| Cultura | 1537 | 5042 | Wikipedia (DE/EN) / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Kategorie-/Attribut-Labels; via MiniMax-Delegation ausgebaut (Komponisten Wikidata-geprüft, Werke web-grounded) |
+| Lingua | 1207 | 5540 | Wikipedia / Ethnologue / Wiktionary / Guinness / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Attribut-Labels; 184 Museumsbilder (writing_system/language_family) |
+| Cultura | 1798 | 6332 | Wikipedia (DE/EN) / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Kategorie-/Attribut-Labels; via MiniMax-Delegation ausgebaut (Komponisten Wikidata-geprüft, Werke web-grounded); 865 Museumsbilder |
 | Machina | 1689 | 5125 | Wikipedia / RFC/IANA / Lehrbücher | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Funktionsprinzip (v1.47.0); 124 Museumsbilder (hardware) |
-| Historia | 1076 | 5359 | Wikipedia / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Zeit/Urheberschaft, Politik-Ausschluss (v1.47.0); 880 Museumsbilder |
+| Historia | 1244 | 6332 | Wikipedia / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Zeit/Urheberschaft, Politik-Ausschluss (v1.47.0); 1023 Museumsbilder |
 
-> **Stand 2026-06-25 (v1.59.0–v1.67.0) — 5000-Ziel für ALLE MCQ-Domains außer Homo erreicht (+~7300 Fragen):**
+> **Stand 2026-06-25 (v1.59.0–v1.70.0) — 5000-Ziel für ALLE MCQ-Domains außer Homo erreicht + Vertiefung (+~10 100 Fragen):**
 > Autonome Content-Offensive in 9 Commits: sechs orchestrierte `find → verify`-Workflows (h1–h6,
 > je Opus-Finder + adversarialer Opus-Verifier, additiver `append_concepts`, eigene Fakt-Stichprobe)
 > plus interleavte Bild-Wellen. **+2093 Konzepte / +~7300 Fragen:** Historia 838→**1076** K /
@@ -384,6 +384,12 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 > `check_images`). Alle `verify_facts` 0 Fehler, `audit:questions` Strukt 0 / Bias-Templates
 > unverändert, `npm test` grün. **Offen:** Machina-`compression` hat zwei Parallelvokabulare
 > (Bestands-Altlast, kein neuer Defekt — Kanonisierung als Qualitätsaufgabe vorgemerkt).
+> **Anschluss-Enrichment v1.69–v1.70 (e1):** +542 Konzepte / +2778 Fragen über die Domains mit
+> tiefem fairen Reservoir jenseits 5000 — Cultura 5042→**6332**, Historia 5359→**6332**, Lingua
+> 5025→**5540** (Renaissance-/russ.-Realismus-Werke, verstorbene Forscher SEM/STM/Townes/Libby,
+> Körper-/Fremdwort-Etymologien). Verifier entfernte u.a. „Der Zigeunerbaron" (abwertende Bezeichnung
+> im Titel), ein fabriziertes „Tintenstrahl-Faxgerät" und eine erfundene Lampe-Etymologie; +274
+> Museumsbilder (Cultura →865, Historia →1023). **Gesamt aktuell: 8 Domains 47 993 Fragen.**
 > **NICHT deployt (live weiterhin v1.46.1).**
 >
 > **Stand 2026-06-25 (v1.52.0–v1.58.0) — Homo-Physiologie-Ausbau (3 Wellen) + Museum-Bildoffensive (6 Domains):**
