@@ -1,0 +1,602 @@
+[
+  {
+    "id": "programming_language-pharo-h3",
+    "name": "Pharo",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Objektorientiert",
+      "execution": "Bytecode (VM)",
+      "fileExtension": ".st",
+      "primaryDomain": "Forschung und Lehre"
+    },
+    "funFact": "Pharo ist image-basiert: Der gesamte Objektspeicher (alle Klassen und Methoden) wird als Snapshot in einer Image-Datei gespeichert, statt in einzelnen Quelltextdateien.",
+    "sourceName": "Wikipedia EN – Pharo",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Pharo",
+    "verifyNote": "Reines, dynamisches, objektorientiertes Smalltalk-Derivat mit VM und Image laut Wikipedia und pharo.org; Quelltext-Export per Tonel/.st."
+  },
+  {
+    "id": "programming_language-oz-h3",
+    "name": "Oz",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Multiparadigma",
+      "execution": "Bytecode (VM)",
+      "fileExtension": ".oz",
+      "primaryDomain": "Forschung und Lehre"
+    },
+    "funFact": "Oz vereint funktionale, logische, objektorientierte und nebenläufige Programmierung in einer Sprache und diente als Grundlage des Lehrbuchs 'Concepts, Techniques, and Models of Computer Programming'.",
+    "sourceName": "Wikipedia EN – Oz (programming language)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Oz_(programming_language)",
+    "verifyNote": "Multiparadigmen-Sprache, ausgeführt vom Mozart-System (VM); .oz-Dateiendung laut Wikipedia."
+  },
+  {
+    "id": "programming_language-ballerina-h3",
+    "name": "Ballerina",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Multiparadigma",
+      "execution": "Bytecode (VM)",
+      "fileExtension": ".bal",
+      "primaryDomain": "Nebenläufige Backend-Systeme"
+    },
+    "funFact": "Ballerina ist speziell für Cloud-Integration gebaut und kann Sequenzdiagramme aus dem Code generieren, weil Netzwerk-Interaktionen erste Sprachelemente sind.",
+    "sourceName": "Wikipedia EN – Ballerina (programming language)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Ballerina_(programming_language)",
+    "verifyNote": "Cloud-native Integrationssprache von WSO2; .bal-Dateien laufen auf der JVM laut ballerina.io und Wikipedia."
+  },
+  {
+    "id": "programming_language-ats-h3",
+    "name": "ATS",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Funktional/Imperativ",
+      "execution": "Kompiliert",
+      "fileExtension": ".dats",
+      "primaryDomain": "Systemprogrammierung"
+    },
+    "funFact": "ATS kombiniert ein abhängiges Typsystem mit C-naher Performance und kann viele Speicherfehler bereits zur Kompilierzeit ausschließen.",
+    "sourceName": "Wikipedia EN – ATS (programming language)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/ATS_(programming_language)",
+    "verifyNote": "ATS kompiliert über C nach Maschinencode; Implementierungsdateien tragen die Endung .dats laut Wikipedia und ats-lang.org."
+  },
+  {
+    "id": "programming_language-carbon-h3",
+    "name": "Carbon",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Multiparadigma",
+      "execution": "Kompiliert",
+      "fileExtension": ".carbon",
+      "primaryDomain": "Systemprogrammierung"
+    },
+    "funFact": "Carbon wird als möglicher Nachfolger von C++ entwickelt und ist von Anfang an auf bidirektionale Interoperabilität mit bestehendem C++-Code ausgelegt.",
+    "sourceName": "Wikipedia EN – Carbon (programming language)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Carbon_(programming_language)",
+    "verifyNote": "Experimentelle, von Google initiierte Sprache als C++-Nachfolger; Quelldateien tragen .carbon laut Wikipedia und github.com/carbon-language."
+  },
+  {
+    "id": "programming_language-bend-h3",
+    "name": "Bend",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Funktional",
+      "execution": "Kompiliert",
+      "fileExtension": ".bend",
+      "primaryDomain": "Hochleistungsrechnen (HPC)"
+    },
+    "funFact": "Bend parallelisiert Programme automatisch auf GPUs, ohne dass der Entwickler Threads, Sperren oder Synchronisation manuell verwalten muss.",
+    "sourceName": "GitHub – HigherOrderCO/Bend",
+    "sourceUrl": "https://github.com/HigherOrderCO/Bend",
+    "verifyNote": "Massiv-parallele funktionale Sprache auf Basis von Interaction Combinators (HVM); .bend-Dateien laut offiziellem Repository."
+  },
+  {
+    "id": "programming_language-grain-h3",
+    "name": "Grain",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Funktional",
+      "execution": "Kompiliert",
+      "fileExtension": ".gr",
+      "primaryDomain": "Webentwicklung"
+    },
+    "funFact": "Grain kompiliert direkt nach WebAssembly und bringt funktionale Konzepte wie Pattern Matching und algebraische Datentypen ins Web.",
+    "sourceName": "Wikipedia EN – Grain (programming language)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Grain_(programming_language)",
+    "verifyNote": "Funktionale Sprache, die nach WebAssembly kompiliert; .gr-Dateiendung laut grain-lang.org und Wikipedia."
+  },
+  {
+    "id": "programming_language-inko-h3",
+    "name": "Inko",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Objektorientiert/aktorbasiert",
+      "execution": "Kompiliert",
+      "fileExtension": ".inko",
+      "primaryDomain": "Nebenläufige Systeme"
+    },
+    "funFact": "Inko verhindert Datenwettläufe schon zur Kompilierzeit durch ein Ownership-Modell mit leichtgewichtigen Prozessen statt geteiltem Speicher.",
+    "sourceName": "Inko – Offizielle Website",
+    "sourceUrl": "https://inko-lang.org/",
+    "verifyNote": "Nebenläufige, speichersichere Sprache mit leichtgewichtigen Prozessen; .inko-Dateien laut offizieller Dokumentation."
+  },
+  {
+    "id": "programming_language-curry-h3",
+    "name": "Curry",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Funktional/Logisch",
+      "execution": "Kompiliert",
+      "fileExtension": ".curry",
+      "primaryDomain": "Forschung und Lehre"
+    },
+    "funFact": "Curry verbindet die funktionale Programmierung von Haskell mit der Logikprogrammierung von Prolog und ist nach dem Logiker Haskell Curry benannt.",
+    "sourceName": "Wikipedia EN – Curry (programming language)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Curry_(programming_language)",
+    "verifyNote": "Funktional-logische Sprache mit Haskell-naher Syntax; .curry-Dateien laut curry-lang.org und Wikipedia."
+  },
+  {
+    "id": "programming_language-frege-h3",
+    "name": "Frege",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Funktional",
+      "execution": "Bytecode (VM)",
+      "fileExtension": ".fr",
+      "primaryDomain": "Anwendungsentwicklung"
+    },
+    "funFact": "Frege ist im Grunde Haskell für die Java Virtual Machine und ist nach dem Logiker Gottlob Frege benannt.",
+    "sourceName": "Wikipedia EN – Frege (programming language)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Frege_(programming_language)",
+    "verifyNote": "Rein funktionale, Haskell-ähnliche Sprache, die zu JVM-Bytecode kompiliert; .fr-Dateien laut Wikipedia."
+  },
+  {
+    "id": "programming_language-koka-h3",
+    "name": "Koka",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Funktional",
+      "execution": "Kompiliert",
+      "fileExtension": ".kk",
+      "primaryDomain": "Forschung und Lehre"
+    },
+    "funFact": "Koka macht Seiteneffekte über sein Typsystem sichtbar und gilt als Pionier für algebraische Effekt-Handler.",
+    "sourceName": "Wikipedia EN – Koka (programming language)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Koka_(programming_language)",
+    "verifyNote": "Funktionale Sprache mit Effekt-Typsystem, kompiliert über C; .kk-Dateien laut koka-lang.github.io."
+  },
+  {
+    "id": "programming_language-boo-h3",
+    "name": "Boo",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Objektorientiert",
+      "execution": "Bytecode (VM)",
+      "fileExtension": ".boo",
+      "primaryDomain": "Anwendungsentwicklung"
+    },
+    "funFact": "Boo hat eine an Python angelehnte Syntax, ist aber statisch typisiert und läuft auf der .NET/Mono-Laufzeit.",
+    "sourceName": "Wikipedia EN – Boo (programming language)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Boo_(programming_language)",
+    "verifyNote": "CLI-Sprache mit Python-naher Syntax, kompiliert zu .NET-Bytecode; .boo-Dateien laut Wikipedia."
+  },
+  {
+    "id": "programming_language-nelua-h3",
+    "name": "Nelua",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Imperativ/prozedural",
+      "execution": "Kompiliert",
+      "fileExtension": ".nelua",
+      "primaryDomain": "Spieleentwicklung"
+    },
+    "funFact": "Nelua hat eine an Lua angelehnte Syntax, kompiliert aber über C zu nativem Maschinencode ohne Garbage Collector.",
+    "sourceName": "Nelua – Offizielle Website",
+    "sourceUrl": "https://nelua.io/",
+    "verifyNote": "Statisch typisierte Systemsprache mit Lua-Syntax, kompiliert über C; .nelua-Dateien laut offizieller Dokumentation."
+  },
+  {
+    "id": "programming_language-vale-h3",
+    "name": "Vale",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Multiparadigma",
+      "execution": "Kompiliert",
+      "fileExtension": ".vale",
+      "primaryDomain": "Systemprogrammierung"
+    },
+    "funFact": "Vale verfolgt Speichersicherheit ohne Garbage Collector über ein Konzept namens 'generational references'.",
+    "sourceName": "Vale – Offizielle Website",
+    "sourceUrl": "https://vale.dev/",
+    "verifyNote": "Speichersichere Systemsprache mit generational references, kompiliert über LLVM; .vale-Dateien laut offizieller Doku."
+  },
+  {
+    "id": "concept-continuation-h3",
+    "name": "Continuation",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmiersprachen",
+      "definition": "Eine Abstraktion, die den gesamten zukünftigen Berechnungsverlauf eines Programms an einem Punkt als aufrufbares Objekt darstellt"
+    },
+    "funFact": "Mit dem Operator call/cc in Scheme lässt sich eine Continuation einfangen und später erneut aufrufen, wodurch sich Schleifen, Ausnahmen und Generatoren nachbilden lassen.",
+    "sourceName": "Wikipedia EN – Continuation",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Continuation",
+    "verifyNote": "Standardbegriff der Programmiersprachentheorie; call/cc-Verhalten im Scheme-Standard (R7RS) spezifiziert."
+  },
+  {
+    "id": "concept-monade-h3",
+    "name": "Monade",
+    "category": "concept",
+    "attributes": {
+      "category": "Funktionale Programmierung",
+      "definition": "Ein Entwurfsmuster, das Berechnungen mit einem Kontext (etwa Zustand, Fehler oder Ein-/Ausgabe) verkettet, indem es die Operationen bind und return bereitstellt"
+    },
+    "funFact": "In Haskell wird die unreine Ein-/Ausgabe vollständig über die IO-Monade gekapselt, sodass die Sprache trotz Seiteneffekten rein bleibt.",
+    "sourceName": "Wikipedia EN – Monad (functional programming)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Monad_(functional_programming)",
+    "verifyNote": "Monadengesetze und bind/return aus der Kategorientheorie; in Haskell als Typklasse Monad standardisiert."
+  },
+  {
+    "id": "concept-hoisting-h3",
+    "name": "Hoisting",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmiersprachen",
+      "definition": "Das Verhalten mancher Sprachen, Deklarationen von Variablen und Funktionen gedanklich an den Anfang ihres Gültigkeitsbereichs zu ziehen, bevor der Code ausgeführt wird"
+    },
+    "funFact": "In JavaScript sind mit var deklarierte Variablen vor ihrer Zuweisung bereits sichtbar, haben aber den Wert undefined — eine häufige Fehlerquelle.",
+    "sourceName": "MDN Web Docs – Hoisting",
+    "sourceUrl": "https://developer.mozilla.org/en-US/docs/Glossary/Hoisting",
+    "verifyNote": "var-Hoisting (undefined) und let/const-Verhalten (Temporal Dead Zone) gemäß ECMAScript-Spezifikation und MDN."
+  },
+  {
+    "id": "concept-reentrant-h3",
+    "name": "Reentranz",
+    "category": "concept",
+    "attributes": {
+      "category": "Nebenläufigkeit",
+      "definition": "Die Eigenschaft einer Funktion, gefahrlos erneut aufgerufen werden zu können, bevor ein vorheriger Aufruf abgeschlossen ist — etwa durch Unterbrechungen oder Rekursion"
+    },
+    "funFact": "Eine reentrante Funktion darf keinen veränderlichen globalen Zustand benutzen — deshalb gibt es Doppelversionen wie strtok und das reentrante strtok_r in C.",
+    "sourceName": "Wikipedia EN – Reentrancy (computing)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Reentrancy_(computing)",
+    "verifyNote": "Definition über Unterbrechbarkeit ohne gemeinsamen Zustand; _r-Varianten in POSIX standardisiert."
+  },
+  {
+    "id": "concept-determinismus-h3",
+    "name": "Determinismus",
+    "category": "concept",
+    "attributes": {
+      "category": "Theoretische Informatik",
+      "definition": "Die Eigenschaft eines Algorithmus oder Systems, bei gleicher Eingabe stets dieselbe Ausgabe und denselben Ablauf zu liefern"
+    },
+    "funFact": "Nichtdeterministische Programme — etwa bei paralleler Ausführung ohne feste Reihenfolge — erschweren das Debugging, weil sich Fehler nicht zuverlässig reproduzieren lassen.",
+    "sourceName": "Wikipedia EN – Deterministic algorithm",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Deterministic_algorithm",
+    "verifyNote": "Standarddefinition: gleiche Eingabe → gleiche Ausgabe und gleiche Zustandsfolge, gemäß Wikipedia."
+  },
+  {
+    "id": "concept-big-endian-h3",
+    "name": "Big-Endian",
+    "category": "concept",
+    "attributes": {
+      "category": "Rechnerarchitektur",
+      "definition": "Eine Byte-Reihenfolge, bei der das höchstwertige Byte einer Mehrbyte-Zahl an der niedrigsten Speicheradresse steht"
+    },
+    "funFact": "Weil Netzwerkprotokolle wie TCP/IP Big-Endian verwenden, heißt diese Reihenfolge auch 'Network Byte Order'; x86-Prozessoren arbeiten dagegen Little-Endian.",
+    "sourceName": "Wikipedia EN – Endianness",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Endianness",
+    "verifyNote": "Big-Endian = höchstwertiges Byte zuerst; Network Byte Order in RFC 1700 / RFC 791 als Big-Endian definiert."
+  },
+  {
+    "id": "concept-little-endian-h3",
+    "name": "Little-Endian",
+    "category": "concept",
+    "attributes": {
+      "category": "Rechnerarchitektur",
+      "definition": "Eine Byte-Reihenfolge, bei der das niederstwertige Byte einer Mehrbyte-Zahl an der niedrigsten Speicheradresse steht"
+    },
+    "funFact": "Die x86- und die meisten ARM-Prozessoren arbeiten Little-Endian, weshalb diese Reihenfolge auf Desktop- und Mobilgeräten dominiert.",
+    "sourceName": "Wikipedia EN – Endianness",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Endianness",
+    "verifyNote": "Little-Endian = niederstwertiges Byte zuerst; vorherrschend auf x86/x86-64 laut Wikipedia."
+  },
+  {
+    "id": "concept-partielle-anwendung-h3",
+    "name": "Partielle Anwendung",
+    "category": "concept",
+    "attributes": {
+      "category": "Funktionale Programmierung",
+      "definition": "Das Festlegen eines Teils der Argumente einer Funktion, wodurch eine neue Funktion mit weniger Parametern entsteht"
+    },
+    "funFact": "Partielle Anwendung wird oft mit Currying verwechselt: Currying zerlegt eine Funktion in eine Kette einstelliger Funktionen, partielle Anwendung fixiert nur einige Argumente.",
+    "sourceName": "Wikipedia EN – Partial application",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Partial_application",
+    "verifyNote": "Abgrenzung partielle Anwendung vs. Currying gemäß Wikipedia und Standardliteratur der funktionalen Programmierung."
+  },
+  {
+    "id": "concept-functor-h3",
+    "name": "Funktor (Programmierung)",
+    "category": "concept",
+    "attributes": {
+      "category": "Funktionale Programmierung",
+      "definition": "Eine Struktur, über deren enthaltene Werte sich eine Funktion mittels map anwenden lässt, ohne die Struktur selbst zu verändern"
+    },
+    "funFact": "Eine Liste ist ein einfacher Funktor: map wendet eine Funktion auf jedes Element an und liefert eine gleich strukturierte Liste zurück.",
+    "sourceName": "Wikipedia EN – Functor (functional programming)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Functor_(functional_programming)",
+    "verifyNote": "Funktorgesetze (Identität, Komposition) aus der Kategorientheorie; in Haskell als Typklasse Functor."
+  },
+  {
+    "id": "concept-currying-fold-h3",
+    "name": "Fold (Faltung)",
+    "category": "concept",
+    "attributes": {
+      "category": "Funktionale Programmierung",
+      "definition": "Eine Operation höherer Ordnung, die eine Datenstruktur mithilfe einer Kombinationsfunktion und eines Startwerts zu einem einzelnen Ergebnis zusammenfasst"
+    },
+    "funFact": "Mit fold (reduce) lassen sich Summe, Produkt, Maximum oder sogar map und filter ausdrücken — es ist eine der mächtigsten Grundoperationen der funktionalen Programmierung.",
+    "sourceName": "Wikipedia EN – Fold (higher-order function)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Fold_(higher-order_function)",
+    "verifyNote": "foldl/foldr als Standard-Higher-Order-Funktionen; Universalität laut Wikipedia und funktionaler Standardliteratur."
+  },
+  {
+    "id": "concept-pattern-matching-h3",
+    "name": "Pattern Matching",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmiersprachen",
+      "definition": "Ein Sprachmittel, das einen Wert gegen Muster prüft und dabei zugleich dessen Bestandteile an Variablen bindet"
+    },
+    "funFact": "In Sprachen wie Haskell, Rust und Scala ersetzt Pattern Matching ganze Ketten von if-else-Abfragen und kann vom Compiler auf Vollständigkeit geprüft werden.",
+    "sourceName": "Wikipedia EN – Pattern matching",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Pattern_matching",
+    "verifyNote": "Destrukturierendes Mustervergleichen mit Bindung; Vollständigkeitsprüfung u. a. in Haskell/Rust dokumentiert."
+  },
+  {
+    "id": "concept-algebraic-data-type-h3",
+    "name": "Algebraischer Datentyp",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmiersprachen",
+      "definition": "Ein zusammengesetzter Typ, der aus einer Kombination von Produkttypen (Tupeln/Records) und Summentypen (Auswahl aus Alternativen) gebildet wird"
+    },
+    "funFact": "Der Name kommt aus der Algebra: Produkttypen entsprechen einer Multiplikation der möglichen Werte, Summentypen einer Addition.",
+    "sourceName": "Wikipedia EN – Algebraic data type",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Algebraic_data_type",
+    "verifyNote": "Produkt-/Summentyp-Definition gemäß Typtheorie; zentral in ML, Haskell, Rust laut Wikipedia."
+  },
+  {
+    "id": "concept-type-erasure-h3",
+    "name": "Typlöschung (Type Erasure)",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmiersprachen",
+      "definition": "Das Entfernen von Typinformationen zur Übersetzungs- oder Laufzeit, sodass generischer Code ohne Wissen über die konkreten Typparameter ausgeführt wird"
+    },
+    "funFact": "Java implementiert Generics per Type Erasure: Zur Laufzeit ist eine List<String> nicht von einer List<Integer> unterscheidbar, weil der Typparameter gelöscht wurde.",
+    "sourceName": "Wikipedia EN – Type erasure",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Type_erasure",
+    "verifyNote": "Javas Generics-Type-Erasure ist in der Java Language Specification festgelegt."
+  },
+  {
+    "id": "concept-stack-frame-h3",
+    "name": "Stack-Frame (Aktivierungsdatensatz)",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmierung",
+      "definition": "Ein Speicherbereich auf dem Aufrufstapel, der für einen einzelnen Funktionsaufruf lokale Variablen, Parameter und die Rücksprungadresse enthält"
+    },
+    "funFact": "Jeder rekursive Aufruf legt einen neuen Stack-Frame an — sind es zu viele, läuft der Stapel über und es kommt zum berüchtigten Stack Overflow.",
+    "sourceName": "Wikipedia EN – Call stack",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Call_stack",
+    "verifyNote": "Stack-Frame als Aktivierungsdatensatz mit Rücksprungadresse und lokalen Daten gemäß Wikipedia und Compilerbau-Literatur."
+  },
+  {
+    "id": "concept-abi-h3",
+    "name": "Binärschnittstelle (ABI)",
+    "category": "concept",
+    "attributes": {
+      "category": "Systemtechnik",
+      "definition": "Eine auf Maschinenebene festgelegte Konvention, wie kompilierte Programme und Bibliotheken zusammenarbeiten — etwa Aufrufkonventionen, Datenausrichtung und Registernutzung"
+    },
+    "funFact": "Während eine API auf Quelltext-Ebene festlegt, wie man eine Bibliothek benutzt, regelt die ABI die Binärebene — bricht sie, muss man neu kompilieren statt nur neu zu schreiben.",
+    "sourceName": "Wikipedia EN – Application binary interface",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Application_binary_interface",
+    "verifyNote": "ABI legt Aufrufkonventionen, Datenlayout und Binärkompatibilität fest, abgegrenzt zur API laut Wikipedia."
+  },
+  {
+    "id": "concept-foreign-function-interface-h3",
+    "name": "Fremdfunktionsschnittstelle (FFI)",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmiersprachen",
+      "definition": "Ein Mechanismus, mit dem Code einer Programmiersprache Funktionen aufrufen kann, die in einer anderen Sprache geschrieben wurden"
+    },
+    "funFact": "Viele Python-Bibliotheken für Numerik rufen über eine FFI hochoptimierten C- oder Fortran-Code auf — so verbindet sich Pythons Komfort mit der Geschwindigkeit kompilierter Sprachen.",
+    "sourceName": "Wikipedia EN – Foreign function interface",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Foreign_function_interface",
+    "verifyNote": "FFI als sprachübergreifender Aufrufmechanismus gemäß Wikipedia; Standardbeispiel Python↔C."
+  },
+  {
+    "id": "concept-marshalling-h3",
+    "name": "Marshalling",
+    "category": "concept",
+    "attributes": {
+      "category": "Verteilte Systeme",
+      "definition": "Das Umwandeln eines Objekts oder einer Datenstruktur in ein Format, das sich speichern oder über eine Schnittstelle bzw. ein Netzwerk übertragen lässt"
+    },
+    "funFact": "Marshalling und Serialisierung werden oft synonym verwendet; Marshalling kann aber zusätzlich Verweise auf entfernte Objekte mit übertragen.",
+    "sourceName": "Wikipedia EN – Marshalling (computer science)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Marshalling_(computer_science)",
+    "verifyNote": "Marshalling als Transportkodierung, Abgrenzung zur Serialisierung laut Wikipedia."
+  },
+  {
+    "id": "concept-memory-mapped-io-h3",
+    "name": "Speicherabbild-Datei (Memory Mapping)",
+    "category": "concept",
+    "attributes": {
+      "category": "Betriebssysteme",
+      "definition": "Das Einblenden einer Datei oder eines Geräts in den virtuellen Adressraum eines Prozesses, sodass darauf wie auf normalen Speicher zugegriffen werden kann"
+    },
+    "funFact": "Über Memory Mapping (mmap) kann ein Programm eine riesige Datei bearbeiten, ohne sie komplett in den Arbeitsspeicher zu laden — das Betriebssystem lädt nur die benötigten Seiten.",
+    "sourceName": "Wikipedia EN – Memory-mapped file",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Memory-mapped_file",
+    "verifyNote": "mmap blendet Dateiinhalte seitenweise in den virtuellen Speicher ein; POSIX-mmap-Verhalten dokumentiert."
+  },
+  {
+    "id": "concept-copy-on-write-h3",
+    "name": "Copy-on-Write",
+    "category": "concept",
+    "attributes": {
+      "category": "Betriebssysteme",
+      "definition": "Eine Optimierung, bei der mehrere Beteiligte sich dieselbe Ressource teilen, solange sie nur lesen, und erst beim ersten Schreibzugriff eine eigene Kopie angelegt wird"
+    },
+    "funFact": "Wenn ein Unix-Prozess sich mit fork() verdoppelt, wird der Speicher nicht sofort kopiert — Copy-on-Write erstellt eine Kopie erst, sobald einer der Prozesse schreibt.",
+    "sourceName": "Wikipedia EN – Copy-on-write",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Copy-on-write",
+    "verifyNote": "COW-Verhalten bei fork() und Snapshots gemäß Wikipedia und Betriebssystem-Literatur."
+  },
+  {
+    "id": "concept-spinlock-h3",
+    "name": "Spinlock",
+    "category": "concept",
+    "attributes": {
+      "category": "Nebenläufigkeit",
+      "definition": "Ein Sperrmechanismus, bei dem ein wartender Thread in einer Schleife aktiv prüft, ob die Sperre frei wird, statt sich schlafen zu legen"
+    },
+    "funFact": "Ein Spinlock lohnt sich nur, wenn die Sperre voraussichtlich sehr kurz gehalten wird — sonst verschwendet das aktive Warten unnötig CPU-Zeit.",
+    "sourceName": "Wikipedia EN – Spinlock",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Spinlock",
+    "verifyNote": "Spinlock = aktives Warten (busy-waiting) auf eine Sperre; Einsatzkriterium kurze Haltedauer laut Wikipedia."
+  },
+  {
+    "id": "concept-compare-and-swap-h3",
+    "name": "Compare-and-Swap",
+    "category": "concept",
+    "attributes": {
+      "category": "Nebenläufigkeit",
+      "definition": "Eine atomare Prozessoroperation, die einen Speicherwert nur dann durch einen neuen ersetzt, wenn er noch dem erwarteten alten Wert entspricht"
+    },
+    "funFact": "Compare-and-Swap ist der Grundbaustein vieler sperrenfreier (lock-free) Datenstrukturen, weil mehrere Threads ohne klassische Sperren sicher arbeiten können.",
+    "sourceName": "Wikipedia EN – Compare-and-swap",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Compare-and-swap",
+    "verifyNote": "CAS als atomare Read-Modify-Write-Operation, Basis lock-freier Algorithmen laut Wikipedia."
+  },
+  {
+    "id": "concept-mvcc-h3",
+    "name": "Mehrversionen-Nebenläufigkeitskontrolle (MVCC)",
+    "category": "concept",
+    "attributes": {
+      "category": "Datenbanken",
+      "definition": "Ein Verfahren, bei dem eine Datenbank mehrere Versionen eines Datensatzes vorhält, sodass Lesezugriffe gleichzeitige Schreibzugriffe nicht blockieren"
+    },
+    "funFact": "Dank MVCC sieht eine laufende Lese-Transaktion in PostgreSQL einen konsistenten Schnappschuss der Daten, auch wenn andere Transaktionen gleichzeitig Änderungen vornehmen.",
+    "sourceName": "Wikipedia EN – Multiversion concurrency control",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Multiversion_concurrency_control",
+    "verifyNote": "MVCC entkoppelt Lesen und Schreiben über Versionen; in PostgreSQL und Oracle dokumentiert."
+  },
+  {
+    "id": "concept-write-ahead-log-h3",
+    "name": "Write-Ahead-Log",
+    "category": "concept",
+    "attributes": {
+      "category": "Datenbanken",
+      "definition": "Ein Verfahren, bei dem Änderungen zuerst in ein Protokoll geschrieben werden, bevor sie auf die eigentlichen Daten angewendet werden, um nach einem Absturz wiederherstellbar zu sein"
+    },
+    "funFact": "Stürzt eine Datenbank mitten in einer Transaktion ab, kann sie anhand des Write-Ahead-Logs beim Neustart entscheiden, welche Änderungen sie nachholen oder zurückrollen muss.",
+    "sourceName": "Wikipedia EN – Write-ahead logging",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Write-ahead_logging",
+    "verifyNote": "WAL-Prinzip 'Log vor Daten' für Atomarität und Dauerhaftigkeit gemäß Wikipedia und DBMS-Literatur."
+  },
+  {
+    "id": "concept-konsistentes-hashing-h3",
+    "name": "Konsistentes Hashing",
+    "category": "concept",
+    "attributes": {
+      "category": "Verteilte Systeme",
+      "definition": "Ein Hash-Verfahren, das Schlüssel so auf Knoten verteilt, dass beim Hinzufügen oder Entfernen eines Knotens nur ein kleiner Teil der Zuordnungen neu berechnet werden muss"
+    },
+    "funFact": "Konsistentes Hashing ist die Grundlage vieler verteilter Caches und Datenbanken wie Amazon Dynamo, weil sich Server hinzufügen lassen, ohne fast alle Schlüssel umverteilen zu müssen.",
+    "sourceName": "Wikipedia EN – Consistent hashing",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Consistent_hashing",
+    "verifyNote": "Konsistentes Hashing minimiert Neuverteilung bei Knotenänderung (~K/n Schlüssel); Einsatz in Dynamo laut Wikipedia."
+  },
+  {
+    "id": "concept-quorum-h3",
+    "name": "Quorum (Verteilte Systeme)",
+    "category": "concept",
+    "attributes": {
+      "category": "Verteilte Systeme",
+      "definition": "Die Mindestanzahl an Knoten, die einer Operation zustimmen müssen, damit sie in einem verteilten System als gültig gilt"
+    },
+    "funFact": "Überlappen sich Lese- und Schreib-Quorum (R + W > N), ist garantiert, dass jeder Lesevorgang den jeweils neuesten Schreibvorgang sieht.",
+    "sourceName": "Wikipedia EN – Quorum (distributed computing)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Quorum_(distributed_computing)",
+    "verifyNote": "Quorum-Bedingung R + W > N für Konsistenz gemäß Wikipedia und Literatur zu verteilten Systemen."
+  },
+  {
+    "id": "concept-consensus-h3",
+    "name": "Konsens (Verteilte Systeme)",
+    "category": "concept",
+    "attributes": {
+      "category": "Verteilte Systeme",
+      "definition": "Das Problem, mehrere verteilte Knoten trotz möglicher Ausfälle auf einen gemeinsamen Wert oder eine gemeinsame Entscheidung zu einigen"
+    },
+    "funFact": "Algorithmen wie Paxos und Raft lösen das Konsensproblem und sorgen dafür, dass sich ein Cluster auch bei Ausfall einzelner Server auf einen gemeinsamen Zustand einigt.",
+    "sourceName": "Wikipedia EN – Consensus (computer science)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Consensus_(computer_science)",
+    "verifyNote": "Konsensproblem mit Agreement-/Termination-/Integrity-Eigenschaften; Paxos und Raft als Standardlösungen laut Wikipedia."
+  },
+  {
+    "id": "concept-leader-election-h3",
+    "name": "Leader Election",
+    "category": "concept",
+    "attributes": {
+      "category": "Verteilte Systeme",
+      "definition": "Das Verfahren, in einer Gruppe verteilter Knoten genau einen Knoten als koordinierenden Anführer zu bestimmen"
+    },
+    "funFact": "Fällt der gewählte Anführer aus, starten die übrigen Knoten automatisch eine neue Wahl — so bleibt das System koordiniert, ohne dass ein Mensch eingreifen muss.",
+    "sourceName": "Wikipedia EN – Leader election",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Leader_election",
+    "verifyNote": "Leader Election bestimmt genau einen Koordinator; Wiederwahl bei Ausfall gemäß Wikipedia."
+  },
+  {
+    "id": "concept-content-addressable-storage-h3",
+    "name": "Inhaltsadressierter Speicher",
+    "category": "concept",
+    "attributes": {
+      "category": "Verteilte Systeme",
+      "definition": "Ein Speicherverfahren, bei dem Daten nicht über einen Ort, sondern über einen aus ihrem Inhalt berechneten Hashwert angesprochen werden"
+    },
+    "funFact": "Git ist ein inhaltsadressierter Speicher: Jeder Commit und jede Datei wird über ihren Hash identifiziert, weshalb identischer Inhalt nur einmal gespeichert wird.",
+    "sourceName": "Wikipedia EN – Content-addressable storage",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Content-addressable_storage",
+    "verifyNote": "Adressierung über Inhalts-Hash, Deduplizierung identischer Inhalte; Git als Beispiel laut Wikipedia/Pro-Git."
+  },
+  {
+    "id": "concept-throughput-h3",
+    "name": "Durchsatz",
+    "category": "concept",
+    "attributes": {
+      "category": "Systemtechnik",
+      "definition": "Die Menge an Arbeit oder Daten, die ein System pro Zeiteinheit verarbeiten oder übertragen kann"
+    },
+    "funFact": "Durchsatz und Latenz sind verschiedene Dinge: Ein System kann hohen Durchsatz (viele Anfragen pro Sekunde) und zugleich hohe Latenz (lange Wartezeit pro Anfrage) haben.",
+    "sourceName": "Wikipedia EN – Throughput",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Throughput",
+    "verifyNote": "Durchsatz = Arbeit pro Zeiteinheit, abgegrenzt von Latenz laut Wikipedia und Leistungsbewertungsliteratur."
+  },
+  {
+    "id": "concept-amortized-analysis-h3",
+    "name": "Amortisierte Analyse",
+    "category": "concept",
+    "attributes": {
+      "category": "Komplexitätstheorie",
+      "definition": "Eine Methode zur Laufzeitabschätzung, die die Gesamtkosten einer Folge von Operationen mittelt, statt nur den teuersten Einzelfall zu betrachten"
+    },
+    "funFact": "Das Anfügen an ein dynamisches Array kostet im Einzelfall manchmal viel (beim Vergrößern), amortisiert über viele Einfügungen aber nur konstante Zeit O(1).",
+    "sourceName": "Wikipedia EN – Amortized analysis",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Amortized_analysis",
+    "verifyNote": "Amortisierte O(1)-Kosten für dynamische Arrays über Aggregat-/Potenzialmethode gemäß Wikipedia und CLRS."
+  }
+]

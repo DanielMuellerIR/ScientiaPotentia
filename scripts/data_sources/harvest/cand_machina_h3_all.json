@@ -1,0 +1,2899 @@
+[
+  {
+    "id": "programming_language-pharo-h3",
+    "name": "Pharo",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Objektorientiert",
+      "execution": "Bytecode (VM)",
+      "fileExtension": ".st",
+      "primaryDomain": "Forschung und Lehre"
+    },
+    "funFact": "Pharo ist image-basiert: Der gesamte Objektspeicher (alle Klassen und Methoden) wird als Snapshot in einer Image-Datei gespeichert, statt in einzelnen Quelltextdateien.",
+    "sourceName": "Wikipedia EN – Pharo",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Pharo",
+    "verifyNote": "Reines, dynamisches, objektorientiertes Smalltalk-Derivat mit VM und Image laut Wikipedia und pharo.org; Quelltext-Export per Tonel/.st."
+  },
+  {
+    "id": "programming_language-oz-h3",
+    "name": "Oz",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Multiparadigma",
+      "execution": "Bytecode (VM)",
+      "fileExtension": ".oz",
+      "primaryDomain": "Forschung und Lehre"
+    },
+    "funFact": "Oz vereint funktionale, logische, objektorientierte und nebenläufige Programmierung in einer Sprache und diente als Grundlage des Lehrbuchs 'Concepts, Techniques, and Models of Computer Programming'.",
+    "sourceName": "Wikipedia EN – Oz (programming language)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Oz_(programming_language)",
+    "verifyNote": "Multiparadigmen-Sprache, ausgeführt vom Mozart-System (VM); .oz-Dateiendung laut Wikipedia."
+  },
+  {
+    "id": "programming_language-ballerina-h3",
+    "name": "Ballerina",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Multiparadigma",
+      "execution": "Bytecode (VM)",
+      "fileExtension": ".bal",
+      "primaryDomain": "Nebenläufige Backend-Systeme"
+    },
+    "funFact": "Ballerina ist speziell für Cloud-Integration gebaut und kann Sequenzdiagramme aus dem Code generieren, weil Netzwerk-Interaktionen erste Sprachelemente sind.",
+    "sourceName": "Wikipedia EN – Ballerina (programming language)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Ballerina_(programming_language)",
+    "verifyNote": "Cloud-native Integrationssprache von WSO2; .bal-Dateien laufen auf der JVM laut ballerina.io und Wikipedia."
+  },
+  {
+    "id": "programming_language-ats-h3",
+    "name": "ATS",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Funktional/Imperativ",
+      "execution": "Kompiliert",
+      "fileExtension": ".dats",
+      "primaryDomain": "Systemprogrammierung"
+    },
+    "funFact": "ATS kombiniert ein abhängiges Typsystem mit C-naher Performance und kann viele Speicherfehler bereits zur Kompilierzeit ausschließen.",
+    "sourceName": "Wikipedia EN – ATS (programming language)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/ATS_(programming_language)",
+    "verifyNote": "ATS kompiliert über C nach Maschinencode; Implementierungsdateien tragen die Endung .dats laut Wikipedia und ats-lang.org."
+  },
+  {
+    "id": "programming_language-carbon-h3",
+    "name": "Carbon",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Multiparadigma",
+      "execution": "Kompiliert",
+      "fileExtension": ".carbon",
+      "primaryDomain": "Systemprogrammierung"
+    },
+    "funFact": "Carbon wird als möglicher Nachfolger von C++ entwickelt und ist von Anfang an auf bidirektionale Interoperabilität mit bestehendem C++-Code ausgelegt.",
+    "sourceName": "Wikipedia EN – Carbon (programming language)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Carbon_(programming_language)",
+    "verifyNote": "Experimentelle, von Google initiierte Sprache als C++-Nachfolger; Quelldateien tragen .carbon laut Wikipedia und github.com/carbon-language."
+  },
+  {
+    "id": "programming_language-bend-h3",
+    "name": "Bend",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Funktional",
+      "execution": "Kompiliert",
+      "fileExtension": ".bend",
+      "primaryDomain": "Hochleistungsrechnen (HPC)"
+    },
+    "funFact": "Bend parallelisiert Programme automatisch auf GPUs, ohne dass der Entwickler Threads, Sperren oder Synchronisation manuell verwalten muss.",
+    "sourceName": "GitHub – HigherOrderCO/Bend",
+    "sourceUrl": "https://github.com/HigherOrderCO/Bend",
+    "verifyNote": "Massiv-parallele funktionale Sprache auf Basis von Interaction Combinators (HVM); .bend-Dateien laut offiziellem Repository."
+  },
+  {
+    "id": "programming_language-grain-h3",
+    "name": "Grain",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Funktional",
+      "execution": "Kompiliert",
+      "fileExtension": ".gr",
+      "primaryDomain": "Webentwicklung"
+    },
+    "funFact": "Grain kompiliert direkt nach WebAssembly und bringt funktionale Konzepte wie Pattern Matching und algebraische Datentypen ins Web.",
+    "sourceName": "Wikipedia EN – Grain (programming language)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Grain_(programming_language)",
+    "verifyNote": "Funktionale Sprache, die nach WebAssembly kompiliert; .gr-Dateiendung laut grain-lang.org und Wikipedia."
+  },
+  {
+    "id": "programming_language-inko-h3",
+    "name": "Inko",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Objektorientiert/aktorbasiert",
+      "execution": "Kompiliert",
+      "fileExtension": ".inko",
+      "primaryDomain": "Nebenläufige Systeme"
+    },
+    "funFact": "Inko verhindert Datenwettläufe schon zur Kompilierzeit durch ein Ownership-Modell mit leichtgewichtigen Prozessen statt geteiltem Speicher.",
+    "sourceName": "Inko – Offizielle Website",
+    "sourceUrl": "https://inko-lang.org/",
+    "verifyNote": "Nebenläufige, speichersichere Sprache mit leichtgewichtigen Prozessen; .inko-Dateien laut offizieller Dokumentation."
+  },
+  {
+    "id": "programming_language-curry-h3",
+    "name": "Curry",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Funktional/Logisch",
+      "execution": "Kompiliert",
+      "fileExtension": ".curry",
+      "primaryDomain": "Forschung und Lehre"
+    },
+    "funFact": "Curry verbindet die funktionale Programmierung von Haskell mit der Logikprogrammierung von Prolog und ist nach dem Logiker Haskell Curry benannt.",
+    "sourceName": "Wikipedia EN – Curry (programming language)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Curry_(programming_language)",
+    "verifyNote": "Funktional-logische Sprache mit Haskell-naher Syntax; .curry-Dateien laut curry-lang.org und Wikipedia."
+  },
+  {
+    "id": "programming_language-frege-h3",
+    "name": "Frege",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Funktional",
+      "execution": "Bytecode (VM)",
+      "fileExtension": ".fr",
+      "primaryDomain": "Anwendungsentwicklung"
+    },
+    "funFact": "Frege ist im Grunde Haskell für die Java Virtual Machine und ist nach dem Logiker Gottlob Frege benannt.",
+    "sourceName": "Wikipedia EN – Frege (programming language)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Frege_(programming_language)",
+    "verifyNote": "Rein funktionale, Haskell-ähnliche Sprache, die zu JVM-Bytecode kompiliert; .fr-Dateien laut Wikipedia."
+  },
+  {
+    "id": "programming_language-koka-h3",
+    "name": "Koka",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Funktional",
+      "execution": "Kompiliert",
+      "fileExtension": ".kk",
+      "primaryDomain": "Forschung und Lehre"
+    },
+    "funFact": "Koka macht Seiteneffekte über sein Typsystem sichtbar und gilt als Pionier für algebraische Effekt-Handler.",
+    "sourceName": "Wikipedia EN – Koka (programming language)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Koka_(programming_language)",
+    "verifyNote": "Funktionale Sprache mit Effekt-Typsystem, kompiliert über C; .kk-Dateien laut koka-lang.github.io."
+  },
+  {
+    "id": "programming_language-boo-h3",
+    "name": "Boo",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Objektorientiert",
+      "execution": "Bytecode (VM)",
+      "fileExtension": ".boo",
+      "primaryDomain": "Anwendungsentwicklung"
+    },
+    "funFact": "Boo hat eine an Python angelehnte Syntax, ist aber statisch typisiert und läuft auf der .NET/Mono-Laufzeit.",
+    "sourceName": "Wikipedia EN – Boo (programming language)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Boo_(programming_language)",
+    "verifyNote": "CLI-Sprache mit Python-naher Syntax, kompiliert zu .NET-Bytecode; .boo-Dateien laut Wikipedia."
+  },
+  {
+    "id": "programming_language-nelua-h3",
+    "name": "Nelua",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Imperativ/prozedural",
+      "execution": "Kompiliert",
+      "fileExtension": ".nelua",
+      "primaryDomain": "Spieleentwicklung"
+    },
+    "funFact": "Nelua hat eine an Lua angelehnte Syntax, kompiliert aber über C zu nativem Maschinencode ohne Garbage Collector.",
+    "sourceName": "Nelua – Offizielle Website",
+    "sourceUrl": "https://nelua.io/",
+    "verifyNote": "Statisch typisierte Systemsprache mit Lua-Syntax, kompiliert über C; .nelua-Dateien laut offizieller Dokumentation."
+  },
+  {
+    "id": "programming_language-vale-h3",
+    "name": "Vale",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Multiparadigma",
+      "execution": "Kompiliert",
+      "fileExtension": ".vale",
+      "primaryDomain": "Systemprogrammierung"
+    },
+    "funFact": "Vale verfolgt Speichersicherheit ohne Garbage Collector über ein Konzept namens 'generational references'.",
+    "sourceName": "Vale – Offizielle Website",
+    "sourceUrl": "https://vale.dev/",
+    "verifyNote": "Speichersichere Systemsprache mit generational references, kompiliert über LLVM; .vale-Dateien laut offizieller Doku."
+  },
+  {
+    "id": "concept-continuation-h3",
+    "name": "Continuation",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmiersprachen",
+      "definition": "Eine Abstraktion, die den gesamten zukünftigen Berechnungsverlauf eines Programms an einem Punkt als aufrufbares Objekt darstellt"
+    },
+    "funFact": "Mit dem Operator call/cc in Scheme lässt sich eine Continuation einfangen und später erneut aufrufen, wodurch sich Schleifen, Ausnahmen und Generatoren nachbilden lassen.",
+    "sourceName": "Wikipedia EN – Continuation",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Continuation",
+    "verifyNote": "Standardbegriff der Programmiersprachentheorie; call/cc-Verhalten im Scheme-Standard (R7RS) spezifiziert."
+  },
+  {
+    "id": "concept-monade-h3",
+    "name": "Monade",
+    "category": "concept",
+    "attributes": {
+      "category": "Funktionale Programmierung",
+      "definition": "Ein Entwurfsmuster, das Berechnungen mit einem Kontext (etwa Zustand, Fehler oder Ein-/Ausgabe) verkettet, indem es die Operationen bind und return bereitstellt"
+    },
+    "funFact": "In Haskell wird die unreine Ein-/Ausgabe vollständig über die IO-Monade gekapselt, sodass die Sprache trotz Seiteneffekten rein bleibt.",
+    "sourceName": "Wikipedia EN – Monad (functional programming)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Monad_(functional_programming)",
+    "verifyNote": "Monadengesetze und bind/return aus der Kategorientheorie; in Haskell als Typklasse Monad standardisiert."
+  },
+  {
+    "id": "concept-hoisting-h3",
+    "name": "Hoisting",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmiersprachen",
+      "definition": "Das Verhalten mancher Sprachen, Deklarationen von Variablen und Funktionen gedanklich an den Anfang ihres Gültigkeitsbereichs zu ziehen, bevor der Code ausgeführt wird"
+    },
+    "funFact": "In JavaScript sind mit var deklarierte Variablen vor ihrer Zuweisung bereits sichtbar, haben aber den Wert undefined — eine häufige Fehlerquelle.",
+    "sourceName": "MDN Web Docs – Hoisting",
+    "sourceUrl": "https://developer.mozilla.org/en-US/docs/Glossary/Hoisting",
+    "verifyNote": "var-Hoisting (undefined) und let/const-Verhalten (Temporal Dead Zone) gemäß ECMAScript-Spezifikation und MDN."
+  },
+  {
+    "id": "concept-reentrant-h3",
+    "name": "Reentranz",
+    "category": "concept",
+    "attributes": {
+      "category": "Nebenläufigkeit",
+      "definition": "Die Eigenschaft einer Funktion, gefahrlos erneut aufgerufen werden zu können, bevor ein vorheriger Aufruf abgeschlossen ist — etwa durch Unterbrechungen oder Rekursion"
+    },
+    "funFact": "Eine reentrante Funktion darf keinen veränderlichen globalen Zustand benutzen — deshalb gibt es Doppelversionen wie strtok und das reentrante strtok_r in C.",
+    "sourceName": "Wikipedia EN – Reentrancy (computing)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Reentrancy_(computing)",
+    "verifyNote": "Definition über Unterbrechbarkeit ohne gemeinsamen Zustand; _r-Varianten in POSIX standardisiert."
+  },
+  {
+    "id": "concept-determinismus-h3",
+    "name": "Determinismus",
+    "category": "concept",
+    "attributes": {
+      "category": "Theoretische Informatik",
+      "definition": "Die Eigenschaft eines Algorithmus oder Systems, bei gleicher Eingabe stets dieselbe Ausgabe und denselben Ablauf zu liefern"
+    },
+    "funFact": "Nichtdeterministische Programme — etwa bei paralleler Ausführung ohne feste Reihenfolge — erschweren das Debugging, weil sich Fehler nicht zuverlässig reproduzieren lassen.",
+    "sourceName": "Wikipedia EN – Deterministic algorithm",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Deterministic_algorithm",
+    "verifyNote": "Standarddefinition: gleiche Eingabe → gleiche Ausgabe und gleiche Zustandsfolge, gemäß Wikipedia."
+  },
+  {
+    "id": "concept-big-endian-h3",
+    "name": "Big-Endian",
+    "category": "concept",
+    "attributes": {
+      "category": "Rechnerarchitektur",
+      "definition": "Eine Byte-Reihenfolge, bei der das höchstwertige Byte einer Mehrbyte-Zahl an der niedrigsten Speicheradresse steht"
+    },
+    "funFact": "Weil Netzwerkprotokolle wie TCP/IP Big-Endian verwenden, heißt diese Reihenfolge auch 'Network Byte Order'; x86-Prozessoren arbeiten dagegen Little-Endian.",
+    "sourceName": "Wikipedia EN – Endianness",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Endianness",
+    "verifyNote": "Big-Endian = höchstwertiges Byte zuerst; Network Byte Order in RFC 1700 / RFC 791 als Big-Endian definiert."
+  },
+  {
+    "id": "concept-little-endian-h3",
+    "name": "Little-Endian",
+    "category": "concept",
+    "attributes": {
+      "category": "Rechnerarchitektur",
+      "definition": "Eine Byte-Reihenfolge, bei der das niederstwertige Byte einer Mehrbyte-Zahl an der niedrigsten Speicheradresse steht"
+    },
+    "funFact": "Die x86- und die meisten ARM-Prozessoren arbeiten Little-Endian, weshalb diese Reihenfolge auf Desktop- und Mobilgeräten dominiert.",
+    "sourceName": "Wikipedia EN – Endianness",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Endianness",
+    "verifyNote": "Little-Endian = niederstwertiges Byte zuerst; vorherrschend auf x86/x86-64 laut Wikipedia."
+  },
+  {
+    "id": "concept-partielle-anwendung-h3",
+    "name": "Partielle Anwendung",
+    "category": "concept",
+    "attributes": {
+      "category": "Funktionale Programmierung",
+      "definition": "Das Festlegen eines Teils der Argumente einer Funktion, wodurch eine neue Funktion mit weniger Parametern entsteht"
+    },
+    "funFact": "Partielle Anwendung wird oft mit Currying verwechselt: Currying zerlegt eine Funktion in eine Kette einstelliger Funktionen, partielle Anwendung fixiert nur einige Argumente.",
+    "sourceName": "Wikipedia EN – Partial application",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Partial_application",
+    "verifyNote": "Abgrenzung partielle Anwendung vs. Currying gemäß Wikipedia und Standardliteratur der funktionalen Programmierung."
+  },
+  {
+    "id": "concept-functor-h3",
+    "name": "Funktor (Programmierung)",
+    "category": "concept",
+    "attributes": {
+      "category": "Funktionale Programmierung",
+      "definition": "Eine Struktur, über deren enthaltene Werte sich eine Funktion mittels map anwenden lässt, ohne die Struktur selbst zu verändern"
+    },
+    "funFact": "Eine Liste ist ein einfacher Funktor: map wendet eine Funktion auf jedes Element an und liefert eine gleich strukturierte Liste zurück.",
+    "sourceName": "Wikipedia EN – Functor (functional programming)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Functor_(functional_programming)",
+    "verifyNote": "Funktorgesetze (Identität, Komposition) aus der Kategorientheorie; in Haskell als Typklasse Functor."
+  },
+  {
+    "id": "concept-currying-fold-h3",
+    "name": "Fold (Faltung)",
+    "category": "concept",
+    "attributes": {
+      "category": "Funktionale Programmierung",
+      "definition": "Eine Operation höherer Ordnung, die eine Datenstruktur mithilfe einer Kombinationsfunktion und eines Startwerts zu einem einzelnen Ergebnis zusammenfasst"
+    },
+    "funFact": "Mit fold (reduce) lassen sich Summe, Produkt, Maximum oder sogar map und filter ausdrücken — es ist eine der mächtigsten Grundoperationen der funktionalen Programmierung.",
+    "sourceName": "Wikipedia EN – Fold (higher-order function)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Fold_(higher-order_function)",
+    "verifyNote": "foldl/foldr als Standard-Higher-Order-Funktionen; Universalität laut Wikipedia und funktionaler Standardliteratur."
+  },
+  {
+    "id": "concept-pattern-matching-h3",
+    "name": "Pattern Matching",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmiersprachen",
+      "definition": "Ein Sprachmittel, das einen Wert gegen Muster prüft und dabei zugleich dessen Bestandteile an Variablen bindet"
+    },
+    "funFact": "In Sprachen wie Haskell, Rust und Scala ersetzt Pattern Matching ganze Ketten von if-else-Abfragen und kann vom Compiler auf Vollständigkeit geprüft werden.",
+    "sourceName": "Wikipedia EN – Pattern matching",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Pattern_matching",
+    "verifyNote": "Destrukturierendes Mustervergleichen mit Bindung; Vollständigkeitsprüfung u. a. in Haskell/Rust dokumentiert."
+  },
+  {
+    "id": "concept-algebraic-data-type-h3",
+    "name": "Algebraischer Datentyp",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmiersprachen",
+      "definition": "Ein zusammengesetzter Typ, der aus einer Kombination von Produkttypen (Tupeln/Records) und Summentypen (Auswahl aus Alternativen) gebildet wird"
+    },
+    "funFact": "Der Name kommt aus der Algebra: Produkttypen entsprechen einer Multiplikation der möglichen Werte, Summentypen einer Addition.",
+    "sourceName": "Wikipedia EN – Algebraic data type",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Algebraic_data_type",
+    "verifyNote": "Produkt-/Summentyp-Definition gemäß Typtheorie; zentral in ML, Haskell, Rust laut Wikipedia."
+  },
+  {
+    "id": "concept-type-erasure-h3",
+    "name": "Typlöschung (Type Erasure)",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmiersprachen",
+      "definition": "Das Entfernen von Typinformationen zur Übersetzungs- oder Laufzeit, sodass generischer Code ohne Wissen über die konkreten Typparameter ausgeführt wird"
+    },
+    "funFact": "Java implementiert Generics per Type Erasure: Zur Laufzeit ist eine List<String> nicht von einer List<Integer> unterscheidbar, weil der Typparameter gelöscht wurde.",
+    "sourceName": "Wikipedia EN – Type erasure",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Type_erasure",
+    "verifyNote": "Javas Generics-Type-Erasure ist in der Java Language Specification festgelegt."
+  },
+  {
+    "id": "concept-stack-frame-h3",
+    "name": "Stack-Frame (Aktivierungsdatensatz)",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmierung",
+      "definition": "Ein Speicherbereich auf dem Aufrufstapel, der für einen einzelnen Funktionsaufruf lokale Variablen, Parameter und die Rücksprungadresse enthält"
+    },
+    "funFact": "Jeder rekursive Aufruf legt einen neuen Stack-Frame an — sind es zu viele, läuft der Stapel über und es kommt zum berüchtigten Stack Overflow.",
+    "sourceName": "Wikipedia EN – Call stack",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Call_stack",
+    "verifyNote": "Stack-Frame als Aktivierungsdatensatz mit Rücksprungadresse und lokalen Daten gemäß Wikipedia und Compilerbau-Literatur."
+  },
+  {
+    "id": "concept-abi-h3",
+    "name": "Binärschnittstelle (ABI)",
+    "category": "concept",
+    "attributes": {
+      "category": "Systemtechnik",
+      "definition": "Eine auf Maschinenebene festgelegte Konvention, wie kompilierte Programme und Bibliotheken zusammenarbeiten — etwa Aufrufkonventionen, Datenausrichtung und Registernutzung"
+    },
+    "funFact": "Während eine API auf Quelltext-Ebene festlegt, wie man eine Bibliothek benutzt, regelt die ABI die Binärebene — bricht sie, muss man neu kompilieren statt nur neu zu schreiben.",
+    "sourceName": "Wikipedia EN – Application binary interface",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Application_binary_interface",
+    "verifyNote": "ABI legt Aufrufkonventionen, Datenlayout und Binärkompatibilität fest, abgegrenzt zur API laut Wikipedia."
+  },
+  {
+    "id": "concept-foreign-function-interface-h3",
+    "name": "Fremdfunktionsschnittstelle (FFI)",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmiersprachen",
+      "definition": "Ein Mechanismus, mit dem Code einer Programmiersprache Funktionen aufrufen kann, die in einer anderen Sprache geschrieben wurden"
+    },
+    "funFact": "Viele Python-Bibliotheken für Numerik rufen über eine FFI hochoptimierten C- oder Fortran-Code auf — so verbindet sich Pythons Komfort mit der Geschwindigkeit kompilierter Sprachen.",
+    "sourceName": "Wikipedia EN – Foreign function interface",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Foreign_function_interface",
+    "verifyNote": "FFI als sprachübergreifender Aufrufmechanismus gemäß Wikipedia; Standardbeispiel Python↔C."
+  },
+  {
+    "id": "concept-marshalling-h3",
+    "name": "Marshalling",
+    "category": "concept",
+    "attributes": {
+      "category": "Verteilte Systeme",
+      "definition": "Das Umwandeln eines Objekts oder einer Datenstruktur in ein Format, das sich speichern oder über eine Schnittstelle bzw. ein Netzwerk übertragen lässt"
+    },
+    "funFact": "Marshalling und Serialisierung werden oft synonym verwendet; Marshalling kann aber zusätzlich Verweise auf entfernte Objekte mit übertragen.",
+    "sourceName": "Wikipedia EN – Marshalling (computer science)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Marshalling_(computer_science)",
+    "verifyNote": "Marshalling als Transportkodierung, Abgrenzung zur Serialisierung laut Wikipedia."
+  },
+  {
+    "id": "concept-memory-mapped-io-h3",
+    "name": "Speicherabbild-Datei (Memory Mapping)",
+    "category": "concept",
+    "attributes": {
+      "category": "Betriebssysteme",
+      "definition": "Das Einblenden einer Datei oder eines Geräts in den virtuellen Adressraum eines Prozesses, sodass darauf wie auf normalen Speicher zugegriffen werden kann"
+    },
+    "funFact": "Über Memory Mapping (mmap) kann ein Programm eine riesige Datei bearbeiten, ohne sie komplett in den Arbeitsspeicher zu laden — das Betriebssystem lädt nur die benötigten Seiten.",
+    "sourceName": "Wikipedia EN – Memory-mapped file",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Memory-mapped_file",
+    "verifyNote": "mmap blendet Dateiinhalte seitenweise in den virtuellen Speicher ein; POSIX-mmap-Verhalten dokumentiert."
+  },
+  {
+    "id": "concept-copy-on-write-h3",
+    "name": "Copy-on-Write",
+    "category": "concept",
+    "attributes": {
+      "category": "Betriebssysteme",
+      "definition": "Eine Optimierung, bei der mehrere Beteiligte sich dieselbe Ressource teilen, solange sie nur lesen, und erst beim ersten Schreibzugriff eine eigene Kopie angelegt wird"
+    },
+    "funFact": "Wenn ein Unix-Prozess sich mit fork() verdoppelt, wird der Speicher nicht sofort kopiert — Copy-on-Write erstellt eine Kopie erst, sobald einer der Prozesse schreibt.",
+    "sourceName": "Wikipedia EN – Copy-on-write",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Copy-on-write",
+    "verifyNote": "COW-Verhalten bei fork() und Snapshots gemäß Wikipedia und Betriebssystem-Literatur."
+  },
+  {
+    "id": "concept-spinlock-h3",
+    "name": "Spinlock",
+    "category": "concept",
+    "attributes": {
+      "category": "Nebenläufigkeit",
+      "definition": "Ein Sperrmechanismus, bei dem ein wartender Thread in einer Schleife aktiv prüft, ob die Sperre frei wird, statt sich schlafen zu legen"
+    },
+    "funFact": "Ein Spinlock lohnt sich nur, wenn die Sperre voraussichtlich sehr kurz gehalten wird — sonst verschwendet das aktive Warten unnötig CPU-Zeit.",
+    "sourceName": "Wikipedia EN – Spinlock",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Spinlock",
+    "verifyNote": "Spinlock = aktives Warten (busy-waiting) auf eine Sperre; Einsatzkriterium kurze Haltedauer laut Wikipedia."
+  },
+  {
+    "id": "concept-compare-and-swap-h3",
+    "name": "Compare-and-Swap",
+    "category": "concept",
+    "attributes": {
+      "category": "Nebenläufigkeit",
+      "definition": "Eine atomare Prozessoroperation, die einen Speicherwert nur dann durch einen neuen ersetzt, wenn er noch dem erwarteten alten Wert entspricht"
+    },
+    "funFact": "Compare-and-Swap ist der Grundbaustein vieler sperrenfreier (lock-free) Datenstrukturen, weil mehrere Threads ohne klassische Sperren sicher arbeiten können.",
+    "sourceName": "Wikipedia EN – Compare-and-swap",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Compare-and-swap",
+    "verifyNote": "CAS als atomare Read-Modify-Write-Operation, Basis lock-freier Algorithmen laut Wikipedia."
+  },
+  {
+    "id": "concept-mvcc-h3",
+    "name": "Mehrversionen-Nebenläufigkeitskontrolle (MVCC)",
+    "category": "concept",
+    "attributes": {
+      "category": "Datenbanken",
+      "definition": "Ein Verfahren, bei dem eine Datenbank mehrere Versionen eines Datensatzes vorhält, sodass Lesezugriffe gleichzeitige Schreibzugriffe nicht blockieren"
+    },
+    "funFact": "Dank MVCC sieht eine laufende Lese-Transaktion in PostgreSQL einen konsistenten Schnappschuss der Daten, auch wenn andere Transaktionen gleichzeitig Änderungen vornehmen.",
+    "sourceName": "Wikipedia EN – Multiversion concurrency control",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Multiversion_concurrency_control",
+    "verifyNote": "MVCC entkoppelt Lesen und Schreiben über Versionen; in PostgreSQL und Oracle dokumentiert."
+  },
+  {
+    "id": "concept-write-ahead-log-h3",
+    "name": "Write-Ahead-Log",
+    "category": "concept",
+    "attributes": {
+      "category": "Datenbanken",
+      "definition": "Ein Verfahren, bei dem Änderungen zuerst in ein Protokoll geschrieben werden, bevor sie auf die eigentlichen Daten angewendet werden, um nach einem Absturz wiederherstellbar zu sein"
+    },
+    "funFact": "Stürzt eine Datenbank mitten in einer Transaktion ab, kann sie anhand des Write-Ahead-Logs beim Neustart entscheiden, welche Änderungen sie nachholen oder zurückrollen muss.",
+    "sourceName": "Wikipedia EN – Write-ahead logging",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Write-ahead_logging",
+    "verifyNote": "WAL-Prinzip 'Log vor Daten' für Atomarität und Dauerhaftigkeit gemäß Wikipedia und DBMS-Literatur."
+  },
+  {
+    "id": "concept-konsistentes-hashing-h3",
+    "name": "Konsistentes Hashing",
+    "category": "concept",
+    "attributes": {
+      "category": "Verteilte Systeme",
+      "definition": "Ein Hash-Verfahren, das Schlüssel so auf Knoten verteilt, dass beim Hinzufügen oder Entfernen eines Knotens nur ein kleiner Teil der Zuordnungen neu berechnet werden muss"
+    },
+    "funFact": "Konsistentes Hashing ist die Grundlage vieler verteilter Caches und Datenbanken wie Amazon Dynamo, weil sich Server hinzufügen lassen, ohne fast alle Schlüssel umverteilen zu müssen.",
+    "sourceName": "Wikipedia EN – Consistent hashing",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Consistent_hashing",
+    "verifyNote": "Konsistentes Hashing minimiert Neuverteilung bei Knotenänderung (~K/n Schlüssel); Einsatz in Dynamo laut Wikipedia."
+  },
+  {
+    "id": "concept-quorum-h3",
+    "name": "Quorum (Verteilte Systeme)",
+    "category": "concept",
+    "attributes": {
+      "category": "Verteilte Systeme",
+      "definition": "Die Mindestanzahl an Knoten, die einer Operation zustimmen müssen, damit sie in einem verteilten System als gültig gilt"
+    },
+    "funFact": "Überlappen sich Lese- und Schreib-Quorum (R + W > N), ist garantiert, dass jeder Lesevorgang den jeweils neuesten Schreibvorgang sieht.",
+    "sourceName": "Wikipedia EN – Quorum (distributed computing)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Quorum_(distributed_computing)",
+    "verifyNote": "Quorum-Bedingung R + W > N für Konsistenz gemäß Wikipedia und Literatur zu verteilten Systemen."
+  },
+  {
+    "id": "concept-consensus-h3",
+    "name": "Konsens (Verteilte Systeme)",
+    "category": "concept",
+    "attributes": {
+      "category": "Verteilte Systeme",
+      "definition": "Das Problem, mehrere verteilte Knoten trotz möglicher Ausfälle auf einen gemeinsamen Wert oder eine gemeinsame Entscheidung zu einigen"
+    },
+    "funFact": "Algorithmen wie Paxos und Raft lösen das Konsensproblem und sorgen dafür, dass sich ein Cluster auch bei Ausfall einzelner Server auf einen gemeinsamen Zustand einigt.",
+    "sourceName": "Wikipedia EN – Consensus (computer science)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Consensus_(computer_science)",
+    "verifyNote": "Konsensproblem mit Agreement-/Termination-/Integrity-Eigenschaften; Paxos und Raft als Standardlösungen laut Wikipedia."
+  },
+  {
+    "id": "concept-leader-election-h3",
+    "name": "Leader Election",
+    "category": "concept",
+    "attributes": {
+      "category": "Verteilte Systeme",
+      "definition": "Das Verfahren, in einer Gruppe verteilter Knoten genau einen Knoten als koordinierenden Anführer zu bestimmen"
+    },
+    "funFact": "Fällt der gewählte Anführer aus, starten die übrigen Knoten automatisch eine neue Wahl — so bleibt das System koordiniert, ohne dass ein Mensch eingreifen muss.",
+    "sourceName": "Wikipedia EN – Leader election",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Leader_election",
+    "verifyNote": "Leader Election bestimmt genau einen Koordinator; Wiederwahl bei Ausfall gemäß Wikipedia."
+  },
+  {
+    "id": "concept-content-addressable-storage-h3",
+    "name": "Inhaltsadressierter Speicher",
+    "category": "concept",
+    "attributes": {
+      "category": "Verteilte Systeme",
+      "definition": "Ein Speicherverfahren, bei dem Daten nicht über einen Ort, sondern über einen aus ihrem Inhalt berechneten Hashwert angesprochen werden"
+    },
+    "funFact": "Git ist ein inhaltsadressierter Speicher: Jeder Commit und jede Datei wird über ihren Hash identifiziert, weshalb identischer Inhalt nur einmal gespeichert wird.",
+    "sourceName": "Wikipedia EN – Content-addressable storage",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Content-addressable_storage",
+    "verifyNote": "Adressierung über Inhalts-Hash, Deduplizierung identischer Inhalte; Git als Beispiel laut Wikipedia/Pro-Git."
+  },
+  {
+    "id": "concept-throughput-h3",
+    "name": "Durchsatz",
+    "category": "concept",
+    "attributes": {
+      "category": "Systemtechnik",
+      "definition": "Die Menge an Arbeit oder Daten, die ein System pro Zeiteinheit verarbeiten oder übertragen kann"
+    },
+    "funFact": "Durchsatz und Latenz sind verschiedene Dinge: Ein System kann hohen Durchsatz (viele Anfragen pro Sekunde) und zugleich hohe Latenz (lange Wartezeit pro Anfrage) haben.",
+    "sourceName": "Wikipedia EN – Throughput",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Throughput",
+    "verifyNote": "Durchsatz = Arbeit pro Zeiteinheit, abgegrenzt von Latenz laut Wikipedia und Leistungsbewertungsliteratur."
+  },
+  {
+    "id": "concept-amortized-analysis-h3",
+    "name": "Amortisierte Analyse",
+    "category": "concept",
+    "attributes": {
+      "category": "Komplexitätstheorie",
+      "definition": "Eine Methode zur Laufzeitabschätzung, die die Gesamtkosten einer Folge von Operationen mittelt, statt nur den teuersten Einzelfall zu betrachten"
+    },
+    "funFact": "Das Anfügen an ein dynamisches Array kostet im Einzelfall manchmal viel (beim Vergrößern), amortisiert über viele Einfügungen aber nur konstante Zeit O(1).",
+    "sourceName": "Wikipedia EN – Amortized analysis",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Amortized_analysis",
+    "verifyNote": "Amortisierte O(1)-Kosten für dynamische Arrays über Aggregat-/Potenzialmethode gemäß Wikipedia und CLRS."
+  },
+  {
+    "id": "network_protocol-snmp-trap-h3",
+    "name": "SNMP-Trap",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Simple Network Management Protocol Trap",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 162,
+      "purpose": "Asynchrone Benachrichtigung eines Management-Systems über Ereignisse durch überwachte Geräte"
+    },
+    "funFact": "Während reguläre SNMP-Abfragen auf Port 161 laufen, schicken Geräte ihre unaufgeforderten Alarm-Meldungen (Traps) an Port 162.",
+    "sourceName": "IANA Service Name and Transport Protocol Port Number Registry",
+    "sourceUrl": "https://www.iana.org/assignments/service-names-port-numbers/",
+    "verifyNote": "Port 162/UDP für snmptrap laut IANA-Port-Registry."
+  },
+  {
+    "id": "network_protocol-rwhois-h3",
+    "name": "RWHOIS",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Referral Whois",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 4321,
+      "purpose": "Hierarchische, verweisbasierte Abfrage von Verzeichnisinformationen zu Internet-Ressourcen"
+    },
+    "funFact": "RWHOIS erweitert das klassische Whois um die Fähigkeit, eine Anfrage an den jeweils zuständigen Server weiterzuleiten (Referral).",
+    "sourceName": "RFC 2167 – Referral Whois (RWhois) Protocol V1.5",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc2167",
+    "verifyNote": "Port 4321/TCP laut RFC 2167 und IANA."
+  },
+  {
+    "id": "network_protocol-quotd-h3",
+    "name": "QOTD",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Quote of the Day Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 17,
+      "purpose": "Liefert beim Verbindungsaufbau einen kurzen Spruch oder ein Zitat zurück"
+    },
+    "funFact": "QOTD war eines der ersten Internet-Spaßprotokolle und gibt bei jedem Connect einfach ein zufälliges Zitat aus.",
+    "sourceName": "RFC 865 – Quote of the Day Protocol",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc865",
+    "verifyNote": "Port 17, TCP und UDP, laut RFC 865; hier TCP-Variante."
+  },
+  {
+    "id": "network_protocol-daytime-h3",
+    "name": "Daytime-Protokoll",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Daytime Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 13,
+      "purpose": "Liefert die aktuelle Uhrzeit und das Datum als menschenlesbaren Text"
+    },
+    "funFact": "Das Daytime-Protokoll gibt die Zeit im Klartext zurück und diente früher als simple Zeitabfrage, bevor sich NTP durchsetzte.",
+    "sourceName": "RFC 867 – Daytime Protocol",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc867",
+    "verifyNote": "Port 13 (TCP und UDP) laut RFC 867; hier TCP."
+  },
+  {
+    "id": "network_protocol-time-protokoll-h3",
+    "name": "Time-Protokoll",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Time Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 37,
+      "purpose": "Liefert die aktuelle Zeit als 32-Bit-Zahl der Sekunden seit dem 1. Januar 1900"
+    },
+    "funFact": "Anders als das menschenlesbare Daytime-Protokoll gibt Time eine reine 32-Bit-Sekundenzahl zurück – sie läuft im Jahr 2036 über.",
+    "sourceName": "RFC 868 – Time Protocol",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc868",
+    "verifyNote": "Port 37, 32-Bit-Sekunden seit 1900-01-01 laut RFC 868."
+  },
+  {
+    "id": "network_protocol-echo-protokoll-h3",
+    "name": "Echo-Protokoll",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Echo Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 7,
+      "purpose": "Sendet jedes empfangene Datenbyte unverändert an den Absender zurück"
+    },
+    "funFact": "Das Echo-Protokoll auf Port 7 dient zum Test der Erreichbarkeit und Datentreue einer Verbindung – ein reines Hin-und-Zurück.",
+    "sourceName": "RFC 862 – Echo Protocol",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc862",
+    "verifyNote": "Port 7 (TCP und UDP) laut RFC 862."
+  },
+  {
+    "id": "network_protocol-discard-protokoll-h3",
+    "name": "Discard-Protokoll",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Discard Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 9,
+      "purpose": "Verwirft alle empfangenen Daten ohne Antwort, dient als Datensenke zum Testen"
+    },
+    "funFact": "Discard ist das Gegenstück zu Echo: Es schluckt alles, was man ihm schickt – wie /dev/null über das Netz.",
+    "sourceName": "RFC 863 – Discard Protocol",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc863",
+    "verifyNote": "Port 9 (TCP und UDP) laut RFC 863."
+  },
+  {
+    "id": "network_protocol-chargen-h3",
+    "name": "CHARGEN",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Character Generator Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 19,
+      "purpose": "Erzeugt einen fortlaufenden Strom von Zeichen zum Testen und Debuggen von Verbindungen"
+    },
+    "funFact": "CHARGEN spuckt endlos Zeichen aus; über UDP missbraucht, eignet es sich für Verstärkungs-Angriffe und gilt heute als Sicherheitsrisiko.",
+    "sourceName": "RFC 864 – Character Generator Protocol",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc864",
+    "verifyNote": "Port 19 (TCP und UDP) laut RFC 864."
+  },
+  {
+    "id": "network_protocol-rtsp-h3",
+    "name": "Ident",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Identification Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 113,
+      "purpose": "Ermittelt die Identität des Benutzers hinter einer bestimmten TCP-Verbindung"
+    },
+    "funFact": "Das Ident-Protokoll wurde früher von IRC-Servern abgefragt, um den Benutzernamen am anderen Ende einer Verbindung zu erfahren.",
+    "sourceName": "RFC 1413 – Identification Protocol",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc1413",
+    "verifyNote": "Port 113/TCP laut RFC 1413."
+  },
+  {
+    "id": "network_protocol-msrpc-h3",
+    "name": "MSRPC-Endpoint-Mapper",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Microsoft RPC Endpoint Mapper",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 135,
+      "purpose": "Vermittelt Clients den dynamischen Port eines gewünschten RPC-Dienstes auf Windows-Systemen"
+    },
+    "funFact": "Port 135 ist der erste Anlaufpunkt für viele Windows-Dienste; der Mapper sagt dem Client, auf welchem dynamischen Port der Zieldienst lauscht.",
+    "sourceName": "IANA Service Name and Transport Protocol Port Number Registry",
+    "sourceUrl": "https://www.iana.org/assignments/service-names-port-numbers/",
+    "verifyNote": "Port 135 (epmap) laut IANA-Registry."
+  },
+  {
+    "id": "network_protocol-microsoft-sql-h3",
+    "name": "MS-SQL-Server-Protokoll",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Microsoft SQL Server Protocol (TDS)",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 1433,
+      "purpose": "Kommunikation zwischen Clients und einem Microsoft-SQL-Server-Datenbankdienst"
+    },
+    "funFact": "Microsoft SQL Server lauscht standardmäßig auf Port 1433 und nutzt darunter das Tabular Data Stream (TDS) Protokoll.",
+    "sourceName": "IANA Service Name and Transport Protocol Port Number Registry",
+    "sourceUrl": "https://www.iana.org/assignments/service-names-port-numbers/",
+    "verifyNote": "Port 1433 (ms-sql-s) laut IANA-Registry."
+  },
+  {
+    "id": "network_protocol-oracle-tns-h3",
+    "name": "Oracle-TNS",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Oracle Transparent Network Substrate",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 1521,
+      "purpose": "Verbindungsaufbau und Kommunikation mit einer Oracle-Datenbank über den Listener"
+    },
+    "funFact": "Der Oracle-Listener auf Port 1521 nimmt eingehende TNS-Verbindungen entgegen und leitet sie an die passende Datenbankinstanz weiter.",
+    "sourceName": "IANA Service Name and Transport Protocol Port Number Registry",
+    "sourceUrl": "https://www.iana.org/assignments/service-names-port-numbers/",
+    "verifyNote": "Port 1521 (ncube-lm/Oracle TNS, weit verbreiteter De-facto-Standard) laut IANA-Registry."
+  },
+  {
+    "id": "network_protocol-rdp-gateway-h3",
+    "name": "WSDD",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Web Services Dynamic Discovery",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 3702,
+      "purpose": "Auffinden von Diensten und Geräten in einem lokalen Netzwerk per Multicast"
+    },
+    "funFact": "WS-Discovery hilft Windows-Rechnern, Netzwerkdrucker und andere Geräte automatisch im LAN zu finden, ohne deren Adresse zu kennen.",
+    "sourceName": "IANA Service Name and Transport Protocol Port Number Registry",
+    "sourceUrl": "https://www.iana.org/assignments/service-names-port-numbers/",
+    "verifyNote": "Port 3702 (ws-discovery, Multicast) laut IANA-Registry."
+  },
+  {
+    "id": "network_protocol-git-protokoll-h3",
+    "name": "Git-Protokoll",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Git Smart Protocol (git://)",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 9418,
+      "purpose": "Effizienter Austausch von Repository-Objekten zwischen Git-Client und -Server"
+    },
+    "funFact": "Das native git://-Protokoll auf Port 9418 ist schnell, bietet aber keine Verschlüsselung oder Authentifizierung – daher meist über SSH genutzt.",
+    "sourceName": "IANA Service Name and Transport Protocol Port Number Registry",
+    "sourceUrl": "https://www.iana.org/assignments/service-names-port-numbers/",
+    "verifyNote": "Port 9418 (git) laut IANA-Registry."
+  },
+  {
+    "id": "network_protocol-svn-protokoll-h3",
+    "name": "SVN-Protokoll",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Subversion Protocol (svn://)",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 3690,
+      "purpose": "Kommunikation zwischen Subversion-Client und svnserve-Server zur Versionsverwaltung"
+    },
+    "funFact": "Der svnserve-Dienst auf Port 3690 bietet einen schlanken Zugang zu Subversion-Repositories ohne Webserver-Umweg.",
+    "sourceName": "IANA Service Name and Transport Protocol Port Number Registry",
+    "sourceUrl": "https://www.iana.org/assignments/service-names-port-numbers/",
+    "verifyNote": "Port 3690 (svn) laut IANA-Registry."
+  },
+  {
+    "id": "network_protocol-rsh-h3",
+    "name": "RSH",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Remote Shell",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 514,
+      "purpose": "Ausführen einzelner Befehle auf einem entfernten Unix-Rechner"
+    },
+    "funFact": "RSH überträgt alles unverschlüsselt und vertraut Hostnamen blind – es wurde aus genau diesen Gründen vollständig durch SSH abgelöst.",
+    "sourceName": "IANA Service Name and Transport Protocol Port Number Registry",
+    "sourceUrl": "https://www.iana.org/assignments/service-names-port-numbers/",
+    "verifyNote": "Port 514/TCP (shell/cmd) laut IANA-Registry; Syslog nutzt 514/UDP."
+  },
+  {
+    "id": "network_protocol-rexec-h3",
+    "name": "rexec",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Remote Execution Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 512,
+      "purpose": "Ausführen von Befehlen auf einem entfernten Rechner mit Benutzername und Passwort"
+    },
+    "funFact": "rexec verlangt im Gegensatz zu rsh ein Passwort, schickt es aber im Klartext über das Netz – heute ein Sicherheitsalbtraum.",
+    "sourceName": "IANA Service Name and Transport Protocol Port Number Registry",
+    "sourceUrl": "https://www.iana.org/assignments/service-names-port-numbers/",
+    "verifyNote": "Port 512/TCP (exec) laut IANA-Registry."
+  },
+  {
+    "id": "network_protocol-msdp-h3",
+    "name": "MSRP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Message Session Relay Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 2855,
+      "purpose": "Übertragung von Sofortnachrichten und Dateien innerhalb einer SIP-Sitzung"
+    },
+    "funFact": "MSRP transportiert in modernen IP-Telefonie-Systemen den Chat- und Dateianhang-Verkehr, während SIP nur den Verbindungsauf- und -abbau regelt.",
+    "sourceName": "RFC 4975 – The Message Session Relay Protocol (MSRP)",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc4975",
+    "verifyNote": "MSRP über TCP laut RFC 4975; Port 2855 (msrp) laut IANA-Registry."
+  },
+  {
+    "id": "network_protocol-cups-ipp-h3",
+    "name": "AFP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Apple Filing Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 548,
+      "purpose": "Dateifreigabe zwischen Macs in lokalen Netzwerken"
+    },
+    "funFact": "AFP war jahrzehntelang Apples Standard für Netzwerk-Dateifreigabe, bevor macOS auf das plattformneutrale SMB umstieg.",
+    "sourceName": "IANA Service Name and Transport Protocol Port Number Registry",
+    "sourceUrl": "https://www.iana.org/assignments/service-names-port-numbers/",
+    "verifyNote": "Port 548/TCP (afpovertcp) laut IANA-Registry."
+  },
+  {
+    "id": "network_protocol-rip-ng-h3",
+    "name": "BFD",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Bidirectional Forwarding Detection",
+      "layer": "Transportschicht",
+      "transport": "UDP",
+      "defaultPort": 3784,
+      "purpose": "Schnelle Erkennung von Ausfällen auf einem Pfad zwischen zwei weiterleitenden Geräten"
+    },
+    "funFact": "BFD erkennt Verbindungsausfälle in Millisekunden und meldet sie an Routing-Protokolle wie OSPF oder BGP, damit diese sofort umleiten.",
+    "sourceName": "RFC 5881 – BFD for IPv4 and IPv6 (Single Hop)",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc5881",
+    "verifyNote": "Port 3784/UDP für BFD Single Hop laut RFC 5881."
+  },
+  {
+    "id": "network_protocol-lisp-h3",
+    "name": "LISP-Protokoll",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Locator/ID Separation Protocol",
+      "layer": "Vermittlungsschicht (Internet)",
+      "transport": "UDP",
+      "defaultPort": 4341,
+      "purpose": "Trennung von Endpunkt-Identität und Standort zur skalierbaren Wegewahl im Internet"
+    },
+    "funFact": "LISP trennt die Frage Wer bin ich von Wo bin ich – ähnlich wie eine Telefonnummer, die man behält, egal wohin man umzieht.",
+    "sourceName": "RFC 9300 – The Locator/ID Separation Protocol (LISP)",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc9300",
+    "verifyNote": "LISP-Datenkanal Port 4341/UDP laut RFC 9300/IANA."
+  },
+  {
+    "id": "network_protocol-pcp-h3",
+    "name": "PCP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Port Control Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 5351,
+      "purpose": "Steuerung von Portweiterleitungen und NAT-Zuordnungen durch interne Hosts"
+    },
+    "funFact": "PCP erlaubt einem Gerät hinter einem Router, sich selbst eine Portfreigabe einzurichten – der Nachfolger des älteren NAT-PMP.",
+    "sourceName": "RFC 6887 – Port Control Protocol (PCP)",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc6887",
+    "verifyNote": "PCP-Server-Port 5351/UDP laut RFC 6887."
+  },
+  {
+    "id": "network_protocol-lpd-control-h3",
+    "name": "DAAP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Digital Audio Access Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 3689,
+      "purpose": "Freigabe und Streaming einer Musikbibliothek über das lokale Netzwerk"
+    },
+    "funFact": "DAAP wurde von Apple für iTunes entwickelt, damit Nutzer ihre Musikbibliothek im Heimnetz mit anderen teilen konnten.",
+    "sourceName": "IANA Service Name and Transport Protocol Port Number Registry",
+    "sourceUrl": "https://www.iana.org/assignments/service-names-port-numbers/",
+    "verifyNote": "Port 3689 (daap) laut IANA-Registry."
+  },
+  {
+    "id": "network_protocol-rndc-h3",
+    "name": "OpenVPN-Steuerkanal",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "OpenVPN Default Control/Data Channel",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 1194,
+      "purpose": "Aufbau eines verschlüsselten VPN-Tunnels zwischen Client und Server"
+    },
+    "funFact": "OpenVPN nutzt standardmäßig UDP-Port 1194, kann aber auch über TCP-Port 443 laufen, um sich als regulärer HTTPS-Verkehr zu tarnen.",
+    "sourceName": "IANA Service Name and Transport Protocol Port Number Registry",
+    "sourceUrl": "https://www.iana.org/assignments/service-names-port-numbers/",
+    "verifyNote": "Port 1194 (openvpn) laut IANA-Registry; Standard-Transport UDP."
+  },
+  {
+    "id": "network_protocol-mptcp-h3",
+    "name": "WCCP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Web Cache Communication Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 2048,
+      "purpose": "Transparente Umleitung von Web-Verkehr durch einen Router zu einem Cache-Server"
+    },
+    "funFact": "WCCP von Cisco lenkt Web-Anfragen unbemerkt über einen Proxy-Cache, sodass häufig besuchte Seiten lokal beschleunigt ausgeliefert werden.",
+    "sourceName": "IANA Service Name and Transport Protocol Port Number Registry",
+    "sourceUrl": "https://www.iana.org/assignments/service-names-port-numbers/",
+    "verifyNote": "Port 2048/UDP (dls-monitor/WCCP, Cisco-Standard) laut IANA-Registry."
+  },
+  {
+    "id": "network_protocol-tcp-mux-h3",
+    "name": "TCPMUX",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "TCP Port Service Multiplexer",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 1,
+      "purpose": "Auswahl eines Dienstes nach Namen über eine einzige bekannte Portnummer"
+    },
+    "funFact": "TCPMUX belegt die niedrigste mögliche Portnummer 1 und lässt Clients einen Dienst per Namen statt per fester Portnummer ansprechen.",
+    "sourceName": "RFC 1078 – TCP Port Service Multiplexer (TCPMUX)",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc1078",
+    "verifyNote": "Port 1/TCP laut RFC 1078/IANA."
+  },
+  {
+    "id": "network_protocol-msnp-h3",
+    "name": "PCEP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Path Computation Element Communication Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 4189,
+      "purpose": "Anforderung optimaler Pfade durch ein Netzwerk bei einer zentralen Berechnungsinstanz"
+    },
+    "funFact": "PCEP lagert die aufwendige Berechnung optimaler Netzwerkpfade an einen zentralen Rechenknoten aus, statt jeden Router selbst rechnen zu lassen.",
+    "sourceName": "RFC 5440 – Path Computation Element (PCE) Communication Protocol (PCEP)",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc5440",
+    "verifyNote": "Port 4189/TCP (pcep) laut RFC 5440/IANA."
+  },
+  {
+    "id": "network_protocol-rpki-rtr-h3",
+    "name": "RPKI-RTR",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "RPKI to Router Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 323,
+      "purpose": "Bereitstellung validierter Routing-Ursprungsdaten an Router zur Absicherung von BGP"
+    },
+    "funFact": "RPKI-RTR liefert Routern eine Liste, welcher Netzbereich zu welchem Betreiber gehört, und hilft so, gefälschte BGP-Routen abzuwehren.",
+    "sourceName": "RFC 8210 – The Resource Public Key Infrastructure (RPKI) to Router Protocol, Version 1",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc8210",
+    "verifyNote": "Port 323/TCP (rpki-rtr) laut RFC 8210/IANA."
+  },
+  {
+    "id": "network_protocol-bgmp-h3",
+    "name": "MSDP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Multicast Source Discovery Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 639,
+      "purpose": "Austausch von Informationen über aktive Multicast-Quellen zwischen verschiedenen Domänen"
+    },
+    "funFact": "MSDP verbindet getrennte Multicast-Bereiche, damit ein Empfänger in einer Domäne eine Streaming-Quelle in einer anderen Domäne finden kann.",
+    "sourceName": "RFC 3618 – Multicast Source Discovery Protocol (MSDP)",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc3618",
+    "verifyNote": "Port 639/TCP (msdp) laut RFC 3618/IANA."
+  },
+  {
+    "id": "network_protocol-iscsi-h3",
+    "name": "iSCSI",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Internet Small Computer Systems Interface",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 3260,
+      "purpose": "Transport von SCSI-Speicherbefehlen über IP-Netzwerke zur Anbindung entfernter Festplatten"
+    },
+    "funFact": "Mit iSCSI erscheint eine Festplatte irgendwo im Rechenzentrum dem Betriebssystem wie ein direkt angeschlossenes lokales Laufwerk.",
+    "sourceName": "RFC 7143 – Internet Small Computer System Interface (iSCSI) Protocol",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc7143",
+    "verifyNote": "Port 3260/TCP (iscsi-target) laut RFC 7143/IANA."
+  },
+  {
+    "id": "network_protocol-nbns-h3",
+    "name": "NBNS",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "NetBIOS Name Service",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 137,
+      "purpose": "Auflösung von NetBIOS-Namen zu IP-Adressen in Windows-Netzwerken"
+    },
+    "funFact": "Der NetBIOS-Namensdienst auf Port 137 ist das Windows-Pendant zu DNS für die klassische Datei- und Druckerfreigabe im LAN.",
+    "sourceName": "RFC 1002 – Protocol Standard for a NetBIOS Service on a TCP/UDP Transport",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc1002",
+    "verifyNote": "Port 137/UDP (netbios-ns) laut RFC 1002/IANA."
+  },
+  {
+    "id": "network_protocol-nbds-h3",
+    "name": "NBDS",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "NetBIOS Datagram Service",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 138,
+      "purpose": "Verbindungsloser Versand von Nachrichten an einzelne oder mehrere NetBIOS-Knoten"
+    },
+    "funFact": "Über Port 138 verschickt Windows Rundsendungen wie Anwesenheitsmeldungen im lokalen Netz – ohne feste Verbindung pro Empfänger.",
+    "sourceName": "RFC 1002 – Protocol Standard for a NetBIOS Service on a TCP/UDP Transport",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc1002",
+    "verifyNote": "Port 138/UDP (netbios-dgm) laut RFC 1002/IANA."
+  },
+  {
+    "id": "network_protocol-pop3s-relay-h3",
+    "name": "Submission",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Message Submission for Mail",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 587,
+      "purpose": "Einreichen ausgehender E-Mails von einem Mailprogramm beim eigenen Mailserver"
+    },
+    "funFact": "Port 587 trennt das Einliefern von E-Mails durch Nutzer (mit Authentifizierung) sauber vom Server-zu-Server-Versand auf Port 25.",
+    "sourceName": "RFC 6409 – Message Submission for Mail",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc6409",
+    "verifyNote": "Port 587/TCP (submission) laut RFC 6409/IANA."
+  },
+  {
+    "id": "network_protocol-managesieve-h3",
+    "name": "ManageSieve",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "A Protocol for Remotely Managing Sieve Scripts",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 4190,
+      "purpose": "Verwalten serverseitiger E-Mail-Filterregeln (Sieve-Skripte) über das Netzwerk"
+    },
+    "funFact": "Mit ManageSieve kann ein Mailprogramm die automatischen Sortierregeln direkt auf dem Server bearbeiten, statt sie lokal auszuführen.",
+    "sourceName": "RFC 5804 – A Protocol for Remotely Managing Sieve Scripts",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc5804",
+    "verifyNote": "Port 4190/TCP (sieve) laut RFC 5804/IANA."
+  },
+  {
+    "id": "network_protocol-acme-h3",
+    "name": "BACnet/IP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Building Automation and Control Network over IP",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 47808,
+      "purpose": "Kommunikation zwischen Geräten der Gebäudeautomation wie Heizung, Lüftung und Beleuchtung"
+    },
+    "funFact": "BACnet steuert in vielen Bürogebäuden im Hintergrund Klimaanlagen und Aufzüge; sein IP-Standardport 47808 entspricht hexadezimal 0xBAC0.",
+    "sourceName": "IANA Service Name and Transport Protocol Port Number Registry",
+    "sourceUrl": "https://www.iana.org/assignments/service-names-port-numbers/",
+    "verifyNote": "Port 47808/UDP (bacnet) laut IANA-Registry; 47808 = 0xBAC0."
+  },
+  {
+    "id": "network_protocol-dns-over-quic-h3",
+    "name": "DoQ",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "DNS over QUIC",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 853,
+      "purpose": "Verschlüsselte Namensauflösung über den schnellen QUIC-Transport"
+    },
+    "funFact": "DoQ kombiniert die Verschlüsselung von DNS-over-TLS mit der geringen Latenz von QUIC und vermeidet so das Blockieren mehrerer Anfragen.",
+    "sourceName": "RFC 9250 – DNS over Dedicated QUIC Connections",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc9250",
+    "verifyNote": "Port 853 (über QUIC/UDP) laut RFC 9250."
+  },
+  {
+    "id": "network_protocol-radsec-h3",
+    "name": "RADIUS-Accounting",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "RADIUS Accounting",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 1813,
+      "purpose": "Erfassen von Nutzungsdaten wie Sitzungsdauer und Datenvolumen für Abrechnungszwecke"
+    },
+    "funFact": "Während RADIUS auf Port 1812 die Anmeldung prüft, protokolliert Port 1813 getrennt davon, wie lange und wie viel ein Nutzer das Netz nutzt.",
+    "sourceName": "RFC 2866 – RADIUS Accounting",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc2866",
+    "verifyNote": "Port 1813/UDP (radius-acct) laut RFC 2866/IANA."
+  },
+  {
+    "id": "network_protocol-igmp-snooping-h3",
+    "name": "PIM",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Protocol Independent Multicast",
+      "layer": "Vermittlungsschicht (Internet)",
+      "transport": "IP",
+      "purpose": "Aufbau von Verteilbäumen zur effizienten Weiterleitung von Multicast-Datenströmen"
+    },
+    "funFact": "PIM ist protokollunabhängig, weil es die vorhandene Unicast-Routing-Tabelle nutzt, statt eigene Wege zu berechnen.",
+    "sourceName": "RFC 7761 – Protocol Independent Multicast – Sparse Mode (PIM-SM)",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc7761",
+    "verifyNote": "PIM läuft direkt über IP mit Protokollnummer 103 laut RFC 7761/IANA; kein TCP/UDP-Port."
+  },
+  {
+    "id": "network_protocol-vxlan-gpe-h3",
+    "name": "Geneve",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Generic Network Virtualization Encapsulation",
+      "layer": "Sicherungsschicht (Layer-2-Overlay)",
+      "transport": "UDP",
+      "defaultPort": 6081,
+      "purpose": "Flexible Kapselung von Netzwerkverkehr für virtuelle Netzwerke in Rechenzentren"
+    },
+    "funFact": "Geneve wurde als erweiterbarer Nachfolger von VXLAN entworfen und trägt zusätzliche Metadaten in flexiblen Optionsfeldern mit.",
+    "sourceName": "RFC 8926 – Geneve: Generic Network Virtualization Encapsulation",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc8926",
+    "verifyNote": "Port 6081/UDP (geneve) laut RFC 8926/IANA."
+  },
+  {
+    "id": "network_protocol-mptcp-subflow-h3",
+    "name": "DCCP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Datagram Congestion Control Protocol",
+      "layer": "Transportschicht",
+      "transport": "IP",
+      "purpose": "Verbindungsorientierter Versand unzuverlässiger Datagramme mit eingebauter Überlastkontrolle"
+    },
+    "funFact": "DCCP füllt die Lücke zwischen TCP und UDP: Es darf Pakete verlieren wie UDP, bremst sich aber bei Stau höflich ein wie TCP.",
+    "sourceName": "RFC 4340 – Datagram Congestion Control Protocol (DCCP)",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc4340",
+    "verifyNote": "DCCP ist ein eigenes Transportprotokoll über IP mit Protokollnummer 33 laut RFC 4340; eigene Portnummern je Dienst."
+  },
+  {
+    "id": "hardware-kondensator-h3",
+    "name": "Kondensator",
+    "category": "hardware",
+    "attributes": {
+      "category": "Bauteil",
+      "function": "Speichert elektrische Ladung kurzzeitig und glättet Spannungsschwankungen auf einer Platine"
+    },
+    "funFact": "Auf jedem Mainboard sitzen Dutzende Kondensatoren; aufgeblähte oder ausgelaufene Exemplare sind eine häufige Ursache für plötzliche PC-Ausfälle.",
+    "sourceName": "Wikipedia DE – Kondensator (Elektrotechnik)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Kondensator_(Elektrotechnik)",
+    "verifyNote": "Funktion als Ladungs- und Energiespeicher ist physikalisches Standardwissen."
+  },
+  {
+    "id": "hardware-widerstand-h3",
+    "name": "Widerstand",
+    "category": "hardware",
+    "attributes": {
+      "category": "Bauteil",
+      "function": "Begrenzt den elektrischen Strom in einer Schaltung und teilt Spannungen auf"
+    },
+    "funFact": "Die Farbringe auf einem Widerstand kodieren seinen Wert – ein international genormtes Farbsystem, das man auswendig lernen kann.",
+    "sourceName": "Wikipedia DE – Widerstand (Bauelement)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Widerstand_(Bauelement)",
+    "verifyNote": "Strombegrenzung und Farbcode sind elektrotechnisches Standardwissen."
+  },
+  {
+    "id": "hardware-transistor-h3",
+    "name": "Transistor",
+    "category": "hardware",
+    "attributes": {
+      "category": "Bauteil",
+      "function": "Schaltet oder verstärkt elektrische Signale und bildet das Grundelement digitaler Logik"
+    },
+    "funFact": "Eine moderne CPU enthält viele Milliarden Transistoren, die als winzige Schalter zusammen alle Rechenoperationen ausführen.",
+    "sourceName": "Wikipedia DE – Transistor",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Transistor",
+    "verifyNote": "Schalt- und Verstärkerfunktion ist Standardwissen der Halbleitertechnik."
+  },
+  {
+    "id": "hardware-diode-h3",
+    "name": "Diode",
+    "category": "hardware",
+    "attributes": {
+      "category": "Bauteil",
+      "function": "Lässt Strom nur in eine Richtung durch und sperrt ihn in der Gegenrichtung"
+    },
+    "funFact": "Eine Diode wirkt wie ein elektrisches Rückschlagventil und wird unter anderem genutzt, um Wechselstrom in Gleichstrom umzuwandeln.",
+    "sourceName": "Wikipedia DE – Diode",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Diode",
+    "verifyNote": "Stromrichtungs-Sperrwirkung ist physikalisches Standardwissen."
+  },
+  {
+    "id": "hardware-spule-h3",
+    "name": "Spule",
+    "category": "hardware",
+    "attributes": {
+      "category": "Bauteil",
+      "function": "Speichert Energie in einem Magnetfeld und glättet Stromschwankungen in Netzteilen"
+    },
+    "funFact": "Das hörbare Fiepen mancher Grafikkarten unter Last (Spulenfiepen) entsteht durch mechanische Schwingungen genau dieser Bauteile.",
+    "sourceName": "Wikipedia DE – Spule (Elektrotechnik)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Spule_(Elektrotechnik)",
+    "verifyNote": "Energiespeicherung im Magnetfeld ist elektrotechnisches Standardwissen."
+  },
+  {
+    "id": "hardware-quarz-h3",
+    "name": "Schwingquarz",
+    "category": "hardware",
+    "attributes": {
+      "category": "Taktgeber",
+      "function": "Erzeugt durch mechanische Schwingung eine sehr präzise und stabile Referenzfrequenz"
+    },
+    "funFact": "Derselbe Effekt, der Quarzuhren so genau macht, taktet auch Computer: Ein schwingender Quarzkristall gibt den Grundrhythmus vor.",
+    "sourceName": "Wikipedia DE – Schwingquarz",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Schwingquarz",
+    "verifyNote": "Piezoelektrische Frequenzerzeugung ist physikalisches Standardwissen."
+  },
+  {
+    "id": "hardware-alu-h3",
+    "name": "Arithmetisch-logische Einheit",
+    "category": "hardware",
+    "attributes": {
+      "category": "Prozessor/Recheneinheit",
+      "function": "Führt die arithmetischen und logischen Grundoperationen eines Prozessors aus"
+    },
+    "funFact": "Die ALU ist das Rechenherz im Prozessorkern; sie addiert, vergleicht und verknüpft Bits, während das Steuerwerk ihr sagt, was zu tun ist.",
+    "sourceName": "Wikipedia DE – Arithmetisch-logische Einheit",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Arithmetisch-logische_Einheit",
+    "verifyNote": "Funktion als arithmetisch-logisches Rechenwerk ist Standardlehrbuch-Wissen."
+  },
+  {
+    "id": "hardware-register-h3",
+    "name": "Prozessorregister",
+    "category": "hardware",
+    "attributes": {
+      "category": "Prozessor/Recheneinheit",
+      "function": "Sehr schneller, winziger Speicherplatz direkt im Prozessor für aktuell bearbeitete Werte"
+    },
+    "funFact": "Register sind der schnellste Speicher überhaupt – die ALU greift in einem einzigen Takt darauf zu, ohne den Umweg über den Arbeitsspeicher.",
+    "sourceName": "Wikipedia DE – Prozessorregister",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Prozessorregister",
+    "verifyNote": "Funktion als schnellster prozessorinterner Speicher ist Standardwissen."
+  },
+  {
+    "id": "hardware-steuerwerk-h3",
+    "name": "Steuerwerk",
+    "category": "hardware",
+    "attributes": {
+      "category": "Prozessor/Recheneinheit",
+      "function": "Holt Befehle, entschlüsselt sie und steuert den Ablauf aller anderen Prozessoreinheiten"
+    },
+    "funFact": "Das Steuerwerk ist der Dirigent im Prozessor: Es liest jeden Befehl, übersetzt ihn in Steuersignale und gibt den Takt der Bearbeitung vor.",
+    "sourceName": "Wikipedia DE – Steuerwerk",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Steuerwerk",
+    "verifyNote": "Funktion als Befehlsdekodier- und Ablaufsteuereinheit ist Standardlehrbuch-Wissen."
+  },
+  {
+    "id": "hardware-mmu-h3",
+    "name": "Speicherverwaltungseinheit (MMU)",
+    "category": "hardware",
+    "attributes": {
+      "category": "Prozessor/Recheneinheit",
+      "function": "Übersetzt virtuelle Speicheradressen in physische und setzt Speicherschutz durch"
+    },
+    "funFact": "Die MMU macht virtuellen Speicher möglich: Jedes Programm glaubt, den ganzen Speicher allein zu besitzen, während die MMU im Hintergrund umrechnet.",
+    "sourceName": "Wikipedia DE – Memory Management Unit",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Memory_Management_Unit",
+    "verifyNote": "Adressübersetzung und Speicherschutz sind Standardlehrbuch-Wissen."
+  },
+  {
+    "id": "hardware-dma-controller-h3",
+    "name": "DMA-Controller",
+    "category": "hardware",
+    "attributes": {
+      "category": "Hauptplatine/Bus",
+      "function": "Überträgt Daten direkt zwischen Speicher und Peripherie, ohne den Prozessor zu belasten"
+    },
+    "funFact": "Dank des DMA-Controllers kann eine Festplatte Daten in den Arbeitsspeicher schaufeln, während die CPU ungestört etwas anderes berechnet.",
+    "sourceName": "Wikipedia DE – Direct Memory Access",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Direct_Memory_Access",
+    "verifyNote": "Prozessorentlastende Direktübertragung ist Standardwissen."
+  },
+  {
+    "id": "hardware-northbridge-h3",
+    "name": "Northbridge",
+    "category": "hardware",
+    "attributes": {
+      "category": "Hauptplatine/Bus",
+      "function": "Verband früher die CPU mit schnellen Komponenten wie Arbeitsspeicher und Grafikkarte"
+    },
+    "funFact": "Die Northbridge war einst der schnelle Knotenpunkt nahe der CPU; ihre Aufgaben wanderten später direkt in den Prozessor und ließen sie verschwinden.",
+    "sourceName": "Wikipedia DE – Northbridge",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Northbridge",
+    "verifyNote": "Rolle als schneller Chipsatz-Teil zwischen CPU, RAM und Grafik ist Standardwissen."
+  },
+  {
+    "id": "hardware-southbridge-h3",
+    "name": "Southbridge",
+    "category": "hardware",
+    "attributes": {
+      "category": "Hauptplatine/Bus",
+      "function": "Bindet langsamere Peripherie wie USB, Festplatten und Audio an das Mainboard an"
+    },
+    "funFact": "Die Southbridge kümmerte sich um die gemächlicheren Anschlüsse des Rechners, während die Northbridge die schnellen Datenströme regelte.",
+    "sourceName": "Wikipedia DE – Southbridge",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Southbridge",
+    "verifyNote": "Anbindung langsamer Peripherie ist Standardwissen zur Chipsatz-Architektur."
+  },
+  {
+    "id": "hardware-systembus-h3",
+    "name": "Systembus",
+    "category": "hardware",
+    "attributes": {
+      "category": "Hauptplatine/Bus",
+      "function": "Gemeinsame Leitungsbündel, über die CPU, Speicher und Peripherie Daten und Adressen austauschen"
+    },
+    "funFact": "Ein Bus ist wie eine Datenautobahn auf der Platine: Mehrere Komponenten teilen sich dieselben Leitungen für Adressen, Daten und Steuersignale.",
+    "sourceName": "Wikipedia DE – Bus (Datenverarbeitung)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Bus_(Datenverarbeitung)",
+    "verifyNote": "Aufteilung in Adress-, Daten- und Steuerbus ist Standardlehrbuch-Wissen."
+  },
+  {
+    "id": "hardware-l1-cache-h3",
+    "name": "L1-Cache",
+    "category": "hardware",
+    "attributes": {
+      "category": "Prozessor/Recheneinheit",
+      "function": "Kleinster und schnellster Pufferspeicher direkt im Prozessorkern für häufig gebrauchte Daten"
+    },
+    "funFact": "Der L1-Cache ist nur wenige Kilobyte groß, aber so nah am Rechenwerk, dass der Zugriff fast keine Wartezeit kostet.",
+    "sourceName": "Wikipedia DE – Cache",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Cache",
+    "verifyNote": "L1 als kleinste, schnellste Cache-Stufe nahe dem Kern ist Standardwissen."
+  },
+  {
+    "id": "hardware-l2-cache-h3",
+    "name": "L2-Cache",
+    "category": "hardware",
+    "attributes": {
+      "category": "Prozessor/Recheneinheit",
+      "function": "Mittlere Cache-Stufe zwischen dem winzigen L1-Cache und dem großen, langsameren Hauptspeicher"
+    },
+    "funFact": "Der L2-Cache ist größer, aber etwas langsamer als L1 und fängt Daten ab, die nicht mehr in den kleinen L1-Cache passen.",
+    "sourceName": "Wikipedia DE – Cache",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Cache",
+    "verifyNote": "L2 als mittlere Cache-Stufe in der Speicherhierarchie ist Standardwissen."
+  },
+  {
+    "id": "hardware-busfehler-h3",
+    "name": "L3-Cache",
+    "category": "hardware",
+    "attributes": {
+      "category": "Prozessor/Recheneinheit",
+      "function": "Größter, von mehreren Kernen geteilter Pufferspeicher vor dem Zugriff auf den Arbeitsspeicher"
+    },
+    "funFact": "Der L3-Cache wird meist von allen Kernen gemeinsam genutzt und ist die letzte schnelle Zwischenstation, bevor der langsame RAM bemüht wird.",
+    "sourceName": "Wikipedia DE – Cache",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Cache",
+    "verifyNote": "L3 als größter, kerngeteilter Cache-Level ist Standardwissen."
+  },
+  {
+    "id": "hardware-fpu-h3",
+    "name": "Gleitkommaeinheit (FPU)",
+    "category": "hardware",
+    "attributes": {
+      "category": "Prozessor/Recheneinheit",
+      "function": "Spezialeinheit für schnelle Berechnungen mit gebrochenen Zahlen in Gleitkommadarstellung"
+    },
+    "funFact": "Früher saß die FPU als separater Mathe-Koprozessor neben der CPU; heute ist sie fest in jeden Prozessorkern integriert.",
+    "sourceName": "Wikipedia DE – Gleitkommaeinheit",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Gleitkommaeinheit",
+    "verifyNote": "Funktion als Gleitkomma-Recheneinheit ist Standardlehrbuch-Wissen."
+  },
+  {
+    "id": "hardware-taktgeber-h3",
+    "name": "Taktgeber",
+    "category": "hardware",
+    "attributes": {
+      "category": "Taktgeber",
+      "function": "Erzeugt das regelmäßige Taktsignal, das alle Rechenschritte eines Computers synchronisiert"
+    },
+    "funFact": "Die Taktrate in Gigahertz gibt an, wie viele Milliarden Taktschläge der Taktgeber pro Sekunde liefert – der Herzschlag des Rechners.",
+    "sourceName": "Wikipedia DE – Takt (Technik)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Takt_(Technik)",
+    "verifyNote": "Funktion als Synchronisationstaktgeber ist Standardwissen."
+  },
+  {
+    "id": "hardware-spannungsregler-vrm-h3",
+    "name": "Hauptspeicher-Controller",
+    "category": "hardware",
+    "attributes": {
+      "category": "Prozessor/Recheneinheit",
+      "function": "Steuert den Datenaustausch zwischen Prozessor und Arbeitsspeicher und legt dessen Timing fest"
+    },
+    "funFact": "Moderne CPUs haben den Speicher-Controller direkt im Chip integriert, was den Weg zum Arbeitsspeicher deutlich verkürzt und beschleunigt.",
+    "sourceName": "Wikipedia DE – Speichercontroller",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Speichercontroller",
+    "verifyNote": "Funktion als RAM-Anbindungs- und Timing-Steuerung ist Standardwissen."
+  },
+  {
+    "id": "hardware-rom-baustein-h3",
+    "name": "EPROM",
+    "category": "hardware",
+    "attributes": {
+      "category": "Datenspeicher",
+      "function": "Festwertspeicher, der sich durch UV-Licht löschen und neu programmieren lässt"
+    },
+    "funFact": "Klassische EPROMs haben ein kleines Quarzfenster auf dem Chip; nur durch UV-Bestrahlung durch dieses Fenster lassen sie sich wieder löschen.",
+    "sourceName": "Wikipedia DE – EPROM",
+    "sourceUrl": "https://de.wikipedia.org/wiki/EPROM",
+    "verifyNote": "UV-löschbarer Festwertspeicher ist Standardwissen der Speichertechnik."
+  },
+  {
+    "id": "hardware-relais-h3",
+    "name": "Relais",
+    "category": "hardware",
+    "attributes": {
+      "category": "Bauteil",
+      "function": "Elektromechanischer Schalter, der mit einem kleinen Steuerstrom einen größeren Stromkreis schaltet"
+    },
+    "funFact": "Die frühesten Computer schalteten mit klappernden Relais statt Transistoren – ein im Relais verklemmtes Insekt prägte den Begriff Bug.",
+    "sourceName": "Wikipedia DE – Relais",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Relais",
+    "verifyNote": "Funktion als elektromagnetisch betätigter Schalter ist Standardwissen."
+  },
+  {
+    "id": "hardware-led-anzeige-h3",
+    "name": "Siebensegmentanzeige",
+    "category": "hardware",
+    "attributes": {
+      "category": "Ausgabegerät",
+      "function": "Stellt Ziffern durch das gezielte Aufleuchten von sieben balkenförmigen Segmenten dar"
+    },
+    "funFact": "Mit nur sieben einzeln ansteuerbaren Balken lassen sich alle Ziffern von 0 bis 9 darstellen – Standard bei Digitaluhren und Messgeräten.",
+    "sourceName": "Wikipedia DE – Sieben-Segment-Anzeige",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Sieben-Segment-Anzeige",
+    "verifyNote": "Ziffernanzeige über sieben Segmente ist Standardwissen."
+  },
+  {
+    "id": "hardware-potentiometer-h3",
+    "name": "Potentiometer",
+    "category": "hardware",
+    "attributes": {
+      "category": "Eingabegerät",
+      "function": "Einstellbarer Widerstand, der je nach Drehung eine veränderbare Spannung als Eingabewert liefert"
+    },
+    "funFact": "Klassische Lautstärke- und Helligkeitsregler sind Potentiometer; auch viele Joysticks messen ihre Auslenkung über solche Drehwiderstände.",
+    "sourceName": "Wikipedia DE – Potentiometer",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Potentiometer",
+    "verifyNote": "Funktion als einstellbarer Spannungsteiler ist elektrotechnisches Standardwissen."
+  },
+  {
+    "id": "hardware-piezo-summer-h3",
+    "name": "Piezo-Summer",
+    "category": "hardware",
+    "attributes": {
+      "category": "Ausgabegerät",
+      "function": "Erzeugt Töne durch das Schwingen eines piezoelektrischen Plättchens unter Wechselspannung"
+    },
+    "funFact": "Der vertraute Piepton beim Hochfahren älterer PCs stammt von einem winzigen Piezo-Summer auf dem Mainboard.",
+    "sourceName": "Wikipedia DE – Piezolautsprecher",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Piezolautsprecher",
+    "verifyNote": "Tonerzeugung über Piezoeffekt ist physikalisches Standardwissen."
+  },
+  {
+    "id": "hardware-sicherung-h3",
+    "name": "Schmelzsicherung",
+    "category": "hardware",
+    "attributes": {
+      "category": "Stromversorgung",
+      "function": "Unterbricht den Stromkreis dauerhaft, sobald ein zu hoher Strom einen dünnen Draht durchschmilzt"
+    },
+    "funFact": "Eine Schmelzsicherung opfert sich selbst: Ihr Draht schmilzt bei Überlast durch und schützt so die dahinterliegende Elektronik vor Schaden.",
+    "sourceName": "Wikipedia DE – Schmelzsicherung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Schmelzsicherung",
+    "verifyNote": "Überstromschutz durch Drahtschmelzen ist elektrotechnisches Standardwissen."
+  },
+  {
+    "id": "hardware-leiterplatte-h3",
+    "name": "Leiterplatte",
+    "category": "hardware",
+    "attributes": {
+      "category": "Hauptplatine/Bus",
+      "function": "Trägt elektronische Bauteile und verbindet sie über aufgedruckte Leiterbahnen aus Kupfer"
+    },
+    "funFact": "Die grüne Farbe vieler Leiterplatten stammt vom Lötstopplack, der die feinen Kupferbahnen vor Korrosion und Kurzschlüssen schützt.",
+    "sourceName": "Wikipedia DE – Leiterplatte",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Leiterplatte",
+    "verifyNote": "Funktion als Bauteilträger mit Kupferleiterbahnen ist Standardwissen."
+  },
+  {
+    "id": "hardware-kuehlpaste-pad-h3",
+    "name": "Wärmeleitpad",
+    "category": "hardware",
+    "attributes": {
+      "category": "Kühlung",
+      "function": "Füllt als weiches Polster den Spalt zwischen Bauteil und Kühlkörper, um Wärme besser abzuleiten"
+    },
+    "funFact": "Wärmeleitpads sind die sauberere Alternative zur klebrigen Wärmeleitpaste und werden oft auf Speicherchips und Spannungswandlern eingesetzt.",
+    "sourceName": "Wikipedia DE – Wärmeleitpad",
+    "sourceUrl": "https://de.wikipedia.org/wiki/W%C3%A4rmeleitpad",
+    "verifyNote": "Funktion als wärmeleitendes Füllmaterial im Luftspalt ist Standardwissen."
+  },
+  {
+    "id": "hardware-heatpipe-h3",
+    "name": "Heatpipe",
+    "category": "hardware",
+    "attributes": {
+      "category": "Kühlung",
+      "function": "Transportiert Wärme sehr effizient durch das Verdampfen und Wiederkondensieren einer Flüssigkeit im Inneren"
+    },
+    "funFact": "In einer Heatpipe verdampft eine Flüssigkeit an der heißen Seite, strömt zur kalten Seite und kondensiert dort – ein lautloser Wärmetransporter ohne bewegliche Teile.",
+    "sourceName": "Wikipedia DE – Wärmerohr",
+    "sourceUrl": "https://de.wikipedia.org/wiki/W%C3%A4rmerohr",
+    "verifyNote": "Wärmetransport durch Phasenwechsel (Verdampfen/Kondensieren) ist physikalisches Standardwissen."
+  },
+  {
+    "id": "hardware-cmos-batterie-h3",
+    "name": "CMOS-Batterie",
+    "category": "hardware",
+    "attributes": {
+      "category": "Stromversorgung",
+      "function": "Versorgt bei ausgeschaltetem Rechner die Echtzeituhr und die gespeicherten BIOS-Einstellungen mit Strom"
+    },
+    "funFact": "Wenn ein alter PC nach dem Ausstecken Datum und Uhrzeit vergisst, ist meist die kleine Knopfzelle auf dem Mainboard leer.",
+    "sourceName": "Wikipedia DE – CMOS-RAM",
+    "sourceUrl": "https://de.wikipedia.org/wiki/CMOS-RAM",
+    "verifyNote": "Pufferung von Uhr und Einstellungen durch Knopfzelle ist Standardwissen."
+  },
+  {
+    "id": "hardware-pcie-lane-h3",
+    "name": "Erweiterungssteckplatz",
+    "category": "hardware",
+    "attributes": {
+      "category": "Schnittstelle",
+      "function": "Steckverbindung auf dem Mainboard zur Aufnahme von Steckkarten wie Grafik- oder Netzwerkkarten"
+    },
+    "funFact": "Über Erweiterungssteckplätze lässt sich ein PC nachrüsten – ein Grund, warum klassische Desktop-Rechner langlebiger sind als verlötete Laptops.",
+    "sourceName": "Wikipedia DE – Steckplatz",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Steckplatz",
+    "verifyNote": "Funktion als Aufnahme für Erweiterungskarten ist Standardwissen."
+  },
+  {
+    "id": "hardware-jumper-h3",
+    "name": "Jumper",
+    "category": "hardware",
+    "attributes": {
+      "category": "Hauptplatine/Bus",
+      "function": "Kleine Steckbrücke, die zwei Kontaktstifte verbindet und so eine Hardware-Einstellung festlegt"
+    },
+    "funFact": "Vor der Zeit grafischer BIOS-Menüs stellte man Einstellungen mechanisch ein, indem man winzige Jumper-Brücken auf bestimmte Stiftpaare steckte.",
+    "sourceName": "Wikipedia DE – Jumper (Elektronik)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Jumper_(Elektronik)",
+    "verifyNote": "Funktion als mechanische Kontaktbrücke zur Konfiguration ist Standardwissen."
+  },
+  {
+    "id": "hardware-thermoelement-h3",
+    "name": "Thermoelement",
+    "category": "hardware",
+    "attributes": {
+      "category": "Sensor",
+      "function": "Misst Temperatur, indem zwei verschiedene Metalle bei Erwärmung eine kleine Spannung erzeugen"
+    },
+    "funFact": "Ein Thermoelement braucht keine eigene Stromversorgung – allein der Temperaturunterschied an der Verbindungsstelle liefert die Messspannung.",
+    "sourceName": "Wikipedia DE – Thermoelement",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Thermoelement",
+    "verifyNote": "Spannungserzeugung durch thermoelektrischen Effekt ist physikalisches Standardwissen."
+  },
+  {
+    "id": "file_format-aax-h3",
+    "name": "AAX",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Audible Enhanced Audiobook",
+      "compression": "verlustbehaftet",
+      "mediaType": "Audio"
+    },
+    "funFact": "AAX ist das DRM-geschützte Hörbuchformat von Audible und basiert technisch auf AAC.",
+    "sourceName": "Wikipedia EN – Audible (.aax)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Audible_(service)",
+    "verifyNote": "Audible-Hörbuchformat, verlustbehaftet auf AAC-Basis laut Wikipedia."
+  },
+  {
+    "id": "file_format-vorbis-h3",
+    "name": "Vorbis",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Ogg Vorbis Audio",
+      "compression": "verlustbehaftet",
+      "mediaType": "Audio"
+    },
+    "funFact": "Vorbis ist ein patentfreier, offener Audiocodec der Xiph.Org Foundation.",
+    "sourceName": "Wikipedia DE – Vorbis",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Vorbis",
+    "verifyNote": "Offener verlustbehafteter Audiocodec laut Wikipedia."
+  },
+  {
+    "id": "file_format-monkeys-audio-h3",
+    "name": "Monkey's Audio",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Monkey's Audio Lossless",
+      "compression": "verlustfrei",
+      "mediaType": "Audio"
+    },
+    "funFact": "Monkey's Audio (Dateiendung .ape) erreicht oft höhere Kompressionsraten als FLAC, ist aber rechenintensiver.",
+    "sourceName": "Wikipedia DE – Monkey's Audio",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Monkey%E2%80%99s_Audio",
+    "verifyNote": "Verlustfreies Audioformat laut Wikipedia."
+  },
+  {
+    "id": "file_format-dsd-h3",
+    "name": "DSD",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Direct Stream Digital",
+      "compression": "keine",
+      "mediaType": "Audio"
+    },
+    "funFact": "DSD nutzt 1-Bit-Sigma-Delta-Modulation und ist das Audioformat der Super Audio CD (SACD).",
+    "sourceName": "Wikipedia DE – Direct Stream Digital",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Direct_Stream_Digital",
+    "verifyNote": "Unkomprimiertes 1-Bit-Audioformat der SACD laut Wikipedia."
+  },
+  {
+    "id": "file_format-theora-h3",
+    "name": "Theora",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Theora Video Codec",
+      "compression": "verlustbehaftet",
+      "mediaType": "Video"
+    },
+    "funFact": "Theora ist ein freier Videocodec der Xiph.Org Foundation, abgeleitet von VP3.",
+    "sourceName": "Wikipedia DE – Theora",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Theora",
+    "verifyNote": "Freier verlustbehafteter Videocodec laut Wikipedia."
+  },
+  {
+    "id": "file_format-usd-h3",
+    "name": "USD",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Universal Scene Description",
+      "compression": "keine",
+      "mediaType": "3D-Modell"
+    },
+    "funFact": "USD wurde von Pixar entwickelt, um komplexe 3D-Szenen aus mehreren Quellen zusammenzusetzen.",
+    "sourceName": "Wikipedia EN – Universal Scene Description",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Universal_Scene_Description",
+    "verifyNote": "3D-Szenenbeschreibungsformat von Pixar laut Wikipedia."
+  },
+  {
+    "id": "file_format-step-h3",
+    "name": "STEP",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Standard for the Exchange of Product model data",
+      "compression": "keine",
+      "mediaType": "CAD-Zeichnung"
+    },
+    "funFact": "STEP ist in der Norm ISO 10303 definiert und tauscht CAD-Modelle herstellerunabhängig aus.",
+    "sourceName": "Wikipedia EN – ISO 10303",
+    "sourceUrl": "https://en.wikipedia.org/wiki/ISO_10303",
+    "verifyNote": "STEP = Standard for the Exchange of Product model data (ISO 10303), ASCII-Textformat – per WebSearch bestätigt."
+  },
+  {
+    "id": "file_format-iges-h3",
+    "name": "IGES",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Initial Graphics Exchange Specification",
+      "compression": "keine",
+      "mediaType": "CAD-Zeichnung"
+    },
+    "funFact": "IGES ist eines der ältesten neutralen CAD-Austauschformate und stammt aus dem Jahr 1980.",
+    "sourceName": "Wikipedia DE – IGES",
+    "sourceUrl": "https://de.wikipedia.org/wiki/IGES",
+    "verifyNote": "Neutrales CAD-Austauschformat laut Wikipedia."
+  },
+  {
+    "id": "file_format-3mf-h3",
+    "name": "3MF",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "3D Manufacturing Format",
+      "compression": "verlustfrei",
+      "mediaType": "3D-Modell"
+    },
+    "funFact": "3MF ist ein XML-basiertes Format für den 3D-Druck und wurde als moderner STL-Nachfolger entworfen.",
+    "sourceName": "Wikipedia EN – 3D Manufacturing Format",
+    "sourceUrl": "https://en.wikipedia.org/wiki/3D_Manufacturing_Format",
+    "verifyNote": "ZIP-gepacktes (verlustfreies) XML-3D-Druckformat laut Wikipedia."
+  },
+  {
+    "id": "file_format-fits-h3",
+    "name": "FITS",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Flexible Image Transport System",
+      "compression": "keine",
+      "mediaType": "Daten"
+    },
+    "funFact": "FITS ist das Standardformat der Astronomie und speichert wissenschaftliche Bilddaten samt Metadaten.",
+    "sourceName": "Wikipedia DE – Flexible Image Transport System",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Flexible_Image_Transport_System",
+    "verifyNote": "Astronomisches Datenformat, Basisform unkomprimiert laut Wikipedia."
+  },
+  {
+    "id": "file_format-hdf5-h3",
+    "name": "HDF5",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Hierarchical Data Format Version 5",
+      "compression": "verlustfrei",
+      "mediaType": "Daten"
+    },
+    "funFact": "HDF5 organisiert große wissenschaftliche Datensätze hierarchisch wie ein Dateisystem in einer Datei.",
+    "sourceName": "Wikipedia DE – Hierarchical Data Format",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Hierarchical_Data_Format",
+    "verifyNote": "Wissenschaftliches Containerformat mit optionaler verlustfreier Kompression laut Wikipedia."
+  },
+  {
+    "id": "file_format-netcdf-h3",
+    "name": "NetCDF",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Network Common Data Form",
+      "compression": "verlustfrei",
+      "mediaType": "Daten"
+    },
+    "funFact": "NetCDF wird vor allem in Klima- und Geowissenschaften für mehrdimensionale Gitterdaten genutzt.",
+    "sourceName": "Wikipedia DE – NetCDF",
+    "sourceUrl": "https://de.wikipedia.org/wiki/NetCDF",
+    "verifyNote": "Datenformat für mehrdimensionale wissenschaftliche Arrays laut Wikipedia."
+  },
+  {
+    "id": "file_format-orc-h3",
+    "name": "ORC",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Optimized Row Columnar",
+      "compression": "verlustfrei",
+      "mediaType": "Tabellen/Daten"
+    },
+    "funFact": "ORC ist ein spaltenorientiertes Format aus dem Hadoop-Umfeld und konkurriert direkt mit Parquet.",
+    "sourceName": "Wikipedia EN – Apache ORC",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Apache_ORC",
+    "verifyNote": "Spaltenorientiertes verlustfreies Big-Data-Format laut Wikipedia."
+  },
+  {
+    "id": "file_format-feather-h3",
+    "name": "Feather",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Apache Arrow Feather",
+      "compression": "verlustfrei",
+      "mediaType": "Tabellen/Daten"
+    },
+    "funFact": "Feather basiert auf Apache Arrow und ermöglicht sehr schnelles Lesen von Tabellen zwischen Python und R.",
+    "sourceName": "Wikipedia EN – Apache Arrow",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Apache_Arrow",
+    "verifyNote": "Arrow-basiertes Tabellenformat für schnellen Austausch laut Wikipedia."
+  },
+  {
+    "id": "file_format-jpeg-2000-h3",
+    "name": "JPEG 2000",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Joint Photographic Experts Group 2000",
+      "compression": "verlustbehaftet",
+      "mediaType": "Bild"
+    },
+    "funFact": "JPEG 2000 nutzt Wavelet-Transformation statt DCT und unterstützt sowohl verlust- als auch verlustfreie Modi.",
+    "sourceName": "Wikipedia DE – JPEG 2000",
+    "sourceUrl": "https://de.wikipedia.org/wiki/JPEG_2000",
+    "verifyNote": "Wavelet-basiertes Bildformat (ISO 15444), dominanter Modus verlustbehaftet laut Wikipedia."
+  },
+  {
+    "id": "file_format-heif-h3",
+    "name": "HEIF",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "High Efficiency Image File Format",
+      "compression": "verlustbehaftet",
+      "mediaType": "Bild"
+    },
+    "funFact": "HEIF speichert Bilder mit dem HEVC-Codec und braucht bei gleicher Qualität deutlich weniger Platz als JPEG.",
+    "sourceName": "Wikipedia DE – High Efficiency Image File Format",
+    "sourceUrl": "https://de.wikipedia.org/wiki/High_Efficiency_Image_File_Format",
+    "verifyNote": "Container für HEVC-codierte Bilder, verlustbehaftet laut Wikipedia."
+  },
+  {
+    "id": "file_format-openexr-h3",
+    "name": "OpenEXR",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Open Extended Dynamic Range",
+      "compression": "verlustfrei",
+      "mediaType": "Bild"
+    },
+    "funFact": "OpenEXR speichert High-Dynamic-Range-Bilder und wurde von Industrial Light & Magic entwickelt.",
+    "sourceName": "Wikipedia EN – OpenEXR",
+    "sourceUrl": "https://en.wikipedia.org/wiki/OpenEXR",
+    "verifyNote": "HDR-Bildformat mit überwiegend verlustfreien Kompressionsmodi laut Wikipedia."
+  },
+  {
+    "id": "file_format-cur-h3",
+    "name": "CUR",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Windows Cursor",
+      "compression": "keine",
+      "mediaType": "Bild"
+    },
+    "funFact": "Das CUR-Format speichert Mauszeiger unter Windows und ähnelt technisch dem ICO-Iconformat.",
+    "sourceName": "Wikipedia EN – ICO (file format)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/ICO_(file_format)",
+    "verifyNote": "Windows-Cursorformat, eng verwandt mit ICO, Basis unkomprimiert laut Wikipedia."
+  },
+  {
+    "id": "data_structure-union-find-struktur-h3",
+    "name": "Union-Find-Struktur",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "accessComplexity": "O(α(n))",
+      "purpose": "Verwaltet disjunkte Mengen mit den Operationen Vereinigen und Repräsentanten-Finden"
+    },
+    "funFact": "Mit Pfadkompression und Rang läuft jede Operation praktisch konstant — der inverse Ackermann-Wert α(n) bleibt unter 5.",
+    "sourceName": "Wikipedia DE – Union-Find-Struktur",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Union-Find-Struktur",
+    "verifyNote": "Amortisiert O(α(n)) mit Pfadkompression und Rang ist lehrbuch-Standard (CLRS Kap. 21)."
+  },
+  {
+    "id": "data_structure-patricia-trie-h3",
+    "name": "Patricia-Trie",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "accessComplexity": "O(k)",
+      "purpose": "Komprimierter Binär-Trie, der Ketten ohne Verzweigung zu einer Kante zusammenfasst"
+    },
+    "funFact": "Der Name PATRICIA bezeichnet ein platzsparendes Verfahren zur Schlüsselspeicherung aus den 1960er-Jahren.",
+    "sourceName": "Wikipedia EN – Radix tree (PATRICIA)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Radix_tree",
+    "verifyNote": "Suche in O(k) (Schlüssellänge) im komprimierten Trie ist lehrbuch-Standard."
+  },
+  {
+    "id": "data_structure-aa-baum-h3",
+    "name": "AA-Baum",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "accessComplexity": "O(log n)",
+      "purpose": "Selbstbalancierender Suchbaum, vereinfachte Variante des Rot-Schwarz-Baums mit Level-Feldern"
+    },
+    "funFact": "Der AA-Baum von Arne Andersson hat weniger Balance-Fälle als der Rot-Schwarz-Baum und ist dadurch leichter zu implementieren.",
+    "sourceName": "Wikipedia EN – AA tree",
+    "sourceUrl": "https://en.wikipedia.org/wiki/AA_tree",
+    "verifyNote": "Such-/Einfügezeit O(log n) bei garantierter Balance ist lehrbuch-Standard."
+  },
+  {
+    "id": "data_structure-scapegoat-baum-h3",
+    "name": "Scapegoat-Baum",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "accessComplexity": "O(log n)",
+      "purpose": "Selbstbalancierender Suchbaum, der bei zu großer Schieflage einen Teilbaum komplett neu aufbaut"
+    },
+    "funFact": "Der Scapegoat-Baum braucht keine zusätzlichen Balance-Felder pro Knoten und balanciert rein über Neuaufbau.",
+    "sourceName": "Wikipedia EN – Scapegoat tree",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Scapegoat_tree",
+    "verifyNote": "Amortisierte O(log n) für Such-/Änderungsoperationen ist lehrbuch-Standard."
+  },
+  {
+    "id": "data_structure-weak-heap-h3",
+    "name": "Weak-Heap",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Heap",
+      "accessComplexity": "O(log n)",
+      "purpose": "Heap-Variante mit gelockerter Halbordnung, die die Zahl der Schlüsselvergleiche reduziert"
+    },
+    "funFact": "Der Weak-Heap senkt die Vergleichsanzahl beim Sortieren und nähert sich der theoretischen Untergrenze.",
+    "sourceName": "Wikipedia EN – Weak heap",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Weak_heap",
+    "verifyNote": "Einfügen/Extrahieren in O(log n) ist lehrbuch-Standard."
+  },
+  {
+    "id": "data_structure-min-max-heap-h3",
+    "name": "Min-Max-Heap",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Heap",
+      "accessComplexity": "O(log n)",
+      "purpose": "Heap, der gleichzeitig schnellen Zugriff auf Minimum und Maximum erlaubt (doppelendige Prioritätswarteschlange)"
+    },
+    "funFact": "Im Min-Max-Heap wechseln sich Min- und Max-Ebenen ab, sodass beide Extremwerte in O(1) ablesbar sind.",
+    "sourceName": "Wikipedia EN – Min-max heap",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Min-max_heap",
+    "verifyNote": "Einfügen/Löschen in O(log n), Min/Max-Zugriff O(1) ist lehrbuch-Standard."
+  },
+  {
+    "id": "data_structure-soft-heap-h3",
+    "name": "Soft-Heap",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Heap",
+      "accessComplexity": "O(1)",
+      "purpose": "Approximativer Heap mit amortisiert konstanten Operationen, der einige Schlüssel bewusst verfälscht"
+    },
+    "funFact": "Der Soft-Heap erkauft konstante amortisierte Laufzeit, indem er eine begrenzte Zahl von Schlüsseln 'korrumpiert'.",
+    "sourceName": "Wikipedia EN – Soft heap",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Soft_heap",
+    "verifyNote": "Amortisiert O(1) je Operation bei begrenztem Korruptionsanteil ist lehrbuch-Standard."
+  },
+  {
+    "id": "data_structure-hash-array-mapped-trie-h3",
+    "name": "Hash-Array-Mapped-Trie",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Hash",
+      "accessComplexity": "O(log n)",
+      "purpose": "Kombiniert Hashtabelle und Trie für speichereffiziente, unveränderliche Wörterbücher"
+    },
+    "funFact": "HAMTs sind das Rückgrat persistenter Map-Strukturen in Sprachen wie Clojure und Scala.",
+    "sourceName": "Wikipedia EN – Hash array mapped trie",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Hash_array_mapped_trie",
+    "verifyNote": "Zugriff in O(log n) (effektiv flacher Trie über Hashbits) ist lehrbuch-Standard."
+  },
+  {
+    "id": "data_structure-2-3-4-baum-h3",
+    "name": "2-3-4-Baum",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "accessComplexity": "O(log n)",
+      "purpose": "Balancierter Suchbaum, dessen Knoten 2, 3 oder 4 Kinder haben; Spezialfall des B-Baums"
+    },
+    "funFact": "Der 2-3-4-Baum ist isomorph zum Rot-Schwarz-Baum und garantiert dadurch dieselbe logarithmische Höhe.",
+    "sourceName": "Wikipedia EN – 2–3–4 tree",
+    "sourceUrl": "https://en.wikipedia.org/wiki/2%E2%80%933%E2%80%934_tree",
+    "verifyNote": "Such-/Einfügezeit O(log n) bei garantierter Balance ist lehrbuch-Standard."
+  },
+  {
+    "id": "data_structure-link-cut-baum-h3",
+    "name": "Link-Cut-Baum",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "accessComplexity": "O(log n)",
+      "purpose": "Verwaltet einen Wald dynamischer Bäume mit Verbinden und Trennen von Kanten in logarithmischer Zeit"
+    },
+    "funFact": "Der Link-Cut-Baum nutzt zerlegte Pfade aus Splay-Bäumen und beschleunigt Netzwerkfluss-Algorithmen.",
+    "sourceName": "Wikipedia EN – Link/cut tree",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Link/cut_tree",
+    "verifyNote": "Amortisiert O(log n) je Link/Cut/Query-Operation ist lehrbuch-Standard."
+  },
+  {
+    "id": "data_structure-burkhard-keller-baum-h3",
+    "name": "Burkhard-Keller-Baum",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "accessComplexity": "O(log n)",
+      "purpose": "Metrischer Baum für Ähnlichkeitssuche, indexiert Elemente über ihre Distanz zu Referenzknoten"
+    },
+    "funFact": "Der BK-Baum eignet sich für Tippfehler-Korrektur, weil er nach Levenshtein-Distanz ähnliche Wörter findet.",
+    "sourceName": "Wikipedia EN – BK-tree",
+    "sourceUrl": "https://en.wikipedia.org/wiki/BK-tree",
+    "verifyNote": "Mittlere Suchzeit O(log n) für Bereichsabfragen in metrischem Raum ist lehrbuch-Standard."
+  },
+  {
+    "id": "data_structure-wavelet-baum-h3",
+    "name": "Wavelet-Baum",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "accessComplexity": "O(log σ)",
+      "purpose": "Komprimierte Struktur, die Rank- und Select-Abfragen über große Alphabete effizient beantwortet"
+    },
+    "funFact": "Der Wavelet-Baum ermöglicht volltext-indizierte Suche in komprimierten Daten ohne vorheriges Entpacken.",
+    "sourceName": "Wikipedia EN – Wavelet tree",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Wavelet_Tree",
+    "verifyNote": "Rank/Select in O(log σ) (Alphabetgröße σ) ist lehrbuch-Standard."
+  },
+  {
+    "id": "data_structure-bereichsbaum-h3",
+    "name": "Bereichsbaum",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "accessComplexity": "O(log² n)",
+      "purpose": "Mehrstufige Baumstruktur für orthogonale Bereichsabfragen in mehreren Dimensionen"
+    },
+    "funFact": "Der Bereichsbaum (Range Tree) beantwortet zweidimensionale Rechteck-Abfragen in O(log² n) plus Trefferzahl.",
+    "sourceName": "Wikipedia EN – Range tree",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Range_tree",
+    "verifyNote": "2D-Bereichsabfrage in O(log² n + k) ist lehrbuch-Standard (de Berg, Computational Geometry)."
+  },
+  {
+    "id": "data_structure-bsp-baum-h3",
+    "name": "BSP-Baum",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "accessComplexity": "O(log n)",
+      "purpose": "Zerlegt den Raum rekursiv mit Hyperebenen; ordnet Szenen-Polygone für korrektes Rendering"
+    },
+    "funFact": "BSP-Bäume machten 1993 die schnelle Sichtbarkeitssortierung in Doom möglich.",
+    "sourceName": "Wikipedia DE – Binärer Raumteilungsbaum",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Bin%C3%A4rer_Raumteilungsbaum",
+    "verifyNote": "Traversierung/Suche in O(log n) bei balancierter Teilung ist lehrbuch-Standard."
+  },
+  {
+    "id": "data_structure-implizite-datenstruktur-h3",
+    "name": "Implizite Datenstruktur",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Lineare Struktur",
+      "accessComplexity": "O(1)",
+      "purpose": "Speichert Daten ohne zusätzliche Zeiger und kodiert Struktur allein über die Indexpositionen"
+    },
+    "funFact": "Der Binär-Heap im Array ist das klassische Beispiel: Kind-Knoten ergeben sich rein aus dem Index, ohne Zeiger.",
+    "sourceName": "Wikipedia EN – Implicit data structure",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Implicit_data_structure",
+    "verifyNote": "Konstanter Overhead, Indexzugriff O(1) ist lehrbuch-Standard."
+  },
+  {
+    "id": "data_structure-tango-baum-h3",
+    "name": "Tango-Baum",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "accessComplexity": "O(log n · log log n)",
+      "purpose": "Selbstanpassender Suchbaum, dessen Zugriffskosten nahe am theoretischen Optimum liegen"
+    },
+    "funFact": "Der Tango-Baum ist O(log log n)-kompetitiv und nähert sich damit der vermuteten Optimalität des Splay-Baums an.",
+    "sourceName": "Wikipedia EN – Tango tree",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Tango_tree",
+    "verifyNote": "O(log log n)-Wettbewerbsfaktor gegenüber dem optimalen BST ist lehrbuch-Standard."
+  },
+  {
+    "id": "data_structure-dawg-h3",
+    "name": "DAWG",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Graph",
+      "accessComplexity": "O(k)",
+      "purpose": "Gerichteter azyklischer Wortgraph, der gemeinsame Endungen von Wörtern zusammenfasst"
+    },
+    "funFact": "Ein DAWG speichert ein Wörterbuch kompakter als ein Trie, weil gleiche Suffixe nur einmal vorkommen.",
+    "sourceName": "Wikipedia EN – Deterministic acyclic finite state automaton",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Deterministic_acyclic_finite_state_automaton",
+    "verifyNote": "Wort-Lookup in O(k) (Wortlänge) ist lehrbuch-Standard."
+  },
+  {
+    "id": "data_structure-brodal-warteschlange-h3",
+    "name": "Brodal-Warteschlange",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Heap",
+      "accessComplexity": "O(1)",
+      "purpose": "Prioritätswarteschlange mit worst-case-optimalen konstanten Kosten für Einfügen und Decrease-Key"
+    },
+    "funFact": "Die Brodal-Warteschlange erreicht im Worst Case die Schranken, die der Fibonacci-Heap nur amortisiert bietet.",
+    "sourceName": "Wikipedia EN – Brodal queue",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Brodal_queue",
+    "verifyNote": "Worst-Case O(1) für Insert/Decrease-Key, O(log n) für Delete-Min ist lehrbuch-Standard."
+  },
+  {
+    "id": "data_structure-hashed-array-tree-h3",
+    "name": "Hashed-Array-Tree",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Lineare Struktur",
+      "accessComplexity": "O(1)",
+      "purpose": "Dynamisches Array, das die Daten in Blöcken über eine Verzeichnistabelle verwaltet"
+    },
+    "funFact": "Der Hashed-Array-Tree verschwendet beim Wachsen nur O(√n) Speicher, statt wie ein klassisches dynamisches Array bis zur Hälfte.",
+    "sourceName": "Wikipedia EN – Hashed array tree",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Hashed_array_tree",
+    "verifyNote": "Indexzugriff in O(1) über zweistufige Block-Adressierung ist lehrbuch-Standard."
+  },
+  {
+    "id": "data_structure-euler-tour-baum-h3",
+    "name": "Euler-Tour-Baum",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "accessComplexity": "O(log n)",
+      "purpose": "Repräsentiert einen dynamischen Baum über seine Euler-Tour, um Konnektivität nach Kantenänderungen zu prüfen"
+    },
+    "funFact": "Der Euler-Tour-Baum verwandelt Baum-Operationen in Operationen auf einer Sequenz und nutzt dafür balancierte Suchbäume.",
+    "sourceName": "Wikipedia EN – Euler tour technique",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Euler_tour_technique",
+    "verifyNote": "Konnektivitäts-/Update-Abfragen in O(log n) ist lehrbuch-Standard."
+  },
+  {
+    "id": "data_structure-order-statistik-baum-h3",
+    "name": "Order-Statistik-Baum",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "accessComplexity": "O(log n)",
+      "purpose": "Suchbaum mit Teilbaum-Größen, der das k-kleinste Element und den Rang eines Elements schnell liefert"
+    },
+    "funFact": "Der Order-Statistik-Baum erweitert einen balancierten Suchbaum nur um ein Größenfeld pro Knoten und beantwortet Rang-Abfragen in O(log n).",
+    "sourceName": "Wikipedia EN – Order statistic tree",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Order_statistic_tree",
+    "verifyNote": "Select(k)- und Rank-Abfragen in O(log n) ist lehrbuch-Standard (CLRS Kap. 14)."
+  },
+  {
+    "id": "data_structure-left-leaning-rot-schwarz-baum-h3",
+    "name": "Left-Leaning-Rot-Schwarz-Baum",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "accessComplexity": "O(log n)",
+      "purpose": "Vereinfachte Variante des Rot-Schwarz-Baums, bei der rote Kanten stets nach links zeigen"
+    },
+    "funFact": "Robert Sedgewick entwarf den Left-Leaning-Rot-Schwarz-Baum, um die Implementierung mit deutlich weniger Fällen lehrbar zu machen.",
+    "sourceName": "Wikipedia EN – Left-leaning red–black tree",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Left-leaning_red%E2%80%93black_tree",
+    "verifyNote": "Such-/Einfügezeit O(log n) bei garantierter Balance ist lehrbuch-Standard (Sedgewick 2008)."
+  },
+  {
+    "id": "acronym-tls-h3",
+    "name": "TLS",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Transport Layer Security",
+      "domain": "Netzwerksicherheit"
+    },
+    "funFact": "TLS ist der Nachfolger von SSL; obwohl SSL längst abgelöst ist, spricht man umgangssprachlich oft weiter von SSL-Zertifikaten.",
+    "sourceName": "IETF – RFC 8446 (TLS 1.3)",
+    "sourceUrl": "https://datatracker.ietf.org/doc/html/rfc8446",
+    "verifyNote": "Vollform laut RFC 8446, Titel 'The Transport Layer Security (TLS) Protocol Version 1.3'."
+  },
+  {
+    "id": "acronym-uuid-h3",
+    "name": "UUID",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Universally Unique Identifier",
+      "domain": "Programmierung"
+    },
+    "funFact": "Eine UUID hat 128 Bit; die Wahrscheinlichkeit einer zufälligen Kollision ist so gering, dass man Werte ohne zentrale Vergabestelle generieren kann.",
+    "sourceName": "IETF – RFC 4122",
+    "sourceUrl": "https://datatracker.ietf.org/doc/html/rfc4122",
+    "verifyNote": "Vollform und 128-Bit-Länge laut RFC 4122."
+  },
+  {
+    "id": "acronym-ipc-h3",
+    "name": "IPC",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Inter-Process Communication",
+      "domain": "Betriebssysteme"
+    },
+    "funFact": "Zu den klassischen IPC-Mechanismen gehören Pipes, Sockets, Shared Memory und Message Queues.",
+    "sourceName": "Tanenbaum – Modern Operating Systems",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Interprozesskommunikation",
+    "verifyNote": "Vollform 'Inter-Process Communication' ist Lehrbuch-Standard."
+  },
+  {
+    "id": "acronym-posix-h3",
+    "name": "POSIX",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Portable Operating System Interface",
+      "domain": "Betriebssysteme"
+    },
+    "funFact": "Das abschließende 'X' wurde hinzugefügt, weil es an Unix erinnert und sich besser aussprechen lässt.",
+    "sourceName": "IEEE – POSIX (IEEE Std 1003.1)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/POSIX",
+    "verifyNote": "Vollform laut IEEE-1003-Standard."
+  },
+  {
+    "id": "acronym-ttl-h3",
+    "name": "TTL",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Time to Live",
+      "domain": "Netzwerktechnik"
+    },
+    "funFact": "Im IP-Header begrenzt das TTL-Feld die Zahl der Router-Hops; jeder Router verringert es um eins, bei null wird das Paket verworfen.",
+    "sourceName": "IETF – RFC 791 (Internet Protocol)",
+    "sourceUrl": "https://datatracker.ietf.org/doc/html/rfc791",
+    "verifyNote": "TTL-Feld im IPv4-Header laut RFC 791."
+  },
+  {
+    "id": "acronym-voip-h3",
+    "name": "VoIP",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Voice over IP",
+      "domain": "Netzwerktechnik"
+    },
+    "funFact": "VoIP digitalisiert Sprache und überträgt sie als Datenpakete über IP-Netze statt über klassische Telefonleitungen.",
+    "sourceName": "Wikipedia DE – IP-Telefonie",
+    "sourceUrl": "https://de.wikipedia.org/wiki/IP-Telefonie",
+    "verifyNote": "Vollform 'Voice over IP' ist Standardbezeichnung."
+  },
+  {
+    "id": "acronym-tld-h3",
+    "name": "TLD",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Top-Level-Domain",
+      "domain": "Webtechnik"
+    },
+    "funFact": "Die TLD ist der letzte Teil eines Domainnamens, etwa '.de' oder '.com', und steht ganz rechts in der Hierarchie.",
+    "sourceName": "Wikipedia DE – Top-Level-Domain",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Top-Level-Domain",
+    "verifyNote": "Vollform und Position im DNS-Namensraum sind Lehrbuch-Standard."
+  },
+  {
+    "id": "acronym-eof-h3",
+    "name": "EOF",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "End of File",
+      "domain": "Programmierung"
+    },
+    "funFact": "EOF ist kein Zeichen in der Datei selbst, sondern ein Zustand, den die Leseschnittstelle meldet, wenn keine Daten mehr folgen.",
+    "sourceName": "Wikipedia DE – End of File",
+    "sourceUrl": "https://de.wikipedia.org/wiki/End_of_File",
+    "verifyNote": "Vollform 'End of File' ist Standardbegriff."
+  },
+  {
+    "id": "acronym-gil-h3",
+    "name": "GIL",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Global Interpreter Lock",
+      "domain": "Programmierung"
+    },
+    "funFact": "Der GIL in CPython erlaubt jeweils nur einem Thread, Python-Bytecode auszuführen, was echte CPU-Parallelität über Threads verhindert.",
+    "sourceName": "Python-Dokumentation – Glossar",
+    "sourceUrl": "https://docs.python.org/3/glossary.html#term-global-interpreter-lock",
+    "verifyNote": "Vollform laut offizieller Python-Dokumentation."
+  },
+  {
+    "id": "acronym-jit-h3",
+    "name": "JIT",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Just-in-Time",
+      "domain": "Programmierung"
+    },
+    "funFact": "Ein JIT-Compiler übersetzt Bytecode erst zur Laufzeit in Maschinencode und nutzt dabei aktuelle Laufzeitinformationen für Optimierungen.",
+    "sourceName": "Wikipedia DE – Just-in-time-Kompilierung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Just-in-time-Kompilierung",
+    "verifyNote": "Vollform 'Just-in-Time' ist Lehrbuch-Standard."
+  },
+  {
+    "id": "acronym-fifo-h3",
+    "name": "FIFO",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "First In, First Out",
+      "domain": "Datenstrukturen"
+    },
+    "funFact": "Das FIFO-Prinzip beschreibt das Verhalten einer Warteschlange: Das zuerst eingefügte Element wird auch zuerst entnommen.",
+    "sourceName": "Wikipedia DE – Warteschlange (Datenstruktur)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Warteschlange_(Datenstruktur)",
+    "verifyNote": "Vollform 'First In, First Out' ist Lehrbuch-Standard."
+  },
+  {
+    "id": "acronym-lifo-h3",
+    "name": "LIFO",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Last In, First Out",
+      "domain": "Datenstrukturen"
+    },
+    "funFact": "Das LIFO-Prinzip beschreibt einen Stapel (Stack): Das zuletzt abgelegte Element wird als Erstes wieder entnommen.",
+    "sourceName": "Wikipedia DE – Stapelspeicher",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Stapelspeicher",
+    "verifyNote": "Vollform 'Last In, First Out' ist Lehrbuch-Standard."
+  },
+  {
+    "id": "acronym-utc-h3",
+    "name": "UTC",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Coordinated Universal Time",
+      "domain": "Systemzeit"
+    },
+    "funFact": "Die Abkürzung UTC ist ein bewusster Kompromiss zwischen dem englischen CUT und dem französischen TUC, damit keine Sprache bevorzugt wird.",
+    "sourceName": "Wikipedia DE – Koordinierte Weltzeit",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Koordinierte_Weltzeit",
+    "verifyNote": "Vollform 'Coordinated Universal Time' laut ITU-Standard."
+  },
+  {
+    "id": "acronym-osi-h3",
+    "name": "OSI",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Open Systems Interconnection",
+      "domain": "Netzwerktechnik"
+    },
+    "funFact": "Das OSI-Referenzmodell beschreibt Netzwerkkommunikation in genau sieben Schichten, von der physischen bis zur Anwendungsschicht.",
+    "sourceName": "Wikipedia DE – OSI-Modell",
+    "sourceUrl": "https://de.wikipedia.org/wiki/OSI-Modell",
+    "verifyNote": "Vollform und 7 Schichten laut ISO/IEC 7498-1."
+  },
+  {
+    "id": "acronym-mtu-h3",
+    "name": "MTU",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Maximum Transmission Unit",
+      "domain": "Netzwerktechnik"
+    },
+    "funFact": "Die typische MTU im Ethernet beträgt 1500 Byte; größere Pakete müssen fragmentiert oder verworfen werden.",
+    "sourceName": "Wikipedia DE – Maximum Transmission Unit",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Maximum_Transmission_Unit",
+    "verifyNote": "Vollform und 1500-Byte-Ethernet-Standard sind belegt."
+  },
+  {
+    "id": "acronym-mmu-h3",
+    "name": "MMU",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Memory Management Unit",
+      "domain": "Hardware"
+    },
+    "funFact": "Die MMU übersetzt virtuelle in physische Speicheradressen und ist damit die Hardware-Grundlage für virtuellen Speicher.",
+    "sourceName": "Wikipedia DE – Memory Management Unit",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Memory_Management_Unit",
+    "verifyNote": "Vollform und Aufgabe der Adressübersetzung sind Lehrbuch-Standard."
+  },
+  {
+    "id": "acronym-tlb-h3",
+    "name": "TLB",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Translation Lookaside Buffer",
+      "domain": "Hardware"
+    },
+    "funFact": "Der TLB ist ein schneller Cache in der MMU, der kürzlich genutzte Übersetzungen virtueller Adressen speichert.",
+    "sourceName": "Wikipedia DE – Translation Lookaside Buffer",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Translation_Lookaside_Buffer",
+    "verifyNote": "Vollform und Funktion als Adressübersetzungs-Cache sind belegt."
+  },
+  {
+    "id": "acronym-uart-h3",
+    "name": "UART",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Universal Asynchronous Receiver Transmitter",
+      "domain": "Hardware"
+    },
+    "funFact": "Ein UART überträgt Daten seriell ohne gemeinsames Taktsignal; Sender und Empfänger müssen sich nur auf dieselbe Baudrate einigen.",
+    "sourceName": "Wikipedia DE – Universal Asynchronous Receiver Transmitter",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Universal_Asynchronous_Receiver_Transmitter",
+    "verifyNote": "Vollform laut Standardliteratur zur seriellen Kommunikation."
+  },
+  {
+    "id": "acronym-i2c-h3",
+    "name": "I2C",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Inter-Integrated Circuit",
+      "domain": "Hardware"
+    },
+    "funFact": "I2C benötigt nur zwei Leitungen (SDA für Daten, SCL für Takt) und kann darüber viele Bausteine über eindeutige Adressen ansprechen.",
+    "sourceName": "Wikipedia DE – I²C",
+    "sourceUrl": "https://de.wikipedia.org/wiki/I%C2%B2C",
+    "verifyNote": "Vollform 'Inter-Integrated Circuit' laut NXP/Philips-Spezifikation."
+  },
+  {
+    "id": "acronym-spi-h3",
+    "name": "SPI",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Serial Peripheral Interface",
+      "domain": "Hardware"
+    },
+    "funFact": "SPI arbeitet im Vollduplex-Betrieb und ist meist schneller als I2C, benötigt dafür aber mehr Leitungen.",
+    "sourceName": "Wikipedia DE – Serial Peripheral Interface",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Serial_Peripheral_Interface",
+    "verifyNote": "Vollform 'Serial Peripheral Interface' ist Standardbezeichnung."
+  },
+  {
+    "id": "acronym-gpio-h3",
+    "name": "GPIO",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "General Purpose Input/Output",
+      "domain": "Hardware"
+    },
+    "funFact": "GPIO-Pins lassen sich per Software frei als Ein- oder Ausgang konfigurieren und sind das Herzstück von Bastel-Boards wie dem Raspberry Pi.",
+    "sourceName": "Wikipedia DE – General Purpose Input/Output",
+    "sourceUrl": "https://de.wikipedia.org/wiki/General_Purpose_Input/Output",
+    "verifyNote": "Vollform 'General Purpose Input/Output' ist Standardbegriff."
+  },
+  {
+    "id": "acronym-totp-h3",
+    "name": "TOTP",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Time-based One-Time Password",
+      "domain": "Netzwerksicherheit"
+    },
+    "funFact": "TOTP erzeugt aus einem geheimen Schlüssel und der aktuellen Uhrzeit einen Code, der meist alle 30 Sekunden wechselt — Basis vieler Authenticator-Apps.",
+    "sourceName": "IETF – RFC 6238",
+    "sourceUrl": "https://datatracker.ietf.org/doc/html/rfc6238",
+    "verifyNote": "Vollform laut RFC 6238 'TOTP: Time-Based One-Time Password Algorithm'."
+  },
+  {
+    "id": "acronym-wpa-h3",
+    "name": "WPA",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Wi-Fi Protected Access",
+      "domain": "Netzwerksicherheit"
+    },
+    "funFact": "WPA löste das unsichere WEP ab; die aktuelle Generation WPA3 erschwert Offline-Angriffe auf WLAN-Passwörter deutlich.",
+    "sourceName": "Wikipedia DE – Wi-Fi Protected Access",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Wi-Fi_Protected_Access",
+    "verifyNote": "Vollform 'Wi-Fi Protected Access' laut Wi-Fi Alliance."
+  },
+  {
+    "id": "acronym-xslt-h3",
+    "name": "XSLT",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Extensible Stylesheet Language Transformations",
+      "domain": "Webtechnik"
+    },
+    "funFact": "XSLT ist selbst in XML geschrieben und transformiert XML-Dokumente in andere Formate wie HTML oder reinen Text.",
+    "sourceName": "W3C – XSL Transformations",
+    "sourceUrl": "https://www.w3.org/TR/xslt/",
+    "verifyNote": "Vollform laut W3C-XSLT-Spezifikation."
+  },
+  {
+    "id": "acronym-wal-h3",
+    "name": "WAL",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Write-Ahead Logging",
+      "domain": "Datenbanken"
+    },
+    "funFact": "Bei Write-Ahead Logging werden Änderungen zuerst in ein Log geschrieben und erst danach in die Datenbank — so bleibt sie nach einem Absturz wiederherstellbar.",
+    "sourceName": "Wikipedia DE – Write-Ahead Logging",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Write-Ahead_Logging",
+    "verifyNote": "Vollform 'Write-Ahead Logging' ist Standardbegriff der Datenbanktechnik."
+  },
+  {
+    "id": "acronym-numa-h3",
+    "name": "NUMA",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Non-Uniform Memory Access",
+      "domain": "Rechnerarchitektur"
+    },
+    "funFact": "Bei NUMA hat jeder Prozessor lokalen Speicher, auf den er schneller zugreift als auf den Speicher anderer Prozessoren.",
+    "sourceName": "Wikipedia DE – Non-Uniform Memory Access",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Non-Uniform_Memory_Access",
+    "verifyNote": "Vollform 'Non-Uniform Memory Access' ist Lehrbuch-Standard."
+  },
+  {
+    "id": "acronym-pxe-h3",
+    "name": "PXE",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Preboot Execution Environment",
+      "domain": "Betriebssysteme"
+    },
+    "funFact": "Mit PXE kann ein Rechner sein Betriebssystem über das Netzwerk laden, ohne dass eine lokale Festplatte oder ein USB-Stick nötig ist.",
+    "sourceName": "Wikipedia DE – Preboot Execution Environment",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Preboot_Execution_Environment",
+    "verifyNote": "Vollform 'Preboot Execution Environment' laut Intel-Spezifikation."
+  },
+  {
+    "id": "acronym-exif-h3",
+    "name": "EXIF",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Exchangeable Image File Format",
+      "domain": "Datenformate"
+    },
+    "funFact": "EXIF-Daten in Fotos speichern Metadaten wie Kameramodell, Belichtungszeit und oft auch GPS-Koordinaten der Aufnahme.",
+    "sourceName": "Wikipedia DE – Exchangeable Image File Format",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Exchangeable_Image_File_Format",
+    "verifyNote": "Vollform laut JEITA-EXIF-Standard."
+  },
+  {
+    "id": "acronym-dnssec-h3",
+    "name": "DNSSEC",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Domain Name System Security Extensions",
+      "domain": "Netzwerksicherheit"
+    },
+    "funFact": "DNSSEC signiert DNS-Antworten kryptografisch, damit gefälschte Einträge (DNS-Spoofing) erkannt werden können.",
+    "sourceName": "IETF – RFC 4033",
+    "sourceUrl": "https://datatracker.ietf.org/doc/html/rfc4033",
+    "verifyNote": "Vollform laut RFC 4033 'DNS Security Introduction and Requirements'."
+  },
+  {
+    "id": "acronym-hsts-h3",
+    "name": "HSTS",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "HTTP Strict Transport Security",
+      "domain": "Netzwerksicherheit"
+    },
+    "funFact": "Mit HSTS weist ein Server den Browser an, künftig ausschließlich verschlüsselt (HTTPS) zuzugreifen — auch bei manuell getippten http-Adressen.",
+    "sourceName": "IETF – RFC 6797",
+    "sourceUrl": "https://datatracker.ietf.org/doc/html/rfc6797",
+    "verifyNote": "Vollform laut RFC 6797 'HTTP Strict Transport Security (HSTS)'."
+  },
+  {
+    "id": "algorithm-graham-scan-h3",
+    "name": "Graham-Scan",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Geometrischer Algorithmus",
+      "avgComplexity": "O(n log n)",
+      "purpose": "Berechnet die konvexe Hülle einer Punktmenge in der Ebene durch Sortieren nach Winkel und Abbau von Rechtskurven"
+    },
+    "funFact": "Der Graham-Scan war 1972 einer der ersten effizienten Hüllen-Algorithmen; die O(n log n)-Schranke stammt allein vom Sortierschritt.",
+    "sourceName": "Wikipedia DE – Graham Scan",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Graham_Scan",
+    "verifyNote": "O(n log n) dominiert durch die Winkelsortierung (Standardliteratur, CLRS Kap. 33)."
+  },
+  {
+    "id": "algorithm-jarvis-marsch-h3",
+    "name": "Jarvis-Marsch",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Geometrischer Algorithmus",
+      "avgComplexity": "O(n·h)",
+      "purpose": "Berechnet die konvexe Hülle, indem ausgehend vom äußersten Punkt jeweils der nächste Hüllenpunkt 'umwickelt' wird (Gift-Wrapping)"
+    },
+    "funFact": "Wegen seines Vorgehens heißt der Algorithmus auch Gift-Wrapping; h ist die Anzahl der Hüllenpunkte, daher ist er bei kleiner Hülle sehr schnell.",
+    "sourceName": "Wikipedia DE – Jarvis-Marsch",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Jarvis-Marsch",
+    "verifyNote": "O(n·h) mit h = Anzahl Hüllenpunkte (CLRS Kap. 33.3)."
+  },
+  {
+    "id": "algorithm-dbscan-h3",
+    "name": "DBSCAN",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Clustering-Algorithmus",
+      "avgComplexity": "O(n log n)",
+      "purpose": "Gruppiert dicht beieinanderliegende Punkte zu Clustern und markiert Punkte in dünnen Regionen als Rauschen"
+    },
+    "funFact": "Anders als k-Means muss man bei DBSCAN die Anzahl der Cluster nicht vorgeben und kann beliebig geformte Cluster finden.",
+    "sourceName": "Wikipedia DE – DBSCAN",
+    "sourceUrl": "https://de.wikipedia.org/wiki/DBSCAN",
+    "verifyNote": "O(n log n) mit räumlichem Index, O(n²) ohne (Originalpaper Ester et al. 1996)."
+  },
+  {
+    "id": "algorithm-apriori-h3",
+    "name": "Apriori-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Data-Mining-Algorithmus",
+      "avgComplexity": "O(2^d)",
+      "purpose": "Findet häufige Item-Mengen und Assoziationsregeln in Transaktionsdaten, etwa für Warenkorbanalysen"
+    },
+    "funFact": "Die zentrale Idee: Ist eine Item-Menge selten, sind auch alle ihre Obermengen selten — das spart enorm viele Prüfungen.",
+    "sourceName": "Wikipedia DE – Apriori-Algorithmus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Apriori-Algorithmus",
+    "verifyNote": "Worst Case exponentiell in der Zahl d verschiedener Items (Agrawal/Srikant 1994)."
+  },
+  {
+    "id": "algorithm-q-learning-h3",
+    "name": "Q-Learning",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Maschinelles-Lernen-Algorithmus",
+      "avgComplexity": "O(|S|·|A|)",
+      "purpose": "Lernt durch Bestärkendes Lernen eine optimale Handlungsstrategie über Zustands-Aktions-Werte ohne Modell der Umgebung"
+    },
+    "funFact": "Q-Learning ist modellfrei und off-policy: Es kann die optimale Strategie lernen, während es noch zufällig die Umgebung erkundet.",
+    "sourceName": "Wikipedia DE – Q-Learning",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Q-Learning",
+    "verifyNote": "Aufwand pro Aktualisierung über Zustands-/Aktionsraum |S|·|A| (Watkins 1989)."
+  },
+  {
+    "id": "algorithm-cyk-h3",
+    "name": "CYK-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Parsing-Algorithmus",
+      "avgComplexity": "O(n³)",
+      "purpose": "Entscheidet mit dynamischer Programmierung, ob ein Wort von einer kontextfreien Grammatik in Chomsky-Normalform erzeugt wird"
+    },
+    "funFact": "Der CYK-Algorithmus füllt eine dreieckige Tabelle und ist nach Cocke, Younger und Kasami benannt, die ihn unabhängig entwickelten.",
+    "sourceName": "Wikipedia DE – CYK-Algorithmus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/CYK-Algorithmus",
+    "verifyNote": "O(n³) bei Wortlänge n für Grammatik in Chomsky-Normalform (Standardliteratur)."
+  },
+  {
+    "id": "algorithm-shunting-yard-h3",
+    "name": "Shunting-Yard-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Parsing-Algorithmus",
+      "avgComplexity": "O(n)",
+      "purpose": "Wandelt arithmetische Ausdrücke aus Infix-Notation in umgekehrte polnische Notation (Postfix) um"
+    },
+    "funFact": "Edsger Dijkstra benannte den Algorithmus nach einem Rangierbahnhof, weil Operatoren wie Waggons zwischengeparkt und umgeleitet werden.",
+    "sourceName": "Wikipedia DE – Shunting-yard-Algorithmus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Shunting-yard-Algorithmus",
+    "verifyNote": "Lineare Laufzeit O(n) in der Token-Anzahl (Dijkstra 1961)."
+  },
+  {
+    "id": "algorithm-smith-waterman-h3",
+    "name": "Smith-Waterman-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Bioinformatik-Algorithmus",
+      "avgComplexity": "O(n·m)",
+      "purpose": "Findet per dynamischer Programmierung das optimale lokale Alignment zweier Sequenzen, etwa von DNA oder Proteinen"
+    },
+    "funFact": "Im Gegensatz zu Needleman-Wunsch sucht Smith-Waterman nicht das globale, sondern das beste lokale Übereinstimmungsstück.",
+    "sourceName": "Wikipedia DE – Smith-Waterman-Algorithmus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Smith-Waterman-Algorithmus",
+    "verifyNote": "O(n·m) bei Sequenzlängen n und m (Smith & Waterman 1981)."
+  },
+  {
+    "id": "algorithm-pollard-rho-h3",
+    "name": "Pollard-Rho",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Zahlentheoretischer Algorithmus",
+      "avgComplexity": "O(n^(1/4))",
+      "purpose": "Findet einen nichttrivialen Teiler einer zusammengesetzten Zahl durch eine Pseudozufallsfolge und Zyklensuche"
+    },
+    "funFact": "Der griechische Buchstabe ρ (Rho) im Namen spielt auf die Form der Zahlenfolge an, die in einen Zyklus mündet.",
+    "sourceName": "Wikipedia DE – Pollard-Rho-Methode",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Pollard-Rho-Methode",
+    "verifyNote": "Erwartete Laufzeit O(n^(1/4)) für einen Faktor (Pollard 1975)."
+  },
+  {
+    "id": "algorithm-baum-welch-h3",
+    "name": "Baum-Welch-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Maschinelles-Lernen-Algorithmus",
+      "avgComplexity": "O(n·s²)",
+      "purpose": "Schätzt die Parameter eines Hidden-Markov-Modells aus Beobachtungsdaten per Erwartungs-Maximierung"
+    },
+    "funFact": "Baum-Welch ist ein Spezialfall des EM-Verfahrens und nutzt intern den Forward-Backward-Algorithmus.",
+    "sourceName": "Wikipedia DE – Baum-Welch-Algorithmus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Baum-Welch-Algorithmus",
+    "verifyNote": "Pro Iteration O(n·s²) bei Sequenzlänge n und s Zuständen (Standardliteratur HMM)."
+  },
+  {
+    "id": "algorithm-perzeptron-h3",
+    "name": "Perzeptron-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Maschinelles-Lernen-Algorithmus",
+      "avgComplexity": "O(n·d)",
+      "purpose": "Lernt eine lineare Trennebene für binäre Klassifikation, indem die Gewichte bei jedem Fehler angepasst werden"
+    },
+    "funFact": "Das Perzeptron von 1958 gilt als Urahn neuronaler Netze; es konvergiert garantiert, wenn die Daten linear trennbar sind.",
+    "sourceName": "Wikipedia DE – Perzeptron",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Perzeptron",
+    "verifyNote": "Aufwand pro Durchlauf O(n·d) bei n Beispielen und d Merkmalen (Rosenblatt 1958)."
+  },
+  {
+    "id": "algorithm-yen-h3",
+    "name": "Yen-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Graphalgorithmus",
+      "avgComplexity": "O(k·n·(m + n log n))",
+      "purpose": "Findet die k kürzesten schleifenfreien Pfade zwischen zwei Knoten in einem gewichteten Graphen"
+    },
+    "funFact": "Yens Verfahren baut auf einem Kürzeste-Wege-Algorithmus wie Dijkstra auf und sperrt schrittweise Kanten, um Alternativrouten zu finden.",
+    "sourceName": "Wikipedia DE – Yen-Algorithmus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Yen-Algorithmus",
+    "verifyNote": "O(k·n·(m + n log n)) mit Dijkstra-Unterprozeduren (Yen 1971)."
+  },
+  {
+    "id": "algorithm-held-karp-h3",
+    "name": "Held-Karp-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Optimierungsalgorithmus",
+      "avgComplexity": "O(2^n · n²)",
+      "purpose": "Löst das Problem des Handlungsreisenden exakt mittels dynamischer Programmierung über Teilmengen"
+    },
+    "funFact": "Held-Karp ist zwar exponentiell, aber deutlich besser als das naive Durchprobieren aller n! Routen.",
+    "sourceName": "Wikipedia DE – Held-Karp-Algorithmus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Held-Karp-Algorithmus",
+    "verifyNote": "O(2^n · n²) Zeit für exaktes TSP (Held & Karp 1962)."
+  },
+  {
+    "id": "algorithm-thompson-konstruktion-h3",
+    "name": "Thompson-Konstruktion",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Automatentheorie-Algorithmus",
+      "avgComplexity": "O(n)",
+      "purpose": "Konstruiert aus einem regulären Ausdruck einen nichtdeterministischen endlichen Automaten (NEA)"
+    },
+    "funFact": "Ken Thompson entwickelte das Verfahren 1968 — es ist bis heute ein Grundbaustein vieler Regex-Engines.",
+    "sourceName": "Wikipedia DE – Thompson-Konstruktion",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Thompson-Konstruktion",
+    "verifyNote": "Resultierender NEA hat O(n) Zustände bei Ausdruckslänge n (Thompson 1968)."
+  },
+  {
+    "id": "algorithm-bowyer-watson-h3",
+    "name": "Bowyer-Watson-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Geometrischer Algorithmus",
+      "avgComplexity": "O(n log n)",
+      "purpose": "Berechnet die Delaunay-Triangulation einer Punktmenge, indem Punkte einzeln eingefügt werden"
+    },
+    "funFact": "Beim Einfügen jedes Punktes werden alle Dreiecke gelöscht, deren Umkreis ihn enthält, und die Lücke neu vernetzt.",
+    "sourceName": "Wikipedia DE – Bowyer-Watson-Algorithmus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Bowyer-Watson-Algorithmus",
+    "verifyNote": "Im Mittel O(n log n), Worst Case O(n²) (Bowyer/Watson 1981)."
+  },
+  {
+    "id": "algorithm-karger-h3",
+    "name": "Karger-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Graphalgorithmus",
+      "avgComplexity": "O(n²)",
+      "purpose": "Findet randomisiert einen minimalen Schnitt eines Graphen durch wiederholtes zufälliges Kontrahieren von Kanten"
+    },
+    "funFact": "Ein einzelner Durchlauf liefert nur mit gewisser Wahrscheinlichkeit den minimalen Schnitt — durch viele Wiederholungen wird das Ergebnis sehr zuverlässig.",
+    "sourceName": "Wikipedia DE – Algorithmus von Karger",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Algorithmus_von_Karger",
+    "verifyNote": "Eine Kontraktionsrunde in O(n²); Erfolg ist probabilistisch (Karger 1993)."
+  },
+  {
+    "id": "algorithm-stoer-wagner-h3",
+    "name": "Stoer-Wagner-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Graphalgorithmus",
+      "avgComplexity": "O(n³)",
+      "purpose": "Berechnet deterministisch den globalen minimalen Schnitt eines gewichteten ungerichteten Graphen"
+    },
+    "funFact": "Anders als Karger arbeitet Stoer-Wagner ohne Zufall und liefert garantiert den korrekten minimalen Schnitt.",
+    "sourceName": "Wikipedia DE – Stoer-Wagner-Algorithmus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Stoer-Wagner-Algorithmus",
+    "verifyNote": "O(n³) bzw. O(n·m + n² log n) mit Heaps (Stoer & Wagner 1997)."
+  },
+  {
+    "id": "algorithm-christofides-h3",
+    "name": "Christofides-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Approximationsalgorithmus",
+      "avgComplexity": "O(n³)",
+      "purpose": "Liefert für das metrische Problem des Handlungsreisenden eine Tour, die höchstens 1,5-mal so lang wie die optimale ist"
+    },
+    "funFact": "Die 1,5-Approximationsgüte von 1976 blieb jahrzehntelang die beste bekannte Garantie für das metrische TSP.",
+    "sourceName": "Wikipedia DE – Algorithmus von Christofides",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Algorithmus_von_Christofides",
+    "verifyNote": "O(n³) dominiert vom perfekten Matching; Gütefaktor 3/2 (Christofides 1976)."
+  },
+  {
+    "id": "algorithm-earley-parser-h3",
+    "name": "Earley-Parser",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Parsing-Algorithmus",
+      "avgComplexity": "O(n³)",
+      "purpose": "Parst Eingaben für beliebige kontextfreie Grammatiken mittels dynamischer Programmierung über Zustandsmengen"
+    },
+    "funFact": "Für eindeutige Grammatiken arbeitet der Earley-Parser in O(n²) und für viele praktische Grammatiken sogar linear.",
+    "sourceName": "Wikipedia DE – Earley-Algorithmus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Earley-Algorithmus",
+    "verifyNote": "O(n³) allgemein, O(n²) für eindeutige Grammatiken (Earley 1970)."
+  },
+  {
+    "id": "algorithm-ukkonen-h3",
+    "name": "Ukkonen-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Zeichenketten-Algorithmus",
+      "avgComplexity": "O(n)",
+      "purpose": "Konstruiert den Suffixbaum einer Zeichenkette in linearer Zeit durch schrittweises Online-Einfügen"
+    },
+    "funFact": "Ukkonens Verfahren von 1995 baut den Suffixbaum von links nach rechts auf und kann die Zeichenkette dabei Zeichen für Zeichen verarbeiten.",
+    "sourceName": "Wikipedia DE – Ukkonens Algorithmus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Ukkonens_Algorithmus",
+    "verifyNote": "Lineare Laufzeit O(n) bei konstantem Alphabet (Ukkonen 1995)."
+  }
+]

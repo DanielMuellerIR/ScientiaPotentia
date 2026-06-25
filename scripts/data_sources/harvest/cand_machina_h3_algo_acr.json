@@ -1,0 +1,672 @@
+[
+  {
+    "id": "acronym-tls-h3",
+    "name": "TLS",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Transport Layer Security",
+      "domain": "Netzwerksicherheit"
+    },
+    "funFact": "TLS ist der Nachfolger von SSL; obwohl SSL längst abgelöst ist, spricht man umgangssprachlich oft weiter von SSL-Zertifikaten.",
+    "sourceName": "IETF – RFC 8446 (TLS 1.3)",
+    "sourceUrl": "https://datatracker.ietf.org/doc/html/rfc8446",
+    "verifyNote": "Vollform laut RFC 8446, Titel 'The Transport Layer Security (TLS) Protocol Version 1.3'."
+  },
+  {
+    "id": "acronym-uuid-h3",
+    "name": "UUID",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Universally Unique Identifier",
+      "domain": "Programmierung"
+    },
+    "funFact": "Eine UUID hat 128 Bit; die Wahrscheinlichkeit einer zufälligen Kollision ist so gering, dass man Werte ohne zentrale Vergabestelle generieren kann.",
+    "sourceName": "IETF – RFC 4122",
+    "sourceUrl": "https://datatracker.ietf.org/doc/html/rfc4122",
+    "verifyNote": "Vollform und 128-Bit-Länge laut RFC 4122."
+  },
+  {
+    "id": "acronym-ipc-h3",
+    "name": "IPC",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Inter-Process Communication",
+      "domain": "Betriebssysteme"
+    },
+    "funFact": "Zu den klassischen IPC-Mechanismen gehören Pipes, Sockets, Shared Memory und Message Queues.",
+    "sourceName": "Tanenbaum – Modern Operating Systems",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Interprozesskommunikation",
+    "verifyNote": "Vollform 'Inter-Process Communication' ist Lehrbuch-Standard."
+  },
+  {
+    "id": "acronym-posix-h3",
+    "name": "POSIX",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Portable Operating System Interface",
+      "domain": "Betriebssysteme"
+    },
+    "funFact": "Das abschließende 'X' wurde hinzugefügt, weil es an Unix erinnert und sich besser aussprechen lässt.",
+    "sourceName": "IEEE – POSIX (IEEE Std 1003.1)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/POSIX",
+    "verifyNote": "Vollform laut IEEE-1003-Standard."
+  },
+  {
+    "id": "acronym-ttl-h3",
+    "name": "TTL",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Time to Live",
+      "domain": "Netzwerktechnik"
+    },
+    "funFact": "Im IP-Header begrenzt das TTL-Feld die Zahl der Router-Hops; jeder Router verringert es um eins, bei null wird das Paket verworfen.",
+    "sourceName": "IETF – RFC 791 (Internet Protocol)",
+    "sourceUrl": "https://datatracker.ietf.org/doc/html/rfc791",
+    "verifyNote": "TTL-Feld im IPv4-Header laut RFC 791."
+  },
+  {
+    "id": "acronym-voip-h3",
+    "name": "VoIP",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Voice over IP",
+      "domain": "Netzwerktechnik"
+    },
+    "funFact": "VoIP digitalisiert Sprache und überträgt sie als Datenpakete über IP-Netze statt über klassische Telefonleitungen.",
+    "sourceName": "Wikipedia DE – IP-Telefonie",
+    "sourceUrl": "https://de.wikipedia.org/wiki/IP-Telefonie",
+    "verifyNote": "Vollform 'Voice over IP' ist Standardbezeichnung."
+  },
+  {
+    "id": "acronym-tld-h3",
+    "name": "TLD",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Top-Level-Domain",
+      "domain": "Webtechnik"
+    },
+    "funFact": "Die TLD ist der letzte Teil eines Domainnamens, etwa '.de' oder '.com', und steht ganz rechts in der Hierarchie.",
+    "sourceName": "Wikipedia DE – Top-Level-Domain",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Top-Level-Domain",
+    "verifyNote": "Vollform und Position im DNS-Namensraum sind Lehrbuch-Standard."
+  },
+  {
+    "id": "acronym-eof-h3",
+    "name": "EOF",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "End of File",
+      "domain": "Programmierung"
+    },
+    "funFact": "EOF ist kein Zeichen in der Datei selbst, sondern ein Zustand, den die Leseschnittstelle meldet, wenn keine Daten mehr folgen.",
+    "sourceName": "Wikipedia DE – End of File",
+    "sourceUrl": "https://de.wikipedia.org/wiki/End_of_File",
+    "verifyNote": "Vollform 'End of File' ist Standardbegriff."
+  },
+  {
+    "id": "acronym-gil-h3",
+    "name": "GIL",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Global Interpreter Lock",
+      "domain": "Programmierung"
+    },
+    "funFact": "Der GIL in CPython erlaubt jeweils nur einem Thread, Python-Bytecode auszuführen, was echte CPU-Parallelität über Threads verhindert.",
+    "sourceName": "Python-Dokumentation – Glossar",
+    "sourceUrl": "https://docs.python.org/3/glossary.html#term-global-interpreter-lock",
+    "verifyNote": "Vollform laut offizieller Python-Dokumentation."
+  },
+  {
+    "id": "acronym-jit-h3",
+    "name": "JIT",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Just-in-Time",
+      "domain": "Programmierung"
+    },
+    "funFact": "Ein JIT-Compiler übersetzt Bytecode erst zur Laufzeit in Maschinencode und nutzt dabei aktuelle Laufzeitinformationen für Optimierungen.",
+    "sourceName": "Wikipedia DE – Just-in-time-Kompilierung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Just-in-time-Kompilierung",
+    "verifyNote": "Vollform 'Just-in-Time' ist Lehrbuch-Standard."
+  },
+  {
+    "id": "acronym-fifo-h3",
+    "name": "FIFO",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "First In, First Out",
+      "domain": "Datenstrukturen"
+    },
+    "funFact": "Das FIFO-Prinzip beschreibt das Verhalten einer Warteschlange: Das zuerst eingefügte Element wird auch zuerst entnommen.",
+    "sourceName": "Wikipedia DE – Warteschlange (Datenstruktur)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Warteschlange_(Datenstruktur)",
+    "verifyNote": "Vollform 'First In, First Out' ist Lehrbuch-Standard."
+  },
+  {
+    "id": "acronym-lifo-h3",
+    "name": "LIFO",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Last In, First Out",
+      "domain": "Datenstrukturen"
+    },
+    "funFact": "Das LIFO-Prinzip beschreibt einen Stapel (Stack): Das zuletzt abgelegte Element wird als Erstes wieder entnommen.",
+    "sourceName": "Wikipedia DE – Stapelspeicher",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Stapelspeicher",
+    "verifyNote": "Vollform 'Last In, First Out' ist Lehrbuch-Standard."
+  },
+  {
+    "id": "acronym-utc-h3",
+    "name": "UTC",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Coordinated Universal Time",
+      "domain": "Systemzeit"
+    },
+    "funFact": "Die Abkürzung UTC ist ein bewusster Kompromiss zwischen dem englischen CUT und dem französischen TUC, damit keine Sprache bevorzugt wird.",
+    "sourceName": "Wikipedia DE – Koordinierte Weltzeit",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Koordinierte_Weltzeit",
+    "verifyNote": "Vollform 'Coordinated Universal Time' laut ITU-Standard."
+  },
+  {
+    "id": "acronym-osi-h3",
+    "name": "OSI",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Open Systems Interconnection",
+      "domain": "Netzwerktechnik"
+    },
+    "funFact": "Das OSI-Referenzmodell beschreibt Netzwerkkommunikation in genau sieben Schichten, von der physischen bis zur Anwendungsschicht.",
+    "sourceName": "Wikipedia DE – OSI-Modell",
+    "sourceUrl": "https://de.wikipedia.org/wiki/OSI-Modell",
+    "verifyNote": "Vollform und 7 Schichten laut ISO/IEC 7498-1."
+  },
+  {
+    "id": "acronym-mtu-h3",
+    "name": "MTU",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Maximum Transmission Unit",
+      "domain": "Netzwerktechnik"
+    },
+    "funFact": "Die typische MTU im Ethernet beträgt 1500 Byte; größere Pakete müssen fragmentiert oder verworfen werden.",
+    "sourceName": "Wikipedia DE – Maximum Transmission Unit",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Maximum_Transmission_Unit",
+    "verifyNote": "Vollform und 1500-Byte-Ethernet-Standard sind belegt."
+  },
+  {
+    "id": "acronym-mmu-h3",
+    "name": "MMU",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Memory Management Unit",
+      "domain": "Hardware"
+    },
+    "funFact": "Die MMU übersetzt virtuelle in physische Speicheradressen und ist damit die Hardware-Grundlage für virtuellen Speicher.",
+    "sourceName": "Wikipedia DE – Memory Management Unit",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Memory_Management_Unit",
+    "verifyNote": "Vollform und Aufgabe der Adressübersetzung sind Lehrbuch-Standard."
+  },
+  {
+    "id": "acronym-tlb-h3",
+    "name": "TLB",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Translation Lookaside Buffer",
+      "domain": "Hardware"
+    },
+    "funFact": "Der TLB ist ein schneller Cache in der MMU, der kürzlich genutzte Übersetzungen virtueller Adressen speichert.",
+    "sourceName": "Wikipedia DE – Translation Lookaside Buffer",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Translation_Lookaside_Buffer",
+    "verifyNote": "Vollform und Funktion als Adressübersetzungs-Cache sind belegt."
+  },
+  {
+    "id": "acronym-uart-h3",
+    "name": "UART",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Universal Asynchronous Receiver Transmitter",
+      "domain": "Hardware"
+    },
+    "funFact": "Ein UART überträgt Daten seriell ohne gemeinsames Taktsignal; Sender und Empfänger müssen sich nur auf dieselbe Baudrate einigen.",
+    "sourceName": "Wikipedia DE – Universal Asynchronous Receiver Transmitter",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Universal_Asynchronous_Receiver_Transmitter",
+    "verifyNote": "Vollform laut Standardliteratur zur seriellen Kommunikation."
+  },
+  {
+    "id": "acronym-i2c-h3",
+    "name": "I2C",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Inter-Integrated Circuit",
+      "domain": "Hardware"
+    },
+    "funFact": "I2C benötigt nur zwei Leitungen (SDA für Daten, SCL für Takt) und kann darüber viele Bausteine über eindeutige Adressen ansprechen.",
+    "sourceName": "Wikipedia DE – I²C",
+    "sourceUrl": "https://de.wikipedia.org/wiki/I%C2%B2C",
+    "verifyNote": "Vollform 'Inter-Integrated Circuit' laut NXP/Philips-Spezifikation."
+  },
+  {
+    "id": "acronym-spi-h3",
+    "name": "SPI",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Serial Peripheral Interface",
+      "domain": "Hardware"
+    },
+    "funFact": "SPI arbeitet im Vollduplex-Betrieb und ist meist schneller als I2C, benötigt dafür aber mehr Leitungen.",
+    "sourceName": "Wikipedia DE – Serial Peripheral Interface",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Serial_Peripheral_Interface",
+    "verifyNote": "Vollform 'Serial Peripheral Interface' ist Standardbezeichnung."
+  },
+  {
+    "id": "acronym-gpio-h3",
+    "name": "GPIO",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "General Purpose Input/Output",
+      "domain": "Hardware"
+    },
+    "funFact": "GPIO-Pins lassen sich per Software frei als Ein- oder Ausgang konfigurieren und sind das Herzstück von Bastel-Boards wie dem Raspberry Pi.",
+    "sourceName": "Wikipedia DE – General Purpose Input/Output",
+    "sourceUrl": "https://de.wikipedia.org/wiki/General_Purpose_Input/Output",
+    "verifyNote": "Vollform 'General Purpose Input/Output' ist Standardbegriff."
+  },
+  {
+    "id": "acronym-totp-h3",
+    "name": "TOTP",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Time-based One-Time Password",
+      "domain": "Netzwerksicherheit"
+    },
+    "funFact": "TOTP erzeugt aus einem geheimen Schlüssel und der aktuellen Uhrzeit einen Code, der meist alle 30 Sekunden wechselt — Basis vieler Authenticator-Apps.",
+    "sourceName": "IETF – RFC 6238",
+    "sourceUrl": "https://datatracker.ietf.org/doc/html/rfc6238",
+    "verifyNote": "Vollform laut RFC 6238 'TOTP: Time-Based One-Time Password Algorithm'."
+  },
+  {
+    "id": "acronym-wpa-h3",
+    "name": "WPA",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Wi-Fi Protected Access",
+      "domain": "Netzwerksicherheit"
+    },
+    "funFact": "WPA löste das unsichere WEP ab; die aktuelle Generation WPA3 erschwert Offline-Angriffe auf WLAN-Passwörter deutlich.",
+    "sourceName": "Wikipedia DE – Wi-Fi Protected Access",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Wi-Fi_Protected_Access",
+    "verifyNote": "Vollform 'Wi-Fi Protected Access' laut Wi-Fi Alliance."
+  },
+  {
+    "id": "acronym-xslt-h3",
+    "name": "XSLT",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Extensible Stylesheet Language Transformations",
+      "domain": "Webtechnik"
+    },
+    "funFact": "XSLT ist selbst in XML geschrieben und transformiert XML-Dokumente in andere Formate wie HTML oder reinen Text.",
+    "sourceName": "W3C – XSL Transformations",
+    "sourceUrl": "https://www.w3.org/TR/xslt/",
+    "verifyNote": "Vollform laut W3C-XSLT-Spezifikation."
+  },
+  {
+    "id": "acronym-wal-h3",
+    "name": "WAL",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Write-Ahead Logging",
+      "domain": "Datenbanken"
+    },
+    "funFact": "Bei Write-Ahead Logging werden Änderungen zuerst in ein Log geschrieben und erst danach in die Datenbank — so bleibt sie nach einem Absturz wiederherstellbar.",
+    "sourceName": "Wikipedia DE – Write-Ahead Logging",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Write-Ahead_Logging",
+    "verifyNote": "Vollform 'Write-Ahead Logging' ist Standardbegriff der Datenbanktechnik."
+  },
+  {
+    "id": "acronym-numa-h3",
+    "name": "NUMA",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Non-Uniform Memory Access",
+      "domain": "Rechnerarchitektur"
+    },
+    "funFact": "Bei NUMA hat jeder Prozessor lokalen Speicher, auf den er schneller zugreift als auf den Speicher anderer Prozessoren.",
+    "sourceName": "Wikipedia DE – Non-Uniform Memory Access",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Non-Uniform_Memory_Access",
+    "verifyNote": "Vollform 'Non-Uniform Memory Access' ist Lehrbuch-Standard."
+  },
+  {
+    "id": "acronym-pxe-h3",
+    "name": "PXE",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Preboot Execution Environment",
+      "domain": "Betriebssysteme"
+    },
+    "funFact": "Mit PXE kann ein Rechner sein Betriebssystem über das Netzwerk laden, ohne dass eine lokale Festplatte oder ein USB-Stick nötig ist.",
+    "sourceName": "Wikipedia DE – Preboot Execution Environment",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Preboot_Execution_Environment",
+    "verifyNote": "Vollform 'Preboot Execution Environment' laut Intel-Spezifikation."
+  },
+  {
+    "id": "acronym-exif-h3",
+    "name": "EXIF",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Exchangeable Image File Format",
+      "domain": "Datenformate"
+    },
+    "funFact": "EXIF-Daten in Fotos speichern Metadaten wie Kameramodell, Belichtungszeit und oft auch GPS-Koordinaten der Aufnahme.",
+    "sourceName": "Wikipedia DE – Exchangeable Image File Format",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Exchangeable_Image_File_Format",
+    "verifyNote": "Vollform laut JEITA-EXIF-Standard."
+  },
+  {
+    "id": "acronym-dnssec-h3",
+    "name": "DNSSEC",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Domain Name System Security Extensions",
+      "domain": "Netzwerksicherheit"
+    },
+    "funFact": "DNSSEC signiert DNS-Antworten kryptografisch, damit gefälschte Einträge (DNS-Spoofing) erkannt werden können.",
+    "sourceName": "IETF – RFC 4033",
+    "sourceUrl": "https://datatracker.ietf.org/doc/html/rfc4033",
+    "verifyNote": "Vollform laut RFC 4033 'DNS Security Introduction and Requirements'."
+  },
+  {
+    "id": "acronym-hsts-h3",
+    "name": "HSTS",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "HTTP Strict Transport Security",
+      "domain": "Netzwerksicherheit"
+    },
+    "funFact": "Mit HSTS weist ein Server den Browser an, künftig ausschließlich verschlüsselt (HTTPS) zuzugreifen — auch bei manuell getippten http-Adressen.",
+    "sourceName": "IETF – RFC 6797",
+    "sourceUrl": "https://datatracker.ietf.org/doc/html/rfc6797",
+    "verifyNote": "Vollform laut RFC 6797 'HTTP Strict Transport Security (HSTS)'."
+  },
+  {
+    "id": "algorithm-graham-scan-h3",
+    "name": "Graham-Scan",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Geometrischer Algorithmus",
+      "avgComplexity": "O(n log n)",
+      "purpose": "Berechnet die konvexe Hülle einer Punktmenge in der Ebene durch Sortieren nach Winkel und Abbau von Rechtskurven"
+    },
+    "funFact": "Der Graham-Scan war 1972 einer der ersten effizienten Hüllen-Algorithmen; die O(n log n)-Schranke stammt allein vom Sortierschritt.",
+    "sourceName": "Wikipedia DE – Graham Scan",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Graham_Scan",
+    "verifyNote": "O(n log n) dominiert durch die Winkelsortierung (Standardliteratur, CLRS Kap. 33)."
+  },
+  {
+    "id": "algorithm-jarvis-marsch-h3",
+    "name": "Jarvis-Marsch",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Geometrischer Algorithmus",
+      "avgComplexity": "O(n·h)",
+      "purpose": "Berechnet die konvexe Hülle, indem ausgehend vom äußersten Punkt jeweils der nächste Hüllenpunkt 'umwickelt' wird (Gift-Wrapping)"
+    },
+    "funFact": "Wegen seines Vorgehens heißt der Algorithmus auch Gift-Wrapping; h ist die Anzahl der Hüllenpunkte, daher ist er bei kleiner Hülle sehr schnell.",
+    "sourceName": "Wikipedia DE – Jarvis-Marsch",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Jarvis-Marsch",
+    "verifyNote": "O(n·h) mit h = Anzahl Hüllenpunkte (CLRS Kap. 33.3)."
+  },
+  {
+    "id": "algorithm-dbscan-h3",
+    "name": "DBSCAN",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Clustering-Algorithmus",
+      "avgComplexity": "O(n log n)",
+      "purpose": "Gruppiert dicht beieinanderliegende Punkte zu Clustern und markiert Punkte in dünnen Regionen als Rauschen"
+    },
+    "funFact": "Anders als k-Means muss man bei DBSCAN die Anzahl der Cluster nicht vorgeben und kann beliebig geformte Cluster finden.",
+    "sourceName": "Wikipedia DE – DBSCAN",
+    "sourceUrl": "https://de.wikipedia.org/wiki/DBSCAN",
+    "verifyNote": "O(n log n) mit räumlichem Index, O(n²) ohne (Originalpaper Ester et al. 1996)."
+  },
+  {
+    "id": "algorithm-apriori-h3",
+    "name": "Apriori-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Data-Mining-Algorithmus",
+      "avgComplexity": "O(2^d)",
+      "purpose": "Findet häufige Item-Mengen und Assoziationsregeln in Transaktionsdaten, etwa für Warenkorbanalysen"
+    },
+    "funFact": "Die zentrale Idee: Ist eine Item-Menge selten, sind auch alle ihre Obermengen selten — das spart enorm viele Prüfungen.",
+    "sourceName": "Wikipedia DE – Apriori-Algorithmus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Apriori-Algorithmus",
+    "verifyNote": "Worst Case exponentiell in der Zahl d verschiedener Items (Agrawal/Srikant 1994)."
+  },
+  {
+    "id": "algorithm-q-learning-h3",
+    "name": "Q-Learning",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Maschinelles-Lernen-Algorithmus",
+      "avgComplexity": "O(|S|·|A|)",
+      "purpose": "Lernt durch Bestärkendes Lernen eine optimale Handlungsstrategie über Zustands-Aktions-Werte ohne Modell der Umgebung"
+    },
+    "funFact": "Q-Learning ist modellfrei und off-policy: Es kann die optimale Strategie lernen, während es noch zufällig die Umgebung erkundet.",
+    "sourceName": "Wikipedia DE – Q-Learning",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Q-Learning",
+    "verifyNote": "Aufwand pro Aktualisierung über Zustands-/Aktionsraum |S|·|A| (Watkins 1989)."
+  },
+  {
+    "id": "algorithm-cyk-h3",
+    "name": "CYK-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Parsing-Algorithmus",
+      "avgComplexity": "O(n³)",
+      "purpose": "Entscheidet mit dynamischer Programmierung, ob ein Wort von einer kontextfreien Grammatik in Chomsky-Normalform erzeugt wird"
+    },
+    "funFact": "Der CYK-Algorithmus füllt eine dreieckige Tabelle und ist nach Cocke, Younger und Kasami benannt, die ihn unabhängig entwickelten.",
+    "sourceName": "Wikipedia DE – CYK-Algorithmus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/CYK-Algorithmus",
+    "verifyNote": "O(n³) bei Wortlänge n für Grammatik in Chomsky-Normalform (Standardliteratur)."
+  },
+  {
+    "id": "algorithm-shunting-yard-h3",
+    "name": "Shunting-Yard-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Parsing-Algorithmus",
+      "avgComplexity": "O(n)",
+      "purpose": "Wandelt arithmetische Ausdrücke aus Infix-Notation in umgekehrte polnische Notation (Postfix) um"
+    },
+    "funFact": "Edsger Dijkstra benannte den Algorithmus nach einem Rangierbahnhof, weil Operatoren wie Waggons zwischengeparkt und umgeleitet werden.",
+    "sourceName": "Wikipedia DE – Shunting-yard-Algorithmus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Shunting-yard-Algorithmus",
+    "verifyNote": "Lineare Laufzeit O(n) in der Token-Anzahl (Dijkstra 1961)."
+  },
+  {
+    "id": "algorithm-smith-waterman-h3",
+    "name": "Smith-Waterman-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Bioinformatik-Algorithmus",
+      "avgComplexity": "O(n·m)",
+      "purpose": "Findet per dynamischer Programmierung das optimale lokale Alignment zweier Sequenzen, etwa von DNA oder Proteinen"
+    },
+    "funFact": "Im Gegensatz zu Needleman-Wunsch sucht Smith-Waterman nicht das globale, sondern das beste lokale Übereinstimmungsstück.",
+    "sourceName": "Wikipedia DE – Smith-Waterman-Algorithmus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Smith-Waterman-Algorithmus",
+    "verifyNote": "O(n·m) bei Sequenzlängen n und m (Smith & Waterman 1981)."
+  },
+  {
+    "id": "algorithm-pollard-rho-h3",
+    "name": "Pollard-Rho",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Zahlentheoretischer Algorithmus",
+      "avgComplexity": "O(n^(1/4))",
+      "purpose": "Findet einen nichttrivialen Teiler einer zusammengesetzten Zahl durch eine Pseudozufallsfolge und Zyklensuche"
+    },
+    "funFact": "Der griechische Buchstabe ρ (Rho) im Namen spielt auf die Form der Zahlenfolge an, die in einen Zyklus mündet.",
+    "sourceName": "Wikipedia DE – Pollard-Rho-Methode",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Pollard-Rho-Methode",
+    "verifyNote": "Erwartete Laufzeit O(n^(1/4)) für einen Faktor (Pollard 1975)."
+  },
+  {
+    "id": "algorithm-baum-welch-h3",
+    "name": "Baum-Welch-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Maschinelles-Lernen-Algorithmus",
+      "avgComplexity": "O(n·s²)",
+      "purpose": "Schätzt die Parameter eines Hidden-Markov-Modells aus Beobachtungsdaten per Erwartungs-Maximierung"
+    },
+    "funFact": "Baum-Welch ist ein Spezialfall des EM-Verfahrens und nutzt intern den Forward-Backward-Algorithmus.",
+    "sourceName": "Wikipedia DE – Baum-Welch-Algorithmus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Baum-Welch-Algorithmus",
+    "verifyNote": "Pro Iteration O(n·s²) bei Sequenzlänge n und s Zuständen (Standardliteratur HMM)."
+  },
+  {
+    "id": "algorithm-perzeptron-h3",
+    "name": "Perzeptron-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Maschinelles-Lernen-Algorithmus",
+      "avgComplexity": "O(n·d)",
+      "purpose": "Lernt eine lineare Trennebene für binäre Klassifikation, indem die Gewichte bei jedem Fehler angepasst werden"
+    },
+    "funFact": "Das Perzeptron von 1958 gilt als Urahn neuronaler Netze; es konvergiert garantiert, wenn die Daten linear trennbar sind.",
+    "sourceName": "Wikipedia DE – Perzeptron",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Perzeptron",
+    "verifyNote": "Aufwand pro Durchlauf O(n·d) bei n Beispielen und d Merkmalen (Rosenblatt 1958)."
+  },
+  {
+    "id": "algorithm-yen-h3",
+    "name": "Yen-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Graphalgorithmus",
+      "avgComplexity": "O(k·n·(m + n log n))",
+      "purpose": "Findet die k kürzesten schleifenfreien Pfade zwischen zwei Knoten in einem gewichteten Graphen"
+    },
+    "funFact": "Yens Verfahren baut auf einem Kürzeste-Wege-Algorithmus wie Dijkstra auf und sperrt schrittweise Kanten, um Alternativrouten zu finden.",
+    "sourceName": "Wikipedia DE – Yen-Algorithmus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Yen-Algorithmus",
+    "verifyNote": "O(k·n·(m + n log n)) mit Dijkstra-Unterprozeduren (Yen 1971)."
+  },
+  {
+    "id": "algorithm-held-karp-h3",
+    "name": "Held-Karp-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Optimierungsalgorithmus",
+      "avgComplexity": "O(2^n · n²)",
+      "purpose": "Löst das Problem des Handlungsreisenden exakt mittels dynamischer Programmierung über Teilmengen"
+    },
+    "funFact": "Held-Karp ist zwar exponentiell, aber deutlich besser als das naive Durchprobieren aller n! Routen.",
+    "sourceName": "Wikipedia DE – Held-Karp-Algorithmus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Held-Karp-Algorithmus",
+    "verifyNote": "O(2^n · n²) Zeit für exaktes TSP (Held & Karp 1962)."
+  },
+  {
+    "id": "algorithm-thompson-konstruktion-h3",
+    "name": "Thompson-Konstruktion",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Automatentheorie-Algorithmus",
+      "avgComplexity": "O(n)",
+      "purpose": "Konstruiert aus einem regulären Ausdruck einen nichtdeterministischen endlichen Automaten (NEA)"
+    },
+    "funFact": "Ken Thompson entwickelte das Verfahren 1968 — es ist bis heute ein Grundbaustein vieler Regex-Engines.",
+    "sourceName": "Wikipedia DE – Thompson-Konstruktion",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Thompson-Konstruktion",
+    "verifyNote": "Resultierender NEA hat O(n) Zustände bei Ausdruckslänge n (Thompson 1968)."
+  },
+  {
+    "id": "algorithm-bowyer-watson-h3",
+    "name": "Bowyer-Watson-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Geometrischer Algorithmus",
+      "avgComplexity": "O(n log n)",
+      "purpose": "Berechnet die Delaunay-Triangulation einer Punktmenge, indem Punkte einzeln eingefügt werden"
+    },
+    "funFact": "Beim Einfügen jedes Punktes werden alle Dreiecke gelöscht, deren Umkreis ihn enthält, und die Lücke neu vernetzt.",
+    "sourceName": "Wikipedia DE – Bowyer-Watson-Algorithmus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Bowyer-Watson-Algorithmus",
+    "verifyNote": "Im Mittel O(n log n), Worst Case O(n²) (Bowyer/Watson 1981)."
+  },
+  {
+    "id": "algorithm-karger-h3",
+    "name": "Karger-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Graphalgorithmus",
+      "avgComplexity": "O(n²)",
+      "purpose": "Findet randomisiert einen minimalen Schnitt eines Graphen durch wiederholtes zufälliges Kontrahieren von Kanten"
+    },
+    "funFact": "Ein einzelner Durchlauf liefert nur mit gewisser Wahrscheinlichkeit den minimalen Schnitt — durch viele Wiederholungen wird das Ergebnis sehr zuverlässig.",
+    "sourceName": "Wikipedia DE – Algorithmus von Karger",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Algorithmus_von_Karger",
+    "verifyNote": "Eine Kontraktionsrunde in O(n²); Erfolg ist probabilistisch (Karger 1993)."
+  },
+  {
+    "id": "algorithm-stoer-wagner-h3",
+    "name": "Stoer-Wagner-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Graphalgorithmus",
+      "avgComplexity": "O(n³)",
+      "purpose": "Berechnet deterministisch den globalen minimalen Schnitt eines gewichteten ungerichteten Graphen"
+    },
+    "funFact": "Anders als Karger arbeitet Stoer-Wagner ohne Zufall und liefert garantiert den korrekten minimalen Schnitt.",
+    "sourceName": "Wikipedia DE – Stoer-Wagner-Algorithmus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Stoer-Wagner-Algorithmus",
+    "verifyNote": "O(n³) bzw. O(n·m + n² log n) mit Heaps (Stoer & Wagner 1997)."
+  },
+  {
+    "id": "algorithm-christofides-h3",
+    "name": "Christofides-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Approximationsalgorithmus",
+      "avgComplexity": "O(n³)",
+      "purpose": "Liefert für das metrische Problem des Handlungsreisenden eine Tour, die höchstens 1,5-mal so lang wie die optimale ist"
+    },
+    "funFact": "Die 1,5-Approximationsgüte von 1976 blieb jahrzehntelang die beste bekannte Garantie für das metrische TSP.",
+    "sourceName": "Wikipedia DE – Algorithmus von Christofides",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Algorithmus_von_Christofides",
+    "verifyNote": "O(n³) dominiert vom perfekten Matching; Gütefaktor 3/2 (Christofides 1976)."
+  },
+  {
+    "id": "algorithm-earley-parser-h3",
+    "name": "Earley-Parser",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Parsing-Algorithmus",
+      "avgComplexity": "O(n³)",
+      "purpose": "Parst Eingaben für beliebige kontextfreie Grammatiken mittels dynamischer Programmierung über Zustandsmengen"
+    },
+    "funFact": "Für eindeutige Grammatiken arbeitet der Earley-Parser in O(n²) und für viele praktische Grammatiken sogar linear.",
+    "sourceName": "Wikipedia DE – Earley-Algorithmus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Earley-Algorithmus",
+    "verifyNote": "O(n³) allgemein, O(n²) für eindeutige Grammatiken (Earley 1970)."
+  },
+  {
+    "id": "algorithm-ukkonen-h3",
+    "name": "Ukkonen-Algorithmus",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Zeichenketten-Algorithmus",
+      "avgComplexity": "O(n)",
+      "purpose": "Konstruiert den Suffixbaum einer Zeichenkette in linearer Zeit durch schrittweises Online-Einfügen"
+    },
+    "funFact": "Ukkonens Verfahren von 1995 baut den Suffixbaum von links nach rechts auf und kann die Zeichenkette dabei Zeichen für Zeichen verarbeiten.",
+    "sourceName": "Wikipedia DE – Ukkonens Algorithmus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Ukkonens_Algorithmus",
+    "verifyNote": "Lineare Laufzeit O(n) bei konstantem Alphabet (Ukkonen 1995)."
+  }
+]

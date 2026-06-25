@@ -1,0 +1,1069 @@
+[
+  {
+    "id": "network_protocol-snmp-trap-h3",
+    "name": "SNMP-Trap",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Simple Network Management Protocol Trap",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 162,
+      "purpose": "Asynchrone Benachrichtigung eines Management-Systems über Ereignisse durch überwachte Geräte"
+    },
+    "funFact": "Während reguläre SNMP-Abfragen auf Port 161 laufen, schicken Geräte ihre unaufgeforderten Alarm-Meldungen (Traps) an Port 162.",
+    "sourceName": "IANA Service Name and Transport Protocol Port Number Registry",
+    "sourceUrl": "https://www.iana.org/assignments/service-names-port-numbers/",
+    "verifyNote": "Port 162/UDP für snmptrap laut IANA-Port-Registry."
+  },
+  {
+    "id": "network_protocol-rwhois-h3",
+    "name": "RWHOIS",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Referral Whois",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 4321,
+      "purpose": "Hierarchische, verweisbasierte Abfrage von Verzeichnisinformationen zu Internet-Ressourcen"
+    },
+    "funFact": "RWHOIS erweitert das klassische Whois um die Fähigkeit, eine Anfrage an den jeweils zuständigen Server weiterzuleiten (Referral).",
+    "sourceName": "RFC 2167 – Referral Whois (RWhois) Protocol V1.5",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc2167",
+    "verifyNote": "Port 4321/TCP laut RFC 2167 und IANA."
+  },
+  {
+    "id": "network_protocol-quotd-h3",
+    "name": "QOTD",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Quote of the Day Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 17,
+      "purpose": "Liefert beim Verbindungsaufbau einen kurzen Spruch oder ein Zitat zurück"
+    },
+    "funFact": "QOTD war eines der ersten Internet-Spaßprotokolle und gibt bei jedem Connect einfach ein zufälliges Zitat aus.",
+    "sourceName": "RFC 865 – Quote of the Day Protocol",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc865",
+    "verifyNote": "Port 17, TCP und UDP, laut RFC 865; hier TCP-Variante."
+  },
+  {
+    "id": "network_protocol-daytime-h3",
+    "name": "Daytime-Protokoll",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Daytime Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 13,
+      "purpose": "Liefert die aktuelle Uhrzeit und das Datum als menschenlesbaren Text"
+    },
+    "funFact": "Das Daytime-Protokoll gibt die Zeit im Klartext zurück und diente früher als simple Zeitabfrage, bevor sich NTP durchsetzte.",
+    "sourceName": "RFC 867 – Daytime Protocol",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc867",
+    "verifyNote": "Port 13 (TCP und UDP) laut RFC 867; hier TCP."
+  },
+  {
+    "id": "network_protocol-time-protokoll-h3",
+    "name": "Time-Protokoll",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Time Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 37,
+      "purpose": "Liefert die aktuelle Zeit als 32-Bit-Zahl der Sekunden seit dem 1. Januar 1900"
+    },
+    "funFact": "Anders als das menschenlesbare Daytime-Protokoll gibt Time eine reine 32-Bit-Sekundenzahl zurück – sie läuft im Jahr 2036 über.",
+    "sourceName": "RFC 868 – Time Protocol",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc868",
+    "verifyNote": "Port 37, 32-Bit-Sekunden seit 1900-01-01 laut RFC 868."
+  },
+  {
+    "id": "network_protocol-echo-protokoll-h3",
+    "name": "Echo-Protokoll",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Echo Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 7,
+      "purpose": "Sendet jedes empfangene Datenbyte unverändert an den Absender zurück"
+    },
+    "funFact": "Das Echo-Protokoll auf Port 7 dient zum Test der Erreichbarkeit und Datentreue einer Verbindung – ein reines Hin-und-Zurück.",
+    "sourceName": "RFC 862 – Echo Protocol",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc862",
+    "verifyNote": "Port 7 (TCP und UDP) laut RFC 862."
+  },
+  {
+    "id": "network_protocol-discard-protokoll-h3",
+    "name": "Discard-Protokoll",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Discard Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 9,
+      "purpose": "Verwirft alle empfangenen Daten ohne Antwort, dient als Datensenke zum Testen"
+    },
+    "funFact": "Discard ist das Gegenstück zu Echo: Es schluckt alles, was man ihm schickt – wie /dev/null über das Netz.",
+    "sourceName": "RFC 863 – Discard Protocol",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc863",
+    "verifyNote": "Port 9 (TCP und UDP) laut RFC 863."
+  },
+  {
+    "id": "network_protocol-chargen-h3",
+    "name": "CHARGEN",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Character Generator Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 19,
+      "purpose": "Erzeugt einen fortlaufenden Strom von Zeichen zum Testen und Debuggen von Verbindungen"
+    },
+    "funFact": "CHARGEN spuckt endlos Zeichen aus; über UDP missbraucht, eignet es sich für Verstärkungs-Angriffe und gilt heute als Sicherheitsrisiko.",
+    "sourceName": "RFC 864 – Character Generator Protocol",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc864",
+    "verifyNote": "Port 19 (TCP und UDP) laut RFC 864."
+  },
+  {
+    "id": "network_protocol-rtsp-h3",
+    "name": "Ident",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Identification Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 113,
+      "purpose": "Ermittelt die Identität des Benutzers hinter einer bestimmten TCP-Verbindung"
+    },
+    "funFact": "Das Ident-Protokoll wurde früher von IRC-Servern abgefragt, um den Benutzernamen am anderen Ende einer Verbindung zu erfahren.",
+    "sourceName": "RFC 1413 – Identification Protocol",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc1413",
+    "verifyNote": "Port 113/TCP laut RFC 1413."
+  },
+  {
+    "id": "network_protocol-msrpc-h3",
+    "name": "MSRPC-Endpoint-Mapper",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Microsoft RPC Endpoint Mapper",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 135,
+      "purpose": "Vermittelt Clients den dynamischen Port eines gewünschten RPC-Dienstes auf Windows-Systemen"
+    },
+    "funFact": "Port 135 ist der erste Anlaufpunkt für viele Windows-Dienste; der Mapper sagt dem Client, auf welchem dynamischen Port der Zieldienst lauscht.",
+    "sourceName": "IANA Service Name and Transport Protocol Port Number Registry",
+    "sourceUrl": "https://www.iana.org/assignments/service-names-port-numbers/",
+    "verifyNote": "Port 135 (epmap) laut IANA-Registry."
+  },
+  {
+    "id": "network_protocol-microsoft-sql-h3",
+    "name": "MS-SQL-Server-Protokoll",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Microsoft SQL Server Protocol (TDS)",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 1433,
+      "purpose": "Kommunikation zwischen Clients und einem Microsoft-SQL-Server-Datenbankdienst"
+    },
+    "funFact": "Microsoft SQL Server lauscht standardmäßig auf Port 1433 und nutzt darunter das Tabular Data Stream (TDS) Protokoll.",
+    "sourceName": "IANA Service Name and Transport Protocol Port Number Registry",
+    "sourceUrl": "https://www.iana.org/assignments/service-names-port-numbers/",
+    "verifyNote": "Port 1433 (ms-sql-s) laut IANA-Registry."
+  },
+  {
+    "id": "network_protocol-oracle-tns-h3",
+    "name": "Oracle-TNS",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Oracle Transparent Network Substrate",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 1521,
+      "purpose": "Verbindungsaufbau und Kommunikation mit einer Oracle-Datenbank über den Listener"
+    },
+    "funFact": "Der Oracle-Listener auf Port 1521 nimmt eingehende TNS-Verbindungen entgegen und leitet sie an die passende Datenbankinstanz weiter.",
+    "sourceName": "IANA Service Name and Transport Protocol Port Number Registry",
+    "sourceUrl": "https://www.iana.org/assignments/service-names-port-numbers/",
+    "verifyNote": "Port 1521 (ncube-lm/Oracle TNS, weit verbreiteter De-facto-Standard) laut IANA-Registry."
+  },
+  {
+    "id": "network_protocol-rdp-gateway-h3",
+    "name": "WSDD",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Web Services Dynamic Discovery",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 3702,
+      "purpose": "Auffinden von Diensten und Geräten in einem lokalen Netzwerk per Multicast"
+    },
+    "funFact": "WS-Discovery hilft Windows-Rechnern, Netzwerkdrucker und andere Geräte automatisch im LAN zu finden, ohne deren Adresse zu kennen.",
+    "sourceName": "IANA Service Name and Transport Protocol Port Number Registry",
+    "sourceUrl": "https://www.iana.org/assignments/service-names-port-numbers/",
+    "verifyNote": "Port 3702 (ws-discovery, Multicast) laut IANA-Registry."
+  },
+  {
+    "id": "network_protocol-git-protokoll-h3",
+    "name": "Git-Protokoll",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Git Smart Protocol (git://)",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 9418,
+      "purpose": "Effizienter Austausch von Repository-Objekten zwischen Git-Client und -Server"
+    },
+    "funFact": "Das native git://-Protokoll auf Port 9418 ist schnell, bietet aber keine Verschlüsselung oder Authentifizierung – daher meist über SSH genutzt.",
+    "sourceName": "IANA Service Name and Transport Protocol Port Number Registry",
+    "sourceUrl": "https://www.iana.org/assignments/service-names-port-numbers/",
+    "verifyNote": "Port 9418 (git) laut IANA-Registry."
+  },
+  {
+    "id": "network_protocol-svn-protokoll-h3",
+    "name": "SVN-Protokoll",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Subversion Protocol (svn://)",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 3690,
+      "purpose": "Kommunikation zwischen Subversion-Client und svnserve-Server zur Versionsverwaltung"
+    },
+    "funFact": "Der svnserve-Dienst auf Port 3690 bietet einen schlanken Zugang zu Subversion-Repositories ohne Webserver-Umweg.",
+    "sourceName": "IANA Service Name and Transport Protocol Port Number Registry",
+    "sourceUrl": "https://www.iana.org/assignments/service-names-port-numbers/",
+    "verifyNote": "Port 3690 (svn) laut IANA-Registry."
+  },
+  {
+    "id": "network_protocol-rsh-h3",
+    "name": "RSH",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Remote Shell",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 514,
+      "purpose": "Ausführen einzelner Befehle auf einem entfernten Unix-Rechner"
+    },
+    "funFact": "RSH überträgt alles unverschlüsselt und vertraut Hostnamen blind – es wurde aus genau diesen Gründen vollständig durch SSH abgelöst.",
+    "sourceName": "IANA Service Name and Transport Protocol Port Number Registry",
+    "sourceUrl": "https://www.iana.org/assignments/service-names-port-numbers/",
+    "verifyNote": "Port 514/TCP (shell/cmd) laut IANA-Registry; Syslog nutzt 514/UDP."
+  },
+  {
+    "id": "network_protocol-rexec-h3",
+    "name": "rexec",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Remote Execution Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 512,
+      "purpose": "Ausführen von Befehlen auf einem entfernten Rechner mit Benutzername und Passwort"
+    },
+    "funFact": "rexec verlangt im Gegensatz zu rsh ein Passwort, schickt es aber im Klartext über das Netz – heute ein Sicherheitsalbtraum.",
+    "sourceName": "IANA Service Name and Transport Protocol Port Number Registry",
+    "sourceUrl": "https://www.iana.org/assignments/service-names-port-numbers/",
+    "verifyNote": "Port 512/TCP (exec) laut IANA-Registry."
+  },
+  {
+    "id": "network_protocol-msdp-h3",
+    "name": "MSRP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Message Session Relay Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 2855,
+      "purpose": "Übertragung von Sofortnachrichten und Dateien innerhalb einer SIP-Sitzung"
+    },
+    "funFact": "MSRP transportiert in modernen IP-Telefonie-Systemen den Chat- und Dateianhang-Verkehr, während SIP nur den Verbindungsauf- und -abbau regelt.",
+    "sourceName": "RFC 4975 – The Message Session Relay Protocol (MSRP)",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc4975",
+    "verifyNote": "MSRP über TCP laut RFC 4975; Port 2855 (msrp) laut IANA-Registry."
+  },
+  {
+    "id": "network_protocol-cups-ipp-h3",
+    "name": "AFP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Apple Filing Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 548,
+      "purpose": "Dateifreigabe zwischen Macs in lokalen Netzwerken"
+    },
+    "funFact": "AFP war jahrzehntelang Apples Standard für Netzwerk-Dateifreigabe, bevor macOS auf das plattformneutrale SMB umstieg.",
+    "sourceName": "IANA Service Name and Transport Protocol Port Number Registry",
+    "sourceUrl": "https://www.iana.org/assignments/service-names-port-numbers/",
+    "verifyNote": "Port 548/TCP (afpovertcp) laut IANA-Registry."
+  },
+  {
+    "id": "network_protocol-rip-ng-h3",
+    "name": "BFD",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Bidirectional Forwarding Detection",
+      "layer": "Transportschicht",
+      "transport": "UDP",
+      "defaultPort": 3784,
+      "purpose": "Schnelle Erkennung von Ausfällen auf einem Pfad zwischen zwei weiterleitenden Geräten"
+    },
+    "funFact": "BFD erkennt Verbindungsausfälle in Millisekunden und meldet sie an Routing-Protokolle wie OSPF oder BGP, damit diese sofort umleiten.",
+    "sourceName": "RFC 5881 – BFD for IPv4 and IPv6 (Single Hop)",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc5881",
+    "verifyNote": "Port 3784/UDP für BFD Single Hop laut RFC 5881."
+  },
+  {
+    "id": "network_protocol-lisp-h3",
+    "name": "LISP-Protokoll",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Locator/ID Separation Protocol",
+      "layer": "Vermittlungsschicht (Internet)",
+      "transport": "UDP",
+      "defaultPort": 4341,
+      "purpose": "Trennung von Endpunkt-Identität und Standort zur skalierbaren Wegewahl im Internet"
+    },
+    "funFact": "LISP trennt die Frage Wer bin ich von Wo bin ich – ähnlich wie eine Telefonnummer, die man behält, egal wohin man umzieht.",
+    "sourceName": "RFC 9300 – The Locator/ID Separation Protocol (LISP)",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc9300",
+    "verifyNote": "LISP-Datenkanal Port 4341/UDP laut RFC 9300/IANA."
+  },
+  {
+    "id": "network_protocol-pcp-h3",
+    "name": "PCP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Port Control Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 5351,
+      "purpose": "Steuerung von Portweiterleitungen und NAT-Zuordnungen durch interne Hosts"
+    },
+    "funFact": "PCP erlaubt einem Gerät hinter einem Router, sich selbst eine Portfreigabe einzurichten – der Nachfolger des älteren NAT-PMP.",
+    "sourceName": "RFC 6887 – Port Control Protocol (PCP)",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc6887",
+    "verifyNote": "PCP-Server-Port 5351/UDP laut RFC 6887."
+  },
+  {
+    "id": "network_protocol-lpd-control-h3",
+    "name": "DAAP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Digital Audio Access Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 3689,
+      "purpose": "Freigabe und Streaming einer Musikbibliothek über das lokale Netzwerk"
+    },
+    "funFact": "DAAP wurde von Apple für iTunes entwickelt, damit Nutzer ihre Musikbibliothek im Heimnetz mit anderen teilen konnten.",
+    "sourceName": "IANA Service Name and Transport Protocol Port Number Registry",
+    "sourceUrl": "https://www.iana.org/assignments/service-names-port-numbers/",
+    "verifyNote": "Port 3689 (daap) laut IANA-Registry."
+  },
+  {
+    "id": "network_protocol-rndc-h3",
+    "name": "OpenVPN-Steuerkanal",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "OpenVPN Default Control/Data Channel",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 1194,
+      "purpose": "Aufbau eines verschlüsselten VPN-Tunnels zwischen Client und Server"
+    },
+    "funFact": "OpenVPN nutzt standardmäßig UDP-Port 1194, kann aber auch über TCP-Port 443 laufen, um sich als regulärer HTTPS-Verkehr zu tarnen.",
+    "sourceName": "IANA Service Name and Transport Protocol Port Number Registry",
+    "sourceUrl": "https://www.iana.org/assignments/service-names-port-numbers/",
+    "verifyNote": "Port 1194 (openvpn) laut IANA-Registry; Standard-Transport UDP."
+  },
+  {
+    "id": "network_protocol-mptcp-h3",
+    "name": "WCCP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Web Cache Communication Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 2048,
+      "purpose": "Transparente Umleitung von Web-Verkehr durch einen Router zu einem Cache-Server"
+    },
+    "funFact": "WCCP von Cisco lenkt Web-Anfragen unbemerkt über einen Proxy-Cache, sodass häufig besuchte Seiten lokal beschleunigt ausgeliefert werden.",
+    "sourceName": "IANA Service Name and Transport Protocol Port Number Registry",
+    "sourceUrl": "https://www.iana.org/assignments/service-names-port-numbers/",
+    "verifyNote": "Port 2048/UDP (dls-monitor/WCCP, Cisco-Standard) laut IANA-Registry."
+  },
+  {
+    "id": "network_protocol-tcp-mux-h3",
+    "name": "TCPMUX",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "TCP Port Service Multiplexer",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 1,
+      "purpose": "Auswahl eines Dienstes nach Namen über eine einzige bekannte Portnummer"
+    },
+    "funFact": "TCPMUX belegt die niedrigste mögliche Portnummer 1 und lässt Clients einen Dienst per Namen statt per fester Portnummer ansprechen.",
+    "sourceName": "RFC 1078 – TCP Port Service Multiplexer (TCPMUX)",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc1078",
+    "verifyNote": "Port 1/TCP laut RFC 1078/IANA."
+  },
+  {
+    "id": "network_protocol-msnp-h3",
+    "name": "PCEP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Path Computation Element Communication Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 4189,
+      "purpose": "Anforderung optimaler Pfade durch ein Netzwerk bei einer zentralen Berechnungsinstanz"
+    },
+    "funFact": "PCEP lagert die aufwendige Berechnung optimaler Netzwerkpfade an einen zentralen Rechenknoten aus, statt jeden Router selbst rechnen zu lassen.",
+    "sourceName": "RFC 5440 – Path Computation Element (PCE) Communication Protocol (PCEP)",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc5440",
+    "verifyNote": "Port 4189/TCP (pcep) laut RFC 5440/IANA."
+  },
+  {
+    "id": "network_protocol-rpki-rtr-h3",
+    "name": "RPKI-RTR",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "RPKI to Router Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 323,
+      "purpose": "Bereitstellung validierter Routing-Ursprungsdaten an Router zur Absicherung von BGP"
+    },
+    "funFact": "RPKI-RTR liefert Routern eine Liste, welcher Netzbereich zu welchem Betreiber gehört, und hilft so, gefälschte BGP-Routen abzuwehren.",
+    "sourceName": "RFC 8210 – The Resource Public Key Infrastructure (RPKI) to Router Protocol, Version 1",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc8210",
+    "verifyNote": "Port 323/TCP (rpki-rtr) laut RFC 8210/IANA."
+  },
+  {
+    "id": "network_protocol-bgmp-h3",
+    "name": "MSDP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Multicast Source Discovery Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 639,
+      "purpose": "Austausch von Informationen über aktive Multicast-Quellen zwischen verschiedenen Domänen"
+    },
+    "funFact": "MSDP verbindet getrennte Multicast-Bereiche, damit ein Empfänger in einer Domäne eine Streaming-Quelle in einer anderen Domäne finden kann.",
+    "sourceName": "RFC 3618 – Multicast Source Discovery Protocol (MSDP)",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc3618",
+    "verifyNote": "Port 639/TCP (msdp) laut RFC 3618/IANA."
+  },
+  {
+    "id": "network_protocol-iscsi-h3",
+    "name": "iSCSI",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Internet Small Computer Systems Interface",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 3260,
+      "purpose": "Transport von SCSI-Speicherbefehlen über IP-Netzwerke zur Anbindung entfernter Festplatten"
+    },
+    "funFact": "Mit iSCSI erscheint eine Festplatte irgendwo im Rechenzentrum dem Betriebssystem wie ein direkt angeschlossenes lokales Laufwerk.",
+    "sourceName": "RFC 7143 – Internet Small Computer System Interface (iSCSI) Protocol",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc7143",
+    "verifyNote": "Port 3260/TCP (iscsi-target) laut RFC 7143/IANA."
+  },
+  {
+    "id": "network_protocol-nbns-h3",
+    "name": "NBNS",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "NetBIOS Name Service",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 137,
+      "purpose": "Auflösung von NetBIOS-Namen zu IP-Adressen in Windows-Netzwerken"
+    },
+    "funFact": "Der NetBIOS-Namensdienst auf Port 137 ist das Windows-Pendant zu DNS für die klassische Datei- und Druckerfreigabe im LAN.",
+    "sourceName": "RFC 1002 – Protocol Standard for a NetBIOS Service on a TCP/UDP Transport",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc1002",
+    "verifyNote": "Port 137/UDP (netbios-ns) laut RFC 1002/IANA."
+  },
+  {
+    "id": "network_protocol-nbds-h3",
+    "name": "NBDS",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "NetBIOS Datagram Service",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 138,
+      "purpose": "Verbindungsloser Versand von Nachrichten an einzelne oder mehrere NetBIOS-Knoten"
+    },
+    "funFact": "Über Port 138 verschickt Windows Rundsendungen wie Anwesenheitsmeldungen im lokalen Netz – ohne feste Verbindung pro Empfänger.",
+    "sourceName": "RFC 1002 – Protocol Standard for a NetBIOS Service on a TCP/UDP Transport",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc1002",
+    "verifyNote": "Port 138/UDP (netbios-dgm) laut RFC 1002/IANA."
+  },
+  {
+    "id": "network_protocol-pop3s-relay-h3",
+    "name": "Submission",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Message Submission for Mail",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 587,
+      "purpose": "Einreichen ausgehender E-Mails von einem Mailprogramm beim eigenen Mailserver"
+    },
+    "funFact": "Port 587 trennt das Einliefern von E-Mails durch Nutzer (mit Authentifizierung) sauber vom Server-zu-Server-Versand auf Port 25.",
+    "sourceName": "RFC 6409 – Message Submission for Mail",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc6409",
+    "verifyNote": "Port 587/TCP (submission) laut RFC 6409/IANA."
+  },
+  {
+    "id": "network_protocol-managesieve-h3",
+    "name": "ManageSieve",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "A Protocol for Remotely Managing Sieve Scripts",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 4190,
+      "purpose": "Verwalten serverseitiger E-Mail-Filterregeln (Sieve-Skripte) über das Netzwerk"
+    },
+    "funFact": "Mit ManageSieve kann ein Mailprogramm die automatischen Sortierregeln direkt auf dem Server bearbeiten, statt sie lokal auszuführen.",
+    "sourceName": "RFC 5804 – A Protocol for Remotely Managing Sieve Scripts",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc5804",
+    "verifyNote": "Port 4190/TCP (sieve) laut RFC 5804/IANA."
+  },
+  {
+    "id": "network_protocol-acme-h3",
+    "name": "BACnet/IP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Building Automation and Control Network over IP",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 47808,
+      "purpose": "Kommunikation zwischen Geräten der Gebäudeautomation wie Heizung, Lüftung und Beleuchtung"
+    },
+    "funFact": "BACnet steuert in vielen Bürogebäuden im Hintergrund Klimaanlagen und Aufzüge; sein IP-Standardport 47808 entspricht hexadezimal 0xBAC0.",
+    "sourceName": "IANA Service Name and Transport Protocol Port Number Registry",
+    "sourceUrl": "https://www.iana.org/assignments/service-names-port-numbers/",
+    "verifyNote": "Port 47808/UDP (bacnet) laut IANA-Registry; 47808 = 0xBAC0."
+  },
+  {
+    "id": "network_protocol-dns-over-quic-h3",
+    "name": "DoQ",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "DNS over QUIC",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 853,
+      "purpose": "Verschlüsselte Namensauflösung über den schnellen QUIC-Transport"
+    },
+    "funFact": "DoQ kombiniert die Verschlüsselung von DNS-over-TLS mit der geringen Latenz von QUIC und vermeidet so das Blockieren mehrerer Anfragen.",
+    "sourceName": "RFC 9250 – DNS over Dedicated QUIC Connections",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc9250",
+    "verifyNote": "Port 853 (über QUIC/UDP) laut RFC 9250."
+  },
+  {
+    "id": "network_protocol-radsec-h3",
+    "name": "RADIUS-Accounting",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "RADIUS Accounting",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 1813,
+      "purpose": "Erfassen von Nutzungsdaten wie Sitzungsdauer und Datenvolumen für Abrechnungszwecke"
+    },
+    "funFact": "Während RADIUS auf Port 1812 die Anmeldung prüft, protokolliert Port 1813 getrennt davon, wie lange und wie viel ein Nutzer das Netz nutzt.",
+    "sourceName": "RFC 2866 – RADIUS Accounting",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc2866",
+    "verifyNote": "Port 1813/UDP (radius-acct) laut RFC 2866/IANA."
+  },
+  {
+    "id": "network_protocol-igmp-snooping-h3",
+    "name": "PIM",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Protocol Independent Multicast",
+      "layer": "Vermittlungsschicht (Internet)",
+      "transport": "IP",
+      "purpose": "Aufbau von Verteilbäumen zur effizienten Weiterleitung von Multicast-Datenströmen"
+    },
+    "funFact": "PIM ist protokollunabhängig, weil es die vorhandene Unicast-Routing-Tabelle nutzt, statt eigene Wege zu berechnen.",
+    "sourceName": "RFC 7761 – Protocol Independent Multicast – Sparse Mode (PIM-SM)",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc7761",
+    "verifyNote": "PIM läuft direkt über IP mit Protokollnummer 103 laut RFC 7761/IANA; kein TCP/UDP-Port."
+  },
+  {
+    "id": "network_protocol-vxlan-gpe-h3",
+    "name": "Geneve",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Generic Network Virtualization Encapsulation",
+      "layer": "Sicherungsschicht (Layer-2-Overlay)",
+      "transport": "UDP",
+      "defaultPort": 6081,
+      "purpose": "Flexible Kapselung von Netzwerkverkehr für virtuelle Netzwerke in Rechenzentren"
+    },
+    "funFact": "Geneve wurde als erweiterbarer Nachfolger von VXLAN entworfen und trägt zusätzliche Metadaten in flexiblen Optionsfeldern mit.",
+    "sourceName": "RFC 8926 – Geneve: Generic Network Virtualization Encapsulation",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc8926",
+    "verifyNote": "Port 6081/UDP (geneve) laut RFC 8926/IANA."
+  },
+  {
+    "id": "network_protocol-mptcp-subflow-h3",
+    "name": "DCCP",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Datagram Congestion Control Protocol",
+      "layer": "Transportschicht",
+      "transport": "IP",
+      "purpose": "Verbindungsorientierter Versand unzuverlässiger Datagramme mit eingebauter Überlastkontrolle"
+    },
+    "funFact": "DCCP füllt die Lücke zwischen TCP und UDP: Es darf Pakete verlieren wie UDP, bremst sich aber bei Stau höflich ein wie TCP.",
+    "sourceName": "RFC 4340 – Datagram Congestion Control Protocol (DCCP)",
+    "sourceUrl": "https://www.rfc-editor.org/rfc/rfc4340",
+    "verifyNote": "DCCP ist ein eigenes Transportprotokoll über IP mit Protokollnummer 33 laut RFC 4340; eigene Portnummern je Dienst."
+  },
+  {
+    "id": "hardware-kondensator-h3",
+    "name": "Kondensator",
+    "category": "hardware",
+    "attributes": {
+      "category": "Bauteil",
+      "function": "Speichert elektrische Ladung kurzzeitig und glättet Spannungsschwankungen auf einer Platine"
+    },
+    "funFact": "Auf jedem Mainboard sitzen Dutzende Kondensatoren; aufgeblähte oder ausgelaufene Exemplare sind eine häufige Ursache für plötzliche PC-Ausfälle.",
+    "sourceName": "Wikipedia DE – Kondensator (Elektrotechnik)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Kondensator_(Elektrotechnik)",
+    "verifyNote": "Funktion als Ladungs- und Energiespeicher ist physikalisches Standardwissen."
+  },
+  {
+    "id": "hardware-widerstand-h3",
+    "name": "Widerstand",
+    "category": "hardware",
+    "attributes": {
+      "category": "Bauteil",
+      "function": "Begrenzt den elektrischen Strom in einer Schaltung und teilt Spannungen auf"
+    },
+    "funFact": "Die Farbringe auf einem Widerstand kodieren seinen Wert – ein international genormtes Farbsystem, das man auswendig lernen kann.",
+    "sourceName": "Wikipedia DE – Widerstand (Bauelement)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Widerstand_(Bauelement)",
+    "verifyNote": "Strombegrenzung und Farbcode sind elektrotechnisches Standardwissen."
+  },
+  {
+    "id": "hardware-transistor-h3",
+    "name": "Transistor",
+    "category": "hardware",
+    "attributes": {
+      "category": "Bauteil",
+      "function": "Schaltet oder verstärkt elektrische Signale und bildet das Grundelement digitaler Logik"
+    },
+    "funFact": "Eine moderne CPU enthält viele Milliarden Transistoren, die als winzige Schalter zusammen alle Rechenoperationen ausführen.",
+    "sourceName": "Wikipedia DE – Transistor",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Transistor",
+    "verifyNote": "Schalt- und Verstärkerfunktion ist Standardwissen der Halbleitertechnik."
+  },
+  {
+    "id": "hardware-diode-h3",
+    "name": "Diode",
+    "category": "hardware",
+    "attributes": {
+      "category": "Bauteil",
+      "function": "Lässt Strom nur in eine Richtung durch und sperrt ihn in der Gegenrichtung"
+    },
+    "funFact": "Eine Diode wirkt wie ein elektrisches Rückschlagventil und wird unter anderem genutzt, um Wechselstrom in Gleichstrom umzuwandeln.",
+    "sourceName": "Wikipedia DE – Diode",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Diode",
+    "verifyNote": "Stromrichtungs-Sperrwirkung ist physikalisches Standardwissen."
+  },
+  {
+    "id": "hardware-spule-h3",
+    "name": "Spule",
+    "category": "hardware",
+    "attributes": {
+      "category": "Bauteil",
+      "function": "Speichert Energie in einem Magnetfeld und glättet Stromschwankungen in Netzteilen"
+    },
+    "funFact": "Das hörbare Fiepen mancher Grafikkarten unter Last (Spulenfiepen) entsteht durch mechanische Schwingungen genau dieser Bauteile.",
+    "sourceName": "Wikipedia DE – Spule (Elektrotechnik)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Spule_(Elektrotechnik)",
+    "verifyNote": "Energiespeicherung im Magnetfeld ist elektrotechnisches Standardwissen."
+  },
+  {
+    "id": "hardware-quarz-h3",
+    "name": "Schwingquarz",
+    "category": "hardware",
+    "attributes": {
+      "category": "Taktgeber",
+      "function": "Erzeugt durch mechanische Schwingung eine sehr präzise und stabile Referenzfrequenz"
+    },
+    "funFact": "Derselbe Effekt, der Quarzuhren so genau macht, taktet auch Computer: Ein schwingender Quarzkristall gibt den Grundrhythmus vor.",
+    "sourceName": "Wikipedia DE – Schwingquarz",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Schwingquarz",
+    "verifyNote": "Piezoelektrische Frequenzerzeugung ist physikalisches Standardwissen."
+  },
+  {
+    "id": "hardware-alu-h3",
+    "name": "Arithmetisch-logische Einheit",
+    "category": "hardware",
+    "attributes": {
+      "category": "Prozessor/Recheneinheit",
+      "function": "Führt die arithmetischen und logischen Grundoperationen eines Prozessors aus"
+    },
+    "funFact": "Die ALU ist das Rechenherz im Prozessorkern; sie addiert, vergleicht und verknüpft Bits, während das Steuerwerk ihr sagt, was zu tun ist.",
+    "sourceName": "Wikipedia DE – Arithmetisch-logische Einheit",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Arithmetisch-logische_Einheit",
+    "verifyNote": "Funktion als arithmetisch-logisches Rechenwerk ist Standardlehrbuch-Wissen."
+  },
+  {
+    "id": "hardware-register-h3",
+    "name": "Prozessorregister",
+    "category": "hardware",
+    "attributes": {
+      "category": "Prozessor/Recheneinheit",
+      "function": "Sehr schneller, winziger Speicherplatz direkt im Prozessor für aktuell bearbeitete Werte"
+    },
+    "funFact": "Register sind der schnellste Speicher überhaupt – die ALU greift in einem einzigen Takt darauf zu, ohne den Umweg über den Arbeitsspeicher.",
+    "sourceName": "Wikipedia DE – Prozessorregister",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Prozessorregister",
+    "verifyNote": "Funktion als schnellster prozessorinterner Speicher ist Standardwissen."
+  },
+  {
+    "id": "hardware-steuerwerk-h3",
+    "name": "Steuerwerk",
+    "category": "hardware",
+    "attributes": {
+      "category": "Prozessor/Recheneinheit",
+      "function": "Holt Befehle, entschlüsselt sie und steuert den Ablauf aller anderen Prozessoreinheiten"
+    },
+    "funFact": "Das Steuerwerk ist der Dirigent im Prozessor: Es liest jeden Befehl, übersetzt ihn in Steuersignale und gibt den Takt der Bearbeitung vor.",
+    "sourceName": "Wikipedia DE – Steuerwerk",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Steuerwerk",
+    "verifyNote": "Funktion als Befehlsdekodier- und Ablaufsteuereinheit ist Standardlehrbuch-Wissen."
+  },
+  {
+    "id": "hardware-mmu-h3",
+    "name": "Speicherverwaltungseinheit (MMU)",
+    "category": "hardware",
+    "attributes": {
+      "category": "Prozessor/Recheneinheit",
+      "function": "Übersetzt virtuelle Speicheradressen in physische und setzt Speicherschutz durch"
+    },
+    "funFact": "Die MMU macht virtuellen Speicher möglich: Jedes Programm glaubt, den ganzen Speicher allein zu besitzen, während die MMU im Hintergrund umrechnet.",
+    "sourceName": "Wikipedia DE – Memory Management Unit",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Memory_Management_Unit",
+    "verifyNote": "Adressübersetzung und Speicherschutz sind Standardlehrbuch-Wissen."
+  },
+  {
+    "id": "hardware-dma-controller-h3",
+    "name": "DMA-Controller",
+    "category": "hardware",
+    "attributes": {
+      "category": "Hauptplatine/Bus",
+      "function": "Überträgt Daten direkt zwischen Speicher und Peripherie, ohne den Prozessor zu belasten"
+    },
+    "funFact": "Dank des DMA-Controllers kann eine Festplatte Daten in den Arbeitsspeicher schaufeln, während die CPU ungestört etwas anderes berechnet.",
+    "sourceName": "Wikipedia DE – Direct Memory Access",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Direct_Memory_Access",
+    "verifyNote": "Prozessorentlastende Direktübertragung ist Standardwissen."
+  },
+  {
+    "id": "hardware-northbridge-h3",
+    "name": "Northbridge",
+    "category": "hardware",
+    "attributes": {
+      "category": "Hauptplatine/Bus",
+      "function": "Verband früher die CPU mit schnellen Komponenten wie Arbeitsspeicher und Grafikkarte"
+    },
+    "funFact": "Die Northbridge war einst der schnelle Knotenpunkt nahe der CPU; ihre Aufgaben wanderten später direkt in den Prozessor und ließen sie verschwinden.",
+    "sourceName": "Wikipedia DE – Northbridge",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Northbridge",
+    "verifyNote": "Rolle als schneller Chipsatz-Teil zwischen CPU, RAM und Grafik ist Standardwissen."
+  },
+  {
+    "id": "hardware-southbridge-h3",
+    "name": "Southbridge",
+    "category": "hardware",
+    "attributes": {
+      "category": "Hauptplatine/Bus",
+      "function": "Bindet langsamere Peripherie wie USB, Festplatten und Audio an das Mainboard an"
+    },
+    "funFact": "Die Southbridge kümmerte sich um die gemächlicheren Anschlüsse des Rechners, während die Northbridge die schnellen Datenströme regelte.",
+    "sourceName": "Wikipedia DE – Southbridge",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Southbridge",
+    "verifyNote": "Anbindung langsamer Peripherie ist Standardwissen zur Chipsatz-Architektur."
+  },
+  {
+    "id": "hardware-systembus-h3",
+    "name": "Systembus",
+    "category": "hardware",
+    "attributes": {
+      "category": "Hauptplatine/Bus",
+      "function": "Gemeinsame Leitungsbündel, über die CPU, Speicher und Peripherie Daten und Adressen austauschen"
+    },
+    "funFact": "Ein Bus ist wie eine Datenautobahn auf der Platine: Mehrere Komponenten teilen sich dieselben Leitungen für Adressen, Daten und Steuersignale.",
+    "sourceName": "Wikipedia DE – Bus (Datenverarbeitung)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Bus_(Datenverarbeitung)",
+    "verifyNote": "Aufteilung in Adress-, Daten- und Steuerbus ist Standardlehrbuch-Wissen."
+  },
+  {
+    "id": "hardware-l1-cache-h3",
+    "name": "L1-Cache",
+    "category": "hardware",
+    "attributes": {
+      "category": "Prozessor/Recheneinheit",
+      "function": "Kleinster und schnellster Pufferspeicher direkt im Prozessorkern für häufig gebrauchte Daten"
+    },
+    "funFact": "Der L1-Cache ist nur wenige Kilobyte groß, aber so nah am Rechenwerk, dass der Zugriff fast keine Wartezeit kostet.",
+    "sourceName": "Wikipedia DE – Cache",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Cache",
+    "verifyNote": "L1 als kleinste, schnellste Cache-Stufe nahe dem Kern ist Standardwissen."
+  },
+  {
+    "id": "hardware-l2-cache-h3",
+    "name": "L2-Cache",
+    "category": "hardware",
+    "attributes": {
+      "category": "Prozessor/Recheneinheit",
+      "function": "Mittlere Cache-Stufe zwischen dem winzigen L1-Cache und dem großen, langsameren Hauptspeicher"
+    },
+    "funFact": "Der L2-Cache ist größer, aber etwas langsamer als L1 und fängt Daten ab, die nicht mehr in den kleinen L1-Cache passen.",
+    "sourceName": "Wikipedia DE – Cache",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Cache",
+    "verifyNote": "L2 als mittlere Cache-Stufe in der Speicherhierarchie ist Standardwissen."
+  },
+  {
+    "id": "hardware-busfehler-h3",
+    "name": "L3-Cache",
+    "category": "hardware",
+    "attributes": {
+      "category": "Prozessor/Recheneinheit",
+      "function": "Größter, von mehreren Kernen geteilter Pufferspeicher vor dem Zugriff auf den Arbeitsspeicher"
+    },
+    "funFact": "Der L3-Cache wird meist von allen Kernen gemeinsam genutzt und ist die letzte schnelle Zwischenstation, bevor der langsame RAM bemüht wird.",
+    "sourceName": "Wikipedia DE – Cache",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Cache",
+    "verifyNote": "L3 als größter, kerngeteilter Cache-Level ist Standardwissen."
+  },
+  {
+    "id": "hardware-fpu-h3",
+    "name": "Gleitkommaeinheit (FPU)",
+    "category": "hardware",
+    "attributes": {
+      "category": "Prozessor/Recheneinheit",
+      "function": "Spezialeinheit für schnelle Berechnungen mit gebrochenen Zahlen in Gleitkommadarstellung"
+    },
+    "funFact": "Früher saß die FPU als separater Mathe-Koprozessor neben der CPU; heute ist sie fest in jeden Prozessorkern integriert.",
+    "sourceName": "Wikipedia DE – Gleitkommaeinheit",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Gleitkommaeinheit",
+    "verifyNote": "Funktion als Gleitkomma-Recheneinheit ist Standardlehrbuch-Wissen."
+  },
+  {
+    "id": "hardware-taktgeber-h3",
+    "name": "Taktgeber",
+    "category": "hardware",
+    "attributes": {
+      "category": "Taktgeber",
+      "function": "Erzeugt das regelmäßige Taktsignal, das alle Rechenschritte eines Computers synchronisiert"
+    },
+    "funFact": "Die Taktrate in Gigahertz gibt an, wie viele Milliarden Taktschläge der Taktgeber pro Sekunde liefert – der Herzschlag des Rechners.",
+    "sourceName": "Wikipedia DE – Takt (Technik)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Takt_(Technik)",
+    "verifyNote": "Funktion als Synchronisationstaktgeber ist Standardwissen."
+  },
+  {
+    "id": "hardware-spannungsregler-vrm-h3",
+    "name": "Hauptspeicher-Controller",
+    "category": "hardware",
+    "attributes": {
+      "category": "Prozessor/Recheneinheit",
+      "function": "Steuert den Datenaustausch zwischen Prozessor und Arbeitsspeicher und legt dessen Timing fest"
+    },
+    "funFact": "Moderne CPUs haben den Speicher-Controller direkt im Chip integriert, was den Weg zum Arbeitsspeicher deutlich verkürzt und beschleunigt.",
+    "sourceName": "Wikipedia DE – Speichercontroller",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Speichercontroller",
+    "verifyNote": "Funktion als RAM-Anbindungs- und Timing-Steuerung ist Standardwissen."
+  },
+  {
+    "id": "hardware-rom-baustein-h3",
+    "name": "EPROM",
+    "category": "hardware",
+    "attributes": {
+      "category": "Datenspeicher",
+      "function": "Festwertspeicher, der sich durch UV-Licht löschen und neu programmieren lässt"
+    },
+    "funFact": "Klassische EPROMs haben ein kleines Quarzfenster auf dem Chip; nur durch UV-Bestrahlung durch dieses Fenster lassen sie sich wieder löschen.",
+    "sourceName": "Wikipedia DE – EPROM",
+    "sourceUrl": "https://de.wikipedia.org/wiki/EPROM",
+    "verifyNote": "UV-löschbarer Festwertspeicher ist Standardwissen der Speichertechnik."
+  },
+  {
+    "id": "hardware-relais-h3",
+    "name": "Relais",
+    "category": "hardware",
+    "attributes": {
+      "category": "Bauteil",
+      "function": "Elektromechanischer Schalter, der mit einem kleinen Steuerstrom einen größeren Stromkreis schaltet"
+    },
+    "funFact": "Die frühesten Computer schalteten mit klappernden Relais statt Transistoren – ein im Relais verklemmtes Insekt prägte den Begriff Bug.",
+    "sourceName": "Wikipedia DE – Relais",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Relais",
+    "verifyNote": "Funktion als elektromagnetisch betätigter Schalter ist Standardwissen."
+  },
+  {
+    "id": "hardware-led-anzeige-h3",
+    "name": "Siebensegmentanzeige",
+    "category": "hardware",
+    "attributes": {
+      "category": "Ausgabegerät",
+      "function": "Stellt Ziffern durch das gezielte Aufleuchten von sieben balkenförmigen Segmenten dar"
+    },
+    "funFact": "Mit nur sieben einzeln ansteuerbaren Balken lassen sich alle Ziffern von 0 bis 9 darstellen – Standard bei Digitaluhren und Messgeräten.",
+    "sourceName": "Wikipedia DE – Sieben-Segment-Anzeige",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Sieben-Segment-Anzeige",
+    "verifyNote": "Ziffernanzeige über sieben Segmente ist Standardwissen."
+  },
+  {
+    "id": "hardware-potentiometer-h3",
+    "name": "Potentiometer",
+    "category": "hardware",
+    "attributes": {
+      "category": "Eingabegerät",
+      "function": "Einstellbarer Widerstand, der je nach Drehung eine veränderbare Spannung als Eingabewert liefert"
+    },
+    "funFact": "Klassische Lautstärke- und Helligkeitsregler sind Potentiometer; auch viele Joysticks messen ihre Auslenkung über solche Drehwiderstände.",
+    "sourceName": "Wikipedia DE – Potentiometer",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Potentiometer",
+    "verifyNote": "Funktion als einstellbarer Spannungsteiler ist elektrotechnisches Standardwissen."
+  },
+  {
+    "id": "hardware-piezo-summer-h3",
+    "name": "Piezo-Summer",
+    "category": "hardware",
+    "attributes": {
+      "category": "Ausgabegerät",
+      "function": "Erzeugt Töne durch das Schwingen eines piezoelektrischen Plättchens unter Wechselspannung"
+    },
+    "funFact": "Der vertraute Piepton beim Hochfahren älterer PCs stammt von einem winzigen Piezo-Summer auf dem Mainboard.",
+    "sourceName": "Wikipedia DE – Piezolautsprecher",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Piezolautsprecher",
+    "verifyNote": "Tonerzeugung über Piezoeffekt ist physikalisches Standardwissen."
+  },
+  {
+    "id": "hardware-sicherung-h3",
+    "name": "Schmelzsicherung",
+    "category": "hardware",
+    "attributes": {
+      "category": "Stromversorgung",
+      "function": "Unterbricht den Stromkreis dauerhaft, sobald ein zu hoher Strom einen dünnen Draht durchschmilzt"
+    },
+    "funFact": "Eine Schmelzsicherung opfert sich selbst: Ihr Draht schmilzt bei Überlast durch und schützt so die dahinterliegende Elektronik vor Schaden.",
+    "sourceName": "Wikipedia DE – Schmelzsicherung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Schmelzsicherung",
+    "verifyNote": "Überstromschutz durch Drahtschmelzen ist elektrotechnisches Standardwissen."
+  },
+  {
+    "id": "hardware-leiterplatte-h3",
+    "name": "Leiterplatte",
+    "category": "hardware",
+    "attributes": {
+      "category": "Hauptplatine/Bus",
+      "function": "Trägt elektronische Bauteile und verbindet sie über aufgedruckte Leiterbahnen aus Kupfer"
+    },
+    "funFact": "Die grüne Farbe vieler Leiterplatten stammt vom Lötstopplack, der die feinen Kupferbahnen vor Korrosion und Kurzschlüssen schützt.",
+    "sourceName": "Wikipedia DE – Leiterplatte",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Leiterplatte",
+    "verifyNote": "Funktion als Bauteilträger mit Kupferleiterbahnen ist Standardwissen."
+  },
+  {
+    "id": "hardware-kuehlpaste-pad-h3",
+    "name": "Wärmeleitpad",
+    "category": "hardware",
+    "attributes": {
+      "category": "Kühlung",
+      "function": "Füllt als weiches Polster den Spalt zwischen Bauteil und Kühlkörper, um Wärme besser abzuleiten"
+    },
+    "funFact": "Wärmeleitpads sind die sauberere Alternative zur klebrigen Wärmeleitpaste und werden oft auf Speicherchips und Spannungswandlern eingesetzt.",
+    "sourceName": "Wikipedia DE – Wärmeleitpad",
+    "sourceUrl": "https://de.wikipedia.org/wiki/W%C3%A4rmeleitpad",
+    "verifyNote": "Funktion als wärmeleitendes Füllmaterial im Luftspalt ist Standardwissen."
+  },
+  {
+    "id": "hardware-heatpipe-h3",
+    "name": "Heatpipe",
+    "category": "hardware",
+    "attributes": {
+      "category": "Kühlung",
+      "function": "Transportiert Wärme sehr effizient durch das Verdampfen und Wiederkondensieren einer Flüssigkeit im Inneren"
+    },
+    "funFact": "In einer Heatpipe verdampft eine Flüssigkeit an der heißen Seite, strömt zur kalten Seite und kondensiert dort – ein lautloser Wärmetransporter ohne bewegliche Teile.",
+    "sourceName": "Wikipedia DE – Wärmerohr",
+    "sourceUrl": "https://de.wikipedia.org/wiki/W%C3%A4rmerohr",
+    "verifyNote": "Wärmetransport durch Phasenwechsel (Verdampfen/Kondensieren) ist physikalisches Standardwissen."
+  },
+  {
+    "id": "hardware-cmos-batterie-h3",
+    "name": "CMOS-Batterie",
+    "category": "hardware",
+    "attributes": {
+      "category": "Stromversorgung",
+      "function": "Versorgt bei ausgeschaltetem Rechner die Echtzeituhr und die gespeicherten BIOS-Einstellungen mit Strom"
+    },
+    "funFact": "Wenn ein alter PC nach dem Ausstecken Datum und Uhrzeit vergisst, ist meist die kleine Knopfzelle auf dem Mainboard leer.",
+    "sourceName": "Wikipedia DE – CMOS-RAM",
+    "sourceUrl": "https://de.wikipedia.org/wiki/CMOS-RAM",
+    "verifyNote": "Pufferung von Uhr und Einstellungen durch Knopfzelle ist Standardwissen."
+  },
+  {
+    "id": "hardware-pcie-lane-h3",
+    "name": "Erweiterungssteckplatz",
+    "category": "hardware",
+    "attributes": {
+      "category": "Schnittstelle",
+      "function": "Steckverbindung auf dem Mainboard zur Aufnahme von Steckkarten wie Grafik- oder Netzwerkkarten"
+    },
+    "funFact": "Über Erweiterungssteckplätze lässt sich ein PC nachrüsten – ein Grund, warum klassische Desktop-Rechner langlebiger sind als verlötete Laptops.",
+    "sourceName": "Wikipedia DE – Steckplatz",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Steckplatz",
+    "verifyNote": "Funktion als Aufnahme für Erweiterungskarten ist Standardwissen."
+  },
+  {
+    "id": "hardware-jumper-h3",
+    "name": "Jumper",
+    "category": "hardware",
+    "attributes": {
+      "category": "Hauptplatine/Bus",
+      "function": "Kleine Steckbrücke, die zwei Kontaktstifte verbindet und so eine Hardware-Einstellung festlegt"
+    },
+    "funFact": "Vor der Zeit grafischer BIOS-Menüs stellte man Einstellungen mechanisch ein, indem man winzige Jumper-Brücken auf bestimmte Stiftpaare steckte.",
+    "sourceName": "Wikipedia DE – Jumper (Elektronik)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Jumper_(Elektronik)",
+    "verifyNote": "Funktion als mechanische Kontaktbrücke zur Konfiguration ist Standardwissen."
+  },
+  {
+    "id": "hardware-thermoelement-h3",
+    "name": "Thermoelement",
+    "category": "hardware",
+    "attributes": {
+      "category": "Sensor",
+      "function": "Misst Temperatur, indem zwei verschiedene Metalle bei Erwärmung eine kleine Spannung erzeugen"
+    },
+    "funFact": "Ein Thermoelement braucht keine eigene Stromversorgung – allein der Temperaturunterschied an der Verbindungsstelle liefert die Messspannung.",
+    "sourceName": "Wikipedia DE – Thermoelement",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Thermoelement",
+    "verifyNote": "Spannungserzeugung durch thermoelektrischen Effekt ist physikalisches Standardwissen."
+  }
+]

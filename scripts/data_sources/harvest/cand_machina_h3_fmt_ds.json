@@ -1,0 +1,562 @@
+[
+  {
+    "id": "file_format-aax-h3",
+    "name": "AAX",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Audible Enhanced Audiobook",
+      "compression": "verlustbehaftet",
+      "mediaType": "Audio"
+    },
+    "funFact": "AAX ist das DRM-geschützte Hörbuchformat von Audible und basiert technisch auf AAC.",
+    "sourceName": "Wikipedia EN – Audible (.aax)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Audible_(service)",
+    "verifyNote": "Audible-Hörbuchformat, verlustbehaftet auf AAC-Basis laut Wikipedia."
+  },
+  {
+    "id": "file_format-vorbis-h3",
+    "name": "Vorbis",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Ogg Vorbis Audio",
+      "compression": "verlustbehaftet",
+      "mediaType": "Audio"
+    },
+    "funFact": "Vorbis ist ein patentfreier, offener Audiocodec der Xiph.Org Foundation.",
+    "sourceName": "Wikipedia DE – Vorbis",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Vorbis",
+    "verifyNote": "Offener verlustbehafteter Audiocodec laut Wikipedia."
+  },
+  {
+    "id": "file_format-monkeys-audio-h3",
+    "name": "Monkey's Audio",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Monkey's Audio Lossless",
+      "compression": "verlustfrei",
+      "mediaType": "Audio"
+    },
+    "funFact": "Monkey's Audio (Dateiendung .ape) erreicht oft höhere Kompressionsraten als FLAC, ist aber rechenintensiver.",
+    "sourceName": "Wikipedia DE – Monkey's Audio",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Monkey%E2%80%99s_Audio",
+    "verifyNote": "Verlustfreies Audioformat laut Wikipedia."
+  },
+  {
+    "id": "file_format-dsd-h3",
+    "name": "DSD",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Direct Stream Digital",
+      "compression": "keine",
+      "mediaType": "Audio"
+    },
+    "funFact": "DSD nutzt 1-Bit-Sigma-Delta-Modulation und ist das Audioformat der Super Audio CD (SACD).",
+    "sourceName": "Wikipedia DE – Direct Stream Digital",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Direct_Stream_Digital",
+    "verifyNote": "Unkomprimiertes 1-Bit-Audioformat der SACD laut Wikipedia."
+  },
+  {
+    "id": "file_format-theora-h3",
+    "name": "Theora",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Theora Video Codec",
+      "compression": "verlustbehaftet",
+      "mediaType": "Video"
+    },
+    "funFact": "Theora ist ein freier Videocodec der Xiph.Org Foundation, abgeleitet von VP3.",
+    "sourceName": "Wikipedia DE – Theora",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Theora",
+    "verifyNote": "Freier verlustbehafteter Videocodec laut Wikipedia."
+  },
+  {
+    "id": "file_format-usd-h3",
+    "name": "USD",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Universal Scene Description",
+      "compression": "keine",
+      "mediaType": "3D-Modell"
+    },
+    "funFact": "USD wurde von Pixar entwickelt, um komplexe 3D-Szenen aus mehreren Quellen zusammenzusetzen.",
+    "sourceName": "Wikipedia EN – Universal Scene Description",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Universal_Scene_Description",
+    "verifyNote": "3D-Szenenbeschreibungsformat von Pixar laut Wikipedia."
+  },
+  {
+    "id": "file_format-step-h3",
+    "name": "STEP",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Standard for the Exchange of Product model data",
+      "compression": "keine",
+      "mediaType": "CAD-Zeichnung"
+    },
+    "funFact": "STEP ist in der Norm ISO 10303 definiert und tauscht CAD-Modelle herstellerunabhängig aus.",
+    "sourceName": "Wikipedia EN – ISO 10303",
+    "sourceUrl": "https://en.wikipedia.org/wiki/ISO_10303",
+    "verifyNote": "STEP = Standard for the Exchange of Product model data (ISO 10303), ASCII-Textformat – per WebSearch bestätigt."
+  },
+  {
+    "id": "file_format-iges-h3",
+    "name": "IGES",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Initial Graphics Exchange Specification",
+      "compression": "keine",
+      "mediaType": "CAD-Zeichnung"
+    },
+    "funFact": "IGES ist eines der ältesten neutralen CAD-Austauschformate und stammt aus dem Jahr 1980.",
+    "sourceName": "Wikipedia DE – IGES",
+    "sourceUrl": "https://de.wikipedia.org/wiki/IGES",
+    "verifyNote": "Neutrales CAD-Austauschformat laut Wikipedia."
+  },
+  {
+    "id": "file_format-3mf-h3",
+    "name": "3MF",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "3D Manufacturing Format",
+      "compression": "verlustfrei",
+      "mediaType": "3D-Modell"
+    },
+    "funFact": "3MF ist ein XML-basiertes Format für den 3D-Druck und wurde als moderner STL-Nachfolger entworfen.",
+    "sourceName": "Wikipedia EN – 3D Manufacturing Format",
+    "sourceUrl": "https://en.wikipedia.org/wiki/3D_Manufacturing_Format",
+    "verifyNote": "ZIP-gepacktes (verlustfreies) XML-3D-Druckformat laut Wikipedia."
+  },
+  {
+    "id": "file_format-fits-h3",
+    "name": "FITS",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Flexible Image Transport System",
+      "compression": "keine",
+      "mediaType": "Daten"
+    },
+    "funFact": "FITS ist das Standardformat der Astronomie und speichert wissenschaftliche Bilddaten samt Metadaten.",
+    "sourceName": "Wikipedia DE – Flexible Image Transport System",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Flexible_Image_Transport_System",
+    "verifyNote": "Astronomisches Datenformat, Basisform unkomprimiert laut Wikipedia."
+  },
+  {
+    "id": "file_format-hdf5-h3",
+    "name": "HDF5",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Hierarchical Data Format Version 5",
+      "compression": "verlustfrei",
+      "mediaType": "Daten"
+    },
+    "funFact": "HDF5 organisiert große wissenschaftliche Datensätze hierarchisch wie ein Dateisystem in einer Datei.",
+    "sourceName": "Wikipedia DE – Hierarchical Data Format",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Hierarchical_Data_Format",
+    "verifyNote": "Wissenschaftliches Containerformat mit optionaler verlustfreier Kompression laut Wikipedia."
+  },
+  {
+    "id": "file_format-netcdf-h3",
+    "name": "NetCDF",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Network Common Data Form",
+      "compression": "verlustfrei",
+      "mediaType": "Daten"
+    },
+    "funFact": "NetCDF wird vor allem in Klima- und Geowissenschaften für mehrdimensionale Gitterdaten genutzt.",
+    "sourceName": "Wikipedia DE – NetCDF",
+    "sourceUrl": "https://de.wikipedia.org/wiki/NetCDF",
+    "verifyNote": "Datenformat für mehrdimensionale wissenschaftliche Arrays laut Wikipedia."
+  },
+  {
+    "id": "file_format-orc-h3",
+    "name": "ORC",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Optimized Row Columnar",
+      "compression": "verlustfrei",
+      "mediaType": "Tabellen/Daten"
+    },
+    "funFact": "ORC ist ein spaltenorientiertes Format aus dem Hadoop-Umfeld und konkurriert direkt mit Parquet.",
+    "sourceName": "Wikipedia EN – Apache ORC",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Apache_ORC",
+    "verifyNote": "Spaltenorientiertes verlustfreies Big-Data-Format laut Wikipedia."
+  },
+  {
+    "id": "file_format-feather-h3",
+    "name": "Feather",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Apache Arrow Feather",
+      "compression": "verlustfrei",
+      "mediaType": "Tabellen/Daten"
+    },
+    "funFact": "Feather basiert auf Apache Arrow und ermöglicht sehr schnelles Lesen von Tabellen zwischen Python und R.",
+    "sourceName": "Wikipedia EN – Apache Arrow",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Apache_Arrow",
+    "verifyNote": "Arrow-basiertes Tabellenformat für schnellen Austausch laut Wikipedia."
+  },
+  {
+    "id": "file_format-jpeg-2000-h3",
+    "name": "JPEG 2000",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Joint Photographic Experts Group 2000",
+      "compression": "verlustbehaftet",
+      "mediaType": "Bild"
+    },
+    "funFact": "JPEG 2000 nutzt Wavelet-Transformation statt DCT und unterstützt sowohl verlust- als auch verlustfreie Modi.",
+    "sourceName": "Wikipedia DE – JPEG 2000",
+    "sourceUrl": "https://de.wikipedia.org/wiki/JPEG_2000",
+    "verifyNote": "Wavelet-basiertes Bildformat (ISO 15444), dominanter Modus verlustbehaftet laut Wikipedia."
+  },
+  {
+    "id": "file_format-heif-h3",
+    "name": "HEIF",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "High Efficiency Image File Format",
+      "compression": "verlustbehaftet",
+      "mediaType": "Bild"
+    },
+    "funFact": "HEIF speichert Bilder mit dem HEVC-Codec und braucht bei gleicher Qualität deutlich weniger Platz als JPEG.",
+    "sourceName": "Wikipedia DE – High Efficiency Image File Format",
+    "sourceUrl": "https://de.wikipedia.org/wiki/High_Efficiency_Image_File_Format",
+    "verifyNote": "Container für HEVC-codierte Bilder, verlustbehaftet laut Wikipedia."
+  },
+  {
+    "id": "file_format-openexr-h3",
+    "name": "OpenEXR",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Open Extended Dynamic Range",
+      "compression": "verlustfrei",
+      "mediaType": "Bild"
+    },
+    "funFact": "OpenEXR speichert High-Dynamic-Range-Bilder und wurde von Industrial Light & Magic entwickelt.",
+    "sourceName": "Wikipedia EN – OpenEXR",
+    "sourceUrl": "https://en.wikipedia.org/wiki/OpenEXR",
+    "verifyNote": "HDR-Bildformat mit überwiegend verlustfreien Kompressionsmodi laut Wikipedia."
+  },
+  {
+    "id": "file_format-cur-h3",
+    "name": "CUR",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Windows Cursor",
+      "compression": "keine",
+      "mediaType": "Bild"
+    },
+    "funFact": "Das CUR-Format speichert Mauszeiger unter Windows und ähnelt technisch dem ICO-Iconformat.",
+    "sourceName": "Wikipedia EN – ICO (file format)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/ICO_(file_format)",
+    "verifyNote": "Windows-Cursorformat, eng verwandt mit ICO, Basis unkomprimiert laut Wikipedia."
+  },
+  {
+    "id": "data_structure-union-find-struktur-h3",
+    "name": "Union-Find-Struktur",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "accessComplexity": "O(α(n))",
+      "purpose": "Verwaltet disjunkte Mengen mit den Operationen Vereinigen und Repräsentanten-Finden"
+    },
+    "funFact": "Mit Pfadkompression und Rang läuft jede Operation praktisch konstant — der inverse Ackermann-Wert α(n) bleibt unter 5.",
+    "sourceName": "Wikipedia DE – Union-Find-Struktur",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Union-Find-Struktur",
+    "verifyNote": "Amortisiert O(α(n)) mit Pfadkompression und Rang ist lehrbuch-Standard (CLRS Kap. 21)."
+  },
+  {
+    "id": "data_structure-patricia-trie-h3",
+    "name": "Patricia-Trie",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "accessComplexity": "O(k)",
+      "purpose": "Komprimierter Binär-Trie, der Ketten ohne Verzweigung zu einer Kante zusammenfasst"
+    },
+    "funFact": "Der Name PATRICIA bezeichnet ein platzsparendes Verfahren zur Schlüsselspeicherung aus den 1960er-Jahren.",
+    "sourceName": "Wikipedia EN – Radix tree (PATRICIA)",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Radix_tree",
+    "verifyNote": "Suche in O(k) (Schlüssellänge) im komprimierten Trie ist lehrbuch-Standard."
+  },
+  {
+    "id": "data_structure-aa-baum-h3",
+    "name": "AA-Baum",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "accessComplexity": "O(log n)",
+      "purpose": "Selbstbalancierender Suchbaum, vereinfachte Variante des Rot-Schwarz-Baums mit Level-Feldern"
+    },
+    "funFact": "Der AA-Baum von Arne Andersson hat weniger Balance-Fälle als der Rot-Schwarz-Baum und ist dadurch leichter zu implementieren.",
+    "sourceName": "Wikipedia EN – AA tree",
+    "sourceUrl": "https://en.wikipedia.org/wiki/AA_tree",
+    "verifyNote": "Such-/Einfügezeit O(log n) bei garantierter Balance ist lehrbuch-Standard."
+  },
+  {
+    "id": "data_structure-scapegoat-baum-h3",
+    "name": "Scapegoat-Baum",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "accessComplexity": "O(log n)",
+      "purpose": "Selbstbalancierender Suchbaum, der bei zu großer Schieflage einen Teilbaum komplett neu aufbaut"
+    },
+    "funFact": "Der Scapegoat-Baum braucht keine zusätzlichen Balance-Felder pro Knoten und balanciert rein über Neuaufbau.",
+    "sourceName": "Wikipedia EN – Scapegoat tree",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Scapegoat_tree",
+    "verifyNote": "Amortisierte O(log n) für Such-/Änderungsoperationen ist lehrbuch-Standard."
+  },
+  {
+    "id": "data_structure-weak-heap-h3",
+    "name": "Weak-Heap",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Heap",
+      "accessComplexity": "O(log n)",
+      "purpose": "Heap-Variante mit gelockerter Halbordnung, die die Zahl der Schlüsselvergleiche reduziert"
+    },
+    "funFact": "Der Weak-Heap senkt die Vergleichsanzahl beim Sortieren und nähert sich der theoretischen Untergrenze.",
+    "sourceName": "Wikipedia EN – Weak heap",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Weak_heap",
+    "verifyNote": "Einfügen/Extrahieren in O(log n) ist lehrbuch-Standard."
+  },
+  {
+    "id": "data_structure-min-max-heap-h3",
+    "name": "Min-Max-Heap",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Heap",
+      "accessComplexity": "O(log n)",
+      "purpose": "Heap, der gleichzeitig schnellen Zugriff auf Minimum und Maximum erlaubt (doppelendige Prioritätswarteschlange)"
+    },
+    "funFact": "Im Min-Max-Heap wechseln sich Min- und Max-Ebenen ab, sodass beide Extremwerte in O(1) ablesbar sind.",
+    "sourceName": "Wikipedia EN – Min-max heap",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Min-max_heap",
+    "verifyNote": "Einfügen/Löschen in O(log n), Min/Max-Zugriff O(1) ist lehrbuch-Standard."
+  },
+  {
+    "id": "data_structure-soft-heap-h3",
+    "name": "Soft-Heap",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Heap",
+      "accessComplexity": "O(1)",
+      "purpose": "Approximativer Heap mit amortisiert konstanten Operationen, der einige Schlüssel bewusst verfälscht"
+    },
+    "funFact": "Der Soft-Heap erkauft konstante amortisierte Laufzeit, indem er eine begrenzte Zahl von Schlüsseln 'korrumpiert'.",
+    "sourceName": "Wikipedia EN – Soft heap",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Soft_heap",
+    "verifyNote": "Amortisiert O(1) je Operation bei begrenztem Korruptionsanteil ist lehrbuch-Standard."
+  },
+  {
+    "id": "data_structure-hash-array-mapped-trie-h3",
+    "name": "Hash-Array-Mapped-Trie",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Hash",
+      "accessComplexity": "O(log n)",
+      "purpose": "Kombiniert Hashtabelle und Trie für speichereffiziente, unveränderliche Wörterbücher"
+    },
+    "funFact": "HAMTs sind das Rückgrat persistenter Map-Strukturen in Sprachen wie Clojure und Scala.",
+    "sourceName": "Wikipedia EN – Hash array mapped trie",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Hash_array_mapped_trie",
+    "verifyNote": "Zugriff in O(log n) (effektiv flacher Trie über Hashbits) ist lehrbuch-Standard."
+  },
+  {
+    "id": "data_structure-2-3-4-baum-h3",
+    "name": "2-3-4-Baum",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "accessComplexity": "O(log n)",
+      "purpose": "Balancierter Suchbaum, dessen Knoten 2, 3 oder 4 Kinder haben; Spezialfall des B-Baums"
+    },
+    "funFact": "Der 2-3-4-Baum ist isomorph zum Rot-Schwarz-Baum und garantiert dadurch dieselbe logarithmische Höhe.",
+    "sourceName": "Wikipedia EN – 2–3–4 tree",
+    "sourceUrl": "https://en.wikipedia.org/wiki/2%E2%80%933%E2%80%934_tree",
+    "verifyNote": "Such-/Einfügezeit O(log n) bei garantierter Balance ist lehrbuch-Standard."
+  },
+  {
+    "id": "data_structure-link-cut-baum-h3",
+    "name": "Link-Cut-Baum",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "accessComplexity": "O(log n)",
+      "purpose": "Verwaltet einen Wald dynamischer Bäume mit Verbinden und Trennen von Kanten in logarithmischer Zeit"
+    },
+    "funFact": "Der Link-Cut-Baum nutzt zerlegte Pfade aus Splay-Bäumen und beschleunigt Netzwerkfluss-Algorithmen.",
+    "sourceName": "Wikipedia EN – Link/cut tree",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Link/cut_tree",
+    "verifyNote": "Amortisiert O(log n) je Link/Cut/Query-Operation ist lehrbuch-Standard."
+  },
+  {
+    "id": "data_structure-burkhard-keller-baum-h3",
+    "name": "Burkhard-Keller-Baum",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "accessComplexity": "O(log n)",
+      "purpose": "Metrischer Baum für Ähnlichkeitssuche, indexiert Elemente über ihre Distanz zu Referenzknoten"
+    },
+    "funFact": "Der BK-Baum eignet sich für Tippfehler-Korrektur, weil er nach Levenshtein-Distanz ähnliche Wörter findet.",
+    "sourceName": "Wikipedia EN – BK-tree",
+    "sourceUrl": "https://en.wikipedia.org/wiki/BK-tree",
+    "verifyNote": "Mittlere Suchzeit O(log n) für Bereichsabfragen in metrischem Raum ist lehrbuch-Standard."
+  },
+  {
+    "id": "data_structure-wavelet-baum-h3",
+    "name": "Wavelet-Baum",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "accessComplexity": "O(log σ)",
+      "purpose": "Komprimierte Struktur, die Rank- und Select-Abfragen über große Alphabete effizient beantwortet"
+    },
+    "funFact": "Der Wavelet-Baum ermöglicht volltext-indizierte Suche in komprimierten Daten ohne vorheriges Entpacken.",
+    "sourceName": "Wikipedia EN – Wavelet tree",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Wavelet_Tree",
+    "verifyNote": "Rank/Select in O(log σ) (Alphabetgröße σ) ist lehrbuch-Standard."
+  },
+  {
+    "id": "data_structure-bereichsbaum-h3",
+    "name": "Bereichsbaum",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "accessComplexity": "O(log² n)",
+      "purpose": "Mehrstufige Baumstruktur für orthogonale Bereichsabfragen in mehreren Dimensionen"
+    },
+    "funFact": "Der Bereichsbaum (Range Tree) beantwortet zweidimensionale Rechteck-Abfragen in O(log² n) plus Trefferzahl.",
+    "sourceName": "Wikipedia EN – Range tree",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Range_tree",
+    "verifyNote": "2D-Bereichsabfrage in O(log² n + k) ist lehrbuch-Standard (de Berg, Computational Geometry)."
+  },
+  {
+    "id": "data_structure-bsp-baum-h3",
+    "name": "BSP-Baum",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "accessComplexity": "O(log n)",
+      "purpose": "Zerlegt den Raum rekursiv mit Hyperebenen; ordnet Szenen-Polygone für korrektes Rendering"
+    },
+    "funFact": "BSP-Bäume machten 1993 die schnelle Sichtbarkeitssortierung in Doom möglich.",
+    "sourceName": "Wikipedia DE – Binärer Raumteilungsbaum",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Bin%C3%A4rer_Raumteilungsbaum",
+    "verifyNote": "Traversierung/Suche in O(log n) bei balancierter Teilung ist lehrbuch-Standard."
+  },
+  {
+    "id": "data_structure-implizite-datenstruktur-h3",
+    "name": "Implizite Datenstruktur",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Lineare Struktur",
+      "accessComplexity": "O(1)",
+      "purpose": "Speichert Daten ohne zusätzliche Zeiger und kodiert Struktur allein über die Indexpositionen"
+    },
+    "funFact": "Der Binär-Heap im Array ist das klassische Beispiel: Kind-Knoten ergeben sich rein aus dem Index, ohne Zeiger.",
+    "sourceName": "Wikipedia EN – Implicit data structure",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Implicit_data_structure",
+    "verifyNote": "Konstanter Overhead, Indexzugriff O(1) ist lehrbuch-Standard."
+  },
+  {
+    "id": "data_structure-tango-baum-h3",
+    "name": "Tango-Baum",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "accessComplexity": "O(log n · log log n)",
+      "purpose": "Selbstanpassender Suchbaum, dessen Zugriffskosten nahe am theoretischen Optimum liegen"
+    },
+    "funFact": "Der Tango-Baum ist O(log log n)-kompetitiv und nähert sich damit der vermuteten Optimalität des Splay-Baums an.",
+    "sourceName": "Wikipedia EN – Tango tree",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Tango_tree",
+    "verifyNote": "O(log log n)-Wettbewerbsfaktor gegenüber dem optimalen BST ist lehrbuch-Standard."
+  },
+  {
+    "id": "data_structure-dawg-h3",
+    "name": "DAWG",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Graph",
+      "accessComplexity": "O(k)",
+      "purpose": "Gerichteter azyklischer Wortgraph, der gemeinsame Endungen von Wörtern zusammenfasst"
+    },
+    "funFact": "Ein DAWG speichert ein Wörterbuch kompakter als ein Trie, weil gleiche Suffixe nur einmal vorkommen.",
+    "sourceName": "Wikipedia EN – Deterministic acyclic finite state automaton",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Deterministic_acyclic_finite_state_automaton",
+    "verifyNote": "Wort-Lookup in O(k) (Wortlänge) ist lehrbuch-Standard."
+  },
+  {
+    "id": "data_structure-brodal-warteschlange-h3",
+    "name": "Brodal-Warteschlange",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Heap",
+      "accessComplexity": "O(1)",
+      "purpose": "Prioritätswarteschlange mit worst-case-optimalen konstanten Kosten für Einfügen und Decrease-Key"
+    },
+    "funFact": "Die Brodal-Warteschlange erreicht im Worst Case die Schranken, die der Fibonacci-Heap nur amortisiert bietet.",
+    "sourceName": "Wikipedia EN – Brodal queue",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Brodal_queue",
+    "verifyNote": "Worst-Case O(1) für Insert/Decrease-Key, O(log n) für Delete-Min ist lehrbuch-Standard."
+  },
+  {
+    "id": "data_structure-hashed-array-tree-h3",
+    "name": "Hashed-Array-Tree",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Lineare Struktur",
+      "accessComplexity": "O(1)",
+      "purpose": "Dynamisches Array, das die Daten in Blöcken über eine Verzeichnistabelle verwaltet"
+    },
+    "funFact": "Der Hashed-Array-Tree verschwendet beim Wachsen nur O(√n) Speicher, statt wie ein klassisches dynamisches Array bis zur Hälfte.",
+    "sourceName": "Wikipedia EN – Hashed array tree",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Hashed_array_tree",
+    "verifyNote": "Indexzugriff in O(1) über zweistufige Block-Adressierung ist lehrbuch-Standard."
+  },
+  {
+    "id": "data_structure-euler-tour-baum-h3",
+    "name": "Euler-Tour-Baum",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "accessComplexity": "O(log n)",
+      "purpose": "Repräsentiert einen dynamischen Baum über seine Euler-Tour, um Konnektivität nach Kantenänderungen zu prüfen"
+    },
+    "funFact": "Der Euler-Tour-Baum verwandelt Baum-Operationen in Operationen auf einer Sequenz und nutzt dafür balancierte Suchbäume.",
+    "sourceName": "Wikipedia EN – Euler tour technique",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Euler_tour_technique",
+    "verifyNote": "Konnektivitäts-/Update-Abfragen in O(log n) ist lehrbuch-Standard."
+  },
+  {
+    "id": "data_structure-order-statistik-baum-h3",
+    "name": "Order-Statistik-Baum",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "accessComplexity": "O(log n)",
+      "purpose": "Suchbaum mit Teilbaum-Größen, der das k-kleinste Element und den Rang eines Elements schnell liefert"
+    },
+    "funFact": "Der Order-Statistik-Baum erweitert einen balancierten Suchbaum nur um ein Größenfeld pro Knoten und beantwortet Rang-Abfragen in O(log n).",
+    "sourceName": "Wikipedia EN – Order statistic tree",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Order_statistic_tree",
+    "verifyNote": "Select(k)- und Rank-Abfragen in O(log n) ist lehrbuch-Standard (CLRS Kap. 14)."
+  },
+  {
+    "id": "data_structure-left-leaning-rot-schwarz-baum-h3",
+    "name": "Left-Leaning-Rot-Schwarz-Baum",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "accessComplexity": "O(log n)",
+      "purpose": "Vereinfachte Variante des Rot-Schwarz-Baums, bei der rote Kanten stets nach links zeigen"
+    },
+    "funFact": "Robert Sedgewick entwarf den Left-Leaning-Rot-Schwarz-Baum, um die Implementierung mit deutlich weniger Fällen lehrbar zu machen.",
+    "sourceName": "Wikipedia EN – Left-leaning red–black tree",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Left-leaning_red%E2%80%93black_tree",
+    "verifyNote": "Such-/Einfügezeit O(log n) bei garantierter Balance ist lehrbuch-Standard (Sedgewick 2008)."
+  }
+]

@@ -17089,5 +17089,3523 @@
       "url": "https://en.wikipedia.org/wiki/UTF-16"
     },
     "image": null
+  },
+  "machina:programming_language-pharo-h3": {
+    "id": "machina:programming_language-pharo-h3",
+    "name": "Pharo",
+    "type": "programming_language",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Objektorientiert",
+      "execution": "Bytecode (VM)",
+      "fileExtension": ".st",
+      "primaryDomain": "Forschung und Lehre"
+    },
+    "funFact": "Pharo ist image-basiert: Der gesamte Objektspeicher (alle Klassen und Methoden) wird als Snapshot in einer Image-Datei gespeichert, statt in einzelnen Quelltextdateien.",
+    "source": {
+      "name": "Wikipedia EN – Pharo",
+      "url": "https://en.wikipedia.org/wiki/Pharo"
+    },
+    "image": null
+  },
+  "machina:programming_language-oz-h3": {
+    "id": "machina:programming_language-oz-h3",
+    "name": "Oz",
+    "type": "programming_language",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Multiparadigma",
+      "execution": "Bytecode (VM)",
+      "fileExtension": ".oz",
+      "primaryDomain": "Forschung und Lehre"
+    },
+    "funFact": "Oz vereint funktionale, logische, objektorientierte und nebenläufige Programmierung in einer Sprache und diente als Grundlage des Lehrbuchs 'Concepts, Techniques, and Models of Computer Programming'.",
+    "source": {
+      "name": "Wikipedia EN – Oz (programming language)",
+      "url": "https://en.wikipedia.org/wiki/Oz_(programming_language)"
+    },
+    "image": null
+  },
+  "machina:programming_language-ballerina-h3": {
+    "id": "machina:programming_language-ballerina-h3",
+    "name": "Ballerina",
+    "type": "programming_language",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Multiparadigma",
+      "execution": "Bytecode (VM)",
+      "fileExtension": ".bal",
+      "primaryDomain": "Nebenläufige Backend-Systeme"
+    },
+    "funFact": "Ballerina ist speziell für Cloud-Integration gebaut und kann Sequenzdiagramme aus dem Code generieren, weil Netzwerk-Interaktionen erste Sprachelemente sind.",
+    "source": {
+      "name": "Wikipedia EN – Ballerina (programming language)",
+      "url": "https://en.wikipedia.org/wiki/Ballerina_(programming_language)"
+    },
+    "image": null
+  },
+  "machina:programming_language-ats-h3": {
+    "id": "machina:programming_language-ats-h3",
+    "name": "ATS",
+    "type": "programming_language",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Funktional/Imperativ",
+      "execution": "Kompiliert",
+      "fileExtension": ".dats",
+      "primaryDomain": "Systemprogrammierung"
+    },
+    "funFact": "ATS kombiniert ein abhängiges Typsystem mit C-naher Performance und kann viele Speicherfehler bereits zur Kompilierzeit ausschließen.",
+    "source": {
+      "name": "Wikipedia EN – ATS (programming language)",
+      "url": "https://en.wikipedia.org/wiki/ATS_(programming_language)"
+    },
+    "image": null
+  },
+  "machina:programming_language-carbon-h3": {
+    "id": "machina:programming_language-carbon-h3",
+    "name": "Carbon",
+    "type": "programming_language",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Multiparadigma",
+      "execution": "Kompiliert",
+      "fileExtension": ".carbon",
+      "primaryDomain": "Systemprogrammierung"
+    },
+    "funFact": "Carbon wird als möglicher Nachfolger von C++ entwickelt und ist von Anfang an auf bidirektionale Interoperabilität mit bestehendem C++-Code ausgelegt.",
+    "source": {
+      "name": "Wikipedia EN – Carbon (programming language)",
+      "url": "https://en.wikipedia.org/wiki/Carbon_(programming_language)"
+    },
+    "image": null
+  },
+  "machina:programming_language-bend-h3": {
+    "id": "machina:programming_language-bend-h3",
+    "name": "Bend",
+    "type": "programming_language",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Funktional",
+      "execution": "Kompiliert",
+      "fileExtension": ".bend",
+      "primaryDomain": "Hochleistungsrechnen (HPC)"
+    },
+    "funFact": "Bend parallelisiert Programme automatisch auf GPUs, ohne dass der Entwickler Threads, Sperren oder Synchronisation manuell verwalten muss.",
+    "source": {
+      "name": "GitHub – HigherOrderCO/Bend",
+      "url": "https://github.com/HigherOrderCO/Bend"
+    },
+    "image": null
+  },
+  "machina:programming_language-grain-h3": {
+    "id": "machina:programming_language-grain-h3",
+    "name": "Grain",
+    "type": "programming_language",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Funktional",
+      "execution": "Kompiliert",
+      "fileExtension": ".gr",
+      "primaryDomain": "Webentwicklung"
+    },
+    "funFact": "Grain kompiliert direkt nach WebAssembly und bringt funktionale Konzepte wie Pattern Matching und algebraische Datentypen ins Web.",
+    "source": {
+      "name": "Wikipedia EN – Grain (programming language)",
+      "url": "https://en.wikipedia.org/wiki/Grain_(programming_language)"
+    },
+    "image": null
+  },
+  "machina:programming_language-inko-h3": {
+    "id": "machina:programming_language-inko-h3",
+    "name": "Inko",
+    "type": "programming_language",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Objektorientiert/aktorbasiert",
+      "execution": "Kompiliert",
+      "fileExtension": ".inko",
+      "primaryDomain": "Nebenläufige Systeme"
+    },
+    "funFact": "Inko verhindert Datenwettläufe schon zur Kompilierzeit durch ein Ownership-Modell mit leichtgewichtigen Prozessen statt geteiltem Speicher.",
+    "source": {
+      "name": "Inko – Offizielle Website",
+      "url": "https://inko-lang.org/"
+    },
+    "image": null
+  },
+  "machina:programming_language-curry-h3": {
+    "id": "machina:programming_language-curry-h3",
+    "name": "Curry",
+    "type": "programming_language",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Funktional/Logisch",
+      "execution": "Kompiliert",
+      "fileExtension": ".curry",
+      "primaryDomain": "Forschung und Lehre"
+    },
+    "funFact": "Curry verbindet die funktionale Programmierung von Haskell mit der Logikprogrammierung von Prolog und ist nach dem Logiker Haskell Curry benannt.",
+    "source": {
+      "name": "Wikipedia EN – Curry (programming language)",
+      "url": "https://en.wikipedia.org/wiki/Curry_(programming_language)"
+    },
+    "image": null
+  },
+  "machina:programming_language-frege-h3": {
+    "id": "machina:programming_language-frege-h3",
+    "name": "Frege",
+    "type": "programming_language",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Funktional",
+      "execution": "Bytecode (VM)",
+      "fileExtension": ".fr",
+      "primaryDomain": "Anwendungsentwicklung"
+    },
+    "funFact": "Frege ist im Grunde Haskell für die Java Virtual Machine und ist nach dem Logiker Gottlob Frege benannt.",
+    "source": {
+      "name": "Wikipedia EN – Frege (programming language)",
+      "url": "https://en.wikipedia.org/wiki/Frege_(programming_language)"
+    },
+    "image": null
+  },
+  "machina:programming_language-koka-h3": {
+    "id": "machina:programming_language-koka-h3",
+    "name": "Koka",
+    "type": "programming_language",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Funktional",
+      "execution": "Kompiliert",
+      "fileExtension": ".kk",
+      "primaryDomain": "Forschung und Lehre"
+    },
+    "funFact": "Koka macht Seiteneffekte über sein Typsystem sichtbar und gilt als Pionier für algebraische Effekt-Handler.",
+    "source": {
+      "name": "Wikipedia EN – Koka (programming language)",
+      "url": "https://en.wikipedia.org/wiki/Koka_(programming_language)"
+    },
+    "image": null
+  },
+  "machina:programming_language-boo-h3": {
+    "id": "machina:programming_language-boo-h3",
+    "name": "Boo",
+    "type": "programming_language",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Objektorientiert",
+      "execution": "Bytecode (VM)",
+      "fileExtension": ".boo",
+      "primaryDomain": "Anwendungsentwicklung"
+    },
+    "funFact": "Boo hat eine an Python angelehnte Syntax, ist aber statisch typisiert und läuft auf der .NET/Mono-Laufzeit.",
+    "source": {
+      "name": "Wikipedia EN – Boo (programming language)",
+      "url": "https://en.wikipedia.org/wiki/Boo_(programming_language)"
+    },
+    "image": null
+  },
+  "machina:programming_language-nelua-h3": {
+    "id": "machina:programming_language-nelua-h3",
+    "name": "Nelua",
+    "type": "programming_language",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Imperativ/prozedural",
+      "execution": "Kompiliert",
+      "fileExtension": ".nelua",
+      "primaryDomain": "Spieleentwicklung"
+    },
+    "funFact": "Nelua hat eine an Lua angelehnte Syntax, kompiliert aber über C zu nativem Maschinencode ohne Garbage Collector.",
+    "source": {
+      "name": "Nelua – Offizielle Website",
+      "url": "https://nelua.io/"
+    },
+    "image": null
+  },
+  "machina:programming_language-vale-h3": {
+    "id": "machina:programming_language-vale-h3",
+    "name": "Vale",
+    "type": "programming_language",
+    "category": "programming_language",
+    "attributes": {
+      "paradigm": "Multiparadigma",
+      "execution": "Kompiliert",
+      "fileExtension": ".vale",
+      "primaryDomain": "Systemprogrammierung"
+    },
+    "funFact": "Vale verfolgt Speichersicherheit ohne Garbage Collector über ein Konzept namens 'generational references'.",
+    "source": {
+      "name": "Vale – Offizielle Website",
+      "url": "https://vale.dev/"
+    },
+    "image": null
+  },
+  "machina:concept-continuation-h3": {
+    "id": "machina:concept-continuation-h3",
+    "name": "Continuation",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmiersprachen",
+      "definition": "Eine Abstraktion, die den gesamten zukünftigen Berechnungsverlauf eines Programms an einem Punkt als aufrufbares Objekt darstellt"
+    },
+    "funFact": "Mit dem Operator call/cc in Scheme lässt sich eine Continuation einfangen und später erneut aufrufen, wodurch sich Schleifen, Ausnahmen und Generatoren nachbilden lassen.",
+    "source": {
+      "name": "Wikipedia EN – Continuation",
+      "url": "https://en.wikipedia.org/wiki/Continuation"
+    },
+    "image": null
+  },
+  "machina:concept-monade-h3": {
+    "id": "machina:concept-monade-h3",
+    "name": "Monade",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Funktionale Programmierung",
+      "definition": "Ein Entwurfsmuster, das Berechnungen mit einem Kontext (etwa Zustand, Fehler oder Ein-/Ausgabe) verkettet, indem es die Operationen bind und return bereitstellt"
+    },
+    "funFact": "In Haskell wird die unreine Ein-/Ausgabe vollständig über die IO-Monade gekapselt, sodass die Sprache trotz Seiteneffekten rein bleibt.",
+    "source": {
+      "name": "Wikipedia EN – Monad (functional programming)",
+      "url": "https://en.wikipedia.org/wiki/Monad_(functional_programming)"
+    },
+    "image": null
+  },
+  "machina:concept-hoisting-h3": {
+    "id": "machina:concept-hoisting-h3",
+    "name": "Hoisting",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmiersprachen",
+      "definition": "Das Verhalten mancher Sprachen, Deklarationen von Variablen und Funktionen gedanklich an den Anfang ihres Gültigkeitsbereichs zu ziehen, bevor der Code ausgeführt wird"
+    },
+    "funFact": "In JavaScript sind mit var deklarierte Variablen vor ihrer Zuweisung bereits sichtbar, haben aber den Wert undefined — eine häufige Fehlerquelle.",
+    "source": {
+      "name": "MDN Web Docs – Hoisting",
+      "url": "https://developer.mozilla.org/en-US/docs/Glossary/Hoisting"
+    },
+    "image": null
+  },
+  "machina:concept-reentrant-h3": {
+    "id": "machina:concept-reentrant-h3",
+    "name": "Reentranz",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Nebenläufigkeit",
+      "definition": "Die Eigenschaft einer Funktion, gefahrlos erneut aufgerufen werden zu können, bevor ein vorheriger Aufruf abgeschlossen ist — etwa durch Unterbrechungen oder Rekursion"
+    },
+    "funFact": "Eine reentrante Funktion darf keinen veränderlichen globalen Zustand benutzen — deshalb gibt es Doppelversionen wie strtok und das reentrante strtok_r in C.",
+    "source": {
+      "name": "Wikipedia EN – Reentrancy (computing)",
+      "url": "https://en.wikipedia.org/wiki/Reentrancy_(computing)"
+    },
+    "image": null
+  },
+  "machina:concept-determinismus-h3": {
+    "id": "machina:concept-determinismus-h3",
+    "name": "Determinismus",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Theoretische Informatik",
+      "definition": "Die Eigenschaft eines Algorithmus oder Systems, bei gleicher Eingabe stets dieselbe Ausgabe und denselben Ablauf zu liefern"
+    },
+    "funFact": "Nichtdeterministische Programme — etwa bei paralleler Ausführung ohne feste Reihenfolge — erschweren das Debugging, weil sich Fehler nicht zuverlässig reproduzieren lassen.",
+    "source": {
+      "name": "Wikipedia EN – Deterministic algorithm",
+      "url": "https://en.wikipedia.org/wiki/Deterministic_algorithm"
+    },
+    "image": null
+  },
+  "machina:concept-big-endian-h3": {
+    "id": "machina:concept-big-endian-h3",
+    "name": "Big-Endian",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Rechnerarchitektur",
+      "definition": "Eine Byte-Reihenfolge, bei der das höchstwertige Byte einer Mehrbyte-Zahl an der niedrigsten Speicheradresse steht"
+    },
+    "funFact": "Weil Netzwerkprotokolle wie TCP/IP Big-Endian verwenden, heißt diese Reihenfolge auch 'Network Byte Order'; x86-Prozessoren arbeiten dagegen Little-Endian.",
+    "source": {
+      "name": "Wikipedia EN – Endianness",
+      "url": "https://en.wikipedia.org/wiki/Endianness"
+    },
+    "image": null
+  },
+  "machina:concept-little-endian-h3": {
+    "id": "machina:concept-little-endian-h3",
+    "name": "Little-Endian",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Rechnerarchitektur",
+      "definition": "Eine Byte-Reihenfolge, bei der das niederstwertige Byte einer Mehrbyte-Zahl an der niedrigsten Speicheradresse steht"
+    },
+    "funFact": "Die x86- und die meisten ARM-Prozessoren arbeiten Little-Endian, weshalb diese Reihenfolge auf Desktop- und Mobilgeräten dominiert.",
+    "source": {
+      "name": "Wikipedia EN – Endianness",
+      "url": "https://en.wikipedia.org/wiki/Endianness"
+    },
+    "image": null
+  },
+  "machina:concept-partielle-anwendung-h3": {
+    "id": "machina:concept-partielle-anwendung-h3",
+    "name": "Partielle Anwendung",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Funktionale Programmierung",
+      "definition": "Das Festlegen eines Teils der Argumente einer Funktion, wodurch eine neue Funktion mit weniger Parametern entsteht"
+    },
+    "funFact": "Partielle Anwendung wird oft mit Currying verwechselt: Currying zerlegt eine Funktion in eine Kette einstelliger Funktionen, partielle Anwendung fixiert nur einige Argumente.",
+    "source": {
+      "name": "Wikipedia EN – Partial application",
+      "url": "https://en.wikipedia.org/wiki/Partial_application"
+    },
+    "image": null
+  },
+  "machina:concept-functor-h3": {
+    "id": "machina:concept-functor-h3",
+    "name": "Funktor (Programmierung)",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Funktionale Programmierung",
+      "definition": "Eine Struktur, über deren enthaltene Werte sich eine Funktion mittels map anwenden lässt, ohne die Struktur selbst zu verändern"
+    },
+    "funFact": "Eine Liste ist ein einfacher Funktor: map wendet eine Funktion auf jedes Element an und liefert eine gleich strukturierte Liste zurück.",
+    "source": {
+      "name": "Wikipedia EN – Functor (functional programming)",
+      "url": "https://en.wikipedia.org/wiki/Functor_(functional_programming)"
+    },
+    "image": null
+  },
+  "machina:concept-currying-fold-h3": {
+    "id": "machina:concept-currying-fold-h3",
+    "name": "Fold (Faltung)",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Funktionale Programmierung",
+      "definition": "Eine Operation höherer Ordnung, die eine Datenstruktur mithilfe einer Kombinationsfunktion und eines Startwerts zu einem einzelnen Ergebnis zusammenfasst"
+    },
+    "funFact": "Mit fold (reduce) lassen sich Summe, Produkt, Maximum oder sogar map und filter ausdrücken — es ist eine der mächtigsten Grundoperationen der funktionalen Programmierung.",
+    "source": {
+      "name": "Wikipedia EN – Fold (higher-order function)",
+      "url": "https://en.wikipedia.org/wiki/Fold_(higher-order_function)"
+    },
+    "image": null
+  },
+  "machina:concept-pattern-matching-h3": {
+    "id": "machina:concept-pattern-matching-h3",
+    "name": "Pattern Matching",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmiersprachen",
+      "definition": "Ein Sprachmittel, das einen Wert gegen Muster prüft und dabei zugleich dessen Bestandteile an Variablen bindet"
+    },
+    "funFact": "In Sprachen wie Haskell, Rust und Scala ersetzt Pattern Matching ganze Ketten von if-else-Abfragen und kann vom Compiler auf Vollständigkeit geprüft werden.",
+    "source": {
+      "name": "Wikipedia EN – Pattern matching",
+      "url": "https://en.wikipedia.org/wiki/Pattern_matching"
+    },
+    "image": null
+  },
+  "machina:concept-algebraic-data-type-h3": {
+    "id": "machina:concept-algebraic-data-type-h3",
+    "name": "Algebraischer Datentyp",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmiersprachen",
+      "definition": "Ein zusammengesetzter Typ, der aus einer Kombination von Produkttypen (Tupeln/Records) und Summentypen (Auswahl aus Alternativen) gebildet wird"
+    },
+    "funFact": "Der Name kommt aus der Algebra: Produkttypen entsprechen einer Multiplikation der möglichen Werte, Summentypen einer Addition.",
+    "source": {
+      "name": "Wikipedia EN – Algebraic data type",
+      "url": "https://en.wikipedia.org/wiki/Algebraic_data_type"
+    },
+    "image": null
+  },
+  "machina:concept-type-erasure-h3": {
+    "id": "machina:concept-type-erasure-h3",
+    "name": "Typlöschung (Type Erasure)",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmiersprachen",
+      "definition": "Das Entfernen von Typinformationen zur Übersetzungs- oder Laufzeit, sodass generischer Code ohne Wissen über die konkreten Typparameter ausgeführt wird"
+    },
+    "funFact": "Java implementiert Generics per Type Erasure: Zur Laufzeit ist eine List<String> nicht von einer List<Integer> unterscheidbar, weil der Typparameter gelöscht wurde.",
+    "source": {
+      "name": "Wikipedia EN – Type erasure",
+      "url": "https://en.wikipedia.org/wiki/Type_erasure"
+    },
+    "image": null
+  },
+  "machina:concept-stack-frame-h3": {
+    "id": "machina:concept-stack-frame-h3",
+    "name": "Stack-Frame (Aktivierungsdatensatz)",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmierung",
+      "definition": "Ein Speicherbereich auf dem Aufrufstapel, der für einen einzelnen Funktionsaufruf lokale Variablen, Parameter und die Rücksprungadresse enthält"
+    },
+    "funFact": "Jeder rekursive Aufruf legt einen neuen Stack-Frame an — sind es zu viele, läuft der Stapel über und es kommt zum berüchtigten Stack Overflow.",
+    "source": {
+      "name": "Wikipedia EN – Call stack",
+      "url": "https://en.wikipedia.org/wiki/Call_stack"
+    },
+    "image": null
+  },
+  "machina:concept-abi-h3": {
+    "id": "machina:concept-abi-h3",
+    "name": "Binärschnittstelle (ABI)",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Systemtechnik",
+      "definition": "Eine auf Maschinenebene festgelegte Konvention, wie kompilierte Programme und Bibliotheken zusammenarbeiten — etwa Aufrufkonventionen, Datenausrichtung und Registernutzung"
+    },
+    "funFact": "Während eine API auf Quelltext-Ebene festlegt, wie man eine Bibliothek benutzt, regelt die ABI die Binärebene — bricht sie, muss man neu kompilieren statt nur neu zu schreiben.",
+    "source": {
+      "name": "Wikipedia EN – Application binary interface",
+      "url": "https://en.wikipedia.org/wiki/Application_binary_interface"
+    },
+    "image": null
+  },
+  "machina:concept-foreign-function-interface-h3": {
+    "id": "machina:concept-foreign-function-interface-h3",
+    "name": "Fremdfunktionsschnittstelle (FFI)",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Programmiersprachen",
+      "definition": "Ein Mechanismus, mit dem Code einer Programmiersprache Funktionen aufrufen kann, die in einer anderen Sprache geschrieben wurden"
+    },
+    "funFact": "Viele Python-Bibliotheken für Numerik rufen über eine FFI hochoptimierten C- oder Fortran-Code auf — so verbindet sich Pythons Komfort mit der Geschwindigkeit kompilierter Sprachen.",
+    "source": {
+      "name": "Wikipedia EN – Foreign function interface",
+      "url": "https://en.wikipedia.org/wiki/Foreign_function_interface"
+    },
+    "image": null
+  },
+  "machina:concept-marshalling-h3": {
+    "id": "machina:concept-marshalling-h3",
+    "name": "Marshalling",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Verteilte Systeme",
+      "definition": "Das Umwandeln eines Objekts oder einer Datenstruktur in ein Format, das sich speichern oder über eine Schnittstelle bzw. ein Netzwerk übertragen lässt"
+    },
+    "funFact": "Marshalling und Serialisierung werden oft synonym verwendet; Marshalling kann aber zusätzlich Verweise auf entfernte Objekte mit übertragen.",
+    "source": {
+      "name": "Wikipedia EN – Marshalling (computer science)",
+      "url": "https://en.wikipedia.org/wiki/Marshalling_(computer_science)"
+    },
+    "image": null
+  },
+  "machina:concept-memory-mapped-io-h3": {
+    "id": "machina:concept-memory-mapped-io-h3",
+    "name": "Speicherabbild-Datei (Memory Mapping)",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Betriebssysteme",
+      "definition": "Das Einblenden einer Datei oder eines Geräts in den virtuellen Adressraum eines Prozesses, sodass darauf wie auf normalen Speicher zugegriffen werden kann"
+    },
+    "funFact": "Über Memory Mapping (mmap) kann ein Programm eine riesige Datei bearbeiten, ohne sie komplett in den Arbeitsspeicher zu laden — das Betriebssystem lädt nur die benötigten Seiten.",
+    "source": {
+      "name": "Wikipedia EN – Memory-mapped file",
+      "url": "https://en.wikipedia.org/wiki/Memory-mapped_file"
+    },
+    "image": null
+  },
+  "machina:concept-copy-on-write-h3": {
+    "id": "machina:concept-copy-on-write-h3",
+    "name": "Copy-on-Write",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Betriebssysteme",
+      "definition": "Eine Optimierung, bei der mehrere Beteiligte sich dieselbe Ressource teilen, solange sie nur lesen, und erst beim ersten Schreibzugriff eine eigene Kopie angelegt wird"
+    },
+    "funFact": "Wenn ein Unix-Prozess sich mit fork() verdoppelt, wird der Speicher nicht sofort kopiert — Copy-on-Write erstellt eine Kopie erst, sobald einer der Prozesse schreibt.",
+    "source": {
+      "name": "Wikipedia EN – Copy-on-write",
+      "url": "https://en.wikipedia.org/wiki/Copy-on-write"
+    },
+    "image": null
+  },
+  "machina:concept-spinlock-h3": {
+    "id": "machina:concept-spinlock-h3",
+    "name": "Spinlock",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Nebenläufigkeit",
+      "definition": "Ein Sperrmechanismus, bei dem ein wartender Thread in einer Schleife aktiv prüft, ob die Sperre frei wird, statt sich schlafen zu legen"
+    },
+    "funFact": "Ein Spinlock lohnt sich nur, wenn die Sperre voraussichtlich sehr kurz gehalten wird — sonst verschwendet das aktive Warten unnötig CPU-Zeit.",
+    "source": {
+      "name": "Wikipedia EN – Spinlock",
+      "url": "https://en.wikipedia.org/wiki/Spinlock"
+    },
+    "image": null
+  },
+  "machina:concept-compare-and-swap-h3": {
+    "id": "machina:concept-compare-and-swap-h3",
+    "name": "Compare-and-Swap",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Nebenläufigkeit",
+      "definition": "Eine atomare Prozessoroperation, die einen Speicherwert nur dann durch einen neuen ersetzt, wenn er noch dem erwarteten alten Wert entspricht"
+    },
+    "funFact": "Compare-and-Swap ist der Grundbaustein vieler sperrenfreier (lock-free) Datenstrukturen, weil mehrere Threads ohne klassische Sperren sicher arbeiten können.",
+    "source": {
+      "name": "Wikipedia EN – Compare-and-swap",
+      "url": "https://en.wikipedia.org/wiki/Compare-and-swap"
+    },
+    "image": null
+  },
+  "machina:concept-mvcc-h3": {
+    "id": "machina:concept-mvcc-h3",
+    "name": "Mehrversionen-Nebenläufigkeitskontrolle (MVCC)",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Datenbanken",
+      "definition": "Ein Verfahren, bei dem eine Datenbank mehrere Versionen eines Datensatzes vorhält, sodass Lesezugriffe gleichzeitige Schreibzugriffe nicht blockieren"
+    },
+    "funFact": "Dank MVCC sieht eine laufende Lese-Transaktion in PostgreSQL einen konsistenten Schnappschuss der Daten, auch wenn andere Transaktionen gleichzeitig Änderungen vornehmen.",
+    "source": {
+      "name": "Wikipedia EN – Multiversion concurrency control",
+      "url": "https://en.wikipedia.org/wiki/Multiversion_concurrency_control"
+    },
+    "image": null
+  },
+  "machina:concept-write-ahead-log-h3": {
+    "id": "machina:concept-write-ahead-log-h3",
+    "name": "Write-Ahead-Log",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Datenbanken",
+      "definition": "Ein Verfahren, bei dem Änderungen zuerst in ein Protokoll geschrieben werden, bevor sie auf die eigentlichen Daten angewendet werden, um nach einem Absturz wiederherstellbar zu sein"
+    },
+    "funFact": "Stürzt eine Datenbank mitten in einer Transaktion ab, kann sie anhand des Write-Ahead-Logs beim Neustart entscheiden, welche Änderungen sie nachholen oder zurückrollen muss.",
+    "source": {
+      "name": "Wikipedia EN – Write-ahead logging",
+      "url": "https://en.wikipedia.org/wiki/Write-ahead_logging"
+    },
+    "image": null
+  },
+  "machina:concept-konsistentes-hashing-h3": {
+    "id": "machina:concept-konsistentes-hashing-h3",
+    "name": "Konsistentes Hashing",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Verteilte Systeme",
+      "definition": "Ein Hash-Verfahren, das Schlüssel so auf Knoten verteilt, dass beim Hinzufügen oder Entfernen eines Knotens nur ein kleiner Teil der Zuordnungen neu berechnet werden muss"
+    },
+    "funFact": "Konsistentes Hashing ist die Grundlage vieler verteilter Caches und Datenbanken wie Amazon Dynamo, weil sich Server hinzufügen lassen, ohne fast alle Schlüssel umverteilen zu müssen.",
+    "source": {
+      "name": "Wikipedia EN – Consistent hashing",
+      "url": "https://en.wikipedia.org/wiki/Consistent_hashing"
+    },
+    "image": null
+  },
+  "machina:concept-quorum-h3": {
+    "id": "machina:concept-quorum-h3",
+    "name": "Quorum (Verteilte Systeme)",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Verteilte Systeme",
+      "definition": "Die Mindestanzahl an Knoten, die einer Operation zustimmen müssen, damit sie in einem verteilten System als gültig gilt"
+    },
+    "funFact": "Überlappen sich Lese- und Schreib-Quorum (R + W > N), ist garantiert, dass jeder Lesevorgang den jeweils neuesten Schreibvorgang sieht.",
+    "source": {
+      "name": "Wikipedia EN – Quorum (distributed computing)",
+      "url": "https://en.wikipedia.org/wiki/Quorum_(distributed_computing)"
+    },
+    "image": null
+  },
+  "machina:concept-consensus-h3": {
+    "id": "machina:concept-consensus-h3",
+    "name": "Konsens (Verteilte Systeme)",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Verteilte Systeme",
+      "definition": "Das Problem, mehrere verteilte Knoten trotz möglicher Ausfälle auf einen gemeinsamen Wert oder eine gemeinsame Entscheidung zu einigen"
+    },
+    "funFact": "Algorithmen wie Paxos und Raft lösen das Konsensproblem und sorgen dafür, dass sich ein Cluster auch bei Ausfall einzelner Server auf einen gemeinsamen Zustand einigt.",
+    "source": {
+      "name": "Wikipedia EN – Consensus (computer science)",
+      "url": "https://en.wikipedia.org/wiki/Consensus_(computer_science)"
+    },
+    "image": null
+  },
+  "machina:concept-leader-election-h3": {
+    "id": "machina:concept-leader-election-h3",
+    "name": "Leader Election",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Verteilte Systeme",
+      "definition": "Das Verfahren, in einer Gruppe verteilter Knoten genau einen Knoten als koordinierenden Anführer zu bestimmen"
+    },
+    "funFact": "Fällt der gewählte Anführer aus, starten die übrigen Knoten automatisch eine neue Wahl — so bleibt das System koordiniert, ohne dass ein Mensch eingreifen muss.",
+    "source": {
+      "name": "Wikipedia EN – Leader election",
+      "url": "https://en.wikipedia.org/wiki/Leader_election"
+    },
+    "image": null
+  },
+  "machina:concept-content-addressable-storage-h3": {
+    "id": "machina:concept-content-addressable-storage-h3",
+    "name": "Inhaltsadressierter Speicher",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Verteilte Systeme",
+      "definition": "Ein Speicherverfahren, bei dem Daten nicht über einen Ort, sondern über einen aus ihrem Inhalt berechneten Hashwert angesprochen werden"
+    },
+    "funFact": "Git ist ein inhaltsadressierter Speicher: Jeder Commit und jede Datei wird über ihren Hash identifiziert, weshalb identischer Inhalt nur einmal gespeichert wird.",
+    "source": {
+      "name": "Wikipedia EN – Content-addressable storage",
+      "url": "https://en.wikipedia.org/wiki/Content-addressable_storage"
+    },
+    "image": null
+  },
+  "machina:concept-throughput-h3": {
+    "id": "machina:concept-throughput-h3",
+    "name": "Durchsatz",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Systemtechnik",
+      "definition": "Die Menge an Arbeit oder Daten, die ein System pro Zeiteinheit verarbeiten oder übertragen kann"
+    },
+    "funFact": "Durchsatz und Latenz sind verschiedene Dinge: Ein System kann hohen Durchsatz (viele Anfragen pro Sekunde) und zugleich hohe Latenz (lange Wartezeit pro Anfrage) haben.",
+    "source": {
+      "name": "Wikipedia EN – Throughput",
+      "url": "https://en.wikipedia.org/wiki/Throughput"
+    },
+    "image": null
+  },
+  "machina:concept-amortized-analysis-h3": {
+    "id": "machina:concept-amortized-analysis-h3",
+    "name": "Amortisierte Analyse",
+    "type": "concept",
+    "category": "concept",
+    "attributes": {
+      "category": "Komplexitätstheorie",
+      "definition": "Eine Methode zur Laufzeitabschätzung, die die Gesamtkosten einer Folge von Operationen mittelt, statt nur den teuersten Einzelfall zu betrachten"
+    },
+    "funFact": "Das Anfügen an ein dynamisches Array kostet im Einzelfall manchmal viel (beim Vergrößern), amortisiert über viele Einfügungen aber nur konstante Zeit O(1).",
+    "source": {
+      "name": "Wikipedia EN – Amortized analysis",
+      "url": "https://en.wikipedia.org/wiki/Amortized_analysis"
+    },
+    "image": null
+  },
+  "machina:network_protocol-snmp-trap-h3": {
+    "id": "machina:network_protocol-snmp-trap-h3",
+    "name": "SNMP-Trap",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Simple Network Management Protocol Trap",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 162,
+      "purpose": "Asynchrone Benachrichtigung eines Management-Systems über Ereignisse durch überwachte Geräte"
+    },
+    "funFact": "Während reguläre SNMP-Abfragen auf Port 161 laufen, schicken Geräte ihre unaufgeforderten Alarm-Meldungen (Traps) an Port 162.",
+    "source": {
+      "name": "IANA Service Name and Transport Protocol Port Number Registry",
+      "url": "https://www.iana.org/assignments/service-names-port-numbers/"
+    },
+    "image": null
+  },
+  "machina:network_protocol-rwhois-h3": {
+    "id": "machina:network_protocol-rwhois-h3",
+    "name": "RWHOIS",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Referral Whois",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 4321,
+      "purpose": "Hierarchische, verweisbasierte Abfrage von Verzeichnisinformationen zu Internet-Ressourcen"
+    },
+    "funFact": "RWHOIS erweitert das klassische Whois um die Fähigkeit, eine Anfrage an den jeweils zuständigen Server weiterzuleiten (Referral).",
+    "source": {
+      "name": "RFC 2167 – Referral Whois (RWhois) Protocol V1.5",
+      "url": "https://www.rfc-editor.org/rfc/rfc2167"
+    },
+    "image": null
+  },
+  "machina:network_protocol-quotd-h3": {
+    "id": "machina:network_protocol-quotd-h3",
+    "name": "QOTD",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Quote of the Day Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 17,
+      "purpose": "Liefert beim Verbindungsaufbau einen kurzen Spruch oder ein Zitat zurück"
+    },
+    "funFact": "QOTD war eines der ersten Internet-Spaßprotokolle und gibt bei jedem Connect einfach ein zufälliges Zitat aus.",
+    "source": {
+      "name": "RFC 865 – Quote of the Day Protocol",
+      "url": "https://www.rfc-editor.org/rfc/rfc865"
+    },
+    "image": null
+  },
+  "machina:network_protocol-daytime-h3": {
+    "id": "machina:network_protocol-daytime-h3",
+    "name": "Daytime-Protokoll",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Daytime Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 13,
+      "purpose": "Liefert die aktuelle Uhrzeit und das Datum als menschenlesbaren Text"
+    },
+    "funFact": "Das Daytime-Protokoll gibt die Zeit im Klartext zurück und diente früher als simple Zeitabfrage, bevor sich NTP durchsetzte.",
+    "source": {
+      "name": "RFC 867 – Daytime Protocol",
+      "url": "https://www.rfc-editor.org/rfc/rfc867"
+    },
+    "image": null
+  },
+  "machina:network_protocol-time-protokoll-h3": {
+    "id": "machina:network_protocol-time-protokoll-h3",
+    "name": "Time-Protokoll",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Time Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 37,
+      "purpose": "Liefert die aktuelle Zeit als 32-Bit-Zahl der Sekunden seit dem 1. Januar 1900"
+    },
+    "funFact": "Anders als das menschenlesbare Daytime-Protokoll gibt Time eine reine 32-Bit-Sekundenzahl zurück – sie läuft im Jahr 2036 über.",
+    "source": {
+      "name": "RFC 868 – Time Protocol",
+      "url": "https://www.rfc-editor.org/rfc/rfc868"
+    },
+    "image": null
+  },
+  "machina:network_protocol-echo-protokoll-h3": {
+    "id": "machina:network_protocol-echo-protokoll-h3",
+    "name": "Echo-Protokoll",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Echo Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 7,
+      "purpose": "Sendet jedes empfangene Datenbyte unverändert an den Absender zurück"
+    },
+    "funFact": "Das Echo-Protokoll auf Port 7 dient zum Test der Erreichbarkeit und Datentreue einer Verbindung – ein reines Hin-und-Zurück.",
+    "source": {
+      "name": "RFC 862 – Echo Protocol",
+      "url": "https://www.rfc-editor.org/rfc/rfc862"
+    },
+    "image": null
+  },
+  "machina:network_protocol-discard-protokoll-h3": {
+    "id": "machina:network_protocol-discard-protokoll-h3",
+    "name": "Discard-Protokoll",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Discard Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 9,
+      "purpose": "Verwirft alle empfangenen Daten ohne Antwort, dient als Datensenke zum Testen"
+    },
+    "funFact": "Discard ist das Gegenstück zu Echo: Es schluckt alles, was man ihm schickt – wie /dev/null über das Netz.",
+    "source": {
+      "name": "RFC 863 – Discard Protocol",
+      "url": "https://www.rfc-editor.org/rfc/rfc863"
+    },
+    "image": null
+  },
+  "machina:network_protocol-chargen-h3": {
+    "id": "machina:network_protocol-chargen-h3",
+    "name": "CHARGEN",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Character Generator Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 19,
+      "purpose": "Erzeugt einen fortlaufenden Strom von Zeichen zum Testen und Debuggen von Verbindungen"
+    },
+    "funFact": "CHARGEN spuckt endlos Zeichen aus; über UDP missbraucht, eignet es sich für Verstärkungs-Angriffe und gilt heute als Sicherheitsrisiko.",
+    "source": {
+      "name": "RFC 864 – Character Generator Protocol",
+      "url": "https://www.rfc-editor.org/rfc/rfc864"
+    },
+    "image": null
+  },
+  "machina:network_protocol-rtsp-h3": {
+    "id": "machina:network_protocol-rtsp-h3",
+    "name": "Ident",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Identification Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 113,
+      "purpose": "Ermittelt die Identität des Benutzers hinter einer bestimmten TCP-Verbindung"
+    },
+    "funFact": "Das Ident-Protokoll wurde früher von IRC-Servern abgefragt, um den Benutzernamen am anderen Ende einer Verbindung zu erfahren.",
+    "source": {
+      "name": "RFC 1413 – Identification Protocol",
+      "url": "https://www.rfc-editor.org/rfc/rfc1413"
+    },
+    "image": null
+  },
+  "machina:network_protocol-msrpc-h3": {
+    "id": "machina:network_protocol-msrpc-h3",
+    "name": "MSRPC-Endpoint-Mapper",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Microsoft RPC Endpoint Mapper",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 135,
+      "purpose": "Vermittelt Clients den dynamischen Port eines gewünschten RPC-Dienstes auf Windows-Systemen"
+    },
+    "funFact": "Port 135 ist der erste Anlaufpunkt für viele Windows-Dienste; der Mapper sagt dem Client, auf welchem dynamischen Port der Zieldienst lauscht.",
+    "source": {
+      "name": "IANA Service Name and Transport Protocol Port Number Registry",
+      "url": "https://www.iana.org/assignments/service-names-port-numbers/"
+    },
+    "image": null
+  },
+  "machina:network_protocol-microsoft-sql-h3": {
+    "id": "machina:network_protocol-microsoft-sql-h3",
+    "name": "MS-SQL-Server-Protokoll",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Microsoft SQL Server Protocol (TDS)",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 1433,
+      "purpose": "Kommunikation zwischen Clients und einem Microsoft-SQL-Server-Datenbankdienst"
+    },
+    "funFact": "Microsoft SQL Server lauscht standardmäßig auf Port 1433 und nutzt darunter das Tabular Data Stream (TDS) Protokoll.",
+    "source": {
+      "name": "IANA Service Name and Transport Protocol Port Number Registry",
+      "url": "https://www.iana.org/assignments/service-names-port-numbers/"
+    },
+    "image": null
+  },
+  "machina:network_protocol-oracle-tns-h3": {
+    "id": "machina:network_protocol-oracle-tns-h3",
+    "name": "Oracle-TNS",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Oracle Transparent Network Substrate",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 1521,
+      "purpose": "Verbindungsaufbau und Kommunikation mit einer Oracle-Datenbank über den Listener"
+    },
+    "funFact": "Der Oracle-Listener auf Port 1521 nimmt eingehende TNS-Verbindungen entgegen und leitet sie an die passende Datenbankinstanz weiter.",
+    "source": {
+      "name": "IANA Service Name and Transport Protocol Port Number Registry",
+      "url": "https://www.iana.org/assignments/service-names-port-numbers/"
+    },
+    "image": null
+  },
+  "machina:network_protocol-rdp-gateway-h3": {
+    "id": "machina:network_protocol-rdp-gateway-h3",
+    "name": "WSDD",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Web Services Dynamic Discovery",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 3702,
+      "purpose": "Auffinden von Diensten und Geräten in einem lokalen Netzwerk per Multicast"
+    },
+    "funFact": "WS-Discovery hilft Windows-Rechnern, Netzwerkdrucker und andere Geräte automatisch im LAN zu finden, ohne deren Adresse zu kennen.",
+    "source": {
+      "name": "IANA Service Name and Transport Protocol Port Number Registry",
+      "url": "https://www.iana.org/assignments/service-names-port-numbers/"
+    },
+    "image": null
+  },
+  "machina:network_protocol-git-protokoll-h3": {
+    "id": "machina:network_protocol-git-protokoll-h3",
+    "name": "Git-Protokoll",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Git Smart Protocol (git://)",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 9418,
+      "purpose": "Effizienter Austausch von Repository-Objekten zwischen Git-Client und -Server"
+    },
+    "funFact": "Das native git://-Protokoll auf Port 9418 ist schnell, bietet aber keine Verschlüsselung oder Authentifizierung – daher meist über SSH genutzt.",
+    "source": {
+      "name": "IANA Service Name and Transport Protocol Port Number Registry",
+      "url": "https://www.iana.org/assignments/service-names-port-numbers/"
+    },
+    "image": null
+  },
+  "machina:network_protocol-svn-protokoll-h3": {
+    "id": "machina:network_protocol-svn-protokoll-h3",
+    "name": "SVN-Protokoll",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Subversion Protocol (svn://)",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 3690,
+      "purpose": "Kommunikation zwischen Subversion-Client und svnserve-Server zur Versionsverwaltung"
+    },
+    "funFact": "Der svnserve-Dienst auf Port 3690 bietet einen schlanken Zugang zu Subversion-Repositories ohne Webserver-Umweg.",
+    "source": {
+      "name": "IANA Service Name and Transport Protocol Port Number Registry",
+      "url": "https://www.iana.org/assignments/service-names-port-numbers/"
+    },
+    "image": null
+  },
+  "machina:network_protocol-rsh-h3": {
+    "id": "machina:network_protocol-rsh-h3",
+    "name": "RSH",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Remote Shell",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 514,
+      "purpose": "Ausführen einzelner Befehle auf einem entfernten Unix-Rechner"
+    },
+    "funFact": "RSH überträgt alles unverschlüsselt und vertraut Hostnamen blind – es wurde aus genau diesen Gründen vollständig durch SSH abgelöst.",
+    "source": {
+      "name": "IANA Service Name and Transport Protocol Port Number Registry",
+      "url": "https://www.iana.org/assignments/service-names-port-numbers/"
+    },
+    "image": null
+  },
+  "machina:network_protocol-rexec-h3": {
+    "id": "machina:network_protocol-rexec-h3",
+    "name": "rexec",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Remote Execution Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 512,
+      "purpose": "Ausführen von Befehlen auf einem entfernten Rechner mit Benutzername und Passwort"
+    },
+    "funFact": "rexec verlangt im Gegensatz zu rsh ein Passwort, schickt es aber im Klartext über das Netz – heute ein Sicherheitsalbtraum.",
+    "source": {
+      "name": "IANA Service Name and Transport Protocol Port Number Registry",
+      "url": "https://www.iana.org/assignments/service-names-port-numbers/"
+    },
+    "image": null
+  },
+  "machina:network_protocol-msdp-h3": {
+    "id": "machina:network_protocol-msdp-h3",
+    "name": "MSRP",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Message Session Relay Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 2855,
+      "purpose": "Übertragung von Sofortnachrichten und Dateien innerhalb einer SIP-Sitzung"
+    },
+    "funFact": "MSRP transportiert in modernen IP-Telefonie-Systemen den Chat- und Dateianhang-Verkehr, während SIP nur den Verbindungsauf- und -abbau regelt.",
+    "source": {
+      "name": "RFC 4975 – The Message Session Relay Protocol (MSRP)",
+      "url": "https://www.rfc-editor.org/rfc/rfc4975"
+    },
+    "image": null
+  },
+  "machina:network_protocol-cups-ipp-h3": {
+    "id": "machina:network_protocol-cups-ipp-h3",
+    "name": "AFP",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Apple Filing Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 548,
+      "purpose": "Dateifreigabe zwischen Macs in lokalen Netzwerken"
+    },
+    "funFact": "AFP war jahrzehntelang Apples Standard für Netzwerk-Dateifreigabe, bevor macOS auf das plattformneutrale SMB umstieg.",
+    "source": {
+      "name": "IANA Service Name and Transport Protocol Port Number Registry",
+      "url": "https://www.iana.org/assignments/service-names-port-numbers/"
+    },
+    "image": null
+  },
+  "machina:network_protocol-rip-ng-h3": {
+    "id": "machina:network_protocol-rip-ng-h3",
+    "name": "BFD",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Bidirectional Forwarding Detection",
+      "layer": "Transportschicht",
+      "transport": "UDP",
+      "defaultPort": 3784,
+      "purpose": "Schnelle Erkennung von Ausfällen auf einem Pfad zwischen zwei weiterleitenden Geräten"
+    },
+    "funFact": "BFD erkennt Verbindungsausfälle in Millisekunden und meldet sie an Routing-Protokolle wie OSPF oder BGP, damit diese sofort umleiten.",
+    "source": {
+      "name": "RFC 5881 – BFD for IPv4 and IPv6 (Single Hop)",
+      "url": "https://www.rfc-editor.org/rfc/rfc5881"
+    },
+    "image": null
+  },
+  "machina:network_protocol-lisp-h3": {
+    "id": "machina:network_protocol-lisp-h3",
+    "name": "LISP-Protokoll",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Locator/ID Separation Protocol",
+      "layer": "Vermittlungsschicht (Internet)",
+      "transport": "UDP",
+      "defaultPort": 4341,
+      "purpose": "Trennung von Endpunkt-Identität und Standort zur skalierbaren Wegewahl im Internet"
+    },
+    "funFact": "LISP trennt die Frage Wer bin ich von Wo bin ich – ähnlich wie eine Telefonnummer, die man behält, egal wohin man umzieht.",
+    "source": {
+      "name": "RFC 9300 – The Locator/ID Separation Protocol (LISP)",
+      "url": "https://www.rfc-editor.org/rfc/rfc9300"
+    },
+    "image": null
+  },
+  "machina:network_protocol-pcp-h3": {
+    "id": "machina:network_protocol-pcp-h3",
+    "name": "PCP",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Port Control Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 5351,
+      "purpose": "Steuerung von Portweiterleitungen und NAT-Zuordnungen durch interne Hosts"
+    },
+    "funFact": "PCP erlaubt einem Gerät hinter einem Router, sich selbst eine Portfreigabe einzurichten – der Nachfolger des älteren NAT-PMP.",
+    "source": {
+      "name": "RFC 6887 – Port Control Protocol (PCP)",
+      "url": "https://www.rfc-editor.org/rfc/rfc6887"
+    },
+    "image": null
+  },
+  "machina:network_protocol-lpd-control-h3": {
+    "id": "machina:network_protocol-lpd-control-h3",
+    "name": "DAAP",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Digital Audio Access Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 3689,
+      "purpose": "Freigabe und Streaming einer Musikbibliothek über das lokale Netzwerk"
+    },
+    "funFact": "DAAP wurde von Apple für iTunes entwickelt, damit Nutzer ihre Musikbibliothek im Heimnetz mit anderen teilen konnten.",
+    "source": {
+      "name": "IANA Service Name and Transport Protocol Port Number Registry",
+      "url": "https://www.iana.org/assignments/service-names-port-numbers/"
+    },
+    "image": null
+  },
+  "machina:network_protocol-rndc-h3": {
+    "id": "machina:network_protocol-rndc-h3",
+    "name": "OpenVPN-Steuerkanal",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "OpenVPN Default Control/Data Channel",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 1194,
+      "purpose": "Aufbau eines verschlüsselten VPN-Tunnels zwischen Client und Server"
+    },
+    "funFact": "OpenVPN nutzt standardmäßig UDP-Port 1194, kann aber auch über TCP-Port 443 laufen, um sich als regulärer HTTPS-Verkehr zu tarnen.",
+    "source": {
+      "name": "IANA Service Name and Transport Protocol Port Number Registry",
+      "url": "https://www.iana.org/assignments/service-names-port-numbers/"
+    },
+    "image": null
+  },
+  "machina:network_protocol-mptcp-h3": {
+    "id": "machina:network_protocol-mptcp-h3",
+    "name": "WCCP",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Web Cache Communication Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 2048,
+      "purpose": "Transparente Umleitung von Web-Verkehr durch einen Router zu einem Cache-Server"
+    },
+    "funFact": "WCCP von Cisco lenkt Web-Anfragen unbemerkt über einen Proxy-Cache, sodass häufig besuchte Seiten lokal beschleunigt ausgeliefert werden.",
+    "source": {
+      "name": "IANA Service Name and Transport Protocol Port Number Registry",
+      "url": "https://www.iana.org/assignments/service-names-port-numbers/"
+    },
+    "image": null
+  },
+  "machina:network_protocol-tcp-mux-h3": {
+    "id": "machina:network_protocol-tcp-mux-h3",
+    "name": "TCPMUX",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "TCP Port Service Multiplexer",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 1,
+      "purpose": "Auswahl eines Dienstes nach Namen über eine einzige bekannte Portnummer"
+    },
+    "funFact": "TCPMUX belegt die niedrigste mögliche Portnummer 1 und lässt Clients einen Dienst per Namen statt per fester Portnummer ansprechen.",
+    "source": {
+      "name": "RFC 1078 – TCP Port Service Multiplexer (TCPMUX)",
+      "url": "https://www.rfc-editor.org/rfc/rfc1078"
+    },
+    "image": null
+  },
+  "machina:network_protocol-msnp-h3": {
+    "id": "machina:network_protocol-msnp-h3",
+    "name": "PCEP",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Path Computation Element Communication Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 4189,
+      "purpose": "Anforderung optimaler Pfade durch ein Netzwerk bei einer zentralen Berechnungsinstanz"
+    },
+    "funFact": "PCEP lagert die aufwendige Berechnung optimaler Netzwerkpfade an einen zentralen Rechenknoten aus, statt jeden Router selbst rechnen zu lassen.",
+    "source": {
+      "name": "RFC 5440 – Path Computation Element (PCE) Communication Protocol (PCEP)",
+      "url": "https://www.rfc-editor.org/rfc/rfc5440"
+    },
+    "image": null
+  },
+  "machina:network_protocol-rpki-rtr-h3": {
+    "id": "machina:network_protocol-rpki-rtr-h3",
+    "name": "RPKI-RTR",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "RPKI to Router Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 323,
+      "purpose": "Bereitstellung validierter Routing-Ursprungsdaten an Router zur Absicherung von BGP"
+    },
+    "funFact": "RPKI-RTR liefert Routern eine Liste, welcher Netzbereich zu welchem Betreiber gehört, und hilft so, gefälschte BGP-Routen abzuwehren.",
+    "source": {
+      "name": "RFC 8210 – The Resource Public Key Infrastructure (RPKI) to Router Protocol, Version 1",
+      "url": "https://www.rfc-editor.org/rfc/rfc8210"
+    },
+    "image": null
+  },
+  "machina:network_protocol-bgmp-h3": {
+    "id": "machina:network_protocol-bgmp-h3",
+    "name": "MSDP",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Multicast Source Discovery Protocol",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 639,
+      "purpose": "Austausch von Informationen über aktive Multicast-Quellen zwischen verschiedenen Domänen"
+    },
+    "funFact": "MSDP verbindet getrennte Multicast-Bereiche, damit ein Empfänger in einer Domäne eine Streaming-Quelle in einer anderen Domäne finden kann.",
+    "source": {
+      "name": "RFC 3618 – Multicast Source Discovery Protocol (MSDP)",
+      "url": "https://www.rfc-editor.org/rfc/rfc3618"
+    },
+    "image": null
+  },
+  "machina:network_protocol-iscsi-h3": {
+    "id": "machina:network_protocol-iscsi-h3",
+    "name": "iSCSI",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Internet Small Computer Systems Interface",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 3260,
+      "purpose": "Transport von SCSI-Speicherbefehlen über IP-Netzwerke zur Anbindung entfernter Festplatten"
+    },
+    "funFact": "Mit iSCSI erscheint eine Festplatte irgendwo im Rechenzentrum dem Betriebssystem wie ein direkt angeschlossenes lokales Laufwerk.",
+    "source": {
+      "name": "RFC 7143 – Internet Small Computer System Interface (iSCSI) Protocol",
+      "url": "https://www.rfc-editor.org/rfc/rfc7143"
+    },
+    "image": null
+  },
+  "machina:network_protocol-nbns-h3": {
+    "id": "machina:network_protocol-nbns-h3",
+    "name": "NBNS",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "NetBIOS Name Service",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 137,
+      "purpose": "Auflösung von NetBIOS-Namen zu IP-Adressen in Windows-Netzwerken"
+    },
+    "funFact": "Der NetBIOS-Namensdienst auf Port 137 ist das Windows-Pendant zu DNS für die klassische Datei- und Druckerfreigabe im LAN.",
+    "source": {
+      "name": "RFC 1002 – Protocol Standard for a NetBIOS Service on a TCP/UDP Transport",
+      "url": "https://www.rfc-editor.org/rfc/rfc1002"
+    },
+    "image": null
+  },
+  "machina:network_protocol-nbds-h3": {
+    "id": "machina:network_protocol-nbds-h3",
+    "name": "NBDS",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "NetBIOS Datagram Service",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 138,
+      "purpose": "Verbindungsloser Versand von Nachrichten an einzelne oder mehrere NetBIOS-Knoten"
+    },
+    "funFact": "Über Port 138 verschickt Windows Rundsendungen wie Anwesenheitsmeldungen im lokalen Netz – ohne feste Verbindung pro Empfänger.",
+    "source": {
+      "name": "RFC 1002 – Protocol Standard for a NetBIOS Service on a TCP/UDP Transport",
+      "url": "https://www.rfc-editor.org/rfc/rfc1002"
+    },
+    "image": null
+  },
+  "machina:network_protocol-pop3s-relay-h3": {
+    "id": "machina:network_protocol-pop3s-relay-h3",
+    "name": "Submission",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Message Submission for Mail",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 587,
+      "purpose": "Einreichen ausgehender E-Mails von einem Mailprogramm beim eigenen Mailserver"
+    },
+    "funFact": "Port 587 trennt das Einliefern von E-Mails durch Nutzer (mit Authentifizierung) sauber vom Server-zu-Server-Versand auf Port 25.",
+    "source": {
+      "name": "RFC 6409 – Message Submission for Mail",
+      "url": "https://www.rfc-editor.org/rfc/rfc6409"
+    },
+    "image": null
+  },
+  "machina:network_protocol-managesieve-h3": {
+    "id": "machina:network_protocol-managesieve-h3",
+    "name": "ManageSieve",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "A Protocol for Remotely Managing Sieve Scripts",
+      "layer": "Anwendungsschicht",
+      "transport": "TCP",
+      "defaultPort": 4190,
+      "purpose": "Verwalten serverseitiger E-Mail-Filterregeln (Sieve-Skripte) über das Netzwerk"
+    },
+    "funFact": "Mit ManageSieve kann ein Mailprogramm die automatischen Sortierregeln direkt auf dem Server bearbeiten, statt sie lokal auszuführen.",
+    "source": {
+      "name": "RFC 5804 – A Protocol for Remotely Managing Sieve Scripts",
+      "url": "https://www.rfc-editor.org/rfc/rfc5804"
+    },
+    "image": null
+  },
+  "machina:network_protocol-acme-h3": {
+    "id": "machina:network_protocol-acme-h3",
+    "name": "BACnet/IP",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Building Automation and Control Network over IP",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 47808,
+      "purpose": "Kommunikation zwischen Geräten der Gebäudeautomation wie Heizung, Lüftung und Beleuchtung"
+    },
+    "funFact": "BACnet steuert in vielen Bürogebäuden im Hintergrund Klimaanlagen und Aufzüge; sein IP-Standardport 47808 entspricht hexadezimal 0xBAC0.",
+    "source": {
+      "name": "IANA Service Name and Transport Protocol Port Number Registry",
+      "url": "https://www.iana.org/assignments/service-names-port-numbers/"
+    },
+    "image": null
+  },
+  "machina:network_protocol-dns-over-quic-h3": {
+    "id": "machina:network_protocol-dns-over-quic-h3",
+    "name": "DoQ",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "DNS over QUIC",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 853,
+      "purpose": "Verschlüsselte Namensauflösung über den schnellen QUIC-Transport"
+    },
+    "funFact": "DoQ kombiniert die Verschlüsselung von DNS-over-TLS mit der geringen Latenz von QUIC und vermeidet so das Blockieren mehrerer Anfragen.",
+    "source": {
+      "name": "RFC 9250 – DNS over Dedicated QUIC Connections",
+      "url": "https://www.rfc-editor.org/rfc/rfc9250"
+    },
+    "image": null
+  },
+  "machina:network_protocol-radsec-h3": {
+    "id": "machina:network_protocol-radsec-h3",
+    "name": "RADIUS-Accounting",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "RADIUS Accounting",
+      "layer": "Anwendungsschicht",
+      "transport": "UDP",
+      "defaultPort": 1813,
+      "purpose": "Erfassen von Nutzungsdaten wie Sitzungsdauer und Datenvolumen für Abrechnungszwecke"
+    },
+    "funFact": "Während RADIUS auf Port 1812 die Anmeldung prüft, protokolliert Port 1813 getrennt davon, wie lange und wie viel ein Nutzer das Netz nutzt.",
+    "source": {
+      "name": "RFC 2866 – RADIUS Accounting",
+      "url": "https://www.rfc-editor.org/rfc/rfc2866"
+    },
+    "image": null
+  },
+  "machina:network_protocol-igmp-snooping-h3": {
+    "id": "machina:network_protocol-igmp-snooping-h3",
+    "name": "PIM",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Protocol Independent Multicast",
+      "layer": "Vermittlungsschicht (Internet)",
+      "transport": "IP",
+      "purpose": "Aufbau von Verteilbäumen zur effizienten Weiterleitung von Multicast-Datenströmen"
+    },
+    "funFact": "PIM ist protokollunabhängig, weil es die vorhandene Unicast-Routing-Tabelle nutzt, statt eigene Wege zu berechnen.",
+    "source": {
+      "name": "RFC 7761 – Protocol Independent Multicast – Sparse Mode (PIM-SM)",
+      "url": "https://www.rfc-editor.org/rfc/rfc7761"
+    },
+    "image": null
+  },
+  "machina:network_protocol-vxlan-gpe-h3": {
+    "id": "machina:network_protocol-vxlan-gpe-h3",
+    "name": "Geneve",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Generic Network Virtualization Encapsulation",
+      "layer": "Sicherungsschicht (Layer-2-Overlay)",
+      "transport": "UDP",
+      "defaultPort": 6081,
+      "purpose": "Flexible Kapselung von Netzwerkverkehr für virtuelle Netzwerke in Rechenzentren"
+    },
+    "funFact": "Geneve wurde als erweiterbarer Nachfolger von VXLAN entworfen und trägt zusätzliche Metadaten in flexiblen Optionsfeldern mit.",
+    "source": {
+      "name": "RFC 8926 – Geneve: Generic Network Virtualization Encapsulation",
+      "url": "https://www.rfc-editor.org/rfc/rfc8926"
+    },
+    "image": null
+  },
+  "machina:network_protocol-mptcp-subflow-h3": {
+    "id": "machina:network_protocol-mptcp-subflow-h3",
+    "name": "DCCP",
+    "type": "network_protocol",
+    "category": "network_protocol",
+    "attributes": {
+      "fullName": "Datagram Congestion Control Protocol",
+      "layer": "Transportschicht",
+      "transport": "IP",
+      "purpose": "Verbindungsorientierter Versand unzuverlässiger Datagramme mit eingebauter Überlastkontrolle"
+    },
+    "funFact": "DCCP füllt die Lücke zwischen TCP und UDP: Es darf Pakete verlieren wie UDP, bremst sich aber bei Stau höflich ein wie TCP.",
+    "source": {
+      "name": "RFC 4340 – Datagram Congestion Control Protocol (DCCP)",
+      "url": "https://www.rfc-editor.org/rfc/rfc4340"
+    },
+    "image": null
+  },
+  "machina:hardware-kondensator-h3": {
+    "id": "machina:hardware-kondensator-h3",
+    "name": "Kondensator",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Bauteil",
+      "function": "Speichert elektrische Ladung kurzzeitig und glättet Spannungsschwankungen auf einer Platine"
+    },
+    "funFact": "Auf jedem Mainboard sitzen Dutzende Kondensatoren; aufgeblähte oder ausgelaufene Exemplare sind eine häufige Ursache für plötzliche PC-Ausfälle.",
+    "source": {
+      "name": "Wikipedia DE – Kondensator (Elektrotechnik)",
+      "url": "https://de.wikipedia.org/wiki/Kondensator_(Elektrotechnik)"
+    },
+    "image": null
+  },
+  "machina:hardware-widerstand-h3": {
+    "id": "machina:hardware-widerstand-h3",
+    "name": "Widerstand",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Bauteil",
+      "function": "Begrenzt den elektrischen Strom in einer Schaltung und teilt Spannungen auf"
+    },
+    "funFact": "Die Farbringe auf einem Widerstand kodieren seinen Wert – ein international genormtes Farbsystem, das man auswendig lernen kann.",
+    "source": {
+      "name": "Wikipedia DE – Widerstand (Bauelement)",
+      "url": "https://de.wikipedia.org/wiki/Widerstand_(Bauelement)"
+    },
+    "image": null
+  },
+  "machina:hardware-transistor-h3": {
+    "id": "machina:hardware-transistor-h3",
+    "name": "Transistor",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Bauteil",
+      "function": "Schaltet oder verstärkt elektrische Signale und bildet das Grundelement digitaler Logik"
+    },
+    "funFact": "Eine moderne CPU enthält viele Milliarden Transistoren, die als winzige Schalter zusammen alle Rechenoperationen ausführen.",
+    "source": {
+      "name": "Wikipedia DE – Transistor",
+      "url": "https://de.wikipedia.org/wiki/Transistor"
+    },
+    "image": null
+  },
+  "machina:hardware-diode-h3": {
+    "id": "machina:hardware-diode-h3",
+    "name": "Diode",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Bauteil",
+      "function": "Lässt Strom nur in eine Richtung durch und sperrt ihn in der Gegenrichtung"
+    },
+    "funFact": "Eine Diode wirkt wie ein elektrisches Rückschlagventil und wird unter anderem genutzt, um Wechselstrom in Gleichstrom umzuwandeln.",
+    "source": {
+      "name": "Wikipedia DE – Diode",
+      "url": "https://de.wikipedia.org/wiki/Diode"
+    },
+    "image": null
+  },
+  "machina:hardware-spule-h3": {
+    "id": "machina:hardware-spule-h3",
+    "name": "Spule",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Bauteil",
+      "function": "Speichert Energie in einem Magnetfeld und glättet Stromschwankungen in Netzteilen"
+    },
+    "funFact": "Das hörbare Fiepen mancher Grafikkarten unter Last (Spulenfiepen) entsteht durch mechanische Schwingungen genau dieser Bauteile.",
+    "source": {
+      "name": "Wikipedia DE – Spule (Elektrotechnik)",
+      "url": "https://de.wikipedia.org/wiki/Spule_(Elektrotechnik)"
+    },
+    "image": null
+  },
+  "machina:hardware-quarz-h3": {
+    "id": "machina:hardware-quarz-h3",
+    "name": "Schwingquarz",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Taktgeber",
+      "function": "Erzeugt durch mechanische Schwingung eine sehr präzise und stabile Referenzfrequenz"
+    },
+    "funFact": "Derselbe Effekt, der Quarzuhren so genau macht, taktet auch Computer: Ein schwingender Quarzkristall gibt den Grundrhythmus vor.",
+    "source": {
+      "name": "Wikipedia DE – Schwingquarz",
+      "url": "https://de.wikipedia.org/wiki/Schwingquarz"
+    },
+    "image": null
+  },
+  "machina:hardware-alu-h3": {
+    "id": "machina:hardware-alu-h3",
+    "name": "Arithmetisch-logische Einheit",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Prozessor/Recheneinheit",
+      "function": "Führt die arithmetischen und logischen Grundoperationen eines Prozessors aus"
+    },
+    "funFact": "Die ALU ist das Rechenherz im Prozessorkern; sie addiert, vergleicht und verknüpft Bits, während das Steuerwerk ihr sagt, was zu tun ist.",
+    "source": {
+      "name": "Wikipedia DE – Arithmetisch-logische Einheit",
+      "url": "https://de.wikipedia.org/wiki/Arithmetisch-logische_Einheit"
+    },
+    "image": null
+  },
+  "machina:hardware-register-h3": {
+    "id": "machina:hardware-register-h3",
+    "name": "Prozessorregister",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Prozessor/Recheneinheit",
+      "function": "Sehr schneller, winziger Speicherplatz direkt im Prozessor für aktuell bearbeitete Werte"
+    },
+    "funFact": "Register sind der schnellste Speicher überhaupt – die ALU greift in einem einzigen Takt darauf zu, ohne den Umweg über den Arbeitsspeicher.",
+    "source": {
+      "name": "Wikipedia DE – Prozessorregister",
+      "url": "https://de.wikipedia.org/wiki/Prozessorregister"
+    },
+    "image": null
+  },
+  "machina:hardware-steuerwerk-h3": {
+    "id": "machina:hardware-steuerwerk-h3",
+    "name": "Steuerwerk",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Prozessor/Recheneinheit",
+      "function": "Holt Befehle, entschlüsselt sie und steuert den Ablauf aller anderen Prozessoreinheiten"
+    },
+    "funFact": "Das Steuerwerk ist der Dirigent im Prozessor: Es liest jeden Befehl, übersetzt ihn in Steuersignale und gibt den Takt der Bearbeitung vor.",
+    "source": {
+      "name": "Wikipedia DE – Steuerwerk",
+      "url": "https://de.wikipedia.org/wiki/Steuerwerk"
+    },
+    "image": null
+  },
+  "machina:hardware-mmu-h3": {
+    "id": "machina:hardware-mmu-h3",
+    "name": "Speicherverwaltungseinheit (MMU)",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Prozessor/Recheneinheit",
+      "function": "Übersetzt virtuelle Speicheradressen in physische und setzt Speicherschutz durch"
+    },
+    "funFact": "Die MMU macht virtuellen Speicher möglich: Jedes Programm glaubt, den ganzen Speicher allein zu besitzen, während die MMU im Hintergrund umrechnet.",
+    "source": {
+      "name": "Wikipedia DE – Memory Management Unit",
+      "url": "https://de.wikipedia.org/wiki/Memory_Management_Unit"
+    },
+    "image": null
+  },
+  "machina:hardware-dma-controller-h3": {
+    "id": "machina:hardware-dma-controller-h3",
+    "name": "DMA-Controller",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Hauptplatine/Bus",
+      "function": "Überträgt Daten direkt zwischen Speicher und Peripherie, ohne den Prozessor zu belasten"
+    },
+    "funFact": "Dank des DMA-Controllers kann eine Festplatte Daten in den Arbeitsspeicher schaufeln, während die CPU ungestört etwas anderes berechnet.",
+    "source": {
+      "name": "Wikipedia DE – Direct Memory Access",
+      "url": "https://de.wikipedia.org/wiki/Direct_Memory_Access"
+    },
+    "image": null
+  },
+  "machina:hardware-northbridge-h3": {
+    "id": "machina:hardware-northbridge-h3",
+    "name": "Northbridge",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Hauptplatine/Bus",
+      "function": "Verband früher die CPU mit schnellen Komponenten wie Arbeitsspeicher und Grafikkarte"
+    },
+    "funFact": "Die Northbridge war einst der schnelle Knotenpunkt nahe der CPU; ihre Aufgaben wanderten später direkt in den Prozessor und ließen sie verschwinden.",
+    "source": {
+      "name": "Wikipedia DE – Northbridge",
+      "url": "https://de.wikipedia.org/wiki/Northbridge"
+    },
+    "image": null
+  },
+  "machina:hardware-southbridge-h3": {
+    "id": "machina:hardware-southbridge-h3",
+    "name": "Southbridge",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Hauptplatine/Bus",
+      "function": "Bindet langsamere Peripherie wie USB, Festplatten und Audio an das Mainboard an"
+    },
+    "funFact": "Die Southbridge kümmerte sich um die gemächlicheren Anschlüsse des Rechners, während die Northbridge die schnellen Datenströme regelte.",
+    "source": {
+      "name": "Wikipedia DE – Southbridge",
+      "url": "https://de.wikipedia.org/wiki/Southbridge"
+    },
+    "image": null
+  },
+  "machina:hardware-systembus-h3": {
+    "id": "machina:hardware-systembus-h3",
+    "name": "Systembus",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Hauptplatine/Bus",
+      "function": "Gemeinsame Leitungsbündel, über die CPU, Speicher und Peripherie Daten und Adressen austauschen"
+    },
+    "funFact": "Ein Bus ist wie eine Datenautobahn auf der Platine: Mehrere Komponenten teilen sich dieselben Leitungen für Adressen, Daten und Steuersignale.",
+    "source": {
+      "name": "Wikipedia DE – Bus (Datenverarbeitung)",
+      "url": "https://de.wikipedia.org/wiki/Bus_(Datenverarbeitung)"
+    },
+    "image": null
+  },
+  "machina:hardware-l1-cache-h3": {
+    "id": "machina:hardware-l1-cache-h3",
+    "name": "L1-Cache",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Prozessor/Recheneinheit",
+      "function": "Kleinster und schnellster Pufferspeicher direkt im Prozessorkern für häufig gebrauchte Daten"
+    },
+    "funFact": "Der L1-Cache ist nur wenige Kilobyte groß, aber so nah am Rechenwerk, dass der Zugriff fast keine Wartezeit kostet.",
+    "source": {
+      "name": "Wikipedia DE – Cache",
+      "url": "https://de.wikipedia.org/wiki/Cache"
+    },
+    "image": null
+  },
+  "machina:hardware-l2-cache-h3": {
+    "id": "machina:hardware-l2-cache-h3",
+    "name": "L2-Cache",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Prozessor/Recheneinheit",
+      "function": "Mittlere Cache-Stufe zwischen dem winzigen L1-Cache und dem großen, langsameren Hauptspeicher"
+    },
+    "funFact": "Der L2-Cache ist größer, aber etwas langsamer als L1 und fängt Daten ab, die nicht mehr in den kleinen L1-Cache passen.",
+    "source": {
+      "name": "Wikipedia DE – Cache",
+      "url": "https://de.wikipedia.org/wiki/Cache"
+    },
+    "image": null
+  },
+  "machina:hardware-busfehler-h3": {
+    "id": "machina:hardware-busfehler-h3",
+    "name": "L3-Cache",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Prozessor/Recheneinheit",
+      "function": "Größter, von mehreren Kernen geteilter Pufferspeicher vor dem Zugriff auf den Arbeitsspeicher"
+    },
+    "funFact": "Der L3-Cache wird meist von allen Kernen gemeinsam genutzt und ist die letzte schnelle Zwischenstation, bevor der langsame RAM bemüht wird.",
+    "source": {
+      "name": "Wikipedia DE – Cache",
+      "url": "https://de.wikipedia.org/wiki/Cache"
+    },
+    "image": null
+  },
+  "machina:hardware-fpu-h3": {
+    "id": "machina:hardware-fpu-h3",
+    "name": "Gleitkommaeinheit (FPU)",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Prozessor/Recheneinheit",
+      "function": "Spezialeinheit für schnelle Berechnungen mit gebrochenen Zahlen in Gleitkommadarstellung"
+    },
+    "funFact": "Früher saß die FPU als separater Mathe-Koprozessor neben der CPU; heute ist sie fest in jeden Prozessorkern integriert.",
+    "source": {
+      "name": "Wikipedia DE – Gleitkommaeinheit",
+      "url": "https://de.wikipedia.org/wiki/Gleitkommaeinheit"
+    },
+    "image": null
+  },
+  "machina:hardware-taktgeber-h3": {
+    "id": "machina:hardware-taktgeber-h3",
+    "name": "Taktgeber",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Taktgeber",
+      "function": "Erzeugt das regelmäßige Taktsignal, das alle Rechenschritte eines Computers synchronisiert"
+    },
+    "funFact": "Die Taktrate in Gigahertz gibt an, wie viele Milliarden Taktschläge der Taktgeber pro Sekunde liefert – der Herzschlag des Rechners.",
+    "source": {
+      "name": "Wikipedia DE – Takt (Technik)",
+      "url": "https://de.wikipedia.org/wiki/Takt_(Technik)"
+    },
+    "image": null
+  },
+  "machina:hardware-spannungsregler-vrm-h3": {
+    "id": "machina:hardware-spannungsregler-vrm-h3",
+    "name": "Hauptspeicher-Controller",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Prozessor/Recheneinheit",
+      "function": "Steuert den Datenaustausch zwischen Prozessor und Arbeitsspeicher und legt dessen Timing fest"
+    },
+    "funFact": "Moderne CPUs haben den Speicher-Controller direkt im Chip integriert, was den Weg zum Arbeitsspeicher deutlich verkürzt und beschleunigt.",
+    "source": {
+      "name": "Wikipedia DE – Speichercontroller",
+      "url": "https://de.wikipedia.org/wiki/Speichercontroller"
+    },
+    "image": null
+  },
+  "machina:hardware-rom-baustein-h3": {
+    "id": "machina:hardware-rom-baustein-h3",
+    "name": "EPROM",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Datenspeicher",
+      "function": "Festwertspeicher, der sich durch UV-Licht löschen und neu programmieren lässt"
+    },
+    "funFact": "Klassische EPROMs haben ein kleines Quarzfenster auf dem Chip; nur durch UV-Bestrahlung durch dieses Fenster lassen sie sich wieder löschen.",
+    "source": {
+      "name": "Wikipedia DE – EPROM",
+      "url": "https://de.wikipedia.org/wiki/EPROM"
+    },
+    "image": null
+  },
+  "machina:hardware-relais-h3": {
+    "id": "machina:hardware-relais-h3",
+    "name": "Relais",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Bauteil",
+      "function": "Elektromechanischer Schalter, der mit einem kleinen Steuerstrom einen größeren Stromkreis schaltet"
+    },
+    "funFact": "Die frühesten Computer schalteten mit klappernden Relais statt Transistoren – ein im Relais verklemmtes Insekt prägte den Begriff Bug.",
+    "source": {
+      "name": "Wikipedia DE – Relais",
+      "url": "https://de.wikipedia.org/wiki/Relais"
+    },
+    "image": null
+  },
+  "machina:hardware-led-anzeige-h3": {
+    "id": "machina:hardware-led-anzeige-h3",
+    "name": "Siebensegmentanzeige",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Ausgabegerät",
+      "function": "Stellt Ziffern durch das gezielte Aufleuchten von sieben balkenförmigen Segmenten dar"
+    },
+    "funFact": "Mit nur sieben einzeln ansteuerbaren Balken lassen sich alle Ziffern von 0 bis 9 darstellen – Standard bei Digitaluhren und Messgeräten.",
+    "source": {
+      "name": "Wikipedia DE – Sieben-Segment-Anzeige",
+      "url": "https://de.wikipedia.org/wiki/Sieben-Segment-Anzeige"
+    },
+    "image": null
+  },
+  "machina:hardware-potentiometer-h3": {
+    "id": "machina:hardware-potentiometer-h3",
+    "name": "Potentiometer",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Eingabegerät",
+      "function": "Einstellbarer Widerstand, der je nach Drehung eine veränderbare Spannung als Eingabewert liefert"
+    },
+    "funFact": "Klassische Lautstärke- und Helligkeitsregler sind Potentiometer; auch viele Joysticks messen ihre Auslenkung über solche Drehwiderstände.",
+    "source": {
+      "name": "Wikipedia DE – Potentiometer",
+      "url": "https://de.wikipedia.org/wiki/Potentiometer"
+    },
+    "image": null
+  },
+  "machina:hardware-piezo-summer-h3": {
+    "id": "machina:hardware-piezo-summer-h3",
+    "name": "Piezo-Summer",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Ausgabegerät",
+      "function": "Erzeugt Töne durch das Schwingen eines piezoelektrischen Plättchens unter Wechselspannung"
+    },
+    "funFact": "Der vertraute Piepton beim Hochfahren älterer PCs stammt von einem winzigen Piezo-Summer auf dem Mainboard.",
+    "source": {
+      "name": "Wikipedia DE – Piezolautsprecher",
+      "url": "https://de.wikipedia.org/wiki/Piezolautsprecher"
+    },
+    "image": null
+  },
+  "machina:hardware-sicherung-h3": {
+    "id": "machina:hardware-sicherung-h3",
+    "name": "Schmelzsicherung",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Stromversorgung",
+      "function": "Unterbricht den Stromkreis dauerhaft, sobald ein zu hoher Strom einen dünnen Draht durchschmilzt"
+    },
+    "funFact": "Eine Schmelzsicherung opfert sich selbst: Ihr Draht schmilzt bei Überlast durch und schützt so die dahinterliegende Elektronik vor Schaden.",
+    "source": {
+      "name": "Wikipedia DE – Schmelzsicherung",
+      "url": "https://de.wikipedia.org/wiki/Schmelzsicherung"
+    },
+    "image": null
+  },
+  "machina:hardware-leiterplatte-h3": {
+    "id": "machina:hardware-leiterplatte-h3",
+    "name": "Leiterplatte",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Hauptplatine/Bus",
+      "function": "Trägt elektronische Bauteile und verbindet sie über aufgedruckte Leiterbahnen aus Kupfer"
+    },
+    "funFact": "Die grüne Farbe vieler Leiterplatten stammt vom Lötstopplack, der die feinen Kupferbahnen vor Korrosion und Kurzschlüssen schützt.",
+    "source": {
+      "name": "Wikipedia DE – Leiterplatte",
+      "url": "https://de.wikipedia.org/wiki/Leiterplatte"
+    },
+    "image": null
+  },
+  "machina:hardware-kuehlpaste-pad-h3": {
+    "id": "machina:hardware-kuehlpaste-pad-h3",
+    "name": "Wärmeleitpad",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Kühlung",
+      "function": "Füllt als weiches Polster den Spalt zwischen Bauteil und Kühlkörper, um Wärme besser abzuleiten"
+    },
+    "funFact": "Wärmeleitpads sind die sauberere Alternative zur klebrigen Wärmeleitpaste und werden oft auf Speicherchips und Spannungswandlern eingesetzt.",
+    "source": {
+      "name": "Wikipedia DE – Wärmeleitpad",
+      "url": "https://de.wikipedia.org/wiki/W%C3%A4rmeleitpad"
+    },
+    "image": null
+  },
+  "machina:hardware-heatpipe-h3": {
+    "id": "machina:hardware-heatpipe-h3",
+    "name": "Heatpipe",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Kühlung",
+      "function": "Transportiert Wärme sehr effizient durch das Verdampfen und Wiederkondensieren einer Flüssigkeit im Inneren"
+    },
+    "funFact": "In einer Heatpipe verdampft eine Flüssigkeit an der heißen Seite, strömt zur kalten Seite und kondensiert dort – ein lautloser Wärmetransporter ohne bewegliche Teile.",
+    "source": {
+      "name": "Wikipedia DE – Wärmerohr",
+      "url": "https://de.wikipedia.org/wiki/W%C3%A4rmerohr"
+    },
+    "image": null
+  },
+  "machina:hardware-cmos-batterie-h3": {
+    "id": "machina:hardware-cmos-batterie-h3",
+    "name": "CMOS-Batterie",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Stromversorgung",
+      "function": "Versorgt bei ausgeschaltetem Rechner die Echtzeituhr und die gespeicherten BIOS-Einstellungen mit Strom"
+    },
+    "funFact": "Wenn ein alter PC nach dem Ausstecken Datum und Uhrzeit vergisst, ist meist die kleine Knopfzelle auf dem Mainboard leer.",
+    "source": {
+      "name": "Wikipedia DE – CMOS-RAM",
+      "url": "https://de.wikipedia.org/wiki/CMOS-RAM"
+    },
+    "image": null
+  },
+  "machina:hardware-pcie-lane-h3": {
+    "id": "machina:hardware-pcie-lane-h3",
+    "name": "Erweiterungssteckplatz",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Schnittstelle",
+      "function": "Steckverbindung auf dem Mainboard zur Aufnahme von Steckkarten wie Grafik- oder Netzwerkkarten"
+    },
+    "funFact": "Über Erweiterungssteckplätze lässt sich ein PC nachrüsten – ein Grund, warum klassische Desktop-Rechner langlebiger sind als verlötete Laptops.",
+    "source": {
+      "name": "Wikipedia DE – Steckplatz",
+      "url": "https://de.wikipedia.org/wiki/Steckplatz"
+    },
+    "image": null
+  },
+  "machina:hardware-jumper-h3": {
+    "id": "machina:hardware-jumper-h3",
+    "name": "Jumper",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Hauptplatine/Bus",
+      "function": "Kleine Steckbrücke, die zwei Kontaktstifte verbindet und so eine Hardware-Einstellung festlegt"
+    },
+    "funFact": "Vor der Zeit grafischer BIOS-Menüs stellte man Einstellungen mechanisch ein, indem man winzige Jumper-Brücken auf bestimmte Stiftpaare steckte.",
+    "source": {
+      "name": "Wikipedia DE – Jumper (Elektronik)",
+      "url": "https://de.wikipedia.org/wiki/Jumper_(Elektronik)"
+    },
+    "image": null
+  },
+  "machina:hardware-thermoelement-h3": {
+    "id": "machina:hardware-thermoelement-h3",
+    "name": "Thermoelement",
+    "type": "hardware",
+    "category": "hardware",
+    "attributes": {
+      "category": "Sensor",
+      "function": "Misst Temperatur, indem zwei verschiedene Metalle bei Erwärmung eine kleine Spannung erzeugen"
+    },
+    "funFact": "Ein Thermoelement braucht keine eigene Stromversorgung – allein der Temperaturunterschied an der Verbindungsstelle liefert die Messspannung.",
+    "source": {
+      "name": "Wikipedia DE – Thermoelement",
+      "url": "https://de.wikipedia.org/wiki/Thermoelement"
+    },
+    "image": null
+  },
+  "machina:file_format-aax-h3": {
+    "id": "machina:file_format-aax-h3",
+    "name": "AAX",
+    "type": "file_format",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Audible Enhanced Audiobook",
+      "compression": "verlustbehaftet",
+      "mediaType": "Audio"
+    },
+    "funFact": "AAX ist das DRM-geschützte Hörbuchformat von Audible und basiert technisch auf AAC.",
+    "source": {
+      "name": "Wikipedia EN – Audible (.aax)",
+      "url": "https://en.wikipedia.org/wiki/Audible_(service)"
+    },
+    "image": null
+  },
+  "machina:file_format-vorbis-h3": {
+    "id": "machina:file_format-vorbis-h3",
+    "name": "Vorbis",
+    "type": "file_format",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Ogg Vorbis Audio",
+      "compression": "verlustbehaftet",
+      "mediaType": "Audio"
+    },
+    "funFact": "Vorbis ist ein patentfreier, offener Audiocodec der Xiph.Org Foundation.",
+    "source": {
+      "name": "Wikipedia DE – Vorbis",
+      "url": "https://de.wikipedia.org/wiki/Vorbis"
+    },
+    "image": null
+  },
+  "machina:file_format-monkeys-audio-h3": {
+    "id": "machina:file_format-monkeys-audio-h3",
+    "name": "Monkey's Audio",
+    "type": "file_format",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Monkey's Audio Lossless",
+      "compression": "verlustfrei",
+      "mediaType": "Audio"
+    },
+    "funFact": "Monkey's Audio (Dateiendung .ape) erreicht oft höhere Kompressionsraten als FLAC, ist aber rechenintensiver.",
+    "source": {
+      "name": "Wikipedia DE – Monkey's Audio",
+      "url": "https://de.wikipedia.org/wiki/Monkey%E2%80%99s_Audio"
+    },
+    "image": null
+  },
+  "machina:file_format-dsd-h3": {
+    "id": "machina:file_format-dsd-h3",
+    "name": "DSD",
+    "type": "file_format",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Direct Stream Digital",
+      "compression": "keine",
+      "mediaType": "Audio"
+    },
+    "funFact": "DSD nutzt 1-Bit-Sigma-Delta-Modulation und ist das Audioformat der Super Audio CD (SACD).",
+    "source": {
+      "name": "Wikipedia DE – Direct Stream Digital",
+      "url": "https://de.wikipedia.org/wiki/Direct_Stream_Digital"
+    },
+    "image": null
+  },
+  "machina:file_format-theora-h3": {
+    "id": "machina:file_format-theora-h3",
+    "name": "Theora",
+    "type": "file_format",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Theora Video Codec",
+      "compression": "verlustbehaftet",
+      "mediaType": "Video"
+    },
+    "funFact": "Theora ist ein freier Videocodec der Xiph.Org Foundation, abgeleitet von VP3.",
+    "source": {
+      "name": "Wikipedia DE – Theora",
+      "url": "https://de.wikipedia.org/wiki/Theora"
+    },
+    "image": null
+  },
+  "machina:file_format-usd-h3": {
+    "id": "machina:file_format-usd-h3",
+    "name": "USD",
+    "type": "file_format",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Universal Scene Description",
+      "compression": "keine",
+      "mediaType": "3D-Modell"
+    },
+    "funFact": "USD wurde von Pixar entwickelt, um komplexe 3D-Szenen aus mehreren Quellen zusammenzusetzen.",
+    "source": {
+      "name": "Wikipedia EN – Universal Scene Description",
+      "url": "https://en.wikipedia.org/wiki/Universal_Scene_Description"
+    },
+    "image": null
+  },
+  "machina:file_format-step-h3": {
+    "id": "machina:file_format-step-h3",
+    "name": "STEP",
+    "type": "file_format",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Standard for the Exchange of Product model data",
+      "compression": "keine",
+      "mediaType": "CAD-Zeichnung"
+    },
+    "funFact": "STEP ist in der Norm ISO 10303 definiert und tauscht CAD-Modelle herstellerunabhängig aus.",
+    "source": {
+      "name": "Wikipedia EN – ISO 10303",
+      "url": "https://en.wikipedia.org/wiki/ISO_10303"
+    },
+    "image": null
+  },
+  "machina:file_format-iges-h3": {
+    "id": "machina:file_format-iges-h3",
+    "name": "IGES",
+    "type": "file_format",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Initial Graphics Exchange Specification",
+      "compression": "keine",
+      "mediaType": "CAD-Zeichnung"
+    },
+    "funFact": "IGES ist eines der ältesten neutralen CAD-Austauschformate und stammt aus dem Jahr 1980.",
+    "source": {
+      "name": "Wikipedia DE – IGES",
+      "url": "https://de.wikipedia.org/wiki/IGES"
+    },
+    "image": null
+  },
+  "machina:file_format-3mf-h3": {
+    "id": "machina:file_format-3mf-h3",
+    "name": "3MF",
+    "type": "file_format",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "3D Manufacturing Format",
+      "compression": "verlustfrei",
+      "mediaType": "3D-Modell"
+    },
+    "funFact": "3MF ist ein XML-basiertes Format für den 3D-Druck und wurde als moderner STL-Nachfolger entworfen.",
+    "source": {
+      "name": "Wikipedia EN – 3D Manufacturing Format",
+      "url": "https://en.wikipedia.org/wiki/3D_Manufacturing_Format"
+    },
+    "image": null
+  },
+  "machina:file_format-fits-h3": {
+    "id": "machina:file_format-fits-h3",
+    "name": "FITS",
+    "type": "file_format",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Flexible Image Transport System",
+      "compression": "keine",
+      "mediaType": "Daten"
+    },
+    "funFact": "FITS ist das Standardformat der Astronomie und speichert wissenschaftliche Bilddaten samt Metadaten.",
+    "source": {
+      "name": "Wikipedia DE – Flexible Image Transport System",
+      "url": "https://de.wikipedia.org/wiki/Flexible_Image_Transport_System"
+    },
+    "image": null
+  },
+  "machina:file_format-hdf5-h3": {
+    "id": "machina:file_format-hdf5-h3",
+    "name": "HDF5",
+    "type": "file_format",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Hierarchical Data Format Version 5",
+      "compression": "verlustfrei",
+      "mediaType": "Daten"
+    },
+    "funFact": "HDF5 organisiert große wissenschaftliche Datensätze hierarchisch wie ein Dateisystem in einer Datei.",
+    "source": {
+      "name": "Wikipedia DE – Hierarchical Data Format",
+      "url": "https://de.wikipedia.org/wiki/Hierarchical_Data_Format"
+    },
+    "image": null
+  },
+  "machina:file_format-netcdf-h3": {
+    "id": "machina:file_format-netcdf-h3",
+    "name": "NetCDF",
+    "type": "file_format",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Network Common Data Form",
+      "compression": "verlustfrei",
+      "mediaType": "Daten"
+    },
+    "funFact": "NetCDF wird vor allem in Klima- und Geowissenschaften für mehrdimensionale Gitterdaten genutzt.",
+    "source": {
+      "name": "Wikipedia DE – NetCDF",
+      "url": "https://de.wikipedia.org/wiki/NetCDF"
+    },
+    "image": null
+  },
+  "machina:file_format-orc-h3": {
+    "id": "machina:file_format-orc-h3",
+    "name": "ORC",
+    "type": "file_format",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Optimized Row Columnar",
+      "compression": "verlustfrei",
+      "mediaType": "Tabellen/Daten"
+    },
+    "funFact": "ORC ist ein spaltenorientiertes Format aus dem Hadoop-Umfeld und konkurriert direkt mit Parquet.",
+    "source": {
+      "name": "Wikipedia EN – Apache ORC",
+      "url": "https://en.wikipedia.org/wiki/Apache_ORC"
+    },
+    "image": null
+  },
+  "machina:file_format-feather-h3": {
+    "id": "machina:file_format-feather-h3",
+    "name": "Feather",
+    "type": "file_format",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Apache Arrow Feather",
+      "compression": "verlustfrei",
+      "mediaType": "Tabellen/Daten"
+    },
+    "funFact": "Feather basiert auf Apache Arrow und ermöglicht sehr schnelles Lesen von Tabellen zwischen Python und R.",
+    "source": {
+      "name": "Wikipedia EN – Apache Arrow",
+      "url": "https://en.wikipedia.org/wiki/Apache_Arrow"
+    },
+    "image": null
+  },
+  "machina:file_format-jpeg-2000-h3": {
+    "id": "machina:file_format-jpeg-2000-h3",
+    "name": "JPEG 2000",
+    "type": "file_format",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Joint Photographic Experts Group 2000",
+      "compression": "verlustbehaftet",
+      "mediaType": "Bild"
+    },
+    "funFact": "JPEG 2000 nutzt Wavelet-Transformation statt DCT und unterstützt sowohl verlust- als auch verlustfreie Modi.",
+    "source": {
+      "name": "Wikipedia DE – JPEG 2000",
+      "url": "https://de.wikipedia.org/wiki/JPEG_2000"
+    },
+    "image": null
+  },
+  "machina:file_format-heif-h3": {
+    "id": "machina:file_format-heif-h3",
+    "name": "HEIF",
+    "type": "file_format",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "High Efficiency Image File Format",
+      "compression": "verlustbehaftet",
+      "mediaType": "Bild"
+    },
+    "funFact": "HEIF speichert Bilder mit dem HEVC-Codec und braucht bei gleicher Qualität deutlich weniger Platz als JPEG.",
+    "source": {
+      "name": "Wikipedia DE – High Efficiency Image File Format",
+      "url": "https://de.wikipedia.org/wiki/High_Efficiency_Image_File_Format"
+    },
+    "image": null
+  },
+  "machina:file_format-openexr-h3": {
+    "id": "machina:file_format-openexr-h3",
+    "name": "OpenEXR",
+    "type": "file_format",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Open Extended Dynamic Range",
+      "compression": "verlustfrei",
+      "mediaType": "Bild"
+    },
+    "funFact": "OpenEXR speichert High-Dynamic-Range-Bilder und wurde von Industrial Light & Magic entwickelt.",
+    "source": {
+      "name": "Wikipedia EN – OpenEXR",
+      "url": "https://en.wikipedia.org/wiki/OpenEXR"
+    },
+    "image": null
+  },
+  "machina:file_format-cur-h3": {
+    "id": "machina:file_format-cur-h3",
+    "name": "CUR",
+    "type": "file_format",
+    "category": "file_format",
+    "attributes": {
+      "fullName": "Windows Cursor",
+      "compression": "keine",
+      "mediaType": "Bild"
+    },
+    "funFact": "Das CUR-Format speichert Mauszeiger unter Windows und ähnelt technisch dem ICO-Iconformat.",
+    "source": {
+      "name": "Wikipedia EN – ICO (file format)",
+      "url": "https://en.wikipedia.org/wiki/ICO_(file_format)"
+    },
+    "image": null
+  },
+  "machina:data_structure-union-find-struktur-h3": {
+    "id": "machina:data_structure-union-find-struktur-h3",
+    "name": "Union-Find-Struktur",
+    "type": "data_structure",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "accessComplexity": "O(α(n))",
+      "purpose": "Verwaltet disjunkte Mengen mit den Operationen Vereinigen und Repräsentanten-Finden"
+    },
+    "funFact": "Mit Pfadkompression und Rang läuft jede Operation praktisch konstant — der inverse Ackermann-Wert α(n) bleibt unter 5.",
+    "source": {
+      "name": "Wikipedia DE – Union-Find-Struktur",
+      "url": "https://de.wikipedia.org/wiki/Union-Find-Struktur"
+    },
+    "image": null
+  },
+  "machina:data_structure-patricia-trie-h3": {
+    "id": "machina:data_structure-patricia-trie-h3",
+    "name": "Patricia-Trie",
+    "type": "data_structure",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "accessComplexity": "O(k)",
+      "purpose": "Komprimierter Binär-Trie, der Ketten ohne Verzweigung zu einer Kante zusammenfasst"
+    },
+    "funFact": "Der Name PATRICIA bezeichnet ein platzsparendes Verfahren zur Schlüsselspeicherung aus den 1960er-Jahren.",
+    "source": {
+      "name": "Wikipedia EN – Radix tree (PATRICIA)",
+      "url": "https://en.wikipedia.org/wiki/Radix_tree"
+    },
+    "image": null
+  },
+  "machina:data_structure-aa-baum-h3": {
+    "id": "machina:data_structure-aa-baum-h3",
+    "name": "AA-Baum",
+    "type": "data_structure",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "accessComplexity": "O(log n)",
+      "purpose": "Selbstbalancierender Suchbaum, vereinfachte Variante des Rot-Schwarz-Baums mit Level-Feldern"
+    },
+    "funFact": "Der AA-Baum von Arne Andersson hat weniger Balance-Fälle als der Rot-Schwarz-Baum und ist dadurch leichter zu implementieren.",
+    "source": {
+      "name": "Wikipedia EN – AA tree",
+      "url": "https://en.wikipedia.org/wiki/AA_tree"
+    },
+    "image": null
+  },
+  "machina:data_structure-scapegoat-baum-h3": {
+    "id": "machina:data_structure-scapegoat-baum-h3",
+    "name": "Scapegoat-Baum",
+    "type": "data_structure",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "accessComplexity": "O(log n)",
+      "purpose": "Selbstbalancierender Suchbaum, der bei zu großer Schieflage einen Teilbaum komplett neu aufbaut"
+    },
+    "funFact": "Der Scapegoat-Baum braucht keine zusätzlichen Balance-Felder pro Knoten und balanciert rein über Neuaufbau.",
+    "source": {
+      "name": "Wikipedia EN – Scapegoat tree",
+      "url": "https://en.wikipedia.org/wiki/Scapegoat_tree"
+    },
+    "image": null
+  },
+  "machina:data_structure-weak-heap-h3": {
+    "id": "machina:data_structure-weak-heap-h3",
+    "name": "Weak-Heap",
+    "type": "data_structure",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Heap",
+      "accessComplexity": "O(log n)",
+      "purpose": "Heap-Variante mit gelockerter Halbordnung, die die Zahl der Schlüsselvergleiche reduziert"
+    },
+    "funFact": "Der Weak-Heap senkt die Vergleichsanzahl beim Sortieren und nähert sich der theoretischen Untergrenze.",
+    "source": {
+      "name": "Wikipedia EN – Weak heap",
+      "url": "https://en.wikipedia.org/wiki/Weak_heap"
+    },
+    "image": null
+  },
+  "machina:data_structure-min-max-heap-h3": {
+    "id": "machina:data_structure-min-max-heap-h3",
+    "name": "Min-Max-Heap",
+    "type": "data_structure",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Heap",
+      "accessComplexity": "O(log n)",
+      "purpose": "Heap, der gleichzeitig schnellen Zugriff auf Minimum und Maximum erlaubt (doppelendige Prioritätswarteschlange)"
+    },
+    "funFact": "Im Min-Max-Heap wechseln sich Min- und Max-Ebenen ab, sodass beide Extremwerte in O(1) ablesbar sind.",
+    "source": {
+      "name": "Wikipedia EN – Min-max heap",
+      "url": "https://en.wikipedia.org/wiki/Min-max_heap"
+    },
+    "image": null
+  },
+  "machina:data_structure-soft-heap-h3": {
+    "id": "machina:data_structure-soft-heap-h3",
+    "name": "Soft-Heap",
+    "type": "data_structure",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Heap",
+      "accessComplexity": "O(1)",
+      "purpose": "Approximativer Heap mit amortisiert konstanten Operationen, der einige Schlüssel bewusst verfälscht"
+    },
+    "funFact": "Der Soft-Heap erkauft konstante amortisierte Laufzeit, indem er eine begrenzte Zahl von Schlüsseln 'korrumpiert'.",
+    "source": {
+      "name": "Wikipedia EN – Soft heap",
+      "url": "https://en.wikipedia.org/wiki/Soft_heap"
+    },
+    "image": null
+  },
+  "machina:data_structure-hash-array-mapped-trie-h3": {
+    "id": "machina:data_structure-hash-array-mapped-trie-h3",
+    "name": "Hash-Array-Mapped-Trie",
+    "type": "data_structure",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Hash",
+      "accessComplexity": "O(log n)",
+      "purpose": "Kombiniert Hashtabelle und Trie für speichereffiziente, unveränderliche Wörterbücher"
+    },
+    "funFact": "HAMTs sind das Rückgrat persistenter Map-Strukturen in Sprachen wie Clojure und Scala.",
+    "source": {
+      "name": "Wikipedia EN – Hash array mapped trie",
+      "url": "https://en.wikipedia.org/wiki/Hash_array_mapped_trie"
+    },
+    "image": null
+  },
+  "machina:data_structure-2-3-4-baum-h3": {
+    "id": "machina:data_structure-2-3-4-baum-h3",
+    "name": "2-3-4-Baum",
+    "type": "data_structure",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "accessComplexity": "O(log n)",
+      "purpose": "Balancierter Suchbaum, dessen Knoten 2, 3 oder 4 Kinder haben; Spezialfall des B-Baums"
+    },
+    "funFact": "Der 2-3-4-Baum ist isomorph zum Rot-Schwarz-Baum und garantiert dadurch dieselbe logarithmische Höhe.",
+    "source": {
+      "name": "Wikipedia EN – 2–3–4 tree",
+      "url": "https://en.wikipedia.org/wiki/2%E2%80%933%E2%80%934_tree"
+    },
+    "image": null
+  },
+  "machina:data_structure-link-cut-baum-h3": {
+    "id": "machina:data_structure-link-cut-baum-h3",
+    "name": "Link-Cut-Baum",
+    "type": "data_structure",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "accessComplexity": "O(log n)",
+      "purpose": "Verwaltet einen Wald dynamischer Bäume mit Verbinden und Trennen von Kanten in logarithmischer Zeit"
+    },
+    "funFact": "Der Link-Cut-Baum nutzt zerlegte Pfade aus Splay-Bäumen und beschleunigt Netzwerkfluss-Algorithmen.",
+    "source": {
+      "name": "Wikipedia EN – Link/cut tree",
+      "url": "https://en.wikipedia.org/wiki/Link/cut_tree"
+    },
+    "image": null
+  },
+  "machina:data_structure-burkhard-keller-baum-h3": {
+    "id": "machina:data_structure-burkhard-keller-baum-h3",
+    "name": "Burkhard-Keller-Baum",
+    "type": "data_structure",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "accessComplexity": "O(log n)",
+      "purpose": "Metrischer Baum für Ähnlichkeitssuche, indexiert Elemente über ihre Distanz zu Referenzknoten"
+    },
+    "funFact": "Der BK-Baum eignet sich für Tippfehler-Korrektur, weil er nach Levenshtein-Distanz ähnliche Wörter findet.",
+    "source": {
+      "name": "Wikipedia EN – BK-tree",
+      "url": "https://en.wikipedia.org/wiki/BK-tree"
+    },
+    "image": null
+  },
+  "machina:data_structure-wavelet-baum-h3": {
+    "id": "machina:data_structure-wavelet-baum-h3",
+    "name": "Wavelet-Baum",
+    "type": "data_structure",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "accessComplexity": "O(log σ)",
+      "purpose": "Komprimierte Struktur, die Rank- und Select-Abfragen über große Alphabete effizient beantwortet"
+    },
+    "funFact": "Der Wavelet-Baum ermöglicht volltext-indizierte Suche in komprimierten Daten ohne vorheriges Entpacken.",
+    "source": {
+      "name": "Wikipedia EN – Wavelet tree",
+      "url": "https://en.wikipedia.org/wiki/Wavelet_Tree"
+    },
+    "image": null
+  },
+  "machina:data_structure-bereichsbaum-h3": {
+    "id": "machina:data_structure-bereichsbaum-h3",
+    "name": "Bereichsbaum",
+    "type": "data_structure",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "accessComplexity": "O(log² n)",
+      "purpose": "Mehrstufige Baumstruktur für orthogonale Bereichsabfragen in mehreren Dimensionen"
+    },
+    "funFact": "Der Bereichsbaum (Range Tree) beantwortet zweidimensionale Rechteck-Abfragen in O(log² n) plus Trefferzahl.",
+    "source": {
+      "name": "Wikipedia EN – Range tree",
+      "url": "https://en.wikipedia.org/wiki/Range_tree"
+    },
+    "image": null
+  },
+  "machina:data_structure-bsp-baum-h3": {
+    "id": "machina:data_structure-bsp-baum-h3",
+    "name": "BSP-Baum",
+    "type": "data_structure",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "accessComplexity": "O(log n)",
+      "purpose": "Zerlegt den Raum rekursiv mit Hyperebenen; ordnet Szenen-Polygone für korrektes Rendering"
+    },
+    "funFact": "BSP-Bäume machten 1993 die schnelle Sichtbarkeitssortierung in Doom möglich.",
+    "source": {
+      "name": "Wikipedia DE – Binärer Raumteilungsbaum",
+      "url": "https://de.wikipedia.org/wiki/Bin%C3%A4rer_Raumteilungsbaum"
+    },
+    "image": null
+  },
+  "machina:data_structure-implizite-datenstruktur-h3": {
+    "id": "machina:data_structure-implizite-datenstruktur-h3",
+    "name": "Implizite Datenstruktur",
+    "type": "data_structure",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Lineare Struktur",
+      "accessComplexity": "O(1)",
+      "purpose": "Speichert Daten ohne zusätzliche Zeiger und kodiert Struktur allein über die Indexpositionen"
+    },
+    "funFact": "Der Binär-Heap im Array ist das klassische Beispiel: Kind-Knoten ergeben sich rein aus dem Index, ohne Zeiger.",
+    "source": {
+      "name": "Wikipedia EN – Implicit data structure",
+      "url": "https://en.wikipedia.org/wiki/Implicit_data_structure"
+    },
+    "image": null
+  },
+  "machina:data_structure-tango-baum-h3": {
+    "id": "machina:data_structure-tango-baum-h3",
+    "name": "Tango-Baum",
+    "type": "data_structure",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "accessComplexity": "O(log n · log log n)",
+      "purpose": "Selbstanpassender Suchbaum, dessen Zugriffskosten nahe am theoretischen Optimum liegen"
+    },
+    "funFact": "Der Tango-Baum ist O(log log n)-kompetitiv und nähert sich damit der vermuteten Optimalität des Splay-Baums an.",
+    "source": {
+      "name": "Wikipedia EN – Tango tree",
+      "url": "https://en.wikipedia.org/wiki/Tango_tree"
+    },
+    "image": null
+  },
+  "machina:data_structure-dawg-h3": {
+    "id": "machina:data_structure-dawg-h3",
+    "name": "DAWG",
+    "type": "data_structure",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Graph",
+      "accessComplexity": "O(k)",
+      "purpose": "Gerichteter azyklischer Wortgraph, der gemeinsame Endungen von Wörtern zusammenfasst"
+    },
+    "funFact": "Ein DAWG speichert ein Wörterbuch kompakter als ein Trie, weil gleiche Suffixe nur einmal vorkommen.",
+    "source": {
+      "name": "Wikipedia EN – Deterministic acyclic finite state automaton",
+      "url": "https://en.wikipedia.org/wiki/Deterministic_acyclic_finite_state_automaton"
+    },
+    "image": null
+  },
+  "machina:data_structure-brodal-warteschlange-h3": {
+    "id": "machina:data_structure-brodal-warteschlange-h3",
+    "name": "Brodal-Warteschlange",
+    "type": "data_structure",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Heap",
+      "accessComplexity": "O(1)",
+      "purpose": "Prioritätswarteschlange mit worst-case-optimalen konstanten Kosten für Einfügen und Decrease-Key"
+    },
+    "funFact": "Die Brodal-Warteschlange erreicht im Worst Case die Schranken, die der Fibonacci-Heap nur amortisiert bietet.",
+    "source": {
+      "name": "Wikipedia EN – Brodal queue",
+      "url": "https://en.wikipedia.org/wiki/Brodal_queue"
+    },
+    "image": null
+  },
+  "machina:data_structure-hashed-array-tree-h3": {
+    "id": "machina:data_structure-hashed-array-tree-h3",
+    "name": "Hashed-Array-Tree",
+    "type": "data_structure",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Lineare Struktur",
+      "accessComplexity": "O(1)",
+      "purpose": "Dynamisches Array, das die Daten in Blöcken über eine Verzeichnistabelle verwaltet"
+    },
+    "funFact": "Der Hashed-Array-Tree verschwendet beim Wachsen nur O(√n) Speicher, statt wie ein klassisches dynamisches Array bis zur Hälfte.",
+    "source": {
+      "name": "Wikipedia EN – Hashed array tree",
+      "url": "https://en.wikipedia.org/wiki/Hashed_array_tree"
+    },
+    "image": null
+  },
+  "machina:data_structure-euler-tour-baum-h3": {
+    "id": "machina:data_structure-euler-tour-baum-h3",
+    "name": "Euler-Tour-Baum",
+    "type": "data_structure",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "accessComplexity": "O(log n)",
+      "purpose": "Repräsentiert einen dynamischen Baum über seine Euler-Tour, um Konnektivität nach Kantenänderungen zu prüfen"
+    },
+    "funFact": "Der Euler-Tour-Baum verwandelt Baum-Operationen in Operationen auf einer Sequenz und nutzt dafür balancierte Suchbäume.",
+    "source": {
+      "name": "Wikipedia EN – Euler tour technique",
+      "url": "https://en.wikipedia.org/wiki/Euler_tour_technique"
+    },
+    "image": null
+  },
+  "machina:data_structure-order-statistik-baum-h3": {
+    "id": "machina:data_structure-order-statistik-baum-h3",
+    "name": "Order-Statistik-Baum",
+    "type": "data_structure",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "accessComplexity": "O(log n)",
+      "purpose": "Suchbaum mit Teilbaum-Größen, der das k-kleinste Element und den Rang eines Elements schnell liefert"
+    },
+    "funFact": "Der Order-Statistik-Baum erweitert einen balancierten Suchbaum nur um ein Größenfeld pro Knoten und beantwortet Rang-Abfragen in O(log n).",
+    "source": {
+      "name": "Wikipedia EN – Order statistic tree",
+      "url": "https://en.wikipedia.org/wiki/Order_statistic_tree"
+    },
+    "image": null
+  },
+  "machina:data_structure-left-leaning-rot-schwarz-baum-h3": {
+    "id": "machina:data_structure-left-leaning-rot-schwarz-baum-h3",
+    "name": "Left-Leaning-Rot-Schwarz-Baum",
+    "type": "data_structure",
+    "category": "data_structure",
+    "attributes": {
+      "category": "Baumstruktur",
+      "accessComplexity": "O(log n)",
+      "purpose": "Vereinfachte Variante des Rot-Schwarz-Baums, bei der rote Kanten stets nach links zeigen"
+    },
+    "funFact": "Robert Sedgewick entwarf den Left-Leaning-Rot-Schwarz-Baum, um die Implementierung mit deutlich weniger Fällen lehrbar zu machen.",
+    "source": {
+      "name": "Wikipedia EN – Left-leaning red–black tree",
+      "url": "https://en.wikipedia.org/wiki/Left-leaning_red%E2%80%93black_tree"
+    },
+    "image": null
+  },
+  "machina:acronym-tls-h3": {
+    "id": "machina:acronym-tls-h3",
+    "name": "TLS",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Transport Layer Security",
+      "domain": "Netzwerksicherheit"
+    },
+    "funFact": "TLS ist der Nachfolger von SSL; obwohl SSL längst abgelöst ist, spricht man umgangssprachlich oft weiter von SSL-Zertifikaten.",
+    "source": {
+      "name": "IETF – RFC 8446 (TLS 1.3)",
+      "url": "https://datatracker.ietf.org/doc/html/rfc8446"
+    },
+    "image": null
+  },
+  "machina:acronym-uuid-h3": {
+    "id": "machina:acronym-uuid-h3",
+    "name": "UUID",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Universally Unique Identifier",
+      "domain": "Programmierung"
+    },
+    "funFact": "Eine UUID hat 128 Bit; die Wahrscheinlichkeit einer zufälligen Kollision ist so gering, dass man Werte ohne zentrale Vergabestelle generieren kann.",
+    "source": {
+      "name": "IETF – RFC 4122",
+      "url": "https://datatracker.ietf.org/doc/html/rfc4122"
+    },
+    "image": null
+  },
+  "machina:acronym-ipc-h3": {
+    "id": "machina:acronym-ipc-h3",
+    "name": "IPC",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Inter-Process Communication",
+      "domain": "Betriebssysteme"
+    },
+    "funFact": "Zu den klassischen IPC-Mechanismen gehören Pipes, Sockets, Shared Memory und Message Queues.",
+    "source": {
+      "name": "Tanenbaum – Modern Operating Systems",
+      "url": "https://de.wikipedia.org/wiki/Interprozesskommunikation"
+    },
+    "image": null
+  },
+  "machina:acronym-posix-h3": {
+    "id": "machina:acronym-posix-h3",
+    "name": "POSIX",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Portable Operating System Interface",
+      "domain": "Betriebssysteme"
+    },
+    "funFact": "Das abschließende 'X' wurde hinzugefügt, weil es an Unix erinnert und sich besser aussprechen lässt.",
+    "source": {
+      "name": "IEEE – POSIX (IEEE Std 1003.1)",
+      "url": "https://de.wikipedia.org/wiki/POSIX"
+    },
+    "image": null
+  },
+  "machina:acronym-ttl-h3": {
+    "id": "machina:acronym-ttl-h3",
+    "name": "TTL",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Time to Live",
+      "domain": "Netzwerktechnik"
+    },
+    "funFact": "Im IP-Header begrenzt das TTL-Feld die Zahl der Router-Hops; jeder Router verringert es um eins, bei null wird das Paket verworfen.",
+    "source": {
+      "name": "IETF – RFC 791 (Internet Protocol)",
+      "url": "https://datatracker.ietf.org/doc/html/rfc791"
+    },
+    "image": null
+  },
+  "machina:acronym-voip-h3": {
+    "id": "machina:acronym-voip-h3",
+    "name": "VoIP",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Voice over IP",
+      "domain": "Netzwerktechnik"
+    },
+    "funFact": "VoIP digitalisiert Sprache und überträgt sie als Datenpakete über IP-Netze statt über klassische Telefonleitungen.",
+    "source": {
+      "name": "Wikipedia DE – IP-Telefonie",
+      "url": "https://de.wikipedia.org/wiki/IP-Telefonie"
+    },
+    "image": null
+  },
+  "machina:acronym-tld-h3": {
+    "id": "machina:acronym-tld-h3",
+    "name": "TLD",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Top-Level-Domain",
+      "domain": "Webtechnik"
+    },
+    "funFact": "Die TLD ist der letzte Teil eines Domainnamens, etwa '.de' oder '.com', und steht ganz rechts in der Hierarchie.",
+    "source": {
+      "name": "Wikipedia DE – Top-Level-Domain",
+      "url": "https://de.wikipedia.org/wiki/Top-Level-Domain"
+    },
+    "image": null
+  },
+  "machina:acronym-eof-h3": {
+    "id": "machina:acronym-eof-h3",
+    "name": "EOF",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "End of File",
+      "domain": "Programmierung"
+    },
+    "funFact": "EOF ist kein Zeichen in der Datei selbst, sondern ein Zustand, den die Leseschnittstelle meldet, wenn keine Daten mehr folgen.",
+    "source": {
+      "name": "Wikipedia DE – End of File",
+      "url": "https://de.wikipedia.org/wiki/End_of_File"
+    },
+    "image": null
+  },
+  "machina:acronym-gil-h3": {
+    "id": "machina:acronym-gil-h3",
+    "name": "GIL",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Global Interpreter Lock",
+      "domain": "Programmierung"
+    },
+    "funFact": "Der GIL in CPython erlaubt jeweils nur einem Thread, Python-Bytecode auszuführen, was echte CPU-Parallelität über Threads verhindert.",
+    "source": {
+      "name": "Python-Dokumentation – Glossar",
+      "url": "https://docs.python.org/3/glossary.html#term-global-interpreter-lock"
+    },
+    "image": null
+  },
+  "machina:acronym-jit-h3": {
+    "id": "machina:acronym-jit-h3",
+    "name": "JIT",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Just-in-Time",
+      "domain": "Programmierung"
+    },
+    "funFact": "Ein JIT-Compiler übersetzt Bytecode erst zur Laufzeit in Maschinencode und nutzt dabei aktuelle Laufzeitinformationen für Optimierungen.",
+    "source": {
+      "name": "Wikipedia DE – Just-in-time-Kompilierung",
+      "url": "https://de.wikipedia.org/wiki/Just-in-time-Kompilierung"
+    },
+    "image": null
+  },
+  "machina:acronym-fifo-h3": {
+    "id": "machina:acronym-fifo-h3",
+    "name": "FIFO",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "First In, First Out",
+      "domain": "Datenstrukturen"
+    },
+    "funFact": "Das FIFO-Prinzip beschreibt das Verhalten einer Warteschlange: Das zuerst eingefügte Element wird auch zuerst entnommen.",
+    "source": {
+      "name": "Wikipedia DE – Warteschlange (Datenstruktur)",
+      "url": "https://de.wikipedia.org/wiki/Warteschlange_(Datenstruktur)"
+    },
+    "image": null
+  },
+  "machina:acronym-lifo-h3": {
+    "id": "machina:acronym-lifo-h3",
+    "name": "LIFO",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Last In, First Out",
+      "domain": "Datenstrukturen"
+    },
+    "funFact": "Das LIFO-Prinzip beschreibt einen Stapel (Stack): Das zuletzt abgelegte Element wird als Erstes wieder entnommen.",
+    "source": {
+      "name": "Wikipedia DE – Stapelspeicher",
+      "url": "https://de.wikipedia.org/wiki/Stapelspeicher"
+    },
+    "image": null
+  },
+  "machina:acronym-utc-h3": {
+    "id": "machina:acronym-utc-h3",
+    "name": "UTC",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Coordinated Universal Time",
+      "domain": "Systemzeit"
+    },
+    "funFact": "Die Abkürzung UTC ist ein bewusster Kompromiss zwischen dem englischen CUT und dem französischen TUC, damit keine Sprache bevorzugt wird.",
+    "source": {
+      "name": "Wikipedia DE – Koordinierte Weltzeit",
+      "url": "https://de.wikipedia.org/wiki/Koordinierte_Weltzeit"
+    },
+    "image": null
+  },
+  "machina:acronym-osi-h3": {
+    "id": "machina:acronym-osi-h3",
+    "name": "OSI",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Open Systems Interconnection",
+      "domain": "Netzwerktechnik"
+    },
+    "funFact": "Das OSI-Referenzmodell beschreibt Netzwerkkommunikation in genau sieben Schichten, von der physischen bis zur Anwendungsschicht.",
+    "source": {
+      "name": "Wikipedia DE – OSI-Modell",
+      "url": "https://de.wikipedia.org/wiki/OSI-Modell"
+    },
+    "image": null
+  },
+  "machina:acronym-mtu-h3": {
+    "id": "machina:acronym-mtu-h3",
+    "name": "MTU",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Maximum Transmission Unit",
+      "domain": "Netzwerktechnik"
+    },
+    "funFact": "Die typische MTU im Ethernet beträgt 1500 Byte; größere Pakete müssen fragmentiert oder verworfen werden.",
+    "source": {
+      "name": "Wikipedia DE – Maximum Transmission Unit",
+      "url": "https://de.wikipedia.org/wiki/Maximum_Transmission_Unit"
+    },
+    "image": null
+  },
+  "machina:acronym-mmu-h3": {
+    "id": "machina:acronym-mmu-h3",
+    "name": "MMU",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Memory Management Unit",
+      "domain": "Hardware"
+    },
+    "funFact": "Die MMU übersetzt virtuelle in physische Speicheradressen und ist damit die Hardware-Grundlage für virtuellen Speicher.",
+    "source": {
+      "name": "Wikipedia DE – Memory Management Unit",
+      "url": "https://de.wikipedia.org/wiki/Memory_Management_Unit"
+    },
+    "image": null
+  },
+  "machina:acronym-tlb-h3": {
+    "id": "machina:acronym-tlb-h3",
+    "name": "TLB",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Translation Lookaside Buffer",
+      "domain": "Hardware"
+    },
+    "funFact": "Der TLB ist ein schneller Cache in der MMU, der kürzlich genutzte Übersetzungen virtueller Adressen speichert.",
+    "source": {
+      "name": "Wikipedia DE – Translation Lookaside Buffer",
+      "url": "https://de.wikipedia.org/wiki/Translation_Lookaside_Buffer"
+    },
+    "image": null
+  },
+  "machina:acronym-uart-h3": {
+    "id": "machina:acronym-uart-h3",
+    "name": "UART",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Universal Asynchronous Receiver Transmitter",
+      "domain": "Hardware"
+    },
+    "funFact": "Ein UART überträgt Daten seriell ohne gemeinsames Taktsignal; Sender und Empfänger müssen sich nur auf dieselbe Baudrate einigen.",
+    "source": {
+      "name": "Wikipedia DE – Universal Asynchronous Receiver Transmitter",
+      "url": "https://de.wikipedia.org/wiki/Universal_Asynchronous_Receiver_Transmitter"
+    },
+    "image": null
+  },
+  "machina:acronym-i2c-h3": {
+    "id": "machina:acronym-i2c-h3",
+    "name": "I2C",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Inter-Integrated Circuit",
+      "domain": "Hardware"
+    },
+    "funFact": "I2C benötigt nur zwei Leitungen (SDA für Daten, SCL für Takt) und kann darüber viele Bausteine über eindeutige Adressen ansprechen.",
+    "source": {
+      "name": "Wikipedia DE – I²C",
+      "url": "https://de.wikipedia.org/wiki/I%C2%B2C"
+    },
+    "image": null
+  },
+  "machina:acronym-spi-h3": {
+    "id": "machina:acronym-spi-h3",
+    "name": "SPI",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Serial Peripheral Interface",
+      "domain": "Hardware"
+    },
+    "funFact": "SPI arbeitet im Vollduplex-Betrieb und ist meist schneller als I2C, benötigt dafür aber mehr Leitungen.",
+    "source": {
+      "name": "Wikipedia DE – Serial Peripheral Interface",
+      "url": "https://de.wikipedia.org/wiki/Serial_Peripheral_Interface"
+    },
+    "image": null
+  },
+  "machina:acronym-gpio-h3": {
+    "id": "machina:acronym-gpio-h3",
+    "name": "GPIO",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "General Purpose Input/Output",
+      "domain": "Hardware"
+    },
+    "funFact": "GPIO-Pins lassen sich per Software frei als Ein- oder Ausgang konfigurieren und sind das Herzstück von Bastel-Boards wie dem Raspberry Pi.",
+    "source": {
+      "name": "Wikipedia DE – General Purpose Input/Output",
+      "url": "https://de.wikipedia.org/wiki/General_Purpose_Input/Output"
+    },
+    "image": null
+  },
+  "machina:acronym-totp-h3": {
+    "id": "machina:acronym-totp-h3",
+    "name": "TOTP",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Time-based One-Time Password",
+      "domain": "Netzwerksicherheit"
+    },
+    "funFact": "TOTP erzeugt aus einem geheimen Schlüssel und der aktuellen Uhrzeit einen Code, der meist alle 30 Sekunden wechselt — Basis vieler Authenticator-Apps.",
+    "source": {
+      "name": "IETF – RFC 6238",
+      "url": "https://datatracker.ietf.org/doc/html/rfc6238"
+    },
+    "image": null
+  },
+  "machina:acronym-wpa-h3": {
+    "id": "machina:acronym-wpa-h3",
+    "name": "WPA",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Wi-Fi Protected Access",
+      "domain": "Netzwerksicherheit"
+    },
+    "funFact": "WPA löste das unsichere WEP ab; die aktuelle Generation WPA3 erschwert Offline-Angriffe auf WLAN-Passwörter deutlich.",
+    "source": {
+      "name": "Wikipedia DE – Wi-Fi Protected Access",
+      "url": "https://de.wikipedia.org/wiki/Wi-Fi_Protected_Access"
+    },
+    "image": null
+  },
+  "machina:acronym-xslt-h3": {
+    "id": "machina:acronym-xslt-h3",
+    "name": "XSLT",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Extensible Stylesheet Language Transformations",
+      "domain": "Webtechnik"
+    },
+    "funFact": "XSLT ist selbst in XML geschrieben und transformiert XML-Dokumente in andere Formate wie HTML oder reinen Text.",
+    "source": {
+      "name": "W3C – XSL Transformations",
+      "url": "https://www.w3.org/TR/xslt/"
+    },
+    "image": null
+  },
+  "machina:acronym-wal-h3": {
+    "id": "machina:acronym-wal-h3",
+    "name": "WAL",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Write-Ahead Logging",
+      "domain": "Datenbanken"
+    },
+    "funFact": "Bei Write-Ahead Logging werden Änderungen zuerst in ein Log geschrieben und erst danach in die Datenbank — so bleibt sie nach einem Absturz wiederherstellbar.",
+    "source": {
+      "name": "Wikipedia DE – Write-Ahead Logging",
+      "url": "https://de.wikipedia.org/wiki/Write-Ahead_Logging"
+    },
+    "image": null
+  },
+  "machina:acronym-numa-h3": {
+    "id": "machina:acronym-numa-h3",
+    "name": "NUMA",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Non-Uniform Memory Access",
+      "domain": "Rechnerarchitektur"
+    },
+    "funFact": "Bei NUMA hat jeder Prozessor lokalen Speicher, auf den er schneller zugreift als auf den Speicher anderer Prozessoren.",
+    "source": {
+      "name": "Wikipedia DE – Non-Uniform Memory Access",
+      "url": "https://de.wikipedia.org/wiki/Non-Uniform_Memory_Access"
+    },
+    "image": null
+  },
+  "machina:acronym-pxe-h3": {
+    "id": "machina:acronym-pxe-h3",
+    "name": "PXE",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Preboot Execution Environment",
+      "domain": "Betriebssysteme"
+    },
+    "funFact": "Mit PXE kann ein Rechner sein Betriebssystem über das Netzwerk laden, ohne dass eine lokale Festplatte oder ein USB-Stick nötig ist.",
+    "source": {
+      "name": "Wikipedia DE – Preboot Execution Environment",
+      "url": "https://de.wikipedia.org/wiki/Preboot_Execution_Environment"
+    },
+    "image": null
+  },
+  "machina:acronym-exif-h3": {
+    "id": "machina:acronym-exif-h3",
+    "name": "EXIF",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Exchangeable Image File Format",
+      "domain": "Datenformate"
+    },
+    "funFact": "EXIF-Daten in Fotos speichern Metadaten wie Kameramodell, Belichtungszeit und oft auch GPS-Koordinaten der Aufnahme.",
+    "source": {
+      "name": "Wikipedia DE – Exchangeable Image File Format",
+      "url": "https://de.wikipedia.org/wiki/Exchangeable_Image_File_Format"
+    },
+    "image": null
+  },
+  "machina:acronym-dnssec-h3": {
+    "id": "machina:acronym-dnssec-h3",
+    "name": "DNSSEC",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "Domain Name System Security Extensions",
+      "domain": "Netzwerksicherheit"
+    },
+    "funFact": "DNSSEC signiert DNS-Antworten kryptografisch, damit gefälschte Einträge (DNS-Spoofing) erkannt werden können.",
+    "source": {
+      "name": "IETF – RFC 4033",
+      "url": "https://datatracker.ietf.org/doc/html/rfc4033"
+    },
+    "image": null
+  },
+  "machina:acronym-hsts-h3": {
+    "id": "machina:acronym-hsts-h3",
+    "name": "HSTS",
+    "type": "acronym",
+    "category": "acronym",
+    "attributes": {
+      "fullName": "HTTP Strict Transport Security",
+      "domain": "Netzwerksicherheit"
+    },
+    "funFact": "Mit HSTS weist ein Server den Browser an, künftig ausschließlich verschlüsselt (HTTPS) zuzugreifen — auch bei manuell getippten http-Adressen.",
+    "source": {
+      "name": "IETF – RFC 6797",
+      "url": "https://datatracker.ietf.org/doc/html/rfc6797"
+    },
+    "image": null
+  },
+  "machina:algorithm-graham-scan-h3": {
+    "id": "machina:algorithm-graham-scan-h3",
+    "name": "Graham-Scan",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Geometrischer Algorithmus",
+      "avgComplexity": "O(n log n)",
+      "purpose": "Berechnet die konvexe Hülle einer Punktmenge in der Ebene durch Sortieren nach Winkel und Abbau von Rechtskurven"
+    },
+    "funFact": "Der Graham-Scan war 1972 einer der ersten effizienten Hüllen-Algorithmen; die O(n log n)-Schranke stammt allein vom Sortierschritt.",
+    "source": {
+      "name": "Wikipedia DE – Graham Scan",
+      "url": "https://de.wikipedia.org/wiki/Graham_Scan"
+    },
+    "image": null
+  },
+  "machina:algorithm-jarvis-marsch-h3": {
+    "id": "machina:algorithm-jarvis-marsch-h3",
+    "name": "Jarvis-Marsch",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Geometrischer Algorithmus",
+      "avgComplexity": "O(n·h)",
+      "purpose": "Berechnet die konvexe Hülle, indem ausgehend vom äußersten Punkt jeweils der nächste Hüllenpunkt 'umwickelt' wird (Gift-Wrapping)"
+    },
+    "funFact": "Wegen seines Vorgehens heißt der Algorithmus auch Gift-Wrapping; h ist die Anzahl der Hüllenpunkte, daher ist er bei kleiner Hülle sehr schnell.",
+    "source": {
+      "name": "Wikipedia DE – Jarvis-Marsch",
+      "url": "https://de.wikipedia.org/wiki/Jarvis-Marsch"
+    },
+    "image": null
+  },
+  "machina:algorithm-dbscan-h3": {
+    "id": "machina:algorithm-dbscan-h3",
+    "name": "DBSCAN",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Clustering-Algorithmus",
+      "avgComplexity": "O(n log n)",
+      "purpose": "Gruppiert dicht beieinanderliegende Punkte zu Clustern und markiert Punkte in dünnen Regionen als Rauschen"
+    },
+    "funFact": "Anders als k-Means muss man bei DBSCAN die Anzahl der Cluster nicht vorgeben und kann beliebig geformte Cluster finden.",
+    "source": {
+      "name": "Wikipedia DE – DBSCAN",
+      "url": "https://de.wikipedia.org/wiki/DBSCAN"
+    },
+    "image": null
+  },
+  "machina:algorithm-apriori-h3": {
+    "id": "machina:algorithm-apriori-h3",
+    "name": "Apriori-Algorithmus",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Data-Mining-Algorithmus",
+      "avgComplexity": "O(2^d)",
+      "purpose": "Findet häufige Item-Mengen und Assoziationsregeln in Transaktionsdaten, etwa für Warenkorbanalysen"
+    },
+    "funFact": "Die zentrale Idee: Ist eine Item-Menge selten, sind auch alle ihre Obermengen selten — das spart enorm viele Prüfungen.",
+    "source": {
+      "name": "Wikipedia DE – Apriori-Algorithmus",
+      "url": "https://de.wikipedia.org/wiki/Apriori-Algorithmus"
+    },
+    "image": null
+  },
+  "machina:algorithm-q-learning-h3": {
+    "id": "machina:algorithm-q-learning-h3",
+    "name": "Q-Learning",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Maschinelles-Lernen-Algorithmus",
+      "avgComplexity": "O(|S|·|A|)",
+      "purpose": "Lernt durch Bestärkendes Lernen eine optimale Handlungsstrategie über Zustands-Aktions-Werte ohne Modell der Umgebung"
+    },
+    "funFact": "Q-Learning ist modellfrei und off-policy: Es kann die optimale Strategie lernen, während es noch zufällig die Umgebung erkundet.",
+    "source": {
+      "name": "Wikipedia DE – Q-Learning",
+      "url": "https://de.wikipedia.org/wiki/Q-Learning"
+    },
+    "image": null
+  },
+  "machina:algorithm-cyk-h3": {
+    "id": "machina:algorithm-cyk-h3",
+    "name": "CYK-Algorithmus",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Parsing-Algorithmus",
+      "avgComplexity": "O(n³)",
+      "purpose": "Entscheidet mit dynamischer Programmierung, ob ein Wort von einer kontextfreien Grammatik in Chomsky-Normalform erzeugt wird"
+    },
+    "funFact": "Der CYK-Algorithmus füllt eine dreieckige Tabelle und ist nach Cocke, Younger und Kasami benannt, die ihn unabhängig entwickelten.",
+    "source": {
+      "name": "Wikipedia DE – CYK-Algorithmus",
+      "url": "https://de.wikipedia.org/wiki/CYK-Algorithmus"
+    },
+    "image": null
+  },
+  "machina:algorithm-shunting-yard-h3": {
+    "id": "machina:algorithm-shunting-yard-h3",
+    "name": "Shunting-Yard-Algorithmus",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Parsing-Algorithmus",
+      "avgComplexity": "O(n)",
+      "purpose": "Wandelt arithmetische Ausdrücke aus Infix-Notation in umgekehrte polnische Notation (Postfix) um"
+    },
+    "funFact": "Edsger Dijkstra benannte den Algorithmus nach einem Rangierbahnhof, weil Operatoren wie Waggons zwischengeparkt und umgeleitet werden.",
+    "source": {
+      "name": "Wikipedia DE – Shunting-yard-Algorithmus",
+      "url": "https://de.wikipedia.org/wiki/Shunting-yard-Algorithmus"
+    },
+    "image": null
+  },
+  "machina:algorithm-smith-waterman-h3": {
+    "id": "machina:algorithm-smith-waterman-h3",
+    "name": "Smith-Waterman-Algorithmus",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Bioinformatik-Algorithmus",
+      "avgComplexity": "O(n·m)",
+      "purpose": "Findet per dynamischer Programmierung das optimale lokale Alignment zweier Sequenzen, etwa von DNA oder Proteinen"
+    },
+    "funFact": "Im Gegensatz zu Needleman-Wunsch sucht Smith-Waterman nicht das globale, sondern das beste lokale Übereinstimmungsstück.",
+    "source": {
+      "name": "Wikipedia DE – Smith-Waterman-Algorithmus",
+      "url": "https://de.wikipedia.org/wiki/Smith-Waterman-Algorithmus"
+    },
+    "image": null
+  },
+  "machina:algorithm-pollard-rho-h3": {
+    "id": "machina:algorithm-pollard-rho-h3",
+    "name": "Pollard-Rho",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Zahlentheoretischer Algorithmus",
+      "avgComplexity": "O(n^(1/4))",
+      "purpose": "Findet einen nichttrivialen Teiler einer zusammengesetzten Zahl durch eine Pseudozufallsfolge und Zyklensuche"
+    },
+    "funFact": "Der griechische Buchstabe ρ (Rho) im Namen spielt auf die Form der Zahlenfolge an, die in einen Zyklus mündet.",
+    "source": {
+      "name": "Wikipedia DE – Pollard-Rho-Methode",
+      "url": "https://de.wikipedia.org/wiki/Pollard-Rho-Methode"
+    },
+    "image": null
+  },
+  "machina:algorithm-baum-welch-h3": {
+    "id": "machina:algorithm-baum-welch-h3",
+    "name": "Baum-Welch-Algorithmus",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Maschinelles-Lernen-Algorithmus",
+      "avgComplexity": "O(n·s²)",
+      "purpose": "Schätzt die Parameter eines Hidden-Markov-Modells aus Beobachtungsdaten per Erwartungs-Maximierung"
+    },
+    "funFact": "Baum-Welch ist ein Spezialfall des EM-Verfahrens und nutzt intern den Forward-Backward-Algorithmus.",
+    "source": {
+      "name": "Wikipedia DE – Baum-Welch-Algorithmus",
+      "url": "https://de.wikipedia.org/wiki/Baum-Welch-Algorithmus"
+    },
+    "image": null
+  },
+  "machina:algorithm-perzeptron-h3": {
+    "id": "machina:algorithm-perzeptron-h3",
+    "name": "Perzeptron-Algorithmus",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Maschinelles-Lernen-Algorithmus",
+      "avgComplexity": "O(n·d)",
+      "purpose": "Lernt eine lineare Trennebene für binäre Klassifikation, indem die Gewichte bei jedem Fehler angepasst werden"
+    },
+    "funFact": "Das Perzeptron von 1958 gilt als Urahn neuronaler Netze; es konvergiert garantiert, wenn die Daten linear trennbar sind.",
+    "source": {
+      "name": "Wikipedia DE – Perzeptron",
+      "url": "https://de.wikipedia.org/wiki/Perzeptron"
+    },
+    "image": null
+  },
+  "machina:algorithm-yen-h3": {
+    "id": "machina:algorithm-yen-h3",
+    "name": "Yen-Algorithmus",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Graphalgorithmus",
+      "avgComplexity": "O(k·n·(m + n log n))",
+      "purpose": "Findet die k kürzesten schleifenfreien Pfade zwischen zwei Knoten in einem gewichteten Graphen"
+    },
+    "funFact": "Yens Verfahren baut auf einem Kürzeste-Wege-Algorithmus wie Dijkstra auf und sperrt schrittweise Kanten, um Alternativrouten zu finden.",
+    "source": {
+      "name": "Wikipedia DE – Yen-Algorithmus",
+      "url": "https://de.wikipedia.org/wiki/Yen-Algorithmus"
+    },
+    "image": null
+  },
+  "machina:algorithm-held-karp-h3": {
+    "id": "machina:algorithm-held-karp-h3",
+    "name": "Held-Karp-Algorithmus",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Optimierungsalgorithmus",
+      "avgComplexity": "O(2^n · n²)",
+      "purpose": "Löst das Problem des Handlungsreisenden exakt mittels dynamischer Programmierung über Teilmengen"
+    },
+    "funFact": "Held-Karp ist zwar exponentiell, aber deutlich besser als das naive Durchprobieren aller n! Routen.",
+    "source": {
+      "name": "Wikipedia DE – Held-Karp-Algorithmus",
+      "url": "https://de.wikipedia.org/wiki/Held-Karp-Algorithmus"
+    },
+    "image": null
+  },
+  "machina:algorithm-thompson-konstruktion-h3": {
+    "id": "machina:algorithm-thompson-konstruktion-h3",
+    "name": "Thompson-Konstruktion",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Automatentheorie-Algorithmus",
+      "avgComplexity": "O(n)",
+      "purpose": "Konstruiert aus einem regulären Ausdruck einen nichtdeterministischen endlichen Automaten (NEA)"
+    },
+    "funFact": "Ken Thompson entwickelte das Verfahren 1968 — es ist bis heute ein Grundbaustein vieler Regex-Engines.",
+    "source": {
+      "name": "Wikipedia DE – Thompson-Konstruktion",
+      "url": "https://de.wikipedia.org/wiki/Thompson-Konstruktion"
+    },
+    "image": null
+  },
+  "machina:algorithm-bowyer-watson-h3": {
+    "id": "machina:algorithm-bowyer-watson-h3",
+    "name": "Bowyer-Watson-Algorithmus",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Geometrischer Algorithmus",
+      "avgComplexity": "O(n log n)",
+      "purpose": "Berechnet die Delaunay-Triangulation einer Punktmenge, indem Punkte einzeln eingefügt werden"
+    },
+    "funFact": "Beim Einfügen jedes Punktes werden alle Dreiecke gelöscht, deren Umkreis ihn enthält, und die Lücke neu vernetzt.",
+    "source": {
+      "name": "Wikipedia DE – Bowyer-Watson-Algorithmus",
+      "url": "https://de.wikipedia.org/wiki/Bowyer-Watson-Algorithmus"
+    },
+    "image": null
+  },
+  "machina:algorithm-karger-h3": {
+    "id": "machina:algorithm-karger-h3",
+    "name": "Karger-Algorithmus",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Graphalgorithmus",
+      "avgComplexity": "O(n²)",
+      "purpose": "Findet randomisiert einen minimalen Schnitt eines Graphen durch wiederholtes zufälliges Kontrahieren von Kanten"
+    },
+    "funFact": "Ein einzelner Durchlauf liefert nur mit gewisser Wahrscheinlichkeit den minimalen Schnitt — durch viele Wiederholungen wird das Ergebnis sehr zuverlässig.",
+    "source": {
+      "name": "Wikipedia DE – Algorithmus von Karger",
+      "url": "https://de.wikipedia.org/wiki/Algorithmus_von_Karger"
+    },
+    "image": null
+  },
+  "machina:algorithm-stoer-wagner-h3": {
+    "id": "machina:algorithm-stoer-wagner-h3",
+    "name": "Stoer-Wagner-Algorithmus",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Graphalgorithmus",
+      "avgComplexity": "O(n³)",
+      "purpose": "Berechnet deterministisch den globalen minimalen Schnitt eines gewichteten ungerichteten Graphen"
+    },
+    "funFact": "Anders als Karger arbeitet Stoer-Wagner ohne Zufall und liefert garantiert den korrekten minimalen Schnitt.",
+    "source": {
+      "name": "Wikipedia DE – Stoer-Wagner-Algorithmus",
+      "url": "https://de.wikipedia.org/wiki/Stoer-Wagner-Algorithmus"
+    },
+    "image": null
+  },
+  "machina:algorithm-christofides-h3": {
+    "id": "machina:algorithm-christofides-h3",
+    "name": "Christofides-Algorithmus",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Approximationsalgorithmus",
+      "avgComplexity": "O(n³)",
+      "purpose": "Liefert für das metrische Problem des Handlungsreisenden eine Tour, die höchstens 1,5-mal so lang wie die optimale ist"
+    },
+    "funFact": "Die 1,5-Approximationsgüte von 1976 blieb jahrzehntelang die beste bekannte Garantie für das metrische TSP.",
+    "source": {
+      "name": "Wikipedia DE – Algorithmus von Christofides",
+      "url": "https://de.wikipedia.org/wiki/Algorithmus_von_Christofides"
+    },
+    "image": null
+  },
+  "machina:algorithm-earley-parser-h3": {
+    "id": "machina:algorithm-earley-parser-h3",
+    "name": "Earley-Parser",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Parsing-Algorithmus",
+      "avgComplexity": "O(n³)",
+      "purpose": "Parst Eingaben für beliebige kontextfreie Grammatiken mittels dynamischer Programmierung über Zustandsmengen"
+    },
+    "funFact": "Für eindeutige Grammatiken arbeitet der Earley-Parser in O(n²) und für viele praktische Grammatiken sogar linear.",
+    "source": {
+      "name": "Wikipedia DE – Earley-Algorithmus",
+      "url": "https://de.wikipedia.org/wiki/Earley-Algorithmus"
+    },
+    "image": null
+  },
+  "machina:algorithm-ukkonen-h3": {
+    "id": "machina:algorithm-ukkonen-h3",
+    "name": "Ukkonen-Algorithmus",
+    "type": "algorithm",
+    "category": "algorithm",
+    "attributes": {
+      "category": "Zeichenketten-Algorithmus",
+      "avgComplexity": "O(n)",
+      "purpose": "Konstruiert den Suffixbaum einer Zeichenkette in linearer Zeit durch schrittweises Online-Einfügen"
+    },
+    "funFact": "Ukkonens Verfahren von 1995 baut den Suffixbaum von links nach rechts auf und kann die Zeichenkette dabei Zeichen für Zeichen verarbeiten.",
+    "source": {
+      "name": "Wikipedia DE – Ukkonens Algorithmus",
+      "url": "https://de.wikipedia.org/wiki/Ukkonens_Algorithmus"
+    },
+    "image": null
   }
 }
