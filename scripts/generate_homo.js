@@ -595,6 +595,62 @@ const templates = [
     category: 'sense', attr: 'function', type: 'homo-sense-function-rev', difficulty: 2, nameAnswer: true,
     subject: c => c.attributes.function,
     prompt: c => `Welcher Sinn erbringt folgende Wahrnehmungsleistung: „${c.attributes.function}"?`
+  },
+
+  // ==== Welle 2 (Stand 2026-06-25): digestive_enzyme / nerve / psych_effect ====
+  // Gleiche Engine. function/definition sind POST_ANSWER-verborgen; Reverse-Templates
+  // zeigen gar keine Chips -> keine Selbstverräter über sichtbare Attribute.
+
+  // ---- Verdauungsenzyme (digestive_enzyme) ----------------------------------
+  // Bewusst KEIN gland-Vorwärtstemplate: die nur 4 Drüsenwerte enthalten mit
+  // „Bauchspeicheldrüse"/„Mundspeicheldrüse" systematisch die längsten Optionen,
+  // was pickBalanced bei so kleinem Vokabular nicht ausgleichen kann (Längen-Bias).
+  // gland bleibt nur sichtbarer Visual-Chip. Getestet werden substrate + function.
+  {
+    category: 'digestive_enzyme', attr: 'substrate', type: 'homo-enzyme-substrate', difficulty: 2,
+    prompt: c => `Welchen Nährstoff spaltet das Enzym „${c.name}" hauptsächlich?`,
+    format: v => v
+  },
+  {
+    // function ist eindeutig formuliert -> Reverse eindeutig (anders als substrate,
+    // das sich mehrere Enzyme teilen und daher kein Reverse bekommt).
+    category: 'digestive_enzyme', attr: 'function', type: 'homo-enzyme-function-rev', difficulty: 3, nameAnswer: true,
+    subject: c => c.attributes.function,
+    prompt: c => `Welches Verdauungsenzym wird so beschrieben: „${c.attributes.function}"?`
+  },
+
+  // ---- Nerven (nerve) -------------------------------------------------------
+  {
+    category: 'nerve', attr: 'function', type: 'homo-nerve-function-rev', difficulty: 2, nameAnswer: true,
+    subject: c => c.attributes.function,
+    prompt: c => `Welcher Nerv erfüllt folgende Aufgabe: „${c.attributes.function}"?`
+  },
+  {
+    category: 'nerve', attr: 'latinName', type: 'homo-nerve-latin', difficulty: 3,
+    prompt: c => `Wie lautet der lateinische Name des Nervs „${c.name}"?`,
+    format: v => v
+  },
+  {
+    category: 'nerve', attr: 'latinName', type: 'homo-nerve-latin-rev', difficulty: 3, nameAnswer: true,
+    subject: c => c.attributes.latinName,
+    prompt: c => `Welcher Nerv trägt den lateinischen Namen „${c.attributes.latinName}"?`
+  },
+
+  // ---- Psychologische Effekte / kognitive Verzerrungen (psych_effect) -------
+  {
+    category: 'psych_effect', attr: 'definition', type: 'homo-psych-definition', difficulty: 2,
+    prompt: c => `Wie lässt sich „${c.name}" in der Psychologie am besten beschreiben?`,
+    format: v => v
+  },
+  {
+    category: 'psych_effect', attr: 'definition', type: 'homo-psych-definition-rev', difficulty: 2, nameAnswer: true,
+    subject: c => c.attributes.definition,
+    prompt: c => `Welcher psychologische Effekt wird so beschrieben: „${c.attributes.definition}"?`
+  },
+  {
+    category: 'psych_effect', attr: 'domain', type: 'homo-psych-domain', difficulty: 3,
+    prompt: c => `Welchem Bereich ordnet man „${c.name}" am ehesten zu?`,
+    format: v => v
   }
 ];
 

@@ -39,6 +39,9 @@ const CATEGORY_LABELS = {
   hormone: 'Hormon',
   vitamin: 'Vitamin',
   sense: 'Sinn',
+  digestive_enzyme: 'Verdauungsenzym',
+  nerve: 'Nerv',
+  psych_effect: 'Psychoeffekt',
   // Natura
   animal: 'Tier',
   plant: 'Pflanze',
@@ -92,13 +95,15 @@ const ATTR_LABELS = {
   notableFor: 'Bekannt für',
   location: 'Lage',
   system: 'Organsystem',
-  // Homo-Attribute der neuen Kategorien (cell_type/hormone/vitamin/sense).
+  // Homo-Attribute der neuen Kategorien (cell_type/hormone/vitamin/sense + Welle 2).
   fachName: 'Fachbegriff',
   gland: 'Bildungsort',
   hormoneClass: 'Hormonklasse',
   chemicalName: 'Chemischer Name',
   solubility: 'Löslichkeit',
   sensoryOrgan: 'Sinnesorgan',
+  substrate: 'Substrat',
+  domain: 'Bereich',
   approxWeightGrams: 'Gewicht (g)',
   value: 'Wert',
   unit: 'Einheit',

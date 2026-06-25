@@ -19977,5 +19977,2625 @@
     "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
+  },
+  {
+    "id": "q_homo_enzym-amylase-ptyalin_homo-enzyme-substrate",
+    "entityId": "homo:enzym-amylase-ptyalin",
+    "entityType": "digestive_enzyme",
+    "type": "homo-enzyme-substrate",
+    "difficulty": 2,
+    "prompt": "Welchen Nährstoff spaltet das Enzym „Speichelamylase\" hauptsächlich?",
+    "correctAnswer": "Stärke",
+    "options": [
+      "Stärke",
+      "Eiweiß",
+      "Fett",
+      "Malzzucker"
+    ],
+    "testedAttribute": "substrate",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_enzym-pepsin_homo-enzyme-substrate",
+    "entityId": "homo:enzym-pepsin",
+    "entityType": "digestive_enzyme",
+    "type": "homo-enzyme-substrate",
+    "difficulty": 2,
+    "prompt": "Welchen Nährstoff spaltet das Enzym „Pepsin\" hauptsächlich?",
+    "correctAnswer": "Eiweiß",
+    "options": [
+      "Eiweiß",
+      "Stärke",
+      "Fett",
+      "Malzzucker"
+    ],
+    "testedAttribute": "substrate",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_enzym-trypsin_homo-enzyme-substrate",
+    "entityId": "homo:enzym-trypsin",
+    "entityType": "digestive_enzyme",
+    "type": "homo-enzyme-substrate",
+    "difficulty": 2,
+    "prompt": "Welchen Nährstoff spaltet das Enzym „Trypsin\" hauptsächlich?",
+    "correctAnswer": "Eiweiß",
+    "options": [
+      "Eiweiß",
+      "Stärke",
+      "Fett",
+      "Malzzucker"
+    ],
+    "testedAttribute": "substrate",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_enzym-chymotrypsin_homo-enzyme-substrate",
+    "entityId": "homo:enzym-chymotrypsin",
+    "entityType": "digestive_enzyme",
+    "type": "homo-enzyme-substrate",
+    "difficulty": 2,
+    "prompt": "Welchen Nährstoff spaltet das Enzym „Chymotrypsin\" hauptsächlich?",
+    "correctAnswer": "Eiweiß",
+    "options": [
+      "Eiweiß",
+      "Stärke",
+      "Fett",
+      "Malzzucker"
+    ],
+    "testedAttribute": "substrate",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_enzym-pankreaslipase_homo-enzyme-substrate",
+    "entityId": "homo:enzym-pankreaslipase",
+    "entityType": "digestive_enzyme",
+    "type": "homo-enzyme-substrate",
+    "difficulty": 2,
+    "prompt": "Welchen Nährstoff spaltet das Enzym „Pankreaslipase\" hauptsächlich?",
+    "correctAnswer": "Fett",
+    "options": [
+      "Fett",
+      "Stärke",
+      "Eiweiß",
+      "Malzzucker"
+    ],
+    "testedAttribute": "substrate",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_enzym-laktase_homo-enzyme-substrate",
+    "entityId": "homo:enzym-laktase",
+    "entityType": "digestive_enzyme",
+    "type": "homo-enzyme-substrate",
+    "difficulty": 2,
+    "prompt": "Welchen Nährstoff spaltet das Enzym „Laktase\" hauptsächlich?",
+    "correctAnswer": "Milchzucker",
+    "options": [
+      "Milchzucker",
+      "Malzzucker",
+      "Nukleinsäuren",
+      "Haushaltszucker"
+    ],
+    "testedAttribute": "substrate",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_enzym-maltase_homo-enzyme-substrate",
+    "entityId": "homo:enzym-maltase",
+    "entityType": "digestive_enzyme",
+    "type": "homo-enzyme-substrate",
+    "difficulty": 2,
+    "prompt": "Welchen Nährstoff spaltet das Enzym „Maltase\" hauptsächlich?",
+    "correctAnswer": "Malzzucker",
+    "options": [
+      "Malzzucker",
+      "Milchzucker",
+      "Nukleinsäuren",
+      "Eiweiß"
+    ],
+    "testedAttribute": "substrate",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_enzym-saccharase_homo-enzyme-substrate",
+    "entityId": "homo:enzym-saccharase",
+    "entityType": "digestive_enzyme",
+    "type": "homo-enzyme-substrate",
+    "difficulty": 2,
+    "prompt": "Welchen Nährstoff spaltet das Enzym „Saccharase\" hauptsächlich?",
+    "correctAnswer": "Haushaltszucker",
+    "options": [
+      "Haushaltszucker",
+      "Nukleinsäuren",
+      "Milchzucker",
+      "Malzzucker"
+    ],
+    "testedAttribute": "substrate",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_enzym-carboxypeptidase_homo-enzyme-substrate",
+    "entityId": "homo:enzym-carboxypeptidase",
+    "entityType": "digestive_enzyme",
+    "type": "homo-enzyme-substrate",
+    "difficulty": 2,
+    "prompt": "Welchen Nährstoff spaltet das Enzym „Carboxypeptidase\" hauptsächlich?",
+    "correctAnswer": "Eiweiß",
+    "options": [
+      "Eiweiß",
+      "Stärke",
+      "Fett",
+      "Malzzucker"
+    ],
+    "testedAttribute": "substrate",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_enzym-magenlipase_homo-enzyme-substrate",
+    "entityId": "homo:enzym-magenlipase",
+    "entityType": "digestive_enzyme",
+    "type": "homo-enzyme-substrate",
+    "difficulty": 2,
+    "prompt": "Welchen Nährstoff spaltet das Enzym „Magenlipase\" hauptsächlich?",
+    "correctAnswer": "Fett",
+    "options": [
+      "Fett",
+      "Stärke",
+      "Eiweiß",
+      "Malzzucker"
+    ],
+    "testedAttribute": "substrate",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_enzym-pankreas-amylase_homo-enzyme-substrate",
+    "entityId": "homo:enzym-pankreas-amylase",
+    "entityType": "digestive_enzyme",
+    "type": "homo-enzyme-substrate",
+    "difficulty": 2,
+    "prompt": "Welchen Nährstoff spaltet das Enzym „Pankreas-Amylase\" hauptsächlich?",
+    "correctAnswer": "Stärke",
+    "options": [
+      "Stärke",
+      "Eiweiß",
+      "Fett",
+      "Malzzucker"
+    ],
+    "testedAttribute": "substrate",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_enzym-amylase-ptyalin_homo-enzyme-function-rev",
+    "entityId": "homo:enzym-amylase-ptyalin",
+    "entityType": "digestive_enzyme",
+    "type": "homo-enzyme-function-rev",
+    "difficulty": 3,
+    "prompt": "Welches Verdauungsenzym wird so beschrieben: „Zerlegt langkettige Stärke an inneren Bindungen in Malzzucker und Dextrine.\"?",
+    "correctAnswer": "Speichelamylase",
+    "options": [
+      "Speichelamylase",
+      "Carboxypeptidase",
+      "Pankreaslipase",
+      "Pankreas-Amylase"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_enzym-pepsin_homo-enzyme-function-rev",
+    "entityId": "homo:enzym-pepsin",
+    "entityType": "digestive_enzyme",
+    "type": "homo-enzyme-function-rev",
+    "difficulty": 3,
+    "prompt": "Welches Verdauungsenzym wird so beschrieben: „Zerlegt Nahrungsproteine im sauren Magenmilieu in kleinere Peptide (Peptone).\"?",
+    "correctAnswer": "Pepsin",
+    "options": [
+      "Pepsin",
+      "Laktase",
+      "Trypsin",
+      "Maltase"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_enzym-trypsin_homo-enzyme-function-rev",
+    "entityId": "homo:enzym-trypsin",
+    "entityType": "digestive_enzyme",
+    "type": "homo-enzyme-function-rev",
+    "difficulty": 3,
+    "prompt": "Welches Verdauungsenzym wird so beschrieben: „Spaltet Proteine im Dünndarm hinter den basischen Aminosäuren Lysin und Arginin.\"?",
+    "correctAnswer": "Trypsin",
+    "options": [
+      "Trypsin",
+      "Laktase",
+      "Maltase",
+      "Nuklease"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_enzym-chymotrypsin_homo-enzyme-function-rev",
+    "entityId": "homo:enzym-chymotrypsin",
+    "entityType": "digestive_enzyme",
+    "type": "homo-enzyme-function-rev",
+    "difficulty": 3,
+    "prompt": "Welches Verdauungsenzym wird so beschrieben: „Spaltet Proteine bevorzugt hinter aromatischen Aminosäuren wie Tyrosin oder Tryptophan.\"?",
+    "correctAnswer": "Chymotrypsin",
+    "options": [
+      "Chymotrypsin",
+      "Magenlipase",
+      "Saccharase",
+      "Pankreaslipase"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_enzym-pankreaslipase_homo-enzyme-function-rev",
+    "entityId": "homo:enzym-pankreaslipase",
+    "entityType": "digestive_enzyme",
+    "type": "homo-enzyme-function-rev",
+    "difficulty": 3,
+    "prompt": "Welches Verdauungsenzym wird so beschrieben: „Spaltet Nahrungsfette (Triglyceride) in freie Fettsäuren und Monoglyceride.\"?",
+    "correctAnswer": "Pankreaslipase",
+    "options": [
+      "Pankreaslipase",
+      "Speichelamylase",
+      "Carboxypeptidase",
+      "Chymotrypsin"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_enzym-laktase_homo-enzyme-function-rev",
+    "entityId": "homo:enzym-laktase",
+    "entityType": "digestive_enzyme",
+    "type": "homo-enzyme-function-rev",
+    "difficulty": 3,
+    "prompt": "Welches Verdauungsenzym wird so beschrieben: „Spaltet Milchzucker in die Einfachzucker Glucose und Galactose.\"?",
+    "correctAnswer": "Laktase",
+    "options": [
+      "Laktase",
+      "Maltase",
+      "Trypsin",
+      "Pepsin"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_enzym-maltase_homo-enzyme-function-rev",
+    "entityId": "homo:enzym-maltase",
+    "entityType": "digestive_enzyme",
+    "type": "homo-enzyme-function-rev",
+    "difficulty": 3,
+    "prompt": "Welches Verdauungsenzym wird so beschrieben: „Spaltet Malzzucker in zwei Moleküle Traubenzucker (Glucose).\"?",
+    "correctAnswer": "Maltase",
+    "options": [
+      "Maltase",
+      "Laktase",
+      "Trypsin",
+      "Nuklease"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_enzym-pankreas-amylase_homo-enzyme-function-rev",
+    "entityId": "homo:enzym-pankreas-amylase",
+    "entityType": "digestive_enzyme",
+    "type": "homo-enzyme-function-rev",
+    "difficulty": 3,
+    "prompt": "Welches Verdauungsenzym wird so beschrieben: „Setzt im Dünndarm die Stärkeverdauung fort und spaltet sie zu Malzzucker.\"?",
+    "correctAnswer": "Pankreas-Amylase",
+    "options": [
+      "Pankreas-Amylase",
+      "Carboxypeptidase",
+      "Speichelamylase",
+      "Pankreaslipase"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_nerv-opticus_homo-nerve-function-rev",
+    "entityId": "homo:nerv-opticus",
+    "entityType": "nerve",
+    "type": "homo-nerve-function-rev",
+    "difficulty": 2,
+    "prompt": "Welcher Nerv erfüllt folgende Aufgabe: „Leitet visuelle Signale der Netzhaut vom Auge zum Gehirn\"?",
+    "correctAnswer": "Sehnerv",
+    "options": [
+      "Sehnerv",
+      "Hörnerv",
+      "Riechnerv",
+      "Ellennerv"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_nerv-vestibularis_homo-nerve-function-rev",
+    "entityId": "homo:nerv-vestibularis",
+    "entityType": "nerve",
+    "type": "homo-nerve-function-rev",
+    "difficulty": 2,
+    "prompt": "Welcher Nerv erfüllt folgende Aufgabe: „Leitet Lage- und Drehinformationen des Innenohrs zum Gehirn\"?",
+    "correctAnswer": "Gleichgewichtsnerv",
+    "options": [
+      "Gleichgewichtsnerv",
+      "Augenmuskelnerv",
+      "Zwerchfellnerv",
+      "Drillingsnerv"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_nerv-trigeminus_homo-nerve-function-rev",
+    "entityId": "homo:nerv-trigeminus",
+    "entityType": "nerve",
+    "type": "homo-nerve-function-rev",
+    "difficulty": 2,
+    "prompt": "Welcher Nerv erfüllt folgende Aufgabe: „Sensible Versorgung des Gesichts plus Innervation der Kaumuskeln\"?",
+    "correctAnswer": "Drillingsnerv",
+    "options": [
+      "Drillingsnerv",
+      "Gesichtsnerv",
+      "Speichennerv",
+      "Zwerchfellnerv"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_nerv-vagus_homo-nerve-function-rev",
+    "entityId": "homo:nerv-vagus",
+    "entityType": "nerve",
+    "type": "homo-nerve-function-rev",
+    "difficulty": 2,
+    "prompt": "Welcher Nerv erfüllt folgende Aufgabe: „Parasympathische Steuerung von Herz, Lunge und Verdauungsorganen\"?",
+    "correctAnswer": "Vagusnerv",
+    "options": [
+      "Vagusnerv",
+      "Ellennerv",
+      "Riechnerv",
+      "Mittelnerv"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_nerv-ischiadicus_homo-nerve-function-rev",
+    "entityId": "homo:nerv-ischiadicus",
+    "entityType": "nerve",
+    "type": "homo-nerve-function-rev",
+    "difficulty": 2,
+    "prompt": "Welcher Nerv erfüllt folgende Aufgabe: „Versorgt Beinrückseite und Unterschenkel motorisch und sensibel\"?",
+    "correctAnswer": "Ischiasnerv",
+    "options": [
+      "Ischiasnerv",
+      "Mittelnerv",
+      "Gesichtsnerv",
+      "Speichennerv"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_nerv-radialis_homo-nerve-function-rev",
+    "entityId": "homo:nerv-radialis",
+    "entityType": "nerve",
+    "type": "homo-nerve-function-rev",
+    "difficulty": 2,
+    "prompt": "Welcher Nerv erfüllt folgende Aufgabe: „Innerviert die Streckmuskeln von Ellenbogen, Hand und Fingern\"?",
+    "correctAnswer": "Speichennerv",
+    "options": [
+      "Speichennerv",
+      "Gesichtsnerv",
+      "Ischiasnerv",
+      "Drillingsnerv"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_nerv-medianus_homo-nerve-function-rev",
+    "entityId": "homo:nerv-medianus",
+    "entityType": "nerve",
+    "type": "homo-nerve-function-rev",
+    "difficulty": 2,
+    "prompt": "Welcher Nerv erfüllt folgende Aufgabe: „Versorgt die meisten Beugemuskeln des Unterarms und die Handfläche\"?",
+    "correctAnswer": "Mittelnerv",
+    "options": [
+      "Mittelnerv",
+      "Ellennerv",
+      "Vagusnerv",
+      "Riechnerv"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_nerv-ulnaris_homo-nerve-function-rev",
+    "entityId": "homo:nerv-ulnaris",
+    "entityType": "nerve",
+    "type": "homo-nerve-function-rev",
+    "difficulty": 2,
+    "prompt": "Welcher Nerv erfüllt folgende Aufgabe: „Steuert Spreizen und Beugen der Finger und versorgt den Kleinfingerbereich\"?",
+    "correctAnswer": "Ellennerv",
+    "options": [
+      "Ellennerv",
+      "Riechnerv",
+      "Vagusnerv",
+      "Mittelnerv"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_nerv-opticus_homo-nerve-latin",
+    "entityId": "homo:nerv-opticus",
+    "entityType": "nerve",
+    "type": "homo-nerve-latin",
+    "difficulty": 3,
+    "prompt": "Wie lautet der lateinische Name des Nervs „Sehnerv\"?",
+    "correctAnswer": "Nervus opticus",
+    "options": [
+      "Nervus opticus",
+      "Nervus ulnaris",
+      "Nervus radialis",
+      "Nervus facialis"
+    ],
+    "testedAttribute": "latinName",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_nerv-olfactorius_homo-nerve-latin",
+    "entityId": "homo:nerv-olfactorius",
+    "entityType": "nerve",
+    "type": "homo-nerve-latin",
+    "difficulty": 3,
+    "prompt": "Wie lautet der lateinische Name des Nervs „Riechnerv\"?",
+    "correctAnswer": "Nervus olfactorius",
+    "options": [
+      "Nervus olfactorius",
+      "Nervus ischiadicus",
+      "Nervus vestibularis",
+      "Nervus trigeminus"
+    ],
+    "testedAttribute": "latinName",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_nerv-cochlearis_homo-nerve-latin",
+    "entityId": "homo:nerv-cochlearis",
+    "entityType": "nerve",
+    "type": "homo-nerve-latin",
+    "difficulty": 3,
+    "prompt": "Wie lautet der lateinische Name des Nervs „Hörnerv\"?",
+    "correctAnswer": "Nervus cochlearis",
+    "options": [
+      "Nervus cochlearis",
+      "Nervus trigeminus",
+      "Nervus phrenicus",
+      "Nervus olfactorius"
+    ],
+    "testedAttribute": "latinName",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_nerv-vestibularis_homo-nerve-latin",
+    "entityId": "homo:nerv-vestibularis",
+    "entityType": "nerve",
+    "type": "homo-nerve-latin",
+    "difficulty": 3,
+    "prompt": "Wie lautet der lateinische Name des Nervs „Gleichgewichtsnerv\"?",
+    "correctAnswer": "Nervus vestibularis",
+    "options": [
+      "Nervus vestibularis",
+      "Nervus ischiadicus",
+      "Nervus olfactorius",
+      "Nervus oculomotorius"
+    ],
+    "testedAttribute": "latinName",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_nerv-facialis_homo-nerve-latin",
+    "entityId": "homo:nerv-facialis",
+    "entityType": "nerve",
+    "type": "homo-nerve-latin",
+    "difficulty": 3,
+    "prompt": "Wie lautet der lateinische Name des Nervs „Gesichtsnerv\"?",
+    "correctAnswer": "Nervus facialis",
+    "options": [
+      "Nervus facialis",
+      "Nervus medianus",
+      "Nervus radialis",
+      "Nervus opticus"
+    ],
+    "testedAttribute": "latinName",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_nerv-trigeminus_homo-nerve-latin",
+    "entityId": "homo:nerv-trigeminus",
+    "entityType": "nerve",
+    "type": "homo-nerve-latin",
+    "difficulty": 3,
+    "prompt": "Wie lautet der lateinische Name des Nervs „Drillingsnerv\"?",
+    "correctAnswer": "Nervus trigeminus",
+    "options": [
+      "Nervus trigeminus",
+      "Nervus cochlearis",
+      "Nervus phrenicus",
+      "Nervus olfactorius"
+    ],
+    "testedAttribute": "latinName",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_nerv-oculomotorius_homo-nerve-latin",
+    "entityId": "homo:nerv-oculomotorius",
+    "entityType": "nerve",
+    "type": "homo-nerve-latin",
+    "difficulty": 3,
+    "prompt": "Wie lautet der lateinische Name des Nervs „Augenmuskelnerv\"?",
+    "correctAnswer": "Nervus oculomotorius",
+    "options": [
+      "Nervus oculomotorius",
+      "Nervus vestibularis",
+      "Nervus ischiadicus",
+      "Nervus olfactorius"
+    ],
+    "testedAttribute": "latinName",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_nerv-radialis_homo-nerve-latin",
+    "entityId": "homo:nerv-radialis",
+    "entityType": "nerve",
+    "type": "homo-nerve-latin",
+    "difficulty": 3,
+    "prompt": "Wie lautet der lateinische Name des Nervs „Speichennerv\"?",
+    "correctAnswer": "Nervus radialis",
+    "options": [
+      "Nervus radialis",
+      "Nervus medianus",
+      "Nervus facialis",
+      "Nervus phrenicus"
+    ],
+    "testedAttribute": "latinName",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_nerv-medianus_homo-nerve-latin",
+    "entityId": "homo:nerv-medianus",
+    "entityType": "nerve",
+    "type": "homo-nerve-latin",
+    "difficulty": 3,
+    "prompt": "Wie lautet der lateinische Name des Nervs „Mittelnerv\"?",
+    "correctAnswer": "Nervus medianus",
+    "options": [
+      "Nervus medianus",
+      "Nervus facialis",
+      "Nervus radialis",
+      "Nervus opticus"
+    ],
+    "testedAttribute": "latinName",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_nerv-ulnaris_homo-nerve-latin",
+    "entityId": "homo:nerv-ulnaris",
+    "entityType": "nerve",
+    "type": "homo-nerve-latin",
+    "difficulty": 3,
+    "prompt": "Wie lautet der lateinische Name des Nervs „Ellennerv\"?",
+    "correctAnswer": "Nervus ulnaris",
+    "options": [
+      "Nervus ulnaris",
+      "Nervus opticus",
+      "Nervus facialis",
+      "Nervus radialis"
+    ],
+    "testedAttribute": "latinName",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_nerv-phrenicus_homo-nerve-latin",
+    "entityId": "homo:nerv-phrenicus",
+    "entityType": "nerve",
+    "type": "homo-nerve-latin",
+    "difficulty": 3,
+    "prompt": "Wie lautet der lateinische Name des Nervs „Zwerchfellnerv\"?",
+    "correctAnswer": "Nervus phrenicus",
+    "options": [
+      "Nervus phrenicus",
+      "Nervus trigeminus",
+      "Nervus cochlearis",
+      "Nervus facialis"
+    ],
+    "testedAttribute": "latinName",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_nerv-opticus_homo-nerve-latin-rev",
+    "entityId": "homo:nerv-opticus",
+    "entityType": "nerve",
+    "type": "homo-nerve-latin-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Nerv trägt den lateinischen Namen „Nervus opticus\"?",
+    "correctAnswer": "Sehnerv",
+    "options": [
+      "Sehnerv",
+      "Hörnerv",
+      "Riechnerv",
+      "Ellennerv"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_nerv-olfactorius_homo-nerve-latin-rev",
+    "entityId": "homo:nerv-olfactorius",
+    "entityType": "nerve",
+    "type": "homo-nerve-latin-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Nerv trägt den lateinischen Namen „Nervus olfactorius\"?",
+    "correctAnswer": "Riechnerv",
+    "options": [
+      "Riechnerv",
+      "Vagusnerv",
+      "Ellennerv",
+      "Mittelnerv"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_nerv-cochlearis_homo-nerve-latin-rev",
+    "entityId": "homo:nerv-cochlearis",
+    "entityType": "nerve",
+    "type": "homo-nerve-latin-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Nerv trägt den lateinischen Namen „Nervus cochlearis\"?",
+    "correctAnswer": "Hörnerv",
+    "options": [
+      "Hörnerv",
+      "Sehnerv",
+      "Vagusnerv",
+      "Ellennerv"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_nerv-vestibularis_homo-nerve-latin-rev",
+    "entityId": "homo:nerv-vestibularis",
+    "entityType": "nerve",
+    "type": "homo-nerve-latin-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Nerv trägt den lateinischen Namen „Nervus vestibularis\"?",
+    "correctAnswer": "Gleichgewichtsnerv",
+    "options": [
+      "Gleichgewichtsnerv",
+      "Augenmuskelnerv",
+      "Zwerchfellnerv",
+      "Drillingsnerv"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_nerv-facialis_homo-nerve-latin-rev",
+    "entityId": "homo:nerv-facialis",
+    "entityType": "nerve",
+    "type": "homo-nerve-latin-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Nerv trägt den lateinischen Namen „Nervus facialis\"?",
+    "correctAnswer": "Gesichtsnerv",
+    "options": [
+      "Gesichtsnerv",
+      "Speichennerv",
+      "Drillingsnerv",
+      "Ischiasnerv"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_nerv-trigeminus_homo-nerve-latin-rev",
+    "entityId": "homo:nerv-trigeminus",
+    "entityType": "nerve",
+    "type": "homo-nerve-latin-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Nerv trägt den lateinischen Namen „Nervus trigeminus\"?",
+    "correctAnswer": "Drillingsnerv",
+    "options": [
+      "Drillingsnerv",
+      "Gesichtsnerv",
+      "Speichennerv",
+      "Zwerchfellnerv"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_nerv-oculomotorius_homo-nerve-latin-rev",
+    "entityId": "homo:nerv-oculomotorius",
+    "entityType": "nerve",
+    "type": "homo-nerve-latin-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Nerv trägt den lateinischen Namen „Nervus oculomotorius\"?",
+    "correctAnswer": "Augenmuskelnerv",
+    "options": [
+      "Augenmuskelnerv",
+      "Zwerchfellnerv",
+      "Drillingsnerv",
+      "Gleichgewichtsnerv"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_nerv-radialis_homo-nerve-latin-rev",
+    "entityId": "homo:nerv-radialis",
+    "entityType": "nerve",
+    "type": "homo-nerve-latin-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Nerv trägt den lateinischen Namen „Nervus radialis\"?",
+    "correctAnswer": "Speichennerv",
+    "options": [
+      "Speichennerv",
+      "Gesichtsnerv",
+      "Ischiasnerv",
+      "Drillingsnerv"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_nerv-medianus_homo-nerve-latin-rev",
+    "entityId": "homo:nerv-medianus",
+    "entityType": "nerve",
+    "type": "homo-nerve-latin-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Nerv trägt den lateinischen Namen „Nervus medianus\"?",
+    "correctAnswer": "Mittelnerv",
+    "options": [
+      "Mittelnerv",
+      "Ellennerv",
+      "Vagusnerv",
+      "Riechnerv"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_nerv-ulnaris_homo-nerve-latin-rev",
+    "entityId": "homo:nerv-ulnaris",
+    "entityType": "nerve",
+    "type": "homo-nerve-latin-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Nerv trägt den lateinischen Namen „Nervus ulnaris\"?",
+    "correctAnswer": "Ellennerv",
+    "options": [
+      "Ellennerv",
+      "Riechnerv",
+      "Vagusnerv",
+      "Mittelnerv"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_nerv-phrenicus_homo-nerve-latin-rev",
+    "entityId": "homo:nerv-phrenicus",
+    "entityType": "nerve",
+    "type": "homo-nerve-latin-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Nerv trägt den lateinischen Namen „Nervus phrenicus\"?",
+    "correctAnswer": "Zwerchfellnerv",
+    "options": [
+      "Zwerchfellnerv",
+      "Drillingsnerv",
+      "Augenmuskelnerv",
+      "Speichennerv"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-halo-effekt_homo-psych-definition",
+    "entityId": "homo:psyche-halo-effekt",
+    "entityType": "psych_effect",
+    "type": "homo-psych-definition",
+    "difficulty": 2,
+    "prompt": "Wie lässt sich „Halo-Effekt\" in der Psychologie am besten beschreiben?",
+    "correctAnswer": "Ein auffälliges Einzelmerkmal überstrahlt das Gesamturteil, sodass unabhängige Eigenschaften fälschlich als zusammenhängend gelten.",
+    "options": [
+      "Ein auffälliges Einzelmerkmal überstrahlt das Gesamturteil, sodass unabhängige Eigenschaften fälschlich als zusammenhängend gelten.",
+      "Wenig kompetente Personen überschätzen ihr eigenes Können, weil ihnen die Einsicht in die eigene Unzulänglichkeit fehlt.",
+      "Wird ein Freiheitsspielraum eingeschränkt, entsteht Widerstand, und die verbotene Option wirkt plötzlich attraktiver.",
+      "Bereits ausgegebene, nicht rückholbare Mittel werden weiterverfolgt, statt rein nach künftigem Nutzen zu entscheiden."
+    ],
+    "testedAttribute": "definition",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-dunning-kruger_homo-psych-definition",
+    "entityId": "homo:psyche-dunning-kruger",
+    "entityType": "psych_effect",
+    "type": "homo-psych-definition",
+    "difficulty": 2,
+    "prompt": "Wie lässt sich „Dunning-Kruger-Effekt\" in der Psychologie am besten beschreiben?",
+    "correctAnswer": "Wenig kompetente Personen überschätzen ihr eigenes Können, weil ihnen die Einsicht in die eigene Unzulänglichkeit fehlt.",
+    "options": [
+      "Wenig kompetente Personen überschätzen ihr eigenes Können, weil ihnen die Einsicht in die eigene Unzulänglichkeit fehlt.",
+      "Unvereinbare Überzeugungen oder Handlungen erzeugen einen unangenehmen Spannungszustand, den man aufzulösen versucht.",
+      "Wird ein Freiheitsspielraum eingeschränkt, entsteht Widerstand, und die verbotene Option wirkt plötzlich attraktiver.",
+      "Bereits ausgegebene, nicht rückholbare Mittel werden weiterverfolgt, statt rein nach künftigem Nutzen zu entscheiden."
+    ],
+    "testedAttribute": "definition",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-ankereffekt_homo-psych-definition",
+    "entityId": "homo:psyche-ankereffekt",
+    "entityType": "psych_effect",
+    "type": "homo-psych-definition",
+    "difficulty": 2,
+    "prompt": "Wie lässt sich „Ankereffekt\" in der Psychologie am besten beschreiben?",
+    "correctAnswer": "Eine zuvor genannte Zahl beeinflusst spätere Schätzungen, auch wenn sie für die Frage völlig belanglos ist.",
+    "options": [
+      "Eine zuvor genannte Zahl beeinflusst spätere Schätzungen, auch wenn sie für die Frage völlig belanglos ist.",
+      "Wiederholter Kontakt mit einem zunächst neutralen Reiz führt allein dadurch zu einer positiveren Bewertung.",
+      "Unterschiedliche Formulierungen derselben Information führen bei gleichem Inhalt zu anderen Entscheidungen.",
+      "Beim Erinnern einer Reihe bleiben die zuletzt dargebotenen Inhalte besser im Gedächtnis als die mittleren."
+    ],
+    "testedAttribute": "definition",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-verfuegbarkeitsheuristik_homo-psych-definition",
+    "entityId": "homo:psyche-verfuegbarkeitsheuristik",
+    "entityType": "psych_effect",
+    "type": "homo-psych-definition",
+    "difficulty": 2,
+    "prompt": "Wie lässt sich „Verfügbarkeitsheuristik\" in der Psychologie am besten beschreiben?",
+    "correctAnswer": "Häufigkeit oder Wahrscheinlichkeit wird danach geschätzt, wie leicht einem Beispiele dafür einfallen.",
+    "options": [
+      "Häufigkeit oder Wahrscheinlichkeit wird danach geschätzt, wie leicht einem Beispiele dafür einfallen.",
+      "Eine zunächst falsche Vorhersage trifft ein, weil der Glaube daran das Verhalten entsprechend lenkt.",
+      "Nachdem ein Ereignis eingetreten ist, überschätzt man, wie gut man es vorher hätte vorhersehen können.",
+      "Eine wirkstofffreie Behandlung löst allein durch die Erwartung von Schaden negative Beschwerden aus."
+    ],
+    "testedAttribute": "definition",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-placeboeffekt_homo-psych-definition",
+    "entityId": "homo:psyche-placeboeffekt",
+    "entityType": "psych_effect",
+    "type": "homo-psych-definition",
+    "difficulty": 2,
+    "prompt": "Wie lässt sich „Placeboeffekt\" in der Psychologie am besten beschreiben?",
+    "correctAnswer": "Eine wirkstofffreie Scheinbehandlung führt allein durch positive Erwartung zu spürbarer Besserung.",
+    "options": [
+      "Eine wirkstofffreie Scheinbehandlung führt allein durch positive Erwartung zu spürbarer Besserung.",
+      "Wer einer kleinen Bitte zustimmt, willigt danach eher auch in eine deutlich größere Forderung ein.",
+      "Neigung, Informationen so zu suchen und zu deuten, dass sie die eigene bestehende Meinung stützen.",
+      "Das Streben nach Einmütigkeit in einer Gruppe verdrängt die realistische Prüfung von Alternativen."
+    ],
+    "testedAttribute": "definition",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-noceboeffekt_homo-psych-definition",
+    "entityId": "homo:psyche-noceboeffekt",
+    "entityType": "psych_effect",
+    "type": "homo-psych-definition",
+    "difficulty": 2,
+    "prompt": "Wie lässt sich „Noceboeffekt\" in der Psychologie am besten beschreiben?",
+    "correctAnswer": "Eine wirkstofffreie Behandlung löst allein durch die Erwartung von Schaden negative Beschwerden aus.",
+    "options": [
+      "Eine wirkstofffreie Behandlung löst allein durch die Erwartung von Schaden negative Beschwerden aus.",
+      "Eine zunächst falsche Vorhersage trifft ein, weil der Glaube daran das Verhalten entsprechend lenkt.",
+      "Beim Erinnern einer Reihe werden die zuerst dargebotenen Inhalte besser behalten als die mittleren.",
+      "Je mehr Menschen einer Notlage beiwohnen, desto unwahrscheinlicher greift der Einzelne helfend ein."
+    ],
+    "testedAttribute": "definition",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-rueckschaufehler_homo-psych-definition",
+    "entityId": "homo:psyche-rueckschaufehler",
+    "entityType": "psych_effect",
+    "type": "homo-psych-definition",
+    "difficulty": 2,
+    "prompt": "Wie lässt sich „Rückschaufehler\" in der Psychologie am besten beschreiben?",
+    "correctAnswer": "Nachdem ein Ereignis eingetreten ist, überschätzt man, wie gut man es vorher hätte vorhersehen können.",
+    "options": [
+      "Nachdem ein Ereignis eingetreten ist, überschätzt man, wie gut man es vorher hätte vorhersehen können.",
+      "Häufigkeit oder Wahrscheinlichkeit wird danach geschätzt, wie leicht einem Beispiele dafür einfallen.",
+      "Sehr allgemeine, auf jeden zutreffende Aussagen werden als treffend persönliche Beschreibung empfunden.",
+      "Eine zunächst falsche Vorhersage trifft ein, weil der Glaube daran das Verhalten entsprechend lenkt."
+    ],
+    "testedAttribute": "definition",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-framing-effekt_homo-psych-definition",
+    "entityId": "homo:psyche-framing-effekt",
+    "entityType": "psych_effect",
+    "type": "homo-psych-definition",
+    "difficulty": 2,
+    "prompt": "Wie lässt sich „Framing-Effekt\" in der Psychologie am besten beschreiben?",
+    "correctAnswer": "Unterschiedliche Formulierungen derselben Information führen bei gleichem Inhalt zu anderen Entscheidungen.",
+    "options": [
+      "Unterschiedliche Formulierungen derselben Information führen bei gleichem Inhalt zu anderen Entscheidungen.",
+      "Eine zuvor genannte Zahl beeinflusst spätere Schätzungen, auch wenn sie für die Frage völlig belanglos ist.",
+      "Wiederholter Kontakt mit einem zunächst neutralen Reiz führt allein dadurch zu einer positiveren Bewertung.",
+      "Beim Erinnern einer Reihe bleiben die zuletzt dargebotenen Inhalte besser im Gedächtnis als die mittleren."
+    ],
+    "testedAttribute": "definition",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-mitlaeufereffekt_homo-psych-definition",
+    "entityId": "homo:psyche-mitlaeufereffekt",
+    "entityType": "psych_effect",
+    "type": "homo-psych-definition",
+    "difficulty": 2,
+    "prompt": "Wie lässt sich „Mitläufereffekt\" in der Psychologie am besten beschreiben?",
+    "correctAnswer": "Menschen schließen sich einer Sache umso eher an, je mehr andere sie bereits gewählt haben.",
+    "options": [
+      "Menschen schließen sich einer Sache umso eher an, je mehr andere sie bereits gewählt haben.",
+      "Systematische Überbewertung der eigenen Fähigkeiten oder der Sicherheit des eigenen Urteils.",
+      "Unterbrochene, unerledigte Aufgaben bleiben besser im Gedächtnis als bereits abgeschlossene.",
+      "Verluste wiegen psychologisch schwerer als gleich große Gewinne und werden stärker vermieden."
+    ],
+    "testedAttribute": "definition",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-selbstueberschaetzung_homo-psych-definition",
+    "entityId": "homo:psyche-selbstueberschaetzung",
+    "entityType": "psych_effect",
+    "type": "homo-psych-definition",
+    "difficulty": 2,
+    "prompt": "Wie lässt sich „Selbstüberschätzung\" in der Psychologie am besten beschreiben?",
+    "correctAnswer": "Systematische Überbewertung der eigenen Fähigkeiten oder der Sicherheit des eigenen Urteils.",
+    "options": [
+      "Systematische Überbewertung der eigenen Fähigkeiten oder der Sicherheit des eigenen Urteils.",
+      "Unterbrochene, unerledigte Aufgaben bleiben besser im Gedächtnis als bereits abgeschlossene.",
+      "Verluste wiegen psychologisch schwerer als gleich große Gewinne und werden stärker vermieden.",
+      "Menschen schließen sich einer Sache umso eher an, je mehr andere sie bereits gewählt haben."
+    ],
+    "testedAttribute": "definition",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-selbsterfuellende-prophezeiung_homo-psych-definition",
+    "entityId": "homo:psyche-selbsterfuellende-prophezeiung",
+    "entityType": "psych_effect",
+    "type": "homo-psych-definition",
+    "difficulty": 2,
+    "prompt": "Wie lässt sich „Selbsterfüllende Prophezeiung\" in der Psychologie am besten beschreiben?",
+    "correctAnswer": "Eine zunächst falsche Vorhersage trifft ein, weil der Glaube daran das Verhalten entsprechend lenkt.",
+    "options": [
+      "Eine zunächst falsche Vorhersage trifft ein, weil der Glaube daran das Verhalten entsprechend lenkt.",
+      "Eine wirkstofffreie Behandlung löst allein durch die Erwartung von Schaden negative Beschwerden aus.",
+      "Häufigkeit oder Wahrscheinlichkeit wird danach geschätzt, wie leicht einem Beispiele dafür einfallen.",
+      "Erfolge schreibt man den eigenen Fähigkeiten zu, Misserfolge dagegen äußeren Umständen oder Zufall."
+    ],
+    "testedAttribute": "definition",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-pygmalion-effekt_homo-psych-definition",
+    "entityId": "homo:psyche-pygmalion-effekt",
+    "entityType": "psych_effect",
+    "type": "homo-psych-definition",
+    "difficulty": 2,
+    "prompt": "Wie lässt sich „Pygmalion-Effekt\" in der Psychologie am besten beschreiben?",
+    "correctAnswer": "Hohe Erwartungen einer Autorität an eine Person steigern deren tatsächliche Leistung.",
+    "options": [
+      "Hohe Erwartungen einer Autorität an eine Person steigern deren tatsächliche Leistung.",
+      "Menschen schließen sich einer Sache umso eher an, je mehr andere sie bereits gewählt haben.",
+      "Systematische Überbewertung der eigenen Fähigkeiten oder der Sicherheit des eigenen Urteils.",
+      "Unterbrochene, unerledigte Aufgaben bleiben besser im Gedächtnis als bereits abgeschlossene."
+    ],
+    "testedAttribute": "definition",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-barnum-effekt_homo-psych-definition",
+    "entityId": "homo:psyche-barnum-effekt",
+    "entityType": "psych_effect",
+    "type": "homo-psych-definition",
+    "difficulty": 2,
+    "prompt": "Wie lässt sich „Barnum-Effekt\" in der Psychologie am besten beschreiben?",
+    "correctAnswer": "Sehr allgemeine, auf jeden zutreffende Aussagen werden als treffend persönliche Beschreibung empfunden.",
+    "options": [
+      "Sehr allgemeine, auf jeden zutreffende Aussagen werden als treffend persönliche Beschreibung empfunden.",
+      "Eigenes Verhalten erklärt man mit den Umständen, fremdes Verhalten dagegen mit dem Charakter der Person.",
+      "Nachdem ein Ereignis eingetreten ist, überschätzt man, wie gut man es vorher hätte vorhersehen können.",
+      "Häufigkeit oder Wahrscheinlichkeit wird danach geschätzt, wie leicht einem Beispiele dafür einfallen."
+    ],
+    "testedAttribute": "definition",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-mere-exposure-effekt_homo-psych-definition",
+    "entityId": "homo:psyche-mere-exposure-effekt",
+    "entityType": "psych_effect",
+    "type": "homo-psych-definition",
+    "difficulty": 2,
+    "prompt": "Wie lässt sich „Mere-Exposure-Effekt\" in der Psychologie am besten beschreiben?",
+    "correctAnswer": "Wiederholter Kontakt mit einem zunächst neutralen Reiz führt allein dadurch zu einer positiveren Bewertung.",
+    "options": [
+      "Wiederholter Kontakt mit einem zunächst neutralen Reiz führt allein dadurch zu einer positiveren Bewertung.",
+      "Unterschiedliche Formulierungen derselben Information führen bei gleichem Inhalt zu anderen Entscheidungen.",
+      "Eine zuvor genannte Zahl beeinflusst spätere Schätzungen, auch wenn sie für die Frage völlig belanglos ist.",
+      "Beim Erinnern einer Reihe bleiben die zuletzt dargebotenen Inhalte besser im Gedächtnis als die mittleren."
+    ],
+    "testedAttribute": "definition",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-zeigarnik-effekt_homo-psych-definition",
+    "entityId": "homo:psyche-zeigarnik-effekt",
+    "entityType": "psych_effect",
+    "type": "homo-psych-definition",
+    "difficulty": 2,
+    "prompt": "Wie lässt sich „Zeigarnik-Effekt\" in der Psychologie am besten beschreiben?",
+    "correctAnswer": "Unterbrochene, unerledigte Aufgaben bleiben besser im Gedächtnis als bereits abgeschlossene.",
+    "options": [
+      "Unterbrochene, unerledigte Aufgaben bleiben besser im Gedächtnis als bereits abgeschlossene.",
+      "Systematische Überbewertung der eigenen Fähigkeiten oder der Sicherheit des eigenen Urteils.",
+      "Menschen schließen sich einer Sache umso eher an, je mehr andere sie bereits gewählt haben.",
+      "Verluste wiegen psychologisch schwerer als gleich große Gewinne und werden stärker vermieden."
+    ],
+    "testedAttribute": "definition",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-foot-in-the-door_homo-psych-definition",
+    "entityId": "homo:psyche-foot-in-the-door",
+    "entityType": "psych_effect",
+    "type": "homo-psych-definition",
+    "difficulty": 2,
+    "prompt": "Wie lässt sich „Foot-in-the-door\" in der Psychologie am besten beschreiben?",
+    "correctAnswer": "Wer einer kleinen Bitte zustimmt, willigt danach eher auch in eine deutlich größere Forderung ein.",
+    "options": [
+      "Wer einer kleinen Bitte zustimmt, willigt danach eher auch in eine deutlich größere Forderung ein.",
+      "Eine wirkstofffreie Scheinbehandlung führt allein durch positive Erwartung zu spürbarer Besserung.",
+      "Das Streben nach Einmütigkeit in einer Gruppe verdrängt die realistische Prüfung von Alternativen.",
+      "Neigung, Informationen so zu suchen und zu deuten, dass sie die eigene bestehende Meinung stützen."
+    ],
+    "testedAttribute": "definition",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-horn-effekt_homo-psych-definition",
+    "entityId": "homo:psyche-horn-effekt",
+    "entityType": "psych_effect",
+    "type": "homo-psych-definition",
+    "difficulty": 2,
+    "prompt": "Wie lässt sich „Horn-Effekt\" in der Psychologie am besten beschreiben?",
+    "correctAnswer": "Eine einzelne negative Eigenschaft überschattet das Gesamturteil und färbt die ganze Person ab.",
+    "options": [
+      "Eine einzelne negative Eigenschaft überschattet das Gesamturteil und färbt die ganze Person ab.",
+      "Verluste wiegen psychologisch schwerer als gleich große Gewinne und werden stärker vermieden.",
+      "Systematische Überbewertung der eigenen Fähigkeiten oder der Sicherheit des eigenen Urteils.",
+      "Das Streben nach Einmütigkeit in einer Gruppe verdrängt die realistische Prüfung von Alternativen."
+    ],
+    "testedAttribute": "definition",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-sunk-cost_homo-psych-definition",
+    "entityId": "homo:psyche-sunk-cost",
+    "entityType": "psych_effect",
+    "type": "homo-psych-definition",
+    "difficulty": 2,
+    "prompt": "Wie lässt sich „Sunk-Cost-Fehler\" in der Psychologie am besten beschreiben?",
+    "correctAnswer": "Bereits ausgegebene, nicht rückholbare Mittel werden weiterverfolgt, statt rein nach künftigem Nutzen zu entscheiden.",
+    "options": [
+      "Bereits ausgegebene, nicht rückholbare Mittel werden weiterverfolgt, statt rein nach künftigem Nutzen zu entscheiden.",
+      "Unvereinbare Überzeugungen oder Handlungen erzeugen einen unangenehmen Spannungszustand, den man aufzulösen versucht.",
+      "Wird ein Freiheitsspielraum eingeschränkt, entsteht Widerstand, und die verbotene Option wirkt plötzlich attraktiver.",
+      "Wenig kompetente Personen überschätzen ihr eigenes Können, weil ihnen die Einsicht in die eigene Unzulänglichkeit fehlt."
+    ],
+    "testedAttribute": "definition",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-zuschauereffekt_homo-psych-definition",
+    "entityId": "homo:psyche-zuschauereffekt",
+    "entityType": "psych_effect",
+    "type": "homo-psych-definition",
+    "difficulty": 2,
+    "prompt": "Wie lässt sich „Zuschauereffekt\" in der Psychologie am besten beschreiben?",
+    "correctAnswer": "Je mehr Menschen einer Notlage beiwohnen, desto unwahrscheinlicher greift der Einzelne helfend ein.",
+    "options": [
+      "Je mehr Menschen einer Notlage beiwohnen, desto unwahrscheinlicher greift der Einzelne helfend ein.",
+      "Erfolge schreibt man den eigenen Fähigkeiten zu, Misserfolge dagegen äußeren Umständen oder Zufall.",
+      "Beim Erinnern einer Reihe werden die zuerst dargebotenen Inhalte besser behalten als die mittleren.",
+      "Wer einer kleinen Bitte zustimmt, willigt danach eher auch in eine deutlich größere Forderung ein."
+    ],
+    "testedAttribute": "definition",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-primacy-effekt_homo-psych-definition",
+    "entityId": "homo:psyche-primacy-effekt",
+    "entityType": "psych_effect",
+    "type": "homo-psych-definition",
+    "difficulty": 2,
+    "prompt": "Wie lässt sich „Primacy-Effekt\" in der Psychologie am besten beschreiben?",
+    "correctAnswer": "Beim Erinnern einer Reihe werden die zuerst dargebotenen Inhalte besser behalten als die mittleren.",
+    "options": [
+      "Beim Erinnern einer Reihe werden die zuerst dargebotenen Inhalte besser behalten als die mittleren.",
+      "Erfolge schreibt man den eigenen Fähigkeiten zu, Misserfolge dagegen äußeren Umständen oder Zufall.",
+      "Je mehr Menschen einer Notlage beiwohnen, desto unwahrscheinlicher greift der Einzelne helfend ein.",
+      "Wer einer kleinen Bitte zustimmt, willigt danach eher auch in eine deutlich größere Forderung ein."
+    ],
+    "testedAttribute": "definition",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-recency-effekt_homo-psych-definition",
+    "entityId": "homo:psyche-recency-effekt",
+    "entityType": "psych_effect",
+    "type": "homo-psych-definition",
+    "difficulty": 2,
+    "prompt": "Wie lässt sich „Recency-Effekt\" in der Psychologie am besten beschreiben?",
+    "correctAnswer": "Beim Erinnern einer Reihe bleiben die zuletzt dargebotenen Inhalte besser im Gedächtnis als die mittleren.",
+    "options": [
+      "Beim Erinnern einer Reihe bleiben die zuletzt dargebotenen Inhalte besser im Gedächtnis als die mittleren.",
+      "Unterschiedliche Formulierungen derselben Information führen bei gleichem Inhalt zu anderen Entscheidungen.",
+      "Eine zuvor genannte Zahl beeinflusst spätere Schätzungen, auch wenn sie für die Frage völlig belanglos ist.",
+      "Wiederholter Kontakt mit einem zunächst neutralen Reiz führt allein dadurch zu einer positiveren Bewertung."
+    ],
+    "testedAttribute": "definition",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-kontrasteffekt_homo-psych-definition",
+    "entityId": "homo:psyche-kontrasteffekt",
+    "entityType": "psych_effect",
+    "type": "homo-psych-definition",
+    "difficulty": 2,
+    "prompt": "Wie lässt sich „Kontrasteffekt\" in der Psychologie am besten beschreiben?",
+    "correctAnswer": "Die Bewertung eines Reizes verschiebt sich je nach unmittelbar vorher oder gleichzeitig gezeigtem Vergleichsreiz.",
+    "options": [
+      "Die Bewertung eines Reizes verschiebt sich je nach unmittelbar vorher oder gleichzeitig gezeigtem Vergleichsreiz.",
+      "Bereitschaft, Anweisungen einer Autoritätsperson zu folgen, selbst wenn sie dem eigenen Gewissen widersprechen.",
+      "Wird ein Freiheitsspielraum eingeschränkt, entsteht Widerstand, und die verbotene Option wirkt plötzlich attraktiver.",
+      "Unvereinbare Überzeugungen oder Handlungen erzeugen einen unangenehmen Spannungszustand, den man aufzulösen versucht."
+    ],
+    "testedAttribute": "definition",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-reaktanz_homo-psych-definition",
+    "entityId": "homo:psyche-reaktanz",
+    "entityType": "psych_effect",
+    "type": "homo-psych-definition",
+    "difficulty": 2,
+    "prompt": "Wie lässt sich „Reaktanz\" in der Psychologie am besten beschreiben?",
+    "correctAnswer": "Wird ein Freiheitsspielraum eingeschränkt, entsteht Widerstand, und die verbotene Option wirkt plötzlich attraktiver.",
+    "options": [
+      "Wird ein Freiheitsspielraum eingeschränkt, entsteht Widerstand, und die verbotene Option wirkt plötzlich attraktiver.",
+      "Unvereinbare Überzeugungen oder Handlungen erzeugen einen unangenehmen Spannungszustand, den man aufzulösen versucht.",
+      "Bereits ausgegebene, nicht rückholbare Mittel werden weiterverfolgt, statt rein nach künftigem Nutzen zu entscheiden.",
+      "Wenig kompetente Personen überschätzen ihr eigenes Können, weil ihnen die Einsicht in die eigene Unzulänglichkeit fehlt."
+    ],
+    "testedAttribute": "definition",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-kognitive-dissonanz_homo-psych-definition",
+    "entityId": "homo:psyche-kognitive-dissonanz",
+    "entityType": "psych_effect",
+    "type": "homo-psych-definition",
+    "difficulty": 2,
+    "prompt": "Wie lässt sich „Kognitive Dissonanz\" in der Psychologie am besten beschreiben?",
+    "correctAnswer": "Unvereinbare Überzeugungen oder Handlungen erzeugen einen unangenehmen Spannungszustand, den man aufzulösen versucht.",
+    "options": [
+      "Unvereinbare Überzeugungen oder Handlungen erzeugen einen unangenehmen Spannungszustand, den man aufzulösen versucht.",
+      "Bereits ausgegebene, nicht rückholbare Mittel werden weiterverfolgt, statt rein nach künftigem Nutzen zu entscheiden.",
+      "Wird ein Freiheitsspielraum eingeschränkt, entsteht Widerstand, und die verbotene Option wirkt plötzlich attraktiver.",
+      "Wenig kompetente Personen überschätzen ihr eigenes Können, weil ihnen die Einsicht in die eigene Unzulänglichkeit fehlt."
+    ],
+    "testedAttribute": "definition",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-aktor-beobachter-verzerrung_homo-psych-definition",
+    "entityId": "homo:psyche-aktor-beobachter-verzerrung",
+    "entityType": "psych_effect",
+    "type": "homo-psych-definition",
+    "difficulty": 2,
+    "prompt": "Wie lässt sich „Aktor-Beobachter-Verzerrung\" in der Psychologie am besten beschreiben?",
+    "correctAnswer": "Eigenes Verhalten erklärt man mit den Umständen, fremdes Verhalten dagegen mit dem Charakter der Person.",
+    "options": [
+      "Eigenes Verhalten erklärt man mit den Umständen, fremdes Verhalten dagegen mit dem Charakter der Person.",
+      "Sehr allgemeine, auf jeden zutreffende Aussagen werden als treffend persönliche Beschreibung empfunden.",
+      "Nachdem ein Ereignis eingetreten ist, überschätzt man, wie gut man es vorher hätte vorhersehen können.",
+      "Beim Erinnern einer Reihe bleiben die zuletzt dargebotenen Inhalte besser im Gedächtnis als die mittleren."
+    ],
+    "testedAttribute": "definition",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-selbstwertdienliche-verzerrung_homo-psych-definition",
+    "entityId": "homo:psyche-selbstwertdienliche-verzerrung",
+    "entityType": "psych_effect",
+    "type": "homo-psych-definition",
+    "difficulty": 2,
+    "prompt": "Wie lässt sich „Selbstwertdienliche Verzerrung\" in der Psychologie am besten beschreiben?",
+    "correctAnswer": "Erfolge schreibt man den eigenen Fähigkeiten zu, Misserfolge dagegen äußeren Umständen oder Zufall.",
+    "options": [
+      "Erfolge schreibt man den eigenen Fähigkeiten zu, Misserfolge dagegen äußeren Umständen oder Zufall.",
+      "Je mehr Menschen einer Notlage beiwohnen, desto unwahrscheinlicher greift der Einzelne helfend ein.",
+      "Beim Erinnern einer Reihe werden die zuerst dargebotenen Inhalte besser behalten als die mittleren.",
+      "Das Streben nach Einmütigkeit in einer Gruppe verdrängt die realistische Prüfung von Alternativen."
+    ],
+    "testedAttribute": "definition",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-halo-effekt_homo-psych-definition-rev",
+    "entityId": "homo:psyche-halo-effekt",
+    "entityType": "psych_effect",
+    "type": "homo-psych-definition-rev",
+    "difficulty": 2,
+    "prompt": "Welcher psychologische Effekt wird so beschrieben: „Ein auffälliges Einzelmerkmal überstrahlt das Gesamturteil, sodass unabhängige Eigenschaften fälschlich als zusammenhängend gelten.\"?",
+    "correctAnswer": "Halo-Effekt",
+    "options": [
+      "Halo-Effekt",
+      "Ankereffekt",
+      "Horn-Effekt",
+      "Noceboeffekt"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-dunning-kruger_homo-psych-definition-rev",
+    "entityId": "homo:psyche-dunning-kruger",
+    "entityType": "psych_effect",
+    "type": "homo-psych-definition-rev",
+    "difficulty": 2,
+    "prompt": "Welcher psychologische Effekt wird so beschrieben: „Wenig kompetente Personen überschätzen ihr eigenes Können, weil ihnen die Einsicht in die eigene Unzulänglichkeit fehlt.\"?",
+    "correctAnswer": "Dunning-Kruger-Effekt",
+    "options": [
+      "Dunning-Kruger-Effekt",
+      "Mere-Exposure-Effekt",
+      "Verfügbarkeitsheuristik",
+      "Selbstüberschätzung"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-ankereffekt_homo-psych-definition-rev",
+    "entityId": "homo:psyche-ankereffekt",
+    "entityType": "psych_effect",
+    "type": "homo-psych-definition-rev",
+    "difficulty": 2,
+    "prompt": "Welcher psychologische Effekt wird so beschrieben: „Eine zuvor genannte Zahl beeinflusst spätere Schätzungen, auch wenn sie für die Frage völlig belanglos ist.\"?",
+    "correctAnswer": "Ankereffekt",
+    "options": [
+      "Ankereffekt",
+      "Halo-Effekt",
+      "Horn-Effekt",
+      "Noceboeffekt"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-verfuegbarkeitsheuristik_homo-psych-definition-rev",
+    "entityId": "homo:psyche-verfuegbarkeitsheuristik",
+    "entityType": "psych_effect",
+    "type": "homo-psych-definition-rev",
+    "difficulty": 2,
+    "prompt": "Welcher psychologische Effekt wird so beschrieben: „Häufigkeit oder Wahrscheinlichkeit wird danach geschätzt, wie leicht einem Beispiele dafür einfallen.\"?",
+    "correctAnswer": "Verfügbarkeitsheuristik",
+    "options": [
+      "Verfügbarkeitsheuristik",
+      "Dunning-Kruger-Effekt",
+      "Mere-Exposure-Effekt",
+      "Selbstüberschätzung"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-placeboeffekt_homo-psych-definition-rev",
+    "entityId": "homo:psyche-placeboeffekt",
+    "entityType": "psych_effect",
+    "type": "homo-psych-definition-rev",
+    "difficulty": 2,
+    "prompt": "Welcher psychologische Effekt wird so beschrieben: „Eine wirkstofffreie Scheinbehandlung führt allein durch positive Erwartung zu spürbarer Besserung.\"?",
+    "correctAnswer": "Placeboeffekt",
+    "options": [
+      "Placeboeffekt",
+      "Gruppendenken",
+      "Barnum-Effekt",
+      "Framing-Effekt"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-noceboeffekt_homo-psych-definition-rev",
+    "entityId": "homo:psyche-noceboeffekt",
+    "entityType": "psych_effect",
+    "type": "homo-psych-definition-rev",
+    "difficulty": 2,
+    "prompt": "Welcher psychologische Effekt wird so beschrieben: „Eine wirkstofffreie Behandlung löst allein durch die Erwartung von Schaden negative Beschwerden aus.\"?",
+    "correctAnswer": "Noceboeffekt",
+    "options": [
+      "Noceboeffekt",
+      "Ankereffekt",
+      "Halo-Effekt",
+      "Barnum-Effekt"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-rueckschaufehler_homo-psych-definition-rev",
+    "entityId": "homo:psyche-rueckschaufehler",
+    "entityType": "psych_effect",
+    "type": "homo-psych-definition-rev",
+    "difficulty": 2,
+    "prompt": "Welcher psychologische Effekt wird so beschrieben: „Nachdem ein Ereignis eingetreten ist, überschätzt man, wie gut man es vorher hätte vorhersehen können.\"?",
+    "correctAnswer": "Rückschaufehler",
+    "options": [
+      "Rückschaufehler",
+      "Zuschauereffekt",
+      "Mitläufereffekt",
+      "Verlustaversion"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-framing-effekt_homo-psych-definition-rev",
+    "entityId": "homo:psyche-framing-effekt",
+    "entityType": "psych_effect",
+    "type": "homo-psych-definition-rev",
+    "difficulty": 2,
+    "prompt": "Welcher psychologische Effekt wird so beschrieben: „Unterschiedliche Formulierungen derselben Information führen bei gleichem Inhalt zu anderen Entscheidungen.\"?",
+    "correctAnswer": "Framing-Effekt",
+    "options": [
+      "Framing-Effekt",
+      "Recency-Effekt",
+      "Primacy-Effekt",
+      "Kontrasteffekt"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-mitlaeufereffekt_homo-psych-definition-rev",
+    "entityId": "homo:psyche-mitlaeufereffekt",
+    "entityType": "psych_effect",
+    "type": "homo-psych-definition-rev",
+    "difficulty": 2,
+    "prompt": "Welcher psychologische Effekt wird so beschrieben: „Menschen schließen sich einer Sache umso eher an, je mehr andere sie bereits gewählt haben.\"?",
+    "correctAnswer": "Mitläufereffekt",
+    "options": [
+      "Mitläufereffekt",
+      "Verlustaversion",
+      "Rückschaufehler",
+      "Zuschauereffekt"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-selbstueberschaetzung_homo-psych-definition-rev",
+    "entityId": "homo:psyche-selbstueberschaetzung",
+    "entityType": "psych_effect",
+    "type": "homo-psych-definition-rev",
+    "difficulty": 2,
+    "prompt": "Welcher psychologische Effekt wird so beschrieben: „Systematische Überbewertung der eigenen Fähigkeiten oder der Sicherheit des eigenen Urteils.\"?",
+    "correctAnswer": "Selbstüberschätzung",
+    "options": [
+      "Selbstüberschätzung",
+      "Kognitive Dissonanz",
+      "Mere-Exposure-Effekt",
+      "Autoritätsgehorsam"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-selbsterfuellende-prophezeiung_homo-psych-definition-rev",
+    "entityId": "homo:psyche-selbsterfuellende-prophezeiung",
+    "entityType": "psych_effect",
+    "type": "homo-psych-definition-rev",
+    "difficulty": 2,
+    "prompt": "Welcher psychologische Effekt wird so beschrieben: „Eine zunächst falsche Vorhersage trifft ein, weil der Glaube daran das Verhalten entsprechend lenkt.\"?",
+    "correctAnswer": "Selbsterfüllende Prophezeiung",
+    "options": [
+      "Selbsterfüllende Prophezeiung",
+      "Selbstwertdienliche Verzerrung",
+      "Aktor-Beobachter-Verzerrung",
+      "Verfügbarkeitsheuristik"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-pygmalion-effekt_homo-psych-definition-rev",
+    "entityId": "homo:psyche-pygmalion-effekt",
+    "entityType": "psych_effect",
+    "type": "homo-psych-definition-rev",
+    "difficulty": 2,
+    "prompt": "Welcher psychologische Effekt wird so beschrieben: „Hohe Erwartungen einer Autorität an eine Person steigern deren tatsächliche Leistung.\"?",
+    "correctAnswer": "Pygmalion-Effekt",
+    "options": [
+      "Pygmalion-Effekt",
+      "Foot-in-the-door",
+      "Zeigarnik-Effekt",
+      "Sunk-Cost-Fehler"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-barnum-effekt_homo-psych-definition-rev",
+    "entityId": "homo:psyche-barnum-effekt",
+    "entityType": "psych_effect",
+    "type": "homo-psych-definition-rev",
+    "difficulty": 2,
+    "prompt": "Welcher psychologische Effekt wird so beschrieben: „Sehr allgemeine, auf jeden zutreffende Aussagen werden als treffend persönliche Beschreibung empfunden.\"?",
+    "correctAnswer": "Barnum-Effekt",
+    "options": [
+      "Barnum-Effekt",
+      "Placeboeffekt",
+      "Gruppendenken",
+      "Noceboeffekt"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-mere-exposure-effekt_homo-psych-definition-rev",
+    "entityId": "homo:psyche-mere-exposure-effekt",
+    "entityType": "psych_effect",
+    "type": "homo-psych-definition-rev",
+    "difficulty": 2,
+    "prompt": "Welcher psychologische Effekt wird so beschrieben: „Wiederholter Kontakt mit einem zunächst neutralen Reiz führt allein dadurch zu einer positiveren Bewertung.\"?",
+    "correctAnswer": "Mere-Exposure-Effekt",
+    "options": [
+      "Mere-Exposure-Effekt",
+      "Kognitive Dissonanz",
+      "Selbstüberschätzung",
+      "Dunning-Kruger-Effekt"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-zeigarnik-effekt_homo-psych-definition-rev",
+    "entityId": "homo:psyche-zeigarnik-effekt",
+    "entityType": "psych_effect",
+    "type": "homo-psych-definition-rev",
+    "difficulty": 2,
+    "prompt": "Welcher psychologische Effekt wird so beschrieben: „Unterbrochene, unerledigte Aufgaben bleiben besser im Gedächtnis als bereits abgeschlossene.\"?",
+    "correctAnswer": "Zeigarnik-Effekt",
+    "options": [
+      "Zeigarnik-Effekt",
+      "Sunk-Cost-Fehler",
+      "Pygmalion-Effekt",
+      "Foot-in-the-door"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-foot-in-the-door_homo-psych-definition-rev",
+    "entityId": "homo:psyche-foot-in-the-door",
+    "entityType": "psych_effect",
+    "type": "homo-psych-definition-rev",
+    "difficulty": 2,
+    "prompt": "Welcher psychologische Effekt wird so beschrieben: „Wer einer kleinen Bitte zustimmt, willigt danach eher auch in eine deutlich größere Forderung ein.\"?",
+    "correctAnswer": "Foot-in-the-door",
+    "options": [
+      "Foot-in-the-door",
+      "Sunk-Cost-Fehler",
+      "Zeigarnik-Effekt",
+      "Pygmalion-Effekt"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-horn-effekt_homo-psych-definition-rev",
+    "entityId": "homo:psyche-horn-effekt",
+    "entityType": "psych_effect",
+    "type": "homo-psych-definition-rev",
+    "difficulty": 2,
+    "prompt": "Welcher psychologische Effekt wird so beschrieben: „Eine einzelne negative Eigenschaft überschattet das Gesamturteil und färbt die ganze Person ab.\"?",
+    "correctAnswer": "Horn-Effekt",
+    "options": [
+      "Horn-Effekt",
+      "Ankereffekt",
+      "Halo-Effekt",
+      "Noceboeffekt"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-sunk-cost_homo-psych-definition-rev",
+    "entityId": "homo:psyche-sunk-cost",
+    "entityType": "psych_effect",
+    "type": "homo-psych-definition-rev",
+    "difficulty": 2,
+    "prompt": "Welcher psychologische Effekt wird so beschrieben: „Bereits ausgegebene, nicht rückholbare Mittel werden weiterverfolgt, statt rein nach künftigem Nutzen zu entscheiden.\"?",
+    "correctAnswer": "Sunk-Cost-Fehler",
+    "options": [
+      "Sunk-Cost-Fehler",
+      "Pygmalion-Effekt",
+      "Zeigarnik-Effekt",
+      "Foot-in-the-door"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-zuschauereffekt_homo-psych-definition-rev",
+    "entityId": "homo:psyche-zuschauereffekt",
+    "entityType": "psych_effect",
+    "type": "homo-psych-definition-rev",
+    "difficulty": 2,
+    "prompt": "Welcher psychologische Effekt wird so beschrieben: „Je mehr Menschen einer Notlage beiwohnen, desto unwahrscheinlicher greift der Einzelne helfend ein.\"?",
+    "correctAnswer": "Zuschauereffekt",
+    "options": [
+      "Zuschauereffekt",
+      "Verlustaversion",
+      "Rückschaufehler",
+      "Mitläufereffekt"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-primacy-effekt_homo-psych-definition-rev",
+    "entityId": "homo:psyche-primacy-effekt",
+    "entityType": "psych_effect",
+    "type": "homo-psych-definition-rev",
+    "difficulty": 2,
+    "prompt": "Welcher psychologische Effekt wird so beschrieben: „Beim Erinnern einer Reihe werden die zuerst dargebotenen Inhalte besser behalten als die mittleren.\"?",
+    "correctAnswer": "Primacy-Effekt",
+    "options": [
+      "Primacy-Effekt",
+      "Recency-Effekt",
+      "Framing-Effekt",
+      "Kontrasteffekt"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-recency-effekt_homo-psych-definition-rev",
+    "entityId": "homo:psyche-recency-effekt",
+    "entityType": "psych_effect",
+    "type": "homo-psych-definition-rev",
+    "difficulty": 2,
+    "prompt": "Welcher psychologische Effekt wird so beschrieben: „Beim Erinnern einer Reihe bleiben die zuletzt dargebotenen Inhalte besser im Gedächtnis als die mittleren.\"?",
+    "correctAnswer": "Recency-Effekt",
+    "options": [
+      "Recency-Effekt",
+      "Primacy-Effekt",
+      "Kontrasteffekt",
+      "Framing-Effekt"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-kontrasteffekt_homo-psych-definition-rev",
+    "entityId": "homo:psyche-kontrasteffekt",
+    "entityType": "psych_effect",
+    "type": "homo-psych-definition-rev",
+    "difficulty": 2,
+    "prompt": "Welcher psychologische Effekt wird so beschrieben: „Die Bewertung eines Reizes verschiebt sich je nach unmittelbar vorher oder gleichzeitig gezeigtem Vergleichsreiz.\"?",
+    "correctAnswer": "Kontrasteffekt",
+    "options": [
+      "Kontrasteffekt",
+      "Recency-Effekt",
+      "Primacy-Effekt",
+      "Framing-Effekt"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-reaktanz_homo-psych-definition-rev",
+    "entityId": "homo:psyche-reaktanz",
+    "entityType": "psych_effect",
+    "type": "homo-psych-definition-rev",
+    "difficulty": 2,
+    "prompt": "Welcher psychologische Effekt wird so beschrieben: „Wird ein Freiheitsspielraum eingeschränkt, entsteht Widerstand, und die verbotene Option wirkt plötzlich attraktiver.\"?",
+    "correctAnswer": "Reaktanz",
+    "options": [
+      "Reaktanz",
+      "Horn-Effekt",
+      "Halo-Effekt",
+      "Ankereffekt"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-kognitive-dissonanz_homo-psych-definition-rev",
+    "entityId": "homo:psyche-kognitive-dissonanz",
+    "entityType": "psych_effect",
+    "type": "homo-psych-definition-rev",
+    "difficulty": 2,
+    "prompt": "Welcher psychologische Effekt wird so beschrieben: „Unvereinbare Überzeugungen oder Handlungen erzeugen einen unangenehmen Spannungszustand, den man aufzulösen versucht.\"?",
+    "correctAnswer": "Kognitive Dissonanz",
+    "options": [
+      "Kognitive Dissonanz",
+      "Selbstüberschätzung",
+      "Bestätigungsfehler",
+      "Mere-Exposure-Effekt"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-aktor-beobachter-verzerrung_homo-psych-definition-rev",
+    "entityId": "homo:psyche-aktor-beobachter-verzerrung",
+    "entityType": "psych_effect",
+    "type": "homo-psych-definition-rev",
+    "difficulty": 2,
+    "prompt": "Welcher psychologische Effekt wird so beschrieben: „Eigenes Verhalten erklärt man mit den Umständen, fremdes Verhalten dagegen mit dem Charakter der Person.\"?",
+    "correctAnswer": "Aktor-Beobachter-Verzerrung",
+    "options": [
+      "Aktor-Beobachter-Verzerrung",
+      "Selbsterfüllende Prophezeiung",
+      "Selbstwertdienliche Verzerrung",
+      "Verfügbarkeitsheuristik"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-selbstwertdienliche-verzerrung_homo-psych-definition-rev",
+    "entityId": "homo:psyche-selbstwertdienliche-verzerrung",
+    "entityType": "psych_effect",
+    "type": "homo-psych-definition-rev",
+    "difficulty": 2,
+    "prompt": "Welcher psychologische Effekt wird so beschrieben: „Erfolge schreibt man den eigenen Fähigkeiten zu, Misserfolge dagegen äußeren Umständen oder Zufall.\"?",
+    "correctAnswer": "Selbstwertdienliche Verzerrung",
+    "options": [
+      "Selbstwertdienliche Verzerrung",
+      "Selbsterfüllende Prophezeiung",
+      "Aktor-Beobachter-Verzerrung",
+      "Verfügbarkeitsheuristik"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-bestaetigungsfehler_homo-psych-domain",
+    "entityId": "homo:psyche-bestaetigungsfehler",
+    "entityType": "psych_effect",
+    "type": "homo-psych-domain",
+    "difficulty": 3,
+    "prompt": "Welchem Bereich ordnet man „Bestätigungsfehler\" am ehesten zu?",
+    "correctAnswer": "Urteilsbildung",
+    "options": [
+      "Urteilsbildung",
+      "Sozialverhalten",
+      "Entscheidung",
+      "Wahrnehmung"
+    ],
+    "testedAttribute": "domain",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-halo-effekt_homo-psych-domain",
+    "entityId": "homo:psyche-halo-effekt",
+    "entityType": "psych_effect",
+    "type": "homo-psych-domain",
+    "difficulty": 3,
+    "prompt": "Welchem Bereich ordnet man „Halo-Effekt\" am ehesten zu?",
+    "correctAnswer": "Sozialverhalten",
+    "options": [
+      "Sozialverhalten",
+      "Urteilsbildung",
+      "Entscheidung",
+      "Wahrnehmung"
+    ],
+    "testedAttribute": "domain",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-dunning-kruger_homo-psych-domain",
+    "entityId": "homo:psyche-dunning-kruger",
+    "entityType": "psych_effect",
+    "type": "homo-psych-domain",
+    "difficulty": 3,
+    "prompt": "Welchem Bereich ordnet man „Dunning-Kruger-Effekt\" am ehesten zu?",
+    "correctAnswer": "Urteilsbildung",
+    "options": [
+      "Urteilsbildung",
+      "Sozialverhalten",
+      "Entscheidung",
+      "Wahrnehmung"
+    ],
+    "testedAttribute": "domain",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-ankereffekt_homo-psych-domain",
+    "entityId": "homo:psyche-ankereffekt",
+    "entityType": "psych_effect",
+    "type": "homo-psych-domain",
+    "difficulty": 3,
+    "prompt": "Welchem Bereich ordnet man „Ankereffekt\" am ehesten zu?",
+    "correctAnswer": "Entscheidung",
+    "options": [
+      "Entscheidung",
+      "Wahrnehmung",
+      "Urteilsbildung",
+      "Gedächtnis"
+    ],
+    "testedAttribute": "domain",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-verfuegbarkeitsheuristik_homo-psych-domain",
+    "entityId": "homo:psyche-verfuegbarkeitsheuristik",
+    "entityType": "psych_effect",
+    "type": "homo-psych-domain",
+    "difficulty": 3,
+    "prompt": "Welchem Bereich ordnet man „Verfügbarkeitsheuristik\" am ehesten zu?",
+    "correctAnswer": "Urteilsbildung",
+    "options": [
+      "Urteilsbildung",
+      "Sozialverhalten",
+      "Entscheidung",
+      "Wahrnehmung"
+    ],
+    "testedAttribute": "domain",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-placeboeffekt_homo-psych-domain",
+    "entityId": "homo:psyche-placeboeffekt",
+    "entityType": "psych_effect",
+    "type": "homo-psych-domain",
+    "difficulty": 3,
+    "prompt": "Welchem Bereich ordnet man „Placeboeffekt\" am ehesten zu?",
+    "correctAnswer": "Wahrnehmung",
+    "options": [
+      "Wahrnehmung",
+      "Entscheidung",
+      "Gedächtnis",
+      "Urteilsbildung"
+    ],
+    "testedAttribute": "domain",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-noceboeffekt_homo-psych-domain",
+    "entityId": "homo:psyche-noceboeffekt",
+    "entityType": "psych_effect",
+    "type": "homo-psych-domain",
+    "difficulty": 3,
+    "prompt": "Welchem Bereich ordnet man „Noceboeffekt\" am ehesten zu?",
+    "correctAnswer": "Wahrnehmung",
+    "options": [
+      "Wahrnehmung",
+      "Entscheidung",
+      "Gedächtnis",
+      "Urteilsbildung"
+    ],
+    "testedAttribute": "domain",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-rueckschaufehler_homo-psych-domain",
+    "entityId": "homo:psyche-rueckschaufehler",
+    "entityType": "psych_effect",
+    "type": "homo-psych-domain",
+    "difficulty": 3,
+    "prompt": "Welchem Bereich ordnet man „Rückschaufehler\" am ehesten zu?",
+    "correctAnswer": "Gedächtnis",
+    "options": [
+      "Gedächtnis",
+      "Wahrnehmung",
+      "Entscheidung",
+      "Urteilsbildung"
+    ],
+    "testedAttribute": "domain",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-framing-effekt_homo-psych-domain",
+    "entityId": "homo:psyche-framing-effekt",
+    "entityType": "psych_effect",
+    "type": "homo-psych-domain",
+    "difficulty": 3,
+    "prompt": "Welchem Bereich ordnet man „Framing-Effekt\" am ehesten zu?",
+    "correctAnswer": "Entscheidung",
+    "options": [
+      "Entscheidung",
+      "Wahrnehmung",
+      "Urteilsbildung",
+      "Gedächtnis"
+    ],
+    "testedAttribute": "domain",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-verlustaversion_homo-psych-domain",
+    "entityId": "homo:psyche-verlustaversion",
+    "entityType": "psych_effect",
+    "type": "homo-psych-domain",
+    "difficulty": 3,
+    "prompt": "Welchem Bereich ordnet man „Verlustaversion\" am ehesten zu?",
+    "correctAnswer": "Entscheidung",
+    "options": [
+      "Entscheidung",
+      "Wahrnehmung",
+      "Urteilsbildung",
+      "Gedächtnis"
+    ],
+    "testedAttribute": "domain",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-mitlaeufereffekt_homo-psych-domain",
+    "entityId": "homo:psyche-mitlaeufereffekt",
+    "entityType": "psych_effect",
+    "type": "homo-psych-domain",
+    "difficulty": 3,
+    "prompt": "Welchem Bereich ordnet man „Mitläufereffekt\" am ehesten zu?",
+    "correctAnswer": "Sozialverhalten",
+    "options": [
+      "Sozialverhalten",
+      "Urteilsbildung",
+      "Entscheidung",
+      "Wahrnehmung"
+    ],
+    "testedAttribute": "domain",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-selbstueberschaetzung_homo-psych-domain",
+    "entityId": "homo:psyche-selbstueberschaetzung",
+    "entityType": "psych_effect",
+    "type": "homo-psych-domain",
+    "difficulty": 3,
+    "prompt": "Welchem Bereich ordnet man „Selbstüberschätzung\" am ehesten zu?",
+    "correctAnswer": "Urteilsbildung",
+    "options": [
+      "Urteilsbildung",
+      "Sozialverhalten",
+      "Entscheidung",
+      "Wahrnehmung"
+    ],
+    "testedAttribute": "domain",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-selbsterfuellende-prophezeiung_homo-psych-domain",
+    "entityId": "homo:psyche-selbsterfuellende-prophezeiung",
+    "entityType": "psych_effect",
+    "type": "homo-psych-domain",
+    "difficulty": 3,
+    "prompt": "Welchem Bereich ordnet man „Selbsterfüllende Prophezeiung\" am ehesten zu?",
+    "correctAnswer": "Sozialverhalten",
+    "options": [
+      "Sozialverhalten",
+      "Urteilsbildung",
+      "Entscheidung",
+      "Wahrnehmung"
+    ],
+    "testedAttribute": "domain",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-pygmalion-effekt_homo-psych-domain",
+    "entityId": "homo:psyche-pygmalion-effekt",
+    "entityType": "psych_effect",
+    "type": "homo-psych-domain",
+    "difficulty": 3,
+    "prompt": "Welchem Bereich ordnet man „Pygmalion-Effekt\" am ehesten zu?",
+    "correctAnswer": "Sozialverhalten",
+    "options": [
+      "Sozialverhalten",
+      "Urteilsbildung",
+      "Entscheidung",
+      "Wahrnehmung"
+    ],
+    "testedAttribute": "domain",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-barnum-effekt_homo-psych-domain",
+    "entityId": "homo:psyche-barnum-effekt",
+    "entityType": "psych_effect",
+    "type": "homo-psych-domain",
+    "difficulty": 3,
+    "prompt": "Welchem Bereich ordnet man „Barnum-Effekt\" am ehesten zu?",
+    "correctAnswer": "Urteilsbildung",
+    "options": [
+      "Urteilsbildung",
+      "Sozialverhalten",
+      "Entscheidung",
+      "Wahrnehmung"
+    ],
+    "testedAttribute": "domain",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-mere-exposure-effekt_homo-psych-domain",
+    "entityId": "homo:psyche-mere-exposure-effekt",
+    "entityType": "psych_effect",
+    "type": "homo-psych-domain",
+    "difficulty": 3,
+    "prompt": "Welchem Bereich ordnet man „Mere-Exposure-Effekt\" am ehesten zu?",
+    "correctAnswer": "Wahrnehmung",
+    "options": [
+      "Wahrnehmung",
+      "Entscheidung",
+      "Gedächtnis",
+      "Urteilsbildung"
+    ],
+    "testedAttribute": "domain",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-zeigarnik-effekt_homo-psych-domain",
+    "entityId": "homo:psyche-zeigarnik-effekt",
+    "entityType": "psych_effect",
+    "type": "homo-psych-domain",
+    "difficulty": 3,
+    "prompt": "Welchem Bereich ordnet man „Zeigarnik-Effekt\" am ehesten zu?",
+    "correctAnswer": "Gedächtnis",
+    "options": [
+      "Gedächtnis",
+      "Wahrnehmung",
+      "Entscheidung",
+      "Urteilsbildung"
+    ],
+    "testedAttribute": "domain",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-foot-in-the-door_homo-psych-domain",
+    "entityId": "homo:psyche-foot-in-the-door",
+    "entityType": "psych_effect",
+    "type": "homo-psych-domain",
+    "difficulty": 3,
+    "prompt": "Welchem Bereich ordnet man „Foot-in-the-door\" am ehesten zu?",
+    "correctAnswer": "Sozialverhalten",
+    "options": [
+      "Sozialverhalten",
+      "Urteilsbildung",
+      "Entscheidung",
+      "Wahrnehmung"
+    ],
+    "testedAttribute": "domain",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-horn-effekt_homo-psych-domain",
+    "entityId": "homo:psyche-horn-effekt",
+    "entityType": "psych_effect",
+    "type": "homo-psych-domain",
+    "difficulty": 3,
+    "prompt": "Welchem Bereich ordnet man „Horn-Effekt\" am ehesten zu?",
+    "correctAnswer": "Sozialverhalten",
+    "options": [
+      "Sozialverhalten",
+      "Urteilsbildung",
+      "Entscheidung",
+      "Wahrnehmung"
+    ],
+    "testedAttribute": "domain",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-sunk-cost_homo-psych-domain",
+    "entityId": "homo:psyche-sunk-cost",
+    "entityType": "psych_effect",
+    "type": "homo-psych-domain",
+    "difficulty": 3,
+    "prompt": "Welchem Bereich ordnet man „Sunk-Cost-Fehler\" am ehesten zu?",
+    "correctAnswer": "Entscheidung",
+    "options": [
+      "Entscheidung",
+      "Wahrnehmung",
+      "Urteilsbildung",
+      "Gedächtnis"
+    ],
+    "testedAttribute": "domain",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-gruppendenken_homo-psych-domain",
+    "entityId": "homo:psyche-gruppendenken",
+    "entityType": "psych_effect",
+    "type": "homo-psych-domain",
+    "difficulty": 3,
+    "prompt": "Welchem Bereich ordnet man „Gruppendenken\" am ehesten zu?",
+    "correctAnswer": "Sozialverhalten",
+    "options": [
+      "Sozialverhalten",
+      "Urteilsbildung",
+      "Entscheidung",
+      "Wahrnehmung"
+    ],
+    "testedAttribute": "domain",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-zuschauereffekt_homo-psych-domain",
+    "entityId": "homo:psyche-zuschauereffekt",
+    "entityType": "psych_effect",
+    "type": "homo-psych-domain",
+    "difficulty": 3,
+    "prompt": "Welchem Bereich ordnet man „Zuschauereffekt\" am ehesten zu?",
+    "correctAnswer": "Sozialverhalten",
+    "options": [
+      "Sozialverhalten",
+      "Urteilsbildung",
+      "Entscheidung",
+      "Wahrnehmung"
+    ],
+    "testedAttribute": "domain",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-primacy-effekt_homo-psych-domain",
+    "entityId": "homo:psyche-primacy-effekt",
+    "entityType": "psych_effect",
+    "type": "homo-psych-domain",
+    "difficulty": 3,
+    "prompt": "Welchem Bereich ordnet man „Primacy-Effekt\" am ehesten zu?",
+    "correctAnswer": "Gedächtnis",
+    "options": [
+      "Gedächtnis",
+      "Wahrnehmung",
+      "Entscheidung",
+      "Urteilsbildung"
+    ],
+    "testedAttribute": "domain",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-recency-effekt_homo-psych-domain",
+    "entityId": "homo:psyche-recency-effekt",
+    "entityType": "psych_effect",
+    "type": "homo-psych-domain",
+    "difficulty": 3,
+    "prompt": "Welchem Bereich ordnet man „Recency-Effekt\" am ehesten zu?",
+    "correctAnswer": "Gedächtnis",
+    "options": [
+      "Gedächtnis",
+      "Wahrnehmung",
+      "Entscheidung",
+      "Urteilsbildung"
+    ],
+    "testedAttribute": "domain",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-kontrasteffekt_homo-psych-domain",
+    "entityId": "homo:psyche-kontrasteffekt",
+    "entityType": "psych_effect",
+    "type": "homo-psych-domain",
+    "difficulty": 3,
+    "prompt": "Welchem Bereich ordnet man „Kontrasteffekt\" am ehesten zu?",
+    "correctAnswer": "Wahrnehmung",
+    "options": [
+      "Wahrnehmung",
+      "Entscheidung",
+      "Gedächtnis",
+      "Urteilsbildung"
+    ],
+    "testedAttribute": "domain",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-autoritaetsgehorsam_homo-psych-domain",
+    "entityId": "homo:psyche-autoritaetsgehorsam",
+    "entityType": "psych_effect",
+    "type": "homo-psych-domain",
+    "difficulty": 3,
+    "prompt": "Welchem Bereich ordnet man „Autoritätsgehorsam\" am ehesten zu?",
+    "correctAnswer": "Sozialverhalten",
+    "options": [
+      "Sozialverhalten",
+      "Urteilsbildung",
+      "Entscheidung",
+      "Wahrnehmung"
+    ],
+    "testedAttribute": "domain",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-reaktanz_homo-psych-domain",
+    "entityId": "homo:psyche-reaktanz",
+    "entityType": "psych_effect",
+    "type": "homo-psych-domain",
+    "difficulty": 3,
+    "prompt": "Welchem Bereich ordnet man „Reaktanz\" am ehesten zu?",
+    "correctAnswer": "Sozialverhalten",
+    "options": [
+      "Sozialverhalten",
+      "Urteilsbildung",
+      "Entscheidung",
+      "Wahrnehmung"
+    ],
+    "testedAttribute": "domain",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-kognitive-dissonanz_homo-psych-domain",
+    "entityId": "homo:psyche-kognitive-dissonanz",
+    "entityType": "psych_effect",
+    "type": "homo-psych-domain",
+    "difficulty": 3,
+    "prompt": "Welchem Bereich ordnet man „Kognitive Dissonanz\" am ehesten zu?",
+    "correctAnswer": "Urteilsbildung",
+    "options": [
+      "Urteilsbildung",
+      "Sozialverhalten",
+      "Entscheidung",
+      "Wahrnehmung"
+    ],
+    "testedAttribute": "domain",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-aktor-beobachter-verzerrung_homo-psych-domain",
+    "entityId": "homo:psyche-aktor-beobachter-verzerrung",
+    "entityType": "psych_effect",
+    "type": "homo-psych-domain",
+    "difficulty": 3,
+    "prompt": "Welchem Bereich ordnet man „Aktor-Beobachter-Verzerrung\" am ehesten zu?",
+    "correctAnswer": "Sozialverhalten",
+    "options": [
+      "Sozialverhalten",
+      "Urteilsbildung",
+      "Entscheidung",
+      "Wahrnehmung"
+    ],
+    "testedAttribute": "domain",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_psyche-selbstwertdienliche-verzerrung_homo-psych-domain",
+    "entityId": "homo:psyche-selbstwertdienliche-verzerrung",
+    "entityType": "psych_effect",
+    "type": "homo-psych-domain",
+    "difficulty": 3,
+    "prompt": "Welchem Bereich ordnet man „Selbstwertdienliche Verzerrung\" am ehesten zu?",
+    "correctAnswer": "Urteilsbildung",
+    "options": [
+      "Urteilsbildung",
+      "Sozialverhalten",
+      "Entscheidung",
+      "Wahrnehmung"
+    ],
+    "testedAttribute": "domain",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
   }
 ]

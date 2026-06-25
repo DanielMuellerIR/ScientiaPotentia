@@ -4930,5 +4930,745 @@
     "sourceName": "Wikipedia: Gleichgewichtsorgan",
     "sourceUrl": "https://de.wikipedia.org/wiki/Gleichgewichtsorgan",
     "verifyNote": "Geprüft gegen Wikipedia: drei nahezu senkrecht zueinander stehende Bogengänge pro Innenohr erfassen Drehbeschleunigungen; Makula-/Otolithenorgane (Utriculus, Sacculus) mit Otolithen-Kristallen erfassen lineare Beschleunigung und Schwerkraftrichtung. Werte korrekt."
+  },
+  {
+    "id": "enzym-amylase-ptyalin",
+    "name": "Speichelamylase",
+    "category": "digestive_enzyme",
+    "attributes": {
+      "gland": "Mundspeicheldrüse",
+      "substrate": "Stärke",
+      "function": "Zerlegt langkettige Stärke an inneren Bindungen in Malzzucker und Dextrine."
+    },
+    "funFact": "Wer ein Stück Brot lange kaut, schmeckt es süßer, weil das Speichelenzym schon im Mund Stärke in Zucker spaltet. Die historische Bezeichnung dieses Speichelenzyms lautet Ptyalin.",
+    "sourceName": "Wikipedia: Alpha-Amylase",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Alpha-Amylase",
+    "verifyNote": "Quelle bestätigt: Speichel-Amylase (Ptyalin) wird in den Mundspeicheldrüsen gebildet und spaltet innere α(1-4)-glykosidische Bindungen der Stärke zu Maltose, Maltotriose und Dextrinen."
+  },
+  {
+    "id": "enzym-pepsin",
+    "name": "Pepsin",
+    "category": "digestive_enzyme",
+    "attributes": {
+      "gland": "Magen",
+      "substrate": "Eiweiß",
+      "function": "Zerlegt Nahrungsproteine im sauren Magenmilieu in kleinere Peptide (Peptone)."
+    },
+    "funFact": "Pepsin arbeitet nur im stark sauren Magensaft optimal und wird im neutralen Dünndarm wieder inaktiv.",
+    "sourceName": "Wikipedia: Pepsin",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Pepsin",
+    "verifyNote": "Quelle bestätigt: Pepsin wird in den Hauptzellen der Magenschleimhaut gebildet, spaltet als saure Endopeptidase Proteine zu wasserlöslichen Peptonen und wird ab pH 7 irreversibel denaturiert."
+  },
+  {
+    "id": "enzym-trypsin",
+    "name": "Trypsin",
+    "category": "digestive_enzyme",
+    "attributes": {
+      "gland": "Bauchspeicheldrüse",
+      "substrate": "Eiweiß",
+      "function": "Spaltet Proteine im Dünndarm hinter den basischen Aminosäuren Lysin und Arginin."
+    },
+    "funFact": "Trypsin wird als inaktive Vorstufe ausgeschüttet und erst im Darm aktiviert, damit es nicht die Bauchspeicheldrüse selbst verdaut.",
+    "sourceName": "Wikipedia: Trypsin",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Trypsin",
+    "verifyNote": "Quelle bestätigt: Trypsin wird als inaktives Trypsinogen vom Pankreas abgesondert und spaltet als Endopeptidase selektiv Peptidbindungen nach Lysin und Arginin."
+  },
+  {
+    "id": "enzym-chymotrypsin",
+    "name": "Chymotrypsin",
+    "category": "digestive_enzyme",
+    "attributes": {
+      "gland": "Bauchspeicheldrüse",
+      "substrate": "Eiweiß",
+      "function": "Spaltet Proteine bevorzugt hinter aromatischen Aminosäuren wie Tyrosin oder Tryptophan."
+    },
+    "funFact": "Chymotrypsin gehört wie Trypsin zu den Serinproteasen und nutzt eine katalytische Dreiergruppe aus Serin, Histidin und Aspartat.",
+    "sourceName": "Wikipedia: Chymotrypsin",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Chymotrypsin",
+    "verifyNote": "Quelle bestätigt: Chymotrypsin wird im Pankreas als Chymotrypsinogen gebildet, spaltet bevorzugt nach aromatischen Aminosäuren (Tyrosin, Tryptophan, Phenylalanin) und besitzt die katalytische Triade Serin-Histidin-Aspartat."
+  },
+  {
+    "id": "enzym-pankreaslipase",
+    "name": "Pankreaslipase",
+    "category": "digestive_enzyme",
+    "attributes": {
+      "gland": "Bauchspeicheldrüse",
+      "substrate": "Fett",
+      "function": "Spaltet Nahrungsfette (Triglyceride) in freie Fettsäuren und Monoglyceride."
+    },
+    "funFact": "Schon etwa 80 Prozent der Nahrungsfette sind verdaut, wenn der Speisebrei die Mitte des Zwölffingerdarms erreicht.",
+    "sourceName": "Wikipedia: Pankreaslipase",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Pankreaslipase",
+    "verifyNote": "Quelle bestätigt: Pankreaslipase wird in der Bauchspeicheldrüse gebildet, spaltet die α-ständigen Fettsäuren der Triglyceride zu freien Fettsäuren und Monoglyceriden; etwa 80 % der Nahrungsfette sind am mittleren Zwölffingerdarm gespalten."
+  },
+  {
+    "id": "enzym-laktase",
+    "name": "Laktase",
+    "category": "digestive_enzyme",
+    "attributes": {
+      "gland": "Dünndarm",
+      "substrate": "Milchzucker",
+      "function": "Spaltet Milchzucker in die Einfachzucker Glucose und Galactose."
+    },
+    "funFact": "Bei vielen Erwachsenen lässt die Produktion dieses Enzyms nach, was zur weit verbreiteten Milchzucker-Unverträglichkeit führt.",
+    "sourceName": "Wikipedia: Lactase",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Lactase",
+    "verifyNote": "Quelle bestätigt: Laktase sitzt in der Bürstensaummembran des Dünndarm-Zottenepithels und spaltet Lactose in D-Glucose und D-Galactose."
+  },
+  {
+    "id": "enzym-maltase",
+    "name": "Maltase",
+    "category": "digestive_enzyme",
+    "attributes": {
+      "gland": "Dünndarm",
+      "substrate": "Malzzucker",
+      "function": "Spaltet Malzzucker in zwei Moleküle Traubenzucker (Glucose)."
+    },
+    "funFact": "Maltase sitzt direkt an der Oberfläche der Darmzellen und vollendet dort den letzten Schritt der Stärkeverdauung.",
+    "sourceName": "Wikipedia: Maltase",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Maltase",
+    "verifyNote": "Quelle bestätigt: Maltase ist als Exo-Glucosidase an der Bürstensaum-Oberfläche der Dünndarm-Enterozyten gebunden und hydrolysiert Maltose in zwei Glucose-Moleküle."
+  },
+  {
+    "id": "enzym-saccharase",
+    "name": "Saccharase",
+    "category": "digestive_enzyme",
+    "attributes": {
+      "gland": "Dünndarm",
+      "substrate": "Haushaltszucker",
+      "function": "Spaltet Haushaltszucker (Saccharose) in Glucose und Fructose."
+    },
+    "funFact": "Im Darm sitzt dieses Enzym als Doppelenzym Saccharase-Isomaltase, das gleich zwei verschiedene Zucker verdaut.",
+    "sourceName": "Wikipedia: Sucrase",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Sucrase",
+    "verifyNote": "Quelle bestätigt: Saccharase (Sucrase) liegt als Saccharase-Isomaltase im Dünndarm-Bürstensaum vor und hydrolysiert Saccharose zu Glucose und Fructose."
+  },
+  {
+    "id": "enzym-carboxypeptidase",
+    "name": "Carboxypeptidase",
+    "category": "digestive_enzyme",
+    "attributes": {
+      "gland": "Bauchspeicheldrüse",
+      "substrate": "Eiweiß",
+      "function": "Trennt einzelne Aminosäuren vom Carboxyl-Ende der Peptidketten ab."
+    },
+    "funFact": "Anders als Pepsin und Trypsin knabbert dieses Enzym Proteine nicht in der Mitte, sondern Stück für Stück vom Ende her ab.",
+    "sourceName": "Wikipedia: Carboxypeptidase",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Carboxypeptidase",
+    "verifyNote": "Quelle bestätigt: Carboxypeptidasen werden vom exokrinen Pankreas sezerniert und spalten als Exopeptidasen Peptidbindungen vom C-terminalen (Carboxyl-)Ende her ab."
+  },
+  {
+    "id": "enzym-nuklease",
+    "name": "Nuklease",
+    "category": "digestive_enzyme",
+    "attributes": {
+      "gland": "Bauchspeicheldrüse",
+      "substrate": "Nukleinsäuren",
+      "function": "Zerlegt die Erbsubstanz (DNA und RNA) der Nahrung in einzelne Nukleotide."
+    },
+    "funFact": "Auch das Erbgut in jeder Mahlzeit wird verdaut: Dieses Enzym aus dem Bauchspeichel zerlegt DNA und RNA in ihre Bausteine.",
+    "sourceName": "Lumen Learning: Chemical Digestion and Absorption",
+    "sourceUrl": "https://courses.lumenlearning.com/suny-ap2/chapter/chemical-digestion-and-absorption-a-closer-look/",
+    "verifyNote": "Quelle bestätigt: Der Bauchspeichel enthält Ribonuklease und Desoxyribonuklease, die RNA bzw. DNA der Nahrung in Nukleotide spalten."
+  },
+  {
+    "id": "enzym-magenlipase",
+    "name": "Magenlipase",
+    "category": "digestive_enzyme",
+    "attributes": {
+      "gland": "Magen",
+      "substrate": "Fett",
+      "function": "Beginnt im Magen die Fettverdauung und spaltet Triglyceride in Fettsäuren und Glycerin."
+    },
+    "funFact": "Bei Säuglingen ist dieses Magenenzym besonders wichtig, weil es die Fette der Muttermilch schon vor dem Dünndarm aufschließt.",
+    "sourceName": "Wikipedia: Magenlipase",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Magenlipase",
+    "verifyNote": "Quelle bestätigt: Die Magenlipase wird von den Hauptzellen des Magens gebildet (LIPF-Gen) und spaltet als Lipase Triglyceride zu freien Fettsäuren."
+  },
+  {
+    "id": "enzym-pankreas-amylase",
+    "name": "Pankreas-Amylase",
+    "category": "digestive_enzyme",
+    "attributes": {
+      "gland": "Bauchspeicheldrüse",
+      "substrate": "Stärke",
+      "function": "Setzt im Dünndarm die Stärkeverdauung fort und spaltet sie zu Malzzucker."
+    },
+    "funFact": "Sie übernimmt im Dünndarm die Hauptarbeit der Stärkeverdauung, nachdem das Speichelenzym im sauren Magen gestoppt wurde.",
+    "sourceName": "Wikipedia: Alpha-Amylase",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Alpha-Amylase",
+    "verifyNote": "Quelle bestätigt: Die Pankreas-Amylase wird in der Bauchspeicheldrüse gebildet und spaltet als α-Amylase innere α(1-4)-glykosidische Bindungen der Stärke zu Maltose und Dextrinen."
+  },
+  {
+    "id": "nerv-opticus",
+    "name": "Sehnerv",
+    "category": "nerve",
+    "attributes": {
+      "function": "Leitet visuelle Signale der Netzhaut vom Auge zum Gehirn",
+      "latinName": "Nervus opticus",
+      "region": "Kopf"
+    },
+    "funFact": "Streng genommen ist er kein echter peripherer Nerv, sondern eine vorgelagerte Hirnbahn samt Markscheiden.",
+    "sourceName": "Wikipedia (de): Sehnerv",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Nervus_opticus",
+    "verifyNote": "Belegt: II. Hirnnerv, leitet die Axone der retinalen Ganglienzellen (Sehinformation) vom Auge zum Gehirn."
+  },
+  {
+    "id": "nerv-olfactorius",
+    "name": "Riechnerv",
+    "category": "nerve",
+    "attributes": {
+      "function": "Überträgt Geruchssignale der Riechschleimhaut zum Riechkolben",
+      "latinName": "Nervus olfactorius",
+      "region": "Kopf"
+    },
+    "funFact": "Die Riechzellen projizieren ohne Zwischenschaltung direkt ins zentrale Nervensystem – ein außergewöhnlich kurzer Weg.",
+    "sourceName": "Wikipedia (de): Riechnerv",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Nervus_olfactorius",
+    "verifyNote": "Belegt: I. Hirnnerv, leitet Signale der Riechzellen der Nasenschleimhaut zum Riechkolben des Endhirns."
+  },
+  {
+    "id": "nerv-cochlearis",
+    "name": "Hörnerv",
+    "category": "nerve",
+    "attributes": {
+      "function": "Leitet Schallsignale des Innenohrs zu den Hörkernen des Hirnstamms",
+      "latinName": "Nervus cochlearis",
+      "region": "Kopf"
+    },
+    "funFact": "Er enthält auch absteigende Fasern, die das Hören am Ohr selbst feinjustieren.",
+    "sourceName": "Wikipedia (de): Nervus vestibulocochlearis",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Nervus_vestibulocochlearis",
+    "verifyNote": "Belegt: Anteil des VIII. Hirnnervs, führt Hörinformation aus dem Innenohr und endet an den beiden Hörkernen; efferente Bahnen erlauben Feineinstellung des Hörsinns."
+  },
+  {
+    "id": "nerv-vestibularis",
+    "name": "Gleichgewichtsnerv",
+    "category": "nerve",
+    "attributes": {
+      "function": "Leitet Lage- und Drehinformationen des Innenohrs zum Gehirn",
+      "latinName": "Nervus vestibularis",
+      "region": "Kopf"
+    },
+    "funFact": "Seine Sinneszellen sitzen in den Bogengängen und Vorhofsäckchen, die Drehbewegungen und Schwerkraft messen.",
+    "sourceName": "Wikipedia (de): Nervus vestibulocochlearis",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Nervus_vestibulocochlearis",
+    "verifyNote": "Belegt: Anteil des VIII. Hirnnervs, führt afferente Gleichgewichtsinformation aus den Rezeptorgebieten des Innenohrs zum Gehirn."
+  },
+  {
+    "id": "nerv-facialis",
+    "name": "Gesichtsnerv",
+    "category": "nerve",
+    "attributes": {
+      "function": "Steuert die mimische Muskulatur des Gesichts",
+      "latinName": "Nervus facialis",
+      "region": "Kopf"
+    },
+    "funFact": "Er versorgt auch den winzigen Steigbügelmuskel im Mittelohr, der zu laute Geräusche dämpft.",
+    "sourceName": "Wikipedia (de): Nervus facialis",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Nervus_facialis",
+    "verifyNote": "Belegt: VII. Hirnnerv, innerviert motorisch die mimische Muskulatur (u.a. Orbicularis oculi/oris, Platysma, Stapedius)."
+  },
+  {
+    "id": "nerv-trigeminus",
+    "name": "Drillingsnerv",
+    "category": "nerve",
+    "attributes": {
+      "function": "Sensible Versorgung des Gesichts plus Innervation der Kaumuskeln",
+      "latinName": "Nervus trigeminus",
+      "region": "Kopf"
+    },
+    "funFact": "Sein Name bedeutet Drilling, weil er sich in drei große Hauptäste für Auge, Oberkiefer und Unterkiefer aufteilt.",
+    "sourceName": "Wikipedia (de): Nervus trigeminus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Nervus_trigeminus",
+    "verifyNote": "Belegt: V. Hirnnerv, sensibel für Gesicht/Nasen-/Mundhöhle, motorisch für die Kaumuskeln; drei Äste V1 ophthalmicus, V2 maxillaris, V3 mandibularis."
+  },
+  {
+    "id": "nerv-vagus",
+    "name": "Vagusnerv",
+    "category": "nerve",
+    "attributes": {
+      "function": "Parasympathische Steuerung von Herz, Lunge und Verdauungsorganen",
+      "latinName": "Nervus vagus",
+      "region": "Hals"
+    },
+    "funFact": "Sein Name bedeutet der Umherschweifende, weil sein Versorgungsgebiet vom Kopf bis tief in den Bauch reicht.",
+    "sourceName": "Wikipedia (de): Nervus vagus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Nervus_vagus",
+    "verifyNote": "Belegt: X. Hirnnerv, größter Nerv des Parasympathikus, versorgt u.a. Herz, Lunge, Magen, Leber und große Teile des Darms."
+  },
+  {
+    "id": "nerv-oculomotorius",
+    "name": "Augenmuskelnerv",
+    "category": "nerve",
+    "attributes": {
+      "function": "Bewegt einen Großteil der Augenmuskeln und verengt die Pupille",
+      "latinName": "Nervus oculomotorius",
+      "region": "Kopf"
+    },
+    "funFact": "Er hebt zugleich das Oberlid – fällt er aus, hängt das Augenlid herab und die Pupille bleibt weit.",
+    "sourceName": "Wikipedia (de): Nervus oculomotorius",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Nervus_oculomotorius",
+    "verifyNote": "Belegt: III. Hirnnerv, innerviert vier der sechs äußeren Augenmuskeln, den Lidheber sowie über parasympathische Fasern die Pupillenverengung."
+  },
+  {
+    "id": "nerv-ischiadicus",
+    "name": "Ischiasnerv",
+    "category": "nerve",
+    "attributes": {
+      "function": "Versorgt Beinrückseite und Unterschenkel motorisch und sensibel",
+      "latinName": "Nervus ischiadicus",
+      "region": "Bein"
+    },
+    "funFact": "Er ist der dickste Nerv des menschlichen Körpers und teilt sich nahe dem Knie in zwei Hauptäste.",
+    "sourceName": "Wikipedia (de): Nervus ischiadicus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Nervus_ischiadicus",
+    "verifyNote": "Belegt: dickster Nerv des Körpers, verläuft an der Oberschenkelrückseite, teilt sich nahe dem Knie in Nervus tibialis und Nervus fibularis communis."
+  },
+  {
+    "id": "nerv-radialis",
+    "name": "Speichennerv",
+    "category": "nerve",
+    "attributes": {
+      "function": "Innerviert die Streckmuskeln von Ellenbogen, Hand und Fingern",
+      "latinName": "Nervus radialis",
+      "region": "Arm"
+    },
+    "funFact": "Eine Schädigung im Oberarm führt zur typischen Fallhand, weil die Strecker ausfallen.",
+    "sourceName": "Wikipedia (de): Nervus radialis",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Nervus_radialis",
+    "verifyNote": "Belegt: innerviert die Streckmuskeln des Ellenbogen-, Hand- und Fingergelenks (u.a. Trizeps, Extensoren), verläuft am Humerus entlang."
+  },
+  {
+    "id": "nerv-medianus",
+    "name": "Mittelnerv",
+    "category": "nerve",
+    "attributes": {
+      "function": "Versorgt die meisten Beugemuskeln des Unterarms und die Handfläche",
+      "latinName": "Nervus medianus",
+      "region": "Arm"
+    },
+    "funFact": "Weil er durch den engen Karpaltunnel zieht, löst dessen Verengung das bekannte Karpaltunnelsyndrom aus.",
+    "sourceName": "Wikipedia (de): Nervus medianus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Nervus_medianus",
+    "verifyNote": "Belegt: innerviert motorisch die Mehrheit der Beugemuskeln am Unterarm, sensibel die Handfläche von Daumen bis Innenseite des Ringfingers; zieht durch den Karpaltunnel."
+  },
+  {
+    "id": "nerv-ulnaris",
+    "name": "Ellennerv",
+    "category": "nerve",
+    "attributes": {
+      "function": "Steuert Spreizen und Beugen der Finger und versorgt den Kleinfingerbereich",
+      "latinName": "Nervus ulnaris",
+      "region": "Arm"
+    },
+    "funFact": "Am Ellenbogen liegt er dicht unter der Haut – ein Stoß dorthin verursacht den Schmerz des Musikantenknochens.",
+    "sourceName": "Wikipedia (de): Nervus ulnaris",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Nervus_ulnaris",
+    "verifyNote": "Belegt: innerviert das Spreizen/Beugen der Finger und versorgt sensibel den Kleinfinger; am medialen Ellenbogen tastbar als Musikantenknochen."
+  },
+  {
+    "id": "nerv-phrenicus",
+    "name": "Zwerchfellnerv",
+    "category": "nerve",
+    "attributes": {
+      "function": "Innerviert das Zwerchfell und treibt damit die Atmung an",
+      "latinName": "Nervus phrenicus",
+      "region": "Hals"
+    },
+    "funFact": "Er entspringt am Hals aus den Segmenten C3 bis C5 und zieht bis in den Brustkorb hinab.",
+    "sourceName": "Wikipedia (de): Nervus phrenicus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Nervus_phrenicus",
+    "verifyNote": "Belegt: innerviert das Zwerchfell (Atemmuskel), entspringt aus den Halssegmenten C3 bis C5 des Plexus cervicalis."
+  },
+  {
+    "id": "psyche-bestaetigungsfehler",
+    "name": "Bestätigungsfehler",
+    "category": "psych_effect",
+    "attributes": {
+      "definition": "Neigung, Informationen so zu suchen und zu deuten, dass sie die eigene bestehende Meinung stützen.",
+      "domain": "Urteilsbildung"
+    },
+    "funFact": "Anhänger zweier Lager sehen oft dieselbe TV-Debatte und erklären jeweils ihren Favoriten zum Sieger.",
+    "sourceName": "Wikipedia (de): Bestätigungsfehler",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Best%C3%A4tigungsfehler",
+    "verifyNote": "Wikipedia belegt: Tendenz, Informationen so auszuwählen und zu interpretieren, dass die eigenen Erwartungen bestätigt werden; widersprechende Belege werden ignoriert oder umgedeutet."
+  },
+  {
+    "id": "psyche-halo-effekt",
+    "name": "Halo-Effekt",
+    "category": "psych_effect",
+    "attributes": {
+      "definition": "Ein auffälliges Einzelmerkmal überstrahlt das Gesamturteil, sodass unabhängige Eigenschaften fälschlich als zusammenhängend gelten.",
+      "domain": "Sozialverhalten"
+    },
+    "funFact": "Schon gut aussehende Menschen werden reflexhaft auch für intelligenter oder ehrlicher gehalten.",
+    "sourceName": "Wikipedia (de): Halo-Effekt",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Halo-Effekt",
+    "verifyNote": "Wikipedia belegt: Neigung, faktisch unabhängige Eigenschaften fälschlich als zusammenhängend wahrzunehmen; ein auffälliges Merkmal (z. B. Attraktivität) überlagert das Gesamturteil."
+  },
+  {
+    "id": "psyche-dunning-kruger",
+    "name": "Dunning-Kruger-Effekt",
+    "category": "psych_effect",
+    "attributes": {
+      "definition": "Wenig kompetente Personen überschätzen ihr eigenes Können, weil ihnen die Einsicht in die eigene Unzulänglichkeit fehlt.",
+      "domain": "Urteilsbildung"
+    },
+    "funFact": "Wer dazulernt, schätzt sich oft erst danach realistischer ein – Kompetenz bringt die nötige Selbsteinsicht mit.",
+    "sourceName": "Wikipedia (de): Dunning-Kruger-Effekt",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Dunning-Kruger-Effekt",
+    "verifyNote": "Wikipedia belegt: Weniger kompetente Personen überschätzen ihr Wissen und Können, erkennen überlegene Fähigkeiten anderer nicht und können das Ausmaß ihrer Inkompetenz nicht einschätzen."
+  },
+  {
+    "id": "psyche-ankereffekt",
+    "name": "Ankereffekt",
+    "category": "psych_effect",
+    "attributes": {
+      "definition": "Eine zuvor genannte Zahl beeinflusst spätere Schätzungen, auch wenn sie für die Frage völlig belanglos ist.",
+      "domain": "Entscheidung"
+    },
+    "funFact": "Schon eine zufällig gedrehte Glücksrad-Zahl verschob in Studien die Schätzungen der Probanden messbar.",
+    "sourceName": "Wikipedia (de): Ankerheuristik",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Ankerheuristik",
+    "verifyNote": "Wikipedia belegt: Schätzungen verschieben sich systematisch in Richtung eines zuvor gezeigten Zahlenwerts (Anker), selbst wenn dieser für die Aufgabe irrelevant ist."
+  },
+  {
+    "id": "psyche-verfuegbarkeitsheuristik",
+    "name": "Verfügbarkeitsheuristik",
+    "category": "psych_effect",
+    "attributes": {
+      "definition": "Häufigkeit oder Wahrscheinlichkeit wird danach geschätzt, wie leicht einem Beispiele dafür einfallen.",
+      "domain": "Urteilsbildung"
+    },
+    "funFact": "Nach Medienberichten über Gewalttaten überschätzen viele Menschen, wie häufig solche Taten tatsächlich vorkommen.",
+    "sourceName": "Wikipedia (de): Verfügbarkeitsheuristik",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Verf%C3%BCgbarkeitsheuristik",
+    "verifyNote": "Wikipedia belegt: Häufigkeit von Ereignissen wird danach beurteilt, wie leicht Beispiele aus dem Gedächtnis abrufbar sind; führt zu Urteilsfehlern (z. B. Überschätzung von Mordfällen nach Medienberichten)."
+  },
+  {
+    "id": "psyche-placeboeffekt",
+    "name": "Placeboeffekt",
+    "category": "psych_effect",
+    "attributes": {
+      "definition": "Eine wirkstofffreie Scheinbehandlung führt allein durch positive Erwartung zu spürbarer Besserung.",
+      "domain": "Wahrnehmung"
+    },
+    "funFact": "Selbst messbare Körperreaktionen wie verringerte Stresshormone können bei einem Scheinmedikament auftreten.",
+    "sourceName": "Wikipedia (de): Placebo",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Placebo",
+    "verifyNote": "Wikipedia belegt: Positive Veränderungen des Gesundheitszustands durch eine Scheinbehandlung ohne pharmakologische Wirkung; Patienten berichten Symptomlinderung, teils messbare physiologische Effekte."
+  },
+  {
+    "id": "psyche-noceboeffekt",
+    "name": "Noceboeffekt",
+    "category": "psych_effect",
+    "attributes": {
+      "definition": "Eine wirkstofffreie Behandlung löst allein durch die Erwartung von Schaden negative Beschwerden aus.",
+      "domain": "Wahrnehmung"
+    },
+    "funFact": "Etwa ein Viertel der Placebo-Empfänger klagt über genau die Nebenwirkungen, die ihnen vorher erläutert wurden.",
+    "sourceName": "Wikipedia (de): Nocebo-Effekt",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Nocebo-Effekt",
+    "verifyNote": "Wikipedia belegt wörtlich: Etwa ein Viertel der Placebo-Empfänger klagt über die ihnen zuvor erläuterten Nebenwirkungen; allein die Erwartung negativer Folgen löst diese tatsächlich aus."
+  },
+  {
+    "id": "psyche-rueckschaufehler",
+    "name": "Rückschaufehler",
+    "category": "psych_effect",
+    "attributes": {
+      "definition": "Nachdem ein Ereignis eingetreten ist, überschätzt man, wie gut man es vorher hätte vorhersehen können.",
+      "domain": "Gedächtnis"
+    },
+    "funFact": "Im Nachhinein erinnern sich viele, sie hätten den Ausgang „eigentlich schon immer gewusst“.",
+    "sourceName": "Wikipedia (de): Rückschaufehler",
+    "sourceUrl": "https://de.wikipedia.org/wiki/R%C3%BCckschaufehler",
+    "verifyNote": "Wikipedia belegt: Nach Eintritt eines Ereignisses wird dessen Vorhersehbarkeit überschätzt; das Wissen um den Ausgang verzerrt die rückblickende Erinnerung an die eigene frühere Einschätzung."
+  },
+  {
+    "id": "psyche-framing-effekt",
+    "name": "Framing-Effekt",
+    "category": "psych_effect",
+    "attributes": {
+      "definition": "Unterschiedliche Formulierungen derselben Information führen bei gleichem Inhalt zu anderen Entscheidungen.",
+      "domain": "Entscheidung"
+    },
+    "funFact": "„90 % Überlebenschance“ klingt überzeugender als „10 % Sterberisiko“ – obwohl beides dasselbe meint.",
+    "sourceName": "Wikipedia (de): Framing-Effekt",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Framing-Effekt",
+    "verifyNote": "Wikipedia belegt: Unterschiedliche Formulierungen einer Botschaft beeinflussen bei gleichem Inhalt das Verhalten des Empfängers unterschiedlich; Menschen entscheiden je nach Darstellung anders."
+  },
+  {
+    "id": "psyche-verlustaversion",
+    "name": "Verlustaversion",
+    "category": "psych_effect",
+    "attributes": {
+      "definition": "Verluste wiegen psychologisch schwerer als gleich große Gewinne und werden stärker vermieden.",
+      "domain": "Entscheidung"
+    },
+    "funFact": "In Studien verlangten Menschen am häufigsten rund 200 Dollar, um eine 50-Prozent-Chance auf einen 100-Dollar-Verlust auszugleichen.",
+    "sourceName": "Wikipedia (de): Verlustaversion",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Verlustaversion",
+    "verifyNote": "Wikipedia belegt: Verluste werden stärker gewichtet als gleichwertige Gewinne (Verlustaversionsrate 1,5–2,5); häufigste Antwort 200 Dollar als Ausgleich für 50%-Chance auf 100-Dollar-Verlust."
+  },
+  {
+    "id": "psyche-mitlaeufereffekt",
+    "name": "Mitläufereffekt",
+    "category": "psych_effect",
+    "attributes": {
+      "definition": "Menschen schließen sich einer Sache umso eher an, je mehr andere sie bereits gewählt haben.",
+      "domain": "Sozialverhalten"
+    },
+    "funFact": "Erfolgreiche Vereine wie der FC Bayern gewinnen gerade wegen ihres Erfolgs immer mehr Anhänger hinzu.",
+    "sourceName": "Wikipedia (de): Mitläufereffekt",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Mitl%C3%A4ufereffekt",
+    "verifyNote": "Wikipedia belegt: Neigung, sich erfolgreichen Handlungsweisen anzuschließen, weil man erwartet, dass sie gewinnen; zeigt sich bei Wahlverhalten, Konsum und Sportfandom."
+  },
+  {
+    "id": "psyche-selbstueberschaetzung",
+    "name": "Selbstüberschätzung",
+    "category": "psych_effect",
+    "attributes": {
+      "definition": "Systematische Überbewertung der eigenen Fähigkeiten oder der Sicherheit des eigenen Urteils.",
+      "domain": "Urteilsbildung"
+    },
+    "funFact": "Bei vertrauten Aufgaben wie Autofahren halten sich auffällig viele Menschen für überdurchschnittlich gut.",
+    "sourceName": "Wikipedia (de): Selbstüberschätzung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Selbst%C3%BCbersch%C3%A4tzung",
+    "verifyNote": "Wikipedia belegt: Systematische Fehleinschätzung eigenen Könnens; Menschen überbewerten Leistung, halten sich für anderen überlegen und überschätzen die Genauigkeit ihres Wissens."
+  },
+  {
+    "id": "psyche-selbsterfuellende-prophezeiung",
+    "name": "Selbsterfüllende Prophezeiung",
+    "category": "psych_effect",
+    "attributes": {
+      "definition": "Eine zunächst falsche Vorhersage trifft ein, weil der Glaube daran das Verhalten entsprechend lenkt.",
+      "domain": "Sozialverhalten"
+    },
+    "funFact": "Das Gerücht von einer Bankenpleite kann durch den ausgelösten Ansturm die Pleite erst herbeiführen.",
+    "sourceName": "Wikipedia (de): Selbsterfüllende Prophezeiung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Selbsterf%C3%BCllende_Prophezeiung",
+    "verifyNote": "Wikipedia belegt (nach Merton): Eine Vorhersage bewirkt ihre eigene Erfüllung, indem die Beteiligten sich so verhalten, dass die anfangs falsche Annahme wahr wird (Rückkopplung Erwartung–Verhalten)."
+  },
+  {
+    "id": "psyche-pygmalion-effekt",
+    "name": "Pygmalion-Effekt",
+    "category": "psych_effect",
+    "attributes": {
+      "definition": "Hohe Erwartungen einer Autorität an eine Person steigern deren tatsächliche Leistung.",
+      "domain": "Sozialverhalten"
+    },
+    "funFact": "Lehrer, denen zufällig ausgewählte Schüler als „hochbegabt“ vorgestellt wurden, förderten genau diese unbewusst stärker.",
+    "sourceName": "Wikipedia (de): Pygmalion-Effekt",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Pygmalion-Effekt",
+    "verifyNote": "Wikipedia belegt: Erwartungen einer Autoritätsperson (Lehrer, Vorgesetzter) beeinflussen die tatsächliche Leistung so, dass sie sich selbst erfüllen; im Originalexperiment messbare Leistungsgewinne."
+  },
+  {
+    "id": "psyche-barnum-effekt",
+    "name": "Barnum-Effekt",
+    "category": "psych_effect",
+    "attributes": {
+      "definition": "Sehr allgemeine, auf jeden zutreffende Aussagen werden als treffend persönliche Beschreibung empfunden.",
+      "domain": "Urteilsbildung"
+    },
+    "funFact": "Forer gab 1948 allen Studierenden dasselbe Profil – sie hielten es im Schnitt für erstaunlich genau auf sich zugeschnitten.",
+    "sourceName": "Wikipedia (de): Barnum-Effekt",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Barnum-Effekt",
+    "verifyNote": "Wikipedia belegt: Neigung, vage und allgemeingültige Aussagen als persönlich zutreffend zu deuten; Forer-Experiment 1948, identisches Profil im Schnitt mit 4,26 von 5 als passend bewertet."
+  },
+  {
+    "id": "psyche-mere-exposure-effekt",
+    "name": "Mere-Exposure-Effekt",
+    "category": "psych_effect",
+    "attributes": {
+      "definition": "Wiederholter Kontakt mit einem zunächst neutralen Reiz führt allein dadurch zu einer positiveren Bewertung.",
+      "domain": "Wahrnehmung"
+    },
+    "funFact": "Ein Lied, das man oft im Radio hört, gefällt vielen mit der Zeit besser – ganz ohne neuen Grund.",
+    "sourceName": "Wikipedia (de): Mere-Exposure-Effekt",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Mere-Exposure-Effekt",
+    "verifyNote": "Wikipedia belegt: Wiederholte Wahrnehmung eines ursprünglich neutral beurteilten Reizes führt ohne weitere Verstärkung zu einer positiveren Bewertung; gilt für Gesichter, Wörter, Musik, Marken."
+  },
+  {
+    "id": "psyche-zeigarnik-effekt",
+    "name": "Zeigarnik-Effekt",
+    "category": "psych_effect",
+    "attributes": {
+      "definition": "Unterbrochene, unerledigte Aufgaben bleiben besser im Gedächtnis als bereits abgeschlossene.",
+      "domain": "Gedächtnis"
+    },
+    "funFact": "Kellner erinnern offene Bestellungen oft genau – vergessen sie aber, sobald die Rechnung bezahlt ist.",
+    "sourceName": "Wikipedia (de): Zeigarnik-Effekt",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Zeigarnik-Effekt",
+    "verifyNote": "Wikipedia belegt: Erinnerungen an unterbrochene, unerledigte Aufgaben sind stärker als an abgeschlossene; eine bis zur Erledigung fortbestehende Spannung hält die Inhalte abrufbar."
+  },
+  {
+    "id": "psyche-foot-in-the-door",
+    "name": "Foot-in-the-door",
+    "category": "psych_effect",
+    "attributes": {
+      "definition": "Wer einer kleinen Bitte zustimmt, willigt danach eher auch in eine deutlich größere Forderung ein.",
+      "domain": "Sozialverhalten"
+    },
+    "funFact": "Vertreter nutzen den Trick: erst eine winzige Gefälligkeit erbitten, dann das eigentliche, große Anliegen.",
+    "sourceName": "Dorsch Lexikon der Psychologie (Hogrefe): Foot-in-the-door-Technik",
+    "sourceUrl": "https://dorsch.hogrefe.com/stichwort/foot-in-the-door-technik",
+    "verifyNote": "Dorsch/Hogrefe und Stangl-Lexikon belegen: Wer zunächst einer bescheidenen Forderung zugestimmt hat, stimmt später eher auch einer weitergehenden zu (Konsistenzstreben, positive Selbstdarstellung)."
+  },
+  {
+    "id": "psyche-horn-effekt",
+    "name": "Horn-Effekt",
+    "category": "psych_effect",
+    "attributes": {
+      "definition": "Eine einzelne negative Eigenschaft überschattet das Gesamturteil und färbt die ganze Person ab.",
+      "domain": "Sozialverhalten"
+    },
+    "funFact": "Er gilt als düsteres Gegenstück zum Heiligenschein-Effekt – statt Heiligenschein setzt man der Person Teufelshörner auf.",
+    "sourceName": "Stangl: Online-Lexikon für Psychologie & Pädagogik – Horn-Effekt",
+    "sourceUrl": "https://lexikon.stangl.eu/33505/horn-effekt",
+    "verifyNote": "Stangl-Lexikon belegt: Kognitiver Überstrahlungseffekt, bei dem eine einzelne negative Eigenschaft die gesamte Beurteilung einer Person ins Negative zieht; negatives Pendant zum Halo-Effekt."
+  },
+  {
+    "id": "psyche-sunk-cost",
+    "name": "Sunk-Cost-Fehler",
+    "category": "psych_effect",
+    "attributes": {
+      "definition": "Bereits ausgegebene, nicht rückholbare Mittel werden weiterverfolgt, statt rein nach künftigem Nutzen zu entscheiden.",
+      "domain": "Entscheidung"
+    },
+    "funFact": "Man bezeichnet das auch als „gutes Geld schlechtem hinterherwerfen“ – aus Unwillen, eine Fehlinvestition einzugestehen.",
+    "sourceName": "Wikipedia (de): Versunkene Kosten",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Versunkene_Kosten",
+    "verifyNote": "Wikipedia belegt: Irrationale Tendenz, bereits verbrauchte Kosten bei aktuellen Entscheidungen zu berücksichtigen, obwohl sie für künftige Ergebnisse irrelevant sind; unrentable Projekte werden fortgesetzt."
+  },
+  {
+    "id": "psyche-gruppendenken",
+    "name": "Gruppendenken",
+    "category": "psych_effect",
+    "attributes": {
+      "definition": "Das Streben nach Einmütigkeit in einer Gruppe verdrängt die realistische Prüfung von Alternativen.",
+      "domain": "Sozialverhalten"
+    },
+    "funFact": "Eine eng zusammengeschworene Gruppe beschließt mitunter Dinge, die jedes Mitglied für sich allein abgelehnt hätte.",
+    "sourceName": "Wikipedia (de): Gruppendenken",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Gruppendenken",
+    "verifyNote": "Wikipedia belegt: Kompetente Personen treffen schlechtere Entscheidungen, weil sie ihre Meinung an die erwartete Gruppenmeinung anpassen; das Streben nach Einmütigkeit setzt realistische Bewertung außer Kraft."
+  },
+  {
+    "id": "psyche-zuschauereffekt",
+    "name": "Zuschauereffekt",
+    "category": "psych_effect",
+    "attributes": {
+      "definition": "Je mehr Menschen einer Notlage beiwohnen, desto unwahrscheinlicher greift der Einzelne helfend ein.",
+      "domain": "Sozialverhalten"
+    },
+    "funFact": "In einer Menschenmenge fühlt sich der Einzelne weniger zuständig – jeder verlässt sich darauf, dass ein anderer hilft.",
+    "sourceName": "Wikipedia (de): Zuschauereffekt",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Zuschauereffekt",
+    "verifyNote": "Wikipedia belegt: Einzelne Personen greifen in Notsituationen umso seltener ein und helfen, je mehr andere anwesend sind; Hilfsbereitschaft sinkt mit steigender Zuschauerzahl."
+  },
+  {
+    "id": "psyche-primacy-effekt",
+    "name": "Primacy-Effekt",
+    "category": "psych_effect",
+    "attributes": {
+      "definition": "Beim Erinnern einer Reihe werden die zuerst dargebotenen Inhalte besser behalten als die mittleren.",
+      "domain": "Gedächtnis"
+    },
+    "funFact": "Der erste Eindruck einer Liste wirkt nach, weil die ersten Punkte mehr Zeit hatten, sich einzuprägen.",
+    "sourceName": "Wikipedia (de): Primacy-Recency-Effekt",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Primacy-Recency-Effekt",
+    "verifyNote": "Wikipedia belegt: Teil des seriellen Positionseffekts; Informationen am Anfang einer Liste werden besser erinnert als die in der Mitte (erhöhte Erinnerungsgenauigkeit am Listenanfang)."
+  },
+  {
+    "id": "psyche-recency-effekt",
+    "name": "Recency-Effekt",
+    "category": "psych_effect",
+    "attributes": {
+      "definition": "Beim Erinnern einer Reihe bleiben die zuletzt dargebotenen Inhalte besser im Gedächtnis als die mittleren.",
+      "domain": "Gedächtnis"
+    },
+    "funFact": "Das letzte Argument einer Aufzählung wirkt oft am stärksten nach, weil es noch frisch präsent ist.",
+    "sourceName": "Wikipedia (de): Primacy-Recency-Effekt",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Primacy-Recency-Effekt",
+    "verifyNote": "Wikipedia belegt: Teil des seriellen Positionseffekts; zuletzt wahrgenommene Informationen bleiben präsent und werden besser erinnert als die in der Mitte der Liste."
+  },
+  {
+    "id": "psyche-kontrasteffekt",
+    "name": "Kontrasteffekt",
+    "category": "psych_effect",
+    "attributes": {
+      "definition": "Die Bewertung eines Reizes verschiebt sich je nach unmittelbar vorher oder gleichzeitig gezeigtem Vergleichsreiz.",
+      "domain": "Wahrnehmung"
+    },
+    "funFact": "Lauwarmes Wasser fühlt sich heiß an, wenn die Hand vorher in Eiswasser lag – der Vergleich verschiebt die Wahrnehmung.",
+    "sourceName": "Wikipedia (de): Kontrasteffekt",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Kontrasteffekt",
+    "verifyNote": "Wikipedia belegt: Wahrnehmung eines Reizes wird durch vorher (Sukzessivkontrast) oder gleichzeitig (Simultankontrast) dargebotene Reize anderer Intensität verstärkt oder abgeschwächt; Quelle auf deutsches Wikipedia umgestellt."
+  },
+  {
+    "id": "psyche-autoritaetsgehorsam",
+    "name": "Autoritätsgehorsam",
+    "category": "psych_effect",
+    "attributes": {
+      "definition": "Bereitschaft, Anweisungen einer Autoritätsperson zu folgen, selbst wenn sie dem eigenen Gewissen widersprechen.",
+      "domain": "Sozialverhalten"
+    },
+    "funFact": "Im Milgram-Versuch gingen 65 Prozent der Teilnehmer bis zur höchsten vermeintlichen Stromstärke, weil der Versuchsleiter es verlangte.",
+    "sourceName": "Wikipedia (de): Milgram-Experiment",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Milgram-Experiment",
+    "verifyNote": "Wikipedia belegt: Milgram zeigte die extreme Bereitschaft Erwachsener, einer Autorität fast beliebig weit zu folgen; 65 % gingen bis 450 Volt, obwohl sie glaubten, Schmerzen zuzufügen."
+  },
+  {
+    "id": "psyche-reaktanz",
+    "name": "Reaktanz",
+    "category": "psych_effect",
+    "attributes": {
+      "definition": "Wird ein Freiheitsspielraum eingeschränkt, entsteht Widerstand, und die verbotene Option wirkt plötzlich attraktiver.",
+      "domain": "Sozialverhalten"
+    },
+    "funFact": "Sagt man einem Kind, es sei zu klein für ein Getränk, will es genau dieses umso lieber haben.",
+    "sourceName": "Wikipedia (de): Reaktanz (Psychologie)",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Reaktanz_(Psychologie)",
+    "verifyNote": "Wikipedia belegt: Motivation zur Wiederherstellung eingeengter oder eliminierter Freiheitsspielräume; die eingeschränkte Handlungsmöglichkeit wird aufgewertet und „erst recht“ ausgeführt."
+  },
+  {
+    "id": "psyche-kognitive-dissonanz",
+    "name": "Kognitive Dissonanz",
+    "category": "psych_effect",
+    "attributes": {
+      "definition": "Unvereinbare Überzeugungen oder Handlungen erzeugen einen unangenehmen Spannungszustand, den man aufzulösen versucht.",
+      "domain": "Urteilsbildung"
+    },
+    "funFact": "Raucher spielen Gesundheitsrisiken gern herunter, um den Widerspruch zwischen Wissen und Verhalten erträglich zu machen.",
+    "sourceName": "Wikipedia (de): Kognitive Dissonanz",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Kognitive_Dissonanz",
+    "verifyNote": "Wikipedia belegt: Unangenehmer Zustand bei gleichzeitig gehaltenen unvereinbaren Kognitionen; wird durch Einstellungs- oder Verhaltensänderung, Rationalisierung und selektive Wahrnehmung reduziert."
+  },
+  {
+    "id": "psyche-aktor-beobachter-verzerrung",
+    "name": "Aktor-Beobachter-Verzerrung",
+    "category": "psych_effect",
+    "attributes": {
+      "definition": "Eigenes Verhalten erklärt man mit den Umständen, fremdes Verhalten dagegen mit dem Charakter der Person.",
+      "domain": "Sozialverhalten"
+    },
+    "funFact": "Schneidet jemand uns im Verkehr, ist er „rücksichtslos“ – schneiden wir selbst, war eben die Ausfahrt schlecht zu sehen.",
+    "sourceName": "Wikipedia (de): Attributionsfehler",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Attributionsfehler",
+    "verifyNote": "Wikipedia belegt: Akteure führen ihr eigenes Verhalten auf die Situation zurück, Beobachter das Verhalten anderer auf deren Disposition; situative Faktoren sind für Beobachter oft nicht erkennbar."
+  },
+  {
+    "id": "psyche-selbstwertdienliche-verzerrung",
+    "name": "Selbstwertdienliche Verzerrung",
+    "category": "psych_effect",
+    "attributes": {
+      "definition": "Erfolge schreibt man den eigenen Fähigkeiten zu, Misserfolge dagegen äußeren Umständen oder Zufall.",
+      "domain": "Urteilsbildung"
+    },
+    "funFact": "Eine bestandene Prüfung gilt als „verdient“, eine schlechte Note schnell als „unfaire Aufgabenstellung“.",
+    "sourceName": "Wikipedia (de): Selbstwertdienliche Verzerrung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Selbstwertdienliche_Verzerrung",
+    "verifyNote": "Wikipedia belegt: Neigung, Erfolge inneren Faktoren (eigene Fähigkeiten) und Misserfolge äußeren Faktoren (Umstände, Zufall) zuzuschreiben; dient der Aufrechterhaltung eines positiven Selbstbildes."
   }
 ]

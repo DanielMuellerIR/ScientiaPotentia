@@ -43,7 +43,8 @@ const CATEGORY_LABELS = {
   bone: 'Knochen', muscle: 'Muskel', organ: 'Organ',
   body_fact: 'Körperwert', species: 'Menschenart',
   // Neue Kategorien (Physiologie jenseits der Anatomie, Stand 2026-06-25)
-  cell_type: 'Zelltyp', hormone: 'Hormon', vitamin: 'Vitamin', sense: 'Sinn'
+  cell_type: 'Zelltyp', hormone: 'Hormon', vitamin: 'Vitamin', sense: 'Sinn',
+  digestive_enzyme: 'Verdauungsenzym', nerve: 'Nerv', psych_effect: 'Psychoeffekt'
 };
 
 const ATTR_LABELS = {
@@ -55,7 +56,9 @@ const ATTR_LABELS = {
   function: 'Funktion', definition: 'Definition',
   // Attribute der neuen Kategorien (cell_type/hormone/vitamin/sense).
   fachName: 'Fachbegriff', gland: 'Bildungsort', hormoneClass: 'Hormonklasse',
-  chemicalName: 'Chemischer Name', solubility: 'Löslichkeit', sensoryOrgan: 'Sinnesorgan'
+  chemicalName: 'Chemischer Name', solubility: 'Löslichkeit', sensoryOrgan: 'Sinnesorgan',
+  // Welle-2-Attribute (digestive_enzyme/nerve/psych_effect).
+  substrate: 'Substrat', domain: 'Bereich'
 };
 
 // Freitext-Chips sind oft erklaerend statt reine Kennwerte. Vor der Antwort
