@@ -356,14 +356,36 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 | Domain | Konzepte | Fragen | Quellen | Visualisierung |
 | :----- | :------- | :----- | :------ | :------------- |
 | Terra  | 1852 | 5217 | Natural Earth / GeoNames / Wikidata | Weltkarte (MapLibre), pro Frage Highlight |
-| Astra  | 937 | 3088 | NASA / IAU / ESA / Wikidata | **3D-Himmelskörper (three.js)** + Kontext-Karte (Bahn/Distanz), Texturen Solar System Scope (CC BY 4.0) |
+| Astra  | 1560 | 5035 | NASA / IAU / ESA / Wikidata | **3D-Himmelskörper (three.js)** + Kontext-Karte (Bahn/Distanz), Texturen Solar System Scope (CC BY 4.0); 478 Museumsbilder |
 | Homo   | 413 | 1195 | Gray's Anatomy / Prometheus / NIH / MedlinePlus / StatPearls / OpenStax | **Anatomiegrafiken (Wikimedia, PD)** + konzeptgenauer Struktur-Marker je Frage; ab v1.52 zehn Physiologie-Kategorien jenseits der Anatomie |
 | Natura | 2402 | 13217 | Wikipedia / USGS / IUCN / IPCC / Wikidata | generische Konzeptkarte (`ConceptVisual`); Tiere via MiniMax-Delegation 49→97 ausgebaut (web-grounded); freies Commons-Foto je Konzept hinterlegt (`concept.image`, fürs spätere Museum) |
-| Lingua | 795 | 3534 | Wikipedia / Ethnologue / Wiktionary / Guinness / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Attribut-Labels; Commons-Bild je Konzept hinterlegt (103/103, fürs spätere Museum) |
+| Lingua | 1094 | 5025 | Wikipedia / Ethnologue / Wiktionary / Guinness / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Attribut-Labels; 184 Museumsbilder (writing_system/language_family) |
 | Cultura | 1537 | 5042 | Wikipedia (DE/EN) / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Kategorie-/Attribut-Labels; via MiniMax-Delegation ausgebaut (Komponisten Wikidata-geprüft, Werke web-grounded) |
-| Machina | 756 | 2355 | Wikipedia / RFC/IANA / Lehrbücher | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Funktionsprinzip (v1.47.0) |
-| Historia | 838 | 4251 | Wikipedia / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Zeit/Urheberschaft, Politik-Ausschluss (v1.47.0) |
+| Machina | 1689 | 5125 | Wikipedia / RFC/IANA / Lehrbücher | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Funktionsprinzip (v1.47.0); 124 Museumsbilder (hardware) |
+| Historia | 1076 | 5359 | Wikipedia / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Zeit/Urheberschaft, Politik-Ausschluss (v1.47.0); 880 Museumsbilder |
 
+> **Stand 2026-06-25 (v1.59.0–v1.67.0) — 5000-Ziel für ALLE MCQ-Domains außer Homo erreicht (+~7300 Fragen):**
+> Autonome Content-Offensive in 9 Commits: sechs orchestrierte `find → verify`-Workflows (h1–h6,
+> je Opus-Finder + adversarialer Opus-Verifier, additiver `append_concepts`, eigene Fakt-Stichprobe)
+> plus interleavte Bild-Wellen. **+2093 Konzepte / +~7300 Fragen:** Historia 838→**1076** K /
+> 4251→**5359** F (h1, unterbrochene Ernte fertig verifiziert); Machina 756→**1689** K / 2355→**5125** F
+> (h2–h6, von weit unter Ziel über 5000); Astra 937→**1560** K / 3088→**5035** F (h2–h6); Lingua
+> 795→**1094** K / 3534→**5025** F (h2–h3). **Damit liegen Terra, Astra, Natura, Lingua, Cultura,
+> Machina, Historia alle ≥ 5000; nur Homo bleibt am ehrlichen Ceiling (1195).** Museumsbilder
+> +~630 (Historia 0→880, Astra →478, Machina →124, Lingua →184, Homo →173).
+> **Verifier fingen u.a.:** widerlegte Exoplaneten (Gliese 581 f, Tau Ceti f), erfundene Akronym-
+> Vollformen (WebGPU), fabrizierte 404-Quell-URLs (Zhurong/Gienah/Fast-inverse-sqrt → echte ersetzt),
+> obskure Objekte (38 von 42 19.-Jh.-Asteroiden, Mini-Moonlets, tote Sprachen), Big-O-Fehler („O(∞)"),
+> Etymologie-Korrekturen gegen DWDS, astronomische Faktenfehler (Gienah oranger Riese, Azha 137 Lj).
+> **Neue Tooling-Helfer (`scripts/data_sources/harvest/`):** `build_dedup.cjs` (Dedup-Namensliste je
+> Kategorie für Finder), `normalize_case.cjs --wave=hN` (konformiert NUR Wellen-Konzepte an die
+> Bestands-Schreibweise kategorialer Werte — fing „interpretiert"/„Interpretiert"-Doppeloptionen,
+> Bestand bleibt unangetastet), `apply_images.cjs` (Apply /tmp-Bildmapping + `--prune` nach
+> `check_images`). Alle `verify_facts` 0 Fehler, `audit:questions` Strukt 0 / Bias-Templates
+> unverändert, `npm test` grün. **Offen:** Machina-`compression` hat zwei Parallelvokabulare
+> (Bestands-Altlast, kein neuer Defekt — Kanonisierung als Qualitätsaufgabe vorgemerkt).
+> **NICHT deployt (live weiterhin v1.46.1).**
+>
 > **Stand 2026-06-25 (v1.52.0–v1.58.0) — Homo-Physiologie-Ausbau (3 Wellen) + Museum-Bildoffensive (6 Domains):**
 > **(A) Homo jenseits der Anatomie (261/718 → 413/1195, +152 Konzepte/+477 Fragen)** nach
 > [`docs/homo_erweiterung.md`](docs/homo_erweiterung.md) in 3 Wellen, je Opus-Finder + adversariale
