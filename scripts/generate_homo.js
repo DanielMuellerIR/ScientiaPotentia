@@ -651,6 +651,52 @@ const templates = [
     category: 'psych_effect', attr: 'domain', type: 'homo-psych-domain', difficulty: 3,
     prompt: c => `Welchem Bereich ordnet man „${c.name}" am ehesten zu?`,
     format: v => v
+  },
+
+  // ==== Welle 3 (Stand 2026-06-25): nutrient_macro / development_stage / brain_lobe ====
+
+  // ---- Nährstoffe & Mineralstoffe (nutrient_macro) --------------------------
+  {
+    category: 'nutrient_macro', attr: 'function', type: 'homo-nutrient-function', difficulty: 2,
+    prompt: c => `Welche Hauptfunktion hat „${c.name}" im Körper?`,
+    format: v => v
+  },
+  {
+    category: 'nutrient_macro', attr: 'function', type: 'homo-nutrient-function-rev', difficulty: 3, nameAnswer: true,
+    subject: c => c.attributes.function,
+    prompt: c => `Welcher Nährstoff erfüllt folgende Funktion: „${c.attributes.function}"?`
+  },
+  {
+    category: 'nutrient_macro', attr: 'nutrientClass', type: 'homo-nutrient-class', difficulty: 3,
+    prompt: c => `Zu welcher Nährstoffgruppe zählt „${c.name}"?`,
+    format: v => v
+  },
+
+  // ---- Entwicklungsstadien (development_stage) ------------------------------
+  // 'characteristic' ist ein verräterischer Freitext -> im Visual POST_ANSWER-verborgen,
+  // damit die timeframe-Frage es nicht als Chip preisgibt.
+  {
+    category: 'development_stage', attr: 'characteristic', type: 'homo-devstage-char-rev', difficulty: 2, nameAnswer: true,
+    subject: c => c.attributes.characteristic,
+    prompt: c => `Welches Entwicklungsstadium ist hierdurch gekennzeichnet: „${c.attributes.characteristic}"?`
+  },
+  {
+    category: 'development_stage', attr: 'timeframe', type: 'homo-devstage-timeframe', difficulty: 2,
+    prompt: c => `In welche Lebensspanne fällt das Stadium „${c.name}"?`,
+    format: v => v
+  },
+
+  // ---- Großhirnlappen (brain_lobe) -----------------------------------------
+  // Nur 4 Member -> jede Frage hat genau die 4 Lappen als Optionen (fair, gleich lang).
+  {
+    category: 'brain_lobe', attr: 'function', type: 'homo-lobe-function', difficulty: 2,
+    prompt: c => `Welche Aufgabe erfüllt der „${c.name}" vor allem?`,
+    format: v => v
+  },
+  {
+    category: 'brain_lobe', attr: 'function', type: 'homo-lobe-function-rev', difficulty: 2, nameAnswer: true,
+    subject: c => c.attributes.function,
+    prompt: c => `Welcher Großhirnlappen ist vor allem zuständig für: „${c.attributes.function}"?`
   }
 ];
 

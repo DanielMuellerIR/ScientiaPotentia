@@ -5670,5 +5670,369 @@
     "sourceName": "Wikipedia (de): Selbstwertdienliche Verzerrung",
     "sourceUrl": "https://de.wikipedia.org/wiki/Selbstwertdienliche_Verzerrung",
     "verifyNote": "Wikipedia belegt: Neigung, Erfolge inneren Faktoren (eigene Fähigkeiten) und Misserfolge äußeren Faktoren (Umstände, Zufall) zuzuschreiben; dient der Aufrechterhaltung eines positiven Selbstbildes."
+  },
+  {
+    "id": "naehrstoff-kohlenhydrate",
+    "name": "Kohlenhydrate",
+    "category": "nutrient_macro",
+    "attributes": {
+      "function": "Wichtigster und schnell verfügbarer Energielieferant für Gehirn und Muskeln",
+      "foodSource": "Brot, Nudeln, Reis, Kartoffeln, Obst",
+      "nutrientClass": "Makronährstoff"
+    },
+    "funFact": "Ein Gramm liefert rund 4 Kilokalorien Energie, etwa gleich viel wie Eiweiß.",
+    "sourceName": "Wikipedia: Kohlenhydrate",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Kohlenhydrate",
+    "verifyNote": "Wikipedia nennt Kohlenhydrate als Hauptenergielieferant mit rund 17,2 kJ bzw. 4,1 kcal pro Gramm; geprüft 2026-06-25."
+  },
+  {
+    "id": "naehrstoff-fette",
+    "name": "Fette",
+    "category": "nutrient_macro",
+    "attributes": {
+      "function": "Energiespeicher mit höchster Energiedichte, Träger fettlöslicher Vitamine",
+      "foodSource": "Öl, Butter, Nüsse, fetter Fisch",
+      "nutrientClass": "Makronährstoff"
+    },
+    "funFact": "Ein Gramm liefert rund 9 Kilokalorien und damit mehr als doppelt so viel Energie wie Zucker.",
+    "sourceName": "Wikipedia: Physiologischer Brennwert",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Physiologischer_Brennwert",
+    "verifyNote": "Wikipedia gibt für Fett 37 kJ (9 kcal) pro Gramm an, die höchste Energiedichte der Makronährstoffe; geprüft 2026-06-25."
+  },
+  {
+    "id": "naehrstoff-proteine",
+    "name": "Proteine",
+    "category": "nutrient_macro",
+    "attributes": {
+      "function": "Baustoff für Muskeln, Enzyme und Gewebe aus Aminosäuren",
+      "foodSource": "Fleisch, Fisch, Eier, Hülsenfrüchte",
+      "nutrientClass": "Makronährstoff"
+    },
+    "funFact": "Sie bestehen aus 20 verschiedenen Aminosäuren, von denen der Körper einige nicht selbst herstellen kann. Im Deutschen werden Proteine auch Eiweiße genannt.",
+    "sourceName": "Wikipedia: Physiologischer Brennwert",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Physiologischer_Brennwert",
+    "verifyNote": "Wikipedia gibt für Proteine 17 kJ (4 kcal) pro Gramm an; sie dienen als Baustoff für Gewebe und Enzyme; geprüft 2026-06-25."
+  },
+  {
+    "id": "naehrstoff-ballaststoffe",
+    "name": "Ballaststoffe",
+    "category": "nutrient_macro",
+    "attributes": {
+      "function": "Unverdauliche Pflanzenfasern, fördern die Verdauung und sättigen",
+      "foodSource": "Vollkorn, Gemüse, Hülsenfrüchte, Obst",
+      "nutrientClass": "Makronährstoff"
+    },
+    "funFact": "Sie liefern dem Körper kaum Energie, weil sie im Dünndarm nicht verdaut werden können.",
+    "sourceName": "Wikipedia: Kohlenhydrate",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Kohlenhydrate",
+    "verifyNote": "Wikipedia zählt Ballaststoffe zum nicht-verwertbaren Anteil der Nahrung, der vom Körper nicht verdaut wird; geprüft 2026-06-25."
+  },
+  {
+    "id": "naehrstoff-wasser",
+    "name": "Wasser",
+    "category": "nutrient_macro",
+    "attributes": {
+      "function": "Lösungs- und Transportmittel, reguliert die Körpertemperatur",
+      "foodSource": "Trinkwasser, Getränke, Obst, Gemüse",
+      "nutrientClass": "Makronährstoff"
+    },
+    "funFact": "Es macht beim erwachsenen Menschen rund 60 Prozent des Körpergewichts aus.",
+    "sourceName": "Wikipedia: Ernährung des Menschen",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Ern%C3%A4hrung_des_Menschen",
+    "verifyNote": "Wikipedia führt Wasser als lebensnotwendigen Nährstoff und Hauptbestandteil des Körpers (etwa 60 Prozent)."
+  },
+  {
+    "id": "naehrstoff-calcium",
+    "name": "Calcium",
+    "category": "nutrient_macro",
+    "attributes": {
+      "function": "Baustoff für Knochen und Zähne, wichtig für Blutgerinnung und Muskeln",
+      "foodSource": "Milch, Käse, Joghurt, grünes Gemüse",
+      "nutrientClass": "Mengenelement"
+    },
+    "funFact": "Rund 99 Prozent des Vorrats im Körper sind in Knochen und Zähnen gebunden.",
+    "sourceName": "Wikipedia: Calcium",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Calcium",
+    "verifyNote": "Wikipedia: 99 Prozent des Körper-Calciums sind als Hydroxylapatit in Knochen und Zähnen gebunden; wichtig für Blutgerinnung und Muskelerregung; geprüft 2026-06-25."
+  },
+  {
+    "id": "naehrstoff-magnesium",
+    "name": "Magnesium",
+    "category": "nutrient_macro",
+    "attributes": {
+      "function": "Aktiviert zahlreiche Enzyme, wichtig für Nerven, Muskeln und Knochen",
+      "foodSource": "Vollkorn, Nüsse, Hülsenfrüchte",
+      "nutrientClass": "Mengenelement"
+    },
+    "funFact": "Es ist an Hunderten enzymatischen Reaktionen des Energiestoffwechsels beteiligt.",
+    "sourceName": "Wikipedia: Mengenelemente",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Mengenelemente",
+    "verifyNote": "Wikipedia nennt Magnesium als Bestandteil von Knochen, Zähnen, zahlreichen Enzymen und energiereichen Phosphatverbindungen; geprüft 2026-06-25."
+  },
+  {
+    "id": "naehrstoff-kalium",
+    "name": "Kalium",
+    "category": "nutrient_macro",
+    "attributes": {
+      "function": "Hält das Membranpotential aufrecht, wichtig für Nerven und Herz",
+      "foodSource": "Bananen, Trockenobst, Kartoffeln",
+      "nutrientClass": "Mengenelement"
+    },
+    "funFact": "Innerhalb der Zellen ist es etwa vierzigmal höher konzentriert als außerhalb.",
+    "sourceName": "Wikipedia: Kalium",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Kalium",
+    "verifyNote": "Wikipedia: Kalium reguliert das Membranpotential und die Reizleitung des Herzens; intrazellulär ca. 150 mmol/l, extrazellulär ca. 4 mmol/l; geprüft 2026-06-25."
+  },
+  {
+    "id": "naehrstoff-natrium",
+    "name": "Natrium",
+    "category": "nutrient_macro",
+    "attributes": {
+      "function": "Regelt den Wasserhaushalt und die Reizleitung der Nerven",
+      "foodSource": "Kochsalz, Brot, Wurst, Käse",
+      "nutrientClass": "Mengenelement"
+    },
+    "funFact": "Der Körper nimmt es vor allem als Bestandteil von Kochsalz auf.",
+    "sourceName": "Wikipedia: Mengenelemente",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Mengenelemente",
+    "verifyNote": "Wikipedia: Natrium reguliert Wasserhaushalt und Säure-Basen-Gleichgewicht und ist an der Reizleitung der Nervenzellen beteiligt; geprüft 2026-06-25."
+  },
+  {
+    "id": "naehrstoff-phosphor",
+    "name": "Phosphor",
+    "category": "nutrient_macro",
+    "attributes": {
+      "function": "Baustoff von Knochen, Erbsubstanz und dem Energieträger ATP",
+      "foodSource": "Milchprodukte, Fleisch, Vollkorn",
+      "nutrientClass": "Mengenelement"
+    },
+    "funFact": "Als Phosphat ist es Teil des universellen Energieträgers ATP in jeder Zelle.",
+    "sourceName": "Wikipedia: Mengenelemente",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Mengenelemente",
+    "verifyNote": "Wikipedia: Phosphor ist als Phosphat Bestandteil von Knochen, Nukleinsäuren, Nukleotiden wie ATP und Phospholipiden; geprüft 2026-06-25."
+  },
+  {
+    "id": "naehrstoff-eisen",
+    "name": "Eisen",
+    "category": "nutrient_macro",
+    "attributes": {
+      "function": "Sauerstofftransport im Blut als Bestandteil des roten Blutfarbstoffs",
+      "foodSource": "Fleisch, Hülsenfrüchte, Vollkorn, Spinat",
+      "nutrientClass": "Spurenelement"
+    },
+    "funFact": "Es bindet im roten Blutfarbstoff Hämoglobin den Sauerstoff aus der Lunge.",
+    "sourceName": "Wikipedia: Eisen",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Eisen",
+    "verifyNote": "Wikipedia: Eisen ist als Bestandteil des Hämoglobins notwendig für den Sauerstofftransport und ein essentielles Spurenelement; geprüft 2026-06-25."
+  },
+  {
+    "id": "naehrstoff-jod",
+    "name": "Jod",
+    "category": "nutrient_macro",
+    "attributes": {
+      "function": "Baustein der Schilddrüsenhormone, steuert den Stoffwechsel",
+      "foodSource": "Seefisch, jodiertes Speisesalz, Algen",
+      "nutrientClass": "Spurenelement"
+    },
+    "funFact": "Ein Mangel kann zu einer Vergrößerung der Schilddrüse, dem Kropf, führen.",
+    "sourceName": "Wikipedia: Iod",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Iod",
+    "verifyNote": "Wikipedia: Iod ist Bestandteil der Schilddrüsenhormone Thyroxin (T4) und Triiodthyronin (T3); Mangel führt zum Kropf; geprüft 2026-06-25."
+  },
+  {
+    "id": "naehrstoff-zink",
+    "name": "Zink",
+    "category": "nutrient_macro",
+    "attributes": {
+      "function": "Bestandteil vieler Enzyme, wichtig für Immunsystem und Wundheilung",
+      "foodSource": "Fleisch, Käse, Vollkorn, Nüsse",
+      "nutrientClass": "Spurenelement"
+    },
+    "funFact": "Es übt im Körper als Ion vorwiegend katalytische Aufgaben in Enzymen aus.",
+    "sourceName": "Wikipedia: Spurenelement",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Spurenelement",
+    "verifyNote": "Wikipedia: Zinkabhängige Enzyme sind an nahezu allen Lebensvorgängen beteiligt, u.a. Immunfunktion und Wundheilung (Kollagensynthese); geprüft 2026-06-25."
+  },
+  {
+    "id": "entwicklung-zygote",
+    "name": "Zygote",
+    "category": "development_stage",
+    "attributes": {
+      "characteristic": "Einzige diploide Zelle direkt nach der Befruchtung, mit mütterlichem und väterlichem Chromosomensatz",
+      "timeframe": "Befruchtung, erste Stunden/Tage"
+    },
+    "funFact": "Aus dieser einen Zelle entsteht durch fortlaufende Teilungen der gesamte vielzellige Organismus.",
+    "sourceName": "Wikipedia (de): Zygote",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Zygote",
+    "verifyNote": "Laut de.wikipedia entsteht durch Verschmelzung von Eizelle und Spermium eine einzige diploide Zelle mit zwei Chromosomensätzen (mütterlich/väterlich); Ausgangspunkt der Embryonalentwicklung bestätigt."
+  },
+  {
+    "id": "entwicklung-embryo",
+    "name": "Embryo",
+    "category": "development_stage",
+    "attributes": {
+      "characteristic": "Frühe Phase, in der sich aus den Zellschichten die inneren Organe anlegen (Organogenese)",
+      "timeframe": "bis Ende der 8. Schwangerschaftswoche"
+    },
+    "funFact": "In dieser kurzen Phase werden die Grundbaupläne fast aller Organe festgelegt.",
+    "sourceName": "Wikipedia (de): Embryo",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Embryo",
+    "verifyNote": "Per WebFetch bestätigt: de.wikipedia ordnet die eigentliche Embryonalphase den Wochen 4–8 zu (Organogenese), ab der 9. Woche gilt der Begriff Fötus; 'bis Ende der 8. SSW' entspricht der Standardkonvention."
+  },
+  {
+    "id": "entwicklung-foetus",
+    "name": "Fötus",
+    "category": "development_stage",
+    "attributes": {
+      "characteristic": "Phase, in der bereits angelegte Organe wachsen und reifen, statt neu zu entstehen",
+      "timeframe": "ab der 9. Woche bis zur Geburt"
+    },
+    "funFact": "Während dieser Phase nehmen Größe und Gewicht stark zu, während die Organe ihre Funktion ausbilden.",
+    "sourceName": "Wikipedia (de): Fötus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/F%C3%B6tus",
+    "verifyNote": "Per WebFetch bestätigt: laut de.wikipedia beginnt die Fötalperiode ab der 9. Woche und dauert bis zur Geburt; gekennzeichnet durch Wachstum und Reifung bereits angelegter Organe."
+  },
+  {
+    "id": "entwicklung-saeugling",
+    "name": "Säugling",
+    "category": "development_stage",
+    "attributes": {
+      "characteristic": "Wird im ersten Lebensjahr mit Milch ernährt und kann sich noch nicht selbstständig fortbewegen",
+      "timeframe": "ab Geburt bis 1. Lebensjahr"
+    },
+    "funFact": "In den ersten vier Wochen nach der Geburt heißt der junge Mensch zusätzlich Neugeborenes.",
+    "sourceName": "Wikipedia (de): Säugling",
+    "sourceUrl": "https://de.wikipedia.org/wiki/S%C3%A4ugling",
+    "verifyNote": "Per WebFetch bestätigt: de.wikipedia bezeichnet ein Kind im ersten Lebensjahr, erste vier Wochen zusätzlich 'Neugeborenes'. 'Saugreflexe' aus characteristic entfernt (Fairness: Wortstamm verriet den Namen)."
+  },
+  {
+    "id": "entwicklung-kleinkind",
+    "name": "Kleinkind",
+    "category": "development_stage",
+    "attributes": {
+      "characteristic": "Macht erste Schritte, spricht erste Worte und beginnt, sich von der Umwelt zu unterscheiden",
+      "timeframe": "etwa 1 bis 3 Jahre"
+    },
+    "funFact": "Erste Zweiwortsätze werden meist mit rund zwei Jahren gebildet.",
+    "sourceName": "Wikipedia (de): Kleinkind",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Kleinkind",
+    "verifyNote": "Per WebFetch bestätigt: de.wikipedia nennt das zweite und dritte Lebensjahr, erste Worte 12.–18. Monat, erste Zweiwortsätze regelmäßig mit zwei Jahren; 'etwa 1 bis 3 Jahre' deckt dies grob ab."
+  },
+  {
+    "id": "entwicklung-vorschulkind",
+    "name": "Vorschulkind",
+    "category": "development_stage",
+    "attributes": {
+      "characteristic": "Besucht meist den Kindergarten, spielt ausgiebig im Rollen- und Fantasiespiel, noch nicht eingeschult",
+      "timeframe": "etwa 3 bis 6 Jahre"
+    },
+    "funFact": "Im Spiel verarbeitet das Kind in dieser Phase Erlebnisse und übt soziale Rollen ein.",
+    "sourceName": "Wikipedia (de): Vorschule / DWDS: Vorschulalter",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Vorschule",
+    "verifyNote": "DWDS definiert Vorschulalter als 'von drei bis sechs' Jahren; Wikipedia (Vorschule) nennt für diese Phase Kinder von drei bis sechs Jahren vor der Einschulung."
+  },
+  {
+    "id": "entwicklung-schulkind",
+    "name": "Schulkind",
+    "category": "development_stage",
+    "attributes": {
+      "characteristic": "Geht zur Schule und erlernt im Unterricht systematisch Lesen, Schreiben und Rechnen",
+      "timeframe": "etwa 6 bis 12 Jahre"
+    },
+    "funFact": "Mit der Einschulung beginnt der erste längere, strukturierte Lernabschnitt im Leben.",
+    "sourceName": "Wikipedia (de): Schüler",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Sch%C3%BCler",
+    "verifyNote": "Laut de.wikipedia werden jüngere Schüler als Schulkinder bezeichnet, die in einer Schule Lesen, Schreiben und Rechnen lernen; Altersspanne ~6–12 als Standard-Grundschulalter eingeordnet."
+  },
+  {
+    "id": "entwicklung-jugendlicher",
+    "name": "Jugendlicher",
+    "category": "development_stage",
+    "attributes": {
+      "characteristic": "Erreicht durch hormonelle Reifung die Geschlechtsreife, mit Wachstumsschub und sekundären Geschlechtsmerkmalen",
+      "timeframe": "etwa 11 bis 18 Jahre"
+    },
+    "funFact": "Der Körper wird in dieser Phase fortpflanzungsfähig, während er gleichzeitig stark in die Höhe wächst.",
+    "sourceName": "Wikipedia (de): Pubertät",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Pubert%C3%A4t",
+    "verifyNote": "Per WebFetch bestätigt: de.wikipedia definiert Pubertät als Reifung bis zur Fortpflanzungsfähigkeit mit Wachstumsschub und sekundären Geschlechtsmerkmalen; Mädchen 10.–16., Jungen 12.–18. Lebensjahr."
+  },
+  {
+    "id": "entwicklung-erwachsener",
+    "name": "Erwachsener",
+    "category": "development_stage",
+    "attributes": {
+      "characteristic": "Körperlich ausgereift und geschlechtsreif, mit voller Geschäftsfähigkeit ab der Volljährigkeit",
+      "timeframe": "ab 18 Jahren"
+    },
+    "funFact": "Mit Vollendung des 18. Lebensjahres erhält der Mensch in Deutschland die volle Geschäftsfähigkeit.",
+    "sourceName": "Wikipedia (de): Erwachsener",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Erwachsener",
+    "verifyNote": "Laut de.wikipedia ist das biologische Synonym 'adult' (bezogen auf Geschlechtsreife); mit Vollendung des 18. Lebensjahres tritt in Deutschland die Volljährigkeit mit voller Geschäftsfähigkeit ein."
+  },
+  {
+    "id": "entwicklung-seniorenalter",
+    "name": "Seniorenalter",
+    "category": "development_stage",
+    "attributes": {
+      "characteristic": "Lebensabschnitt mit nachlassender körperlicher Leistungsfähigkeit, häufig verbunden mit dem Ruhestand",
+      "timeframe": "ab etwa 65 Jahren"
+    },
+    "funFact": "Die WHO ordnet Menschen ab dem vollendeten 65. Lebensjahr dieser Gruppe zu.",
+    "sourceName": "Wikipedia (de): Alter / WHO-Altersdefinition",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Alter",
+    "verifyNote": "Laut de.wikipedia ist dieser Lebensabschnitt meist mit Nachlassen der Aktivität verbunden; die WHO definiert ältere Menschen üblicherweise ab 65 Jahren, oft an das Renten-/Ruhestandsalter gekoppelt."
+  },
+  {
+    "id": "hirnlappen-frontal",
+    "name": "Frontallappen",
+    "category": "brain_lobe",
+    "attributes": {
+      "function": "Planung, willkürliche Bewegung, Sprache und Steuerung von Persönlichkeit und Verhalten",
+      "location": "Stirn (vorne)"
+    },
+    "funFact": "Das Stirnhirn gilt als Sitz der individuellen Persönlichkeit und des Sozialverhaltens.",
+    "sourceName": "de.wikipedia.org",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Frontallappen",
+    "verifyNote": "Geprüft: Wikipedia bestätigt Lage vom Hirnpol bis Sulcus centralis (vordere Schädelgrube) und Funktionen Bewegung, Handlungsplanung und Persönlichkeit/Sozialverhalten."
+  },
+  {
+    "id": "hirnlappen-parietal",
+    "name": "Parietallappen",
+    "category": "brain_lobe",
+    "attributes": {
+      "function": "Verarbeitung von Tastsinn und Körperempfindungen sowie räumliche Orientierung",
+      "location": "Scheitel (oben)"
+    },
+    "funFact": "Im Scheitelhirn werden Sinnesinformationen zu räumlichem Verständnis und koordinierten Bewegungen zusammengeführt.",
+    "sourceName": "de.wikipedia.org",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Parietallappen",
+    "verifyNote": "Geprüft: Wikipedia bestätigt mittlere Lage (vorne durch Sulcus centralis begrenzt) sowie somatosensorische Funktionen und räumliche Orientierung."
+  },
+  {
+    "id": "hirnlappen-temporal",
+    "name": "Temporallappen",
+    "category": "brain_lobe",
+    "attributes": {
+      "function": "Verarbeitung des Hörsinns, Sprachverständnis und deklaratives Gedächtnis",
+      "location": "Schläfe (seitlich)"
+    },
+    "funFact": "Im Schläfenlappen liegt der Hippocampus, das wichtigste Koordinationszentrum des bewussten Gedächtnisses.",
+    "sourceName": "de.wikipedia.org",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Temporallappen",
+    "verifyNote": "Geprüft: Wikipedia bestätigt seitlich-untere Lage und Funktionen Hören (auditorischer Cortex), Sprachverständnis (Wernicke-Zentrum) und deklaratives Gedächtnis (Hippocampus)."
+  },
+  {
+    "id": "hirnlappen-okzipital",
+    "name": "Okzipitallappen",
+    "category": "brain_lobe",
+    "attributes": {
+      "function": "Verarbeitung visueller Reize sowie Erkennung und Deutung des Gesehenen",
+      "location": "Hinterkopf"
+    },
+    "funFact": "Der Okzipitallappen ist der kleinste der vier Großhirnlappen und sitzt direkt über dem Kleinhirn.",
+    "sourceName": "de.wikipedia.org",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Okzipitallappen",
+    "verifyNote": "Geprüft: Wikipedia bestätigt Lage am Hinterkopf über dem Kleinhirn, Funktion als Sehzentrum sowie dass es der kleinste der vier Lappen ist."
   }
 ]

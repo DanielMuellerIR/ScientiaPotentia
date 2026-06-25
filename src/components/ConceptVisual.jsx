@@ -42,6 +42,9 @@ const CATEGORY_LABELS = {
   digestive_enzyme: 'Verdauungsenzym',
   nerve: 'Nerv',
   psych_effect: 'Psychoeffekt',
+  nutrient_macro: 'Nährstoff',
+  development_stage: 'Entwicklungsstadium',
+  brain_lobe: 'Großhirnlappen',
   // Natura
   animal: 'Tier',
   plant: 'Pflanze',
@@ -104,6 +107,10 @@ const ATTR_LABELS = {
   sensoryOrgan: 'Sinnesorgan',
   substrate: 'Substrat',
   domain: 'Bereich',
+  foodSource: 'Nahrungsquelle',
+  nutrientClass: 'Nährstoffgruppe',
+  characteristic: 'Kennzeichen',
+  timeframe: 'Zeitspanne',
   approxWeightGrams: 'Gewicht (g)',
   value: 'Wert',
   unit: 'Einheit',
@@ -288,7 +295,7 @@ const ATTR_LABELS = {
 // der Antwort gezeigt.
 // 'knownFor' (Historia-Persönlichkeiten) erst nach der Antwort zeigen: der
 // Freitext ("Beiträge zur Quantenmechanik") verriete sonst Feld/Nationalität.
-const POST_ANSWER_ATTRS = new Set(['notableFor', 'definition', 'function', 'knownFor']);
+const POST_ANSWER_ATTRS = new Set(['notableFor', 'definition', 'function', 'knownFor', 'characteristic']);
 
 // Taxonomisch korrelierte Attribute: Wird z.B. die ORDNUNG gefragt, verraet die
 // sichtbare TIERKLASSE die Antwort oft schon (die Distraktoren sind dann Ordnungen

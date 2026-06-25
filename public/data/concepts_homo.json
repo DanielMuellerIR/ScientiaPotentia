@@ -6636,5 +6636,423 @@
       "name": "Wikipedia (de): Selbstwertdienliche Verzerrung",
       "url": "https://de.wikipedia.org/wiki/Selbstwertdienliche_Verzerrung"
     }
+  },
+  "homo:naehrstoff-kohlenhydrate": {
+    "id": "homo:naehrstoff-kohlenhydrate",
+    "name": "Kohlenhydrate",
+    "type": "nutrient_macro",
+    "category": "nutrient_macro",
+    "attributes": {
+      "function": "Wichtigster und schnell verfügbarer Energielieferant für Gehirn und Muskeln",
+      "foodSource": "Brot, Nudeln, Reis, Kartoffeln, Obst",
+      "nutrientClass": "Makronährstoff"
+    },
+    "funFact": "Ein Gramm liefert rund 4 Kilokalorien Energie, etwa gleich viel wie Eiweiß.",
+    "source": {
+      "name": "Wikipedia: Kohlenhydrate",
+      "url": "https://de.wikipedia.org/wiki/Kohlenhydrate"
+    }
+  },
+  "homo:naehrstoff-fette": {
+    "id": "homo:naehrstoff-fette",
+    "name": "Fette",
+    "type": "nutrient_macro",
+    "category": "nutrient_macro",
+    "attributes": {
+      "function": "Energiespeicher mit höchster Energiedichte, Träger fettlöslicher Vitamine",
+      "foodSource": "Öl, Butter, Nüsse, fetter Fisch",
+      "nutrientClass": "Makronährstoff"
+    },
+    "funFact": "Ein Gramm liefert rund 9 Kilokalorien und damit mehr als doppelt so viel Energie wie Zucker.",
+    "source": {
+      "name": "Wikipedia: Physiologischer Brennwert",
+      "url": "https://de.wikipedia.org/wiki/Physiologischer_Brennwert"
+    }
+  },
+  "homo:naehrstoff-proteine": {
+    "id": "homo:naehrstoff-proteine",
+    "name": "Proteine",
+    "type": "nutrient_macro",
+    "category": "nutrient_macro",
+    "attributes": {
+      "function": "Baustoff für Muskeln, Enzyme und Gewebe aus Aminosäuren",
+      "foodSource": "Fleisch, Fisch, Eier, Hülsenfrüchte",
+      "nutrientClass": "Makronährstoff"
+    },
+    "funFact": "Sie bestehen aus 20 verschiedenen Aminosäuren, von denen der Körper einige nicht selbst herstellen kann. Im Deutschen werden Proteine auch Eiweiße genannt.",
+    "source": {
+      "name": "Wikipedia: Physiologischer Brennwert",
+      "url": "https://de.wikipedia.org/wiki/Physiologischer_Brennwert"
+    }
+  },
+  "homo:naehrstoff-ballaststoffe": {
+    "id": "homo:naehrstoff-ballaststoffe",
+    "name": "Ballaststoffe",
+    "type": "nutrient_macro",
+    "category": "nutrient_macro",
+    "attributes": {
+      "function": "Unverdauliche Pflanzenfasern, fördern die Verdauung und sättigen",
+      "foodSource": "Vollkorn, Gemüse, Hülsenfrüchte, Obst",
+      "nutrientClass": "Makronährstoff"
+    },
+    "funFact": "Sie liefern dem Körper kaum Energie, weil sie im Dünndarm nicht verdaut werden können.",
+    "source": {
+      "name": "Wikipedia: Kohlenhydrate",
+      "url": "https://de.wikipedia.org/wiki/Kohlenhydrate"
+    }
+  },
+  "homo:naehrstoff-wasser": {
+    "id": "homo:naehrstoff-wasser",
+    "name": "Wasser",
+    "type": "nutrient_macro",
+    "category": "nutrient_macro",
+    "attributes": {
+      "function": "Lösungs- und Transportmittel, reguliert die Körpertemperatur",
+      "foodSource": "Trinkwasser, Getränke, Obst, Gemüse",
+      "nutrientClass": "Makronährstoff"
+    },
+    "funFact": "Es macht beim erwachsenen Menschen rund 60 Prozent des Körpergewichts aus.",
+    "source": {
+      "name": "Wikipedia: Ernährung des Menschen",
+      "url": "https://de.wikipedia.org/wiki/Ern%C3%A4hrung_des_Menschen"
+    }
+  },
+  "homo:naehrstoff-calcium": {
+    "id": "homo:naehrstoff-calcium",
+    "name": "Calcium",
+    "type": "nutrient_macro",
+    "category": "nutrient_macro",
+    "attributes": {
+      "function": "Baustoff für Knochen und Zähne, wichtig für Blutgerinnung und Muskeln",
+      "foodSource": "Milch, Käse, Joghurt, grünes Gemüse",
+      "nutrientClass": "Mengenelement"
+    },
+    "funFact": "Rund 99 Prozent des Vorrats im Körper sind in Knochen und Zähnen gebunden.",
+    "source": {
+      "name": "Wikipedia: Calcium",
+      "url": "https://de.wikipedia.org/wiki/Calcium"
+    }
+  },
+  "homo:naehrstoff-magnesium": {
+    "id": "homo:naehrstoff-magnesium",
+    "name": "Magnesium",
+    "type": "nutrient_macro",
+    "category": "nutrient_macro",
+    "attributes": {
+      "function": "Aktiviert zahlreiche Enzyme, wichtig für Nerven, Muskeln und Knochen",
+      "foodSource": "Vollkorn, Nüsse, Hülsenfrüchte",
+      "nutrientClass": "Mengenelement"
+    },
+    "funFact": "Es ist an Hunderten enzymatischen Reaktionen des Energiestoffwechsels beteiligt.",
+    "source": {
+      "name": "Wikipedia: Mengenelemente",
+      "url": "https://de.wikipedia.org/wiki/Mengenelemente"
+    }
+  },
+  "homo:naehrstoff-kalium": {
+    "id": "homo:naehrstoff-kalium",
+    "name": "Kalium",
+    "type": "nutrient_macro",
+    "category": "nutrient_macro",
+    "attributes": {
+      "function": "Hält das Membranpotential aufrecht, wichtig für Nerven und Herz",
+      "foodSource": "Bananen, Trockenobst, Kartoffeln",
+      "nutrientClass": "Mengenelement"
+    },
+    "funFact": "Innerhalb der Zellen ist es etwa vierzigmal höher konzentriert als außerhalb.",
+    "source": {
+      "name": "Wikipedia: Kalium",
+      "url": "https://de.wikipedia.org/wiki/Kalium"
+    }
+  },
+  "homo:naehrstoff-natrium": {
+    "id": "homo:naehrstoff-natrium",
+    "name": "Natrium",
+    "type": "nutrient_macro",
+    "category": "nutrient_macro",
+    "attributes": {
+      "function": "Regelt den Wasserhaushalt und die Reizleitung der Nerven",
+      "foodSource": "Kochsalz, Brot, Wurst, Käse",
+      "nutrientClass": "Mengenelement"
+    },
+    "funFact": "Der Körper nimmt es vor allem als Bestandteil von Kochsalz auf.",
+    "source": {
+      "name": "Wikipedia: Mengenelemente",
+      "url": "https://de.wikipedia.org/wiki/Mengenelemente"
+    }
+  },
+  "homo:naehrstoff-phosphor": {
+    "id": "homo:naehrstoff-phosphor",
+    "name": "Phosphor",
+    "type": "nutrient_macro",
+    "category": "nutrient_macro",
+    "attributes": {
+      "function": "Baustoff von Knochen, Erbsubstanz und dem Energieträger ATP",
+      "foodSource": "Milchprodukte, Fleisch, Vollkorn",
+      "nutrientClass": "Mengenelement"
+    },
+    "funFact": "Als Phosphat ist es Teil des universellen Energieträgers ATP in jeder Zelle.",
+    "source": {
+      "name": "Wikipedia: Mengenelemente",
+      "url": "https://de.wikipedia.org/wiki/Mengenelemente"
+    }
+  },
+  "homo:naehrstoff-eisen": {
+    "id": "homo:naehrstoff-eisen",
+    "name": "Eisen",
+    "type": "nutrient_macro",
+    "category": "nutrient_macro",
+    "attributes": {
+      "function": "Sauerstofftransport im Blut als Bestandteil des roten Blutfarbstoffs",
+      "foodSource": "Fleisch, Hülsenfrüchte, Vollkorn, Spinat",
+      "nutrientClass": "Spurenelement"
+    },
+    "funFact": "Es bindet im roten Blutfarbstoff Hämoglobin den Sauerstoff aus der Lunge.",
+    "source": {
+      "name": "Wikipedia: Eisen",
+      "url": "https://de.wikipedia.org/wiki/Eisen"
+    }
+  },
+  "homo:naehrstoff-jod": {
+    "id": "homo:naehrstoff-jod",
+    "name": "Jod",
+    "type": "nutrient_macro",
+    "category": "nutrient_macro",
+    "attributes": {
+      "function": "Baustein der Schilddrüsenhormone, steuert den Stoffwechsel",
+      "foodSource": "Seefisch, jodiertes Speisesalz, Algen",
+      "nutrientClass": "Spurenelement"
+    },
+    "funFact": "Ein Mangel kann zu einer Vergrößerung der Schilddrüse, dem Kropf, führen.",
+    "source": {
+      "name": "Wikipedia: Iod",
+      "url": "https://de.wikipedia.org/wiki/Iod"
+    }
+  },
+  "homo:naehrstoff-zink": {
+    "id": "homo:naehrstoff-zink",
+    "name": "Zink",
+    "type": "nutrient_macro",
+    "category": "nutrient_macro",
+    "attributes": {
+      "function": "Bestandteil vieler Enzyme, wichtig für Immunsystem und Wundheilung",
+      "foodSource": "Fleisch, Käse, Vollkorn, Nüsse",
+      "nutrientClass": "Spurenelement"
+    },
+    "funFact": "Es übt im Körper als Ion vorwiegend katalytische Aufgaben in Enzymen aus.",
+    "source": {
+      "name": "Wikipedia: Spurenelement",
+      "url": "https://de.wikipedia.org/wiki/Spurenelement"
+    }
+  },
+  "homo:entwicklung-zygote": {
+    "id": "homo:entwicklung-zygote",
+    "name": "Zygote",
+    "type": "development_stage",
+    "category": "development_stage",
+    "attributes": {
+      "characteristic": "Einzige diploide Zelle direkt nach der Befruchtung, mit mütterlichem und väterlichem Chromosomensatz",
+      "timeframe": "Befruchtung, erste Stunden/Tage"
+    },
+    "funFact": "Aus dieser einen Zelle entsteht durch fortlaufende Teilungen der gesamte vielzellige Organismus.",
+    "source": {
+      "name": "Wikipedia (de): Zygote",
+      "url": "https://de.wikipedia.org/wiki/Zygote"
+    }
+  },
+  "homo:entwicklung-embryo": {
+    "id": "homo:entwicklung-embryo",
+    "name": "Embryo",
+    "type": "development_stage",
+    "category": "development_stage",
+    "attributes": {
+      "characteristic": "Frühe Phase, in der sich aus den Zellschichten die inneren Organe anlegen (Organogenese)",
+      "timeframe": "bis Ende der 8. Schwangerschaftswoche"
+    },
+    "funFact": "In dieser kurzen Phase werden die Grundbaupläne fast aller Organe festgelegt.",
+    "source": {
+      "name": "Wikipedia (de): Embryo",
+      "url": "https://de.wikipedia.org/wiki/Embryo"
+    }
+  },
+  "homo:entwicklung-foetus": {
+    "id": "homo:entwicklung-foetus",
+    "name": "Fötus",
+    "type": "development_stage",
+    "category": "development_stage",
+    "attributes": {
+      "characteristic": "Phase, in der bereits angelegte Organe wachsen und reifen, statt neu zu entstehen",
+      "timeframe": "ab der 9. Woche bis zur Geburt"
+    },
+    "funFact": "Während dieser Phase nehmen Größe und Gewicht stark zu, während die Organe ihre Funktion ausbilden.",
+    "source": {
+      "name": "Wikipedia (de): Fötus",
+      "url": "https://de.wikipedia.org/wiki/F%C3%B6tus"
+    }
+  },
+  "homo:entwicklung-saeugling": {
+    "id": "homo:entwicklung-saeugling",
+    "name": "Säugling",
+    "type": "development_stage",
+    "category": "development_stage",
+    "attributes": {
+      "characteristic": "Wird im ersten Lebensjahr mit Milch ernährt und kann sich noch nicht selbstständig fortbewegen",
+      "timeframe": "ab Geburt bis 1. Lebensjahr"
+    },
+    "funFact": "In den ersten vier Wochen nach der Geburt heißt der junge Mensch zusätzlich Neugeborenes.",
+    "source": {
+      "name": "Wikipedia (de): Säugling",
+      "url": "https://de.wikipedia.org/wiki/S%C3%A4ugling"
+    }
+  },
+  "homo:entwicklung-kleinkind": {
+    "id": "homo:entwicklung-kleinkind",
+    "name": "Kleinkind",
+    "type": "development_stage",
+    "category": "development_stage",
+    "attributes": {
+      "characteristic": "Macht erste Schritte, spricht erste Worte und beginnt, sich von der Umwelt zu unterscheiden",
+      "timeframe": "etwa 1 bis 3 Jahre"
+    },
+    "funFact": "Erste Zweiwortsätze werden meist mit rund zwei Jahren gebildet.",
+    "source": {
+      "name": "Wikipedia (de): Kleinkind",
+      "url": "https://de.wikipedia.org/wiki/Kleinkind"
+    }
+  },
+  "homo:entwicklung-vorschulkind": {
+    "id": "homo:entwicklung-vorschulkind",
+    "name": "Vorschulkind",
+    "type": "development_stage",
+    "category": "development_stage",
+    "attributes": {
+      "characteristic": "Besucht meist den Kindergarten, spielt ausgiebig im Rollen- und Fantasiespiel, noch nicht eingeschult",
+      "timeframe": "etwa 3 bis 6 Jahre"
+    },
+    "funFact": "Im Spiel verarbeitet das Kind in dieser Phase Erlebnisse und übt soziale Rollen ein.",
+    "source": {
+      "name": "Wikipedia (de): Vorschule / DWDS: Vorschulalter",
+      "url": "https://de.wikipedia.org/wiki/Vorschule"
+    }
+  },
+  "homo:entwicklung-schulkind": {
+    "id": "homo:entwicklung-schulkind",
+    "name": "Schulkind",
+    "type": "development_stage",
+    "category": "development_stage",
+    "attributes": {
+      "characteristic": "Geht zur Schule und erlernt im Unterricht systematisch Lesen, Schreiben und Rechnen",
+      "timeframe": "etwa 6 bis 12 Jahre"
+    },
+    "funFact": "Mit der Einschulung beginnt der erste längere, strukturierte Lernabschnitt im Leben.",
+    "source": {
+      "name": "Wikipedia (de): Schüler",
+      "url": "https://de.wikipedia.org/wiki/Sch%C3%BCler"
+    }
+  },
+  "homo:entwicklung-jugendlicher": {
+    "id": "homo:entwicklung-jugendlicher",
+    "name": "Jugendlicher",
+    "type": "development_stage",
+    "category": "development_stage",
+    "attributes": {
+      "characteristic": "Erreicht durch hormonelle Reifung die Geschlechtsreife, mit Wachstumsschub und sekundären Geschlechtsmerkmalen",
+      "timeframe": "etwa 11 bis 18 Jahre"
+    },
+    "funFact": "Der Körper wird in dieser Phase fortpflanzungsfähig, während er gleichzeitig stark in die Höhe wächst.",
+    "source": {
+      "name": "Wikipedia (de): Pubertät",
+      "url": "https://de.wikipedia.org/wiki/Pubert%C3%A4t"
+    }
+  },
+  "homo:entwicklung-erwachsener": {
+    "id": "homo:entwicklung-erwachsener",
+    "name": "Erwachsener",
+    "type": "development_stage",
+    "category": "development_stage",
+    "attributes": {
+      "characteristic": "Körperlich ausgereift und geschlechtsreif, mit voller Geschäftsfähigkeit ab der Volljährigkeit",
+      "timeframe": "ab 18 Jahren"
+    },
+    "funFact": "Mit Vollendung des 18. Lebensjahres erhält der Mensch in Deutschland die volle Geschäftsfähigkeit.",
+    "source": {
+      "name": "Wikipedia (de): Erwachsener",
+      "url": "https://de.wikipedia.org/wiki/Erwachsener"
+    }
+  },
+  "homo:entwicklung-seniorenalter": {
+    "id": "homo:entwicklung-seniorenalter",
+    "name": "Seniorenalter",
+    "type": "development_stage",
+    "category": "development_stage",
+    "attributes": {
+      "characteristic": "Lebensabschnitt mit nachlassender körperlicher Leistungsfähigkeit, häufig verbunden mit dem Ruhestand",
+      "timeframe": "ab etwa 65 Jahren"
+    },
+    "funFact": "Die WHO ordnet Menschen ab dem vollendeten 65. Lebensjahr dieser Gruppe zu.",
+    "source": {
+      "name": "Wikipedia (de): Alter / WHO-Altersdefinition",
+      "url": "https://de.wikipedia.org/wiki/Alter"
+    }
+  },
+  "homo:hirnlappen-frontal": {
+    "id": "homo:hirnlappen-frontal",
+    "name": "Frontallappen",
+    "type": "brain_lobe",
+    "category": "brain_lobe",
+    "attributes": {
+      "function": "Planung, willkürliche Bewegung, Sprache und Steuerung von Persönlichkeit und Verhalten",
+      "location": "Stirn (vorne)"
+    },
+    "funFact": "Das Stirnhirn gilt als Sitz der individuellen Persönlichkeit und des Sozialverhaltens.",
+    "source": {
+      "name": "de.wikipedia.org",
+      "url": "https://de.wikipedia.org/wiki/Frontallappen"
+    }
+  },
+  "homo:hirnlappen-parietal": {
+    "id": "homo:hirnlappen-parietal",
+    "name": "Parietallappen",
+    "type": "brain_lobe",
+    "category": "brain_lobe",
+    "attributes": {
+      "function": "Verarbeitung von Tastsinn und Körperempfindungen sowie räumliche Orientierung",
+      "location": "Scheitel (oben)"
+    },
+    "funFact": "Im Scheitelhirn werden Sinnesinformationen zu räumlichem Verständnis und koordinierten Bewegungen zusammengeführt.",
+    "source": {
+      "name": "de.wikipedia.org",
+      "url": "https://de.wikipedia.org/wiki/Parietallappen"
+    }
+  },
+  "homo:hirnlappen-temporal": {
+    "id": "homo:hirnlappen-temporal",
+    "name": "Temporallappen",
+    "type": "brain_lobe",
+    "category": "brain_lobe",
+    "attributes": {
+      "function": "Verarbeitung des Hörsinns, Sprachverständnis und deklaratives Gedächtnis",
+      "location": "Schläfe (seitlich)"
+    },
+    "funFact": "Im Schläfenlappen liegt der Hippocampus, das wichtigste Koordinationszentrum des bewussten Gedächtnisses.",
+    "source": {
+      "name": "de.wikipedia.org",
+      "url": "https://de.wikipedia.org/wiki/Temporallappen"
+    }
+  },
+  "homo:hirnlappen-okzipital": {
+    "id": "homo:hirnlappen-okzipital",
+    "name": "Okzipitallappen",
+    "type": "brain_lobe",
+    "category": "brain_lobe",
+    "attributes": {
+      "function": "Verarbeitung visueller Reize sowie Erkennung und Deutung des Gesehenen",
+      "location": "Hinterkopf"
+    },
+    "funFact": "Der Okzipitallappen ist der kleinste der vier Großhirnlappen und sitzt direkt über dem Kleinhirn.",
+    "source": {
+      "name": "de.wikipedia.org",
+      "url": "https://de.wikipedia.org/wiki/Okzipitallappen"
+    }
   }
 }

@@ -44,7 +44,8 @@ const CATEGORY_LABELS = {
   body_fact: 'Körperwert', species: 'Menschenart',
   // Neue Kategorien (Physiologie jenseits der Anatomie, Stand 2026-06-25)
   cell_type: 'Zelltyp', hormone: 'Hormon', vitamin: 'Vitamin', sense: 'Sinn',
-  digestive_enzyme: 'Verdauungsenzym', nerve: 'Nerv', psych_effect: 'Psychoeffekt'
+  digestive_enzyme: 'Verdauungsenzym', nerve: 'Nerv', psych_effect: 'Psychoeffekt',
+  nutrient_macro: 'Nährstoff', development_stage: 'Entwicklungsstadium', brain_lobe: 'Großhirnlappen'
 };
 
 const ATTR_LABELS = {
@@ -58,12 +59,16 @@ const ATTR_LABELS = {
   fachName: 'Fachbegriff', gland: 'Bildungsort', hormoneClass: 'Hormonklasse',
   chemicalName: 'Chemischer Name', solubility: 'Löslichkeit', sensoryOrgan: 'Sinnesorgan',
   // Welle-2-Attribute (digestive_enzyme/nerve/psych_effect).
-  substrate: 'Substrat', domain: 'Bereich'
+  substrate: 'Substrat', domain: 'Bereich',
+  // Welle-3-Attribute (nutrient_macro/development_stage/brain_lobe).
+  foodSource: 'Nahrungsquelle', nutrientClass: 'Nährstoffgruppe',
+  characteristic: 'Kennzeichen', timeframe: 'Zeitspanne'
 };
 
 // Freitext-Chips sind oft erklaerend statt reine Kennwerte. Vor der Antwort
-// koennen sie aber Lage, Funktion oder Namen indirekt verraten.
-const POST_ANSWER_ATTRS = new Set(['notableFor', 'definition', 'function']);
+// koennen sie aber Lage, Funktion oder Namen indirekt verraten. 'characteristic'
+// (Entwicklungsstadium) beschreibt die Phase und wuerde sonst die Zeitspanne-Frage verraten.
+const POST_ANSWER_ATTRS = new Set(['notableFor', 'definition', 'function', 'characteristic']);
 
 // --- Marker-Koordinaten ---------------------------------------------------
 // Normierte Position (0..1) IM JEWEILIGEN GRAFIK-RAHMEN: x = links->rechts,

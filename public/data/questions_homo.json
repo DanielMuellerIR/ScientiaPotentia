@@ -22597,5 +22597,1272 @@
     "hideConceptIdentity": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
+  },
+  {
+    "id": "q_homo_naehrstoff-kohlenhydrate_homo-nutrient-function",
+    "entityId": "homo:naehrstoff-kohlenhydrate",
+    "entityType": "nutrient_macro",
+    "type": "homo-nutrient-function",
+    "difficulty": 2,
+    "prompt": "Welche Hauptfunktion hat „Kohlenhydrate\" im Körper?",
+    "correctAnswer": "Wichtigster und schnell verfügbarer Energielieferant für Gehirn und Muskeln",
+    "options": [
+      "Wichtigster und schnell verfügbarer Energielieferant für Gehirn und Muskeln",
+      "Energiespeicher mit höchster Energiedichte, Träger fettlöslicher Vitamine",
+      "Baustoff für Knochen und Zähne, wichtig für Blutgerinnung und Muskeln",
+      "Aktiviert zahlreiche Enzyme, wichtig für Nerven, Muskeln und Knochen"
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_naehrstoff-proteine_homo-nutrient-function",
+    "entityId": "homo:naehrstoff-proteine",
+    "entityType": "nutrient_macro",
+    "type": "homo-nutrient-function",
+    "difficulty": 2,
+    "prompt": "Welche Hauptfunktion hat „Proteine\" im Körper?",
+    "correctAnswer": "Baustoff für Muskeln, Enzyme und Gewebe aus Aminosäuren",
+    "options": [
+      "Baustoff für Muskeln, Enzyme und Gewebe aus Aminosäuren",
+      "Regelt den Wasserhaushalt und die Reizleitung der Nerven",
+      "Baustein der Schilddrüsenhormone, steuert den Stoffwechsel",
+      "Baustoff von Knochen, Erbsubstanz und dem Energieträger ATP"
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_naehrstoff-ballaststoffe_homo-nutrient-function",
+    "entityId": "homo:naehrstoff-ballaststoffe",
+    "entityType": "nutrient_macro",
+    "type": "homo-nutrient-function",
+    "difficulty": 2,
+    "prompt": "Welche Hauptfunktion hat „Ballaststoffe\" im Körper?",
+    "correctAnswer": "Unverdauliche Pflanzenfasern, fördern die Verdauung und sättigen",
+    "options": [
+      "Unverdauliche Pflanzenfasern, fördern die Verdauung und sättigen",
+      "Hält das Membranpotential aufrecht, wichtig für Nerven und Herz",
+      "Bestandteil vieler Enzyme, wichtig für Immunsystem und Wundheilung",
+      "Lösungs- und Transportmittel, reguliert die Körpertemperatur"
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_naehrstoff-wasser_homo-nutrient-function",
+    "entityId": "homo:naehrstoff-wasser",
+    "entityType": "nutrient_macro",
+    "type": "homo-nutrient-function",
+    "difficulty": 2,
+    "prompt": "Welche Hauptfunktion hat „Wasser\" im Körper?",
+    "correctAnswer": "Lösungs- und Transportmittel, reguliert die Körpertemperatur",
+    "options": [
+      "Lösungs- und Transportmittel, reguliert die Körpertemperatur",
+      "Baustoff von Knochen, Erbsubstanz und dem Energieträger ATP",
+      "Baustein der Schilddrüsenhormone, steuert den Stoffwechsel",
+      "Hält das Membranpotential aufrecht, wichtig für Nerven und Herz"
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_naehrstoff-calcium_homo-nutrient-function",
+    "entityId": "homo:naehrstoff-calcium",
+    "entityType": "nutrient_macro",
+    "type": "homo-nutrient-function",
+    "difficulty": 2,
+    "prompt": "Welche Hauptfunktion hat „Calcium\" im Körper?",
+    "correctAnswer": "Baustoff für Knochen und Zähne, wichtig für Blutgerinnung und Muskeln",
+    "options": [
+      "Baustoff für Knochen und Zähne, wichtig für Blutgerinnung und Muskeln",
+      "Aktiviert zahlreiche Enzyme, wichtig für Nerven, Muskeln und Knochen",
+      "Sauerstofftransport im Blut als Bestandteil des roten Blutfarbstoffs",
+      "Bestandteil vieler Enzyme, wichtig für Immunsystem und Wundheilung"
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_naehrstoff-magnesium_homo-nutrient-function",
+    "entityId": "homo:naehrstoff-magnesium",
+    "entityType": "nutrient_macro",
+    "type": "homo-nutrient-function",
+    "difficulty": 2,
+    "prompt": "Welche Hauptfunktion hat „Magnesium\" im Körper?",
+    "correctAnswer": "Aktiviert zahlreiche Enzyme, wichtig für Nerven, Muskeln und Knochen",
+    "options": [
+      "Aktiviert zahlreiche Enzyme, wichtig für Nerven, Muskeln und Knochen",
+      "Sauerstofftransport im Blut als Bestandteil des roten Blutfarbstoffs",
+      "Baustoff für Knochen und Zähne, wichtig für Blutgerinnung und Muskeln",
+      "Bestandteil vieler Enzyme, wichtig für Immunsystem und Wundheilung"
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_naehrstoff-kalium_homo-nutrient-function",
+    "entityId": "homo:naehrstoff-kalium",
+    "entityType": "nutrient_macro",
+    "type": "homo-nutrient-function",
+    "difficulty": 2,
+    "prompt": "Welche Hauptfunktion hat „Kalium\" im Körper?",
+    "correctAnswer": "Hält das Membranpotential aufrecht, wichtig für Nerven und Herz",
+    "options": [
+      "Hält das Membranpotential aufrecht, wichtig für Nerven und Herz",
+      "Unverdauliche Pflanzenfasern, fördern die Verdauung und sättigen",
+      "Lösungs- und Transportmittel, reguliert die Körpertemperatur",
+      "Bestandteil vieler Enzyme, wichtig für Immunsystem und Wundheilung"
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_naehrstoff-natrium_homo-nutrient-function",
+    "entityId": "homo:naehrstoff-natrium",
+    "entityType": "nutrient_macro",
+    "type": "homo-nutrient-function",
+    "difficulty": 2,
+    "prompt": "Welche Hauptfunktion hat „Natrium\" im Körper?",
+    "correctAnswer": "Regelt den Wasserhaushalt und die Reizleitung der Nerven",
+    "options": [
+      "Regelt den Wasserhaushalt und die Reizleitung der Nerven",
+      "Baustoff für Muskeln, Enzyme und Gewebe aus Aminosäuren",
+      "Baustein der Schilddrüsenhormone, steuert den Stoffwechsel",
+      "Baustoff von Knochen, Erbsubstanz und dem Energieträger ATP"
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_naehrstoff-phosphor_homo-nutrient-function",
+    "entityId": "homo:naehrstoff-phosphor",
+    "entityType": "nutrient_macro",
+    "type": "homo-nutrient-function",
+    "difficulty": 2,
+    "prompt": "Welche Hauptfunktion hat „Phosphor\" im Körper?",
+    "correctAnswer": "Baustoff von Knochen, Erbsubstanz und dem Energieträger ATP",
+    "options": [
+      "Baustoff von Knochen, Erbsubstanz und dem Energieträger ATP",
+      "Lösungs- und Transportmittel, reguliert die Körpertemperatur",
+      "Baustein der Schilddrüsenhormone, steuert den Stoffwechsel",
+      "Regelt den Wasserhaushalt und die Reizleitung der Nerven"
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_naehrstoff-eisen_homo-nutrient-function",
+    "entityId": "homo:naehrstoff-eisen",
+    "entityType": "nutrient_macro",
+    "type": "homo-nutrient-function",
+    "difficulty": 2,
+    "prompt": "Welche Hauptfunktion hat „Eisen\" im Körper?",
+    "correctAnswer": "Sauerstofftransport im Blut als Bestandteil des roten Blutfarbstoffs",
+    "options": [
+      "Sauerstofftransport im Blut als Bestandteil des roten Blutfarbstoffs",
+      "Aktiviert zahlreiche Enzyme, wichtig für Nerven, Muskeln und Knochen",
+      "Baustoff für Knochen und Zähne, wichtig für Blutgerinnung und Muskeln",
+      "Bestandteil vieler Enzyme, wichtig für Immunsystem und Wundheilung"
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_naehrstoff-jod_homo-nutrient-function",
+    "entityId": "homo:naehrstoff-jod",
+    "entityType": "nutrient_macro",
+    "type": "homo-nutrient-function",
+    "difficulty": 2,
+    "prompt": "Welche Hauptfunktion hat „Jod\" im Körper?",
+    "correctAnswer": "Baustein der Schilddrüsenhormone, steuert den Stoffwechsel",
+    "options": [
+      "Baustein der Schilddrüsenhormone, steuert den Stoffwechsel",
+      "Baustoff von Knochen, Erbsubstanz und dem Energieträger ATP",
+      "Regelt den Wasserhaushalt und die Reizleitung der Nerven",
+      "Lösungs- und Transportmittel, reguliert die Körpertemperatur"
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_naehrstoff-zink_homo-nutrient-function",
+    "entityId": "homo:naehrstoff-zink",
+    "entityType": "nutrient_macro",
+    "type": "homo-nutrient-function",
+    "difficulty": 2,
+    "prompt": "Welche Hauptfunktion hat „Zink\" im Körper?",
+    "correctAnswer": "Bestandteil vieler Enzyme, wichtig für Immunsystem und Wundheilung",
+    "options": [
+      "Bestandteil vieler Enzyme, wichtig für Immunsystem und Wundheilung",
+      "Sauerstofftransport im Blut als Bestandteil des roten Blutfarbstoffs",
+      "Unverdauliche Pflanzenfasern, fördern die Verdauung und sättigen",
+      "Aktiviert zahlreiche Enzyme, wichtig für Nerven, Muskeln und Knochen"
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_naehrstoff-kohlenhydrate_homo-nutrient-function-rev",
+    "entityId": "homo:naehrstoff-kohlenhydrate",
+    "entityType": "nutrient_macro",
+    "type": "homo-nutrient-function-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Nährstoff erfüllt folgende Funktion: „Wichtigster und schnell verfügbarer Energielieferant für Gehirn und Muskeln\"?",
+    "correctAnswer": "Kohlenhydrate",
+    "options": [
+      "Kohlenhydrate",
+      "Ballaststoffe",
+      "Magnesium",
+      "Phosphor"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_naehrstoff-proteine_homo-nutrient-function-rev",
+    "entityId": "homo:naehrstoff-proteine",
+    "entityType": "nutrient_macro",
+    "type": "homo-nutrient-function-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Nährstoff erfüllt folgende Funktion: „Baustoff für Muskeln, Enzyme und Gewebe aus Aminosäuren\"?",
+    "correctAnswer": "Proteine",
+    "options": [
+      "Proteine",
+      "Phosphor",
+      "Magnesium",
+      "Calcium"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_naehrstoff-ballaststoffe_homo-nutrient-function-rev",
+    "entityId": "homo:naehrstoff-ballaststoffe",
+    "entityType": "nutrient_macro",
+    "type": "homo-nutrient-function-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Nährstoff erfüllt folgende Funktion: „Unverdauliche Pflanzenfasern, fördern die Verdauung und sättigen\"?",
+    "correctAnswer": "Ballaststoffe",
+    "options": [
+      "Ballaststoffe",
+      "Kohlenhydrate",
+      "Magnesium",
+      "Phosphor"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_naehrstoff-wasser_homo-nutrient-function-rev",
+    "entityId": "homo:naehrstoff-wasser",
+    "entityType": "nutrient_macro",
+    "type": "homo-nutrient-function-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Nährstoff erfüllt folgende Funktion: „Lösungs- und Transportmittel, reguliert die Körpertemperatur\"?",
+    "correctAnswer": "Wasser",
+    "options": [
+      "Wasser",
+      "Kalium",
+      "Calcium",
+      "Eisen"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_naehrstoff-calcium_homo-nutrient-function-rev",
+    "entityId": "homo:naehrstoff-calcium",
+    "entityType": "nutrient_macro",
+    "type": "homo-nutrient-function-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Nährstoff erfüllt folgende Funktion: „Baustoff für Knochen und Zähne, wichtig für Blutgerinnung und Muskeln\"?",
+    "correctAnswer": "Calcium",
+    "options": [
+      "Calcium",
+      "Natrium",
+      "Wasser",
+      "Proteine"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_naehrstoff-magnesium_homo-nutrient-function-rev",
+    "entityId": "homo:naehrstoff-magnesium",
+    "entityType": "nutrient_macro",
+    "type": "homo-nutrient-function-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Nährstoff erfüllt folgende Funktion: „Aktiviert zahlreiche Enzyme, wichtig für Nerven, Muskeln und Knochen\"?",
+    "correctAnswer": "Magnesium",
+    "options": [
+      "Magnesium",
+      "Proteine",
+      "Phosphor",
+      "Natrium"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_naehrstoff-kalium_homo-nutrient-function-rev",
+    "entityId": "homo:naehrstoff-kalium",
+    "entityType": "nutrient_macro",
+    "type": "homo-nutrient-function-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Nährstoff erfüllt folgende Funktion: „Hält das Membranpotential aufrecht, wichtig für Nerven und Herz\"?",
+    "correctAnswer": "Kalium",
+    "options": [
+      "Kalium",
+      "Wasser",
+      "Natrium",
+      "Eisen"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_naehrstoff-natrium_homo-nutrient-function-rev",
+    "entityId": "homo:naehrstoff-natrium",
+    "entityType": "nutrient_macro",
+    "type": "homo-nutrient-function-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Nährstoff erfüllt folgende Funktion: „Regelt den Wasserhaushalt und die Reizleitung der Nerven\"?",
+    "correctAnswer": "Natrium",
+    "options": [
+      "Natrium",
+      "Calcium",
+      "Wasser",
+      "Proteine"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_naehrstoff-phosphor_homo-nutrient-function-rev",
+    "entityId": "homo:naehrstoff-phosphor",
+    "entityType": "nutrient_macro",
+    "type": "homo-nutrient-function-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Nährstoff erfüllt folgende Funktion: „Baustoff von Knochen, Erbsubstanz und dem Energieträger ATP\"?",
+    "correctAnswer": "Phosphor",
+    "options": [
+      "Phosphor",
+      "Proteine",
+      "Natrium",
+      "Magnesium"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_naehrstoff-eisen_homo-nutrient-function-rev",
+    "entityId": "homo:naehrstoff-eisen",
+    "entityType": "nutrient_macro",
+    "type": "homo-nutrient-function-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Nährstoff erfüllt folgende Funktion: „Sauerstofftransport im Blut als Bestandteil des roten Blutfarbstoffs\"?",
+    "correctAnswer": "Eisen",
+    "options": [
+      "Eisen",
+      "Fette",
+      "Kalium",
+      "Zink"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_naehrstoff-jod_homo-nutrient-function-rev",
+    "entityId": "homo:naehrstoff-jod",
+    "entityType": "nutrient_macro",
+    "type": "homo-nutrient-function-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Nährstoff erfüllt folgende Funktion: „Baustein der Schilddrüsenhormone, steuert den Stoffwechsel\"?",
+    "correctAnswer": "Jod",
+    "options": [
+      "Jod",
+      "Zink",
+      "Fette",
+      "Eisen"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_naehrstoff-zink_homo-nutrient-function-rev",
+    "entityId": "homo:naehrstoff-zink",
+    "entityType": "nutrient_macro",
+    "type": "homo-nutrient-function-rev",
+    "difficulty": 3,
+    "prompt": "Welcher Nährstoff erfüllt folgende Funktion: „Bestandteil vieler Enzyme, wichtig für Immunsystem und Wundheilung\"?",
+    "correctAnswer": "Zink",
+    "options": [
+      "Zink",
+      "Jod",
+      "Eisen",
+      "Fette"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_naehrstoff-kohlenhydrate_homo-nutrient-class",
+    "entityId": "homo:naehrstoff-kohlenhydrate",
+    "entityType": "nutrient_macro",
+    "type": "homo-nutrient-class",
+    "difficulty": 3,
+    "prompt": "Zu welcher Nährstoffgruppe zählt „Kohlenhydrate\"?",
+    "correctAnswer": "Makronährstoff",
+    "options": [
+      "Makronährstoff",
+      "Mengenelement",
+      "Spurenelement"
+    ],
+    "testedAttribute": "nutrientClass",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_naehrstoff-fette_homo-nutrient-class",
+    "entityId": "homo:naehrstoff-fette",
+    "entityType": "nutrient_macro",
+    "type": "homo-nutrient-class",
+    "difficulty": 3,
+    "prompt": "Zu welcher Nährstoffgruppe zählt „Fette\"?",
+    "correctAnswer": "Makronährstoff",
+    "options": [
+      "Makronährstoff",
+      "Mengenelement",
+      "Spurenelement"
+    ],
+    "testedAttribute": "nutrientClass",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_naehrstoff-proteine_homo-nutrient-class",
+    "entityId": "homo:naehrstoff-proteine",
+    "entityType": "nutrient_macro",
+    "type": "homo-nutrient-class",
+    "difficulty": 3,
+    "prompt": "Zu welcher Nährstoffgruppe zählt „Proteine\"?",
+    "correctAnswer": "Makronährstoff",
+    "options": [
+      "Makronährstoff",
+      "Mengenelement",
+      "Spurenelement"
+    ],
+    "testedAttribute": "nutrientClass",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_naehrstoff-ballaststoffe_homo-nutrient-class",
+    "entityId": "homo:naehrstoff-ballaststoffe",
+    "entityType": "nutrient_macro",
+    "type": "homo-nutrient-class",
+    "difficulty": 3,
+    "prompt": "Zu welcher Nährstoffgruppe zählt „Ballaststoffe\"?",
+    "correctAnswer": "Makronährstoff",
+    "options": [
+      "Makronährstoff",
+      "Mengenelement",
+      "Spurenelement"
+    ],
+    "testedAttribute": "nutrientClass",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_naehrstoff-wasser_homo-nutrient-class",
+    "entityId": "homo:naehrstoff-wasser",
+    "entityType": "nutrient_macro",
+    "type": "homo-nutrient-class",
+    "difficulty": 3,
+    "prompt": "Zu welcher Nährstoffgruppe zählt „Wasser\"?",
+    "correctAnswer": "Makronährstoff",
+    "options": [
+      "Makronährstoff",
+      "Mengenelement",
+      "Spurenelement"
+    ],
+    "testedAttribute": "nutrientClass",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_naehrstoff-calcium_homo-nutrient-class",
+    "entityId": "homo:naehrstoff-calcium",
+    "entityType": "nutrient_macro",
+    "type": "homo-nutrient-class",
+    "difficulty": 3,
+    "prompt": "Zu welcher Nährstoffgruppe zählt „Calcium\"?",
+    "correctAnswer": "Mengenelement",
+    "options": [
+      "Mengenelement",
+      "Spurenelement",
+      "Makronährstoff"
+    ],
+    "testedAttribute": "nutrientClass",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_naehrstoff-magnesium_homo-nutrient-class",
+    "entityId": "homo:naehrstoff-magnesium",
+    "entityType": "nutrient_macro",
+    "type": "homo-nutrient-class",
+    "difficulty": 3,
+    "prompt": "Zu welcher Nährstoffgruppe zählt „Magnesium\"?",
+    "correctAnswer": "Mengenelement",
+    "options": [
+      "Mengenelement",
+      "Spurenelement",
+      "Makronährstoff"
+    ],
+    "testedAttribute": "nutrientClass",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_naehrstoff-kalium_homo-nutrient-class",
+    "entityId": "homo:naehrstoff-kalium",
+    "entityType": "nutrient_macro",
+    "type": "homo-nutrient-class",
+    "difficulty": 3,
+    "prompt": "Zu welcher Nährstoffgruppe zählt „Kalium\"?",
+    "correctAnswer": "Mengenelement",
+    "options": [
+      "Mengenelement",
+      "Spurenelement",
+      "Makronährstoff"
+    ],
+    "testedAttribute": "nutrientClass",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_naehrstoff-natrium_homo-nutrient-class",
+    "entityId": "homo:naehrstoff-natrium",
+    "entityType": "nutrient_macro",
+    "type": "homo-nutrient-class",
+    "difficulty": 3,
+    "prompt": "Zu welcher Nährstoffgruppe zählt „Natrium\"?",
+    "correctAnswer": "Mengenelement",
+    "options": [
+      "Mengenelement",
+      "Spurenelement",
+      "Makronährstoff"
+    ],
+    "testedAttribute": "nutrientClass",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_naehrstoff-phosphor_homo-nutrient-class",
+    "entityId": "homo:naehrstoff-phosphor",
+    "entityType": "nutrient_macro",
+    "type": "homo-nutrient-class",
+    "difficulty": 3,
+    "prompt": "Zu welcher Nährstoffgruppe zählt „Phosphor\"?",
+    "correctAnswer": "Mengenelement",
+    "options": [
+      "Mengenelement",
+      "Spurenelement",
+      "Makronährstoff"
+    ],
+    "testedAttribute": "nutrientClass",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_naehrstoff-eisen_homo-nutrient-class",
+    "entityId": "homo:naehrstoff-eisen",
+    "entityType": "nutrient_macro",
+    "type": "homo-nutrient-class",
+    "difficulty": 3,
+    "prompt": "Zu welcher Nährstoffgruppe zählt „Eisen\"?",
+    "correctAnswer": "Spurenelement",
+    "options": [
+      "Spurenelement",
+      "Mengenelement",
+      "Makronährstoff"
+    ],
+    "testedAttribute": "nutrientClass",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_naehrstoff-jod_homo-nutrient-class",
+    "entityId": "homo:naehrstoff-jod",
+    "entityType": "nutrient_macro",
+    "type": "homo-nutrient-class",
+    "difficulty": 3,
+    "prompt": "Zu welcher Nährstoffgruppe zählt „Jod\"?",
+    "correctAnswer": "Spurenelement",
+    "options": [
+      "Spurenelement",
+      "Mengenelement",
+      "Makronährstoff"
+    ],
+    "testedAttribute": "nutrientClass",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_naehrstoff-zink_homo-nutrient-class",
+    "entityId": "homo:naehrstoff-zink",
+    "entityType": "nutrient_macro",
+    "type": "homo-nutrient-class",
+    "difficulty": 3,
+    "prompt": "Zu welcher Nährstoffgruppe zählt „Zink\"?",
+    "correctAnswer": "Spurenelement",
+    "options": [
+      "Spurenelement",
+      "Mengenelement",
+      "Makronährstoff"
+    ],
+    "testedAttribute": "nutrientClass",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_entwicklung-zygote_homo-devstage-char-rev",
+    "entityId": "homo:entwicklung-zygote",
+    "entityType": "development_stage",
+    "type": "homo-devstage-char-rev",
+    "difficulty": 2,
+    "prompt": "Welches Entwicklungsstadium ist hierdurch gekennzeichnet: „Einzige diploide Zelle direkt nach der Befruchtung, mit mütterlichem und väterlichem Chromosomensatz\"?",
+    "correctAnswer": "Zygote",
+    "options": [
+      "Zygote",
+      "Embryo",
+      "Fötus",
+      "Säugling"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_entwicklung-embryo_homo-devstage-char-rev",
+    "entityId": "homo:entwicklung-embryo",
+    "entityType": "development_stage",
+    "type": "homo-devstage-char-rev",
+    "difficulty": 2,
+    "prompt": "Welches Entwicklungsstadium ist hierdurch gekennzeichnet: „Frühe Phase, in der sich aus den Zellschichten die inneren Organe anlegen (Organogenese)\"?",
+    "correctAnswer": "Embryo",
+    "options": [
+      "Embryo",
+      "Zygote",
+      "Fötus",
+      "Säugling"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_entwicklung-foetus_homo-devstage-char-rev",
+    "entityId": "homo:entwicklung-foetus",
+    "entityType": "development_stage",
+    "type": "homo-devstage-char-rev",
+    "difficulty": 2,
+    "prompt": "Welches Entwicklungsstadium ist hierdurch gekennzeichnet: „Phase, in der bereits angelegte Organe wachsen und reifen, statt neu zu entstehen\"?",
+    "correctAnswer": "Fötus",
+    "options": [
+      "Fötus",
+      "Zygote",
+      "Embryo",
+      "Säugling"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_entwicklung-saeugling_homo-devstage-char-rev",
+    "entityId": "homo:entwicklung-saeugling",
+    "entityType": "development_stage",
+    "type": "homo-devstage-char-rev",
+    "difficulty": 2,
+    "prompt": "Welches Entwicklungsstadium ist hierdurch gekennzeichnet: „Wird im ersten Lebensjahr mit Milch ernährt und kann sich noch nicht selbstständig fortbewegen\"?",
+    "correctAnswer": "Säugling",
+    "options": [
+      "Säugling",
+      "Schulkind",
+      "Kleinkind",
+      "Embryo"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_entwicklung-kleinkind_homo-devstage-char-rev",
+    "entityId": "homo:entwicklung-kleinkind",
+    "entityType": "development_stage",
+    "type": "homo-devstage-char-rev",
+    "difficulty": 2,
+    "prompt": "Welches Entwicklungsstadium ist hierdurch gekennzeichnet: „Macht erste Schritte, spricht erste Worte und beginnt, sich von der Umwelt zu unterscheiden\"?",
+    "correctAnswer": "Kleinkind",
+    "options": [
+      "Kleinkind",
+      "Schulkind",
+      "Säugling",
+      "Erwachsener"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_entwicklung-vorschulkind_homo-devstage-char-rev",
+    "entityId": "homo:entwicklung-vorschulkind",
+    "entityType": "development_stage",
+    "type": "homo-devstage-char-rev",
+    "difficulty": 2,
+    "prompt": "Welches Entwicklungsstadium ist hierdurch gekennzeichnet: „Besucht meist den Kindergarten, spielt ausgiebig im Rollen- und Fantasiespiel, noch nicht eingeschult\"?",
+    "correctAnswer": "Vorschulkind",
+    "options": [
+      "Vorschulkind",
+      "Jugendlicher",
+      "Seniorenalter",
+      "Erwachsener"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_entwicklung-jugendlicher_homo-devstage-char-rev",
+    "entityId": "homo:entwicklung-jugendlicher",
+    "entityType": "development_stage",
+    "type": "homo-devstage-char-rev",
+    "difficulty": 2,
+    "prompt": "Welches Entwicklungsstadium ist hierdurch gekennzeichnet: „Erreicht durch hormonelle Reifung die Geschlechtsreife, mit Wachstumsschub und sekundären Geschlechtsmerkmalen\"?",
+    "correctAnswer": "Jugendlicher",
+    "options": [
+      "Jugendlicher",
+      "Vorschulkind",
+      "Erwachsener",
+      "Seniorenalter"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_entwicklung-erwachsener_homo-devstage-char-rev",
+    "entityId": "homo:entwicklung-erwachsener",
+    "entityType": "development_stage",
+    "type": "homo-devstage-char-rev",
+    "difficulty": 2,
+    "prompt": "Welches Entwicklungsstadium ist hierdurch gekennzeichnet: „Körperlich ausgereift und geschlechtsreif, mit voller Geschäftsfähigkeit ab der Volljährigkeit\"?",
+    "correctAnswer": "Erwachsener",
+    "options": [
+      "Erwachsener",
+      "Vorschulkind",
+      "Jugendlicher",
+      "Seniorenalter"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_entwicklung-seniorenalter_homo-devstage-char-rev",
+    "entityId": "homo:entwicklung-seniorenalter",
+    "entityType": "development_stage",
+    "type": "homo-devstage-char-rev",
+    "difficulty": 2,
+    "prompt": "Welches Entwicklungsstadium ist hierdurch gekennzeichnet: „Lebensabschnitt mit nachlassender körperlicher Leistungsfähigkeit, häufig verbunden mit dem Ruhestand\"?",
+    "correctAnswer": "Seniorenalter",
+    "options": [
+      "Seniorenalter",
+      "Vorschulkind",
+      "Jugendlicher",
+      "Erwachsener"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_entwicklung-zygote_homo-devstage-timeframe",
+    "entityId": "homo:entwicklung-zygote",
+    "entityType": "development_stage",
+    "type": "homo-devstage-timeframe",
+    "difficulty": 2,
+    "prompt": "In welche Lebensspanne fällt das Stadium „Zygote\"?",
+    "correctAnswer": "Befruchtung, erste Stunden/Tage",
+    "options": [
+      "Befruchtung, erste Stunden/Tage",
+      "ab der 9. Woche bis zur Geburt",
+      "ab Geburt bis 1. Lebensjahr",
+      "bis Ende der 8. Schwangerschaftswoche"
+    ],
+    "testedAttribute": "timeframe",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_entwicklung-embryo_homo-devstage-timeframe",
+    "entityId": "homo:entwicklung-embryo",
+    "entityType": "development_stage",
+    "type": "homo-devstage-timeframe",
+    "difficulty": 2,
+    "prompt": "In welche Lebensspanne fällt das Stadium „Embryo\"?",
+    "correctAnswer": "bis Ende der 8. Schwangerschaftswoche",
+    "options": [
+      "bis Ende der 8. Schwangerschaftswoche",
+      "Befruchtung, erste Stunden/Tage",
+      "ab der 9. Woche bis zur Geburt",
+      "ab Geburt bis 1. Lebensjahr"
+    ],
+    "testedAttribute": "timeframe",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_entwicklung-foetus_homo-devstage-timeframe",
+    "entityId": "homo:entwicklung-foetus",
+    "entityType": "development_stage",
+    "type": "homo-devstage-timeframe",
+    "difficulty": 2,
+    "prompt": "In welche Lebensspanne fällt das Stadium „Fötus\"?",
+    "correctAnswer": "ab der 9. Woche bis zur Geburt",
+    "options": [
+      "ab der 9. Woche bis zur Geburt",
+      "Befruchtung, erste Stunden/Tage",
+      "ab Geburt bis 1. Lebensjahr",
+      "bis Ende der 8. Schwangerschaftswoche"
+    ],
+    "testedAttribute": "timeframe",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_entwicklung-saeugling_homo-devstage-timeframe",
+    "entityId": "homo:entwicklung-saeugling",
+    "entityType": "development_stage",
+    "type": "homo-devstage-timeframe",
+    "difficulty": 2,
+    "prompt": "In welche Lebensspanne fällt das Stadium „Säugling\"?",
+    "correctAnswer": "ab Geburt bis 1. Lebensjahr",
+    "options": [
+      "ab Geburt bis 1. Lebensjahr",
+      "ab der 9. Woche bis zur Geburt",
+      "Befruchtung, erste Stunden/Tage",
+      "etwa 11 bis 18 Jahre"
+    ],
+    "testedAttribute": "timeframe",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_entwicklung-kleinkind_homo-devstage-timeframe",
+    "entityId": "homo:entwicklung-kleinkind",
+    "entityType": "development_stage",
+    "type": "homo-devstage-timeframe",
+    "difficulty": 2,
+    "prompt": "In welche Lebensspanne fällt das Stadium „Kleinkind\"?",
+    "correctAnswer": "etwa 1 bis 3 Jahre",
+    "options": [
+      "etwa 1 bis 3 Jahre",
+      "etwa 3 bis 6 Jahre",
+      "etwa 6 bis 12 Jahre",
+      "ab etwa 65 Jahren"
+    ],
+    "testedAttribute": "timeframe",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_entwicklung-vorschulkind_homo-devstage-timeframe",
+    "entityId": "homo:entwicklung-vorschulkind",
+    "entityType": "development_stage",
+    "type": "homo-devstage-timeframe",
+    "difficulty": 2,
+    "prompt": "In welche Lebensspanne fällt das Stadium „Vorschulkind\"?",
+    "correctAnswer": "etwa 3 bis 6 Jahre",
+    "options": [
+      "etwa 3 bis 6 Jahre",
+      "etwa 1 bis 3 Jahre",
+      "etwa 6 bis 12 Jahre",
+      "ab etwa 65 Jahren"
+    ],
+    "testedAttribute": "timeframe",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_entwicklung-schulkind_homo-devstage-timeframe",
+    "entityId": "homo:entwicklung-schulkind",
+    "entityType": "development_stage",
+    "type": "homo-devstage-timeframe",
+    "difficulty": 2,
+    "prompt": "In welche Lebensspanne fällt das Stadium „Schulkind\"?",
+    "correctAnswer": "etwa 6 bis 12 Jahre",
+    "options": [
+      "etwa 6 bis 12 Jahre",
+      "etwa 11 bis 18 Jahre",
+      "etwa 1 bis 3 Jahre",
+      "etwa 3 bis 6 Jahre"
+    ],
+    "testedAttribute": "timeframe",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_entwicklung-jugendlicher_homo-devstage-timeframe",
+    "entityId": "homo:entwicklung-jugendlicher",
+    "entityType": "development_stage",
+    "type": "homo-devstage-timeframe",
+    "difficulty": 2,
+    "prompt": "In welche Lebensspanne fällt das Stadium „Jugendlicher\"?",
+    "correctAnswer": "etwa 11 bis 18 Jahre",
+    "options": [
+      "etwa 11 bis 18 Jahre",
+      "etwa 6 bis 12 Jahre",
+      "etwa 1 bis 3 Jahre",
+      "etwa 3 bis 6 Jahre"
+    ],
+    "testedAttribute": "timeframe",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_entwicklung-erwachsener_homo-devstage-timeframe",
+    "entityId": "homo:entwicklung-erwachsener",
+    "entityType": "development_stage",
+    "type": "homo-devstage-timeframe",
+    "difficulty": 2,
+    "prompt": "In welche Lebensspanne fällt das Stadium „Erwachsener\"?",
+    "correctAnswer": "ab 18 Jahren",
+    "options": [
+      "ab 18 Jahren",
+      "ab etwa 65 Jahren",
+      "etwa 1 bis 3 Jahre",
+      "etwa 3 bis 6 Jahre"
+    ],
+    "testedAttribute": "timeframe",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_entwicklung-seniorenalter_homo-devstage-timeframe",
+    "entityId": "homo:entwicklung-seniorenalter",
+    "entityType": "development_stage",
+    "type": "homo-devstage-timeframe",
+    "difficulty": 2,
+    "prompt": "In welche Lebensspanne fällt das Stadium „Seniorenalter\"?",
+    "correctAnswer": "ab etwa 65 Jahren",
+    "options": [
+      "ab etwa 65 Jahren",
+      "etwa 3 bis 6 Jahre",
+      "etwa 1 bis 3 Jahre",
+      "etwa 6 bis 12 Jahre"
+    ],
+    "testedAttribute": "timeframe",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_hirnlappen-frontal_homo-lobe-function",
+    "entityId": "homo:hirnlappen-frontal",
+    "entityType": "brain_lobe",
+    "type": "homo-lobe-function",
+    "difficulty": 2,
+    "prompt": "Welche Aufgabe erfüllt der „Frontallappen\" vor allem?",
+    "correctAnswer": "Planung, willkürliche Bewegung, Sprache und Steuerung von Persönlichkeit und Verhalten",
+    "options": [
+      "Planung, willkürliche Bewegung, Sprache und Steuerung von Persönlichkeit und Verhalten",
+      "Verarbeitung von Tastsinn und Körperempfindungen sowie räumliche Orientierung",
+      "Verarbeitung des Hörsinns, Sprachverständnis und deklaratives Gedächtnis",
+      "Verarbeitung visueller Reize sowie Erkennung und Deutung des Gesehenen"
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_hirnlappen-parietal_homo-lobe-function",
+    "entityId": "homo:hirnlappen-parietal",
+    "entityType": "brain_lobe",
+    "type": "homo-lobe-function",
+    "difficulty": 2,
+    "prompt": "Welche Aufgabe erfüllt der „Parietallappen\" vor allem?",
+    "correctAnswer": "Verarbeitung von Tastsinn und Körperempfindungen sowie räumliche Orientierung",
+    "options": [
+      "Verarbeitung von Tastsinn und Körperempfindungen sowie räumliche Orientierung",
+      "Verarbeitung des Hörsinns, Sprachverständnis und deklaratives Gedächtnis",
+      "Verarbeitung visueller Reize sowie Erkennung und Deutung des Gesehenen",
+      "Planung, willkürliche Bewegung, Sprache und Steuerung von Persönlichkeit und Verhalten"
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_hirnlappen-temporal_homo-lobe-function",
+    "entityId": "homo:hirnlappen-temporal",
+    "entityType": "brain_lobe",
+    "type": "homo-lobe-function",
+    "difficulty": 2,
+    "prompt": "Welche Aufgabe erfüllt der „Temporallappen\" vor allem?",
+    "correctAnswer": "Verarbeitung des Hörsinns, Sprachverständnis und deklaratives Gedächtnis",
+    "options": [
+      "Verarbeitung des Hörsinns, Sprachverständnis und deklaratives Gedächtnis",
+      "Verarbeitung visueller Reize sowie Erkennung und Deutung des Gesehenen",
+      "Verarbeitung von Tastsinn und Körperempfindungen sowie räumliche Orientierung",
+      "Planung, willkürliche Bewegung, Sprache und Steuerung von Persönlichkeit und Verhalten"
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_hirnlappen-okzipital_homo-lobe-function",
+    "entityId": "homo:hirnlappen-okzipital",
+    "entityType": "brain_lobe",
+    "type": "homo-lobe-function",
+    "difficulty": 2,
+    "prompt": "Welche Aufgabe erfüllt der „Okzipitallappen\" vor allem?",
+    "correctAnswer": "Verarbeitung visueller Reize sowie Erkennung und Deutung des Gesehenen",
+    "options": [
+      "Verarbeitung visueller Reize sowie Erkennung und Deutung des Gesehenen",
+      "Verarbeitung des Hörsinns, Sprachverständnis und deklaratives Gedächtnis",
+      "Verarbeitung von Tastsinn und Körperempfindungen sowie räumliche Orientierung",
+      "Planung, willkürliche Bewegung, Sprache und Steuerung von Persönlichkeit und Verhalten"
+    ],
+    "testedAttribute": "function",
+    "answerIsName": false,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_hirnlappen-frontal_homo-lobe-function-rev",
+    "entityId": "homo:hirnlappen-frontal",
+    "entityType": "brain_lobe",
+    "type": "homo-lobe-function-rev",
+    "difficulty": 2,
+    "prompt": "Welcher Großhirnlappen ist vor allem zuständig für: „Planung, willkürliche Bewegung, Sprache und Steuerung von Persönlichkeit und Verhalten\"?",
+    "correctAnswer": "Frontallappen",
+    "options": [
+      "Frontallappen",
+      "Parietallappen",
+      "Temporallappen",
+      "Okzipitallappen"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_hirnlappen-parietal_homo-lobe-function-rev",
+    "entityId": "homo:hirnlappen-parietal",
+    "entityType": "brain_lobe",
+    "type": "homo-lobe-function-rev",
+    "difficulty": 2,
+    "prompt": "Welcher Großhirnlappen ist vor allem zuständig für: „Verarbeitung von Tastsinn und Körperempfindungen sowie räumliche Orientierung\"?",
+    "correctAnswer": "Parietallappen",
+    "options": [
+      "Parietallappen",
+      "Temporallappen",
+      "Okzipitallappen",
+      "Frontallappen"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_hirnlappen-temporal_homo-lobe-function-rev",
+    "entityId": "homo:hirnlappen-temporal",
+    "entityType": "brain_lobe",
+    "type": "homo-lobe-function-rev",
+    "difficulty": 2,
+    "prompt": "Welcher Großhirnlappen ist vor allem zuständig für: „Verarbeitung des Hörsinns, Sprachverständnis und deklaratives Gedächtnis\"?",
+    "correctAnswer": "Temporallappen",
+    "options": [
+      "Temporallappen",
+      "Parietallappen",
+      "Okzipitallappen",
+      "Frontallappen"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_homo_hirnlappen-okzipital_homo-lobe-function-rev",
+    "entityId": "homo:hirnlappen-okzipital",
+    "entityType": "brain_lobe",
+    "type": "homo-lobe-function-rev",
+    "difficulty": 2,
+    "prompt": "Welcher Großhirnlappen ist vor allem zuständig für: „Verarbeitung visueller Reize sowie Erkennung und Deutung des Gesehenen\"?",
+    "correctAnswer": "Okzipitallappen",
+    "options": [
+      "Okzipitallappen",
+      "Temporallappen",
+      "Parietallappen",
+      "Frontallappen"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "hideConceptIdentity": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
   }
 ]
