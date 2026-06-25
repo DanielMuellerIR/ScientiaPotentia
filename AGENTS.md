@@ -937,6 +937,42 @@ Die Rohdaten der Recherche befinden sich in den exportierten Sitzungsprotokollen
   beachten (lohnt nur bei Katalogen, nicht bei reinen Konzept-/Fließtext-Lehrbüchern) und die
   Politik-Ausschlussregel für Historia. Konkrete Titel/Pfade beim nächsten Extraktionslauf sichten.
 
+### 1c. Offener Content-Ausbau (aus theplan übernommen 2026-06-25)
+
+**Stand v1.50.0** — committet + gepusht, aber **NICHT deployt** (live ist weiterhin v1.46.1; v1.47–v1.50 warten auf `python3 deploy.py`, Daniel-Freigabe).
+
+Wellen 6 + 7 (2026-06-24) brachten +1420 Konzepte / +5846 Fragen via 18- bzw. 13-Slice-Opus-Workflows (`find → verify`, `append_concepts.cjs` uniform).
+
+**Zählerstände vs. 5000-Ziel (nach Welle 7):**
+| Domain | Fragen | Status |
+| :----- | :----- | :----- |
+| Terra | 5217 | ✅ über Ziel |
+| Natura | 13217 | ✅ weit über Ziel |
+| Cultura | 5042 | ✅ neu drüber |
+| Historia | 4251 | AM NÄCHSTEN — ~1 Welle reicht |
+| Lingua | 3534 | drunter |
+| Astra | 3088 | drunter |
+| Machina | 2355 | SÄTTIGT — Finder-Ertrag fällt; eher Generator-Hebel / mehr Templates als neue Finder |
+| Homo | 718 | stößt an Anatomie-Ceiling (faires Reservoir erschöpft → 5000 dort nicht erreichbar; nur via mehr Frage-Templates oder bewusst akzeptieren) |
+
+**Konkrete offene Hebel:**
+- **(a)** Astra `notableStars`-Liste: `brightestStar`-Feld sauber normalisieren → ca. +50 Fragen „hellster Stern im Sternbild X"
+- **(b)** Explorer/Museum-Tab für **Machina** + **Historia** (Konzepte ohne Bilder)
+- **(c)** Bundle-Splitting: `index`-Bundle > 1,6 MB, Build-Warnung
+
+**Tooling — neue Konzepte für ALLE Domains:**
+```
+scripts/data_sources/harvest/append_concepts.cjs <domain> <cand> --write
+```
+Additiv, Dedup, `+`/`#`-erhaltend. `merge_machina_historia.js` existiert nicht mehr (Rebuild-Modell entfällt).
+
+**FALLEN:**
+1. **Legacy `merge_cultura/lingua/astra.js` NICHT laufen lassen** — diese Skripte löschen Direkt-Appends.
+2. **Recycelte / generische IDs aus Vorwellen** (z.B. `expedition-otto-von-kotzebue-weltreise` trug Cabrillo-Inhalt) verdrängen gute neue Konzepte still per ID-Dedup → vor `--write` die Dry-Run-Drops gegen Inhalt prüfen, ggf. eindeutige `-wN`-IDs vergeben.
+3. **Subagent-Findern commit/push immer verbieten.**
+
+(ex-theplan #202)
+
 ### 2. Ablaufplan-Status
 - [x] **Session 1:** Datenrettung Codex, Aufbereitung `AGENTS.md`.
 - [x] **Session 2:** Architekturentscheidung, Daten-Pipeline entwerfen, Testdaten-Extrakt erstellen.
