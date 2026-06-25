@@ -132,8 +132,8 @@ export const DOMAINS = [
     id: 'machina',
     latinName: 'Machina',
     label: 'Digital & Technik',
-    shortLabel: 'Computerwelt',
-    description: 'Programmiersprachen, Protokolle, Dateiformate, Algorithmen und Hardware.',
+    shortLabel: 'Technik',
+    description: 'Vom Funktionsprinzip her: Software und Computer ebenso wie Werkzeuge, Maschinen, Motoren, Werkstoffe und Fertigungsverfahren.',
     Icon: Cpu,
     accent: '#2C7A8C',
     // MCQ-only: nutzt das generische ConceptVisual. Ordnungsachse = Funktionsprinzip

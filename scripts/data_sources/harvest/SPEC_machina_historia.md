@@ -98,6 +98,65 @@ vorgegebenen Vokabular kommen**, sonst zerfallen die Pools.
 
 ---
 
+## MACHINA — KLASSISCHE TECHNIK (Handwerk / Mechanik / Maschinenbau)
+
+Gleiche Achse **Funktionsprinzip** (wie funktioniert / was leistet es), NIE Erfindungsdatum/
+-person (das ist Historia). Nur **bekannte, faire** Objekte — Dinge aus Werkstatt, Schule,
+Alltag, Technik-Allgemeinbildung. Werte aus dem Vokabular, sonst zerfallen die Distraktor-Pools.
+
+### `tool`  (Handwerkzeuge — handgeführt, kein motorbetriebenes Gerät)
+- `trade` ∈ {"Holzbearbeitung", "Metallbearbeitung", "Mauern/Beton", "Mess- und Anreißtechnik",
+  "Elektroinstallation", "Garten/Landwirtschaft", "Allgemein"}
+- `function` — kurze deutsche Funktion, z.B. "Eintreiben von Nägeln" (eindeutig, ein Satzteil)
+- Beispiele: Hammer, Meißel, Hobel, Feile, Raspel, Wasserwaage, Schraubzwinge, Beitel, Senklot,
+  Maurerkelle, Schraubendreher, Kombizange, Gehrungssäge, Reißnadel, Körner.
+
+### `machine_element`  (Maschinenelemente — genormte Bauteile, KEINE kompletten Maschinen)
+- `category` ∈ {"Verbindungselement", "Lager/Führung", "Getriebeelement", "Feder/Dämpfung",
+  "Dichtung", "Welle/Achse", "Zugmittel"}
+- `function` — kurze deutsche Funktion, z.B. "Übertragung von Drehmoment"
+- Beispiele: Zahnrad, Wälzlager, Gleitlager, Schraubenfeder, Keilriemen, Nockenwelle, Kupplung,
+  Passfeder, Sicherungsring, Wellendichtring (Simmerring), Antriebskette, Schneckenrad, Bolzen.
+
+### `engine`  (Kraftmaschinen / Antriebe — wandeln Energie in mechanische Arbeit)
+- `type` ∈ {"Verbrennungsmotor", "Dampfkraftmaschine", "Strömungsmaschine (Turbine)",
+  "Elektrische Maschine", "Wind-/Wasserkraft"}
+- `energySource` ∈ {"Benzin", "Diesel", "Gas", "Dampf", "Strom", "Wind", "Wasser", "Druckluft"}
+- `principle` — kurze deutsche Arbeitsweise (wird erst NACH der Antwort gezeigt), z.B.
+  "Selbstzündung des Kraftstoffs durch Verdichtungswärme"
+- Beispiele: Ottomotor, Dieselmotor, Wankelmotor, Zweitaktmotor, Stirlingmotor, Dampfmaschine,
+  Dampfturbine, Gasturbine, Strahltriebwerk, Pelton-Turbine, Kaplan-Turbine, Elektromotor,
+  Schrittmotor, Windturbine, Wasserrad.
+
+### `manufacturing_process`  (Fertigungsverfahren — DIN-8580-Systematik)
+- `mainGroup` ∈ {"Urformen", "Umformen", "Trennen", "Fügen", "Beschichten",
+  "Stoffeigenschaft ändern"} — die **eine** DIN-8580-Hauptgruppe, der das Verfahren zugeordnet ist.
+- `purpose` — kurze deutsche Beschreibung, was das Verfahren bewirkt
+- Beispiele: Gießen, Sintern, Schmieden, Walzen, Biegen, Tiefziehen, Strangpressen, Fräsen,
+  Drehen, Bohren, Schleifen, Sägen, Schweißen, Löten, Nieten, Kleben, Galvanisieren, Lackieren,
+  Härten, Spritzgießen, 3D-Druck. (Urformen = aus formlosem Stoff; Trennen = Material wegnehmen;
+  Fügen = dauerhaft verbinden.)
+
+### `material`  (technische Werkstoffe — NUR ingenieurmäßig: Legierungen, Kunststoffe, Verbund,
+  Baustoffe. KEINE reinen Minerale/Elemente → die gehören zu Natura.)
+- `materialClass` ∈ {"Eisenwerkstoff", "Nichteisenmetall", "Kunststoff", "Verbundwerkstoff",
+  "Keramik", "Baustoff"}
+- `property` — kennzeichnende Eigenschaft ODER typische Verwendung (wird erst NACH der Antwort
+  gezeigt), z.B. "rostträge durch Chromoxidschicht"
+- Beispiele: Baustahl, Edelstahl, Gusseisen, Schmiedeeisen, Aluminium (techn.), Bronze, Messing,
+  Titan, Beton, Stahlbeton, Glasfaserkunststoff (GFK), Kohlefaserkunststoff (CFK), Polyethylen,
+  Bakelit, Lagermetall.
+
+### `simple_machine`  (einfache Maschinen & Mechanismen — Kraftumformung)
+- `function` — kurze deutsche Funktion, z.B. "Vervielfachung der aufgebrachten Kraft"
+- `principle` — physikalisches Wirkprinzip (wird erst NACH der Antwort gezeigt), z.B.
+  "Drehmomentgleichgewicht um den Drehpunkt"
+- Beispiele: Hebel, feste Rolle, lose Rolle, Flaschenzug, schiefe Ebene, Keil, Schraube (Prinzip),
+  Rad und Achse, Kurbel, Kurbeltrieb (Pleuelstange), Nockengetriebe, Malteserkreuzgetriebe,
+  Zahnstange und Ritzel, Differentialgetriebe, Schneckengetriebe, Kniehebel, Exzenter.
+
+---
+
 ## HISTORIA — Kategorien + Attribute
 
 Jahre als **Zahl** (positiv = n. Chr.). v.-Chr.-Daten als negative Zahl ODER String "550 v. Chr." —

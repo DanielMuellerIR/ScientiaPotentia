@@ -361,9 +361,34 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 | Natura | 2402 | 13217 | Wikipedia / USGS / IUCN / IPCC / Wikidata | generische Konzeptkarte (`ConceptVisual`); Tiere via MiniMax-Delegation 49→97 ausgebaut (web-grounded); freies Commons-Foto je Konzept hinterlegt (`concept.image`, fürs spätere Museum) |
 | Lingua | 1207 | 5540 | Wikipedia / Ethnologue / Wiktionary / Guinness / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Attribut-Labels; 184 Museumsbilder (writing_system/language_family) |
 | Cultura | 1798 | 6332 | Wikipedia (DE/EN) / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Kategorie-/Attribut-Labels; via MiniMax-Delegation ausgebaut (Komponisten Wikidata-geprüft, Werke web-grounded); 865 Museumsbilder |
-| Machina | 1689 | 5125 | Wikipedia / RFC/IANA / Lehrbücher | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Funktionsprinzip (v1.47.0); 124 Museumsbilder (hardware) |
+| Machina | 1958 | 5698 | Wikipedia / RFC/IANA / Lehrbücher / DIN 8580 | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Funktionsprinzip (v1.47.0); ab v1.71 auch klassische Technik (Handwerk/Mechanik/Maschinenbau): tool/machine_element/engine/manufacturing_process/material/simple_machine; 124 Museumsbilder (hardware) |
 | Historia | 1244 | 6332 | Wikipedia / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Zeit/Urheberschaft, Politik-Ausschluss (v1.47.0); 1023 Museumsbilder |
 
+> **Stand 2026-06-25 (v1.71.0) — Machina über die IT hinaus: klassische Technik (Handwerk/Mechanik/Maschinenbau):**
+> Machinas Achse ist „Funktionsprinzip" — laut Bereichs-Abgrenzung ausdrücklich „Funktionsprinzip von …
+> Geräten, Verfahren", bislang aber nur mit IT befüllt. Auf Nutzerwunsch (Technik jenseits Software/
+> Computer) **6 neue Kategorien** ergänzt, alle entlang derselben Achse (kein Erfindungsdatum/-person —
+> das bleibt Historia): `tool` (Handwerkzeuge: Gewerk/Funktion), `machine_element` (Maschinenelemente:
+> Gruppe/Funktion), `engine` (Kraftmaschinen: Gattung/Energiequelle/Arbeitsweise), `manufacturing_process`
+> (Fertigungsverfahren: **DIN-8580-Hauptgruppe**/Zweck), `material` (techn. Werkstoffe: Klasse/Eigenschaft —
+> nur ingenieurmäßig, reine Minerale bleiben Natura), `simple_machine` (einfache Maschinen/Mechanismen:
+> Funktion/Wirkprinzip). **+269 Konzepte / +573 Fragen: Machina 1689→1958 K / 5125→5698 F.** Pipeline:
+> 6 Sonnet-Finder (produce-only nach /tmp, Schema/kontrolliertes Vokabular in `SPEC_machina_historia.md`)
+> → programmatischer Gate-Check (JSON/Vokabular/ASCII-Umlaut, 0 Befunde) → 6 **adversariale Opus-Verifier**
+> (in-place bereinigt: 10 entfernt — obskur/Dublette; Selbstverräter-Funktionen entschärft; Stirling-/
+> Hydraulik-/Raketen-`type` als Vokabular-Fehlpass entfernt statt geraten; Kerosin-`energySource`
+> weggelassen; alle DIN-8580-/Werkstoffklassen-Zuordnungen fachlich bestätigt) → `append_concepts`
+> (additiv, 0 verworfen) → generate → verify (0 Fehler) → `audit:questions` (Machina Strukt 0 / Bias-
+> Templates 0) → npm test grün → Build grün, Layout 17/17 → **Browser-verifiziert** (Handwerk-Frage
+> „Läppen → DIN-8580-Hauptgruppe Trennen" rendert mit dt. Labels, faire Distraktoren, 0 Konsolenfehler).
+> Neue Generator-Templates in `generate_machina.js` (Engine unverändert), CATEGORY_LABELS + ATTR_LABELS
+> (Gewerk/Energiequelle/Wirkprinzip/Hauptgruppe/Werkstoffklasse/Eigenschaft/Gattung) + POST_ANSWER_ATTRS
+> (principle/property) in `ConceptVisual.jsx`; Domain-Beschreibung/shortLabel aktualisiert. **Bekannte
+> kleine Lücke:** Vokabular-Werte mit Schrägstrich (z.B. trade „Garten/Landwirtschaft", category
+> „Lager/Führung") verlieren ihre Vorwärts-cat-Frage (Generator-Slash-Skip gegen mehrdeutige Antworten),
+> behalten aber Reverse + andere Templates — bewusst nicht angefasst (der Skip schützt IT-Kategorien wie
+> transport „TCP/UDP"). **NICHT deployt.**
+>
 > **Stand 2026-06-25 (v1.59.0–v1.70.0) — 5000-Ziel für ALLE MCQ-Domains außer Homo erreicht + Vertiefung (+~10 100 Fragen):**
 > Autonome Content-Offensive in 9 Commits: sechs orchestrierte `find → verify`-Workflows (h1–h6,
 > je Opus-Finder + adversarialer Opus-Verifier, additiver `append_concepts`, eigene Fakt-Stichprobe)

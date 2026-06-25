@@ -323,6 +323,98 @@ const templates = [
   {
     category: 'hardware', attr: 'category', kind: 'name', type: 'machina-hw-category-rev', difficulty: 3,
     prompt: c => `Welche dieser Komponenten gehört zur Gruppe „${c.attributes.category}“?`
+  },
+
+  // ==== KLASSISCHE TECHNIK (Handwerk / Mechanik / Maschinenbau) =============
+  // Achse weiterhin Funktionsprinzip: "wie funktioniert / was leistet es",
+  // NIE Erfindungsdatum/-person (das bliebe Historia). Freitext-cat-Templates
+  // (Funktion/Zweck/Eigenschaft/Wirkprinzip) ziehen Distraktoren aus den
+  // Freitexten anderer Konzepte derselben Kategorie — identisch zu hw-function.
+
+  // ---- Handwerkzeuge (tool) ----------------------------------------------
+  {
+    category: 'tool', attr: 'trade', kind: 'cat', type: 'machina-tool-trade', difficulty: 2,
+    prompt: c => `Welchem Gewerk ist das Werkzeug ${c.name} typischerweise zugeordnet?`
+  },
+  {
+    category: 'tool', attr: 'function', kind: 'cat', type: 'machina-tool-function', difficulty: 2,
+    prompt: c => `Welche Aufgabe erfüllt das Werkzeug ${c.name}?`
+  },
+  {
+    category: 'tool', attr: 'trade', kind: 'name', type: 'machina-tool-trade-rev', difficulty: 2,
+    prompt: c => `Welches dieser Werkzeuge gehört vor allem in das Gewerk „${c.attributes.trade}“?`
+  },
+
+  // ---- Maschinenelemente (machine_element) -------------------------------
+  {
+    category: 'machine_element', attr: 'category', kind: 'cat', type: 'machina-elem-category', difficulty: 3,
+    // "Element" im Prompt meiden, falls Antwortwerte den Stamm tragen.
+    prompt: c => `Zu welcher Gruppe von Maschinenbauteilen zählt ${c.name}?`
+  },
+  {
+    category: 'machine_element', attr: 'function', kind: 'cat', type: 'machina-elem-function', difficulty: 2,
+    prompt: c => `Welche Aufgabe erfüllt das Maschinenbauteil ${c.name}?`
+  },
+  {
+    category: 'machine_element', attr: 'category', kind: 'name', type: 'machina-elem-category-rev', difficulty: 3,
+    prompt: c => `Welches dieser Maschinenbauteile gehört zur Gruppe „${c.attributes.category}“?`
+  },
+
+  // ---- Kraftmaschinen / Antriebe (engine) --------------------------------
+  {
+    category: 'engine', attr: 'type', kind: 'cat', type: 'machina-engine-type', difficulty: 3,
+    prompt: c => `Zu welcher Gattung von Kraftmaschinen zählt ${c.name}?`
+  },
+  {
+    category: 'engine', attr: 'energySource', kind: 'cat', type: 'machina-engine-energy', difficulty: 2,
+    prompt: c => `Mit welcher Energiequelle arbeitet ${c.name} primär?`
+  },
+  {
+    category: 'engine', attr: 'type', kind: 'name', type: 'machina-engine-type-rev', difficulty: 3,
+    prompt: c => `Welche dieser Maschinen zählt zur Gattung „${c.attributes.type}“?`
+  },
+  {
+    category: 'engine', attr: 'energySource', kind: 'name', type: 'machina-engine-energy-rev', difficulty: 2,
+    prompt: c => `Welche dieser Kraftmaschinen wird primär mit „${c.attributes.energySource}“ betrieben?`
+  },
+
+  // ---- Fertigungsverfahren (manufacturing_process) -----------------------
+  {
+    category: 'manufacturing_process', attr: 'mainGroup', kind: 'cat', type: 'machina-mfg-maingroup', difficulty: 3,
+    prompt: c => `Welcher Hauptgruppe der Fertigungsverfahren (DIN 8580) ordnet man ${c.name} zu?`
+  },
+  {
+    category: 'manufacturing_process', attr: 'purpose', kind: 'cat', type: 'machina-mfg-purpose', difficulty: 2,
+    prompt: c => `Was bewirkt das Fertigungsverfahren ${c.name}?`
+  },
+  {
+    category: 'manufacturing_process', attr: 'mainGroup', kind: 'name', type: 'machina-mfg-maingroup-rev', difficulty: 3,
+    prompt: c => `Welches dieser Fertigungsverfahren gehört zur Hauptgruppe „${c.attributes.mainGroup}“?`
+  },
+
+  // ---- Technische Werkstoffe (material) ----------------------------------
+  {
+    category: 'material', attr: 'materialClass', kind: 'cat', type: 'machina-material-class', difficulty: 3,
+    // "Werkstoff" im Prompt meiden, falls Klassenwerte den Stamm tragen.
+    prompt: c => `Zu welcher Werkstoffgruppe zählt ${c.name}?`
+  },
+  {
+    category: 'material', attr: 'property', kind: 'cat', type: 'machina-material-property', difficulty: 3,
+    prompt: c => `Welche Eigenschaft bzw. Verwendung kennzeichnet ${c.name} vor allem?`
+  },
+  {
+    category: 'material', attr: 'materialClass', kind: 'name', type: 'machina-material-class-rev', difficulty: 3,
+    prompt: c => `Welcher dieser Werkstoffe gehört zur Gruppe „${c.attributes.materialClass}“?`
+  },
+
+  // ---- Einfache Maschinen & Mechanismen (simple_machine) -----------------
+  {
+    category: 'simple_machine', attr: 'function', kind: 'cat', type: 'machina-simple-function', difficulty: 2,
+    prompt: c => `Welche mechanische Aufgabe erfüllt ${c.name}?`
+  },
+  {
+    category: 'simple_machine', attr: 'principle', kind: 'cat', type: 'machina-simple-principle', difficulty: 3,
+    prompt: c => `Auf welchem physikalischen Wirkprinzip beruht ${c.name}?`
   }
 ];
 

@@ -82,6 +82,13 @@ const CATEGORY_LABELS = {
   hardware: 'Hardware',
   acronym: 'Abkürzung',
   concept: 'Konzept',
+  // Machina — klassische Technik (Handwerk/Mechanik/Maschinenbau)
+  tool: 'Handwerkzeug',
+  machine_element: 'Maschinenelement',
+  engine: 'Kraftmaschine',
+  manufacturing_process: 'Fertigungsverfahren',
+  material: 'Werkstoff',
+  simple_machine: 'Einfache Maschine',
   // Historia (Geschichte)
   invention: 'Erfindung',
   discovery: 'Entdeckung',
@@ -280,6 +287,14 @@ const ATTR_LABELS = {
   purpose: 'Zweck',
   accessComplexity: 'Zugriffskomplexität',
   avgComplexity: 'Zeitkomplexität (Ø)',
+  // Machina — klassische Technik
+  trade: 'Gewerk',
+  energySource: 'Energiequelle',
+  principle: 'Wirkprinzip',
+  mainGroup: 'Hauptgruppe (DIN 8580)',
+  materialClass: 'Werkstoffklasse',
+  property: 'Eigenschaft',
+  type: 'Gattung',
   // Historia (Geschichte) — Zeit/Urheberschaft. region/nationality/field s. o.
   inventor: 'Erfinder',
   discoverer: 'Entdecker',
@@ -295,7 +310,9 @@ const ATTR_LABELS = {
 // der Antwort gezeigt.
 // 'knownFor' (Historia-Persönlichkeiten) erst nach der Antwort zeigen: der
 // Freitext ("Beiträge zur Quantenmechanik") verriete sonst Feld/Nationalität.
-const POST_ANSWER_ATTRS = new Set(['notableFor', 'definition', 'function', 'knownFor', 'characteristic']);
+const POST_ANSWER_ATTRS = new Set(['notableFor', 'definition', 'function', 'knownFor', 'characteristic',
+  // Klassische Technik: beschreibende Freitexte, die das Konzept vor der Antwort verraten könnten.
+  'principle', 'property']);
 
 // Taxonomisch korrelierte Attribute: Wird z.B. die ORDNUNG gefragt, verraet die
 // sichtbare TIERKLASSE die Antwort oft schon (die Distraktoren sind dann Ordnungen
