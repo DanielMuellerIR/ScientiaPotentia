@@ -26,6 +26,12 @@ const TARGETS = {
   natura: new Set(["animal", "plant", "fungus", "geology", "mineral"]),
   cultura:new Set(["artwork", "sculpture", "architecture", "composer", "composition", "literature"]),
   lingua: new Set(["writing_system", "language_family"]),
+  // Stand 2026-06-25 (docs/bildquellen_strategie.md): bisher nie geerntete Domains.
+  historia: new Set(["invention", "discovery", "epoch", "figure", "milestone", "expedition"]),
+  homo:   new Set(["bone", "muscle", "organ", "body_fact", "species"]),
+  // machina nur hardware (Geraete-Fotos, kein Logo-Problem); die logobelasteten
+  // Kategorien (programming_language/concept/...) brauchen einen Logo-Filter -> separat.
+  machina:new Set(["hardware"]),
 };
 
 const sleep = ms => new Promise(r => setTimeout(r, ms));
@@ -95,15 +101,18 @@ const deTitle = u => { const m = String(u).match(/de\.wikipedia\.org\/wiki\/([^?
   for (const [qid, c] of byQid) if (!fileForId.has(c.id)) byTitle.set(deTitle(c.sourceUrl) || c.name, c);
   const titles = [...byTitle.keys()];
   for (const grp of chunk(titles, 50)) {
-    const url = `https://de.wikipedia.org/w/api.php?action=query&prop=pageimages&piprop=original&format=json&titles=${grp.map(encodeURIComponent).join("|")}`;
+    const url = `https://de.wikipedia.org/w/api.php?action=query&prop=pageimages&piprop=original&redirects=1&format=json&titles=${grp.map(encodeURIComponent).join("|")}`;
     const j = J((await get(url)).body);
     const q = j?.query || {};
-    // Normalisierungs-Mapping (angefragter Titel -> normalisierter Seitentitel)
+    // Titel-Auflösung: erst Normalisierung (Leerzeichen/Unterstrich), dann Redirect
+    // (redirects=1) -> finaler Seitentitel. Ohne die redirect-Kette griffe redirects=1 nicht.
     const norm = {}; (q.normalized || []).forEach(n => norm[n.from] = n.to);
+    const redir = {}; (q.redirects || []).forEach(r => redir[r.from] = r.to);
     const pageByTitle = {}; Object.values(q.pages || {}).forEach(p => { if (p.title) pageByTitle[p.title] = p; });
     for (const t of grp) {
       const c = byTitle.get(t);
-      const pageTitle = norm[t] || t;
+      const normTitle = norm[t] || t;
+      const pageTitle = redir[normTitle] || normTitle;
       const src = pageByTitle[pageTitle]?.original?.source;
       if (src) fileForId.set(c.id, decodeURIComponent(src.split("/").pop()));
     }
@@ -127,8 +136,13 @@ const deTitle = u => { const m = String(u).match(/de\.wikipedia\.org\/wiki\/([^?
       if (!ii) continue;
       const m = ii.extmetadata || {};
       const lic = (m.LicenseShortName?.value || m.License?.value || "").toString();
-      const free = /public domain|cc0|cc by|cc-by|attribution|gfdl/i.test(lic) || String(m.Copyrighted?.value) === "False";
-      licByFile.set(fTitle, { ok: free || !!lic, lic: lic || "Public domain", art: (m.Artist?.value || "").replace(/<[^>]+>/g, "").trim().slice(0, 200) });
+      const blob = lic.toLowerCase();
+      // Permissiv sammeln, aber klar Unfreies (NC/ND) ausschliessen — sonst passte
+      // "CC BY-NC-SA" faelschlich über das "cc by"-Token durch. SA bleibt frei.
+      // Die AUTORITATIVE strenge Lizenz-/MIME-Pruefung macht danach check_images.cjs.
+      const nonfree = /\b(nc|nd|non[- ]?commercial|noncommercial|no[- ]?deriv)\b/.test(blob);
+      const ok = !nonfree && (!!lic || String(m.Copyrighted?.value) === "False");
+      licByFile.set(fTitle, { ok, lic: lic || "Public domain", art: (m.Artist?.value || "").replace(/<[^>]+>/g, "").trim().slice(0, 200) });
     }
     await sleep(120);
   }
