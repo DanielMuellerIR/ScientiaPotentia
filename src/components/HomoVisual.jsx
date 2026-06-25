@@ -41,7 +41,9 @@ const DEFAULT_ASSET = CATEGORY_ASSET.body_fact;
 
 const CATEGORY_LABELS = {
   bone: 'Knochen', muscle: 'Muskel', organ: 'Organ',
-  body_fact: 'Körperwert', species: 'Menschenart'
+  body_fact: 'Körperwert', species: 'Menschenart',
+  // Neue Kategorien (Physiologie jenseits der Anatomie, Stand 2026-06-25)
+  cell_type: 'Zelltyp', hormone: 'Hormon', vitamin: 'Vitamin', sense: 'Sinn'
 };
 
 const ATTR_LABELS = {
@@ -50,7 +52,10 @@ const ATTR_LABELS = {
   value: 'Wert', epoch: 'Zeitraum',
   // Phase-5-Keys, die sonst als rohe englische Schlüssel ('function',
   // 'definition') im Chip durchsickern würden.
-  function: 'Funktion', definition: 'Definition'
+  function: 'Funktion', definition: 'Definition',
+  // Attribute der neuen Kategorien (cell_type/hormone/vitamin/sense).
+  fachName: 'Fachbegriff', gland: 'Bildungsort', hormoneClass: 'Hormonklasse',
+  chemicalName: 'Chemischer Name', solubility: 'Löslichkeit', sensoryOrgan: 'Sinnesorgan'
 };
 
 // Freitext-Chips sind oft erklaerend statt reine Kennwerte. Vor der Antwort

@@ -488,6 +488,113 @@ const templates = [
     nameAnswer: true,
     subject: c => c.attributes.function, // Hinweis = Funktionstext
     prompt: c => `Welches Organ erfüllt folgende Hauptaufgabe: „${c.attributes.function}"?`
+  },
+
+  // ==== Neue Kategorien (Stand 2026-06-25): Physiologie jenseits der Anatomie ====
+  // cell_type / hormone / vitamin / sense — Schema + Fairness-Begründung in
+  // docs/homo_erweiterung.md. Die Engine bleibt unverändert: byCategory,
+  // pickDistractors (längen-balanciert) und der revealsAnswer-Guard greifen
+  // automatisch, sobald Konzepte die neue category tragen. 'function' und
+  // 'notableFor' werden im Visual erst NACH der Antwort gezeigt (POST_ANSWER_ATTRS),
+  // darum verraten auch die Vorwärtsfragen die Lösung nicht über sichtbare Chips.
+
+  // ---- Zelltypen (cell_type) ------------------------------------------------
+  {
+    category: 'cell_type', attr: 'system', type: 'homo-cell-system', difficulty: 1,
+    prompt: c => `Zu welchem Gewebe bzw. System gehört die Zelle „${c.name}" hauptsächlich?`,
+    format: v => v
+  },
+  {
+    category: 'cell_type', attr: 'function', type: 'homo-cell-function', difficulty: 2,
+    prompt: c => `Welche Hauptaufgabe erfüllt die Zelle „${c.name}"?`,
+    format: v => v
+  },
+  {
+    // Reverse: markante Aufgabe als Hinweis -> Zellname als Antwort.
+    category: 'cell_type', attr: 'function', type: 'homo-cell-function-rev', difficulty: 2, nameAnswer: true,
+    subject: c => c.attributes.function,
+    prompt: c => `Welche Zelle erfüllt folgende Hauptaufgabe: „${c.attributes.function}"?`
+  },
+  {
+    category: 'cell_type', attr: 'notableFor', type: 'homo-cell-notable-rev', difficulty: 2, nameAnswer: true,
+    subject: c => c.attributes.notableFor,
+    prompt: c => `Welche Zelle wird so beschrieben: „${c.attributes.notableFor}"?`
+  },
+  {
+    // Fachbegriff nur dort, wo er sich vom deutschen Namen unterscheidet; sonst
+    // greift der revealsAnswer-Guard (Name = Antwort) und überspringt die Frage.
+    category: 'cell_type', attr: 'fachName', type: 'homo-cell-fachname', difficulty: 3,
+    prompt: c => `Wie lautet der medizinische Fachbegriff für die Zelle „${c.name}"?`,
+    format: v => v
+  },
+
+  // ---- Hormone (hormone) ----------------------------------------------------
+  {
+    category: 'hormone', attr: 'gland', type: 'homo-hormone-gland', difficulty: 2,
+    prompt: c => `In welcher Drüse bzw. welchem Gewebe wird das Hormon „${c.name}" hauptsächlich gebildet?`,
+    format: v => v
+  },
+  {
+    category: 'hormone', attr: 'function', type: 'homo-hormone-function', difficulty: 2,
+    prompt: c => `Welche Hauptwirkung hat das Hormon „${c.name}"?`,
+    format: v => v
+  },
+  {
+    category: 'hormone', attr: 'function', type: 'homo-hormone-function-rev', difficulty: 3, nameAnswer: true,
+    subject: c => c.attributes.function,
+    prompt: c => `Welches Hormon hat folgende Hauptwirkung: „${c.attributes.function}"?`
+  },
+  {
+    // hormoneClass hat nur ~3 Werte -> teils nur 3 Optionen (wie machina format-compression).
+    category: 'hormone', attr: 'hormoneClass', type: 'homo-hormone-class', difficulty: 3,
+    prompt: c => `Zu welcher Hormonklasse gehört „${c.name}"?`,
+    format: v => v
+  },
+
+  // ---- Vitamine (vitamin) ---------------------------------------------------
+  {
+    category: 'vitamin', attr: 'function', type: 'homo-vitamin-function', difficulty: 2,
+    prompt: c => `Welche Hauptfunktion hat „${c.name}" im Körper?`,
+    format: v => v
+  },
+  {
+    category: 'vitamin', attr: 'function', type: 'homo-vitamin-function-rev', difficulty: 3, nameAnswer: true,
+    subject: c => c.attributes.function,
+    // „hat" statt „erfüllt": vermeidet den Audit-Fehlalarm, dass „Vitamin E" als
+    // Teilstring in „Vitamin erfüllt" des Prompts steckt (Antwort-im-Stamm).
+    prompt: c => `Welches Vitamin hat folgende Hauptfunktion: „${c.attributes.function}"?`
+  },
+  {
+    category: 'vitamin', attr: 'chemicalName', type: 'homo-vitamin-chem', difficulty: 3,
+    prompt: c => `Wie lautet der chemische Name von „${c.name}"?`,
+    format: v => v
+  },
+  {
+    category: 'vitamin', attr: 'chemicalName', type: 'homo-vitamin-chem-rev', difficulty: 3, nameAnswer: true,
+    subject: c => c.attributes.chemicalName,
+    prompt: c => `Welches Vitamin trägt den chemischen Namen „${c.attributes.chemicalName}"?`
+  },
+
+  // ---- Sinne (sense) --------------------------------------------------------
+  {
+    category: 'sense', attr: 'sensoryOrgan', type: 'homo-sense-organ', difficulty: 1,
+    prompt: c => `Über welches Sinnesorgan wird der „${c.name}" hauptsächlich vermittelt?`,
+    format: v => v
+  },
+  {
+    category: 'sense', attr: 'sensoryOrgan', type: 'homo-sense-organ-rev', difficulty: 2, nameAnswer: true,
+    subject: c => c.attributes.sensoryOrgan,
+    prompt: c => `Welcher Sinn wird hauptsächlich über das Organ „${c.attributes.sensoryOrgan}" vermittelt?`
+  },
+  {
+    category: 'sense', attr: 'function', type: 'homo-sense-function', difficulty: 2,
+    prompt: c => `Welche Wahrnehmungsleistung erbringt der „${c.name}"?`,
+    format: v => v
+  },
+  {
+    category: 'sense', attr: 'function', type: 'homo-sense-function-rev', difficulty: 2, nameAnswer: true,
+    subject: c => c.attributes.function,
+    prompt: c => `Welcher Sinn erbringt folgende Wahrnehmungsleistung: „${c.attributes.function}"?`
   }
 ];
 

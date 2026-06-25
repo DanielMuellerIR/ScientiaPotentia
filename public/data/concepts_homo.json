@@ -4645,5 +4645,1146 @@
       "name": "Smithsonian National Museum of Natural History - Human Origins",
       "url": "https://humanorigins.si.edu/evidence/human-fossils/species/sahelanthropus-tchadensis"
     }
+  },
+  "homo:zelle-erythrozyt": {
+    "id": "homo:zelle-erythrozyt",
+    "name": "Erythrozyt",
+    "type": "cell_type",
+    "category": "cell_type",
+    "attributes": {
+      "system": "Blut",
+      "function": "transportiert Sauerstoff von der Lunge zu den Geweben",
+      "notableFor": "besitzt beim erwachsenen Menschen keinen Zellkern und hat bikonkave Scheibenform",
+      "fachName": "rotes Blutkörperchen"
+    },
+    "funFact": "Etwa 90 Prozent der Trockenmasse besteht aus dem eisenhaltigen Farbstoff Hämoglobin, der dem Blut die rote Farbe gibt.",
+    "source": {
+      "name": "Wikipedia: Erythrozyt",
+      "url": "https://de.wikipedia.org/wiki/Erythrozyt"
+    }
+  },
+  "homo:zelle-thrombozyt": {
+    "id": "homo:zelle-thrombozyt",
+    "name": "Thrombozyt",
+    "type": "cell_type",
+    "category": "cell_type",
+    "attributes": {
+      "system": "Blut",
+      "function": "verschließt verletzte Blutgefäße und fördert die Blutgerinnung",
+      "notableFor": "ist ein kernloses Zellfragment, das sich von Riesenzellen des Knochenmarks abschnürt",
+      "fachName": "Blutplättchen"
+    },
+    "funFact": "Ein einzelner Megakaryozyt im Knochenmark kann im Laufe seines Lebens bis zu 8000 dieser winzigen Plättchen abschnüren.",
+    "source": {
+      "name": "Wikipedia: Thrombozyt",
+      "url": "https://de.wikipedia.org/wiki/Thrombozyt"
+    }
+  },
+  "homo:zelle-leukozyt": {
+    "id": "homo:zelle-leukozyt",
+    "name": "Leukozyt",
+    "type": "cell_type",
+    "category": "cell_type",
+    "attributes": {
+      "system": "Blut",
+      "function": "bekämpft Krankheitserreger und körperfremde Stoffe im Blut und Gewebe",
+      "notableFor": "Sammelbegriff für die kernhaltigen, nicht roten Zellen des Blutes",
+      "fachName": "weißes Blutkörperchen"
+    },
+    "funFact": "Beim gesunden Erwachsenen finden sich rund 4000 bis 10000 dieser Abwehrzellen in einem einzigen Mikroliter Blut.",
+    "source": {
+      "name": "Wikipedia: Leukozyt",
+      "url": "https://de.wikipedia.org/wiki/Leukozyt"
+    }
+  },
+  "homo:zelle-lymphozyt": {
+    "id": "homo:zelle-lymphozyt",
+    "name": "Lymphozyt",
+    "type": "cell_type",
+    "category": "cell_type",
+    "attributes": {
+      "system": "Immunsystem",
+      "function": "erkennt Fremdstoffe gezielt und steuert die erworbene Immunabwehr",
+      "notableFor": "trägt das spezifische Gedächtnis des Immunsystems und umfasst T- und B-Reihen"
+    },
+    "funFact": "Diese Zellen müssen erst lernen, körpereigene von körperfremden Strukturen zu unterscheiden, unter anderem im Thymus.",
+    "source": {
+      "name": "Wikipedia: Lymphozyt",
+      "url": "https://de.wikipedia.org/wiki/Lymphozyt"
+    }
+  },
+  "homo:zelle-makrophage": {
+    "id": "homo:zelle-makrophage",
+    "name": "Makrophage",
+    "type": "cell_type",
+    "category": "cell_type",
+    "attributes": {
+      "system": "Immunsystem",
+      "function": "nimmt Erreger, Fremdpartikel und Zelltrümmer durch Phagozytose auf und verdaut sie",
+      "notableFor": "der Name bedeutet wörtlich großer Fresser",
+      "fachName": "Fresszelle"
+    },
+    "funFact": "Nach dem Verdauen präsentiert die Zelle Bruchstücke der Erreger an ihrer Oberfläche und alarmiert so weitere Abwehrzellen.",
+    "source": {
+      "name": "Wikipedia: Makrophage",
+      "url": "https://de.wikipedia.org/wiki/Makrophage"
+    }
+  },
+  "homo:zelle-monozyt": {
+    "id": "homo:zelle-monozyt",
+    "name": "Monozyt",
+    "type": "cell_type",
+    "category": "cell_type",
+    "attributes": {
+      "system": "Immunsystem",
+      "function": "wandert aus dem Blut ins Gewebe ein und wird dort zur Fresszelle",
+      "notableFor": "größter Vertreter der weißen Blutkörperchen mit bohnenförmigem Kern"
+    },
+    "funFact": "Im Blut zirkuliert die Zelle nur ein bis drei Tage, im Gewebe lebt sie als Fresszelle danach Wochen bis Monate weiter.",
+    "source": {
+      "name": "Wikipedia: Monozyt",
+      "url": "https://de.wikipedia.org/wiki/Monozyt"
+    }
+  },
+  "homo:zelle-granulozyt": {
+    "id": "homo:zelle-granulozyt",
+    "name": "Granulozyt",
+    "type": "cell_type",
+    "category": "cell_type",
+    "attributes": {
+      "system": "Immunsystem",
+      "function": "bekämpft unspezifisch Bakterien, Pilze und Parasiten als erste Abwehrlinie",
+      "notableFor": "benannt nach den anfärbbaren Körnchen im Zellinneren"
+    },
+    "funFact": "Mit 45 bis 75 Prozent stellen diese Körnchenzellen die mit Abstand größte Gruppe unter den weißen Blutkörperchen.",
+    "source": {
+      "name": "Wikipedia: Granulozyt",
+      "url": "https://de.wikipedia.org/wiki/Granulozyt"
+    }
+  },
+  "homo:zelle-mastzelle": {
+    "id": "homo:zelle-mastzelle",
+    "name": "Mastzelle",
+    "type": "cell_type",
+    "category": "cell_type",
+    "attributes": {
+      "system": "Immunsystem",
+      "function": "speichert Histamin und setzt es bei allergischen Reaktionen frei",
+      "notableFor": "ist mit Botenstoff-Granula prall gefüllt und sitzt in Haut, Darm und Atemwegen"
+    },
+    "funFact": "Bindet ein Allergen an Antikörper auf ihrer Oberfläche, schüttet die Zelle ihr Histamin binnen Sekunden aus.",
+    "source": {
+      "name": "Wikipedia: Mastzelle",
+      "url": "https://de.wikipedia.org/wiki/Mastzelle"
+    }
+  },
+  "homo:zelle-plasmazelle": {
+    "id": "homo:zelle-plasmazelle",
+    "name": "Plasmazelle",
+    "type": "cell_type",
+    "category": "cell_type",
+    "attributes": {
+      "system": "Immunsystem",
+      "function": "produziert und schüttet große Mengen Antikörper aus",
+      "notableFor": "geht aus aktivierten B-Lymphozyten hervor und ist eine reine Antikörperfabrik"
+    },
+    "funFact": "Für die Massenproduktion von Antikörpern besitzt die Zelle besonders viel endoplasmatisches Retikulum.",
+    "source": {
+      "name": "Wikipedia: Plasmazelle",
+      "url": "https://de.wikipedia.org/wiki/Plasmazelle"
+    }
+  },
+  "homo:zelle-t-zelle": {
+    "id": "homo:zelle-t-zelle",
+    "name": "T-Zelle",
+    "type": "cell_type",
+    "category": "cell_type",
+    "attributes": {
+      "system": "Immunsystem",
+      "function": "steuert die Abwehr und zerstört virusbefallene oder entartete Körperzellen",
+      "notableFor": "reift in einem Organ hinter dem Brustbein heran, das ihr den Anfangsbuchstaben gibt",
+      "fachName": "T-Lymphozyt"
+    },
+    "funFact": "Das T steht für den Thymus, das Organ, in dem diese Zellen ihre Reifung und Auslese durchlaufen.",
+    "source": {
+      "name": "Wikipedia: T-Lymphozyt",
+      "url": "https://de.wikipedia.org/wiki/T-Lymphozyt"
+    }
+  },
+  "homo:zelle-b-zelle": {
+    "id": "homo:zelle-b-zelle",
+    "name": "B-Zelle",
+    "type": "cell_type",
+    "category": "cell_type",
+    "attributes": {
+      "system": "Immunsystem",
+      "function": "erkennt Antigene und reift zu antikörperbildenden Zellen heran",
+      "notableFor": "einzige Zellart, die sich zu Plasmazellen entwickeln kann; reift im Knochenmark",
+      "fachName": "B-Lymphozyt"
+    },
+    "funFact": "Nach Antigenkontakt wird ein Teil dieser Zellen zu langlebigen Gedächtniszellen, die spätere Infektionen schneller abwehren.",
+    "source": {
+      "name": "Wikipedia: B-Lymphozyt",
+      "url": "https://de.wikipedia.org/wiki/B-Lymphozyt"
+    }
+  },
+  "homo:zelle-nk-zelle": {
+    "id": "homo:zelle-nk-zelle",
+    "name": "Natürliche Killerzelle",
+    "type": "cell_type",
+    "category": "cell_type",
+    "attributes": {
+      "system": "Immunsystem",
+      "function": "tötet virusinfizierte und entartete Zellen ohne vorherige Sensibilisierung",
+      "notableFor": "Teil der angeborenen Abwehr, erkennt Zellen mit fehlenden Erkennungsmolekülen",
+      "fachName": "NK-Zelle"
+    },
+    "funFact": "Sie schlägt nach der Missing-Self-Hypothese gerade dann zu, wenn eine Zelle ihre MHC-Klasse-I-Moleküle verloren hat.",
+    "source": {
+      "name": "Wikipedia: Natürliche Killerzelle",
+      "url": "https://de.wikipedia.org/wiki/Nat%C3%BCrliche_Killerzelle"
+    }
+  },
+  "homo:zelle-neuron": {
+    "id": "homo:zelle-neuron",
+    "name": "Neuron",
+    "type": "cell_type",
+    "category": "cell_type",
+    "attributes": {
+      "system": "Nervensystem",
+      "function": "leitet elektrische Erregung weiter und überträgt Signale an andere Zellen",
+      "notableFor": "besitzt Dendriten als Eingänge und einen langen Fortsatz als Ausgang",
+      "fachName": "Nervenzelle"
+    },
+    "funFact": "Der Ausgangsfortsatz dieser Zelle kann beim Menschen über einen Meter lang werden, etwa vom Rückenmark bis zum Fuß.",
+    "source": {
+      "name": "Wikipedia: Nervenzelle",
+      "url": "https://de.wikipedia.org/wiki/Nervenzelle"
+    }
+  },
+  "homo:zelle-gliazelle": {
+    "id": "homo:zelle-gliazelle",
+    "name": "Gliazelle",
+    "type": "cell_type",
+    "category": "cell_type",
+    "attributes": {
+      "system": "Nervensystem",
+      "function": "stützt, isoliert und versorgt die Nervenzellen und hält ihr Milieu stabil",
+      "notableFor": "stellt etwa die Hälfte aller Zellen im menschlichen Gehirn"
+    },
+    "funFact": "Manche dieser Stützzellen umwickeln die Nervenfasern mit einer isolierenden Myelinhülle und beschleunigen so die Signalleitung.",
+    "source": {
+      "name": "Wikipedia: Gliazelle",
+      "url": "https://de.wikipedia.org/wiki/Gliazelle"
+    }
+  },
+  "homo:zelle-osteoblast": {
+    "id": "homo:zelle-osteoblast",
+    "name": "Osteoblast",
+    "type": "cell_type",
+    "category": "cell_type",
+    "attributes": {
+      "system": "Knochengewebe",
+      "function": "baut neue Knochensubstanz auf und scheidet die Grundmatrix aus",
+      "notableFor": "mauert sich beim Knochenwachstum selbst ein und wird zur ruhenden Knochenzelle"
+    },
+    "funFact": "Diese Aufbauzelle bildet zunächst das weiche Osteoid, das anschließend mit Calciumphosphat zu hartem Knochen verhärtet.",
+    "source": {
+      "name": "Wikipedia: Osteoblast",
+      "url": "https://de.wikipedia.org/wiki/Osteoblast"
+    }
+  },
+  "homo:zelle-osteoklast": {
+    "id": "homo:zelle-osteoklast",
+    "name": "Osteoklast",
+    "type": "cell_type",
+    "category": "cell_type",
+    "attributes": {
+      "system": "Knochengewebe",
+      "function": "baut Knochensubstanz ab und ermöglicht so den ständigen Knochenumbau",
+      "notableFor": "vielkernige Riesenzelle, die säure und Enzyme zum Auflösen des Knochens nutzt"
+    },
+    "funFact": "Eine einzige dieser Riesenzellen baut in derselben Zeit so viel Knochen ab, wie rund hundert Aufbauzellen aufbauen.",
+    "source": {
+      "name": "Wikipedia: Osteoklast",
+      "url": "https://de.wikipedia.org/wiki/Osteoklast"
+    }
+  },
+  "homo:zelle-osteozyt": {
+    "id": "homo:zelle-osteozyt",
+    "name": "Osteozyt",
+    "type": "cell_type",
+    "category": "cell_type",
+    "attributes": {
+      "system": "Knochengewebe",
+      "function": "hält das reife Knochengewebe instand und meldet mechanische Belastung",
+      "notableFor": "häufigste Knochenzelle, eingemauert in kleinen Hohlräumen der Knochenmatrix"
+    },
+    "funFact": "Die eingemauerten Zellen sind über feine Fortsätze und Gap Junctions miteinander vernetzt und tauschen so Nährstoffe aus.",
+    "source": {
+      "name": "Wikipedia: Osteozyt",
+      "url": "https://de.wikipedia.org/wiki/Osteozyt"
+    }
+  },
+  "homo:zelle-chondrozyt": {
+    "id": "homo:zelle-chondrozyt",
+    "name": "Chondrozyt",
+    "type": "cell_type",
+    "category": "cell_type",
+    "attributes": {
+      "system": "Knorpelgewebe",
+      "function": "bildet und erhält die Grundsubstanz des Knorpels",
+      "notableFor": "einziger Zelltyp im Knorpel, der ganz ohne Blutgefäße auskommt",
+      "fachName": "Knorpelzelle"
+    },
+    "funFact": "Da der Knorpel keine Blutgefäße besitzt, werden diese Zellen allein durch Diffusion mit Nährstoffen versorgt.",
+    "source": {
+      "name": "Wikipedia: Chondrozyt",
+      "url": "https://de.wikipedia.org/wiki/Chondrozyt"
+    }
+  },
+  "homo:zelle-fibroblast": {
+    "id": "homo:zelle-fibroblast",
+    "name": "Fibroblast",
+    "type": "cell_type",
+    "category": "cell_type",
+    "attributes": {
+      "system": "Bindegewebe",
+      "function": "bildet Kollagenfasern und die Grundsubstanz des Bindegewebes",
+      "notableFor": "wichtigste ortsständige Zelle des Bindegewebes und Schlüsselzelle der Wundheilung"
+    },
+    "funFact": "Bei der Wundheilung stabilisiert diese Zelle das frisch gebildete Gewebe, indem sie reichlich Kollagen produziert.",
+    "source": {
+      "name": "Wikipedia: Fibroblast",
+      "url": "https://de.wikipedia.org/wiki/Fibroblast"
+    }
+  },
+  "homo:zelle-adipozyt": {
+    "id": "homo:zelle-adipozyt",
+    "name": "Adipozyt",
+    "type": "cell_type",
+    "category": "cell_type",
+    "attributes": {
+      "system": "Fettgewebe",
+      "function": "speichert Energie in Form von Fett und gibt Botenstoffe wie Leptin ab",
+      "notableFor": "ein riesiger Fetttropfen füllt die Zelle fast aus und drängt den Kern an den Rand",
+      "fachName": "Fettzelle"
+    },
+    "funFact": "Im weißen Fettgewebe verdrängt der große Fetttropfen den Zellkern an den äußersten Zellrand.",
+    "source": {
+      "name": "Wikipedia: Adipozyt",
+      "url": "https://de.wikipedia.org/wiki/Adipozyt"
+    }
+  },
+  "homo:zelle-keratinozyt": {
+    "id": "homo:zelle-keratinozyt",
+    "name": "Keratinozyt",
+    "type": "cell_type",
+    "category": "cell_type",
+    "attributes": {
+      "system": "Haut",
+      "function": "bildet Hornstoff und damit die schützende Barriere der Oberhaut",
+      "notableFor": "stellt über 90 Prozent aller Zellen der Oberhaut",
+      "fachName": "Hornzelle"
+    },
+    "funFact": "Auf ihrem Weg zur Hautoberfläche verhornt die Zelle und bildet die abschilfernde, wasserabweisende Hornschicht.",
+    "source": {
+      "name": "Wikipedia: Keratinozyt",
+      "url": "https://de.wikipedia.org/wiki/Keratinozyt"
+    }
+  },
+  "homo:zelle-melanozyt": {
+    "id": "homo:zelle-melanozyt",
+    "name": "Melanozyt",
+    "type": "cell_type",
+    "category": "cell_type",
+    "attributes": {
+      "system": "Haut",
+      "function": "bildet das Pigment Melanin und schützt die Haut vor UV-Strahlung",
+      "notableFor": "Pigmentzelle in der untersten Schicht der Oberhaut, gibt Farbstoff an Nachbarzellen ab"
+    },
+    "funFact": "Helle und dunkle Haut haben gleich viele dieser Zellen; sie unterscheiden sich nur in Menge und Verteilung des Pigments.",
+    "source": {
+      "name": "Wikipedia: Melanozyt",
+      "url": "https://de.wikipedia.org/wiki/Melanozyt"
+    }
+  },
+  "homo:zelle-spermium": {
+    "id": "homo:zelle-spermium",
+    "name": "Spermium",
+    "type": "cell_type",
+    "category": "cell_type",
+    "attributes": {
+      "system": "Fortpflanzung",
+      "function": "befruchtet die weibliche Keimzelle und liefert dabei den väterlichen Chromosomensatz",
+      "notableFor": "bewegliche männliche Keimzelle, die sich mit einer Geißel fortbewegt",
+      "fachName": "Samenzelle"
+    },
+    "funFact": "Das Mittelstück steckt voller Mitochondrien, die die Energie für das Schlagen der Geißel liefern.",
+    "source": {
+      "name": "Wikipedia: Spermium",
+      "url": "https://de.wikipedia.org/wiki/Spermium"
+    }
+  },
+  "homo:zelle-eizelle": {
+    "id": "homo:zelle-eizelle",
+    "name": "Eizelle",
+    "type": "cell_type",
+    "category": "cell_type",
+    "attributes": {
+      "system": "Fortpflanzung",
+      "function": "stellt als weibliche Keimzelle Cytoplasma und Nährstoffe für den Embryo bereit",
+      "notableFor": "größte Zelle des menschlichen Körpers, gerade noch mit bloßem Auge erkennbar",
+      "fachName": "Oozyte"
+    },
+    "funFact": "Mit etwa 0,11 bis 0,14 Millimeter Durchmesser ist sie viele zehntausend Mal so groß wie ein Spermium.",
+    "source": {
+      "name": "Wikipedia: Eizelle",
+      "url": "https://de.wikipedia.org/wiki/Eizelle"
+    }
+  },
+  "homo:zelle-staebchenzelle": {
+    "id": "homo:zelle-staebchenzelle",
+    "name": "Stäbchenzelle",
+    "type": "cell_type",
+    "category": "cell_type",
+    "attributes": {
+      "system": "Sinnesorgan",
+      "function": "ermöglicht das Sehen bei Dämmerung und Dunkelheit ohne Farbunterscheidung",
+      "notableFor": "lichtempfindlichste Sehzelle der Netzhaut, reagiert schon auf einzelne Photonen",
+      "fachName": "Stäbchen"
+    },
+    "funFact": "Rund 120 Millionen dieser Zellen liegen in der Netzhaut, weit mehr als die etwa 6 Millionen Farb-Sehzellen.",
+    "source": {
+      "name": "Wikipedia: Stäbchen (Auge)",
+      "url": "https://de.wikipedia.org/wiki/St%C3%A4bchen_(Auge)"
+    }
+  },
+  "homo:zelle-zapfenzelle": {
+    "id": "homo:zelle-zapfenzelle",
+    "name": "Zapfenzelle",
+    "type": "cell_type",
+    "category": "cell_type",
+    "attributes": {
+      "system": "Sinnesorgan",
+      "function": "ermöglicht das Farbsehen und das scharfe Sehen bei Tageslicht",
+      "notableFor": "kommt in drei Typen für Blau, Grün und Rot vor",
+      "fachName": "Zapfen"
+    },
+    "funFact": "Aus dem Zusammenspiel der drei Typen für Blau, Grün und Rot kann das Auge rund zwei Millionen Farbtöne unterscheiden.",
+    "source": {
+      "name": "Wikipedia: Zapfen (Auge)",
+      "url": "https://de.wikipedia.org/wiki/Zapfen_(Auge)"
+    }
+  },
+  "homo:zelle-haarzelle": {
+    "id": "homo:zelle-haarzelle",
+    "name": "Haarzelle",
+    "type": "cell_type",
+    "category": "cell_type",
+    "attributes": {
+      "system": "Sinnesorgan",
+      "function": "wandelt Schallschwingungen des Innenohrs in Nervensignale um",
+      "notableFor": "trägt feine Sinneshärchen, deren Auslenkung Ionenkanäle öffnet"
+    },
+    "funFact": "Werden die feinen Sinneshärchen durch Schall ausgelenkt, öffnen sich Ionenkanäle und lösen ein elektrisches Signal aus.",
+    "source": {
+      "name": "Wikipedia: Haarzelle",
+      "url": "https://de.wikipedia.org/wiki/Haarzelle"
+    }
+  },
+  "homo:zelle-hepatozyt": {
+    "id": "homo:zelle-hepatozyt",
+    "name": "Hepatozyt",
+    "type": "cell_type",
+    "category": "cell_type",
+    "attributes": {
+      "system": "Drüsengewebe",
+      "function": "entgiftet das Blut, bildet Galle und stellt wichtige Bluteiweiße her",
+      "notableFor": "Hauptzelle der Leber, die rund 80 Prozent ihres Volumens ausmacht",
+      "fachName": "Leberzelle"
+    },
+    "funFact": "Diese Zelle stellt unter anderem das Bluteiweiß Albumin und zahlreiche Gerinnungsfaktoren her.",
+    "source": {
+      "name": "Wikipedia: Hepatozyt",
+      "url": "https://de.wikipedia.org/wiki/Leberzelle"
+    }
+  },
+  "homo:zelle-becherzelle": {
+    "id": "homo:zelle-becherzelle",
+    "name": "Becherzelle",
+    "type": "cell_type",
+    "category": "cell_type",
+    "attributes": {
+      "system": "Drüsengewebe",
+      "function": "produziert Schleim und befeuchtet die Schleimhäute von Darm und Atemwegen",
+      "notableFor": "einzellige, becherförmige Drüse, die zwischen anderen Epithelzellen sitzt"
+    },
+    "funFact": "Sie wirkt wie eine winzige einzellige Drüse und gibt ihren Schleim direkt auf die Oberfläche der Schleimhaut ab.",
+    "source": {
+      "name": "Wikipedia: Becherzelle",
+      "url": "https://de.wikipedia.org/wiki/Becherzelle"
+    }
+  },
+  "homo:zelle-muskelzelle": {
+    "id": "homo:zelle-muskelzelle",
+    "name": "Muskelzelle",
+    "type": "cell_type",
+    "category": "cell_type",
+    "attributes": {
+      "system": "Muskelgewebe",
+      "function": "verkürzt sich aktiv und erzeugt so Bewegung und Kraft",
+      "notableFor": "enthält die Eiweiße Aktin und Myosin, die ineinander gleiten",
+      "fachName": "Myozyt"
+    },
+    "funFact": "Eine Skelettmuskelfaser entsteht durch Verschmelzung vieler Vorläuferzellen und besitzt deshalb viele Zellkerne.",
+    "source": {
+      "name": "Wikipedia: Muskelzelle",
+      "url": "https://de.wikipedia.org/wiki/Muskelzelle"
+    }
+  },
+  "homo:zelle-stammzelle": {
+    "id": "homo:zelle-stammzelle",
+    "name": "Stammzelle",
+    "type": "cell_type",
+    "category": "cell_type",
+    "attributes": {
+      "system": "Blut",
+      "function": "erneuert sich selbst und kann sich in verschiedene Zelltypen entwickeln",
+      "notableFor": "noch nicht festgelegte Zelle, aus der spezialisierte Gewebezellen hervorgehen"
+    },
+    "funFact": "Blutbildende Vertreter dieser Zellart werden seit über vierzig Jahren bei der Behandlung von Leukämie eingesetzt.",
+    "source": {
+      "name": "Wikipedia: Stammzelle",
+      "url": "https://de.wikipedia.org/wiki/Stammzelle"
+    }
+  },
+  "homo:hormon-insulin": {
+    "id": "homo:hormon-insulin",
+    "name": "Insulin",
+    "type": "hormone",
+    "category": "hormone",
+    "attributes": {
+      "gland": "Bauchspeicheldrüse (Beta-Zellen der Langerhans-Inseln)",
+      "function": "senkt den Blutzuckerspiegel und fördert die Glucoseaufnahme in die Zellen",
+      "hormoneClass": "Peptidhormon"
+    },
+    "funFact": "Es ist der direkte Gegenspieler des Glukagons und hält so den Blutzucker im Gleichgewicht.",
+    "source": {
+      "name": "Wikipedia (de): Insulin",
+      "url": "https://de.wikipedia.org/wiki/Insulin"
+    }
+  },
+  "homo:hormon-glukagon": {
+    "id": "homo:hormon-glukagon",
+    "name": "Glukagon",
+    "type": "hormone",
+    "category": "hormone",
+    "attributes": {
+      "gland": "Bauchspeicheldrüse (Alpha-Zellen der Langerhans-Inseln)",
+      "function": "erhöht den Blutzuckerspiegel durch Abbau von Glykogen in der Leber",
+      "hormoneClass": "Peptidhormon"
+    },
+    "funFact": "Bei Unterzucker ausgeschüttet, mobilisiert es Glucose aus den Glykogenspeichern der Leber.",
+    "source": {
+      "name": "Wikipedia (de): Glucagon",
+      "url": "https://de.wikipedia.org/wiki/Glucagon"
+    }
+  },
+  "homo:hormon-adrenalin": {
+    "id": "homo:hormon-adrenalin",
+    "name": "Adrenalin",
+    "type": "hormone",
+    "category": "hormone",
+    "attributes": {
+      "gland": "Nebennierenmark",
+      "function": "bereitet den Körper auf Kampf oder Flucht vor, steigert Herzfrequenz und Blutdruck",
+      "hormoneClass": "Aminosäure-Abkömmling",
+      "latinName": "Epinephrin"
+    },
+    "funFact": "Es gehört zu den Katecholaminen und hat im Blut nur eine Halbwertszeit von ein bis drei Minuten.",
+    "source": {
+      "name": "Wikipedia (de): Adrenalin",
+      "url": "https://de.wikipedia.org/wiki/Adrenalin"
+    }
+  },
+  "homo:hormon-noradrenalin": {
+    "id": "homo:hormon-noradrenalin",
+    "name": "Noradrenalin",
+    "type": "hormone",
+    "category": "hormone",
+    "attributes": {
+      "gland": "Nebennierenmark (und sympathisches Nervensystem)",
+      "function": "erhöht den Blutdruck durch Engstellung der Blutgefäße",
+      "hormoneClass": "Aminosäure-Abkömmling",
+      "latinName": "Norepinephrin"
+    },
+    "funFact": "Chemisch unterscheidet es sich vom Adrenalin nur durch eine fehlende Methylgruppe an der Aminogruppe.",
+    "source": {
+      "name": "Wikipedia (de): Noradrenalin",
+      "url": "https://de.wikipedia.org/wiki/Noradrenalin"
+    }
+  },
+  "homo:hormon-cortisol": {
+    "id": "homo:hormon-cortisol",
+    "name": "Cortisol",
+    "type": "hormone",
+    "category": "hormone",
+    "attributes": {
+      "gland": "Nebennierenrinde (Zona fasciculata)",
+      "function": "Stresshormon, fördert Glucoseproduktion und dämpft das Immunsystem",
+      "hormoneClass": "Steroidhormon"
+    },
+    "funFact": "Sein Spiegel schwankt im Tagesverlauf und ist morgens nach dem Aufwachen am höchsten.",
+    "source": {
+      "name": "Wikipedia (de): Cortisol",
+      "url": "https://de.wikipedia.org/wiki/Cortisol"
+    }
+  },
+  "homo:hormon-aldosteron": {
+    "id": "homo:hormon-aldosteron",
+    "name": "Aldosteron",
+    "type": "hormone",
+    "category": "hormone",
+    "attributes": {
+      "gland": "Nebennierenrinde (Zona glomerulosa)",
+      "function": "hält Natrium und Wasser im Körper zurück und steigert so den Blutdruck",
+      "hormoneClass": "Steroidhormon"
+    },
+    "funFact": "Es hält Natrium zurück und scheidet im Gegenzug Kalium über die Niere aus.",
+    "source": {
+      "name": "Wikipedia (de): Aldosteron",
+      "url": "https://de.wikipedia.org/wiki/Aldosteron"
+    }
+  },
+  "homo:hormon-testosteron": {
+    "id": "homo:hormon-testosteron",
+    "name": "Testosteron",
+    "type": "hormone",
+    "category": "hormone",
+    "attributes": {
+      "gland": "Hoden (Leydig-Zellen)",
+      "function": "steuert die Entwicklung männlicher Geschlechtsmerkmale und wirkt muskelaufbauend",
+      "hormoneClass": "Steroidhormon"
+    },
+    "funFact": "Auch der weibliche Körper bildet es in geringen Mengen in Eierstöcken und Nebennierenrinde.",
+    "source": {
+      "name": "Wikipedia (de): Testosteron",
+      "url": "https://de.wikipedia.org/wiki/Testosteron"
+    }
+  },
+  "homo:hormon-oestradiol": {
+    "id": "homo:hormon-oestradiol",
+    "name": "Oestradiol",
+    "type": "hormone",
+    "category": "hormone",
+    "attributes": {
+      "gland": "Eierstock (Follikel)",
+      "function": "fördert weibliche Geschlechtsmerkmale und steuert den Menstruationszyklus",
+      "hormoneClass": "Steroidhormon"
+    },
+    "funFact": "Es ist das wirksamste natürliche Oestrogen und beeinflusst auch die Knochendichte positiv.",
+    "source": {
+      "name": "Wikipedia (de): Estradiol",
+      "url": "https://de.wikipedia.org/wiki/Estradiol"
+    }
+  },
+  "homo:hormon-progesteron": {
+    "id": "homo:hormon-progesteron",
+    "name": "Progesteron",
+    "type": "hormone",
+    "category": "hormone",
+    "attributes": {
+      "gland": "Eierstock (Gelbkörper) und Plazenta",
+      "function": "bereitet die Gebärmutterschleimhaut auf die Einnistung vor und erhält die Schwangerschaft",
+      "hormoneClass": "Steroidhormon"
+    },
+    "funFact": "Als wichtigstes Gelbkörperhormon verhindert es nach der Befruchtung die weitere Follikelreifung.",
+    "source": {
+      "name": "Wikipedia (de): Progesteron",
+      "url": "https://de.wikipedia.org/wiki/Progesteron"
+    }
+  },
+  "homo:hormon-melatonin": {
+    "id": "homo:hormon-melatonin",
+    "name": "Melatonin",
+    "type": "hormone",
+    "category": "hormone",
+    "attributes": {
+      "gland": "Zirbeldrüse (Epiphyse)",
+      "function": "steuert den Tag-Nacht-Rhythmus und wirkt schlaffördernd",
+      "hormoneClass": "Aminosäure-Abkömmling"
+    },
+    "funFact": "Seine Produktion wird durch Licht gehemmt und steigt bei Dunkelheit nachts deutlich an.",
+    "source": {
+      "name": "Wikipedia (de): Melatonin",
+      "url": "https://de.wikipedia.org/wiki/Melatonin"
+    }
+  },
+  "homo:hormon-thyroxin": {
+    "id": "homo:hormon-thyroxin",
+    "name": "Thyroxin",
+    "type": "hormone",
+    "category": "hormone",
+    "attributes": {
+      "gland": "Schilddrüse",
+      "function": "reguliert den Energiestoffwechsel und steigert den Energieumsatz des Körpers",
+      "hormoneClass": "Aminosäure-Abkömmling",
+      "latinName": "Tetraiodthyronin"
+    },
+    "funFact": "Der Name T4 rührt von den vier Jod-Atomen im Molekül her; es dient als Vorstufe des aktiveren T3.",
+    "source": {
+      "name": "Wikipedia (de): Thyroxin",
+      "url": "https://de.wikipedia.org/wiki/Thyroxin"
+    }
+  },
+  "homo:hormon-trijodthyronin": {
+    "id": "homo:hormon-trijodthyronin",
+    "name": "Trijodthyronin",
+    "type": "hormone",
+    "category": "hormone",
+    "attributes": {
+      "gland": "Schilddrüse",
+      "function": "beschleunigt den Zellstoffwechsel und steigert den Grundumsatz deutlich",
+      "hormoneClass": "Aminosäure-Abkömmling",
+      "latinName": "Triiodthyronin"
+    },
+    "funFact": "Es entsteht zum großen Teil erst durch Umwandlung aus T4 und wirkt drei- bis fünffach stärker. Es wird auch T3 genannt.",
+    "source": {
+      "name": "Wikipedia (de): Triiodthyronin",
+      "url": "https://de.wikipedia.org/wiki/Triiodthyronin"
+    }
+  },
+  "homo:hormon-somatotropin": {
+    "id": "homo:hormon-somatotropin",
+    "name": "Wachstumshormon",
+    "type": "hormone",
+    "category": "hormone",
+    "attributes": {
+      "gland": "Hypophysenvorderlappen",
+      "function": "ist für normales Körperwachstum unverzichtbar und fördert Muskel- und Knochenaufbau",
+      "hormoneClass": "Peptidhormon"
+    },
+    "funFact": "Es wird besonders während des Schlafs und in der Pubertät verstärkt ausgeschüttet. Es wird auch Somatotropin genannt.",
+    "source": {
+      "name": "Wikipedia (de): Somatotropin",
+      "url": "https://de.wikipedia.org/wiki/Somatotropin"
+    }
+  },
+  "homo:hormon-oxytocin": {
+    "id": "homo:hormon-oxytocin",
+    "name": "Oxytocin",
+    "type": "hormone",
+    "category": "hormone",
+    "attributes": {
+      "gland": "Hypothalamus (Freisetzung im Hypophysenhinterlappen)",
+      "function": "löst Wehen aus und stimuliert die Milchabgabe der Brustdrüsen",
+      "hormoneClass": "Peptidhormon"
+    },
+    "funFact": "Es beeinflusst soziale Bindung und Vertrauen und wird oft als Bindungshormon bezeichnet.",
+    "source": {
+      "name": "Wikipedia (de): Oxytocin",
+      "url": "https://de.wikipedia.org/wiki/Oxytocin"
+    }
+  },
+  "homo:hormon-prolaktin": {
+    "id": "homo:hormon-prolaktin",
+    "name": "Prolaktin",
+    "type": "hormone",
+    "category": "hormone",
+    "attributes": {
+      "gland": "Hypophysenvorderlappen",
+      "function": "fördert das Wachstum der Brustdrüse und die Milchproduktion in der Stillzeit",
+      "hormoneClass": "Peptidhormon"
+    },
+    "funFact": "Seine Ausschüttung wird hauptsächlich durch Dopamin gehemmt.",
+    "source": {
+      "name": "Wikipedia (de): Prolaktin",
+      "url": "https://de.wikipedia.org/wiki/Prolaktin"
+    }
+  },
+  "homo:hormon-adh": {
+    "id": "homo:hormon-adh",
+    "name": "Antidiuretisches Hormon",
+    "type": "hormone",
+    "category": "hormone",
+    "attributes": {
+      "gland": "Hypothalamus (Freisetzung im Hypophysenhinterlappen)",
+      "function": "fördert die Wasserrückgewinnung in der Niere und konzentriert den Urin",
+      "hormoneClass": "Peptidhormon"
+    },
+    "funFact": "In höheren Konzentrationen verengt es die Blutgefäße und steigert den Blutdruck. Es wird auch ADH/Vasopressin genannt.",
+    "source": {
+      "name": "Wikipedia (de): Adiuretin",
+      "url": "https://de.wikipedia.org/wiki/Adiuretin"
+    }
+  },
+  "homo:hormon-parathormon": {
+    "id": "homo:hormon-parathormon",
+    "name": "Parathormon",
+    "type": "hormone",
+    "category": "hormone",
+    "attributes": {
+      "gland": "Nebenschilddrüse",
+      "function": "erhöht den Calciumspiegel im Blut durch Mobilisierung von Calcium aus dem Knochen",
+      "hormoneClass": "Peptidhormon"
+    },
+    "funFact": "Es ist das wichtigste Hormon zur Regelung des Calciumspiegels im Blutplasma.",
+    "source": {
+      "name": "Wikipedia (de): Parathormon",
+      "url": "https://de.wikipedia.org/wiki/Parathormon"
+    }
+  },
+  "homo:hormon-calcitonin": {
+    "id": "homo:hormon-calcitonin",
+    "name": "Calcitonin",
+    "type": "hormone",
+    "category": "hormone",
+    "attributes": {
+      "gland": "Schilddrüse (C-Zellen)",
+      "function": "senkt den Calciumspiegel im Blut durch Hemmung des Knochenabbaus",
+      "hormoneClass": "Peptidhormon"
+    },
+    "funFact": "Es ist der Gegenspieler des Parathormons und wird aus den parafollikulären C-Zellen abgesondert.",
+    "source": {
+      "name": "Wikipedia (de): Calcitonin",
+      "url": "https://de.wikipedia.org/wiki/Calcitonin"
+    }
+  },
+  "homo:hormon-serotonin": {
+    "id": "homo:hormon-serotonin",
+    "name": "Serotonin",
+    "type": "hormone",
+    "category": "hormone",
+    "attributes": {
+      "gland": "Magen-Darm-Trakt (enterochromaffine Zellen) und Nervensystem",
+      "function": "beeinflusst Stimmung, Schlaf und Appetit und reguliert die Darmbewegung",
+      "hormoneClass": "Aminosäure-Abkömmling"
+    },
+    "funFact": "Rund 95 Prozent des körpereigenen Bestands befinden sich im Magen-Darm-Trakt.",
+    "source": {
+      "name": "Wikipedia (de): Serotonin",
+      "url": "https://de.wikipedia.org/wiki/Serotonin"
+    }
+  },
+  "homo:hormon-dopamin": {
+    "id": "homo:hormon-dopamin",
+    "name": "Dopamin",
+    "type": "hormone",
+    "category": "hormone",
+    "attributes": {
+      "gland": "Gehirn (Substantia nigra) und Nebennierenmark",
+      "function": "steuert Bewegungsabläufe und ist an Motivation und Belohnung beteiligt",
+      "hormoneClass": "Aminosäure-Abkömmling"
+    },
+    "funFact": "Als Botenstoff hemmt es zugleich die Ausschüttung von Prolaktin.",
+    "source": {
+      "name": "Wikipedia (de): Dopamin",
+      "url": "https://de.wikipedia.org/wiki/Dopamin"
+    }
+  },
+  "homo:vitamin-a": {
+    "id": "homo:vitamin-a",
+    "name": "Vitamin A",
+    "type": "vitamin",
+    "category": "vitamin",
+    "attributes": {
+      "chemicalName": "Retinol",
+      "solubility": "fettlöslich",
+      "function": "Wichtig für den Sehvorgang, Zellwachstum und die Embryonalentwicklung"
+    },
+    "funFact": "Aus dem Pflanzenfarbstoff Beta-Carotin kann der Körper dieses Vitamin selbst herstellen.",
+    "source": {
+      "name": "Wikipedia: Vitamin",
+      "url": "https://de.wikipedia.org/wiki/Vitamin"
+    }
+  },
+  "homo:vitamin-b1": {
+    "id": "homo:vitamin-b1",
+    "name": "Vitamin B1",
+    "type": "vitamin",
+    "category": "vitamin",
+    "attributes": {
+      "chemicalName": "Thiamin",
+      "solubility": "wasserlöslich",
+      "function": "Zentral für den Kohlenhydratstoffwechsel und die Funktion der Nervenzellen"
+    },
+    "funFact": "Ein schwerer Mangel an diesem Vitamin verursacht die Nervenkrankheit Beriberi.",
+    "source": {
+      "name": "Wikipedia: Vitamin",
+      "url": "https://de.wikipedia.org/wiki/Vitamin"
+    }
+  },
+  "homo:vitamin-b2": {
+    "id": "homo:vitamin-b2",
+    "name": "Vitamin B2",
+    "type": "vitamin",
+    "category": "vitamin",
+    "attributes": {
+      "chemicalName": "Riboflavin",
+      "solubility": "wasserlöslich",
+      "function": "Wichtig für die Energiegewinnung in den Zellen und das Zellwachstum"
+    },
+    "funFact": "Dieses Vitamin färbt den Urin nach Einnahme leuchtend gelb.",
+    "source": {
+      "name": "Wikipedia: Vitamin",
+      "url": "https://de.wikipedia.org/wiki/Vitamin"
+    }
+  },
+  "homo:vitamin-b3": {
+    "id": "homo:vitamin-b3",
+    "name": "Vitamin B3",
+    "type": "vitamin",
+    "category": "vitamin",
+    "attributes": {
+      "chemicalName": "Niacin",
+      "solubility": "wasserlöslich",
+      "function": "Beteiligt am Stoffwechsel von Fett, Eiweiß und Kohlenhydraten"
+    },
+    "funFact": "Der Körper kann dieses Vitamin in geringen Mengen aus der Aminosäure Tryptophan bilden.",
+    "source": {
+      "name": "Wikipedia: Vitamin",
+      "url": "https://de.wikipedia.org/wiki/Vitamin"
+    }
+  },
+  "homo:vitamin-b5": {
+    "id": "homo:vitamin-b5",
+    "name": "Vitamin B5",
+    "type": "vitamin",
+    "category": "vitamin",
+    "attributes": {
+      "chemicalName": "Pantothensäure",
+      "solubility": "wasserlöslich",
+      "function": "Baustein des Coenzym A und wichtig für Energiestoffwechsel und Wundheilung"
+    },
+    "funFact": "Der Name leitet sich vom griechischen pantothen ab, was überall bedeutet, da es in fast allen Lebensmitteln vorkommt.",
+    "source": {
+      "name": "Wikipedia: Vitamin",
+      "url": "https://de.wikipedia.org/wiki/Vitamin"
+    }
+  },
+  "homo:vitamin-b6": {
+    "id": "homo:vitamin-b6",
+    "name": "Vitamin B6",
+    "type": "vitamin",
+    "category": "vitamin",
+    "attributes": {
+      "chemicalName": "Pyridoxin",
+      "solubility": "wasserlöslich",
+      "function": "Wichtig für den Eiweißstoffwechsel und den Schutz der Nervenzellen"
+    },
+    "funFact": "Es ist an der Bildung von Botenstoffen wie Serotonin im Gehirn beteiligt.",
+    "source": {
+      "name": "Wikipedia: Vitamin",
+      "url": "https://de.wikipedia.org/wiki/Vitamin"
+    }
+  },
+  "homo:vitamin-b7": {
+    "id": "homo:vitamin-b7",
+    "name": "Vitamin B7",
+    "type": "vitamin",
+    "category": "vitamin",
+    "attributes": {
+      "chemicalName": "Biotin",
+      "solubility": "wasserlöslich",
+      "function": "Wichtig für gesunde Haut, Haare und Nägel sowie den Stoffwechsel"
+    },
+    "funFact": "Früher wurde dieses Vitamin auch als Vitamin H bezeichnet, mit H für Haut und Haar.",
+    "source": {
+      "name": "Wikipedia: Vitamin",
+      "url": "https://de.wikipedia.org/wiki/Vitamin"
+    }
+  },
+  "homo:vitamin-b9": {
+    "id": "homo:vitamin-b9",
+    "name": "Vitamin B9",
+    "type": "vitamin",
+    "category": "vitamin",
+    "attributes": {
+      "chemicalName": "Folsäure",
+      "solubility": "wasserlöslich",
+      "function": "Wichtig für Zellteilung, Blutbildung und die Entwicklung des Ungeborenen"
+    },
+    "funFact": "Schwangeren wird dieses Vitamin empfohlen, da es Neuralrohrdefekten beim Embryo vorbeugt.",
+    "source": {
+      "name": "Wikipedia: Vitamin",
+      "url": "https://de.wikipedia.org/wiki/Vitamin"
+    }
+  },
+  "homo:vitamin-b12": {
+    "id": "homo:vitamin-b12",
+    "name": "Vitamin B12",
+    "type": "vitamin",
+    "category": "vitamin",
+    "attributes": {
+      "chemicalName": "Cobalamin",
+      "solubility": "wasserlöslich",
+      "function": "Wichtig für die Bildung roter Blutkörperchen und die Nervenfunktion"
+    },
+    "funFact": "Es ist das einzige wasserlösliche Vitamin, das der Körper jahrelang in der Leber speichern kann.",
+    "source": {
+      "name": "Wikipedia: Vitamin",
+      "url": "https://de.wikipedia.org/wiki/Vitamin"
+    }
+  },
+  "homo:vitamin-c": {
+    "id": "homo:vitamin-c",
+    "name": "Vitamin C",
+    "type": "vitamin",
+    "category": "vitamin",
+    "attributes": {
+      "chemicalName": "Ascorbinsäure",
+      "solubility": "wasserlöslich",
+      "function": "Wichtig für Bindegewebe, Immunabwehr und als zellschützendes Antioxidans"
+    },
+    "funFact": "Anders als die meisten Tiere kann der Mensch dieses Vitamin nicht selbst bilden und muss es essen.",
+    "source": {
+      "name": "Wikipedia: Vitamin",
+      "url": "https://de.wikipedia.org/wiki/Vitamin"
+    }
+  },
+  "homo:vitamin-d": {
+    "id": "homo:vitamin-d",
+    "name": "Vitamin D",
+    "type": "vitamin",
+    "category": "vitamin",
+    "attributes": {
+      "chemicalName": "Calciferol",
+      "solubility": "fettlöslich",
+      "function": "Fördert die Calciumaufnahme im Darm und den Aufbau gesunder Knochen"
+    },
+    "funFact": "Der Körper kann dieses Vitamin mithilfe von Sonnenlicht in der Haut selbst herstellen.",
+    "source": {
+      "name": "Wikipedia: Vitamin",
+      "url": "https://de.wikipedia.org/wiki/Vitamin"
+    }
+  },
+  "homo:vitamin-e": {
+    "id": "homo:vitamin-e",
+    "name": "Vitamin E",
+    "type": "vitamin",
+    "category": "vitamin",
+    "attributes": {
+      "chemicalName": "Tocopherol",
+      "solubility": "fettlöslich",
+      "function": "Wirkt als Antioxidans und schützt die Zellmembranen vor Schäden"
+    },
+    "funFact": "Der Name Tocopherol stammt aus dem Griechischen und bedeutet sinngemäß zur Geburt beitragend.",
+    "source": {
+      "name": "Wikipedia: Vitamin",
+      "url": "https://de.wikipedia.org/wiki/Vitamin"
+    }
+  },
+  "homo:vitamin-k": {
+    "id": "homo:vitamin-k",
+    "name": "Vitamin K",
+    "type": "vitamin",
+    "category": "vitamin",
+    "attributes": {
+      "chemicalName": "Phyllochinon",
+      "solubility": "fettlöslich",
+      "function": "Notwendig für die Bildung von Gerinnungsfaktoren und damit die Blutgerinnung"
+    },
+    "funFact": "Der Buchstabe stammt vom deutschen Wort Koagulation, also Blutgerinnung.",
+    "source": {
+      "name": "Wikipedia: Vitamin",
+      "url": "https://de.wikipedia.org/wiki/Vitamin"
+    }
+  },
+  "homo:sinn-sehen": {
+    "id": "homo:sinn-sehen",
+    "name": "Sehsinn",
+    "type": "sense",
+    "category": "sense",
+    "attributes": {
+      "sensoryOrgan": "Auge",
+      "function": "Nimmt Lichtreize wahr und ermöglicht das Erkennen von Form, Helligkeit und Farbe.",
+      "notableFor": "Netzhaut mit rund 120 Mio. Stäbchen (Dämmerung) und 6 Mio. Zapfen (Farbe)."
+    },
+    "funFact": "Die Zapfen für das Farbsehen sitzen am dichtesten in der Sehgrube (Fovea), wo das schärfste Sehen entsteht.",
+    "source": {
+      "name": "Wikipedia: Netzhaut",
+      "url": "https://de.wikipedia.org/wiki/Netzhaut"
+    }
+  },
+  "homo:sinn-hoeren": {
+    "id": "homo:sinn-hoeren",
+    "name": "Hörsinn",
+    "type": "sense",
+    "category": "sense",
+    "attributes": {
+      "sensoryOrgan": "Ohr",
+      "function": "Nimmt Schallwellen wahr und ermöglicht das Lokalisieren von Klangquellen im Raum.",
+      "notableFor": "Junge Menschen nehmen Frequenzen von etwa 16 Hz bis 20.000 Hz wahr."
+    },
+    "funFact": "In der Hörschnecke (Cochlea) wandeln feine Haarzellen die Schwingungen der Innenohrflüssigkeit in Nervenimpulse um.",
+    "source": {
+      "name": "Wikipedia: Ohr",
+      "url": "https://de.wikipedia.org/wiki/Ohr"
+    }
+  },
+  "homo:sinn-riechen": {
+    "id": "homo:sinn-riechen",
+    "name": "Geruchssinn",
+    "type": "sense",
+    "category": "sense",
+    "attributes": {
+      "sensoryOrgan": "Nase",
+      "function": "Erkennt Duftmoleküle in der Atemluft über die Riechschleimhaut am Dach der Nasenhöhle.",
+      "notableFor": "Rund 400 Rezeptortypen lassen den Menschen tausende Düfte unterscheiden."
+    },
+    "funFact": "Durch Kombination der etwa 400 Rezeptortypen kann der Mensch rund 10.000 verschiedene Gerüche unterscheiden.",
+    "source": {
+      "name": "Wikipedia: Olfaktorische Wahrnehmung",
+      "url": "https://de.wikipedia.org/wiki/Geruchssinn"
+    }
+  },
+  "homo:sinn-schmecken": {
+    "id": "homo:sinn-schmecken",
+    "name": "Geschmackssinn",
+    "type": "sense",
+    "category": "sense",
+    "attributes": {
+      "sensoryOrgan": "Zunge",
+      "function": "Erkennt gelöste Stoffe in der Nahrung über Sinneszellen in den Geschmacksknospen.",
+      "notableFor": "Unterscheidet die Grundqualitäten süß, salzig, sauer, bitter und umami."
+    },
+    "funFact": "Eine einzelne Geschmacksknospe enthält 50 bis 150 Sinneszellen, die gemeinsam einen Geschmackseindruck melden.",
+    "source": {
+      "name": "Wikipedia: Gustatorische Wahrnehmung",
+      "url": "https://de.wikipedia.org/wiki/Geschmackssinn"
+    }
+  },
+  "homo:sinn-tasten": {
+    "id": "homo:sinn-tasten",
+    "name": "Tastsinn",
+    "type": "sense",
+    "category": "sense",
+    "attributes": {
+      "sensoryOrgan": "Haut",
+      "function": "Nimmt Berührung, Druck und Vibration über spezialisierte Mechanorezeptoren wahr.",
+      "notableFor": "Meissner-, Merkel-, Ruffini- und Vater-Pacini-Körperchen sitzen in der Haut."
+    },
+    "funFact": "Eigene C-taktile Nervenfasern melden besonders langsam nur sanfte, zärtliche Berührungen ans Gehirn.",
+    "source": {
+      "name": "Wikipedia: Tastsinn",
+      "url": "https://de.wikipedia.org/wiki/Tastsinn"
+    }
+  },
+  "homo:sinn-gleichgewicht": {
+    "id": "homo:sinn-gleichgewicht",
+    "name": "Gleichgewichtssinn",
+    "type": "sense",
+    "category": "sense",
+    "attributes": {
+      "sensoryOrgan": "Innenohr",
+      "function": "Erfasst Drehbewegungen sowie Lage und Beschleunigung des Kopfes im Raum.",
+      "notableFor": "Drei nahezu senkrecht zueinander stehende Bogengänge je Innenohr."
+    },
+    "funFact": "Die Otolithenorgane melden mithilfe winziger Kristalle die Richtung der Schwerkraft ans Gehirn.",
+    "source": {
+      "name": "Wikipedia: Gleichgewichtsorgan",
+      "url": "https://de.wikipedia.org/wiki/Gleichgewichtsorgan"
+    }
   }
 }

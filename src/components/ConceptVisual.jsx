@@ -34,6 +34,11 @@ const CATEGORY_LABELS = {
   organ: 'Organ',
   body_fact: 'Körperwert',
   species: 'Menschenart',
+  // Homo — Physiologie jenseits der Anatomie (Stand 2026-06-25)
+  cell_type: 'Zelltyp',
+  hormone: 'Hormon',
+  vitamin: 'Vitamin',
+  sense: 'Sinn',
   // Natura
   animal: 'Tier',
   plant: 'Pflanze',
@@ -87,6 +92,13 @@ const ATTR_LABELS = {
   notableFor: 'Bekannt für',
   location: 'Lage',
   system: 'Organsystem',
+  // Homo-Attribute der neuen Kategorien (cell_type/hormone/vitamin/sense).
+  fachName: 'Fachbegriff',
+  gland: 'Bildungsort',
+  hormoneClass: 'Hormonklasse',
+  chemicalName: 'Chemischer Name',
+  solubility: 'Löslichkeit',
+  sensoryOrgan: 'Sinnesorgan',
   approxWeightGrams: 'Gewicht (g)',
   value: 'Wert',
   unit: 'Einheit',
