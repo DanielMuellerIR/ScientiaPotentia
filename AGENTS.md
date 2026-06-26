@@ -987,6 +987,26 @@ Additiv, Dedup, `+`/`#`-erhaltend. `merge_machina_historia.js` existiert nicht m
 
 (ex-theplan #202)
 
+### 1d. Offene Punkte (Stand 2026-06-26)
+
+> **Konvention:** Projektspezifische Todos bleiben **hier in `AGENTS.md`**, nicht in
+> `~/git/theplan`. Wird die Liste zu lang → in eigene Datei (`docs/todos.md` o. ä.)
+> auslagern und hier nur referenzieren. (Frühere theplan-Einträge #225/#227/#228 wurden
+> am 2026-06-26 hierher zurückgeholt.)
+
+- [ ] **Machina-`compression`-Doppelvokabular kanonisieren** (niedrige Prio, vorbestehende
+  Altlast): Die Kategorie `compression` führt zwei Parallelvokabulare (kein neuer Defekt,
+  stammt aus frühen Wellen). Werte vereinheitlichen → neu generieren → `verify_facts`.
+- [ ] **Idee — Machina über NEUE Kategorien statt Vertiefung** (niedrige Prio): Die klassische
+  Technik ist nach 2 Wellen (v1.71/v1.73, +476 K/+1006 F) weitgehend ausgeschöpft. Ergiebigere
+  Hebel wären eigene Kategorien `measuring_instrument` (Messgeräte) und `vehicle_tech`
+  (Fahrzeugtechnik: Getriebe/Bremse/Federung) — je mit neuen Generator-Templates +
+  `ConceptVisual`-Labels (wie bei den 6 Technik-Kategorien). Angebot 2026-06-26, offen gelassen.
+
+> **Hinweis zum Stand in 1c:** Die dortige Tabelle ist ein Snapshot vom 2026-06-25 (vor-Deploy).
+> Aktuell (2026-06-26) ist **alles bis v1.73.0 live deployt** und Machina liegt bei **2165 K /
+> 6131 F** (nicht mehr 2355). Die Hebel (a)/(b)/(c) aus 1c bleiben gültig.
+
 ### 2. Ablaufplan-Status
 - [x] **Session 1:** Datenrettung Codex, Aufbereitung `AGENTS.md`.
 - [x] **Session 2:** Architekturentscheidung, Daten-Pipeline entwerfen, Testdaten-Extrakt erstellen.
