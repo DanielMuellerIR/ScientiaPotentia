@@ -30,7 +30,6 @@ export default function Quiz({
   const [subdivisionsGeoJSON, setSubdivisionsGeoJSON] = useState(null);
   const [statusMessage, setStatusMessage] = useState('');
   const [wrongClickIds, setWrongClickIds] = useState([]);
-  const [correctClickIds, setCorrectClickIds] = useState([]);
   const quizQuestions = Array.isArray(questionPool) ? questionPool : [];
 
   // Load GeoJSON geometries for isolated outline projections
@@ -85,7 +84,6 @@ export default function Quiz({
       const q = questions[currentIdx];
       setStatusMessage('');
       setWrongClickIds([]);
-      setCorrectClickIds([]);
 
       // Determine what to highlight or overlay on Map. If city, highlight/zoom to its parent country.
       const mapHighlightId = q.entityType === 'city' ? geodb.entities[q.entityId]?.metadata?.countryId : q.entityId;
@@ -148,7 +146,6 @@ export default function Quiz({
           // Correct Click!
           playCorrectChime();
           setIsAnswered(true);
-          setCorrectClickIds([q.entityId]);
           setScore(prev => prev + 1);
           
           // Calculate points
@@ -185,7 +182,6 @@ export default function Quiz({
           if (newAttempts >= 3) {
             // Force answer reveal after 3 failures
             setIsAnswered(true);
-            setCorrectClickIds([q.entityId]);
             setStatusMessage(`Ausweg: Der gesuchte Ort ist jetzt grün hervorgehoben.`);
             
             onSetQuizState({
@@ -204,7 +200,11 @@ export default function Quiz({
         if (resetClickedMapId) resetClickedMapId();
       }
     }
-  }, [clickedMapId, isAnswered, sessionFinished, questions, currentIdx]);
+    // wrongClickIds und attempts werden im Effekt gelesen (gesammelte Falschklicks
+    // bzw. Versuchszaehler) und muessen darum in den Deps stehen — sonst arbeitet
+    // ein erneuter Klick mit der veralteten Closure des vorigen Renders (Stale-Closure):
+    // der zuletzt rot markierte Falschklick verschwaende sonst von der Karte.
+  }, [clickedMapId, isAnswered, sessionFinished, questions, currentIdx, wrongClickIds, attempts]);
 
   // Flaches Scoring ohne Schwierigkeitsstufen: 10 Punkte beim ersten Versuch,
   // weniger bei weiteren Versuchen (10 / Versuchszahl). Kein Stufen-Multiplikator mehr.

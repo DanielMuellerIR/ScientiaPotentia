@@ -42,9 +42,19 @@ export function initDB() {
 
     request.onsuccess = (event) => {
       const db = event.target.result;
-      // Schliesst sich die Verbindung unerwartet (z.B. Tab-uebergreifendes
-      // Versions-Upgrade), aus dem Cache nehmen -> naechster Zugriff oeffnet neu.
+      // Schliesst sich die Verbindung unerwartet, aus dem Cache nehmen
+      // -> naechster Zugriff oeffnet neu.
       db.onclose = () => { dbPromise = null; };
+      // Oeffnet ein anderer Tab die DB in hoeherer Version, feuert hier
+      // 'versionchange'. Wir MUESSEN die Verbindung dann aktiv schliessen
+      // (sonst blockiert sie das Upgrade im anderen Tab dauerhaft) und den
+      // Cache leeren, damit der naechste Zugriff die neue Version oeffnet.
+      // 'onclose' alleine reicht dafuer nicht, da es bei 'versionchange'
+      // nicht automatisch feuert.
+      db.onversionchange = () => {
+        db.close();
+        dbPromise = null;
+      };
       resolve(db);
     };
 
