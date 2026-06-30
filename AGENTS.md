@@ -364,6 +364,22 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 | Machina | 2165 | 6131 | Wikipedia / RFC/IANA / Lehrbücher / DIN 8580 | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Funktionsprinzip (v1.47.0); ab v1.71 auch klassische Technik (Handwerk/Mechanik/Maschinenbau): tool/machine_element/engine/manufacturing_process/material/simple_machine (2 Wellen, v1.71+v1.73); 124 Museumsbilder (hardware) |
 | Historia | 1244 | 6332 | Wikipedia / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Zeit/Urheberschaft, Politik-Ausschluss (v1.47.0); 1023 Museumsbilder |
 
+> **Stand 2026-06-30 (v1.77.0) — Spielmodi Phase 2: Mehrspieler (reihum, Namen, Sieger):**
+> Hot-Seat-Mehrspieler, **nur feste Rundenlänge** (Survival bleibt Solo — bewusst, eigene Leben pro
+> Spieler = späterer Ausbau). **`QuizLauncher.jsx`:** Mitspieler-Wahl 1–4 (Button-Reihe) + je ein
+> Namensfeld (Default „Spieler N", überschreibbar, nicht persistiert); im Mehrspieler-Modus wird die
+> Survival-Option ausgeblendet. `onStart(mode, roundConfig, players)`. **`App.jsx`:** `quizPlayers`-State
+> ([] = Solo), an `Quiz` durchgereicht; Schnellquiz erzwingt Solo. **`Quiz.jsx`:** `isMultiplayer`
+> (players.length>1), `playerScores[]` + `currentPlayerIdx`; Rundenlänge wird fair auf ein Vielfaches der
+> Spielerzahl aufgerundet (jeder gleich viele Fragen); Spielerwechsel reihum in `handleNextQuestion`;
+> Treffer dem aktuellen Spieler gutgeschrieben; HUD zeigt „<Name> ist dran"-Banner + Live-Punktestand
+> aller Spieler; End-Screen = Rangliste mit ★-Sieger bzw. „Unentschieden!". **Wichtig:** im Mehrspieler
+> **kein** `saveUserAnswer`/`onAddScore` — Gäste-Antworten verfälschen weder SRS noch Highscore (reiner
+> Party-Modus). Build/test/layout grün, Browser-verifiziert (2 Spieler Anna/Bjarne: reihum-Wechsel,
+> faire 5/5-Aufteilung bei 10 Fragen, „Anna gewinnt!" ★2:1; 3-Spieler-Setup mobil; Survival im
+> Mehrspieler ausgeblendet; 0 Konsolenfehler). **NICHT deployt.** **Offen:** Phase 3 Museum-Redesign;
+> Mobile-Feinschliff; optional Survival-Mehrspieler + Namen merken.
+>
 > **Stand 2026-06-30 (v1.76.0) — Spielmodi Phase 1: Scientia-Mischpool + Survival + wählbare Rundenlänge:**
 > Erster Schritt des Spielspaß-Ausbaus (Nutzerwunsch: länger am Stück spielbar). **Drei Features, Solo:**
 > (1) **Neuer Meta-Bereich `scientia`** als erster Dropdown-Eintrag (`src/domains/index.js`, Icon Layers,

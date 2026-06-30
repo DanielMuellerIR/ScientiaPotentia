@@ -12,6 +12,7 @@ export default function Quiz({
   newEntities = [],
   quizMode = 'all',
   roundConfig = { kind: 'fixed', length: 10 },
+  players = [],
   clickedMapId = null,
   resetClickedMapId,
   onQuizFinished,
@@ -31,6 +32,11 @@ export default function Quiz({
   const isSurvival = roundConfig?.kind === 'survival';
   const totalLives = roundConfig?.lives || 3;
   const [lives, setLives] = useState(isSurvival ? totalLives : null);
+  // Mehrspieler: ab 2 Namen wird reihum gefragt; je Spieler ein Trefferzähler.
+  const isMultiplayer = Array.isArray(players) && players.length > 1;
+  const nPlayers = isMultiplayer ? players.length : 1;
+  const [playerScores, setPlayerScores] = useState(() => isMultiplayer ? new Array(players.length).fill(0) : []);
+  const [currentPlayerIdx, setCurrentPlayerIdx] = useState(0);
   const [countriesGeoJSON, setCountriesGeoJSON] = useState(null);
   const [subdivisionsGeoJSON, setSubdivisionsGeoJSON] = useState(null);
   const [statusMessage, setStatusMessage] = useState('');
@@ -152,12 +158,13 @@ export default function Quiz({
           playCorrectChime();
           setIsAnswered(true);
           setScore(prev => prev + 1);
-          
+          if (isMultiplayer) setPlayerScores(prev => { const n = [...prev]; n[currentPlayerIdx] = (n[currentPlayerIdx] || 0) + 1; return n; });
+
           // Calculate points
           const earned = earnedPoints(newAttempts);
           setPoints(prev => prev + earned);
-          if (onAddScore) onAddScore(earned);
-  
+          if (!isMultiplayer && onAddScore) onAddScore(earned);
+
           onSetQuizState({
             mode: 'quiz',
             highlightedIds: [],
@@ -166,8 +173,8 @@ export default function Quiz({
             showSubdivisions: q.entityType === 'state',
             zoomToEntityId: q.entityId || null
           });
-          
-          saveUserAnswer(q.entityId, q.entityType, true, newAttempts);
+
+          if (!isMultiplayer) saveUserAnswer(q.entityId, q.entityType, true, newAttempts);
         } else {
           // Wrong Click!
           playErrorBuzzer();
@@ -199,7 +206,7 @@ export default function Quiz({
               zoomToEntityId: q.entityId || null
             });
 
-            saveUserAnswer(q.entityId, q.entityType, false, newAttempts);
+            if (!isMultiplayer) saveUserAnswer(q.entityId, q.entityType, false, newAttempts);
           }
         }
         
@@ -226,6 +233,8 @@ export default function Quiz({
       setScore(0);
       setPoints(0);
       setLives(isSurvival ? totalLives : null);
+      setPlayerScores(isMultiplayer ? new Array(nPlayers).fill(0) : []);
+      setCurrentPlayerIdx(0);
       setSessionFinished(false);
       return;
     }
@@ -325,6 +334,8 @@ export default function Quiz({
       setScore(0);
       setPoints(0);
       setLives(isSurvival ? totalLives : null);
+      setPlayerScores(isMultiplayer ? new Array(nPlayers).fill(0) : []);
+      setCurrentPlayerIdx(0);
       setSessionFinished(false);
       return;
     }
@@ -345,9 +356,14 @@ export default function Quiz({
 
     // Rundengröße: feste Länge (10/25/50) ODER im Survival-Modus ein großer Vorrat,
     // dessen Ende über die Leben gesteuert wird (nicht über die Fragenzahl).
+    // Im Mehrspieler-Modus die Rundenlänge auf ein Vielfaches der Spielerzahl
+    // aufrunden, damit jeder gleich viele Fragen bekommt (faire Reihum-Verteilung).
+    const fixedLen = isMultiplayer
+      ? Math.ceil((roundConfig?.length || 10) / nPlayers) * nPlayers
+      : (roundConfig?.length || 10);
     const targetCount = isSurvival
       ? Math.min(sortedQuestions.length, 150)
-      : Math.min(roundConfig?.length || 10, sortedQuestions.length);
+      : Math.min(fixedLen, sortedQuestions.length);
 
     const chosenQuestions = [];
     const usedParentCountryIds = new Set();
@@ -422,6 +438,8 @@ export default function Quiz({
     setScore(0);
     setPoints(0);
     setLives(isSurvival ? totalLives : null);
+    setPlayerScores(isMultiplayer ? new Array(nPlayers).fill(0) : []);
+    setCurrentPlayerIdx(0);
     setSessionFinished(false);
   };
 
@@ -450,10 +468,13 @@ export default function Quiz({
       playCorrectChime();
       setIsAnswered(true);
       setScore(prev => prev + 1);
-      
+      // Mehrspieler: Treffer dem aktuellen Spieler gutschreiben.
+      if (isMultiplayer) setPlayerScores(prev => { const n = [...prev]; n[currentPlayerIdx] = (n[currentPlayerIdx] || 0) + 1; return n; });
+
       const earned = earnedPoints(newAttempts);
       setPoints(prev => prev + earned);
-      if (onAddScore) onAddScore(earned);
+      // Highscore/SRS nur im Einzelspieler — Gäste sollen die Lerndaten nicht verfälschen.
+      if (!isMultiplayer && onAddScore) onAddScore(earned);
 
       onSetQuizState({
         mode: 'quiz',
@@ -464,7 +485,7 @@ export default function Quiz({
         zoomToEntityId: riverId || highlightId || null
       });
 
-      saveUserAnswer(q.entityId, q.entityType, true, newAttempts);
+      if (!isMultiplayer) saveUserAnswer(q.entityId, q.entityType, true, newAttempts);
     } else {
       playErrorBuzzer();
       setIsAnswered(true);
@@ -479,7 +500,7 @@ export default function Quiz({
         zoomToEntityId: riverId || highlightId || null
       });
 
-      saveUserAnswer(q.entityId, q.entityType, false, newAttempts);
+      if (!isMultiplayer) saveUserAnswer(q.entityId, q.entityType, false, newAttempts);
     }
   };
 
@@ -507,6 +528,7 @@ export default function Quiz({
       setAttempts(0);
       setSelectedOption(null);
       setIsAnswered(false);
+      if (isMultiplayer) setCurrentPlayerIdx(prev => (prev + 1) % nPlayers); // reihum
     } else {
       setSessionFinished(true);
       if (onActiveConceptChange) onActiveConceptChange(null);
@@ -700,6 +722,13 @@ export default function Quiz({
 
 
   if (sessionFinished) {
+    // Mehrspieler-Rangliste (höchste Trefferzahl gewinnt; Gleichstand = Unentschieden).
+    const ranking = isMultiplayer
+      ? players.map((name, i) => ({ name, score: playerScores[i] || 0 })).sort((a, b) => b.score - a.score)
+      : [];
+    const topScore = ranking.length ? ranking[0].score : 0;
+    const winners = ranking.filter(r => r.score === topScore);
+    const isTie = winners.length > 1;
     return (
       <div className="terra-panel slide-in" style={{
         padding: '32px',
@@ -725,17 +754,38 @@ export default function Quiz({
         </div>
         
         <div>
-          <h2 style={{ fontFamily: 'var(--font-title)', color: 'var(--color-primary)', marginBottom: '8px' }}>
-            {isSurvival ? 'Aus!' : 'Runde beendet!'}
-          </h2>
-          <p style={{ color: 'var(--text-muted)', fontSize: '13px', lineHeight: '1.4' }}>
-            {isSurvival ? (
-              <>Du hast <strong>{score}</strong> {score === 1 ? 'Frage' : 'Fragen'} richtig beantwortet.<br/></>
-            ) : (
-              <>Ergebnis: <strong>{score}</strong> von <strong>{questions.length}</strong> richtig.<br/></>
-            )}
-            Punkte verdient: <strong style={{ color: 'var(--color-secondary)' }}>+{points} Punkte</strong>.
-          </p>
+          {isMultiplayer ? (
+            <>
+              <h2 style={{ fontFamily: 'var(--font-title)', color: 'var(--color-primary)', marginBottom: '10px' }}>
+                {isTie ? 'Unentschieden!' : `${winners[0].name} gewinnt!`}
+              </h2>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', minWidth: '200px' }}>
+                {ranking.map((r, i) => {
+                  const isWinner = r.score === topScore;
+                  return (
+                    <div key={r.name + i} style={{ display: 'flex', justifyContent: 'space-between', gap: '16px', fontSize: '14px', padding: '5px 10px', borderRadius: '2px', background: isWinner ? 'rgba(139, 111, 59, 0.10)' : 'transparent', fontWeight: isWinner ? 700 : 500, color: isWinner ? 'var(--color-primary)' : 'var(--text-muted)' }}>
+                      <span>{isWinner ? '★ ' : ''}{r.name}</span>
+                      <span>{r.score} richtig</span>
+                    </div>
+                  );
+                })}
+              </div>
+            </>
+          ) : (
+            <>
+              <h2 style={{ fontFamily: 'var(--font-title)', color: 'var(--color-primary)', marginBottom: '8px' }}>
+                {isSurvival ? 'Aus!' : 'Runde beendet!'}
+              </h2>
+              <p style={{ color: 'var(--text-muted)', fontSize: '13px', lineHeight: '1.4' }}>
+                {isSurvival ? (
+                  <>Du hast <strong>{score}</strong> {score === 1 ? 'Frage' : 'Fragen'} richtig beantwortet.<br/></>
+                ) : (
+                  <>Ergebnis: <strong>{score}</strong> von <strong>{questions.length}</strong> richtig.<br/></>
+                )}
+                Punkte verdient: <strong style={{ color: 'var(--color-secondary)' }}>+{points} Punkte</strong>.
+              </p>
+            </>
+          )}
         </div>
 
         <div style={{ display: 'flex', gap: '12px', width: '100%', maxWidth: '280px' }}>
@@ -784,9 +834,19 @@ export default function Quiz({
                 ))}
               </span>
             )}
-            <span style={{ fontSize: '14px', fontWeight: 700, color: 'var(--color-secondary)' }}>
-              Punkte: {points}
-            </span>
+            {isMultiplayer ? (
+              <span style={{ display: 'inline-flex', gap: '8px', flexWrap: 'wrap', justifyContent: 'flex-end' }}>
+                {players.map((name, i) => (
+                  <span key={i} style={{ fontSize: '12px', fontWeight: i === currentPlayerIdx ? 700 : 500, color: i === currentPlayerIdx ? 'var(--color-secondary)' : 'var(--text-muted)' }}>
+                    {name}: {playerScores[i] || 0}
+                  </span>
+                ))}
+              </span>
+            ) : (
+              <span style={{ fontSize: '14px', fontWeight: 700, color: 'var(--color-secondary)' }}>
+                Punkte: {points}
+              </span>
+            )}
           </div>
         </div>
         {/* Fortschrittsbalken nur bei fester Runde — im Survival ist die Länge offen */}
@@ -800,6 +860,13 @@ export default function Quiz({
               background: 'var(--color-primary)',
               transition: 'width 0.3s ease'
             }} />
+          </div>
+        )}
+
+        {/* Mehrspieler: wer gerade dran ist */}
+        {isMultiplayer && (
+          <div style={{ marginBottom: '12px', padding: '7px 10px', borderRadius: '2px', background: 'rgba(139, 111, 59, 0.08)', borderLeft: '3px solid var(--color-secondary)', fontSize: '13.5px', fontWeight: 700, color: 'var(--color-primary)', fontFamily: 'var(--font-title)' }}>
+            {players[currentPlayerIdx]} ist dran
           </div>
         )}
 

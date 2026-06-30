@@ -28,6 +28,8 @@ export default function App() {
   const [quizMode, setQuizMode] = useState('all'); // 'all' | 'countries' | 'cities' | 'rivers' | 'stadt-land-fluss'
   // Rundenlänge bzw. Spielart: feste Fragenzahl oder Überlebens-Modus (Leben).
   const [quizRoundConfig, setQuizRoundConfig] = useState({ kind: 'fixed', length: 10 });
+  // Mehrspieler: Liste der Spielernamen ([] = Einzelspieler, ab 2 = reihum).
+  const [quizPlayers, setQuizPlayers] = useState([]);
   const [clickedMapId, setClickedMapId] = useState(null);
   const [isMuted, setIsMuted] = useState(isAudioMuted());
 
@@ -282,6 +284,7 @@ export default function App() {
     if (targetEntity) {
       setDueEntities([targetEntity]);
       setNewEntities([]);
+      setQuizPlayers([]);   // Schnellquiz ist immer Einzelspieler
       setQuizArmed(true);   // Schnellquiz startet ohne Vorschalt-Screen direkt
       setActiveTab('quiz');
     }
@@ -289,10 +292,11 @@ export default function App() {
 
   // Startet eine Quizrunde. Ohne Schwierigkeitsstufen nur noch der Spielmodus
   // (bei Terra Stadt/Land/Fluss, sonst 'all'); die Fragen mischt der Quiz selbst.
-  const handleStartDailyReview = (mode = 'all', roundConfig) => {
+  const handleStartDailyReview = (mode = 'all', roundConfig, players) => {
     playClick();
     setQuizMode(mode);
     if (roundConfig) setQuizRoundConfig(roundConfig); // feste Länge oder Survival
+    setQuizPlayers(Array.isArray(players) ? players : []); // [] = Einzelspieler
     setQuizArmed(true); // Runde scharf stellen -> Quiz statt Vorschalt-Screen
     saveSetting('activeScore', 0); // Reset score points for the new round
     setActiveTab('quiz');
@@ -563,6 +567,7 @@ export default function App() {
               newEntities={newEntities}
               quizMode={quizMode}
               roundConfig={quizRoundConfig}
+              players={quizPlayers}
               clickedMapId={clickedMapId}
               resetClickedMapId={() => setClickedMapId(null)}
               onQuizFinished={handleQuizFinished}
