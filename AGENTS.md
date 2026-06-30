@@ -364,6 +364,26 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 | Machina | 2165 | 6131 | Wikipedia / RFC/IANA / Lehrbücher / DIN 8580 | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Funktionsprinzip (v1.47.0); ab v1.71 auch klassische Technik (Handwerk/Mechanik/Maschinenbau): tool/machine_element/engine/manufacturing_process/material/simple_machine (2 Wellen, v1.71+v1.73); 124 Museumsbilder (hardware) |
 | Historia | 1244 | 6332 | Wikipedia / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Zeit/Urheberschaft, Politik-Ausschluss (v1.47.0); 1023 Museumsbilder |
 
+> **Stand 2026-06-30 (v1.76.0) — Spielmodi Phase 1: Scientia-Mischpool + Survival + wählbare Rundenlänge:**
+> Erster Schritt des Spielspaß-Ausbaus (Nutzerwunsch: länger am Stück spielbar). **Drei Features, Solo:**
+> (1) **Neuer Meta-Bereich `scientia`** als erster Dropdown-Eintrag (`src/domains/index.js`, Icon Layers,
+> accent #B0863C) — zieht Fragen + Konzepte ALLER 7 Sach-Domains zusammen (`SCIENTIA_MIX_IDS`,
+> `loadQuestions = Promise.all(...).flat()`, `loadConcepts = Object.assign(...)`). **Terra bewusst NICHT
+> im Mix** (Karten-Klick-Fragen brauchen die Weltkarte; geodb-Konzepte passen nicht ins generische
+> ConceptVisual). Kein eigenes Visual/Explorer → jede Frage rendert über das generische ConceptVisual mit
+> ihrem Herkunfts-Konzept. (2) **Wählbare Rundenlänge 10/25/50** statt der früher hart codierten 5
+> (`Quiz.jsx` `targetCount` ersetzt alle `>= 5`; `roundConfig`-Prop von `QuizLauncher`→`App`→`Quiz`).
+> (3) **Survival-Modus „Überleben (3 Leben)"** — endlos bis 3 Fehler, HUD mit Herzen ♥♥♥ (rot/grau),
+> kein Fortschrittsbalken, End-Screen „Aus! — Du hast N Fragen richtig beantwortet". Leben werden bei
+> falscher MCQ-Antwort UND beim Terra-Karten-Klick-3-Fehler abgezogen. **Setup-Ebene generisch** in
+> `QuizLauncher.jsx` (Spiellänge-Radiogruppe für JEDEN Bereich; Terra-Geomodi bleiben darüber).
+> Build grün, npm test 2/2, Layout 17/17, Browser-verifiziert (Scientia-Mischpool: Historia-/Natura-
+> Fragen; feste 25er-Runde „FRAGE 1 VON 25"; Survival endete sauber beim 3. Fehler; Mobile 375px
+> gestapelt lesbar; 0 Konsolenfehler). **NICHT deployt.** **Offen:** Phase 2 Mehrspieler (Namen, reihum,
+> Sieger-Screen); Phase 3 Museum-Redesign; Mobile-Feinschliff (Visual-Panel nimmt im Quiz ~38vh,
+> Frage unter dem Fold — vorbestehend); perf-Option: Mischpool lädt ~44k Fragen, später per Domain sampeln;
+> später ggf. Terra + per-Frage-Domain-Visual in den Mischpool.
+>
 > **Stand 2026-06-30 (v1.75.0) — Homo Welle 2: neue Kategorie sleep_perception + Vertiefung (MiniMax):**
 > Fortsetzung Richtung ehrliches Ceiling. **+32 Konzepte / +83 Fragen → Homo 453→485 K / 1313→1396 F.**
 > **Neue Kategorie `sleep_perception`** (Schlaf & Gedächtnis: REM/Tiefschlaf/Leichtschlaf/Schlafzyklus,

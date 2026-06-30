@@ -26,6 +26,8 @@ export default function App() {
   // immer zuerst die Schwierigkeit wählt statt sofort in Stufe 1 zu landen.
   const [quizArmed, setQuizArmed] = useState(false);
   const [quizMode, setQuizMode] = useState('all'); // 'all' | 'countries' | 'cities' | 'rivers' | 'stadt-land-fluss'
+  // Rundenlänge bzw. Spielart: feste Fragenzahl oder Überlebens-Modus (Leben).
+  const [quizRoundConfig, setQuizRoundConfig] = useState({ kind: 'fixed', length: 10 });
   const [clickedMapId, setClickedMapId] = useState(null);
   const [isMuted, setIsMuted] = useState(isAudioMuted());
 
@@ -287,9 +289,10 @@ export default function App() {
 
   // Startet eine Quizrunde. Ohne Schwierigkeitsstufen nur noch der Spielmodus
   // (bei Terra Stadt/Land/Fluss, sonst 'all'); die Fragen mischt der Quiz selbst.
-  const handleStartDailyReview = (mode = 'all') => {
+  const handleStartDailyReview = (mode = 'all', roundConfig) => {
     playClick();
     setQuizMode(mode);
+    if (roundConfig) setQuizRoundConfig(roundConfig); // feste Länge oder Survival
     setQuizArmed(true); // Runde scharf stellen -> Quiz statt Vorschalt-Screen
     saveSetting('activeScore', 0); // Reset score points for the new round
     setActiveTab('quiz');
@@ -559,6 +562,7 @@ export default function App() {
               dueEntities={dueEntities}
               newEntities={newEntities}
               quizMode={quizMode}
+              roundConfig={quizRoundConfig}
               clickedMapId={clickedMapId}
               resetClickedMapId={() => setClickedMapId(null)}
               onQuizFinished={handleQuizFinished}

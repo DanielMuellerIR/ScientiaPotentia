@@ -11,6 +11,7 @@ export default function Quiz({
   dueEntities = [], 
   newEntities = [],
   quizMode = 'all',
+  roundConfig = { kind: 'fixed', length: 10 },
   clickedMapId = null,
   resetClickedMapId,
   onQuizFinished,
@@ -26,6 +27,10 @@ export default function Quiz({
   const [score, setScore] = useState(0);
   const [points, setPoints] = useState(0); // Score points
   const [sessionFinished, setSessionFinished] = useState(false);
+  // Überlebens-Modus: verbleibende Leben (null = feste Runde, kein Survival).
+  const isSurvival = roundConfig?.kind === 'survival';
+  const totalLives = roundConfig?.lives || 3;
+  const [lives, setLives] = useState(isSurvival ? totalLives : null);
   const [countriesGeoJSON, setCountriesGeoJSON] = useState(null);
   const [subdivisionsGeoJSON, setSubdivisionsGeoJSON] = useState(null);
   const [statusMessage, setStatusMessage] = useState('');
@@ -182,6 +187,7 @@ export default function Quiz({
           if (newAttempts >= 3) {
             // Force answer reveal after 3 failures
             setIsAnswered(true);
+            if (isSurvival) setLives(prev => prev - 1); // Überlebens-Modus: ein Leben weg
             setStatusMessage(`Ausweg: Der gesuchte Ort ist jetzt grün hervorgehoben.`);
             
             onSetQuizState({
@@ -219,6 +225,7 @@ export default function Quiz({
       setIsAnswered(false);
       setScore(0);
       setPoints(0);
+      setLives(isSurvival ? totalLives : null);
       setSessionFinished(false);
       return;
     }
@@ -317,6 +324,7 @@ export default function Quiz({
       setIsAnswered(false);
       setScore(0);
       setPoints(0);
+      setLives(isSurvival ? totalLives : null);
       setSessionFinished(false);
       return;
     }
@@ -335,11 +343,17 @@ export default function Quiz({
 
     const sortedQuestions = sortPool(filteredQuestions);
 
+    // Rundengröße: feste Länge (10/25/50) ODER im Survival-Modus ein großer Vorrat,
+    // dessen Ende über die Leben gesteuert wird (nicht über die Fragenzahl).
+    const targetCount = isSurvival
+      ? Math.min(sortedQuestions.length, 150)
+      : Math.min(roundConfig?.length || 10, sortedQuestions.length);
+
     const chosenQuestions = [];
     const usedParentCountryIds = new Set();
 
     for (const q of sortedQuestions) {
-      if (chosenQuestions.length >= 5) break;
+      if (chosenQuestions.length >= targetCount) break;
 
       // Rule 1: Unique entityId
       if (usedEntityIds.has(q.entityId)) continue;
@@ -364,9 +378,9 @@ export default function Quiz({
 
     // Fallback: If we couldn't find 5 questions due to parent country constraints, 
     // run another pass ignoring the parent country constraints (Rule 3)
-    if (chosenQuestions.length < 5) {
+    if (chosenQuestions.length < targetCount) {
       for (const q of sortedQuestions) {
-        if (chosenQuestions.length >= 5) break;
+        if (chosenQuestions.length >= targetCount) break;
         if (usedEntityIds.has(q.entityId)) continue;
         if (usedCorrectAnswers.has(q.correctAnswer)) continue;
 
@@ -377,9 +391,9 @@ export default function Quiz({
     }
 
     // Final fallback: just take the first 5 available if we still don't have enough
-    if (chosenQuestions.length < 5) {
+    if (chosenQuestions.length < targetCount) {
       for (const q of sortedQuestions) {
-        if (chosenQuestions.length >= 5) break;
+        if (chosenQuestions.length >= targetCount) break;
         if (chosenQuestions.some(existing => existing.id === q.id)) continue;
         chosenQuestions.push(q);
       }
@@ -407,6 +421,7 @@ export default function Quiz({
     setIsAnswered(false);
     setScore(0);
     setPoints(0);
+    setLives(isSurvival ? totalLives : null);
     setSessionFinished(false);
   };
 
@@ -453,7 +468,8 @@ export default function Quiz({
     } else {
       playErrorBuzzer();
       setIsAnswered(true);
-      
+      if (isSurvival) setLives(prev => prev - 1); // Überlebens-Modus: ein Leben weg
+
       onSetQuizState({
         mode: 'quiz',
         highlightedIds: [],
@@ -483,7 +499,10 @@ export default function Quiz({
   };
 
   const handleNextQuestion = () => {
-    if (currentIdx + 1 < questions.length) {
+    // Survival endet, sobald die Leben aufgebraucht sind; sonst weiter, solange der
+    // (große) Fragenvorrat reicht. Feste Runde endet nach der letzten Frage.
+    const survivalOver = isSurvival && lives <= 0;
+    if (!survivalOver && currentIdx + 1 < questions.length) {
       setCurrentIdx(prev => prev + 1);
       setAttempts(0);
       setSelectedOption(null);
@@ -707,10 +726,14 @@ export default function Quiz({
         
         <div>
           <h2 style={{ fontFamily: 'var(--font-title)', color: 'var(--color-primary)', marginBottom: '8px' }}>
-            Runde beendet!
+            {isSurvival ? 'Aus!' : 'Runde beendet!'}
           </h2>
           <p style={{ color: 'var(--text-muted)', fontSize: '13px', lineHeight: '1.4' }}>
-            Ergebnis: <strong>{score}</strong> von <strong>{questions.length}</strong> richtig.<br/>
+            {isSurvival ? (
+              <>Du hast <strong>{score}</strong> {score === 1 ? 'Frage' : 'Fragen'} richtig beantwortet.<br/></>
+            ) : (
+              <>Ergebnis: <strong>{score}</strong> von <strong>{questions.length}</strong> richtig.<br/></>
+            )}
             Punkte verdient: <strong style={{ color: 'var(--color-secondary)' }}>+{points} Punkte</strong>.
           </p>
         </div>
@@ -749,23 +772,36 @@ export default function Quiz({
     }}>
       {/* Quiz Progress header */}
       <div>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px', gap: '8px' }}>
           <span style={{ fontSize: '13px', fontWeight: 600, color: 'var(--text-muted)' }}>
-            FRAGE {currentIdx + 1} VON {questions.length}
+            {isSurvival ? `FRAGE ${currentIdx + 1}` : `FRAGE ${currentIdx + 1} VON ${questions.length}`}
           </span>
-          <span style={{ fontSize: '14px', fontWeight: 700, color: 'var(--color-secondary)' }}>
-            Punkte: {points}
-          </span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+            {isSurvival && (
+              <span aria-label={`${lives} von ${totalLives} Leben`} style={{ display: 'inline-flex', gap: '2px', fontSize: '15px', lineHeight: 1 }}>
+                {Array.from({ length: totalLives }).map((_, i) => (
+                  <span key={i} style={{ color: i < lives ? '#C0392B' : 'var(--border-light)' }}>♥</span>
+                ))}
+              </span>
+            )}
+            <span style={{ fontSize: '14px', fontWeight: 700, color: 'var(--color-secondary)' }}>
+              Punkte: {points}
+            </span>
+          </div>
         </div>
-        {/* Progress Bar */}
-        <div style={{ width: '100%', height: '6px', background: 'var(--border-light)', borderRadius: '1px', marginBottom: '20px', overflow: 'hidden' }}>
-          <div style={{ 
-            width: `${((currentIdx) / questions.length) * 100}%`, 
-            height: '100%', 
-            background: 'var(--color-primary)',
-            transition: 'width 0.3s ease'
-          }} />
-        </div>
+        {/* Fortschrittsbalken nur bei fester Runde — im Survival ist die Länge offen */}
+        {isSurvival ? (
+          <div style={{ marginBottom: '20px' }} />
+        ) : (
+          <div style={{ width: '100%', height: '6px', background: 'var(--border-light)', borderRadius: '1px', marginBottom: '20px', overflow: 'hidden' }}>
+            <div style={{
+              width: `${((currentIdx) / questions.length) * 100}%`,
+              height: '100%',
+              background: 'var(--color-primary)',
+              transition: 'width 0.3s ease'
+            }} />
+          </div>
+        )}
 
         {/* Prompt */}
         <h3 style={{

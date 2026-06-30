@@ -1,5 +1,5 @@
 import { lazy } from 'react';
-import { Globe2, Sparkles, PersonStanding, Orbit, Leaf, Languages, Landmark, Images, Cpu, ScrollText } from 'lucide-react';
+import { Globe2, Sparkles, PersonStanding, Orbit, Leaf, Languages, Landmark, Images, Cpu, ScrollText, Layers } from 'lucide-react';
 
 // Spezialisierte Visualisierungen lazy laden, damit schwere Abhaengigkeiten
 // (z.B. three.js fuer Astra) nur ins Bundle kommen, wenn die Domain aktiv ist.
@@ -27,7 +27,31 @@ const GalleryExplorer = lazy(() => import('../components/GalleryExplorer'));
  *   - Terra: unpraefixt (z.B. "FJ", "Q64") -> keine IndexedDB-Migration noetig
  *   - alle anderen: "<id>:<conceptId>" (z.B. "astra:mars")
  */
+// Welche Sach-Domains der domänenübergreifende "Scientia"-Mischpool zusammenfasst.
+// Terra ist bewusst NICHT dabei: seine Karten-Klick-Fragen brauchen die Weltkarte,
+// und seine geodb-Konzepte passen (noch) nicht ins generische ConceptVisual.
+const SCIENTIA_MIX_IDS = ['astra', 'homo', 'natura', 'lingua', 'cultura', 'machina', 'historia'];
+
 export const DOMAINS = [
+  {
+    // Domänenübergreifender Mischbereich: zieht Fragen + Konzepte ALLER Sach-Domains
+    // zusammen (kein eigenes Visual/Explorer -> generisches ConceptVisual je Frage,
+    // das Konzept bringt jede Frage aus ihrer Herkunfts-Domain selbst mit).
+    id: 'scientia',
+    latinName: 'Scientia',
+    label: 'Alle Bereiche',
+    shortLabel: 'Querbeet',
+    description: 'Fragen quer durch alle Wissensbereiche — Astronomie, Mensch, Natur, Sprachen, Kultur, Technik und Geschichte gemischt.',
+    Icon: Layers,
+    accent: '#B0863C',
+    hasMap: false,
+    loadConcepts: () => Promise.all(
+      DOMAINS.filter(d => SCIENTIA_MIX_IDS.includes(d.id)).map(d => d.loadConcepts())
+    ).then(maps => Object.assign({}, ...maps)),
+    loadQuestions: () => Promise.all(
+      DOMAINS.filter(d => SCIENTIA_MIX_IDS.includes(d.id)).map(d => d.loadQuestions())
+    ).then(lists => lists.flat())
+  },
   {
     id: 'terra',
     latinName: 'Terra',
