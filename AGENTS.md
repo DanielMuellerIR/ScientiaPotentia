@@ -357,13 +357,35 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 | :----- | :------- | :----- | :------ | :------------- |
 | Terra  | 1852 | 5217 | Natural Earth / GeoNames / Wikidata | Weltkarte (MapLibre), pro Frage Highlight |
 | Astra  | 1560 | 5035 | NASA / IAU / ESA / Wikidata | **3D-Himmelskörper (three.js)** + Kontext-Karte (Bahn/Distanz), Texturen Solar System Scope (CC BY 4.0); 478 Museumsbilder |
-| Homo   | 453 | 1313 | Gray's Anatomy / Prometheus / NIH / MedlinePlus / StatPearls / OpenStax | **Anatomiegrafiken (Wikimedia, PD)** + konzeptgenauer Struktur-Marker je Frage; ab v1.52 zehn Physiologie-Kategorien jenseits der Anatomie; v1.74 Vertiefung nerve/hormone/cell_type/psych_effect Richtung ehrliches Ceiling (~1500–1700, NICHT 5000 — docs/homo_erweiterung.md §4) |
+| Homo   | 485 | 1396 | Gray's Anatomy / Prometheus / NIH / MedlinePlus / StatPearls / OpenStax | **Anatomiegrafiken (Wikimedia, PD)** + konzeptgenauer Struktur-Marker je Frage; ab v1.52 zehn Physiologie-Kategorien jenseits der Anatomie; v1.74/v1.75 Vertiefung + neue Kategorie sleep_perception (Schlaf/Gedächtnis) Richtung ehrliches Ceiling (~1500–1700, NICHT 5000 — docs/homo_erweiterung.md §4) |
 | Natura | 2402 | 13217 | Wikipedia / USGS / IUCN / IPCC / Wikidata | generische Konzeptkarte (`ConceptVisual`); Tiere via MiniMax-Delegation 49→97 ausgebaut (web-grounded); freies Commons-Foto je Konzept hinterlegt (`concept.image`, fürs spätere Museum) |
 | Lingua | 1207 | 5540 | Wikipedia / Ethnologue / Wiktionary / Guinness / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Attribut-Labels; 184 Museumsbilder (writing_system/language_family) |
 | Cultura | 1798 | 6332 | Wikipedia (DE/EN) / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Kategorie-/Attribut-Labels; via MiniMax-Delegation ausgebaut (Komponisten Wikidata-geprüft, Werke web-grounded); 865 Museumsbilder |
 | Machina | 2165 | 6131 | Wikipedia / RFC/IANA / Lehrbücher / DIN 8580 | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Funktionsprinzip (v1.47.0); ab v1.71 auch klassische Technik (Handwerk/Mechanik/Maschinenbau): tool/machine_element/engine/manufacturing_process/material/simple_machine (2 Wellen, v1.71+v1.73); 124 Museumsbilder (hardware) |
 | Historia | 1244 | 6332 | Wikipedia / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Zeit/Urheberschaft, Politik-Ausschluss (v1.47.0); 1023 Museumsbilder |
 
+> **Stand 2026-06-30 (v1.75.0) — Homo Welle 2: neue Kategorie sleep_perception + Vertiefung (MiniMax):**
+> Fortsetzung Richtung ehrliches Ceiling. **+32 Konzepte / +83 Fragen → Homo 453→485 K / 1313→1396 F.**
+> **Neue Kategorie `sleep_perception`** (Schlaf & Gedächtnis: REM/Tiefschlaf/Leichtschlaf/Schlafzyklus,
+> zirkadianer + Schlaf-Wach-Rhythmus, Kurzzeit-/Arbeits-/Langzeit-/sensorisches/prozedurales Gedächtnis,
+> Gedächtniskonsolidierung — rein physiologisch, keine Schlafstörungen) — Schema wie psych_effect
+> (`definition` POST_ANSWER + `kind`-Klassifikator), 3 Generator-Templates in `generate_homo.js`, dt.
+> Labels „Schlaf & Gedächtnis"/„Art" in HomoVisual.jsx + ConceptVisual.jsx. **Vertiefung** psych_effect +12
+> (Fundamentaler Attributionsfehler, Spielerfehlschluss, Pareidolie, Planungsfehlschluss, Affekt-/
+> Rekognitionsheuristik, Gerechte-Welt-Glaube u.a.) + cell_type +8 (Oligodendrozyt/Mikroglia/Enterozyt/
+> Podozyt/Pyramidenzelle/Sertoli-/Leydig-/Kupffer-Zelle). **immune_defense bewusst NICHT gebaut:** die
+> Immunzellen (Lymphozyt/Makrophage/Granulozyt/Plasmazelle/NK-Zelle …) liegen längst in cell_type →
+> der doc-Vorschlag würde massiv überlappen. **Opus-Verifikation fing:** Krankheit als funFact-/notableFor-
+> Fokus (Oligodendrozyt „Ursache der MS" — sachlich falsch; Podozyt krankheitszentriert), Faktenfehler
+> (Kupffer „größte Zellpopulation der Leber" — das sind Hepatozyten), erfundener Latein-Name „Cellula
+> Kuffera", Namens-Stamm in notableFor (Pyramidenzelle), 2 Definitions-Selbstverräter (Schlaf-Wach-
+> Rhythmus „Wach-/Schlafphasen", Gerechte-Welt-Glaube „die Welt … gerecht"), 1 public-heikles Beispiel
+> (illusorische Korrelation: Kriminalität+Minderheiten → neutrales Vollmond-Beispiel). verify 0, audit
+> Strukt 0 / Bias 0 / 0 neue Format-Tells, npm test grün, Build grün. Browser: volle Homo-Runde mit
+> 485/1396 fehlerfrei; sleep-Fragen wohlgeformt (Datenebene). **NICHT deployt.** **Damit ist Homos faires
+> Reservoir weitgehend ausgeschöpft** — weiteres Volumen Richtung 5000 nur regelkonform via Natura
+> `microbe` (Erreger) + Historia Medizingeschichte (docs/homo_erweiterung.md §4), NICHT in Homo.
+>
 > **Stand 2026-06-30 (v1.74.0) — Homo-Vertiefung Richtung ehrliches Ceiling (MiniMax-Delegation):**
 > Homo ist die einzige Domain unter dem 5000-Ziel; laut `docs/homo_erweiterung.md` §4 ist ihr ehrliches
 > Ceiling **~1500–1700 Fragen, NICHT 5000** (der Massen-Hebel Krankheiten/Erreger ist per

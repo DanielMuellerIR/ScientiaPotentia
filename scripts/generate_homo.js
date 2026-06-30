@@ -697,6 +697,30 @@ const templates = [
     category: 'brain_lobe', attr: 'function', type: 'homo-lobe-function-rev', difficulty: 2, nameAnswer: true,
     subject: c => c.attributes.function,
     prompt: c => `Welcher Großhirnlappen ist vor allem zuständig für: „${c.attributes.function}"?`
+  },
+
+  // ---- Schlaf & Gedächtnis (sleep_perception, Stand 2026-06-30) ------------
+  // Schlafphasen, Gedächtnisarten und biologische Rhythmen — rein physiologisch,
+  // KEINE Schlafstörungen/Krankheiten (Homo-Regel). Schema wie psych_effect:
+  // 'definition' (steht in POST_ANSWER_ATTRS -> verrät vor der Antwort nichts) +
+  // 'kind' als grober Klassifikator. byCategory/pickDistractors/revealsAnswer greifen
+  // automatisch, sobald Konzepte die neue category tragen.
+  {
+    category: 'sleep_perception', attr: 'definition', type: 'homo-sleep-definition', difficulty: 2,
+    prompt: c => `Wie lässt sich „${c.name}" am besten beschreiben?`,
+    format: v => v
+  },
+  {
+    // Reverse: Beschreibung als Hinweis -> Konzeptname als Antwort.
+    category: 'sleep_perception', attr: 'definition', type: 'homo-sleep-definition-rev', difficulty: 2, nameAnswer: true,
+    subject: c => c.attributes.definition,
+    prompt: c => `Welches Konzept aus Schlaf und Gedächtnis wird so beschrieben: „${c.attributes.definition}"?`
+  },
+  {
+    // 'kind' hat nur ~4 Werte -> teils nur 3 Optionen (wie hormoneClass), kein Fehler.
+    category: 'sleep_perception', attr: 'kind', type: 'homo-sleep-kind', difficulty: 3,
+    prompt: c => `Welcher Art ist „${c.name}"?`,
+    format: v => v
   }
 ];
 

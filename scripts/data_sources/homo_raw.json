@@ -6854,5 +6854,435 @@
     "sourceName": "Wikipedia (de): Verfügbarkeitskaskade",
     "sourceUrl": "https://de.wikipedia.org/wiki/Verf%C3%BCgbarkeitskaskade",
     "verifyNote": "Der Artikel beschreibt das Zusammenwirken von leichter mentaler Abrufbarkeit und sozialer Verstärkung, das die wahrgenommene Häufigkeit eines Themas aufblähen kann."
+  },
+  {
+    "id": "schlaf-rem-schlaf",
+    "name": "REM-Schlaf",
+    "category": "sleep_perception",
+    "attributes": {
+      "definition": "Schlafstadium mit raschen, unkontrollierten Augenbewegungen unter den Lidern, erhöhter Hirnaktivität im EEG ähnlich dem Wachzustand und gleichzeitiger Muskelerschlaffung. In dieser Phase treten besonders häufig lebhafte Traum-Inhalte auf.",
+      "kind": "Schlafphase"
+    },
+    "funFact": "Der Anteil dieses Stadiums steigt im Laufe einer Nacht von etwa 10 Minuten im ersten auf bis zu 60 Minuten im letzten Zyklus an.",
+    "sourceName": "Wikipedia (de): REM-Schlaf",
+    "sourceUrl": "https://de.wikipedia.org/wiki/REM-Schlaf",
+    "verifyNote": "Beschreibt EEG-Aktivität, Augenbewegungen, Muskelatonie und Traumkorrelat – alles zentrale Merkmale des REM-Schlafs."
+  },
+  {
+    "id": "schlaf-tiefschlaf",
+    "name": "Tiefschlaf",
+    "category": "sleep_perception",
+    "attributes": {
+      "definition": "Tiefste Phase des Non-REM-Schlafs, gekennzeichnet durch langsame, hochamplitudige Deltawellen im EEG, stark reduzierten Muskeltonus und hohe Weckschwelle. Hier laufen wesentliche körperliche Erholungsprozesse ab.",
+      "kind": "Schlafphase"
+    },
+    "funFact": "Der Anteil dieser tiefen Phase ist in den ersten beiden Dritteln der Nacht am höchsten und nimmt im Laufe des Lebens deutlich ab.",
+    "sourceName": "Wikipedia (de): Tiefschlaf",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Tiefschlaf",
+    "verifyNote": "Belegt die Deltawellen-Charakteristik, Zugehörigkeit zu NREM sowie die besondere Erholungsfunktion."
+  },
+  {
+    "id": "schlaf-leichtschlaf",
+    "name": "Leichtschlaf",
+    "category": "sleep_perception",
+    "attributes": {
+      "definition": "Frühe Non-REM-Phase mit niedriger Weckschwelle, langsam rollenden Augenbewegungen und im EEG auftretenden Schlafspindeln sowie K-Komplexen. Dient vor allem dem Übergang vom Wachsein in tiefere Schlafstadien.",
+      "kind": "Schlafphase"
+    },
+    "funFact": "Schlafspindeln, kurze Salven von Hirnaktivität in dieser Phase, spielen eine wichtige Rolle beim Abschirmen äußerer Reize.",
+    "sourceName": "Wikipedia (de): Schlafstadium",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Schlafstadium",
+    "verifyNote": "Die Beschreibung von Schlafspindeln, K-Komplexen und leichter Weckbarkeit ist im Artikel zu den Non-REM-Stadien verankert."
+  },
+  {
+    "id": "schlaf-schlafzyklus",
+    "name": "Schlafzyklus",
+    "category": "sleep_perception",
+    "attributes": {
+      "definition": "Wiederkehrende Abfolge der einzelnen Schlafstadien innerhalb einer Nacht, die sich beim Gesunden etwa alle 90 Minuten wiederholt und mit zunehmender Nacht zunehmend längere REM-Anteile enthält.",
+      "kind": "biologischer Rhythmus"
+    },
+    "funFact": "Ein Erwachsener durchläuft pro Nacht ungefähr vier bis fünf solcher Zyklen, jeweils vom Leichtschlaf über den Tiefschlaf zurück zum REM-Stadium.",
+    "sourceName": "Wikipedia (de): Schlafzyklus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Schlafzyklus",
+    "verifyNote": "Belegt die typische Dauer von etwa 90 Minuten und die zyklische Anordnung der Stadien."
+  },
+  {
+    "id": "rhythmus-zirkadianer-rhythmus",
+    "name": "Zirkadianer Rhythmus",
+    "category": "sleep_perception",
+    "attributes": {
+      "definition": "Endogener, biologisch verankerter Rhythmus mit einer Periode von ungefähr 24 Stunden, der unter anderem Schlaf, Körpertemperatur und Hormonausschüttung steuert. Er wird durch äußere Zeitgeber wie Licht mit der Erdumdrehung synchronisiert.",
+      "kind": "biologischer Rhythmus"
+    },
+    "funFact": "Ohne äußere Zeitgeber läuft die innere Uhr beim Menschen etwas länger als 24 Stunden – meist etwa 24,2 bis 24,5 Stunden.",
+    "sourceName": "Wikipedia (de): Circadiane Rhythmik",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Circadiane_Rhythmik",
+    "verifyNote": "Bestätigt die ungefähre 24-Stunden-Periode, die endogene Erzeugung und die Rolle von Licht als wichtigstem Zeitgeber."
+  },
+  {
+    "id": "rhythmus-schlaf-wach-rhythmus",
+    "name": "Schlaf-Wach-Rhythmus",
+    "category": "sleep_perception",
+    "attributes": {
+      "definition": "Tagesperiodischer Wechsel zwischen Ruhe- und Aktivitätsabschnitten, der von inneren Uhren im Gehirn gesteuert und über Licht- und Sozialreize an den 24-Stunden-Tag angepasst wird. Er ist eng mit dem zirkadianen System und dem aufgebauten Druck nach Erholung verknüpft.",
+      "kind": "biologischer Rhythmus"
+    },
+    "funFact": "Bei völliger Dunkelheit oder in Bunkerexperimenten verschiebt sich das Schlaf-Wach-Muster der meisten Menschen allmählich, weil es nicht mehr exakt mit dem äußeren Tag synchronisiert ist.",
+    "sourceName": "Wikipedia (de): Schlaf-Wach-Rhythmus",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Schlaf-Wach-Rhythmus",
+    "verifyNote": "Beschreibt das Zusammenspiel von zirkadianer Uhr, Schlafhomöostase und externen Zeitgebern."
+  },
+  {
+    "id": "gedaechtnis-kurzzeitgedaechtnis",
+    "name": "Kurzzeitgedächtnis",
+    "category": "sleep_perception",
+    "attributes": {
+      "definition": "Begrenzter Speicher, der kleine Informationsmengen nur für Sekunden bis etwa eine Minute bereithält, etwa eine gerade gehörte Telefonnummer, bevor sie entweder vergessen oder weiterverarbeitet wird.",
+      "kind": "Gedächtnisart"
+    },
+    "funFact": "Die typische Kapazität wird auf etwa sieben plus minus zwei Informationseinheiten geschätzt – ein Wert, der aus klassischen Experimenten zur Merkspanne stammt.",
+    "sourceName": "Wikipedia (de): Kurzzeitgedächtnis",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Kurzzeitged%C3%A4chtnis",
+    "verifyNote": "Belegt die begrenzte Kapazität und die kurze Speicherdauer des Kurzzeitgedächtnisses."
+  },
+  {
+    "id": "gedaechtnis-arbeitsgedaechtnis",
+    "name": "Arbeitsgedächtnis",
+    "category": "sleep_perception",
+    "attributes": {
+      "definition": "Aktives System, das Informationen nicht nur kurzfristig hält, sondern sie gleichzeitig manipuliert und verarbeitet, etwa beim Kopfrechnen, beim Verstehen eines Satzes oder beim Planen einer Handlung.",
+      "kind": "Gedächtnisart"
+    },
+    "funFact": "Das Modell unterscheidet mehrere spezialisierte Komponenten, darunter eine phonologische Schleife für sprachliche und ein räumlicher Notizblock für visuelle Inhalte.",
+    "sourceName": "Wikipedia (de): Arbeitsgedächtnis",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Arbeitsged%C3%A4chtnis",
+    "verifyNote": "Belegt den Unterschied zum reinen Kurzzeitspeicher durch die gleichzeitige Manipulations- und Verarbeitungsfunktion."
+  },
+  {
+    "id": "gedaechtnis-langzeitgedaechtnis",
+    "name": "Langzeitgedächtnis",
+    "category": "sleep_perception",
+    "attributes": {
+      "definition": "Dauerhafter Speicher mit sehr großer Kapazität, in dem Erinnerungen über Stunden, Tage, Jahre oder das ganze Leben hinweg abgelegt werden können. Inhalte werden vorher typischerweise aus flüchtigeren Speichern überführt.",
+      "kind": "Gedächtnisart"
+    },
+    "funFact": "Sehr alte autobiografische Erinnerungen werden manchmal mit emotional hoher Bedeutung stabiler gespeichert als viele alltägliche Erlebnisse der letzten Wochen.",
+    "sourceName": "Wikipedia (de): Langzeitgedächtnis",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Langzeitged%C3%A4chtnis",
+    "verifyNote": "Belegt die hohe Kapazität, die lange Dauer und die Untergliederung in deklarative und non-deklarative Inhalte."
+  },
+  {
+    "id": "gedaechtnis-sensorisches-gedaechtnis",
+    "name": "Sensorisches Gedächtnis",
+    "category": "sleep_perception",
+    "attributes": {
+      "definition": "Ultrakurzer Speicher für Sinnesreize, der visuelle, akustische oder taktile Eindrücke für Bruchteile von Sekunden bis wenige Sekunden festhält, damit das Gehirn sie überhaupt weiterverarbeiten kann.",
+      "kind": "Gedächtnisart"
+    },
+    "funFact": "Ohne diesen Zwischenspeicher wäre es nicht möglich, einen Satz in seinem Verlauf zu verstehen, da die einzelnen Laute schneller aufeinander folgen, als das Bewusstsein reagieren könnte.",
+    "sourceName": "Wikipedia (de): Sensorisches Gedächtnis",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Sensorisches_Ged%C3%A4chtnis",
+    "verifyNote": "Belegt die extrem kurze Speicherdauer und die Funktion als Vorstufe zur Weiterverarbeitung."
+  },
+  {
+    "id": "gedaechtnis-prozedurales-gedaechtnis",
+    "name": "Prozedurales Gedächtnis",
+    "category": "sleep_perception",
+    "attributes": {
+      "definition": "Teil des Langzeitspeichers, der gelernte Bewegungsabläufe und Handlungsroutinen wie Radfahren, Schreiben oder Klavierspielen speichert, ohne dass die einzelnen Schritte bewusst abgerufen werden müssen.",
+      "kind": "Gedächtnisart"
+    },
+    "funFact": "Deswegen kann man nach vielen Jahren ohne Übung oft wieder Fahrrad fahren, obwohl man den Bewegungsablauf gar nicht mehr bewusst erinnert.",
+    "sourceName": "Wikipedia (de): Prozedurales Gedächtnis",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Prozedurales_Ged%C3%A4chtnis",
+    "verifyNote": "Belegt die nicht-bewusste, handlungsbezogene Form des impliziten Langzeitgedächtnisses."
+  },
+  {
+    "id": "gedaechtnis-konsolidierung",
+    "name": "Gedächtniskonsolidierung",
+    "category": "sleep_perception",
+    "attributes": {
+      "definition": "Biologischer Vorgang, bei dem frische, oft noch labile Erinnerungen aus kurzfristigen Speichern in stabile, langfristige Spuren überführt werden. Wesentliche Teile dieses Prozesses laufen während bestimmter Schlafphasen ab.",
+      "kind": "Gedächtnisprozess"
+    },
+    "funFact": "Während des Schlafs werden Inhalte des Tages reaktiviert und vor allem im Tiefschlaf und im REM-Schlaf neuronal umorganisiert, wodurch Gelerntes am nächsten Tag deutlich besser abrufbar ist.",
+    "sourceName": "Wikipedia (de): Gedächtniskonsolidierung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Ged%C3%A4chtniskonsolidierung",
+    "verifyNote": "Beschreibt die Überführung in stabile Spuren sowie die zentrale Rolle bestimmter Schlafphasen."
+  },
+  {
+    "id": "psyche-fundamentaler-attributionsfehler",
+    "name": "Fundamentaler Attributionsfehler",
+    "category": "psych_effect",
+    "attributes": {
+      "definition": "Die Tendenz, das Verhalten anderer Menschen vorrangig auf deren Persönlichkeit, Einstellungen oder Charaktereigenschaften zurückzuführen, während der Einfluss der jeweiligen Situation, äußerer Umstände und situativer Zwänge systematisch unterschätzt wird.",
+      "domain": "Soziale Wahrnehmung"
+    },
+    "funFact": "Wer im vollen Bus vom Sitz aufstehen muss, neigt dazu, den rüde rempelnden Mitfahrer als grundsätzlich unhöflichen Menschen einzuschätzen — und übersieht dabei, dass derjenige vielleicht in Eile ist, weil er seinen Zug erreichen muss.",
+    "sourceName": "Wikipedia (de): Attributionsfehler",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Attributionsfehler",
+    "verifyNote": "Der deutsche Wikipedia-Artikel zum Attributionsfehler beschreibt das Phänomen ausführlich und nutzt selbst die Bezeichnung fundamentaler Attributionsfehler als etablierten Fachbegriff für die systematische Überschätzung personaler gegenüber situationaler Ursachen."
+  },
+  {
+    "id": "psyche-spielerfehlschluss",
+    "name": "Spielerfehlschluss",
+    "category": "psych_effect",
+    "attributes": {
+      "definition": "Der logische Fehlschluss, dass bei einem wiederholten Zufallsexperiment ein bisher selten eingetretenes Ereignis mit höherer Wahrscheinlichkeit erwartet wird, weil es nun fällig sei, oder dass ein gerade gehäuft eingetretenes Ereignis in der nächsten Runde seltener kommen müsse.",
+      "domain": "Urteilsbildung"
+    },
+    "funFact": "Nach zehnmal Rot am Roulette-Tisch setzen viele Spielerinnen und Spieler jetzt auf Schwarz — dabei bleibt die Wahrscheinlichkeit für Rot oder Schwarz bei jedem einzelnen Wurf exakt gleich.",
+    "sourceName": "Wikipedia (de): Spielerfehlschluss",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Spielerfehlschluss",
+    "verifyNote": "Der Artikel Spielerfehlschluss erläutert den Irrtum detailliert anhand des Münzwurf-Beispiels und belegt die Unabhängigkeit aufeinanderfolgender Zufallsereignisse."
+  },
+  {
+    "id": "psyche-clustering-illusion",
+    "name": "Clustering-Illusion",
+    "category": "psych_effect",
+    "attributes": {
+      "definition": "Die menschliche Neigung, in zufällig verteilten Daten kurze Muster, Häufungen oder Trends als bedeutsam zu erkennen und sie als Hinweis auf eine nicht-zufällige Ordnung zu deuten, obwohl solche Muster in ausreichend großen Datenmengen rein zufällig erwartbar sind.",
+      "domain": "Urteilsbildung"
+    },
+    "funFact": "Wenn beim Würfeln dreimal hintereinander eine Sechs fällt, wittern viele eine Glückssträhne — obwohl solche kleinen Häufungen selbst bei einem fairen Würfel völlig normal sind und statistisch regelmäßig vorkommen.",
+    "sourceName": "Wikipedia (de): Clustering-Illusion",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Clustering-Illusion",
+    "verifyNote": "Der Artikel Clustering-Illusion beschreibt das Phänomen inklusive der klassischen hot-hand-Studie zu Basketball-Würfen und weiterer dokumentierter Beispiele wie des Leukämieclusters Elbmarsch."
+  },
+  {
+    "id": "psyche-planungsfehlschluss",
+    "name": "Planungsfehlschluss",
+    "category": "psych_effect",
+    "attributes": {
+      "definition": "Die systematische Tendenz von Menschen und Organisationen, den Zeitaufwand, die Kosten und die Risiken künftiger Vorhaben zu unterschätzen und gleichzeitig den Nutzen zu überschätzen, sodass Projekte regelmäßig später fertig werden als geplant.",
+      "domain": "Entscheidung"
+    },
+    "funFact": "Studierende schätzen die Bearbeitungszeit ihrer Abschlussarbeit im Durchschnitt auf rund 34 Tage — tatsächlich brauchen sie im Mittel etwa 56 Tage, obwohl ihnen ihre früheren Verzögerungen durchaus bewusst sind.",
+    "sourceName": "Wikipedia (de): Planungsfehlschluss",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Planungsfehlschluss",
+    "verifyNote": "Der Artikel Planungsfehlschluss fasst mehrere empirische Studien zusammen und belegt die empirisch dokumentierte Unterschätzung des eigenen Zeitbedarfs anhand konkreter Zahlen."
+  },
+  {
+    "id": "psyche-frequenzillusion",
+    "name": "Frequenzillusion",
+    "category": "psych_effect",
+    "attributes": {
+      "definition": "Die Wahrnehmungstäuschung, dass ein zuvor beiläufig aufgefallenes Wort, Objekt oder Phänomen in der Folgezeit überdurchschnittlich häufig wahrgenommen wird, sodass die Person fälschlich auf einen tatsächlichen Anstieg des Vorkommens in der Umwelt schließt.",
+      "domain": "Wahrnehmung"
+    },
+    "funFact": "Wer sich ein neues Auto in einer bestimmten Farbe gekauft hat, wundert sich plötzlich darüber, wie viele Fahrzeuge in genau dieser Farbe auf den Straßen unterwegs sind — die sind allerdings schon immer dort gewesen, fielen nur vorher nicht auf.",
+    "sourceName": "Wikipedia (de): Frequenzillusion",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Frequenzillusion",
+    "verifyNote": "Der Artikel Frequenzillusion (auch Baader-Meinhof-Phänomen) erläutert die Wirkweise des Effekts und liefert mehrere alltagsnahe Beispiele."
+  },
+  {
+    "id": "psyche-kontrafaktisches-denken",
+    "name": "Kontrafaktisches Denken",
+    "category": "psych_effect",
+    "attributes": {
+      "definition": "Der kognitive Vorgang, sich alternative Verläufe bereits vergangener oder abgeschlossener Ereignisse vorzustellen — etwa wie ein knapp verpasster Ausgang bei kleiner Änderung doch eingetreten wäre — und diese gedanklichen Alternativen als Bewertungsmaßstab für die Realität heranzuziehen.",
+      "domain": "Urteilsbildung"
+    },
+    "funFact": "Wer den Bus um nur wenige Sekunden verpasst, ärgert sich weit mehr als bei einer Verspätung von zwanzig Minuten — weil sich die Alternative, den Bus doch noch zu erwischen, gedanklich viel leichter konstruieren lässt.",
+    "sourceName": "Wikipedia (de): Kontrafaktisches Denken",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Kontrafaktisches_Denken",
+    "verifyNote": "Der Artikel Kontrafaktisches Denken beschreibt das Phänomen mit dem klassischen Bus-Beispiel, dem Silber-Bronze-Medaillen-Effekt und grenzt es gegen verwandte Begriffe ab."
+  },
+  {
+    "id": "psyche-selektive-wahrnehmung",
+    "name": "Selektive Wahrnehmung",
+    "category": "psych_effect",
+    "attributes": {
+      "definition": "Die unbewusste Auswahl und Betonung bestimmter Reize oder Informationen aus der Gesamtheit der verfügbaren Eindrücke, während andere ausgeblendet werden, sodass das Bild der Wirklichkeit stets nur einen Ausschnitt der tatsächlich vorhandenen Reize widerspiegelt.",
+      "domain": "Wahrnehmung"
+    },
+    "funFact": "Wer hungrig durch die Stadt läuft, nimmt plötzlich überall Restaurants, Bäckereien und Imbisse wahr, die einem satten Passanten gar nicht auffallen würden.",
+    "sourceName": "Wikipedia (de): Selektive Wahrnehmung",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Selektive_Wahrnehmung",
+    "verifyNote": "Der Artikel Selektive Wahrnehmung definiert das Phänomen als Filterprozess und illustriert es unter anderem mit dem Beispiel hungriger Personen, die vermehrt Lebensmittelreize wahrnehmen."
+  },
+  {
+    "id": "psyche-pareidolie",
+    "name": "Pareidolie",
+    "category": "psych_effect",
+    "attributes": {
+      "definition": "Die Tendenz des Gehirns, in unstrukturierten oder zufälligen Reizen — etwa Wolkenformationen, Gesteinsmustern oder elektrischem Rauschen — bekannte Muster wie Gesichter, Figuren oder vertraute Objekte zu erkennen und diese mit Bedeutung zu versehen.",
+      "domain": "Wahrnehmung"
+    },
+    "funFact": "Die berühmte Cydonia-Formation auf dem Mars, die jahrzehntelang als künstliches Marsgesicht Furore machte, entpuppte sich bei höheren Auflösungen als gewöhnliche Felsformation — das Gehirn hatte schlicht ein bekanntes Muster ergänzt.",
+    "sourceName": "Wikipedia (de): Pareidolie",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Pareidolie",
+    "verifyNote": "Der Artikel Pareidolie erläutert das Phänomen mit dem Marsgesicht, Wolkenformationen und Klecksographien und grenzt es gegenüber Apophänie und Halluzinationen ab."
+  },
+  {
+    "id": "psyche-illusorische-korrelation",
+    "name": "Illusorische Korrelation",
+    "category": "psych_effect",
+    "attributes": {
+      "definition": "Die Wahrnehmung eines statistischen Zusammenhangs zwischen zwei Variablen oder Merkmalen, der in den Daten objektiv nicht oder nur sehr schwach vorhanden ist und häufig durch Erwartungen, unterschiedliche Auffälligkeit oder asymmetrische Informationssuche zustande kommt.",
+      "domain": "Urteilsbildung"
+    },
+    "funFact": "Viele sind überzeugt, dass es bei Vollmond mehr Unfälle oder ungewöhnliches Verhalten gebe — sorgfältige Auswertungen finden keinen solchen Zusammenhang; auffällige Vollmondnächte bleiben nur stärker im Gedächtnis.",
+    "sourceName": "Wikipedia (de): Illusorische Korrelation",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Illusorische_Korrelation",
+    "verifyNote": "Der Artikel Illusorische Korrelation unterscheidet mehrere Varianten (erwartungsbasiert, salient, asymmetrisch) und liefert die klassische Ward-Jenkins-Untersuchung zu zufällig generierten Daten."
+  },
+  {
+    "id": "psyche-affektheuristik",
+    "name": "Affektheuristik",
+    "category": "psych_effect",
+    "attributes": {
+      "definition": "Die Urteilsheuristik, bei der spontane Gefühle wie Zuneigung oder Abneigung gegenüber einer Sache direkt als Grundlage für Risiko- und Nutzenbewertungen verwendet werden, sodass positiv belegte Alternativen automatisch als sicher und nützlich, negativ belegte als gefährlich eingestuft werden.",
+      "domain": "Entscheidung"
+    },
+    "funFact": "Wer eine Technologie spontan sympathisch findet, stuft ihre Risiken erfahrungsgemäß als niedrig und ihren Nutzen als hoch ein — wer sie ablehnt, dreht die Bewertung exakt um, obwohl beiden dieselben Informationen vorliegen.",
+    "sourceName": "Wikipedia (de): Affektheuristik",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Affektheuristik",
+    "verifyNote": "Der Artikel Affektheuristik beschreibt das Konzept ausführlich, verweist auf Paul Slovic als zentralen Forschenden und fasst die klassischen Studien zur Bewertung von Technologien zusammen."
+  },
+  {
+    "id": "psyche-rekognitionsheuristik",
+    "name": "Rekognitionsheuristik",
+    "category": "psych_effect",
+    "attributes": {
+      "definition": "Eine Urteilsheuristik, bei der beim Vergleich zweier Objekte allein auf Basis der Wiedererkennung entschieden wird: Wird nur eines der beiden Objekte erkannt, wird diesem automatisch der höhere Wert auf dem zu beurteilenden Kriterium zugeschrieben.",
+      "domain": "Entscheidung"
+    },
+    "funFact": "Bei der Frage, welche von zwei US-Städten größer ist, schätzen deutsche Versuchspersonen, denen meist nur eine der beiden Städte bekannt ist, deutlich häufiger richtig als amerikanische, die beide kennen — weniger Wissen schützt hier vor falschem Bauchgefühl.",
+    "sourceName": "Wikipedia (de): Rekognitionsheuristik",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Rekognitionsheuristik",
+    "verifyNote": "Der Artikel Rekognitionsheuristik erläutert die Heuristik nach Goldstein und Gigerenzer und dokumentiert den sogenannten Less-Is-More-Effekt im Städte-Vergleich."
+  },
+  {
+    "id": "psyche-gerechte-welt-glaube",
+    "name": "Gerechte-Welt-Glaube",
+    "category": "psych_effect",
+    "attributes": {
+      "definition": "Die tief verankerte Erwartung, dass das Leben im Grunde fair verläuft und jeder Mensch am Ende das erhält, was er verdient hat — weshalb Betroffenen von Unglück unbewusst eine Mitschuld an ihrem Schicksal zugeschrieben wird.",
+      "domain": "Soziale Wahrnehmung"
+    },
+    "funFact": "Viele Menschen reagieren auf die Nachricht von einem Verbrechen weniger mit Mitgefühl für das Opfer, sondern unbewusst mit der Suche nach einem Fehlverhalten des Opfers — um den Glauben aufrechtzuerhalten, dass einem selbst so etwas nicht passieren kann.",
+    "sourceName": "Wikipedia (de): Gerechte-Welt-Glaube",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Gerechte-Welt-Glaube",
+    "verifyNote": "Der Artikel Gerechte-Welt-Glaube stellt das Konzept aus der Sozialpsychologie vor, nennt Lerner als zentralen Autor und beschreibt Defensivattribution und Opfer-Abwertung als direkte Folgen."
+  },
+  {
+    "id": "zelle-oligodendrozyt",
+    "name": "Oligodendrozyt",
+    "category": "cell_type",
+    "attributes": {
+      "system": "Nervensystem",
+      "function": "Umwickelt Axone im Zentralnervensystem mit einer isolierenden Myelinscheide und ermöglicht so die schnelle saltatorische Reizleitung.",
+      "notableFor": "Einzelner Zelltyp, der im Gehirn und Rückenmark bis zu 50 Nervenfasern gleichzeitig bemarkt.",
+      "fachName": "Oligodendrocytus"
+    },
+    "funFact": "Bei der Multiplen Sklerose greift das Immunsystem die von diesen Zellen gebildeten Markscheiden im Zentralnervensystem an, was die Reizleitung verlangsamt.",
+    "sourceName": "Wikipedia (de): Oligodendrozyt",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Oligodendrozyt",
+    "verifyNote": "Belegt Funktion als Myelinbildner im ZNS sowie Zuordnung zu den Gliazellen. Verlinkt auch das Krankheitsbild Multiple Sklerose als bekanntes Beispiel."
+  },
+  {
+    "id": "zelle-mikroglia",
+    "name": "Mikroglia",
+    "category": "cell_type",
+    "attributes": {
+      "system": "Immunsystem",
+      "function": "Ortsständige Fresszellen des Gehirns, die Krankheitserreger, Zelltrümmer und fehlgefaltete Proteine aufnehmen und unschädlich machen.",
+      "notableFor": "Stammen entwicklungsgeschichtlich nicht aus dem Neuralrohr, sondern aus Dottersack-Vorläufern, die ins Gehirn einwandern."
+    },
+    "funFact": "Sie machen beim Menschen nur rund 10 Prozent aller Hirnzellen aus, sind aber die wichtigsten Abwehrzellen im zentralen Nervensystem.",
+    "sourceName": "Wikipedia (de): Mikroglia",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Mikroglia",
+    "verifyNote": "Beschreibt Mikroglia als ortsständige Makrophagen des ZNS mit Abstammung aus dem Dottersack und immunologischer Abwehrfunktion."
+  },
+  {
+    "id": "zelle-enterozyt",
+    "name": "Enterozyt",
+    "category": "cell_type",
+    "attributes": {
+      "system": "Verdauungssystem",
+      "function": "Resorptionszelle des Dünndarmepithels, die Nährstoffe wie Zucker, Aminosäuren und Fettsäuren über die Darmschleimhaut ins Blut oder die Lymphe überführt.",
+      "notableFor": "Ihre apikale Oberfläche trägt einen dichten Bürstensaum aus tausenden Mikrovilli, der die Kontaktfläche enorm vergrößert.",
+      "fachName": "Enterocytus"
+    },
+    "funFact": "Die gesamte resorbierende Oberfläche des menschlichen Dünndarms wird durch Mikrovilli, Kerckring-Falten und Zotten auf etwa 200 Quadratmeter vergrößert – in etwa die Fläche eines Tennisplatzes.",
+    "sourceName": "Wikipedia (de): Enterozyt",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Enterozyt",
+    "verifyNote": "Belegt Funktion als Resorptionszelle des Dünndarms und das Vorhandensein eines Mikrovilli-Bürstensaums; fachsprachlich Enterocytus."
+  },
+  {
+    "id": "zelle-podozyt",
+    "name": "Podozyt",
+    "category": "cell_type",
+    "attributes": {
+      "system": "Harnsystem",
+      "function": "Bildet mit seinen fußartigen Fortsätzen die Filtrationsschlitz-Membran im Nierenkörperchen und bestimmt so die Durchlässigkeit des Primärharns.",
+      "notableFor": "Seine fein verzweigten Zellfortsätze verzahnen sich kammartig und lassen nur schmale Schlitze frei, durch die das Blut im Nierenkörperchen filtriert wird.",
+      "fachName": "Podocytus"
+    },
+    "funFact": "Ihre Fortsätze – die Podozyten-Füßchen – sind durch einen nur rund 30 Nanometer schmalen Schlitz verbunden und bilden damit eine der engsten biologischen Filterbarrieren des Körpers.",
+    "sourceName": "Wikipedia (de): Podozyt",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Podozyt",
+    "verifyNote": "Quelle beschreibt Aufbau des Schlitzes in der Bowman-Kapsel und die Bedeutung für die Filtration; fachsprachlich Podocytus."
+  },
+  {
+    "id": "zelle-pyramidenzelle",
+    "name": "Pyramidenzelle",
+    "category": "cell_type",
+    "attributes": {
+      "system": "Nervensystem",
+      "function": "Erregende Hauptzelle der Großhirnrinde, die über ihren langen Axonhügel Signale an andere Hirnregionen und das Rückenmark weiterleitet.",
+      "notableFor": "Ihre dreieckige Zellform mit einem dicken, zur Hirnoberfläche ziehenden Hauptdendriten ist mikroskopisch leicht zu erkennen.",
+      "fachName": "Neuron pyramidale"
+    },
+    "funFact": "Die größten dieser Zellen sitzen in der motorischen Rinde und heißen Betz-Riesenpyramidenzellen – sie können über 100 Mikrometer groß werden und steuern willkürliche Bewegungen.",
+    "sourceName": "Wikipedia (de): Pyramidenzelle",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Pyramidenzelle",
+    "verifyNote": "Belegt Vorkommen als häufigster erregender Neuronentyp der Großhirnrinde sowie typische Pyramidenform mit apikalem Dendriten."
+  },
+  {
+    "id": "zelle-sertoli-zelle",
+    "name": "Sertoli-Zelle",
+    "category": "cell_type",
+    "attributes": {
+      "system": "Fortpflanzungssystem",
+      "function": "Ammenzelle in den Samenkanälchen des Hodens, die reifenden Keimzellen Nährstoffe liefert, Hormone weitergibt und die Blut-Hoden-Schranke bildet.",
+      "notableFor": "Bildet die Blut-Hoden-Schranke und schirmt die heranreifenden Keimzellen gegen das Immunsystem ab.",
+      "fachName": "Cellula sustentacularis testis"
+    },
+    "funFact": "Sie reicht von der Basis des Samenkanälchens bis in dessen Inneres und umschließt die heranreifenden Keimzellen mit ihren Fortsätzen vollständig.",
+    "sourceName": "Wikipedia (de): Sertoli-Zelle",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Sertoli-Zelle",
+    "verifyNote": "Quelle beschreibt Stütz-, Ernährungs- und Barrierefunktion in den Samenkanälchen sowie die Verbindung zum Anti-Müller-Hormon."
+  },
+  {
+    "id": "zelle-leydig-zelle",
+    "name": "Leydig-Zelle",
+    "category": "cell_type",
+    "attributes": {
+      "system": "Hormonsystem",
+      "function": "Im Bindegewebe zwischen den Samenkanälchen des Hodens gelegen, produziert sie unter Einfluss von LH das männliche Sexualhormon Testosteron.",
+      "notableFor": "Liefert beim erwachsenen Mann rund 95 Prozent des zirkulierenden Testosterons.",
+      "fachName": "Cellula interstitialis testis"
+    },
+    "funFact": "Sie sind beim Ungeborenen kurzzeitig aktiv, ruhen dann bis zur Pubertät und werden danach durch das luteinisierende Hormon der Hirnanhangsdrüse dauerhaft stimuliert.",
+    "sourceName": "Wikipedia (de): Leydig-Zelle",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Leydig-Zelle",
+    "verifyNote": "Belegt Lage im Interstitium des Hodens und Testosteronproduktion unter LH-Einfluss."
+  },
+  {
+    "id": "zelle-kupffer-zelle",
+    "name": "Kupffer-Zelle",
+    "category": "cell_type",
+    "attributes": {
+      "system": "Immunsystem",
+      "function": "Spezialisierte ortsständige Fresszelle in den Blutkapillaren der Leber, die aus dem Blut alt gewordene rote Blutzellen, Bakterien und Zelltrümmer herausfiltert.",
+      "notableFor": "Sie stellt die größte Gruppe ortsständiger Fresszellen (Gewebemakrophagen) im gesamten Körper."
+    },
+    "funFact": "Beim Menschen fließt das gesamte Blut aus dem Verdauungstrakt zuerst durch die Leber – die Leber-Makrophagen prüfen diesen Pfortader-Strom und schützen den Körper vor Darmbakterien.",
+    "sourceName": "Wikipedia (de): Kupffer-Zelle",
+    "sourceUrl": "https://de.wikipedia.org/wiki/Kupffer-Zelle",
+    "verifyNote": "Belegt Funktion als ortsständige Makrophagen der Lebersinusoide und Zugehörigkeit zum mononukleär-phagozytären System."
   }
 ]

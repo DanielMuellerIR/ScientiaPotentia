@@ -45,6 +45,7 @@ const CATEGORY_LABELS = {
   nutrient_macro: 'Nährstoff',
   development_stage: 'Entwicklungsstadium',
   brain_lobe: 'Großhirnlappen',
+  sleep_perception: 'Schlaf & Gedächtnis',
   // Natura
   animal: 'Tier',
   plant: 'Pflanze',
@@ -118,6 +119,7 @@ const ATTR_LABELS = {
   nutrientClass: 'Nährstoffgruppe',
   characteristic: 'Kennzeichen',
   timeframe: 'Zeitspanne',
+  kind: 'Art',
   approxWeightGrams: 'Gewicht (g)',
   value: 'Wert',
   unit: 'Einheit',

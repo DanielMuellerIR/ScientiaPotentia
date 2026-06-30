@@ -45,7 +45,9 @@ const CATEGORY_LABELS = {
   // Neue Kategorien (Physiologie jenseits der Anatomie, Stand 2026-06-25)
   cell_type: 'Zelltyp', hormone: 'Hormon', vitamin: 'Vitamin', sense: 'Sinn',
   digestive_enzyme: 'Verdauungsenzym', nerve: 'Nerv', psych_effect: 'Psychoeffekt',
-  nutrient_macro: 'Nährstoff', development_stage: 'Entwicklungsstadium', brain_lobe: 'Großhirnlappen'
+  nutrient_macro: 'Nährstoff', development_stage: 'Entwicklungsstadium', brain_lobe: 'Großhirnlappen',
+  // Welle 4 (Stand 2026-06-30): Schlafphasen, Gedächtnisarten, biologische Rhythmen
+  sleep_perception: 'Schlaf & Gedächtnis'
 };
 
 const ATTR_LABELS = {
@@ -62,7 +64,9 @@ const ATTR_LABELS = {
   substrate: 'Substrat', domain: 'Bereich',
   // Welle-3-Attribute (nutrient_macro/development_stage/brain_lobe).
   foodSource: 'Nahrungsquelle', nutrientClass: 'Nährstoffgruppe',
-  characteristic: 'Kennzeichen', timeframe: 'Zeitspanne'
+  characteristic: 'Kennzeichen', timeframe: 'Zeitspanne',
+  // Welle-4-Attribut (sleep_perception): grober Klassifikator
+  kind: 'Art'
 };
 
 // Freitext-Chips sind oft erklaerend statt reine Kennwerte. Vor der Antwort
