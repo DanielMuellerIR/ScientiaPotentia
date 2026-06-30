@@ -357,13 +357,36 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 | :----- | :------- | :----- | :------ | :------------- |
 | Terra  | 1852 | 5217 | Natural Earth / GeoNames / Wikidata | Weltkarte (MapLibre), pro Frage Highlight |
 | Astra  | 1560 | 5035 | NASA / IAU / ESA / Wikidata | **3D-Himmelskörper (three.js)** + Kontext-Karte (Bahn/Distanz), Texturen Solar System Scope (CC BY 4.0); 478 Museumsbilder |
-| Homo   | 413 | 1195 | Gray's Anatomy / Prometheus / NIH / MedlinePlus / StatPearls / OpenStax | **Anatomiegrafiken (Wikimedia, PD)** + konzeptgenauer Struktur-Marker je Frage; ab v1.52 zehn Physiologie-Kategorien jenseits der Anatomie |
+| Homo   | 453 | 1313 | Gray's Anatomy / Prometheus / NIH / MedlinePlus / StatPearls / OpenStax | **Anatomiegrafiken (Wikimedia, PD)** + konzeptgenauer Struktur-Marker je Frage; ab v1.52 zehn Physiologie-Kategorien jenseits der Anatomie; v1.74 Vertiefung nerve/hormone/cell_type/psych_effect Richtung ehrliches Ceiling (~1500–1700, NICHT 5000 — docs/homo_erweiterung.md §4) |
 | Natura | 2402 | 13217 | Wikipedia / USGS / IUCN / IPCC / Wikidata | generische Konzeptkarte (`ConceptVisual`); Tiere via MiniMax-Delegation 49→97 ausgebaut (web-grounded); freies Commons-Foto je Konzept hinterlegt (`concept.image`, fürs spätere Museum) |
 | Lingua | 1207 | 5540 | Wikipedia / Ethnologue / Wiktionary / Guinness / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Attribut-Labels; 184 Museumsbilder (writing_system/language_family) |
 | Cultura | 1798 | 6332 | Wikipedia (DE/EN) / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Kategorie-/Attribut-Labels; via MiniMax-Delegation ausgebaut (Komponisten Wikidata-geprüft, Werke web-grounded); 865 Museumsbilder |
 | Machina | 2165 | 6131 | Wikipedia / RFC/IANA / Lehrbücher / DIN 8580 | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Funktionsprinzip (v1.47.0); ab v1.71 auch klassische Technik (Handwerk/Mechanik/Maschinenbau): tool/machine_element/engine/manufacturing_process/material/simple_machine (2 Wellen, v1.71+v1.73); 124 Museumsbilder (hardware) |
 | Historia | 1244 | 6332 | Wikipedia / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Zeit/Urheberschaft, Politik-Ausschluss (v1.47.0); 1023 Museumsbilder |
 
+> **Stand 2026-06-30 (v1.74.0) — Homo-Vertiefung Richtung ehrliches Ceiling (MiniMax-Delegation):**
+> Homo ist die einzige Domain unter dem 5000-Ziel; laut `docs/homo_erweiterung.md` §4 ist ihr ehrliches
+> Ceiling **~1500–1700 Fragen, NICHT 5000** (der Massen-Hebel Krankheiten/Erreger ist per
+> `bereichs_abgrenzung.md` regelwidrig → gehört nach Natura `microbe` bzw. Historia Medizingeschichte).
+> Auf Nutzerentscheidung „bis Ceiling ausbauen" eine reine **Datenvertiefung** (kein Code) der vier
+> Kategorien mit Restspielraum: **+40 Konzepte / +118 Fragen → Homo 413→453 K / 1195→1313 F**
+> (nerve +9: fehlende Hirnnerven IV/VI/IX/XI/XII + periphere femoralis/tibialis/fibularis/axillaris;
+> hormone +9: EPO/Gastrin/Sekretin/CCK/Leptin/Ghrelin/Somatostatin/FSH/LH; cell_type +8: Astrozyt/
+> Schwann/Endothel/Beta/Alpha/Pneumozyt/Purkinje/Belegzelle; psych_effect +14: Repräsentativitäts-/
+> Spotlight-/IKEA-/Besitztums-/Status-quo-/Optimismus-/Falscher-Konsens-/Hawthorne-/Survivorship-/
+> Lockvogel-/Cocktailparty-/Default-/Negativitäts-Effekt + Verfügbarkeitskaskade). **Pipeline:**
+> 4 parallele MiniMax-Finder (OpenCode, sandbox-isoliert nach /tmp) → Opus-Faktenverifikation gegen
+> Lehrbuchwissen → deterministische Korrekturen → `append_concepts` (0 verworfen) → generate → verify
+> (0 Fehler) → audit (Strukt 0 / Bias-Templates 0 / 0 neue Format-Tells) → npm test grün →
+> Browser-verifiziert (Homo-Quiz, neue Konzepte rendern mit dt. Labels + fairen Distraktoren, 0
+> Konsolenfehler). **Opus-Verifikation fing:** 3 Regelverstöße (Entdeckungsdatum/-person im funFact:
+> Sekretin 1902 Bayliss/Starling, Leptin 1994, Schwann-Zelle/Purkinje — gehört nach Historia →
+> funFacts umgeschrieben), redundante fachNames (= Namenswiederholung → getrennt), Klammernamen
+> entklammert, 3 Format-Tells (Ziffer/Klammer nur in der richtigen Option) geglättet. MiniMax-Schwäche
+> (Quality-Log): schmuggelt trotz Verbot wiederholt Entdeckungsdaten/-personen in funFacts.
+> **NICHT deployt.** Offen Richtung Ceiling: 2 neue faire Kategorien (immune_defense, sleep_perception)
+> + ggf. weitere Vertiefung.
+>
 > **Stand 2026-06-25 (v1.73.0) — Machina klassische Technik Welle 2 (Vertiefung) + Deploy:**
 > Zweite Welle über dieselben 6 Technik-Kategorien (Dedup-Listen aus dem Bestand an die Finder), bewährte
 > Pipeline (6 Sonnet-Finder → Gate → 6 adversariale Opus-Verifier → append). **+207 Konzepte / +433 Fragen:
