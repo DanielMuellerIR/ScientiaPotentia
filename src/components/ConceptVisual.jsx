@@ -57,6 +57,21 @@ export default function ConceptVisual({
         (detailsUnlocked || (k !== testedAttribute && k !== CORRELATED_ATTRS[testedAttribute] && !POST_ANSWER_ATTRS.has(k)))
     );
 
+  // Quellen-Selbstverraeter-Guard: Manche Quellnamen enthalten den gefragten Wert
+  // (z.B. "Grzimeks Tierleben – Vögel" bei der Tierklassen-Frage). Vor der Antwort
+  // die Quellzeile dann verbergen; nach der Antwort (detailsUnlocked) wieder zeigen.
+  const testedValue = testedAttribute != null ? attrs[testedAttribute] : null;
+  const sourceName = concept?.source?.name || '';
+  const sourceLeaks =
+    !detailsUnlocked && (
+      // Reverse-/Namensfragen: Identitaet ist verborgen -> Quelle des versteckten
+      // Konzepts (z.B. "… – Amphibien") koennte sie mitverraten.
+      hideIdentity ||
+      // Vorwaertsfragen: Quellname enthaelt den gefragten Wert direkt.
+      (testedValue != null && String(testedValue).length >= 3 && sourceName.includes(String(testedValue)))
+    );
+  const showSource = Boolean(sourceName) && !sourceLeaks;
+
   return (
     <div
       className="terra-panel"
@@ -163,8 +178,10 @@ export default function ConceptVisual({
         ) : null}
       </div>
 
-      {/* Quellen-/Lizenzzeile klein unten (Provenance immer sichtbar) */}
-      {concept?.source?.name ? (
+      {/* Quellen-/Lizenzzeile klein unten. Verborgen, wenn der Quellname den
+          gefragten Wert enthaelt (Selbstverraeter, s. sourceLeaks); nach der
+          Antwort wieder sichtbar. */}
+      {showSource ? (
         <div
           style={{
             position: 'absolute', bottom: 0, left: 0, right: 0,

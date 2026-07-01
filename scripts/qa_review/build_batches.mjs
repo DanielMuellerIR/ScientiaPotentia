@@ -97,12 +97,20 @@ function reconstructPanel(concept, question) {
     value: String(v) + (k === 'value' && attrs.unit ? ` ${attrs.unit}` : '')
   }));
 
+  // Quellen-Selbstverraeter-Guard (deckungsgleich mit ConceptVisual.jsx): Quelle vor
+  // der Antwort verbergen, wenn Identitaet verborgen ist oder der Quellname den
+  // gefragten Wert enthaelt ("Grzimeks Tierleben – Vögel" bei der Klassenfrage).
+  const testedValue = testedAttribute != null ? attrs[testedAttribute] : null;
+  const rawSource = concept?.source?.name || '';
+  const sourceLeaks = hideIdentity ||
+    (testedValue != null && String(testedValue).length >= 3 && rawSource.includes(String(testedValue)));
+
   return {
     categoryLabel,
     name: hideIdentity ? '?' : (concept?.name || '—'),
     identityHidden: hideIdentity,
     visibleAttrs,
-    sourceName: concept?.source?.name || null,
+    sourceName: (rawSource && !sourceLeaks) ? rawSource : null,
     hasImageInMuseum: Boolean(concept?.image) // NICHT im Quiz sichtbar, nur Info
   };
 }

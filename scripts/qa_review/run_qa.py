@@ -109,11 +109,14 @@ def deterministic_shuffle(options, seed_str):
     return [options[i] for i in idx]
 
 
-def format_question(view):
-    """Eine Frage als kompakten Textblock für MiniMax rendern."""
+def format_question(view, ref):
+    """Eine Frage als kompakten Textblock für MiniMax rendern. `ref` ist ein OPAKES
+    Kürzel (F1, F2 …) statt der echten Frage-id — die id enthält Konzept-Slugs
+    (z.B. 'maitake', 'hammerhai'), die der Spieler NIE sieht; würde MiniMax sie
+    sehen, flaggte es Selbstverräter, die real gar nicht existieren."""
     opts = deterministic_shuffle(view['options'], view['id'])
     keyed_letter = LETTERS[opts.index(view['keyedAnswer'])] if view['keyedAnswer'] in opts else '?'
-    lines = [f"[{view['id']}]  Domain: {view['domain']} | Typ: {view['type']}"]
+    lines = [f"[{ref}]  Domain: {view['domain']} | Typ: {view['type']}"]
     lines.append(f"FRAGE: {view['prompt']}")
     for i, o in enumerate(opts):
         lines.append(f"  {LETTERS[i]}) {o}")
@@ -136,8 +139,14 @@ def format_question(view):
 
 
 def build_prompt(views):
-    blocks = [format_question(v) for v in views]
-    return RUBRIK + '\n\n'.join(blocks) + '\n\nJETZT das JSON-Array:'
+    """Prompt + Rückmap ref->echte id bauen (opake Kürzel gegen Slug-Leak)."""
+    ref2id = {}
+    blocks = []
+    for i, v in enumerate(views):
+        ref = f"F{i + 1}"
+        ref2id[ref] = v['id']
+        blocks.append(format_question(v, ref))
+    return RUBRIK + '\n\n'.join(blocks) + '\n\nJETZT das JSON-Array:', ref2id
 
 
 def call_minimax(prompt, model, max_tokens, timeout):
@@ -207,11 +216,15 @@ def main():
         views = json.load(open(os.path.join(args.batches, bf)))
         for v in views:
             all_views[v['id']] = v
-        prompt = build_prompt(views)
+        prompt, ref2id = build_prompt(views)
         print(f"[QA] {bf}: {len(views)} Fragen → MiniMax …", file=sys.stderr)
         try:
             raw = call_minimax(prompt, args.model, args.max_tokens, args.timeout)
             evals = extract_json_array(raw)
+            # Opakes Kürzel (F1…) zurück auf die echte Frage-id mappen.
+            for e in evals:
+                if e.get('id') in ref2id:
+                    e['id'] = ref2id[e['id']]
             all_evals.extend(evals)
             print(f"[QA] {bf}: {len(evals)} Bewertungen erhalten", file=sys.stderr)
         except Exception as e:  # noqa: BLE001 — Batch-Fehler protokollieren, weiterlaufen
