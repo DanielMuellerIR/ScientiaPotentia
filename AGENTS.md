@@ -395,6 +395,13 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 > `-rev`/`cultura-quote-*`-Cluster → künftige QA-gegengeprüfte Content-Runde, Start mit frischem
 > Sweep auf den gefixten Daten).
 >
+> **Code-Review-Triage-Entscheidung (Daniel, 2026-07-01):** Die agentische MiniMax-Nacht-Code-Review
+> vom 2026-06-26 (386 rohe Bullet-Funde über 16 Chunks) ist als **zu rauschlastig abgehakt** — kein
+> Per-Fund-Abarbeiten. Das echte Signal wurde bereits handverifiziert destilliert (Report
+> `2026-06-28.md`) und der lohnende Teil (7 Funde: doppelter `ATTR_LABELS`-Key, stale `clickedMapId`,
+> Terra-Generator-Ausgabepfad, tote Imports) in Commit `ee8d626` gefixt. Beide Review-Reports tragen
+> den `done`-Marker; nicht erneut aufgreifen.
+>
 > **Stand 2026-06-30 (v1.77.0) — Spielmodi Phase 2: Mehrspieler (reihum, Namen, Sieger):**
 > Hot-Seat-Mehrspieler, **nur feste Rundenlänge** (Survival bleibt Solo — bewusst, eigene Leben pro
 > Spieler = späterer Ausbau). **`QuizLauncher.jsx`:** Mitspieler-Wahl 1–4 (Button-Reihe) + je ein
