@@ -49770,9 +49770,9 @@
     "correctAnswer": "M42",
     "options": [
       "M42",
-      "M43",
       "M57",
-      "M27"
+      "M27",
+      "M20"
     ],
     "testedAttribute": "messierNumber",
     "answerIsName": false,
@@ -49808,9 +49808,9 @@
     "correctAnswer": "M57",
     "options": [
       "M57",
-      "M43",
       "M42",
-      "M76"
+      "M76",
+      "M27"
     ],
     "testedAttribute": "messierNumber",
     "answerIsName": false,
@@ -49875,25 +49875,6 @@
     "mapTargetId": null
   },
   {
-    "id": "q_astra_messier-78_astra-nebula-messier",
-    "entityId": "astra:messier-78",
-    "entityType": "nebula",
-    "type": "astra-nebula-messier",
-    "difficulty": 4,
-    "prompt": "Welche Messier-Nummer trägt der Messier 78?",
-    "correctAnswer": "M78",
-    "options": [
-      "M78",
-      "M76",
-      "M97",
-      "M57"
-    ],
-    "testedAttribute": "messierNumber",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
     "id": "q_astra_omeganebel_astra-nebula-messier",
     "entityId": "astra:omeganebel",
     "entityType": "nebula",
@@ -49922,28 +49903,9 @@
     "correctAnswer": "M97",
     "options": [
       "M97",
-      "M78",
       "M76",
-      "M57"
-    ],
-    "testedAttribute": "messierNumber",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_messier-43_astra-nebula-messier",
-    "entityId": "astra:messier-43",
-    "entityType": "nebula",
-    "type": "astra-nebula-messier",
-    "difficulty": 4,
-    "prompt": "Welche Messier-Nummer trägt der Messier 43?",
-    "correctAnswer": "M43",
-    "options": [
-      "M43",
-      "M42",
       "M57",
-      "M27"
+      "M42"
     ],
     "testedAttribute": "messierNumber",
     "answerIsName": false,
@@ -49979,104 +49941,9 @@
     "correctAnswer": "M76",
     "options": [
       "M76",
-      "M78",
       "M57",
-      "M97"
-    ],
-    "testedAttribute": "messierNumber",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_nebula-eulennebel-m97-h3_astra-nebula-messier",
-    "entityId": "astra:nebula-eulennebel-m97-h3",
-    "entityType": "nebula",
-    "type": "astra-nebula-messier",
-    "difficulty": 4,
-    "prompt": "Welche Messier-Nummer trägt der Messier 97 (Eulennebel)?",
-    "correctAnswer": "M97",
-    "options": [
       "M97",
-      "M78",
-      "M76",
-      "M57"
-    ],
-    "testedAttribute": "messierNumber",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_nebula-hantelnebel-m27-h3_astra-nebula-messier",
-    "entityId": "astra:nebula-hantelnebel-m27-h3",
-    "entityType": "nebula",
-    "type": "astra-nebula-messier",
-    "difficulty": 4,
-    "prompt": "Welche Messier-Nummer trägt der Messier 27 (Hantelnebel)?",
-    "correctAnswer": "M27",
-    "options": [
-      "M27",
-      "M20",
-      "M17",
-      "M16"
-    ],
-    "testedAttribute": "messierNumber",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_nebula-lagunennebel-m8-h3_astra-nebula-messier",
-    "entityId": "astra:nebula-lagunennebel-m8-h3",
-    "entityType": "nebula",
-    "type": "astra-nebula-messier",
-    "difficulty": 4,
-    "prompt": "Welche Messier-Nummer trägt der Messier 8 (Lagunennebel)?",
-    "correctAnswer": "M8",
-    "options": [
-      "M8",
-      "M1",
-      "M16",
-      "M17"
-    ],
-    "testedAttribute": "messierNumber",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_nebula-trifidnebel-m20-h3_astra-nebula-messier",
-    "entityId": "astra:nebula-trifidnebel-m20-h3",
-    "entityType": "nebula",
-    "type": "astra-nebula-messier",
-    "difficulty": 4,
-    "prompt": "Welche Messier-Nummer trägt der Messier 20 (Trifidnebel)?",
-    "correctAnswer": "M20",
-    "options": [
-      "M20",
-      "M17",
-      "M16",
-      "M27"
-    ],
-    "testedAttribute": "messierNumber",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_nebula-omeganebel-m17-h3_astra-nebula-messier",
-    "entityId": "astra:nebula-omeganebel-m17-h3",
-    "entityType": "nebula",
-    "type": "astra-nebula-messier",
-    "difficulty": 4,
-    "prompt": "Welche Messier-Nummer trägt der Messier 17 (Omeganebel)?",
-    "correctAnswer": "M17",
-    "options": [
-      "M17",
-      "M16",
-      "M20",
-      "M8"
+      "M42"
     ],
     "testedAttribute": "messierNumber",
     "answerIsName": false,
@@ -50093,9 +49960,9 @@
     "correctAnswer": "Orionnebel",
     "options": [
       "Orionnebel",
-      "Messier 43",
       "Omeganebel",
-      "Messier 78"
+      "Krebsnebel",
+      "Eulennebel"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -50112,9 +49979,9 @@
     "correctAnswer": "Krebsnebel",
     "options": [
       "Krebsnebel",
-      "Messier 43",
-      "Messier 78",
-      "Eulennebel"
+      "Eulennebel",
+      "Orionnebel",
+      "Omeganebel"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -50131,9 +49998,9 @@
     "correctAnswer": "Ringnebel",
     "options": [
       "Ringnebel",
-      "Orionnebel",
-      "Eulennebel",
-      "Adlernebel"
+      "Omeganebel",
+      "Krebsnebel",
+      "Orionnebel"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -50150,8 +50017,8 @@
     "correctAnswer": "Adlernebel",
     "options": [
       "Adlernebel",
+      "Eulennebel",
       "Omeganebel",
-      "Krebsnebel",
       "Orionnebel"
     ],
     "testedAttribute": null,
@@ -50160,18 +50027,18 @@
     "mapTargetId": null
   },
   {
-    "id": "q_astra_messier-78_astra-nebula-messier-rev",
-    "entityId": "astra:messier-78",
+    "id": "q_astra_lagunennebel_astra-nebula-messier-rev",
+    "entityId": "astra:lagunennebel",
     "entityType": "nebula",
     "type": "astra-nebula-messier-rev",
     "difficulty": 4,
-    "prompt": "Welcher Nebel trägt die Messier-Nummer M78?",
-    "correctAnswer": "Messier 78",
+    "prompt": "Welcher Nebel trägt die Messier-Nummer M8?",
+    "correctAnswer": "Lagunennebel",
     "options": [
-      "Messier 78",
-      "Omeganebel",
-      "Adlernebel",
-      "Eulennebel"
+      "Lagunennebel",
+      "Trifidnebel",
+      "Hantelnebel",
+      "Adlernebel"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -50179,18 +50046,75 @@
     "mapTargetId": null
   },
   {
-    "id": "q_astra_messier-43_astra-nebula-messier-rev",
-    "entityId": "astra:messier-43",
+    "id": "q_astra_trifidnebel_astra-nebula-messier-rev",
+    "entityId": "astra:trifidnebel",
     "entityType": "nebula",
     "type": "astra-nebula-messier-rev",
     "difficulty": 4,
-    "prompt": "Welcher Nebel trägt die Messier-Nummer M43?",
-    "correctAnswer": "Messier 43",
+    "prompt": "Welcher Nebel trägt die Messier-Nummer M20?",
+    "correctAnswer": "Trifidnebel",
     "options": [
-      "Messier 43",
-      "Eulennebel",
+      "Trifidnebel",
+      "Hantelnebel",
       "Omeganebel",
-      "Krebsnebel"
+      "Lagunennebel"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_omeganebel_astra-nebula-messier-rev",
+    "entityId": "astra:omeganebel",
+    "entityType": "nebula",
+    "type": "astra-nebula-messier-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Nebel trägt die Messier-Nummer M17?",
+    "correctAnswer": "Omeganebel",
+    "options": [
+      "Omeganebel",
+      "Eulennebel",
+      "Krebsnebel",
+      "Adlernebel"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_eulennebel_astra-nebula-messier-rev",
+    "entityId": "astra:eulennebel",
+    "entityType": "nebula",
+    "type": "astra-nebula-messier-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Nebel trägt die Messier-Nummer M97?",
+    "correctAnswer": "Eulennebel",
+    "options": [
+      "Eulennebel",
+      "Krebsnebel",
+      "Orionnebel",
+      "Omeganebel"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_hantelnebel_astra-nebula-messier-rev",
+    "entityId": "astra:hantelnebel",
+    "entityType": "nebula",
+    "type": "astra-nebula-messier-rev",
+    "difficulty": 4,
+    "prompt": "Welcher Nebel trägt die Messier-Nummer M27?",
+    "correctAnswer": "Hantelnebel",
+    "options": [
+      "Hantelnebel",
+      "Trifidnebel",
+      "Krebsnebel",
+      "Lagunennebel"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -50207,9 +50131,9 @@
     "correctAnswer": "Kleiner Hantelnebel",
     "options": [
       "Kleiner Hantelnebel",
-      "Messier 97 (Eulennebel)",
-      "Messier 17 (Omeganebel)",
-      "Messier 27 (Hantelnebel)"
+      "Lagunennebel",
+      "Hantelnebel",
+      "Trifidnebel"
     ],
     "testedAttribute": null,
     "answerIsName": true,

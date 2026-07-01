@@ -473,12 +473,20 @@ const templates = [
   {
     category: 'nebula', attr: 'messierNumber', type: 'astra-nebula-messier', difficulty: 4,
     numericByValue: true,
+    // Selbstverräter-Skip: Nebel, deren Name die Messier-Nummer enthält (z.B.
+    // "Messier 17 (Omeganebel)"), verraten die Antwort schon im Prompt -> auslassen.
+    // Der generische revealsAnswer-Guard fängt das nicht, weil "M17" nicht als
+    // Substring in "messier17omeganebel" steckt.
+    skip: c => /Messier\s*\d+/i.test(c.name || ''),
     prompt: c => `Welche Messier-Nummer trägt der ${c.name}?`,
     format: v => `M${v}` // Katalognummer, kein Zahlenformat
   },
   {
     category: 'nebula', attr: 'messierNumber', type: 'astra-nebula-messier-rev', difficulty: 4,
     nameAnswer: true, reverseUnique: true,
+    // Analog: als Antwort-Option würde "Messier 17 (Omeganebel)" die gefragte
+    // Nummer M17 direkt nennen -> solche Namen als Antwort ausschließen.
+    skip: c => /Messier\s*\d+/i.test(c.name || ''),
     subject: c => `M${c.attributes.messierNumber}`,
     format: (_v, c) => c.name,
     prompt: c => `Welcher Nebel trägt die Messier-Nummer M${c.attributes.messierNumber}?`
