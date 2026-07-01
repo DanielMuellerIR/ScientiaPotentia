@@ -3965,7 +3965,7 @@
     "attributes": {
       "paradigm": "Funktional",
       "typeSystem": "Dynamisch typisiert",
-      "execution": "Bytecode (VM)/BEAM",
+      "execution": "Bytecode (VM)",
       "primaryDomain": "Nebenläufige Systeme",
       "fileExtension": ".ex"
     },
@@ -13001,7 +13001,7 @@
     "category": "programming_language",
     "attributes": {
       "paradigm": "Funktional",
-      "execution": "Bytecode/VM",
+      "execution": "Bytecode (VM)",
       "fileExtension": ".gleam",
       "primaryDomain": "Nebenläufige Backend-Systeme"
     },
@@ -13073,7 +13073,7 @@
     "category": "programming_language",
     "attributes": {
       "paradigm": "Funktional",
-      "execution": "Bytecode/VM",
+      "execution": "Bytecode (VM)",
       "fileExtension": ".u",
       "primaryDomain": "Verteilte Systeme"
     },
@@ -13145,7 +13145,7 @@
     "category": "programming_language",
     "attributes": {
       "paradigm": "Konkatenativ/stapelbasiert",
-      "execution": "Bytecode/VM",
+      "execution": "Bytecode (VM)",
       "fileExtension": ".factor",
       "primaryDomain": "Allzweck-Skripting"
     },
@@ -13181,7 +13181,7 @@
     "category": "programming_language",
     "attributes": {
       "paradigm": "Objektorientiert (prototypbasiert)",
-      "execution": "Bytecode/VM",
+      "execution": "Bytecode (VM)",
       "fileExtension": ".self",
       "primaryDomain": "Forschung/Sprachdesign"
     },
@@ -13235,7 +13235,7 @@
     "category": "programming_language",
     "attributes": {
       "paradigm": "Objektorientiert",
-      "execution": "Bytecode/VM",
+      "execution": "Bytecode (VM)",
       "fileExtension": ".wren",
       "primaryDomain": "Eingebettetes Skripting"
     },
@@ -13253,7 +13253,7 @@
     "category": "programming_language",
     "attributes": {
       "paradigm": "Funktional/imperativ (Lisp-artig)",
-      "execution": "Bytecode/VM",
+      "execution": "Bytecode (VM)",
       "fileExtension": ".janet",
       "primaryDomain": "Eingebettetes Skripting"
     },
@@ -13271,7 +13271,7 @@
     "category": "programming_language",
     "attributes": {
       "paradigm": "Objektorientiert/imperativ",
-      "execution": "Bytecode/VM",
+      "execution": "Bytecode (VM)",
       "fileExtension": ".nut",
       "primaryDomain": "Spiele-Skripting"
     },
@@ -13307,7 +13307,7 @@
     "category": "programming_language",
     "attributes": {
       "paradigm": "Objektorientiert/imperativ",
-      "execution": "Bytecode/VM",
+      "execution": "Bytecode (VM)",
       "fileExtension": ".pike",
       "primaryDomain": "Server- und Netzwerkanwendungen"
     },
@@ -13361,7 +13361,7 @@
     "category": "programming_language",
     "attributes": {
       "paradigm": "Objektorientiert/imperativ",
-      "execution": "Bytecode/VM",
+      "execution": "Bytecode (VM)",
       "fileExtension": ".pde",
       "primaryDomain": "Kreativcodierung/Visualisierung"
     },
@@ -13875,7 +13875,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "Quite OK Image Format",
-      "compression": "verlustfrei",
+      "compression": "verlustfrei komprimiert",
       "mediaType": "Bild"
     },
     "funFact": "QOI wurde 2021 als bewusst simples Format mit nur rund 300 Zeilen Referenzcode entworfen.",
@@ -13892,7 +13892,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "JPEG XR (Extended Range)",
-      "compression": "verlustbehaftet",
+      "compression": "verlustbehaftet komprimiert",
       "mediaType": "Bild"
     },
     "funFact": "JPEG XR ging aus Microsofts HD-Photo-Format hervor und unterstützt hohen Dynamikumfang.",
@@ -13909,7 +13909,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "eXperimental Computing Facility",
-      "compression": "verlustfrei",
+      "compression": "verlustfrei komprimiert",
       "mediaType": "Bild"
     },
     "funFact": "XCF ist das native Arbeitsformat des Bildeditors GIMP und speichert Ebenen, Pfade und Kanäle.",
@@ -13926,7 +13926,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "Portable Pixmap",
-      "compression": "keine",
+      "compression": "unkomprimiert",
       "mediaType": "Bild"
     },
     "funFact": "PPM gehört zur Netpbm-Familie und speichert Pixel als einfachen, oft sogar lesbaren Text- oder Binärstrom.",
@@ -13943,7 +13943,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "Portable Graymap",
-      "compression": "keine",
+      "compression": "unkomprimiert",
       "mediaType": "Bild"
     },
     "funFact": "PGM speichert reine Graustufenbilder und wird gern als simples Zwischenformat in der Bildverarbeitung genutzt.",
@@ -13960,7 +13960,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "Radiance High Dynamic Range",
-      "compression": "verlustfrei",
+      "compression": "verlustfrei komprimiert",
       "mediaType": "Bild"
     },
     "funFact": "Das Radiance-HDR-Format nutzt ein gemeinsames Exponenten-Byte (RGBE), um hohen Dynamikumfang kompakt zu speichern.",
@@ -13977,7 +13977,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "Monkey's Audio",
-      "compression": "verlustfrei",
+      "compression": "verlustfrei komprimiert",
       "mediaType": "Audio"
     },
     "funFact": "Monkey's Audio komprimiert Audio verlustfrei und erreicht oft etwas höhere Kompressionsraten als FLAC, dafür langsamer.",
@@ -13994,7 +13994,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "Apple Lossless Audio Codec",
-      "compression": "verlustfrei",
+      "compression": "verlustfrei komprimiert",
       "mediaType": "Audio"
     },
     "funFact": "ALAC wurde 2011 von Apple quelloffen gestellt und ist das verlustfreie Pendant zu AAC im Apple-Ökosystem.",
@@ -14011,7 +14011,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "WavPack Hybrid Lossless Audio",
-      "compression": "verlustfrei",
+      "compression": "verlustfrei komprimiert",
       "mediaType": "Audio"
     },
     "funFact": "WavPack kennt einen Hybridmodus, der eine kleine verlustbehaftete Datei plus eine Korrekturdatei für die volle Verlustfreiheit erzeugt.",
@@ -14028,7 +14028,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "Adaptive Multi-Rate",
-      "compression": "verlustbehaftet",
+      "compression": "verlustbehaftet komprimiert",
       "mediaType": "Audio"
     },
     "funFact": "AMR ist auf Sprache optimiert und wurde lange für Sprachnachrichten und Mobilfunk-Telefonie verwendet.",
@@ -14045,7 +14045,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "Speex Speech Codec",
-      "compression": "verlustbehaftet",
+      "compression": "verlustbehaftet komprimiert",
       "mediaType": "Audio"
     },
     "funFact": "Speex war ein freier, auf Sprache spezialisierter Codec und gilt heute als von Opus abgelöst.",
@@ -14062,7 +14062,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "Sun Audio (Au file format)",
-      "compression": "keine",
+      "compression": "unkomprimiert",
       "mediaType": "Audio"
     },
     "funFact": "Das AU-Format stammt von Sun Microsystems und war lange das Standard-Audioformat unter Unix.",
@@ -14079,7 +14079,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "Advanced Systems Format",
-      "compression": "verlustbehaftet",
+      "compression": "verlustbehaftet komprimiert",
       "mediaType": "Video"
     },
     "funFact": "ASF ist Microsofts Container-Format, das die Dateiendungen WMV und WMA umfasst.",
@@ -14096,7 +14096,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "Material Exchange Format",
-      "compression": "verlustbehaftet",
+      "compression": "verlustbehaftet komprimiert",
       "mediaType": "Video"
     },
     "funFact": "MXF ist ein professionelles Container-Format für Film- und Fernsehproduktion und kapselt Video, Audio und Metadaten.",
@@ -14113,7 +14113,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "MPEG-2 Transport Stream (BDAV)",
-      "compression": "verlustbehaftet",
+      "compression": "verlustbehaftet komprimiert",
       "mediaType": "Video"
     },
     "funFact": "M2TS ist das Container-Format der Blu-ray-Disc und basiert auf dem MPEG-2-Transportstrom.",
@@ -14130,7 +14130,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "RealMedia Variable Bitrate",
-      "compression": "verlustbehaftet",
+      "compression": "verlustbehaftet komprimiert",
       "mediaType": "Video"
     },
     "funFact": "RMVB war eine variable-Bitraten-Variante von RealMedia und vor allem für komprimierte Filmdownloads beliebt.",
@@ -14147,7 +14147,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "AOMedia Video 1",
-      "compression": "verlustbehaftet",
+      "compression": "verlustbehaftet komprimiert",
       "mediaType": "Video"
     },
     "funFact": "AV1 ist ein lizenzfreier Video-Codec der Alliance for Open Media und Nachfolger von VP9.",
@@ -14164,7 +14164,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "Comic Book ZIP Archive",
-      "compression": "verlustfrei",
+      "compression": "verlustfrei komprimiert",
       "mediaType": "Dokument"
     },
     "funFact": "Eine CBZ-Datei ist im Kern ein ZIP-Archiv voller nummerierter Bilddateien für digitale Comics.",
@@ -14181,7 +14181,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "FictionBook 2",
-      "compression": "keine",
+      "compression": "unkomprimiert",
       "mediaType": "Dokument"
     },
     "funFact": "FictionBook beschreibt ein ganzes E-Book als einzige XML-Datei und ist vor allem im russischsprachigen Raum verbreitet.",
@@ -14198,7 +14198,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "Amazon Kindle Format 8 (KF8)",
-      "compression": "verlustfrei",
+      "compression": "verlustfrei komprimiert",
       "mediaType": "Dokument"
     },
     "funFact": "AZW3 ist Amazons Kindle-Format KF8, das gegenüber dem alten MOBI deutlich mehr CSS- und Layout-Funktionen bietet.",
@@ -14215,7 +14215,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "TeX Source Document",
-      "compression": "keine",
+      "compression": "unkomprimiert",
       "mediaType": "Dokument"
     },
     "funFact": "TeX-Quelldateien sind reiner Text mit Befehlsmakros, aus denen erst beim Satz das fertige Dokument berechnet wird.",
@@ -14232,7 +14232,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "Microsoft Word Macro-Enabled Document",
-      "compression": "verlustfrei",
+      "compression": "verlustfrei komprimiert",
       "mediaType": "Dokument"
     },
     "funFact": "DOCM entspricht DOCX, erlaubt aber eingebettete VBA-Makros — was es zu einem klassischen Malware-Vektor machte.",
@@ -14249,7 +14249,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "OpenDocument Format",
-      "compression": "verlustfrei",
+      "compression": "verlustfrei komprimiert",
       "mediaType": "Dokument"
     },
     "funFact": "OpenDocument ist ein offener ISO-Standard und die native Dateifamilie von LibreOffice und OpenOffice.",
@@ -14266,7 +14266,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "LHA / LHarc Archive",
-      "compression": "verlustfrei",
+      "compression": "verlustfrei komprimiert",
       "mediaType": "Archiv"
     },
     "funFact": "Das LZH-Archivformat war in den 1990ern besonders in Japan weit verbreitet.",
@@ -14283,7 +14283,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "Archived by Robert Jung",
-      "compression": "verlustfrei",
+      "compression": "verlustfrei komprimiert",
       "mediaType": "Archiv"
     },
     "funFact": "ARJ war ein DOS-Archivformat, das das Aufteilen großer Archive auf mehrere Disketten unterstützte.",
@@ -14300,7 +14300,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "LZ4 Compressed Data",
-      "compression": "verlustfrei",
+      "compression": "verlustfrei komprimiert",
       "mediaType": "Archiv"
     },
     "funFact": "LZ4 ist auf extrem hohe Geschwindigkeit ausgelegt und erreicht im Dekomprimieren mehrere Gigabyte pro Sekunde.",
@@ -14317,7 +14317,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "Lempel-Ziv-Markov Chain Algorithm",
-      "compression": "verlustfrei",
+      "compression": "verlustfrei komprimiert",
       "mediaType": "Archiv"
     },
     "funFact": "LZMA ist das Kompressionsverfahren hinter dem 7z-Archivformat und liefert sehr hohe Kompressionsraten.",
@@ -14334,7 +14334,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "Copy In, Copy Out Archive",
-      "compression": "keine",
+      "compression": "unkomprimiert",
       "mediaType": "Archiv"
     },
     "funFact": "Das cpio-Archivformat steckt unter anderem in RPM-Paketen und in den initramfs-Images des Linux-Kernels.",
@@ -14351,7 +14351,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "PAR2 Parity Volume Set",
-      "compression": "keine",
+      "compression": "unkomprimiert",
       "mediaType": "Archiv"
     },
     "funFact": "PAR2-Dateien speichern Redundanzinformationen, mit denen sich beschädigte oder fehlende Teile eines Datensatzes rekonstruieren lassen.",
@@ -14368,7 +14368,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "Apache Parquet",
-      "compression": "verlustfrei",
+      "compression": "verlustfrei komprimiert",
       "mediaType": "Daten"
     },
     "funFact": "Parquet speichert Tabellen spaltenweise statt zeilenweise, was Analyse-Abfragen über große Datenmengen stark beschleunigt.",
@@ -14385,7 +14385,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "Apache Avro",
-      "compression": "verlustfrei",
+      "compression": "verlustfrei komprimiert",
       "mediaType": "Daten"
     },
     "funFact": "Avro speichert das Datenschema mit in der Datei, sodass sich serialisierte Daten ohne externen Codegenerator lesen lassen.",
@@ -14402,7 +14402,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "MessagePack Binary Serialization",
-      "compression": "keine",
+      "compression": "unkomprimiert",
       "mediaType": "Daten"
     },
     "funFact": "MessagePack wird oft als 'binäres JSON' beschrieben, weil es dieselben Datentypen kompakter binär kodiert.",
@@ -14419,7 +14419,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "Binary JSON",
-      "compression": "keine",
+      "compression": "unkomprimiert",
       "mediaType": "Daten"
     },
     "funFact": "BSON ist die binäre Repräsentation, in der die Datenbank MongoDB ihre Dokumente speichert.",
@@ -14436,7 +14436,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "Concise Binary Object Representation",
-      "compression": "keine",
+      "compression": "unkomprimiert",
       "mediaType": "Daten"
     },
     "funFact": "CBOR ist ein IETF-Standard und wird häufig in ressourcenarmen IoT-Geräten als kompaktes Datenformat verwendet.",
@@ -14453,7 +14453,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "Newline-Delimited JSON",
-      "compression": "keine",
+      "compression": "unkomprimiert",
       "mediaType": "Daten"
     },
     "funFact": "NDJSON setzt pro Zeile ein eigenständiges JSON-Objekt, was das zeilenweise Streamen großer Datenmengen erlaubt.",
@@ -14470,7 +14470,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "Really Simple Syndication",
-      "compression": "keine",
+      "compression": "unkomprimiert",
       "mediaType": "Daten"
     },
     "funFact": "RSS-Dateien sind XML-Feeds, mit denen sich neue Inhalte einer Website automatisiert abonnieren lassen.",
@@ -14487,7 +14487,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "Esri Shapefile",
-      "compression": "keine",
+      "compression": "unkomprimiert",
       "mediaType": "Daten"
     },
     "funFact": "Ein Shapefile besteht immer aus mehreren zusammengehörenden Dateien (.shp, .shx, .dbf) für Geometrie, Index und Attribute.",
@@ -14504,7 +14504,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "LASer Point Cloud Format",
-      "compression": "keine",
+      "compression": "unkomprimiert",
       "mediaType": "Daten"
     },
     "funFact": "Das LAS-Format ist der Standard zum Austausch von LiDAR-Punktwolken, etwa aus der Laser-Vermessung aus der Luft.",
@@ -14521,7 +14521,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "Packet Capture",
-      "compression": "keine",
+      "compression": "unkomprimiert",
       "mediaType": "Daten"
     },
     "funFact": "PCAP-Dateien speichern mitgeschnittenen Netzwerkverkehr und sind das Standardformat von Wireshark und tcpdump.",
@@ -14538,7 +14538,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "Wavefront Material Template Library",
-      "compression": "keine",
+      "compression": "unkomprimiert",
       "mediaType": "Daten"
     },
     "funFact": "MTL-Dateien beschreiben die Materialien und Texturen, die zu einem 3D-Modell im OBJ-Format gehören.",
@@ -19279,7 +19279,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "Audible Enhanced Audiobook",
-      "compression": "verlustbehaftet",
+      "compression": "verlustbehaftet komprimiert",
       "mediaType": "Audio"
     },
     "funFact": "AAX ist das DRM-geschützte Hörbuchformat von Audible und basiert technisch auf AAC.",
@@ -19296,7 +19296,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "Ogg Vorbis Audio",
-      "compression": "verlustbehaftet",
+      "compression": "verlustbehaftet komprimiert",
       "mediaType": "Audio"
     },
     "funFact": "Vorbis ist ein patentfreier, offener Audiocodec der Xiph.Org Foundation.",
@@ -19313,7 +19313,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "Monkey's Audio Lossless",
-      "compression": "verlustfrei",
+      "compression": "verlustfrei komprimiert",
       "mediaType": "Audio"
     },
     "funFact": "Monkey's Audio (Dateiendung .ape) erreicht oft höhere Kompressionsraten als FLAC, ist aber rechenintensiver.",
@@ -19330,7 +19330,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "Direct Stream Digital",
-      "compression": "keine",
+      "compression": "unkomprimiert",
       "mediaType": "Audio"
     },
     "funFact": "DSD nutzt 1-Bit-Sigma-Delta-Modulation und ist das Audioformat der Super Audio CD (SACD).",
@@ -19347,7 +19347,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "Theora Video Codec",
-      "compression": "verlustbehaftet",
+      "compression": "verlustbehaftet komprimiert",
       "mediaType": "Video"
     },
     "funFact": "Theora ist ein freier Videocodec der Xiph.Org Foundation, abgeleitet von VP3.",
@@ -19364,7 +19364,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "Universal Scene Description",
-      "compression": "keine",
+      "compression": "unkomprimiert",
       "mediaType": "3D-Modell"
     },
     "funFact": "USD wurde von Pixar entwickelt, um komplexe 3D-Szenen aus mehreren Quellen zusammenzusetzen.",
@@ -19381,7 +19381,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "Standard for the Exchange of Product model data",
-      "compression": "keine",
+      "compression": "unkomprimiert",
       "mediaType": "CAD-Zeichnung"
     },
     "funFact": "STEP ist in der Norm ISO 10303 definiert und tauscht CAD-Modelle herstellerunabhängig aus.",
@@ -19398,7 +19398,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "Initial Graphics Exchange Specification",
-      "compression": "keine",
+      "compression": "unkomprimiert",
       "mediaType": "CAD-Zeichnung"
     },
     "funFact": "IGES ist eines der ältesten neutralen CAD-Austauschformate und stammt aus dem Jahr 1980.",
@@ -19415,7 +19415,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "3D Manufacturing Format",
-      "compression": "verlustfrei",
+      "compression": "verlustfrei komprimiert",
       "mediaType": "3D-Modell"
     },
     "funFact": "3MF ist ein XML-basiertes Format für den 3D-Druck und wurde als moderner STL-Nachfolger entworfen.",
@@ -19432,7 +19432,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "Flexible Image Transport System",
-      "compression": "keine",
+      "compression": "unkomprimiert",
       "mediaType": "Daten"
     },
     "funFact": "FITS ist das Standardformat der Astronomie und speichert wissenschaftliche Bilddaten samt Metadaten.",
@@ -19449,7 +19449,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "Hierarchical Data Format Version 5",
-      "compression": "verlustfrei",
+      "compression": "verlustfrei komprimiert",
       "mediaType": "Daten"
     },
     "funFact": "HDF5 organisiert große wissenschaftliche Datensätze hierarchisch wie ein Dateisystem in einer Datei.",
@@ -19466,7 +19466,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "Network Common Data Form",
-      "compression": "verlustfrei",
+      "compression": "verlustfrei komprimiert",
       "mediaType": "Daten"
     },
     "funFact": "NetCDF wird vor allem in Klima- und Geowissenschaften für mehrdimensionale Gitterdaten genutzt.",
@@ -19483,7 +19483,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "Optimized Row Columnar",
-      "compression": "verlustfrei",
+      "compression": "verlustfrei komprimiert",
       "mediaType": "Tabellen/Daten"
     },
     "funFact": "ORC ist ein spaltenorientiertes Format aus dem Hadoop-Umfeld und konkurriert direkt mit Parquet.",
@@ -19500,7 +19500,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "Apache Arrow Feather",
-      "compression": "verlustfrei",
+      "compression": "verlustfrei komprimiert",
       "mediaType": "Tabellen/Daten"
     },
     "funFact": "Feather basiert auf Apache Arrow und ermöglicht sehr schnelles Lesen von Tabellen zwischen Python und R.",
@@ -19517,7 +19517,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "Joint Photographic Experts Group 2000",
-      "compression": "verlustbehaftet",
+      "compression": "verlustbehaftet komprimiert",
       "mediaType": "Bild"
     },
     "funFact": "JPEG 2000 nutzt Wavelet-Transformation statt DCT und unterstützt sowohl verlust- als auch verlustfreie Modi.",
@@ -19534,7 +19534,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "High Efficiency Image File Format",
-      "compression": "verlustbehaftet",
+      "compression": "verlustbehaftet komprimiert",
       "mediaType": "Bild"
     },
     "funFact": "HEIF speichert Bilder mit dem HEVC-Codec und braucht bei gleicher Qualität deutlich weniger Platz als JPEG.",
@@ -19551,7 +19551,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "Open Extended Dynamic Range",
-      "compression": "verlustfrei",
+      "compression": "verlustfrei komprimiert",
       "mediaType": "Bild"
     },
     "funFact": "OpenEXR speichert High-Dynamic-Range-Bilder und wurde von Industrial Light & Magic entwickelt.",
@@ -19568,7 +19568,7 @@
     "category": "file_format",
     "attributes": {
       "fullName": "Windows Cursor",
-      "compression": "keine",
+      "compression": "unkomprimiert",
       "mediaType": "Bild"
     },
     "funFact": "Das CUR-Format speichert Mauszeiger unter Windows und ähnelt technisch dem ICO-Iconformat.",

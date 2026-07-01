@@ -307,7 +307,12 @@ export const ATTR_LABELS = {
 // Freitext ("Beiträge zur Quantenmechanik") verriete sonst Feld/Nationalität.
 export const POST_ANSWER_ATTRS = new Set(['notableFor', 'definition', 'function', 'knownFor', 'characteristic',
   // Klassische Technik: beschreibende Freitexte, die das Konzept vor der Antwort verraten könnten.
-  'principle', 'property']);
+  'principle', 'property',
+  // Machina: 'purpose' (Zweck) beschreibt die Funktion so konkret, dass es z.B. bei der
+  // Algorithmus-Klassen-Frage die Antwort verrät ("Löst lineare Optimierungsprobleme"
+  // → Optimierungsalgorithmus). Die eigenen purpose-Fragen zeigen den Wert als Option,
+  // nicht im Panel — daher hier gefahrlos vor der Antwort verbergen. (QA-Fund 2026-07-01)
+  'purpose']);
 
 // Taxonomisch korrelierte Attribute: Wird z.B. die ORDNUNG gefragt, verraet die
 // sichtbare TIERKLASSE die Antwort oft schon (die Distraktoren sind dann Ordnungen

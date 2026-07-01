@@ -1,0 +1,516 @@
+# MiniMax-QA-Report
+
+Batches: 35 · Fragen: 409 · bewertet: 404
+
+## Zusammenfassung
+
+- Urteil **behalten**: 315 · **überarbeiten**: 71 · **verwerfen**: 18
+- Selbstverräter stark/schwach/keiner: 76/51/277
+- Distraktoren defekt/schwach/gut: 8/49/347
+- Wissensniveau zu_obskur: 0 · Klarheit unklar: 2
+- Mögliche Sachfehler (keyDoubt): 17
+
+## ⚠️ Systematische Auffälligkeiten (Template-Verdacht)
+
+_Typen, bei denen ≥50 % der Stichprobe nicht behalten wird — hier lohnt ein Template-Fix statt Einzelkorrektur._
+
+- `cultura-artwork-width`: 2/2 auffällig
+- `cultura-composer-deathyear`: 2/2 auffällig
+- `cultura-composition-composer-rev`: 2/2 auffällig
+- `cultura-literature-author-rev`: 2/2 auffällig
+- `cultura-quote-complete`: 2/2 auffällig
+- `cultura-quote-work`: 2/2 auffällig
+- `cultura-sculpture-country`: 2/2 auffällig
+- `historia-discovery-discoverer`: 2/2 auffällig
+- `historia-epoch-region`: 2/2 auffällig
+- `lingua-etymology-borrowing-path`: 2/2 auffällig
+- `lingua-etymology-era`: 2/2 auffällig
+- `lingua-etymology-source`: 2/2 auffällig
+- `lingua-family-languagecount`: 2/2 auffällig
+- `lingua-language-script-type`: 2/2 auffällig
+- `lingua-script-invented-year-rev`: 2/2 auffällig
+- `machina-algo-category`: 2/2 auffällig
+- `machina-ds-complexity`: 2/2 auffällig
+- `machina-engine-energy-rev`: 2/2 auffällig
+- `machina-engine-type-rev`: 2/2 auffällig
+- `machina-format-compression`: 2/2 auffällig
+- `machina-format-compression-rev`: 2/2 auffällig
+- `machina-lang-execution`: 2/2 auffällig
+- `machina-lang-execution-rev`: 2/2 auffällig
+- `machina-lang-paradigm-rev`: 2/2 auffällig
+- `natura-mineral-formula-rev`: 2/2 auffällig
+- `natura-plant-family-rev`: 2/2 auffällig
+- `cultura-architecture-country`: 1/2 auffällig
+- `cultura-architecture-height`: 1/2 auffällig
+- `cultura-architecture-year`: 1/2 auffällig
+- `cultura-litmovement-endyear`: 1/2 auffällig
+- `cultura-quote-text`: 1/2 auffällig
+- `cultura-sculpture-material`: 1/2 auffällig
+- `historia-expedition-region-rev`: 1/2 auffällig
+- `historia-expedition-year`: 1/2 auffällig
+- `historia-invention-inventor-rev`: 1/2 auffällig
+- `lingua-etymology-original-meaning`: 1/2 auffällig
+- `lingua-family-world-share`: 1/2 auffällig
+- `lingua-language-native-speakers`: 1/2 auffällig
+- `lingua-language-official-countries`: 1/2 auffällig
+- `lingua-script-charcount-rev`: 1/2 auffällig
+- `machina-acronym-domain`: 1/2 auffällig
+- `machina-algo-complexity`: 1/2 auffällig
+- `machina-engine-energy`: 1/2 auffällig
+- `machina-engine-type`: 1/2 auffällig
+- `machina-format-fullname`: 1/2 auffällig
+- `machina-format-mediatype`: 1/2 auffällig
+- `machina-format-mediatype-rev`: 1/2 auffällig
+- `machina-hw-function`: 1/2 auffällig
+- `machina-lang-domain-rev`: 1/2 auffällig
+- `machina-lang-ext`: 1/2 auffällig
+- `natura-animal-length`: 1/2 auffällig
+- `natura-animal-length-rev`: 1/2 auffällig
+- `natura-animal-lifespan`: 1/2 auffällig
+- `natura-animal-lifespan-rev`: 1/2 auffällig
+- `natura-animal-order-rev`: 1/2 auffällig
+- `natura-animal-weight`: 1/2 auffällig
+- `natura-fungus-gattung`: 1/2 auffällig
+- `natura-geology-typ`: 1/2 auffällig
+- `natura-geology-volcanotype`: 1/2 auffällig
+- `natura-mineral-density`: 1/2 auffällig
+- `natura-plant-origin`: 1/2 auffällig
+- `natura-plant-usedas`: 1/2 auffällig
+
+## 🔴 Möglicher Sachfehler (keyDoubt) (17)
+
+- **[natura/natura-animal-length]** Welche maximale Körperlänge erreicht Kaspische Smaragdeidechse?
+  - Antwort (keyed): 35 cm
+  - MiniMax-Zweifel: Kaspische Smaragdeidechsen (Lacerta strigata) erreichen etwa 25–30 cm Gesamtlänge. D (35 cm) ist plausibel, aber Werte bis ~40 cm werden teils angegeben. C (3,5 cm) ist hingegen nur Schwanzlänge und viel zu klein für eine Gesamtkörperlänge – meine Wahl C ist falsch. KEYED D erscheint aber auch am oberen Rand. Ohne exakte Quelle nicht eindeutig. (eigene Antwort C)
+  - Probleme: Zahlenwerte 35 cm und 73 cm für eine Eidechse beide im realistischen Bereich, schlecht trennbar; Unklar, ob Gesamtlänge oder Kopf-Rumpf-Länge gemeint ist
+- **[natura/natura-animal-length-rev]** Welches dieser Tiere erreicht eine maximale Körperlänge von 20 cm?
+  - Antwort (keyed): Williamsons Saftlecker
+  - MiniMax-Zweifel: Williamsons Saftlecker (Sphyrapicus williamsonii, ein Specht) wird ca. 22–25 cm lang. KEYED A bei 20 cm ist am unteren Rand plausibel, 20 cm passt aber auch nicht exakt – ich würde eher D (Weißrücken-Flötenvogel ~20 cm) wählen. (eigene Antwort D)
+  - Probleme: Williamsons Saftlecker ist real ca. 22–25 cm – 20 cm ist nicht exakt; Weißrücken-Flötenvogel mit ~20 cm wäre ebenfalls plausible Antwort
+- **[natura/natura-animal-lifespan]** Wie alt kann Siebenpunkt-Marienkäfer höchstens werden?
+  - Antwort (keyed): 1 Jahre
+  - MiniMax-Zweifel: Siebenpunkt-Marienkäfer können 1–3 Jahre alt werden (teils bis 1,5 Jahre, in günstigen Bedingungen länger). 'Bis zu 1 Jahr' (A) ist realistisch (Imagines leben oft nur wenige Monate, maximal 1 Jahr). 2 Jahre wäre aber auch nicht ungewöhnlich. KEYED A ist plausibel, aber A vs. D ist sachlich nicht eindeutig. (eigene Antwort D)
+  - Probleme: Frage ist abhängig davon, ob Entwicklungsdauer mitgezählt wird oder nur Adult-Lebenszeit – A und D beide vertretbar
+- **[natura/natura-animal-lifespan-rev]** Welches dieser Tiere kann bis zu 40 Jahre alt werden?
+  - Antwort (keyed): Kranich
+  - MiniMax-Zweifel: Kraniche werden 20–30 Jahre alt (max ~40 in seltenen Fällen). 40 Jahre ist am oberen Rand. Seehund mit max ~35, Axolotl ~10–15, Libelle nur Tage–Monate – Kranich ist sicher die längste. (eigene Antwort C)
+  - Probleme: Kranich 'bis zu 40 Jahre' und Seehund 'bis zu 35 Jahre' praktisch nicht trennbar ohne exakte Quellen
+- **[natura/natura-geology-volcanotype]** Zu welchem Vulkantyp zählt Krakatau?
+  - Antwort (keyed): Caldera
+  - MiniMax-Zweifel: Krakatau ist tatsächlich ein Schichtvulkan (Strato), keine Caldera – die Caldera entstand durch den Ausbruch 1883, ist aber ein Folgeprodukt, nicht der Vulkantyp. Key A ist plausibler. (eigene Antwort D)
+  - Probleme: Sachfehler: Krakatau ist ein Schichtvulkan (Strato), nicht eine Caldera; Caldera-Vulkantyp ist keine anerkannte Standardkategorie
+- **[natura/natura-mineral-density]** Welche Dichte hat das Mineral Onyx?
+  - Antwort (keyed): 2,65 g/cm³
+  - MiniMax-Zweifel: Onyx hat Dichte ca. 2,65–2,67 g/cm³, also wäre 2,65 (B) korrekt. Aber A (2,6) ist ebenfalls innerhalb der Literatur-Range. 2,71 (D) ist Quarz-Dichte, nicht Onyx. (eigene Antwort B)
+  - Probleme: A und B sind beide innerhalb der Literatur-Range für Onyx, Distraktoren kaum trennbar
+- **[natura/natura-plant-usedas]** Wie wird Minze hauptsächlich genutzt?
+  - Antwort (keyed): Heilpflanze
+  - MiniMax-Zweifel: Minze wird sowohl als Heilpflanze (Tee, ätherische Öle) als auch als Gewürz/Küchenkraut genutzt – Hauptnutzung ist nicht eindeutig (eigene Antwort C)
+  - Probleme: Hauptnutzung nicht eindeutig festlegbar – Gewürz und Heilpflanze gleichermaßen zutreffend; Schwammige Kategorisierung
+- **[cultura/cultura-litmovement-endyear]** Um welches Jahr endete die Literaturepoche Magischer Realismus?
+  - Antwort (keyed): 1980
+  - MiniMax-Zweifel: Magischer Realismus hat kein eindeutig festgelegtes Enddatum; 1970/1980 werden in verschiedenen Quellen genannt, das Panel gibt keinen Endzeitpunkt an (eigene Antwort B)
+  - Probleme: Panel enthält kein Endjahr, daher ist die Frage nur durch exaktes Spezialwissen lösbar; Endjahre 1964/1966/1970/1980 sind alle in unterschiedlichen Quellen vertretbar
+- **[lingua/lingua-etymology-era]** In welcher Epoche kam das Wort „Physik" ins Deutsche?
+  - Antwort (keyed): 16. Jahrhundert / über Latein
+  - MiniMax-Zweifel: Physik als Lehnwort aus dem Lateinischen wurde bereits im Mittelhochdeutschen/Mittelalter rezipiert (z.B. 'physica' bei Notker); die 'Neuprägung 18. Jahrhundert' bei Option A wäre sachlich ebenfalls diskutabel. KEYED C (16. Jh. über Latein) ist plausibel, aber nicht eindeutig (eigene Antwort C)
+  - Probleme: Möglich, dass auch A (Neuprägung 18. Jh.) korrekt ist – 'Physik' als moderner Terminus; Drei von vier Optionen sagen 'über Latein', was die Antwortmenge künstlich verengt
+- **[lingua/lingua-family-languagecount]** Wie viele Einzelsprachen gehören zu „Berbersprachen (Amazigh)"?
+  - Antwort (keyed): 45
+  - MiniMax-Zweifel: Die korrekte Anzahl der Berbersprachen liegt laut Wikipedia bei ca. 25–30, keinesfalls bei nur 45 – Option B (45) ist deutlich zu hoch. 450 oder 80 wären realistischer; 45 ist zu niedrig. (eigene Antwort B)
+  - Probleme: Sachfehler: Keine Antwort entspricht der realen Anzahl von ~25-30 Berbersprachen; Panel nennt Sprecherzahl (25 Mio.), was Spieler fälschlich mit Sprachenzahl verwechseln könnten
+- **[lingua/lingua-language-native-speakers]** Wie viele Muttersprachler hat Burjatisch?
+  - Antwort (keyed): 1 Millionen
+  - MiniMax-Zweifel: Eigene Schätzung (ca. 0,3-0,5 Mio. Sprecher) deutet auf A) 0,45 Mio. hin. Keyed D) 1 Millionen erscheint zu hoch; nach Wikipedia hat Burjatisch ca. 400-500k Sprecher. (eigene Antwort A)
+  - Probleme: Keyed-Antwort D (1 Mio.) ist sachlich wahrscheinlich falsch; realistischer Wert ist ca. 0,4-0,5 Mio. (Option A); Distraktoren C (0,1 Mio.) und B (10 Mio.) sind klar abgrenzbar, A vs. D ist faktisch nicht ohne Nachschlagen trennbar
+- **[lingua/lingua-language-official-countries]** In wie vielen Ländern ist Tatarisch Amtssprache?
+  - Antwort (keyed): 1 Land
+  - MiniMax-Zweifel: Tatarisch ist Amtssprache in Russland (Tatarstan) und in Kasachstan (inoffiziell). In Tatarstan ist es offizielle Sprache der Republik, aber offizielle Amtssprache der Russischen Föderation ist Russisch. Die korrekte Zahl ist umstritten; KEYED 1 (nur Russland) ist eine mögliche Sichtweise, aber nicht zwingend eindeutig. (eigene Antwort B)
+  - Probleme: Amtssprache-Status in Kasachstan/Sotschi-Tatarstan uneindeutig; Fragestellung erfordert präzise Definition von 'Amtssprache'
+- **[machina/machina-format-compression]** Wie behandelt das Dateiformat JSON die Datenmenge bei der Speicherung?
+  - Antwort (keyed): unkomprimiert
+  - MiniMax-Zweifel: JSON wird meist als reines Textformat ohne Komprimierung gespeichert. Die Optionen B und C überlappen stark: 'unkomprimiert' und 'keine' Kompression sind im Wesentlichen synonym. Zudem ist 'verlustfrei' hier mehrdeutig (verlustfreie Kompression vs. kein Verlust) – 'unkomprimiert' passt eigentlich besser als Antwort, 'verlustfrei' könnte ebenfalls als richtig gelten. (eigene Antwort C)
+  - Probleme: Distraktoren 'keine', 'verlustfrei', 'unkomprimiert' überlappen begrifflich stark; Frage/Ambiguität: was bedeutet 'verlustfrei' bei einem unkomprimierten Textformat?; keyDoubt: 'verlustfrei' könnte ebenso korrekt sein
+- **[machina/machina-format-compression]** Wie behandelt das Dateiformat PFX die Datenmenge bei der Speicherung?
+  - Antwort (keyed): unkomprimiert
+  - MiniMax-Zweifel: PFX/PKCS#12 enthält komprimierte Daten, aber technisch ist es eher 'keine' eingebaute Kompression – die Datei kann unkomprimiert oder komprimiert sein. 'unkomprimiert' (Option B) ist gängige Lehrbuch-Antwort, aber 'keine' (C) wäre gleichwertig. Antwort nicht eindeutig. (eigene Antwort B)
+  - Probleme: Distraktoren 'unkomprimiert' und 'keine' nicht trennbar; Kompression bei PFX ist tatsächlich optional und umstritten
+- **[machina/machina-format-mediatype]** Welcher Art von Daten dient das Dateiformat ASF primär?
+  - Antwort (keyed): Video
+  - MiniMax-Zweifel: Advanced Systems Format wird meist als Container für Audio UND Video genutzt (WMV/WMA). Die korrekte mediated type-Einordnung ist uneindeutig – Wikipedia listet es als Multimediadatei. KEYED=A (Video) ist eine berechtigte Auswahl, aber nicht zwingend. (eigene Antwort D)
+  - Probleme: ASF ist Multimediadatei für Audio+Video, Einordnung als primär Video ist nicht eindeutig
+- **[historia/historia-epoch-region]** Mit welcher Region wird die Epoche „Byzantinisches Reich“ vor allem verbunden?
+  - Antwort (keyed): Östlicher Mittelmeerraum
+  - MiniMax-Zweifel: A und B sind im Grunde identisch mit D (Östlicher Mittelmeerraum = Europa und Mittelmeerraum); B und D sind sachlich kaum trennbar, A und B sind Synonyme (eigene Antwort D)
+  - Probleme: Distraktoren defekt: A/B/D nicht trennbar; Doppelung A und B; Panel zeigt keine Region, daher keine Eingrenzung möglich
+- **[historia/historia-expedition-year]** In welchem Jahr fand „Sven Hedins Zentralasien-Expeditionen” statt (Beginn)?
+  - Antwort (keyed): 1893
+  - MiniMax-Zweifel: Sven Hedins erste große Zentralasien-Expedition begann 1895/1897, nicht 1893. Die Expeditionsjahre 1893–1897 fallen in seine erste Expedition, sodass 1893 als Startjahr vertretbar sein könnte, aber die berühmte 'Zentralasien-Expedition' wird meist mit 1899–1902 datiert. (eigene Antwort B)
+  - Probleme: Expeditionsbegriff mehrdeutig (1. Expedition 1893–97 vs. große Zentralasien-Expedition 1899–1902); keyDoubt: 1893 passt nur zur ersten Expedition, die berühmtere startete 1899/1900/1901
+
+## 🟠 Starker Selbstverräter (76)
+
+- **[natura/natura-animal-class-rev]** Welches dieser Tiere gehört zur Tierklasse „Insekten“?
+  - Antwort (keyed): Hosenbiene
+  - Grund: Name 'Hosenbiene' enthält 'Biene' → Insekt; Hai, Gänsesäger, Buntspecht sind eindeutig keine Insekten.
+- **[natura/natura-animal-order]** Zu welcher Ordnung gehört Wisent?
+  - Antwort (keyed): Paarhufer
+  - Grund: Wisent ist offensichtlich ein Huftier; Paarhufer ist die einzige Säugetier-Ordnung unter den Optionen. B, C, D sind wirbellose Tiere/Meerestiere und kommen für ein 920 kg schweres Landsäugetier nicht in Frage.
+  - Probleme: Distraktoren sind zwar eindeutig, aber B/C/D thematisch so weit weg, dass die Frage fast trivial wird
+- **[natura/natura-animal-order]** Zu welcher Ordnung gehört Landkärtchen?
+  - Antwort (keyed): Schmetterlinge
+  - Grund: Name 'Landkärtchen' + Quelle 'Insekten' lässt eindeutig auf Schmetterling schließen. B (Monoplacophora=Weichtiere), C (Pflanzensauger) und D (Hexanchiformes=Kammzähnerhaie) sind keine Insektenordnungen.
+- **[natura/natura-animal-order-rev]** Welches dieser Tiere gehört zur Ordnung „Gänsevögel“?
+  - Antwort (keyed): Blässgans
+  - Grund: Der Name 'Blässgans' enthält das Wort 'Gans' → Gänsevögel. B (Hauskrähe=Singvogel), C (Neopilina=Weichtier) und D (Papstfink=Sperlingsvogel) sind keine Gänsevögel.
+- **[natura/natura-fungus-gattung]** Zu welcher Gattung gehört Austernseitling?
+  - Antwort (keyed): Seitlinge
+  - Grund: Der Name 'Austernseitling' enthält bereits das Wort 'Seitling', die Gattung Seitlinge liegt auf der Hand – keinerlei Pilzwissen nötig
+  - Probleme: Selbstverräter: 'Austernseitling' enthält direkt den Gattungsnamen 'Seitlinge'
+- **[natura/natura-geology-typ]** Was für eine geologische Formation ist Tambora?
+  - Antwort (keyed): Vulkan
+  - Grund: Panel enthält 'Vulkantyp: Schichtvulkan' und 'letzteAktivitaet: 1967' – beides verrät die Antwort ohne jedes Wissen.
+  - Probleme: Selbstverräter: Panel zeigt 'Vulkantyp: Schichtvulkan' direkt
+- **[natura/natura-mineral-formula-rev]** Welches Mineral hat die chemische Formel „Cu"?
+  - Antwort (keyed): Kupfer
+  - Grund: Formel Cu wird im Titel der Frage praktisch beantwortet (Cu = Kupfer) und Panel-Quelle ist 'Kupfer'
+  - Probleme: starker Selbstverräter: Formel Cu = Kupfer und Panel-Quelle identisch mit Antwort
+- **[natura/natura-mineral-formula-rev]** Welches Mineral hat die chemische Formel „(Na,Ca)(Al,Si)AlSi2O8"?
+  - Antwort (keyed): Plagioklas
+  - Grund: Panel-Quelle ist 'Plagioklas' und der Mineralname 'Plagioklas' steht als Option D in der Frage
+  - Probleme: starker Selbstverräter: Antwort im Panel-Prompt identisch zur Option
+- **[natura/natura-plant-family-rev]** Welche dieser Pflanzen gehört zur Familie der Doldenblütler?
+  - Antwort (keyed): Dill
+  - Grund: Panel-Quelle und Titel sind 'Dill', Option C lautet 'Dill'
+  - Probleme: starker Selbstverräter: Antwort steht wortwörtlich in Panel-Quelle
+- **[natura/natura-plant-family-rev]** Welche dieser Pflanzen gehört zur Familie der Myrtengewächse?
+  - Antwort (keyed): Guave
+  - Grund: Panel-Quelle ist 'Guave', Antwort B lautet 'Guave'
+  - Probleme: starker Selbstverräter: Antwort steht wortwörtlich in Panel-Quelle
+- **[natura/natura-plant-usedas-rev]** Welche dieser Pflanzen wird hauptsächlich als Nahrungsmittel genutzt?
+  - Antwort (keyed): Zucchini
+  - Grund: Zucchini ist als Gemüse allseits bekannt, Kurkuma/Koriander/Rosmarin sind Gewürze – sofort eindeutig ohne Wissen
+- **[cultura/cultura-architecture-country]** In welchem Land steht das Bauwerk „Alter Dom“?
+  - Antwort (keyed): Österreich
+  - Grund: Bezeichnung 'Alter Dom' und Jahresangabe 1669 verweisen eindeutig auf Linz (Alter Dom/Ignatiuskirche), Österreich ist die einzig passende Option.
+- **[cultura/cultura-architecture-country]** In welchem Land steht das Bauwerk „The Shard“?
+  - Antwort (keyed): Vereinigtes Königreich
+  - Grund: Panel nennt explizit 'Lage: London, Vereinigtes Königreich'. Spieler liest die Lösung direkt ab.
+  - Probleme: Selbstverräter: Land steht im Panel als 'Vereinigtes Königreich'
+- **[cultura/cultura-artwork-width]** Wie breit ist das Gemälde „Die Erschaffung Adams”?
+  - Antwort (keyed): 5,7 m
+  - Grund: Breite (m): 5.7 steht im Panel, die Frage fragt nach der Breite in Metern. Die Antwort 5,7 m ist direkt ablesbar.
+  - Probleme: Selbstverräter: Breite steht direkt im Kennwerte-Panel (5.7 m) – ohne jedes Wissen lösbar
+- **[cultura/cultura-artwork-width]** Wie breit ist das Gemälde „Las Meninas”?
+  - Antwort (keyed): 2,76 m
+  - Grund: Breite (m): 2.76 steht im Panel, Antwort D (2,76 m) ist direkt ablesbar.
+  - Probleme: Selbstverräter: Breite steht direkt im Kennwerte-Panel (2.76 m) – ohne jedes Wissen lösbar
+- **[cultura/cultura-composer-deathyear]** In welchem Jahr starb Dmitri Schostakowitsch?
+  - Antwort (keyed): 1975
+  - Grund: Panel zeigt 'Lebenszeit: 1906–1975', Todesjahr direkt ablesbar
+  - Probleme: Todesjahr steht wortwörtlich im Panel (Lebenszeit 1906–1975) – trivialer Selbstverräter, keine Eigenleistung
+- **[cultura/cultura-composer-deathyear]** In welchem Jahr starb Benjamin Britten?
+  - Antwort (keyed): 1976
+  - Grund: Panel zeigt 'Lebenszeit: 1913–1976', Todesjahr direkt ablesbar
+  - Probleme: Todesjahr steht wortwörtlich im Panel (Lebenszeit 1913–1976) – trivialer Selbstverräter, keine Eigenleistung
+- **[cultura/cultura-composition-composer-rev]** Welche dieser Kompositionen stammt von Richard Wagner?
+  - Antwort (keyed): Tristan und Isolde
+  - Grund: Panel-Quelle zeigt direkt auf den Titel der richtigen Option (Tristan und Isolde)
+  - Probleme: Selbstverräter: Wikipedia-Quelle im Panel verrät direkt die gesuchte Komposition
+- **[cultura/cultura-composition-composer-rev]** Welche dieser Kompositionen stammt von Giuseppe Verdi?
+  - Antwort (keyed): Aida
+  - Grund: Panel-Quelle zeigt direkt auf den Titel der richtigen Option (Aida)
+  - Probleme: Selbstverräter: Wikipedia-Quelle im Panel verrät direkt die gesuchte Komposition
+- **[cultura/cultura-literature-author-rev]** Welches dieser Werke schrieb Agatha Christie?
+  - Antwort (keyed): Mord im Orient-Express
+  - Grund: Panel-Quelle zeigt direkt den Titel der richtigen Option (Mord im Orient-Express)
+  - Probleme: Selbstverräter: Wikipedia-Quelle im Panel verrät direkt das gesuchte Werk
+- **[cultura/cultura-literature-author-rev]** Welches dieser Werke schrieb Alexandre Dumas der Ältere?
+  - Antwort (keyed): Die drei Musketiere
+  - Grund: Panel-Name steht schon in der richtigen Option (Die drei Musketiere)
+  - Probleme: Selbstverräter: Panel-Name verrät direkt das gesuchte Werk
+- **[cultura/cultura-litmovement-period]** In welchem Zeitraum existierte die Literaturepoche Trümmerliteratur?
+  - Antwort (keyed): ca. 1945–1950
+  - Grund: Panel zeigt Startjahr 1945 und Endjahr 1950 exakt – Antwort C ist direkt ablesbar.
+  - Probleme: Starker Selbstverräter: Start- und Endjahr stehen direkt im Panel.
+- **[cultura/cultura-litmovement-period]** In welchem Zeitraum existierte die Literaturepoche Neue Sachlichkeit?
+  - Antwort (keyed): ca. 1918–1933
+  - Grund: Panel nennt Startjahr 1918 und Endjahr 1933, was exakt Option B ergibt.
+  - Probleme: Starker Selbstverräter: Start- und Endjahr direkt im Panel.
+- **[cultura/cultura-quote-author]** Von welchem Autor stammt das Zitat: „Hans Dampf in allen Gassen hat kein Steckenpferd, aber er weiß auf jedem zu reiten, das man ihm zwischen die Beine schiebt.“?
+  - Antwort (keyed): Stefan Zweig
+  - Grund: Im Panel ist Autor Stefan Zweig und das Werk explizit genannt – Antwort ohne jedes Wissen direkt ablesbar.
+  - Probleme: Starker Selbstverräter: Autor und Werk stehen vollständig im Panel.
+- **[cultura/cultura-quote-author]** Von welchem Autor stammt das Zitat: „Das Recht des Stärkeren ist das stärkste Unrecht.“?
+  - Antwort (keyed): Marie von Ebner-Eschenbach
+  - Grund: Quelle im Panel (Wikiquote – Marie von Ebner-Eschenbach) verrät den Autor direkt.
+  - Probleme: Starker Selbstverräter: Autor steht in der Quellenangabe des Panels.
+- **[cultura/cultura-quote-complete]** Vervollständige das Zitat: „Wer nicht von dreitausend Jahren sich weiß Rechenschaft zu geben, …”
+  - Antwort (keyed): bleib im Dunkeln unerfahren, mag von Tag zu Tage leben.
+  - Grund: Das vollständige Zitat inkl. Fortsetzung steht im Panel-Feld 'Name' – Antwort ist wörtlich vorgegeben.
+  - Probleme: Starker Selbstverräter: komplettes Zitat im Panel-Feld 'Name' sichtbar.
+- **[cultura/cultura-quote-complete]** Vervollständige das Zitat: „Herr, die Not ist groß! …”
+  - Antwort (keyed): Die ich rief, die Geister, werd ich nun nicht los.
+  - Grund: Vollständiges Zitat steht im Panel-Feld 'Name' – Antwort direkt ablesbar.
+  - Probleme: Starker Selbstverräter: komplettes Zitat im Panel-Feld 'Name' sichtbar.
+- **[cultura/cultura-quote-work]** Aus welchem Werk stammt das Zitat: „Denn nur aufs Ziel zu sehn, verdirbt die Lust am Reisen.“?
+  - Antwort (keyed): Die Weisheit des Brahmanen
+  - Grund: Autor Friedrich Rückert ist im Panel genannt; das Werk 'Die Weisheit des Brahmanen' enthält das bekannte Reisegleichnis – mit Grundwissen sofort wählbar.
+  - Probleme: Option C ist kein Werk, sondern ein Autorenname mit Lebensdaten – formal defekter Distraktor.; Option D ist ebenfalls kein konkretes Werk.; Starker Selbstverräter durch Autornennung im Panel.
+- **[cultura/cultura-sculpture-country]** Aus welchem Land stammt die Skulptur „Frühlingstempel-Buddha"?
+  - Antwort (keyed): China
+  - Grund: Panel nennt explizit 'moderner Guss (China)' und 'Provinz Henan' — Antwort ist direkt ablesbar.
+  - Probleme: Selbstverräter: Antwort steht wörtlich im Panel
+- **[cultura/cultura-sculpture-country]** Aus welchem Land stammt die Skulptur „David"?
+  - Antwort (keyed): Italien
+  - Grund: Michelangelo Buonarroti, Florenz, Galleria dell'Accademia — alles im Panel weist eindeutig auf Italien hin.
+  - Probleme: Selbstverräter: Urheber (Michelangelo), Lage (Florenz) und Name verraten Italien direkt
+- **[cultura/cultura-sculpture-height]** Wie hoch ist die Skulptur „Frühlingstempel-Buddha“?
+  - Antwort (keyed): 128 m
+  - Grund: In der Vorgängerfrage stand 128 m im Panel — hier ist es zwar nicht im Panel, aber Spieler mit Quiz-Erinnerung hätten starken Vorteil. Zudem: 182 m ist die Spring Temple Buddha, 128 m die richtige.
+  - Probleme: Achtung: A) 182 m entspricht der Spring Temple Buddha (größere Statue) — kann zu Verwechslung führen, aber kein Defekt
+- **[cultura/cultura-sculpture-material]** Aus welchem Material besteht „Athena Lemnia“?
+  - Antwort (keyed): Marmor
+  - Grund: Phidias + Akropolis + antike griechische Skulptur → Marmor ist praktisch zwingend; Bronze (C) wäre auch denkbar, aber Marmor ist die Standardantwort bei Phidias-Statuen
+  - Probleme: Bronze als Distraktor problematisch, da Phidias sowohl in Marmor als auch in Bronze arbeitete; Stein (B) als Sammelbegriff trifft auf Marmor eigentlich auch zu
+- **[lingua/lingua-etymology-borrowing-path]** Auf welchem Weg gelangte das Wort „Komet" ins Deutsche?
+  - Antwort (keyed): Griechisch (komḗtēs) → Latein (cometa) → Deutsch
+  - Grund: Panel nennt explizit griechische Herkunftssprache und Bedeutung 'komḗtēs' – Option A enthält diese exakte Form
+  - Probleme: Starker Selbstverräter durch Panel – griechische Herkunft und 'komḗtēs' direkt genannt; Distraktoren B/C/D sind so abwegig, dass sie kaum als echte Prüfung dienen
+- **[lingua/lingua-etymology-borrowing-path]** Auf welchem Weg gelangte das Wort „Allergie" ins Deutsche?
+  - Antwort (keyed): Griechische Wortbestandteile → gelehrte Neubildung → Deutsch
+  - Grund: Panel nennt 'Altgriechisch', 'állos + érgon', 'Neuprägung 1906' – Option C 'Griechische Wortbestandteile → gelehrte Neubildung' trifft exakt zu
+  - Probleme: Starker Selbstverräter durch Panel; Distraktoren A/B/D sind absurd und keine echte Prüfung
+- **[lingua/lingua-etymology-original-meaning]** Was bedeutete das Wort „Radar" ursprünglich?
+  - Antwort (keyed): Kurzwort aus radio detecting and ranging (Funkortung und Entfernungsmessung)
+  - Grund: Option A enthält wörtlich 'radio detecting and ranging' – das ist die allgemein bekannte Auflösung des Akronyms 'Radar' und ohne jedes Fachwissen ableitbar
+  - Probleme: Starker Selbstverräter: 'Radar' als bekanntes Akronym macht Option A ohne Wissen sicher; Distraktoren B/C/D haben keinen echten Bezug zur Frage und sind abschreckend
+- **[lingua/lingua-etymology-source]** Aus welcher Sprache stammt das Wort „Salto"?
+  - Antwort (keyed): Italienisch
+  - Grund: Panel nennt explizit den Entlehnungsweg 'Italienisch salto → Deutsch'
+  - Probleme: Selbstverräter: Panel verrät die Lösung direkt im Entlehnungsweg
+- **[lingua/lingua-etymology-source]** Aus welcher Sprache stammt das Wort „Etage"?
+  - Antwort (keyed): Französisch
+  - Grund: Panel sagt 'Französisch (étage) → Deutsch (Etage)' – die Antwort steht wortwörtlich im Panel
+  - Probleme: Selbstverräter: Lösung steht explizit im Panel
+- **[lingua/lingua-family-world-share]** Welchen Anteil der Weltbevölkerung stellen Muttersprachler der Nilosaharanischen Sprachfamilie?
+  - Antwort (keyed): 0,8 %
+  - Grund: Panel zeigt 60 Mio. Sprecher bei Weltbevölkerung ca. 8 Mrd. → 60/8000 = 0,75% ≈ 0,8%. Ohne jedes Wissen ableitbar.
+  - Probleme: Selbstverräter: Antwort direkt aus Panel (60 Mio. / Weltbevölkerung) berechenbar
+- **[lingua/lingua-family-world-share]** Welchen Anteil der Weltbevölkerung stellen Muttersprachler der Finno-ugrische Sprachen (Zweig)?
+  - Antwort (keyed): 0 %
+  - Grund: Panel zeigt 25 Mio. Sprecher. 25 Mio. / 8 Mrd. = ca. 0,3%. Keine Option entspricht 0,3% exakt, aber 0% ist die einzige Antwort, die 'kein relevanter Anteil' impliziert. Tatsächlich liegt der reale Anteil bei ca. 0,3%, nicht 0%. KEYED ist sachlich fragwürdig.
+  - Probleme: Keyed-Antwort 0% ist sachlich falsch bei 25 Mio. Sprechern; Distraktoren 0,003%, 0,01%, 0,02% alle viel zu klein für 25 Mio. Sprecher; Keine passende Antwort im Antwortset
+- **[lingua/lingua-script-charcount-rev]** Welches dieser Schriftsysteme umfasst 50 Zeichen?
+  - Antwort (keyed): Bengalische Schrift
+  - Grund: Die Quelle 'Wikipedia: Bengalische Schrift' verrät direkt die richtige Antwort
+  - Probleme: Selbstverräter: Quellenangabe enthält direkt die Lösung
+- **[lingua/lingua-script-invented-year-rev]** Welches dieser Schriftsysteme wurde im Jahr 1283 erfunden?
+  - Antwort (keyed): Thailändische Schrift
+  - Grund: Quellenname 'Wikipedia: Thailändische Schrift' verrät direkt die richtige Antwort
+  - Probleme: Selbstverräter: Quellenangabe enthält die Lösung
+- **[lingua/lingua-script-languages-rev]** Für welches dieser Schriftsysteme wird u. a. folgende Sprach-Gruppe verwendet: „Hochchinesisch (Lautschrift, vor allem Taiwan)"?
+  - Antwort (keyed): Zhuyin (Bopomofo)
+  - Grund: Option A enthält bereits '(Bopomofo)' – und Zhuyin/Bopomofo ist die Standard-Lautschrift für Hochchinesisch in Taiwan; zudem verrät der Quellenname 'Bopomofo' die Lösung
+  - Probleme: Selbstverräter: Quellenname enthält die Lösung; Panelfrage suggeriert fehlendes Vorwissen, das gar nicht nötig ist
+- **[machina/machina-algo-category]** Zu welcher Klasse von Algorithmen gehört Lempel-Ziv 78?
+  - Antwort (keyed): Kompressionsalgorithmus
+  - Grund: Panel nennt explizit 'Komprimiert Daten verlustfrei' – Lösung steht wortwörtlich im Kennwerte-Block
+  - Probleme: Panel verrät die Antwort direkt im Zweck-Feld (Selbstverräter)
+- **[machina/machina-algo-category]** Zu welcher Klasse von Algorithmen gehört Simplex-Verfahren?
+  - Antwort (keyed): Optimierungsalgorithmus
+  - Grund: Panel: 'Löst lineare Optimierungsprobleme' → Antwort C (Optimierungsalgorithmus) steht 1:1 im Panel
+  - Probleme: Antwort ist wortwörtlich aus dem Panel ablesbar (Optimierung)
+- **[machina/machina-ds-complexity]** Welche durchschnittliche Zeitkomplexität hat der typische Zugriff bei Cuckoo-Hashing?
+  - Antwort (keyed): O(1)
+  - Grund: Panel nennt explizit 'garantiert konstanter Worst-Case-Suchzeit', und durchschnittlicher Zugriff ist ebenso O(1).
+  - Probleme: Selbstverräter: Panel verrät die Antwort direkt ('konstanter Worst-Case-Suchzeit').
+- **[machina/machina-ds-complexity]** Welche durchschnittliche Zeitkomplexität hat der typische Zugriff bei Deque?
+  - Antwort (keyed): O(1)
+  - Grund: Panel sagt explizit 'in O(1) eingefügt und entnommen', woraus der typische Zugriff direkt ableitbar ist.
+  - Probleme: Selbstverräter: 'in O(1) eingefügt und entnommen' im Panel verrät die Komplexität.
+- **[machina/machina-engine-energy]** Mit welcher Energiequelle arbeitet Gezeitenturbine primär?
+  - Antwort (keyed): Wasser
+  - Grund: Panel nennt 'Wind-/Wasserkraft'; 'Gezeiten-' im Namen + Wasserkraft = Wasser, ohne jedes Wissen ableitbar.
+  - Probleme: Selbstverräter: Name 'Gezeitenturbine' + Panel 'Wind-/Wasserkraft' verrät Wasser direkt.
+- **[machina/machina-engine-energy-rev]** Welche dieser Kraftmaschinen wird primär mit „Gas“ betrieben?
+  - Antwort (keyed): Pulsstrahltriebwerk
+  - Grund: Panel-Quelle nennt direkt das gesuchte Triebwerk, Frage enthält den exakten Namen als Option
+  - Probleme: Starker Selbstverräter: Quellenangabe im Panel verrät die Antwort direkt
+- **[machina/machina-engine-energy-rev]** Welche dieser Kraftmaschinen wird primär mit „Benzin“ betrieben?
+  - Antwort (keyed): Reihenmotor
+  - Grund: Panel-Quelle nennt den Reihenmotor direkt, Frage enthält den Namen
+  - Probleme: Starker Selbstverräter: Panel-Quelle verrät die Lösung
+- **[machina/machina-engine-type]** Zu welcher Gattung von Kraftmaschinen zählt Reihensechszylindermotor?
+  - Antwort (keyed): Verbrennungsmotor
+  - Grund: Panel zeigt Name und Energiequelle 'Benzin' – Verbrennungsmotor direkt ableitbar
+  - Probleme: Starker Selbstverräter: Panel nennt Energiequelle Benzin → Verbrennungsmotor trivial
+- **[machina/machina-engine-type-rev]** Welche dieser Maschinen zählt zur Gattung „Wind-/Wasserkraft“?
+  - Antwort (keyed): Gezeitenturbine
+  - Grund: Panel-Quelle 'Gezeitenkraftwerk' verrät Gezeitenturbine; Name steht wortgleich in Option D
+  - Probleme: Starker Selbstverräter durch Panel-Quelle; Distraktoren A und C sind ebenfalls Wasserkraft-Turbinen und damit sachlich ebenfalls korrekt
+- **[machina/machina-engine-type-rev]** Welche dieser Maschinen zählt zur Gattung „Verbrennungsmotor“?
+  - Antwort (keyed): Dreizylindermotor
+  - Grund: Panel-Quelle 'Dreizylindermotor' nennt die Lösung direkt, Name steht in Option B
+  - Probleme: Starker Selbstverräter: Panel-Quelle verrät die Antwort
+- **[machina/machina-format-compression-rev]** Welches dieser Dateiformate arbeitet „verlustbehaftet komprimiert“?
+  - Antwort (keyed): Cinepak
+  - Grund: Panel-Quelle nennt 'Cinepak' direkt, Option B ist identisch
+  - Probleme: Starker Selbstverräter: Panel-Quelle verrät die Antwort
+- **[machina/machina-format-compression-rev]** Welches dieser Dateiformate arbeitet „verlustfrei komprimiert“?
+  - Antwort (keyed): ODP
+  - Grund: Panel-Quelle 'OpenDocument' verweist direkt auf ODP, Option C ist identisch
+  - Probleme: Starker Selbstverräter: Panel-Quelle verrät die Lösung
+- **[machina/machina-format-fullname]** Wofür steht das Kürzel des Dateiformats RPM?
+  - Antwort (keyed): RPM Package Manager
+  - Grund: Panel-Quelle 'RPM Package Manager' nennt die Lösung wortgleich, Option A ist identisch
+  - Probleme: Starker Selbstverräter: Panel-Quelle verrät die Antwort
+- **[machina/machina-format-mediatype-rev]** Welches dieser Dateiformate dient für „Bild“?
+  - Antwort (keyed): JPEG XL
+  - Grund: Der Name 'JPEG XL' enthält bereits 'JPEG', was eindeutig auf Bild hindeutet; ohne jedes Wissen ableitbar
+  - Probleme: JPEG XL verrät sich durch den Namen selbst, trivial lösbar ohne Wissen
+- **[machina/machina-format-mediatype-rev]** Welches dieser Dateiformate dient für „Präsentation“?
+  - Antwort (keyed): PPT
+  - Grund: PPT ist jedem Microsoft Office-Nutzer als Präsentationsformat bekannt, trivial
+- **[machina/machina-hw-function]** Welche Aufgabe erfüllt die Komponente KVM-Switch im Computer?
+  - Antwort (keyed): Schaltet eine Tastatur, einen Monitor und eine Maus per Knopfdruck zwischen mehreren Rechnern um
+  - Grund: KVM = Keyboard, Video, Mouse; der Name verrät die Funktion vollständig, ohne Wissen lösbar
+  - Probleme: KVM-Switch verrät sich durch Abkürzung KVM (Keyboard/Video/Mouse), ohne Wissen trivial lösbar
+- **[machina/machina-lang-domain-rev]** Welche dieser Programmiersprachen wird vor allem im Bereich „Nebenläufige Systeme“ eingesetzt?
+  - Antwort (keyed): Erlang
+  - Grund: Der Name der Sprache (Erlang) steht wörtlich in der Frage als gesuchter Begriff – das linke Panel zeigt 'Name: ?', aber die Frage selbst enthält den Namen als Option. Wer 'Erlang' als Sprache für nebenläufige Systeme kennt, liegt sofort richtig; selbst wer nur den Namen der Sprache aus der Frage wörtlich mit der gleichnamigen Option abgleicht, kommt ohne Wissen zur Lösung.
+  - Probleme: Selbstverräter: Sprachname 'Erlang' steht wörtlich in Frage und als Option – trivial zuordenbar
+- **[machina/machina-lang-execution-rev]** Welche dieser Programmiersprachen wird üblicherweise so ausgeführt: „Kompiliert (zu CSS)“?
+  - Antwort (keyed): Sass
+  - Grund: Quellenangabe 'Wikipedia DE – Sass (Stylesheet-Sprache)' verrät die Lösung direkt; selbst ohne Wissen ist Sass als Stylesheet-Sprache, die zu CSS kompiliert, klar zuordenbar.
+  - Probleme: Selbstverräter: Quellenangabe im Panel nennt Sass namentlich
+- **[machina/machina-lang-execution-rev]** Welche dieser Programmiersprachen wird üblicherweise so ausgeführt: „Interpretiert“?
+  - Antwort (keyed): Ruby
+  - Grund: Quellenangabe 'Wikipedia DE - Ruby (Programmiersprache)' verrät die Lösung direkt.
+  - Probleme: Selbstverräter: Quellenangabe im Panel nennt Ruby namentlich
+- **[machina/machina-lang-ext]** Welche Dateiendung tragen Quelltextdateien der Sprache Standard ML typischerweise?
+  - Antwort (keyed): .sml
+  - Grund: .sml entspricht direkt dem Sprachakronym 'Standard ML' – auch ohne Wissen trivial lösbar.
+  - Probleme: Selbstverräter: Endung .sml = Sprachakronym, trivial ableitbar
+- **[machina/machina-lang-paradigm-rev]** Welche dieser Sprachen ist dem Paradigma „Multiparadigma“ zuzuordnen?
+  - Antwort (keyed): Lua
+  - Grund: Quellenangabe 'Wikipedia DE - Lua' verrät die Lösung direkt.
+  - Probleme: Selbstverräter: Quellenangabe im Panel nennt Lua namentlich
+- **[machina/machina-lang-paradigm-rev]** Welche dieser Sprachen ist dem Paradigma „Funktional“ zuzuordnen?
+  - Antwort (keyed): Erlang
+  - Grund: Doppelter Selbstverräter: 'Erlang' steht als Wort in der Frage UND als Option, und Quellenangabe nennt Erlang zusätzlich.
+  - Probleme: Selbstverräter stark: Sprachname Erlang steht in Frage, Option und Quellenangabe
+- **[machina/machina-mfg-maingroup]** Welcher Hauptgruppe der Fertigungsverfahren (DIN 8580) ordnet man Drahterodieren (EDM-Draht) zu?
+  - Antwort (keyed): Trennen
+  - Grund: Panel-Zweck sagt explizit 'Trennen leitfähigen Materials' – Lösung steht wortwörtlich im Panel
+  - Probleme: Panel verrät Hauptgruppe direkt ('Trennen leitfähigen Materials') – Frage wird zur Leseübung
+- **[machina/machina-protocol-fullname]** Wofür steht die Abkürzung IPP?
+  - Antwort (keyed): Internet Printing Protocol
+  - Grund: Panel nennt Zweck 'Übermittelt Druckaufträge an Netzwerkdrucker' – das deckt sich eindeutig mit 'Internet Printing Protocol'
+- **[machina/machina-simple-function]** Welche mechanische Aufgabe erfüllt Feste Rolle?
+  - Antwort (keyed): Umlenkung der Zugrichtung eines Seils ohne Kraftverstärkung
+  - Grund: Name 'Feste Rolle' + Fachbegriff 'Feste Rolle' impliziert Umlenkrolle ohne Kraftverstärkung; Option C ist die einzige, die keine Kraftverstärkung beansprucht und thematisch exakt passt.
+- **[machina/machina-tool-function]** Welche Aufgabe erfüllt das Werkzeug Abisolierzange?
+  - Antwort (keyed): Entfernen der Kunststoffisolierung von Leitungen ohne Beschädigung des Leiters
+  - Grund: Name 'Abisolierzange' enthält 'isolier' + 'Zange', Option B beschreibt wörtlich das Entfernen der Isolierung von Leitungen – semantisch triviale Ableitung.
+- **[machina/machina-tool-trade-rev]** Welches dieser Werkzeuge gehört vor allem in das Gewerk „Holzbearbeitung“?
+  - Antwort (keyed): Schnitzmesser
+  - Grund: Name 'Schnitzmesser' enthält 'Schnitz' (Holzbearbeitung); Panel nennt sogar 'Schnitzmesser' als Quelle – triviale Ableitung.
+- **[historia/historia-discovery-discoverer]** Wer entdeckte/beschrieb „Blutdruck“ als Erster?
+  - Antwort (keyed): Stephen Hales
+  - Grund: ID enthält 'hales', Panel-Name-Fragment und KEYED-Logik verraten den Namen; ohne diese Meta-Infos aber tatsächlich Spezialwissen.
+  - Probleme: ID enthält redundanten Hinweis 'hales-h1' – macht die Frage praktisch zum Selbstverräter für jeden, der die ID sieht.; Für die Frage selbst ist das Wissen sehr speziell (Hales 1733 Blutdruckmessung am Pferd), ohne ID-Hinweis kaum von Allgemeinwissenden lösbar.
+- **[historia/historia-discovery-discoverer]** Wer entdeckte/beschrieb „Kohlendioxid“ als Erster?
+  - Antwort (keyed): Joseph Black
+  - Grund: ID enthält 'black', Panel-Quelle ist explizit 'Wikipedia DE – Joseph Black', KEYED-Logik verrät A – ohne diese Meta-Infos Spezialwissen.
+  - Probleme: ID enthält redundanten Hinweis 'black' – verrät die korrekte Antwort ohne jedes Wissen.; Quellenangabe im Panel ('Wikipedia DE – Joseph Black') ist ebenfalls ein Selbstverräter.; Tatsächliches Faktenwissen (Black 1754 'fixe Luft' = CO2) ist Spezialwissen und ohne Hinweise kaum lösbar.
+- **[historia/historia-epoch-region]** Mit welcher Region wird die Epoche „Hochmittelalter“ vor allem verbunden?
+  - Antwort (keyed): Europa
+  - Grund: Panel nennt Region Europa und vorhergehende Epoche Frühmittelalter; C ist die einzige passende Option
+  - Probleme: Selbstverräter: Panel zeigt Region Europa bereits; Frage trivial, keine eigene Wissensleistung erforderlich
+- **[historia/historia-invention-field]** Welchem Bereich ist die Erfindung „Fernglas“ zuzuordnen?
+  - Antwort (keyed): Optik
+  - Grund: Fernglas/Prismenfernrohr ist begrifflich eindeutig dem Bereich Optik zuzuordnen, kein Wissen nötig.
+  - Probleme: Selbstverräter: Zu leicht aus dem Namen/Begriff ableitbar.
+- **[historia/historia-invention-field]** Welchem Bereich ist die Erfindung „Radio“ zuzuordnen?
+  - Antwort (keyed): Kommunikation
+  - Grund: Radio und drahtlose Telegrafie sind begrifflich klar Kommunikation.
+  - Probleme: Selbstverräter: Aus dem Namen ableitbar ohne Wissen.
+- **[historia/historia-invention-inventor-rev]** Welche dieser Erfindungen geht auf Cai Lun zurück?
+  - Antwort (keyed): Papier
+  - Grund: Der Name 'Cai Lun' ist unmittelbar mit der Papierherstellung assoziiert; die anderen Optionen (Sextant, Airbag, Nylon) haben erkennbar andere Erfinder. Auch ohne Wissen leicht zu lösen.
+  - Probleme: Selbstverräter: Cai Lun ist als Name derart eindeutig mit Papier verknüpft, dass die Frage ohne jedes Wissen lösbar ist.
+- **[historia/historia-milestone-year]** In welchem Jahr ereignete sich „Erste weiche Mondlandung“?
+  - Antwort (keyed): 1966
+  - Grund: Frage enthält keine Jahreszahl, nur Luna 9 nützt ohne Spezialwissen nichts; aber Luna 9 ist ein bekanntes historisches Raumfahrt-Ereignis. Eigentlich ist hier Sachwissen nötig. Korrektur: luna 9 datum ist spezialwissen.
+
+## 🔵 Sonstige überarbeiten/verwerfen (17)
+
+- **[natura/natura-animal-order-rev]** Welches dieser Tiere gehört zur Ordnung „Sperlingsvögel“?
+  - Antwort (keyed): Rotschnabel-Madenhacker
+  - Urteil: ueberarbeiten · Distraktoren: schwach (A (Nadelholz-Säbelschrecke) und D (Heidekraut-Wurzelbohrer) sind Insekten, B (Dach-Moschusschildkröte) ist Reptil – nur C ist ein Vogel. Ohne Taxonomen-Wissen ist die Frage dennoch lösbar, da die anderen drei klar keine Sperlingsvögel sind. Aber 'Sperlingsvögel' ist sehr weit gefasst und enthält ~6000 Arten.)
+  - Probleme: Ordnung 'Sperlingsvögel' ist extrem artenreich und für Laien kaum einzuordnen; Distraktoren sind so weit weg (Insekten, Reptil), dass die Frage weniger Wissen über Sperlingsvögel als über das Aussortieren der Nicht-Vögel testet
+- **[natura/natura-animal-weight]** Wie viel wiegt Maskenzeisig höchstens?
+  - Antwort (keyed): 0,011 kg
+  - Urteil: ueberarbeiten · Distraktoren: schwach (B (0,01 kg) und C (0,009 kg) und D (0,011 kg) liegen extrem eng beieinander – ohne exaktes Wissen nicht trennbar)
+  - Probleme: Distraktoren B/C/D kaum unterscheidbar; Zahlenwissen für 9–11 g Vogelmasse ist sehr speziell
+- **[natura/natura-plant-origin]** Woher stammt Pfirsichbaum ursprünglich?
+  - Antwort (keyed): China
+  - Urteil: ueberarbeiten · Distraktoren: schwach (C 'Asien' ist Oberbegriff von B 'China' – keine echte Trennschärfe)
+  - Probleme: C ist Oberkategorie von B und damit auch korrekt; Artname 'persica' widerspricht der Herkunft China und kann verwirren
+- **[cultura/cultura-architecture-height]** Wie hoch ist das Bauwerk „Notre-Dame de Paris"?
+  - Antwort (keyed): 35 m
+  - Urteil: ueberarbeiten · Distraktoren: schwach (Höhenangabe ist mehrdeutig (Turmhöhe ~96 m, First ~35 m, Gesamtbauhöhe variiert je nach Definition). 35 m könnte sich auf Traufhöhe/Dachfirst beziehen, ist aber ungewöhnlich als 'Höhe des Bauwerks'.)
+  - Probleme: Höhenangabe mehrdeutig – üblich wäre Türme ~96 m oder Gesamthöhe; 35 m ungewöhnlich ohne Spezifikation (Firsthöhe?)
+- **[cultura/cultura-architecture-year]** In welchem Jahr wurde „Kathedrale von Florenz" fertiggestellt?
+  - Antwort (keyed): 1296
+  - Urteil: ueberarbeiten · Distraktoren: schwach (1296 ist Baubeginn, nicht Fertigstellung; die Frage nach 'Fertigstellung' ist problematisch, da der Dom erst 1436 (Kuppel Brunelleschi) bzw. 1887 (Fassade) vollendet wurde. Alle Antworten sind Bauphasen-/Baubeginn-Daten.)
+  - Probleme: 'Fertigstellung' ist mehrdeutig – 1296 ist der Baubeginn; die Kathedrale wurde erst viel später fertiggestellt (Kuppel 1436).; Panel ist sehr dünn (nur Land), keine Bauzeitangabe.
+- **[cultura/cultura-quote-text]** Welches Zitat stammt aus „Anthropologie in pragmatischer Hinsicht (1798)“ von Immanuel Kant?
+  - Antwort (keyed): Der Betrüger ist eigentlich ein Narr.
+  - Urteil: ueberarbeiten · Distraktoren: gut (Distraktoren klingen teils nach anderen Autoren (Brecht, Nietzsche etc.), sind aber keine echten Doppelungen.)
+  - Probleme: Kein Panel-Hinweis, Zitat-Wissen bei Kant spezialisiert und schwer überprüfbar.; Distraktor A klingt plausibel goethesch, Distraktor C eher Nietzsche-nah – Verwechslungsgefahr ohne Werkkenntnis.
+- **[cultura/cultura-quote-work]** Aus welchem Werk stammt das Zitat: „Was wird nun aus unserem tschechisch-magyarischen Vaterland?“?
+  - Antwort (keyed): Anderes
+  - Urteil: ueberarbeiten · Distraktoren: defekt ()
+  - Probleme: Distraktoren 'Anderes' und 'Weitere' sind keine konkreten Werke und machen die Frage kaum lösbar.; Ohne spezifisches Grillparzer-Wissen nur Raten zwischen zwei Nicht-Werken.
+- **[lingua/lingua-etymology-era]** In welcher Epoche kam das Wort „Trivial" ins Deutsche?
+  - Antwort (keyed): 18. Jahrhundert
+  - Urteil: ueberarbeiten · Distraktoren: schwach (Option C 'Spätmittelalter' und A '15. Jahrhundert' überschneiden sich inhaltlich, während B und D weit abweichen – die Trennschärfe zwischen A und C ist fragwürdig)
+  - Probleme: Optionen A (15. Jh.) und C (Spätmittelalter) sind überlappend und nicht trennscharf; Entlehnungszeitraum (Humanismus/16.–18. Jh.) ist Spezialwissen
+- **[lingua/lingua-family-languagecount]** Wie viele Einzelsprachen gehören zu „Ostslawische Sprachen (Zweig)"?
+  - Antwort (keyed): 4
+  - Urteil: ueberarbeiten · Distraktoren: schwach (38 ist viel zu hoch für eine kleine Sprachfamilie; 2 und 1 sind unrealistisch niedrig)
+  - Probleme: Schwacher Selbstverräter: Hauptzweige im Panel aufgezählt, daher Anzahl direkt ablesbar
+- **[lingua/lingua-language-script-type]** Welchen Schrifttyp nutzt die Sprache Türkisch?
+  - Antwort (keyed): Alphabet
+  - Urteil: ueberarbeiten · Distraktoren: schwach (Panel nennt 'Alphabet' explizit im Schrift-Feld, macht Frage zur reinen Leseübung.)
+  - Probleme: Panel verrät die Antwort (Schrift: Lateinisches Alphabet → Alphabet)
+- **[lingua/lingua-language-script-type]** Welchen Schrifttyp nutzt die Sprache Esperanto?
+  - Antwort (keyed): Alphabet
+  - Urteil: ueberarbeiten · Distraktoren: schwach (Antwort steht wörtlich im Panel.)
+  - Probleme: Panel verrät die Antwort (Schrift: Lateinisches Alphabet)
+- **[lingua/lingua-script-invented-year-rev]** Welches dieser Schriftsysteme wurde im Jahr 1824 erfunden?
+  - Antwort (keyed): Brailleschrift
+  - Urteil: ueberarbeiten · Distraktoren: gut (Erfinderdaten plausibel)
+  - Probleme: Selbstverräter: Quellenangabe enthält die Lösung
+- **[machina/machina-acronym-domain]** Welchem Teilgebiet der Informatik ist der Begriff „CQRS“ zuzuordnen?
+  - Antwort (keyed): Softwarearchitektur
+  - Urteil: ueberarbeiten · Distraktoren: schwach (C) Softwareentwicklung ist kaum trennbar von B) Softwarearchitektur – CQRS ist ein Architektur-Pattern, aber der Unterschied zu Softwareentwicklung ist für Laien gering)
+  - Probleme: Distraktoren B (Softwarearchitektur) und C (Softwareentwicklung) sind für Nicht-Experten kaum unterscheidbar
+- **[machina/machina-algo-complexity]** Welche durchschnittliche Zeitkomplexität hat der Algorithmus Elias-Gamma-Kodierung?
+  - Antwort (keyed): O(log n)
+  - Urteil: ueberarbeiten · Distraktoren: schwach (A (O(log i)) und D (O(log n)) sind beide logarithmisch – ohne genaues Wissen schwer trennbar; B und V+E bzw. n+k sind offensichtlich falsch)
+  - Probleme: A und D unterscheiden sich nur in der Variablenbezeichnung (i vs. n) und sind für Laien kaum trennbar; Spezialwissen: exakte Komplexität einer universellen Kodierung
+- **[machina/machina-lang-execution]** Wie wird Programmcode der Sprache Brainfuck üblicherweise ausgeführt?
+  - Antwort (keyed): Interpretiert
+  - Urteil: ueberarbeiten · Distraktoren: schwach (A und B sind faktisch identisch ('Bytecode (VM)' vs. 'Bytecode/VM') – das ist keine saubere Trennung der drei Distraktoren.)
+  - Probleme: Distraktoren A und B synonym/identisch (Bytecode vs. Bytecode/VM)
+- **[machina/machina-lang-execution]** Wie wird Programmcode der Sprache HTML üblicherweise ausgeführt?
+  - Antwort (keyed): Interpretiert
+  - Urteil: ueberarbeiten · Distraktoren: schwach (A und B sind identisch ('Bytecode/VM' vs. 'Bytecode (VM)'); mindestens ein Distraktor muss ausgetauscht werden.)
+  - Probleme: Distraktoren A und B synonym/identisch
+- **[historia/historia-expedition-region-rev]** Welche dieser Reisen führte in die Region „Arktis (Nordpolarmeer)“?
+  - Antwort (keyed): Nansens Fram-Expedition
+  - Urteil: ueberarbeiten · Distraktoren: schwach (Name Nansen in Option A wiederholt Frage, Peary-Option ebenfalls arktisch – sachliche Überschneidung)
+  - Probleme: Selbstverräter durch Namensgleichheit Nansen/Fram; Peary (D) ist ebenfalls Arktis, sachliche Doppelung
