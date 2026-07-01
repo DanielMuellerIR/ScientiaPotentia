@@ -373,16 +373,27 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 > salvage-fähiger Parser, kalibriert (Größenordnungs-Distraktoren nicht überflaggt). Doku:
 > `scripts/qa_review/README.md`; Reports in `docs/qa_reports/` (Roh-JSON ge-gitignored).
 > **Grenzen:** Quiz-Panel zeigt KEIN Bild (nur Museum) → Bild-Giveaway nur Astra/Homo; Terra
-> ausgeklammert. **Angewandt** (326 + 409 Fragen) und Funde gefixt: `astra-nebula-messier`-Selbst-
+> ausgeklammert.
+>
+> **Triage-Entscheidung Selbstverräter (Daniel, 2026-07-01):** Semantische **Name-im-Prompt-Fälle**
+> (z.B. „Zu welcher Klasse gehört der Flügelkopf-**Hammerhai**?" → Knorpelfische; „Rebenstecher" →
+> Käfer) gelten als **akzeptabel und werden NICHT gefiltert** — dass ein gebildeter Spieler aus einem
+> Trivialnamen die Kategorie ableitet, ist legitimes Allgemeinwissen, kein Defekt; ein generischer
+> Filter wäre künstlich und würde gute Fragen verwerfen. Die übrigen im per-type-2-Sweep geflaggten
+> Cluster (diverse `-rev`/kategorische Typen, `cultura-quote-*`) sind NICHT pauschal akzeptiert,
+> sondern Aufgabe einer künftigen, QA-gegengeprüften Content-Runde (frischer Sweep auf gefixten Daten
+> als Ausgangspunkt).
+>
+> **Angewandt** (326 + 409 Fragen) und Funde gefixt: `astra-nebula-messier`-Selbst-
 > verräter (v1.78.1); `lingua-etymology-era` Jahr/Epoche-Mismatch (v1.78.2); Key-Fehler Rift-Höhe +
 > Sprachfamilien-Anteile (v1.78.3); **Mess-Distraktor-Proximity-Guard** (nicht-ganzzahlige Korrekt-
 > werte, `pickNumeric` nach `quizrandom.js` zentralisiert, v1.79.0); **Quellen-Selbstverräter-Guard**
 > (671 Tiere „Grzimeks Tierleben – Vögel" leakte die Klasse; v1.79.1); Machina Panel-Leak `purpose`
-> + Vokabular-Dedup (v1.79.2). Label-Zentralisierung + Dashboard-Kosmetik (v1.77.2). **Offen für
-> Daniel-Triage** (dokumentiert in den Reports): viele semantische Name-im-Prompt-Giveaways
-> (großteils inhärent bei Trivialnamen), diverse `-rev`/kategorische Selbstverräter-Cluster,
-> `cultura-quote-*`-Typen. Nächster sinnvoller Schritt: frischer Sweep auf gefixten Daten für ein
-> sauberes „Nachher"-Bild.
+> + Vokabular-Dedup (v1.79.2). Label-Zentralisierung + Dashboard-Kosmetik (v1.77.2),
+> Bundle-Splitting (v1.79.3). **Alles bis v1.79.3 live deployt** (dm0.de/sci, HTTP 200,
+> Brythonisch-Fix live verifiziert). Rest-Triage siehe Entscheidung oben (Name-im-Prompt akzeptiert;
+> `-rev`/`cultura-quote-*`-Cluster → künftige QA-gegengeprüfte Content-Runde, Start mit frischem
+> Sweep auf den gefixten Daten).
 >
 > **Stand 2026-06-30 (v1.77.0) — Spielmodi Phase 2: Mehrspieler (reihum, Namen, Sieger):**
 > Hot-Seat-Mehrspieler, **nur feste Rundenlänge** (Survival bleibt Solo — bewusst, eigene Leben pro
