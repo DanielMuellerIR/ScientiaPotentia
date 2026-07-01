@@ -1,6 +1,9 @@
 import React from 'react';
 import { Flame, AlertCircle, BarChart3, Trophy } from 'lucide-react';
 import QuizLauncher from './QuizLauncher';
+// Deutsche Kategorie-Labels der MCQ-Domains (Tier, Sprachfamilie, …) als Fallback,
+// damit die Aufschlüsselung keine rohen Keys (animal, language_family) zeigt.
+import { CATEGORY_LABELS } from './conceptLabels';
 
 // Deutsche Labels für Konzept-Typen über alle Domains hinweg.
 // Unbekannte Typen werden unverändert angezeigt.
@@ -73,7 +76,9 @@ export default function Dashboard({
   Object.values(geodb.entities).forEach(entity => {
     const type = entity.type;
     if (!type) return;
-    entityTypes[type] ||= { label: TYPE_LABELS[type] || type, count: 0, studied: 0 };
+    // TYPE_LABELS (Terra/Astra/Homo, Plural) zuerst; sonst singuläres CATEGORY_LABELS
+    // der übrigen MCQ-Domains; erst dann der Roh-Key als letzter Ausweg.
+    entityTypes[type] ||= { label: TYPE_LABELS[type] || CATEGORY_LABELS[type] || type, count: 0, studied: 0 };
     entityTypes[type].count++;
     if (srsProgress[entity.id] && srsProgress[entity.id].repetitions > 0) {
       entityTypes[type].studied++;
@@ -102,7 +107,7 @@ export default function Dashboard({
           Lernkontrolle
         </h2>
         <div style={{ fontSize: '12.5px', color: 'var(--text-muted)', fontWeight: 500 }}>
-          Fragen-Pool: <span style={{ color: 'var(--color-secondary)', fontWeight: 700 }}>{questionPool.length.toLocaleString('de-DE')} Fragen</span> | Karteikarten: <span style={{ color: 'var(--color-primary)', fontWeight: 700 }}>{totalEntitiesCount.toLocaleString('de-DE')} Orte</span>
+          Fragen-Pool: <span style={{ color: 'var(--color-secondary)', fontWeight: 700 }}>{questionPool.length.toLocaleString('de-DE')} Fragen</span> | Karteikarten: <span style={{ color: 'var(--color-primary)', fontWeight: 700 }}>{totalEntitiesCount.toLocaleString('de-DE')} {domain.id === 'terra' ? 'Orte' : 'Konzepte'}</span>
         </div>
       </div>
 
