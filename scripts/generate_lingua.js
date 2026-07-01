@@ -131,6 +131,26 @@ function isSingleWord(c) {
   return !displayWord(c).includes(' ');
 }
 
+// Kanonische, als MCQ-Antwort saubere Epochen-Bezeichnungen (ohne Jahrhundert-Form).
+const CLEAN_EPOCHS = new Set([
+  'Mittelalter', 'Spätmittelalter', 'Frühmittelalter',
+  'Antike', 'Neuzeit', 'Frühneuzeit',
+  'Althochdeutsch', 'Mittelhochdeutsch'
+]);
+/**
+ * Prüft, ob loanEra ein sauberer, vergleichbarer Epochen-Wert ist. Das Attribut ist
+ * historisch inkonsistent (konkrete Jahre "1859", Kombis "16./18. Jahrhundert",
+ * Etymologien "erbwörtlich (althochdeutsch fogal)"). Die Epochen-Frage ("In welcher
+ * Epoche kam das Wort ins Deutsche?") darf NUR auf Konzepten mit einer reinen
+ * Jahrhundert-Angabe ("16. Jahrhundert") oder einer kanonischen Epoche feuern — sonst
+ * mischen sich Jahre und Epochen als Optionen (QA-Fund 2026-07-01), und Erbwörter
+ * "kamen" gar nicht ins Deutsche.
+ */
+function isCleanEpoch(v) {
+  if (typeof v !== 'string') return false;
+  return /^\d{1,2}\. Jahrhundert$/.test(v) || CLEAN_EPOCHS.has(v);
+}
+
 /**
  * k kategorische Distraktoren: erste abweichende Werte in Pool-Reihenfolge.
  * Optional schließt conflictFn Kandidaten aus, die der korrekten Antwort zu
@@ -433,7 +453,8 @@ const templates = [
     category: 'etymology', attr: 'loanEra', kind: 'cat', type: 'lingua-etymology-era', difficulty: 4,
     prompt: c => `In welcher Epoche kam das Wort „${displayWord(c)}" ins Deutsche?`,
     subject: c => `das Wort „${displayWord(c)}"`,
-    skip: c => !isSingleWord(c)
+    // Nur Einzelwörter UND saubere Epochen-Werte (sonst Jahr/Epoche-Mix, s. isCleanEpoch).
+    skip: c => !isSingleWord(c) || !isCleanEpoch(c.attributes.loanEra)
   },
 
   // ==== Neue Templates: bisher ungenutzte Attribute ========================
