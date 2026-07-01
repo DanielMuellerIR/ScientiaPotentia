@@ -40,6 +40,10 @@ export const CATEGORY_LABELS = {
   development_stage: 'Entwicklungsstadium',
   brain_lobe: 'Großhirnlappen',
   sleep_perception: 'Schlaf & Gedächtnis',
+  // Homo — Welle 5 (Stand 2026-07-01): Gelenke, Reflexe, Blutgruppen
+  joint: 'Gelenk',
+  reflex: 'Reflex',
+  blood_group: 'Blutgruppe',
   // Natura
   animal: 'Tier',
   plant: 'Pflanze',
@@ -114,6 +118,15 @@ export const ATTR_LABELS = {
   characteristic: 'Kennzeichen',
   timeframe: 'Zeitspanne',
   kind: 'Art',
+  // Homo — Welle 5 (joint/reflex/blood_group).
+  jointType: 'Gelenktyp',
+  bonesInvolved: 'Beteiligte Knochen',
+  movement: 'Beweglichkeit',
+  stimulus: 'Reiz (Auslöser)',
+  response: 'Reaktion',
+  reflexType: 'Reflexart',
+  antigen: 'Antigen',
+  antibody: 'Antikörper',
   approxWeightGrams: 'Gewicht (g)',
   value: 'Wert',
   unit: 'Einheit',
@@ -348,7 +361,14 @@ export const LEAKY_SIBLINGS = {
   // avgComplexity ("O(n) (Stromchiffre)") verraet den Zweck.
   domain: ['fullName'],
   mediaType: ['fullName'],
-  purpose: ['fullName', 'avgComplexity']
+  purpose: ['fullName', 'avgComplexity'],
+  // Homo Welle 5: Beweglichkeit ("dreiachsig") verraet den Gelenktyp (Kugelgelenk);
+  // Reiz/Reaktion legen die Reflexart nahe; Antigen und Antikoerper sind bei den
+  // Blutgruppen komplementaer -> jeweils das Geschwister vor der Antwort ausblenden.
+  jointType: ['movement'],
+  reflexType: ['stimulus', 'response'],
+  antibody: ['antigen'],
+  antigen: ['antibody']
 };
 
 /**

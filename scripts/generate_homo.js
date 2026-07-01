@@ -721,6 +721,71 @@ const templates = [
     category: 'sleep_perception', attr: 'kind', type: 'homo-sleep-kind', difficulty: 3,
     prompt: c => `Welcher Art ist „${c.name}"?`,
     format: v => v
+  },
+
+  // ==== Welle 5 (Stand 2026-07-01): joint / reflex / blood_group ====
+  // Drei neue faire Kategorien (Gelenke, Reflexe, Blutgruppen). Gleiche Engine;
+  // byCategory/pickDistractors/revealsAnswer greifen automatisch. Labels + Leak-
+  // Geschwister (jointType<->movement, reflexType<->stimulus/response,
+  // antibody<->antigen) liegen zentral in src/components/conceptLabels.js.
+
+  // ---- Gelenke (joint) -----------------------------------------------------
+  {
+    // Gelenktyp als kategorialer Vorwaerts-Test. Die 6 reinen Gelenktyp-Konzepte
+    // (Name == jointType, z.B. „Kugelgelenk") faengt der revealsAnswer-Guard
+    // automatisch weg -> nur benannte Gelenke (Knie/Huefte/Schulter/...) fragen.
+    // Klammer-Zusaetze („(bicondylär)") werden fuers Optionsformat gestrippt,
+    // damit die Optionen gleichfoermig und nicht laengen-verraeterisch sind.
+    category: 'joint', attr: 'jointType', type: 'homo-joint-type', difficulty: 2,
+    prompt: c => `Zu welchem Gelenktyp gehört das „${c.name}"?`,
+    format: v => String(v).replace(/\s*\(.*?\)\s*$/, '')
+  },
+  {
+    // Reverse: konkrete Knochen als Hinweis -> Gelenkname. Nur bei benannten
+    // Gelenken mit spezifischer Knochenangabe (generische „z. B."-Beispiele der
+    // Gelenktyp-Konzepte via skip raus, sonst mehrdeutig).
+    category: 'joint', attr: 'bonesInvolved', type: 'homo-joint-bones-rev', difficulty: 3, nameAnswer: true,
+    subject: c => c.attributes.bonesInvolved,
+    prompt: c => `Welches Gelenk wird von folgenden Knochen gebildet: „${c.attributes.bonesInvolved}"?`,
+    skip: c => /^z\.\s*B\./i.test(String(c.attributes.bonesInvolved || ''))
+  },
+
+  // ---- Reflexe (reflex) ----------------------------------------------------
+  {
+    // reflexType (Eigen-/Fremd-/fruehkindlich) als grober Klassifikator; Klammer-
+    // Zusaetze („(monosynaptisch)") gestrippt -> 3 saubere Optionswerte.
+    category: 'reflex', attr: 'reflexType', type: 'homo-reflex-type', difficulty: 2,
+    prompt: c => `Welche Art von Reflex ist der „${c.name}"?`,
+    format: v => String(v).replace(/\s*\(.*?\)\s*$/, '')
+  },
+  {
+    category: 'reflex', attr: 'stimulus', type: 'homo-reflex-stimulus-rev', difficulty: 2, nameAnswer: true,
+    subject: c => c.attributes.stimulus,
+    prompt: c => `Welcher Reflex wird durch folgenden Reiz ausgelöst: „${c.attributes.stimulus}"?`
+  },
+  {
+    category: 'reflex', attr: 'response', type: 'homo-reflex-response-rev', difficulty: 3, nameAnswer: true,
+    subject: c => c.attributes.response,
+    prompt: c => `Bei welchem Reflex tritt folgende Reaktion auf: „${c.attributes.response}"?`
+  },
+
+  // ---- Blutgruppen (blood_group) -------------------------------------------
+  // Fairer Lernkern ist die Antikoerper-Zuordnung (A -> Anti-B). Nur die vier
+  // AB0-Gruppen werden gefragt (skip fuer Rhesus-/Universal-Konzepte: deren
+  // Antikoerper-Freitexte ueberlappen semantisch und liefern keinen sauberen
+  // 4-Optionen-Pool). Das Antigen wird im Panel als Geschwister ausgeblendet
+  // (LEAKY_SIBLINGS), damit die systematische Komplementaritaet nicht leakt.
+  {
+    category: 'blood_group', attr: 'antibody', type: 'homo-blood-antibody', difficulty: 2,
+    prompt: c => `Welche Antikörper trägt „${c.name}" im Blutplasma?`,
+    format: v => v,
+    skip: c => !/^blutgruppe-(a|b|ab|0)$/.test(c.id)
+  },
+  {
+    category: 'blood_group', attr: 'antibody', type: 'homo-blood-antibody-rev', difficulty: 3, nameAnswer: true,
+    subject: c => c.attributes.antibody,
+    prompt: c => `Welche Blutgruppe trägt im Plasma folgende Antikörper: „${c.attributes.antibody}"?`,
+    skip: c => !/^blutgruppe-(a|b|ab|0)$/.test(c.id)
   }
 ];
 

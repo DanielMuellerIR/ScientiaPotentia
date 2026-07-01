@@ -25,7 +25,13 @@ describe('isAttrLeakedBeforeAnswer — Geschwister-Ausblendung', () => {
     ['domain', 'fullName'],           // "Frames per Second" verraet den Bereich
     ['mediaType', 'fullName'],        // "Drawing Exchange Format" verraet die Datenart
     ['purpose', 'fullName'],          // Langform verraet den Zweck
-    ['purpose', 'avgComplexity']      // "O(n) (Stromchiffre)" verraet den Zweck
+    ['purpose', 'avgComplexity'],     // "O(n) (Stromchiffre)" verraet den Zweck
+    // Homo Welle 5 (Gelenke/Reflexe/Blutgruppen).
+    ['jointType', 'movement'],        // "dreiachsig" verraet den Gelenktyp (Kugelgelenk)
+    ['reflexType', 'stimulus'],       // Reiz legt Eigen-/Fremdreflex nahe
+    ['reflexType', 'response'],       // Reaktion legt die Reflexart nahe
+    ['antibody', 'antigen'],          // Blutgruppen-Antigen/-Antikoerper sind komplementaer
+    ['antigen', 'antibody']
   ];
 
   it.each(leakingPairs)('blendet %s-Frage das Geschwister %s aus', (tested, sibling) => {

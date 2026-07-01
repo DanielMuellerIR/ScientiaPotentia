@@ -47,7 +47,9 @@ const CATEGORY_LABELS = {
   digestive_enzyme: 'Verdauungsenzym', nerve: 'Nerv', psych_effect: 'Psychoeffekt',
   nutrient_macro: 'Nährstoff', development_stage: 'Entwicklungsstadium', brain_lobe: 'Großhirnlappen',
   // Welle 4 (Stand 2026-06-30): Schlafphasen, Gedächtnisarten, biologische Rhythmen
-  sleep_perception: 'Schlaf & Gedächtnis'
+  sleep_perception: 'Schlaf & Gedächtnis',
+  // Welle 5 (Stand 2026-07-01): Gelenke, Reflexe, Blutgruppen
+  joint: 'Gelenk', reflex: 'Reflex', blood_group: 'Blutgruppe'
 };
 
 const ATTR_LABELS = {
@@ -66,7 +68,11 @@ const ATTR_LABELS = {
   foodSource: 'Nahrungsquelle', nutrientClass: 'Nährstoffgruppe',
   characteristic: 'Kennzeichen', timeframe: 'Zeitspanne',
   // Welle-4-Attribut (sleep_perception): grober Klassifikator
-  kind: 'Art'
+  kind: 'Art',
+  // Welle-5-Attribute (joint/reflex/blood_group).
+  jointType: 'Gelenktyp', bonesInvolved: 'Beteiligte Knochen', movement: 'Beweglichkeit',
+  stimulus: 'Reiz (Auslöser)', response: 'Reaktion', reflexType: 'Reflexart',
+  antigen: 'Antigen', antibody: 'Antikörper'
 };
 
 // Freitext-Chips sind oft erklaerend statt reine Kennwerte. Vor der Antwort
