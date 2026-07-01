@@ -95587,5 +95587,993 @@
     "answerIsName": true,
     "silhouetteSvgPath": null,
     "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-orion_astra-constellation-brighteststar",
+    "entityId": "astra:sternbild-orion",
+    "entityType": "constellation",
+    "type": "astra-constellation-brighteststar",
+    "difficulty": 3,
+    "prompt": "Welcher ist der hellste Stern im Sternbild „Orion\"?",
+    "correctAnswer": "Rigel",
+    "options": [
+      "Rigel",
+      "Arneb",
+      "Ankaa",
+      "Phakt"
+    ],
+    "testedAttribute": "brightestStar",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-kassiopeia_astra-constellation-brighteststar",
+    "entityId": "astra:sternbild-kassiopeia",
+    "entityType": "constellation",
+    "type": "astra-constellation-brighteststar",
+    "difficulty": 3,
+    "prompt": "Welcher ist der hellste Stern im Sternbild „Kassiopeia\"?",
+    "correctAnswer": "Schedir",
+    "options": [
+      "Schedir",
+      "Kanopus",
+      "Eltanin",
+      "Peacock"
+    ],
+    "testedAttribute": "brightestStar",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-kreuz-des-suedens_astra-constellation-brighteststar",
+    "entityId": "astra:sternbild-kreuz-des-suedens",
+    "entityType": "constellation",
+    "type": "astra-constellation-brighteststar",
+    "difficulty": 3,
+    "prompt": "Welcher ist der hellste Stern im Sternbild „Kreuz des Südens\"?",
+    "correctAnswer": "Acrux",
+    "options": [
+      "Acrux",
+      "Dubhe",
+      "Arneb",
+      "Phakt"
+    ],
+    "testedAttribute": "brightestStar",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-grosser-baer_astra-constellation-brighteststar",
+    "entityId": "astra:sternbild-grosser-baer",
+    "entityType": "constellation",
+    "type": "astra-constellation-brighteststar",
+    "difficulty": 3,
+    "prompt": "Welcher ist der hellste Stern im Sternbild „Großer Bär\"?",
+    "correctAnswer": "Dubhe",
+    "options": [
+      "Dubhe",
+      "Ankaa",
+      "Deneb",
+      "Spica"
+    ],
+    "testedAttribute": "brightestStar",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-kleiner-baer_astra-constellation-brighteststar",
+    "entityId": "astra:sternbild-kleiner-baer",
+    "entityType": "constellation",
+    "type": "astra-constellation-brighteststar",
+    "difficulty": 3,
+    "prompt": "Welcher ist der hellste Stern im Sternbild „Kleiner Bär\"?",
+    "correctAnswer": "Polaris",
+    "options": [
+      "Polaris",
+      "Peacock",
+      "Schedir",
+      "Prokyon"
+    ],
+    "testedAttribute": "brightestStar",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-drache_astra-constellation-brighteststar",
+    "entityId": "astra:sternbild-drache",
+    "entityType": "constellation",
+    "type": "astra-constellation-brighteststar",
+    "difficulty": 3,
+    "prompt": "Welcher ist der hellste Stern im Sternbild „Drache\"?",
+    "correctAnswer": "Eltanin",
+    "options": [
+      "Eltanin",
+      "Kapella",
+      "Peacock",
+      "Regulus"
+    ],
+    "testedAttribute": "brightestStar",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-kepheus_astra-constellation-brighteststar",
+    "entityId": "astra:sternbild-kepheus",
+    "entityType": "constellation",
+    "type": "astra-constellation-brighteststar",
+    "difficulty": 3,
+    "prompt": "Welcher ist der hellste Stern im Sternbild „Kepheus\"?",
+    "correctAnswer": "Alderamin",
+    "options": [
+      "Alderamin",
+      "Beta Arae",
+      "Fomalhaut",
+      "Aldebaran"
+    ],
+    "testedAttribute": "brightestStar",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-andromeda_astra-constellation-brighteststar",
+    "entityId": "astra:sternbild-andromeda",
+    "entityType": "constellation",
+    "type": "astra-constellation-brighteststar",
+    "difficulty": 3,
+    "prompt": "Welcher ist der hellste Stern im Sternbild „Andromeda\"?",
+    "correctAnswer": "Mirach",
+    "options": [
+      "Mirach",
+      "Pollux",
+      "Mirfak",
+      "Arktur"
+    ],
+    "testedAttribute": "brightestStar",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-perseus_astra-constellation-brighteststar",
+    "entityId": "astra:sternbild-perseus",
+    "entityType": "constellation",
+    "type": "astra-constellation-brighteststar",
+    "difficulty": 3,
+    "prompt": "Welcher ist der hellste Stern im Sternbild „Perseus\"?",
+    "correctAnswer": "Mirfak",
+    "options": [
+      "Mirfak",
+      "Mirach",
+      "Arktur",
+      "Pollux"
+    ],
+    "testedAttribute": "brightestStar",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-pegasus_astra-constellation-brighteststar",
+    "entityId": "astra:sternbild-pegasus",
+    "entityType": "constellation",
+    "type": "astra-constellation-brighteststar",
+    "difficulty": 3,
+    "prompt": "Welcher ist der hellste Stern im Sternbild „Pegasus\"?",
+    "correctAnswer": "Enif",
+    "options": [
+      "Enif",
+      "Wega",
+      "Tarf",
+      "Naos"
+    ],
+    "testedAttribute": "brightestStar",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-stier_astra-constellation-brighteststar",
+    "entityId": "astra:sternbild-stier",
+    "entityType": "constellation",
+    "type": "astra-constellation-brighteststar",
+    "difficulty": 3,
+    "prompt": "Welcher ist der hellste Stern im Sternbild „Stier\"?",
+    "correctAnswer": "Aldebaran",
+    "options": [
+      "Aldebaran",
+      "Praecipua",
+      "Alderamin",
+      "Beta Arae"
+    ],
+    "testedAttribute": "brightestStar",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-zwillinge_astra-constellation-brighteststar",
+    "entityId": "astra:sternbild-zwillinge",
+    "entityType": "constellation",
+    "type": "astra-constellation-brighteststar",
+    "difficulty": 3,
+    "prompt": "Welcher ist der hellste Stern im Sternbild „Zwillinge\"?",
+    "correctAnswer": "Pollux",
+    "options": [
+      "Pollux",
+      "Alnair",
+      "Mirach",
+      "Sirius"
+    ],
+    "testedAttribute": "brightestStar",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-krebs_astra-constellation-brighteststar",
+    "entityId": "astra:sternbild-krebs",
+    "entityType": "constellation",
+    "type": "astra-constellation-brighteststar",
+    "difficulty": 3,
+    "prompt": "Welcher ist der hellste Stern im Sternbild „Krebs\"?",
+    "correctAnswer": "Tarf",
+    "options": [
+      "Tarf",
+      "Enif",
+      "Wega",
+      "Naos"
+    ],
+    "testedAttribute": "brightestStar",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-loewe_astra-constellation-brighteststar",
+    "entityId": "astra:sternbild-loewe",
+    "entityType": "constellation",
+    "type": "astra-constellation-brighteststar",
+    "difficulty": 3,
+    "prompt": "Welcher ist der hellste Stern im Sternbild „Löwe\"?",
+    "correctAnswer": "Regulus",
+    "options": [
+      "Regulus",
+      "Eltanin",
+      "Schedir",
+      "Prokyon"
+    ],
+    "testedAttribute": "brightestStar",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-jungfrau_astra-constellation-brighteststar",
+    "entityId": "astra:sternbild-jungfrau",
+    "entityType": "constellation",
+    "type": "astra-constellation-brighteststar",
+    "difficulty": 3,
+    "prompt": "Welcher ist der hellste Stern im Sternbild „Jungfrau\"?",
+    "correctAnswer": "Spica",
+    "options": [
+      "Spica",
+      "Arneb",
+      "Dubhe",
+      "Hamal"
+    ],
+    "testedAttribute": "brightestStar",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-waage_astra-constellation-brighteststar",
+    "entityId": "astra:sternbild-waage",
+    "entityType": "constellation",
+    "type": "astra-constellation-brighteststar",
+    "difficulty": 3,
+    "prompt": "Welcher ist der hellste Stern im Sternbild „Waage\"?",
+    "correctAnswer": "Zubeneschamali",
+    "options": [
+      "Zubeneschamali",
+      "Delta Velorum",
+      "Beta Herculis",
+      "Deneb Algedi"
+    ],
+    "testedAttribute": "brightestStar",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-skorpion_astra-constellation-brighteststar",
+    "entityId": "astra:sternbild-skorpion",
+    "entityType": "constellation",
+    "type": "astra-constellation-brighteststar",
+    "difficulty": 3,
+    "prompt": "Welcher ist der hellste Stern im Sternbild „Skorpion\"?",
+    "correctAnswer": "Antares",
+    "options": [
+      "Antares",
+      "Regulus",
+      "Eltanin",
+      "Kanopus"
+    ],
+    "testedAttribute": "brightestStar",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-schuetze_astra-constellation-brighteststar",
+    "entityId": "astra:sternbild-schuetze",
+    "entityType": "constellation",
+    "type": "astra-constellation-brighteststar",
+    "difficulty": 3,
+    "prompt": "Welcher ist der hellste Stern im Sternbild „Schütze\"?",
+    "correctAnswer": "Epsilon Sagittarii",
+    "options": [
+      "Epsilon Sagittarii",
+      "Alpha Centauri A",
+      "Zubeneschamali",
+      "Delta Velorum"
+    ],
+    "testedAttribute": "brightestStar",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-steinbock_astra-constellation-brighteststar",
+    "entityId": "astra:sternbild-steinbock",
+    "entityType": "constellation",
+    "type": "astra-constellation-brighteststar",
+    "difficulty": 3,
+    "prompt": "Welcher ist der hellste Stern im Sternbild „Steinbock\"?",
+    "correctAnswer": "Deneb Algedi",
+    "options": [
+      "Deneb Algedi",
+      "Gamma Corvi",
+      "Beta Herculis",
+      "Delta Velorum"
+    ],
+    "testedAttribute": "brightestStar",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-wassermann_astra-constellation-brighteststar",
+    "entityId": "astra:sternbild-wassermann",
+    "entityType": "constellation",
+    "type": "astra-constellation-brighteststar",
+    "difficulty": 3,
+    "prompt": "Welcher ist der hellste Stern im Sternbild „Wassermann\"?",
+    "correctAnswer": "Sadalsuud",
+    "options": [
+      "Sadalsuud",
+      "Alderamin",
+      "Beta Arae",
+      "Praecipua"
+    ],
+    "testedAttribute": "brightestStar",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-widder_astra-constellation-brighteststar",
+    "entityId": "astra:sternbild-widder",
+    "entityType": "constellation",
+    "type": "astra-constellation-brighteststar",
+    "difficulty": 3,
+    "prompt": "Welcher ist der hellste Stern im Sternbild „Widder\"?",
+    "correctAnswer": "Hamal",
+    "options": [
+      "Hamal",
+      "Atria",
+      "Arneb",
+      "Spica"
+    ],
+    "testedAttribute": "brightestStar",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-schwan_astra-constellation-brighteststar",
+    "entityId": "astra:sternbild-schwan",
+    "entityType": "constellation",
+    "type": "astra-constellation-brighteststar",
+    "difficulty": 3,
+    "prompt": "Welcher ist der hellste Stern im Sternbild „Schwan\"?",
+    "correctAnswer": "Deneb",
+    "options": [
+      "Deneb",
+      "Atria",
+      "Anser",
+      "Arneb"
+    ],
+    "testedAttribute": "brightestStar",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-leier_astra-constellation-brighteststar",
+    "entityId": "astra:sternbild-leier",
+    "entityType": "constellation",
+    "type": "astra-constellation-brighteststar",
+    "difficulty": 3,
+    "prompt": "Welcher ist der hellste Stern im Sternbild „Leier\"?",
+    "correctAnswer": "Wega",
+    "options": [
+      "Wega",
+      "Naos",
+      "Tarf",
+      "Enif"
+    ],
+    "testedAttribute": "brightestStar",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-adler_astra-constellation-brighteststar",
+    "entityId": "astra:sternbild-adler",
+    "entityType": "constellation",
+    "type": "astra-constellation-brighteststar",
+    "difficulty": 3,
+    "prompt": "Welcher ist der hellste Stern im Sternbild „Adler\"?",
+    "correctAnswer": "Atair",
+    "options": [
+      "Atair",
+      "Spica",
+      "Anser",
+      "Deneb"
+    ],
+    "testedAttribute": "brightestStar",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-bootes_astra-constellation-brighteststar",
+    "entityId": "astra:sternbild-bootes",
+    "entityType": "constellation",
+    "type": "astra-constellation-brighteststar",
+    "difficulty": 3,
+    "prompt": "Welcher ist der hellste Stern im Sternbild „Bärenhüter\"?",
+    "correctAnswer": "Arktur",
+    "options": [
+      "Arktur",
+      "Sirius",
+      "Pollux",
+      "Alnair"
+    ],
+    "testedAttribute": "brightestStar",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-noerdliche-krone_astra-constellation-brighteststar",
+    "entityId": "astra:sternbild-noerdliche-krone",
+    "entityType": "constellation",
+    "type": "astra-constellation-brighteststar",
+    "difficulty": 3,
+    "prompt": "Welcher ist der hellste Stern im Sternbild „Nördliche Krone\"?",
+    "correctAnswer": "Alphecca",
+    "options": [
+      "Alphecca",
+      "Achernar",
+      "Beta Arae",
+      "Sadalsuud"
+    ],
+    "testedAttribute": "brightestStar",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-herkules_astra-constellation-brighteststar",
+    "entityId": "astra:sternbild-herkules",
+    "entityType": "constellation",
+    "type": "astra-constellation-brighteststar",
+    "difficulty": 3,
+    "prompt": "Welcher ist der hellste Stern im Sternbild „Herkules\"?",
+    "correctAnswer": "Beta Herculis",
+    "options": [
+      "Beta Herculis",
+      "Delta Velorum",
+      "Zubeneschamali",
+      "Deneb Algedi"
+    ],
+    "testedAttribute": "brightestStar",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-fuhrmann_astra-constellation-brighteststar",
+    "entityId": "astra:sternbild-fuhrmann",
+    "entityType": "constellation",
+    "type": "astra-constellation-brighteststar",
+    "difficulty": 3,
+    "prompt": "Welcher ist der hellste Stern im Sternbild „Fuhrmann\"?",
+    "correctAnswer": "Kapella",
+    "options": [
+      "Kapella",
+      "Eltanin",
+      "Rotanev",
+      "Polaris"
+    ],
+    "testedAttribute": "brightestStar",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-zwerg_astra-constellation-brighteststar",
+    "entityId": "astra:sternbild-zwerg",
+    "entityType": "constellation",
+    "type": "astra-constellation-brighteststar",
+    "difficulty": 3,
+    "prompt": "Welcher ist der hellste Stern im Sternbild „Kleiner Hund\"?",
+    "correctAnswer": "Prokyon",
+    "options": [
+      "Prokyon",
+      "Polaris",
+      "Kanopus",
+      "Schedir"
+    ],
+    "testedAttribute": "brightestStar",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-grosser-hund_astra-constellation-brighteststar",
+    "entityId": "astra:sternbild-grosser-hund",
+    "entityType": "constellation",
+    "type": "astra-constellation-brighteststar",
+    "difficulty": 3,
+    "prompt": "Welcher ist der hellste Stern im Sternbild „Großer Hund\"?",
+    "correctAnswer": "Sirius",
+    "options": [
+      "Sirius",
+      "Pollux",
+      "Diphda",
+      "Arktur"
+    ],
+    "testedAttribute": "brightestStar",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-walfisch_astra-constellation-brighteststar",
+    "entityId": "astra:sternbild-walfisch",
+    "entityType": "constellation",
+    "type": "astra-constellation-brighteststar",
+    "difficulty": 3,
+    "prompt": "Welcher ist der hellste Stern im Sternbild „Walfisch\"?",
+    "correctAnswer": "Diphda",
+    "options": [
+      "Diphda",
+      "Pollux",
+      "Arktur",
+      "Alnair"
+    ],
+    "testedAttribute": "brightestStar",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-eridanus_astra-constellation-brighteststar",
+    "entityId": "astra:sternbild-eridanus",
+    "entityType": "constellation",
+    "type": "astra-constellation-brighteststar",
+    "difficulty": 3,
+    "prompt": "Welcher ist der hellste Stern im Sternbild „Eridanus\"?",
+    "correctAnswer": "Achernar",
+    "options": [
+      "Achernar",
+      "Alphecca",
+      "Polaris",
+      "Kanopus"
+    ],
+    "testedAttribute": "brightestStar",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-wasserschlange_astra-constellation-brighteststar",
+    "entityId": "astra:sternbild-wasserschlange",
+    "entityType": "constellation",
+    "type": "astra-constellation-brighteststar",
+    "difficulty": 3,
+    "prompt": "Welcher ist der hellste Stern im Sternbild „Wasserschlange\"?",
+    "correctAnswer": "Alphard",
+    "options": [
+      "Alphard",
+      "Kanopus",
+      "Kapella",
+      "Rotanev"
+    ],
+    "testedAttribute": "brightestStar",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-zentaur_astra-constellation-brighteststar",
+    "entityId": "astra:sternbild-zentaur",
+    "entityType": "constellation",
+    "type": "astra-constellation-brighteststar",
+    "difficulty": 3,
+    "prompt": "Welcher ist der hellste Stern im Sternbild „Zentaur\"?",
+    "correctAnswer": "Alpha Centauri A",
+    "options": [
+      "Alpha Centauri A",
+      "Epsilon Sagittarii",
+      "Zubeneschamali",
+      "Delta Velorum"
+    ],
+    "testedAttribute": "brightestStar",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-wolf_astra-constellation-brighteststar",
+    "entityId": "astra:sternbild-wolf",
+    "entityType": "constellation",
+    "type": "astra-constellation-brighteststar",
+    "difficulty": 3,
+    "prompt": "Welcher ist der hellste Stern im Sternbild „Wolf\"?",
+    "correctAnswer": "Alpha Lupi",
+    "options": [
+      "Alpha Lupi",
+      "Cor Caroli",
+      "Praecipua",
+      "Gamma Corvi"
+    ],
+    "testedAttribute": "brightestStar",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-schlange_astra-constellation-brighteststar",
+    "entityId": "astra:sternbild-schlange",
+    "entityType": "constellation",
+    "type": "astra-constellation-brighteststar",
+    "difficulty": 3,
+    "prompt": "Welcher ist der hellste Stern im Sternbild „Schlange\"?",
+    "correctAnswer": "Unukalhai",
+    "options": [
+      "Unukalhai",
+      "Praecipua",
+      "Sadalsuud",
+      "Aldebaran"
+    ],
+    "testedAttribute": "brightestStar",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-delphin_astra-constellation-brighteststar",
+    "entityId": "astra:sternbild-delphin",
+    "entityType": "constellation",
+    "type": "astra-constellation-brighteststar",
+    "difficulty": 3,
+    "prompt": "Welcher ist der hellste Stern im Sternbild „Delphin\"?",
+    "correctAnswer": "Rotanev",
+    "options": [
+      "Rotanev",
+      "Kapella",
+      "Peacock",
+      "Eltanin"
+    ],
+    "testedAttribute": "brightestStar",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-fuchs_astra-constellation-brighteststar",
+    "entityId": "astra:sternbild-fuchs",
+    "entityType": "constellation",
+    "type": "astra-constellation-brighteststar",
+    "difficulty": 3,
+    "prompt": "Welcher ist der hellste Stern im Sternbild „Fuchs\"?",
+    "correctAnswer": "Anser",
+    "options": [
+      "Anser",
+      "Atria",
+      "Arneb",
+      "Acrux"
+    ],
+    "testedAttribute": "brightestStar",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-pfau_astra-constellation-brighteststar",
+    "entityId": "astra:sternbild-pfau",
+    "entityType": "constellation",
+    "type": "astra-constellation-brighteststar",
+    "difficulty": 3,
+    "prompt": "Welcher ist der hellste Stern im Sternbild „Pfau\"?",
+    "correctAnswer": "Peacock",
+    "options": [
+      "Peacock",
+      "Kanopus",
+      "Schedir",
+      "Alphard"
+    ],
+    "testedAttribute": "brightestStar",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-kranich_astra-constellation-brighteststar",
+    "entityId": "astra:sternbild-kranich",
+    "entityType": "constellation",
+    "type": "astra-constellation-brighteststar",
+    "difficulty": 3,
+    "prompt": "Welcher ist der hellste Stern im Sternbild „Kranich\"?",
+    "correctAnswer": "Alnair",
+    "options": [
+      "Alnair",
+      "Sirius",
+      "Mirach",
+      "Mirfak"
+    ],
+    "testedAttribute": "brightestStar",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-phoenix_astra-constellation-brighteststar",
+    "entityId": "astra:sternbild-phoenix",
+    "entityType": "constellation",
+    "type": "astra-constellation-brighteststar",
+    "difficulty": 3,
+    "prompt": "Welcher ist der hellste Stern im Sternbild „Phönix\"?",
+    "correctAnswer": "Ankaa",
+    "options": [
+      "Ankaa",
+      "Atria",
+      "Arneb",
+      "Atair"
+    ],
+    "testedAttribute": "brightestStar",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-altar_astra-constellation-brighteststar",
+    "entityId": "astra:sternbild-altar",
+    "entityType": "constellation",
+    "type": "astra-constellation-brighteststar",
+    "difficulty": 3,
+    "prompt": "Welcher ist der hellste Stern im Sternbild „Altar\"?",
+    "correctAnswer": "Beta Arae",
+    "options": [
+      "Beta Arae",
+      "Aldebaran",
+      "Praecipua",
+      "Unukalhai"
+    ],
+    "testedAttribute": "brightestStar",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-suedlicher-fisch_astra-constellation-brighteststar",
+    "entityId": "astra:sternbild-suedlicher-fisch",
+    "entityType": "constellation",
+    "type": "astra-constellation-brighteststar",
+    "difficulty": 3,
+    "prompt": "Welcher ist der hellste Stern im Sternbild „Südlicher Fisch\"?",
+    "correctAnswer": "Fomalhaut",
+    "options": [
+      "Fomalhaut",
+      "Unukalhai",
+      "Praecipua",
+      "Aldebaran"
+    ],
+    "testedAttribute": "brightestStar",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-segel_astra-constellation-brighteststar",
+    "entityId": "astra:sternbild-segel",
+    "entityType": "constellation",
+    "type": "astra-constellation-brighteststar",
+    "difficulty": 3,
+    "prompt": "Welcher ist der hellste Stern im Sternbild „Segel des Schiffs\"?",
+    "correctAnswer": "Delta Velorum",
+    "options": [
+      "Delta Velorum",
+      "Beta Herculis",
+      "Deneb Algedi",
+      "Zubeneschamali"
+    ],
+    "testedAttribute": "brightestStar",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-kiel_astra-constellation-brighteststar",
+    "entityId": "astra:sternbild-kiel",
+    "entityType": "constellation",
+    "type": "astra-constellation-brighteststar",
+    "difficulty": 3,
+    "prompt": "Welcher ist der hellste Stern im Sternbild „Kiel des Schiffs\"?",
+    "correctAnswer": "Kanopus",
+    "options": [
+      "Kanopus",
+      "Alphard",
+      "Eltanin",
+      "Antares"
+    ],
+    "testedAttribute": "brightestStar",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-achterdeck_astra-constellation-brighteststar",
+    "entityId": "astra:sternbild-achterdeck",
+    "entityType": "constellation",
+    "type": "astra-constellation-brighteststar",
+    "difficulty": 3,
+    "prompt": "Welcher ist der hellste Stern im Sternbild „Achterdeck des Schiffs\"?",
+    "correctAnswer": "Naos",
+    "options": [
+      "Naos",
+      "Tarf",
+      "Enif",
+      "Wega"
+    ],
+    "testedAttribute": "brightestStar",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-grosser-hund-taube_astra-constellation-brighteststar",
+    "entityId": "astra:sternbild-grosser-hund-taube",
+    "entityType": "constellation",
+    "type": "astra-constellation-brighteststar",
+    "difficulty": 3,
+    "prompt": "Welcher ist der hellste Stern im Sternbild „Taube\"?",
+    "correctAnswer": "Phakt",
+    "options": [
+      "Phakt",
+      "Ankaa",
+      "Acrux",
+      "Atria"
+    ],
+    "testedAttribute": "brightestStar",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-jagdhunde_astra-constellation-brighteststar",
+    "entityId": "astra:sternbild-jagdhunde",
+    "entityType": "constellation",
+    "type": "astra-constellation-brighteststar",
+    "difficulty": 3,
+    "prompt": "Welcher ist der hellste Stern im Sternbild „Jagdhunde\"?",
+    "correctAnswer": "Cor Caroli",
+    "options": [
+      "Cor Caroli",
+      "Alpha Lupi",
+      "Beta Arae",
+      "Unukalhai"
+    ],
+    "testedAttribute": "brightestStar",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-rabe_astra-constellation-brighteststar",
+    "entityId": "astra:sternbild-rabe",
+    "entityType": "constellation",
+    "type": "astra-constellation-brighteststar",
+    "difficulty": 3,
+    "prompt": "Welcher ist der hellste Stern im Sternbild „Rabe\"?",
+    "correctAnswer": "Gamma Corvi",
+    "options": [
+      "Gamma Corvi",
+      "Alpha Lupi",
+      "Cor Caroli",
+      "Deneb Algedi"
+    ],
+    "testedAttribute": "brightestStar",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-suedliches-dreieck_astra-constellation-brighteststar",
+    "entityId": "astra:sternbild-suedliches-dreieck",
+    "entityType": "constellation",
+    "type": "astra-constellation-brighteststar",
+    "difficulty": 3,
+    "prompt": "Welcher ist der hellste Stern im Sternbild „Südliches Dreieck\"?",
+    "correctAnswer": "Atria",
+    "options": [
+      "Atria",
+      "Phakt",
+      "Spica",
+      "Dubhe"
+    ],
+    "testedAttribute": "brightestStar",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-meissel_astra-constellation-brighteststar",
+    "entityId": "astra:sternbild-meissel",
+    "entityType": "constellation",
+    "type": "astra-constellation-brighteststar",
+    "difficulty": 3,
+    "prompt": "Welcher ist der hellste Stern im Sternbild „Hase\"?",
+    "correctAnswer": "Arneb",
+    "options": [
+      "Arneb",
+      "Deneb",
+      "Atair",
+      "Ankaa"
+    ],
+    "testedAttribute": "brightestStar",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_sternbild-leo-minor_astra-constellation-brighteststar",
+    "entityId": "astra:sternbild-leo-minor",
+    "entityType": "constellation",
+    "type": "astra-constellation-brighteststar",
+    "difficulty": 3,
+    "prompt": "Welcher ist der hellste Stern im Sternbild „Kleiner Löwe\"?",
+    "correctAnswer": "Praecipua",
+    "options": [
+      "Praecipua",
+      "Fomalhaut",
+      "Alderamin",
+      "Sadalsuud"
+    ],
+    "testedAttribute": "brightestStar",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
   }
 ]

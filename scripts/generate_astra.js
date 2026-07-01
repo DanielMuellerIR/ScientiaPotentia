@@ -115,6 +115,48 @@ for (const c of raw) {
   (byCategory[c.category] ||= []).push(c);
 }
 
+// --- brightestStar je Sternbild herleiten (aus den Sterndaten) -----------
+// Sternbilder tragen keinen "hellster Stern"-Wert; wir leiten ihn aus den
+// Sternkonzepten ab: der Stern mit der KLEINSTEN scheinbaren Helligkeit
+// (apparentMagnitude) je Sternbild ist der hellste. Das `star.constellation`-
+// Feld ist uneinheitlich formatiert ("Adler" vs. "Adler (Aquila)" vs.
+// "Andromeda (Sternbild)") -> Kernnamen normalisieren (Klammer-Suffix entfernen)
+// und gegen den Sternbild-Kernnamen joinen. Nur ~57 der 88 Sternbilder sind im
+// Sterndatensatz vertreten; die übrigen bekommen keinen Wert und werden vom
+// Template übersprungen. Der Wert landet als Attribut am Sternbild-Konzept und
+// dient dem neuen "hellster Stern"-Template als Antwort.
+const constCore = s => String(s || '').replace(/\s*\([^)]*\)\s*$/, '').trim().toLowerCase();
+const brightestByConstellation = {};
+for (const s of (byCategory.star || [])) {
+  const key = constCore(s.attributes?.constellation);
+  const mag = s.attributes?.apparentMagnitude;
+  if (!key || typeof mag !== 'number' || !isFinite(mag)) continue;
+  const cur = brightestByConstellation[key];
+  // Sternnamen tragen teils einen Klammer-Zusatz (internationaler Name/Bayer-
+  // Bezeichnung, z.B. "Atair (Altair)", "Prokyon (Procyon)"). Für die MCQ-Optionen
+  // den Kern-Namen nehmen -> alle Optionen einheitlich formatiert (kein Format-Tell,
+  // bei dem die einzige Antwort mit/ohne Klammer heraussticht).
+  const name = s.name.replace(/\s*\([^)]*\)\s*$/, '');
+  if (!cur || mag < cur.mag) brightestByConstellation[key] = { mag, name };
+}
+// Sternbilder, deren REAL hellster Stern NICHT im Sterndatensatz enthalten ist:
+// die magnitude-basierte Herleitung wuerde hier einen faktisch FALSCHEN "hellsten"
+// Stern liefern (der real hellste fehlt, ein schwaecherer ist der einzige/hellste
+// im Teil-Datensatz). Gegen Wikipedia verifiziert (2026-07-01) -> ausgeschlossen,
+// bis die fehlenden Sterne nachgetragen sind. Real hellster Stern je Fall:
+const BRIGHTEST_STAR_INCOMPLETE = new Set([
+  'schwertfisch',    // real: Alpha Doradus (3,27) — unser R136a1 (12,78) ist nur der einzige Dorado-Stern im Datensatz
+  'pfeil',           // real: Gamma Sagittae (3,47) — unser Sham (Alpha Sagittae, 4,38) ist nicht der hellste
+  'fische',          // real: Alpherg/Eta Piscium (3,62) — unser Alrescha (Alpha Piscium, 3,82) ist nicht der hellste
+  'schlangenträger', // real: Rasalhague/Alpha Ophiuchi (2,08) — unser Sabik (2,42) ist nur der zweithellste
+  'becher'           // real: Delta Crateris (3,57) — unser Alkes/Alpha Crateris (4,08) ist nicht der hellste
+]);
+for (const c of (byCategory.constellation || [])) {
+  if (BRIGHTEST_STAR_INCOMPLETE.has(constCore(c.name))) continue;
+  const hit = brightestByConstellation[constCore(c.name)];
+  if (hit) c.attributes.brightestStar = hit.name;
+}
+
 // --- Konzeptspeicher bauen ----------------------------------------------
 // Key-Schema laut Plan 4.1: "<domain>:<conceptId>" (z.B. astra:mars).
 const concepts = {};
@@ -793,6 +835,25 @@ const templates = [
     subject: c => `IAU-Abkürzung „${c.attributes.iauAbbreviation}"`,
     format: (_v, c) => c.name,
     prompt: c => `Für welches Sternbild steht die offizielle IAU-Abkürzung „${c.attributes.iauAbbreviation}"?`
+  },
+
+  // ---- Sternbilder: hellster Stern (oben aus den Sterndaten hergeleitet) ---
+  // `brightestStar` wird nicht in den Rohdaten gepflegt, sondern beim Generieren
+  // aus den Sternkonzepten abgeleitet (kleinste apparentMagnitude je Sternbild).
+  // Nur die ~57 im Sterndatensatz vertretenen Sternbilder tragen den Wert -> die
+  // übrigen überspringt `skip`. Distraktoren sind die hellsten Sterne ANDERER
+  // Sternbilder (gleiche Kategorie/gleiches Attribut) -> plausible, echte helle
+  // Sterne. Der Selbstverräter-Guard (revealsAnswer) verwirft Fälle, in denen der
+  // Sternname im Sternbildnamen steckt; das verräterische Panel-Geschwister
+  // `notableStars` (Sternliste) blendet AstraVisual bei diesem Test aus.
+  {
+    category: 'constellation', attr: 'brightestStar', type: 'astra-constellation-brighteststar', difficulty: 3,
+    // Sternbildnamen sind uneinheitlich ("Orion (Sternbild)", "Großer Bär (Ursa
+    // Major)") -> jeden Klammer-Zusatz entfernen, damit der Prompt sauber den
+    // deutschen Namen nennt.
+    prompt: c => `Welcher ist der hellste Stern im Sternbild „${c.name.replace(/\s*\([^)]*\)\s*$/, '')}"?`,
+    format: v => v,
+    skip: c => !c.attributes.brightestStar
   }
 ];
 

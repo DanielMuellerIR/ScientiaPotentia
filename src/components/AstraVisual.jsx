@@ -410,11 +410,17 @@ export default function AstraVisual({
   //   - unbeantwortete Reverse-Frage: gar keine Chips (Identitaet verborgen).
   //   - unbeantwortete Vorwaertsfrage: getestetes Attribut und Freitextdetails
   //     ausblenden; nach der Antwort sind sie als Erklaerung sichtbar.
+  // Verräterische Geschwister-Attribute: Wird der hellste Stern gefragt, würden
+  // die sichtbaren Sternlisten (notableStars „Rigel, Beteigeuze …", mainStars)
+  // die Antwort verraten -> vor der Antwort mit ausblenden (analog zum
+  // LEAKY_SIBLINGS-Guard des generischen Panels). QA-Fund/Hebel 2026-07-01.
+  const LEAKY_SIBLINGS = { brightestStar: ['notableStars', 'mainStars'] };
+  const leakedSiblings = (!detailsUnlocked && LEAKY_SIBLINGS[testedAttribute]) || [];
   const attrEntries = hideIdentity
     ? []
     : Object.entries(attrs)
         .filter(([k, v]) => v !== undefined && v !== null && v !== '' && k !== 'unit')
-        .filter(([k]) => detailsUnlocked || (k !== testedAttribute && !POST_ANSWER_ATTRS.has(k)))
+        .filter(([k]) => detailsUnlocked || (k !== testedAttribute && !POST_ANSWER_ATTRS.has(k) && !leakedSiblings.includes(k)))
         .slice(0, 4);
   const hasTexture = activeConcept && TEXTURES[(activeConcept.id || '').replace(/^astra:/, '')];
 

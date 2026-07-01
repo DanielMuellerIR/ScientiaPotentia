@@ -70,7 +70,8 @@ export const ATTR_LABELS = {
   apparentMagnitude: 'Magnitude', parentPlanet: 'Zentralplanet',
   notableFor: 'Bekannt für', location: 'Lage',
   yearLengthEarthYears: 'Jahr (Erdjahre)', distanceFromSunAU: 'Entfernung (AE)',
-  hasRings: 'Ringe', discoveredYear: 'Entdeckt', definition: 'Definition'
+  hasRings: 'Ringe', discoveredYear: 'Entdeckt', definition: 'Definition',
+  brightestStar: 'Hellster Stern'
 };
 
 /** Hex-Zahl -> CSS-#rrggbb. */

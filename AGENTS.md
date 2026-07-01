@@ -419,6 +419,21 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 > oben). Offen für eine Folgesession: ein frischer MiniMax-Sweep auf dem neuen Guard als End-to-End-
 > Gegenprobe (bestätigt Leaks weg, checkt den `cultura-quote-*`-Rest).
 >
+> **Astra „hellster Stern" v1.81.0 (2026-07-01) — brightestStar-Herleitung (Hebel a):**
+> Neuer Fragetyp `astra-constellation-brighteststar` (+52 Fragen, Astra 5031→5083). `generate_astra.js`
+> leitet `brightestStar` je Sternbild aus den Sternkonzepten ab (kleinste `apparentMagnitude`; das
+> uneinheitliche `star.constellation` — „Adler" vs. „Adler (Aquila)" — per Klammer-Strip normalisiert).
+> Von 88 Sternbildern sind 57 im Sterndatensatz vertreten; davon **5 ausgeschlossen**
+> (`BRIGHTEST_STAR_INCOMPLETE`), weil ihr real hellster Stern im Datensatz FEHLT und die Herleitung
+> sonst faktisch falsch wäre — gegen Wikipedia verifiziert: Schwertfisch (real Alpha Doradus statt
+> R136a1), Pfeil (Gamma Sagittae st. Sham), Fische (Eta Piscium st. Alrescha), Schlangenträger
+> (Rasalhague st. Sabik), Becher (Delta Crateris st. Alkes). Verbleiben **52 faktisch geprüfte** Fragen.
+> Sternnamen-Klammerzusätze („Atair (Altair)") beim Ableiten gestrippt → 0 Format-Tells. `AstraVisual`
+> blendet bei diesem Test die Sternlisten (`notableStars`/`mainStars`) aus (eigener Leak-Guard, analog
+> LEAKY_SIBLINGS). Distraktoren = hellste Sterne anderer Sternbilder. **Ausbau** für die 31 unabge-
+> deckten + 5 ausgeschlossenen Sternbilder: fehlende helle Sterne in `astra_raw.json` nachtragen
+> (eigener Schritt) — dann Ausschlussliste entsprechend kürzen.
+>
 > **Stand 2026-06-30 (v1.77.0) — Spielmodi Phase 2: Mehrspieler (reihum, Namen, Sieger):**
 > Hot-Seat-Mehrspieler, **nur feste Rundenlänge** (Survival bleibt Solo — bewusst, eigene Leben pro
 > Spieler = späterer Ausbau). **`QuizLauncher.jsx`:** Mitspieler-Wahl 1–4 (Button-Reihe) + je ein
