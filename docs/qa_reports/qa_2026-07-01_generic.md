@@ -1,0 +1,296 @@
+# MiniMax-QA-Report
+
+Batches: 18 · Fragen: 205 · bewertet: 205
+
+## Zusammenfassung
+
+- Urteil **behalten**: 145 · **überarbeiten**: 55 · **verwerfen**: 5
+- Selbstverräter stark/schwach/keiner: 42/37/126
+- Distraktoren defekt/schwach/gut: 1/40/164
+- Wissensniveau zu_obskur: 0 · Klarheit unklar: 2
+- Mögliche Sachfehler (keyDoubt): 7
+
+## 🔴 Möglicher Sachfehler (keyDoubt) (7)
+
+- **[natura/natura-geology-height]** Auf welcher Höhe (in Metern über NN) befindet sich Ostafrikanisches Rift?
+  - Antwort (keyed): 5.895 m
+  - MiniMax-Zweifel: Ostafrikanisches Rift erstreckt sich von Meereshöhe (Rotmeer) bis über 5000m (Kilimandscharo); eine einzelne Höhenangabe ist fragwürdig. 5895m entspricht nicht der Rift-Höhe sondern eher dem Kilimandscharo-Gipfel (eigene Antwort B)
+  - Probleme: Ostafrikanisches Rift hat keine einheitliche Höhe – Angabe irreführend; 5895m passt zum Kilimandscharo, nicht zum Rift selbst; 8848m ist Mount Everest – kein plausibler Distraktor für Rift
+- **[cultura/cultura-artwork-height]** Wie hoch ist das Gemälde „American Gothic“?
+  - Antwort (keyed): 0,76 m
+  - MiniMax-Zweifel: Panel zeigt nur Breite 0.633 m, keine Höhe. Tatsächliche Höhe von American Gothic beträgt ca. 0,78 m (78 cm). Option A (0,77), C (0,76), D (0,822) sind alle nahe dran; die genaue Angabe schwankt je nach Quelle zwischen 0,77 und 0,78 m. 0,76 m erscheint mir nicht die genaueste Angabe. (eigene Antwort C)
+  - Probleme: Höhe fehlt im Panel, exaktes Maß nötig; Vier Werte liegen extrem nah beieinander (Spielraum 8,5 cm), kaum ratbar; Tatsächliche Standardangabe 0,78 m – keyed 0,76 m ist möglicherweise falsch
+- **[cultura/cultura-artwork-width]** Wie breit ist das Gemälde „Impression, Sonnenaufgang”?
+  - Antwort (keyed): 0,63 m
+  - MiniMax-Zweifel: Tatsächliche Breite von 'Impression, Sonnenaufgang' beträgt 65 cm (0,65 m), nicht 0,63 m. Standardangabe in Wikipedia und Museum ist 65 cm. (eigene Antwort B)
+  - Probleme: Distraktoren 0,63 und 0,633 sind identisch (Duplikat); Korrekte Breite laut Standardquellen ist 0,65 m – nicht als Option vorhanden; Maße schwanken je nach Quelle (manche 0,63, andere 0,65) – Keyed-Wert fragwürdig
+- **[cultura/cultura-litmovement-endyear]** Um welches Jahr endete die Literaturepoche Romantik?
+  - Antwort (keyed): 1835
+  - MiniMax-Zweifel: Das Endjahr der Romantik wird unterschiedlich angegeben (ca. 1830/1835/1848); 1848 ist als revolutionärer Einschnitt gängig, aber je nach Definition ebenfalls vertretbar. (eigene Antwort D)
+  - Probleme: Endjahr der Romantik ist konventionsabhängig, 1835 und 1848 beide plausibel
+- **[cultura/cultura-sculpture-material]** Aus welchem Material besteht „Fountain“?
+  - Antwort (keyed): Porzellan
+  - MiniMax-Zweifel: Duchamps 'Fountain' (1917) ist ein READYMADE – ein handelsübliches Pissoir aus KERAMIK/Porzellan. 'Porzellan' (A) ist die gängige Materialangabe. Stahlbeton, Kalkstein und Travertin sind sachlich falsch. (eigene Antwort D)
+  - Probleme: Key vermutlich falsch: 'Fountain' ist ein Keramik-/Porzellan-Readymade, nicht Stahlbeton oder Travertin.; Material sollte im Panel ergänzt werden.; Falsche Key-Antwort gefährdet Fairness.
+- **[lingua/lingua-etymology-era]** In welcher Epoche kam das Wort „Diesel" ins Deutsche?
+  - Antwort (keyed): um 1900
+  - MiniMax-Zweifel: Frage fragt nach Epoche (Mittelalter/Neuzeit), nicht nach Jahr. Key D 'um 1900' ist ein konkretes Jahr, keine Epoche – passt nicht zur Frage. Rudolf Diesel lebte 1858–1913, Wort kam Ende 19./Anfang 20. Jh. → Neuzeit. Key A '1859' ist plausibler Bezug auf Diesels Geburt. (eigene Antwort C)
+  - Probleme: Frage-Key-Passung defekt: Frage verlangt Epoche, Key D ist ein konkretes Jahr.; Key C 'Neuzeit' wäre die korrekte Epochenangabe; Key A '1859' wäre das plausibelste Jahr.; Panel liefert keine Zeitangabe, daher nicht ableitbar.
+- **[lingua/lingua-family-world-share]** Welchen Anteil der Weltbevölkerung stellen Muttersprachler der Brythonische Sprachen (britannischer Zweig)?
+  - Antwort (keyed): 0 %
+  - MiniMax-Zweifel: Panel zeigt 1 Mio. Sprecher bei ca. 8 Mrd. Weltbevölkerung → Anteil wäre ~0,0125 %, also nächstliegend 0,01 %. KEYED C (0 %) erscheint sachlich falsch – 1 Mio. Sprecher ergibt keinen Anteil von 0 %. (eigene Antwort D)
+  - Probleme: KEYED C (0 %) widerspricht den Paneldaten (1 Mio. Sprecher = ca. 0,012 %), die korrekte Antwort wäre D (0,01 %).; Drei sehr nahe Distraktoren (0,003 / 0,01 / 0,02 %) sind kaum unterscheidbar.
+
+## 🟠 Starker Selbstverräter (42)
+
+- **[natura/natura-animal-class]** Zu welcher Tierklasse gehört Dominikaner-Kardinal?
+  - Antwort (keyed): Vögel
+  - Grund: Panel-Quelle nennt 'Vögel', und 'Kardinal' ist ein bekannter Vogelname.
+  - Probleme: Panel verrät die Lösung über die Quellenangabe
+- **[natura/natura-animal-order-rev]** Welches dieser Tiere gehört zur Ordnung „Käfer“?
+  - Antwort (keyed): Rebenstecher
+  - Grund: Name 'Rebenstecher' enthält '-stecher', was auf Käfer hindeutet; bekannter Schädling an Reben.
+- **[natura/natura-fungus-essbarkeit]** Wie ist Gemeiner Klapperschwamm einzustufen?
+  - Antwort (keyed): essbar
+  - Grund: Frage-ID enthält 'maitake' und Maitake (= Klapperschwamm) ist allgemein als Speisepilz bekannt; Name 'Gemeiner Klapperschwamm' enthält keinen Gift-Hinweis
+  - Probleme: Selbstverräter: Fragetitel 'maitake' im Dateinamen verrät Essbarkeit; ID-Name und sichtbarer Name stimmen nicht überein (maitake vs. Klapperschwamm) – inkonsistente Daten
+- **[natura/natura-geology-location]** Wo befindet sich Yellowstone-Caldera?
+  - Antwort (keyed): USA, Wyoming
+  - Grund: Yellowstone ist allgemein als Nationalpark in Wyoming/USA bekannt; im Panel steht 'Yellowstone-Nationalpark' als Quelle
+  - Probleme: Selbstverräter: 'Yellowstone' ist allseits bekannt als Ort in Wyoming/USA; Optionen A und B unterscheiden sich nur in der Wortstellung – beide nennen Arizona, daher beide falsch; einer davon sollte umformuliert werden
+- **[natura/natura-geology-typ]** Was für eine geologische Formation ist Pinatubo?
+  - Antwort (keyed): Vulkan
+  - Grund: Panel nennt explizit 'Vulkantyp: Schichtvulkan' und 'letzteAktivitaet: 1991', was Vulkan direkt verrät.
+  - Probleme: Selbstverräter: Vulkantyp und Ausbruchsjahr stehen im Panel und verraten 'Vulkan' ohne Wissen.
+- **[natura/natura-plant-sciname]** Wie lautet der wissenschaftliche (lateinische) Name der Pflanze Kokospalme?
+  - Antwort (keyed): Cocos nucifera
+  - Grund: Cocos nucifera enthält das Wortstamm 'Cocos' und ist die einzige Option, die thematisch zur Kokospalme passt; die anderen sind Knoblauch, Birke, Birne.
+  - Probleme: Selbstverräter: nur eine Option passt sprachlich/thematisch zur Kokospalme; Distraktoren thematisch zu weit entfernt
+- **[cultura/cultura-artmovement-country]** In welchem Land entstand die Kunstrichtung Abstrakter Expressionismus?
+  - Antwort (keyed): Vereinigte Staaten
+  - Grund: Option C 'USA/Großbritannien' ist eine unsinnige Kombination; im Panel steht 'Herkunftsland' zwar nicht, aber D 'Vereinigte Staaten' ist die einzige sinnvoll einzeln genannte Nation. Zudem Pollock/Rothko sind bekannte US-Künstler, was D stützt.
+  - Probleme: Distraktor C ist sachlich unsinnig (USA/Großbritannien ist kein Land); Ohne Panel-Wissen ratbar durch Ausschluss des unsinnigen Distraktors
+- **[cultura/cultura-artmovement-year]** In welchem Jahr wurde die Kunstrichtung Abstrakter Expressionismus begründet?
+  - Antwort (keyed): 1943
+  - Grund: Im Panel steht 'Startjahr: 1943', das ist exakt die Antwort – Frage wird zum reinen Ablesen.
+  - Probleme: Selbstverräter: Startjahr 1943 steht direkt im Panel, jede Antwortmöglichkeit entfällt
+- **[cultura/cultura-artwork-country]** Aus welchem Land stammt das Gemälde „Die Nachtwache"?
+  - Antwort (keyed): Niederlande
+  - Grund: Panel nennt Rembrandt van Rijn und Rijksmuseum Amsterdam → Niederlande.
+- **[cultura/cultura-artwork-location]** Wo befindet sich „Johannes der Täufer“ heute?
+  - Antwort (keyed): Louvre
+  - Grund: Leonardo da Vincis Johannes der Täufer hängt im Louvre – das ist bekanntes Fakt, aber man könnte es auch aus Urheber + Jahr + Medium ableiten. Eigentlich Wissen nötig, aber für Kunstinteressierte sehr bekannt.
+- **[cultura/cultura-composer-birthyear]** In welchem Jahr wurde Heitor Villa-Lobos geboren?
+  - Antwort (keyed): 1887
+  - Grund: Im Panel steht explizit 'Lebenszeit: 1887–1959', Geburtsjahr ist direkt ablesbar.
+  - Probleme: Selbstverräter: Geburtsjahr steht direkt im Panel ('Lebenszeit: 1887–1959')
+- **[cultura/cultura-composer-deathyear]** In welchem Jahr starb Wolfgang Amadeus Mozart?
+  - Antwort (keyed): 1791
+  - Grund: Panel zeigt 'Lebenszeit: 1756–1791', Todesjahr direkt ablesbar.
+  - Probleme: Selbstverräter: Todesjahr steht direkt im Panel ('Lebenszeit: 1756–1791')
+- **[cultura/cultura-literature-language]** In welcher Sprache wurde „David Copperfield“ ursprünglich verfasst?
+  - Antwort (keyed): Englisch
+  - Grund: Charles Dickens ist ein englischsprachiger Autor; Sprache Englisch ist aus dem Panel ableitbar.
+  - Probleme: Selbstverräter: Autor Charles Dickens im Panel verrät die englische Sprache sofort
+- **[cultura/cultura-litmovement-period]** In welchem Zeitraum existierte die Literaturepoche Junges Wien?
+  - Antwort (keyed): ca. 1890–1900
+  - Grund: Start- und Endjahr stehen direkt im Panel (1890/1900), Antwort ist exakt ablesbar.
+  - Probleme: Selbstverräter: Antwort steht wörtlich im Panel (1890–1900)
+- **[cultura/cultura-quote-author]** Von welchem Autor stammt das Zitat: „Bleib hie und lerne schweigen, wo sprechen nicht am Ort.“?
+  - Antwort (keyed): Adelbert von Chamisso
+  - Grund: Todesjahr 1838 + Quelle 'Adelbert von Chamisso' verraten den Autor; Option B enthält genau diesen Namen.
+  - Probleme: Selbstverräter: Autor steht in der Quellenangabe des Panels
+- **[cultura/cultura-quote-complete]** Vervollständige das Zitat: „In deiner Brust sind deines Schicksals …”
+  - Antwort (keyed): Sterne.
+  - Grund: Der vollständige Zitattext 'Sterne.' steht im Panel-Feld 'Name', Antwort A ist direkt ablesbar.
+  - Probleme: Selbstverräter: Vervollständigung steht vollständig im Panel-Name
+- **[cultura/cultura-sculpture-country]** Aus welchem Land stammt die Skulptur „Das Höllentor"?
+  - Antwort (keyed): Frankreich
+  - Grund: Panel nennt Urheber Auguste Rodin, der eindeutig Franzose ist; Land daraus direkt ableitbar.
+  - Probleme: Panel verrät die Lösung über den Urheber Rodin (Selbstverräter).; Key-Daten (Herkunft Rodins) sollten im Panel nicht stehen, wenn das die Antwort ist.
+- **[cultura/cultura-sculpture-creator]** Wer schuf die Skulptur „David“?
+  - Antwort (keyed): Donatello
+  - Grund: Titel der Skulptur im Panel enthält bereits den Künstlernamen 'Donatello'.
+  - Probleme: Der Künstlername 'Donatello' steht bereits im Namen/Panel und verrät die Antwort komplett.
+- **[lingua/lingua-etymology-borrowing-path]** Auf welchem Weg gelangte das Wort „Mathematik" ins Deutsche?
+  - Antwort (keyed): Altgriechisch → Latein mathematica → Deutsch
+  - Grund: Panel nennt 'Altgriechisch' und 'über Latein' – exakt Option A.
+  - Probleme: Selbstverräter: Panel nennt bereits Griechisch → Latein, identisch mit Option A.; Distraktoren B, C, D sind thematisch absurd und nicht plausible Alternativen.
+- **[lingua/lingua-etymology-original-meaning-rev]** Welches dieser Wörter bedeutete ursprünglich „Flüssigkeit fermentierter Fisch"?
+  - Antwort (keyed): Ketchup
+  - Grund: Quellenangabe im Panel ist 'Wikipedia – Ketchup', das Thema verrät die Antwort.
+  - Probleme: Selbstverräter: Quellenangabe 'Wikipedia – Ketchup' verrät die Antwort.; Distraktoren B, C, D sind beliebig und nicht plausibel – keine Verwechslungsgefahr.
+- **[lingua/lingua-etymology-source]** Aus welcher Sprache stammt das Wort „Marmelade"?
+  - Antwort (keyed): Portugiesisch
+  - Grund: Panel gibt den kompletten Entlehnungsweg an: Griechisch → Portugiesisch → Französisch → Deutsch. Die Frage 'aus welcher Sprache stammt das Wort' wird im Panel direkt beantwortet (Portugiesisch als unmittelbare Herkunft).
+  - Probleme: Selbstverräter: Panel verrät die direkte Herkunftssprache (Portugiesisch) vollständig, sodass kein Wissen nötig ist.
+- **[lingua/lingua-language-official-countries]** In wie vielen Ländern ist Kalmückisch Amtssprache?
+  - Antwort (keyed): 1 Land
+  - Grund: Panel zeigt 'Länder: Russland' – direkt ableitbar, dass es nur 1 Land ist.
+  - Probleme: Selbstverräter: Panel nennt explizit nur 'Russland' als Land, Frage wird trivial.
+- **[lingua/lingua-language-script-type]** Welchen Schrifttyp nutzt die Sprache Mittelhochdeutsch?
+  - Antwort (keyed): Alphabet
+  - Grund: Panel zeigt 'Schrift: Lateinisches Alphabet' → Lateinisches Alphabet ist ein Alphabet, Antwort direkt ableitbar.
+  - Probleme: Selbstverräter: Panel nennt 'Lateinisches Alphabet', was ein Alphabet ist – trivial lösbar
+- **[lingua/lingua-script-type]** Zu welchem Schrifttyp zählt „Ogham-Schrift"?
+  - Antwort (keyed): Alphabet
+  - Grund: Ogham nutzt nur ca. 20 Zeichen (siehe Panel: Zeichenanzahl 20) und besteht primär aus Konsonantenzeichen; ein Logografie/Abugida/Abjad mit 20 Zeichen scheidet aus, bleibt Alphabet.
+- **[lingua/lingua-script-users-rev]** Welches dieser Schriftsysteme nutzen rund 60 Millionen Menschen?
+  - Antwort (keyed): Thailändische Schrift
+  - Grund: Quellenangabe im Panel lautet explizit 'Thailändische Schrift' und die Frage stammt aus dieser Quelle; zudem nutzen ca. 60 Mio. Thailänder die Thai-Schrift.
+  - Probleme: Selbstverräter durch Quellenangabe im Panel (gibt direkt die Lösung preis).
+- **[machina/machina-acronym-domain-rev]** Welche dieser Abkürzungen gehört in das Gebiet „Hardware“?
+  - Antwort (keyed): MMU
+  - Grund: Quellenangabe im Panel lautet 'Memory Management Unit' → MMU → Hardware. Ohne jedes Wissen eindeutig.
+  - Probleme: Selbstverräter durch Quellenangabe im Panel.
+- **[machina/machina-elem-category-rev]** Welches dieser Maschinenbauteile gehört zur Gruppe „Feder/Dämpfung“?
+  - Antwort (keyed): Stoßdämpfer
+  - Grund: Der Begriff 'Stoßdämpfer' enthält das Wort 'Dämpfer'; die Frage-Kategorie 'Feder/Dämpfung' ist im Namen selbst enthalten – triviale Ableitung.
+  - Probleme: starker Selbstverräter: 'Dämpfer' steht wörtlich im Gruppennamen
+- **[machina/machina-engine-energy-rev]** Welche dieser Kraftmaschinen wird primär mit „Gas“ betrieben?
+  - Antwort (keyed): Wasserstoffmotor
+  - Grund: Name 'Wasserstoffmotor' enthält wörtlich 'Wasserstoff' (= Gas); triviale Ableitung ohne Fachwissen.
+  - Probleme: starker Selbstverräter: 'Wasserstoff' ist per Definition ein Gas
+- **[machina/machina-engine-type-rev]** Welche dieser Maschinen zählt zur Gattung „Strömungsmaschine (Turbine)“?
+  - Antwort (keyed): Strahltriebwerk (Turbojet)
+  - Grund: Frage enthält die gesuchte Kategorie 'Strömungsmaschine (Turbine)' und Option D enthält 'Turbojet' – direkte Wortübereinstimmung mit dem Fragetext.
+  - Probleme: starker Selbstverräter: 'Turbojet' wird direkt als Klammerzusatz in Option D zur Frage gestellt
+- **[machina/machina-format-mediatype]** Welcher Art von Daten dient das Dateiformat APE primär?
+  - Antwort (keyed): Audio
+  - Grund: Panel nennt direkt 'Monkey's Audio' – ein Audioformat-Name verrät die Antwort ohne Wissen.
+  - Probleme: Panel verrät die Lösung über 'Monkey's Audio' – Selbstverräter
+- **[machina/machina-material-class-rev]** Welcher dieser Werkstoffe gehört zur Gruppe „Nichteisenmetall“?
+  - Antwort (keyed): Titan (technisch)
+  - Grund: Titan (Element) – der Name selbst (NE-Metall, chemisches Element) schließt Silikonkautschuk, Lehm und Sandwichplatte (alles Verbünde/Nichtmetalle) ohne Fachwissen sicher aus.
+  - Probleme: Starker Selbstverräter: Titan vs. Nichtmetalle/Verbünde; Distraktoren zu homogen (alle Nichtmetalle), keine zweite Metall-Option als Plausibilitätsfalle
+- **[machina/machina-tool-function]** Welche Aufgabe erfüllt das Werkzeug Fäustel?
+  - Antwort (keyed): Einschlagen von Meißeln in Stein oder Beton, beidseitig nutzbar
+  - Grund: Panel zeigt 'Gewerk: Mauern/Beton', was direkt auf Meißel/Stein und C hindeutet; zudem ist 'Fäustel' mit Doppelspitze allgemein bekannt
+  - Probleme: Panel verrät das Gewerk Mauern/Beton und macht die Frage ohne Wissen lösbar
+- **[historia/historia-discovery-discoverer-rev]** Welche dieser Entdeckungen geht auf Friedrich Wöhler zurück?
+  - Antwort (keyed): Harnstoffsynthese (Widerlegung der Lebenskraft)
+  - Grund: Panel nennt Quelle 'Wikipedia DE – Harnstoffsynthese' – die Frage nennt Wöhler, und der Themenlink im Panel zeigt direkt die Lösung D
+  - Probleme: Panel-Quelle 'Harnstoffsynthese' verrät die richtige Antwort, da Wöhlers Name schon in der Frage steht
+- **[historia/historia-discovery-field]** Welchem Wissensgebiet ist die Entdeckung „Penicillin“ zuzuordnen?
+  - Antwort (keyed): Medizin
+  - Grund: Panel nennt Entdecker Alexander Fleming und 'Wikipedia DE – Penicillin' – ein Antibiotikum ist eindeutig Medizin; auch ohne Wissen lösbar
+  - Probleme: Panel verrät die Lösung über Entdecker/Quelle; Biologie (A) ist als Fachgebiet für Penicillin nicht falsch – Mehrdeutigkeit Medizin vs. Biologie
+- **[historia/historia-discovery-field-rev]** Welche dieser Entdeckungen gehört zum Gebiet „Chemie“?
+  - Antwort (keyed): Umwandlung der Elemente durch radioaktiven Zerfall
+  - Grund: Panel-Quelle 'Wikipedia DE – Radioaktivität' verrät das Thema; B enthält das Wort 'radioaktiver Zerfall' aus der Frage und ist damit der einzige treffende Kandidat
+  - Probleme: Panel-Quelle 'Radioaktivität' macht die Antwort ohne jedes Wissen bestimmbar
+- **[historia/historia-epoch-preceded]** Welche Epoche ging „Karolingische Renaissance“ unmittelbar voraus?
+  - Antwort (keyed): Merowingerzeit
+  - Grund: Panel zeigt 'Region: Frankenreich' und Startjahr 780 – Merowingerzeit (A) ist die einzige Option, die zu Frankenreich passt; B/C sind asiatisch, D ist Urgeschichte
+  - Probleme: Selbstverräter: 'Region: Frankenreich' und Startjahr 780 grenzen A eindeutig ein
+- **[historia/historia-expedition-region]** Welche Region war Ziel der Reise „Cabrillos Erkundung der kalifornischen Küste”?
+  - Antwort (keyed): Nordamerika (Kalifornien)
+  - Grund: Der Expeditionsname enthält bereits 'kalifornischen Küste', Option D lautet 'Nordamerika (Kalifornien)' — triviale Wortübereinstimmung
+  - Probleme: Starker Selbstverräter: Expeditionsname nennt 'kalifornischen Küste', Antwort D übernimmt 'Kalifornien' wörtlich; ID-Aktenzeichen 'otto-von-kotzebue-weltreise' passt nicht zur Frage über Cabrillo — wirkt wie gemischte/vertauschte Datensätze
+- **[historia/historia-figure-nationality-rev]** Welche dieser Persönlichkeiten stammt aus „Deutschland“?
+  - Antwort (keyed): Georg Cantor
+  - Grund: Name 'Georg Cantor' und Quelle 'Wikipedia DE – Georg Cantor' verraten direkt, dass die gesuchte Person Georg Cantor ist; Option A ist die einzige, die damit übereinstimmt.
+  - Probleme: Starker Selbstverräter: Thema-Person steht im Quellennamen und ist als einzige Option direkt identifizierbar
+- **[historia/historia-invention-country-rev]** Welche dieser Erfindungen stammt aus „Niederlande“?
+  - Antwort (keyed): Pendeluhr
+  - Grund: Quellenname 'Wikipedia DE – Pendeluhr' und der Titel 'Pendeluhr' identifizieren die Erfindung eindeutig; ohne Wissen ist Option C direkt ableitbar.
+  - Probleme: Starker Selbstverräter: gesuchte Erfindung steht im Quellenlink/Panel-Titel und ist eindeutig zuordenbar
+- **[historia/historia-invention-field-rev]** Welche dieser Erfindungen gehört zum Bereich „Chemie“?
+  - Antwort (keyed): Sekundenkleber (Cyanacrylat)
+  - Grund: Quellenname 'Wikipedia DE – Cyanacrylate' verrät die gesuchte Erfindung; Option B nennt explizit 'Sekundenkleber (Cyanacrylat)'.
+  - Probleme: Starker Selbstverräter: gesuchte Erfindung steht im Quellenlink
+- **[historia/historia-invention-inventor-rev]** Welche dieser Erfindungen geht auf Carl Gassner zurück?
+  - Antwort (keyed): Trockenbatterie (Zink-Kohle-Element)
+  - Grund: Quellenname 'Wikipedia DE – Zink-Kohle-Batterie' und Option D 'Trockenbatterie (Zink-Kohle-Element)' stimmen wörtlich überein.
+  - Probleme: Starker Selbstverräter: gesuchte Erfindung steht im Quellenlink
+- **[historia/historia-milestone-field-rev]** Welches dieser Ereignisse gehört zum Bereich „Sprachwissenschaft“?
+  - Antwort (keyed): Entzifferung der ägyptischen Hieroglyphen
+  - Grund: Quellenname 'Wikipedia DE – Jean-François Champollion' (Entzifferer der Hieroglyphen) verrät das gesuchte Ereignis; A ist die passende Option.
+  - Probleme: Starker Selbstverräter: gesuchtes Ereignis steht im Quellenlink
+
+## 🔵 Sonstige überarbeiten/verwerfen (21)
+
+- **[natura/natura-animal-length-rev]** Welches dieser Tiere erreicht eine maximale Körperlänge von 15 cm?
+  - Antwort (keyed): Spanische Kielechse
+  - Urteil: ueberarbeiten · Distraktoren: schwach (Ohne Detailwissen kaum entscheidbar; andere Echsen/Vögel können ähnliche Längen haben.)
+  - Probleme: Ohne Spezialwissen nicht lösbar; Distraktoren teils ähnlich kleine Echsen/Vögel, nicht klar trennbar
+- **[natura/natura-animal-lifespan-rev]** Welches dieser Tiere kann bis zu 30 Jahre alt werden?
+  - Antwort (keyed): Gürteltier
+  - Urteil: ueberarbeiten · Distraktoren: schwach (Gürteltier wird teils nur 15 Jahre alt; Steinadler kann 30+ Jahre erreichen, Flusspferd 40-50 Jahre – mehrere Optionen könnten 30 Jahre erreichen.)
+  - Probleme: Gürteltier erreicht laut vielen Quellen nur max. ~15-20 Jahre, nicht 30; Steinadler und Flusspferd erreichen ebenfalls deutlich über 30 Jahre – mehrere plausible Antworten möglich; Frage sehr spezielles Zahlenwissen
+- **[natura/natura-fungus-gattung]** Zu welcher Gattung gehört Shiitake?
+  - Antwort (keyed): Sägeblättlinge
+  - Urteil: ueberarbeiten · Distraktoren: schwach (Shiitake gehört zur Gattung Lentinula, was mit keiner Option direkt übereinstimmt; 'Sägeblättlinge' ist eine deutsche Bezeichnung, aber 'Lentinula' wird nicht allgemein als 'Sägeblättlinge' geführt)
+  - Probleme: Gattungszuordnung Lentinula = Sägeblättlinge ist fachlich umstritten bzw. unüblich; korrekter wäre Lentinula (Shiitake); Quelle (Wikipedia) gibt Gattung Lentinula an, keine deutsche Entsprechung
+- **[natura/natura-mineral-density]** Welche Dichte hat das Mineral Galenit?
+  - Antwort (keyed): 7,6 g/cm³
+  - Urteil: ueberarbeiten · Distraktoren: schwach (Dichteoptionen 7,3/7,4/7,6/7,9 liegen extrem eng beieinander und sind ohne exaktes Zahlenwissen nicht trennbar; Galenit wird in Quellen teils mit 7,4–7,6 g/cm³ angegeben.)
+  - Probleme: Distraktoren 7,3/7,4/7,6/7,9 unterscheiden sich nur in der Nachkommastelle – mit Fachwissen kaum trennbar.
+- **[natura/natura-mineral-mohs]** Welche Mohshärte hat Zinn?
+  - Antwort (keyed): 1,5
+  - Urteil: ueberarbeiten · Distraktoren: schwach (Mohshärte 1,5 vs. 2,0 vs. 2,5 sind ohne exaktes Wissen kaum unterscheidbar; auch Reinzinn wird in manchen Quellen mit Härte ~1,5, in anderen mit ~2 angegeben.)
+  - Probleme: Mohshärte-Werte 1/1,5/2/2,5 für Zinn sind selbst mit Fachwissen nur unsicher trennbar; Quellenangaben schwanken.
+- **[natura/natura-plant-usedas]** Wie wird Spargel hauptsächlich genutzt?
+  - Antwort (keyed): Nahrungsmittel
+  - Urteil: ueberarbeiten · Distraktoren: schwach ('Nahrungsmittel' und 'Nutzpflanze' überlappen stark; Spargel ist beides, die Trennung ist unscharf.)
+  - Probleme: Abgrenzung Nahrungsmittel vs. Nutzpflanze ist inhaltlich unsauber; Heilpflanze und Gewürz sind keine echten plausiblen Distraktoren
+- **[natura/natura-plant-usedas-rev]** Welche dieser Pflanzen wird hauptsächlich als Nahrungsmittel genutzt?
+  - Antwort (keyed): Durian
+  - Urteil: ueberarbeiten · Distraktoren: schwach (Ingwer wird ebenfalls hauptsächlich als Nahrungsmittel genutzt; damit gibt es faktisch zwei korrekte Antworten (B und C).)
+  - Probleme: Distraktor defekt: Ingwer (B) wird ebenfalls primär als Nahrungsmittel genutzt und ist sachlich ebenfalls korrekt
+- **[cultura/cultura-composer-era]** Welcher Musikepoche wird John Dowland zugeordnet?
+  - Antwort (keyed): Renaissance
+  - Urteil: ueberarbeiten · Distraktoren: gut (Frühbarock ist zeitlich ebenfalls passend, daher leichte Mehrdeutigkeit, aber fachlich ist Renaissance korrekter (Dowland gilt primär als Renaissance-Komponist).)
+  - Probleme: Leichte Mehrdeutigkeit: Dowlands Schaffenszeit überschneidet sich mit Frühbarock; nur mit Vorwissen sicher trennbar.
+- **[cultura/cultura-sculpture-year]** In welchem Jahr entstand die Skulptur „Adam-Mickiewicz-Denkmal"?
+  - Antwort (keyed): 1955
+  - Urteil: ueberarbeiten · Distraktoren: gut (Nahe beieinander liegende Jahreszahlen ohne Quellinformation im Panel.)
+  - Probleme: Jahr (1955) fehlt im Panel, ohne externen Sachverhalt nicht ermittelbar – Ratefrage.; Spezialwissen zu einem wenig bekannten Denkmal in Krakau.
+- **[lingua/lingua-family-languagecount-rev]** Welche dieser Sprachfamilien umfasst rund 1 Einzelsprachen?
+  - Antwort (keyed): Albanischer Zweig
+  - Urteil: ueberarbeiten · Distraktoren: schwach ('rund 1 Einzelsprache' ist eine sehr ungewöhnliche Formulierung; Chibcha hat deutlich mehr, Mande ebenfalls, Samisch hat mehrere. Albanisch ist tatsächlich ein isolierter Zweig – aber 'rund 1' wirkt wie eine merkwürdige Angabe.)
+  - Probleme: Fragestellung 'rund 1 Einzelsprachen' wirkt sprachlich unglücklich (Doppelplural).; Die genaue Sprachzahl ist hier kaum trennsicher ohne Spezialwissen.
+- **[lingua/lingua-language-native-speakers]** Wie viele Muttersprachler hat Zentralatlas-Tamazight?
+  - Antwort (keyed): 17 Millionen
+  - Urteil: ueberarbeiten · Distraktoren: gut (Streuung ist sinnvoll (1,8 Mio. / 17 Mio. / 33,9 Mio. / 154 Mio.), macht Raten schwierig.)
+  - Probleme: Sprecherzahl von Zentralatlas-Tamazight ist sehr spezielles Wissen (Berbersprache Marokkos/Algeriens) – dürfte die meisten Spieler überfordern.; Abgrenzung zu Tamazight (Berber insgesamt) und Arabisch (33,9 Mio. in Marokko) ist verwirrend.
+- **[lingua/lingua-language-official-countries-rev]** Welche dieser Sprachen ist in 1 Land Amtssprache?
+  - Antwort (keyed): Balochi
+  - Urteil: ueberarbeiten · Distraktoren: schwach (Dänisch ist in Dänemark und Grönland/Färöer teils Amtssprache, Punjabi in Pakistan, Bengali in Bangladesch und Indien – tatsächlich haben mehrere Optionen Amtssprache in mehr als 1 Land; '1 Land' für Balochi ist nur eingeschränkt korrekt (Balochi hat keinen offiziellen Status, ist aber nur in Iran/Pakistan/Afghanistan verbreitet).)
+  - Probleme: Balochi hat keinen offiziellen Amtssprachenstatus – Frage nach 'Amtssprache in 1 Land' ist fragwürdig; Dänisch ist Amtssprache in Dänemark (und teils Grönland/Färöer) – auch nur 1 Land, je nach Zählweise; Punjabi/Bengali sind in 2 bzw. 2 Ländern Amtssprache – je nach Quelle nicht eindeutig; Panel zeigt 'Name: ?' und keine Kennwerte – kein Hinweis, reine Wissensfrage
+- **[machina/machina-acronym-domain]** Welchem Teilgebiet der Informatik ist der Begriff „SOLID“ zuzuordnen?
+  - Antwort (keyed): Softwarearchitektur
+  - Urteil: ueberarbeiten · Distraktoren: schwach ('Softwareentwicklung' (A) und 'Softwarearchitektur' (C) sind eng benachbart; SOLID-Prinzipien werden je nach Quelle beiden zugeordnet — A ist sachlich ebenfalls vertretbar.)
+  - Probleme: A und C sind kaum trennbar — SOLID ist sowohl Softwareentwicklungs-Prinzip als auch Architekturprinzip.; D 'Computer-Architektur' ist sinngemäßes Synonym zu A 'Rechnerarchitektur' (auch in anderer Frage); hier redundante Option.
+- **[machina/machina-concept-category]** Welchem Teilgebiet der Informatik ist das Konzept „Cache-Hit und Cache-Miss” zuzuordnen?
+  - Antwort (keyed): Rechnerarchitektur
+  - Urteil: ueberarbeiten · Distraktoren: schwach ('Rechnerarchitektur' (A) und 'Speicherverwaltung' (C) sind sachlich beide korrekte Zuordnungen für Cache-Miss; Cache ist Kernthema der Rechnerarchitektur UND der Speicherverwaltung.)
+  - Probleme: A und C sind beide plausibel korrekt — Cache-Hit/Miss wird sowohl in Rechnerarchitektur als auch Speicherverwaltung behandelt.
+- **[machina/machina-format-compression]** Wie behandelt das Dateiformat M4A die Datenmenge bei der Speicherung?
+  - Antwort (keyed): verlustbehaftet komprimiert
+  - Urteil: ueberarbeiten · Distraktoren: schwach (M4A kann je nach Profil (AAC) verlustbehaftet ODER (ALAC) verlustfrei sein; die Frage suggeriert eine eindeutige Zuordnung, die so nicht existiert.)
+  - Probleme: M4A ist ein Containerformat, das sowohl verlustbehaftet (AAC) als auch verlustfrei (ALAC) sein kann; die Frage ist pauschal nicht eindeutig beantwortbar
+- **[machina/machina-format-compression-rev]** Welches dieser Dateiformate arbeitet „verlustfrei komprimiert“?
+  - Antwort (keyed): Protocol Buffers
+  - Urteil: ueberarbeiten · Distraktoren: schwach ('Verlustfrei komprimiert' ist für Protocol Buffers fragwürdig – PB macht keine Kompression der Nutzdaten, sondern definiert nur ein Binärschema; WASM hingegen wird komprimiert übermittelt.)
+  - Probleme: Protocol Buffers ist kein komprimierendes Format im eigentlichen Sinn; die Zuordnung 'verlustfrei komprimiert' ist zumindest diskussionswürdig
+- **[machina/machina-format-mediatype-rev]** Welches dieser Dateiformate dient für „Dokument“?
+  - Antwort (keyed): ASS
+  - Urteil: ueberarbeiten · Distraktoren: schwach (ASS ist ein Untertitel-Format, kein klassisches 'Dokument'; die Kategorisierung als Dokument ist ungenau.)
+  - Probleme: ASS ist ein Untertitelformat, die Zuordnung zu 'Daten' statt 'Dokument' wäre passender; Kein Panel-Inhalt, Hinweis nur durch Quellenangabe
+- **[machina/machina-lang-domain]** In welchem Anwendungsbereich wird ATS vor allem eingesetzt?
+  - Antwort (keyed): Systemprogrammierung
+  - Urteil: ueberarbeiten · Distraktoren: schwach ('Anwendungsentwicklung' (C) ist sehr generisch und könnte teilweise zutreffen; 'Desktop-Anwendungen' (B) ist Spezialfall von Anwendungsentwicklung – Überschneidung.)
+  - Probleme: ATS ist eine sehr spezielle, kaum bekannte Sprache – Wissenswert für die meisten Spieler extrem niedrig; Distraktoren B und C überschneiden sich konzeptuell
+- **[machina/machina-lang-paradigm]** Welchem Programmierparadigma wird die Sprache Maple primär zugeordnet?
+  - Antwort (keyed): Multiparadigma
+  - Urteil: ueberarbeiten · Distraktoren: schwach ('Skriptsprache' (B) ist ein Paradigma bzw. Ausführungsmodell, Maple könnte als interpretierte Skriptsprache durchgehen – Überschneidung mit Multiparadigma möglich.)
+  - Probleme: Maple wird in der Wahrnehmung vieler eher als 'Skript-/interpretierte Sprache' assoziiert, Multiparadigma ist die korrekte aber weniger intuitive Antwort; Distraktor B (Skriptsprache) überschneidet sich konzeptuell mit der Realität
+- **[machina/machina-protocol-layer]** Auf welcher Ebene des Netzwerkmodells ist das Protokoll Geneve angesiedelt?
+  - Antwort (keyed): Sicherungsschicht (Layer-2-Overlay)
+  - Urteil: ueberarbeiten · Distraktoren: schwach (Drei von vier Optionen enthalten 'Sicherungsschicht' oder 'Tunnel' – hohe begriffliche Überlappung; Layer-2-Overlay (A) vs. Sicherungsschicht/Tunnel (C) sind nur schwer trennbar ohne genaues Wissen zu Geneve vs. VXLAN.)
+  - Probleme: Mehrdeutige Trennung zwischen A und C (Layer-2-Overlay vs. Sicherungsschicht/Tunnel); Geneve ist L2-Overlay über UDP – Schichtbezeichnung im Frageformat unscharf
+- **[historia/historia-epoch-region]** Mit welcher Region wird die Epoche „Neolithikum“ vor allem verbunden?
+  - Antwort (keyed): Europa
+  - Urteil: ueberarbeiten · Distraktoren: schwach (Neolithikum gab es weltweit, B ist sachlich ebenfalls korrekt; nur weil im Panel Start/Endjahre der europäischen Jungsteinzeit stehen, wird D eindeutig — ohne Panel wäre Mehrdeutigkeit möglich)
+  - Probleme: Frage ist sachlich mehrdeutig: Neolithikum existierte weltweit, nicht nur in Europa; Distraktor B ist sachlich ebenfalls zutreffend, nur der Panel-Kontext grenzt auf Europa ein
