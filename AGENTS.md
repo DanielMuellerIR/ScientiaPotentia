@@ -1098,6 +1098,11 @@ Additiv, Dedup, `+`/`#`-erhaltend. `merge_machina_historia.js` existiert nicht m
 1. **Legacy `merge_cultura/lingua/astra.js` NICHT laufen lassen** — diese Skripte löschen Direkt-Appends.
 2. **Recycelte / generische IDs aus Vorwellen** (z.B. `expedition-otto-von-kotzebue-weltreise` trug Cabrillo-Inhalt) verdrängen gute neue Konzepte still per ID-Dedup → vor `--write` die Dry-Run-Drops gegen Inhalt prüfen, ggf. eindeutige `-wN`-IDs vergeben.
 3. **Subagent-Findern commit/push immer verbieten.**
+4. **Konzept-DATENFIXES immer in `scripts/data_sources/<domain>_raw.json`, NIE direkt in
+   `public/data/concepts_<domain>.json`** (verifiziert 2026-07-01): Die Generatoren lesen `*_raw.json`
+   und ÜBERSCHREIBEN concepts+questions bei jedem Lauf — Direkt-Edits an `concepts_*.json` gehen beim
+   nächsten `node scripts/generate_<domain>.js` verloren. Ablauf: raw editieren → generieren →
+   `verify_facts`.
 
 (ex-theplan #202)
 
