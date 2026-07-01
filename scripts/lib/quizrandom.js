@@ -190,3 +190,29 @@ export function magnitudeSpreadDistractors(correctNum, poolNums, format, opts = 
   }
   return out.length >= k ? out : null;
 }
+
+// Relative Nähe, ab der zwei kontinuierliche Messwerte als "dieselbe Messung" gelten.
+const RELATIVE_DUP = 0.01; // 1 %
+
+/**
+ * k numerische Distraktoren: die dem korrekten Wert NÄCHSTLIEGENDEN Zahlen aus dem
+ * Pool (am verwechselbarsten), danach mit dem Template formatiert.
+ *
+ * Proximity-Guard (QA-Fund 2026-07-01): Bei kontinuierlichen MESSGRÖSSEN (nicht-
+ * ganzzahliger Korrektwert, z.B. 0,63 m Bildbreite oder Magnitude 4,2) werden
+ * Distraktoren verworfen, die < RELATIVE_DUP vom Korrektwert entfernt sind — sie
+ * stellen faktisch dieselbe Messung dar (0,633 ≈ 0,63) und wären eine zweite richtige
+ * Antwort. GANZZAHLIGE Korrektwerte (Jahre, Ports, Zähler, Katalog-Durchmesser) sind
+ * bewusst AUSGENOMMEN: dort sind Nachbarwerte distinkte, legitime Antworten
+ * (1872 ≠ 1873). Frühere Version (in jedem Generator dupliziert) hatte keinen Guard.
+ */
+export function pickNumeric(correctNum, poolNums, format, k = 3) {
+  const guardProximity = !Number.isInteger(correctNum) && correctNum !== 0;
+  const unique = [...new Set(poolNums)].filter(n => {
+    if (n === correctNum) return false;
+    if (guardProximity && Math.abs(n - correctNum) / Math.abs(correctNum) < RELATIVE_DUP) return false;
+    return true;
+  });
+  unique.sort((a, b) => Math.abs(a - correctNum) - Math.abs(b - correctNum));
+  return unique.slice(0, k).map(format);
+}

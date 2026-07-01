@@ -36,7 +36,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import { pickBalanced, shouldMagnitudeSpread, magnitudeSpreadDistractors } from './lib/quizrandom.js';
+import { pickBalanced, pickNumeric, shouldMagnitudeSpread, magnitudeSpreadDistractors } from './lib/quizrandom.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -168,11 +168,8 @@ function pickCategorical(correct, pool, k = 3, conflictFn = null) {
  * k numerische Distraktoren: die dem korrekten Wert NÄCHSTLIEGENDEN Zahlen aus
  * dem Pool (am verwechselbarsten), danach mit dem Template formatiert.
  */
-function pickNumeric(correctNum, poolNums, format, k = 3) {
-  const unique = [...new Set(poolNums)].filter(n => n !== correctNum);
-  unique.sort((a, b) => Math.abs(a - correctNum) - Math.abs(b - correctNum));
-  return unique.slice(0, k).map(format);
-}
+// pickNumeric: jetzt zentral in ./lib/quizrandom.js (mit Proximity-Guard fuer Messgroessen).
+
 
 // --- Selbstverräter-Schutz (identisch zu Astra/Homo/Natura) ---------------
 // Verwirft Fragen, deren Antwort schon im Hinweis steckt ("Lateinisches

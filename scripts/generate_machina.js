@@ -21,7 +21,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import { seededShuffle, pickBalanced } from './lib/quizrandom.js';
+import { seededShuffle, pickBalanced, pickNumeric } from './lib/quizrandom.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -101,11 +101,8 @@ function pickCategorical(correct, pool, k = 3) {
     .filter(v => !containsEitherWay(v, correct)), k);
 }
 
-function pickNumeric(correctNum, poolNums, format, k = 3) {
-  const unique = [...new Set(poolNums)].filter(n => n !== correctNum);
-  unique.sort((a, b) => Math.abs(a - correctNum) - Math.abs(b - correctNum));
-  return unique.slice(0, k).map(format);
-}
+// pickNumeric: jetzt zentral in ./lib/quizrandom.js (mit Proximity-Guard fuer Messgroessen).
+
 
 function pickNames(correctName, subjectValue, pool, k = 3) {
   const subjNorm = norm(subjectValue);

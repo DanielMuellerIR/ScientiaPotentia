@@ -44,7 +44,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import { seededShuffle, pickBalanced, shouldMagnitudeSpread, magnitudeSpreadDistractors } from './lib/quizrandom.js';
+import { seededShuffle, pickBalanced, pickNumeric, shouldMagnitudeSpread, magnitudeSpreadDistractors } from './lib/quizrandom.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -164,11 +164,8 @@ function pickCategorical(correct, pool, k = 3) {
  * k numerische Distraktoren: die dem korrekten Wert NÄCHSTLIEGENDEN Zahlen aus
  * dem Pool (am verwechselbarsten), danach mit dem Template formatiert.
  */
-function pickNumeric(correctNum, poolNums, format, k = 3) {
-  const unique = [...new Set(poolNums)].filter(n => n !== correctNum);
-  unique.sort((a, b) => Math.abs(a - correctNum) - Math.abs(b - correctNum));
-  return unique.slice(0, k).map(format);
-}
+// pickNumeric: jetzt zentral in ./lib/quizrandom.js (mit Proximity-Guard fuer Messgroessen).
+
 
 /**
  * k Namens-Distraktoren für Reverse-Fragen. Reverse-Korrektheit: Es kommen nur
