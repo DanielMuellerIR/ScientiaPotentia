@@ -364,6 +364,26 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 | Machina | 2165 | 6131 | Wikipedia / RFC/IANA / Lehrbücher / DIN 8580 | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Funktionsprinzip (v1.47.0); ab v1.71 auch klassische Technik (Handwerk/Mechanik/Maschinenbau): tool/machine_element/engine/manufacturing_process/material/simple_machine (2 Wellen, v1.71+v1.73); 124 Museumsbilder (hardware) |
 | Historia | 1244 | 6332 | Wikipedia / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Zeit/Urheberschaft, Politik-Ausschluss (v1.47.0); 1023 Museumsbilder |
 
+> **Stand 2026-07-01 (v1.77.2–v1.79.2) — MiniMax-QA-Mechanismus + erste Fund-Fixes:**
+> Neues semantisches QA-Werkzeug `scripts/qa_review/` nutzt das MiniMax-Abo-Volumen, um Fragen
+> INHALTLICH zu prüfen (ergänzt `verify_facts`/`audit_questions`): stratifizierte Stichprobe pro
+> (`domain`×`type`) → panel-getreue Spieler-Sicht → mehrdimensionale MiniMax-Bewertung (Selbst-
+> verräter, Wissensniveau bis „zu obskur", Klarheit, Distraktor-Qualität, Sachfehler-Verdacht) mit
+> konkreter Problembenennung. One-Shot über `theplan/tools/llm_run.py` (toollos = effizient),
+> salvage-fähiger Parser, kalibriert (Größenordnungs-Distraktoren nicht überflaggt). Doku:
+> `scripts/qa_review/README.md`; Reports in `docs/qa_reports/` (Roh-JSON ge-gitignored).
+> **Grenzen:** Quiz-Panel zeigt KEIN Bild (nur Museum) → Bild-Giveaway nur Astra/Homo; Terra
+> ausgeklammert. **Angewandt** (326 + 409 Fragen) und Funde gefixt: `astra-nebula-messier`-Selbst-
+> verräter (v1.78.1); `lingua-etymology-era` Jahr/Epoche-Mismatch (v1.78.2); Key-Fehler Rift-Höhe +
+> Sprachfamilien-Anteile (v1.78.3); **Mess-Distraktor-Proximity-Guard** (nicht-ganzzahlige Korrekt-
+> werte, `pickNumeric` nach `quizrandom.js` zentralisiert, v1.79.0); **Quellen-Selbstverräter-Guard**
+> (671 Tiere „Grzimeks Tierleben – Vögel" leakte die Klasse; v1.79.1); Machina Panel-Leak `purpose`
+> + Vokabular-Dedup (v1.79.2). Label-Zentralisierung + Dashboard-Kosmetik (v1.77.2). **Offen für
+> Daniel-Triage** (dokumentiert in den Reports): viele semantische Name-im-Prompt-Giveaways
+> (großteils inhärent bei Trivialnamen), diverse `-rev`/kategorische Selbstverräter-Cluster,
+> `cultura-quote-*`-Typen. Nächster sinnvoller Schritt: frischer Sweep auf gefixten Daten für ein
+> sauberes „Nachher"-Bild.
+>
 > **Stand 2026-06-30 (v1.77.0) — Spielmodi Phase 2: Mehrspieler (reihum, Namen, Sieger):**
 > Hot-Seat-Mehrspieler, **nur feste Rundenlänge** (Survival bleibt Solo — bewusst, eigene Leben pro
 > Spieler = späterer Ausbau). **`QuizLauncher.jsx`:** Mitspieler-Wahl 1–4 (Button-Reihe) + je ein
@@ -970,10 +990,10 @@ Die Rohdaten der Recherche befinden sich in den exportierten Sitzungsprotokollen
   (Icon `Landmark`, accent `#7E4B6B`) + `CATEGORY_LABELS` (8 Kategorien) / `ATTR_LABELS`
   (65 Attribute) in `ConceptVisual.jsx`. `verify_facts.js cultura` 0 Fehler, Browser-Run
   verifiziert (Domain-Wechsel, Quizrunde, Selbstverräter-Guard, deutsche Labels, keine Konsolenfehler).
-- [ ] **Dashboard-Kosmetik (alle MCQ-Domains):** Die Kategorie-Aufschlüsselung zeigt rohe Keys
-  (`language_family`, `animal` …) statt deutscher Labels, und der Fragen-Pool-Text sagt hartkodiert
-  „… Orte" (`Dashboard.jsx`, Zeile ~116). Labels aus `ConceptVisual.jsx` exportieren/teilen und
-  „Orte" domain-neutral machen („Konzepte", bei Terra „Orte").
+- [x] **Dashboard-Kosmetik (alle MCQ-Domains) (erledigt v1.77.2):** Labels nach
+  `src/components/conceptLabels.js` ausgelagert (geteilt mit `ConceptVisual`); Dashboard nutzt
+  `CATEGORY_LABELS` als Fallback (keine rohen Keys mehr) und sagt domain-neutral „Konzepte"
+  (Terra: „Orte") statt hartkodiert „Orte".
 - [ ] **Lingua-Fragetypen für heterogene Kategorien:** 47 Konzepte (language_fact, grammar_fact,
   phonetics, language_curio, loanword z.T.) haben bewusst noch keine Templates — Konzepte sind im
   Spiel (Visual/Distraktor-Pools), liefern aber keine Fragen. Hebel Richtung 5000-Ziel.
@@ -1075,9 +1095,11 @@ Additiv, Dedup, `+`/`#`-erhaltend. `merge_machina_historia.js` existiert nicht m
 > auslagern und hier nur referenzieren. (Frühere theplan-Einträge #225/#227/#228 wurden
 > am 2026-06-26 hierher zurückgeholt.)
 
-- [ ] **Machina-`compression`-Doppelvokabular kanonisieren** (niedrige Prio, vorbestehende
-  Altlast): Die Kategorie `compression` führt zwei Parallelvokabulare (kein neuer Defekt,
-  stammt aus frühen Wellen). Werte vereinheitlichen → neu generieren → `verify_facts`.
+- [x] **Machina-`compression`-Doppelvokabular kanonisieren (erledigt v1.79.2):** Über den
+  MiniMax-QA-Sweep bestätigt und behoben — `keine`→`unkomprimiert`, `verlustfrei`→`verlustfrei
+  komprimiert`, `verlustbehaftet`→`verlustbehaftet komprimiert` (in `machina_raw.json`); zusätzlich
+  execution `Bytecode/VM`→`Bytecode (VM)`. Kompression hat ehrlich nur 3 Kategorien → forward-Fragen
+  jetzt 3-optional (verify-Warnung, kein Fehler).
 - [ ] **Idee — Machina über NEUE Kategorien statt Vertiefung** (niedrige Prio): Die klassische
   Technik ist nach 2 Wellen (v1.71/v1.73, +476 K/+1006 F) weitgehend ausgeschöpft. Ergiebigere
   Hebel wären eigene Kategorien `measuring_instrument` (Messgeräte) und `vehicle_tech`
