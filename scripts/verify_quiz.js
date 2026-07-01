@@ -28,7 +28,7 @@ function run() {
   console.log('--- STARTING QUIZ VERIFICATION SCRIPT ---');
 
   if (!fs.existsSync(QUESTIONS_PATH)) {
-    console.error(`FAIL: quiz_questions.json not found at ${QUESTIONS_PATH}`);
+    console.error(`FAIL: Fragen-Datei nicht gefunden: ${QUESTIONS_PATH}`);
     process.exit(1);
   }
 

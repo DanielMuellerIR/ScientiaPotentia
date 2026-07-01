@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flame, Calendar, Award, BookOpen, AlertCircle, BarChart3, Trophy } from 'lucide-react';
+import { Flame, AlertCircle, BarChart3, Trophy } from 'lucide-react';
 import QuizLauncher from './QuizLauncher';
 
 // Deutsche Labels für Konzept-Typen über alle Domains hinweg.

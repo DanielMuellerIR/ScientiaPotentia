@@ -24,6 +24,7 @@ export const QUALITY = {
  */
 export function calculateSRS(itemState, quality) {
   // Safe defaults if item is new
+  // codereview-ok: itemState||{} + null-Coercion: kein NaN moeglich, Aufrufer gibt Vollobjekt oder null (2026-07-01)
   let { repetitions = 0, interval = 0, easiness = 2.5 } = itemState || {};
   
   // Ensure quality is between 0 and 5

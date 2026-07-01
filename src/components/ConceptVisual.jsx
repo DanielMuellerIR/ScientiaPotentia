@@ -296,7 +296,6 @@ const ATTR_LABELS = {
   mainGroup: 'Hauptgruppe (DIN 8580)',
   materialClass: 'Werkstoffklasse',
   property: 'Eigenschaft',
-  type: 'Gattung',
   // Historia (Geschichte) — Zeit/Urheberschaft. region/nationality/field s. o.
   inventor: 'Erfinder',
   discoverer: 'Entdecker',

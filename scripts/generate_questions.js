@@ -6,7 +6,11 @@ const DATA_DIR = path.resolve('src/data');
 const COUNTRIES_GEOJSON_PATH = path.join(PUBLIC_DIR, 'countries.json');
 const SUBDIVISIONS_GEOJSON_PATH = path.join(PUBLIC_DIR, 'subdivisions.json');
 const GEODB_PATH = path.join(DATA_DIR, 'geodb.json');
-const QUESTIONS_OUTPUT = path.join(DATA_DIR, 'quiz_questions.json');
+// Ausgabe nach public/data/questions_terra.json — genau die Datei, die die App und
+// verify_quiz.js einlesen (analog zu generate_astra/homo/…, die ebenfalls nach
+// public/data schreiben). Frueher wurde nach src/data/quiz_questions.json geschrieben,
+// was niemand las → der Regenerationslauf erzeugte eine tote Datei.
+const QUESTIONS_OUTPUT = path.join(PUBLIC_DIR, 'questions_terra.json');
 
 const LEVEL_1_COUNTRIES = new Set(['DE', 'AT', 'CH', 'FR', 'IT', 'GB', 'US']);
 const LEVEL_3_PARENT_COUNTRIES = new Set(['DE', 'AT', 'CH', 'US', 'GB', 'FR', 'IT', 'ES', 'CA', 'AU']);

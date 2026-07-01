@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { calculateSRS, mapBinaryToQuality } from '../utils/srs';
 import { saveProgress, addHistoryLog, getProgress } from '../utils/db';
 import { playClick, playCorrectChime, playErrorBuzzer } from '../utils/audio';
-import { Check, X, HelpCircle, ArrowRight, Award, RotateCcw, MapPin } from 'lucide-react';
+import { Check, X, ArrowRight, Award, RotateCcw, MapPin } from 'lucide-react';
 
 export default function Quiz({ 
   geodb, 
@@ -218,6 +218,23 @@ export default function Quiz({
     // ein erneuter Klick mit der veralteten Closure des vorigen Renders (Stale-Closure):
     // der zuletzt rot markierte Falschklick verschwaende sonst von der Karte.
   }, [clickedMapId, isAnswered, sessionFinished, questions, currentIdx, wrongClickIds, attempts]);
+
+  // Verwaisten Kartenklick aufraeumen: Terra mischt Karten-Klick-Fragen mit anderen
+  // Fragetypen (Flagge, Silhouette, Hauptstadt). Klickt der Nutzer waehrend einer
+  // Nicht-click-map-Frage trotzdem auf die Karte, bleibt clickedMapId im App-State
+  // haengen (der Listener oben setzt ihn nur im click-map-Zweig zurueck). Bei der
+  // naechsten click-map-Frage wuerde dieser alte Wert sonst als Phantom-Antwort
+  // gewertet und faelschlich als Fehlversuch gegen den Nutzer gezaehlt. Darum hier
+  // sofort zuruecksetzen, sobald ein Klick vorliegt, die aktuelle Frage aber keine
+  // Karten-Klick-Frage ist.
+  useEffect(() => {
+    if (questions.length > 0 && currentIdx < questions.length) {
+      const q = questions[currentIdx];
+      if (clickedMapId && q.type !== 'click-map' && resetClickedMapId) {
+        resetClickedMapId();
+      }
+    }
+  }, [clickedMapId, questions, currentIdx, resetClickedMapId]);
 
   // Flaches Scoring ohne Schwierigkeitsstufen: 10 Punkte beim ersten Versuch,
   // weniger bei weiteren Versuchen (10 / Versuchszahl). Kein Stufen-Multiplikator mehr.

@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { Globe, BookOpen, Compass, Award, Calendar, ChevronRight, Info } from 'lucide-react';
+import { Globe, Compass, Award, Calendar, ChevronRight } from 'lucide-react';
 
 export default function Atlas({ selectedEntity, srsProgress, onStartQuickQuiz, geodb, onSelectEntity }) {
   const [activeSubTab, setActiveSubTab] = useState('overview'); // 'overview' | 'geography' | 'cities' | 'subdivisions'
