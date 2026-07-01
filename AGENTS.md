@@ -402,6 +402,23 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 > Terra-Generator-Ausgabepfad, tote Imports) in Commit `ee8d626` gefixt. Beide Review-Reports tragen
 > den `done`-Marker; nicht erneut aufgreifen.
 >
+> **QA-Content-Runde v1.80.0 (2026-07-01) — keyDoubt entwarnt + Panel-Leaks systematisch geschlossen:**
+> Die 7 `keyDoubt`-Sachfehler-Verdachte aus dem Validierungs-Sweep wurden einzeln faktisch (Web)
+> gegengeprüft — **kein** keyed-Wert ist falsch (Krakatau=Caldera, Doppler=Physik, Morphofalter 20 cm,
+> Salvator Mundi 0,66 m, Mantel<Latein, LACP, Atomzeitalter 1991 alle belegt; nur adjazente-Kategorien-
+> Grenzfälle, kein Eingriff). Die eigentliche Arbeit waren **14 Panel-Leaks**: der Selbstverräter-Guard
+> blendete nur das getestete Attribut aus, nicht fachlich redundante **Geschwister** (Lebenszeit
+> „1653–1706" verriet Geburtsjahr, `fullName` buchstabierte Bereich/Datenart/Zweck aus, `location`
+> verriet das Land …). Fix zentral in `src/components/conceptLabels.js`: neue `LEAKY_SIBLINGS`-Tabelle +
+> geteilte Helfer `isAttrLeakedBeforeAnswer`/`sourceRevealsValue`, genutzt von `ConceptVisual.jsx` UND
+> dem QA-Harness `build_batches.mjs` (eine Quelle, keine Drift); Quellen-Guard jetzt diakritika-robust +
+> tokenweise (Dvořák/Messner). Wirkt **typ-agnostisch** über ALLE country/etymology/date/fullName-Fragen
+> (tausende Fragen). Regressionstest `src/__tests__/conceptLabels.test.js` (25 Fälle) + deterministischer
+> Offline-Beweis (14 Leaks → 0 sichtbar) + Live-Preview bestätigt. **Rohdaten unverändert** (Attribute
+> bleiben für andere Fragen legitim). Die 18 Name-im-Prompt-Selbstverräter bleiben akzeptiert (Triage
+> oben). Offen für eine Folgesession: ein frischer MiniMax-Sweep auf dem neuen Guard als End-to-End-
+> Gegenprobe (bestätigt Leaks weg, checkt den `cultura-quote-*`-Rest).
+>
 > **Stand 2026-06-30 (v1.77.0) — Spielmodi Phase 2: Mehrspieler (reihum, Namen, Sieger):**
 > Hot-Seat-Mehrspieler, **nur feste Rundenlänge** (Survival bleibt Solo — bewusst, eigene Leben pro
 > Spieler = späterer Ausbau). **`QuizLauncher.jsx`:** Mitspieler-Wahl 1–4 (Button-Reihe) + je ein

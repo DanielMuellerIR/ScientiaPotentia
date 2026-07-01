@@ -319,3 +319,71 @@ export const POST_ANSWER_ATTRS = new Set(['notableFor', 'definition', 'function'
 // anderer Klassen — wer "Vögel" sieht, waehlt die einzige Vogel-Ordnung). Daher vor
 // der Antwort das jeweils korrelierte Attribut mit ausblenden (in beide Richtungen).
 export const CORRELATED_ATTRS = { order: 'class', class: 'order' };
+
+// Fachlich redundante Geschwister-Attribute: Wird der KEY getestet, verraten die
+// aufgefuehrten VALUES die Antwort schon im Panel — die Lebenszeit "1653–1706"
+// nennt das Geburtsjahr, der Perioden-String "1905–1913" das Startjahr, die
+// Abkuerzungs-Langform (fullName) buchstabiert Bereich/Datenart/Zweck aus, der
+// Entlehnungsweg nennt Herkunftssprache und Ursprungsbedeutung. Solche Geschwister
+// werden vor der Antwort ZUSAETZLICH zum getesteten Attribut ausgeblendet.
+// (QA-Fund 2026-07-01, Panel-Leaks). Wichtig: Es wird nur die SICHTBARE Anzeige
+// gefiltert — die Rohdaten bleiben unveraendert, dieselben Attribute sind fuer
+// ANDERE Fragen desselben Konzepts weiterhin legitim.
+export const LEAKY_SIBLINGS = {
+  // Personen-Lebensdaten: 'lifespan' nennt Geburts- UND Todesjahr im Klartext.
+  birthYear: ['lifespan'],
+  deathYear: ['lifespan'],
+  // Kunstrichtungen/Epochen: Perioden-String und Hauptvertreter datieren die Richtung.
+  startYear: ['period', 'mainRepresentatives'],
+  endYear: ['period', 'mainRepresentatives'],
+  period: ['startYear', 'endYear', 'mainRepresentatives'],
+  // Wortherkunft: die vier Etymologie-Attribute verraten sich gegenseitig.
+  sourceLanguage: ['loanPath', 'originalMeaning', 'loanEra'],
+  originalMeaning: ['loanPath', 'sourceLanguage', 'loanEra'],
+  loanPath: ['sourceLanguage', 'originalMeaning', 'loanEra'],
+  loanEra: ['loanPath', 'sourceLanguage', 'originalMeaning'],
+  // Herkunftsland: Lage ("Galleria Borghese, Rom") bzw. Erfinder verraten das Land.
+  country: ['location', 'inventor'],
+  // Abkuerzungs-Langform buchstabiert Bereich/Datenart/Zweck aus; die Klammer in
+  // avgComplexity ("O(n) (Stromchiffre)") verraet den Zweck.
+  domain: ['fullName'],
+  mediaType: ['fullName'],
+  purpose: ['fullName', 'avgComplexity']
+};
+
+/**
+ * Selbstverraeter-Guard: Soll das Attribut `key` VOR der Antwort im Panel verborgen
+ * werden, wenn `testedAttribute` gefragt ist? Kapselt alle vier Regeln, damit
+ * ConceptVisual.jsx (Quiz-Panel) und build_batches.mjs (QA-Harness) exakt dieselbe
+ * Logik nutzen und nicht auseinanderdriften.
+ */
+export function isAttrLeakedBeforeAnswer(key, testedAttribute) {
+  if (key === testedAttribute) return true;                    // das gefragte Attribut selbst
+  if (CORRELATED_ATTRS[testedAttribute] === key) return true;  // taxonomisch korreliert (order<->class)
+  if (POST_ANSWER_ATTRS.has(key)) return true;                 // Freitext-Details generell erst nach Antwort
+  const siblings = LEAKY_SIBLINGS[testedAttribute];            // fachlich redundante Geschwister
+  return Boolean(siblings && siblings.includes(key));
+}
+
+// Diakritika-robuste Normalisierung fuer Text-Vergleiche ("Dvořák" -> "dvorak").
+function normalizeForMatch(s) {
+  return String(s).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+}
+
+/**
+ * Quellen-Selbstverraeter-Guard: Verraet der Quellname `sourceName` den gefragten
+ * Wert `testedValue`? Frueher exakte Substring-Pruefung (`includes`) — die scheiterte
+ * an Diakritika ("… (Dvořák)" vs. keyed "Antonin Dvorak") und an keyed-Werten, die
+ * LAENGER als das Quellfragment sind ("Reinhold Messner und Peter Habeler" vs. Quelle
+ * "… Reinhold Messner"). Jetzt diakritika-robust und tokenweise: ein markantes
+ * Wort-Token (>=4 Zeichen) des gefragten Werts im Quellnamen genuegt. (QA-Fund 2026-07-01)
+ */
+export function sourceRevealsValue(sourceName, testedValue) {
+  if (testedValue == null) return false;
+  const val = normalizeForMatch(testedValue);
+  if (val.length < 3) return false;
+  const src = normalizeForMatch(sourceName);
+  if (src.includes(val)) return true;   // ganzer Wert (kurze Werte, Jahreszahlen)
+  const tokens = val.split(/[^a-z0-9]+/).filter(t => t.length >= 4);
+  return tokens.some(t => src.includes(t));
+}

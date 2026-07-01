@@ -1,7 +1,7 @@
 import React from 'react';
 // Label-Tabellen und Selbstverraeter-Guard-Mengen liegen zentral in conceptLabels.js
 // (geteilt mit Dashboard-Aufschluesselung und den QA-Werkzeugen).
-import { CATEGORY_LABELS, ATTR_LABELS, POST_ANSWER_ATTRS, CORRELATED_ATTRS } from './conceptLabels';
+import { CATEGORY_LABELS, ATTR_LABELS, isAttrLeakedBeforeAnswer, sourceRevealsValue } from './conceptLabels';
 
 /**
  * Generische Konzept-Visualisierung fuer das linke Panel.
@@ -54,7 +54,7 @@ export default function ConceptVisual({
       ([k, v]) =>
         v !== undefined && v !== null && v !== '' &&
         k !== 'unit' &&
-        (detailsUnlocked || (k !== testedAttribute && k !== CORRELATED_ATTRS[testedAttribute] && !POST_ANSWER_ATTRS.has(k)))
+        (detailsUnlocked || !isAttrLeakedBeforeAnswer(k, testedAttribute))
     );
 
   // Quellen-Selbstverraeter-Guard: Manche Quellnamen enthalten den gefragten Wert
@@ -67,8 +67,9 @@ export default function ConceptVisual({
       // Reverse-/Namensfragen: Identitaet ist verborgen -> Quelle des versteckten
       // Konzepts (z.B. "… – Amphibien") koennte sie mitverraten.
       hideIdentity ||
-      // Vorwaertsfragen: Quellname enthaelt den gefragten Wert direkt.
-      (testedValue != null && String(testedValue).length >= 3 && sourceName.includes(String(testedValue)))
+      // Vorwaertsfragen: Quellname verraet den gefragten Wert (diakritika-robust,
+      // tokenweise — siehe sourceRevealsValue in conceptLabels.js).
+      sourceRevealsValue(sourceName, testedValue)
     );
   const showSource = Boolean(sourceName) && !sourceLeaks;
 

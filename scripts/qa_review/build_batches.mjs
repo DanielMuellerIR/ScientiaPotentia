@@ -35,7 +35,7 @@ import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import {
-  CATEGORY_LABELS, ATTR_LABELS, POST_ANSWER_ATTRS, CORRELATED_ATTRS
+  CATEGORY_LABELS, ATTR_LABELS, isAttrLeakedBeforeAnswer, sourceRevealsValue
 } from '../../src/components/conceptLabels.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -87,9 +87,7 @@ function reconstructPanel(concept, question) {
       .filter(([k, v]) =>
         v !== undefined && v !== null && v !== '' &&
         k !== 'unit' &&
-        k !== testedAttribute &&
-        k !== CORRELATED_ATTRS[testedAttribute] &&
-        !POST_ANSWER_ATTRS.has(k))
+        !isAttrLeakedBeforeAnswer(k, testedAttribute))
       .slice(0, 6);
 
   const visibleAttrs = attrEntries.map(([k, v]) => ({
@@ -102,8 +100,7 @@ function reconstructPanel(concept, question) {
   // gefragten Wert enthaelt ("Grzimeks Tierleben – Vögel" bei der Klassenfrage).
   const testedValue = testedAttribute != null ? attrs[testedAttribute] : null;
   const rawSource = concept?.source?.name || '';
-  const sourceLeaks = hideIdentity ||
-    (testedValue != null && String(testedValue).length >= 3 && rawSource.includes(String(testedValue)));
+  const sourceLeaks = hideIdentity || sourceRevealsValue(rawSource, testedValue);
 
   return {
     categoryLabel,
