@@ -502,6 +502,56 @@ const templates = [
     category: 'literature', attr: 'author', kind: 'name', type: 'cultura-literature-author-rev', difficulty: 3,
     prompt: c => `Welches dieser Werke schrieb ${beforeParen(String(c.attributes.author))}?`
   },
+
+  // ==== Genre-Literatur (genre_fiction) — Populärliteratur =================
+  // SF/Fantasy/Horror/Krimi als EIGENE Kategorie statt in literature: so bleiben
+  // die Distraktor-Pools genre-intern (die Autor-Frage zu „Der Wüstenplanet"
+  // bekommt SF-Autoren als Distraktoren, nicht Goethe/Molière). Datenmodell wie
+  // literature: author, year, genre (festes 5er-Vokabular), language; optional
+  // series (Reihe/Zyklus — fehlende Attribute überspringt die Template-Schleife
+  // automatisch). Mehrbuch-Reihen als EIN Konzept („Scheibenwelt", „Perry
+  // Rhodan") tragen startYear statt year und bekommen eigene Formulierungen —
+  // „Wer schrieb ‚Foundation-Zyklus'?" wäre schief, ein Zyklus „erscheint"
+  // auch nicht in einem Jahr.
+  {
+    category: 'genre_fiction', attr: 'author', kind: 'cat', type: 'cultura-genrefic-author', difficulty: 2,
+    prompt: c => `Wer schrieb „${beforeParen(c.name)}“?`,
+    skip: c => c.attributes.startYear !== undefined
+  },
+  {
+    category: 'genre_fiction', attr: 'author', kind: 'cat', type: 'cultura-genrefic-series-author', difficulty: 2,
+    prompt: c => `Von wem stammt die Reihe „${beforeParen(c.name)}“?`,
+    skip: c => c.attributes.startYear === undefined
+  },
+  {
+    category: 'genre_fiction', attr: 'startYear', kind: 'num', type: 'cultura-genrefic-startyear', difficulty: 3,
+    prompt: c => `In welchem Jahr startete die Reihe „${c.name}“?`,
+    clean: cleanYear, format: yearFmt
+  },
+  {
+    category: 'genre_fiction', attr: 'language', kind: 'cat', type: 'cultura-genrefic-language', difficulty: 2,
+    prompt: c => `In welcher Sprache wurde „${c.name}“ ursprünglich verfasst?`
+  },
+  {
+    category: 'genre_fiction', attr: 'genre', kind: 'cat', type: 'cultura-genrefic-genre', difficulty: 2,
+    prompt: c => `Welchem Genre ist „${c.name}“ zuzuordnen?`
+  },
+  {
+    category: 'genre_fiction', attr: 'year', kind: 'num', type: 'cultura-genrefic-year', difficulty: 3,
+    // "erschien im Original": bei übersetzten Werken ist das Original-Jahr
+    // gemeint, nicht die deutsche Ausgabe (so auch geerntet).
+    prompt: c => `In welchem Jahr erschien „${c.name}“ im Original?`,
+    clean: cleanYear, format: yearFmt
+  },
+  {
+    category: 'genre_fiction', attr: 'series', kind: 'cat', type: 'cultura-genrefic-series', difficulty: 3,
+    prompt: c => `Zu welcher Reihe gehört „${c.name}“?`
+  },
+  // Reverse: vom Autor aufs Werk (wie cultura-literature-author-rev).
+  {
+    category: 'genre_fiction', attr: 'author', kind: 'name', type: 'cultura-genrefic-author-rev', difficulty: 3,
+    prompt: c => `Welches dieser Werke schrieb ${beforeParen(String(c.attributes.author))}?`
+  },
   // ==== Zitate (quote) — ausschließlich gemeinfreie deutschsprachige Klassiker.
   // Datenmodell: name = der Zitattext selbst (ohne äußere Anführungszeichen);
   // die typografische Anführung setzt jeweils der Prompt. Attribute: author, work,

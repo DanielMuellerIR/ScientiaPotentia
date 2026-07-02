@@ -360,10 +360,27 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 | Homo   | 599 | 1600 | Gray's Anatomy / Prometheus / NIH / MedlinePlus / StatPearls / OpenStax / Wikipedia | **Anatomiegrafiken (Wikimedia, PD)** + konzeptgenauer Struktur-Marker je Frage; ab v1.52 zehn Physiologie-Kategorien jenseits der Anatomie; v1.74/v1.75 Vertiefung + sleep_perception; **v1.82 Runde 2**: +114 Konzepte/+204 Fragen (psych_effect→94, hormone→41, muscle→83, nerve→29 u. a.) + 3 neue Kategorien joint/reflex/blood_group; 304 Museumsbilder (Physiologie-Kategorien erstmals bebildert) — Richtung ehrliches Ceiling (~1500–1700, NICHT 5000 — docs/homo_erweiterung.md §4; Runde 2: docs/homo_erweiterung_runde2.md) |
 | Natura | 2402 | 13217 | Wikipedia / USGS / IUCN / IPCC / Wikidata | generische Konzeptkarte (`ConceptVisual`); Tiere via MiniMax-Delegation 49→97 ausgebaut (web-grounded); freies Commons-Foto je Konzept hinterlegt (`concept.image`, fürs spätere Museum) |
 | Lingua | 1207 | 5540 | Wikipedia / Ethnologue / Wiktionary / Guinness / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Attribut-Labels; 184 Museumsbilder (writing_system/language_family) |
-| Cultura | 1798 | 6332 | Wikipedia (DE/EN) / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Kategorie-/Attribut-Labels; via MiniMax-Delegation ausgebaut (Komponisten Wikidata-geprüft, Werke web-grounded); 865 Museumsbilder |
+| Cultura | 1920 | 6948 | Wikipedia (DE/EN) / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Kategorie-/Attribut-Labels; via MiniMax-Delegation ausgebaut (Komponisten Wikidata-geprüft, Werke web-grounded); ab v1.83 Kategorie `genre_fiction` (Populärliteratur SF/Fantasy/Horror/Krimi, Auswahl aus Daniels eBook-/Hörbuch-Sammlung); 865 Museumsbilder |
 | Machina | 2165 | 6131 | Wikipedia / RFC/IANA / Lehrbücher / DIN 8580 | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Funktionsprinzip (v1.47.0); ab v1.71 auch klassische Technik (Handwerk/Mechanik/Maschinenbau): tool/machine_element/engine/manufacturing_process/material/simple_machine (2 Wellen, v1.71+v1.73); 124 Museumsbilder (hardware) |
 | Historia | 1244 | 6332 | Wikipedia / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Zeit/Urheberschaft, Politik-Ausschluss (v1.47.0); 1023 Museumsbilder |
 
+> **Stand 2026-07-02 (v1.83.0) — Cultura Genre-Literatur (Populärliteratur) aus privater Sammlung:**
+> Neue Kategorie **`genre_fiction`** (122 Konzepte / 616 Fragen): SF/Fantasy/Horror/Krimi-Werke
+> (Dune, Foundation, Trisolaris, Scheibenwelt, Hexer, King, Lovecraft, Christie, Dürrenmatt …).
+> **Entdeckungsschicht** war erstmals Daniels eBook-/Hörbuch-Sammlung (Scan `~/Nextcloud/eBooks` +
+> `Odiobuks`, 561 Autoren, 105 mit eBook+Hörbuch = beliebt, [D]/[M]-gehört-Marker gewichtet;
+> 117/122 Konzepte mit Treffer in der ebook_vectordb-Bibliothek) — **Faktenschicht blieb
+> Wikipedia DE** (5 parallele Ernte-Agenten, Notabilitäts-Gate: ohne DE-Artikel raus; Ausnahmen
+> nur für Hugo/Nebula-Kanon). Eigene Kategorie statt `literature`, damit Distraktor-Pools
+> genre-intern bleiben; festes Genre-Vokabular (Science-Fiction/Fantasy/Horror/Kriminalroman/
+> Thriller) gegen Pool-Zerfall. **Serien-Konzepte** (Foundation-Zyklus, Perry Rhodan, Scheibenwelt,
+> Maigret … 18 Stück) tragen `startYear` statt `year` + eigene Templates („Von wem stammt die
+> Reihe …" / „In welchem Jahr startete die Reihe …"); Perry Rhodan bewusst ohne author
+> (Autorenkollektiv). Zitate-Kategorie NICHT erweitert (Copyright, PD-Gate †≤1955 gilt weiter).
+> 6 Templates gesamt (author/series-author/startyear/language/genre/year/series/author-rev),
+> verify_facts 0 Fehler, npm test 32/32, Browser-verifiziert (Genre-Frage mit ConceptVisual-Chips,
+> testedAttribute-Ausblendung greift).
+>
 > **Stand 2026-07-01 (v1.77.2–v1.79.2) — MiniMax-QA-Mechanismus + erste Fund-Fixes:**
 > Neues semantisches QA-Werkzeug `scripts/qa_review/` nutzt das MiniMax-Abo-Volumen, um Fragen
 > INHALTLICH zu prüfen (ergänzt `verify_facts`/`audit_questions`): stratifizierte Stichprobe pro

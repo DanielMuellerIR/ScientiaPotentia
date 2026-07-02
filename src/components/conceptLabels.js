@@ -71,6 +71,7 @@ export const CATEGORY_LABELS = {
   composer: 'Komponist',
   composition: 'Musikwerk',
   literature: 'Literaturwerk',
+  genre_fiction: 'Genre-Literatur',
   literary_movement: 'Literaturepoche',
   // Machina (Digital & Technik)
   programming_language: 'Programmiersprache',
@@ -237,6 +238,8 @@ export const ATTR_LABELS = {
   namesake: 'Namensgeber',
   dedicatee: 'Widmungsträger',
   genre: 'Gattung',
+  series: 'Reihe/Zyklus',
+  startYear: 'Startjahr',
   style: 'Stil',
   medium: 'Medium',
   material: 'Material',
