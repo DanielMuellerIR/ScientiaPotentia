@@ -1174,6 +1174,13 @@ Additiv, Dedup, `+`/`#`-erhaltend. `merge_machina_historia.js` existiert nicht m
   komprimiert`, `verlustbehaftet`→`verlustbehaftet komprimiert` (in `machina_raw.json`); zusätzlich
   execution `Bytecode/VM`→`Bytecode (VM)`. Kompression hat ehrlich nur 3 Kategorien → forward-Fragen
   jetzt 3-optional (verify-Warnung, kein Fehler).
+- [ ] **Idee — Cultura genre_fiction Runde 2** (Angebot 2026-07-02, offen): (a) zweite Welle aus
+  den 369 Nur-Hörbuch-Autoren bzw. weiteren Werken der Top-Sammlungs-Autoren (Vorgehen v1.83:
+  Autoren-/Titel-Scan `~/Nextcloud/eBooks` + `Odiobuks` mit [D]/[M]-Markern, Match gegen
+  ebook_vectordb-SQLite, dann Wikipedia-DE-Ernte mit Notabilitäts-Gate); (b) Buchcover fürs
+  Museum — moderne Cover sind auf Commons meist unfrei, Lizenzlage vorher klären; (c) Claire
+  North „Die vielen Leben des Harry August" fiel trotz [D]-gehört durchs DE-Wiki-Gate — bei
+  Bedarf mit EN-Quelle nachziehen.
 - [ ] **Idee — Machina über NEUE Kategorien statt Vertiefung** (niedrige Prio): Die klassische
   Technik ist nach 2 Wellen (v1.71/v1.73, +476 K/+1006 F) weitgehend ausgeschöpft. Ergiebigere
   Hebel wären eigene Kategorien `measuring_instrument` (Messgeräte) und `vehicle_tech`
