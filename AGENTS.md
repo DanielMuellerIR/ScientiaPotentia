@@ -52,6 +52,22 @@ nicht in Inline-Styles; Details und Begründung in [`LAYOUT.md`](LAYOUT.md). Vor
 
 Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 
+## Datei-Verzeichnis
+
+| Datei | Wozu |
+| :--- | :--- |
+| [README.md](README.md) | Knapper Projekteinstieg, verweist für Status/Zahlen/Architektur auf AGENTS.md. |
+| [docs/bereichs_abgrenzung.md](docs/bereichs_abgrenzung.md) | Zuordnungs-Matrix mit Primär-Owner je Grenzfall, maßgeblich vor neuen Inhalts-Wellen. |
+| [docs/bildquellen_strategie.md](docs/bildquellen_strategie.md) | Strategiepapier für mehr freie Museum-Bilder je Domain mit Verifizierter Ausgangslage. |
+| [docs/content_pipeline.md](docs/content_pipeline.md) | Vereinbarter Ablauf, um die Wissensbereiche auf 1000/2000/5000 Fragen zu bringen. |
+| [docs/extraktion_sachbuecher_plan.md](docs/extraktion_sachbuecher_plan.md) | Ausführungsreifer Plan zur parallelen Faktenextraktion aus lokalen Sachbüchern. |
+| [docs/homo_erweiterung.md](docs/homo_erweiterung.md) | Strategiepapier: Homo-Ausbau jenseits der Anatomie (neue Kategorien, ehrliches Ceiling). |
+| [docs/homo_erweiterung_runde2.md](docs/homo_erweiterung_runde2.md) | Homo-Erweiterung Runde 2: Recherche, Fragen-Ernte, Bildquellen. |
+| [docs/wissensquellen.md](docs/wissensquellen.md) | Kuratierte freie Wissensquellen je Bereich zum Selbstentwickeln von Fragen. |
+| [docs/wissensquellen_extern.md](docs/wissensquellen_extern.md) | Externe Quellen (YouTube, E-Book-Korpus): Nutzungsprinzip und Kanal-Auswahl. |
+| [scripts/data_sources/harvest/README.md](scripts/data_sources/harvest/README.md) | Ernte-Ordner-Zwischenstand, noch nicht in die raw-Dateien gemerged. |
+| [scripts/qa_review/README.md](scripts/qa_review/README.md) | MiniMax-gestützte inhaltliche Qualitätssicherung der Quizfragen. |
+
 > **Stand 2026-06-23 (v1.45.0) — Zwei neue Hauptbereiche: Machina (IT) + Historia (Geschichte):**
 > Beide Domains end-to-end verdrahtet nach dem erprobten Cultura-Muster (Generator + Registry +
 > `ConceptVisual`-Labels + `verify_facts`-Leak-Config). Nach Welle 2 + Reverse-Hebel (v1.45.2):
