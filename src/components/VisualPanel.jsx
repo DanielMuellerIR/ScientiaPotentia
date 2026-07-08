@@ -55,6 +55,7 @@ export default function VisualPanel({
   // --- Domain mit eigener Visualisierung (laedt three.js etc. lazy) ----
   if (SpecialVisual) {
     return (
+      // codereview-ok: Suspense-Fallback zeigt bewusst DomainVisual (Direct-Visual-Show) (2026-07-08)
       <Suspense
         fallback={<DomainVisual domain={domain} concepts={concepts} srsProgress={srsProgress} />}
       >

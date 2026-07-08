@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { calculateSRS, mapBinaryToQuality } from '../utils/srs';
-import { saveProgress, addHistoryLog, getProgress } from '../utils/db';
+import { saveProgressAndLog, getProgress } from '../utils/db';
+import { useGeoData } from '../utils/useGeoData';
 import { playClick, playCorrectChime, playErrorBuzzer } from '../utils/audio';
 import { Check, X, ArrowRight, Award, RotateCcw, MapPin } from 'lucide-react';
 
@@ -37,24 +38,14 @@ export default function Quiz({
   const nPlayers = isMultiplayer ? players.length : 1;
   const [playerScores, setPlayerScores] = useState(() => isMultiplayer ? new Array(players.length).fill(0) : []);
   const [currentPlayerIdx, setCurrentPlayerIdx] = useState(0);
-  const [countriesGeoJSON, setCountriesGeoJSON] = useState(null);
-  const [subdivisionsGeoJSON, setSubdivisionsGeoJSON] = useState(null);
+  // GeoJSON-Konturen für die isolierte Silhouetten-Projektion (Code-Review R4:
+  // gemeinsamer Hook statt duplizierter fetch-Folge).
+  const geo = useGeoData(['countries', 'subdivisions']);
+  const countriesGeoJSON = geo.countries || null;
+  const subdivisionsGeoJSON = geo.subdivisions || null;
   const [statusMessage, setStatusMessage] = useState('');
   const [wrongClickIds, setWrongClickIds] = useState([]);
   const quizQuestions = Array.isArray(questionPool) ? questionPool : [];
-
-  // Load GeoJSON geometries for isolated outline projections
-  useEffect(() => {
-    fetch('data/countries.json')
-      .then(res => res.json())
-      .then(data => setCountriesGeoJSON(data))
-      .catch(err => console.error('Failed to load countries geometry:', err));
-      
-    fetch('data/subdivisions.json')
-      .then(res => res.json())
-      .then(data => setSubdivisionsGeoJSON(data))
-      .catch(err => console.error('Failed to load subdivisions geometry:', err));
-  }, []);
 
   // Generate quiz questions on mount or pool change
   useEffect(() => {
@@ -180,8 +171,15 @@ export default function Quiz({
           playErrorBuzzer();
           const updatedWrongs = [...wrongClickIds, actualClickedId];
           setWrongClickIds(updatedWrongs);
+          // Überlebens-Modus: JEDER Fehlklick kostet ein Leben — genau wie bei den
+          // Multiple-Choice-Fragen (Quiz.jsx handleSelectOption). Der Karten-Modus
+          // war früher nachsichtiger (Abzug erst beim 3. Fehler), das ist behoben
+          // (Code-Review F2). livesLeft wird lokal berechnet, weil der State-Wert
+          // `lives` erst nach dem Re-Render aktualisiert ist.
+          const livesLeft = isSurvival ? lives - 1 : null;
+          if (isSurvival) setLives(prev => prev - 1);
           setStatusMessage(`Das war ${clickedName}. Gesucht war ${geodb.entities[q.entityId]?.name}. Versuche es erneut!`);
-          
+
           onSetQuizState({
             mode: 'quiz',
             highlightedIds: [],
@@ -190,13 +188,15 @@ export default function Quiz({
             showSubdivisions: q.entityType === 'state',
             zoomToEntityId: q.entityId || null
           });
-  
-          if (newAttempts >= 3) {
-            // Force answer reveal after 3 failures
+
+          // Antwort aufdecken, wenn 3 Fehlversuche erreicht sind ODER im Survival
+          // das letzte Leben verbraucht wurde — dann ist die Frage in jedem Fall
+          // vorbei (sonst könnte der Spieler mit 0 Leben endlos weiterklicken).
+          const revealAnswer = newAttempts >= 3 || (isSurvival && livesLeft <= 0);
+          if (revealAnswer) {
             setIsAnswered(true);
-            if (isSurvival) setLives(prev => prev - 1); // Überlebens-Modus: ein Leben weg
             setStatusMessage(`Ausweg: Der gesuchte Ort ist jetzt grün hervorgehoben.`);
-            
+
             onSetQuizState({
               mode: 'quiz',
               highlightedIds: [],
@@ -238,26 +238,44 @@ export default function Quiz({
 
   // Flaches Scoring ohne Schwierigkeitsstufen: 10 Punkte beim ersten Versuch,
   // weniger bei weiteren Versuchen (10 / Versuchszahl). Kein Stufen-Multiplikator mehr.
+  // codereview-ok: bewusst an zwei Stellen aufgerufen (Karten-Klick- und MCQ-Pfad),
+  // beides legitime Eingabewege, kein toter Code (2026-07-08)
   const earnedPoints = (attemptCount) => Math.round(10 / attemptCount);
+
+  // Setzt eine fertig zusammengestellte Fragenliste als aktive Session und
+  // initialisiert alle Runden-Zustände neu. Vorher war dieser Block dreimal
+  // wortgleich in generateQuizSession dupliziert (Code-Review R1).
+  const applySession = (sessionQuestions) => {
+    setQuestions(sessionQuestions);
+    setCurrentIdx(0);
+    setAttempts(0);
+    setSelectedOption(null);
+    setIsAnswered(false);
+    setScore(0);
+    setPoints(0);
+    setLives(isSurvival ? totalLives : null);
+    setPlayerScores(isMultiplayer ? new Array(nPlayers).fill(0) : []);
+    setCurrentPlayerIdx(0);
+    setSessionFinished(false);
+  };
 
   const generateQuizSession = () => {
     if (quizQuestions.length === 0) {
-      setQuestions([]);
-      setCurrentIdx(0);
-      setAttempts(0);
-      setSelectedOption(null);
-      setIsAnswered(false);
-      setScore(0);
-      setPoints(0);
-      setLives(isSurvival ? totalLives : null);
-      setPlayerScores(isMultiplayer ? new Array(nPlayers).fill(0) : []);
-      setCurrentPlayerIdx(0);
-      setSessionFinished(false);
+      applySession([]);
       return;
     }
 
     const dueIds = new Set(dueEntities.map(d => d.id));
     const newIds = new Set(newEntities.map(n => n.id));
+
+    // Stellt die Optionen einer Frage zusammen und mischt sie zufällig, damit die
+    // Position der richtigen Antwort variiert. Von beiden Modi genutzt (R1-Dedup).
+    const withShuffledOptions = (baseQuestion) => {
+      const options = baseQuestion.options && baseQuestion.options.length > 0
+        ? [...baseQuestion.options].sort(() => 0.5 - Math.random())
+        : [];
+      return { ...baseQuestion, options };
+    };
 
     const sortPool = (pool) => {
       return [...pool].sort((a, b) => {
@@ -332,28 +350,10 @@ export default function Quiz({
       });
 
       // Format options for each question
-      const sessionQuestions = chosen.map(baseQuestion => {
-        const options = baseQuestion.options && baseQuestion.options.length > 0
-          ? [...baseQuestion.options].sort(() => 0.5 - Math.random())
-          : [];
-        return {
-          ...baseQuestion,
-          options
-        };
-      });
+      const sessionQuestions = chosen.map(withShuffledOptions);
 
       // Note: do not shuffle sessionQuestions to preserve strict [Stadt, Land, Fluss, Stadt, Land, Fluss] order!
-      setQuestions(sessionQuestions);
-      setCurrentIdx(0);
-      setAttempts(0);
-      setSelectedOption(null);
-      setIsAnswered(false);
-      setScore(0);
-      setPoints(0);
-      setLives(isSurvival ? totalLives : null);
-      setPlayerScores(isMultiplayer ? new Array(nPlayers).fill(0) : []);
-      setCurrentPlayerIdx(0);
-      setSessionFinished(false);
+      applySession(sessionQuestions);
       return;
     }
 
@@ -433,31 +433,12 @@ export default function Quiz({
     }
 
     // Format options and shuffle them at runtime (so correct answer position is random)
-    const sessionQuestions = chosenQuestions.map(baseQuestion => {
-      const options = baseQuestion.options && baseQuestion.options.length > 0
-        ? [...baseQuestion.options].sort(() => 0.5 - Math.random())
-        : [];
-      
-      return {
-        ...baseQuestion,
-        options
-      };
-    });
+    const sessionQuestions = chosenQuestions.map(withShuffledOptions);
 
     // Shuffle the final questions in the session
     const shuffledSession = sessionQuestions.sort(() => 0.5 - Math.random());
 
-    setQuestions(shuffledSession);
-    setCurrentIdx(0);
-    setAttempts(0);
-    setSelectedOption(null);
-    setIsAnswered(false);
-    setScore(0);
-    setPoints(0);
-    setLives(isSurvival ? totalLives : null);
-    setPlayerScores(isMultiplayer ? new Array(nPlayers).fill(0) : []);
-    setCurrentPlayerIdx(0);
-    setSessionFinished(false);
+    applySession(shuffledSession);
   };
 
   const handleSelectOption = (option) => {
@@ -525,9 +506,9 @@ export default function Quiz({
     const quality = mapBinaryToQuality(isCorrect, attemptCount);
     const currentState = await getProgress(entityId);
     const nextState = calculateSRS(currentState, quality);
-    await saveProgress(entityId, nextState, entityType);
-    await addHistoryLog({
-      entityId,
+    // SRS-Fortschritt und History-Eintrag in EINER Transaktion schreiben, damit
+    // bei Reload/Absturz nicht der eine ohne den anderen übrig bleibt (Code-Review F6).
+    await saveProgressAndLog(entityId, nextState, entityType, {
       domain: domainId,
       type: entityType,
       correct: isCorrect,
@@ -540,6 +521,8 @@ export default function Quiz({
     // Survival endet, sobald die Leben aufgebraucht sind; sonst weiter, solange der
     // (große) Fragenvorrat reicht. Feste Runde endet nach der letzten Frage.
     const survivalOver = isSurvival && lives <= 0;
+    // codereview-ok: bei survivalOver wird direkt beendet (else-Zweig), kein
+    // Spielerwechsel — rein kosmetisch, kein DB-Write/Datenrisiko (2026-07-08)
     if (!survivalOver && currentIdx + 1 < questions.length) {
       setCurrentIdx(prev => prev + 1);
       setAttempts(0);

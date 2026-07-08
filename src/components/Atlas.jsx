@@ -1,6 +1,34 @@
 import React, { useState, useMemo } from 'react';
 import { Globe, Compass, Award, Calendar, ChevronRight } from 'lucide-react';
 
+// Einzelner Tab-Button der Unterreiter-Leiste (Übersicht/Geografie/Städte/Regionen).
+// Kapselt die gemeinsamen Styles; nur der Aktiv-Zustand (activeSubTab === id) und
+// das Label unterscheiden sich zwischen den Aufrufstellen.
+function SubTab({ id, label, activeSubTab, onSelect }) {
+  const isActive = activeSubTab === id;
+  return (
+    <button
+      onClick={() => onSelect(id)}
+      style={{
+        background: isActive ? 'var(--bg-card)' : 'transparent',
+        border: '1px solid ' + (isActive ? 'var(--border-light)' : 'transparent'),
+        borderBottom: isActive ? '1px solid var(--bg-card)' : 'none',
+        color: isActive ? 'var(--color-primary)' : 'var(--text-muted)',
+        padding: '8px 14px',
+        cursor: 'pointer',
+        fontSize: '14px',
+        fontWeight: 600,
+        fontFamily: 'var(--font-title)',
+        position: 'relative',
+        top: '1px',
+        borderRadius: '2px 2px 0 0'
+      }}
+    >
+      {label}
+    </button>
+  );
+}
+
 export default function Atlas({ selectedEntity, srsProgress, onStartQuickQuiz, geodb, onSelectEntity }) {
   const [activeSubTab, setActiveSubTab] = useState('overview'); // 'overview' | 'geography' | 'cities' | 'subdivisions'
   const [searchQuery, setSearchQuery] = useState('');
@@ -54,6 +82,7 @@ export default function Atlas({ selectedEntity, srsProgress, onStartQuickQuiz, g
   // Unter-Einheiten (Bundeslaender/Provinzen) des aktuellen Landes — einmal
   // berechnet statt zweimal (Tab-Sichtbarkeit + Liste) bei jedem Render, und nicht
   // erneut bei jedem Tastendruck in der Suchleiste.
+  // codereview-ok: Early-Return + Atlas nur bei Terra erreichbar, kein Full-Scan-Risiko (2026-07-08)
   const subdivisions = useMemo(() => {
     if (!selectedEntity || selectedEntity.type !== 'country') return [];
     return Object.values(geodb.entities)
@@ -237,85 +266,13 @@ export default function Atlas({ selectedEntity, srsProgress, onStartQuickQuiz, g
             marginBottom: '16px',
             gap: '4px'
           }}>
-            <button 
-              onClick={() => setActiveSubTab('overview')}
-              style={{
-                background: activeSubTab === 'overview' ? 'var(--bg-card)' : 'transparent',
-                border: '1px solid ' + (activeSubTab === 'overview' ? 'var(--border-light)' : 'transparent'),
-                borderBottom: activeSubTab === 'overview' ? '1px solid var(--bg-card)' : 'none',
-                color: activeSubTab === 'overview' ? 'var(--color-primary)' : 'var(--text-muted)',
-                padding: '8px 14px',
-                cursor: 'pointer',
-                fontSize: '14px',
-                fontWeight: 600,
-                fontFamily: 'var(--font-title)',
-                position: 'relative',
-                top: '1px',
-                borderRadius: '2px 2px 0 0'
-              }}
-            >
-              Übersicht
-            </button>
-            <button 
-              onClick={() => setActiveSubTab('geography')}
-              style={{
-                background: activeSubTab === 'geography' ? 'var(--bg-card)' : 'transparent',
-                border: '1px solid ' + (activeSubTab === 'geography' ? 'var(--border-light)' : 'transparent'),
-                borderBottom: activeSubTab === 'geography' ? '1px solid var(--bg-card)' : 'none',
-                color: activeSubTab === 'geography' ? 'var(--color-primary)' : 'var(--text-muted)',
-                padding: '8px 14px',
-                cursor: 'pointer',
-                fontSize: '14px',
-                fontWeight: 600,
-                fontFamily: 'var(--font-title)',
-                position: 'relative',
-                top: '1px',
-                borderRadius: '2px 2px 0 0'
-              }}
-            >
-              Geografie
-            </button>
+            <SubTab id="overview" label="Übersicht" activeSubTab={activeSubTab} onSelect={setActiveSubTab} />
+            <SubTab id="geography" label="Geografie" activeSubTab={activeSubTab} onSelect={setActiveSubTab} />
             {selectedEntity.type === 'country' && (
-              <button 
-                onClick={() => setActiveSubTab('cities')}
-                style={{
-                  background: activeSubTab === 'cities' ? 'var(--bg-card)' : 'transparent',
-                  border: '1px solid ' + (activeSubTab === 'cities' ? 'var(--border-light)' : 'transparent'),
-                  borderBottom: activeSubTab === 'cities' ? '1px solid var(--bg-card)' : 'none',
-                  color: activeSubTab === 'cities' ? 'var(--color-primary)' : 'var(--text-muted)',
-                  padding: '8px 14px',
-                  cursor: 'pointer',
-                  fontSize: '14px',
-                  fontWeight: 600,
-                  fontFamily: 'var(--font-title)',
-                  position: 'relative',
-                  top: '1px',
-                  borderRadius: '2px 2px 0 0'
-                }}
-              >
-                Städte
-              </button>
+              <SubTab id="cities" label="Städte" activeSubTab={activeSubTab} onSelect={setActiveSubTab} />
             )}
             {subdivisions.length > 0 && (
-              <button 
-                onClick={() => setActiveSubTab('subdivisions')}
-                style={{
-                  background: activeSubTab === 'subdivisions' ? 'var(--bg-card)' : 'transparent',
-                  border: '1px solid ' + (activeSubTab === 'subdivisions' ? 'var(--border-light)' : 'transparent'),
-                  borderBottom: activeSubTab === 'subdivisions' ? '1px solid var(--bg-card)' : 'none',
-                  color: activeSubTab === 'subdivisions' ? 'var(--color-primary)' : 'var(--text-muted)',
-                  padding: '8px 14px',
-                  cursor: 'pointer',
-                  fontSize: '14px',
-                  fontWeight: 600,
-                  fontFamily: 'var(--font-title)',
-                  position: 'relative',
-                  top: '1px',
-                  borderRadius: '2px 2px 0 0'
-                }}
-              >
-                Regionen
-              </button>
+              <SubTab id="subdivisions" label="Regionen" activeSubTab={activeSubTab} onSelect={setActiveSubTab} />
             )}
           </div>
 

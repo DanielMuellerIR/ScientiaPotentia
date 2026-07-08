@@ -1,61 +1,26 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
-import { Images, X, ChevronLeft, ChevronRight, Info } from 'lucide-react';
+import { Images, ChevronLeft, ChevronRight, Info } from 'lucide-react';
 import { DOMAINS } from '../domains';
 // Commons-URL-Helfer ausgelagert (geteilt mit GalleryExplorer), s. utils/commonsImage.js
 import { commonsToDirectUrl } from '../utils/commonsImage';
+// Gemeinsames Lightbox-Gerüst (geteilt mit GalleryExplorer, Code-Review R2).
+import LightboxShell from './LightboxShell';
+// Gemeinsame Kategorie-Labels (eine Quelle für Quiz/Dashboard/Museum/Galerie, R3).
+import { CATEGORY_LABELS } from './conceptLabels';
 
-// --- Farben pro Domain (Akzent aus domains/index.js übernehmen) -----------
-const DOMAIN_ACCENT = {
-  astra:   '#5B4B8A',
-  cultura: '#7E4B6B',
-  lingua:  '#8A6D3B',
-  natura:  '#3E7D5A',
-  terra:   '#1B305B',
-  homo:    '#A14D5A',
-};
+// --- Farben pro Domain -----------------------------------------------------
+// Direkt aus der zentralen Domain-Registry ableiten, damit neue Domains (z.B.
+// machina/historia) automatisch ihre korrekte Akzentfarbe erhalten und nicht
+// still auf den Blau-Fallback zurückfallen. Vorher war diese Tabelle von Hand
+// gepflegt und lief bei jeder neuen Domain aus dem Tritt (Code-Review F1).
+const DOMAIN_ACCENT = Object.fromEntries(DOMAINS.map(d => [d.id, d.accent]));
 
-// Kategorien-Labels (Deutsch) für die Chips in den Karten.
-// Unbekannte Kategorien werden direkt (capitalized) angezeigt.
-const CAT_LABELS = {
-  animal:          'Tier',
-  plant:           'Pflanze',
-  fungus:          'Pilz',
-  biome:           'Lebensraum',
-  geology:         'Geologie',
-  mineral:         'Mineral',
-  atmosphere:      'Atmosphäre',
-  phenomenon:      'Phänomen',
-  artwork:         'Kunstwerk',
-  sculpture:       'Skulptur',
-  architecture:    'Architektur',
-  art_movement:    'Kunststil',
-  composer:        'Komponist',
-  composition:     'Komposition',
-  literature:      'Literatur',
-  literary_movement:'Literaturepoche',
-  language:        'Sprache',
-  language_family: 'Sprachfamilie',
-  writing_system:  'Schriftsystem',
-  language_fact:   'Sprachfakt',
-  etymology:       'Etymologie',
-  loanword:        'Lehnwort',
-  grammar_fact:    'Grammatik',
-  phonetics:       'Phonetik',
-  language_curio:  'Sprachkuriosum',
-  comet:           'Komet',
-  meteor_shower:   'Meteorschauer',
-  nebula:          'Nebel',
-  constellation:   'Sternbild',
-  mission:         'Mission',
-  exoplanet:       'Exoplanet',
-  asteroid:        'Asteroid',
-  star_cluster:    'Sternhaufen',
-  object:          'Objekt',
-};
-
+// Kategorien-Labels (Deutsch) für die Chips in den Karten. Eine gemeinsame Quelle
+// mit Quiz/Dashboard/Galerie (Code-Review R3) — vorher pflegte diese Datei eine
+// eigene, teils abweichende Kopie. Unbekannte Kategorien werden capitalized.
 function catLabel(cat) {
   if (!cat) return '';
-  return CAT_LABELS[cat] || cat.charAt(0).toUpperCase() + cat.slice(1).replace(/_/g, ' ');
+  return CATEGORY_LABELS[cat] || cat.charAt(0).toUpperCase() + cat.slice(1).replace(/_/g, ' ');
 }
 
 // --- Domain-Label holen ----------------------------------------------------
@@ -75,7 +40,7 @@ DOMAINS.forEach(d => { DOMAIN_LABELS[d.id] = d.label; });
  *                  Domains läuft, muss hier alle Domains zusammenführen)
  *   allDomainData - Map domainId -> Konzept-Map (alle Domains gleichzeitig)
  */
-export default function MuseumExplorer({ allDomainData = {} }) {
+export default function MuseumExplorer({ allDomainData = {}, loading = false, loadFailed = false }) {
   // --- Filter-State ---------------------------------------------------------
   const [domainFilter, setDomainFilter] = useState('all'); // 'all' | domain-id
   const [catFilter,    setCatFilter]    = useState('all');
@@ -91,6 +56,8 @@ export default function MuseumExplorer({ allDomainData = {} }) {
       for (const concept of Object.values(conceptMap)) {
         if (!concept?.image?.url) continue;
         items.push({
+          // codereview-ok: alle Konzepte mit Bild haben eine id; name nur als
+          // defensiver Fallback, in der Praxis nie ausgelöst (2026-07-08)
           key:      concept.id || concept.name,
           name:     concept.name || '–',
           category: concept.category || concept.type || '',
@@ -162,20 +129,24 @@ export default function MuseumExplorer({ allDomainData = {} }) {
     });
   }, []);
 
-  // Tastatur-Shortcut für Lightbox (← → Esc)
+  // Tastatur-Shortcut für die Lightbox-Navigation (← →). Esc-zum-Schließen liegt
+  // zentral in LightboxShell (R2), damit alle Lightboxen es einheitlich haben.
   useEffect(() => {
     if (!lightbox) return;
     const handler = (e) => {
       if (e.key === 'ArrowLeft')  lightboxNav(-1);
       if (e.key === 'ArrowRight') lightboxNav(+1);
-      if (e.key === 'Escape')     closeLightbox();
     };
     window.addEventListener('keydown', handler);
     return () => window.removeEventListener('keydown', handler);
-  }, [lightbox, lightboxNav, closeLightbox]);
+  }, [lightbox, lightboxNav]);
 
   // --- Ladestand anzeigen, während Daten noch fehlen -----------------------
-  const isLoading = Object.keys(allDomainData).length === 0;
+  // Der Ladezustand kommt jetzt explizit vom Elternteil (App.jsx). Vorher wurde er
+  // aus der Anzahl der allDomainData-Keys abgeleitet — die aber auch bei
+  // fehlgeschlagenen Fetches (leere Maps) gefüllt werden, sodass der Spinner
+  // verschwand, obwohl gar keine Bilder geladen wurden (Code-Review F7).
+  const isLoading = loading;
 
   return (
     <div className="terra-panel" style={{
@@ -269,7 +240,13 @@ export default function MuseumExplorer({ allDomainData = {} }) {
             Bilder werden geladen …
           </div>
         )}
-        {!isLoading && filteredItems.length === 0 && (
+        {/* Kompletter Ladefehler: nicht still „0 Bilder" zeigen, sondern benennen. */}
+        {!isLoading && loadFailed && (
+          <div style={{ textAlign: 'center', color: 'var(--color-error)', marginTop: 60, fontSize: 14 }}>
+            Bilder konnten nicht geladen werden. Bitte später erneut versuchen.
+          </div>
+        )}
+        {!isLoading && !loadFailed && filteredItems.length === 0 && (
           <div style={{ textAlign: 'center', color: 'var(--text-muted)', marginTop: 60, fontSize: 14 }}>
             Keine Bilder für diesen Filter gefunden.
           </div>
@@ -374,56 +351,26 @@ function Lightbox({ item, total, idx, onClose, onPrev, onNext }) {
   // Bild neu laden, wenn sich das Item ändert (Navigation in Lightbox).
   useEffect(() => { setImgLoaded(false); }, [item.key]);
 
-  return (
-    /* Overlay */
-    <div
-      onClick={onClose}
-      className="museum-lightbox-overlay"
-      style={{
-        position: 'fixed', inset: 0, zIndex: 1000,
-        background: 'rgba(10, 10, 15, 0.82)', display: 'flex',
-        alignItems: 'center', justifyContent: 'center', padding: 16,
-      }}
-    >
-      {/* Inhalt — Klick hier schließt NICHT (stopPropagation) */}
-      <div
-        onClick={e => e.stopPropagation()}
-        style={{
-          background: 'var(--bg-card)', border: '1px solid var(--border-light)',
-          borderRadius: 'var(--radius-lg)', maxWidth: 820, width: '100%',
-          maxHeight: '90vh', display: 'flex', flexDirection: 'column',
-          overflow: 'hidden', boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
-          position: 'relative',
-        }}
-      >
-        {/* Kopfzeile */}
-        <div style={{
-          display: 'flex', alignItems: 'center', gap: 10,
-          padding: '12px 16px', borderBottom: '1px solid var(--border-light)',
-          flexShrink: 0,
-        }}>
-          {/* Domain-Badge */}
-          <span style={{
-            background: `${accent}22`, color: accent,
-            fontSize: 10.5, fontWeight: 700, padding: '3px 9px',
-            borderRadius: 999, border: `1px solid ${accent}55`, letterSpacing: 0.4,
-          }}>
-            {DOMAIN_LABELS[item.domainId] || item.domainId}
-            {item.category ? ` · ${catLabel(item.category)}` : ''}
-          </span>
-          <span style={{ flex: 1, fontSize: 11, color: 'var(--text-muted)' }}>
-            {idx + 1} / {total}
-          </span>
-          <button
-            onClick={onClose}
-            className="btn-terra"
-            style={{ padding: '5px 9px', fontSize: 13 }}
-            title="Schließen (Esc)"
-          >
-            <X size={15} />
-          </button>
-        </div>
+  // Kopfzeile: Domain-Badge (+ Kategorie) und Positions-Zähler. Der Schließen-Knopf
+  // und das Karten-/Overlay-Gerüst kommen aus LightboxShell (Code-Review R2).
+  const header = (
+    <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+      <span style={{
+        background: `${accent}22`, color: accent,
+        fontSize: 10.5, fontWeight: 700, padding: '3px 9px',
+        borderRadius: 999, border: `1px solid ${accent}55`, letterSpacing: 0.4,
+      }}>
+        {DOMAIN_LABELS[item.domainId] || item.domainId}
+        {item.category ? ` · ${catLabel(item.category)}` : ''}
+      </span>
+      <span style={{ fontSize: 11, color: 'var(--text-muted)' }}>
+        {idx + 1} / {total}
+      </span>
+    </div>
+  );
 
+  return (
+    <LightboxShell onClose={onClose} header={header}>
         {/* Haupt-Content: Bild + Infos */}
         <div style={{
           flex: 1, overflow: 'auto',
@@ -556,8 +503,7 @@ function Lightbox({ item, total, idx, onClose, onPrev, onNext }) {
             )}
           </div>
         </div>
-      </div>
-    </div>
+    </LightboxShell>
   );
 }
 

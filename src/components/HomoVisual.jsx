@@ -241,15 +241,6 @@ export default function HomoVisual({
         background: `radial-gradient(circle at 50% 35%, #fbf7f1, #e7ddd4 70%, #d8cdc4)`
       }}
     >
-      {/* Pulsier-Animation für den Marker (einmal als Stylesheet eingebettet). */}
-      <style>{`
-        @keyframes homoPulse {
-          0%   { transform: translate(-50%, -50%) scale(0.6); opacity: 0.9; }
-          70%  { transform: translate(-50%, -50%) scale(2.2); opacity: 0; }
-          100% { transform: translate(-50%, -50%) scale(2.2); opacity: 0; }
-        }
-      `}</style>
-
       {/* Anatomiegrafik im aspektgenauen Rahmen (damit Marker passgenau sitzen).
           Unten bewusst mehr Abstand (96px), damit hohe Figuren (Skelett) mit den
           Füßen nicht unter die eingeblendete Info-/Chip-Leiste geraten. */}
@@ -278,11 +269,10 @@ export default function HomoVisual({
               position: 'absolute', left: `${marker.x * 100}%`, top: `${marker.y * 100}%`,
               width: 0, height: 0, pointerEvents: 'none'
             }}>
-              {/* aufsteigende Pulswelle */}
-              <span style={{
+              {/* aufsteigende Pulswelle (Animation @keyframes homoPulse -> index.css) */}
+              <span className="homo-pulse-ring" style={{
                 position: 'absolute', left: 0, top: 0, width: '34px', height: '34px',
-                borderRadius: '50%', border: `2px solid ${accent}`,
-                animation: 'homoPulse 1.8s ease-out infinite'
+                borderRadius: '50%', border: `2px solid ${accent}`
               }} />
               {/* fester Ring + Kern */}
               <span style={{

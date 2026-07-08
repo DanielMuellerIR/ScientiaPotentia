@@ -95,7 +95,20 @@ export const CATEGORY_LABELS = {
   epoch: 'Epoche',
   figure: 'Persönlichkeit',
   milestone: 'Meilenstein',
-  expedition: 'Expedition'
+  expedition: 'Expedition',
+  // Weitere Astronomie-Kategorien, die nur in Museum/Galerie vorkamen
+  // (R3-Zusammenführung der drei zuvor getrennten Label-Tabellen).
+  comet: 'Komet',
+  meteor_shower: 'Meteorschauer',
+  nebula: 'Nebel',
+  exoplanet: 'Exoplanet',
+  asteroid: 'Asteroid',
+  star_cluster: 'Sternhaufen',
+  object: 'Objekt',
+  // Ältere Galerie-Kategorien
+  music: 'Musik',
+  quote: 'Zitat',
+  script: 'Schrift'
 };
 
 // Deutsche Labels fuer haeufige Attribut-Schluessel (Fallback: Roh-Schluessel).
@@ -136,9 +149,12 @@ export const ATTR_LABELS = {
   diameterKm: 'Durchmesser (km)',
   distanceAU: 'Entfernung (AE)',
   moons: 'Monde',
-  numMoons: 'Anzahl Monde',
+  // numMoons/orderFromSun: Text an das bestehende Astra-Panel angeglichen (T1,
+  // zuvor abweichende Duplikate in astraBodies.js — dort war 'Monde'/'Position
+  // v. Sonne' sichtbar; hier vereinheitlicht, keine andere Domain nutzt die Keys).
+  numMoons: 'Monde',
   orbitalPeriod: 'Umlaufzeit',
-  orderFromSun: 'Position von Sonne',
+  orderFromSun: 'Position v. Sonne',
   dayLengthHours: 'Tageslänge (h)',
   yearLengthEarthDays: 'Jahr (Erdtage)',
   surfaceTempC: 'Oberflächentemp. (°C)',
@@ -147,6 +163,7 @@ export const ATTR_LABELS = {
   hostStar: 'Zentralstern',
   constellation: 'Sternbild',
   distanceLy: 'Entfernung (Lj)',
+  brightestStar: 'Hellster Stern',
   // Weitere Astra/Homo-Schluessel, damit keine rohen englischen Keys leaken.
   apparentMagnitude: 'Magnitude',
   parentPlanet: 'Zentralplanet',

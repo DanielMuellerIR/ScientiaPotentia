@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import maplibregl from 'maplibre-gl';
 import { Protocol } from 'pmtiles';
+import { useGeoData } from '../utils/useGeoData';
 
 // Initialize PMTiles protocol globally
 const protocol = new Protocol();
@@ -54,30 +55,15 @@ export default function Map({
   const mapContainerRef = useRef(null);
   const mapRef = useRef(null);
   const [mapLoaded, setMapLoaded] = useState(false);
-  const [countriesGeoJSON, setCountriesGeoJSON] = useState(null);
-  const [subdivisionsGeoJSON, setSubdivisionsGeoJSON] = useState(null);
-  const [riversGeoJSON, setRiversGeoJSON] = useState(null);
+  // Länder-, Unterteilungs- und Fluss-Geometrien für Bounding-Box-Berechnungen
+  // (Code-Review R4: gemeinsamer Hook statt duplizierter fetch-Folge).
+  const geo = useGeoData(['countries', 'subdivisions', 'rivers']);
+  const countriesGeoJSON = geo.countries || null;
+  const subdivisionsGeoJSON = geo.subdivisions || null;
+  const riversGeoJSON = geo.rivers || null;
 
   const stateRef = useRef();
   stateRef.current = { mode, highlightedIds, correctIds, wrongIds, showSubdivisions, onSelectEntity };
-
-  // Load countries, subdivisions and rivers geometries for bounding box calculations
-  useEffect(() => {
-    fetch('data/countries.json')
-      .then(res => res.json())
-      .then(data => setCountriesGeoJSON(data))
-      .catch(err => console.error('Failed to load countries geometry in Map:', err));
-
-    fetch('data/subdivisions.json')
-      .then(res => res.json())
-      .then(data => setSubdivisionsGeoJSON(data))
-      .catch(err => console.error('Failed to load subdivisions geometry in Map:', err));
-
-    fetch('data/rivers.json')
-      .then(res => res.json())
-      .then(data => setRiversGeoJSON(data))
-      .catch(err => console.error('Failed to load rivers geometry in Map:', err));
-  }, []);
 
   // Helper to toggle place/label layers
   const toggleMapLabels = (map, visible) => {

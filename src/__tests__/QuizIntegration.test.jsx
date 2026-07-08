@@ -20,6 +20,7 @@ vi.mock('../utils/db', () => ({
   getAllProgress: vi.fn(() => Promise.resolve([])),
   saveProgress: vi.fn(() => Promise.resolve()),
   addHistoryLog: vi.fn(() => Promise.resolve()),
+  saveProgressAndLog: vi.fn(() => Promise.resolve()),
   getHistoryLogs: vi.fn(() => Promise.resolve([])),
   saveSetting: vi.fn(() => Promise.resolve()),
   getSetting: vi.fn((key, defaultValue) => Promise.resolve(defaultValue)),
@@ -61,7 +62,6 @@ const questionPoolMock = [
     entityId: "city_FR_paris",
     entityType: "city",
     type: "city-river",
-    difficulty: 1,
     prompt: "Welcher Fluss fließt direkt durch die Stadt Paris?",
     correctAnswer: "Seine",
     options: ["Amazonas", "Ebro", "Seine", "Tigris"],
@@ -73,7 +73,6 @@ const questionPoolMock = [
     entityId: "FR",
     entityType: "country",
     type: "click-map",
-    difficulty: 1,
     prompt: "Klicke auf Frankreich!",
     correctAnswer: "Frankreich",
     options: [],
@@ -87,7 +86,7 @@ const dueEntitiesMock = [];
 const newEntitiesMock = Object.values(geodbMock.entities);
 
 // Test component integrating Quiz & Map using matching state bridges
-function QuizMapTestWrapper({ quizMode = 'all', difficulty = 1, onFinished = () => {} }) {
+function QuizMapTestWrapper({ quizMode = 'all', onFinished = () => {} }) {
   const [mapState, setMapState] = useState({
     mode: 'dashboard',
     highlightedIds: [],
@@ -122,7 +121,6 @@ function QuizMapTestWrapper({ quizMode = 'all', difficulty = 1, onFinished = () 
         domainId="terra"
         dueEntities={dueEntitiesMock}
         newEntities={newEntitiesMock}
-        difficulty={difficulty}
         quizMode={quizMode}
         clickedMapId={clickedMapId}
         resetClickedMapId={() => setClickedMapId(null)}

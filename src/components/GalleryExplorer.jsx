@@ -1,7 +1,10 @@
 import React, { useState, useMemo } from 'react';
-import { createPortal } from 'react-dom';
-import { Images, X } from 'lucide-react';
+import { Images } from 'lucide-react';
 import { commonsToDirectUrl } from '../utils/commonsImage';
+// Gemeinsame Kategorie-Labels (eine Quelle für Quiz/Dashboard/Museum/Galerie, R3).
+import { CATEGORY_LABELS } from './conceptLabels';
+// Gemeinsames Lightbox-Gerüst (geteilt mit MuseumExplorer, Code-Review R2).
+import LightboxShell from './LightboxShell';
 
 /**
  * GalleryExplorer — per-Bereich-Bildgalerie als Startansicht (analog zum
@@ -18,19 +21,9 @@ import { commonsToDirectUrl } from '../utils/commonsImage';
  * gespeicherten Dateiseite einen direkten, skalierten <img>-Link.
  */
 
-// Kategorie -> deutsches Label für die Karten-Chips. Unbekannte Kategorien
-// werden kapitalisiert durchgereicht (Fallback unten).
-const CAT_LABELS = {
-  animal: 'Tier', plant: 'Pflanze', fungus: 'Pilz', biome: 'Lebensraum',
-  geology: 'Geologie', mineral: 'Mineral', atmosphere: 'Atmosphäre', phenomenon: 'Phänomen',
-  artwork: 'Kunstwerk', sculpture: 'Skulptur', architecture: 'Architektur',
-  music: 'Musik', literature: 'Literatur', quote: 'Zitat',
-  language: 'Sprache', language_family: 'Sprachfamilie', script: 'Schrift',
-  bone: 'Knochen', muscle: 'Muskel', organ: 'Organ', body_fact: 'Körperwert', species: 'Menschenart',
-  planet: 'Planet', dwarf_planet: 'Zwergplanet', moon: 'Mond', star: 'Stern',
-  galaxy: 'Galaxie', nebula: 'Nebel', exoplanet: 'Exoplanet', constant: 'Konstante'
-};
-const catLabel = (c) => CAT_LABELS[c] || (c ? c.charAt(0).toUpperCase() + c.slice(1) : '');
+// Kategorie -> deutsches Label für die Karten-Chips (gemeinsame Quelle mit
+// Quiz/Dashboard/Museum, R3). Unbekannte Kategorien werden kapitalisiert.
+const catLabel = (c) => CATEGORY_LABELS[c] || (c ? c.charAt(0).toUpperCase() + c.slice(1) : '');
 
 export default function GalleryExplorer({ domain, concepts = {} }) {
   const accent = domain?.accent || '#1B305B';
@@ -164,51 +157,34 @@ export default function GalleryExplorer({ domain, concepts = {} }) {
         </div>
       </div>
 
-      {/* Lightbox: großes Bild + Provenienz. position:fixed -> deckt das GANZE
-          Fenster ab (nicht nur das linke Panel). Bild mit fester maxHeight + dem
-          Container auf overflow:hidden, damit hohe Hochformate nicht aus dem Rahmen
-          ragen (Muster wie MuseumExplorer). Kopf/Fuß flexShrink:0. */}
-      {lightbox && createPortal((
-        <div
-          onClick={() => setLightbox(null)}
-          style={{
-            position: 'fixed', inset: 0, zIndex: 1000, background: 'rgba(10,10,15,0.88)',
-            display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '16px'
-          }}
+      {/* Lightbox: großes Bild + Provenienz. Gerüst (Vollbild-Overlay, Karte,
+          Kopfzeile, Schließen, Esc) kommt aus dem geteilten LightboxShell (R2);
+          hier nur der galerie-spezifische Inhalt (Bild + Bildnachweis). */}
+      {lightbox && (
+        <LightboxShell
+          onClose={() => setLightbox(null)}
+          closeTitle="Schließen"
+          header={(
+            <div>
+              <div style={{ fontFamily: 'var(--font-title)', fontSize: '16px', fontWeight: 700, color: 'var(--color-primary)' }}>{lightbox.name}</div>
+              <div style={{ fontSize: '12px', color: 'var(--text-muted)' }}>{catLabel(lightbox.category)}</div>
+            </div>
+          )}
         >
-          <div
-            onClick={e => e.stopPropagation()}
-            style={{
-              background: 'var(--bg-card)', border: '1px solid var(--border-light)',
-              borderRadius: 'var(--radius-lg)', maxWidth: '820px', width: '100%', maxHeight: '90vh',
-              display: 'flex', flexDirection: 'column', overflow: 'hidden',
-              boxShadow: '0 20px 60px rgba(0,0,0,0.5)'
-            }}
-          >
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '10px 14px', gap: '12px', borderBottom: '1px solid var(--border-light)', flexShrink: 0 }}>
-              <div>
-                <div style={{ fontFamily: 'var(--font-title)', fontSize: '16px', fontWeight: 700, color: 'var(--color-primary)' }}>{lightbox.name}</div>
-                <div style={{ fontSize: '12px', color: 'var(--text-muted)' }}>{catLabel(lightbox.category)}</div>
-              </div>
-              <button onClick={() => setLightbox(null)} className="btn-terra" style={{ padding: '6px', minWidth: '34px', height: '34px', justifyContent: 'center' }} title="Schließen">
-                <X size={18} />
-              </button>
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#0a0a0f', maxHeight: '70vh', overflow: 'hidden', flexShrink: 0 }}>
-              <img
-                src={commonsToDirectUrl(lightbox.url, 800)}
-                alt={lightbox.name}
-                style={{ maxWidth: '100%', maxHeight: '70vh', objectFit: 'contain', display: 'block' }}
-              />
-            </div>
-            {(lightbox.license || lightbox.attribution) && (
-              <div style={{ padding: '8px 14px', fontSize: '11px', color: 'var(--text-muted)', borderTop: '1px solid var(--border-light)', flexShrink: 0 }}>
-                {[lightbox.attribution, lightbox.license].filter(Boolean).join(' · ')} · Wikimedia Commons
-              </div>
-            )}
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#0a0a0f', maxHeight: '70vh', overflow: 'hidden', flexShrink: 0 }}>
+            <img
+              src={commonsToDirectUrl(lightbox.url, 800)}
+              alt={lightbox.name}
+              style={{ maxWidth: '100%', maxHeight: '70vh', objectFit: 'contain', display: 'block' }}
+            />
           </div>
-        </div>
-      ), document.body)}
+          {(lightbox.license || lightbox.attribution) && (
+            <div style={{ padding: '8px 14px', fontSize: '11px', color: 'var(--text-muted)', borderTop: '1px solid var(--border-light)', flexShrink: 0 }}>
+              {[lightbox.attribution, lightbox.license].filter(Boolean).join(' · ')} · Wikimedia Commons
+            </div>
+          )}
+        </LightboxShell>
+      )}
     </div>
   );
 }

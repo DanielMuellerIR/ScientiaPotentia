@@ -71,5 +71,10 @@
 .museum-cat{font-size:9.5px;font-weight:700;letter-spacing:.7px;text-transform:uppercase}
 .museum-name{font-family:var(--font-title);font-weight:600;font-size:13px;color:var(--text-bright);line-height:1.3;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
 .museum-badge{position:absolute;top:8px;right:8px;z-index:3;color:#fff;font-size:9.5px;font-weight:700;padding:2px 8px;border-radius:999px;letter-spacing:.4px;backdrop-filter:blur(3px);box-shadow:0 1px 3px rgba(0,0,0,.3)}
-/* Lightbox: leichtes Backdrop-Blur fürs Overlay. */
-.museum-lightbox-overlay{backdrop-filter:blur(4px)}
+/* Lightbox-Backdrop-Blur wird jetzt inline in LightboxShell gesetzt (R2). */
+
+/* Homo: pulsierender Marker-Ring auf der Anatomiegrafik (Struktur-Hervorhebung).
+   Frueher pro Mount als Inline-<style> in HomoVisual.jsx injiziert (R5, hierher
+   verlagert — einmalig geladen statt bei jedem Mount neu ins DOM geschrieben). */
+@keyframes homoPulse{0%{transform:translate(-50%,-50%) scale(.6);opacity:.9}70%{transform:translate(-50%,-50%) scale(2.2);opacity:0}100%{transform:translate(-50%,-50%) scale(2.2);opacity:0}}
+.homo-pulse-ring{animation:homoPulse 1.8s ease-out infinite}

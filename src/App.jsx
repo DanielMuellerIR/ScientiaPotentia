@@ -71,6 +71,11 @@ export default function App() {
   // Museum: Konzept-Maps aller Domains — wird einmalig beim ersten Öffnen
   // des Museum-Tabs geladen und dann gecacht (domainId -> Map).
   const [allDomainData, setAllDomainData] = useState({});
+  // Ladezustand des Museum-Tabs explizit führen (Code-Review F7): aus der bloßen
+  // Anzahl geladener Domains ließ sich „lädt noch" nicht von „geladen, aber leer/
+  // fehlgeschlagen" unterscheiden.
+  const [museumLoading, setMuseumLoading] = useState(false);
+  const [museumLoadFailed, setMuseumLoadFailed] = useState(false);
 
   // db-artiges Objekt für Komponenten, die geodb.entities erwarten (Quiz,
   // Dashboard, Atlas) — domain-agnostisch über den Konzeptspeicher.
@@ -81,6 +86,9 @@ export default function App() {
     setIsMuted(newMuted);
     setAudioMuted(newMuted);
     if (!newMuted) {
+      // Kurz warten, bis setAudioMuted(false) wirksam ist: der Klick-Sound wird
+      // sonst noch vom gerade erst aufgehobenen Stummschalt-Zustand verschluckt.
+      // 10 ms reichen für den State-Durchlauf, bleiben aber unter der Wahrnehmung.
       setTimeout(() => playClick(), 10);
     }
   };
@@ -136,17 +144,28 @@ export default function App() {
     // Nur nachladen, wenn noch keine Daten vorhanden.
     if (Object.keys(allDomainData).length > 0) return;
     let cancelled = false;
+    setMuseumLoading(true);
+    setMuseumLoadFailed(false);
+    // 'scientia' ist der domänenübergreifende Mischbereich — seine loadConcepts()
+    // liefert ALLE Konzepte der anderen Domains nochmal. Im Museum würde dadurch
+    // jedes Bild doppelt erscheinen (doppelte React-Keys, aufgeblähte Zählung,
+    // redundanter Filter-Chip). Darum hier überspringen und nur die echten
+    // Quell-Domains laden.
+    const museumDomains = DOMAINS.filter(domain => domain.id !== 'scientia');
     Promise.all(
-      DOMAINS.map(domain =>
+      museumDomains.map(domain =>
         domain.loadConcepts()
-          .then(data => ({ id: domain.id, data }))
-          .catch(() => ({ id: domain.id, data: {} }))
+          .then(data => ({ id: domain.id, data, ok: true }))
+          .catch(() => ({ id: domain.id, data: {}, ok: false }))
       )
     ).then(results => {
       if (cancelled) return;
       const map = {};
       results.forEach(({ id, data }) => { map[id] = data; });
       setAllDomainData(map);
+      // Kompletter Ladefehler = keine einzige Domain ließ sich laden.
+      setMuseumLoadFailed(results.every(r => !r.ok));
+      setMuseumLoading(false);
     });
     return () => { cancelled = true; };
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -476,7 +495,7 @@ export default function App() {
                 justifyContent: 'center', color: 'var(--text-muted)',
                 border: '1px solid var(--border-light)' }}>Museum wird geladen …</div>
             }>
-              <MuseumExplorer allDomainData={allDomainData} />
+              <MuseumExplorer allDomainData={allDomainData} loading={museumLoading} loadFailed={museumLoadFailed} />
             </Suspense>
           </div>
         ) : activeTab === 'explore' && activeDomain.Explorer ? (

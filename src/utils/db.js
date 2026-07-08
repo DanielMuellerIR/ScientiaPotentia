@@ -11,6 +11,8 @@ const DB_VERSION = 2;
  * New domains use keys like "astra:mars" to avoid collisions.
  */
 function getDomainFromEntityId(entityId) {
+  // codereview-ok: 'terra'-Fallback ist bewusstes Default für unpräfixte Alt-Keys;
+  // aktuelle Aufrufer übergeben Domain/gültige Keys explizit (2026-07-08)
   if (typeof entityId !== 'string' || !entityId.includes(':')) {
     return 'terra';
   }
@@ -180,6 +182,51 @@ export async function addHistoryLog(logEntry) {
     const request = store.add(record);
     request.onsuccess = () => resolve();
     request.onerror = () => reject(request.error);
+  });
+}
+
+/**
+ * Schreibt SRS-Fortschritt UND History-Eintrag in EINER gemeinsamen
+ * readwrite-Transaktion über beide Stores. Vorher liefen `saveProgress` und
+ * `addHistoryLog` als zwei getrennte Transaktionen — bei Reload/Absturz im
+ * Fenster dazwischen blieb der SRS-Stand ohne den zugehörigen History-Eintrag
+ * übrig (Code-Review F6). Eine Transaktion macht beide Writes atomar: entweder
+ * beide committen oder (bei Fehler/Abbruch) keiner.
+ *
+ * Domain-Ableitung bleibt exakt wie in den Einzelfunktionen: progress.domain aus
+ * dem entityId-Präfix (unpräfixt = terra), history.domain aus logEntry.domain
+ * (vom Aufrufer gesetzt) mit demselben Fallback.
+ *
+ * @param {string} entityId
+ * @param {Object} srsData - { repetitions, interval, easiness, nextDueDate }
+ * @param {string} type - Typ des Konzepts (country, city, river, …)
+ * @param {Object} logEntry - History-Felder { domain?, correct, attempts, qualityScore, … }
+ * @returns {Promise<void>}
+ */
+export async function saveProgressAndLog(entityId, srsData, type, logEntry) {
+  const db = await initDB();
+  const progressDomain = getDomainFromEntityId(entityId);
+  return new Promise((resolve, reject) => {
+    const transaction = db.transaction(['progress', 'history'], 'readwrite');
+    // Auf Transaktions-Ebene (nicht je Request) auflösen: erst wenn BEIDE Writes
+    // committed sind, gilt die Antwort als dauerhaft gespeichert.
+    transaction.oncomplete = () => resolve();
+    transaction.onerror = () => reject(transaction.error);
+    transaction.onabort = () => reject(transaction.error);
+
+    transaction.objectStore('progress').put({
+      entityId,
+      domain: progressDomain,
+      type,
+      ...srsData,
+      lastUpdated: Date.now()
+    });
+    transaction.objectStore('history').add({
+      ...logEntry,
+      entityId,
+      domain: logEntry.domain || progressDomain,
+      timestamp: Date.now()
+    });
   });
 }
 

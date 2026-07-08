@@ -3,6 +3,14 @@
 // SolarSystemExplorer.jsx (2D-Sonnensystemkarte) genutzt, damit Farben, Labels
 // und Texturzuordnung nur an EINER Stelle gepflegt werden (kein Drift).
 
+// Kategorie-/Attribut-Labels kamen frueher als eigene Tabelle hier — die
+// ueberschnitt sich mit denen in conceptLabels.js (gleiche Keys, teils
+// abweichende Texte: Drift-Gefahr). Jetzt EINE Quelle: conceptLabels.js
+// (dort vollstaendigste Tabelle inkl. LEAKY_SIBLINGS-System), hier nur
+// re-exportiert, damit AstraVisual.jsx und SolarSystemExplorer.jsx wie
+// bisher aus './astraBodies' importieren koennen (T1, 2026-07-08).
+export { CATEGORY_LABELS, ATTR_LABELS } from './conceptLabels';
+
 // Basis-Pfad + Lizenz der echten Oberflächentexturen (Solar System Scope).
 export const TEX_BASE = 'assets/astra/textures/';
 export const ATTRIBUTION = 'Textur: Solar System Scope · CC BY 4.0';
@@ -56,23 +64,6 @@ export const BODY_LOOK = {
 
 // Deutscher Planetenname -> Position von der Sonne (1..8).
 export const PLANET_ORDER = { merkur: 1, venus: 2, erde: 3, mars: 4, jupiter: 5, saturn: 6, uranus: 7, neptun: 8 };
-
-export const CATEGORY_LABELS = {
-  planet: 'Planet', dwarf_planet: 'Zwergplanet', moon: 'Mond',
-  star: 'Stern', galaxy: 'Galaxie', constant: 'Konstante'
-};
-
-export const ATTR_LABELS = {
-  orderFromSun: 'Position v. Sonne', type: 'Typ', numMoons: 'Monde',
-  diameterKm: 'Durchmesser (km)', dayLengthHours: 'Tageslänge (h)',
-  yearLengthEarthDays: 'Jahr (Erdtage)', distanceLy: 'Entfernung (Lj)',
-  constellation: 'Sternbild', hostStar: 'Zentralstern', value: 'Wert',
-  apparentMagnitude: 'Magnitude', parentPlanet: 'Zentralplanet',
-  notableFor: 'Bekannt für', location: 'Lage',
-  yearLengthEarthYears: 'Jahr (Erdjahre)', distanceFromSunAU: 'Entfernung (AE)',
-  hasRings: 'Ringe', discoveredYear: 'Entdeckt', definition: 'Definition',
-  brightestStar: 'Hellster Stern'
-};
 
 /** Hex-Zahl -> CSS-#rrggbb. */
 export function hexCss(hex) {

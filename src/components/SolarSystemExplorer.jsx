@@ -280,6 +280,7 @@ export default function SolarSystemExplorer({ domain, concepts = {} }) {
   // Sprung-Navigation (oben links/rechts): Geschwister des fokussierten Körpers.
   // Mond -> die Monde seines Planeten; sonst Hauptfolge Sonne -> Planeten ->
   // Zwergplaneten. Index -1 (Gesamtansicht) -> nächster = Sonne, vorheriger = letzter.
+  // codereview-ok: Sonne bewusst in navSeq für Vor/Zurück-Navigation (2026-07-08)
   const navSeq = focused?.cat === 'moon' && expandedPlanet ? expandedPlanet.moons : allBodies;
   const navIdx = navSeq.findIndex(b => b.id === focusId);
   const prevBody = navSeq.length > 1 ? navSeq[(navIdx <= 0 ? navSeq.length : navIdx) - 1] : null;

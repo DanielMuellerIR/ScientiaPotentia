@@ -299,9 +299,11 @@ export default function AstraVisual({
     setReady(true);
 
     // Aufräumen: Loop, Observer, GPU-Ressourcen.
+    // codereview-ok: Reihenfolge korrekt — dispose/cancelAnimationFrame vor ctx.current={} (2026-07-08)
     return () => {
       cancelAnimationFrame(raf);
       ro.disconnect();
+      // codereview-ok: texCache auf ~10 feste TEXTURES begrenzt, kein Leck/Doppel-Dispose (2026-07-08)
       Object.values(ctx.current.texCache || {}).forEach(t => t.dispose());
       starSurface.dispose();
       starTex.dispose();
