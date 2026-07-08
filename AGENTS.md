@@ -91,8 +91,8 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 > Hashing-Kategorie, Fahrenheit-Land, Tesla-Nationalität, da Vinci entfernt [Künstler→Cultura],
 > Dias-Jahr) → `apply_corrections.cjs` → generate → verify (0 Fehler) → Browser-verifiziert
 > (Domain-Wechsel, Quizrunde je Domain, dt. Labels, Selbstverräter-„?", keine Konsolenfehler) →
-> npm test grün, Layout 17/17. **Noch offen:** kein Explorer/Museum-Tab (Konzepte ohne Bilder);
-> Content-Ausbau Richtung 5000 (analog Natura-Wellen). `npm test` grün, NICHT deployt.
+> npm test grün, Layout 17/17. (Explorer/Museum-Tab für Machina+Historia inzwischen nachgezogen,
+> v1.84.0.) Offen bleibt: Content-Ausbau Richtung 5000 (analog Natura-Wellen).
 
 > **Stand 2026-06-20 (v1.44.0) — Schwierigkeitsstufen abgeschafft + Galerie-Lightbox + Selbstverräter:**
 > **Schwierigkeitsstufen (Leicht/Mittel/Schwer/Meister) komplett entfernt.** Grund: die `difficulty`
@@ -1159,8 +1159,10 @@ Wellen 6 + 7 (2026-06-24) brachten +1420 Konzepte / +5846 Fragen via 18- bzw. 13
 | Homo | 718 | stößt an Anatomie-Ceiling (faires Reservoir erschöpft → 5000 dort nicht erreichbar; nur via mehr Frage-Templates oder bewusst akzeptieren) |
 
 **Konkrete offene Hebel:**
-- **(a)** Astra `notableStars`-Liste: `brightestStar`-Feld sauber normalisieren → ca. +50 Fragen „hellster Stern im Sternbild X"
-- **(b)** Explorer/Museum-Tab für **Machina** + **Historia** (Konzepte ohne Bilder)
+- **(a)** ~~Astra `notableStars`-Liste: `brightestStar`-Feld sauber normalisieren → ca. +50 Fragen „hellster Stern im Sternbild X"~~ **erledigt v1.81.0** (+52 Fragen)
+- **(b)** ~~Explorer/Museum-Tab für **Machina** + **Historia**~~ **erledigt v1.84.0** — Museum zeigt
+  beide automatisch (datengetrieben); per-Domain-Galerie-Tab in `src/domains/index.js` verdrahtet
+  (Machina 124 Bilder v. a. hardware, Historia 1023 Bilder). Browser-verifiziert.
 - **(c)** ~~Bundle-Splitting: `index`-Bundle > 1,6 MB, Build-Warnung~~ **erledigt v1.79.3** —
   `manualChunks` trennt maplibre/react-vendor/vendor, `index` 1701→720 kB, Warnung weg
   (three bleibt lazy in AstraVisual).

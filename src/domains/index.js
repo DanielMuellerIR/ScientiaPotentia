@@ -163,8 +163,12 @@ export const DOMAINS = [
     // MCQ-only: nutzt das generische ConceptVisual. Ordnungsachse = Funktionsprinzip
     // (vgl. docs/bereichs_abgrenzung.md); Erfindungsdatum/-person liegt bei Historia.
     hasMap: false,
-    // Kein Explorer-Tab vorerst: die Konzepte tragen noch keine freien Bilder,
-    // eine leere Galerie sähe defekt aus. Nachrüstbar, sobald Bilder geerntet sind.
+    // Startansicht: Bildgalerie der bebilderten Technik-Konzepte (v. a. hardware).
+    // Freie Bilder sind inzwischen geerntet, daher ist der Explorer-Tab jetzt aktiv;
+    // der Leerzustand von GalleryExplorer greift ohnehin, falls einmal keine Bilder da sind.
+    Explorer: GalleryExplorer,
+    explorerLabel: 'Galerie',
+    ExplorerIcon: Images,
     loadConcepts: () => fetch('data/concepts_machina.json').then(handleJson),
     loadQuestions: () => fetch('data/questions_machina.json').then(handleJson)
   },
@@ -179,6 +183,10 @@ export const DOMAINS = [
     // MCQ-only: nutzt das generische ConceptVisual. Ordnungsachse = Zeit/Urheberschaft.
     // Schwerpunkt Kultur-/Wissenschafts-/Technikgeschichte; Politik-Ausschluss gilt.
     hasMap: false,
+    // Startansicht: Bildgalerie der Geschichts-Konzepte (freie Bilder geerntet).
+    Explorer: GalleryExplorer,
+    explorerLabel: 'Galerie',
+    ExplorerIcon: Images,
     loadConcepts: () => fetch('data/concepts_historia.json').then(handleJson),
     loadQuestions: () => fetch('data/questions_historia.json').then(handleJson)
   }
