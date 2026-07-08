@@ -20,6 +20,11 @@ Geplante Bereiche: **Terra** (Geografie), **Astra** (Astronomie), **Homo** (Mens
 
 ---
 
+## Typ & Zweck
+- **Typ:** Spiel (Quiz)
+- **Zweck:** Responsives Multi-Domain-Wissensquiz mit interaktiver Weltkarte und Spaced-Repetition-Lernfortschritt.
+- **Plattform:** Web
+
 ## 🧭 Aktueller Stand & Architektur (Stand 2026-06-04)
 
 ### Status
