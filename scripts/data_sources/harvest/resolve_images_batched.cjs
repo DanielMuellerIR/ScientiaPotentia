@@ -30,12 +30,16 @@ const TARGETS = {
   historia: new Set(["invention", "discovery", "epoch", "figure", "milestone", "expedition"]),
   // Stand 2026-07-01 (docs/homo_erweiterung_runde2.md): die Physiologie-Kategorien
   // fehlten bisher komplett -> 0 Bilder. de.wiki-Hauptbilder (Histologie/Gray's-Stiche/
-  // Anatomiegrafiken) sind ueber die Pipeline verfuegbar. Bewusst NICHT dabei:
-  // psych_effect (abstrakt), vitamin/nutrient_macro (Lemma-Kollisionen -> Sonderweg),
-  // blood_group/reflex (Diagramm-/Fehlbild-Risiko -> eigener vetteter Lauf).
+  // Anatomiegrafiken) sind ueber die Pipeline verfuegbar.
+  // reflex (2026-07-09, Runde-2-Todo): jetzt AUFGENOMMEN — jedes Reflex-Konzept hat ein
+  // EIGENES Lemma (Patellarsehnenreflex, Lidschlussreflex, ...), daher konzeptgenaue
+  // Diagramme statt Kollisionsbilder; die Auswahl wird nach dem Lauf visuell gegengeprueft.
+  // Bewusst WEITER NICHT dabei: psych_effect (abstrakt), vitamin/nutrient_macro
+  // (Strukturformeln, Nutzen fraglich -> §4 niedrige Prio), blood_group (6 Konzepte teilen
+  // sich das AB0-System-Lemma -> alle bekaemen dasselbe Schemabild = Duplikate).
   homo:   new Set(["bone", "muscle", "organ", "body_fact", "species",
     "cell_type", "hormone", "nerve", "sense", "brain_lobe",
-    "digestive_enzyme", "development_stage", "sleep_perception", "joint"]),
+    "digestive_enzyme", "development_stage", "sleep_perception", "joint", "reflex"]),
   // machina nur hardware (Geraete-Fotos, kein Logo-Problem); die logobelasteten
   // Kategorien (programming_language/concept/...) brauchen einen Logo-Filter -> separat.
   machina:new Set(["hardware"]),

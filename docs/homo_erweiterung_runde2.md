@@ -108,10 +108,22 @@ Pflicht-Sichtkontrolle entfernt: **Fötus → `Catfetus1.jpg` (Katzenfötus)** u
 
 ## 4. Offen / nächste Schritte
 
-- **blood_group/reflex-Bilder:** gezielter Resolver-Lauf mit visueller Vollkontrolle (AB0-Schema,
-  Reflex-Diagramme), falls Bebilderung erwünscht.
-- **vitamin/nutrient_macro-Bilder:** nur nach `sourceUrl`-Entzerrung auf Einzel-Lemmata; Nutzen fraglich
-  (Strukturformeln), daher niedrige Priorität.
+- **reflex-Bilder — erledigt (v1.84.1):** vetteter Resolver-Lauf durchgeführt (`reflex` in
+  `TARGETS.homo` aufgenommen). Von 7 Konzepten liefern nur 3 ein de.wiki-Hauptbild, davon 1 ein
+  `.ogv`-**Video** (Moro-Reflex, für `<img>` untauglich → verworfen). Angewendet: **2 visuell
+  gegengeprüfte GIFs** — Lidschlussreflex (Auge, CC BY-SA 3.0) + Pupillenlichtreflex (Pupille, PD).
+  Die übrigen 5 Reflexe (Patellarsehnen-/Würge-/Husten-/Greif-/Moro-) bleiben bildlos.
+- **blood_group-Bilder — bewusst verzichtet (v1.84.1):** 6 der 8 Konzepte teilen sich das Lemma
+  `AB0-System`, 2 das Lemma `Rhesusfaktor` → alle bekämen dasselbe Schemabild (Duplikate, kein
+  konzeptgenaues Bild). NICHT in `TARGETS` aufgenommen; nur mit Handauswahl sinnvoll.
+- **vitamin/nutrient_macro — `sourceUrl` entzerrt, Bilder verzichtet (v1.84.1):** Alle 13 Vitamine
+  zeigten aufs Sammel-Lemma „Vitamin" → jetzt je eigenes Lemma (`Vitamin_A` … `Vitamin_K`) + präziser
+  `sourceName`. Bei nutrient_macro die 5 generischen (magnesium/natrium/phosphor → `Mengenelemente`,
+  zink → `Spurenelement`, ballaststoffe → `Kohlenhydrate`) auf ihr Fach-Lemma umgestellt;
+  fette/proteine (Quelle `Physiologischer_Brennwert` belegt den 9-/4-kcal-Fakt korrekt) und wasser
+  bewusst belassen. **Bilder weiter verzichtet** (nur Strukturformeln, Nutzen fraglich). Nebeneffekt:
+  der Quellen-Selbstverräter-Guard blendete „Wikipedia: Mengenelemente" bei der Nährstoffklassen-Frage
+  fälschlich aus (Token „Mengenelement") — mit dem Fach-Lemma wird die Quelle wieder korrekt gezeigt.
 - **Ehrliches Ceiling (aus Runde 1 bestätigt):** Homo liegt bei ~1500–1700 Fragen, nicht 5000. Mit
   1600 Fragen ist das Reservoir fairer, belegter Homo-Konzepte weitgehend ausgeschöpft; weitere Masse
   gehört konzeptuell nach Natura (Mikroben) und Historia (Medizingeschichte).
