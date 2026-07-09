@@ -381,7 +381,7 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 | Homo   | 599 | 1600 | Gray's Anatomy / Prometheus / NIH / MedlinePlus / StatPearls / OpenStax / Wikipedia | **Anatomiegrafiken (Wikimedia, PD)** + konzeptgenauer Struktur-Marker je Frage; ab v1.52 zehn Physiologie-Kategorien jenseits der Anatomie; v1.74/v1.75 Vertiefung + sleep_perception; **v1.82 Runde 2**: +114 Konzepte/+204 Fragen (psych_effect→94, hormone→41, muscle→83, nerve→29 u. a.) + 3 neue Kategorien joint/reflex/blood_group; 306 Museumsbilder (Physiologie-Kategorien erstmals bebildert; v1.84.1 +2 reflex-GIFs, vitamin/nutrient_macro-sourceUrl entzerrt) — Richtung ehrliches Ceiling (~1500–1700, NICHT 5000 — docs/homo_erweiterung.md §4; Runde 2: docs/homo_erweiterung_runde2.md §4) |
 | Natura | 2402 | 13217 | Wikipedia / USGS / IUCN / IPCC / Wikidata | generische Konzeptkarte (`ConceptVisual`); Tiere via MiniMax-Delegation 49→97 ausgebaut (web-grounded); freies Commons-Foto je Konzept hinterlegt (`concept.image`, fürs spätere Museum) |
 | Lingua | 1207 | 5540 | Wikipedia / Ethnologue / Wiktionary / Guinness / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Attribut-Labels; 184 Museumsbilder (writing_system/language_family) |
-| Cultura | 2004 | 7367 | Wikipedia (DE/EN) / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Kategorie-/Attribut-Labels; via MiniMax-Delegation ausgebaut (Komponisten Wikidata-geprüft, Werke web-grounded); ab v1.83 Kategorie `genre_fiction` (Populärliteratur SF/Fantasy/Horror/Krimi, Auswahl aus Daniels eBook-/Hörbuch-Sammlung; v1.84.2 Claire North; **v1.85.0 R2-Welle: +83 Nur-Hörbuch-Autoren → genre_fiction 123→206**); 865 Museumsbilder |
+| Cultura | 2004 | 7367 | Wikipedia (DE/EN) / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Kategorie-/Attribut-Labels; via MiniMax-Delegation ausgebaut (Komponisten Wikidata-geprüft, Werke web-grounded); ab v1.83 Kategorie `genre_fiction` (Populärliteratur SF/Fantasy/Horror/Krimi, Auswahl aus Daniels eBook-/Hörbuch-Sammlung; v1.84.2 Claire North; **v1.85.0 R2-Welle: +83 Nur-Hörbuch-Autoren → genre_fiction 123→206**); 1044 Museumsbilder (v1.85.1: genre_fiction über freie **Autorenporträts** bebildert, 179 Werke) |
 | Machina | 2165 | 6131 | Wikipedia / RFC/IANA / Lehrbücher / DIN 8580 | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Funktionsprinzip (v1.47.0); ab v1.71 auch klassische Technik (Handwerk/Mechanik/Maschinenbau): tool/machine_element/engine/manufacturing_process/material/simple_machine (2 Wellen, v1.71+v1.73); 124 Museumsbilder (hardware) |
 | Historia | 1244 | 6332 | Wikipedia / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Zeit/Urheberschaft, Politik-Ausschluss (v1.47.0); 1023 Museumsbilder |
 
@@ -1203,9 +1203,10 @@ Additiv, Dedup, `+`/`#`-erhaltend. `merge_machina_historia.js` existiert nicht m
   Workflow geerntet (Finder + adversariale Prüfung), **83 Konzepte gemerged** (Kanon/Kinderbuch
   übersprungen, 3 Cross-Kategorie-Dubletten gedroppt). **OFFEN: Welle 2** = die 69 obskureren Autoren
   (Sitelinks <8, eher deutscher Regionalmarkt) — Ernte-Skript liegt (`harvest_genrefic_r2` Workflow),
-  nur Args auf die <8-Tier umstellen; (b) **entschieden, Umsetzung offen** — Buchcover: Daniel wählte
-  **freie Autorenporträts** (nicht Cover); Porträt-Bild-Pass über genre_fiction-Autoren noch zu bauen;
-  (c) **erledigt v1.84.2** — Claire North.
+  nur Args auf die <8-Tier umstellen; (b) **erledigt v1.85.1** — Buchcover: Daniel wählte freie
+  **Autorenporträts** (nicht Cover); `resolve_author_portraits.cjs` löst je genre_fiction-Konzept das
+  de.wiki-Autorenporträt (dedupliziert, Lizenzfilter, .svg-Signaturen raus) → 179/206 bebildert,
+  visuell + Live-Lizenz-geprüft; (c) **erledigt v1.84.2** — Claire North.
 - [ ] **Idee — Machina über NEUE Kategorien statt Vertiefung** (niedrige Prio): Die klassische
   Technik ist nach 2 Wellen (v1.71/v1.73, +476 K/+1006 F) weitgehend ausgeschöpft. Ergiebigere
   Hebel wären eigene Kategorien `measuring_instrument` (Messgeräte) und `vehicle_tech`
