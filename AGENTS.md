@@ -1085,11 +1085,11 @@ Die Rohdaten der Recherche befinden sich in den exportierten Sitzungsprotokollen
 - [ ] **Lingua-Fragetypen für heterogene Kategorien:** 47 Konzepte (language_fact, grammar_fact,
   phonetics, language_curio, loanword z.T.) haben bewusst noch keine Templates — Konzepte sind im
   Spiel (Visual/Distraktor-Pools), liefern aber keine Fragen. Hebel Richtung 5000-Ziel.
-- [ ] **Homo-Konzeptbilder fürs Museum (Stand 2026-06-20):** `concepts_homo.json` hat als einziger
-  Bereich **kein** `concept.image` (0 Museumsbilder). Astra ist erledigt (183 Bilder via `image`-Feld).
-  Homo ist inhaltlich der zäheste Fall: Anatomie-Konzepte (Knochen/Muskeln/Organe) haben auf Commons
-  wenig brauchbare freie Fotos; ggf. statt Fotos die vorhandenen Anatomie-Assets (`HomoVisual`) als
-  Galerie-Quelle nutzen, statt pro Konzept ein Commons-Foto zu suchen.
+- [x] **Homo-Konzeptbilder fürs Museum (erledigt, überholt seit v1.82):** Das „0 Museumsbilder"-Premise
+  (Stand 2026-06-20) ist längst hinfällig — Homo trägt inzwischen **306** `concept.image`-Einträge
+  (v1.82 Physiologie-Kategorien erstmals bebildert, v1.84.1 +2 reflex-GIFs). Anatomie-Konzepte werden
+  über den regulären Resolver-Weg (`resolve_images_batched.cjs`, `TARGETS.homo`) bebildert; die
+  HomoVisual-Assets blieben Frage-Visual, wurden nicht als Galerie-Quelle gebraucht.
 - [ ] **Cultura 21 Restbilder:** alte Literaturwerke + obskure Bauwerke ohne freies Commons-Bild
   (`_imgProblem`-Markierung in `cultura_raw.json`) — ggf. bessere Suchbegriffe oder andere freie Quelle.
 
