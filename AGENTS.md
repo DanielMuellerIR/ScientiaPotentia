@@ -381,7 +381,7 @@ Maßgeblicher Arbeitsplan: `implementation_plan.md` (Wegwerf-Dokument).
 | Homo   | 599 | 1600 | Gray's Anatomy / Prometheus / NIH / MedlinePlus / StatPearls / OpenStax / Wikipedia | **Anatomiegrafiken (Wikimedia, PD)** + konzeptgenauer Struktur-Marker je Frage; ab v1.52 zehn Physiologie-Kategorien jenseits der Anatomie; v1.74/v1.75 Vertiefung + sleep_perception; **v1.82 Runde 2**: +114 Konzepte/+204 Fragen (psych_effect→94, hormone→41, muscle→83, nerve→29 u. a.) + 3 neue Kategorien joint/reflex/blood_group; 306 Museumsbilder (Physiologie-Kategorien erstmals bebildert; v1.84.1 +2 reflex-GIFs, vitamin/nutrient_macro-sourceUrl entzerrt) — Richtung ehrliches Ceiling (~1500–1700, NICHT 5000 — docs/homo_erweiterung.md §4; Runde 2: docs/homo_erweiterung_runde2.md §4) |
 | Natura | 2402 | 13217 | Wikipedia / USGS / IUCN / IPCC / Wikidata | generische Konzeptkarte (`ConceptVisual`); Tiere via MiniMax-Delegation 49→97 ausgebaut (web-grounded); freies Commons-Foto je Konzept hinterlegt (`concept.image`, fürs spätere Museum) |
 | Lingua | 1207 | 5540 | Wikipedia / Ethnologue / Wiktionary / Guinness / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Attribut-Labels; 184 Museumsbilder (writing_system/language_family) |
-| Cultura | 1920 | 6948 | Wikipedia (DE/EN) / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Kategorie-/Attribut-Labels; via MiniMax-Delegation ausgebaut (Komponisten Wikidata-geprüft, Werke web-grounded); ab v1.83 Kategorie `genre_fiction` (Populärliteratur SF/Fantasy/Horror/Krimi, Auswahl aus Daniels eBook-/Hörbuch-Sammlung); 865 Museumsbilder |
+| Cultura | 1921 | 6953 | Wikipedia (DE/EN) / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Kategorie-/Attribut-Labels; via MiniMax-Delegation ausgebaut (Komponisten Wikidata-geprüft, Werke web-grounded); ab v1.83 Kategorie `genre_fiction` (Populärliteratur SF/Fantasy/Horror/Krimi, Auswahl aus Daniels eBook-/Hörbuch-Sammlung; v1.84.2 Claire-North-Nachzug via EN-Quelle); 865 Museumsbilder |
 | Machina | 2165 | 6131 | Wikipedia / RFC/IANA / Lehrbücher / DIN 8580 | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Funktionsprinzip (v1.47.0); ab v1.71 auch klassische Technik (Handwerk/Mechanik/Maschinenbau): tool/machine_element/engine/manufacturing_process/material/simple_machine (2 Wellen, v1.71+v1.73); 124 Museumsbilder (hardware) |
 | Historia | 1244 | 6332 | Wikipedia / Wikidata | generische Konzeptkarte (`ConceptVisual`) mit dt. Labels; Achse Zeit/Urheberschaft, Politik-Ausschluss (v1.47.0); 1023 Museumsbilder |
 
@@ -1197,13 +1197,14 @@ Additiv, Dedup, `+`/`#`-erhaltend. `merge_machina_historia.js` existiert nicht m
   komprimiert`, `verlustbehaftet`→`verlustbehaftet komprimiert` (in `machina_raw.json`); zusätzlich
   execution `Bytecode/VM`→`Bytecode (VM)`. Kompression hat ehrlich nur 3 Kategorien → forward-Fragen
   jetzt 3-optional (verify-Warnung, kein Fehler).
-- [ ] **Idee — Cultura genre_fiction Runde 2** (Angebot 2026-07-02, offen): (a) zweite Welle aus
-  den 369 Nur-Hörbuch-Autoren bzw. weiteren Werken der Top-Sammlungs-Autoren (Vorgehen v1.83:
+- [ ] **Idee — Cultura genre_fiction Runde 2** (Angebot 2026-07-02, teils offen): (a) OFFEN — zweite
+  Welle aus den 369 Nur-Hörbuch-Autoren bzw. weiteren Werken der Top-Sammlungs-Autoren (Vorgehen v1.83:
   Autoren-/Titel-Scan `~/Nextcloud/eBooks` + `Odiobuks` mit [D]/[M]-Markern, Match gegen
-  ebook_vectordb-SQLite, dann Wikipedia-DE-Ernte mit Notabilitäts-Gate); (b) Buchcover fürs
-  Museum — moderne Cover sind auf Commons meist unfrei, Lizenzlage vorher klären; (c) Claire
-  North „Die vielen Leben des Harry August" fiel trotz [D]-gehört durchs DE-Wiki-Gate — bei
-  Bedarf mit EN-Quelle nachziehen.
+  ebook_vectordb-SQLite, dann Wikipedia-DE-Ernte mit Notabilitäts-Gate) — **braucht den Sammlungs-Scan
+  auf dem M5** (Autorenliste nicht im Repo, transient); (b) OFFEN — Buchcover fürs Museum: moderne Cover
+  auf Commons meist unfrei, **Lizenzentscheidung Daniel steht aus** (bildlos / nur PD-Cover / freie
+  Autorenporträts); (c) **erledigt v1.84.2** — Claire North „Die vielen Leben des Harry August" via
+  EN-Quelle nachgezogen (Campbell-Memorial-Award-Kanon, bewusste DE-Gate-Ausnahme, Werk ohne DE-Artikel).
 - [ ] **Idee — Machina über NEUE Kategorien statt Vertiefung** (niedrige Prio): Die klassische
   Technik ist nach 2 Wellen (v1.71/v1.73, +476 K/+1006 F) weitgehend ausgeschöpft. Ergiebigere
   Hebel wären eigene Kategorien `measuring_instrument` (Messgeräte) und `vehicle_tech`
