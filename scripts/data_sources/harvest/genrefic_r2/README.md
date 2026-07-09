@@ -58,8 +58,41 @@ Alle 83 sourceUrls HTTP-200-geprüft, 0 funFact-Leaks, 0 ID-Kollisionen, verify_
 Genre-Verteilung: SF 33 / Fantasy 22 / Thriller 15 / Kriminalroman 12 / Horror 4 (nach Drops).
 38 der 124 Autoren übersprungen (Literatur-Kanon/Kinderbuch/Nicht-Genre — Curation griff).
 
-**Offen — Welle 2:** die 69 obskureren Autoren (Sitelinks <8, eher dt. Regionalmarkt).
-Workflow-Skript wiederverwendbar; nur die Args auf den `<8`-Tier umstellen.
+## Welle 2 — offen, kleiner Pilot geplant (Stand 2026-07-09)
+
+Das ursprüngliche Sitelink-Ranking-JSON aus Welle 1 lag nur im flüchtigen
+Session-Scratchpad und ist weg. **Ersatz-Ableitung (reproduzierbar, ohne
+Sitelinks):** die offene Restmenge = alle Kandidaten aus `candidates_gated.json`,
+deren Autor noch in **keiner** cultura-Kategorie vorkommt (Dedup gegen
+`author`-Attribut über literature/quote/genre_fiction — nicht nur genre_fiction,
+sonst wiederholt sich der Welle-1-Stolperstein mit Cross-Kat-Dubletten):
+
+```
+node -e 'const cand=require("./candidates_gated.json");
+const r=require("../../cultura_raw.json");const a=Array.isArray(r)?r:Object.values(r).find(Array.isArray);
+const norm=s=>(s||"").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[.\-]/g," ").replace(/\s+/g," ").trim();
+const ex=new Set();for(const c of a){const au=c.attributes&&c.attributes.author;if(au)ex.add(norm(au));}
+console.log(cand.filter(c=>!ex.has(norm(c.author))).sort((x,y)=>y.len-x.len).length,"offen");'
+```
+
+→ **102 offene Kandidaten**, nach Artikel-Introlänge (`len`) als Notabilitätsproxy
+sortiert. Davon ist rund ein Drittel bewusst zu überspringender Literatur-Kanon/
+Kinderbuch (Homer, Dr. Seuss, Edmund Spenser, Amor Towles, Cormac McCarthy …) —
+die Kuratierung pro Werk fängt das (siehe Ernte-Regeln). Realistischer Ertrag
+≈ 60 echte Genre-Treffer.
+
+**Vorgehen (Daniel-Entscheidung 2026-07-09): kleiner Pilot zuerst** — erst die
+~15 notabelsten Autoren ernten, committen, browser-verifizieren, dann über den
+Rest entscheiden. Gate-Werkzeug liegt bereit: `gate_wave2.cjs` (Cross-Kat-Dedup +
+Genre-Vokabular + deterministische ids) → `../append_concepts.cjs cultura <cands> --write`
+→ `node scripts/generate_cultura.js` → `node scripts/verify_facts.js cultura`.
+
+> **Warnung — NICHT groß fächern.** Der erste Welle-2-Voll-Fächer (Workflow-Tool)
+> kippte durch einen `args`-Serialisierungs-Bug in einen Amoklauf (~1900 Müll-Batches,
+> ~14,4 Mio. Token verbrannt, Wochenlimit gerissen; nichts ins Repo geschrieben).
+> Lehre + Präventionsregeln: theplan `knowledge/workflow-tool-fanout-safety.md`.
+> Für den Pilot Nutzdaten fest ins Skript einbetten (nicht über `args`), harten
+> Batch-Cap setzen, mit 1–2 Batches smoke-testen.
 
 ## Ernte-Regeln (Faktenschicht = Wikipedia DE)
 
