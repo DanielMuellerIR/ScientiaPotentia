@@ -46,6 +46,21 @@ Werk-Klassifikation NUR ein Hinweis — das Genre wird bei der Ernte **pro Werk*
 (der Ordner „Klassiker, Grusel" enthält z. B. Homer/Melville/Dante = Literatur-Kanon, kein
 `genre_fiction`).
 
+## Welle 1 — Ergebnis (v1.85.0, 2026-07-09)
+
+Die **124 notabelsten** Kandidaten (Wikidata-Sitelinks ≥8) über einen Multi-Agent-Workflow
+geerntet (21 Finder-Batches à 6 Autoren + adversariale Genre-/Fakten-Prüfung je Batch,
+41 Agenten, 0 Fehler). Finder verifizierten jeden Fakt per curl gegen de.wikipedia.
+**86 verifizierte Konzepte** → Gate: 3 Cross-Kategorie-Dubletten gedroppt (20.000 Meilen,
+Harry Potter, Dracula existierten bereits unter `literature`), 2 funFacts entschärft
+(„englischer" Schauplatz = weicher Sprach-Leak) → **83 gemerged** (genre_fiction 123→206).
+Alle 83 sourceUrls HTTP-200-geprüft, 0 funFact-Leaks, 0 ID-Kollisionen, verify_facts 0 Fehler.
+Genre-Verteilung: SF 33 / Fantasy 22 / Thriller 15 / Kriminalroman 12 / Horror 4 (nach Drops).
+38 der 124 Autoren übersprungen (Literatur-Kanon/Kinderbuch/Nicht-Genre — Curation griff).
+
+**Offen — Welle 2:** die 69 obskureren Autoren (Sitelinks <8, eher dt. Regionalmarkt).
+Workflow-Skript wiederverwendbar; nur die Args auf den `<8`-Tier umstellen.
+
 ## Ernte-Regeln (Faktenschicht = Wikipedia DE)
 
 - Pro Autor **1–2 der bekanntesten Werke**, nicht das Gesamtwerk.
