@@ -1204,8 +1204,9 @@ Additiv, Dedup, `+`/`#`-erhaltend. `merge_machina_historia.js` existiert nicht m
   übersprungen, 3 Cross-Kategorie-Dubletten gedroppt). **Welle 2 Pilot erledigt v1.85.2** — die
   notabelsten offenen Kandidaten via 3 eng begrenzte Subagenten (eingebettete Liste, kein args —
   Fanout-Lehre) gegen de.wiki geerntet, **+14 Werke/12 Autoren gemerged (206→220)**, verify 0 Fehler,
-  Browser-verifiziert; Details `harvest/genrefic_r2/README.md` §Welle 2. **OFFEN (optional):** ≈88
-  Rest-Kandidaten nach demselben Pilot-Muster + Autorenporträts für die 14 neuen Werke nachziehen;
+  Browser-verifiziert; Details `harvest/genrefic_r2/README.md` §Welle 2. **Bebilderung Pilot erledigt
+  v1.85.3** (4/14 mit freiem DE-Portrait: Laßwitz/Chabon/Brockmeier/Galbraith; Rest hat keins).
+  **OFFEN (optional):** ≈88 Rest-Kandidaten nach demselben Pilot-Muster;
   (b) **erledigt v1.85.1** — Buchcover: Daniel wählte freie
   **Autorenporträts** (nicht Cover); `resolve_author_portraits.cjs` löst je genre_fiction-Konzept das
   de.wiki-Autorenporträt (dedupliziert, Lizenzfilter, .svg-Signaturen raus) → 179/206 bebildert,
