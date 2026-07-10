@@ -1201,9 +1201,12 @@ Additiv, Dedup, `+`/`#`-erhaltend. `merge_machina_historia.js` existiert nicht m
   erledigt v1.85.0** — M5-Scan selbst per SSH gefahren (`scripts/data_sources/harvest/genrefic_r2/`,
   reproduzierbar), 193 gegatete Nur-Hörbuch-Autoren; die 124 notabelsten (Sitelinks ≥8) via Multi-Agent-
   Workflow geerntet (Finder + adversariale Prüfung), **83 Konzepte gemerged** (Kanon/Kinderbuch
-  übersprungen, 3 Cross-Kategorie-Dubletten gedroppt). **OFFEN: Welle 2** = die 69 obskureren Autoren
-  (Sitelinks <8, eher deutscher Regionalmarkt) — Ernte-Skript liegt (`harvest_genrefic_r2` Workflow),
-  nur Args auf die <8-Tier umstellen; (b) **erledigt v1.85.1** — Buchcover: Daniel wählte freie
+  übersprungen, 3 Cross-Kategorie-Dubletten gedroppt). **Welle 2 Pilot erledigt v1.85.2** — die
+  notabelsten offenen Kandidaten via 3 eng begrenzte Subagenten (eingebettete Liste, kein args —
+  Fanout-Lehre) gegen de.wiki geerntet, **+14 Werke/12 Autoren gemerged (206→220)**, verify 0 Fehler,
+  Browser-verifiziert; Details `harvest/genrefic_r2/README.md` §Welle 2. **OFFEN (optional):** ≈88
+  Rest-Kandidaten nach demselben Pilot-Muster + Autorenporträts für die 14 neuen Werke nachziehen;
+  (b) **erledigt v1.85.1** — Buchcover: Daniel wählte freie
   **Autorenporträts** (nicht Cover); `resolve_author_portraits.cjs` löst je genre_fiction-Konzept das
   de.wiki-Autorenporträt (dedupliziert, Lizenzfilter, .svg-Signaturen raus) → 179/206 bebildert,
   visuell + Live-Lizenz-geprüft; (c) **erledigt v1.84.2** — Claire North.
