@@ -58,7 +58,27 @@ Alle 83 sourceUrls HTTP-200-geprüft, 0 funFact-Leaks, 0 ID-Kollisionen, verify_
 Genre-Verteilung: SF 33 / Fantasy 22 / Thriller 15 / Kriminalroman 12 / Horror 4 (nach Drops).
 38 der 124 Autoren übersprungen (Literatur-Kanon/Kinderbuch/Nicht-Genre — Curation griff).
 
-## Welle 2 — offen, kleiner Pilot geplant (Stand 2026-07-09)
+## Welle 2 — Pilot geerntet (v1.85.2, 2026-07-10)
+
+Der geplante kleine Pilot ist erledigt: die notabelsten offenen Kandidaten wurden
+über **3 eng begrenzte Subagenten mit fest im Prompt eingebetteter Autorenliste**
+(kein `args`, harte Obergrenze 5 Autoren je Agent — genau die Prävention aus der
+Fanout-Lehre) gegen de.wikipedia faktengeprüft geerntet. **14 verifizierte Werke von
+12 Autoren** → Gate (0 Drops, keine Cross-Kat-Dubletten) → merge → generate →
+`verify_facts` 0 Fehler → Browser-verifiziert (Cultura 7440 Fragen, genre_fiction
+**206→220**). Genre-Verteilung des Pilots: Thriller 4 / SF 4 / Fantasy 3 /
+Kriminalroman 2 / Horror 1. Bewusst gedroppt: J.D. Robb (Nora Roberts — DE-Wikipedia
+belegt Reihe/Genre, aber kein Erscheinungsjahr → kein erfundenes `year`), John Gardner
+(Genre-Namensvetter hat keinen DE-Artikel, nur der Literatur-Gardner), Daniel Call
+(Dramatiker, kein Genre-Autor). Literatur-Kanon/Kinderbuch (Homer, Dr. Seuss, Cormac
+McCarthy, Roald Dahl, Norton Juster, Mirjam Pressler) gemäß Ernte-Regeln übersprungen.
+Ernte-Rohdaten: `wave2_pilot_final.json`, gegatete Kandidaten:
+`../cand_cultura_genrefic_r2w2_pilot.json`. **Bilder offen** — die 14 neuen Werke
+haben noch keine Autorenporträts (`resolve_author_portraits.cjs`, separater Schritt
+wie in v1.85.1). Restmenge ≈ 88 offene Kandidaten (davon Teil Literatur-Kanon) für
+eine mögliche Folge-Welle nach demselben Muster.
+
+## Welle 2 — ursprüngliche Planung (Stand 2026-07-09)
 
 Das ursprüngliche Sitelink-Ranking-JSON aus Welle 1 lag nur im flüchtigen
 Session-Scratchpad und ist weg. **Ersatz-Ableitung (reproduzierbar, ohne
