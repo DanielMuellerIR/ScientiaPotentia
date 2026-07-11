@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { calculateSRS, mapBinaryToQuality } from '../utils/srs';
 import { saveProgressAndLog, getProgress } from '../utils/db';
+import { shuffle } from '../utils/shuffle';
 import { useGeoData } from '../utils/useGeoData';
 import { playClick, playCorrectChime, playErrorBuzzer } from '../utils/audio';
 import { Check, X, ArrowRight, Award, RotateCcw, MapPin } from 'lucide-react';
@@ -272,19 +273,19 @@ export default function Quiz({
     // Position der richtigen Antwort variiert. Von beiden Modi genutzt (R1-Dedup).
     const withShuffledOptions = (baseQuestion) => {
       const options = baseQuestion.options && baseQuestion.options.length > 0
-        ? [...baseQuestion.options].sort(() => 0.5 - Math.random())
+        ? shuffle(baseQuestion.options)
         : [];
       return { ...baseQuestion, options };
     };
 
     const sortPool = (pool) => {
-      return [...pool].sort((a, b) => {
+      // Erst unverzerrt mischen, dann STABIL nach Priorität sortieren (Array.sort
+      // ist laut Spezifikation stabil): innerhalb gleicher Priorität bleibt so die
+      // Zufallsreihenfolge erhalten — ohne zufälligen sort-Komparator (verzerrt).
+      return shuffle(pool).sort((a, b) => {
         const aDue = dueIds.has(a.entityId) ? 2 : (newIds.has(a.entityId) ? 1 : 0);
         const bDue = dueIds.has(b.entityId) ? 2 : (newIds.has(b.entityId) ? 1 : 0);
-        if (aDue !== bDue) {
-          return bDue - aDue; // Higher priority first
-        }
-        return 0.5 - Math.random(); // Random shuffle for equal priority
+        return bDue - aDue; // Higher priority first
       });
     };
 
@@ -436,7 +437,7 @@ export default function Quiz({
     const sessionQuestions = chosenQuestions.map(withShuffledOptions);
 
     // Shuffle the final questions in the session
-    const shuffledSession = sessionQuestions.sort(() => 0.5 - Math.random());
+    const shuffledSession = shuffle(sessionQuestions);
 
     applySession(shuffledSession);
   };

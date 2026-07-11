@@ -211,10 +211,7 @@ export function getDomainById(domainId) {
 /**
  * Bestehende Terra-Keys sind bewusst unpraefixt. Jede andere Domain nutzt
  * "<domain>:<conceptId>", ein fehlendes Praefix bedeutet daher immer Terra.
+ * Implementierung zentral in utils/conceptKeys.js (vorher hier dupliziert);
+ * Re-Export haelt die bestehende Import-Adresse '../domains' stabil.
  */
-export function getDomainIdFromConceptKey(conceptKey) {
-  if (typeof conceptKey !== 'string' || !conceptKey.includes(':')) {
-    return 'terra';
-  }
-  return conceptKey.split(':')[0];
-}
+export { getDomainIdFromConceptKey } from '../utils/conceptKeys';

@@ -2,22 +2,13 @@
  * IndexedDB Wrapper for local persistence of quiz logs, SRS progress, and app settings.
  */
 
+// Domain-Ableitung aus dem Konzept-Key: zentrale Implementierung in
+// conceptKeys.js (war hier zuvor als Kopie dupliziert). Der lokale Alias
+// haelt die bestehenden Aufrufstellen unveraendert.
+import { getDomainIdFromConceptKey as getDomainFromEntityId } from './conceptKeys';
+
 const DB_NAME = 'GeoAtlasDB';
 const DB_VERSION = 2;
-
-/**
- * Derives the domain from a concept key.
- * Old Terra records do not have a prefix, so missing ":" always means Terra.
- * New domains use keys like "astra:mars" to avoid collisions.
- */
-function getDomainFromEntityId(entityId) {
-  // codereview-ok: 'terra'-Fallback ist bewusstes Default für unpräfixte Alt-Keys;
-  // aktuelle Aufrufer übergeben Domain/gültige Keys explizit (2026-07-08)
-  if (typeof entityId !== 'string' || !entityId.includes(':')) {
-    return 'terra';
-  }
-  return entityId.split(':')[0];
-}
 
 // Gecachte Verbindung: Bisher oeffnete jede getProgress/saveProgress/… einen
 // EIGENEN IndexedDB-Handle (pro Quiz-Antwort gleich mehrere) und schloss keinen
