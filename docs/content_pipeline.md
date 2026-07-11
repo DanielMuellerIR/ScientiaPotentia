@@ -2,7 +2,7 @@
 
 > **Stand: 2026-06-05.** Lebendes Dokument. Beschreibt den **vereinbarten** effizienten
 > Ablauf, um die Wissensbereiche (außer Terra) auf 1000/2000/5000 Fragen je Bereich zu
-> bringen. Ergänzt `koerper_fakten_prozess.md` (Homo-spezifischer Erstentwurf) und
+> bringen. Ergänzt `archive/koerper_fakten_prozess.md` (Homo-spezifischer Erstentwurf) und
 > verallgemeinert ihn. Quelle für Status/Zahlen bleibt `AGENTS.md`.
 
 ## Ausgangslage (Krisensitzung 2026-06-05)

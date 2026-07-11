@@ -55,5 +55,5 @@ in `App.jsx` hartcodiert.
 Er prueft die Struktur, nicht das visuelle Ergebnis. Ein echter Pixel-/Scroll-Test braucht einen
 Browser. Pflicht-Gegenprobe vor groesseren Layout-Aenderungen: Browser-Preview bei
 **1280×800** (Desktop, Regression), **375×812** (Handy hochkant) und **844×390** (Handy quer)
-ansehen — siehe `mobile-layout-plan.md`. Ein echter Geraetetest (iPhone hochkant) steht noch aus
+ansehen — siehe `docs/archive/mobile-layout-plan.md`. Ein echter Geraetetest (iPhone hochkant) steht noch aus
 (Todo in `AGENTS.md`).

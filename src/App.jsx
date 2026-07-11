@@ -375,7 +375,7 @@ export default function App() {
   };
 
   // Shell-Layout via CSS-Klassen statt Inline-Styles — Masse/Responsive
-  // zentral in index.css (.app-shell etc.). Siehe mobile-layout-plan.md.
+  // zentral in index.css (.app-shell etc.). Siehe docs/archive/mobile-layout-plan.md.
   return (
     <div className="app-shell">
       {/* Terra Academic Header */}
