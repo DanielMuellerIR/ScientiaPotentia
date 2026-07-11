@@ -4,6 +4,7 @@ import { saveProgressAndLog, getProgress } from '../utils/db';
 import { shuffle } from '../utils/shuffle';
 import { useGeoData } from '../utils/useGeoData';
 import { playClick, playCorrectChime, playErrorBuzzer } from '../utils/audio';
+import { createSilhouettePaths } from '../utils/silhouette';
 import { Check, X, ArrowRight, Award, RotateCcw, MapPin } from 'lucide-react';
 
 export default function Quiz({ 
@@ -542,7 +543,9 @@ export default function Quiz({
     }
   };
 
-  // Proportional SVG path projection function for isolated country contours (Level 4)
+  // Rendert eine isolierte Länder- oder Provinzkontur. Die GeoJSON-Projektion
+  // selbst liegt in utils/silhouette.js, damit die Quiz-Komponente nur noch
+  // ihren UI-Zustand und nicht die Kartenmathematik verwaltet.
   const renderSilhouette = (entityId, entityType) => {
     // If the active question has a pre-compiled silhouette path, render it directly!
     const q = questions[currentIdx];
@@ -567,143 +570,10 @@ export default function Quiz({
     const feature = geojson.features.find(f => f.id === entityId);
     if (!feature || !feature.geometry) return <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>Keine Geometrie</div>;
 
-    const geom = feature.geometry;
-    
-    // Shoelace area calculator
-    const getRingArea = (ring) => {
-      let sum = 0;
-      for (let i = 0; i < ring.length; i++) {
-        const [x1, y1] = ring[i];
-        const [x2, y2] = ring[(i + 1) % ring.length];
-        sum += x1 * y2 - x2 * y1;
-      }
-      return Math.abs(sum) * 0.5;
-    };
-
-    // Convert geom coordinates to a uniform list of polygons
-    let allPolys = [];
-    if (geom.type === 'Polygon') {
-      allPolys = [geom.coordinates];
-    } else if (geom.type === 'MultiPolygon') {
-      allPolys = geom.coordinates;
-    }
-
-    if (allPolys.length === 0) return null;
-
-    // For each polygon, calculate area, bounding box and center
-    const polysWithMeta = allPolys.map(poly => {
-      if (poly.length === 0) return { poly, area: 0, center: [0, 0], minLng: 0, maxLng: 0, minLat: 0, maxLat: 0 };
-      const area = getRingArea(poly[0]);
-      
-      let minLng = Infinity, maxLng = -Infinity;
-      let minLat = Infinity, maxLat = -Infinity;
-      poly[0].forEach(([lng, lat]) => {
-        if (lng < minLng) minLng = lng;
-        if (lng > maxLng) maxLng = lng;
-        if (lat < minLat) minLat = lat;
-        if (lat > maxLat) maxLat = lat;
-      });
-      return {
-        poly,
-        area,
-        center: [(minLng + maxLng) / 2, (minLat + maxLat) / 2],
-        minLng,
-        maxLng,
-        minLat,
-        maxLat
-      };
-    });
-
-    // Find the largest area polygon (master)
-    let master = polysWithMeta[0];
-    polysWithMeta.forEach(p => {
-      if (p.area > master.area) {
-        master = p;
-      }
-    });
-
-    const masterMinLng = master.minLng;
-    const masterMaxLng = master.maxLng;
-    const masterMinLat = master.minLat;
-    const masterMaxLat = master.maxLat;
-    const masterCenter = master.center;
-    const aspectCorrection = Math.cos(masterCenter[1] * Math.PI / 180);
-    const maxDistance = 15.0; // degrees threshold to keep nearby islands
-
-    // Filter polygons that are within maxDistance of the master polygon's bounding box
-    const selectedPolys = [];
-    polysWithMeta.forEach(p => {
-      if (p.area === 0) return;
-      
-      let dx = 0;
-      if (p.center[0] < masterMinLng) {
-        dx = (masterMinLng - p.center[0]) * aspectCorrection;
-      } else if (p.center[0] > masterMaxLng) {
-        dx = (p.center[0] - masterMaxLng) * aspectCorrection;
-      }
-      
-      let dy = 0;
-      if (p.center[1] < masterMinLat) {
-        dy = masterMinLat - p.center[1];
-      } else if (p.center[1] > masterMaxLat) {
-        dy = p.center[1] - masterMaxLat;
-      }
-      
-      const dist = Math.sqrt(dx * dx + dy * dy);
-      if (dist <= maxDistance) {
-        selectedPolys.push(p.poly);
-      }
-    });
-
-    if (selectedPolys.length === 0) return null;
-
-    // Calculate local bounding box of all selected polygons combined
-    let minX = Infinity, maxX = -Infinity;
-    let minY = Infinity, maxY = -Infinity;
-
-    selectedPolys.forEach(poly => {
-      poly.forEach(ring => {
-        ring.forEach(([lng, lat]) => {
-          const xLocal = (lng - masterCenter[0]) * aspectCorrection;
-          const yLocal = lat - masterCenter[1];
-          if (xLocal < minX) minX = xLocal;
-          if (xLocal > maxX) maxX = xLocal;
-          if (yLocal < minY) minY = yLocal;
-          if (yLocal > maxY) maxY = yLocal;
-        });
-      });
-    });
-
     const width = 160;
     const height = 160;
-    const padding = 10;
-
-    const spanX = maxX - minX || 0.1;
-    const spanY = maxY - minY || 0.1;
-
-    const scaleX = (width - 2 * padding) / spanX;
-    const scaleY = (height - 2 * padding) / spanY;
-    const scale = Math.min(scaleX, scaleY);
-
-    const centerXLocal = (minX + maxX) / 2;
-    const centerYLocal = (minY + maxY) / 2;
-
-    const project = ([lng, lat]) => {
-      const xLocal = (lng - masterCenter[0]) * aspectCorrection;
-      const yLocal = lat - masterCenter[1];
-      const x = width / 2 + (xLocal - centerXLocal) * scale;
-      const y = height / 2 - (yLocal - centerYLocal) * scale; // Invert Y for screen
-      return `${x.toFixed(1)},${y.toFixed(1)}`;
-    };
-
-    let paths = [];
-    selectedPolys.forEach(poly => {
-      poly.forEach(ring => {
-        if (ring.length === 0) return;
-        const d = 'M' + ring.map(pt => project(pt)).join(' L') + ' Z';
-        paths.push(d);
-      });
-    });
+    const paths = createSilhouettePaths(feature.geometry, { width, height });
+    if (paths.length === 0) return null;
 
     return (
       <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`} style={{ margin: '0 auto', display: 'block' }}>

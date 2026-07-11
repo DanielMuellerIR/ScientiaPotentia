@@ -37,7 +37,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { pickBalanced, pickNumeric, shouldMagnitudeSpread, magnitudeSpreadDistractors } from './lib/quizrandom.js';
-import { norm, deNum, revealsAnswer } from './lib/generator_text.js';
+import { norm, deNum, revealsAnswerStrict as revealsAnswer } from './lib/generator_text.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');

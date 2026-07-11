@@ -38,12 +38,15 @@ const LEAK_BY_DOMAIN = {
   // "organ" NICHT aufnehmen: deutsches Wort "Organ" ist identisch (kein Leak).
   homo: /\b(the|bone|muscle|weight|blood)\b/i,
   natura: /\b(the|animal|plant|weight|length|species)\b/i,
-  lingua: null,
-  cultura: null,
-  // Machina: legitime englische Begriffe überall (HTTP, Python, O(n log n), TCP …).
-  machina: null,
-  // Historia: viele Eigennamen/Begriffe nicht-deutsch (Personen, Erfindungen).
-  historia: null,
+  // Sprachnamen, Werktitel und Fachbegriffe werden über gezielte Patterns statt
+  // eines pauschalen Opt-outs geprüft. So bleiben legitime Eigennamen erlaubt.
+  lingua: /\b(the|is|are|spoken|language|word|meaning)\b/i,
+  cultura: /\b(the|is|are|painted|written|novel|poem)\b/i,
+  // Machina: etablierte englische Fachwörter wie HTTP oder Python bleiben
+  // erlaubt; ganze englische Satzreste nicht.
+  machina: /\b(the|is|are|with|from|used|written|language)\b/i,
+  // Historia: Namen bleiben frei, englische Satzreste nicht.
+  historia: /\b(the|is|are|invented|written)\b/i,
 };
 // Unbekannte Domains: konservativ die astra-Liste verwenden.
 const ENGLISH_LEAK = domain in LEAK_BY_DOMAIN ? LEAK_BY_DOMAIN[domain] : LEAK_BY_DOMAIN.astra;
@@ -70,6 +73,9 @@ for (const q of questions) {
   if (!Array.isArray(q.options) || q.options.length < 2) {
     errors.push(`Frage ${tag}: weniger als 2 Optionen`);
     continue;
+  }
+  if (typeof q.correctAnswer !== 'string' || q.correctAnswer.trim() === '') {
+    errors.push(`Frage ${tag}: correctAnswer fehlt oder ist leer`);
   }
   if (!q.options.includes(q.correctAnswer)) {
     errors.push(`Frage ${tag}: correctAnswer nicht in options`);

@@ -5,6 +5,22 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-07-12 (v1.85.9) — Review-Todos: Faire Fragen und vollständig lokale Ressourcen
+
+**Astra und Lingua** verwenden nun den strikten Selbstverräter-Guard; die daraus
+entfernten Fragen waren inhaltlich verräterisch (Astra −28, Lingua −272). Ein
+verbleibendes Astra-Template wurde von „Welcher Sterntyp …?“ auf die neutrale
+Himmelskörper-Klasse umformuliert. Der frische Audit meldet für beide Kataloge
+keine Antwort-im-Fragetext-Fälle mehr. `verify_facts.js` prüft nun auch leere
+korrekte Antworten sowie gezielte englische Satzreste für zuvor ausgelassene
+Domains; `npm run verify:facts -- <domain>` ist der einheitliche Aufruf.
+
+Die Web-App lädt **keine externen Fonts oder MapLibre-CSS** mehr: Inter, Outfit
+und die MapLibre-Styles liegen lokal in `public/assets/`. Die Terra-Silhouetten-
+Projektion wurde aus `Quiz.jsx` nach `src/utils/silhouette.js` ausgelagert und
+mit Unit-Tests abgesichert. Verifiziert mit Faktenchecks aller Domains, Audit,
+55 Unit-Tests, Layout-Check und Production-Build.
+
 ## 2026-07-02 (v1.83.0) — Cultura Genre-Literatur (Populärliteratur) aus privater Sammlung
 
 **Stand 2026-07-02 (v1.83.0) — Cultura Genre-Literatur (Populärliteratur) aus privater Sammlung:**

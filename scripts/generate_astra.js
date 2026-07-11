@@ -18,7 +18,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { pickBalanced, deParse, shouldMagnitudeSpread, magnitudeSpreadDistractors } from './lib/quizrandom.js';
-import { norm, deNum, revealsAnswer } from './lib/generator_text.js';
+import { norm, deNum, revealsAnswerStrict as revealsAnswer } from './lib/generator_text.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -213,7 +213,8 @@ const templates = [
   },
   {
     category: 'star', attr: 'type', type: 'astra-star-type', difficulty: 3,
-    prompt: c => `Welcher Sterntyp ist ${c.name}?`,
+    // „Sterntyp“ verriete die mögliche Antwort „Stern“ bereits im Fragetext.
+    prompt: c => `Zu welcher Klasse von Himmelskörpern gehört ${c.name}?`,
     format: v => v
   },
   {
