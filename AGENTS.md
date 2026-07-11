@@ -387,7 +387,10 @@ Die Rohdaten der Recherche befinden sich in den exportierten Sitzungsprotokollen
 *Projektstatus und Todos für zukünftige Entwicklungs-Sessions.*
 
 ### 0. Aus Projekt-Review 2026-07-12 (v1.85.4–v1.85.8)
-- [ ] **v1.85.9 deployen:** live ist noch v1.85.3. Achtung: der erste Deploy nach
+- [x] **v1.85.9 deployt (2026-07-12):** `https://dm0.de/sci/` sowie die lokalen
+  Font-Assets liefern HTTP 200. Der Erstlauf nach Manifest-Einführung lud 57 Dateien
+  hoch und baute `.deploy-manifest.json` auf; künftige Deploys sind inkrementell.
+  Achtung: der erste Deploy nach
   Einführung des Hash-Manifests (`deploy.py`, v1.85.6) lädt einmalig ALLES hoch und baut
   dabei `.deploy-manifest.json` auf; ab dann inkrementell (Sekunden statt Minuten).
 - [x] **Astra/Lingua auf `revealsAnswerStrict` aufgewertet (v1.85.9):** Beide nutzten die schwächere
