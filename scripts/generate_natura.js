@@ -20,6 +20,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { pickBalanced, pickNumeric, shouldMagnitudeSpread, magnitudeSpreadDistractors } from './lib/quizrandom.js';
+import { norm, deNum, revealsAnswerStrict as revealsAnswer } from './lib/generator_text.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -38,13 +39,6 @@ const STATUS_CANON_SET = new Set([
 ]);
 
 // --- kleine Helfer -------------------------------------------------------
-
-/** Deutsche Zahlformatierung: Punkt als Tausender-, Komma als Dezimaltrenner. */
-function deNum(value) {
-  if (typeof value !== 'number') value = Number(value);
-  if (!isFinite(value)) return String(value);
-  return value.toLocaleString('de-DE', { maximumFractionDigits: 4 });
-}
 
 /**
  * Wandelt einen Attributwert in eine saubere Zahl ODER null.
@@ -110,40 +104,6 @@ function reverseSafeDistractors(subjectConcept, askedValue, conceptsInCat, compa
  * dem Pool (am verwechselbarsten), danach mit dem Template formatiert.
  */
 // pickNumeric: jetzt zentral in ./lib/quizrandom.js (mit Proximity-Guard fuer Messgroessen).
-
-
-// --- Selbstverräter-Schutz (identisch zu Astra/Homo) ---------------------
-// Verwirft Fragen, deren Antwort schon im Hinweis steckt. Generische Stamm-
-// Wörter schlagen bewusst NICHT an (Token-Mindestlänge, kein Hinweis->Antwort-Match).
-function norm(s) {
-  return String(s ?? '').toLowerCase()
-    .replace(/ß/g, 'ss').replace(/ä/g, 'a').replace(/ö/g, 'o').replace(/ü/g, 'u')
-    .replace(/[^a-z0-9]+/g, ' ').trim();
-}
-function revealsAnswer(subject, answer) {
-  const S = norm(subject), A = norm(answer);
-  const sNo = S.replace(/ /g, ''), aNo = A.replace(/ /g, '');
-  if (!sNo || !aNo) return false;
-  if (aNo.length >= 3 && sNo.includes(aNo)) return true;
-  if (sNo.length >= 3 && aNo.includes(sNo)) return true;
-  // Verschärfte Checks (wie Cultura): fangen Stamm-/Kompositum-Leaks, die der
-  // reine Token-im-Hinweis-Test verpasst.
-  const sTokens = S.split(' ').filter(t => t.length >= 4);
-  const aTokens = A.split(' ').filter(t => t.length >= 4);
-  // Antwort-Token im Hinweis (volle Antwort).
-  for (const t of aTokens) if (sNo.includes(t)) return true;
-  // Antwort-Kern OHNE Klammerzusätze ("Wanderratte (Rattus)" -> "wanderratte").
-  const ACore = norm(String(answer).replace(/\([^)]*\)/g, ' '));
-  const aCoreNo = ACore.replace(/ /g, '');
-  const aCoreTokens = ACore.split(' ').filter(t => t.length >= 4);
-  // a) Hinweis-Token im Antwort-Kern (>= 5, sonst trifft kurzes "Tier"/"Fisch").
-  for (const t of sTokens) if (t.length >= 5 && aCoreNo.includes(t)) return true;
-  // b) gemeinsamer Wortanfang (>= 4 Zeichen) gegen Ableitungs-Leaks.
-  for (const st of sTokens) for (const at of aCoreTokens) {
-    if (st.slice(0, 4) === at.slice(0, 4)) return true;
-  }
-  return false;
-}
 
 // --- Faktenbasis laden ---------------------------------------------------
 const raw = JSON.parse(readFileSync(RAW_PATH, 'utf8'));

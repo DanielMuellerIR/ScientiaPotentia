@@ -37,6 +37,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { pickBalanced, pickNumeric, shouldMagnitudeSpread, magnitudeSpreadDistractors } from './lib/quizrandom.js';
+import { norm, deNum, revealsAnswer } from './lib/generator_text.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -56,13 +57,6 @@ const DIRECTION_CANON_SET = new Set([
 ]);
 
 // --- kleine Helfer -------------------------------------------------------
-
-/** Deutsche Zahlformatierung: Punkt als Tausender-, Komma als Dezimaltrenner. */
-function deNum(value) {
-  if (typeof value !== 'number') value = Number(value);
-  if (!isFinite(value)) return String(value);
-  return value.toLocaleString('de-DE', { maximumFractionDigits: 4 });
-}
 
 /**
  * Wandelt einen Attributwert in eine saubere Zahl ODER null.
@@ -169,26 +163,6 @@ function pickCategorical(correct, pool, k = 3, conflictFn = null) {
  * dem Pool (am verwechselbarsten), danach mit dem Template formatiert.
  */
 // pickNumeric: jetzt zentral in ./lib/quizrandom.js (mit Proximity-Guard fuer Messgroessen).
-
-
-// --- Selbstverräter-Schutz (identisch zu Astra/Homo/Natura) ---------------
-// Verwirft Fragen, deren Antwort schon im Hinweis steckt ("Lateinisches
-// Alphabet" -> Schrifttyp "Alphabet"). Generische Stamm-Wörter schlagen
-// bewusst NICHT an (Token-Mindestlänge, kein Hinweis->Antwort-Match).
-function norm(s) {
-  return String(s ?? '').toLowerCase()
-    .replace(/ß/g, 'ss').replace(/ä/g, 'a').replace(/ö/g, 'o').replace(/ü/g, 'u')
-    .replace(/[^a-z0-9]+/g, ' ').trim();
-}
-function revealsAnswer(subject, answer) {
-  const S = norm(subject), A = norm(answer);
-  const sNo = S.replace(/ /g, ''), aNo = A.replace(/ /g, '');
-  if (!sNo || !aNo) return false;
-  if (aNo.length >= 3 && sNo.includes(aNo)) return true;
-  if (sNo.length >= 3 && aNo.includes(sNo)) return true;
-  for (const t of A.split(' ').filter(t => t.length >= 4)) if (sNo.includes(t)) return true;
-  return false;
-}
 
 // --- Ähnlichkeits-Guards für faire Optionen --------------------------------
 

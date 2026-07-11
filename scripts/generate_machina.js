@@ -22,6 +22,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { seededShuffle, pickBalanced, pickNumeric } from './lib/quizrandom.js';
+import { norm, deNum, revealsAnswerStrict as revealsAnswer } from './lib/generator_text.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -32,13 +33,6 @@ const QUESTIONS_OUT = join(ROOT, 'public', 'data', 'questions_machina.json');
 const DOMAIN = 'machina';
 
 // --- kleine Helfer (identisch zur erprobten Cultura-Engine) ----------------
-
-/** Deutsche Zahlformatierung: Punkt als Tausender-, Komma als Dezimaltrenner. */
-function deNum(value) {
-  if (typeof value !== 'number') value = Number(value);
-  if (!isFinite(value)) return String(value);
-  return value.toLocaleString('de-DE', { maximumFractionDigits: 4 });
-}
 
 /**
  * Wandelt einen Attributwert in eine saubere POSITIVE Zahl ODER null.
@@ -53,42 +47,11 @@ function cleanNum(v) {
   return null;
 }
 
-// Normalisierung für Guards (Umlaute weg, nur Kleinbuchstaben/Ziffern).
-function norm(s) {
-  return String(s ?? '').toLowerCase()
-    .replace(/ß/g, 'ss').replace(/ä/g, 'a').replace(/ö/g, 'o').replace(/ü/g, 'u')
-    .replace(/[^a-z0-9]+/g, ' ').trim();
-}
-
 /** Enthalten sich zwei Werte gegenseitig (normalisiert, ohne Leerzeichen)? */
 function containsEitherWay(a, b) {
   const A = norm(a).replace(/ /g, ''), B = norm(b).replace(/ /g, '');
   if (!A || !B) return false;
   return A.includes(B) || B.includes(A);
-}
-
-// --- Selbstverräter-Schutz (Basis wie Cultura) ----------------------------
-// Verwirft Fragen, deren Antwort schon im finalen Fragetext steckt.
-// Hinweis Machina-Abkürzungen: "SQL" -> "Structured Query Language" ist KEIN
-// Verräter (die Einzelbuchstaben tauchen nicht als ganze Wörter auf); die
-// Token-Heuristik schlägt nur an, wenn ein echtes Wort geteilt wird.
-function revealsAnswer(subject, answer) {
-  const S = norm(subject), A = norm(answer);
-  const sNo = S.replace(/ /g, ''), aNo = A.replace(/ /g, '');
-  if (!sNo || !aNo) return false;
-  if (aNo.length >= 3 && sNo.includes(aNo)) return true;
-  if (sNo.length >= 3 && aNo.includes(sNo)) return true;
-  const sTokens = S.split(' ').filter(t => t.length >= 4);
-  const aTokens = A.split(' ').filter(t => t.length >= 4);
-  for (const t of aTokens) if (sNo.includes(t)) return true;
-  const ACore = norm(String(answer).replace(/\([^)]*\)/g, ' '));
-  const aCoreNo = ACore.replace(/ /g, '');
-  const aCoreTokens = ACore.split(' ').filter(t => t.length >= 4);
-  for (const t of sTokens) if (t.length >= 5 && aCoreNo.includes(t)) return true;
-  for (const st of sTokens) for (const at of aCoreTokens) {
-    if (st.slice(0, 4) === at.slice(0, 4)) return true;
-  }
-  return false;
 }
 
 // --- Distraktor-Auswahl (identisch zur Cultura-Engine) ---------------------

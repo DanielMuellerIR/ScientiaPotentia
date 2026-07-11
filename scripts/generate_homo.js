@@ -14,6 +14,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { pickBalanced, deParse, shouldMagnitudeSpread, magnitudeSpreadDistractors } from './lib/quizrandom.js';
+import { norm, deNum } from './lib/generator_text.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -22,13 +23,6 @@ const CONCEPTS_OUT = join(ROOT, 'public', 'data', 'concepts_homo.json');
 const QUESTIONS_OUT = join(ROOT, 'public', 'data', 'questions_homo.json');
 
 const DOMAIN = 'homo';
-
-/** Deutsche Zahlformatierung: Punkt als Tausender-, Komma als Dezimaltrenner. */
-function deNum(value) {
-  if (typeof value !== 'number') value = Number(value);
-  if (!isFinite(value)) return String(value);
-  return value.toLocaleString('de-DE', { maximumFractionDigits: 4 });
-}
 
 /** Bis zu 3 Distraktoren: numerisch die wertnächsten (Plausibilität bleibt);
  *  sonst seeded-zufällig aus dem Pool, damit kein systematischer Längen-Bias
@@ -108,16 +102,6 @@ function bodyFactDistractors(c) {
   }
   return cands.slice(0, 3).map(v => `${caPrefix}${deNum(v)}${unit}`);
 }
-
-// --- Selbstverräter-Schutz ----------------------------------------------
-// Wirft Fragen weg, deren Antwort schon im Fragetext/Konzeptnamen steckt.
-// Beispiel: „In welcher Region liegt der Oberarmknochen?" -> Antwort „Arm"
-// (steckt buchstäblich im Namen). Solche Fragen sind wertlos.
-function norm(s) {
-  return String(s ?? '').toLowerCase()
-    .replace(/ß/g, 'ss').replace(/ä/g, 'a').replace(/ö/g, 'o').replace(/ü/g, 'u')
-    .replace(/[^a-z0-9]+/g, ' ').trim();
-}
 // Deutsche Körperteil-Wortstämme -> implizierte Region. Damit fällt auch
 // „Oberschenkelknochen" -> „Bein" auf, obwohl das Wort „Bein" nicht im Namen steht.
 const REGION_STEMS = [
@@ -135,6 +119,12 @@ function impliedRegions(name) {
   const n = norm(name);
   return REGION_STEMS.filter(([re]) => re.test(n)).map(([, r]) => r).join(' ');
 }
+// --- Selbstverräter-Schutz ----------------------------------------------
+// Wirft Fragen weg, deren Antwort schon im Fragetext/Konzeptnamen steckt.
+// Beispiel: „In welcher Region liegt der Oberarmknochen?" -> Antwort „Arm".
+// Homo behält BEWUSST eine eigene, anatomie-spezifische Variante (statt
+// lib/generator_text.js): deutsche Flexionsglättung + Komposita-Stämme
+// („Kaumuskel" verrät „…zum Kauen…", „Stirnbein" die „Stirn").
 // true, wenn die Antwort (oder ein markantes Wort daraus) bereits im Hinweis steht.
 function revealsAnswer(subject, answer) {
   const S = norm(subject), A = norm(answer);
