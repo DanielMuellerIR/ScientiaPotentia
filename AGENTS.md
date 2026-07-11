@@ -386,6 +386,23 @@ Die Rohdaten der Recherche befinden sich in den exportierten Sitzungsprotokollen
 ## 📅 Offene Todos & Nächste Schritte
 *Projektstatus und Todos für zukünftige Entwicklungs-Sessions.*
 
+### 0. Aus Projekt-Review 2026-07-12 (v1.85.4–v1.85.8)
+- [ ] **v1.85.4–v1.85.8 deployen:** live ist noch v1.85.3. Achtung: der erste Deploy nach
+  Einführung des Hash-Manifests (`deploy.py`, v1.85.6) lädt einmalig ALLES hoch und baut
+  dabei `.deploy-manifest.json` auf; ab dann inkrementell (Sekunden statt Minuten).
+- [ ] **Astra/Lingua auf `revealsAnswerStrict` aufwerten?** Beide nutzen die schwächere
+  Basis-Selbstverräter-Prüfung (vermutlich Drift, kein Design — seit v1.85.7 sichtbar in
+  `scripts/lib/generator_text.js`). Aufwertung siebt Fragen aus = Content-Änderung →
+  bewusst entscheiden und mit frischem QA-Sweep gegenprüfen, nicht still umstellen.
+- [ ] **`verify_facts.js` nachschärfen:** Englisch-Leak-Check ist für cultura/machina/
+  historia/lingua auf `null` (stumm); `correctAnswer` wird nicht auf Leer-String geprüft.
+  Optional als npm-Script verdrahten (bisher nur `audit:questions`).
+- [ ] **Fonts + maplibre-CSS selbst hosten:** `index.html` lädt render-blockierend von
+  Google Fonts/unpkg — widerspricht dem Offline-Ziel.
+- [ ] **Quiz.jsx entflechten:** God-Component (~1050 Zeilen); die Terra-Silhouetten-
+  Geometrie (~180 Zeilen, Shoelace/Projektion) in ein eigenes Modul ziehen, damit die
+  domain-agnostische Quiz-Komponente ehrlich domain-agnostisch wird.
+
 ### 1. Technische Architektur & Features
 - [x] **Entscheidung: Web-App vs. Tauri-App** getroffen (Web-App-first unter React/Vite).
 - [x] **Entscheidung: Kartentechnik** festlegen (MapLibre GL JS für die Weltkarte, vorgerenderte SVG-Konturen für isolierte Länder-Silhouetten).
