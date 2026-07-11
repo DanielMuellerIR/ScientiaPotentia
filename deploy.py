@@ -16,7 +16,10 @@ Benutzung:
 """
 
 import argparse
+import hashlib
+import json
 import os
+import ssl
 import sys
 import subprocess
 import ftplib
@@ -24,6 +27,14 @@ import ftplib
 # ── Pfade und Konfiguration ──────────────────────────────────────────────────
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 LOCAL_DIST = os.path.join(SCRIPT_DIR, "dist")
+
+# Lokales Manifest der zuletzt erfolgreich hochgeladenen Dateien
+# (remote-Pfad -> SHA-256 des Inhalts). Damit werden unveränderte Dateien beim
+# nächsten Deploy übersprungen, statt jedes Mal alle ~38 MB neu hochzuladen.
+# Ein reiner Größenvergleich wäre für Text/JSON unsicher (z.B. Jahreszahl-Fix
+# 1912->1913 = gleiche Größe); der Hash-Vergleich ist eindeutig.
+# Die Datei ist maschinenlokal und ge-gitignored.
+MANIFEST_PATH = os.path.join(SCRIPT_DIR, ".deploy-manifest.json")
 
 # Dynamische Ermittlung des Home-Verzeichnisses für maximale Portabilität
 HOME_DIR = os.path.expanduser("~")
@@ -105,6 +116,53 @@ def upload_file(ftps, local_file, remote_file, dry_run=False):
         ftps.storbinary(f"STOR {remote_file}", fh)
 
 
+def resolve_ftp_host(host):
+    """Liefert einen Hostnamen für die TLS-Zertifikatsprüfung.
+
+    Das Netcup-Zertifikat ist auf den Servernamen (z.B. ae82b.netcup.net)
+    ausgestellt, nicht auf die IP. Steht in der env-Datei eine IP, wird sie
+    per Reverse-DNS aufgelöst; das Zertifikat muss anschließend trotzdem von
+    einer öffentlichen CA für genau diesen Namen signiert sein.
+    Noch robuster: FTP_HOST in der env-Datei direkt auf den Hostnamen setzen.
+    """
+    import ipaddress
+    import socket
+    try:
+        ipaddress.ip_address(host)
+    except ValueError:
+        return host  # bereits ein Hostname
+    try:
+        name = socket.gethostbyaddr(host)[0]
+        print(f"[DEPLOY] FTP_HOST ist eine IP; verbinde über '{name}' (Zertifikatsprüfung).")
+        return name
+    except OSError:
+        return host
+
+
+def sha256_of_file(path):
+    """SHA-256 des Dateiinhalts (gestückelt gelesen, schont RAM bei großen JSONs)."""
+    h = hashlib.sha256()
+    with open(path, "rb") as fh:
+        for chunk in iter(lambda: fh.read(1024 * 1024), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+
+def load_manifest():
+    """Lädt das Upload-Manifest; fehlend/defekt = leeres Manifest (alles hochladen)."""
+    try:
+        with open(MANIFEST_PATH, "r", encoding="utf-8") as fh:
+            data = json.load(fh)
+            return data if isinstance(data, dict) else {}
+    except (OSError, ValueError):
+        return {}
+
+
+def save_manifest(manifest):
+    with open(MANIFEST_PATH, "w", encoding="utf-8") as fh:
+        json.dump(manifest, fh, indent=1, sort_keys=True)
+
+
 def main():
     parser = argparse.ArgumentParser(description="FTPS-Deploy von dist/ auf dm0.de/terra")
     parser.add_argument("--env", default=DEFAULT_ENV, help="Pfad zur env-Datei mit FTPS-Zugangsdaten")
@@ -133,7 +191,7 @@ def main():
     # 2. Zugangsdaten laden
     print(f"[DEPLOY] Reading FTPS credentials from: {args.env}")
     creds = load_env_credentials(args.env)
-    host = creds["FTP_HOST"]
+    host = resolve_ftp_host(creds["FTP_HOST"])
     user = creds["FTP_USER"]
     password = creds["FTP_PASS"]
     port = int(creds.get("FTP_PORT", "21"))
@@ -143,7 +201,9 @@ def main():
     if not args.dry_run:
         print(f"[DEPLOY] Connecting to FTPS host: {host}:{port} as user: {user}...")
         try:
-            ftps = ftplib.FTP_TLS()
+            # Standard-SSL-Kontext verifiziert das Server-Zertifikat inkl. Hostname —
+            # ohne ihn akzeptierte FTP_TLS jedes Zertifikat (MITM-Risiko).
+            ftps = ftplib.FTP_TLS(context=ssl.create_default_context())
             ftps.connect(host, port, timeout=15)
             ftps.login(user, password)
             ftps.prot_p()  # Verschlüsselt den Datenkanal (TLS)
@@ -162,6 +222,11 @@ def main():
 
     total_files = 0
     skipped_files = 0
+    failed_files = 0
+
+    # Manifest der letzten erfolgreichen Uploads; --force lädt alles neu hoch.
+    manifest = {} if args.force else load_manifest()
+    new_manifest = dict(manifest)
 
     for root, dirs, files in os.walk(LOCAL_DIST):
         rel_path = os.path.relpath(root, LOCAL_DIST)
@@ -189,13 +254,24 @@ def main():
                     skipped_files += 1
                     continue
 
-            # Inkrementeller Upload für bereits identische Mediendateien (um Text/HTML/JS/JSON-Änderungen gleicher Größe nicht zu überspringen)
+            # Hash-Skip: Inhalt ist identisch mit dem letzten erfolgreichen Upload
+            # dieser Maschine -> nichts zu tun. Greift für ALLE Dateitypen.
+            local_hash = sha256_of_file(local_file)
+            if not args.force and manifest.get(remote_file) == local_hash:
+                skipped_files += 1
+                continue
+
+            # Größen-Skip als Fallback für Mediendateien ohne Manifest-Eintrag
+            # (z.B. erster Lauf nach Einführung des Manifests). Für Text/JSON
+            # bewusst NICHT (gleiche Größe garantiert dort keinen gleichen Inhalt).
             is_media = any(m in remote_file.lower() for m in ["audio", "bilder", "images", "media"])
             if is_media and not args.force and not args.dry_run:
                 if remote_file_exists(ftps, remote_file):
                     local_size = os.path.getsize(local_file)
                     remote_size = get_remote_size(ftps, remote_file)
                     if remote_size == local_size:
+                        # Inhalt gilt als identisch -> künftig per Hash überspringen.
+                        new_manifest[remote_file] = local_hash
                         skipped_files += 1
                         continue
 
@@ -203,8 +279,11 @@ def main():
             try:
                 upload_file(ftps, local_file, remote_file, dry_run=args.dry_run)
                 total_files += 1
+                if not args.dry_run:
+                    new_manifest[remote_file] = local_hash
             except Exception as e:
                 print(f"[ERROR] Failed uploading {local_file}: {e}")
+                failed_files += 1
 
     if ftps:
         try:
@@ -212,9 +291,19 @@ def main():
         except Exception:
             ftps.close()
 
+    # Manifest sichern: nur tatsächlich gelungene Uploads wurden eingetragen,
+    # fehlgeschlagene Dateien werden beim nächsten Lauf erneut versucht.
+    if not args.dry_run:
+        save_manifest(new_manifest)
+
     print("=" * 60)
     if args.dry_run:
-        print(f"      [DRY-RUN] Simulierte Runden erfolgreich beendet.")
+        print(f"      [DRY-RUN] Simulierte Runden erfolgreich beendet ({skipped_files} übersprungen).")
+    elif failed_files:
+        # Teil-Deploy klar als Fehler melden (vorher: Exit 0 trotz Fehlschlägen).
+        print(f"      DEPLOYMENT INCOMPLETE! {failed_files} upload(s) FAILED, {total_files} uploaded, {skipped_files} skipped.")
+        print("=" * 60)
+        sys.exit(1)
     else:
         print(f"      DEPLOYMENT SUCCESSFUL! Uploaded {total_files} files to Netcup ({skipped_files} skipped).")
     print("=" * 60)
