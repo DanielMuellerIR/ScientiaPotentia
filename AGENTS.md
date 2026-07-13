@@ -586,3 +586,34 @@ ScientiaPotentia/
     ├── 2026-06-03_Einstein_8e84-e953af8b2bfc.md           # Kartentechnik
     └── 2026-06-03_Maxwell_ab51-fbb569c3ded4.md            # Quizdesign/Progression
 ```
+
+## Verzeichnisstruktur
+
+<!-- directory-structure: generated -->
+- [AGENTS.md](AGENTS.md) — Projektprofil, Arbeitsregeln und dieses Datei-Verzeichnis.
+- [CHANGELOG.md](CHANGELOG.md) — Projektdokumentation.
+- [CLAUDE.md](CLAUDE.md) — Projektdokumentation.
+- [LAYOUT.md](LAYOUT.md) — Projektdokumentation.
+- [README.md](README.md) — Projekt-Einstieg und Nutzerdokumentation.
+- [docs/archive/RECONSTRUCTION-TODO.md](docs/archive/RECONSTRUCTION-TODO.md) — Projektdokumentation.
+- [docs/archive/implementation_plan.md](docs/archive/implementation_plan.md) — Projektdokumentation.
+- [docs/archive/koerper_fakten_prozess.md](docs/archive/koerper_fakten_prozess.md) — Projektdokumentation.
+- [docs/archive/mobile-layout-plan.md](docs/archive/mobile-layout-plan.md) — Projektdokumentation.
+- [docs/bereichs_abgrenzung.md](docs/bereichs_abgrenzung.md) — Projektdokumentation.
+- [docs/bildquellen_strategie.md](docs/bildquellen_strategie.md) — Projektdokumentation.
+- [docs/content_pipeline.md](docs/content_pipeline.md) — Projektdokumentation.
+- [docs/extraktion_sachbuecher_plan.md](docs/extraktion_sachbuecher_plan.md) — Projektdokumentation.
+- [docs/homo_erweiterung.md](docs/homo_erweiterung.md) — Projektdokumentation.
+- [docs/homo_erweiterung_runde2.md](docs/homo_erweiterung_runde2.md) — Projektdokumentation.
+- [docs/qa_reports/qa_2026-07-01_astra-homo.md](docs/qa_reports/qa_2026-07-01_astra-homo.md) — Projektdokumentation.
+- [docs/qa_reports/qa_2026-07-01_generic.md](docs/qa_reports/qa_2026-07-01_generic.md) — Projektdokumentation.
+- [docs/qa_reports/qa_2026-07-01_generic_v2.md](docs/qa_reports/qa_2026-07-01_generic_v2.md) — Projektdokumentation.
+- [docs/qa_reports/qa_2026-07-01_validation.md](docs/qa_reports/qa_2026-07-01_validation.md) — Projektdokumentation.
+- [docs/wissensquellen.md](docs/wissensquellen.md) — Projektdokumentation.
+- [docs/wissensquellen_extern.md](docs/wissensquellen_extern.md) — Projektdokumentation.
+- `dist/` — Projektbestandteil; Details stehen im Code bzw. in der verlinkten Dokumentation.
+- `docs/` — Projektbestandteil; Details stehen im Code bzw. in der verlinkten Dokumentation.
+- `public/` — Projektbestandteil; Details stehen im Code bzw. in der verlinkten Dokumentation.
+- `scripts/` — Projektbestandteil; Details stehen im Code bzw. in der verlinkten Dokumentation.
+- `src/` — Projektbestandteil; Details stehen im Code bzw. in der verlinkten Dokumentation.
+<!-- /directory-structure -->
