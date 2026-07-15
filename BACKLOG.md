@@ -23,6 +23,10 @@ Vor Übernahme jeden Punkt gegen aktuellen Code, CHANGELOG und bestehende Projek
   erweitern, Fallback von „englisch durchreichen" auf „nicht fragen" umstellen und den
   Adjektiv-Leak lösen („in Kanada" → „Kanadischer Dollar"). Erst danach aus
   `DISABLED_TYPES` nehmen. Braucht eine belegte Quelle für die deutschen Namen.
+- `verify_facts.js` Englisch-Leak-Check: Meldet bei Lingua zwei Fehlalarme auf griechischen
+  Etymologien („én = in + theós = Gott" → „in" als englisches Wort gelesen). Vorbestehend,
+  harmlos, aber dieselbe Klasse wie die 2026-07-16 entrauschten Audit-Fehlalarme: Ein
+  Checker, der dauerhaft Bekanntes meldet, wird ignoriert und verdeckt dann Echtes.
 - Terra-Fortschritt deckelt bei 1.850/1.852: Die Städte Luxemburg und Dschibuti sind seit
   v1.85.11 nicht mehr abfragbar (ihre einzigen Fragen waren Selbstverräter), zählen im
   Dashboard aber weiter als Karteikarte. Entweder `totalEntitiesCount` aus den tatsächlich
