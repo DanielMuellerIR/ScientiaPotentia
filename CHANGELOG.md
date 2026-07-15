@@ -5,6 +5,45 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-07-16 (v1.85.10) — QA-Sweep: Amtssprachen-Frage entschärft, Audit entrauscht
+
+**Semantischer QA-Sweep über alle acht Domains** (~50.000 Fragen, deterministisch).
+Ergebnis: genau ein echter Defekt — und ein Prüfwerkzeug, das ihn hinter 433
+Fehlalarmen versteckte.
+
+**Der Defekt:** `lingua-language-official-countries` war für die 89 Sprachen mit
+genau einem Amtssprachen-Land nicht fair stellbar. Die richtige Antwort sitzt dort
+am **Boden der Skala** — ein Distraktor darunter ist unmöglich, weil „in 0 Ländern
+Amtssprache" der Frage widerspricht. Dadurch war „1 Land" zwangsläufig immer die
+kleinste Zahl **und** die einzige Singularform: zwei perfekte Tells, mit denen 69,5 %
+der 128 Fragen ohne jedes Sprachwissen lösbar waren. Bloßes Umformatieren hätte nur
+den Grammatik-Tell beseitigt, den Zahlen-Tell nicht. Das Template fragt daher nur
+noch Sprachen mit ≥ 2 Ländern (128 → 39 Fragen, Lingua 4.966 → 4.877). Neuer
+Generatorhebel `skipAsk`: nicht fragen, aber als Distraktor erhalten — „1 Land"
+bleibt in 28 der 39 Fragen Distraktor, sonst würde die 2 zum neuen Boden und der
+Defekt entstünde eine Stufe höher neu. Die Heuristik „nimm die kleinste Zahl" fällt
+von 69,5 % auf 0 %. Die Rückwärtsvariante war bereits sauber (0 Fragen mit mehreren
+richtigen Optionen).
+
+**Das Werkzeug:** `audit_questions.cjs` meldete alle 427 Terra-`click-map`-Fragen als
+„zu wenige Optionen", obwohl der Spieler dort die Karte anklickt und `options: []`
+korrekt ist; echte Strukturfehler wären darin untergegangen. Die
+Antwort-im-Stamm-Prüfung verglich per Substring und fand „Elch" im Fragewort
+„w**elch**es" (alle 6 Natura-Treffer). Die Regeln liegen jetzt testbar in
+`scripts/lib/audit_rules.cjs` und vergleichen auf Unicode-Wortgrenzen (`\b` scheidet
+wegen Umlauten aus); 10 Regressionstests nageln beide Fehlalarme fest. Terra-Struktur
+427 → 0, Natura Antwort-im-Stamm 6 → 0. Die 20 Terra-Trivialnamen (Hauptstadt von
+Luxemburg → „Luxemburg") bleiben bewusst sichtbar statt blind gefiltert.
+
+**Als Nicht-Defekte eingeordnet** (nicht erneut aufmachen): Die Längen-Bias-Meldungen
+zu `astra-planet-type` und `natura-geology-volcanotype` entstehen aus geschlossenem
+Kategorienvokabular — „Gesteinsplanet" ist zugleich das längste Wort und der
+häufigste Planetentyp. Das ist Realität, kein Template-Fehler.
+
+Verifiziert mit `verify:facts` (0 Fehler), Audit, 65 Unit-Tests, Layout-Check,
+Production-Build und Browserlauf (Lingua-Runde, Konzeptvisual mit Quellenangabe,
+Konsole sauber).
+
 ## 2026-07-12 (v1.85.9) — Review-Todos: Faire Fragen und vollständig lokale Ressourcen
 
 **Astra und Lingua** verwenden nun den strikten Selbstverräter-Guard; die daraus

@@ -18,6 +18,9 @@
 
 const fs = require('fs');
 const path = require('path');
+// `answerInStem` heißt hier `answerAppearsInStem`, weil unten ein gleichnamiges
+// Sammel-Array für die Treffer steht.
+const { expectsOptions, norm, answerInStem: answerAppearsInStem } = require('./lib/audit_rules.cjs');
 
 const DOMAINS = ['astra', 'cultura', 'historia', 'homo', 'lingua', 'machina', 'natura', 'terra'];
 const DATA = path.join(__dirname, '..', 'public', 'data');
@@ -26,12 +29,7 @@ const dumpArg = process.argv.find(a => a.startsWith('--dump='));
 const dumpDir = dumpArg ? dumpArg.split('=')[1] : null;
 if (dumpDir) fs.mkdirSync(dumpDir, { recursive: true });
 
-// Normalisierung für Antwort-im-Stamm-Vergleich.
-const norm = s => String(s ?? '')
-  .toLowerCase()
-  .replace(/[„“"»«›‹']/g, '')
-  .replace(/\s+/g, ' ')
-  .trim();
+// `norm` und die Prüfregeln liegen in ./lib/audit_rules.cjs (dort auch getestet).
 
 function loadQuestions(domain) {
   const p = path.join(DATA, `questions_${domain}.json`);
@@ -70,10 +68,11 @@ for (const domain of DOMAINS) {
     const t = byType[type];
 
     // --- Struktur ---
+    // Optionslose Typen (click-map) überspringen: dort ist `options: []` korrekt.
     const normOpts = opts.map(norm);
     const dup = new Set(normOpts).size !== normOpts.length;
     const hasCorrect = normOpts.includes(norm(correct));
-    if (opts.length < 2 || dup || !hasCorrect) {
+    if (expectsOptions(type) && (opts.length < 2 || dup || !hasCorrect)) {
       structural.push({ id: q.id, type, reason: opts.length < 2 ? 'zu wenige Optionen' : dup ? 'Dubletten-Option' : 'correctAnswer fehlt in options', prompt, correct, options: opts });
     }
 
@@ -96,9 +95,10 @@ for (const domain of DOMAINS) {
     // --- Antwort im Fragetext ---
     // Nur sinnvoll, wenn die Antwort kein triviales Kurzwort ist und nicht der
     // erwartete Reverse-Fall (answerIsName + Lemma im Stamm) vorliegt.
+    // Wortgrenzen-Vergleich (siehe audit_rules.cjs): "welches" enthält zwar
+    // "Elch", verrät die Antwort aber nicht.
     const nc = norm(correct);
-    const np = norm(prompt);
-    if (nc.length >= 4 && np.includes(nc)) {
+    if (answerAppearsInStem(prompt, correct)) {
       answerInStem.push({ id: q.id, type, prompt, correct, options: opts });
     }
 

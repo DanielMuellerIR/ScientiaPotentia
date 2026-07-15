@@ -4,8 +4,12 @@ Vor Übernahme jeden Punkt gegen aktuellen Code, CHANGELOG und bestehende Projek
 
 - Echten iPhone-Hochkantlauf für responsive Shell und VisualPanel.
 - Content-Ceilings pro Domain fachlich statt rein numerisch bewerten.
-- Offene semantische QA-Cluster pro Fragetyp neu auf aktuellen Daten sweepen; akzeptierte
-  Trivialnamen nicht erneut pauschal filtern.
 - Museum-/Explorer-Bildabdeckung gezielt erweitern, nur mit Lizenz- und Eignungsstichprobe.
 - Harvest-Zwischenstände additiv mergen; keine Legacy-Rebuild-Skripte.
-- Große aktuelle Domain-/Fragezahlen aus Daten generieren statt manuell in AGENTS pflegen.
+- Semantischen QA-Lauf (`scripts/qa_review`, MiniMax) auf den aktuellen Daten fahren. Die
+  deterministische Ebene ist mit v1.85.10 abgearbeitet; offen ist nur noch, was
+  strukturelle Checks prinzipiell nicht sehen (Sachfehler, unfaire Distraktoren,
+  Verständlichkeit). Der Lauf verbraucht MiniMax-Kontingent — vorher mit Daniel klären.
+- Weitere Templates auf „Antwort am Skalenboden" prüfen: Der Sweep 2026-07-16 deckte nur
+  Wortform-Tells ab. Attribute mit natürlicher Untergrenze (Mindestanzahlen, Zählungen ab 1)
+  können denselben Defekt tragen wie `officialIn`; `skipAsk` steht als Hebel bereit.

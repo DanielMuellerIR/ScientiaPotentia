@@ -253,8 +253,20 @@ const templates = [
     prompt: c => `Wie viele Muttersprachler hat ${c.name}?`,
     format: fmtMillions
   },
+  // Nur für Sprachen mit mindestens 2 Amtssprachen-Ländern fair (QA-Sweep 2026-07-16):
+  // Bei genau 1 Land sitzt die richtige Antwort am Boden der Skala. Ein Distraktor
+  // darunter ist unmöglich ("in 0 Ländern Amtssprache" widerspricht der Frage), also
+  // war "1 Land" zwangsläufig immer die kleinste Zahl UND die einzige Singularform —
+  // zwei perfekte Tells, die 89 der 128 Fragen ohne jedes Sprachwissen lösbar machten.
+  // Umformatieren hätte nur den Grammatik-Tell beseitigt, nicht den Zahlen-Tell.
+  // `skipAsk` statt `skip`, damit "1 Land" als Distraktor erhalten bleibt — sonst
+  // würde die 2 zum neuen Boden und der Defekt entstünde eine Stufe höher neu.
   {
     category: 'language', attr: 'officialIn', kind: 'num', type: 'lingua-language-official-countries', difficulty: 4,
+    // Explizit auf null prüfen: `cleanNum` liefert bei fehlendem Wert null, und
+    // `null < 2` wäre in JS true — wertlose Konzepte sollen aber wie bisher über
+    // den noValue-Zweig laufen, nicht hier als "unfair" gezählt werden.
+    skipAsk: c => { const n = cleanNum(c.attributes.officialIn); return n !== null && n < 2; },
     prompt: c => `In wie vielen Ländern ist ${c.name} Amtssprache?`,
     format: fmtCountries
   },
@@ -586,7 +598,9 @@ const templates = [
 // --- Fragen generieren ---------------------------------------------------
 const questions = [];
 // Skip-Zähler für den ehrlichen Abschlussbericht.
-const skipStats = { revealed: 0, fewDistractors: 0, noValue: 0 };
+// `unfair`: per skipAsk bewusst nicht gefragt, weil die Frage für dieses Konzept
+// nicht fair stellbar wäre (Wert am Skalenboden). Wert bleibt Distraktor.
+const skipStats = { revealed: 0, fewDistractors: 0, noValue: 0, unfair: 0 };
 
 for (const tpl of templates) {
   const conceptsInCat = byCategory[tpl.category] || [];
@@ -623,6 +637,11 @@ for (const tpl of templates) {
 
   for (const c of conceptsInCat) {
     if (tpl.skip && tpl.skip(c)) continue;
+    // `skipAsk` (im Gegensatz zu `skip`): Über dieses Konzept wird KEINE Frage
+    // gestellt, sein Wert bleibt aber oben im Distraktorpool. Nötig, wenn die
+    // Frage nur für einen Teil der Konzepte fair ist, die übrigen Werte aber als
+    // Distraktoren gebraucht werden — siehe officialIn-Template.
+    if (tpl.skipAsk && tpl.skipAsk(c)) { skipStats.unfair++; continue; }
     const vRaw = c.attributes[tpl.attr];
 
     // Korrekte Antwort + Distraktoren bestimmen.
