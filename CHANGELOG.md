@@ -46,6 +46,13 @@ nicht aus den Fragen, deckelt der Terra-Fortschritt bei 1.850/1.852 = 99,9 %.
 Verifiziert mit `verify_quiz.js` (56.880 Prüfungen, 0 Fehler), Audit, 65 Unit-Tests,
 Layout-Check, Build und Browserlauf (Terra-Runde, Karte, Konsole sauber).
 
+**Deployt (2026-07-16):** v1.85.10 und v1.85.11 zusammen live auf `https://dm0.de/sci/`
+(57 Dateien, 1 geschützte übersprungen). Live gegengeprüft: HTTP 200, Terra liefert
+5.023 Fragen und 0 `currency`, Lingua 4.877, kein „Hauptstadt von Luxemburg"-Leak mehr.
+Der Deploy lief als Vollupload (~61 MB), weil `.deploy-manifest.json` maschinenlokal und
+gitignored ist und der v1.85.9-Deploy auf einem anderen Mac stattfand — auf M5 ist das
+Manifest jetzt aufgebaut, künftige Deploys von hier sind inkrementell.
+
 ## 2026-07-16 (v1.85.10) — QA-Sweep: Amtssprachen-Frage entschärft, Audit entrauscht
 
 **Semantischer QA-Sweep über alle acht Domains** (~50.000 Fragen, deterministisch).
