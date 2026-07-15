@@ -1,5 +1,8 @@
 import fs from 'fs';
 import path from 'path';
+// Dieselben Regeln, die auch der Audit anwendet (scripts/audit_questions.cjs):
+// Der Generator soll gar nicht erst erzeugen, was der Audit anschlagen würde.
+import { answerInStem } from './lib/audit_rules.cjs';
 
 const PUBLIC_DIR = path.resolve('public/data');
 const DATA_DIR = path.resolve('src/data');
@@ -434,6 +437,15 @@ function run() {
       }
 
       // 3c. Currency Question
+      // ACHTUNG: Dieser Fragetyp ist seit v1.85.11 stillgelegt — er wird unten
+      // vor dem Schreiben herausgefiltert (siehe DISABLED_TYPES). Grund: Die
+      // CURRENCY_TRANSLATIONS-Tabelle deckt nur 23 Namen ab, der Fallback
+      // `|| namePart` reicht alle uebrigen still auf Englisch durch (121 von 174
+      // Fragen). Zudem verraet das Laenderadjektiv bei den uebersetzten Namen die
+      // Antwort ("in Kanada" -> "Kanadischer Dollar", 17 Faelle).
+      // Zum Reaktivieren: Tabelle belegt vervollstaendigen, Fallback auf "nicht
+      // fragen" statt Durchreichen umstellen, Adjektiv-Leak loesen — dann
+      // 'currency' aus DISABLED_TYPES nehmen.
       if (entity.metadata?.currency && entity.metadata.currency !== 'N/A') {
         const rawCurrency = entity.metadata.currency;
         const translateCurrency = (cur) => {
@@ -877,9 +889,34 @@ function run() {
     }
   });
 
-  fs.writeFileSync(QUESTIONS_OUTPUT, JSON.stringify(questions, null, 2));
+  // --- Fairness-Gates vor dem Schreiben -----------------------------------
+  // Ein zentraler Punkt statt Guards an 20+ push-Stellen: leichter zu pruefen
+  // und niemand vergisst ihn beim Ergaenzen eines Fragetyps.
+
+  // Stillgelegte Fragetypen (Grund jeweils am Erzeugungsort dokumentiert).
+  const DISABLED_TYPES = new Set(['currency']);
+
+  const before = questions.length;
+  const disabled = questions.filter(q => DISABLED_TYPES.has(q.type));
+  let kept = questions.filter(q => !DISABLED_TYPES.has(q.type));
+
+  // Selbstverraeter: Steht die Antwort als eigenstaendiges Wort im Fragetext,
+  // ist die Frage per String-Abgleich loesbar — ohne jedes Geografiewissen
+  // ("Was ist die Hauptstadt von Luxemburg?" -> "Luxemburg"). Wortgrenzen statt
+  // Substring, damit bekannte Trivialnamen, die echtes Kategorienwissen tragen
+  // ("Suedafrika" -> "Afrika"), erhalten bleiben.
+  const leaking = kept.filter(q => answerInStem(q.prompt, q.correctAnswer));
+  kept = kept.filter(q => !answerInStem(q.prompt, q.correctAnswer));
+
+  // Abzuege sichtbar machen: eine stille Kuerzung liest sich spaeter wie
+  // "war schon immer so".
+  console.log(`Stillgelegte Typen (${[...DISABLED_TYPES].join(', ')}): ${disabled.length} Fragen entfernt`);
+  console.log(`Selbstverraeter (Antwort als Wort im Fragetext): ${leaking.length} Fragen entfernt`);
+  for (const q of leaking) console.log(`   - [${q.type}] ${q.prompt} => ${q.correctAnswer}`);
+
+  fs.writeFileSync(QUESTIONS_OUTPUT, JSON.stringify(kept, null, 2));
   console.log(`Saved pre-compiled quiz questions to: ${QUESTIONS_OUTPUT}`);
-  console.log(`Total questions compiled: ${questions.length}`);
+  console.log(`Total questions compiled: ${kept.length} (aus ${before} erzeugten)`);
   console.log('--- QUIZ QUESTION COMPILING COMPLETE ---');
 }
 

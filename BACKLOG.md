@@ -13,3 +13,17 @@ Vor Übernahme jeden Punkt gegen aktuellen Code, CHANGELOG und bestehende Projek
 - Weitere Templates auf „Antwort am Skalenboden" prüfen: Der Sweep 2026-07-16 deckte nur
   Wortform-Tells ab. Attribute mit natürlicher Untergrenze (Mindestanzahlen, Zählungen ab 1)
   können denselben Defekt tragen wie `officialIn`; `skipAsk` steht als Hebel bereit.
+- `generate_questions.js` (Terra) seedbar machen: Der Generator nutzt ungeseedetes
+  `Math.random()` an 12+ Stellen, dazu das verzerrende `sort(() => 0.5 - Math.random())`.
+  Folge: Ein Lauf würfelt 4.787 von 5.217 Distraktorsätzen neu, `questions_terra.json` ist
+  nicht reproduzierbar und Generatorfixes lassen sich nur chirurgisch ausliefern. Lingua
+  macht es mit `seededShuffle` (Seed = id) vor. Der Umstieg kostet einmalig einen
+  Distraktor-Churn über fast den ganzen Terra-Bestand — vorher mit Daniel abstimmen.
+- Fragetyp `currency` reaktivieren: `CURRENCY_TRANSLATIONS` belegt auf alle ~174 Währungen
+  erweitern, Fallback von „englisch durchreichen" auf „nicht fragen" umstellen und den
+  Adjektiv-Leak lösen („in Kanada" → „Kanadischer Dollar"). Erst danach aus
+  `DISABLED_TYPES` nehmen. Braucht eine belegte Quelle für die deutschen Namen.
+- Terra-Fortschritt deckelt bei 1.850/1.852: Die Städte Luxemburg und Dschibuti sind seit
+  v1.85.11 nicht mehr abfragbar (ihre einzigen Fragen waren Selbstverräter), zählen im
+  Dashboard aber weiter als Karteikarte. Entweder `totalEntitiesCount` aus den tatsächlich
+  abfragbaren Entitäten ableiten oder für beide einen fairen Fragetyp ergänzen.

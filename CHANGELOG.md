@@ -5,6 +5,47 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-07-16 (v1.85.11) — Terra: Selbstverräter raus, Währungsfragen stillgelegt
+
+Nachtrag zum QA-Sweep. Die in v1.85.10 als „akzeptierte Trivialnamen" eingeordneten
+20 Terra-Fragen waren **falsch eingeordnet** — die Projektregel erlaubt als Ausnahme
+nur Trivialnamen, die *legitimes Kategorienwissen* verraten („Hammerhai"), und
+verbietet lediglich einen **pauschalen Filter**, nicht das Aussortieren. Die 20 sind
+reiner String-Abgleich ohne Wissenswert („Was ist die Hauptstadt von Luxemburg?" →
+„Luxemburg"; „In welchem Land liegt die Stadt Sunch'ŏn (Nordkorea)?" → „Nordkorea").
+Alle 20 entfernt. Sub-Wort-Nennungen wie „Südafrika" → „Afrika" bleiben, weil der Name
+dort tatsächlich Kategorienwissen trägt.
+
+**Fragetyp `currency` stillgelegt** (174 Fragen). Der Sweep über den strengen
+Selbstverräter-Guard förderte ihn zutage: `CURRENCY_TRANSLATIONS` deckt nur 23 Namen
+ab, der Fallback `|| namePart` reicht alle übrigen still auf Englisch durch — 121 von
+174 Fragen zeigten englische Währungsnamen („Fijian dollar", „Tanzanian shilling") in
+einem deutschen Quiz, der Distraktorpool war damit in zwei parallele Vokabulare
+zerfallen. Dazu 17 Adjektiv-Leaks („in Kanada" → „Kanadischer Dollar") und 5
+kleingeschriebene Substantive. Reaktivierung braucht eine belegte Übersetzungswelle;
+der Weg ist am Erzeugungsort dokumentiert.
+
+Beide Gates sitzen zentral vor dem Schreiben in `generate_questions.js` (`DISABLED_TYPES`
+und der `answerInStem`-Guard aus `lib/audit_rules.cjs` — der Generator erzeugt nicht
+mehr, was der Audit anschlägt) und protokollieren jeden Abzug einzeln. Terra 5.217 →
+5.023, Audit Antwort-im-Stamm 20 → 0.
+
+**Wichtig für künftige Terra-Arbeit:** `generate_questions.js` ist **ungeseedet**
+(`Math.random()` an 12+ Stellen, dazu das verzerrende `sort(() => 0.5 - Math.random())`).
+Ein Generatorlauf würfelt die Distraktoren von 4.787 der 5.217 Fragen neu;
+`questions_terra.json` ist faktisch ein eingefrorenes, nicht reproduzierbares Artefakt.
+Die 194 Fragen wurden deshalb bewusst chirurgisch aus der Datei entfernt (Diff: 0
+hinzugefügte, 3.298 entfernte Zeilen — kein Distraktor-Churn) statt per Neulauf. Die
+Gates im Generator sorgen dafür, dass sie bei einer künftigen Regeneration wegbleiben.
+
+**Bekannte Folge:** Die Städte Luxemburg und Dschibuti hatten ausschließlich die beiden
+geleakten Fragen. Sie bleiben Karteikarte und Kartenpunkt, sind aber nicht mehr
+abfragbar. Da das Dashboard `totalEntitiesCount` aus `geodb.entities` (1.852) zieht und
+nicht aus den Fragen, deckelt der Terra-Fortschritt bei 1.850/1.852 = 99,9 %.
+
+Verifiziert mit `verify_quiz.js` (56.880 Prüfungen, 0 Fehler), Audit, 65 Unit-Tests,
+Layout-Check, Build und Browserlauf (Terra-Runde, Karte, Konsole sauber).
+
 ## 2026-07-16 (v1.85.10) — QA-Sweep: Amtssprachen-Frage entschärft, Audit entrauscht
 
 **Semantischer QA-Sweep über alle acht Domains** (~50.000 Fragen, deterministisch).
