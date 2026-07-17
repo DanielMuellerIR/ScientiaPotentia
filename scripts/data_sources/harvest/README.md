@@ -10,6 +10,10 @@
   (Format wie `<domain>_raw.json`: `id, name, category, attributes, funFact, sourceName,
   sourceUrl, verifyNote` + Bildfelder `imageSearchTerm, imageFile, imageLicense,
   imageAttribution`).
+- `cand_terra_currency_f.json` — isolierter, nicht mergefreigegebener Kandidat für die 174
+  stillgelegten Terra-Währungsfragen. Reproduktion, Quellen, Sperrfälle und Stichprobe stehen in
+  `terra_currency_f_review.md`; Harvester und Offline-/Online-Gate heißen
+  `harvest_terra_currency_f.mjs` und `verify_terra_currency_f.mjs`.
 - `BRIEFING.md` — Auftrag, den jeder Finder gelesen hat.
 - `BLACKLIST.md` — vom Orchestrator (Opus) gepflegte Sperrliste (Quellen/URLs/Konzepte/Bilder)
   + Korrekturen. Vor jedem neuen Lauf von Findern zu lesen.

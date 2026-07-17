@@ -5,6 +5,50 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-07-17 (v1.91.1) — Isolierter Terra-Währungsnamen-Kandidat
+
+Das optionale Modul F der UI-Offensive ist als reproduzierbares, noch nicht
+mergefreigegebenes Kandidatenartefakt abgeschlossen. Aus den 175 Terra-Länder-Entities
+entstehen unter Ausschluss von `AQ` exakt 174 Länderzeilen mit 137 byteverschiedenen
+Rawstrings, 135 englischen Währungsnamen und 134 ISO-4217-Codes. Das deutsche
+`skos:prefLabel` je Code stammt aus der EU Publications Office Currency Authority List
+`20260105-0`; Deutsche Bundesbank und SIX dienen als Gegenquellen. 169 Einträge sind
+verifizierte Kandidaten. `BG`, `CU`, `EH`, `PS` und `ZW` bleiben wegen historischer
+Währungen oder abweichender Raw-/Gebietszuordnung als `blocked-source-data` gesperrt.
+
+Das Artefakt setzt `candidateOnly=true`, `rawMergeApproved=false` und
+`questionReactivationApproved=false`: Weder Terra-Rawdaten noch Generator oder aktive
+Fragen wurden geändert. Der Harvester prüft vor dem Schreiben die sortierte
+134-Code-EU-Projektion gegen SHA-256
+`1d8d81db8affb74f0d55642a2a5c46801e331ba341bc94aeb809c1be6ad01a68`;
+zwei Läufe erzeugten denselben Kandidaten-SHA-256
+`61115a85747592d82c7d2b99acd4a14b8f948cef500534b32c2ee07743b2b057`.
+Verifiziert: offline 3.604 Prüfungen und online 4.551 Prüfungen gegen die EU-Projektion.
+Mutierte deutsche Labels, Quellenblöcke und SPARQL-Queries wurden jeweils mit Exit 1
+abgewiesen. Ein Quellenupdate erfordert damit einen bewussten fachlichen Review statt
+stiller Regeneration.
+
+Release-Gates: 113/113 Vitest-Tests, Produktions-Build und Layoutvertrag 41/41. Der
+Build meldet weiterhin den bekannten Vite-Hinweis, dass `geodb` sowohl statisch als
+auch dynamisch importiert wird; dies ist kein Fehler. Terras projektspezifisches
+`node scripts/verify_quiz.js` prüfte 5.023 Fragen mit 56.880 Checks und 0 Fehlern.
+Das Fragen-Audit meldete für dieselben 5.023 Fragen 0 Strukturfehler,
+0 Antworten im Fragenstamm, 17 bestehende Format-Tells und keinen auffälligen
+Template-Längenbias. Der generische `verify:facts`-Lauf ist für Terra kein Gate, weil
+er ein nicht vorhandenes `concepts_terra.json` erwartet; deshalb wurde wie
+projektdokumentiert `verify_quiz.js` verwendet.
+
+Kalte Browserläufe mit v1.91.1 bei 1280×800 und 375×812 wechselten von Terra zu
+Natura, starteten das Quiz und beantworteten den „Daurischen Pfeifhasen“ korrekt als
+Säugetier. Bildattribution „Gustav Mützel · Public domain · Wikimedia Commons“ und
+Quelle Wikidata waren sichtbar. `body.scrollWidth` entsprach exakt 1280 beziehungsweise
+375 px, ohne X-Overflow; mobil war der Header 106 px hoch, der Hauptbereich begann bei
+y=114 und die drei Tabs maßen jeweils rund 108,33×44 px. Konsole und CDP zeichneten
+nach Reload und Interaktion 0 Events, Warnungen oder Exceptions auf. Belegbilder:
+`module-f-release-v1.91.1-terra-1280x800.png`,
+`module-f-release-v1.91.1-natura-answered-1280x800.png` und
+`module-f-release-v1.91.1-natura-answered-375x812.png`.
+
 ## 2026-07-17 (v1.91.0) — Kompakter mobiler Wissens-Header
 
 Modul E der UI-Offensive verdichtet den Header bis einschließlich 768 px zu einem
