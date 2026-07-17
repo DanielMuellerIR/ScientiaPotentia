@@ -2,6 +2,21 @@
 
 Vor Übernahme jeden Punkt gegen aktuellen Code, CHANGELOG und bestehende Projekt-Todos prüfen.
 
+- **UI-Offensive (geplante Welle, Prompt liegt bei Daniel; Sessionplanung 2026-07-17):**
+  Module in Prioritätsreihenfolge — (A) Terra „Pergament-Atlas": Positron-Style forken
+  nach `public/map_styles/`, `name:de`-Labels, Farbwelt an App-Tokens, Gold/Navy-Auswahl,
+  Lesbarkeits-Gate; (B) Astra-Explorer: Label-Decluttering (innere Planeten kollidieren
+  zu „MerkVenus SErde Mars"), Inneres-System-Inset, sanfter Klick-Zoomflug; (C) Astra 3D:
+  Spektralklassen-Glow + Limb-Darkening, Saturnring (PD, offline), Atmosphären-Rim,
+  Teleskop-Okular-Ansicht mit Commons-Bild für Nebel/Galaxien, IAU-Sternbildlinien,
+  schematische Transit-Animation; (D) Museum-Tab auf die Saal-/Flur-Komponente aus
+  GalleryExplorer umziehen (heute 5.041 Karten im DOM, danach ungenutzte
+  museum-grid-CSS prüfen); (E) Mobile-Header kompakt (Icon-Tabs einzeilig, heute ~40 %
+  Bildschirmhöhe unter 768px); (F, optional) Währungsnamen-Kandidatenartefakt, siehe
+  bestehenden currency-Punkt unten.
+- Depot-/Galerie-Suche matcht Substrings („eule" findet „Beulenkrokodil") — auf
+  Wortanfangs- oder diakritikrobuste Token-Suche umstellen.
+
 - Echten iPhone-Hochkantlauf für responsive Shell und VisualPanel.
 - Content-Ceilings pro Domain fachlich statt rein numerisch bewerten.
 - Museum-/Explorer-Bildabdeckung gezielt erweitern, nur mit Lizenz- und Eignungsstichprobe.
