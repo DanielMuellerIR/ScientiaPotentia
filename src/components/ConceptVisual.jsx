@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 // Label-Tabellen und Selbstverraeter-Guard-Mengen liegen zentral in conceptLabels.js
 // (geteilt mit Dashboard-Aufschluesselung und den QA-Werkzeugen).
 import { CATEGORY_LABELS, ATTR_LABELS, isAttrLeakedBeforeAnswer, sourceRevealsValue } from './conceptLabels';
 // Commons-Dateiseite -> direkter, skalierter Bild-Link (geteilt mit Museum/Galerie).
-import { commonsToDirectUrl } from '../utils/commonsImage';
+import AnswerRevealImage from './AnswerRevealImage';
 
 /**
  * Generische Konzept-Visualisierung fuer das linke Panel.
@@ -48,9 +48,6 @@ export default function ConceptVisual({
   // (Samttuch), egal ob die Frage die Identitaet oder ein Attribut testet.
   // Es laedt aber schon hinter dem Tuch, damit die Enthuellung nicht ruckelt.
   const image = concept?.image;
-  const [imgFailed, setImgFailed] = useState(false);
-  useEffect(() => { setImgFailed(false); }, [concept?.id, concept?.name]);
-  const showExhibit = Boolean(image?.url) && !imgFailed;
 
   const categoryKey = concept?.category || concept?.type || '';
   const categoryLabel = CATEGORY_LABELS[categoryKey] || categoryKey;
@@ -117,33 +114,11 @@ export default function ConceptVisual({
         {/* Gerahmtes Exponat: Bild laedt hinter dem Samttuch, Enthuellung nach
             der Antwort. Ohne Bild (oder bei Ladefehler) bleibt der bisherige
             Icon-Glow-Kreis erhalten. */}
-        {showExhibit ? (
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', marginBottom: '20px' }}>
-            <div className="exhibit-frame">
-              <div className="exhibit-mat">
-                <img
-                  className={detailsUnlocked ? 'exhibit-img exhibit-img--revealed' : 'exhibit-img'}
-                  src={commonsToDirectUrl(image.url, 640)}
-                  // Vor der Antwort auch im alt-Text nichts verraten.
-                  alt={detailsUnlocked ? (concept?.name || 'Exponat') : 'Verhülltes Exponat'}
-                  onError={() => setImgFailed(true)}
-                />
-              </div>
-              <div className={detailsUnlocked ? 'exhibit-drape exhibit-drape--lifted' : 'exhibit-drape'} aria-hidden={detailsUnlocked}>
-                <span className="exhibit-drape-q">?</span>
-              </div>
-            </div>
-            {/* Bildlizenz sichtbar im Panel, sobald das Bild sichtbar ist. */}
-            {detailsUnlocked && (image.license || image.attribution) ? (
-              <div
-                className="exhibit-credit"
-                title={`Bild: ${[image.attribution, image.license].filter(Boolean).join(' · ')} · Wikimedia Commons`}
-              >
-                Bild: {[image.attribution, image.license].filter(Boolean).join(' · ')} · Wikimedia Commons
-              </div>
-            ) : null}
-          </div>
-        ) : (
+        <AnswerRevealImage
+          image={image}
+          name={concept?.name}
+          revealed={detailsUnlocked}
+          fallback={(
           <span
             style={{
               display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -156,7 +131,8 @@ export default function ConceptVisual({
           >
             {Icon ? <Icon size={48} style={{ color: '#fff' }} /> : null}
           </span>
-        )}
+          )}
+        />
 
         {/* Kategorie-Badge */}
         {categoryLabel ? (

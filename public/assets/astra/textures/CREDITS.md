@@ -1,7 +1,7 @@
 # Astra-Texturen — Herkunft & Lizenz
 
-Alle Planeten-, Sonnen- und Mondtexturen in diesem Ordner stammen aus der
-freien Sammlung **Solar System Scope**.
+Die Planeten-, Sonnen-, Mond- und Sternenfeldtexturen in diesem Ordner stammen
+aus der freien Sammlung **Solar System Scope**.
 
 - Quelle: https://www.solarsystemscope.com/textures/
 - Lizenz: **Creative Commons Attribution 4.0 International (CC BY 4.0)**
@@ -20,3 +20,16 @@ Erdmond sowie ein Milchstraßen-Sternenfeld als Hintergrund.
 Himmelskörper ohne gesicherte Oberflächenkarte (Zwergplaneten, kleinere Monde,
 einzelne Sterne, Galaxien) werden **prozedural** dargestellt (wissenschaftlich
 plausible Farbgebung), nicht mit erfundenen Texturen.
+
+## Saturnringe: NASA PIA06175
+
+`saturn_rings_pia06175.jpg` ist eine auf 1600 Pixel Breite verkleinerte Fassung
+der NASA-Aufnahme **„Panoramic Rings“ (PIA06175)**.
+
+- Quelle: https://photojournal.jpl.nasa.gov/catalog/PIA06175
+- Credit: **NASA/JPL/Space Science Institute**
+- Verwendung gemäß den NASA-Richtlinien für Bilder und Medien:
+  https://www.nasa.gov/nasa-brand-center/images-and-media/
+
+Die Datei wird nicht als Creative-Commons- oder Public-Domain-Werk
+ausgezeichnet. Die App zeigt den Credit direkt bei der Saturnring-Darstellung.

@@ -5,6 +5,47 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-07-17 (v1.89.0) — Evidenzbasierte Astra-Visuals
+
+Modul C der UI-Offensive macht Sterne und belegte Himmelskörper anschaulicher, ohne
+fehlende Daten durch Allgemeinwissen zu ersetzen. Sterne besitzen nun standardmäßig
+Corona, Randabdunklung und eine sehr ruhige Rotation/Pulsation. Eine O/B/A/F/G/K/M-
+Tönung wird ausschließlich aus einem expliziten `spectralClass`-Attribut gelesen;
+der aktuelle Bestand enthält davon 0 bei 263 Sternen und erscheint deshalb bewusst
+neutral warm. Der vorbereitete Atmosphärensaum folgt ebenso nur positiver strukturierter
+Evidenz; aktuell belegt kein Astra-Konzept eine Atmosphäre in diesem Schema.
+
+Die vier mit `hasRings: true` belegten Planeten erhalten Ringe. Nur Saturn verwendet
+die lokal gebündelte NASA-Aufnahme „Panoramic Rings“ PIA06175 mit sichtbarem Credit
+NASA/JPL/Space Science Institute; Jupiter, Uranus und Neptun bleiben neutral schematisch.
+Namens-, Typ-, Kategorie-, Ring- und Atmosphärenfragen neutralisieren verräterische
+Texturen, Farben, Ringe und Kontextkarten bis zur Antwort. Quellen und Attribut-Chips
+laufen durch den gemeinsamen Selbstverräter-Guard.
+
+Galaxien, Nebel und Sternhaufen erscheinen als kreisförmiges Teleskopokular. Das
+gemeinsam mit `ConceptVisual` genutzte `AnswerRevealImage` lädt Commons-Bilder hinter
+der Abdeckung, hält Motiv, Alternativtext und Credit bis zur Antwort verborgen und
+zeigt danach Urheber, Lizenz und Commons-Fundort. 308 von 393 Deep-Sky-Konzepten haben
+ein Bild; 85 nutzen das neutrale Fallback. Fünf fehlende Urheberangaben wurden an der
+Astra-Rohquelle anhand der jeweiligen Commons-Dateiseite ergänzt und deterministisch
+neu erzeugt; damit sind alle 308 Bildcredits vollständig, die 5.055 Fragen unverändert.
+
+Für die 126 Exoplaneten mit belegter Transit-Entdeckungsmethode erscheint nach der
+Antwort eine ausdrücklich als „Schema / nicht maßstabsgetreu“ beschriftete Lichtkurve.
+Bei reduzierter Bewegung stehen WebGL-Szene und Marker vollständig still. Die optional
+gewünschten IAU-Sternbildlinien wurden bewusst nicht erfunden: Im Datenbestand fehlen
+Koordinaten, und die IAU definiert keine offiziellen Strichfiguren, sondern Grenzen.
+Eine mögliche, explizit zu wählende Linienkonvention steht deshalb im Backlog.
+
+Verifiziert: 106/106 Vitest-Tests, Produktions-Build, Layoutvertrag 17/17,
+`verify:facts` Astra ohne Fehler/Warnung und Fragen-Audit ohne Struktur- oder
+Antwort-im-Stamm-Fehler. Browserläufe bei 1280×800 und 375×812 deckten Stern, Saturn,
+Typ-Leakschutz, verhülltes/enthülltes Okular samt Credit, Transit, Domainwechsel und
+beantwortete Fragen ab; keine Warnung oder Exception. Auf einem 120-Hz-Display lag die
+RAF-Messung bei 8,3 ms Median und 9,4 ms p95 (≈120 fps). Zwei Reduced-Motion-Aufnahmen
+im Abstand von 700 ms waren bitgleich. Der lazy Astra-Chunk wächst gegenüber v1.88.0
+von 492,90 auf 500,70 kB (gzip 124,68→127,41 kB); `three` bleibt Astra-lazy.
+
 ## 2026-07-17 (v1.88.0) — Lesbarer Astra-Sonnensystem-Explorer
 
 Modul B der UI-Offensive entzerrt die zuvor zu „MerkVenus SErde Mars" kollidierenden

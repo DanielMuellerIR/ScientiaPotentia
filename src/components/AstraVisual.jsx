@@ -2,9 +2,11 @@ import React, { useRef, useEffect, useState } from 'react';
 import * as THREE from 'three';
 // Erscheinungs-/Beschriftungsdaten zentral (geteilt mit SolarSystemExplorer).
 import {
-  TEX_BASE, ATTRIBUTION, TEXTURES, BODY_COLORS, STAR_COLORS,
+  TEX_BASE, ATTRIBUTION, TEXTURES, BODY_COLORS,
   CATEGORY_LABELS, ATTR_LABELS, PLANET_ORDER
 } from './astraBodies';
+import { isAttrLeakedBeforeAnswer, sourceRevealsValue } from './conceptLabels';
+import AnswerRevealImage from './AnswerRevealImage';
 
 /**
  * Astra-Visualisierung: 3D-Himmelskörper auf Sternenfeld (three.js).
@@ -26,12 +28,176 @@ import {
  *   - activeConcept:    aktuell gefragtes Konzept (oder null außerhalb des Quiz)
  */
 
-// TEX_BASE, ATTRIBUTION, TEXTURES, BODY_COLORS, STAR_COLORS, CATEGORY_LABELS,
+// TEX_BASE, ATTRIBUTION, TEXTURES, BODY_COLORS, CATEGORY_LABELS,
 // ATTR_LABELS, PLANET_ORDER -> jetzt zentral in ./astraBodies (oben importiert).
 
-// Freitext-Chips beschreiben das Objekt oft so eindeutig, dass sie vor der
-// Antwort indirekt helfen. Darum erst nach Antwort anzeigen.
-const POST_ANSWER_ATTRS = new Set(['notableFor', 'definition', 'function']);
+export const NEUTRAL_STAR_COLOR = 0xffdfbd;
+export const SATURN_RING_TEXTURE = `${TEX_BASE}saturn_rings_pia06175.jpg`;
+export const SATURN_RING_ATTRIBUTION = 'Ringe: NASA/JPL/Space Science Institute · PIA06175';
+
+const SPECTRAL_COLORS = Object.freeze({
+  O: 0x9bb0ff,
+  B: 0xaabfff,
+  A: 0xcad7ff,
+  F: 0xf8f7ff,
+  G: 0xfff4ea,
+  K: 0xffd2a1,
+  M: 0xffb56c
+});
+const DEEP_SKY_CATEGORIES = new Set(['galaxy', 'nebula', 'star_cluster']);
+const CONTEXT_ATTRS = ['orderFromSun', 'distanceFromSunAU', 'distanceLy', 'parentPlanet', 'location'];
+const ASTRA_LEAKY_SIBLINGS = Object.freeze({
+  // Sternlisten nennen den hellsten Stern oft direkt. Dieser Astra-Sonderfall
+  // ergänzt den gemeinsamen Guard, ohne dessen zentrale Regeln zu duplizieren.
+  brightestStar: ['notableStars', 'mainStars']
+});
+
+export function isAstraAttrLeakedBeforeAnswer(key, testedAttribute) {
+  if (isAttrLeakedBeforeAnswer(key, testedAttribute)) return true;
+  return Boolean(ASTRA_LEAKY_SIBLINGS[testedAttribute]?.includes(key));
+}
+
+/** Spektralfarbe ausschließlich aus einem expliziten O/B/A/F/G/K/M-Wert. */
+export function spectralColorFromAttributes(attributes = {}, neutralize = false) {
+  if (neutralize) return NEUTRAL_STAR_COLOR;
+  const spectralClass = typeof attributes.spectralClass === 'string'
+    ? attributes.spectralClass.trim().toUpperCase().replace(/\s+/g, '')
+    : '';
+  // Ein freies Wort wie "orange" oder "mysterious" darf nicht zufällig als
+  // O- bzw. M-Klasse gelten. Belastbar sind nur der einzelne Klassenbuchstabe
+  // oder eine übliche, mit einer Temperaturziffer fortgesetzte Schreibweise.
+  const match = spectralClass.match(/^([OBAFGKM])(?:$|[0-9])/);
+  return match ? SPECTRAL_COLORS[match[1]] : NEUTRAL_STAR_COLOR;
+}
+
+/** Prüft nur strukturierte Daten; Freitext wie funFact ist bewusst keine Evidenz. */
+export function hasAtmosphereEvidence(attributes = {}) {
+  const atmosphere = attributes.atmosphere;
+  const hasPositiveText = value => {
+    if (typeof value !== 'string') return false;
+    const normalized = value.trim().toLocaleLowerCase('de-DE');
+    return Boolean(normalized) &&
+      !/^(?:false|nein|keine|kein|ohne|unbekannt|unknown|none|n\/a|—|-)$/.test(normalized);
+  };
+
+  // Bei widersprüchlichen Daten gewinnt die explizite Negation: lieber kein
+  // Effekt als aus inkonsistenter Evidenz eine Atmosphäre abzuleiten.
+  if (atmosphere && !Array.isArray(atmosphere) && typeof atmosphere === 'object') {
+    if (Object.hasOwn(atmosphere, 'present') && atmosphere.present !== true) return false;
+    if (Object.hasOwn(atmosphere, 'hasAtmosphere') && atmosphere.hasAtmosphere !== true) return false;
+  }
+  if (attributes.hasAtmosphere === true) return true;
+
+  if (Array.isArray(atmosphere)) return atmosphere.some(hasPositiveText);
+  if (atmosphere && typeof atmosphere === 'object') {
+    // Explizite Negation gewinnt. Ansonsten akzeptieren wir nur bekannte
+    // strukturierte Evidenzfelder, nicht beliebige Objektwerte wie false.
+    if (Object.hasOwn(atmosphere, 'present')) return atmosphere.present === true;
+    if (Object.hasOwn(atmosphere, 'hasAtmosphere')) return atmosphere.hasAtmosphere === true;
+    return ['composition', 'components', 'gases'].some(key => {
+      const value = atmosphere[key];
+      return Array.isArray(value) ? value.some(hasPositiveText) : hasPositiveText(value);
+    });
+  }
+  return hasPositiveText(atmosphere);
+}
+
+export function hasTransitEvidence(concept) {
+  return (concept?.category || concept?.type) === 'exoplanet' &&
+    /transit/i.test(String(concept?.attributes?.discoveryMethod || ''));
+}
+
+/**
+ * Eine zentrale Offenlegungspolitik hält Canvas, Overlays und Quellenzeile
+ * synchron. Alle vor der Antwort sichtbaren Attribute laufen durch denselben
+ * Guard wie ConceptVisual und die semantische QA.
+ */
+export function getAstraDisclosurePolicy({
+  concept,
+  testedAttribute = null,
+  answerIsName = false,
+  hideConceptIdentity = false,
+  isQuestionAnswered = false
+}) {
+  const detailsUnlocked = Boolean(isQuestionAnswered);
+  const hideIdentity = (answerIsName || hideConceptIdentity) && !detailsUnlocked;
+  const attrs = concept?.attributes || {};
+  const category = concept?.category || concept?.type || '';
+  const isDeepSky = DEEP_SKY_CATEGORIES.has(category);
+  const beforeAnswer = !detailsUnlocked;
+  const attrHidden = key => beforeAnswer && isAstraAttrLeakedBeforeAnswer(key, testedAttribute);
+  const atmosphereHidden = attrHidden('hasAtmosphere') || attrHidden('atmosphere');
+  const testedValue = testedAttribute != null ? attrs[testedAttribute] : null;
+  const sourceName = concept?.source?.name || '';
+  // Bei Typ-/Kategoriefragen kann schon die charakteristische Oberfläche,
+  // ein Ringsystem oder die Bahn die Antwort nahelegen. Dann bleibt die Szene
+  // bis zur Antwort ebenso neutral wie bei einer Identitätsfrage.
+  const neutralizeSceneIdentity = hideIdentity || attrHidden('type') || attrHidden('category');
+
+  return {
+    detailsUnlocked,
+    hideIdentity,
+    neutralizeSceneIdentity,
+    neutralizeStar: neutralizeSceneIdentity || attrHidden('spectralClass'),
+    showRings: attrs.hasRings === true && !neutralizeSceneIdentity && !attrHidden('hasRings'),
+    showAtmosphere: hasAtmosphereEvidence(attrs) && !neutralizeSceneIdentity && !atmosphereHidden,
+    showContextMap: !neutralizeSceneIdentity && !CONTEXT_ATTRS.some(attrHidden),
+    isDeepSky,
+    showDeepSkyImage: isDeepSky && Boolean(concept?.image?.url),
+    revealDeepSkyImage: detailsUnlocked,
+    showTransitDiagram: detailsUnlocked && !hideIdentity && hasTransitEvidence(concept),
+    showSource: Boolean(sourceName) && !(beforeAnswer && (
+      hideIdentity || sourceRevealsValue(sourceName, testedValue)
+    ))
+  };
+}
+
+function NeutralDeepSkyOcular() {
+  return (
+    <div className="answer-reveal answer-reveal--ocular">
+      <div className="exhibit-frame exhibit-frame--ocular">
+        <div
+          className="exhibit-mat exhibit-mat--ocular"
+          role="img"
+          aria-label="Neutrale schematische Deep-Sky-Ansicht"
+        >
+          <span className="deep-sky-neutral" aria-hidden="true" />
+          <span className="ocular-reticle" aria-hidden="true" />
+        </div>
+      </div>
+      <div className="deep-sky-fallback-label">Schematische Ansicht</div>
+    </div>
+  );
+}
+
+/** Geteilte Okularfassung für Galaxien, Nebel und Sternhaufen. */
+export function DeepSkyOcular({ concept, revealed }) {
+  if (!DEEP_SKY_CATEGORIES.has(concept?.category || concept?.type)) return null;
+  return (
+    <AnswerRevealImage
+      image={concept?.image}
+      name={concept?.name}
+      revealed={revealed}
+      variant="ocular"
+      width={960}
+      fallback={<NeutralDeepSkyOcular />}
+    />
+  );
+}
+
+/** Rein schematische Lichtkurve; sie erscheint nur nach einer beantworteten Frage. */
+export function ExoplanetTransitDiagram() {
+  return (
+    <div className="astra-transit" aria-label="Schematische Exoplaneten-Transitlichtkurve">
+      <svg viewBox="0 0 180 66" role="img" aria-hidden="true">
+        <path className="astra-transit-axis" d="M8 10 V54 H172" />
+        <path className="astra-transit-curve" d="M10 18 H62 C72 18 72 46 84 46 H108 C120 46 120 18 130 18 H170" />
+        <circle className="astra-transit-marker" cx="0" cy="0" r="3" />
+      </svg>
+      <span>Schema / nicht maßstabsgetreu</span>
+    </div>
+  );
+}
 
 /** Weiches radiales Glow-Sprite (für Sterne/Galaxien) als Canvas-Textur. */
 function makeGlowTexture(rgb = '255,240,200') {
@@ -48,6 +214,30 @@ function makeGlowTexture(rgb = '255,240,200') {
   const tex = new THREE.CanvasTexture(cv);
   tex.colorSpace = THREE.SRGBColorSpace;
   return tex;
+}
+
+/** Dunkelt ausschließlich den Sternrand ab und lässt die Mitte transparent. */
+function makeLimbDarkeningTexture() {
+  const size = 256;
+  const cv = document.createElement('canvas');
+  cv.width = cv.height = size;
+  const ctx = cv.getContext('2d');
+  const radius = size / 2;
+  const gradient = ctx.createRadialGradient(radius, radius, 0, radius, radius, radius);
+  gradient.addColorStop(0, 'rgba(20,8,2,0)');
+  gradient.addColorStop(0.68, 'rgba(20,8,2,0)');
+  gradient.addColorStop(0.88, 'rgba(18,7,2,.22)');
+  gradient.addColorStop(1, 'rgba(8,3,1,.72)');
+  ctx.save();
+  ctx.beginPath();
+  ctx.arc(radius, radius, radius - 1, 0, Math.PI * 2);
+  ctx.clip();
+  ctx.fillStyle = gradient;
+  ctx.fillRect(0, 0, size, size);
+  ctx.restore();
+  const texture = new THREE.CanvasTexture(cv);
+  texture.colorSpace = THREE.SRGBColorSpace;
+  return texture;
 }
 
 function hexToRgbStr(hex) {
@@ -221,6 +411,13 @@ export default function AstraVisual({
   const [ready, setReady] = useState(false);
   const detailsUnlocked = Boolean(isQuestionAnswered);
   const hideIdentity = (answerIsName || hideConceptIdentity) && !detailsUnlocked;
+  const disclosure = getAstraDisclosurePolicy({
+    concept: activeConcept,
+    testedAttribute,
+    answerIsName,
+    hideConceptIdentity,
+    isQuestionAnswered
+  });
 
   // --- Szene einmalig aufbauen ------------------------------------------
   useEffect(() => {
@@ -261,6 +458,78 @@ export default function AstraVisual({
     const body = new THREE.Mesh(bodyGeo, new THREE.MeshStandardMaterial({ color: 0x888888 }));
     scene.add(body);
 
+    // Ringgeometrie ist für alle Ringplaneten gleich. Nur Saturn darf die
+    // gesicherte NASA-Aufnahme verwenden; die übrigen bleiben schematisch.
+    const ringGeo = new THREE.RingGeometry(1.24, 2.05, 160);
+    const rings = new THREE.Mesh(
+      ringGeo,
+      new THREE.MeshBasicMaterial({
+        color: 0xc8c2ae,
+        transparent: true,
+        opacity: 0.48,
+        side: THREE.DoubleSide,
+        depthWrite: false
+      })
+    );
+    rings.rotation.x = 1.15;
+    rings.rotation.z = -0.18;
+    rings.visible = false;
+    scene.add(rings);
+
+    // Die NASA-Aufnahme zeigt Saturns Ringe bereits perspektivisch. Eine
+    // separate Ebene bewahrt diese Geometrie; Schwarz bleibt durch additives
+    // Blending transparent, die Planetenkugel verdeckt den mittleren Bereich.
+    const saturnRingGeo = new THREE.PlaneGeometry(2.05, 0.35);
+    const saturnRingMaterial = new THREE.MeshBasicMaterial({
+      color: 0xffffff,
+      transparent: true,
+      opacity: 0.9,
+      blending: THREE.AdditiveBlending,
+      side: THREE.DoubleSide,
+      depthWrite: false
+    });
+    const saturnRingRight = new THREE.Mesh(saturnRingGeo, saturnRingMaterial);
+    saturnRingRight.position.x = 1.025;
+    const saturnRingLeft = new THREE.Mesh(saturnRingGeo, saturnRingMaterial);
+    saturnRingLeft.position.x = -1.025;
+    saturnRingLeft.scale.x = -1;
+    const saturnRings = new THREE.Group();
+    saturnRings.add(saturnRingLeft, saturnRingRight);
+    saturnRings.position.z = -0.16;
+    saturnRings.visible = false;
+    scene.add(saturnRings);
+
+    // Dünner Fresnel-Saum: keine angenommene Atmosphäre, sondern nur dann
+    // sichtbar, wenn strukturierte Attribute die Atmosphäre belegen.
+    const atmosphereGeo = new THREE.SphereGeometry(1.07, 64, 64);
+    const atmosphereRim = new THREE.Mesh(
+      atmosphereGeo,
+      new THREE.ShaderMaterial({
+        uniforms: { glowColor: { value: new THREE.Color(0x8fc8ff) } },
+        vertexShader: `
+          varying vec3 vNormal;
+          void main() {
+            vNormal = normalize(normalMatrix * normal);
+            gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+          }
+        `,
+        fragmentShader: `
+          uniform vec3 glowColor;
+          varying vec3 vNormal;
+          void main() {
+            float rim = pow(1.0 - max(0.0, vNormal.z), 3.4);
+            gl_FragColor = vec4(glowColor, rim * 0.55);
+          }
+        `,
+        transparent: true,
+        blending: THREE.AdditiveBlending,
+        side: THREE.BackSide,
+        depthWrite: false
+      })
+    );
+    atmosphereRim.visible = false;
+    scene.add(atmosphereRim);
+
     // Glühender Halo für Sterne/Galaxien (Sprite).
     const glow = new THREE.Sprite(new THREE.SpriteMaterial({
       map: makeGlowTexture(), blending: THREE.AdditiveBlending, depthWrite: false, transparent: true
@@ -269,11 +538,42 @@ export default function AstraVisual({
     glow.visible = false;
     scene.add(glow);
 
+    // Separate Randabdunklung über der Sternkugel. Das Sprite ist neutral und
+    // wird zusammen mit dem Stern-Halo an-/abgeschaltet.
+    const limbDarkening = new THREE.Sprite(new THREE.SpriteMaterial({
+      map: makeLimbDarkeningTexture(),
+      transparent: true,
+      depthTest: false,
+      depthWrite: false
+    }));
+    limbDarkening.position.z = 1.02;
+    limbDarkening.scale.set(2.03, 2.03, 1);
+    limbDarkening.visible = false;
+    limbDarkening.renderOrder = 4;
+    scene.add(limbDarkening);
+
     // Eine wiederverwendbare Stern-Oberflächentextur (Granulation) für alle
     // Sterne ohne echte Textur; die Spektralfarbe kommt vom Material.
     const starSurface = makeStarSurfaceTexture();
 
-    Object.assign(ctx.current, { scene, camera, renderer, loader, body, starfield, glow, starSurface, texCache: {} });
+    Object.assign(ctx.current, {
+      scene,
+      camera,
+      renderer,
+      loader,
+      body,
+      rings,
+      saturnRings,
+      saturnRingMaterial,
+      atmosphereRim,
+      starfield,
+      glow,
+      limbDarkening,
+      starSurface,
+      texCache: {},
+      isStarActive: false,
+      glowBaseScale: 3.6
+    });
 
     // Größe an Container koppeln.
     const resize = () => {
@@ -287,15 +587,28 @@ export default function AstraVisual({
     const ro = new ResizeObserver(resize);
     ro.observe(mount);
 
+    const reducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
+    const startedAt = performance.now();
     let raf;
-    const animate = () => {
-      body.rotation.y += 0.0025;
-      glow.material.rotation += 0.001;
-      starfield.rotation.y += 0.0002;
+    const animate = now => {
+      if (!reducedMotion) {
+        body.rotation.y += 0.0025;
+        rings.rotation.z += 0.00025;
+        glow.material.rotation += 0.001;
+        starfield.rotation.y += 0.0002;
+        if (ctx.current.isStarActive) {
+          // Sehr kleine, periodische Änderung: sichtbar lebendig, aber kein
+          // hektisches Flackern und keinerlei DOM-Messung im Render-Loop.
+          const pulse = 1 + Math.sin((now - startedAt) / 720) * 0.012;
+          const scale = (ctx.current.glowBaseScale || 3.6) * pulse;
+          glow.scale.set(scale, scale, 1);
+          glow.material.opacity = 0.92 + Math.sin((now - startedAt) / 510) * 0.04;
+        }
+      }
       renderer.render(scene, camera);
       raf = requestAnimationFrame(animate);
     };
-    animate();
+    raf = requestAnimationFrame(animate);
     setReady(true);
 
     // Aufräumen: Loop, Observer, GPU-Ressourcen.
@@ -309,8 +622,16 @@ export default function AstraVisual({
       starTex.dispose();
       bodyGeo.dispose();
       body.material.dispose();
+      ringGeo.dispose();
+      rings.material.dispose();
+      saturnRingGeo.dispose();
+      saturnRingMaterial.dispose();
+      atmosphereGeo.dispose();
+      atmosphereRim.material.dispose();
       glow.material.map?.dispose();
       glow.material.dispose();
+      limbDarkening.material.map?.dispose();
+      limbDarkening.material.dispose();
       starfield.material.dispose();
       starfield.geometry.dispose();
       renderer.dispose();
@@ -323,49 +644,50 @@ export default function AstraVisual({
   useEffect(() => {
     const c = ctx.current;
     if (!ready || !c.body) return;
-    const { body, glow, loader, texCache, starSurface } = c;
+    const {
+      body,
+      rings,
+      saturnRings,
+      saturnRingMaterial,
+      atmosphereRim,
+      glow,
+      limbDarkening,
+      loader,
+      texCache,
+      starSurface
+    } = c;
 
-    if (!activeConcept) {
-      body.visible = false;
-      glow.visible = false;
-      return;
-    }
+    c.isStarActive = false;
+    body.visible = false;
+    rings.visible = false;
+    saturnRings.visible = false;
+    atmosphereRim.visible = false;
+    glow.visible = false;
+    limbDarkening.visible = false;
+    glow.material.opacity = 1;
+
+    if (!activeConcept) return;
 
     const id = (activeConcept.id || '').replace(/^astra:/, '');
     const cat = activeConcept.category || activeConcept.type;
 
-    // Galaxie / Konstante: kein Körper, ggf. Glow.
-    if (cat === 'galaxy') {
-      body.visible = false;
-      glow.material.map?.dispose();
-      glow.material.map = makeGlowTexture('200,210,255');
-      glow.scale.set(5.2, 3.0, 1); // abgeflachte Scheibe
-      glow.visible = true;
-      return;
-    }
-    if (cat === 'constant') {
-      body.visible = false;
-      glow.visible = false;
-      return;
-    }
+    // Deep-Sky-Objekte liegen vollständig im DOM-Okular. Dort gibt es für
+    // Galaxie, Nebel und Sternhaufen dasselbe neutrale Ladefehler-/Ohne-Bild-
+    // Fallback; dadurch fällt keine Kategorie auf eine irreführende Kugel zurück.
+    if (disclosure.isDeepSky) return;
+    if (cat === 'constant') return;
 
     body.visible = true;
 
     const isStar = cat === 'star';
     const texFile = TEXTURES[id];
+    const starColor = spectralColorFromAttributes(
+      activeConcept.attributes,
+      disclosure.neutralizeStar
+    );
 
-    // Selbstverräter-Guard für die Stern-Erscheinung: Die spektraltypische Farbe
-    // (warm = K/M, weiß = A, bläulich = B) verrät den Sterntyp. Wenn die Frage
-    // genau den Typ abfragt ODER der Name die Antwort ist, neutralisieren wir die
-    // Farbe (dezentes Weißgrau) statt typ-spezifisch einzufärben.
-    const neutralizeStar = isStar && !detailsUnlocked && (testedAttribute === 'type' || hideIdentity);
-    const NEUTRAL_STAR = 0xdcdce0; // dezentes Weißgrau
-    const starColor = neutralizeStar ? NEUTRAL_STAR : (STAR_COLORS[id] || 0xfff2cc);
-
-    if (texFile && !neutralizeStar) {
+    if (texFile && !isStar && !disclosure.neutralizeSceneIdentity) {
       // Echte Oberflächentextur laden (gecached).
-      // Hinweis: Bei neutralizeStar überspringen wir die Textur, weil aktuell nur
-      // die Sonne eine Stern-Textur hat — und deren Anblick ist ohnehin eindeutig.
       let tex = texCache[id];
       if (!tex) {
         tex = loader.load(`${TEX_BASE}${texFile}`);
@@ -373,66 +695,88 @@ export default function AstraVisual({
         texCache[id] = tex;
       }
       body.material.dispose();
-      body.material = isStar
-        ? new THREE.MeshBasicMaterial({ map: tex }) // Sonne: leuchtet selbst
-        : new THREE.MeshStandardMaterial({ map: tex, roughness: 1, metalness: 0 });
+      body.material = new THREE.MeshStandardMaterial({ map: tex, roughness: 1, metalness: 0 });
     } else {
-      // Prozedural: plausible Farbe je Körper/Kategorie.
-      // Stern: ggf. neutralisierte Farbe (siehe oben), sonst Spektralfarbe.
+      // Ohne belastbare Evidenz bleiben Sterne neutral warm. Bei versteckter
+      // Identität werden auch Körperfarbe und echte Textur neutralisiert.
       const color = isStar
         ? starColor
-        : (BODY_COLORS[id] || (cat === 'dwarf_planet' ? 0xb8a98f : 0x9b9286));
+        : disclosure.neutralizeSceneIdentity
+          ? 0x9b9286
+          : (BODY_COLORS[id] || (cat === 'dwarf_planet' ? 0xb8a98f : 0x9b9286));
       body.material.dispose();
-      // Stern: Granulationstextur, vom Material in der Spektral-/Neutralfarbe getönt
-      // (map * color). So wirkt die Oberfläche lebendig statt flach einfarbig. Der
-      // Glow-Halo bleibt davon unberührt. Andere Körper unverändert prozedural.
       body.material = isStar
         ? new THREE.MeshBasicMaterial({ map: starSurface, color })
         : new THREE.MeshStandardMaterial({ color, roughness: 1, metalness: 0 });
     }
 
-    // Sterne mit Glow-Halo. Farbe richtet sich nach starColor, also auch hier
-    // neutralisiert, damit der Halo den Sterntyp nicht über die Hintertür verrät.
+    // Corona und Randabdunklung gehören zur neutralen Standarddarstellung jedes
+    // Sterns; nur die Farbe kann bei belegter Spektralklasse variieren.
     if (isStar) {
       glow.material.map?.dispose();
       glow.material.map = makeGlowTexture(hexToRgbStr(starColor));
       glow.scale.set(3.6, 3.6, 1);
       glow.visible = true;
-    } else {
-      glow.visible = false;
+      limbDarkening.visible = true;
+      c.isStarActive = true;
+      c.glowBaseScale = 3.6;
     }
-  }, [activeConcept, ready, testedAttribute, hideIdentity, detailsUnlocked]);
+
+    if (disclosure.showRings) {
+      if (id === 'saturn') {
+        let ringTexture = texCache.saturnRingsPia06175;
+        if (!ringTexture) {
+          ringTexture = loader.load(SATURN_RING_TEXTURE);
+          ringTexture.colorSpace = THREE.SRGBColorSpace;
+          texCache.saturnRingsPia06175 = ringTexture;
+        }
+        saturnRingMaterial.map = ringTexture;
+        saturnRingMaterial.needsUpdate = true;
+        saturnRings.visible = true;
+      } else {
+        rings.visible = true;
+      }
+    }
+
+    atmosphereRim.visible = disclosure.showAtmosphere;
+  }, [
+    activeConcept,
+    ready,
+    disclosure.neutralizeSceneIdentity,
+    disclosure.neutralizeStar,
+    disclosure.isDeepSky,
+    disclosure.showAtmosphere,
+    disclosure.showRings
+  ]);
 
   // --- HTML-Overlay (Infos + Lizenz) über dem Canvas --------------------
   const accent = domain.accent || '#5B4B8A';
   const cat = activeConcept?.category || activeConcept?.type;
   const catLabel = CATEGORY_LABELS[cat] || cat || '';
   const attrs = activeConcept?.attributes || {};
-  // Selbstverräter-Guard für die Attribut-Chips:
-  //   - unbeantwortete Reverse-Frage: gar keine Chips (Identitaet verborgen).
-  //   - unbeantwortete Vorwaertsfrage: getestetes Attribut und Freitextdetails
-  //     ausblenden; nach der Antwort sind sie als Erklaerung sichtbar.
-  // Verräterische Geschwister-Attribute: Wird der hellste Stern gefragt, würden
-  // die sichtbaren Sternlisten (notableStars „Rigel, Beteigeuze …", mainStars)
-  // die Antwort verraten -> vor der Antwort mit ausblenden (analog zum
-  // LEAKY_SIBLINGS-Guard des generischen Panels). QA-Fund/Hebel 2026-07-01.
-  const LEAKY_SIBLINGS = { brightestStar: ['notableStars', 'mainStars'] };
-  const leakedSiblings = (!detailsUnlocked && LEAKY_SIBLINGS[testedAttribute]) || [];
-  const attrEntries = hideIdentity
+  const attrEntries = disclosure.hideIdentity
     ? []
     : Object.entries(attrs)
         .filter(([k, v]) => v !== undefined && v !== null && v !== '' && k !== 'unit')
-        .filter(([k]) => detailsUnlocked || (k !== testedAttribute && !POST_ANSWER_ATTRS.has(k) && !leakedSiblings.includes(k)))
+        .filter(([k]) => detailsUnlocked || !isAstraAttrLeakedBeforeAnswer(k, testedAttribute))
         .slice(0, 4);
-  const hasTexture = activeConcept && TEXTURES[(activeConcept.id || '').replace(/^astra:/, '')];
-
-  // Verrät die Positions-/Lage-Kontextkarte die Antwort? Das ist der Fall, wenn die
-  // Frage eine Positions-/Lage-Größe abfragt (Reihenfolge/Entfernung/Lage) oder der
-  // Name selbst die Antwort ist. Vor der Antwort wird die Karte dann weggelassen;
-  // danach darf sie die Einordnung erklaeren.
-  const POSITION_ATTRS = ['orderFromSun', 'distanceFromSunAU', 'location'];
-  const hideContextMap = hideIdentity || (!detailsUnlocked && POSITION_ATTRS.includes(testedAttribute));
-  const hideConstantValue = !detailsUnlocked && testedAttribute === 'value';
+  const activeId = (activeConcept?.id || '').replace(/^astra:/, '');
+  const hasSurfaceTexture = Boolean(
+    activeConcept &&
+    cat !== 'star' &&
+    TEXTURES[activeId] &&
+    !disclosure.neutralizeSceneIdentity
+  );
+  const showCategory = detailsUnlocked ||
+    (!isAstraAttrLeakedBeforeAnswer('type', testedAttribute) &&
+      !isAstraAttrLeakedBeforeAnswer('category', testedAttribute));
+  const hideConstantValue = disclosure.hideIdentity ||
+    (!detailsUnlocked && isAstraAttrLeakedBeforeAnswer('value', testedAttribute));
+  const footerCredits = [
+    hasSurfaceTexture ? ATTRIBUTION : '',
+    disclosure.showRings && activeId === 'saturn' ? SATURN_RING_ATTRIBUTION : '',
+    !hasSurfaceTexture && disclosure.showSource ? `Quelle: ${activeConcept?.source?.name}` : ''
+  ].filter(Boolean);
 
   return (
     <div
@@ -445,12 +789,18 @@ export default function AstraVisual({
       {/* 3D-Canvas-Mount füllt das Panel */}
       <div ref={mountRef} style={{ position: 'absolute', inset: 0 }} />
 
+      {activeConcept && disclosure.isDeepSky ? (
+        <DeepSkyOcular concept={activeConcept} revealed={disclosure.revealDeepSkyImage} />
+      ) : null}
+
+      {activeConcept && disclosure.showTransitDiagram ? <ExoplanetTransitDiagram /> : null}
+
       {/* Kontext-Schema (Phase 2d): verortet das Konzept zusätzlich zum 3D-Körper.
           Unten links, über dem Canvas, oberhalb der Fuß-Leiste. Gibt für
           Konstanten/Sonne null zurück und ist dann unsichtbar.
-          Selbstverräter-Guard: Bei Positions-/Lage-Fragen oder Reverse-Fragen
-          (hideContextMap) ganz weglassen, da das Schema Bahn/Position verrät. */}
-      {activeConcept && !hideContextMap && (
+          Selbstverräter-Guard: Bei Fragen nach Entfernung, Bahn, Zentralplanet
+          oder Lage ganz weglassen, da das Schema die Antwort verraten würde. */}
+      {activeConcept && disclosure.showContextMap && (
         <div style={{
           position: 'absolute', left: '16px', bottom: '92px',
           width: '140px', height: '140px', pointerEvents: 'none', zIndex: 2
@@ -464,10 +814,10 @@ export default function AstraVisual({
           {/* Kopf: Kategorie + Name */}
           <div style={{
             position: 'absolute', top: 0, left: 0, right: 0, padding: '24px 28px',
-            textAlign: 'center', color: '#EAE6DC', pointerEvents: 'none',
+            textAlign: 'center', color: '#EAE6DC', pointerEvents: 'none', zIndex: 4,
             background: 'linear-gradient(to bottom, rgba(0,0,0,0.45), transparent)'
           }}>
-            {catLabel && (
+            {catLabel && showCategory && (
               <div style={{
                 display: 'inline-block', fontSize: '11px', fontWeight: 700,
                 letterSpacing: '1.5px', textTransform: 'uppercase', opacity: 0.8,
@@ -480,13 +830,13 @@ export default function AstraVisual({
             <h2 style={{
               fontFamily: 'var(--font-title)', fontSize: '30px', fontWeight: 700,
               margin: 0, letterSpacing: '0.5px', textShadow: '0 2px 12px rgba(0,0,0,0.8)'
-            }}>{hideIdentity ? '?' : activeConcept.name}</h2>
+            }}>{disclosure.hideIdentity ? '?' : activeConcept.name}</h2>
           </div>
 
           {/* Fuß: Konstante prominent, sonst Kennwerte + Fun-Fact */}
           <div style={{
             position: 'absolute', bottom: 0, left: 0, right: 0, padding: '20px 24px 30px',
-            color: '#EAE6DC', pointerEvents: 'none',
+            color: '#EAE6DC', pointerEvents: 'none', zIndex: 4,
             background: 'linear-gradient(to top, rgba(0,0,0,0.6), transparent)'
           }}>
             {cat === 'constant' ? (
@@ -531,9 +881,9 @@ export default function AstraVisual({
           {/* Lizenzzeile (nur bei echten Texturen sichtbar) */}
           <div style={{
             position: 'absolute', bottom: 0, right: 0, padding: '4px 10px',
-            fontSize: '10px', opacity: 0.55, color: '#EAE6DC', pointerEvents: 'none'
+            fontSize: '10px', opacity: 0.55, color: '#EAE6DC', pointerEvents: 'none', zIndex: 5
           }}>
-            {hasTexture ? ATTRIBUTION : (activeConcept.source?.name ? `Quelle: ${activeConcept.source.name}` : '')}
+            {footerCredits.join(' · ')}
           </div>
         </>
       )}

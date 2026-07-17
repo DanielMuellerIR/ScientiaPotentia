@@ -122,6 +122,7 @@
 /* Vor der Antwort haengt das Konzeptbild verhuellt im Rahmen (Samttuch),        */
 /* nach der Antwort hebt sich das Tuch und das Bild erscheint — Belohnungsmoment */
 /* ohne Leak-Risiko (Bild grundsaetzlich erst nach der Antwort sichtbar).        */
+.answer-reveal{display:flex;flex-direction:column;align-items:center;width:100%;margin-bottom:20px}
 .exhibit-frame{position:relative;width:min(74%,400px);aspect-ratio:5/4;background:#3F3327;border:1px solid #2A2118;border-radius:2px;padding:7px;box-shadow:0 16px 30px -12px rgba(0,0,0,.6), inset 0 0 0 2px #8F6F45;overflow:hidden;flex-shrink:0}
 .exhibit-mat{position:absolute;inset:7px;background:#FBF9F2;box-shadow:inset 0 0 0 1px #E2DCCB, inset 0 2px 8px rgba(0,0,0,.14);display:flex;align-items:center;justify-content:center;padding:12px}
 .exhibit-img{max-width:100%;max-height:100%;object-fit:contain;opacity:0;transform:scale(.97)}
@@ -138,6 +139,27 @@
    nicht fluten; der volle Text steht im title-Attribut und in der Galerie. */
 .exhibit-credit{font-size:10px;opacity:.6;margin-top:8px;text-align:center;max-width:400px;line-height:1.4;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
 
+/* Deep-Sky-Quizbild: dasselbe konservative Reveal in einer Okularfassung. */
+.answer-reveal--ocular{position:absolute;z-index:2;top:50%;left:50%;width:min(66%,420px);margin:0;transform:translate(-50%,-50%);pointer-events:none;color:#EAE6DC}
+.answer-reveal--ocular .exhibit-frame--ocular{width:100%;aspect-ratio:1;border:8px solid #242a36;border-radius:50%;padding:10px;background:#090b12;box-shadow:0 0 0 2px #768094,0 22px 48px rgba(0,0,0,.72),inset 0 0 0 2px #05060a}
+.exhibit-mat--ocular{inset:10px;padding:0;border-radius:50%;overflow:hidden;background:#020308;box-shadow:inset 0 0 22px rgba(0,0,0,.85)}
+.exhibit-img--ocular{width:100%;height:100%;max-width:none;max-height:none;object-fit:cover}
+.exhibit-drape--ocular{inset:10px;border-radius:50%;border:1px solid rgba(188,205,230,.28);overflow:hidden}
+.ocular-reticle{position:absolute;inset:0;border-radius:50%;opacity:.48;background:linear-gradient(90deg,transparent calc(50% - .5px),rgba(202,220,240,.5) 50%,transparent calc(50% + .5px)),linear-gradient(transparent calc(50% - .5px),rgba(202,220,240,.5) 50%,transparent calc(50% + .5px));box-shadow:inset 0 0 0 1px rgba(210,226,244,.34),inset 0 0 38px rgba(0,0,0,.8)}
+.answer-reveal--ocular .exhibit-credit{position:absolute;left:50%;bottom:12px;z-index:3;display:block;width:min(88vw,460px);max-width:none;margin:0;padding:3px 6px;overflow:visible;transform:translateX(-50%);-webkit-line-clamp:unset;border-radius:4px;background:rgba(0,0,0,.72);color:#EAE6DC;text-shadow:0 1px 4px #000}
+.ocular-credit-license{display:block}
+.deep-sky-neutral{width:100%;height:100%;border-radius:50%;background:radial-gradient(ellipse at 48% 52%,rgba(211,220,240,.44) 0 3%,rgba(137,158,205,.2) 15%,transparent 45%),radial-gradient(circle at 30% 35%,#E8EDF7 0 1px,transparent 2px),radial-gradient(circle at 69% 61%,#C7D5F2 0 1px,transparent 2px),radial-gradient(circle at 58% 27%,#E8EDF7 0 1px,transparent 2px),#02040A;background-size:auto,53px 47px,71px 67px,83px 79px}
+.deep-sky-fallback-label{margin-top:8px;font-size:9px;letter-spacing:.45px;text-transform:uppercase;opacity:.58}
+
+/* Transitkurve nur als erklärendes Schema nach der Antwort. */
+.astra-transit{position:absolute;z-index:3;right:18px;bottom:88px;width:min(34%,210px);padding:8px 10px 7px;border:1px solid rgba(190,210,242,.28);border-radius:8px;background:rgba(5,8,18,.76);color:#D8E3F4;text-align:center;pointer-events:none;backdrop-filter:blur(5px)}
+.astra-transit svg{display:block;width:100%;height:auto}
+.astra-transit span{display:block;margin-top:2px;font-size:9px;letter-spacing:.35px;opacity:.76}
+.astra-transit-axis{fill:none;stroke:rgba(214,226,244,.35);stroke-width:1}
+.astra-transit-curve{fill:none;stroke:#8FC8FF;stroke-width:2.2;stroke-linecap:round}
+.astra-transit-marker{fill:#F3E5B6;filter:drop-shadow(0 0 3px #F3E5B6);offset-path:path("M10 18 H62 C72 18 72 46 84 46 H108 C120 46 120 18 130 18 H170");animation:astra-transit-travel 4.8s linear infinite}
+@keyframes astra-transit-travel{to{offset-distance:100%}}
+
 /* Mobil: Galerie-Tab wird zum Flur — volle Hoehe statt 38vh-Streifen, ein       */
 /* Exponat pro Viewport (scroll-snap), Lernkontrolle-Sidebar ausgeblendet        */
 /* (der Lern-Quiz-Tab im Header bleibt erreichbar). Nur im Explore-Zweig aktiv,  */
@@ -150,10 +172,17 @@
   .hall-frame{width:calc(100% - 34px);height:58%}
   .hall-topbar{padding:10px 10px 8px}
   .exhibit-frame{width:min(56%,260px)}
+  /* Okular und vollständiger Credit bleiben oberhalb von Chips/Fun-Fact. */
+  .answer-reveal--ocular{top:24%;width:min(42%,220px)}
+  .answer-reveal--ocular .exhibit-frame--ocular{width:100%}
+  .answer-reveal--ocular .exhibit-credit{bottom:8px;width:min(88vw,340px);font-size:9px;line-height:1.25}
+  .astra-transit{top:8px;right:8px;bottom:auto;width:92px;padding:3px 5px}
+  .astra-transit span{font-size:7.5px;line-height:1.1}
 }
 /* Reduzierte Bewegung: Enthuellung und Hover-Lift ohne Animation. */
 @media (prefers-reduced-motion:reduce){
   .exhibit-drape,.exhibit-img--revealed,.hall-frame,.hall-exhibit:before{transition:none}
+  .astra-transit-marker{animation:none;offset-distance:50%}
 }
 
 /* Terra-Karte: Die Überlagerungen sind komponentenintern. Sie verändern keine
