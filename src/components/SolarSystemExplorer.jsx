@@ -35,7 +35,28 @@ const MOON_LABEL_LIMIT = 8;         // ab so vielen Monden Liste statt Label im 
 
 // Mindest-Bildschirmradien (px), damit auch sub-pixel-kleine Körper sicht- und
 // klickbar bleiben. ~2x2 px Durchmesser für normale Körper.
-const MIN_R = 1.3, MIN_SUN_R = 2.6, MIN_MOON_R = 1.1, HIT_R = 12;
+const MIN_R = 1.3, MIN_SUN_R = 2.6, MIN_MOON_R = 1.1;
+// Ein Radius von 12 px ergibt auch auf Touch-Geräten ein gut treffbares Ziel.
+export const MIN_HIT_RADIUS = 12;
+
+/**
+ * Überlappende Mindest-Trefferkreise werden geometrisch aufgelöst. So gewinnt
+ * auf Touch nicht der zuletzt gezeichnete SVG-Knoten, sondern der nächste Körper.
+ */
+export function resolveBodyHit(candidates, x, y) {
+  if (!Number.isFinite(x) || !Number.isFinite(y)) return null;
+  let best = null;
+  for (const candidate of candidates) {
+    const distance = Math.hypot(x - candidate.sx, y - candidate.sy);
+    const hitRadius = Math.max(MIN_HIT_RADIUS, Number(candidate.r) || 0);
+    if (distance > hitRadius) continue;
+    if (!best || distance < best.distance
+      || (distance === best.distance && candidate.id < best.id)) {
+      best = { id: candidate.id, distance };
+    }
+  }
+  return best?.id || null;
+}
 
 // Bahnkreise mit riesigem Bildschirmradius nicht zeichnen: beim Heranzoomen würde
 // z.B. die Neptunbahn zu einem Kreis von Millionen px — das legt den Browser lahm
@@ -53,6 +74,114 @@ const bodyWorldRadius = diameterKm => (Number(diameterKm) || 0) / 2;
 // Lineare Interpolation + sanfte Ease-Kurve für die Kamerafahrt.
 const lerp = (a, b, t) => a + (b - a) * t;
 const easeInOut = t => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+
+/** Berechnet einen einzelnen, weich beschleunigten Kameraschritt. */
+export function interpolateCamera(from, target, progress) {
+  const eased = easeInOut(Math.max(0, Math.min(1, progress)));
+  return {
+    cx: lerp(from.cx, target.cx, eased),
+    cy: lerp(from.cy, target.cy, eased),
+    scale: lerp(from.scale, target.scale, eased)
+  };
+}
+
+/** Reduzierte Bewegung überspringt Animationen vollständig statt sie nur zu verkürzen. */
+export function cameraAnimationDuration(prefersReducedMotion, duration = 560) {
+  return prefersReducedMotion ? 0 : duration;
+}
+
+/**
+ * Bei Außenansichten liegen die inneren Planeten wenige Pixel auseinander.
+ * Das Inset bleibt sichtbar, bis ihre kleinste Bildschirmdistanz groß genug ist.
+ */
+export function shouldShowInnerInset(bodies, scale, minimumDistancePx = 48) {
+  if (!Array.isArray(bodies) || bodies.length < 2 || !Number.isFinite(scale)) return false;
+  for (let i = 0; i < bodies.length; i++) {
+    for (let j = i + 1; j < bodies.length; j++) {
+      const distance = Math.hypot(bodies[i].x - bodies[j].x, bodies[i].y - bodies[j].y) * scale;
+      if (distance < minimumDistancePx) return true;
+    }
+  }
+  return false;
+}
+
+function labelBox({ text, fontSize, x, y, anchor }) {
+  // Ohne DOM-Messung bleibt der Algorithmus in Canvas/SVG und Tests deterministisch.
+  const width = Math.max(fontSize * 2, text.length * fontSize * 0.58) + 6;
+  const left = anchor === 'end' ? x - width : anchor === 'middle' ? x - width / 2 : x;
+  return { left, right: left + width, top: y - fontSize, bottom: y + 4 };
+}
+
+function boxesOverlap(a, b) {
+  return a.left < b.right && a.right > b.left && a.top < b.bottom && a.bottom > b.top;
+}
+
+/**
+ * Ordnet Labels ohne Zufall an. Große, bereits weit hineingezoomte Körper
+ * erhalten zuerst einen Platz. Kollidiert die radiale Standardposition, wird
+ * kontrolliert nach oben oder unten ausgewichen und eine Leader-Line gezeichnet.
+ */
+export function declutterLabels(candidates, { blockedAreas = [], viewport } = {}) {
+  const occupied = [];
+  const placed = [];
+  const sorted = [...candidates].sort((a, b) => (
+    b.priority - a.priority || (a.id < b.id ? -1 : a.id > b.id ? 1 : 0)
+  ));
+
+  for (const candidate of sorted) {
+    const positions = [
+      { x: candidate.x, y: candidate.y, anchor: candidate.anchor, moved: false },
+      { x: candidate.sx, y: candidate.sy - candidate.r - 10, anchor: 'middle', moved: true },
+      { x: candidate.sx, y: candidate.sy + candidate.r + candidate.fontSize + 6, anchor: 'middle', moved: true }
+    ];
+    const position = positions.find((tryPosition) => {
+      const box = labelBox({ ...candidate, ...tryPosition });
+      const outsideViewport = viewport && (
+        box.left < viewport.left || box.right > viewport.right
+        || box.top < viewport.top || box.bottom > viewport.bottom
+      );
+      return !outsideViewport
+        && !occupied.some((other) => boxesOverlap(box, other))
+        && !blockedAreas.some((area) => boxesOverlap(box, area));
+    });
+
+    // Ein niedriger priorisiertes, vollständig verdecktes Label wird ausgelassen.
+    // Der Körper selbst bleibt dank seiner großzügigen Trefferfläche erreichbar.
+    if (!position) continue;
+    const box = labelBox({ ...candidate, ...position });
+    occupied.push(box);
+    placed.push({
+      ...candidate,
+      ...position,
+      leaderFrom: position.moved ? { x: candidate.sx, y: candidate.sy } : null
+    });
+  }
+  return placed;
+}
+
+function readReducedMotionPreference() {
+  return typeof window !== 'undefined' && typeof window.matchMedia === 'function'
+    ? window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    : false;
+}
+
+function useReducedMotionPreference() {
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(readReducedMotionPreference);
+
+  useEffect(() => {
+    if (typeof window === 'undefined' || typeof window.matchMedia !== 'function') return undefined;
+    const query = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const update = () => setPrefersReducedMotion(query.matches);
+    if (query.addEventListener) {
+      query.addEventListener('change', update);
+      return () => query.removeEventListener('change', update);
+    }
+    query.addListener?.(update);
+    return () => query.removeListener?.(update);
+  }, []);
+
+  return prefersReducedMotion;
+}
 
 // Statisches Sternenfeld (einmal erzeugt, nicht pro Render neu — sonst flackert es).
 function makeStars(n) {
@@ -150,23 +279,30 @@ export default function SolarSystemExplorer({ domain, concepts = {} }) {
   const camRef = useRef(cam); camRef.current = cam;
   const animRef = useRef(0);
   const interacted = useRef(false);
+  const prefersReducedMotion = useReducedMotionPreference();
 
   const fitSystem = useCallback((w, h) => {
-    const R = (model.maxOrbit || AU_KM) * 1.08;
-    return { cx: 0, cy: 0, scale: (Math.min(w, h) / 2 - 34) / R };
+    const R = Math.max(1, (model.maxOrbit || AU_KM) * 1.08);
+    const usableHalf = Math.max(1, Math.min(w, h) / 2 - 34);
+    return { cx: 0, cy: 0, scale: Math.max(1e-9, usableHalf / R) };
   }, [model.maxOrbit]);
 
   const tweenTo = useCallback((target, dur = 560) => {
     cancelAnimationFrame(animRef.current);
     const from = { ...camRef.current };
+    const duration = cameraAnimationDuration(prefersReducedMotion, dur);
+    if (duration === 0) {
+      setCam(target);
+      return;
+    }
     const t0 = performance.now();
     const step = now => {
-      const k = easeInOut(Math.min(1, (now - t0) / dur));
-      setCam({ cx: lerp(from.cx, target.cx, k), cy: lerp(from.cy, target.cy, k), scale: lerp(from.scale, target.scale, k) });
-      if (k < 1) animRef.current = requestAnimationFrame(step);
+      const progress = Math.min(1, (now - t0) / duration);
+      setCam(interpolateCamera(from, target, progress));
+      if (progress < 1) animRef.current = requestAnimationFrame(step);
     };
     animRef.current = requestAnimationFrame(step);
-  }, []);
+  }, [prefersReducedMotion]);
 
   // Navigationszustand: was ist gerade fokussiert?
   const [focusId, setFocusId] = useState(null);     // null = ganzes System
@@ -181,11 +317,14 @@ export default function SolarSystemExplorer({ domain, concepts = {} }) {
     const b = model.byId[id];
     if (!b) return;
     setFocusId(id);
-    const half = Math.min(dims.w, dims.h) / 2;
+    const half = Math.max(1, Math.min(dims.w, dims.h) / 2);
+    const targetScale = (padding, fitRadius) => Math.max(1e-9, Math.min(2e-2,
+      Math.max(1, half - padding) / Math.max(1, fitRadius)
+    ));
     if (b.cat === 'planet' || b.cat === 'dwarf_planet') {
-      tweenTo({ cx: b.x, cy: b.y, scale: (half - 56) / Math.max(b.moonFitR, b.worldR * 4) });
+      tweenTo({ cx: b.x, cy: b.y, scale: targetScale(56, Math.max(b.moonFitR, b.worldR * 4)) });
     } else {
-      tweenTo({ cx: b.x, cy: b.y, scale: (half - 64) / (b.worldR * 4) });
+      tweenTo({ cx: b.x, cy: b.y, scale: targetScale(64, b.worldR * 4) });
     }
   }, [model, dims, tweenTo]);
 
@@ -276,6 +415,10 @@ export default function SolarSystemExplorer({ domain, concepts = {} }) {
   const shownMoons = displayPlanet ? displayPlanet.moons : [];
   const moonsAsList = shownMoons.length > MOON_LABEL_LIMIT;
   const allBodies = [model.sun, ...model.planets, ...model.dwarfs];
+  const innerPlanets = model.planets.slice(0, 4);
+  // Ausschließlich die projizierte Trennung steuert das Inset. Während eines
+  // Zoomflugs bleibt es also sichtbar, bis die Planeten wirklich getrennt sind.
+  const showInnerInset = shouldShowInnerInset(innerPlanets, cam.scale);
 
   // Sprung-Navigation (oben links/rechts): Geschwister des fokussierten Körpers.
   // Mond -> die Monde seines Planeten; sonst Hauptfolge Sonne -> Planeten ->
@@ -300,10 +443,75 @@ export default function SolarSystemExplorer({ domain, concepts = {} }) {
   };
 
   const sunSx = px(0), sunSy = py(0);
+  const compactNavigation = W < 560;
+  const makeLabelCandidate = (b, sx, sy, r, referenceX, referenceY, small = false) => {
+    const preferred = labelFor(sx, sy, referenceX, referenceY, r);
+    const fontSize = small ? 11 : 12.5;
+    // Erst der explizit fokussierte Körper, dann seine projizierte Größe
+    // (inklusive Zoomtiefe), danach die reale Größe; ID macht Gleichstände stabil.
+    const priority = (b.id === focusId ? 1e12 : 0)
+      + Math.max(0, r) * 1000
+      + Math.log10(1 + Math.max(0, b.worldR));
+    return { id: b.id, text: b.name, sx, sy, r, fontSize, small, priority, ...preferred };
+  };
+  const labelCandidates = [
+    ...allBodies.flatMap((b) => {
+      const sx = px(b.x), sy = py(b.y);
+      const r = Math.max(b.id === 'sun' ? MIN_SUN_R : MIN_R, b.worldR * cam.scale);
+      return onScreen(sx, sy, r) ? [makeLabelCandidate(b, sx, sy, r, sunSx, sunSy)] : [];
+    }),
+    ...(!moonsAsList ? shownMoons.flatMap((m) => {
+      const sx = px(m.x), sy = py(m.y);
+      const r = Math.max(MIN_MOON_R, m.worldR * cam.scale);
+      return onScreen(sx, sy, r)
+        ? [makeLabelCandidate(m, sx, sy, r, px(displayPlanet.x), py(displayPlanet.y), true)]
+        : [];
+    }) : [])
+  ];
+  const blockedLabelAreas = [
+    // Kopfzeile: Labels sollen weder Buttons noch die Brotkrume überdecken.
+    { left: 0, top: 0, right: W, bottom: 54 },
+    ...(showInnerInset ? [{
+      left: Math.max(0, W - (displayPlanet && moonsAsList ? 210 : 14) - 170), top: 54,
+      right: W - (displayPlanet && moonsAsList ? 210 : 14) + 4, bottom: 204
+    }] : []),
+    ...(focused ? [{ left: 0, top: Math.max(0, H - 230), right: 370, bottom: H }] : []),
+    ...(displayPlanet && moonsAsList ? [{ left: Math.max(0, W - 202), top: 52, right: W, bottom: Math.max(52, H - 110) }] : [])
+  ];
+  const visibleLabels = declutterLabels(labelCandidates, {
+    blockedAreas: blockedLabelAreas,
+    viewport: { left: 0, top: 0, right: W, bottom: H }
+  });
+  const bodyHitCandidates = [
+    ...allBodies.flatMap((body) => {
+      const sx = px(body.x), sy = py(body.y);
+      const r = Math.max(body.id === 'sun' ? MIN_SUN_R : MIN_R, body.worldR * cam.scale);
+      return onScreen(sx, sy, r) ? [{ id: body.id, sx, sy, r }] : [];
+    }),
+    ...shownMoons.flatMap((moon) => {
+      const sx = px(moon.x), sy = py(moon.y);
+      const r = Math.max(MIN_MOON_R, moon.worldR * cam.scale);
+      return onScreen(sx, sy, r) ? [{ id: moon.id, sx, sy, r }] : [];
+    })
+  ];
+
+  const onBodyHitCapture = (event) => {
+    // Nur die unsichtbaren Mindest-Trefferkreise brauchen die geometrische
+    // Auflösung. Labels, Buttons und große sichtbare Scheiben behalten ihren Handler.
+    if (!event.target?.closest?.('[data-solar-hit="true"]')) return;
+    const rect = containerRef.current?.getBoundingClientRect();
+    if (!rect) return;
+    const id = resolveBodyHit(bodyHitCandidates, event.clientX - rect.left, event.clientY - rect.top);
+    if (!id) return;
+    event.preventDefault();
+    event.stopPropagation();
+    focusBody(id);
+  };
 
   return (
     <div
       ref={containerRef}
+      onClickCapture={onBodyHitCapture}
       onPointerDown={onPointerDown}
       onPointerMove={onPointerMove}
       onPointerUp={onPointerUp}
@@ -371,6 +579,8 @@ export default function SolarSystemExplorer({ domain, concepts = {} }) {
           const r = Math.max(MIN_SUN_R, SUN_RADIUS_KM * cam.scale);
           return (
             <g key="sun" style={{ cursor: 'pointer' }} onClick={e => { e.stopPropagation(); focusBody('sun'); }}>
+              <circle data-testid="solar-hit-sun" data-solar-hit="true"
+                cx={sunSx} cy={sunSy} r={MIN_HIT_RADIUS} fill="transparent" />
               <circle cx={sunSx} cy={sunSy} r={Math.max(8, r * 2.4)} fill="url(#sun-glow)" />
               <circle cx={sunSx} cy={sunSy} r={r} fill="url(#g-sun)" stroke="#fff3c4" strokeWidth={focusId === 'sun' ? 2 : 0.5} />
             </g>
@@ -392,62 +602,72 @@ export default function SolarSystemExplorer({ domain, concepts = {} }) {
             selected={focusId === m.id} onClick={() => focusBody(m.id)} />;
         })}
 
-        {/* Beschriftungen: Sonne + Planeten + Zwergplaneten (radial nach außen) */}
-        {allBodies.map(b => {
-          const sx = px(b.x), sy = py(b.y);
-          const r = Math.max(b.id === 'sun' ? MIN_SUN_R : MIN_R, b.worldR * cam.scale);
-          if (!onScreen(sx, sy, r)) return null;
-          const L = labelFor(sx, sy, sunSx, sunSy, r);
-          return <BodyLabel key={`l-${b.id}`} text={b.name} x={L.x} y={L.y} anchor={L.anchor}
-            highlight={focusId === b.id} onClick={() => focusBody(b.id)} />;
-        })}
-        {/* Mondlabel nur wenn nicht als Liste */}
-        {displayPlanet && !moonsAsList && shownMoons.map(m => {
-          const sx = px(m.x), sy = py(m.y), r = Math.max(MIN_MOON_R, m.worldR * cam.scale);
-          const L = labelFor(sx, sy, px(displayPlanet.x), py(displayPlanet.y), r);
-          return <BodyLabel key={`lm-${m.id}`} text={m.name} x={L.x} y={L.y} anchor={L.anchor} small
-            highlight={focusId === m.id} onClick={() => focusBody(m.id)} />;
-        })}
+        {/* Sortierte, kollisionsfreie Labels. Ausweichpositionen bekommen Leader-Lines. */}
+        {visibleLabels.map(label => (
+          <BodyLabel key={`l-${label.id}`} text={label.text} x={label.x} y={label.y}
+            anchor={label.anchor} small={label.small} leaderFrom={label.leaderFrom}
+            highlight={focusId === label.id} onClick={() => focusBody(label.id)} />
+        ))}
       </svg>
+
+      {showInnerInset && <InnerSystemInset planets={innerPlanets} accent={accent}
+        avoidMoonList={Boolean(displayPlanet && moonsAsList)} />}
 
       {/* Kopfzeile: links Sprung zum vorherigen, Mitte Zurück+Brotkrumen,
           rechts Sprung zum nächsten + Gesamtansicht. */}
-      <div style={{ position: 'absolute', top: 14, left: 16, right: 16, display: 'flex',
-        alignItems: 'flex-start', justifyContent: 'space-between', gap: 8, pointerEvents: 'none' }}>
+      <div style={{ position: 'absolute', top: 14, left: compactNavigation ? 8 : 16,
+        right: compactNavigation ? 8 : 16, display: 'flex', alignItems: 'flex-start',
+        justifyContent: 'space-between', gap: compactNavigation ? 4 : 8, pointerEvents: 'none' }}>
         {/* links: vorheriger Körper */}
         <div style={{ pointerEvents: 'auto', minWidth: 0 }}>
           {prevBody && (
             <button onClick={() => focusBody(prevBody.id)} className="btn-terra"
-              style={{ ...miniBtn, maxWidth: 190 }} title={`Vorheriger: ${prevBody.name}`}>
-              <ChevronLeft size={15} /> <span style={ellipsis}>{prevBody.name}</span>
+              style={{ ...miniBtn, maxWidth: compactNavigation ? 34 : 190,
+                padding: compactNavigation ? '6px 8px' : miniBtn.padding }}
+              aria-label={`Vorheriger: ${prevBody.name}`} title={`Vorheriger: ${prevBody.name}`}>
+              <ChevronLeft size={15} />
+              {!compactNavigation && <span style={ellipsis}>{prevBody.name}</span>}
             </button>
           )}
         </div>
         {/* Mitte: Zurück + Brotkrumen */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 8, pointerEvents: 'auto', flexShrink: 0 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: compactNavigation ? 4 : 8,
+          pointerEvents: 'auto', flexShrink: 0, minWidth: 0 }}>
           {focusId && (
-            <button onClick={goBack} className="btn-terra" style={miniBtn}>
-              <ArrowLeft size={15} /> Zurück
+            <button onClick={goBack} className="btn-terra" aria-label="Zurück" title="Zurück"
+              style={{ ...miniBtn, padding: compactNavigation ? '6px 8px' : miniBtn.padding }}>
+              <ArrowLeft size={15} /> {!compactNavigation && 'Zurück'}
             </button>
           )}
           <div style={{ display: 'flex', alignItems: 'center', gap: 7, color: '#EAE6DC',
-            fontSize: 13, fontWeight: 600, background: 'rgba(0,0,0,0.35)', padding: '5px 11px',
-            borderRadius: 999, border: '1px solid rgba(255,255,255,0.12)' }}>
+            fontSize: compactNavigation ? 12 : 13, fontWeight: 600,
+            background: 'rgba(0,0,0,0.35)', padding: compactNavigation ? '5px 8px' : '5px 11px',
+            borderRadius: 999, border: '1px solid rgba(255,255,255,0.12)',
+            maxWidth: compactNavigation ? 112 : 'none' }}>
             <Orbit size={15} style={{ color: accent }} />
-            <span style={{ cursor: 'pointer' }} onClick={goSystem}>Sonnensystem</span>
-            {focused && <span style={{ opacity: 0.5 }}>›</span>}
-            {focused && <span>{focused.name}</span>}
+            <span style={{ ...ellipsis, cursor: 'pointer' }} onClick={goSystem}
+              title={focused?.name || 'Sonnensystem'}>
+              {compactNavigation ? (focused?.name || 'System') : 'Sonnensystem'}
+            </span>
+            {!compactNavigation && focused && <span style={{ opacity: 0.5 }}>›</span>}
+            {!compactNavigation && focused && <span>{focused.name}</span>}
           </div>
         </div>
         {/* rechts: nächster Körper + Gesamtansicht */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 8, pointerEvents: 'auto', minWidth: 0, justifyContent: 'flex-end' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: compactNavigation ? 4 : 8,
+          pointerEvents: 'auto', minWidth: 0, justifyContent: 'flex-end' }}>
           {nextBody && (
             <button onClick={() => focusBody(nextBody.id)} className="btn-terra"
-              style={{ ...miniBtn, maxWidth: 190 }} title={`Nächster: ${nextBody.name}`}>
-              <span style={ellipsis}>{nextBody.name}</span> <ChevronRight size={15} />
+              style={{ ...miniBtn, maxWidth: compactNavigation ? 34 : 190,
+                padding: compactNavigation ? '6px 8px' : miniBtn.padding }}
+              aria-label={`Nächster: ${nextBody.name}`} title={`Nächster: ${nextBody.name}`}>
+              {!compactNavigation && <span style={ellipsis}>{nextBody.name}</span>}
+              <ChevronRight size={15} />
             </button>
           )}
-          <button onClick={goSystem} className="btn-terra" style={miniBtn} title="Ganzes System zeigen">
+          <button onClick={goSystem} className="btn-terra" aria-label="Ganzes System zeigen"
+            style={{ ...miniBtn, padding: compactNavigation ? '6px 8px' : miniBtn.padding }}
+            title="Ganzes System zeigen">
             <Maximize2 size={15} />
           </button>
         </div>
@@ -497,6 +717,59 @@ const miniBtn = {
 };
 const ellipsis = { overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' };
 
+/** Kleine, von der Hauptkamera unabhängige Übersicht der vier inneren Planeten. */
+function InnerSystemInset({ planets, accent, avoidMoonList }) {
+  const width = 156, height = 134, centerX = 78, centerY = 76;
+  const maxOrbit = Math.max(...planets.map((planet) => planet.orbit || 0), 1);
+  // Eigener Maßstab: Mars passt mit Rand hinein, unabhängig von der Außenansicht.
+  const insetScale = 43 / maxOrbit;
+
+  return (
+    <aside data-testid="solar-inner-inset" aria-label="Inneres System" style={{
+      // Wenn eine Mondliste offen ist, rückt die Übersicht links daneben. So
+      // bleiben beide Informationsflächen auch bei 375 px Breite getrennt.
+      position: 'absolute', top: 60, right: avoidMoonList ? 210 : 14, width, padding: '7px 7px 5px',
+      background: 'rgba(7,9,20,0.84)', border: '1px solid rgba(255,255,255,0.16)',
+      borderRadius: 8, color: '#EAE6DC', pointerEvents: 'none', backdropFilter: 'blur(3px)'
+    }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', margin: '0 2px 3px',
+        color: accent, fontSize: 10, fontWeight: 700, letterSpacing: 0.45, textTransform: 'uppercase' }}>
+        <span>Inneres System</span><span style={{ color: 'rgba(234,230,220,0.58)', fontWeight: 500 }}>Maßstab</span>
+      </div>
+      <svg width={width - 14} height={height - 24} aria-hidden="true">
+        {planets.map((planet) => (
+          <circle key={`inset-orbit-${planet.id}`} cx={centerX - 7} cy={centerY - 18}
+            r={planet.orbit * insetScale} fill="none" stroke="rgba(255,255,255,0.17)" strokeWidth={0.6} />
+        ))}
+        <circle cx={centerX - 7} cy={centerY - 18} r={3.5} fill="#ffcf6b" />
+        {planets.map((planet) => {
+          const sx = (planet.x * insetScale) + centerX - 7;
+          const sy = (planet.y * insetScale) + centerY - 18;
+          const radius = Math.max(2, planet.worldR * insetScale);
+          // Die vier festen Anker entzerren besonders Merkur und Venus, deren
+          // Bahnpunkte selbst im eigenen Maßstab noch nah beieinander liegen.
+          const label = {
+            mercury: { x: sx - 6, y: sy + 3, anchor: 'end' },
+            venus: { x: sx, y: sy - 10, anchor: 'middle' },
+            earth: { x: sx + 7, y: sy + 3, anchor: 'start' },
+            mars: { x: sx + 7, y: sy + 4, anchor: 'start' }
+          }[planet.id] || { x: sx, y: sy - radius - 3, anchor: 'middle' };
+          return (
+            <g key={`inset-${planet.id}`}>
+              <circle cx={sx} cy={sy} r={radius} fill={planet.color} stroke="rgba(255,255,255,0.65)" strokeWidth={0.45} />
+              <line x1={sx} y1={sy} x2={label.x} y2={label.y - 2}
+                stroke="rgba(234,230,220,0.48)" strokeWidth={0.5} />
+              <text data-testid={`solar-inner-label-${planet.id}`} x={label.x} y={label.y}
+                textAnchor={label.anchor} fill="#EAE6DC" fontSize={8.5}
+                paintOrder="stroke" stroke="rgba(0,0,0,0.82)" strokeWidth={2}>{planet.name}</text>
+            </g>
+          );
+        })}
+      </svg>
+    </aside>
+  );
+}
+
 /** Prozedurale Körperscheibe: Verlauf + optional Wolkenbänder/Ring (Gasriesen). */
 function BodyDisc({ b, sx, sy, r, selected, accent, onClick }) {
   const look = BODY_LOOK[b.id];
@@ -504,7 +777,8 @@ function BodyDisc({ b, sx, sy, r, selected, accent, onClick }) {
   return (
     <g style={{ cursor: 'pointer' }} onClick={e => { e.stopPropagation(); onClick(); }}>
       {/* unsichtbarer, großzügiger Klickbereich für kleine Körper */}
-      <circle cx={sx} cy={sy} r={Math.max(r, HIT_R)} fill="transparent" />
+      <circle data-testid={`solar-hit-${b.id}`} data-solar-hit="true"
+        cx={sx} cy={sy} r={Math.max(r, MIN_HIT_RADIUS)} fill="transparent" />
       {look?.ring && r > 3 && (
         <ellipse cx={sx} cy={sy} rx={r * 2.05} ry={r * 0.62} fill="none"
           stroke={look.ring} strokeWidth={Math.max(1, r * 0.18)} opacity={0.7}
@@ -527,15 +801,20 @@ function BodyDisc({ b, sx, sy, r, selected, accent, onClick }) {
 }
 
 /** Beschriftung neben einem Körper, konstante Größe (skaliert nicht mit). */
-function BodyLabel({ text, x, y, anchor, small, highlight, onClick }) {
+function BodyLabel({ text, x, y, anchor, small, leaderFrom, highlight, onClick }) {
+  const fontSize = small ? 11 : 12.5;
   return (
-    <text x={x} y={y} textAnchor={anchor} onClick={e => { e.stopPropagation(); onClick(); }}
-      style={{ cursor: 'pointer', userSelect: 'none' }}
-      fontSize={small ? 11 : 12.5} fontWeight={highlight ? 700 : 500}
-      fill={highlight ? '#fff' : '#EAE6DC'} paintOrder="stroke"
-      stroke="rgba(0,0,0,0.85)" strokeWidth={3} strokeLinejoin="round">
-      {text}
-    </text>
+    <g style={{ cursor: 'pointer', userSelect: 'none' }} onClick={e => { e.stopPropagation(); onClick(); }}>
+      {leaderFrom && (
+        <line x1={leaderFrom.x} y1={leaderFrom.y} x2={x} y2={y - fontSize * 0.35}
+          stroke="rgba(234,230,220,0.58)" strokeWidth={0.8} pointerEvents="none" />
+      )}
+      <text x={x} y={y} textAnchor={anchor} fontSize={fontSize} fontWeight={highlight ? 700 : 500}
+        fill={highlight ? '#fff' : '#EAE6DC'} paintOrder="stroke"
+        stroke="rgba(0,0,0,0.85)" strokeWidth={3} strokeLinejoin="round">
+        {text}
+      </text>
+    </g>
   );
 }
 

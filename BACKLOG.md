@@ -2,11 +2,10 @@
 
 Vor Übernahme jeden Punkt gegen aktuellen Code, CHANGELOG und bestehende Projekt-Todos prüfen.
 
-- **UI-Offensive (laufende Welle, 2026-07-17):** Modul A mit v1.87.0 erledigt — lokaler
-  Terra-Pergamentstil, deutsche Labels, Gold/Navy-Auswahl, Flussbeschriftung,
-  Kompass/Maßstab und Desktop-/Mobil-Lesbarkeits-Gate. Offen in Prioritätsreihenfolge:
-  (B) Astra-Explorer: Label-Decluttering (innere Planeten kollidieren
-  zu „MerkVenus SErde Mars"), Inneres-System-Inset, sanfter Klick-Zoomflug; (C) Astra 3D:
+- **UI-Offensive (laufende Welle, 2026-07-17):** Module A und B erledigt — v1.87.0
+  brachte den Terra-Pergamentatlas; v1.88.0 das Astra-Label-Decluttering,
+  Inneres-System-Inset, den sanften Klick-Zoomflug und kollisionssichere Touch-Ziele.
+  Offen in Prioritätsreihenfolge: (C) Astra 3D:
   Spektralklassen-Glow + Limb-Darkening, Saturnring (PD, offline), Atmosphären-Rim,
   Teleskop-Okular-Ansicht mit Commons-Bild für Nebel/Galaxien, IAU-Sternbildlinien,
   schematische Transit-Animation; (D) Museum-Tab auf die Saal-/Flur-Komponente aus

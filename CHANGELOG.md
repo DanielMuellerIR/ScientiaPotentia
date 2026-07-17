@@ -5,6 +5,29 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-07-17 (v1.88.0) — Lesbarer Astra-Sonnensystem-Explorer
+
+Modul B der UI-Offensive entzerrt die zuvor zu „MerkVenus SErde Mars" kollidierenden
+Beschriftungen im Sonnensystem. Ein deterministischer Kollisionscheck priorisiert den
+fokussierten und danach den projiziert größeren Körper, weicht mit Leader-Lines nach
+oben oder unten aus und hält Labels aus Kopfzeile, Inset, Info-Karte und Mondliste
+heraus. In der Außenansicht zeigt ein eigenes Inset die vier inneren Planeten mit
+getrennten Labelankern und unabhängigem Maßstab; es verschwindet erst, sobald deren
+projizierte Abstände beim Hereinzoomen tatsächlich groß genug sind.
+
+Klicks starten nun einen 560-ms-Zoomflug mit weicher Interpolation. Bei
+`prefers-reduced-motion` wird das Ziel ohne Animation gesetzt. Alle Körper besitzen
+mindestens 12 px Trefferadius; überlappende Kreise werden geometrisch zum nächsten
+Körper aufgelöst, statt den später gezeichneten SVG-Knoten zu wählen. Damit fokussiert
+ein echter Touch auf den Erdmittelpunkt jetzt Erde statt Mars. Die Explorer-interne
+Navigation wird unter 560 px auf eindeutige Icon-Ziele mit `aria-label` verdichtet.
+
+Verifiziert: 79/79 Vitest-Tests, Build und Layoutvertrag 17/17. Kalter Browserlauf bei
+1280×800 und 375×812 mit Terra→Astra-Wechsel, lesbarer Außenansicht, Erde-Zoom in beiden
+Größen, korrekt beantworteter Astra-Frage und Browserkonsole ohne Warnungen oder Fehler.
+Der weiterhin lazy geladene `SolarSystemExplorer` wächst durch die neue Logik von
+14,72 auf 20,67 kB (gzip 5,68→7,64 kB); keine DOM-Messschleife wurde eingeführt.
+
 ## 2026-07-17 (v1.87.0) — Terra-Pergamentatlas mit deutschen Beschriftungen
 
 Modul A der UI-Offensive ersetzt den extern geladenen Positron-Stil durch den lokalen,
