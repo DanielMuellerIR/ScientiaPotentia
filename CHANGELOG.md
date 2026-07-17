@@ -5,6 +5,45 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-07-17 (v1.91.0) — Kompakter mobiler Wissens-Header
+
+Modul E der UI-Offensive verdichtet den Header bis einschließlich 768 px zu einem
+zweizeiligen Grid: DomainSwitcher und kompakte Meta-Anzeigen stehen oben, alle Tabs
+der aktiven Domain unten als reine Icon-Ziele in exakt einer Reihe. Tabs,
+DomainSwitcher-Trigger und Mute-Schalter besitzen mindestens 44×44 px Touchfläche;
+Bestmarke und Streak zeigen mobil Icon und Wert. Auf dem Desktop bleiben die
+vollständigen Produktlabels einschließlich „Lern-Quiz“ erhalten.
+
+Alle Tabs tragen stabile `aria-label` und `title`, der aktive Tab zusätzlich
+`aria-current="page"`. Der Mute-Schalter meldet seinen Zustand über `aria-pressed`;
+die volle Bedeutung der kompakten Score-/Streak-Anzeigen bleibt zugänglich. Das
+Header-Markup ist nun vollständig über Klassen statt Inline-Styles steuerbar. Der
+DomainSwitcher bietet alle neun Bereiche, ist viewportbegrenzt, zeigt sie im
+Hochformat vollständig und scrollt im Querformat. Escape und die Auswahl einer
+Option schließen das Menü und geben den Fokus an den Trigger zurück.
+`prefers-reduced-motion` deaktiviert Slide-in-Animation und Chevron-Transition.
+
+Der Layoutvertrag umfasst nun 41 Prüfungen. Sein längentreu maskierender
+Klammer-Parser ignoriert vorgetäuschte Media Queries und Selektoren in
+CSS-Kommentaren oder Strings, wertet alle echten 768-px-Blöcke aus und verhindert
+unbemerkte spätere Header-Overrides. Die ARIA-Gates prüfen bewusst den Quelltext;
+Runtime-Verhalten decken RTL- und Browserprüfungen ab.
+
+Verifiziert: 113/113 Vitest-Tests, Produktions-Build und Layoutvertrag 41/41.
+Browser-Gegenproben mit Domainwechsel und beantworteter Natura-Frage ergaben bei
+375×812 eine Headerhöhe von 106 px statt 191,9 px; der Hauptbereich beginnt bei
+y=114 statt 199,9, sein Inhalt bei y=126. Terras vier Tabs stehen dort jeweils mit
+80×44 px in einer Reihe; bei 320 px Breite bleiben sie mit je 67×44 px ohne
+Dokument-X-Overflow. Natura und Astra zeigen je drei Tabs mit 108×44 px. Das
+Domainmenü liegt bei 375×812 auf y=67, ist 554 px hoch, endet bei y=621 und zeigt
+alle neun Bereiche. Bei 844×390 liegt es auf y=72,9, ist 302 px hoch und endet bei
+y=374,9; bei `scrollHeight=552` ist die letzte Option bis zu ihrer Unterkante bei
+y=365,9 erreichbar. Die Headerhöhen bleiben am Breakpoint stetig: 106 px bei
+768 px Breite, 111,9 px bei 769 px, 60 px bei 1080 px und 71,9 px bei 1081 sowie
+1280 px, jeweils ohne Dokument-X-Overflow. Mit reduzierter Bewegung sind Animation
+und Chevron-Transition deaktiviert (`animation-name:none`,
+`transition-duration:0s`).
+
 ## 2026-07-17 (v1.90.0) — Virtualisierte Domain-Säle im Museum
 
 Modul D der UI-Offensive ersetzt die zuvor gleichzeitig gerenderten 5.041

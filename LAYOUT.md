@@ -1,6 +1,6 @@
 # Layout-Vertrag
 
-> **Stand: 2026-06-10.** Verbindliche Regeln fuer das Gesamtlayout (die „Shell"). Wer am UI
+> **Stand: 2026-07-17.** Verbindliche Regeln fuer das Gesamtlayout (die „Shell"). Wer am UI
 > arbeitet — Mensch oder AI-Agent — haelt sich daran, damit das responsive Verhalten nicht
 > unbemerkt zerbricht. Maschinell geprueft durch `scripts/check_layout_contract.cjs`.
 
@@ -16,8 +16,9 @@ Das Gesamtlayout besteht aus wenigen Shell-Containern:
 
 Alle diese Container werden in `src/index.css` (Abschnitt „APP-SHELL LAYOUT") definiert; ihre Masse
 stehen als CSS-Variablen in `:root` (`--header-height`, `--sidebar-width`, `--shell-gap`,
-`--shell-pad`). Unter 768px stapelt ein einzelner `@media`-Breakpoint die Spalten: die linke Karte
-behaelt ~38vh Hoehe (bleibt sichtbar), die rechte Spalte nimmt die volle Breite und scrollt.
+`--shell-pad`). Bis einschließlich 768px stapelt ein einzelner `@media`-Breakpoint die Spalten: die
+linke Karte behaelt ~38vh Hoehe (bleibt sichtbar), die rechte Spalte nimmt die volle Breite und
+scrollt.
 
 ## Die Regeln
 
@@ -37,6 +38,29 @@ behaelt ~38vh Hoehe (bleibt sichtbar), die rechte Spalte nimmt die volle Breite 
 
 4. **Masse aendern = CSS-Variable aendern**, nicht den Wert an mehreren Stellen hartcodieren.
 
+## Header-Vertrag
+
+Der Desktop-Header behaelt seine beschrifteten Tabs und darf bei mittleren Breiten kontrolliert
+umbrechen. Im echten `@media (max-width:768px)`-Block wird er zu genau zwei Grid-Zeilen:
+
+- oben `DomainSwitcher` und die kompakte Meta-Gruppe;
+- unten alle fuer die aktive Domain vorhandenen Tabs in **einer** Zeile;
+- die Tab-Beschriftungen sind nur visuell ausgeblendet, stabile `aria-label` und `title` bleiben;
+- der aktive Tab traegt `aria-current="page"`;
+- Tabs, Domain-Trigger und Mute-Schalter haben mindestens 44×44 px Touchflaeche;
+- Bestmarke und Streak zeigen mobil Icon + Wert, ihre volle Bedeutung steht in
+  `aria-label` und `title`;
+- der Mute-Schalter traegt zusaetzlich `aria-pressed`;
+- Header-Geometrie und responsive Sichtbarkeit leben in `app-header-*`- bzw.
+  `domain-switcher-*`-Klassen, nicht in Header-Inline-Styles.
+
+Der DomainSwitcher-Trigger verknuepft das Menue im offenen Zustand ueber `aria-controls`, meldet
+seinen Zustand ueber `aria-expanded` und kennzeichnet das Popup mit `aria-haspopup="menu"`.
+Escape und die Auswahl einer Option schliessen das Menue und fokussieren den Trigger. Das Menue
+bleibt schmaler als der Viewport, endet mit Sicherheitsabstand vor dessen Unterkante und scrollt
+vertikal, damit alle Bereiche auch im Querformat erreichbar bleiben. Bei
+`prefers-reduced-motion:reduce` laufen weder `.slide-in` noch die Chevron-Drehung animiert.
+
 ## Pruefen
 
 ```bash
@@ -48,12 +72,25 @@ npm run check:layout
 
 Der Check verifiziert: Variablen vorhanden, Shell-Klassen vorhanden, Breakpoint + Stapelung
 vorhanden, App.jsx nutzt die Klassen, und die Shell-Masse (390px / 100vh) sind nicht wieder inline
-in `App.jsx` hartcodiert.
+in `App.jsx` hartcodiert. Fuer den Header maskiert ein Klammer-Parser CSS-Kommentare und Strings,
+liest alle echten 768px-Bloecke und stellt sicher, dass nur der zentrale Mobilblock Header-Regeln
+traegt; der separate `.app-main--explore`-Block bleibt davon unberuehrt. Im Headerblock prueft er
+Grid, einzeilige Navigation, visuell ausgeblendete Labels und 44px-Touchziele. Zusaetzlich prueft
+er Header-/Switcher-Klassen, zentrale ARIA-Merkmale und Reduced Motion. Das sind
+Strukturpruefungen am Quelltext, keine Pixelmessungen oder Runtime-A11y-Tests. Die ARIA-Pruefungen
+ersetzen daher weder den gezielten RTL-Test noch eine Browser-/Assistenztechnik-Gegenprobe.
 
 ## Was der Check NICHT abdeckt
 
 Er prueft die Struktur, nicht das visuelle Ergebnis. Ein echter Pixel-/Scroll-Test braucht einen
-Browser. Pflicht-Gegenprobe vor groesseren Layout-Aenderungen: Browser-Preview bei
-**1280×800** (Desktop, Regression), **375×812** (Handy hochkant) und **844×390** (Handy quer)
-ansehen — siehe `docs/archive/mobile-layout-plan.md`. Ein echter Geraetetest (iPhone hochkant) steht noch aus
-(Todo in `AGENTS.md`).
+Browser. Pflicht-Gegenprobe vor groesseren Layout-Aenderungen:
+
+- **1280×800** fuer die Desktop-Regression;
+- **769×800** und **768×800** direkt beidseits des Breakpoints, ohne harten Hoehensprung;
+- **375×812** fuer Handy-Hochkant: Header grob maximal 120px, Nav einzeilig, kein
+  Dokument-X-Overflow und Hauptinhalt deutlich im oberen Drittel;
+- **844×390** fuer Handy-Querformat: Dropdown scrollbar, alle neun Domains erreichbar und seine
+  Unterkante mindestens 8px vor der Viewport-Unterkante.
+
+Siehe auch `docs/archive/mobile-layout-plan.md`. Der maschinelle Check ersetzt diese Gegenprobe und
+einen echten Geraetetest nicht.

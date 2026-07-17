@@ -12,7 +12,7 @@
    Siehe mobile-layout-plan.md (Tier 1).
    ============================================================ */
 .app-shell{display:flex;flex-direction:column;height:100dvh;width:100vw;background:var(--bg-main);color:var(--text-main);font-family:var(--font-sans);padding-bottom:8px}
-.app-header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;row-gap:8px;column-gap:12px;padding:12px 24px;margin:12px var(--shell-pad) 0;min-height:var(--header-height);border:1px solid var(--border-light);z-index:100;flex-shrink:0}
+.app-header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;row-gap:8px;column-gap:12px;padding:12px 24px;margin:12px var(--shell-pad) 0;min-width:0;min-height:var(--header-height);border:1px solid var(--border-light);z-index:100;flex-shrink:0}
 /* Drei Header-Gruppen als Klassen (nicht Inline), damit Media Queries sie steuern
    koennen — siehe Broeckel-Schutz-Hinweis oben. Der Nav-Block darf seine Tabs
    umbrechen; bei zu schmalem Fenster rutscht zuerst die Score-Gruppe in Zeile 2,
@@ -21,6 +21,30 @@
 .app-header-nav{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
 .app-header-nav button{font-size:15px;padding:8px 14px;white-space:nowrap}
 .app-header-meta{display:flex;align-items:center;gap:16px}
+.app-wordmark{color:var(--text-muted);font-size:11px;font-weight:600;letter-spacing:.5px;white-space:nowrap}
+.app-header-audio{display:flex;align-items:center;justify-content:center;width:44px;min-width:44px;height:44px;padding:0;color:var(--color-primary);border-radius:var(--radius-sm);cursor:pointer}
+.app-header-audio--muted{color:var(--text-muted)}
+.app-header-stat{display:flex;align-items:center;gap:6px;font-size:15px;white-space:nowrap}
+.app-header-stat--score{color:var(--color-secondary);font-weight:700}
+.app-header-stat--streak{color:var(--color-warning);font-weight:600}
+.domain-switcher-root{position:relative;min-width:0;max-width:100%}
+.domain-switcher-trigger{display:flex;align-items:center;gap:10px;max-width:100%;min-height:44px;padding:6px 12px;background:rgba(255,255,255,.55);border:1px solid var(--border-light);border-radius:var(--radius-sm,6px);font:inherit;cursor:pointer;backdrop-filter:blur(12px)}
+.domain-switcher-trigger-icon{flex:none}
+.domain-switcher-active-text{min-width:0;text-align:left;line-height:1.1}
+.domain-switcher-active-name{overflow:hidden;color:var(--color-primary);font-family:var(--font-title);font-size:18px;font-weight:700;text-overflow:ellipsis;white-space:nowrap}
+.domain-switcher-active-label{overflow:hidden;color:var(--text-muted);font-size:11px;text-overflow:ellipsis;white-space:nowrap}
+.domain-switcher-chevron{flex:none;color:var(--text-muted);transition:transform .2s}
+.domain-switcher-chevron--open{transform:rotate(180deg)}
+.domain-switcher-menu{position:absolute;top:calc(100% + 8px);left:0;z-index:200;display:flex;flex-direction:column;gap:4px;width:min(320px,calc(100vw - 32px));max-width:calc(100vw - 32px);max-height:min(640px,calc(100dvh - 88px));padding:8px;overflow-y:auto;background:rgba(250,249,244,.96);border:1px solid var(--border-light);border-radius:var(--radius-sm,8px);box-shadow:0 12px 40px rgba(0,0,0,.18);backdrop-filter:blur(14px)}
+.domain-switcher-option{display:flex;align-items:center;gap:10px;width:100%;min-height:56px;padding:8px 10px;text-align:left;background:transparent;border:1px solid transparent;border-radius:6px;font:inherit;cursor:pointer}
+.domain-switcher-option--active{background:rgba(27,48,91,.06)}
+.domain-switcher-option:focus-visible,.domain-switcher-trigger:focus-visible{outline:2px solid var(--color-primary);outline-offset:2px}
+.domain-switcher-option-icon{display:flex;align-items:center;justify-content:center;width:38px;height:38px;flex:none;background:rgba(255,255,255,.6);border:1px solid transparent;border-radius:8px}
+.domain-switcher-option-text{flex:1;min-width:0;line-height:1.25}
+.domain-switcher-option-title{overflow:hidden;color:var(--color-primary);font-family:var(--font-title);font-size:15px;font-weight:700;text-overflow:ellipsis;white-space:nowrap}
+.domain-switcher-option-label{color:var(--text-muted);font-size:13px;font-weight:500}
+.domain-switcher-option-description{overflow:hidden;color:var(--text-muted);font-size:11.5px;text-overflow:ellipsis;white-space:nowrap}
+.domain-switcher-option-progress{flex:none;color:var(--text-muted);font-size:11px;font-weight:700;white-space:nowrap}
 .app-main{flex:1;display:flex;padding:12px var(--shell-pad);gap:var(--shell-gap);overflow:hidden;position:relative;min-height:0}
 /* Linke Spalte (Karte/Explorer): waechst, darf auf 0 schrumpfen. */
 .app-pane-left{flex:1;height:100%;min-width:0;min-height:0}
@@ -37,13 +61,27 @@
    bevor die Score-Gruppe umbricht. */
 @media (max-width:1080px){
   .app-wordmark{display:none}
-  .app-header{padding:10px 16px}
+  .app-header{padding:6px 16px}
   .app-header-nav button{font-size:13.5px;padding:7px 10px}
   .app-header-meta{gap:10px}
 }
 @media (max-width:768px){
   :root{--shell-pad:12px;--shell-gap:10px}
-  .app-header{margin:8px var(--shell-pad) 0;padding:8px 12px;height:auto;flex-wrap:wrap;gap:8px}
+  .app-header{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:44px 44px;grid-template-areas:"brand meta" "nav nav";align-items:center;margin:8px var(--shell-pad) 0;padding:6px 8px;height:auto;gap:4px 6px}
+  .app-header-brand{grid-area:brand;overflow:visible}
+  .app-header-meta{grid-area:meta;gap:4px}
+  .app-header-nav{grid-area:nav;width:100%;gap:4px;flex-wrap:nowrap}
+  .app-header-nav button,.app-header-nav-button{justify-content:center;flex:1 1 0;min-width:44px;min-height:44px;padding:0;gap:0}
+  .app-header-nav-label{display:none}
+  .app-header-audio{width:44px;min-width:44px;height:44px;min-height:44px}
+  .app-header-stat{justify-content:center;min-width:38px;gap:2px;font-size:13px}
+  .app-header-stat svg{width:16px;height:16px}
+  .app-header-stat-label{display:none}
+  .domain-switcher-trigger{min-width:44px;min-height:44px;padding:4px 8px;gap:7px}
+  .domain-switcher-trigger-icon{width:20px;height:20px}
+  .domain-switcher-active-name{font-size:16px}
+  .domain-switcher-active-label{display:none}
+  .domain-switcher-chevron{width:14px;height:14px}
   .app-main{flex-direction:column}
   .app-pane-left{flex:none;width:100%;height:38vh;min-height:180px}
   .app-pane-right{width:100%;height:auto;flex:1 1 auto}
@@ -220,6 +258,8 @@
 }
 /* Reduzierte Bewegung: Enthuellung und Hover-Lift ohne Animation. */
 @media (prefers-reduced-motion:reduce){
+  .slide-in{animation:none}
+  .domain-switcher-chevron{transition:none}
   .exhibit-drape,.exhibit-img--revealed,.hall-frame,.hall-exhibit:before{transition:none}
   .astra-transit-marker{animation:none;offset-distance:50%}
 }

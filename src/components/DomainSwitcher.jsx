@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useEffect, useId, useRef, useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { getDomainIdFromConceptKey } from '../domains';
 
@@ -15,16 +15,30 @@ import { getDomainIdFromConceptKey } from '../domains';
  */
 export default function DomainSwitcher({ domains, activeId, onSelect, srsProgress = {} }) {
   const [open, setOpen] = useState(false);
-  const ref = useRef(null);
+  const rootRef = useRef(null);
+  const triggerRef = useRef(null);
+  const menuId = useId();
 
-  // Klick ausserhalb schliesst das Dropdown
+  // Klick außerhalb schließt das Dropdown. Escape schließt es ebenfalls und
+  // gibt den Fokus an den Auslöser zurück, damit die Tastaturnavigation nicht
+  // nach dem aus dem DOM entfernten Menü ins Leere fällt.
   useEffect(() => {
     const onClick = (e) => {
-      if (ref.current && !ref.current.contains(e.target)) setOpen(false);
+      if (rootRef.current && !rootRef.current.contains(e.target)) setOpen(false);
+    };
+    const onKeyDown = (e) => {
+      if (e.key !== 'Escape' || !open) return;
+      e.preventDefault();
+      setOpen(false);
+      triggerRef.current?.focus();
     };
     document.addEventListener('mousedown', onClick);
-    return () => document.removeEventListener('mousedown', onClick);
-  }, []);
+    document.addEventListener('keydown', onKeyDown);
+    return () => {
+      document.removeEventListener('mousedown', onClick);
+      document.removeEventListener('keydown', onKeyDown);
+    };
+  }, [open]);
 
   // Anzahl gelernter Konzepte pro Domain aus dem globalen Fortschritt ableiten.
   // (Mastery = Anteil Konzepte mit repetitions > 0; hier zeigen wir die absolute
@@ -40,54 +54,50 @@ export default function DomainSwitcher({ domains, activeId, onSelect, srsProgres
   const active = domains.find(d => d.id === activeId) || domains[0];
   const ActiveIcon = active.Icon;
 
+  const handleSelect = (domainId) => {
+    onSelect(domainId);
+    setOpen(false);
+    triggerRef.current?.focus();
+  };
+
   return (
-    <div ref={ref} style={{ position: 'relative' }}>
+    <div ref={rootRef} className="domain-switcher-root">
       {/* Auslöser: zeigt aktiven Bereich */}
       <button
+        ref={triggerRef}
+        type="button"
+        className="domain-switcher-trigger"
         onClick={() => setOpen(o => !o)}
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '10px',
-          padding: '6px 12px',
-          background: 'rgba(255,255,255,0.55)',
-          border: '1px solid var(--border-light)',
-          borderRadius: 'var(--radius-sm, 6px)',
-          cursor: 'pointer',
-          backdropFilter: 'blur(12px)'
-        }}
+        aria-label={`Wissensbereich wechseln, aktuell ${active.latinName}: ${active.label}`}
+        aria-expanded={open}
+        aria-haspopup="menu"
+        aria-controls={open ? menuId : undefined}
         title="Wissensbereich wechseln"
       >
-        <ActiveIcon size={22} style={{ color: active.accent }} />
-        <div style={{ textAlign: 'left', lineHeight: 1.1 }}>
-          <div style={{ fontFamily: 'var(--font-title)', fontSize: '18px', fontWeight: 700, color: 'var(--color-primary)' }}>
-            {active.latinName}
-          </div>
-          <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>{active.label}</div>
+        <ActiveIcon
+          className="domain-switcher-trigger-icon"
+          size={22}
+          style={{ color: active.accent }}
+          aria-hidden="true"
+        />
+        <div className="domain-switcher-active-text">
+          <div className="domain-switcher-active-name">{active.latinName}</div>
+          <div className="domain-switcher-active-label">{active.label}</div>
         </div>
-        <ChevronDown size={16} style={{ color: 'var(--text-muted)', transform: open ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }} />
+        <ChevronDown
+          className={`domain-switcher-chevron${open ? ' domain-switcher-chevron--open' : ''}`}
+          size={16}
+          aria-hidden="true"
+        />
       </button>
 
       {/* Dropdown: Karten aller Bereiche */}
       {open && (
         <div
-          className="slide-in"
-          style={{
-            position: 'absolute',
-            top: 'calc(100% + 8px)',
-            left: 0,
-            width: '320px',
-            zIndex: 200,
-            background: 'rgba(250, 249, 244, 0.92)',
-            backdropFilter: 'blur(14px)',
-            border: '1px solid var(--border-light)',
-            borderRadius: 'var(--radius-sm, 8px)',
-            boxShadow: '0 12px 40px rgba(0,0,0,0.18)',
-            padding: '8px',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '4px'
-          }}
+          id={menuId}
+          className="domain-switcher-menu slide-in"
+          role="menu"
+          aria-label="Wissensbereiche"
         >
           {domains.map(d => {
             const Icon = d.Icon;
@@ -96,37 +106,31 @@ export default function DomainSwitcher({ domains, activeId, onSelect, srsProgres
             return (
               <button
                 key={d.id}
-                onClick={() => { onSelect(d.id); setOpen(false); }}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '12px',
-                  padding: '10px 12px',
-                  textAlign: 'left',
-                  background: isActive ? 'rgba(27, 48, 91, 0.06)' : 'transparent',
-                  border: `1px solid ${isActive ? d.accent : 'transparent'}`,
-                  borderRadius: '6px',
-                  cursor: 'pointer',
-                  width: '100%'
-                }}
+                type="button"
+                role="menuitemradio"
+                aria-checked={isActive}
+                className={`domain-switcher-option${isActive ? ' domain-switcher-option--active' : ''}`}
+                onClick={() => handleSelect(d.id)}
+                style={{ borderColor: isActive ? d.accent : 'transparent' }}
               >
-                <span style={{
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  width: '38px', height: '38px', flexShrink: 0,
-                  borderRadius: '8px',
-                  background: 'rgba(255,255,255,0.6)',
-                  border: `1px solid ${d.accent}33`,
-                  boxShadow: isActive ? `0 0 12px ${d.accent}55` : 'none'
-                }}>
-                  <Icon size={20} style={{ color: d.accent }} />
+                <span
+                  className="domain-switcher-option-icon"
+                  style={{
+                    borderColor: `${d.accent}33`,
+                    boxShadow: isActive ? `0 0 12px ${d.accent}55` : 'none',
+                    color: d.accent
+                  }}
+                >
+                  <Icon size={20} aria-hidden="true" />
                 </span>
-                <div style={{ flex: 1, lineHeight: 1.25 }}>
-                  <div style={{ fontFamily: 'var(--font-title)', fontSize: '15px', fontWeight: 700, color: 'var(--color-primary)' }}>
-                    {d.latinName} <span style={{ fontWeight: 500, color: 'var(--text-muted)', fontSize: '13px' }}>· {d.label}</span>
+                <div className="domain-switcher-option-text">
+                  <div className="domain-switcher-option-title">
+                    {d.latinName}{' '}
+                    <span className="domain-switcher-option-label">· {d.label}</span>
                   </div>
-                  <div style={{ fontSize: '11.5px', color: 'var(--text-muted)' }}>{d.description}</div>
+                  <div className="domain-switcher-option-description">{d.description}</div>
                 </div>
-                <div style={{ fontSize: '11px', fontWeight: 700, color: d.accent, whiteSpace: 'nowrap' }}>
+                <div className="domain-switcher-option-progress" style={{ color: d.accent }}>
                   {studied} gelernt
                 </div>
               </button>

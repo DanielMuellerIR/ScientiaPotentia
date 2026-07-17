@@ -391,93 +391,117 @@ export default function App() {
           <span
             className="app-wordmark"
             title="Scientia potentia est — Wissen ist Macht"
-            style={{ fontSize: '11px', color: 'var(--text-muted)', fontWeight: 600, letterSpacing: '0.5px', whiteSpace: 'nowrap' }}
           >
             Scientia · v{pkg.version}
           </span>
         </div>
 
         {/* Tab Selectors */}
-        <nav className="app-header-nav">
+        <nav className="app-header-nav" aria-label="Hauptnavigation">
           {/* "Übersicht" nur für Domains ohne eigenen Explorer. Wo es einen gibt
               (z.B. Astra-Sonnensystem), ist der Explorer die sinnvollere Startseite. */}
           {!activeDomain.Explorer && (
             <button
-              className={activeTab === 'dashboard' ? 'btn-terra-primary' : 'btn-terra'}
+              type="button"
+              className={`${activeTab === 'dashboard' ? 'btn-terra-primary' : 'btn-terra'} app-header-nav-button`}
               onClick={() => handleTabChange('dashboard')}
+              aria-label="Übersicht"
+              aria-current={activeTab === 'dashboard' ? 'page' : undefined}
+              title="Übersicht"
             >
               <BarChart3 size={16} />
-              Übersicht
+              <span className="app-header-nav-label">Übersicht</span>
             </button>
           )}
           {activeDomain.hasMap && (
             <button
-              className={activeTab === 'atlas' ? 'btn-terra-primary' : 'btn-terra'}
+              type="button"
+              className={`${activeTab === 'atlas' ? 'btn-terra-primary' : 'btn-terra'} app-header-nav-button`}
               onClick={() => handleTabChange('atlas')}
+              aria-label="Weltatlas"
+              aria-current={activeTab === 'atlas' ? 'page' : undefined}
+              title="Weltatlas"
             >
               <Compass size={16} />
-              Weltatlas
+              <span className="app-header-nav-label">Weltatlas</span>
             </button>
           )}
           {/* Erkundungs-Tab: nur Domains mit eigenem Explorer (z.B. Astra-Sonnensystem). */}
           {activeDomain.Explorer && (
             <button
-              className={activeTab === 'explore' ? 'btn-terra-primary' : 'btn-terra'}
+              type="button"
+              className={`${activeTab === 'explore' ? 'btn-terra-primary' : 'btn-terra'} app-header-nav-button`}
               onClick={() => handleTabChange('explore')}
+              aria-label={activeDomain.explorerLabel || 'Erkundung'}
+              aria-current={activeTab === 'explore' ? 'page' : undefined}
+              title={activeDomain.explorerLabel || 'Erkundung'}
             >
               {activeDomain.ExplorerIcon ? <activeDomain.ExplorerIcon size={16} /> : <Compass size={16} />}
-              {activeDomain.explorerLabel || 'Erkundung'}
+              <span className="app-header-nav-label">
+                {activeDomain.explorerLabel || 'Erkundung'}
+              </span>
             </button>
           )}
           <button
-            className={activeTab === 'quiz' ? 'btn-terra-primary' : 'btn-terra'}
+            type="button"
+            className={`${activeTab === 'quiz' ? 'btn-terra-primary' : 'btn-terra'} app-header-nav-button`}
             onClick={() => handleTabChange('quiz')}
-            style={{ fontSize: '15px', padding: '8px 14px' }}
+            aria-label="Lern-Quiz"
+            aria-current={activeTab === 'quiz' ? 'page' : undefined}
+            title="Lern-Quiz"
           >
             <HelpCircle size={16} />
-            Lern-Quiz
+            <span className="app-header-nav-label">Lern-Quiz</span>
           </button>
           {/* Museum-Tab: globale Bildgalerie über alle Domains */}
           <button
-            className={activeTab === 'museum' ? 'btn-terra-primary' : 'btn-terra'}
+            type="button"
+            className={`${activeTab === 'museum' ? 'btn-terra-primary' : 'btn-terra'} app-header-nav-button`}
             onClick={() => handleTabChange('museum')}
-            style={{ fontSize: '15px', padding: '8px 14px' }}
+            aria-label="Museum"
+            aria-current={activeTab === 'museum' ? 'page' : undefined}
+            title="Museum"
           >
             <Images size={16} />
-            Museum
+            <span className="app-header-nav-label">Museum</span>
           </button>
         </nav>
         
         {/* Score & Streak indicators */}
         <div className="app-header-meta">
-          <button 
+          <button
+            type="button"
             onClick={handleToggleMute}
-            className="btn-terra"
-            style={{ 
-              padding: '6px', 
-              display: 'flex', 
-              alignItems: 'center', 
-              justifyContent: 'center',
-              borderRadius: 'var(--radius-sm)',
-              cursor: 'pointer',
-              minWidth: '36px',
-              height: '36px'
-            }}
+            className={`btn-terra app-header-audio${isMuted ? ' app-header-audio--muted' : ''}`}
+            aria-label={isMuted ? 'Ton einschalten' : 'Ton ausschalten'}
+            aria-pressed={isMuted}
             title={isMuted ? 'Ton einschalten' : 'Ton ausschalten'}
           >
             {isMuted ? (
-              <VolumeX size={18} style={{ color: 'var(--text-muted)' }} />
+              <VolumeX size={18} />
             ) : (
-              <Volume2 size={18} style={{ color: 'var(--color-primary)' }} />
+              <Volume2 size={18} />
             )}
           </button>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '15px', fontWeight: 700, color: 'var(--color-secondary)' }}>
+          <div
+            className="app-header-stat app-header-stat--score"
+            role="group"
+            aria-label={`Bestmarke: ${highScore}`}
+            title={`Bestmarke: ${highScore}`}
+          >
             <Trophy size={18} />
-            <span>Bestmarke: {highScore}</span>
+            <span className="app-header-stat-label">Bestmarke: </span>
+            <span className="app-header-stat-value">{highScore}</span>
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '15px', fontWeight: 600, color: 'var(--color-warning)' }}>
+          <div
+            className="app-header-stat app-header-stat--streak"
+            role="group"
+            aria-label={`Streak: ${streakCount} Tage`}
+            title={`Streak: ${streakCount} Tage`}
+          >
             <Flame size={18} />
-            <span>Streak: {streakCount}d</span>
+            <span className="app-header-stat-label">Streak: </span>
+            <span className="app-header-stat-value">{streakCount}d</span>
           </div>
         </div>
       </header>
