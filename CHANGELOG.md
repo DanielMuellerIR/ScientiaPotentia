@@ -5,6 +5,29 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-07-17 (v1.87.0) — Terra-Pergamentatlas mit deutschen Beschriftungen
+
+Modul A der UI-Offensive ersetzt den extern geladenen Positron-Stil durch den lokalen,
+versionierten Fork `public/map_styles/scientia_parchment.json`. Der Kartenstil priorisiert
+bei Ländern, Regionen und Städten `name:de` mit geprüftem Namens-Fallback, nutzt die
+Pergamentpalette des Produkts und hält Länder- sowie Wasserbeschriftungen mit ruhigen
+Konturen und hellen Halos lesbar. Der Stil selbst ist damit keine Laufzeitabhängigkeit
+mehr; Vektorkacheln, Glyphen und Sprite stammen weiterhin transparent vom
+OpenFreeMap-Original und sind samt Lizenz/Attribution in den Stilmetadaten dokumentiert.
+
+Die bestehenden Terra-Overlays bleiben geometrisch unverändert, sind aber farblich auf
+Gold/Navy abgestimmt. Geprüfte Flussnamen erscheinen im Atlas kursiv; Quizkarten blenden
+Basis- und Flusslabels weiterhin absichtlich aus, damit die Antwort nicht verraten wird.
+MapLibre-Kompass und metrischer Maßstab ergänzen die Karte, lassen sich über einen
+gemeinsamen 30-px-Schalter ein- und ausblenden und verdecken auch mobil weder Legende
+noch Attribution.
+
+Verifiziert: 70/70 Vitest-Tests, Build, Layoutvertrag 17/17 und Terra-Quizprüfung
+56.880/56.880. Kalter Browserlauf bei 1280×800 und 375×812 mit Astra→Terra-Wechsel,
+korrekt beantworteter Terra-Frage, Atlas-Stichproben für deutsche Länder-/Städtenamen
+und sichtbarer Donau-Beschriftung; Browserkonsole ohne Warnungen oder Fehler. Die
+stillgelegten Währungsfragen und ihre Datenquellen wurden in diesem Modul nicht geändert.
+
 ## 2026-07-17 (v1.86.0) — Museumssaal-Galerie und Quiz-Exponat mit Enthüllung
 
 Die per-Bereich-Galerie (`GalleryExplorer`) ist vom flachen Thumbnail-Raster zum

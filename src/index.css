@@ -155,3 +155,21 @@
 @media (prefers-reduced-motion:reduce){
   .exhibit-drape,.exhibit-img--revealed,.hall-frame,.hall-exhibit:before{transition:none}
 }
+
+/* Terra-Karte: Die Überlagerungen sind komponentenintern. Sie verändern keine
+   Shell-Maße und bleiben deshalb auf Desktop und Mobilgerät gleich robust. */
+.terra-map{position:relative;width:100%;height:100%;overflow:hidden;border-radius:inherit;isolation:isolate}
+.terra-map-canvas{width:100%;height:100%;border-radius:inherit}
+.terra-map-control-toggle{position:absolute;top:12px;left:12px;z-index:4;display:grid;width:30px;height:30px;place-items:center;border:1px solid #8B6F3B;border-radius:2px;background:rgba(227,223,213,.94);color:#1B305B;padding:0;box-shadow:0 1px 3px rgba(27,48,91,.18);cursor:pointer}
+.terra-map-control-toggle:hover{background:#F1EBDD}
+.terra-map-control-toggle:focus-visible{outline:2px solid #1B305B;outline-offset:2px}
+.terra-map-legend{position:absolute;bottom:12px;left:12px;z-index:3;pointer-events:none}
+.terra-map-legend-content{display:flex;gap:12px;padding:8px 14px;background:rgba(227,223,213,.92);color:var(--text-muted);font-size:14px;box-shadow:0 2px 5px rgba(27,48,91,.12)}
+.terra-map-legend-items{display:flex;align-items:center;gap:12px}
+.terra-map-legend-item{display:flex;align-items:center;gap:6px;white-space:nowrap}
+.terra-map-legend-swatch{display:inline-block;width:10px;height:10px;border:1px solid rgba(27,48,91,.2)}
+.terra-map-legend-swatch--correct{background:#2C5E43}.terra-map-legend-swatch--wrong{background:#842029}.terra-map-legend-swatch--hint,.terra-map-legend-swatch--mastered{background:#B89550}.terra-map-legend-swatch--familiar{background:#91A8B8}.terra-map-legend-swatch--learning{background:#C8D1B8}
+.terra-map .maplibregl-ctrl-top-right{z-index:3}.terra-map .maplibregl-ctrl-bottom-right{z-index:3}
+.terra-map .maplibregl-ctrl-scale{margin:0 8px 8px 0;background:rgba(227,223,213,.94);border-color:#8B6F3B;color:#1B305B;font-family:var(--font-sans);font-size:9px;font-weight:600;padding:0 4px}
+.terra-map-controls-hidden .maplibregl-ctrl-group,.terra-map-controls-hidden .maplibregl-ctrl-scale{display:none}
+@media (max-width:767px){.terra-map-legend{bottom:54px}.terra-map-legend-content{gap:8px;padding:6px 8px;font-size:12px}.terra-map-legend-items{gap:8px}}

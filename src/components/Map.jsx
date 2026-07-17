@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { SlidersHorizontal } from 'lucide-react';
 import maplibregl from 'maplibre-gl';
 import { Protocol } from 'pmtiles';
 import { useGeoData } from '../utils/useGeoData';
@@ -6,6 +7,11 @@ import { useGeoData } from '../utils/useGeoData';
 // Initialize PMTiles protocol globally
 const protocol = new Protocol();
 maplibregl.addProtocol('pmtiles', protocol.tile);
+
+// Der Stil liegt lokal im Build und bleibt deshalb auch bei einem anderen Vite-Base-Pfad
+// auffindbar. Kacheln, Glyphen und Sprite bleiben bewusst beim OpenFreeMap-Original;
+// die Abhängigkeiten sind zusätzlich in der JSON-Metadaten beschrieben.
+const PARCHMENT_STYLE_URL = `${import.meta.env.BASE_URL}map_styles/scientia_parchment.json`;
 
 /**
  * MapLibre-'match'-Ausdruecke brauchen mindestens ein (Label, Output)-Paar
@@ -55,6 +61,9 @@ export default function Map({
   const mapContainerRef = useRef(null);
   const mapRef = useRef(null);
   const [mapLoaded, setMapLoaded] = useState(false);
+  // Beide echten MapLibre-Werkzeuge teilen einen gut erreichbaren Schalter.
+  // Die Attribution bleibt davon unberührt und damit immer sichtbar.
+  const [areMapControlsVisible, setAreMapControlsVisible] = useState(true);
   // Länder-, Unterteilungs- und Fluss-Geometrien für Bounding-Box-Berechnungen
   // (Code-Review R4: gemeinsamer Hook statt duplizierter fetch-Folge).
   const geo = useGeoData(['countries', 'subdivisions', 'rivers']);
@@ -96,14 +105,22 @@ export default function Map({
     console.log('Initializing MapLibre GL JS...');
     const map = new maplibregl.Map({
       container: mapContainerRef.current,
-      style: 'https://tiles.openfreemap.org/styles/positron', // Clean vintage paper-like positron style
+      style: PARCHMENT_STYLE_URL,
       center: [10, 30],
       zoom: 1.5,
       maxZoom: 9,
-      minZoom: 1
+      minZoom: 1,
+      // Nicht abschalten: Der Style übernimmt die Anbieterattribution aus seinen Quellen.
+      attributionControl: true
     });
 
     mapRef.current = map;
+
+    // NavigationControl liefert hier nur die drehbare, echte Kompassrose.
+    // Zoomtasten würden auf kleinen Karten unnötig Platz für Labels verdecken.
+    // Die Maßstabsleiste berechnet ihren Wert aus Zoom und Projektion selbst.
+    map.addControl(new maplibregl.NavigationControl({ showCompass: true, showZoom: false }), 'top-right');
+    map.addControl(new maplibregl.ScaleControl({ maxWidth: 76, unit: 'metric' }), 'bottom-right');
 
     map.on('load', () => {
       // Find the first symbol layer in the style so we can insert custom layers beneath labels
@@ -131,7 +148,7 @@ export default function Map({
         type: 'fill',
         source: 'countries',
         paint: {
-          'fill-color': '#FAF6EE',
+          'fill-color': '#E3DFD5',
           'fill-opacity': 0.0 // Start transparent
         }
       }, firstLabelLayerId);
@@ -142,7 +159,7 @@ export default function Map({
         type: 'line',
         source: 'countries',
         paint: {
-          'line-color': '#A6A192',
+          'line-color': '#8B6F3B',
           'line-width': 1,
           'line-opacity': 0.0 // Hide initially
         }
@@ -161,7 +178,7 @@ export default function Map({
         type: 'fill',
         source: 'subdivisions',
         paint: {
-          'fill-color': '#EFECE3',
+          'fill-color': '#E8E1D2',
           'fill-opacity': 0.0
         }
       }, firstLabelLayerId);
@@ -172,7 +189,7 @@ export default function Map({
         type: 'line',
         source: 'subdivisions',
         paint: {
-          'line-color': '#C7C2B4',
+          'line-color': '#8B6F3B',
           'line-width': 0.8,
           'line-dasharray': [2, 2],
           'line-opacity': 0.0
@@ -213,11 +230,40 @@ export default function Map({
           'line-join': 'round'
         },
         paint: {
-          'line-color': '#879BB3',
+          'line-color': '#71969A',
           'line-width': 1.5,
           'line-opacity': 0.0
         }
       }, firstLabelLayerId);
+
+      // Die Beschriftung nutzt dieselben geprüften Namen wie die Flussgeometrie.
+      // Ohne beforeId kommt sie über die Basislabels und bleibt beim Hereinzoomen lesbar.
+      map.addLayer({
+        id: 'rivers-label',
+        type: 'symbol',
+        source: 'rivers',
+        minzoom: 2,
+        layout: {
+          'symbol-placement': 'line-center',
+          'text-field': ['get', 'name'],
+          'text-font': ['Noto Sans Italic'],
+          'text-size': ['interpolate', ['linear'], ['zoom'], 1, 11, 5, 14],
+          'text-letter-spacing': 0.06,
+          // Lokale Lernziele dürfen nicht von den vielen Basiskartenlabels verdrängt werden.
+          'text-allow-overlap': true,
+          'text-ignore-placement': true,
+          'text-offset': [0, -0.8],
+          'text-keep-upright': true,
+          // Lange oder stark gebogene Flüsse bleiben am Mittelpunkt trotzdem beschriftet.
+          'text-max-angle': 180,
+          'text-padding': 6
+        },
+        paint: {
+          'text-color': '#1B305B',
+          'text-halo-color': '#E3DFD5',
+          'text-halo-width': 1.5
+        }
+      });
 
       setMapLoaded(true);
 
@@ -306,7 +352,7 @@ export default function Map({
       // 1. Dashboard Mode: "Keine Länder einzeichnen" (Keep start screen clean)
       map.setPaintProperty('countries-fill', 'fill-opacity', 0.0);
       map.setPaintProperty('countries-borders', 'line-opacity', 0.0);
-      map.setPaintProperty('countries-borders', 'line-color', '#A6A192');
+      map.setPaintProperty('countries-borders', 'line-color', '#8B6F3B');
       map.setPaintProperty('countries-borders', 'line-width', 1);
       map.setPaintProperty('subdivisions-fill', 'fill-opacity', 0.0);
       map.setPaintProperty('subdivisions-borders', 'line-opacity', 0.0);
@@ -314,7 +360,7 @@ export default function Map({
     } else if (mode === 'quiz') {
       // 2. Quiz Mode: Show unlabelled borders, color-code correct/wrong selections
       map.setPaintProperty('countries-borders', 'line-opacity', 0.8);
-      map.setPaintProperty('countries-borders', 'line-color', '#A6A192');
+      map.setPaintProperty('countries-borders', 'line-color', '#8B6F3B');
       map.setPaintProperty('countries-borders', 'line-width', 1);
       
       const isSubdivisionActive = showSubdivisions ||
@@ -345,7 +391,7 @@ export default function Map({
             colorExpression.push(id, '#B58900'); // Outline / Hint Gold
           }
         });
-        colorExpression.push('#FAF6EE'); // Standard parchment
+        colorExpression.push('#E3DFD5'); // Standard-Pergament
         return matchOrConstant(colorExpression);
       };
 
@@ -372,9 +418,9 @@ export default function Map({
       // Style subdivision fill color: highlight selected subdivision, default for others
       const subColorExpression = ['match', ['get', 'id']];
       if (isSubdivisionSelected) {
-        subColorExpression.push(selectedId, '#D1DCD4'); // soft green tint
+        subColorExpression.push(selectedId, '#D4B15C'); // Gold für die aktive Auswahl
       }
-      subColorExpression.push('#FAF6EE'); // default subdivision background
+      subColorExpression.push('#E8E1D2'); // warmer Grundton für Unterteilungen
       map.setPaintProperty('subdivisions-fill', 'fill-color', matchOrConstant(subColorExpression));
 
       // Border outline for active subdivision
@@ -382,7 +428,7 @@ export default function Map({
       if (isSubdivisionSelected) {
         subBorderExpression.push(selectedId, '#1B305B'); // deep slate blue border
       }
-      subBorderExpression.push('#C7C2B4'); // default subdivision border
+      subBorderExpression.push('#8B6F3B'); // sepiafarbene Unterteilungsgrenze
       map.setPaintProperty('subdivisions-borders', 'line-color', matchOrConstant(subBorderExpression));
 
       const subBorderWidthExpression = ['match', ['get', 'id']];
@@ -397,31 +443,31 @@ export default function Map({
       
       Object.keys(progressHeatmap).forEach(entityId => {
         const stats = progressHeatmap[entityId];
-        let color = '#FAF6EE';
+        let color = '#E3DFD5';
         
         if (stats.repetitions > 0) {
           if (stats.interval >= 30) {
-            color = '#C5B595'; // Mastered: Antique Gold/Bronze
+            color = '#B89550'; // Gemeistert: antikes Gold
           } else if (stats.interval >= 7) {
-            color = '#A4B4CC'; // Familiar: Vintage Light Blue
+            color = '#91A8B8'; // Vertraut: entsättigtes Blaugrün
           } else {
-            color = '#DCE0D5'; // Learning: Soft Grey-Green
+            color = '#C8D1B8'; // Lernen: zurückhaltendes Salbeigrün
           }
         }
         
         // Highlight active country selection differently (only if it's a country)
         if (entityId === selectedId && !isSubdivisionSelected) {
-          color = '#D1DCD4'; // Highlight selected country in soft pastel green tint
+          color = '#D4B15C'; // Aktive Auswahl: Gold statt grauer Überdeckung
         }
         
         colorExpression.push(entityId, color);
       });
       
       if (selectedId && !isSubdivisionSelected && !progressHeatmap[selectedId]) {
-        colorExpression.push(selectedId, '#D1DCD4');
+        colorExpression.push(selectedId, '#D4B15C');
       }
 
-      colorExpression.push('#FAF6EE'); // default parchment fill
+      colorExpression.push('#E3DFD5'); // Grundfläche der Pergamentkarte
       map.setPaintProperty('countries-fill', 'fill-color', matchOrConstant(colorExpression));
       map.setPaintProperty('countries-fill', 'fill-opacity', 0.85);
 
@@ -430,7 +476,7 @@ export default function Map({
       if (selectedId && !isSubdivisionSelected) {
         borderExpression.push(selectedId, '#1B305B'); // Deep Slate Blue border for selected country
       }
-      borderExpression.push('#A6A192');
+      borderExpression.push('#8B6F3B');
       map.setPaintProperty('countries-borders', 'line-color', matchOrConstant(borderExpression));
       
       const borderWidthExpression = ['match', ['get', 'id']];
@@ -469,7 +515,7 @@ export default function Map({
           map.setPaintProperty('rivers-line', 'line-color', [
             'case',
             ['==', ['get', 'id'], activeRiverId],
-            '#1D4ED8', // Accent blue
+            '#1B305B', // Navy: ausgewählter Fluss
             'transparent'
           ]);
         } else {
@@ -493,13 +539,13 @@ export default function Map({
           map.setPaintProperty('rivers-line', 'line-color', [
             'case',
             ['==', ['get', 'id'], activeRiverId],
-            '#1D4ED8', // Highlighted blue
-            '#879BB3'  // Soft grey-blue for others
+            '#1B305B', // Navy: ausgewählter Fluss
+            '#71969A'  // Entsättigtes Blaugrün für weitere Flüsse
           ]);
         } else {
           map.setPaintProperty('rivers-line', 'line-opacity', 0.35);
           map.setPaintProperty('rivers-line', 'line-width', 1.5);
-          map.setPaintProperty('rivers-line', 'line-color', '#879BB3');
+          map.setPaintProperty('rivers-line', 'line-color', '#71969A');
         }
       }
     }
@@ -650,52 +696,49 @@ export default function Map({
   }, [selectedId, zoomToEntityId, countriesGeoJSON, subdivisionsGeoJSON, riversGeoJSON, mapLoaded, mode]);
 
   return (
-    <div style={{ position: 'relative', width: '100%', height: '100%' }}>
-      <div ref={mapContainerRef} style={{ width: '100%', height: '100%', borderRadius: 'inherit' }} />
-      
-      {/* Visual map legend overlay */}
-      <div style={{
-        position: 'absolute',
-        bottom: '12px',
-        left: '12px',
-        zIndex: 10,
-        pointerEvents: 'none'
-      }}>
-        <div className="terra-panel" style={{
-          padding: '8px 14px',
-          fontSize: '14px',
-          color: 'var(--text-muted)',
-          display: 'flex',
-          gap: '12px',
-          background: 'rgba(250, 248, 242, 0.9)',
-          boxShadow: '0 2px 5px rgba(0,0,0,0.05)'
-        }}>
+    <div className={`terra-map ${areMapControlsVisible ? '' : 'terra-map-controls-hidden'}`}>
+      <div ref={mapContainerRef} className="terra-map-canvas" />
+
+      <button
+        type="button"
+        className="terra-map-control-toggle"
+        aria-pressed={areMapControlsVisible}
+        aria-label={areMapControlsVisible ? 'Kartenwerkzeuge ausblenden' : 'Kartenwerkzeuge einblenden'}
+        title={areMapControlsVisible ? 'Kartenwerkzeuge ausblenden' : 'Kartenwerkzeuge einblenden'}
+        onClick={() => setAreMapControlsVisible((visible) => !visible)}
+      >
+        <SlidersHorizontal aria-hidden="true" size={16} strokeWidth={2.3} />
+      </button>
+
+      {/* Die Legende bleibt bewusst außerhalb der klickbaren Karte und blockiert keine Ziele. */}
+      <div className="terra-map-legend">
+        <div className="terra-panel terra-map-legend-content">
           {mode === 'dashboard' ? (
             <div>Willkommen. Wähle eine Übersicht oder starte ein Quiz.</div>
           ) : mode === 'quiz' ? (
-            <>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <span style={{ width: '10px', height: '10px', backgroundColor: 'var(--color-success)', display: 'inline-block' }}></span> Richtig
+            <div className="terra-map-legend-items">
+              <div className="terra-map-legend-item">
+                <span className="terra-map-legend-swatch terra-map-legend-swatch--correct" /> Richtig
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <span style={{ width: '10px', height: '10px', backgroundColor: 'var(--color-error)', display: 'inline-block' }}></span> Falsch
+              <div className="terra-map-legend-item">
+                <span className="terra-map-legend-swatch terra-map-legend-swatch--wrong" /> Falsch
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <span style={{ width: '10px', height: '10px', backgroundColor: 'var(--color-warning)', display: 'inline-block' }}></span> Hinweis
+              <div className="terra-map-legend-item">
+                <span className="terra-map-legend-swatch terra-map-legend-swatch--hint" /> Hinweis
               </div>
-            </>
+            </div>
           ) : (
-            <>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <span style={{ width: '10px', height: '10px', backgroundColor: '#C5B595', display: 'inline-block' }}></span> Gemeistert
+            <div className="terra-map-legend-items">
+              <div className="terra-map-legend-item">
+                <span className="terra-map-legend-swatch terra-map-legend-swatch--mastered" /> Gemeistert
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <span style={{ width: '10px', height: '10px', backgroundColor: '#A4B4CC', display: 'inline-block' }}></span> Vertraut
+              <div className="terra-map-legend-item">
+                <span className="terra-map-legend-swatch terra-map-legend-swatch--familiar" /> Vertraut
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <span style={{ width: '10px', height: '10px', backgroundColor: '#DCE0D5', display: 'inline-block' }}></span> Lernen
+              <div className="terra-map-legend-item">
+                <span className="terra-map-legend-swatch terra-map-legend-swatch--learning" /> Lernen
               </div>
-            </>
+            </div>
           )}
         </div>
       </div>

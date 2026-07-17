@@ -5,40 +5,50 @@ import '@testing-library/jest-dom/vitest';
 
 // Mock maplibre-gl
 vi.mock('maplibre-gl', () => {
-  class MapMock {
-    constructor() {
-      this.on = vi.fn((event, callbackOrLayer, callback) => {
-        // If event is 'load', call the callback immediately so mapLoaded is set to true
-        if (event === 'load') {
-          const cb = typeof callbackOrLayer === 'function' ? callbackOrLayer : callback;
-          if (cb) setTimeout(cb, 0);
-        }
-      });
-      this.remove = vi.fn();
-      this.getLayer = vi.fn().mockImplementation(() => ({}));
-      this.getStyle = vi.fn(() => ({
-        layers: [
-          { id: 'label', type: 'symbol' },
-          { id: 'countries-fill', type: 'fill' }
-        ]
-      }));
-      this.addSource = vi.fn();
-      this.addLayer = vi.fn();
-      this.setPaintProperty = vi.fn();
-      this.setLayoutProperty = vi.fn();
-      this.setFeatureState = vi.fn();
-      this.getZoom = vi.fn(() => 2);
-      this.fitBounds = vi.fn();
-      this.getCanvas = vi.fn(() => ({
-        style: {}
-      }));
-      this.queryRenderedFeatures = vi.fn(() => []);
-    }
-  }
+  // Der Konstruktor bleibt ein Spy, damit Karten-Tests Stil und Controls prüfen
+  // können, ohne in JSDOM eine WebGL-Karte starten zu müssen.
+  const MapMock = vi.fn().mockImplementation(function MapMock(options) {
+    this.options = options;
+    this.on = vi.fn((event, callbackOrLayer, callback) => {
+      // If event is 'load', call the callback immediately so mapLoaded is set to true
+      if (event === 'load') {
+        const cb = typeof callbackOrLayer === 'function' ? callbackOrLayer : callback;
+        if (cb) setTimeout(cb, 0);
+      }
+    });
+    this.remove = vi.fn();
+    this.addControl = vi.fn();
+    this.getLayer = vi.fn().mockImplementation(() => ({}));
+    this.getStyle = vi.fn(() => ({
+      layers: [
+        { id: 'label', type: 'symbol' },
+        { id: 'countries-fill', type: 'fill' }
+      ]
+    }));
+    this.addSource = vi.fn();
+    this.addLayer = vi.fn();
+    this.setPaintProperty = vi.fn();
+    this.setLayoutProperty = vi.fn();
+    this.setFeatureState = vi.fn();
+    this.getZoom = vi.fn(() => 2);
+    this.fitBounds = vi.fn();
+    this.getCanvas = vi.fn(() => ({
+      style: {}
+    }));
+    this.queryRenderedFeatures = vi.fn(() => []);
+  });
+  const NavigationControlMock = vi.fn().mockImplementation(function NavigationControlMock(options) {
+    this.options = options;
+  });
+  const ScaleControlMock = vi.fn().mockImplementation(function ScaleControlMock(options) {
+    this.options = options;
+  });
 
   return {
     default: {
       Map: MapMock,
+      NavigationControl: NavigationControlMock,
+      ScaleControl: ScaleControlMock,
       addProtocol: vi.fn()
     }
   };
