@@ -482,8 +482,10 @@ export default function App() {
         </div>
       </header>
 
-      {/* Main Layout Area */}
-      <main className="app-main">
+      {/* Main Layout Area. Der --explore-Modifier laesst die Galerie/den Explorer
+          auf Mobil die volle Hoehe nutzen (Sidebar ausgeblendet, s. index.css);
+          die Shell-Geometrie selbst bleibt unveraendert in den CSS-Klassen. */}
+      <main className={activeTab === 'explore' ? 'app-main app-main--explore' : 'app-main'}>
         {/* Erkundungsmodus: der domänen-eigene Explorer (z.B. Astra-Sonnensystem)
             nutzt die volle Breite, ohne rechte Sidebar. Sonst das gewohnte
             Zwei-Spalten-Layout (Visual links, Tab-Panel rechts). */}

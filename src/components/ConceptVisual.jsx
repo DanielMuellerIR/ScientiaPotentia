@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 // Label-Tabellen und Selbstverraeter-Guard-Mengen liegen zentral in conceptLabels.js
 // (geteilt mit Dashboard-Aufschluesselung und den QA-Werkzeugen).
 import { CATEGORY_LABELS, ATTR_LABELS, isAttrLeakedBeforeAnswer, sourceRevealsValue } from './conceptLabels';
+// Commons-Dateiseite -> direkter, skalierter Bild-Link (geteilt mit Museum/Galerie).
+import { commonsToDirectUrl } from '../utils/commonsImage';
 
 /**
  * Generische Konzept-Visualisierung fuer das linke Panel.
@@ -39,6 +41,16 @@ export default function ConceptVisual({
   const accent = domain.accent || 'var(--color-primary)';
   const detailsUnlocked = Boolean(isQuestionAnswered);
   const hideIdentity = (answerIsName || hideConceptIdentity) && !detailsUnlocked;
+
+  // Quiz-Exponat: Hat das Konzept ein geerntetes Bild, haengt es als gerahmtes,
+  // VERHUELLTES Exponat im Panel und wird erst nach der Antwort enthuellt.
+  // Konservativ leak-frei: Das Bild ist grundsaetzlich vor der Antwort unsichtbar
+  // (Samttuch), egal ob die Frage die Identitaet oder ein Attribut testet.
+  // Es laedt aber schon hinter dem Tuch, damit die Enthuellung nicht ruckelt.
+  const image = concept?.image;
+  const [imgFailed, setImgFailed] = useState(false);
+  useEffect(() => { setImgFailed(false); }, [concept?.id, concept?.name]);
+  const showExhibit = Boolean(image?.url) && !imgFailed;
 
   const categoryKey = concept?.category || concept?.type || '';
   const categoryLabel = CATEGORY_LABELS[categoryKey] || categoryKey;
@@ -90,26 +102,61 @@ export default function ConceptVisual({
           height: '100%',
           display: 'flex',
           flexDirection: 'column',
-          justifyContent: 'center',
+          // Scroll-sicher zentrieren: margin:auto am inneren Wrapper statt
+          // justify-content:center — bei niedrigen Viewports (38vh-Streifen
+          // auf dem Handy) wird gescrollt statt oben abgeschnitten.
+          overflowY: 'auto',
           alignItems: 'center',
-          padding: '40px',
+          padding: '28px 40px',
           textAlign: 'center',
           color: '#EAE6DC'
         }}
       >
-        {/* Domain-Icon im Glow-Kreis */}
-        <span
-          style={{
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            width: '96px', height: '96px', borderRadius: '50%',
-            background: `${accent}33`,
-            border: `1px solid ${accent}aa`,
-            boxShadow: `0 0 50px ${accent}77`,
-            marginBottom: '22px'
-          }}
-        >
-          {Icon ? <Icon size={48} style={{ color: '#fff' }} /> : null}
-        </span>
+        <div style={{ margin: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
+
+        {/* Gerahmtes Exponat: Bild laedt hinter dem Samttuch, Enthuellung nach
+            der Antwort. Ohne Bild (oder bei Ladefehler) bleibt der bisherige
+            Icon-Glow-Kreis erhalten. */}
+        {showExhibit ? (
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', marginBottom: '20px' }}>
+            <div className="exhibit-frame">
+              <div className="exhibit-mat">
+                <img
+                  className={detailsUnlocked ? 'exhibit-img exhibit-img--revealed' : 'exhibit-img'}
+                  src={commonsToDirectUrl(image.url, 640)}
+                  // Vor der Antwort auch im alt-Text nichts verraten.
+                  alt={detailsUnlocked ? (concept?.name || 'Exponat') : 'Verhülltes Exponat'}
+                  onError={() => setImgFailed(true)}
+                />
+              </div>
+              <div className={detailsUnlocked ? 'exhibit-drape exhibit-drape--lifted' : 'exhibit-drape'} aria-hidden={detailsUnlocked}>
+                <span className="exhibit-drape-q">?</span>
+              </div>
+            </div>
+            {/* Bildlizenz sichtbar im Panel, sobald das Bild sichtbar ist. */}
+            {detailsUnlocked && (image.license || image.attribution) ? (
+              <div
+                className="exhibit-credit"
+                title={`Bild: ${[image.attribution, image.license].filter(Boolean).join(' · ')} · Wikimedia Commons`}
+              >
+                Bild: {[image.attribution, image.license].filter(Boolean).join(' · ')} · Wikimedia Commons
+              </div>
+            ) : null}
+          </div>
+        ) : (
+          <span
+            style={{
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              width: '96px', height: '96px', borderRadius: '50%',
+              background: `${accent}33`,
+              border: `1px solid ${accent}aa`,
+              boxShadow: `0 0 50px ${accent}77`,
+              marginBottom: '22px'
+            }}
+          >
+            {Icon ? <Icon size={48} style={{ color: '#fff' }} /> : null}
+          </span>
+        )}
 
         {/* Kategorie-Badge */}
         {categoryLabel ? (
@@ -177,24 +224,19 @@ export default function ConceptVisual({
             {concept.funFact}
           </p>
         ) : null}
-      </div>
 
-      {/* Quellen-/Lizenzzeile klein unten. Verborgen, wenn der Quellname den
-          gefragten Wert enthaelt (Selbstverraeter, s. sourceLeaks); nach der
-          Antwort wieder sichtbar. */}
-      {showSource ? (
-        <div
-          style={{
-            position: 'absolute', bottom: 0, left: 0, right: 0,
-            padding: '6px 14px', fontSize: '10.5px', opacity: 0.55,
-            color: '#EAE6DC', textAlign: 'center',
-            background: 'rgba(0,0,0,0.25)', backdropFilter: 'blur(4px)'
-          }}
-        >
-          Quelle: {concept.source.name}
-          {concept.source.license ? ` · ${concept.source.license}` : ''}
+        {/* Quellen-/Lizenzzeile klein am Ende des Inhalts (im Fluss statt absolut,
+            damit sie auf niedrigen Viewports nicht den Fun-Fact ueberlappt).
+            Verborgen, wenn der Quellname den gefragten Wert enthaelt
+            (Selbstverraeter, s. sourceLeaks); nach der Antwort wieder sichtbar. */}
+        {showSource ? (
+          <div style={{ marginTop: '18px', fontSize: '10.5px', opacity: 0.55 }}>
+            Quelle: {concept.source.name}
+            {concept.source.license ? ` · ${concept.source.license}` : ''}
+          </div>
+        ) : null}
         </div>
-      ) : null}
+      </div>
     </div>
   );
 }

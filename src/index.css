@@ -78,3 +78,80 @@
    verlagert — einmalig geladen statt bei jedem Mount neu ins DOM geschrieben). */
 @keyframes homoPulse{0%{transform:translate(-50%,-50%) scale(.6);opacity:.9}70%{transform:translate(-50%,-50%) scale(2.2);opacity:0}100%{transform:translate(-50%,-50%) scale(2.2);opacity:0}}
 .homo-pulse-ring{animation:homoPulse 1.8s ease-out infinite}
+
+/* === Museumssaal (GalleryExplorer) — begehbare Galeriewand ================== */
+/* Wand + Boden liegen als Hintergrund auf dem Scroll-Container (.hall-wall):    */
+/* der Inhalt (die Exponate) schiebt sich beim Scrollen daran vorbei, die Wand   */
+/* selbst steht still — ein billiger Tiefeneffekt ganz ohne 3D-Transforms.       */
+/* Der Passepartout-Trick: object-fit:contain im weissen Mat statt cover-Crop —  */
+/* echte Museumsrahmen absorbieren jedes Seitenverhaeltnis ohne Beschnitt.       */
+.hall{height:100%;display:flex;flex-direction:column;overflow:hidden}
+.hall-topbar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:14px 16px 10px;flex-shrink:0}
+.hall-saal-select{font-family:var(--font-title);font-size:13px;font-weight:600;color:var(--color-primary);background:#F4F1E9;border:1px solid var(--border-light);border-radius:var(--radius-sm);padding:6px 8px;cursor:pointer;max-width:230px}
+.hall-search{padding:6px 10px;border-radius:var(--radius-sm);border:1px solid var(--border-light);background:var(--bg-sidebar);color:var(--text-main);font-family:var(--font-sans);font-size:13px;outline:none;width:150px}
+.hall-wall{flex:1;min-height:0;position:relative;overflow-x:auto;overflow-y:hidden;outline:none;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.06) 0, rgba(0,0,0,0) 7%),
+    linear-gradient(180deg, #EFEAE0 0%, #E9E3D4 73.8%, #B9AB92 74%, #A6987F 78%, #CDBFA6 78.4%, #C2B49B 100%)}
+.hall-strip{position:relative;height:100%}
+/* WICHTIG: Bodenabstand via bottom:22% (hoehenbezogen), NICHT padding-bottom in
+   Prozent — Prozent-Padding bezieht sich auf die BREITE des Containing Blocks,
+   und der virtualisierte Strip ist bei grossen Saelen hunderttausende px breit. */
+.hall-exhibit{position:absolute;top:0;bottom:22%;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer}
+/* Spotlight-Kegel ueber jedem Rahmen; beim Hover wird er etwas heller. */
+.hall-exhibit:before{content:"";position:absolute;top:0;left:12%;right:12%;height:66%;background:radial-gradient(ellipse 60% 52% at 50% 30%, rgba(255,243,214,.5), rgba(255,243,214,0) 70%);pointer-events:none;opacity:.75;transition:opacity .25s ease}
+.hall-exhibit:hover:before{opacity:1}
+.hall-frame{position:relative;width:calc(100% - 58px);height:60%;background:#3F3327;border:1px solid #2A2118;border-radius:2px;padding:7px;box-shadow:0 14px 22px -10px rgba(40,30,15,.55), inset 0 0 0 2px #8F6F45;transition:transform .22s cubic-bezier(.2,.8,.2,1)}
+.hall-exhibit:hover .hall-frame{transform:translateY(-4px) scale(1.015)}
+.hall-mat{position:absolute;inset:7px;background:#FBF9F2;box-shadow:inset 0 0 0 1px #E2DCCB, inset 0 2px 8px rgba(0,0,0,.14);display:flex;align-items:center;justify-content:center;padding:11px}
+.hall-img{max-width:100%;max-height:100%;object-fit:contain;display:block;box-shadow:0 1px 4px rgba(0,0,0,.25)}
+/* Messing-Placard unterm Rahmen: Name + Exponatnummer. */
+.hall-placard{margin-top:12px;background:linear-gradient(180deg,#E8D9AE,#CBAF74);border:1px solid #9C7F49;border-radius:2px;padding:5px 14px 6px;text-align:center;max-width:calc(100% - 70px);box-shadow:0 2px 4px rgba(0,0,0,.18)}
+.hall-placard-name{font-family:var(--font-title);font-size:12.5px;font-weight:700;color:#3D2F17;line-height:1.25;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.hall-placard-sub{font-size:10px;font-weight:600;letter-spacing:.6px;color:#6B5526;text-transform:uppercase}
+.hall-loading{position:absolute;inset:0;background:linear-gradient(100deg,#EFECE3 30%,#FFFDF8 50%,#EFECE3 70%);background-size:200% 100%;animation:museum-shimmer 1.3s ease-in-out infinite}
+/* Depot: schlichtes Passepartout-Raster fuer schnelles Stoebern + Suche. */
+.hall-depot{flex:1;min-height:0;overflow-y:auto;padding:14px 16px;display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;align-content:start}
+.hall-depot-card{background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--radius-lg);cursor:pointer;padding:8px;display:flex;flex-direction:column;gap:6px;transition:transform .15s ease, box-shadow .15s ease}
+.hall-depot-card:hover{transform:translateY(-2px);box-shadow:0 8px 16px rgba(27,48,91,.14)}
+.hall-depot-matte{height:118px;background:#FBF9F2;box-shadow:inset 0 0 0 1px #E2DCCB;display:flex;align-items:center;justify-content:center;padding:8px;position:relative}
+.hall-depot-name{font-size:12px;font-weight:600;color:var(--color-primary);line-height:1.25;text-align:center;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.hall-depot-sub{font-size:9.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--text-muted);text-align:center}
+
+/* === Quiz-Exponat (ConceptVisual) — verhuellter Rahmen mit Enthuellung ====== */
+/* Vor der Antwort haengt das Konzeptbild verhuellt im Rahmen (Samttuch),        */
+/* nach der Antwort hebt sich das Tuch und das Bild erscheint — Belohnungsmoment */
+/* ohne Leak-Risiko (Bild grundsaetzlich erst nach der Antwort sichtbar).        */
+.exhibit-frame{position:relative;width:min(74%,400px);aspect-ratio:5/4;background:#3F3327;border:1px solid #2A2118;border-radius:2px;padding:7px;box-shadow:0 16px 30px -12px rgba(0,0,0,.6), inset 0 0 0 2px #8F6F45;overflow:hidden;flex-shrink:0}
+.exhibit-mat{position:absolute;inset:7px;background:#FBF9F2;box-shadow:inset 0 0 0 1px #E2DCCB, inset 0 2px 8px rgba(0,0,0,.14);display:flex;align-items:center;justify-content:center;padding:12px}
+.exhibit-img{max-width:100%;max-height:100%;object-fit:contain;opacity:0;transform:scale(.97)}
+.exhibit-img--revealed{opacity:1;transform:scale(1);transition:opacity .6s ease .25s, transform .6s cubic-bezier(.2,.8,.2,1) .25s}
+/* inset:7px statt 0: das Tuch haengt IM Holzrahmen, der Rahmen bleibt sichtbar. */
+.exhibit-drape{position:absolute;inset:7px;display:flex;align-items:center;justify-content:center;
+  background:
+    repeating-linear-gradient(90deg, rgba(255,255,255,.045) 0 10px, rgba(0,0,0,.12) 10px 26px, rgba(255,255,255,.03) 26px 42px),
+    linear-gradient(165deg,#2A3760 0%,#1C2647 55%,#121A33 100%);
+  border-bottom:3px solid #8F6F45;transition:transform .7s cubic-bezier(.6,.05,.3,1), opacity .55s ease .1s}
+.exhibit-drape--lifted{transform:translateY(-102%);opacity:.25;pointer-events:none}
+.exhibit-drape-q{font-family:var(--font-title);font-size:44px;font-weight:700;color:rgba(232,217,174,.9);text-shadow:0 2px 10px rgba(0,0,0,.5)}
+/* Max. 2 Zeilen — sehr lange Attributionsketten (Buchscans) sollen das Panel
+   nicht fluten; der volle Text steht im title-Attribut und in der Galerie. */
+.exhibit-credit{font-size:10px;opacity:.6;margin-top:8px;text-align:center;max-width:400px;line-height:1.4;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+
+/* Mobil: Galerie-Tab wird zum Flur — volle Hoehe statt 38vh-Streifen, ein       */
+/* Exponat pro Viewport (scroll-snap), Lernkontrolle-Sidebar ausgeblendet        */
+/* (der Lern-Quiz-Tab im Header bleibt erreichbar). Nur im Explore-Zweig aktiv,  */
+/* darum der App.jsx-Modifier .app-main--explore statt einer globalen Regel.     */
+@media (max-width:768px){
+  .app-main--explore .app-pane-left{height:auto;min-height:0;flex:1 1 auto}
+  .app-main--explore .app-pane-right{display:none}
+  .hall-wall{scroll-snap-type:x mandatory}
+  .hall-exhibit{scroll-snap-align:center}
+  .hall-frame{width:calc(100% - 34px);height:58%}
+  .hall-topbar{padding:10px 10px 8px}
+  .exhibit-frame{width:min(56%,260px)}
+}
+/* Reduzierte Bewegung: Enthuellung und Hover-Lift ohne Animation. */
+@media (prefers-reduced-motion:reduce){
+  .exhibit-drape,.exhibit-img--revealed,.hall-frame,.hall-exhibit:before{transition:none}
+}

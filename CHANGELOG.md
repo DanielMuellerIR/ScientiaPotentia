@@ -5,6 +5,35 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-07-17 (v1.86.0) — Museumssaal-Galerie und Quiz-Exponat mit Enthüllung
+
+Die per-Bereich-Galerie (`GalleryExplorer`) ist vom flachen Thumbnail-Raster zum
+**begehbaren Museumssaal** umgebaut: eine Kategorie = ein Saal, Exponate hängen als
+gerahmte Bilder mit Passepartout (object-fit:contain statt cover — kein Beschnitt
+mehr bei Hochformaten/Diagrammen), Messing-Placard mit Name + Exponatnummer,
+Spotlight und Hover-Lift. Horizontales Scrollen/Wischen = Flanieren; die Wand ist
+virtualisiert (nur sichtbare Exponate ± Puffer im DOM, getestet mit Saal Tier =
+1.584 Exponate). Ergänzend ein „Depot"-Raster für schnelles Stöbern, das auch die
+Suchtreffer zeigt; Lightbox jetzt mit ←/→-Navigation und Zähler. Gelernte Falle:
+Prozent-Padding bezieht sich auf die *Breite* des Containing Blocks — beim
+virtualisierten Strip (hunderttausende px) explodiert das; Bodenabstand daher via
+`bottom:22%`.
+
+**Quiz nutzt die geernteten Bilder jetzt aktiv:** `ConceptVisual` zeigt Konzepte mit
+Bild als gerahmtes, vor der Antwort **verhülltes** Exponat (Samttuch mit „?"); nach
+der Antwort hebt sich das Tuch und das Bild erscheint samt sichtbarer
+Lizenz/Attribution (2-Zeilen-Clamp, Volltext im title). Konservativ leak-frei: Bild
+grundsätzlich erst nach der Antwort, alt-Text vorher neutral. Nebenbei behoben: Die
+absolute Quellzeile überlappte auf niedrigen Viewports den Fun-Fact — sie steht
+jetzt im Textfluss, das Panel scrollt statt abzuschneiden.
+
+**Mobil (<768px):** Der Galerie-Tab wird zum Flur — volle Höhe statt 38vh-Streifen
+(neuer Shell-Modifier `.app-main--explore`, Lernkontrolle-Sidebar ausgeblendet; der
+Lern-Quiz-Tab im Header bleibt der Startpunkt), ein Exponat pro Viewport mit
+scroll-snap. `prefers-reduced-motion` deaktiviert Enthüllungs-/Hover-Animationen.
+Layoutvertrag 17/17, Tests 65/65, Browserlauf Desktop 1280 und 375×812 (Saal,
+Depot, Suche, Lightbox, Quiz verhüllt/enthüllt) durchgeführt.
+
 ## 2026-07-16 (v1.85.11) — Terra: Selbstverräter raus, Währungsfragen stillgelegt
 
 Nachtrag zum QA-Sweep. Die in v1.85.10 als „akzeptierte Trivialnamen" eingeordneten
