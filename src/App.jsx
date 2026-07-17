@@ -497,7 +497,12 @@ export default function App() {
                 justifyContent: 'center', color: 'var(--text-muted)',
                 border: '1px solid var(--border-light)' }}>Museum wird geladen …</div>
             }>
-              <MuseumExplorer allDomainData={allDomainData} loading={museumLoading} loadFailed={museumLoadFailed} />
+              <MuseumExplorer
+                allDomainData={allDomainData}
+                loading={museumLoading}
+                loadFailed={museumLoadFailed}
+                activeDomainId={activeDomainId}
+              />
             </Suspense>
           </div>
         ) : activeTab === 'explore' && activeDomain.Explorer ? (

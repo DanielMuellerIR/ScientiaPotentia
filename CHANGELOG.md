@@ -1,9 +1,43 @@
 # Changelog — Scientia
 
-> **Stand: 2026-07-12.** Diese Datei sammelt die datierte Versions-Chronik, die
+> **Stand: 2026-07-17.** Diese Datei sammelt die datierte Versions-Chronik, die
 > zuvor als Blockquote-Blöcke in `AGENTS.md` gewachsen war und dort ausgelagert
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
+
+## 2026-07-17 (v1.90.0) — Virtualisierte Domain-Säle im Museum
+
+Modul D der UI-Offensive ersetzt die zuvor gleichzeitig gerenderten 5.041
+`museum-grid`-Karten durch sieben Domain-Säle in Registry-Reihenfolge. Beim Öffnen
+wird nach Möglichkeit die aktuell aktive bildführende Domain gewählt, andernfalls
+der erste Saal mit Bildern. „Alle Bereiche“ bleibt als globales Depot erhalten;
+Domain und Kategorie sind semantische Auswahlfelder. Die case-insensitive
+Namens-Substring-Suche schaltet konsistent ins Depot und kehrt über „Rundgang“ mit
+geleerter Suche zur Wand zurück.
+
+Museum und `GalleryExplorer` verwenden nun dieselbe virtualisierte Wand, dasselbe
+Exponat mit Plakette und Bildfallback, dasselbe strikt auf 60 Karten pro Seite
+paginierte Depot sowie dieselbe Lightbox-Basis. Wand und Depot halten dadurch nur
+den sichtbaren Ausschnitt beziehungsweise eine Seite im DOM. Die Lightbox navigiert
+trotz Pagination über die vollständige aktuelle Trefferliste; Filterwechsel setzen
+die Depotseite zurück.
+
+Wandexponate und Depotkarten reagieren auf Enter und Leertaste und zeigen einen
+sichtbaren Fokus. Die Lightbox besitzt Dialogrolle, `aria-modal`, Fokusfalle und
+Fokus-Rückgabe. Suchfelder und Filterzustände sind zugänglich beschriftet. Bei
+`prefers-reduced-motion` versetzen Pfeiltasten die Wand ohne Smooth-Animation. Nach
+Referenzprüfung wurden die ungenutzten alten `museum-grid`-Regeln entfernt; das
+Keyframe `museum-shimmer` bleibt erhalten, weil `.hall-loading` es weiterhin nutzt.
+
+Verifiziert: 112/112 Vitest-Tests, Produktions-Build und Layoutvertrag 17/17.
+Kalte Browserläufe bei 1280×800 und 375×812 deckten Domainwechsel und eine
+beantwortete Frage ab; die Konsole blieb ohne Warnungen oder Exceptions. Vorher
+enthielt das Museum 40.390 DOM-Elemente und 5.041 Karten, nachher initial 184
+Elemente und acht Exponate. Der Natura-Saal „Tier“ bleibt bei 1.584 Treffern auf
+acht bis zehn Exponate am Desktop und fünf mobil begrenzt. Das globale Depot zeigt
+auf Seite 1 von 85 genau 60 Karten. `GalleryExplorer` hält dieselbe Parität mit
+sechs Exponaten am Desktop und fünf mobil, ohne Dokument-Overflow. Bei reduzierter
+Bewegung erreicht der Pfeiltastenlauf `scrollLeft = 300` unmittelbar.
 
 ## 2026-07-17 (v1.89.0) — Evidenzbasierte Astra-Visuals
 

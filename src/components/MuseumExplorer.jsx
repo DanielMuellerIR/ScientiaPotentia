@@ -1,545 +1,339 @@
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
-import { Images, ChevronLeft, ChevronRight, Info } from 'lucide-react';
+import React, { useEffect, useMemo, useState } from 'react';
+import {
+  ChevronLeft, ChevronRight, Images, Info, Landmark, LayoutGrid
+} from 'lucide-react';
 import { DOMAINS } from '../domains';
-// Commons-URL-Helfer ausgelagert (geteilt mit GalleryExplorer), s. utils/commonsImage.js
-import { commonsToDirectUrl } from '../utils/commonsImage';
-// Gemeinsames Lightbox-Gerüst (geteilt mit GalleryExplorer, Code-Review R2).
-import LightboxShell from './LightboxShell';
-// Gemeinsame Kategorie-Labels (eine Quelle für Quiz/Dashboard/Museum/Galerie, R3).
 import { CATEGORY_LABELS } from './conceptLabels';
+import {
+  PaginatedDepot,
+  VirtualExhibitWall,
+} from './ExhibitGalleryShared';
+import ExhibitLightbox, { useExhibitLightbox } from './ExhibitLightbox';
 
-// --- Farben pro Domain -----------------------------------------------------
-// Direkt aus der zentralen Domain-Registry ableiten, damit neue Domains (z.B.
-// machina/historia) automatisch ihre korrekte Akzentfarbe erhalten und nicht
-// still auf den Blau-Fallback zurückfallen. Vorher war diese Tabelle von Hand
-// gepflegt und lief bei jeder neuen Domain aus dem Tritt (Code-Review F1).
-const DOMAIN_ACCENT = Object.fromEntries(DOMAINS.map(d => [d.id, d.accent]));
+const DOMAIN_BY_ID = Object.fromEntries(DOMAINS.map((domain) => [domain.id, domain]));
+const DOMAIN_ORDER = new Map(DOMAINS.map((domain, index) => [domain.id, index]));
 
-// Kategorien-Labels (Deutsch) für die Chips in den Karten. Eine gemeinsame Quelle
-// mit Quiz/Dashboard/Galerie (Code-Review R3) — vorher pflegte diese Datei eine
-// eigene, teils abweichende Kopie. Unbekannte Kategorien werden capitalized.
-function catLabel(cat) {
-  if (!cat) return '';
-  return CATEGORY_LABELS[cat] || cat.charAt(0).toUpperCase() + cat.slice(1).replace(/_/g, ' ');
+function catLabel(category) {
+  if (!category) return '';
+  return CATEGORY_LABELS[category]
+    || category.charAt(0).toUpperCase() + category.slice(1).replace(/_/g, ' ');
 }
 
-// --- Domain-Label holen ----------------------------------------------------
-const DOMAIN_LABELS = {};
-DOMAINS.forEach(d => { DOMAIN_LABELS[d.id] = d.label; });
+const ROMANS = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X',
+  'XI', 'XII', 'XIII', 'XIV', 'XV', 'XVI', 'XVII', 'XVIII', 'XIX', 'XX'];
+const roman = (index) => ROMANS[index] || String(index + 1);
 
 /**
- * MuseumExplorer — durchstöberbare Bildgalerie aller Konzepte mit Bild.
- *
- * Zeigt ein responsives Masonry-Grid mit Lazy-Loading. Oben kann nach Domain
- * und Kategorie gefiltert sowie nach Namen gesucht werden. Ein Klick öffnet
- * eine Lightbox mit Detailinfos, Bildnachweis und Link zur Quelle.
- *
- * Props:
- *   concepts     - Map conceptKey -> Konzept, GEFILTERT nach aktiver Domain
- *                  (wird von App.jsx übergeben, wenn Museum global über alle
- *                  Domains läuft, muss hier alle Domains zusammenführen)
- *   allDomainData - Map domainId -> Konzept-Map (alle Domains gleichzeitig)
+ * Globales Museum: Jede bildführende Domain bildet in Registry-Reihenfolge
+ * einen Saal. „Alle Bereiche“ ist ein strikt paginiertes Depot; Suche schaltet
+ * ebenfalls ins Depot, ohne die vollständige Lightbox-Trefferliste zu verlieren.
  */
-export default function MuseumExplorer({ allDomainData = {}, loading = false, loadFailed = false }) {
-  // --- Filter-State ---------------------------------------------------------
-  const [domainFilter, setDomainFilter] = useState('all'); // 'all' | domain-id
-  const [catFilter,    setCatFilter]    = useState('all');
-  const [search,       setSearch]       = useState('');
-  const [lightbox,     setLightbox]     = useState(null); // { item, list, idx }
+export default function MuseumExplorer({
+  allDomainData = {},
+  loading = false,
+  loadFailed = false,
+  activeDomainId,
+}) {
+  const [domainFilter, setDomainFilter] = useState(activeDomainId || '');
+  const [categoryFilter, setCategoryFilter] = useState('all');
+  const [view, setView] = useState('rundgang');
+  const [search, setSearch] = useState('');
+  const {
+    lightbox, openLightbox, closeLightbox, navigateLightbox
+  } = useExhibitLightbox();
 
-  // --- Alle Konzepte mit Bild aus allen Domains zusammenführen --------------
-  // Das Ergebnis ist ein flaches Array von Einträgen, die alle das Bild-URL-Feld haben.
   const allItems = useMemo(() => {
     const items = [];
     for (const [domainId, conceptMap] of Object.entries(allDomainData)) {
       if (!conceptMap) continue;
       for (const concept of Object.values(conceptMap)) {
         if (!concept?.image?.url) continue;
+        const category = concept.category || concept.type || '';
         items.push({
-          // codereview-ok: alle Konzepte mit Bild haben eine id; name nur als
-          // defensiver Fallback, in der Praxis nie ausgelöst (2026-07-08)
-          key:      concept.id || concept.name,
-          name:     concept.name || '–',
-          category: concept.category || concept.type || '',
+          id: concept.id || concept.name,
+          key: `${domainId}:${concept.id || concept.name}`,
+          name: concept.name || '–',
+          category,
+          categoryLabel: catLabel(category),
           domainId,
           imageUrl: concept.image.url,
-          license:  concept.image.license || '',
+          license: concept.image.license || '',
           attribution: concept.image.attribution || '',
-          funFact:  concept.funFact || '',
-          source:   concept.source || null,
+          funFact: concept.funFact || '',
+          source: concept.source || null,
           attributes: concept.attributes || {},
         });
       }
     }
-    // Stabile Reihenfolge: alphabetisch nach Domain, dann Name.
-    items.sort((a, b) => {
-      if (a.domainId !== b.domainId) return a.domainId.localeCompare(b.domainId);
-      return a.name.localeCompare(b.name, 'de');
+    return items.sort((a, b) => {
+      const domainDelta = (DOMAIN_ORDER.get(a.domainId) ?? 999)
+        - (DOMAIN_ORDER.get(b.domainId) ?? 999);
+      return domainDelta || a.name.localeCompare(b.name, 'de');
     });
-    return items;
   }, [allDomainData]);
 
-  // --- Alle vorhandenen Kategorien (für Filter-Chips) -----------------------
-  const availableCats = useMemo(() => {
-    const pool = domainFilter === 'all'
+  const halls = useMemo(() => DOMAINS
+    .map((domain) => ({
+      domain,
+      items: allItems.filter((item) => item.domainId === domain.id),
+    }))
+    .filter((hall) => hall.items.length > 0), [allItems]);
+
+  // Nach dem asynchronen Laden öffnet das Museum möglichst Daniels aktive
+  // Domain; bildlose Domains (z.B. Terra) fallen auf den ersten echten Saal.
+  useEffect(() => {
+    if (halls.length === 0 || domainFilter === 'all') return;
+    if (halls.some((hall) => hall.domain.id === domainFilter)) return;
+    const preferred = halls.find((hall) => hall.domain.id === activeDomainId);
+    setDomainFilter((preferred || halls[0]).domain.id);
+  }, [activeDomainId, domainFilter, halls]);
+
+  const filterPool = useMemo(
+    () => (domainFilter === 'all'
       ? allItems
-      : allItems.filter(it => it.domainId === domainFilter);
-    const cats = [...new Set(pool.map(it => it.category))].filter(Boolean);
-    cats.sort((a, b) => catLabel(a).localeCompare(catLabel(b), 'de'));
-    return cats;
-  }, [allItems, domainFilter]);
+      : allItems.filter((item) => item.domainId === domainFilter)),
+    [allItems, domainFilter]
+  );
 
-  // Beim Domain-Wechsel Kategoriefilter zurücksetzen, falls er dort nicht existiert.
+  const categories = useMemo(() => [...new Set(filterPool
+    .map((item) => item.category)
+    .filter(Boolean))]
+    .sort((a, b) => catLabel(a).localeCompare(catLabel(b), 'de')), [filterPool]);
+
   useEffect(() => {
-    if (catFilter !== 'all' && !availableCats.includes(catFilter)) {
-      setCatFilter('all');
+    if (categoryFilter !== 'all' && !categories.includes(categoryFilter)) {
+      setCategoryFilter('all');
     }
-  }, [availableCats, catFilter]);
+  }, [categories, categoryFilter]);
 
-  // --- Gefilterte + durchsuchte Liste ---------------------------------------
-  const filteredItems = useMemo(() => {
-    const q = search.trim().toLowerCase();
-    return allItems.filter(it => {
-      if (domainFilter !== 'all' && it.domainId !== domainFilter) return false;
-      if (catFilter    !== 'all' && it.category  !== catFilter)    return false;
-      if (q && !it.name.toLowerCase().includes(q))                 return false;
-      return true;
-    });
-  }, [allItems, domainFilter, catFilter, search]);
+  const query = search.trim().toLocaleLowerCase('de');
+  const searchActive = query.length > 0;
+  const filteredItems = useMemo(() => filterPool.filter((item) => {
+    if (categoryFilter !== 'all' && item.category !== categoryFilter) return false;
+    return !query || item.name.toLocaleLowerCase('de').includes(query);
+  }), [categoryFilter, filterPool, query]);
 
-  // --- Domains mit Bildern (für Tabs) ----------------------------------------
-  const domainsWithImages = useMemo(() => {
-    const ids = [...new Set(allItems.map(it => it.domainId))];
-    return DOMAINS.filter(d => ids.includes(d.id));
-  }, [allItems]);
+  const hallIndex = halls.findIndex((hall) => hall.domain.id === domainFilter);
+  const activeHall = hallIndex >= 0 ? halls[hallIndex] : null;
+  const showDepot = domainFilter === 'all' || view === 'depot' || searchActive;
+  const shownCount = filteredItems.length;
+  const toggleView = () => {
+    if (showDepot) {
+      setSearch('');
+      setView('rundgang');
+      return;
+    }
+    setView('depot');
+  };
 
-  // --- Lightbox Navigation --------------------------------------------------
-  const openLightbox = useCallback((item) => {
-    const idx = filteredItems.findIndex(it => it.key === item.key);
-    setLightbox({ item, list: filteredItems, idx });
-  }, [filteredItems]);
+  const selectDomain = (nextDomainId) => {
+    setDomainFilter(nextDomainId);
+    setCategoryFilter('all');
+    setView(nextDomainId === 'all' ? 'depot' : 'rundgang');
+  };
 
-  const closeLightbox = useCallback(() => setLightbox(null), []);
+  const selectAdjacentHall = (direction) => {
+    if (!halls.length) return;
+    const next = (hallIndex + direction + halls.length) % halls.length;
+    selectDomain(halls[next].domain.id);
+  };
 
-  const lightboxNav = useCallback((dir) => {
-    setLightbox(prev => {
-      if (!prev) return null;
-      const next = (prev.idx + dir + prev.list.length) % prev.list.length;
-      return { item: prev.list[next], list: prev.list, idx: next };
-    });
-  }, []);
+  const lightboxItem = lightbox?.item;
+  const lightboxDomain = lightboxItem ? DOMAIN_BY_ID[lightboxItem.domainId] : null;
+  const lightboxAccent = lightboxDomain?.accent || 'var(--color-primary)';
+  const credit = lightboxItem && (lightboxItem.attribution || lightboxItem.license)
+    ? [
+      lightboxItem.attribution,
+      lightboxItem.license && `Lizenz: ${lightboxItem.license}`,
+      'Wikimedia Commons',
+    ].filter(Boolean).join(' · ')
+    : '';
 
-  // Tastatur-Shortcut für die Lightbox-Navigation (← →). Esc-zum-Schließen liegt
-  // zentral in LightboxShell (R2), damit alle Lightboxen es einheitlich haben.
-  useEffect(() => {
-    if (!lightbox) return;
-    const handler = (e) => {
-      if (e.key === 'ArrowLeft')  lightboxNav(-1);
-      if (e.key === 'ArrowRight') lightboxNav(+1);
-    };
-    window.addEventListener('keydown', handler);
-    return () => window.removeEventListener('keydown', handler);
-  }, [lightbox, lightboxNav]);
+  const museumHeader = lightboxItem ? (
+    <span
+      className="museum-domain-badge"
+      style={{
+        '--museum-accent': lightboxAccent,
+        background: `${lightboxAccent}22`,
+        borderColor: `${lightboxAccent}55`,
+      }}
+    >
+      {lightboxDomain?.label || lightboxItem.domainId}
+      {lightboxItem.categoryLabel ? ` · ${lightboxItem.categoryLabel}` : ''}
+    </span>
+  ) : null;
 
-  // --- Ladestand anzeigen, während Daten noch fehlen -----------------------
-  // Der Ladezustand kommt jetzt explizit vom Elternteil (App.jsx). Vorher wurde er
-  // aus der Anzahl der allDomainData-Keys abgeleitet — die aber auch bei
-  // fehlgeschlagenen Fetches (leere Maps) gefüllt werden, sodass der Spinner
-  // verschwand, obwohl gar keine Bilder geladen wurden (Code-Review F7).
-  const isLoading = loading;
+  const museumDetails = lightboxItem ? (
+    <div className="museum-lightbox-details">
+      <h3>{lightboxItem.name}</h3>
+      {Object.keys(lightboxItem.attributes || {}).length > 0 && (
+        <div className="museum-attributes">
+          {Object.entries(lightboxItem.attributes).slice(0, 6).map(([key, value]) => (
+            <span key={key}>
+              <span>{key}: </span>
+              <b>{typeof value === 'boolean' ? (value ? 'ja' : 'nein') : String(value)}</b>
+            </span>
+          ))}
+        </div>
+      )}
+      {lightboxItem.funFact && (
+        <div
+          className="museum-fun-fact"
+          style={{ background: `${lightboxAccent}11`, borderColor: `${lightboxAccent}33` }}
+        >
+          <Info size={15} style={{ color: lightboxAccent, flexShrink: 0, marginTop: 2 }} />
+          <p>{lightboxItem.funFact}</p>
+        </div>
+      )}
+      {lightboxItem.source?.url && (
+        <a href={lightboxItem.source.url} target="_blank" rel="noopener noreferrer">
+          Quelle: {lightboxItem.source.name || lightboxItem.source.url}
+        </a>
+      )}
+    </div>
+  ) : null;
 
   return (
-    <div className="terra-panel" style={{
-      height: '100%', display: 'flex', flexDirection: 'column',
-      overflow: 'hidden', border: '1px solid var(--border-light)'
-    }}>
-      {/* ----------------------------------------------------------------- */}
-      {/* Kopfleiste: Titel + Suchfeld                                       */}
-      {/* ----------------------------------------------------------------- */}
-      <div style={{
-        padding: '14px 18px 0', borderBottom: '1px solid var(--border-light)',
-        flexShrink: 0
-      }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
-          <Images size={20} style={{ color: 'var(--color-secondary)', flexShrink: 0 }} />
-          <h2 style={{
-            fontFamily: 'var(--font-title)', fontSize: 18, fontWeight: 700,
-            color: 'var(--text-bright)', margin: 0, flex: 1
-          }}>
-            Museum
-          </h2>
-          <span style={{ fontSize: 12, color: 'var(--text-muted)', fontWeight: 500 }}>
-            {filteredItems.length} Bilder
+    <div className="terra-panel hall-panel">
+      <div className="hall">
+        <div className="hall-topbar museum-topbar">
+          <Images size={20} className="museum-title-icon" />
+          <h2 className="hall-heading">Museum</h2>
+          <span className="hall-count">
+            {shownCount} {shownCount === 1 ? 'Exponat' : 'Exponate'}
           </span>
-          {/* Suchfeld */}
-          <input
-            type="search"
-            placeholder="Suchen …"
-            value={search}
-            onChange={e => setSearch(e.target.value)}
-            style={{
-              padding: '6px 12px', borderRadius: 'var(--radius-sm)',
-              border: '1px solid var(--border-light)', background: 'var(--bg-sidebar)',
-              color: 'var(--text-main)', fontFamily: 'var(--font-sans)', fontSize: 13,
-              outline: 'none', width: 160
-            }}
-          />
-        </div>
 
-        {/* Domain-Filter-Tabs */}
-        <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', marginBottom: 10 }}>
-          <FilterChip
-            label="Alle Bereiche"
-            active={domainFilter === 'all'}
-            count={allItems.length}
-            onClick={() => setDomainFilter('all')}
-          />
-          {domainsWithImages.map(d => {
-            const cnt = allItems.filter(it => it.domainId === d.id).length;
-            return (
-              <FilterChip
-                key={d.id}
-                label={d.label}
-                active={domainFilter === d.id}
-                count={cnt}
-                accent={DOMAIN_ACCENT[d.id]}
-                onClick={() => setDomainFilter(d.id)}
-              />
-            );
-          })}
-        </div>
+          {halls.length > 0 && (
+            <span className="hall-navigation museum-hall-navigation">
+              {domainFilter !== 'all' && (
+                <button
+                  type="button"
+                  className="btn-terra hall-small-button"
+                  onClick={() => selectAdjacentHall(-1)}
+                  title="Voriger Saal"
+                  aria-label="Voriger Saal"
+                >
+                  <ChevronLeft size={15} />
+                </button>
+              )}
+              <select
+                className="hall-saal-select museum-domain-select"
+                value={domainFilter}
+                onChange={(event) => selectDomain(event.target.value)}
+                aria-label="Museumsbereich wählen"
+              >
+                <option value="all">Alle Bereiche — Depot ({allItems.length})</option>
+                {halls.map((hall, index) => (
+                  <option key={hall.domain.id} value={hall.domain.id}>
+                    Saal {roman(index)} — {hall.domain.label} ({hall.items.length})
+                  </option>
+                ))}
+              </select>
+              {domainFilter !== 'all' && (
+                <button
+                  type="button"
+                  className="btn-terra hall-small-button"
+                  onClick={() => selectAdjacentHall(1)}
+                  title="Nächster Saal"
+                  aria-label="Nächster Saal"
+                >
+                  <ChevronRight size={15} />
+                </button>
+              )}
+            </span>
+          )}
 
-        {/* Kategorie-Filter (nur wenn eine Domain ausgewählt ist oder < 10 Kategorien vorhanden) */}
-        {availableCats.length > 0 && availableCats.length <= 20 && (
-          <div style={{ display: 'flex', gap: 5, flexWrap: 'wrap', marginBottom: 10 }}>
-            <FilterChip
-              label="Alle Kategorien"
-              active={catFilter === 'all'}
-              onClick={() => setCatFilter('all')}
-              small
+          <span className="hall-actions hall-actions--push">
+            {categories.length > 0 && (
+              <select
+                className="hall-saal-select museum-category-select"
+                value={categoryFilter}
+                onChange={(event) => setCategoryFilter(event.target.value)}
+                aria-label="Kategorie filtern"
+              >
+                <option value="all">Alle Kategorien</option>
+                {categories.map((category) => (
+                  <option key={category} value={category}>{catLabel(category)}</option>
+                ))}
+              </select>
+            )}
+            <input
+              type="search"
+              className="hall-search"
+              placeholder="Suchen …"
+              aria-label="Museum durchsuchen"
+              value={search}
+              onChange={(event) => {
+                setSearch(event.target.value);
+                if (event.target.value.trim()) setView('depot');
+              }}
             />
-            {availableCats.map(cat => (
-              <FilterChip
-                key={cat}
-                label={catLabel(cat)}
-                active={catFilter === cat}
-                onClick={() => setCatFilter(cat)}
-                small
-              />
-            ))}
-          </div>
-        )}
-      </div>
+            {domainFilter !== 'all' && (
+              <button
+                type="button"
+                className="btn-terra hall-view-button"
+                aria-pressed={showDepot}
+                onClick={toggleView}
+                title={showDepot
+                  ? 'Zurück in den Rundgang'
+                  : 'Depot: gefilterte Exponate als Raster'}
+              >
+                {showDepot
+                  ? (<><Landmark size={14} /> Rundgang</>)
+                  : (<><LayoutGrid size={14} /> Depot</>)}
+              </button>
+            )}
+          </span>
+        </div>
 
-      {/* ----------------------------------------------------------------- */}
-      {/* Galerie-Grid                                                        */}
-      {/* ----------------------------------------------------------------- */}
-      <div style={{ flex: 1, overflowY: 'auto', padding: '16px 18px' }}>
-        {isLoading && (
-          <div style={{ textAlign: 'center', color: 'var(--text-muted)', marginTop: 60, fontSize: 14 }}>
-            Bilder werden geladen …
-          </div>
-        )}
-        {/* Kompletter Ladefehler: nicht still „0 Bilder" zeigen, sondern benennen. */}
-        {!isLoading && loadFailed && (
-          <div style={{ textAlign: 'center', color: 'var(--color-error)', marginTop: 60, fontSize: 14 }}>
+        {loading && <div className="hall-state">Bilder werden geladen …</div>}
+        {!loading && loadFailed && (
+          <div className="hall-state hall-state--error">
             Bilder konnten nicht geladen werden. Bitte später erneut versuchen.
           </div>
         )}
-        {!isLoading && !loadFailed && filteredItems.length === 0 && (
-          <div style={{ textAlign: 'center', color: 'var(--text-muted)', marginTop: 60, fontSize: 14 }}>
-            Keine Bilder für diesen Filter gefunden.
-          </div>
+        {!loading && !loadFailed && allItems.length === 0 && (
+          <div className="hall-state">Keine Bilder verfügbar.</div>
         )}
-        {/* Responsives Galerie-Grid (museum-grid: auto-fill, gleichmäßige Rahmen). */}
-        <div className="museum-grid">
-          {filteredItems.map(item => (
-            <GalleryCard
-              key={item.key}
-              item={item}
-              onClick={() => openLightbox(item)}
-            />
-          ))}
-        </div>
-      </div>
 
-      {/* ----------------------------------------------------------------- */}
-      {/* Lightbox                                                            */}
-      {/* ----------------------------------------------------------------- */}
-      {lightbox && (
-        <Lightbox
-          item={lightbox.item}
-          total={lightbox.list.length}
-          idx={lightbox.idx}
-          onClose={closeLightbox}
-          onPrev={() => lightboxNav(-1)}
-          onNext={() => lightboxNav(+1)}
-        />
-      )}
-    </div>
-  );
-}
-
-// ---------------------------------------------------------------------------
-// GalleryCard — eine Kachel im Grid
-// ---------------------------------------------------------------------------
-/**
- * Zeigt Thumbnail (lazy-loaded), Konzeptname, Domain-Badge und Kategorie-Chip.
- * Beim Klick öffnet die Lightbox.
- */
-function GalleryCard({ item, onClick }) {
-  const [loaded, setLoaded]   = useState(false);
-  const [errored, setErrored] = useState(false);
-  const accent = DOMAIN_ACCENT[item.domainId] || 'var(--color-primary)';
-
-  // Thumbnail-Breite: 320px liefert Commons skalierte, bandbreitenschonende Version.
-  const thumbSrc = commonsToDirectUrl(item.imageUrl, 320);
-
-  return (
-    // Gerahmte „mattierte" Karte (.museum-frame trägt Doppelrahmen + Hover-Lift).
-    <div onClick={onClick} className="museum-frame" title={item.name}>
-      <div className="museum-imgwrap">
-        {/* Shimmer-Skelett, solange das Bild lädt (statt „..."). */}
-        {!loaded && !errored && <div className="museum-shimmer" />}
-        {!errored && (
-          <img
-            src={thumbSrc}
-            alt={item.name}
-            loading="lazy"
-            className="museum-img"
-            onLoad={() => setLoaded(true)}
-            onError={() => setErrored(true)}
-            style={{ opacity: loaded ? 1 : 0 }}
+        {!loading && !loadFailed && allItems.length > 0 && !showDepot && activeHall && (
+          <VirtualExhibitWall
+            items={filteredItems}
+            resetKey={`${domainFilter}-${categoryFilter}`}
+            ariaLabel={`Saal ${roman(hallIndex)} — ${activeHall.domain.label}: ${filteredItems.length} Exponate, mit Pfeiltasten oder Wischen durchgehen`}
+            onOpen={openLightbox}
+            placardSubtitle={(item, index) => (
+              `${item.categoryLabel || 'Ohne Kategorie'} · Nr. ${index + 1}`
+            )}
           />
         )}
-        {errored && (
-          <div className="museum-fallback">
-            <Images size={26} style={{ opacity: 0.35 }} />
-          </div>
+
+        {!loading && !loadFailed && allItems.length > 0 && showDepot && (
+          <PaginatedDepot
+            items={filteredItems}
+            resetKey={`${domainFilter}-${categoryFilter}-${search}-${view}`}
+            onOpen={openLightbox}
+            subtitle={(item) => (
+              domainFilter === 'all'
+                ? `${DOMAIN_BY_ID[item.domainId]?.label || item.domainId} · ${item.categoryLabel}`
+                : item.categoryLabel
+            )}
+            emptyMessage={searchActive
+              ? `Kein Exponat zu „${search.trim()}“ gefunden.`
+              : 'Keine Exponate für diesen Filter gefunden.'}
+          />
         )}
-        {/* Domain-Badge oben rechts (akzentfarben je Bereich). */}
-        <div className="museum-badge" style={{ background: `${accent}d9` }}>
-          {DOMAIN_LABELS[item.domainId] || item.domainId}
-        </div>
       </div>
 
-      {/* Museums-„Placard": Kategorie (Kapitälchen) + Titel. */}
-      <div className="museum-placard">
-        {item.category && (
-          <span className="museum-cat" style={{ color: accent }}>{catLabel(item.category)}</span>
-        )}
-        <span className="museum-name">{item.name}</span>
-      </div>
+      <ExhibitLightbox
+        state={lightbox}
+        onClose={closeLightbox}
+        onNavigate={navigateLightbox}
+        header={museumHeader}
+        details={museumDetails}
+        credit={credit}
+        imageMaxHeight="420px"
+      />
     </div>
-  );
-}
-
-// ---------------------------------------------------------------------------
-// Lightbox — Vollbild-Detailansicht mit Navigation
-// ---------------------------------------------------------------------------
-/**
- * Overlay mit großem Bild, Konzeptname, Domain, Kategorie, FunFact,
- * Bildnachweis und Quell-Link. Tastatur: ← → Esc.
- */
-function Lightbox({ item, total, idx, onClose, onPrev, onNext }) {
-  const [imgLoaded, setImgLoaded] = useState(false);
-  const accent = DOMAIN_ACCENT[item.domainId] || 'var(--color-primary)';
-
-  // Große Version (800px) für die Lightbox.
-  const largeSrc = commonsToDirectUrl(item.imageUrl, 800);
-
-  // Bild neu laden, wenn sich das Item ändert (Navigation in Lightbox).
-  useEffect(() => { setImgLoaded(false); }, [item.key]);
-
-  // Kopfzeile: Domain-Badge (+ Kategorie) und Positions-Zähler. Der Schließen-Knopf
-  // und das Karten-/Overlay-Gerüst kommen aus LightboxShell (Code-Review R2).
-  const header = (
-    <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-      <span style={{
-        background: `${accent}22`, color: accent,
-        fontSize: 10.5, fontWeight: 700, padding: '3px 9px',
-        borderRadius: 999, border: `1px solid ${accent}55`, letterSpacing: 0.4,
-      }}>
-        {DOMAIN_LABELS[item.domainId] || item.domainId}
-        {item.category ? ` · ${catLabel(item.category)}` : ''}
-      </span>
-      <span style={{ fontSize: 11, color: 'var(--text-muted)' }}>
-        {idx + 1} / {total}
-      </span>
-    </div>
-  );
-
-  return (
-    <LightboxShell onClose={onClose} header={header}>
-        {/* Haupt-Content: Bild + Infos */}
-        <div style={{
-          flex: 1, overflow: 'auto',
-          display: 'flex', flexDirection: 'column', gap: 0
-        }}>
-          {/* Bild */}
-          <div style={{
-            position: 'relative', background: '#0a0a0f',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            minHeight: 200, maxHeight: 420, overflow: 'hidden', flexShrink: 0,
-          }}>
-            <img
-              src={largeSrc}
-              alt={item.name}
-              onLoad={() => setImgLoaded(true)}
-              style={{
-                maxWidth: '100%', maxHeight: 420,
-                objectFit: 'contain',
-                opacity: imgLoaded ? 1 : 0,
-                transition: 'opacity .35s ease',
-                display: 'block',
-              }}
-            />
-            {!imgLoaded && (
-              <div style={{
-                position: 'absolute', inset: 0, display: 'flex',
-                alignItems: 'center', justifyContent: 'center',
-                color: 'rgba(255,255,255,0.3)', fontSize: 14,
-              }}>
-                Bild wird geladen …
-              </div>
-            )}
-
-            {/* Links/Rechts-Buttons über dem Bild */}
-            <button
-              onClick={onPrev}
-              className="btn-terra"
-              style={{
-                position: 'absolute', left: 10, top: '50%', transform: 'translateY(-50%)',
-                padding: '7px 10px', background: 'rgba(0,0,0,0.55)',
-                border: '1px solid rgba(255,255,255,0.2)', color: '#fff',
-              }}
-              title="Vorheriges Bild (←)"
-            >
-              <ChevronLeft size={18} />
-            </button>
-            <button
-              onClick={onNext}
-              className="btn-terra"
-              style={{
-                position: 'absolute', right: 10, top: '50%', transform: 'translateY(-50%)',
-                padding: '7px 10px', background: 'rgba(0,0,0,0.55)',
-                border: '1px solid rgba(255,255,255,0.2)', color: '#fff',
-              }}
-              title="Nächstes Bild (→)"
-            >
-              <ChevronRight size={18} />
-            </button>
-          </div>
-
-          {/* Textinfos */}
-          <div style={{ padding: '16px 20px 20px' }}>
-            <h3 style={{
-              fontFamily: 'var(--font-title)', fontSize: 22, fontWeight: 700,
-              color: 'var(--text-bright)', margin: '0 0 10px',
-            }}>
-              {item.name}
-            </h3>
-
-            {/* Attribute als Chips (nur wenn vorhanden) */}
-            {Object.keys(item.attributes).length > 0 && (
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 12 }}>
-                {Object.entries(item.attributes).slice(0, 6).map(([k, v]) => (
-                  <span
-                    key={k}
-                    style={{
-                      fontSize: 11.5, padding: '3px 9px', borderRadius: 6,
-                      background: 'var(--bg-sidebar)', border: '1px solid var(--border-light)',
-                      color: 'var(--text-main)',
-                    }}
-                  >
-                    <span style={{ color: 'var(--text-muted)' }}>{k}: </span>
-                    <b>{typeof v === 'boolean' ? (v ? 'ja' : 'nein') : String(v)}</b>
-                  </span>
-                ))}
-              </div>
-            )}
-
-            {/* Fun-Fact */}
-            {item.funFact && (
-              <div style={{
-                display: 'flex', gap: 8, padding: '10px 12px',
-                background: `${accent}11`, border: `1px solid ${accent}33`,
-                borderRadius: 'var(--radius-md)', marginBottom: 12,
-              }}>
-                <Info size={15} style={{ color: accent, flexShrink: 0, marginTop: 2 }} />
-                <p style={{
-                  fontSize: 13, lineHeight: 1.55, color: 'var(--text-main)',
-                  fontStyle: 'italic', margin: 0,
-                }}>
-                  {item.funFact}
-                </p>
-              </div>
-            )}
-
-            {/* Bildnachweis */}
-            {(item.license || item.attribution) && (
-              <div style={{
-                fontSize: 11, color: 'var(--text-muted)', lineHeight: 1.5,
-                borderTop: '1px solid var(--border-light)', paddingTop: 10, marginTop: 4,
-              }}>
-                {item.license && <span>Lizenz: {item.license} · </span>}
-                {item.attribution && <span>{item.attribution}</span>}
-              </div>
-            )}
-
-            {/* Quell-Link */}
-            {item.source?.url && (
-              <a
-                href={item.source.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  display: 'inline-block', marginTop: 8, fontSize: 11.5,
-                  color: 'var(--color-primary)', textDecoration: 'underline',
-                }}
-              >
-                Quelle: {item.source.name || item.source.url}
-              </a>
-            )}
-          </div>
-        </div>
-    </LightboxShell>
-  );
-}
-
-// ---------------------------------------------------------------------------
-// FilterChip — Knopf für Domain- und Kategorie-Filter
-// ---------------------------------------------------------------------------
-function FilterChip({ label, active, count, accent, onClick, small }) {
-  const col = accent || 'var(--color-primary)';
-  return (
-    <button
-      onClick={onClick}
-      style={{
-        padding: small ? '3px 10px' : '5px 12px',
-        fontSize: small ? 11 : 12,
-        fontFamily: 'var(--font-title)',
-        fontWeight: active ? 700 : 500,
-        borderRadius: 999,
-        border: active ? `1.5px solid ${col}` : '1.5px solid var(--border-light)',
-        background: active ? `${col}18` : 'var(--bg-sidebar)',
-        color: active ? col : 'var(--text-muted)',
-        cursor: 'pointer',
-        display: 'inline-flex', alignItems: 'center', gap: 5,
-        transition: 'all .12s ease',
-        whiteSpace: 'nowrap',
-      }}
-    >
-      {label}
-      {count != null && (
-        <span style={{
-          fontSize: small ? 10 : 10.5, opacity: 0.7,
-          background: active ? `${col}22` : 'var(--border-light)',
-          padding: '0 5px', borderRadius: 999,
-        }}>
-          {count}
-        </span>
-      )}
-    </button>
   );
 }

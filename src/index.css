@@ -50,28 +50,8 @@
   .app-wordmark{display:none}
 }
 
-/* === Museum (Galerie) — gerahmte Karten im klassischen Pergament-Stil ===== */
-/* Karten wirken wie gerahmte, mattierte Drucke an einer Galeriewand: */
-/* Doppelrahmen (analog .terra-panel:before), Hover-Lift + sanfter Bild-Zoom, */
-/* darunter ein Museums-„Placard" (Kategorie · Titel). */
-.museum-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:18px}
-.museum-frame{position:relative;background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--radius-lg);overflow:hidden;cursor:pointer;display:flex;flex-direction:column;box-shadow:0 2px 6px rgba(0,0,0,.07);transition:transform .18s cubic-bezier(.2,.8,.2,1),box-shadow .18s ease,border-color .18s ease}
-.museum-frame:before{content:"";position:absolute;inset:4px;border:1px solid var(--border-double);border-radius:2px;pointer-events:none;z-index:2;transition:border-color .18s ease}
-.museum-frame:hover{transform:translateY(-4px);box-shadow:0 14px 26px rgba(27,48,91,.17);border-color:var(--border-hover)}
-.museum-frame:hover:before{border-color:var(--color-secondary)}
-.museum-frame:hover .museum-img{transform:scale(1.06)}
-.museum-imgwrap{position:relative;padding-bottom:72%;overflow:hidden;background:var(--bg-sidebar);flex-shrink:0}
-.museum-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .45s cubic-bezier(.2,.8,.2,1),opacity .4s ease}
-/* Sanfte Vignette, damit der weiße Bildrand am Mat nicht hart abreißt. */
-.museum-imgwrap:after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;box-shadow:inset 0 0 0 1px rgba(0,0,0,.05),inset 0 -28px 34px -28px rgba(0,0,0,.22)}
-.museum-shimmer{position:absolute;inset:0;background:linear-gradient(100deg,var(--bg-sidebar) 30%,var(--bg-card-hover) 50%,var(--bg-sidebar) 70%);background-size:200% 100%;animation:museum-shimmer 1.3s ease-in-out infinite}
+/* Der Name bleibt bewusst erhalten: .hall-loading nutzt diese Animation. */
 @keyframes museum-shimmer{0%{background-position:200% 0}to{background-position:-200% 0}}
-.museum-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-family:var(--font-title);font-size:26px;user-select:none}
-.museum-placard{padding:9px 11px 11px;display:flex;flex-direction:column;gap:3px;border-top:1px solid var(--border-double)}
-.museum-cat{font-size:9.5px;font-weight:700;letter-spacing:.7px;text-transform:uppercase}
-.museum-name{font-family:var(--font-title);font-weight:600;font-size:13px;color:var(--text-bright);line-height:1.3;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
-.museum-badge{position:absolute;top:8px;right:8px;z-index:3;color:#fff;font-size:9.5px;font-weight:700;padding:2px 8px;border-radius:999px;letter-spacing:.4px;backdrop-filter:blur(3px);box-shadow:0 1px 3px rgba(0,0,0,.3)}
-/* Lightbox-Backdrop-Blur wird jetzt inline in LightboxShell gesetzt (R2). */
 
 /* Homo: pulsierender Marker-Ring auf der Anatomiegrafik (Struktur-Hervorhebung).
    Frueher pro Mount als Inline-<style> in HomoVisual.jsx injiziert (R5, hierher
@@ -79,16 +59,31 @@
 @keyframes homoPulse{0%{transform:translate(-50%,-50%) scale(.6);opacity:.9}70%{transform:translate(-50%,-50%) scale(2.2);opacity:0}100%{transform:translate(-50%,-50%) scale(2.2);opacity:0}}
 .homo-pulse-ring{animation:homoPulse 1.8s ease-out infinite}
 
-/* === Museumssaal (GalleryExplorer) — begehbare Galeriewand ================== */
+/* === Museumssäle (GalleryExplorer + MuseumExplorer) ========================= */
 /* Wand + Boden liegen als Hintergrund auf dem Scroll-Container (.hall-wall):    */
 /* der Inhalt (die Exponate) schiebt sich beim Scrollen daran vorbei, die Wand   */
 /* selbst steht still — ein billiger Tiefeneffekt ganz ohne 3D-Transforms.       */
 /* Der Passepartout-Trick: object-fit:contain im weissen Mat statt cover-Crop —  */
 /* echte Museumsrahmen absorbieren jedes Seitenverhaeltnis ohne Beschnitt.       */
+.hall-panel{height:100%;overflow:hidden;position:relative}
 .hall{height:100%;display:flex;flex-direction:column;overflow:hidden}
+.hall-empty-panel{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:12px;padding:24px;color:var(--text-muted)}
+.hall-empty-title{font-family:var(--font-title);font-size:18px;color:var(--color-primary)}
+.hall-empty-copy{font-size:13px;max-width:320px}
 .hall-topbar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:14px 16px 10px;flex-shrink:0}
+.hall-heading{font-family:var(--font-title);font-size:17px;font-weight:700;color:var(--color-primary);margin:0}
+.hall-count{font-size:12px;color:var(--text-muted);font-weight:600}
+.hall-navigation,.hall-actions{display:inline-flex;align-items:center;gap:4px}
+.hall-navigation{margin-left:auto}
+.hall-actions{gap:6px}
+.hall-actions--push{margin-left:auto}
+.hall-small-button{padding:4px 7px}
+.hall-view-button{font-size:12.5px;padding:5px 10px}
 .hall-saal-select{font-family:var(--font-title);font-size:13px;font-weight:600;color:var(--color-primary);background:#F4F1E9;border:1px solid var(--border-light);border-radius:var(--radius-sm);padding:6px 8px;cursor:pointer;max-width:230px}
 .hall-search{padding:6px 10px;border-radius:var(--radius-sm);border:1px solid var(--border-light);background:var(--bg-sidebar);color:var(--text-main);font-family:var(--font-sans);font-size:13px;outline:none;width:150px}
+.hall-search:focus-visible,.hall-saal-select:focus-visible,.hall-exhibit:focus-visible,.hall-depot-card:focus-visible{outline:3px solid var(--color-secondary);outline-offset:2px}
+.hall-state{flex:1;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;color:var(--text-muted);font-size:14px}
+.hall-state--error{color:var(--color-error)}
 .hall-wall{flex:1;min-height:0;position:relative;overflow-x:auto;overflow-y:hidden;outline:none;
   background:
     linear-gradient(180deg, rgba(0,0,0,.06) 0, rgba(0,0,0,0) 7%),
@@ -97,26 +92,64 @@
 /* WICHTIG: Bodenabstand via bottom:22% (hoehenbezogen), NICHT padding-bottom in
    Prozent — Prozent-Padding bezieht sich auf die BREITE des Containing Blocks,
    und der virtualisierte Strip ist bei grossen Saelen hunderttausende px breit. */
-.hall-exhibit{position:absolute;top:0;bottom:22%;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer}
+.hall-exhibit{position:absolute;top:0;bottom:22%;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;border-radius:2px}
 /* Spotlight-Kegel ueber jedem Rahmen; beim Hover wird er etwas heller. */
 .hall-exhibit:before{content:"";position:absolute;top:0;left:12%;right:12%;height:66%;background:radial-gradient(ellipse 60% 52% at 50% 30%, rgba(255,243,214,.5), rgba(255,243,214,0) 70%);pointer-events:none;opacity:.75;transition:opacity .25s ease}
 .hall-exhibit:hover:before{opacity:1}
 .hall-frame{position:relative;width:calc(100% - 58px);height:60%;background:#3F3327;border:1px solid #2A2118;border-radius:2px;padding:7px;box-shadow:0 14px 22px -10px rgba(40,30,15,.55), inset 0 0 0 2px #8F6F45;transition:transform .22s cubic-bezier(.2,.8,.2,1)}
 .hall-exhibit:hover .hall-frame{transform:translateY(-4px) scale(1.015)}
 .hall-mat{position:absolute;inset:7px;background:#FBF9F2;box-shadow:inset 0 0 0 1px #E2DCCB, inset 0 2px 8px rgba(0,0,0,.14);display:flex;align-items:center;justify-content:center;padding:11px}
-.hall-img{max-width:100%;max-height:100%;object-fit:contain;display:block;box-shadow:0 1px 4px rgba(0,0,0,.25)}
+.hall-img{max-width:100%;max-height:100%;object-fit:contain;display:block;box-shadow:0 1px 4px rgba(0,0,0,.25);transition:opacity .3s ease}
 /* Messing-Placard unterm Rahmen: Name + Exponatnummer. */
 .hall-placard{margin-top:12px;background:linear-gradient(180deg,#E8D9AE,#CBAF74);border:1px solid #9C7F49;border-radius:2px;padding:5px 14px 6px;text-align:center;max-width:calc(100% - 70px);box-shadow:0 2px 4px rgba(0,0,0,.18)}
 .hall-placard-name{font-family:var(--font-title);font-size:12.5px;font-weight:700;color:#3D2F17;line-height:1.25;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
 .hall-placard-sub{font-size:10px;font-weight:600;letter-spacing:.6px;color:#6B5526;text-transform:uppercase}
-.hall-loading{position:absolute;inset:0;background:linear-gradient(100deg,#EFECE3 30%,#FFFDF8 50%,#EFECE3 70%);background-size:200% 100%;animation:museum-shimmer 1.3s ease-in-out infinite}
+.hall-loading{position:absolute;inset:0;z-index:1;display:flex;align-items:center;justify-content:center;background:linear-gradient(100deg,#EFECE3 30%,#FFFDF8 50%,#EFECE3 70%);background-size:200% 100%;animation:museum-shimmer 1.3s ease-in-out infinite}
+.hall-loading-text{padding:4px 8px;border-radius:2px;background:rgba(10,10,15,.62);color:#fff;font-size:12px}
+.hall-image-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--text-muted)}
 /* Depot: schlichtes Passepartout-Raster fuer schnelles Stoebern + Suche. */
+.hall-depot-view{flex:1;min-height:0;display:flex;flex-direction:column}
 .hall-depot{flex:1;min-height:0;overflow-y:auto;padding:14px 16px;display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;align-content:start}
 .hall-depot-card{background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--radius-lg);cursor:pointer;padding:8px;display:flex;flex-direction:column;gap:6px;transition:transform .15s ease, box-shadow .15s ease}
 .hall-depot-card:hover{transform:translateY(-2px);box-shadow:0 8px 16px rgba(27,48,91,.14)}
 .hall-depot-matte{height:118px;background:#FBF9F2;box-shadow:inset 0 0 0 1px #E2DCCB;display:flex;align-items:center;justify-content:center;padding:8px;position:relative}
 .hall-depot-name{font-size:12px;font-weight:600;color:var(--color-primary);line-height:1.25;text-align:center;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
 .hall-depot-sub{font-size:9.5px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--text-muted);text-align:center}
+.hall-empty{grid-column:1/-1;text-align:center;color:var(--text-muted);margin-top:40px;font-size:14px}
+.hall-pagination{display:flex;align-items:center;justify-content:center;gap:12px;padding:8px 16px 12px;border-top:1px solid var(--border-light);color:var(--text-muted);font-size:12px;flex-shrink:0}
+.hall-pagination .btn-terra{padding:5px 9px;font-size:12px}
+.hall-pagination .btn-terra:disabled{opacity:.45;cursor:not-allowed}
+
+/* Gemeinsame Lightbox-Basis: Navigation und Provenienz bleiben in beiden
+   Explorern identisch, Museumdetails sitzen darunter in einem eigenen Slot. */
+.hall-lightbox-backdrop{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(10,10,15,.84);backdrop-filter:blur(4px)}
+.hall-lightbox-dialog{display:flex;flex-direction:column;position:relative;width:100%;max-width:820px;max-height:90vh;overflow:hidden;border:1px solid var(--border-light);border-radius:var(--radius-lg);background:var(--bg-card);box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.hall-lightbox-dialog-header{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--border-light);flex-shrink:0}
+.hall-lightbox-dialog-heading{flex:1;min-width:0}
+.hall-lightbox-close{padding:5px 9px;font-size:13px;flex-shrink:0}
+.hall-lightbox-header{display:flex;align-items:center;gap:10px}
+.hall-lightbox-title{font-family:var(--font-title);font-size:16px;font-weight:700;color:var(--color-primary)}
+.hall-lightbox-subtitle{font-size:12px;color:var(--text-muted)}
+.hall-lightbox-position{font-size:11px;color:var(--text-muted);margin-left:auto}
+.hall-lightbox-image{position:relative;display:flex;align-items:center;justify-content:center;background:#0a0a0f;min-height:200px;max-height:var(--hall-lightbox-max-height);overflow:hidden;flex-shrink:0}
+.hall-lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);padding:7px 10px;background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.2);color:#fff;z-index:2}
+.hall-lightbox-nav--prev{left:10px}.hall-lightbox-nav--next{right:10px}
+.hall-lightbox-credit{padding:8px 14px;font-size:11px;color:var(--text-muted);border-top:1px solid var(--border-light);flex-shrink:0}
+
+/* Museum-spezifische Filter- und Detailergänzungen. */
+.museum-topbar{border-bottom:1px solid var(--border-light)}
+.museum-title-icon{color:var(--color-secondary);flex-shrink:0}
+.museum-domain-select{max-width:270px}
+.museum-category-select{max-width:190px}
+.museum-domain-badge{--museum-accent:var(--color-primary);display:inline-block;color:var(--museum-accent);font-size:10.5px;font-weight:700;padding:3px 9px;border:1px solid;border-radius:999px;letter-spacing:.4px}
+.museum-lightbox-details{padding:16px 20px 18px;overflow-y:auto}
+.museum-lightbox-details h3{font-family:var(--font-title);font-size:22px;font-weight:700;color:var(--text-bright);margin:0 0 10px}
+.museum-attributes{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.museum-attributes>span{font-size:11.5px;padding:3px 9px;border-radius:6px;background:var(--bg-sidebar);border:1px solid var(--border-light);color:var(--text-main)}
+.museum-attributes>span>span{color:var(--text-muted)}
+.museum-fun-fact{display:flex;gap:8px;padding:10px 12px;border:1px solid;border-radius:var(--radius-md);margin-bottom:12px}
+.museum-fun-fact p{font-size:13px;line-height:1.55;color:var(--text-main);font-style:italic;margin:0}
+.museum-lightbox-details a{display:inline-block;margin-top:4px;font-size:11.5px;color:var(--color-primary);text-decoration:underline}
 
 /* === Quiz-Exponat (ConceptVisual) — verhuellter Rahmen mit Enthuellung ====== */
 /* Vor der Antwort haengt das Konzeptbild verhuellt im Rahmen (Samttuch),        */
@@ -171,6 +204,12 @@
   .hall-exhibit{scroll-snap-align:center}
   .hall-frame{width:calc(100% - 34px);height:58%}
   .hall-topbar{padding:10px 10px 8px}
+  .hall-actions{width:100%;flex-wrap:wrap}
+  .hall-actions .hall-search{flex:1;min-width:120px}
+  .museum-hall-navigation{width:100%;justify-content:center}
+  .museum-domain-select{flex:1;min-width:0}
+  .museum-category-select{max-width:min(100%,190px)}
+  .hall-pagination{padding-inline:8px;gap:8px}
   .exhibit-frame{width:min(56%,260px)}
   /* Okular und vollständiger Credit bleiben oberhalb von Chips/Fun-Fact. */
   .answer-reveal--ocular{top:24%;width:min(42%,220px)}

@@ -2,15 +2,15 @@
 
 Vor Übernahme jeden Punkt gegen aktuellen Code, CHANGELOG und bestehende Projekt-Todos prüfen.
 
-- **UI-Offensive (laufende Welle, 2026-07-17):** Module A bis C erledigt — v1.87.0
+- **UI-Offensive (laufende Welle, 2026-07-17):** Module A bis D erledigt — v1.87.0
   brachte den Terra-Pergamentatlas; v1.88.0 das Astra-Label-Decluttering,
   Inneres-System-Inset, den sanften Klick-Zoomflug und kollisionssichere Touch-Ziele;
-  v1.89.0 evidenzbasierte Stern-/Ringvisuals, Deep-Sky-Okulare und Transitschema.
-  Offen in Prioritätsreihenfolge: (D) Museum-Tab auf die Saal-/Flur-Komponente aus
-  GalleryExplorer umziehen (heute 5.041 Karten im DOM, danach ungenutzte
-  museum-grid-CSS prüfen); (E) Mobile-Header kompakt (Icon-Tabs einzeilig, heute ~40 %
-  Bildschirmhöhe unter 768px); (F, optional) Währungsnamen-Kandidatenartefakt. Modul A
-  hat Währungsfragen und -daten bewusst nicht berührt; siehe bestehenden currency-Punkt unten.
+  Modul C evidenzbasierte Stern-/Ringvisuals, Deep-Sky-Okulare und Transitschema;
+  v1.90.0 virtualisierte Domain-Säle, gemeinsames 60er-Depot und zugängliche Lightbox
+  für Museum und GalleryExplorer. Offen in Prioritätsreihenfolge: (E) Mobile-Header
+  kompakt (Icon-Tabs einzeilig, heute ~40 % Bildschirmhöhe unter 768px); (F, optional)
+  Währungsnamen-Kandidatenartefakt. Modul A hat Währungsfragen und -daten bewusst nicht
+  berührt; siehe bestehenden currency-Punkt unten.
 - **Astra-Sternbildkontext:** Keine vermeintlich „offiziellen IAU-Strichfiguren“
   ergänzen. Die IAU erklärt ausdrücklich, dass sie keine solchen Linienmuster definiert;
   Astra besitzt zudem keine Sternkoordinaten. Vor einer Umsetzung entweder eine konkrete,
