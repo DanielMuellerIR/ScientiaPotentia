@@ -1,6 +1,6 @@
 # Ernte-Ordner (Zwischenstand Faktensammlung)
 
-> **Stand: 2026-06-05.** Rohe Recherche-Ausgabe der Multi-Agent-Sammelrunde (Krisensitzung).
+> **Stand: 2026-07-19.** Rohe Recherche-Ausgabe der Multi-Agent-Sammelrunde (Krisensitzung).
 > **Noch nicht** in `scripts/data_sources/<domain>_raw.json` gemerged. Ablauf/Plan:
 > `docs/content_pipeline.md`.
 
@@ -10,10 +10,10 @@
   (Format wie `<domain>_raw.json`: `id, name, category, attributes, funFact, sourceName,
   sourceUrl, verifyNote` + Bildfelder `imageSearchTerm, imageFile, imageLicense,
   imageAttribution`).
-- `cand_terra_currency_f.json` — isolierter, nicht mergefreigegebener Kandidat für die 174
-  stillgelegten Terra-Währungsfragen. Reproduktion, Quellen, Sperrfälle und Stichprobe stehen in
-  `terra_currency_f_review.md`; Harvester und Offline-/Online-Gate heißen
-  `harvest_terra_currency_f.mjs` und `verify_terra_currency_f.mjs`.
+- `harvest_terra_currency_f.mjs` und `verify_terra_currency_f.mjs` — Harvester und
+  Offline-/Online-Gate für den in v1.92.0 freigegebenen
+  [`terra_currency_raw.json`](../terra_currency_raw.json). Reproduktion, Quellen,
+  Entscheidungen und Seed-Diff stehen in `terra_currency_f_review.md`.
 - `BRIEFING.md` — Auftrag, den jeder Finder gelesen hat.
 - `BLACKLIST.md` — vom Orchestrator (Opus) gepflegte Sperrliste (Quellen/URLs/Konzepte/Bilder)
   + Korrekturen. Vor jedem neuen Lauf von Findern zu lesen.

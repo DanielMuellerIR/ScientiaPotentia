@@ -59,11 +59,13 @@ export function seededShuffle(arr, seedStr) {
  * überzufällig die kürzeste Option. Length-Balancing rückt die richtige Antwort
  * in die Mitte der Längenverteilung der vier Optionen, sodass weder „längste"
  * noch „kürzeste raten" überdurchschnittlich trifft. Gleich-nahe Kandidaten
- * werden seeded gemischt (Variation + stabile Git-Diffs). Seed = richtige Antwort.
+ * werden seeded gemischt (Variation + stabile Git-Diffs). Standard-Seed ist die
+ * richtige Antwort; Generatoren dürfen für mehrere Fragen mit derselben Antwort
+ * zusätzlich eine stabile Fragen-ID übergeben.
  */
-export function pickBalanced(correct, candidates, k = 3) {
+export function pickBalanced(correct, candidates, k = 3, seed = String(correct)) {
   const cLen = String(correct).length;
-  const shuffled = seededShuffle(candidates, String(correct));
+  const shuffled = seededShuffle(candidates, seed);
   // stabiler Sort nach Längen-Nähe; das Vor-Mischen randomisiert Gleichstände.
   shuffled.sort((a, b) => Math.abs(String(a).length - cLen) - Math.abs(String(b).length - cLen));
   return shuffled.slice(0, k);

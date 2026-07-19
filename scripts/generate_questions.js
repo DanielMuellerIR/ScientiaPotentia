@@ -3,12 +3,15 @@ import path from 'path';
 // Dieselben Regeln, die auch der Audit anwendet (scripts/audit_questions.cjs):
 // Der Generator soll gar nicht erst erzeugen, was der Audit anschlagen würde.
 import { answerInStem } from './lib/audit_rules.cjs';
+import { pickBalanced, seededShuffle } from './lib/quizrandom.js';
 
 const PUBLIC_DIR = path.resolve('public/data');
 const DATA_DIR = path.resolve('src/data');
+const DATA_SOURCES_DIR = path.resolve('scripts/data_sources');
 const COUNTRIES_GEOJSON_PATH = path.join(PUBLIC_DIR, 'countries.json');
 const SUBDIVISIONS_GEOJSON_PATH = path.join(PUBLIC_DIR, 'subdivisions.json');
 const GEODB_PATH = path.join(DATA_DIR, 'geodb.json');
+const CURRENCY_DATA_PATH = path.join(DATA_SOURCES_DIR, 'terra_currency_raw.json');
 // Ausgabe nach public/data/questions_terra.json — genau die Datei, die die App und
 // verify_quiz.js einlesen (analog zu generate_astra/homo/…, die ebenfalls nach
 // public/data schreiben). Frueher wurde nach src/data/quiz_questions.json geschrieben,
@@ -17,32 +20,6 @@ const QUESTIONS_OUTPUT = path.join(PUBLIC_DIR, 'questions_terra.json');
 
 const LEVEL_1_COUNTRIES = new Set(['DE', 'AT', 'CH', 'FR', 'IT', 'GB', 'US']);
 const LEVEL_3_PARENT_COUNTRIES = new Set(['DE', 'AT', 'CH', 'US', 'GB', 'FR', 'IT', 'ES', 'CA', 'AU']);
-
-const CURRENCY_TRANSLATIONS = {
-  'United States dollar': 'US-Dollar',
-  'Canadian dollar': 'Kanadischer Dollar',
-  'Australian dollar': 'Australischer Dollar',
-  'New Zealand dollar': 'Neuseeland-Dollar',
-  'Russian ruble': 'Russischer Rubel',
-  'Euro': 'Euro',
-  'Japanese yen': 'Japanischer Yen',
-  'Renminbi': 'Renminbi (Yuan)',
-  'Chinese yuan': 'Renminbi (Yuan)',
-  'Pound sterling': 'Britisches Pfund',
-  'Swiss franc': 'Schweizer Franken',
-  'Indian rupee': 'Indische Rupie',
-  'Brazilian real': 'Brasilianischer Real',
-  'South African rand': 'Südafrikanischer Rand',
-  'Mexican peso': 'Mexikanischer Peso',
-  'Swedish krona': 'Schwedische Krone',
-  'Norwegian krone': 'Norwegische Krone',
-  'Danish krone': 'Dänische Krone',
-  'Turkish lira': 'Türkische Lira',
-  'South Korean won': 'Südkoreanischer Won',
-  'Ukrainian hryvnia': 'Ukrainische Hrywnja',
-  'Polish złoty': 'Polnischer Złoty',
-  'Egyptian pound': 'Ägyptisches Pfund'
-};
 
 const CITY_TO_RIVER = {
   'city_DE_berlin': 'Spree',
@@ -266,9 +243,8 @@ const getDistractors = (entity, entities) => {
   }
   const names = siblings.map(s => s.name);
   const uniqueNames = [...new Set(names)].filter(name => name !== entity.name);
-  
-  // Shuffle and pick 3
-  return uniqueNames.sort(() => 0.5 - Math.random()).slice(0, 3);
+
+  return seededShuffle(uniqueNames, `terra:${entity.id}:name`).slice(0, 3);
 };
 
 const getDifficulty = (entity, entities) => {
@@ -302,6 +278,54 @@ const getDifficulty = (entity, entities) => {
   return 4;
 };
 
+const currencyAnswer = (entry) => `${entry.germanName} (${entry.isoCode})`;
+
+/**
+ * Wählt Währungsdistraktoren zuerst aus derselben Weltregion und derselben
+ * Schwierigkeit. Erst wenn dieser fachlich nähere Pool zu klein ist, wird er
+ * deterministisch mit weiteren belegten Währungen aufgefüllt.
+ */
+const getCurrencyDistractors = (entry, entity, currencyEntries, entities) => {
+  const correct = currencyAnswer(entry);
+  const seen = new Set([correct]);
+  const chosen = [];
+  const questionSeed = `q_${entity.id}_currency`;
+
+  const takeFrom = (pool, stage) => {
+    const answers = [];
+    for (const candidate of pool) {
+      const answer = currencyAnswer(candidate);
+      if (seen.has(answer)) continue;
+      seen.add(answer);
+      answers.push(answer);
+    }
+
+    const picked = pickBalanced(
+      correct,
+      answers,
+      3 - chosen.length,
+      `${questionSeed}:${stage}`,
+    );
+    chosen.push(...picked);
+  };
+
+  const otherEntries = currencyEntries.filter((candidate) => candidate.entityId !== entity.id);
+  const sameContinent = otherEntries.filter(
+    (candidate) =>
+      entities[candidate.entityId]?.metadata?.continent === entity.metadata?.continent,
+  );
+  const sameDifficulty = otherEntries.filter(
+    (candidate) =>
+      getDifficulty(entities[candidate.entityId], entities) === getDifficulty(entity, entities),
+  );
+
+  takeFrom(sameContinent, 'continent');
+  if (chosen.length < 3) takeFrom(sameDifficulty, 'difficulty');
+  if (chosen.length < 3) takeFrom(otherEntries, 'global');
+
+  return chosen;
+};
+
 function run() {
   console.log('--- STARTING QUIZ QUESTION COMPILING ---');
 
@@ -309,8 +333,25 @@ function run() {
     console.error(`Error: geodb.json not found at ${GEODB_PATH}`);
     process.exit(1);
   }
+  if (!fs.existsSync(CURRENCY_DATA_PATH)) {
+    console.error(`Error: terra_currency_raw.json not found at ${CURRENCY_DATA_PATH}`);
+    process.exit(1);
+  }
 
   const { entities } = JSON.parse(fs.readFileSync(GEODB_PATH, 'utf8'));
+  const currencyData = JSON.parse(fs.readFileSync(CURRENCY_DATA_PATH, 'utf8'));
+  if (
+    currencyData.metadata?.candidateOnly !== false ||
+    currencyData.metadata?.rawMergeApproved !== true ||
+    currencyData.metadata?.questionReactivationApproved !== true
+  ) {
+    console.error('Error: Terra-Currency-Daten besitzen keine vollständige Merge-/Reaktivierungsfreigabe');
+    process.exit(1);
+  }
+  const currencyEntries = currencyData.entries;
+  const currencyByEntityId = new Map(
+    currencyEntries.map((entry) => [entry.entityId, entry]),
+  );
   
   let countriesGeo = { features: [] };
   if (fs.existsSync(COUNTRIES_GEOJSON_PATH)) {
@@ -345,7 +386,10 @@ function run() {
           .filter(e => e.type === 'country' && e.id !== entity.id && e.metadata?.capital && e.metadata.capital !== 'N/A')
           .map(e => e.metadata.capital);
         
-        const dists = [...new Set(otherCapitals)].sort(() => 0.5 - Math.random()).slice(0, 3);
+        const dists = seededShuffle(
+          [...new Set(otherCapitals)],
+          `q_${entity.id}_capital`,
+        ).slice(0, 3);
         const options = [correctAnswer, ...dists];
 
         questions.push({
@@ -369,7 +413,10 @@ function run() {
           .filter(e => e.type === 'country' && e.id !== entity.id && e.metadata?.flag && e.metadata.flag !== '🏳️')
           .map(e => e.metadata.flag);
 
-        const dists = [...new Set(otherFlags)].sort(() => 0.5 - Math.random()).slice(0, 3);
+        const dists = seededShuffle(
+          [...new Set(otherFlags)],
+          `q_${entity.id}_flag`,
+        ).slice(0, 3);
         const options = [correctAnswer, ...dists];
 
         questions.push({
@@ -392,7 +439,10 @@ function run() {
         const correctAnswer = CONTINENT_NAMES_DE[rawCont] || rawCont;
         const allContinents = ['Europa', 'Afrika', 'Asien', 'Nordamerika', 'Südamerika', 'Ozeanien'];
         const filteredConts = allContinents.filter(c => c !== correctAnswer);
-        const dists = filteredConts.sort(() => 0.5 - Math.random()).slice(0, 3);
+        const dists = seededShuffle(
+          filteredConts,
+          `q_${entity.id}_continent`,
+        ).slice(0, 3);
         const options = [correctAnswer, ...dists];
         const continentDiff = LEVEL_1_COUNTRIES.has(entity.id) ? 1 : (difficulty === 2 ? 2 : 3);
 
@@ -417,7 +467,10 @@ function run() {
           .filter(e => e.type === 'country' && e.id !== entity.id && e.metadata?.highestPoint && e.metadata.highestPoint !== 'N/A')
           .map(e => e.metadata.highestPoint);
         
-        const dists = [...new Set(otherPeaks)].filter(p => p !== correctAnswer).sort(() => 0.5 - Math.random()).slice(0, 3);
+        const dists = seededShuffle(
+          [...new Set(otherPeaks)].filter(p => p !== correctAnswer),
+          `q_${entity.id}_highest_point`,
+        ).slice(0, 3);
         const options = [correctAnswer, ...dists];
 
         if (options.length === 4) {
@@ -436,31 +489,20 @@ function run() {
         }
       }
 
-      // 3c. Currency Question
-      // ACHTUNG: Dieser Fragetyp ist seit v1.85.11 stillgelegt — er wird unten
-      // vor dem Schreiben herausgefiltert (siehe DISABLED_TYPES). Grund: Die
-      // CURRENCY_TRANSLATIONS-Tabelle deckt nur 23 Namen ab, der Fallback
-      // `|| namePart` reicht alle uebrigen still auf Englisch durch (121 von 174
-      // Fragen). Zudem verraet das Laenderadjektiv bei den uebersetzten Namen die
-      // Antwort ("in Kanada" -> "Kanadischer Dollar", 17 Faelle).
-      // Zum Reaktivieren: Tabelle belegt vervollstaendigen, Fallback auf "nicht
-      // fragen" statt Durchreichen umstellen, Adjektiv-Leak loesen — dann
-      // 'currency' aus DISABLED_TYPES nehmen.
-      if (entity.metadata?.currency && entity.metadata.currency !== 'N/A') {
-        const rawCurrency = entity.metadata.currency;
-        const translateCurrency = (cur) => {
-          const namePart = cur.split(' (')[0];
-          const symbolPart = cur.includes(' (') ? ' (' + cur.split(' (')[1] : '';
-          const translatedName = CURRENCY_TRANSLATIONS[namePart] || namePart;
-          return `${translatedName}${symbolPart}`;
-        };
-
-        const correctAnswer = translateCurrency(rawCurrency);
-        const otherCurrencies = Object.values(entities)
-          .filter(e => e.type === 'country' && e.id !== entity.id && e.metadata?.currency && e.metadata.currency !== 'N/A')
-          .map(e => translateCurrency(e.metadata.currency));
-
-        const dists = [...new Set(otherCurrencies)].filter(c => c !== correctAnswer).sort(() => 0.5 - Math.random()).slice(0, 3);
+      // 3c. Währungsfrage
+      // Die deutsche Bezeichnung und der ISO-Code stammen vollständig aus dem
+      // verifizierten Currency-Rawkatalog. Fehlt ein Eintrag oder ist er wegen
+      // Länderadjektiv-/Gebiets-Leak gesperrt, entsteht bewusst keine Frage:
+      // Es gibt keinen englischen Durchreich-Fallback mehr.
+      const currencyEntry = currencyByEntityId.get(entity.id);
+      if (currencyEntry?.questionStatus === 'eligible') {
+        const correctAnswer = currencyAnswer(currencyEntry);
+        const dists = getCurrencyDistractors(
+          currencyEntry,
+          entity,
+          currencyEntries,
+          entities,
+        );
         const options = [correctAnswer, ...dists];
 
         if (options.length === 4) {
@@ -470,7 +512,7 @@ function run() {
             entityType: entity.type,
             type: 'currency',
             difficulty: Math.min(4, difficulty),
-            prompt: `Welche offizielle Währung wird in ${entity.name} verwendet?`,
+            prompt: `Welche dieser Währungen wird in ${entity.name} verwendet?`,
             correctAnswer: correctAnswer,
             options: options,
             silhouetteSvgPath: null,
@@ -581,7 +623,10 @@ function run() {
           .filter(e => e.type === 'country' && e.id !== parentCountryId)
           .map(e => e.name);
         
-        const dists = [...new Set(otherCountries)].sort(() => 0.5 - Math.random()).slice(0, 3);
+        const dists = seededShuffle(
+          [...new Set(otherCountries)],
+          `q_${entity.id}_stateparent`,
+        ).slice(0, 3);
         const options = [correctAnswer, ...dists];
 
         questions.push({
@@ -606,7 +651,10 @@ function run() {
         .filter(e => e.type === 'country' && e.id !== countryId)
         .map(e => e.name);
       
-      const dists = [...new Set(otherCountries)].sort(() => 0.5 - Math.random()).slice(0, 3);
+      const dists = seededShuffle(
+        [...new Set(otherCountries)],
+        `q_${entity.id}_citymatch`,
+      ).slice(0, 3);
       const options = [correctAnswer, ...dists];
 
       questions.push({
@@ -629,7 +677,10 @@ function run() {
           .filter(e => e.type === 'city' && e.metadata?.countryId !== countryId)
           .map(e => e.name);
 
-        const cDists = [...new Set(otherCities)].filter(c => c !== cCorrectAnswer).sort(() => 0.5 - Math.random()).slice(0, 3);
+        const cDists = seededShuffle(
+          [...new Set(otherCities)].filter(c => c !== cCorrectAnswer),
+          `q_${entity.id}_reverse_city`,
+        ).slice(0, 3);
         const cOptions = [cCorrectAnswer, ...cDists];
 
         if (cOptions.length === 4) {
@@ -655,7 +706,10 @@ function run() {
           .filter(e => e.type === 'river' && e.name !== rCorrectAnswer)
           .map(e => e.name);
           
-        const rDists = [...new Set(otherRivers)].sort(() => 0.5 - Math.random()).slice(0, 3);
+        const rDists = seededShuffle(
+          [...new Set(otherRivers)],
+          `q_${entity.id}_river`,
+        ).slice(0, 3);
         const rOptions = [rCorrectAnswer, ...rDists];
         
         let riverDiff = ['city_DE_berlin', 'city_GB_london', 'city_FR_paris'].includes(entity.id) ? 1 : 2;
@@ -684,7 +738,10 @@ function run() {
           .filter(e => e.type === 'country' && !riverCountries.includes(e.id))
           .map(e => e.name);
           
-        const dists = [...new Set(otherCountries)].sort(() => 0.5 - Math.random()).slice(0, 3);
+        const dists = seededShuffle(
+          [...new Set(otherCountries)],
+          `q_${entity.id}_country_${cId}`,
+        ).slice(0, 3);
         const options = [correctAnswer, ...dists];
         
         let riverDiff = 3;
@@ -722,7 +779,10 @@ function run() {
           .filter(e => e.type === 'river' && e.id !== entity.id && !(e.metadata?.countries || []).includes(primaryCId))
           .map(e => e.name);
           
-        const dists = [...new Set(otherRivers)].sort(() => 0.5 - Math.random()).slice(0, 3);
+        const dists = seededShuffle(
+          [...new Set(otherRivers)],
+          `q_${entity.id}_reverse_country`,
+        ).slice(0, 3);
         const options = [correctAnswer, ...dists];
         
         let riverDiff = 2;
@@ -756,7 +816,10 @@ function run() {
           .filter(e => e.type === 'river' && e.id !== entity.id && e.metadata?.mouth)
           .map(e => e.metadata.mouth);
           
-        const dists = [...new Set(otherMouths)].filter(m => m !== correctAnswer).sort(() => 0.5 - Math.random()).slice(0, 3);
+        const dists = seededShuffle(
+          [...new Set(otherMouths)].filter(m => m !== correctAnswer),
+          `q_${entity.id}_mouth`,
+        ).slice(0, 3);
         const options = [correctAnswer, ...dists];
         
         let riverDiff = ['river_nil', 'river_amazonas', 'river_mississippi', 'river_rhein', 'river_donau', 'river_elbe', 'river_themse', 'river_seine'].includes(entity.id) ? 2 : 3;
@@ -791,7 +854,10 @@ function run() {
               difficulty: 2,
               prompt: `Vervollständige die bekannte Eselsbrücke für die Donau-Quellflüsse: „Brigach und ... bringen die Donau zuweg.“`,
               correctAnswer: 'Breg',
-              options: ['Breg', 'Inn', 'Lech', 'Fulda'].sort(() => 0.5 - Math.random()),
+              options: seededShuffle(
+                ['Breg', 'Inn', 'Lech', 'Fulda'],
+                `q_${entity.id}_esel_quell`,
+              ),
               silhouetteSvgPath: null,
               mapTargetId: 'DE'
             });
@@ -806,7 +872,10 @@ function run() {
               difficulty: 1,
               prompt: `Welcher Fluss gehört zu den rechten Donau-Nebenflüssen laut Reim: „Iller, Lech, ..., Inn fließen rechts zur Donau hin.“?`,
               correctAnswer: 'Isar',
-              options: ['Isar', 'Naab', 'Main', 'Mosel'].sort(() => 0.5 - Math.random()),
+              options: seededShuffle(
+                ['Isar', 'Naab', 'Main', 'Mosel'],
+                `q_${entity.id}_esel_rechts`,
+              ),
               silhouetteSvgPath: null,
               mapTargetId: 'DE'
             });
@@ -819,7 +888,10 @@ function run() {
               difficulty: 1,
               prompt: `Welcher dieser Flüsse fließt laut bekanntem Merkspruch „rechts zur Donau hin“?`,
               correctAnswer: 'Lech',
-              options: ['Lech', 'Altmühl', 'Naab', 'Regen'].sort(() => 0.5 - Math.random()),
+              options: seededShuffle(
+                ['Lech', 'Altmühl', 'Naab', 'Regen'],
+                `q_${entity.id}_esel_rechts_all`,
+              ),
               silhouetteSvgPath: null,
               mapTargetId: 'DE'
             });
@@ -834,7 +906,10 @@ function run() {
               difficulty: 2,
               prompt: `Welcher Fluss fließt der Donau laut Eselsbrücke von links entgegen? „..., Naab und Regen fließen ihr entgegen.“`,
               correctAnswer: 'Altmühl',
-              options: ['Altmühl', 'Iller', 'Lech', 'Isar'].sort(() => 0.5 - Math.random()),
+              options: seededShuffle(
+                ['Altmühl', 'Iller', 'Lech', 'Isar'],
+                `q_${entity.id}_esel_links`,
+              ),
               silhouetteSvgPath: null,
               mapTargetId: 'DE'
             });
@@ -849,7 +924,10 @@ function run() {
               difficulty: 1,
               prompt: `Welcher Fluss vereinigt sich mit der Werra zur Weser, wie im bekannten Merkspruch „Wo Werra und ... sich küssen...“ beschrieben?`,
               correctAnswer: 'Fulda',
-              options: ['Fulda', 'Aller', 'Lahn', 'Ems'].sort(() => 0.5 - Math.random()),
+              options: seededShuffle(
+                ['Fulda', 'Aller', 'Lahn', 'Ems'],
+                `q_${entity.id}_esel_weser`,
+              ),
               silhouetteSvgPath: null,
               mapTargetId: 'DE'
             });
@@ -864,7 +942,10 @@ function run() {
               difficulty: 2,
               prompt: `Welcher Fluss schließt den Hunsrück ein laut Merkspruch: „Mosel, ..., Nahe, Rhein schließen rings den Hunsrück ein.“?`,
               correctAnswer: 'Saar',
-              options: ['Saar', 'Lahn', 'Ruhr', 'Main'].sort(() => 0.5 - Math.random()),
+              options: seededShuffle(
+                ['Saar', 'Lahn', 'Ruhr', 'Main'],
+                `q_${entity.id}_esel_hunsrueck`,
+              ),
               silhouetteSvgPath: null,
               mapTargetId: 'DE'
             });
@@ -879,7 +960,10 @@ function run() {
               difficulty: 2,
               prompt: `Welcher Fluss umschließt den Spessart laut Eselsbrücke? „Kinzig, ... und Main schließen den Spessart ein.“`,
               correctAnswer: 'Sinn',
-              options: ['Sinn', 'Saar', 'Nahe', 'Lahn'].sort(() => 0.5 - Math.random()),
+              options: seededShuffle(
+                ['Sinn', 'Saar', 'Nahe', 'Lahn'],
+                `q_${entity.id}_esel_spessart`,
+              ),
               silhouetteSvgPath: null,
               mapTargetId: 'DE'
             });
@@ -894,7 +978,7 @@ function run() {
   // und niemand vergisst ihn beim Ergaenzen eines Fragetyps.
 
   // Stillgelegte Fragetypen (Grund jeweils am Erzeugungsort dokumentiert).
-  const DISABLED_TYPES = new Set(['currency']);
+  const DISABLED_TYPES = new Set();
 
   const before = questions.length;
   const disabled = questions.filter(q => DISABLED_TYPES.has(q.type));
@@ -910,7 +994,11 @@ function run() {
 
   // Abzuege sichtbar machen: eine stille Kuerzung liest sich spaeter wie
   // "war schon immer so".
-  console.log(`Stillgelegte Typen (${[...DISABLED_TYPES].join(', ')}): ${disabled.length} Fragen entfernt`);
+  console.log(
+    DISABLED_TYPES.size > 0
+      ? `Stillgelegte Typen (${[...DISABLED_TYPES].join(', ')}): ${disabled.length} Fragen entfernt`
+      : 'Stillgelegte Typen: keine',
+  );
   console.log(`Selbstverraeter (Antwort als Wort im Fragetext): ${leaking.length} Fragen entfernt`);
   for (const q of leaking) console.log(`   - [${q.type}] ${q.prompt} => ${q.correctAnswer}`);
 

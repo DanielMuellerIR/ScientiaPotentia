@@ -10,10 +10,11 @@ Vor Übernahme jeden Punkt gegen aktuellen Code, CHANGELOG und bestehende Projek
   für Museum und GalleryExplorer; v1.91.0 den kompakten zweizeiligen Mobile-Header mit
   einzeiligen Icon-Tabs und zugänglichem DomainSwitcher; v1.91.1 das optionale Modul F
   als isoliertes, reproduzierbares
-  [Währungsnamen-Kandidatenartefakt](scripts/data_sources/harvest/cand_terra_currency_f.json)
-  samt [Review](scripts/data_sources/harvest/terra_currency_f_review.md). Modul F hat
-  Währungsfragen und Terra-Rawdaten bewusst nicht verändert; siehe offenen
-  Reaktivierungspunkt unten.
+  Währungsnamen-Kandidatenartefakt samt
+  [Review](scripts/data_sources/harvest/terra_currency_f_review.md). Der Kandidat wurde
+  nach Daniels Freigabe in v1.92.0 als geprüfter
+  [Currency-Rawkatalog](scripts/data_sources/terra_currency_raw.json) integriert und
+  der faire Fragetyp reaktiviert.
 - **Astra-Sternbildkontext:** Keine vermeintlich „offiziellen IAU-Strichfiguren“
   ergänzen. Die IAU erklärt ausdrücklich, dass sie keine solchen Linienmuster definiert;
   Astra besitzt zudem keine Sternkoordinaten. Vor einer Umsetzung entweder eine konkrete,
@@ -34,22 +35,6 @@ Vor Übernahme jeden Punkt gegen aktuellen Code, CHANGELOG und bestehende Projek
 - Weitere Templates auf „Antwort am Skalenboden" prüfen: Der Sweep 2026-07-16 deckte nur
   Wortform-Tells ab. Attribute mit natürlicher Untergrenze (Mindestanzahlen, Zählungen ab 1)
   können denselben Defekt tragen wie `officialIn`; `skipAsk` steht als Hebel bereit.
-- `generate_questions.js` (Terra) seedbar machen: Der Generator nutzt ungeseedetes
-  `Math.random()` an 12+ Stellen, dazu das verzerrende `sort(() => 0.5 - Math.random())`.
-  Folge: Ein Lauf würfelt 4.787 von 5.217 Distraktorsätzen neu, `questions_terra.json` ist
-  nicht reproduzierbar und Generatorfixes lassen sich nur chirurgisch ausliefern. Lingua
-  macht es mit `seededShuffle` (Seed = id) vor. Der Umstieg kostet einmalig einen
-  Distraktor-Churn über fast den ganzen Terra-Bestand — vorher mit Daniel abstimmen.
-- Fragetyp `currency` reaktivieren: `CURRENCY_TRANSLATIONS` belegt auf alle ~174 Währungen
-  erweitern. Das isolierte
-  [v1.91.1-Kandidatenartefakt](scripts/data_sources/harvest/cand_terra_currency_f.json)
-  belegt die deutschen Namen, ist aber ausdrücklich weder Raw-Merge- noch
-  Reaktivierungsfreigabe; die Merge-Entscheidung liegt bei Daniel. Vor einer
-  Reaktivierung bleiben die fünf Raw-/Gebietsprobleme `BG`, `CU`, `EH`, `PS` und `ZW`,
-  der Fallback von „englisch durchreichen" auf „nicht fragen", der Adjektiv-Leak
-  („in Kanada" → „Kanadischer Dollar") sowie fachlich faire, dimensionsgleiche
-  Distraktoren zu lösen. Erst danach darf `currency` aus `DISABLED_TYPES` entfernt
-  werden.
 - `verify_facts.js` Englisch-Leak-Check: Meldet bei Lingua zwei Fehlalarme auf griechischen
   Etymologien („én = in + theós = Gott" → „in" als englisches Wort gelesen). Vorbestehend,
   harmlos, aber dieselbe Klasse wie die 2026-07-16 entrauschten Audit-Fehlalarme: Ein

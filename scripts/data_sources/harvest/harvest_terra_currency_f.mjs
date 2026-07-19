@@ -1,10 +1,9 @@
 #!/usr/bin/env node
 
 /**
- * Erzeugt ausschließlich das isolierte Kandidatenartefakt für die stillgelegten
- * Terra-Währungsfragen. Der kuratierte Name-zu-Code-Abgleich ist absichtlich
- * explizit: Ein Währungssymbol ist nicht eindeutig und darf nie den ISO-Code
- * bestimmen.
+ * Erzeugt den verifizierten Terra-Währungskatalog für die reaktivierten Fragen.
+ * Der kuratierte Name-zu-Code-Abgleich ist absichtlich explizit: Ein
+ * Währungssymbol ist nicht eindeutig und darf nie den ISO-Code bestimmen.
  */
 
 import { createHash } from 'node:crypto';
@@ -15,14 +14,17 @@ import { fileURLToPath } from 'node:url';
 const SCRIPT_DIR = dirname(fileURLToPath(import.meta.url));
 export const REPO_ROOT = resolve(SCRIPT_DIR, '../../..');
 export const GEODB_PATH = resolve(REPO_ROOT, 'src/data/geodb.json');
-export const CANDIDATE_PATH = resolve(SCRIPT_DIR, 'cand_terra_currency_f.json');
+export const CURRENCY_DATA_PATH = resolve(REPO_ROOT, 'scripts/data_sources/terra_currency_raw.json');
+// Kompatibler Exportname für den bestehenden Verifier; die Datei ist seit
+// v1.92.0 kein Kandidat mehr, sondern freigegebene Terra-Quellwahrheit.
+export const CANDIDATE_PATH = CURRENCY_DATA_PATH;
 
-export const SOURCE_ACCESSED = '2026-07-17';
+export const SOURCE_ACCESSED = '2026-07-19';
 export const EU_VERSION = '20260105-0';
 export const EU_SPARQL_URL = 'https://publications.europa.eu/webapi/rdf/sparql';
 export const EU_RESOURCE_BASE = 'https://publications.europa.eu/resource/authority/currency/';
 export const EU_PROJECTION_SHA256 =
-  '1d8d81db8affb74f0d55642a2a5c46801e331ba341bc94aeb809c1be6ad01a68';
+  'a4d252351b7cff9de5527464479b00fc5a6b68366f7cbf9f3e1f9505ce73c21a';
 
 export const EU_QUERY = `PREFIX auth: <http://publications.europa.eu/ontology/authority/>
 PREFIX euvoc: <http://publications.europa.eu/ontology/euvoc#>
@@ -68,7 +70,7 @@ export const SOURCES = Object.freeze([
     role: 'Gegenquelle für Code- und Statuspflege; nicht für deutsche Labels',
     sourceUrl:
       'https://www.six-group.com/en/products-services/financial-information/market-reference-data/data-standards.html',
-    sourceVersion: 'abgerufen 2026-07-17',
+    sourceVersion: 'abgerufen 2026-07-19',
     sourceAccessed: SOURCE_ACCESSED,
   },
 ]);
@@ -98,7 +100,6 @@ export const ISO_CODE_BY_ENGLISH_NAME = Object.freeze({
   'Brazilian real': 'BRL',
   'British pound': 'GBP',
   'Brunei dollar': 'BND',
-  'Bulgarian lev': 'BGN',
   'Burmese kyat': 'MMK',
   'Burundian franc': 'BIF',
   'Cambodian riel': 'KHR',
@@ -110,7 +111,7 @@ export const ISO_CODE_BY_ENGLISH_NAME = Object.freeze({
   'Colombian peso': 'COP',
   'Congolese franc': 'CDF',
   'Costa Rican colón': 'CRC',
-  'Cuban convertible peso': 'CUC',
+  'Cuban peso': 'CUP',
   'Czech koruna': 'CZK',
   dalasi: 'GMD',
   'Danish krone': 'DKK',
@@ -213,41 +214,57 @@ export const ISO_CODE_BY_ENGLISH_NAME = Object.freeze({
   'West African CFA franc': 'XOF',
   'Yemeni rial': 'YER',
   'Zambian kwacha': 'ZMW',
-  'Zimbabwean dollar': 'ZWL',
+  'Zimbabwe Gold': 'ZWG',
 });
 
-export const BLOCKED_ISSUES = Object.freeze({
+export const SOURCE_DECISIONS = Object.freeze({
   BG: {
-    issueType: 'deprecated-source-currency',
+    decision: 'updated-current-currency',
     replacementCode: 'EUR',
     note:
-      'Das Raw-Feld bezeichnet den Bulgarischen Lew (BGN). BGN endete laut EU Authority List am 2026-01-01 und wurde durch EUR ersetzt; deshalb keine Reaktivierung aus diesem Kandidaten.',
+      'Der veraltete Lew-Eintrag wurde nach Bulgariens Euro-Einführung am 2026-01-01 auf EUR aktualisiert.',
   },
   CU: {
-    issueType: 'deprecated-source-currency',
+    decision: 'updated-current-currency',
     replacementCode: 'CUP',
     note:
-      'Das Raw-Feld bezeichnet den Konvertiblen Peso (CUC). CUC endete laut EU Authority List am 2021-06-30; fachlicher Nachfolger ist CUP. Die EU-Liste enthält dafür keine dcterms:isReplacedBy-Kante, daher bleibt der Datensatz blockiert.',
+      'Der 2021 ausgelaufene Konvertible Peso (CUC) wurde auf den aktuellen Kubanischen Peso (CUP) aktualisiert.',
   },
   EH: {
-    issueType: 'territory-assignment-mismatch',
+    decision: 'excluded-ambiguous-assignment',
     replacementCode: 'MAD',
     note:
-      'Das Raw-Feld bezeichnet DZD und wird als DZD übersetzt. Die aktuelle Gebietszuordnung der Gegenquelle nennt jedoch MAD; diese Abweichung muss vor einem Merge fachlich entschieden werden.',
+      'Keine Currency-Frage: Die Bundesbank ordnet MAD zu, „offizielle Währung“ wäre für das umstrittene Gebiet aber fachlich und politisch mehrdeutig.',
   },
   PS: {
-    issueType: 'territory-assignment-mismatch',
+    decision: 'excluded-no-unique-iso-currency',
     replacementCode: null,
     note:
-      'Das Raw-Feld bezeichnet EGP und wird als EGP übersetzt. Für Palästina gibt es keine eindeutige eigene ISO-4217-Währung; mehrere Währungen sind im Umlauf. Das Raw-Feld darf daher nicht ungeprüft reaktiviert werden.',
+      'Keine Currency-Frage: Es gibt keine eindeutige einzelne ISO-4217-Währung; mehrere Währungen sind im Umlauf.',
   },
   ZW: {
-    issueType: 'deprecated-source-currency',
+    decision: 'updated-current-currency',
     replacementCode: 'ZWG',
     note:
-      'Das Raw-Feld bezeichnet den Simbabwe-Dollar (ZWL). ZWL endete laut EU Authority List am 2024-08-31 und wurde durch ZWG ersetzt; deshalb keine Reaktivierung aus diesem Kandidaten.',
+      'Der 2024 ausgelaufene Simbabwe-Dollar (ZWL) wurde auf Simbabwe-Gold (ZWG) aktualisiert.',
   },
 });
+
+/**
+ * Bei diesen Ländern verrät die amtliche deutsche Währungsbezeichnung die
+ * Antwort bereits durch Ländername, Abkürzung oder unmittelbar erkennbares
+ * Adjektiv („Kanada“ → „Kanadischer Dollar“). Die korrekte Bezeichnung bleibt
+ * als belegter Distraktor nutzbar, erzeugt aber keine eigene Frage.
+ */
+export const COUNTRY_NAME_LEAK_IDS = Object.freeze([
+  'AE', 'AF', 'AR', 'AU', 'AZ', 'BI', 'BN', 'BO', 'BS', 'BY', 'BZ', 'CA',
+  'CD', 'CH', 'CL', 'CO', 'CR', 'CU', 'CZ', 'DJ', 'DK', 'DO', 'DZ', 'EG',
+  'FJ', 'FK', 'GH', 'GN', 'GY', 'IN', 'IQ', 'IR', 'IS', 'JM', 'JO', 'KE',
+  'KP', 'KR', 'KW', 'LB', 'LK', 'LR', 'LY', 'MA', 'MD', 'MW', 'MX', 'NA',
+  'NO', 'NP', 'NZ', 'OM', 'PH', 'PK', 'QA', 'RO', 'RS', 'RU', 'RW', 'SA',
+  'SB', 'SD', 'SE', 'SO', 'SR', 'SS', 'SY', 'TM', 'TN', 'TR', 'TT', 'TW',
+  'TZ', 'UG', 'US', 'UY', 'YE', 'ZM', 'ZW',
+]);
 
 const ENTRY_NOTES = Object.freeze({
   GL: 'Das unspezifische Raw-Wort „krone“ bezeichnet für Grönland DKK (Dänische Krone).',
@@ -406,12 +423,12 @@ export async function buildCandidate() {
       throw new Error(`EU-Version für ${isoCode}: erwartet ${EU_VERSION}, erhalten ${eu.version}`);
     }
 
-    const issue = BLOCKED_ISSUES[entity.id] ?? null;
-    const status = issue ? 'blocked-source-data' : 'verified-candidate';
+    const decision = SOURCE_DECISIONS[entity.id] ?? null;
+    const hasCountryNameLeak = COUNTRY_NAME_LEAK_IDS.includes(entity.id);
     const note =
-      issue?.note ??
+      decision?.note ??
       ENTRY_NOTES[entity.id] ??
-      'EU-Label für die im Terra-Rohfeld bezeichnete Währung; isolierter Kandidat ohne Merge- oder Reaktivierungsfreigabe.';
+      'EU-Label für die im Terra-Rohfeld bezeichnete, freigegebene Terra-Währung.';
 
     return {
       id: `terra-currency-${entity.id}`,
@@ -426,13 +443,15 @@ export async function buildCandidate() {
       euDeprecated: eu.deprecated,
       useStart: eu.useStart,
       useEnd: eu.useEnd,
-      replacementCode: issue?.replacementCode ?? null,
       sourceName: 'EU Publications Office – Currency authority list',
       sourceUrl: `${EU_RESOURCE_BASE}${isoCode}`,
       sourceVersion: EU_VERSION,
       sourceAccessed: SOURCE_ACCESSED,
-      status,
-      issueType: issue?.issueType ?? null,
+      status: 'verified-source',
+      questionStatus: hasCountryNameLeak ? 'skip-country-name-leak' : 'eligible',
+      questionSkipReason: hasCountryNameLeak
+        ? 'Die amtliche deutsche Währungsbezeichnung verrät das gefragte Land.'
+        : null,
       note,
     };
   });
@@ -440,15 +459,19 @@ export async function buildCandidate() {
   const englishNames = new Set(entries.map((entry) => entry.englishName));
   const rawCurrencies = new Set(entries.map((entry) => entry.rawCurrency));
   const isoCodes = new Set(entries.map((entry) => entry.isoCode));
-  const blockedEntries = entries.filter((entry) => entry.status === 'blocked-source-data');
+  const eligibleEntries = entries.filter((entry) => entry.questionStatus === 'eligible');
+  const skippedLeakEntries = entries.filter(
+    (entry) => entry.questionStatus === 'skip-country-name-leak',
+  );
 
   return {
     metadata: {
-      artifact: 'terra-currency-f',
-      schemaVersion: 1,
-      candidateOnly: true,
-      rawMergeApproved: false,
-      questionReactivationApproved: false,
+      artifact: 'terra-currency',
+      schemaVersion: 2,
+      candidateOnly: false,
+      rawMergeApproved: true,
+      questionReactivationApproved: true,
+      approvedOn: SOURCE_ACCESSED,
       generatedOn: SOURCE_ACCESSED,
       inputPath: 'src/data/geodb.json',
       inputSha256: sha256(geodbBytes),
@@ -470,13 +493,14 @@ export async function buildCandidate() {
       rawCurrencyStrings: rawCurrencies.size,
       uniqueEnglishNames: englishNames.size,
       uniqueIsoCodes: isoCodes.size,
-      verifiedCandidates: entries.length - blockedEntries.length,
-      blockedSourceData: blockedEntries.length,
-      blockedEntityIds: blockedEntries.map((entry) => entry.entityId),
+      verifiedSources: entries.length,
+      questionEligible: eligibleEntries.length,
+      skippedCountryNameLeaks: skippedLeakEntries.length,
+      skippedCountryNameLeakIds: skippedLeakEntries.map((entry) => entry.entityId),
     },
-    issues: Object.entries(BLOCKED_ISSUES)
+    sourceDecisions: Object.entries(SOURCE_DECISIONS)
       .sort(([left], [right]) => left.localeCompare(right))
-      .map(([entityId, issue]) => ({ entityId, ...issue })),
+      .map(([entityId, decision]) => ({ entityId, ...decision })),
     entries,
   };
 }
@@ -486,10 +510,11 @@ async function main() {
   const json = `${JSON.stringify(candidate, null, 2)}\n`;
   await writeFile(CANDIDATE_PATH, json, 'utf8');
   console.log(
-    `Kandidat geschrieben: ${candidate.summary.entries} Einträge, ` +
+    `Currency-Rawdaten geschrieben: ${candidate.summary.entries} Einträge, ` +
       `${candidate.summary.uniqueEnglishNames} Namen, ` +
       `${candidate.summary.rawCurrencyStrings} Rawstrings, ` +
-      `${candidate.summary.blockedSourceData} blockiert.`,
+      `${candidate.summary.questionEligible} Fragen freigegeben, ` +
+      `${candidate.summary.skippedCountryNameLeaks} Ländername-Leaks übersprungen.`,
   );
 }
 

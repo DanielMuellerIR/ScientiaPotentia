@@ -1,14 +1,55 @@
 # Changelog — Scientia
 
-> **Stand: 2026-07-17.** Diese Datei sammelt die datierte Versions-Chronik, die
+> **Stand: 2026-07-19.** Diese Datei sammelt die datierte Versions-Chronik, die
 > zuvor als Blockquote-Blöcke in `AGENTS.md` gewachsen war und dort ausgelagert
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-07-19 (v1.92.0) — Belegte Währungsfragen reaktiviert, Terra-Generator deterministisch
+
+Der in v1.91.1 isolierte Currency-Kandidat ist nach fachlicher Freigabe als
+`scripts/data_sources/terra_currency_raw.json` integriert. 172 eindeutige
+Länder-Währungs-Zuordnungen verwenden die deutschen Labels und ISO-Codes der gepinnten
+EU Publications Office Currency Authority List `20260105-0`. Bulgarien nutzt nach der
+Euro-Einführung `EUR`, Kuba den aktuellen `CUP` und Simbabwe `ZWG`; Westsahara und
+Palästina bleiben wegen mehrdeutiger beziehungsweise fehlender eindeutiger
+ISO-Zuordnung ohne Currency-Frage.
+
+93 faire Currency-Fragen sind aktiv. Antworten haben einheitlich das Format
+`Deutscher Name (ISO-Code)` und enthalten keine uneindeutigen Symbole. Es gibt keinen
+englischen Fallback. Der vollständige deutsche Katalog deckte 79 Ländername-,
+Abkürzungs- oder Adjektiv-Selbstverräter auf; diese Einträge bleiben als belegte
+Distraktoren nutzbar, erzeugen aber keine eigene Frage. Distraktoren stammen bevorzugt
+aus derselben Weltregion, danach derselben Schwierigkeit und zuletzt dem globalen
+belegten Pool. Die Formulierung „Welche dieser Währungen wird in … verwendet?“
+vermeidet eine falsche Exklusivbehauptung bei Ländern mit mehreren Umlaufwährungen.
+
+Der Terra-Generator verwendet nun durchgehend `seededShuffle`; sämtliche
+`Math.random()`-Aufrufe und verzerrenden Random-Sorts sind entfernt. Der einmalige,
+ausdrücklich freigegebene Seed-Diff ändert bei 4.591 bestehenden Fragen ausschließlich
+die Optionen. 93 Currency-Fragen kommen hinzu, keine bestehende Frage entfällt und
+keine vorhandene ID, kein Prompt und keine richtige Antwort ändert sich. Zwei
+vollständige Läufe erzeugten bytegleich SHA-256
+`7db01a9a88b9054cb9fb3b1b5067d94f9bf14e34eb0973b7b3e3461f5c8239c0`.
+
+Verifiziert: Currency-Gate offline 4.609 und online 5.541 Prüfungen; Terra
+5.116 Fragen mit 57.903 Quizchecks und 0 Fehlern; Fragen-Audit mit 0 Strukturfehlern,
+0 Antworten im Stamm, den 17 vorbestehenden Format-Tells und keinem auffälligen
+Längenbias; 115/115 Vitest-Tests; Produktions-Build und Layoutvertrag 41/41.
+`verify:facts terra` bleibt erwartungsgemäß nicht
+anwendbar, weil Terra kein `concepts_terra.json` besitzt; `verify_quiz.js` ist das
+projektdokumentierte Terra-Gate.
+
+Der Browserlauf bei 1280×800 öffnete gezielt die Mosambik-Frage mit regionalen
+Distraktoren und `Metical (MZN)`, wertete die richtige Antwort aus und zentrierte die
+Terra-Karte passend. Bei 375×812 blieb der Header 106 px hoch, `body.scrollWidth`
+entsprach exakt 375 px und die Antwortauswertung war im vorgesehenen rechten Panel
+erreichbar. Konsole und Runtime meldeten keine Warnung oder Exception.
+
 ## 2026-07-17 (v1.91.1) — Isolierter Terra-Währungsnamen-Kandidat
 
-Das optionale Modul F der UI-Offensive ist als reproduzierbares, noch nicht
-mergefreigegebenes Kandidatenartefakt abgeschlossen. Aus den 175 Terra-Länder-Entities
+Das optionale Modul F der UI-Offensive ist als reproduzierbares, zu diesem Zeitpunkt noch
+nicht mergefreigegebenes Kandidatenartefakt abgeschlossen. Aus den 175 Terra-Länder-Entities
 entstehen unter Ausschluss von `AQ` exakt 174 Länderzeilen mit 137 byteverschiedenen
 Rawstrings, 135 englischen Währungsnamen und 134 ISO-4217-Codes. Das deutsche
 `skos:prefLabel` je Code stammt aus der EU Publications Office Currency Authority List
