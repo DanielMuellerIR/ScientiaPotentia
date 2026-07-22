@@ -1,9 +1,28 @@
 # Changelog — Scientia
 
-> **Stand: 2026-07-19.** Diese Datei sammelt die datierte Versions-Chronik, die
+> **Stand: 2026-07-22.** Diese Datei sammelt die datierte Versions-Chronik, die
 > zuvor als Blockquote-Blöcke in `AGENTS.md` gewachsen war und dort ausgelagert
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
+
+## 2026-07-22 (v1.92.1) — FTPS-Releases gegen Teilstände abgesichert
+
+Das Deployment veröffentlicht `index.html` erst nach allen Assets und ersetzt den
+Entrypoint sowie das neue serverseitige SHA-256-Manifest jeweils per atomarem Rename.
+Schlägt ein Asset-Upload fehl, bleiben der bisherige Entrypoint und das bisherige
+Release-Manifest sichtbar. Inkrementelle Skips beruhen nicht mehr auf einem lokalen
+Manifest, sondern benötigen einen passenden Hash im Remote-Manifest sowie die real
+gemeldete Dateigröße auf dem Server. Fehlt die Remote-Datei oder ihr Hashbeleg, wird
+hochgeladen; gleiche Größe allein gilt auch bei Medien nie als Inhaltsnachweis.
+
+Die ungenutzte zweite Lightbox-Implementierung `LightboxShell.jsx` ist entfernt;
+Museum und Galerie verwenden weiterhin ausschließlich die getestete, zugängliche
+`ExhibitLightbox`. Der Deploy-Dry-Run benötigt keine Zugangsdaten und öffnet keine
+Netzwerkverbindung. Verifiziert mit sechs speicherinternen FTPS-Regressionstests,
+115/115 Frontend-Tests, Produktions-Build und Layoutvertrag 41/41. Es fand kein
+echter Remote-Deploy statt. Der normalisierte Vorher-/Nachher-Vergleich des realen
+Produktions-Builds ist bytegleich; geändert sind nur die sichtbare Version 1.92.1
+und die dadurch fortgeschriebenen Content-Hash-Dateinamen.
 
 ## 2026-07-19 (v1.92.0) — Belegte Währungsfragen reaktiviert, Terra-Generator deterministisch
 

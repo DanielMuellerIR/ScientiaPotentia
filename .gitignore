@@ -35,8 +35,9 @@ scripts/test_modes_simulation.js
 
 
 
-# Lokales Deploy-Manifest (Hashes der zuletzt hochgeladenen Dateien, maschinenlokal)
+# Lokale Diagnosekopie des serverseitigen Deploy-Manifests (maschinenlokal)
 .deploy-manifest.json
+.deploy-manifest.json.tmp
 
 # Python-Bytecode (deploy.py-Import beim Login-Test)
 __pycache__/

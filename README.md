@@ -86,6 +86,18 @@ npm run build
 
 Der optimierte Build wird im Ordner `dist/` abgelegt.
 
+### 4. Deployment lokal prüfen
+
+```bash
+python3 -m unittest tests/test_deploy.py
+python3 deploy.py --dry-run --no-build
+```
+
+Der Dry-Run liest keine Zugangsdaten und baut keine Netzwerkverbindung auf. Beim
+echten FTPS-Deployment werden zunächst alle Assets übertragen. Erst danach werden
+`index.html` und das serverseitige SHA-256-Manifest atomar veröffentlicht; ein Skip
+benötigt sowohl den Remote-Hashbeleg als auch die tatsächlich gemeldete Dateigröße.
+
 ---
 
 ## Daten & Validierung
