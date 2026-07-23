@@ -5,6 +5,34 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-07-23 (v1.93.0) — Scientia-Startbildschirm als Navigations-Hub
+
+Der Einstieg liegt jetzt bewusst im domänenübergreifenden Bereich **Scientia** statt
+in einem einzelnen Bereich (früher Terra). Sein Startbildschirm ist neu: Statt des
+generischen Dashboards mit scrollender Karteikarten-Aufschlüsselung zeigt die neue
+Komponente `src/components/ScientiaHub.jsx` einen Navigations-Hub. Er nimmt wie der
+Museum-Tab die volle Breite ein (kein VisualPanel) und führt Besucher entweder in
+einen der acht Fachbereiche oder direkt ins Querbeet-Quiz über alle Bereiche.
+
+Der Hub macht den Umfang sofort sichtbar: Ein Hero nennt die Gesamtzahlen
+(49.776 Fragen, 13.047 Konzepte, 5.041 freie Bilder über 8 Bereiche), und jede
+Bereichskarte zeigt dynamisch ihre eigenen Kennzahlen (Fragen, Konzepte, Bilder)
+in der jeweiligen Akzentfarbe. Terra führt „Orte" statt Karteikarten und wird über
+die Weltkarte dargestellt, darum nennt seine Karte die Weltkarte statt einer Bildzahl.
+
+Die Zahlen stammen aus einem neuen, winzigen Manifest `public/data/domain_stats.json`,
+das der Generator `scripts/generate_domain_stats.js` beim Build erzeugt (Fragen aus
+`questions_<id>.json`, Konzepte/Bilder aus `concepts_<id>.json` bzw. `geodb.json`).
+So lädt die Landing-Page nicht die ~34 MB großen Fragenkataloge, sondern einen
+einzigen kleinen Fetch. `npm run build` ruft den Generator vorgeschaltet auf; manuell
+über `npm run generate:stats`. Fehlt das Manifest, zeigt der Hub dezente Platzhalter
+statt eines harten Fehlers.
+
+Verifiziert mit 118/118 Frontend-Tests (inkl. neuem `ScientiaHub`-Test), Produktions-Build,
+Layoutvertrag 41/41 sowie einem Browserlauf auf Desktop und Mobil-Hochkant: Start auf dem
+Hub, Kartenwechsel in einen Bereich, Querbeet-CTA in den Mischpool-Launcher, kein
+horizontales Überlaufen, keine Konsolenfehler.
+
 ## 2026-07-22 (v1.92.1) — FTPS-Releases gegen Teilstände abgesichert
 
 Das Deployment veröffentlicht `index.html` erst nach allen Assets und ersetzt den

@@ -4,6 +4,7 @@ import Quiz from './components/Quiz';
 import QuizLauncher from './components/QuizLauncher';
 import Dashboard from './components/Dashboard';
 import DomainSwitcher from './components/DomainSwitcher';
+import ScientiaHub from './components/ScientiaHub';
 import VisualPanel from './components/VisualPanel';
 import geodb from './data/geodb.json';
 import { DOMAINS, getDomainById } from './domains';
@@ -58,8 +59,16 @@ export default function App() {
   };
 
   // Aktive Wissens-Domain, per DomainSwitcher umschaltbar (Terra, Astra, …).
-  const [activeDomainId, setActiveDomainId] = useState('terra');
+  // Start bewusst im Mischbereich "scientia": sein Hub führt Besucher zu ALLEN
+  // Wissensbereichen und macht den Umfang des Quiz sofort sichtbar, statt gleich
+  // in einen einzelnen Bereich (früher Terra) zu springen.
+  const [activeDomainId, setActiveDomainId] = useState('scientia');
   const activeDomain = getDomainById(activeDomainId);
+
+  // Kennzahlen-Manifest je Bereich (Fragen/Konzepte/Bilder) für den Scientia-Hub.
+  // Winzige, beim Build generierte Datei (public/data/domain_stats.json) — einmal
+  // beim Start geladen, damit die Landing-Page nicht die großen Fragenkataloge zieht.
+  const [domainStats, setDomainStats] = useState(null);
 
   // Konzeptspeicher der aktiven Domain (Map conceptKey -> Konzept). Startwert
   // sind die Terra-Entities, damit der erste Render sofort Daten hat.
@@ -118,6 +127,18 @@ export default function App() {
     loadProgressData();
     loadStreak();
     loadHighScore();
+  }, []);
+
+  // Statistik-Manifest für den Scientia-Hub einmalig laden. Fehlt die Datei
+  // (z.B. Generator noch nicht gelaufen), bleibt stats null und der Hub zeigt
+  // dezente Platzhalter statt Zahlen — kein harter Fehler.
+  useEffect(() => {
+    let cancelled = false;
+    fetch('data/domain_stats.json')
+      .then(res => (res.ok ? res.json() : null))
+      .then(data => { if (!cancelled) setDomainStats(data); })
+      .catch(() => { if (!cancelled) setDomainStats(null); });
+    return () => { cancelled = true; };
   }, []);
 
   // Konzepte + Fragen der aktiven Domain laden (Lazy-Fetch je Domain-Wechsel).
@@ -528,6 +549,17 @@ export default function App() {
                 activeDomainId={activeDomainId}
               />
             </Suspense>
+          </div>
+        ) : activeDomain.id === 'scientia' && activeTab === 'dashboard' ? (
+          /* Scientia-Startbildschirm: volle Breite wie der Museum-Tab, statt des
+             generischen Dashboards ein Navigations-Hub zu allen Bereichen. */
+          <div style={{ flex: 1, minWidth: 0, minHeight: 0, padding: 0, height: '100%' }}>
+            <ScientiaHub
+              domains={DOMAINS}
+              stats={domainStats}
+              onSelectDomain={handleDomainChange}
+              onStartMixedQuiz={() => handleTabChange('quiz')}
+            />
           </div>
         ) : activeTab === 'explore' && activeDomain.Explorer ? (
           <>
