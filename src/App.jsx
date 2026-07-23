@@ -467,12 +467,12 @@ export default function App() {
             type="button"
             className={`${activeTab === 'quiz' ? 'btn-terra-primary' : 'btn-terra'} app-header-nav-button`}
             onClick={() => handleTabChange('quiz')}
-            aria-label="Lern-Quiz"
+            aria-label="Quiz"
             aria-current={activeTab === 'quiz' ? 'page' : undefined}
-            title="Lern-Quiz"
+            title="Quiz"
           >
             <HelpCircle size={16} />
-            <span className="app-header-nav-label">Lern-Quiz</span>
+            <span className="app-header-nav-label">Quiz</span>
           </button>
           {/* Museum-Tab: globale Bildgalerie über alle Domains */}
           <button
@@ -666,7 +666,7 @@ export default function App() {
                   {activeDomain.latinName} · {activeDomain.label}
                 </span>
                 <h2 style={{ fontFamily: 'var(--font-title)', fontSize: '24px', color: 'var(--color-primary)', fontWeight: 700, marginBottom: '2px' }}>
-                  Lern-Quiz
+                  Quiz
                 </h2>
                 <div style={{ fontSize: '12.5px', color: 'var(--text-muted)', fontWeight: 500 }}>
                   {activeDomain.id === 'terra' ? 'Wähle den Spielmodus und starte die Runde.' : 'Starte eine Runde — die Fragen werden zufällig gemischt.'}

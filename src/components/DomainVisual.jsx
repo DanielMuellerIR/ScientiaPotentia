@@ -5,7 +5,7 @@ import React from 'react';
  * (alles ausser Terra in Phase 1). Fuellt den linken Panel-Bereich, der bei
  * Terra die Weltkarte zeigt, mit einem themenbezogenen Ueberblick:
  * Bereichstitel, Beschreibung und eine Aufschluesselung der Konzept-Kategorien
- * inkl. Lernfortschritt.
+ * inkl. Sammelfortschritt (entdeckte Konzepte je Kategorie).
  *
  * Phase 2 ersetzt dies pro Domain durch echte Visualisierungen
  * (z.B. interaktives Sonnensystem fuer Astra).
@@ -37,7 +37,7 @@ export default function DomainVisual({ domain, concepts = {}, srsProgress = {} }
   const accent = domain.accent || 'var(--color-primary)';
 
   // Kategorien aus den Konzepten ableiten (z.B. planet, moon, star ...)
-  // und gelernte Konzepte (repetitions > 0) je Kategorie zaehlen.
+  // und entdeckte Konzepte (repetitions > 0) je Kategorie zaehlen.
   const cats = {};
   Object.entries(concepts).forEach(([key, c]) => {
     const cat = c.category || c.type || 'sonstige';
@@ -90,7 +90,7 @@ export default function DomainVisual({ domain, concepts = {}, srsProgress = {} }
           {domain.description}
         </p>
 
-        {/* Kategorie-Uebersicht mit Lernfortschritt */}
+        {/* Kategorie-Uebersicht mit Sammelfortschritt */}
         <div style={{
           display: 'grid',
           gridTemplateColumns: '1fr 1fr',
@@ -111,7 +111,7 @@ export default function DomainVisual({ domain, concepts = {}, srsProgress = {} }
               }}>
                 <div style={{ fontSize: '13px', fontWeight: 600 }}>{CATEGORY_LABELS[cat] || cat}</div>
                 <div style={{ fontSize: '11.5px', opacity: 0.7 }}>
-                  {data.studied} / {data.total} gelernt · {pct}%
+                  {data.studied} / {data.total} entdeckt · {pct}%
                 </div>
                 <div style={{ height: '4px', borderRadius: '2px', background: 'rgba(255,255,255,0.12)', marginTop: '6px', overflow: 'hidden' }}>
                   <div style={{ width: `${pct}%`, height: '100%', background: accent }} />

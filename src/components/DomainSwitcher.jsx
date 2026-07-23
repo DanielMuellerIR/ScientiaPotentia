@@ -11,7 +11,7 @@ import { getDomainIdFromConceptKey } from '../domains';
  *   - activeId:    ID der aktiven Domain
  *   - onSelect:    (domainId) => void  beim Wechsel
  *   - srsProgress: Map conceptKey -> Fortschritt (global, alle Domains) fuer
- *                  die Lernfortschritts-Anzeige pro Bereich
+ *                  die Anzeige entdeckter Konzepte pro Bereich
  */
 export default function DomainSwitcher({ domains, activeId, onSelect, srsProgress = {} }) {
   const [open, setOpen] = useState(false);
@@ -40,9 +40,9 @@ export default function DomainSwitcher({ domains, activeId, onSelect, srsProgres
     };
   }, [open]);
 
-  // Anzahl gelernter Konzepte pro Domain aus dem globalen Fortschritt ableiten.
-  // (Mastery = Anteil Konzepte mit repetitions > 0; hier zeigen wir die absolute
-  //  Zahl gelernter Konzepte, weil die Gesamtzahl je Domain hier nicht vorliegt.)
+  // Anzahl entdeckter Konzepte pro Domain aus dem globalen Fortschritt ableiten.
+  // (Anteil Konzepte mit repetitions > 0; hier zeigen wir die absolute Zahl
+  //  entdeckter Konzepte, weil die Gesamtzahl je Domain hier nicht vorliegt.)
   const studiedByDomain = {};
   Object.entries(srsProgress).forEach(([key, item]) => {
     const dId = item?.domain || getDomainIdFromConceptKey(key);
@@ -131,7 +131,7 @@ export default function DomainSwitcher({ domains, activeId, onSelect, srsProgres
                   <div className="domain-switcher-option-description">{d.description}</div>
                 </div>
                 <div className="domain-switcher-option-progress" style={{ color: d.accent }}>
-                  {studied} gelernt
+                  {studied} entdeckt
                 </div>
               </button>
             );

@@ -294,11 +294,11 @@ check('Header-Quelltext: Tabs besitzen aria-label, title und aria-current',
       && /\baria-current=/.test(tag)
   ),
   `Source-Gate: Jeder Header-Tab braucht einen stabilen Namen und der aktive Tab aria-current="page"; Runtime decken RTL/Browser ab.`);
-check('Header-Quelltext: Lern-Quiz bleibt domainuebergreifend beschriftet',
-  /aria-label="Lern-Quiz"/.test(headerMarkup)
-    && /title="Lern-Quiz"/.test(headerMarkup)
-    && /app-header-nav-label">Lern-Quiz</.test(headerMarkup),
-  `Desktop- und A11y-Produktlabel fuer alle Domains als "Lern-Quiz" erhalten.`);
+check('Header-Quelltext: Quiz-Tab bleibt domainuebergreifend beschriftet',
+  /aria-label="Quiz"/.test(headerMarkup)
+    && /title="Quiz"/.test(headerMarkup)
+    && /app-header-nav-label">Quiz</.test(headerMarkup),
+  `Desktop- und A11y-Produktlabel fuer alle Domains als "Quiz" erhalten.`);
 check('Header-Quelltext: Mute-Schalter besitzt aria-label und aria-pressed',
   /app-header-audio[\s\S]*?\baria-label=/.test(headerMarkup)
     && /app-header-audio[\s\S]*?\baria-pressed=/.test(headerMarkup),

@@ -46,13 +46,13 @@ export default function Atlas({ selectedEntity, srsProgress, onStartQuickQuiz, g
   // Get current SRS mastery level label and color
   const getMasteryBadge = () => {
     if (!srsProgress) {
-      return { label: 'Ungelernt', color: 'var(--text-muted)', bg: 'rgba(0,0,0,0.03)' };
+      return { label: 'Neu', color: 'var(--text-muted)', bg: 'rgba(0,0,0,0.03)' };
     }
-    
+
     const { interval = 0, repetitions = 0 } = srsProgress;
-    
+
     if (repetitions === 0) {
-      return { label: 'In Prüfung', color: 'var(--color-primary)', bg: 'rgba(27, 48, 91, 0.05)' };
+      return { label: 'Neu', color: 'var(--color-primary)', bg: 'rgba(27, 48, 91, 0.05)' };
     }
     if (interval >= 30) {
       return { label: 'Gemeistert', color: 'var(--color-secondary)', bg: 'rgba(139, 111, 59, 0.08)' };
@@ -60,7 +60,7 @@ export default function Atlas({ selectedEntity, srsProgress, onStartQuickQuiz, g
     if (interval >= 7) {
       return { label: 'Vertraut', color: '#1D4ED8', bg: 'rgba(29, 78, 216, 0.05)' };
     }
-    return { label: 'Lernen', color: 'var(--color-warning)', bg: 'rgba(181, 137, 0, 0.05)' };
+    return { label: 'Angespielt', color: 'var(--color-warning)', bg: 'rgba(181, 137, 0, 0.05)' };
   };
 
   const handleSearchChange = (e) => {

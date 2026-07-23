@@ -5,6 +5,34 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-07-23 (v1.94.0) — Ton von Schule zu Spiel gedreht
+
+Die UI-Sprache verschiebt sich weg vom Schul-/Prüfungston hin zu einem
+Unterhaltungs-/Sammel-Vokabular — gleiche Mechanik (Spaced Repetition), neue
+Rahmung. Konkret sichtbar:
+
+- Header-Tab „Lern-Quiz" heißt jetzt „Quiz" (aria-label/title/Label; der
+  Vorschalt-Screen entsprechend). Der Layoutvertrag prüft weiter die
+  domänenübergreifende Konsistenz dieses Tabs, nur gegen „Quiz".
+- Dashboard: „Lernkontrolle" → „Spielstand"; die Kopfzeile nennt schlicht
+  „X Fragen · Y Konzepte" statt „Fragen-Pool …| Karteikarten …"; die
+  Fortschrittsaufschlüsselung heißt „Deine Sammlung“.
+- Die vier SRS-Stufen sind überall (Dashboard, Terra-Kartenlegende, Atlas-Badge,
+  Bereichsvisual) als Spielprogression benannt: **Neu → Angespielt → Vertraut →
+  Gemeistert**. Frühere Begriffe „Ungelernt“, „Lernen“ und das schulische
+  „In Prüfung“ entfallen.
+- Zähler „X / Y gelernt“ heißen jetzt „X / Y entdeckt“ (Dashboard-Kategorien,
+  Bereichsvisual, Bereichsauswahl-Dropdown).
+
+Interne Bezeichner, CSS-Klassen und die SRS-Schwellen bleiben unverändert; nur
+sichtbarer deutscher Text (und angrenzende Kommentare) wurde angepasst.
+
+Verifiziert mit 118/118 Tests, Produktions-Build, Layoutvertrag 41/41 und einem
+Browserlauf: Header-Tab „Quiz“, Terra-Dashboard („Spielstand“, „Deine Sammlung“,
+Stufen Neu/Angespielt/Vertraut/Gemeistert, Kategorien „… entdeckt“),
+Terra-Kartenlegende („Angespielt“) und Bereichsauswahl („… entdeckt“) —
+keine Konsolenfehler.
+
 ## 2026-07-23 (v1.93.0) — Scientia-Startbildschirm als Navigations-Hub
 
 Der Einstieg liegt jetzt bewusst im domänenübergreifenden Bereich **Scientia** statt

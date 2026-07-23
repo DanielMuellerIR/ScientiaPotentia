@@ -104,10 +104,10 @@ export default function Dashboard({
           {domain.latinName} · {domain.label}
         </span>
         <h2 style={{ fontFamily: 'var(--font-title)', fontSize: '24px', color: 'var(--color-primary)', fontWeight: 700, marginBottom: '2px' }}>
-          Lernkontrolle
+          Spielstand
         </h2>
         <div style={{ fontSize: '12.5px', color: 'var(--text-muted)', fontWeight: 500 }}>
-          Fragen-Pool: <span style={{ color: 'var(--color-secondary)', fontWeight: 700 }}>{questionPool.length.toLocaleString('de-DE')} Fragen</span> | Karteikarten: <span style={{ color: 'var(--color-primary)', fontWeight: 700 }}>{totalEntitiesCount.toLocaleString('de-DE')} {domain.id === 'terra' ? 'Orte' : 'Konzepte'}</span>
+          <span style={{ color: 'var(--color-secondary)', fontWeight: 700 }}>{questionPool.length.toLocaleString('de-DE')} Fragen</span> · <span style={{ color: 'var(--color-primary)', fontWeight: 700 }}>{totalEntitiesCount.toLocaleString('de-DE')} {domain.id === 'terra' ? 'Orte' : 'Konzepte'}</span>
         </div>
       </div>
 
@@ -170,7 +170,7 @@ export default function Dashboard({
           gap: '6px'
         }}>
           <BarChart3 size={18} style={{ color: 'var(--color-primary)' }} />
-          Karteikarten-Verteilung
+          Deine Sammlung
         </h4>
         
         <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
@@ -186,8 +186,8 @@ export default function Dashboard({
           }}>
             <div style={{ width: `${masteredPercent}%`, height: '100%', background: '#C5B595' }} title={`Gemeistert: ${masteredPercent}%`} />
             <div style={{ width: `${familiarPercent}%`, height: '100%', background: '#A4B4CC' }} title={`Vertraut: ${familiarPercent}%`} />
-            <div style={{ width: `${learningPercent}%`, height: '100%', background: '#DCE0D5' }} title={`Lernen: ${learningPercent}%`} />
-            <div style={{ width: `${unseenPercent}%`, height: '100%', background: 'transparent' }} title={`Ungelernt: ${unseenPercent}%`} />
+            <div style={{ width: `${learningPercent}%`, height: '100%', background: '#DCE0D5' }} title={`Angespielt: ${learningPercent}%`} />
+            <div style={{ width: `${unseenPercent}%`, height: '100%', background: 'transparent' }} title={`Neu: ${unseenPercent}%`} />
           </div>
 
           {/* Legend Grid */}
@@ -204,12 +204,12 @@ export default function Dashboard({
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
               <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#DCE0D5', display: 'inline-block' }} />
-              <span style={{ color: 'var(--text-muted)', flex: 1 }}>Lernen</span>
+              <span style={{ color: 'var(--text-muted)', flex: 1 }}>Angespielt</span>
               <span style={{ fontWeight: 600 }}>{learningCount} ({learningPercent}%)</span>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
               <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#EAE6DC', display: 'inline-block' }} />
-              <span style={{ color: 'var(--text-muted)', flex: 1 }}>Ungelernt</span>
+              <span style={{ color: 'var(--text-muted)', flex: 1 }}>Neu</span>
               <span style={{ fontWeight: 600 }}>{unseenCount} ({unseenPercent}%)</span>
             </div>
           </div>
@@ -233,7 +233,7 @@ export default function Dashboard({
                 <div style={{ fontWeight: 600, color: 'var(--color-primary)' }}>{data.label}</div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <div style={{ color: 'var(--text-muted)' }}>
-                    {data.studied} / {data.count} gelernt
+                    {data.studied} / {data.count} entdeckt
                   </div>
                   <span style={{ fontWeight: 700, color: 'var(--color-secondary)', fontSize: '15px' }}>
                     {progress}%

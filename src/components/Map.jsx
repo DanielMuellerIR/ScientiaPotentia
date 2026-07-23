@@ -451,7 +451,7 @@ export default function Map({
           } else if (stats.interval >= 7) {
             color = '#91A8B8'; // Vertraut: entsättigtes Blaugrün
           } else {
-            color = '#C8D1B8'; // Lernen: zurückhaltendes Salbeigrün
+            color = '#C8D1B8'; // Angespielt: zurückhaltendes Salbeigrün
           }
         }
         
@@ -736,7 +736,7 @@ export default function Map({
                 <span className="terra-map-legend-swatch terra-map-legend-swatch--familiar" /> Vertraut
               </div>
               <div className="terra-map-legend-item">
-                <span className="terra-map-legend-swatch terra-map-legend-swatch--learning" /> Lernen
+                <span className="terra-map-legend-swatch terra-map-legend-swatch--learning" /> Angespielt
               </div>
             </div>
           )}
