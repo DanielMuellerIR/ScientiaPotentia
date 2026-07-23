@@ -5,6 +5,20 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-07-23 (v1.97.0) — Anzeigename auf „Scientia" vereinheitlicht
+
+Das Spiel heißt jetzt nur noch **Scientia** (nicht mehr „Scientia Potentia").
+Der On-Screen-Wordmark (App.jsx) und der Hub zeigten bereits „Scientia"; einzig
+der Browser-Tab-Titel trug noch den alten Vollnamen.
+
+- **index.html `<title>`** → „Scientia – Wissens-Quiz & Entdecker-Atlas" (vorher
+  „Scientia Potentia – …").
+- Der lateinische Leitspruch „Scientia potentia est · Wissen ist Macht" bleibt als
+  Tagline (Hub-Kicker + Wordmark-Tooltip) erhalten — er ist der Namensursprung,
+  nicht der Produktname.
+- Interne Identifier (Paketname `scientia_potentia`, Repo, Deploy-Manifest,
+  Domain-IDs, Doku-Pfade) bewusst unverändert, um Build/Deploy nicht zu brechen.
+
 ## 2026-07-23 (v1.96.0) — Rechtliche Pflichtangaben: Footer, Disclaimer, Lazy-Load
 
 Anlass: ScientiaPotentia ist jetzt öffentlich von dm0.de verlinkt (dm0.de/sci) und
