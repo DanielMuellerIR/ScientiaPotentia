@@ -52,6 +52,16 @@
    min-height:0 + overflow-y:auto = klassischer Flexbox-Overflow-Fix,
    damit zu hoher Inhalt scrollbar statt abgeschnitten ist. */
 .app-pane-right{width:var(--sidebar-width);height:100%;min-height:0;overflow-y:auto;z-index:10;flex-shrink:0}
+/* Rechts-Footer: dezente, immer sichtbare Fußzeile unter dem Hauptbereich.
+   flex-shrink:0 = wird nicht zusammengedrückt; flex-wrap:wrap = auf schmalen
+   Screens brechen Links + Disclaimer sauber um. Gedämpfte Farbe + kleine
+   Schrift halten sie unaufdringlich. */
+.app-footer{flex-shrink:0;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:2px 8px;margin:6px var(--shell-pad) 0;font-size:11px;line-height:1.4;color:var(--text-muted)}
+.app-footer a{color:var(--text-muted);text-decoration:none;border-bottom:1px solid transparent;transition:color .15s ease,border-color .15s ease}
+.app-footer a:hover{color:var(--color-primary);border-bottom-color:var(--color-primary)}
+.app-footer a:focus-visible{outline:2px solid var(--color-primary);outline-offset:2px;border-radius:1px}
+.app-footer-sep{color:var(--border-hover)}
+.app-footer-disclaimer{color:var(--text-muted);opacity:.85}
 
 /* MOBIL: unter 768px aus der Zwei-Spalten-Reihe eine gestapelte Spalte
    machen. Links bekommt eine gedeckelte Hoehe (etwas von der Karte bleibt
@@ -86,6 +96,8 @@
   .app-pane-left{flex:none;width:100%;height:38vh;min-height:180px}
   .app-pane-right{width:100%;height:auto;flex:1 1 auto}
   .app-wordmark{display:none}
+  /* Footer bleibt sichtbar, wird aber etwas kompakter und darf voll umbrechen. */
+  .app-footer{margin:4px var(--shell-pad) 0;font-size:10.5px;gap:1px 8px}
 }
 
 /* Der Name bleibt bewusst erhalten: .hall-loading nutzt diese Animation. */

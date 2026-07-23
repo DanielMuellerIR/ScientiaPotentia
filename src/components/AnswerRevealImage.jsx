@@ -51,6 +51,11 @@ export default function AnswerRevealImage({
             src={commonsToDirectUrl(imageUrl, width)}
             // Vor der Antwort darf auch assistive Technik den Namen nicht erhalten.
             alt={revealed ? (name || 'Exponat') : 'Verhülltes Exponat'}
+            // Wikimedia-Commons-Bild bedarfsweise laden und asynchron dekodieren.
+            // Das Panel ist während einer Frage sichtbar, das Bild lädt daher
+            // weiterhin rechtzeitig unter der Abdeckung — die Aufdeckung bleibt sofort.
+            loading="lazy"
+            decoding="async"
             onError={() => setImageFailed(true)}
           />
           {isOcular ? <span className="ocular-reticle" aria-hidden="true" /> : null}

@@ -55,7 +55,11 @@ export function ExhibitImage({
         className={className}
         src={commonsToDirectUrl(imageUrl, size)}
         alt={item.name}
-        loading={size <= 480 ? 'lazy' : undefined}
+        // Bilder von Wikimedia Commons erst bei Bedarf laden: loading="lazy"
+        // verzögert die Drittanbieter-Anfrage, bis das Bild in Sichtweite kommt;
+        // decoding="async" hält das Dekodieren aus dem Haupt-Thread.
+        loading="lazy"
+        decoding="async"
         onLoad={(event) => {
           setLoaded(true);
           // Echtes Seitenverhältnis des geladenen Bildes melden, damit der Rahmen

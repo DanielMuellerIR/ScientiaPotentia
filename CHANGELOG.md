@@ -5,6 +5,28 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-07-23 (v1.96.0) — Rechtliche Pflichtangaben: Footer, Disclaimer, Lazy-Load
+
+Anlass: ScientiaPotentia ist jetzt öffentlich von dm0.de verlinkt (dm0.de/sci) und
+damit Teil eines geschäftsmäßigen Auftritts — Impressum und Datenschutz müssen von
+der App aus erreichbar sein.
+
+- **Rechts-Footer.** Dauerhaft sichtbare, dezente Fußzeile unter dem Hauptbereich
+  mit den Pflicht-Links „Impressum" und „Datenschutz" (absolut auf
+  `https://dm0.de/impressum.html` bzw. `.../datenschutz.html`, neuer Tab,
+  `rel="noopener noreferrer"`). Sitzt als eigene Shell-Zeile (kein Menü), damit
+  die Links im Sinne von § 5 DDG unmittelbar erreichbar sind; bricht auf schmalen
+  Screens sauber um. Neue `.app-footer`-Stile in `index.css`; Layout-Contract
+  weiterhin 41/41.
+- **Inhalts-Disclaimer.** In derselben Zeile: „Bildungs- und Unterhaltungszweck.
+  Keine medizinische, rechtliche oder fachliche Beratung. Alle Angaben ohne
+  Gewähr." — relevant vor allem für die anatomisch/medizinischen Sachaussagen der
+  Domäne Homo.
+- **Lazy-Loading für Commons-Bilder.** Die von `commons.wikimedia.org` geladenen
+  Abbildungen (ExhibitGalleryShared, AnswerRevealImage) bekommen `loading="lazy"`
+  und `decoding="async"`, damit die Drittanbieter-Anfrage (IP-Übertragung) erst
+  bei Bedarf entsteht. Resolver-Logik unverändert.
+
 ## 2026-07-23 (v1.95.0) — Galerie: bildgerechte Rahmen und Saal-Navigation unten
 
 Zwei Verbesserungen an der Galeriewand (GalleryExplorer, geteilt mit dem Museum):
