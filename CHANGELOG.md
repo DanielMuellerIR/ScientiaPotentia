@@ -5,6 +5,30 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-07-23 (v1.95.0) — Galerie: bildgerechte Rahmen und Saal-Navigation unten
+
+Zwei Verbesserungen an der Galeriewand (GalleryExplorer, geteilt mit dem Museum):
+
+- **Rahmen folgen der Bildform.** Bisher hatten alle Exponate eines Saals dieselbe
+  feste Rahmenhöhe (60 %); ein einzelnes extrem hohes Bild (z. B. das
+  Atmosphären-Schichtdiagramm) ließ die Quer- und Quadratbilder winzig in
+  überhohen Rahmen schweben. Jetzt meldet jedes Bild beim Laden sein echtes
+  Seitenverhältnis (`naturalWidth/naturalHeight`) als CSS-Variable `--ar`; der
+  Rahmen ist breitenbasiert und leitet seine Höhe daraus ab (`aspect-ratio`),
+  gedeckelt per `max-height` für Ausreißer. Ein Wrapper hält die Rahmen mittig
+  auf gemeinsamer Blickachse, während die Messing-Plaketten bündig am unteren
+  Rand bleiben.
+- **Saal-Navigation im Detailbereich.** Zusätzlich zur Kopfleiste gibt es jetzt
+  unter der Wand eine Leiste „‹ voriger Saal · Saal-Position · nächster Saal ›“,
+  die die Namen der Nachbarsäle nennt und beide Richtungen umlaufend schaltet
+  (synchron zum oberen Auswahlfeld). Nur bei mehr als einem Saal und nicht im
+  Depot/Suchmodus.
+
+Verifiziert mit 118/118 Tests, Produktions-Build, Layoutvertrag 41/41 und einem
+Browserlauf (Natura-Galerie, Desktop und Mobil-Hochkant): Quer-/Quadrat-/Hochformat
+bekommen je eigene Rahmenform, Plaketten bleiben bündig, der Saal-Wechsel unten
+funktioniert und hält das obere Auswahlfeld synchron — keine Konsolenfehler.
+
 ## 2026-07-23 (v1.94.0) — Ton von Schule zu Spiel gedreht
 
 Die UI-Sprache verschiebt sich weg vom Schul-/Prüfungston hin zu einem

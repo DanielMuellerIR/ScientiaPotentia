@@ -130,14 +130,26 @@
 /* WICHTIG: Bodenabstand via bottom:22% (hoehenbezogen), NICHT padding-bottom in
    Prozent — Prozent-Padding bezieht sich auf die BREITE des Containing Blocks,
    und der virtualisierte Strip ist bei grossen Saelen hunderttausende px breit. */
-.hall-exhibit{position:absolute;top:0;bottom:22%;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;border-radius:2px}
+.hall-exhibit{position:absolute;top:0;bottom:22%;display:flex;flex-direction:column;align-items:center;cursor:pointer;border-radius:2px}
 /* Spotlight-Kegel ueber jedem Rahmen; beim Hover wird er etwas heller. */
 .hall-exhibit:before{content:"";position:absolute;top:0;left:12%;right:12%;height:66%;background:radial-gradient(ellipse 60% 52% at 50% 30%, rgba(255,243,214,.5), rgba(255,243,214,0) 70%);pointer-events:none;opacity:.75;transition:opacity .25s ease}
 .hall-exhibit:hover:before{opacity:1}
-.hall-frame{position:relative;width:calc(100% - 58px);height:60%;background:#3F3327;border:1px solid #2A2118;border-radius:2px;padding:7px;box-shadow:0 14px 22px -10px rgba(40,30,15,.55), inset 0 0 0 2px #8F6F45;transition:transform .22s cubic-bezier(.2,.8,.2,1)}
+/* Nimmt den Raum ueber der Plakette ein und zentriert den Rahmen mittig darin
+   (gemeinsame Blickachse), waehrend die Plaketten aller Exponate bündig bleiben. */
+.hall-frame-wrap{flex:1;min-height:0;width:100%;display:flex;align-items:center;justify-content:center}
+/* Der Rahmen folgt der Bildform: Breite ist fix (Slotbreite), die Hoehe ergibt
+   sich aus dem gemeldeten Seitenverhaeltnis (--ar = Breite/Hoehe). max-height
+   deckelt extrem hohe Ausreisser, damit sie nicht die ganze Wand sprengen. */
+.hall-frame{position:relative;width:calc(100% - 58px);aspect-ratio:var(--ar,1);height:auto;max-height:100%;background:#3F3327;border:1px solid #2A2118;border-radius:2px;padding:7px;box-shadow:0 14px 22px -10px rgba(40,30,15,.55), inset 0 0 0 2px #8F6F45;transition:transform .22s cubic-bezier(.2,.8,.2,1)}
 .hall-exhibit:hover .hall-frame{transform:translateY(-4px) scale(1.015)}
 .hall-mat{position:absolute;inset:7px;background:#FBF9F2;box-shadow:inset 0 0 0 1px #E2DCCB, inset 0 2px 8px rgba(0,0,0,.14);display:flex;align-items:center;justify-content:center;padding:11px}
 .hall-img{max-width:100%;max-height:100%;object-fit:contain;display:block;box-shadow:0 1px 4px rgba(0,0,0,.25);transition:opacity .3s ease}
+/* Saal-Navigation unter der Wand (GalleryExplorer): voriger/nächster Saal mit
+   Zielname; die Namen kürzen bei Bedarf per Ellipse, die Position bleibt mittig. */
+.hall-roomnav{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-shrink:0;padding:8px 16px 10px;border-top:1px solid var(--border-light)}
+.hall-roomnav-button{font-size:12.5px;padding:6px 10px;min-width:0;max-width:42%}
+.hall-roomnav-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.hall-roomnav-current{flex-shrink:0;font-family:var(--font-title);font-size:12px;font-weight:700;letter-spacing:.4px;color:var(--text-muted);white-space:nowrap}
 /* Messing-Placard unterm Rahmen: Name + Exponatnummer. */
 .hall-placard{margin-top:12px;background:linear-gradient(180deg,#E8D9AE,#CBAF74);border:1px solid #9C7F49;border-radius:2px;padding:5px 14px 6px;text-align:center;max-width:calc(100% - 70px);box-shadow:0 2px 4px rgba(0,0,0,.18)}
 .hall-placard-name{font-family:var(--font-title);font-size:12.5px;font-weight:700;color:#3D2F17;line-height:1.25;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
@@ -240,7 +252,7 @@
   .app-main--explore .app-pane-right{display:none}
   .hall-wall{scroll-snap-type:x mandatory}
   .hall-exhibit{scroll-snap-align:center}
-  .hall-frame{width:calc(100% - 34px);height:58%}
+  .hall-frame{width:calc(100% - 34px)}
   .hall-topbar{padding:10px 10px 8px}
   .hall-actions{width:100%;flex-wrap:wrap}
   .hall-actions .hall-search{flex:1;min-width:120px}

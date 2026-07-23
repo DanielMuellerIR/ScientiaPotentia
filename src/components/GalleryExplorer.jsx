@@ -77,6 +77,11 @@ export default function GalleryExplorer({ domain, concepts = {} }) {
 
   const hall = halls[hallIndex] || halls[0];
   const hallItems = hall?.items || [];
+  // Nachbar-Säle für die Navigation (umlaufend), damit die untere Leiste die
+  // Zielnamen anzeigen kann. Nur relevant, wenn es mehr als einen Saal gibt.
+  const hallCount = halls.length;
+  const prevIndex = (hallIndex - 1 + hallCount) % hallCount;
+  const nextIndex = (hallIndex + 1) % hallCount;
   const showDepot = view === 'depot' || searchActive;
   const shownCount = showDepot ? depotItems.length : hallItems.length;
   const toggleView = () => {
@@ -189,6 +194,36 @@ export default function GalleryExplorer({ domain, concepts = {} }) {
             ariaLabel={`Saal ${roman(hallIndex)} — ${hall?.label}: ${hallItems.length} Exponate, mit Pfeiltasten oder Wischen durchgehen`}
             onOpen={openLightbox}
           />
+        )}
+
+        {/* Saal-Navigation direkt unter der Wand — man muss nicht mehr nach oben
+            in die Kopfleiste greifen. Zeigt die Namen des vorigen/nächsten Saals. */}
+        {!showDepot && halls.length > 1 && (
+          <nav className="hall-roomnav" aria-label="Saalnavigation">
+            <button
+              type="button"
+              className="btn-terra hall-roomnav-button"
+              onClick={() => setHallIndex(prevIndex)}
+              title={`Voriger Saal: ${halls[prevIndex].label}`}
+              aria-label={`Voriger Saal: ${halls[prevIndex].label}`}
+            >
+              <ChevronLeft size={15} />
+              <span className="hall-roomnav-name">{halls[prevIndex].label}</span>
+            </button>
+            <span className="hall-roomnav-current">
+              Saal {roman(hallIndex)} · {hallIndex + 1}/{hallCount}
+            </span>
+            <button
+              type="button"
+              className="btn-terra hall-roomnav-button"
+              onClick={() => setHallIndex(nextIndex)}
+              title={`Nächster Saal: ${halls[nextIndex].label}`}
+              aria-label={`Nächster Saal: ${halls[nextIndex].label}`}
+            >
+              <span className="hall-roomnav-name">{halls[nextIndex].label}</span>
+              <ChevronRight size={15} />
+            </button>
+          </nav>
         )}
 
         {showDepot && (

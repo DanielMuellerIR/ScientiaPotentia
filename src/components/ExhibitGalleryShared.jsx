@@ -25,6 +25,7 @@ export function ExhibitImage({
   style,
   fallbackSize = 26,
   loadingText = '',
+  onRatio,
 }) {
   const [loaded, setLoaded] = useState(false);
   const [errored, setErrored] = useState(false);
@@ -55,7 +56,15 @@ export function ExhibitImage({
         src={commonsToDirectUrl(imageUrl, size)}
         alt={item.name}
         loading={size <= 480 ? 'lazy' : undefined}
-        onLoad={() => setLoaded(true)}
+        onLoad={(event) => {
+          setLoaded(true);
+          // Echtes Seitenverhältnis des geladenen Bildes melden, damit der Rahmen
+          // sich der Bildform anpasst (statt alle Rahmen gleich hoch zu machen).
+          const { naturalWidth, naturalHeight } = event.currentTarget;
+          if (onRatio && naturalWidth > 0 && naturalHeight > 0) {
+            onRatio(naturalWidth / naturalHeight);
+          }
+        }}
         onError={() => setErrored(true)}
         style={{ ...style, opacity: loaded ? 1 : 0 }}
       />
@@ -77,11 +86,18 @@ export function ExhibitPlacard({ name, subtitle }) {
 }
 
 export function HallExhibit({ item, index, left, width, subtitle, onOpen }) {
+  // Seitenverhältnis (Breite/Höhe) des Bildes; erst nach dem Laden bekannt.
+  // Es steuert per CSS-Variable --ar die Rahmenform, damit ein Querformat einen
+  // breiten und ein Hochformat einen schmalen Rahmen bekommt — kein Einheitsrahmen,
+  // den ein einzelnes extrem hohes Bild diktiert.
+  const [ratio, setRatio] = useState(null);
   const open = (event) => onOpen(item, event.currentTarget);
+  const style = { left: `${left}px`, width: `${width}px` };
+  if (ratio) style['--ar'] = ratio;
   return (
     <div
       className="hall-exhibit"
-      style={{ left: `${left}px`, width: `${width}px` }}
+      style={style}
       onClick={open}
       onKeyDown={(event) => activateWithKeyboard(event, open)}
       role="button"
@@ -90,9 +106,13 @@ export function HallExhibit({ item, index, left, width, subtitle, onOpen }) {
       data-testid="hall-exhibit"
       data-exhibit-index={index}
     >
-      <div className="hall-frame">
-        <div className="hall-mat">
-          <ExhibitImage item={item} size={480} className="hall-img" />
+      {/* Wrapper hält den Rahmen mittig (Bilder hängen auf gemeinsamer Blickachse),
+          während die Plakette bündig am unteren Rand bleibt. */}
+      <div className="hall-frame-wrap">
+        <div className="hall-frame">
+          <div className="hall-mat">
+            <ExhibitImage item={item} size={480} className="hall-img" onRatio={setRatio} />
+          </div>
         </div>
       </div>
       <ExhibitPlacard name={item.name} subtitle={subtitle || `Nr. ${index + 1}`} />
