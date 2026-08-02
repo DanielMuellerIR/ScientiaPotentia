@@ -45,6 +45,12 @@ export const DOMAINS = [
     Icon: Layers,
     accent: '#B0863C',
     hasMap: false,
+    // Die Kataloge dieses Bereichs sind die aller sieben Sach-Domains zusammen
+    // (rund 32 MiB JSON). Sein Startbildschirm (ScientiaHub) braucht davon nichts:
+    // er zeigt nur das winzige Statistik-Manifest. Dieses Flag sagt der Shell,
+    // dass die Daten erst beim Quizstart geholt werden — die Landing-Page bleibt
+    // dadurch leicht, gerade beim ersten Aufruf auf dem Handy.
+    deferDataUntilQuiz: true,
     loadConcepts: () => Promise.all(
       DOMAINS.filter(d => SCIENTIA_MIX_IDS.includes(d.id)).map(d => d.loadConcepts())
     ).then(maps => Object.assign({}, ...maps)),

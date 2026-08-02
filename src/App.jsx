@@ -70,12 +70,21 @@ export default function App() {
   // beim Start geladen, damit die Landing-Page nicht die großen Fragenkataloge zieht.
   const [domainStats, setDomainStats] = useState(null);
 
-  // Konzeptspeicher der aktiven Domain (Map conceptKey -> Konzept). Startwert
-  // sind die Terra-Entities, damit der erste Render sofort Daten hat.
+  // Konzeptspeicher der aktiven Domain (Map conceptKey -> Konzept). Der Startwert
+  // ist ein Platzhalter, damit der erste Render nicht auf ein leeres Objekt läuft;
+  // verbindlich sind die Daten erst, wenn loadedDomainId auf die aktive Domain zeigt.
   const [concepts, setConcepts] = useState(geodb.entities);
   // Fragenkatalog der aktiven Domain. Wird zur Laufzeit aus public/data/ geladen
   // (entlastet das JS-Bundle, ermöglicht beliebig viele Domains).
   const [questionPool, setQuestionPool] = useState([]);
+  // Zu welcher Domain gehören die Daten in concepts/questionPool gerade? null =
+  // noch nichts geladen. Ohne diese Kopplung blieben nach einem Bereichswechsel
+  // die alten Fragen bedienbar und eine schnelle Antwort würde unter der NEUEN
+  // Domain gespeichert werden (falsche History-Zuordnung).
+  const [loadedDomainId, setLoadedDomainId] = useState(null);
+  // Ladeversuch der aktiven Domain fehlgeschlagen? Trennt "lädt noch" von
+  // "geladen, aber fehlgeschlagen" — analog zum Museum-Tab.
+  const [domainLoadFailed, setDomainLoadFailed] = useState(false);
 
   // Museum: Konzept-Maps aller Domains — wird einmalig beim ersten Öffnen
   // des Museum-Tabs geladen und dann gecacht (domainId -> Map).
@@ -141,22 +150,42 @@ export default function App() {
     return () => { cancelled = true; };
   }, []);
 
+  // Braucht die aktuelle Ansicht überhaupt die Kataloge der aktiven Domain?
+  // Domains mit deferDataUntilQuiz (der Mischbereich "scientia") zeigen zuerst
+  // einen Hub, der nur vom kleinen Statistik-Manifest lebt; ihre großen Kataloge
+  // werden erst beim Quiz geholt. Das Flag steht in der Registry, damit die Shell
+  // keine Domain-Sonderfälle kennen muss.
+  const needsDomainData = !activeDomain.deferDataUntilQuiz || activeTab === 'quiz';
+  // Zeigen concepts/questionPool die Daten der aktiven Domain? Erst dann dürfen
+  // Quiz und Explorer damit arbeiten.
+  const domainDataReady = loadedDomainId === activeDomainId;
+
   // Konzepte + Fragen der aktiven Domain laden (Lazy-Fetch je Domain-Wechsel).
   useEffect(() => {
+    if (!needsDomainData) return undefined;
+    if (loadedDomainId === activeDomainId) return undefined; // schon geladen
     let cancelled = false;
+    setDomainLoadFailed(false);
+    // Die Ziel-Domain wird hier festgehalten: ein spät eintreffendes Ergebnis
+    // eines zwischenzeitlich verlassenen Bereichs darf nichts mehr setzen.
+    const requestedDomainId = activeDomainId;
     Promise.all([activeDomain.loadConcepts(), activeDomain.loadQuestions()])
       .then(([loadedConcepts, questions]) => {
         if (cancelled) return;
         setConcepts(loadedConcepts || {});
         setQuestionPool(Array.isArray(questions) ? questions : []);
+        setLoadedDomainId(requestedDomainId);
       })
       .catch(e => {
         console.error('Error loading domain data:', e);
-        if (!cancelled) { setConcepts({}); setQuestionPool([]); }
+        if (cancelled) return;
+        setConcepts({});
+        setQuestionPool([]);
+        setDomainLoadFailed(true);
       });
     return () => { cancelled = true; };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [activeDomainId]);
+  }, [activeDomainId, needsDomainData]);
 
   // Museum-Daten: beim ersten Öffnen des Museum-Tabs alle Domains parallel laden.
   // Das Laden geschieht nur einmal (Prüfung Object.keys länge) und wird gecacht.
@@ -395,6 +424,19 @@ export default function App() {
     });
   };
 
+  // Hinweis für Panels, die ohne die Kataloge der aktiven Domain nichts Richtiges
+  // zeigen könnten. Trennt "lädt noch" von "Laden fehlgeschlagen", damit aus einem
+  // Fehler kein endloser Ladehinweis wird.
+  const renderDomainDataNotice = () => (
+    <div className="terra-panel slide-in" style={{ height: '100%', display: 'flex', alignItems: 'center',
+      justifyContent: 'center', textAlign: 'center', padding: '20px', color: 'var(--text-muted)',
+      border: '1px solid var(--border-light)' }}>
+      {domainLoadFailed
+        ? `${activeDomain.latinName} konnte nicht geladen werden. Bitte die Seite neu laden.`
+        : `${activeDomain.latinName} wird geladen …`}
+    </div>
+  );
+
   // Shell-Layout via CSS-Klassen statt Inline-Styles — Masse/Responsive
   // zentral in index.css (.app-shell etc.). Siehe docs/archive/mobile-layout-plan.md.
   return (
@@ -566,13 +608,17 @@ export default function App() {
             {/* Erkundung links (z.B. Astra-Sonnensystem), rechts die gewohnte
                 Dashboard-Sidebar mit Stufen-Wähler + Quiz-Start — analog zu Terra. */}
             <div className="app-pane-left">
-              <Suspense fallback={
-                <div className="terra-panel" style={{ height: '100%', display: 'flex', alignItems: 'center',
-                  justifyContent: 'center', color: 'var(--text-muted)', background: '#05060f',
-                  border: '1px solid var(--border-light)' }}>Erkundung wird geladen …</div>
-              }>
-                <activeDomain.Explorer domain={activeDomain} concepts={concepts} srsProgress={srsProgress} />
-              </Suspense>
+              {/* Erst mit den Konzepten der AKTIVEN Domain rendern: sonst zeigte der
+                  Explorer nach einem Bereichswechsel kurz die Inhalte des alten Bereichs. */}
+              {domainDataReady ? (
+                <Suspense fallback={
+                  <div className="terra-panel" style={{ height: '100%', display: 'flex', alignItems: 'center',
+                    justifyContent: 'center', color: 'var(--text-muted)', background: '#05060f',
+                    border: '1px solid var(--border-light)' }}>Erkundung wird geladen …</div>
+                }>
+                  <activeDomain.Explorer domain={activeDomain} concepts={concepts} srsProgress={srsProgress} />
+                </Suspense>
+              ) : renderDomainDataNotice()}
             </div>
             <div className="app-pane-right">
               <Dashboard
@@ -640,7 +686,10 @@ export default function App() {
             />
           )}
 
-          {activeTab === 'quiz' && (quizArmed ? (
+          {/* Quiz erst freigeben, wenn Konzepte UND Fragen zur aktiven Domain gehören.
+              Sonst könnte eine in der Ladelücke beantwortete Frage aus dem alten
+              Bereich unter der neuen Domain gespeichert werden. */}
+          {activeTab === 'quiz' && (!domainDataReady ? renderDomainDataNotice() : quizArmed ? (
             <Quiz
               geodb={domainDb}
               questionPool={questionPool}
