@@ -30,7 +30,9 @@ const GalleryExplorer = lazy(() => import('../components/GalleryExplorer'));
 // Welche Sach-Domains der domänenübergreifende "Scientia"-Mischpool zusammenfasst.
 // Terra ist bewusst NICHT dabei: seine Karten-Klick-Fragen brauchen die Weltkarte,
 // und seine geodb-Konzepte passen (noch) nicht ins generische ConceptVisual.
-const SCIENTIA_MIX_IDS = ['astra', 'homo', 'natura', 'lingua', 'cultura', 'machina', 'historia'];
+// Exportiert, damit Oberfläche und Tests prüfen können, was der Mischpool
+// wirklich enthält — eine CTA darf nicht mehr versprechen als diese Liste hergibt.
+export const SCIENTIA_MIX_IDS = ['astra', 'homo', 'natura', 'lingua', 'cultura', 'machina', 'historia'];
 
 export const DOMAINS = [
   {
@@ -39,9 +41,11 @@ export const DOMAINS = [
     // das Konzept bringt jede Frage aus ihrer Herkunfts-Domain selbst mit).
     id: 'scientia',
     latinName: 'Scientia',
-    label: 'Alle Bereiche',
+    // Bewusst "außer Geografie": Terra fehlt im Mischpool (siehe SCIENTIA_MIX_IDS),
+    // und ein Versprechen "alle Bereiche" wäre damit schlicht falsch.
+    label: 'Alle Bereiche außer Geografie',
     shortLabel: 'Querbeet',
-    description: 'Fragen quer durch alle Wissensbereiche — Astronomie, Mensch, Natur, Sprachen, Kultur, Technik und Geschichte gemischt.',
+    description: 'Fragen quer durch alle Wissensbereiche außer Geografie — Astronomie, Mensch, Natur, Sprachen, Kultur, Technik und Geschichte gemischt.',
     Icon: Layers,
     accent: '#B0863C',
     hasMap: false,

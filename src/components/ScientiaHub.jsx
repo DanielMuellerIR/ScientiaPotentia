@@ -16,7 +16,7 @@ import { ArrowRight, Images as ImagesIcon, Layers, Map as MapIcon } from 'lucide
  *   - domains:          Array der Domain-Registry (inkl. "scientia" selbst)
  *   - stats:            geladenes Manifest { totals, domains } oder null (lädt noch)
  *   - onSelectDomain:   (domainId) => void  — wechselt in den gewählten Bereich
- *   - onStartMixedQuiz: () => void          — öffnet das Querbeet-Quiz (alle Bereiche)
+ *   - onStartMixedQuiz: () => void          — öffnet das Querbeet-Quiz (Mischpool ohne Terra)
  */
 export default function ScientiaHub({ domains = [], stats = null, onSelectDomain, onStartMixedQuiz }) {
   // Der Mischbereich selbst liefert die Texte/Farbe für das Querbeet-Angebot;
@@ -73,9 +73,11 @@ export default function ScientiaHub({ domains = [], stats = null, onSelectDomain
             <CtaIcon size={26} />
           </span>
           <span className="scientia-hub-cta-text">
-            <span className="scientia-hub-cta-title">Querbeet · alle Bereiche gemischt</span>
+            {/* Kein pauschales "alle Bereiche": Terra ist nicht im Mischpool
+                (SCIENTIA_MIX_IDS), seine Kartenfragen brauchen die Weltkarte. */}
+            <span className="scientia-hub-cta-title">Querbeet · alle Bereiche außer Geografie</span>
             <span className="scientia-hub-cta-desc">
-              {scientia?.description || 'Fragen quer durch alle Wissensbereiche.'}
+              {scientia?.description || 'Fragen quer durch alle Wissensbereiche außer Geografie.'}
             </span>
           </span>
           <span className="scientia-hub-cta-go">

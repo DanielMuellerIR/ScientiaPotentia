@@ -4,7 +4,7 @@ import {
 } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import ScientiaHub from '../components/ScientiaHub';
-import { DOMAINS } from '../domains';
+import { DOMAINS, SCIENTIA_MIX_IDS } from '../domains';
 
 afterEach(cleanup);
 
@@ -70,6 +70,28 @@ describe('ScientiaHub', () => {
 
     fireEvent.click(screen.getByRole('button', { name: /Querbeet/i }));
     expect(onStartMixedQuiz).toHaveBeenCalledTimes(1);
+  });
+
+  it('benennt im Querbeet-Angebot die Bereiche, die der Mischpool nicht enthält', () => {
+    // Terra fehlt im Mischpool (SCIENTIA_MIX_IDS), weil seine Kartenfragen die
+    // Weltkarte brauchen. Dann darf das primäre Angebot nicht pauschal "alle
+    // Bereiche" zusagen, sondern muss den fehlenden Bereich beim Namen nennen.
+    // Kommt Terra später in den Mischpool, ist diese Liste leer und die
+    // Prüfung fordert von selbst nichts mehr.
+    const excluded = DOMAINS.filter(d => d.id !== 'scientia' && !SCIENTIA_MIX_IDS.includes(d.id));
+    render(
+      <ScientiaHub
+        domains={DOMAINS}
+        stats={STATS}
+        onSelectDomain={vi.fn()}
+        onStartMixedQuiz={vi.fn()}
+      />
+    );
+
+    const cta = screen.getByRole('button', { name: /Querbeet/i });
+    excluded.forEach(domain => {
+      expect(cta.textContent).toContain(`außer ${domain.label}`);
+    });
   });
 
   it('zeigt Platzhalter statt Zahlen, solange das Manifest fehlt', () => {
