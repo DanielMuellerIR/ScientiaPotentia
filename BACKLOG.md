@@ -39,6 +39,21 @@ Vor Übernahme jeden Punkt gegen aktuellen Code, CHANGELOG und bestehende Projek
   Etymologien („én = in + theós = Gott" → „in" als englisches Wort gelesen). Vorbestehend,
   harmlos, aber dieselbe Klasse wie die 2026-07-16 entrauschten Audit-Fehlalarme: Ein
   Checker, der dauerhaft Bekanntes meldet, wird ignoriert und verdeckt dann Echtes.
+- Deploy-Skip ohne serverseitige Prüfsumme: `remote_matches_manifest()` vergleicht den
+  lokalen Hash mit dem Wert aus dem Remote-Manifest und prüft an der echten Remotedatei
+  nur die Größe. Eine nachträglich beschädigte Datei gleicher Länge gilt damit weiter als
+  geprüft und wird bei jedem Deploy übersprungen. Sauber wäre eine serverseitige Prüfsumme
+  (`XSHA256`/`XMD5`, sofern der FTP-Server sie anbietet, sonst Fallback auf heute); alle
+  Dateien streamend per `RETR` zu hashen würde dagegen bei jedem Deploy die komplette Site
+  herunterladen und den inkrementellen Vorteil auffressen. Behelf heute: `deploy.py --force`.
+- Terra im Querbeet-Mischpool? `SCIENTIA_MIX_IDS` lässt Terra bewusst aus (Kartenklick-Fragen
+  brauchen die Weltkarte, geodb-Konzepte passen nicht ins generische ConceptVisual). Seit
+  v1.98.0 sagt die Oberfläche das ehrlich. Alternative wäre, einen kartenfreien Terra-Anteil
+  (reine MCQ-Fragen mit Konzeptkarte) in den Mischpool aufzunehmen — Produktentscheidung,
+  nicht nur Technik.
+- Browser-Gegenprobe für v1.98.0 offen: Footer-Kontrast und -Unterstreichung sowie die neuen
+  Ladehinweise (Hub → Querbeet, Bereichswechsel) sind nur headless geprüft (Vitest,
+  Layoutvertrag, Kontrastrechnung). Der Geräte-/Browserlauf nach LAYOUT.md steht aus.
 - Terra-Fortschritt deckelt bei 1.850/1.852: Die Städte Luxemburg und Dschibuti sind seit
   v1.85.11 nicht mehr abfragbar (ihre einzigen Fragen waren Selbstverräter), zählen im
   Dashboard aber weiter als Karteikarte. Entweder `totalEntitiesCount` aus den tatsächlich

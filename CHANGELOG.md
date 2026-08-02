@@ -1,9 +1,53 @@
 # Changelog — Scientia
 
-> **Stand: 2026-07-22.** Diese Datei sammelt die datierte Versions-Chronik, die
+> **Stand: 2026-08-03.** Diese Datei sammelt die datierte Versions-Chronik, die
 > zuvor als Blockquote-Blöcke in `AGENTS.md` gewachsen war und dort ausgelagert
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
+
+## 2026-08-03 (v1.98.0) — Leichter Start, ehrliches Querbeet, robusteres Deployment
+
+Sammelwelle aus einem externen Code-Review des Stands v1.97.0.
+
+- **Startbildschirm ohne Katalog-Download.** Der Standardbereich „scientia" zog beim
+  ersten Rendern Konzepte und Fragen aller sieben Sachbereiche — rund 32 MiB JSON —
+  obwohl der Hub nur das kleine Statistik-Manifest anzeigt. Neues Registry-Flag
+  `deferDataUntilQuiz` hält diese Kataloge zurück, bis der Besucher wirklich ins Quiz
+  geht; bis dahin läuft genau ein Abruf (`data/domain_stats.json`). Besonders spürbar
+  beim ersten Aufruf auf dem Handy.
+- **Quiz wartet auf die Daten seines Bereichs.** Die geladenen Daten sind jetzt an ihre
+  Domain gekoppelt (`loadedDomainId`). Vorher blieben nach einem Bereichswechsel die
+  Fragen und Explorer-Inhalte des ALTEN Bereichs bedienbar, bis die neuen Daten ankamen —
+  eine in dieser Lücke beantwortete Frage wurde unter der NEUEN Domain gespeichert.
+  Quiz und Explorer zeigen solange einen Ladehinweis, ein gescheiterter Ladeversuch eine
+  eigene Fehlermeldung statt endlosem Laden.
+- **Querbeet verspricht nur noch, was es enthält.** Die CTA sagte „alle Bereiche" zu,
+  der Mischpool lässt Terra aber bewusst aus (Kartenklick-Fragen brauchen die Weltkarte).
+  CTA, Bereichsname und Beschreibung nennen die Ausnahme jetzt ausdrücklich; die
+  Hero-Zahlen beschreiben weiterhin die App als Ganzes.
+- **Footer erfüllt WCAG 2.1 AA.** Die Pflichtlinks Impressum/Datenschutz waren im
+  Ruhezustand nicht als Links erkennbar (gleiche Farbe, `text-decoration:none`, nur
+  Hover-Border) — auf Touch-Geräten ohne Ausgleich. Sie sind jetzt dauerhaft
+  unterstrichen. Der Footertext stand auf 4,30:1, der Disclaimer durch zusätzliche
+  `opacity:.85` sogar nur auf 3,31:1; die neue opake Variable `--text-footer` erreicht
+  4,85:1. Zwei neue Prüfungen im Layout-Vertrag halten beides fest (43/43 statt 41/41).
+- **Deployment.** Auch Assets gehen jetzt über temporäre Datei plus Rename auf ihren
+  Live-Pfad: ein Verbindungsabbruch trifft nur die temporäre Datei, statt eine von der
+  laufenden Seite geladene `data/questions_*.json` halb zu überschreiben. Das Remoteziel
+  wird zentral normalisiert und muss absolut sein (aus dem gültigen Ziel `/` wurde vorher
+  eine leere, relative Basis). `--dry-run` baut nicht mehr — der Build hatte trotz der
+  Zusage „Nichts schreiben" `dist/` neu erzeugt und die getrackte
+  `public/data/domain_stats.json` überschrieben.
+- **Statistik-Generator prüft sich gegen die Registry.** Seine eigene Bereichsliste darf
+  nicht mehr unbemerkt von `src/domains/index.js` abweichen; sonst erschiene ein neuer
+  Bereich im Hub als Karte, fehlte aber im Manifest.
+- **Lockfile.** `package-lock.json` nannte weiterhin 1.92.1 und ist wieder mit
+  `package.json` synchron; der Abhängigkeitsbaum bleibt unverändert.
+
+Verifiziert mit 123/123 Vitest (davon vier neue App-Integrationsfälle, die gegen den
+Stand davor alle fehlschlagen), 11 FTPS-Regressionstests (vorher 6), Layout-Vertrag 43/43,
+Produktions-Build und einem Dry-run ohne Netzwerk. Es fand kein echter Deploy statt. Die
+Browser-/Gerätegegenprobe nach `LAYOUT.md` steht noch aus (siehe `BACKLOG.md`).
 
 ## 2026-07-23 (v1.97.0) — Anzeigename auf „Scientia" vereinheitlicht
 
