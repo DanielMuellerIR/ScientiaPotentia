@@ -39,7 +39,10 @@ class FakeFTPS:
     def storbinary(self, command, file_handle):
         path = command.removeprefix("STOR ")
         self.history.append(("store", path))
-        if self.fail_upload_suffix and path.endswith(self.fail_upload_suffix):
+        # Jeder Upload läuft über "<zielpfad>.uploading-<hex>"; der simulierte
+        # Fehler soll trotzdem am gemeinten Zielpfad hängen.
+        live_path = path.split(".uploading-")[0]
+        if self.fail_upload_suffix and live_path.endswith(self.fail_upload_suffix):
             raise OSError("simulated upload failure")
         self.files[path] = file_handle.read()
 
@@ -59,6 +62,16 @@ class FakeFTPS:
     def delete(self, path):
         self.history.append(("delete", path))
         self.files.pop(path, None)
+
+
+def stored_paths(ftps):
+    """Alle STOR-Ziele in Reihenfolge — seit dem Atomic-Upload temporäre Pfade."""
+    return [event[1] for event in ftps.history if event[0] == "store"]
+
+
+def temporary_upload_of(ftps, live_path):
+    """Der temporäre Uploadpfad, aus dem ``live_path`` per Rename entstanden ist."""
+    return next(path for path in stored_paths(ftps) if path.startswith(f"{live_path}.uploading-"))
 
 
 def metadata(content):
@@ -95,20 +108,16 @@ class DeployTests(unittest.TestCase):
         self.assertEqual(result.failed, 0)
         self.assertEqual(ftps.files["/remote/assets/app.js"], b"new asset")
         self.assertEqual(ftps.files["/remote/index.html"], b"new index")
-        stores = [event[1] for event in ftps.history if event[0] == "store"]
-        asset_position = stores.index("/remote/assets/app.js")
-        entrypoint_position = next(
-            index for index, path in enumerate(stores) if path.startswith("/remote/index.html.uploading-")
-        )
-        manifest_position = next(
-            index
-            for index, path in enumerate(stores)
-            if path.startswith(f"/remote/{deploy.REMOTE_MANIFEST_NAME}.uploading-")
+        stores = stored_paths(ftps)
+        asset_position = stores.index(temporary_upload_of(ftps, "/remote/assets/app.js"))
+        entrypoint_position = stores.index(temporary_upload_of(ftps, "/remote/index.html"))
+        manifest_position = stores.index(
+            temporary_upload_of(ftps, f"/remote/{deploy.REMOTE_MANIFEST_NAME}")
         )
         self.assertLess(asset_position, entrypoint_position)
         self.assertLess(entrypoint_position, manifest_position)
         self.assertIn(
-            ("rename", next(path for path in stores if path.startswith("/remote/index.html.uploading-")), "/remote/index.html"),
+            ("rename", temporary_upload_of(ftps, "/remote/index.html"), "/remote/index.html"),
             ftps.history,
         )
 
@@ -151,7 +160,7 @@ class DeployTests(unittest.TestCase):
 
         self.assertEqual(result.failed, 0)
         self.assertEqual(ftps.files["/remote/assets/app.js"], b"new asset")
-        self.assertIn(("store", "/remote/assets/app.js"), ftps.history)
+        self.assertTrue(temporary_upload_of(ftps, "/remote/assets/app.js"))
 
     def test_same_size_media_without_remote_hash_is_uploaded(self):
         self.write_build()
@@ -164,7 +173,7 @@ class DeployTests(unittest.TestCase):
 
         self.assertEqual(result.failed, 0)
         self.assertEqual(ftps.files["/remote/media/sample.bin"], b"new!")
-        self.assertIn(("store", "/remote/media/sample.bin"), ftps.history)
+        self.assertTrue(temporary_upload_of(ftps, "/remote/media/sample.bin"))
 
     def test_remote_manifest_and_size_allow_a_verified_skip(self):
         self.write_build()
@@ -186,6 +195,72 @@ class DeployTests(unittest.TestCase):
         self.assertFalse(any(path == "/remote/assets/app.js" for path in stored_paths))
         self.assertFalse(any(path.startswith("/remote/index.html.uploading-") for path in stored_paths))
 
+    def test_assets_are_published_atomically_via_rename(self):
+        """Auch Assets dürfen nie direkt auf ihren Live-Pfad geschrieben werden."""
+        self.write_build()
+        ftps = FakeFTPS({"/remote/assets/app.js": b"old asset"})
+
+        result = deploy.deploy_dist(ftps, str(self.dist), "/remote")
+
+        self.assertEqual(result.failed, 0)
+        stored_paths = [event[1] for event in ftps.history if event[0] == "store"]
+        # Kein STOR direkt auf den Live-Pfad; stattdessen temporäre Datei + Rename.
+        self.assertNotIn("/remote/assets/app.js", stored_paths)
+        temporary_asset = next(
+            path for path in stored_paths if path.startswith("/remote/assets/app.js.uploading-")
+        )
+        self.assertIn(("rename", temporary_asset, "/remote/assets/app.js"), ftps.history)
+        self.assertEqual(ftps.files["/remote/assets/app.js"], b"new asset")
+
+    def test_failed_asset_upload_leaves_the_live_file_untouched(self):
+        """Ein Abbruch beim Assetupload darf die alte Live-Datei nicht beschädigen."""
+        self.write_build()
+        ftps = FakeFTPS(
+            {"/remote/assets/app.js": b"old asset"},
+            fail_upload_suffix="app.js",
+        )
+
+        result = deploy.deploy_dist(ftps, str(self.dist), "/remote")
+
+        self.assertEqual(result.failed, 1)
+        self.assertEqual(ftps.files["/remote/assets/app.js"], b"old asset")
+        # Die temporäre Datei wird nach dem Fehler wieder aufgeräumt.
+        self.assertFalse(
+            any(path.startswith("/remote/assets/app.js.uploading-") for path in ftps.files)
+        )
+
+    def test_root_remote_base_produces_absolute_targets(self):
+        """Das gültige Ziel '/' darf keine relativen Pfade erzeugen."""
+        self.write_build()
+        ftps = FakeFTPS()
+
+        result = deploy.deploy_dist(ftps, str(self.dist), "/")
+
+        self.assertEqual(result.failed, 0)
+        self.assertIn("/assets/app.js", ftps.files)
+        self.assertIn("/index.html", ftps.files)
+        self.assertTrue(all(path.startswith("/") for path in ftps.files))
+
+    def test_remote_base_normalisation_rejects_unsafe_targets(self):
+        self.assertEqual(deploy.normalise_remote_base("/"), "/")
+        self.assertEqual(deploy.normalise_remote_base("/dm0.de/httpdocs/sci/"), "/dm0.de/httpdocs/sci")
+        self.assertEqual(deploy.normalise_remote_base("//dm0.de//sci"), "/dm0.de/sci")
+        self.assertEqual(deploy.normalise_remote_base("/dm0.de/./sci"), "/dm0.de/sci")
+        # ".." wird bei absoluten Pfaden von normpath aufgelöst, nicht durchgereicht.
+        self.assertEqual(deploy.normalise_remote_base("/dm0.de/../sci"), "/sci")
+        for unsafe in ["sci", "./sci", "", None]:
+            with self.assertRaises(ValueError):
+                deploy.normalise_remote_base(unsafe)
+
+    def test_relative_remote_base_aborts_the_deployment(self):
+        self.write_build()
+        ftps = FakeFTPS()
+
+        with self.assertRaises(ValueError):
+            deploy.deploy_dist(ftps, str(self.dist), "sci")
+
+        self.assertEqual(ftps.files, {})
+
     def test_invalid_remote_manifest_never_becomes_hash_evidence(self):
         self.write_build()
         ftps = FakeFTPS(
@@ -201,7 +276,7 @@ class DeployTests(unittest.TestCase):
         result = deploy.deploy_dist(ftps, str(self.dist), "/remote")
 
         self.assertEqual(result.failed, 0)
-        self.assertIn(("store", "/remote/assets/app.js"), ftps.history)
+        self.assertTrue(temporary_upload_of(ftps, "/remote/assets/app.js"))
 
 
 if __name__ == "__main__":

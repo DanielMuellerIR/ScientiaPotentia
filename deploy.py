@@ -99,17 +99,19 @@ def mkdir_p(ftps, remote_directory):
                 pass
 
 
-def upload_file(ftps, local_file, remote_file):
-    with open(local_file, "rb") as file_handle:
-        ftps.storbinary(f"STOR {remote_file}", file_handle)
+def upload_atomic(ftps, open_source, remote_file):
+    """Schreibt in eine temporäre Datei und schaltet sie per Rename sichtbar.
 
-
-def upload_bytes_atomic(ftps, content, remote_file):
-    """Schreibt in eine temporäre Datei und schaltet sie per Rename sichtbar."""
+    Ein Verbindungsabbruch mitten im Upload trifft damit nur die temporäre
+    Datei; der Live-Pfad behält seinen alten, vollständigen Inhalt, bis die
+    neue Datei komplett auf dem Server liegt. ``open_source`` liefert bei
+    jedem Aufruf einen frischen Binärstrom (Datei oder Speicherpuffer).
+    """
     mkdir_p(ftps, posixpath.dirname(remote_file))
     temporary_file = f"{remote_file}.uploading-{uuid.uuid4().hex}"
     try:
-        ftps.storbinary(f"STOR {temporary_file}", io.BytesIO(content))
+        with open_source() as source:
+            ftps.storbinary(f"STOR {temporary_file}", source)
         ftps.rename(temporary_file, remote_file)
     except Exception:
         try:
@@ -117,6 +119,16 @@ def upload_bytes_atomic(ftps, content, remote_file):
         except Exception:
             pass
         raise
+
+
+def upload_file(ftps, local_file, remote_file):
+    """Lädt eine Builddatei atomar hoch (gestreamt, ohne sie ganz in den RAM zu holen)."""
+    upload_atomic(ftps, lambda: open(local_file, "rb"), remote_file)
+
+
+def upload_bytes_atomic(ftps, content, remote_file):
+    """Lädt einen Speicherpuffer (z.B. das Manifest) atomar hoch."""
+    upload_atomic(ftps, lambda: io.BytesIO(content), remote_file)
 
 
 def resolve_ftp_host(host):
@@ -181,7 +193,7 @@ def manifest_bytes(manifest):
 
 
 def load_remote_manifest(ftps, remote_base):
-    remote_file = posixpath.join(remote_base.rstrip("/"), REMOTE_MANIFEST_NAME)
+    remote_file = remote_path(remote_base, REMOTE_MANIFEST_NAME)
     chunks = []
     try:
         ftps.retrbinary(f"RETR {remote_file}", chunks.append)
@@ -232,8 +244,28 @@ def collect_dist_files(local_dist):
     return files, ignored
 
 
+def normalise_remote_base(remote_base):
+    """Erzwingt ein absolutes, bereinigtes Remoteziel.
+
+    Nötig aus zwei Gründen: ``posixpath.join()`` erzeugt aus einer leeren Basis
+    relative Zielpfade (aus dem gültigen Ziel ``/`` wurde früher ``""``), und
+    ``mkdir_p()`` wechselt per ``cwd`` das Arbeitsverzeichnis — relative Pfade
+    würden danach in einem anderen Verzeichnis landen als beim ersten Aufruf.
+    """
+    if not isinstance(remote_base, str) or not remote_base.startswith("/"):
+        raise ValueError(f"Remote-Ziel muss ein absoluter Pfad sein: {remote_base!r}")
+    # normpath entfernt "." sowie doppelte und abschließende Schrägstriche und
+    # löst ".." bei absoluten Pfaden vollständig auf ("/a/../b" -> "/b"). Es
+    # lässt nach POSIX aber einen führenden "//" stehen — den kappen wir selbst.
+    normalised = posixpath.normpath(remote_base)
+    if normalised.startswith("//"):
+        normalised = "/" + normalised.lstrip("/")
+    return normalised
+
+
 def remote_path(remote_base, relative_path):
-    return posixpath.join(remote_base.rstrip("/"), relative_path)
+    """Baut den absoluten Zielpfad. ``remote_base`` ist bereits normalisiert."""
+    return posixpath.join(remote_base, relative_path)
 
 
 def remote_matches_manifest(ftps, remote_file, local_file, remote_metadata):
@@ -249,6 +281,7 @@ def remote_matches_manifest(ftps, remote_file, local_file, remote_metadata):
 
 def deploy_dist(ftps, local_dist, remote_base, *, dry_run=False, force=False):
     """Deployt einen Build; Assets zuerst, ``index.html`` und Manifest atomar zuletzt."""
+    remote_base = normalise_remote_base(remote_base)
     files, ignored = collect_dist_files(local_dist)
     remote_manifest = empty_manifest() if dry_run else load_remote_manifest(ftps, remote_base)
     remote_files = remote_manifest["files"]
@@ -294,12 +327,10 @@ def deploy_dist(ftps, local_dist, remote_base, *, dry_run=False, force=False):
 
         print(f"[DEPLOY] {action.capitalize()}: {file['local_file']} -> {target}")
         try:
-            if is_entrypoint:
-                with open(file["local_file"], "rb") as file_handle:
-                    upload_bytes_atomic(ftps, file_handle.read(), target)
-            else:
-                mkdir_p(ftps, posixpath.dirname(target))
-                upload_file(ftps, file["local_file"], target)
+            # Auch Assets gehen über temporäre Datei + Rename auf den Live-Pfad:
+            # die laufende Seite lädt stabile Pfade wie data/questions_*.json,
+            # ein abgebrochener Direktupload würde dort eine halbe Datei hinterlassen.
+            upload_file(ftps, file["local_file"], target)
             release_files[relative_path] = metadata
             uploaded += 1
         except Exception as error:
@@ -330,7 +361,11 @@ def main():
     parser = argparse.ArgumentParser(description="FTPS-Deploy von dist/ nach dm0.de/sci")
     parser.add_argument("--env", default=DEFAULT_ENV, help="Pfad zur env-Datei mit FTPS-Zugangsdaten")
     parser.add_argument("--remote", default=REMOTE_BASE_DIR, help="Zielverzeichnis auf dem Webspace")
-    parser.add_argument("--dry-run", action="store_true", help="Nichts schreiben und keine Zugangsdaten lesen")
+    parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Nichts schreiben: kein Build, kein Upload, keine Zugangsdaten",
+    )
     parser.add_argument("--no-build", action="store_true", help="Zuvor keinen 'npm run build' ausführen")
     parser.add_argument("--force", action="store_true", help="Alle Dateien inklusive geschützter neu hochladen")
     args = parser.parse_args()
@@ -339,7 +374,19 @@ def main():
     print("     SCIENTIA - DEPLOYING TO NETCUP FTPS (dm0.de/sci/)")
     print("=" * 60)
 
-    if not args.no_build:
+    # Ein ungültiges Ziel soll auffallen, bevor gebaut oder verbunden wird.
+    try:
+        remote_base = normalise_remote_base(args.remote)
+    except ValueError as error:
+        print(f"[ERROR] {error}")
+        sys.exit(2)
+
+    # --dry-run sagt "Nichts schreiben" zu. 'npm run build' würde aber dist/ neu
+    # erzeugen und über den Statistik-Generator die getrackte
+    # public/data/domain_stats.json überschreiben — deshalb im Dry-run nie bauen.
+    if args.dry_run and not args.no_build:
+        print("[DRY-RUN] Skipping build; the plan checks the existing dist/ tree.")
+    elif not args.no_build:
         print("[DEPLOY] Running production build (npm run build)...")
         build = subprocess.run(["npm", "run", "build"], cwd=SCRIPT_DIR)
         if build.returncode != 0:
@@ -353,7 +400,7 @@ def main():
     if args.dry_run:
         print("[DRY-RUN] No connection or credentials required.")
         try:
-            result = deploy_dist(None, LOCAL_DIST, args.remote, dry_run=True, force=args.force)
+            result = deploy_dist(None, LOCAL_DIST, remote_base, dry_run=True, force=args.force)
         except (OSError, ValueError) as error:
             print(f"[ERROR] Deployment plan failed: {error}")
             sys.exit(1)
@@ -371,7 +418,7 @@ def main():
             ftps.prot_p()
             ftps.set_pasv(True)
             print("[DEPLOY] FTPS connection established successfully.")
-            result = deploy_dist(ftps, LOCAL_DIST, args.remote, force=args.force)
+            result = deploy_dist(ftps, LOCAL_DIST, remote_base, force=args.force)
         except Exception as error:
             print(f"[ERROR] Deployment failed: {error}")
             sys.exit(1)
