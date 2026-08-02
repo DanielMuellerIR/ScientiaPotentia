@@ -76,7 +76,11 @@ in `App.jsx` hartcodiert. Fuer den Header maskiert ein Klammer-Parser CSS-Kommen
 liest alle echten 768px-Bloecke und stellt sicher, dass nur der zentrale Mobilblock Header-Regeln
 traegt; der separate `.app-main--explore`-Block bleibt davon unberuehrt. Im Headerblock prueft er
 Grid, einzeilige Navigation, visuell ausgeblendete Labels und 44px-Touchziele. Zusaetzlich prueft
-er Header-/Switcher-Klassen, zentrale ARIA-Merkmale und Reduced Motion. Das sind
+er Header-/Switcher-Klassen, zentrale ARIA-Merkmale und Reduced Motion. Fuer den Rechts-Footer
+prueft er, dass die Pflichtlinks dauerhaft unterstrichen sind und der Footertext opak auf
+`--text-footer` steht — Farbe allein ist kein Linkindikator, und die frueheren Werte lagen mit
+4,30:1 (Links) beziehungsweise 3,31:1 (Disclaimer mit `opacity:.85`) unter den 4,5:1, die
+WCAG 2.1 AA fuer normale Schrift verlangt. Das sind
 Strukturpruefungen am Quelltext, keine Pixelmessungen oder Runtime-A11y-Tests. Die ARIA-Pruefungen
 ersetzen daher weder den gezielten RTL-Test noch eine Browser-/Assistenztechnik-Gegenprobe.
 

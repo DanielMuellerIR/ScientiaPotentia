@@ -352,6 +352,21 @@ check('Reduced Motion deaktiviert Slide-in und Chevron-Transition',
     && /transition\s*:\s*none/.test(reducedChevron),
   `Im prefers-reduced-motion-Block Animation und Chevron-Transition deaktivieren.`);
 
+// 8) Rechts-Footer: die rechtlichen Pflichtangaben muessen erkennbar und lesbar bleiben.
+//    Beide Pruefungen sind Kontrast-/Erkennbarkeitsregeln aus WCAG 2.1 AA, kein Geschmack:
+//    Farbe allein ist kein Linkindikator (1.4.1), normale Schrift braucht 4,5:1 (1.4.3).
+const footerBodies = getRuleBodies(css, '.app-footer');
+const footerLinkCss = getRuleBody(css, '.app-footer a') || '';
+check('Footer-Links sind dauerhaft unterstrichen',
+  /text-decoration\s*:\s*underline/.test(footerLinkCss),
+  `.app-footer a dauerhaft unterstreichen: auf Touch-Geraeten gibt es keinen Hover als Ausgleich.`);
+check('Footer-Text bleibt opak und nutzt die kontraststarke Footerfarbe',
+  /--text-footer\s*:/.test(css)
+    && footerBodies.some((body) => /color\s*:\s*var\(--text-footer\)/.test(body))
+    && footerBodies.every((body) => !/opacity\s*:/.test(body))
+    && !/opacity\s*:/.test(getRuleBody(css, '.app-footer-disclaimer') || ''),
+  `.app-footer auf var(--text-footer) halten und keine zusaetzliche opacity setzen (mindestens 4,5:1).`);
+
 // --- Auswertung / Ausgabe ---
 const failed = results.filter((r) => !r.ok);
 const ok = failed.length === 0;
