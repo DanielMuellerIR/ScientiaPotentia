@@ -46,6 +46,18 @@ Vor Übernahme jeden Punkt gegen aktuellen Code, CHANGELOG und bestehende Projek
   (`XSHA256`/`XMD5`, sofern der FTP-Server sie anbietet, sonst Fallback auf heute); alle
   Dateien streamend per `RETR` zu hashen würde dagegen bei jedem Deploy die komplette Site
   herunterladen und den inkrementellen Vorteil auffressen. Behelf heute: `deploy.py --force`.
+- **Langfristig:** Mischzustand während des Deployments. Assets werden einzeln sichtbar,
+  bevor der neue `index.html` erscheint (`deploy.py` lädt den Entrypoint zuletzt und
+  ersetzt ihn per atomarem Rename). Das verhindert Datenverlust und halbe Dateien, aber
+  nicht, dass ein Besucher für Sekunden bis wenige Minuten neue Daten mit altem Code
+  sieht. Die saubere Reparatur wäre ein Umbau auf unveränderliche Release-Verzeichnisse
+  plus einen einzigen umgeschalteten Release-Pointer — das ändert, **wohin**
+  veröffentlicht wird, und ist kein kleiner Eingriff.
+  Entscheidung Daniel (2026-08-03): kein Umbau jetzt. Im Wortlaut: „Dass bei deploy für
+  Sekunden bis maximal wenige Minuten ein undefinierter Zustand entsteht, ist nicht so
+  schlimm, es ist nur ein Spiel und es reicht, wenn man langfristig als Todo eine
+  Verbesserung anstrebt." Damit bleibt der Punkt als langfristige Verbesserung stehen;
+  vorziehen nur, wenn ein Deploy real jemanden gestört hat.
 - Terra im Querbeet-Mischpool? `SCIENTIA_MIX_IDS` lässt Terra bewusst aus (Kartenklick-Fragen
   brauchen die Weltkarte, geodb-Konzepte passen nicht ins generische ConceptVisual). Seit
   v1.98.0 sagt die Oberfläche das ehrlich. Alternative wäre, einen kartenfreien Terra-Anteil
