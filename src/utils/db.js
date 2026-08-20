@@ -184,9 +184,9 @@ export async function addHistoryLog(logEntry) {
  * übrig (Code-Review F6). Eine Transaktion macht beide Writes atomar: entweder
  * beide committen oder (bei Fehler/Abbruch) keiner.
  *
- * Domain-Ableitung bleibt exakt wie in den Einzelfunktionen: progress.domain aus
- * dem entityId-Präfix (unpräfixt = terra), history.domain aus logEntry.domain
- * (vom Aufrufer gesetzt) mit demselben Fallback.
+ * Die Progress-Domain wird aus dem entityId-Präfix abgeleitet (unpräfixt = terra).
+ * Der Aufrufer liefert dieselbe Herkunft für den History-Eintrag; fehlt sie,
+ * greift derselbe Präfix-Fallback.
  *
  * @param {string} entityId
  * @param {Object} srsData - { repetitions, interval, easiness, nextDueDate }

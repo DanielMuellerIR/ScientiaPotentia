@@ -32,7 +32,6 @@ export default function Dashboard({
   domain = { id: 'terra', latinName: 'Terra', label: 'Geografie' },
   questionPool = [],
   srsProgress = {},
-  dueCount = 0,
   streakCount = 0,
   highScore = 0,
   onStartDailyReview

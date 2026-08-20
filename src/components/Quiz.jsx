@@ -5,12 +5,12 @@ import { shuffle } from '../utils/shuffle';
 import { useGeoData } from '../utils/useGeoData';
 import { playClick, playCorrectChime, playErrorBuzzer } from '../utils/audio';
 import { createSilhouettePaths } from '../utils/silhouette';
+import { getDomainIdFromConceptKey } from '../utils/conceptKeys';
 import { Check, X, ArrowRight, Award, RotateCcw, MapPin } from 'lucide-react';
 
 export default function Quiz({ 
   geodb, 
   questionPool = [],
-  domainId = 'terra',
   dueEntities = [], 
   newEntities = [],
   quizMode = 'all',
@@ -511,7 +511,9 @@ export default function Quiz({
     // SRS-Fortschritt und History-Eintrag in EINER Transaktion schreiben, damit
     // bei Reload/Absturz nicht der eine ohne den anderen übrig bleibt (Code-Review F6).
     await saveProgressAndLog(entityId, nextState, entityType, {
-      domain: domainId,
+      // Im Querbeet-Quiz braucht die History die Herkunft des konkreten Konzepts
+      // (z. B. "astra:mars" -> "astra"), nicht die aktive Mischansicht.
+      domain: getDomainIdFromConceptKey(entityId),
       type: entityType,
       correct: isCorrect,
       attempts: attemptCount,

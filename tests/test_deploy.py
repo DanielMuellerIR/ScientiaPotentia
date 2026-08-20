@@ -11,9 +11,9 @@ import deploy
 class FakeFTPS:
     """Kleine speicherinterne FTPS-Gegenstelle für Deploy-Regressionstests."""
 
-    def __init__(self, files=None, fail_upload_suffix=None):
+    def __init__(self, files=None, fail_upload_suffix=None, directories=None):
         self.files = dict(files or {})
-        self.directories = {"/", "/remote"}
+        self.directories = set(directories if directories is not None else {"/", "/remote"})
         self.history = []
         self.fail_upload_suffix = fail_upload_suffix
 
@@ -43,8 +43,20 @@ class FakeFTPS:
         # Fehler soll trotzdem am gemeinten Zielpfad hängen.
         live_path = path.split(".uploading-")[0]
         if self.fail_upload_suffix and live_path.endswith(self.fail_upload_suffix):
+            # Der Server hat bereits einen Teil angenommen, bevor die Verbindung
+            # abbricht. Nur so beweist der Test den anschließenden DELETE-Pfad.
+            self.files[path] = file_handle.read(4)
             raise OSError("simulated upload failure")
         self.files[path] = file_handle.read()
+
+    def nlst(self, directory):
+        self.history.append(("nlst", directory))
+        if directory not in self.directories:
+            raise ftplib.error_perm("550 missing directory")
+        return [
+            path for path in self.files
+            if path.rsplit("/", 1)[0] == directory.rstrip("/")
+        ]
 
     def retrbinary(self, command, callback):
         path = command.removeprefix("RETR ")
@@ -135,6 +147,7 @@ class DeployTests(unittest.TestCase):
         result = deploy.deploy_dist(ftps, str(self.dist), "/remote")
 
         self.assertEqual(result.failed, 1)
+        self.assertEqual(result.not_attempted, 1)
         self.assertEqual(ftps.files["/remote/index.html"], b"old index")
         self.assertFalse(
             any(event[0] == "rename" and event[2] == "/remote/index.html" for event in ftps.history)
@@ -192,7 +205,7 @@ class DeployTests(unittest.TestCase):
         self.assertEqual(result.uploaded, 0)
         self.assertEqual(result.skipped, 2)
         stored_paths = [event[1] for event in ftps.history if event[0] == "store"]
-        self.assertFalse(any(path == "/remote/assets/app.js" for path in stored_paths))
+        self.assertFalse(any(path.startswith("/remote/assets/app.js") for path in stored_paths))
         self.assertFalse(any(path.startswith("/remote/index.html.uploading-") for path in stored_paths))
 
     def test_assets_are_published_atomically_via_rename(self):
@@ -228,6 +241,33 @@ class DeployTests(unittest.TestCase):
         self.assertFalse(
             any(path.startswith("/remote/assets/app.js.uploading-") for path in ftps.files)
         )
+        temporary_asset = next(
+            event[1]
+            for event in ftps.history
+            if event[0] == "store" and event[1].startswith("/remote/assets/app.js.uploading-")
+        )
+        self.assertIn(("delete", temporary_asset), ftps.history)
+
+    def test_keyboard_interrupt_removes_the_partial_temporary_upload(self):
+        """Auch ein Benutzerabbruch durchläuft den Aufräumpfad von upload_atomic."""
+        self.write_build()
+
+        class InterruptingFTPS(FakeFTPS):
+            def storbinary(self, command, file_handle):
+                path = command.removeprefix("STOR ")
+                self.history.append(("store", path))
+                self.files[path] = file_handle.read(4)
+                raise KeyboardInterrupt
+
+        ftps = InterruptingFTPS()
+        local_file = self.dist / "assets" / "app.js"
+
+        with self.assertRaises(KeyboardInterrupt):
+            deploy.upload_file(ftps, str(local_file), "/remote/assets/app.js")
+
+        temporary_asset = temporary_upload_of(ftps, "/remote/assets/app.js")
+        self.assertIn(("delete", temporary_asset), ftps.history)
+        self.assertNotIn(temporary_asset, ftps.files)
 
     def test_root_remote_base_produces_absolute_targets(self):
         """Das gültige Ziel '/' darf keine relativen Pfade erzeugen."""
@@ -248,7 +288,7 @@ class DeployTests(unittest.TestCase):
         self.assertEqual(deploy.normalise_remote_base("/dm0.de/./sci"), "/dm0.de/sci")
         # ".." wird bei absoluten Pfaden von normpath aufgelöst, nicht durchgereicht.
         self.assertEqual(deploy.normalise_remote_base("/dm0.de/../sci"), "/sci")
-        for unsafe in ["sci", "./sci", "", None]:
+        for unsafe in ["sci", "./sci", "/remote ", " /remote", "", None]:
             with self.assertRaises(ValueError):
                 deploy.normalise_remote_base(unsafe)
 
@@ -260,6 +300,43 @@ class DeployTests(unittest.TestCase):
             deploy.deploy_dist(ftps, str(self.dist), "sci")
 
         self.assertEqual(ftps.files, {})
+
+    def test_missing_remote_base_aborts_without_creating_it(self):
+        self.write_build()
+        ftps = FakeFTPS(directories={"/"})
+
+        with self.assertRaisesRegex(ValueError, "Remote-Ziel existiert nicht"):
+            deploy.deploy_dist(ftps, str(self.dist), "/remote")
+
+        self.assertNotIn(("mkd", "/remote"), ftps.history)
+        self.assertEqual(stored_paths(ftps), [])
+
+    def test_stale_temporary_uploads_are_removed_before_the_release(self):
+        self.write_build()
+        stale = "/remote/assets/app.js.uploading-abandoned"
+        ftps = FakeFTPS(
+            {stale: b"partial"},
+            directories={"/", "/remote", "/remote/assets"},
+        )
+
+        result = deploy.deploy_dist(ftps, str(self.dist), "/remote")
+
+        self.assertEqual(result.failed, 0)
+        self.assertIn(("delete", stale), ftps.history)
+        self.assertNotIn(stale, ftps.files)
+
+    def test_each_remote_directory_is_prepared_only_once(self):
+        self.write_build()
+        (self.dist / "assets" / "second.js").write_bytes(b"second")
+        ftps = FakeFTPS()
+
+        result = deploy.deploy_dist(ftps, str(self.dist), "/remote")
+
+        self.assertEqual(result.failed, 0)
+        # Ein cwd kommt aus der Restesuche, ein weiteres aus mkdir_p. Der zweite
+        # Assetupload darf keinen dritten Verzeichnis-Check auslösen.
+        asset_cwds = [event for event in ftps.history if event == ("cwd", "/remote/assets")]
+        self.assertEqual(len(asset_cwds), 2)
 
     def test_invalid_remote_manifest_never_becomes_hash_evidence(self):
         self.write_build()

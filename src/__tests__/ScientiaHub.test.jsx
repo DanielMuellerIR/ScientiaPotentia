@@ -89,9 +89,26 @@ describe('ScientiaHub', () => {
     );
 
     const cta = screen.getByRole('button', { name: /Querbeet/i });
+    const title = cta.querySelector('.scientia-hub-cta-title');
+    expect(title).not.toBeNull();
     excluded.forEach(domain => {
-      expect(cta.textContent).toContain(`außer ${domain.label}`);
+      expect(title.textContent).toContain(`außer ${domain.label}`);
     });
+  });
+
+  it('ordnet in der Definitionsliste erst den Begriff und dann seinen Wert an', () => {
+    const { container } = render(
+      <ScientiaHub
+        domains={DOMAINS}
+        stats={STATS}
+        onSelectDomain={vi.fn()}
+        onStartMixedQuiz={vi.fn()}
+      />
+    );
+
+    const total = container.querySelector('.scientia-hub-total');
+    expect(total.children[0].tagName).toBe('DT');
+    expect(total.children[1].tagName).toBe('DD');
   });
 
   it('zeigt Platzhalter statt Zahlen, solange das Manifest fehlt', () => {

@@ -148,6 +148,35 @@ function getRuleBody(source, selector) {
   return bodies[bodies.length - 1] || null;
 }
 
+/**
+ * Sammelt Regeln anhand ihres vollständigen Selektortexts. Im Unterschied zu
+ * getRuleBodies() kann der Aufrufer damit eine ganze Klassenfamilie prüfen,
+ * etwa `.app-footer`, `.app-footer a` und `.app-footer-sep` gemeinsam.
+ */
+function getRuleBodiesMatching(source, selectorPattern) {
+  const maskedSource = maskCssNonCode(source);
+  const bodies = [];
+  const openBraces = /\{/g;
+  let match;
+
+  while ((match = openBraces.exec(maskedSource)) !== null) {
+    let start = match.index - 1;
+    while (start >= 0 && !'{};'.includes(maskedSource[start])) start -= 1;
+    const selector = maskedSource.slice(start + 1, match.index).trim();
+    if (!selector || selector.startsWith('@')) continue;
+
+    const flags = selectorPattern.flags.replace(/[gy]/g, '');
+    if (!new RegExp(selectorPattern.source, flags).test(selector)) continue;
+    const block = readBraceBlock(source, maskedSource, match.index);
+    if (block) bodies.push(block.body);
+  }
+  return bodies;
+}
+
+function lastBodyWithDeclaration(bodies, propertyPattern) {
+  return [...bodies].reverse().find(body => propertyPattern.test(body)) || '';
+}
+
 // Hilfsfunktion: prüft auf eine echte CSS-Regel, nie auf Kommentar/String.
 function hasRule(selector, source = css) {
   return getRuleBodies(source, selector).length > 0;
@@ -221,10 +250,30 @@ const parserSelfTestOk = parserFixtureBlocks.length === 2
     '/* .ghost { display:block } */ .decoy { content:".ghost { display:block }" }'
   );
 
+const footerFamilyPattern = /(?:^|,)\s*\.app-footer(?:$|[-\s.:#>+~\[])/;
+const footerParserFixture = `
+  .app-footer { color:var(--text-footer) }
+  .app-footer a { opacity:.6 }
+  @media (max-width:768px) { .app-footer { color:var(--text-muted) } }
+`;
+const footerParserFixtureBodies = getRuleBodiesMatching(
+  footerParserFixture,
+  footerFamilyPattern
+);
+const footerParserSelfTestOk = footerParserFixtureBodies.length === 3
+  && footerParserFixtureBodies.some(body => /opacity\s*:\s*\.6/.test(body))
+  && /color\s*:\s*var\(--text-muted\)/.test(lastBodyWithDeclaration(
+    getRuleBodies(footerParserFixture, '.app-footer'),
+    /color\s*:/
+  ));
+
 // 1) Layout-Masse muessen als CSS-Variablen zentral definiert sein.
 check('Interner CSS-Parser ignoriert Fake-Bloecke in Kommentaren und Strings',
   parserSelfTestOk,
   `Laengentreue CSS-Maskierung bzw. Brace-Parser nicht abschwaechen.`);
+check('Interner CSS-Parser erfasst Selektorfamilien und die letzte Farbkaskade',
+  footerParserSelfTestOk,
+  `Familienregeln und die letzte wirksame Farbangabe muessen getrennt ermittelt werden.`);
 ['--header-height', '--sidebar-width', '--shell-gap', '--shell-pad'].forEach((v) =>
   check(`CSS-Variable ${v} in :root definiert`, css.includes(v),
     `Variable in src/index.css :root ergaenzen (Single Source of Truth fuer Layout-Masse).`)
@@ -356,16 +405,17 @@ check('Reduced Motion deaktiviert Slide-in und Chevron-Transition',
 //    Beide Pruefungen sind Kontrast-/Erkennbarkeitsregeln aus WCAG 2.1 AA, kein Geschmack:
 //    Farbe allein ist kein Linkindikator (1.4.1), normale Schrift braucht 4,5:1 (1.4.3).
 const footerBodies = getRuleBodies(css, '.app-footer');
+const footerFamilyBodies = getRuleBodiesMatching(css, footerFamilyPattern);
+const effectiveFooterColor = lastBodyWithDeclaration(footerBodies, /color\s*:/);
 const footerLinkCss = getRuleBody(css, '.app-footer a') || '';
 check('Footer-Links sind dauerhaft unterstrichen',
   /text-decoration\s*:\s*underline/.test(footerLinkCss),
   `.app-footer a dauerhaft unterstreichen: auf Touch-Geraeten gibt es keinen Hover als Ausgleich.`);
 check('Footer-Text bleibt opak und nutzt die kontraststarke Footerfarbe',
   /--text-footer\s*:/.test(css)
-    && footerBodies.some((body) => /color\s*:\s*var\(--text-footer\)/.test(body))
-    && footerBodies.every((body) => !/opacity\s*:/.test(body))
-    && !/opacity\s*:/.test(getRuleBody(css, '.app-footer-disclaimer') || ''),
-  `.app-footer auf var(--text-footer) halten und keine zusaetzliche opacity setzen (mindestens 4,5:1).`);
+    && /color\s*:\s*var\(--text-footer\)/.test(effectiveFooterColor)
+    && footerFamilyBodies.every((body) => !/opacity\s*:/.test(body)),
+  `.app-footer auf var(--text-footer) halten und in der ganzen Footer-Klassenfamilie keine opacity setzen (mindestens 4,5:1).`);
 
 // --- Auswertung / Ausgabe ---
 const failed = results.filter((r) => !r.ok);

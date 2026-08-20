@@ -94,6 +94,9 @@ python3 deploy.py --dry-run --no-build
 ```
 
 Der Dry-Run liest keine Zugangsdaten und baut keine Netzwerkverbindung auf. Beim
+Dry-Run ist deshalb kein Serververgleich möglich: Er nennt den Zeitstempel der
+neuesten Datei im vorhandenen `dist/`-Baum und listet jede Builddatei als geplanten
+Upload; die tatsächliche Server-Differenz bleibt unbekannt. Beim
 echten FTPS-Deployment werden zunächst alle Assets übertragen. Erst danach werden
 `index.html` und das serverseitige SHA-256-Manifest atomar veröffentlicht; ein Skip
 benötigt sowohl den Remote-Hashbeleg als auch die tatsächlich gemeldete Dateigröße.

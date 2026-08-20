@@ -3,6 +3,7 @@ import { render, screen, fireEvent, waitFor, cleanup } from '@testing-library/re
 import { describe, it, expect, vi, afterEach } from 'vitest';
 import Quiz from '../components/Quiz';
 import Map from '../components/Map';
+import { saveProgressAndLog } from '../utils/db';
 
 // Mock audio utilities imported by Quiz
 vi.mock('../utils/audio', () => ({
@@ -86,7 +87,12 @@ const dueEntitiesMock = [];
 const newEntitiesMock = Object.values(geodbMock.entities);
 
 // Test component integrating Quiz & Map using matching state bridges
-function QuizMapTestWrapper({ quizMode = 'all', onFinished = () => {} }) {
+function QuizMapTestWrapper({
+  quizMode = 'all',
+  onFinished = () => {},
+  geodb = geodbMock,
+  questionPool = questionPoolMock
+}) {
   const [mapState, setMapState] = useState({
     mode: 'dashboard',
     highlightedIds: [],
@@ -116,9 +122,8 @@ function QuizMapTestWrapper({ quizMode = 'all', onFinished = () => {} }) {
         zoomToEntityId={mapState.zoomToEntityId}
       />
       <Quiz
-        geodb={geodbMock}
-        questionPool={questionPoolMock}
-        domainId="terra"
+        geodb={geodb}
+        questionPool={questionPool}
         dueEntities={dueEntitiesMock}
         newEntities={newEntitiesMock}
         quizMode={quizMode}
@@ -136,6 +141,7 @@ function QuizMapTestWrapper({ quizMode = 'all', onFinished = () => {} }) {
 // Expliziter afterEach stellt sicher, dass der DOM nach jedem Test geleert wird.
 afterEach(() => {
   cleanup();
+  vi.clearAllMocks();
 });
 
 describe('Quiz & Map Integration Test', () => {
@@ -211,5 +217,33 @@ describe('Quiz & Map Integration Test', () => {
     expect(screen.getByRole('button', { name: /Weiter/i })).toBeInTheDocument();
 
     randomSpy.mockRestore();
+  });
+
+  it('speichert im Querbeet-Quiz die Herkunft des konkreten Konzepts', async () => {
+    const mixedGeodb = {
+      entities: {
+        'astra:mars': { id: 'astra:mars', type: 'planet', name: 'Mars' }
+      }
+    };
+    const mixedQuestions = [{
+      id: 'mixed-mars',
+      entityId: 'astra:mars',
+      entityType: 'planet',
+      type: 'name',
+      prompt: 'Welcher Planet ist gemeint?',
+      correctAnswer: 'Mars',
+      options: ['Venus', 'Mars']
+    }];
+
+    render(
+      <QuizMapTestWrapper
+        geodb={mixedGeodb}
+        questionPool={mixedQuestions}
+      />
+    );
+    fireEvent.click(screen.getByRole('button', { name: /Mars$/ }));
+
+    await waitFor(() => expect(saveProgressAndLog).toHaveBeenCalled());
+    expect(saveProgressAndLog.mock.calls[0][3].domain).toBe('astra');
   });
 });

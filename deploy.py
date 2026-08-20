@@ -10,6 +10,7 @@ das lokale Manifest dient nur als Diagnosekopie.
 
 import argparse
 from dataclasses import dataclass
+import datetime
 import ftplib
 import hashlib
 import io
@@ -33,7 +34,11 @@ REMOTE_BASE_DIR = "/dm0.de/httpdocs/sci"
 REMOTE_MANIFEST_NAME = ".scientia-deploy-manifest.json"
 MANIFEST_VERSION = 1
 ENTRYPOINT = "index.html"
-PROTECTED_FILES = {".htaccess", ".htpasswd", "geodb.json"}
+# Vorsichtsmaßnahme für künftige Dateien aus public/: Diese Serverkonfigurationen
+# werden nur überschrieben, wenn --force gesetzt ist. geodb.json liegt dagegen
+# unter src/ und wird ins JavaScript-Bundle eingebettet, nie als Datei deployt.
+PROTECTED_FILES = {".htaccess", ".htpasswd"}
+UPLOAD_MARKER = ".uploading-"
 
 
 @dataclass
@@ -42,6 +47,7 @@ class DeployResult:
     skipped: int
     failed: int
     manifest: dict
+    not_attempted: int = 0
 
 
 def load_env_credentials(env_path):
@@ -99,21 +105,73 @@ def mkdir_p(ftps, remote_directory):
                 pass
 
 
-def upload_atomic(ftps, open_source, remote_file):
+def require_remote_directory(ftps, remote_directory):
+    """Verlangt ein vorhandenes Basisziel, statt Tippfehler still anzulegen."""
+    try:
+        ftps.cwd(remote_directory)
+    except ftplib.error_perm as error:
+        raise ValueError(
+            f"Remote-Ziel existiert nicht oder ist nicht zugänglich: {remote_directory}"
+        ) from error
+
+
+def cleanup_stale_uploads(ftps, remote_directories):
+    """Entfernt Temp-Dateien früherer, abgebrochener Deployments.
+
+    Geprüft werden die Verzeichnisse des aktuellen Builds und des letzten
+    Remote-Manifests. Kann ein Verzeichnis nicht gelistet oder eine Datei nicht
+    gelöscht werden, bleibt der Fund als Warnung sichtbar.
+    """
+    removed = 0
+    for directory in sorted(set(remote_directories)):
+        try:
+            ftps.cwd(directory)
+        except ftplib.error_perm:
+            # Ein Unterverzeichnis, das noch nicht existiert, kann keine Reste
+            # enthalten und wird später bei Bedarf regulär angelegt.
+            continue
+        try:
+            entries = ftps.nlst(directory)
+        except ftplib.error_perm as error:
+            print(f"[WARN] Remote-Verzeichnis konnte nicht auf Uploadreste geprüft werden: {directory} ({error})")
+            continue
+        for entry in entries:
+            remote_file = entry if entry.startswith("/") else posixpath.join(directory, entry)
+            if UPLOAD_MARKER not in posixpath.basename(remote_file):
+                continue
+            try:
+                ftps.delete(remote_file)
+                removed += 1
+                print(f"[DEPLOY] Removed stale temporary upload: {remote_file}")
+            except Exception as error:
+                print(f"[WARN] Stale temporary upload could not be removed: {remote_file} ({error})")
+    return removed
+
+
+def ensure_remote_directory(ftps, remote_directory, prepared_directories):
+    """Legt ein Unterverzeichnis höchstens einmal je Deployment an."""
+    if remote_directory in prepared_directories:
+        return
+    mkdir_p(ftps, remote_directory)
+    prepared_directories.add(remote_directory)
+
+
+def upload_atomic(ftps, open_source, remote_file, prepared_directories=None):
     """Schreibt in eine temporäre Datei und schaltet sie per Rename sichtbar.
 
     Ein Verbindungsabbruch mitten im Upload trifft damit nur die temporäre
     Datei; der Live-Pfad behält seinen alten, vollständigen Inhalt, bis die
-    neue Datei komplett auf dem Server liegt. ``open_source`` liefert bei
-    jedem Aufruf einen frischen Binärstrom (Datei oder Speicherpuffer).
+    neue Datei komplett auf dem Server liegt. ``open_source`` öffnet den
+    Binärstrom lazy, damit Dateien und Speicherpuffer denselben Pfad nutzen.
     """
-    mkdir_p(ftps, posixpath.dirname(remote_file))
-    temporary_file = f"{remote_file}.uploading-{uuid.uuid4().hex}"
+    prepared_directories = prepared_directories if prepared_directories is not None else set()
+    ensure_remote_directory(ftps, posixpath.dirname(remote_file), prepared_directories)
+    temporary_file = f"{remote_file}{UPLOAD_MARKER}{uuid.uuid4().hex}"
     try:
         with open_source() as source:
             ftps.storbinary(f"STOR {temporary_file}", source)
         ftps.rename(temporary_file, remote_file)
-    except Exception:
+    except BaseException:
         try:
             ftps.delete(temporary_file)
         except Exception:
@@ -121,14 +179,14 @@ def upload_atomic(ftps, open_source, remote_file):
         raise
 
 
-def upload_file(ftps, local_file, remote_file):
+def upload_file(ftps, local_file, remote_file, prepared_directories=None):
     """Lädt eine Builddatei atomar hoch (gestreamt, ohne sie ganz in den RAM zu holen)."""
-    upload_atomic(ftps, lambda: open(local_file, "rb"), remote_file)
+    upload_atomic(ftps, lambda: open(local_file, "rb"), remote_file, prepared_directories)
 
 
-def upload_bytes_atomic(ftps, content, remote_file):
+def upload_bytes_atomic(ftps, content, remote_file, prepared_directories=None):
     """Lädt einen Speicherpuffer (z.B. das Manifest) atomar hoch."""
-    upload_atomic(ftps, lambda: io.BytesIO(content), remote_file)
+    upload_atomic(ftps, lambda: io.BytesIO(content), remote_file, prepared_directories)
 
 
 def resolve_ftp_host(host):
@@ -252,7 +310,11 @@ def normalise_remote_base(remote_base):
     ``mkdir_p()`` wechselt per ``cwd`` das Arbeitsverzeichnis — relative Pfade
     würden danach in einem anderen Verzeichnis landen als beim ersten Aufruf.
     """
-    if not isinstance(remote_base, str) or not remote_base.startswith("/"):
+    if (
+        not isinstance(remote_base, str)
+        or remote_base != remote_base.strip()
+        or not remote_base.startswith("/")
+    ):
         raise ValueError(f"Remote-Ziel muss ein absoluter Pfad sein: {remote_base!r}")
     # normpath entfernt "." sowie doppelte und abschließende Schrägstriche und
     # löst ".." bei absoluten Pfaden vollständig auf ("/a/../b" -> "/b"). Es
@@ -261,6 +323,16 @@ def normalise_remote_base(remote_base):
     if normalised.startswith("//"):
         normalised = "/" + normalised.lstrip("/")
     return normalised
+
+
+def dist_snapshot_timestamp(local_dist):
+    """Zeitpunkt der neuesten Datei im vorhandenen Dry-run-Build (ISO 8601)."""
+    timestamps = []
+    for root, _directories, filenames in os.walk(local_dist):
+        timestamps.extend(os.path.getmtime(os.path.join(root, name)) for name in filenames)
+    if not timestamps:
+        return "keine Dateien"
+    return datetime.datetime.fromtimestamp(max(timestamps)).astimezone().isoformat(timespec="seconds")
 
 
 def remote_path(remote_base, relative_path):
@@ -280,20 +352,40 @@ def remote_matches_manifest(ftps, remote_file, local_file, remote_metadata):
 
 
 def deploy_dist(ftps, local_dist, remote_base, *, dry_run=False, force=False):
+    """Öffentliche Vertragsgrenze: normalisiert das Ziel genau einmal."""
+    normalised_base = normalise_remote_base(remote_base)
+    return _deploy_dist_normalised(
+        ftps,
+        local_dist,
+        normalised_base,
+        dry_run=dry_run,
+        force=force,
+    )
+
+
+def _deploy_dist_normalised(ftps, local_dist, remote_base, *, dry_run=False, force=False):
     """Deployt einen Build; Assets zuerst, ``index.html`` und Manifest atomar zuletzt."""
-    remote_base = normalise_remote_base(remote_base)
     files, ignored = collect_dist_files(local_dist)
-    remote_manifest = empty_manifest() if dry_run else load_remote_manifest(ftps, remote_base)
+    if dry_run:
+        remote_manifest = empty_manifest()
+    else:
+        require_remote_directory(ftps, remote_base)
+        remote_manifest = load_remote_manifest(ftps, remote_base)
     remote_files = remote_manifest["files"]
     release_files = {}
     uploaded = 0
     skipped = ignored
     failed = 0
+    not_attempted = 0
+    prepared_directories = {remote_base}
 
     if not dry_run:
-        mkdir_p(ftps, remote_base)
+        remote_directories = {remote_base}
+        for relative_path in [file["relative_path"] for file in files] + list(remote_files):
+            remote_directories.add(posixpath.dirname(remote_path(remote_base, relative_path)))
+        cleanup_stale_uploads(ftps, remote_directories)
 
-    for file in files:
+    for index, file in enumerate(files):
         relative_path = file["relative_path"]
         target = remote_path(remote_base, relative_path)
         is_entrypoint = relative_path == ENTRYPOINT
@@ -330,7 +422,7 @@ def deploy_dist(ftps, local_dist, remote_base, *, dry_run=False, force=False):
             # Auch Assets gehen über temporäre Datei + Rename auf den Live-Pfad:
             # die laufende Seite lädt stabile Pfade wie data/questions_*.json,
             # ein abgebrochener Direktupload würde dort eine halbe Datei hinterlassen.
-            upload_file(ftps, file["local_file"], target)
+            upload_file(ftps, file["local_file"], target, prepared_directories)
             release_files[relative_path] = metadata
             uploaded += 1
         except Exception as error:
@@ -338,11 +430,12 @@ def deploy_dist(ftps, local_dist, remote_base, *, dry_run=False, force=False):
             failed += 1
             # Nach einem Assetfehler darf der neue Entrypoint nicht sichtbar werden.
             if not is_entrypoint:
+                not_attempted = len(files) - index - 1
                 break
 
     release_manifest = {"version": MANIFEST_VERSION, "files": release_files}
     if failed:
-        return DeployResult(uploaded, skipped, failed, release_manifest)
+        return DeployResult(uploaded, skipped, failed, release_manifest, not_attempted)
 
     remote_manifest_file = remote_path(remote_base, REMOTE_MANIFEST_NAME)
     if dry_run:
@@ -350,7 +443,12 @@ def deploy_dist(ftps, local_dist, remote_base, *, dry_run=False, force=False):
         return DeployResult(uploaded, skipped, failed, release_manifest)
 
     try:
-        upload_bytes_atomic(ftps, manifest_bytes(release_manifest), remote_manifest_file)
+        upload_bytes_atomic(
+            ftps,
+            manifest_bytes(release_manifest),
+            remote_manifest_file,
+            prepared_directories,
+        )
     except Exception as error:
         print(f"[ERROR] Failed to publish release manifest: {error}")
         failed += 1
@@ -399,8 +497,16 @@ def main():
 
     if args.dry_run:
         print("[DRY-RUN] No connection or credentials required.")
+        print("[DRY-RUN] Server delta unknown; every file in the existing dist/ tree is listed as an upload.")
+        print(f"[DRY-RUN] Newest file in the used dist/ tree: {dist_snapshot_timestamp(LOCAL_DIST)}")
         try:
-            result = deploy_dist(None, LOCAL_DIST, remote_base, dry_run=True, force=args.force)
+            result = _deploy_dist_normalised(
+                None,
+                LOCAL_DIST,
+                remote_base,
+                dry_run=True,
+                force=args.force,
+            )
         except (OSError, ValueError) as error:
             print(f"[ERROR] Deployment plan failed: {error}")
             sys.exit(1)
@@ -418,7 +524,7 @@ def main():
             ftps.prot_p()
             ftps.set_pasv(True)
             print("[DEPLOY] FTPS connection established successfully.")
-            result = deploy_dist(ftps, LOCAL_DIST, remote_base, force=args.force)
+            result = _deploy_dist_normalised(ftps, LOCAL_DIST, remote_base, force=args.force)
         except Exception as error:
             print(f"[ERROR] Deployment failed: {error}")
             sys.exit(1)
@@ -434,11 +540,15 @@ def main():
 
     print("=" * 60)
     if args.dry_run:
-        print(f"      [DRY-RUN] {result.uploaded} file(s) planned, {result.skipped} ignored.")
+        print(
+            f"      [DRY-RUN] {result.uploaded} local file(s) listed; "
+            f"server delta unknown, {result.skipped} ignored."
+        )
     elif result.failed:
         print(
             f"      DEPLOYMENT INCOMPLETE! {result.failed} upload(s) failed, "
-            f"{result.uploaded} uploaded, {result.skipped} skipped."
+            f"{result.uploaded} uploaded, {result.skipped} skipped, "
+            f"{result.not_attempted} not attempted."
         )
         print("=" * 60)
         sys.exit(1)

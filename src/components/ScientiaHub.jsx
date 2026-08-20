@@ -55,8 +55,8 @@ export default function ScientiaHub({ domains = [], stats = null, onSelectDomain
           <dl className="scientia-hub-totals">
             {heroTotals.map(t => (
               <div key={t.key} className="scientia-hub-total">
-                <dd className="scientia-hub-total-value">{fmt(t.value)}</dd>
                 <dt className="scientia-hub-total-label">{t.label}</dt>
+                <dd className="scientia-hub-total-value">{fmt(t.value)}</dd>
               </div>
             ))}
           </dl>

@@ -1,9 +1,35 @@
 # Changelog — Scientia
 
-> **Stand: 2026-08-03.** Diese Datei sammelt die datierte Versions-Chronik, die
+> **Stand: 2026-08-20.** Diese Datei sammelt die datierte Versions-Chronik, die
 > zuvor als Blockquote-Blöcke in `AGENTS.md` gewachsen war und dort ausgelagert
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
+
+## 2026-08-20 (v1.98.1) — Nacht-Review vollständig abgearbeitet
+
+- **Bereichsdaten bleiben konsistent.** `App.jsx` koppelt Domain-ID, Ladezustand,
+  Konzepte und Fragen in einem Zustand. Dashboard, Explorer, Atlas, Visualisierung
+  und Quiz erhalten erst Daten, wenn sie nachweislich zur aktiven Domain gehören;
+  Fehlerzustände können nicht mehr in den nächsten Bereich wandern. Der gemeinsame
+  Registry-Cache verwendet bereits laufende oder abgeschlossene Katalog-Downloads
+  nach Tab-, Bereichs- und Museumswechseln weiter.
+- **Querbeet-Historie und Metadaten.** Das Quiz speichert die Herkunft jedes
+  konkreten Konzeptkeys statt der Mischansicht. Eine JSX-freie Metadatenquelle hält
+  Bereichsreihenfolge, Kartenflag, Dateiquelle und Querbeet-Pool zwischen Registry,
+  Statistikgenerator, Oberfläche und Tests synchron.
+- **Markup und Layoutvertrag.** Die Hub-Kennzahlen stehen als gültige `dt`/`dd`-
+  Reihenfolge im DOM. Der Layoutcheck wertet die gesamte Footer-Klassenfamilie und
+  die letzte wirksame Farbangabe aus; tote Footer- und Dashboard-Schnittstellen sind
+  entfernt. Ladehinweise verwenden die kontraststarke Footerfarbe.
+- **Deployment-Abbrüche hinterlassen keinen Müll.** Der Deploy räumt alte
+  `.uploading-*`-Dateien auf, löscht auch bei `KeyboardInterrupt` den aktuellen
+  Teilupload, prüft das Basisziel statt Tippfehler als Verzeichnis anzulegen und
+  bereitet jedes Unterverzeichnis nur einmal vor. Fehlerberichte zählen noch nicht
+  versuchte Dateien. Der Dry-run kennzeichnet den unbekannten Serverstand, nennt den
+  Zeitstempel seines vorhandenen Builds und listet deshalb alle lokalen Dateien.
+
+Verifiziert mit Vitest, den FTPS-Regressionstests, Layout-Vertrag, Produktions-Build,
+Dry-run ohne Netzwerk und einem Browserlauf. Es fand kein echtes Deployment statt.
 
 ## 2026-08-03 (v1.98.0) — Leichter Start, ehrliches Querbeet, robusteres Deployment
 

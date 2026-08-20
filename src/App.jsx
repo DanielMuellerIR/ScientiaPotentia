@@ -6,8 +6,7 @@ import Dashboard from './components/Dashboard';
 import DomainSwitcher from './components/DomainSwitcher';
 import ScientiaHub from './components/ScientiaHub';
 import VisualPanel from './components/VisualPanel';
-import geodb from './data/geodb.json';
-import { DOMAINS, getDomainById } from './domains';
+import { DOMAINS, getDomainById, loadDomainConcepts, loadDomainData } from './domains';
 import pkg from '../package.json';
 import { getAllProgress, getSetting, saveSetting } from './utils/db';
 import { playClick, isAudioMuted, setAudioMuted } from './utils/audio';
@@ -16,6 +15,8 @@ import { BarChart3, HelpCircle, Compass, Flame, Trophy, Volume2, VolumeX, Images
 // Museum-Explorer lazy laden — enthält keine schweren Abhängigkeiten,
 // aber lazy hält den initialen Bundle-Umfang schlank.
 const MuseumExplorer = lazy(() => import('./components/MuseumExplorer'));
+const EMPTY_CONCEPTS = Object.freeze({});
+const EMPTY_QUESTIONS = Object.freeze([]);
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('dashboard'); // 'dashboard' | 'atlas' | 'explore' | 'quiz' | 'museum'
@@ -70,21 +71,15 @@ export default function App() {
   // beim Start geladen, damit die Landing-Page nicht die großen Fragenkataloge zieht.
   const [domainStats, setDomainStats] = useState(null);
 
-  // Konzeptspeicher der aktiven Domain (Map conceptKey -> Konzept). Der Startwert
-  // ist ein Platzhalter, damit der erste Render nicht auf ein leeres Objekt läuft;
-  // verbindlich sind die Daten erst, wenn loadedDomainId auf die aktive Domain zeigt.
-  const [concepts, setConcepts] = useState(geodb.entities);
-  // Fragenkatalog der aktiven Domain. Wird zur Laufzeit aus public/data/ geladen
-  // (entlastet das JS-Bundle, ermöglicht beliebig viele Domains).
-  const [questionPool, setQuestionPool] = useState([]);
-  // Zu welcher Domain gehören die Daten in concepts/questionPool gerade? null =
-  // noch nichts geladen. Ohne diese Kopplung blieben nach einem Bereichswechsel
-  // die alten Fragen bedienbar und eine schnelle Antwort würde unter der NEUEN
-  // Domain gespeichert werden (falsche History-Zuordnung).
-  const [loadedDomainId, setLoadedDomainId] = useState(null);
-  // Ladeversuch der aktiven Domain fehlgeschlagen? Trennt "lädt noch" von
-  // "geladen, aber fehlgeschlagen" — analog zum Museum-Tab.
-  const [domainLoadFailed, setDomainLoadFailed] = useState(false);
+  // Domain-ID, Status und beide Kataloge bilden einen gemeinsamen Zustand. Dadurch
+  // kann kein Fehlerpfad Konzepte leeren und gleichzeitig eine veraltete Domain-ID
+  // stehen lassen. Fremde Daten werden schon im Render vor dem Effekt ausgeblendet.
+  const [domainData, setDomainData] = useState({
+    domainId: null,
+    status: 'idle', // 'idle' | 'loading' | 'ready' | 'failed'
+    concepts: EMPTY_CONCEPTS,
+    questions: EMPTY_QUESTIONS
+  });
 
   // Museum: Konzept-Maps aller Domains — wird einmalig beim ersten Öffnen
   // des Museum-Tabs geladen und dann gecacht (domainId -> Map).
@@ -95,8 +90,13 @@ export default function App() {
   const [museumLoading, setMuseumLoading] = useState(false);
   const [museumLoadFailed, setMuseumLoadFailed] = useState(false);
 
+  const domainDataReady = domainData.domainId === activeDomainId && domainData.status === 'ready';
+  const domainLoadFailed = domainData.domainId === activeDomainId && domainData.status === 'failed';
+  const concepts = domainDataReady ? domainData.concepts : EMPTY_CONCEPTS;
+  const questionPool = domainDataReady ? domainData.questions : EMPTY_QUESTIONS;
+
   // db-artiges Objekt für Komponenten, die geodb.entities erwarten (Quiz,
-  // Dashboard, Atlas) — domain-agnostisch über den Konzeptspeicher.
+  // Dashboard, Atlas) — domain-agnostisch über den verlässlich zugeordneten Speicher.
   const domainDb = useMemo(() => ({ entities: concepts }), [concepts]);
 
   const handleToggleMute = () => {
@@ -156,32 +156,43 @@ export default function App() {
   // werden erst beim Quiz geholt. Das Flag steht in der Registry, damit die Shell
   // keine Domain-Sonderfälle kennen muss.
   const needsDomainData = !activeDomain.deferDataUntilQuiz || activeTab === 'quiz';
-  // Zeigen concepts/questionPool die Daten der aktiven Domain? Erst dann dürfen
-  // Quiz und Explorer damit arbeiten.
-  const domainDataReady = loadedDomainId === activeDomainId;
-
   // Konzepte + Fragen der aktiven Domain laden (Lazy-Fetch je Domain-Wechsel).
   useEffect(() => {
     if (!needsDomainData) return undefined;
-    if (loadedDomainId === activeDomainId) return undefined; // schon geladen
+    if (domainDataReady) return undefined;
     let cancelled = false;
-    setDomainLoadFailed(false);
     // Die Ziel-Domain wird hier festgehalten: ein spät eintreffendes Ergebnis
     // eines zwischenzeitlich verlassenen Bereichs darf nichts mehr setzen.
     const requestedDomainId = activeDomainId;
-    Promise.all([activeDomain.loadConcepts(), activeDomain.loadQuestions()])
+    setDomainData(current => (
+      current.domainId === requestedDomainId && current.status === 'loading'
+        ? current
+        : {
+          domainId: requestedDomainId,
+          status: 'loading',
+          concepts: EMPTY_CONCEPTS,
+          questions: EMPTY_QUESTIONS
+        }
+    ));
+    loadDomainData(activeDomain)
       .then(([loadedConcepts, questions]) => {
         if (cancelled) return;
-        setConcepts(loadedConcepts || {});
-        setQuestionPool(Array.isArray(questions) ? questions : []);
-        setLoadedDomainId(requestedDomainId);
+        setDomainData({
+          domainId: requestedDomainId,
+          status: 'ready',
+          concepts: loadedConcepts || {},
+          questions: Array.isArray(questions) ? questions : []
+        });
       })
       .catch(e => {
         console.error('Error loading domain data:', e);
         if (cancelled) return;
-        setConcepts({});
-        setQuestionPool([]);
-        setDomainLoadFailed(true);
+        setDomainData({
+          domainId: requestedDomainId,
+          status: 'failed',
+          concepts: EMPTY_CONCEPTS,
+          questions: EMPTY_QUESTIONS
+        });
       });
     return () => { cancelled = true; };
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -204,7 +215,7 @@ export default function App() {
     const museumDomains = DOMAINS.filter(domain => domain.id !== 'scientia');
     Promise.all(
       museumDomains.map(domain =>
-        domain.loadConcepts()
+        loadDomainConcepts(domain)
           .then(data => ({ id: domain.id, data, ok: true }))
           .catch(() => ({ id: domain.id, data: {}, ok: false }))
       )
@@ -429,7 +440,7 @@ export default function App() {
   // Fehler kein endloser Ladehinweis wird.
   const renderDomainDataNotice = () => (
     <div className="terra-panel slide-in" style={{ height: '100%', display: 'flex', alignItems: 'center',
-      justifyContent: 'center', textAlign: 'center', padding: '20px', color: 'var(--text-muted)',
+      justifyContent: 'center', textAlign: 'center', padding: '20px', color: 'var(--text-footer)',
       border: '1px solid var(--border-light)' }}>
       {domainLoadFailed
         ? `${activeDomain.latinName} konnte nicht geladen werden. Bitte die Seite neu laden.`
@@ -621,16 +632,17 @@ export default function App() {
               ) : renderDomainDataNotice()}
             </div>
             <div className="app-pane-right">
-              <Dashboard
-                geodb={domainDb}
-                domain={activeDomain}
-                questionPool={questionPool}
-                srsProgress={srsProgress}
-                dueCount={dueEntities.length}
-                streakCount={streakCount}
-                highScore={highScore}
-                onStartDailyReview={handleStartDailyReview}
-              />
+              {domainDataReady ? (
+                <Dashboard
+                  geodb={domainDb}
+                  domain={activeDomain}
+                  questionPool={questionPool}
+                  srsProgress={srsProgress}
+                  streakCount={streakCount}
+                  highScore={highScore}
+                  onStartDailyReview={handleStartDailyReview}
+                />
+              ) : renderDomainDataNotice()}
             </div>
           </>
         ) : (
@@ -638,52 +650,57 @@ export default function App() {
         {/* Linkes Visualisierungs-Panel: Weltkarte bei Terra, sonst pro Frage
             das gefragte Konzept (3D/Vektor bzw. generische Konzeptkarte). */}
         <div className="app-pane-left">
-          <VisualPanel
-            domain={activeDomain}
-            concepts={concepts}
-            srsProgress={srsProgress}
-            activeConceptKey={activeConceptKey}
-            testedAttribute={activeTestedAttribute}
-            answerIsName={activeAnswerIsName}
-            hideConceptIdentity={activeHideConceptIdentity}
-            isQuestionAnswered={activeQuestionAnswered}
-            mapProps={{
-              selectedId: selectedEntityId,
-              onSelectEntity: handleSelectEntityFromMap,
-              highlightedIds: mapState.highlightedIds,
-              correctIds: mapState.correctIds,
-              wrongIds: mapState.wrongIds,
-              progressHeatmap: srsProgress,
-              mode: mapState.mode,
-              showSubdivisions: mapState.showSubdivisions,
-              zoomToEntityId: mapState.zoomToEntityId
-            }}
-          />
+          {domainDataReady ? (
+            <VisualPanel
+              domain={activeDomain}
+              concepts={concepts}
+              srsProgress={srsProgress}
+              activeConceptKey={activeConceptKey}
+              testedAttribute={activeTestedAttribute}
+              answerIsName={activeAnswerIsName}
+              hideConceptIdentity={activeHideConceptIdentity}
+              isQuestionAnswered={activeQuestionAnswered}
+              mapProps={{
+                selectedId: selectedEntityId,
+                onSelectEntity: handleSelectEntityFromMap,
+                highlightedIds: mapState.highlightedIds,
+                correctIds: mapState.correctIds,
+                wrongIds: mapState.wrongIds,
+                progressHeatmap: srsProgress,
+                mode: mapState.mode,
+                showSubdivisions: mapState.showSubdivisions,
+                zoomToEntityId: mapState.zoomToEntityId
+              }}
+            />
+          ) : renderDomainDataNotice()}
         </div>
 
         {/* Rechte Sidebar — Geometrie/Scroll in .app-pane-right (index.css). */}
         <div className="app-pane-right">
           {activeTab === 'dashboard' && (
-            <Dashboard
-              geodb={domainDb}
-              domain={activeDomain}
-              questionPool={questionPool}
-              srsProgress={srsProgress}
-              dueCount={dueEntities.length}
-              streakCount={streakCount}
-              highScore={highScore}
-              onStartDailyReview={handleStartDailyReview}
-            />
+            domainDataReady ? (
+              <Dashboard
+                geodb={domainDb}
+                domain={activeDomain}
+                questionPool={questionPool}
+                srsProgress={srsProgress}
+                streakCount={streakCount}
+                highScore={highScore}
+                onStartDailyReview={handleStartDailyReview}
+              />
+            ) : renderDomainDataNotice()
           )}
 
           {activeTab === 'atlas' && (
-            <Atlas
-              selectedEntity={concepts[selectedEntityId]}
-              srsProgress={srsProgress[selectedEntityId]}
-              onStartQuickQuiz={handleStartQuickQuiz}
-              geodb={domainDb}
-              onSelectEntity={handleSelectEntityFromMap}
-            />
+            domainDataReady ? (
+              <Atlas
+                selectedEntity={concepts[selectedEntityId]}
+                srsProgress={srsProgress[selectedEntityId]}
+                onStartQuickQuiz={handleStartQuickQuiz}
+                geodb={domainDb}
+                onSelectEntity={handleSelectEntityFromMap}
+              />
+            ) : renderDomainDataNotice()
           )}
 
           {/* Quiz erst freigeben, wenn Konzepte UND Fragen zur aktiven Domain gehören.
@@ -693,7 +710,6 @@ export default function App() {
             <Quiz
               geodb={domainDb}
               questionPool={questionPool}
-              domainId={activeDomain.id}
               dueEntities={dueEntities}
               newEntities={newEntities}
               quizMode={quizMode}
@@ -740,7 +756,7 @@ export default function App() {
         <span className="app-footer-sep" aria-hidden="true">·</span>
         <a href="https://dm0.de/datenschutz.html" target="_blank" rel="noopener noreferrer">Datenschutz</a>
         <span className="app-footer-sep" aria-hidden="true">·</span>
-        <span className="app-footer-disclaimer">
+        <span>
           Bildungs- und Unterhaltungszweck. Keine medizinische, rechtliche oder fachliche Beratung. Alle Angaben ohne Gewähr.
         </span>
       </footer>
