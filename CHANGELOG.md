@@ -5,6 +5,16 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-08-23 (v1.98.13) — Khmer-Inschrift im Lingua-Museum
+
+- Eine gemeinfreie historische Khmer-Inschrift ergänzt den Khmer-Eintrag. Sie zeigt die
+  für die Sprache verwendete Schrift unmittelbar, statt sie durch ein Orts- oder
+  Personenfoto nur indirekt zu bebildern.
+- Lingua enthält damit 185 live geprüfte Konzeptbilder; Scientia insgesamt 5.047.
+
+Verifiziert mit Lingua-Generator, Faktenprüfung, Fragen-Audit, vollständigem Commons-Check
+(185 gültig, 0 fehlerhaft) und Browserprüfung von Bild, Attribution und Konsole.
+
 ## 2026-08-23 (v1.98.12) — Aktuelle Statistik zu Bibelübersetzungen
 
 - Der Lingua-Museumsbestand führt nun die von ProgressBible erhobenen, über die Wycliffe
