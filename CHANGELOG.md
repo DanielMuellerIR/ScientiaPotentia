@@ -5,6 +5,16 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-08-23 (v1.98.49) — Spann- und Klemmwerkzeuge im Machina-Museum
+
+- Schraubstock, Schraubzwinge, Federzwinge und Eckzwinge erhalten jeweils eine eindeutige
+  Objekt- oder Funktionsaufnahme. Die Quellen stehen unter CC0, CC-BY oder CC-BY-SA; die
+  Urheberangaben bleiben im Museum sichtbar.
+- Machina enthält damit 224 Konzeptbilder; Scientia insgesamt 5.171.
+
+Verifiziert mit Machina-Generator, Faktenprüfung, Fragen-Audit, vollständigem Commons-Check
+und Browserprüfung von Bild, Attribution, Quiz und Konsole.
+
 ## 2026-08-23 (v1.98.48) — Span- und Sägewerkzeuge im Machina-Museum
 
 - Raspel, Japansäge, Fuchsschwanz und Laubsäge erhalten jeweils eine eindeutige
