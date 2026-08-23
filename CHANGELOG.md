@@ -5,6 +5,16 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-08-23 (v1.98.14) — Drei Schriftsysteme im Lingua-Museum
+
+- Je ein gemeinfreies, direktes Schriftbeispiel ergänzt Cree-Silbenzeichen, Vai und
+  Zhuyin (Bopomofo): eine Silbenzeichentafel, eine Vai-Lautwerttabelle und die reguläre,
+  handschriftliche sowie kursive Form von Bopomofo.
+- Lingua enthält damit 188 live geprüfte Konzeptbilder; Scientia insgesamt 5.050.
+
+Verifiziert mit Lingua-Generator, Faktenprüfung, Fragen-Audit, vollständigem Commons-Check
+(188 gültig, 0 fehlerhaft) und Browserprüfung von Bild, Attribution und Konsole.
+
 ## 2026-08-23 (v1.98.13) — Khmer-Inschrift im Lingua-Museum
 
 - Eine gemeinfreie historische Khmer-Inschrift ergänzt den Khmer-Eintrag. Sie zeigt die
