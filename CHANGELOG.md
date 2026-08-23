@@ -5,6 +5,16 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-08-23 (v1.98.35) — Verbindungselemente im Machina-Museum
+
+- Bolzen, Blindniet, Splint und Spannstift erhalten klare Einzelaufnahmen beziehungsweise ein
+  Funktionsmodell. Die Dateien stehen unter CC0, Public Domain oder CC-BY-SA; das Museum nennt
+  die jeweiligen Urheber direkt am Bild.
+- Machina enthält damit 170 Konzeptbilder; Scientia insgesamt 5.117.
+
+Verifiziert mit Machina-Generator, Faktenprüfung, Fragen-Audit, vollständigem Commons-Check
+und Browserprüfung von Bild, Attribution, Quiz und Konsole.
+
 ## 2026-08-23 (v1.98.34) — Getriebeelemente im Machina-Museum
 
 - Stirnrad, Kegelrad, Schneckenrad und Blattfeder erhalten Bilder, die ihre jeweils
