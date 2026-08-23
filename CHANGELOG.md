@@ -5,6 +5,20 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-08-23 (v1.98.11) — Natura-Bildfenster und Müllers Erdviper
+
+- Die lizenz- und sichtgeprüfte P18-Datei ergänzt Müllers Erdviper im Natura-Museum.
+  Das einzige weitere Resolver-Ergebnis im ersten Fenster, ein Artenvergleich beim
+  Hornissenschwärmer, bleibt wegen der zweiten abgebildeten Art ausgeschlossen.
+- `resolve_images_batched.cjs natura <limit> <offset>` kann nun aufeinanderfolgende,
+  kleine Tierfenster prüfen. So bleiben Quellen-, Lizenz- und Sichtproben kontrollierbar,
+  statt die gesamte Tiermenge ungeprüft zu übernehmen.
+- Natura umfasst 1.879, Scientia insgesamt 5.046 live geprüfte Konzeptbilder.
+
+Verifiziert mit Natura-Generator, `verify:facts -- natura`, Fragen-Audit und vollständigem
+Commons-Check (1.879 gültig, 0 fehlerhaft); die Browserprüfung bestätigt Bild und Attribution
+im Museum.
+
 ## 2026-08-23 (v1.98.10) — Rolandslied im Cultura-Museum
 
 - Eine Public-Domain-Illustration Jean Fouquets zur Schlacht von Roncesvalles ergänzt

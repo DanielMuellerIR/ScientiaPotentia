@@ -3,9 +3,10 @@
 // API-Aufrufe (bis 50 Einheiten pro Request) → ~Dutzend Requests statt einer pro Konzept,
 // damit KEIN Wikimedia-Rate-Limit (429) auftritt. Schreibt das Ergebnis-Mapping inkrementell.
 //
-// Aufruf:  node resolve_images_batched.cjs <domain> [animalCap]
+// Aufruf:  node resolve_images_batched.cjs <domain> [animalCap] [animalOffset]
 //   <domain>   = astra | natura | cultura | lingua
 //   [animalCap]= optionales Limit für natura-Kategorie "animal" (Default: alle)
+//   [animalOffset] = Startindex für ein begrenztes Natura-Tierfenster (Default: 0)
 // Ausgabe:  /tmp/<domain>_images_batched.json  (Array {id, imageFile, imageLicense, imageAttribution})
 
 const https = require("https");
@@ -14,7 +15,13 @@ const path = require("path");
 
 const DOMAIN = process.argv[2];
 const ANIMAL_CAP = process.argv[3] ? parseInt(process.argv[3], 10) : Infinity;
+const ANIMAL_OFFSET = process.argv[4] ? parseInt(process.argv[4], 10) : 0;
 if (!DOMAIN) { console.error("Aufruf: node resolve_images_batched.cjs <domain> [animalCap]"); process.exit(1); }
+if ((ANIMAL_CAP !== Infinity && (!Number.isInteger(ANIMAL_CAP) || ANIMAL_CAP < 1)) ||
+    !Number.isInteger(ANIMAL_OFFSET) || ANIMAL_OFFSET < 0) {
+  console.error("animalCap muss positiv und animalOffset eine nichtnegative ganze Zahl sein.");
+  process.exit(1);
+}
 
 const RAWFILE = path.join(__dirname, `../${DOMAIN}_raw.json`);
 const OUT = `/tmp/${DOMAIN}_images_batched.json`;
@@ -101,11 +108,13 @@ const isFree = meta => {
   const raw = JSON.parse(fs.readFileSync(RAWFILE, "utf8"));
   const cats = TARGETS[DOMAIN];
   let pool = raw.filter(c => cats.has(c.category) && !c.imageFile);
-  if (DOMAIN === "natura" && ANIMAL_CAP !== Infinity) {
-    const animals = pool.filter(c => c.category === "animal").slice(0, ANIMAL_CAP);
+  if (DOMAIN === "natura" && (ANIMAL_CAP !== Infinity || ANIMAL_OFFSET > 0)) {
+    const animals = pool.filter(c => c.category === "animal").slice(ANIMAL_OFFSET, ANIMAL_OFFSET + ANIMAL_CAP);
     pool = pool.filter(c => c.category !== "animal").concat(animals);
   }
-  console.log(`${DOMAIN}: ${pool.length} bildlose Konzepte in Zielkategorien`);
+  const animalWindow = DOMAIN === "natura" && (ANIMAL_CAP !== Infinity || ANIMAL_OFFSET > 0)
+    ? ` (Tierfenster ab ${ANIMAL_OFFSET + 1})` : "";
+  console.log(`${DOMAIN}: ${pool.length} bildlose Konzepte in Zielkategorien${animalWindow}`);
 
   // Schritt 1: QID-Konzepte sammeln (sourceUrl mit Q…) und Rest über de.wiki-Titel
   const byQid = new Map();   // QID -> concept
