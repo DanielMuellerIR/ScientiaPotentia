@@ -5,6 +5,23 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-08-23 (v1.98.68) — Semantische Quiz-QA und Faktenkorrekturen
+
+- Der QA-Runner kann seine Stichproben wahlweise mit GPT-5.6 Terra auswerten. Der
+  vollständige, reproduzierbare Report umfasst 342 Fragen in 29 Batches; Modellbefunde
+  bleiben immer prüfpflichtige Kandidaten.
+- Quellengeprüfte Rohdaten korrigieren Lärchenschwamm, den Fertigstellungszeitraum des
+  Winterpalasts, die Sprecherzahl des Sorbischen, den Suezkanal und das
+  Michelson–Morley-Experiment. Mehrdeutige Werkzeug- und Programmiersprachenfragen
+  entstehen nicht mehr.
+- 62 Fragen fragen bei Tierlebensdauern nach dem Höchstalter statt nach einer offenen
+  Möglichkeit. Gleichwertige Orts- und Reihenfolgeoptionen werden nicht mehr gemeinsam
+  als Distraktoren angeboten.
+- Konzeptkarten unterscheiden nun Pflanzen- und Sprachfamilien korrekt.
+
+Verifiziert mit betroffenen Generatoren, Faktenprüfung, Fragen-Audit, Tests, Layoutcheck
+und Produktions-Build. Der echte iPhone-Hochkantlauf bleibt vertagt.
+
 ## 2026-08-23 (v1.98.67) — Reibebrett im Machina-Museum
 
 - Das Reibebrett erhält eine eindeutige Werkzeugaufnahme aus der Public Domain; die

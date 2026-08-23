@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
-"""QA-Runner — Schritt 2 der MiniMax-Qualitätssicherung.
+"""QA-Runner — Schritt 2 der semantischen Qualitätssicherung.
 
 Liest die von build_batches.mjs erzeugten Batch-Dateien (Spieler-Sicht je Frage),
-schickt jeden Batch gebündelt an MiniMax (One-Shot über theplan/tools/llm_run.py)
+schickt jeden Batch gebündelt an ein gewähltes Sprachmodell (One-Shot über
+theplan/tools/llm_run.py)
 und lässt jede Frage MEHRDIMENSIONAL bewerten:
 
-  - MiniMax beantwortet die Frage ZUERST selbst (nur aus Frage+Optionen+Panel) und
+  - Das gewählte Modell beantwortet die Frage ZUERST selbst (nur aus Frage+Optionen+Panel) und
     sagt, ob es echtes Wissen brauchte oder die Antwort aus Panel/Prompt ableitbar
     war (→ Selbstverräter-Signal).
   - Vergleich mit der hinterlegten Antwort (keyDoubt = möglicher Sachfehler).
@@ -17,7 +18,7 @@ nötig → llm_run.py ist deutlich effizienter (schont Zeit/Overhead) und liefer
 sauberes JSON. Inhalte sind öffentlich (live deployt), kein Geheimnis-Belang.
 
 Wichtig (Fairness): Die Optionen werden pro Frage DETERMINISTISCH gemischt, bevor sie
-an MiniMax gehen — in den Rohdaten steht die richtige Antwort oft auf Position 0; ohne
+an das Modell gehen — in den Rohdaten steht die richtige Antwort oft auf Position 0; ohne
 Mischen würde die Position die Lösung verraten (im echten Quiz mischt die App auch).
 
 Aufruf:
@@ -110,9 +111,9 @@ def deterministic_shuffle(options, seed_str):
 
 
 def format_question(view, ref):
-    """Eine Frage als kompakten Textblock für MiniMax rendern. `ref` ist ein OPAKES
+    """Eine Frage als kompakten Textblock für das Modell rendern. `ref` ist ein OPAKES
     Kürzel (F1, F2 …) statt der echten Frage-id — die id enthält Konzept-Slugs
-    (z.B. 'maitake', 'hammerhai'), die der Spieler NIE sieht; würde MiniMax sie
+    (z.B. 'maitake', 'hammerhai'), die der Spieler NIE sieht; würde das Modell sie
     sehen, flaggte es Selbstverräter, die real gar nicht existieren."""
     opts = deterministic_shuffle(view['options'], view['id'])
     keyed_letter = LETTERS[opts.index(view['keyedAnswer'])] if view['keyedAnswer'] in opts else '?'
@@ -149,19 +150,33 @@ def build_prompt(views):
     return RUBRIK + '\n\n'.join(blocks) + '\n\nJETZT das JSON-Array:', ref2id
 
 
-def call_minimax(prompt, model, max_tokens, timeout):
+def call_model(prompt, backend, model, max_tokens, timeout, effort):
+    """Einen Batch über den freigegebenen One-Shot-Backend bewerten lassen.
+
+    MiniMax bleibt der bisherige Standard. Der Codex-Backend erlaubt einen
+    nachvollziehbaren Lauf mit einem ChatGPT-Modell, ohne den Quiz-Checkout zu
+    öffnen: ``llm_run.py`` startet ihn in einem leeren, schreibgeschützten
+    Verzeichnis. ``max_tokens`` begrenzt MiniMax-Ausgaben; die Codex-CLI stellt
+    keine maschinenlesbare Ausgabeobergrenze bereit und protokolliert deshalb
+    nur den Modellnamen und den Reasoning-Aufwand im Report.
+    """
+    command = [
+        'python3', THEPLAN_LLM_RUN, backend, '--model', model,
+        '--max-tokens', str(max_tokens), '--timeout', str(timeout),
+        '--category', 'todo-audit',
+    ]
+    if backend == 'codex':
+        command.extend(['--effort', effort])
     proc = subprocess.run(
-        ['python3', THEPLAN_LLM_RUN, 'minimax', '--model', model,
-         '--max-tokens', str(max_tokens), '--timeout', str(timeout)],
-        input=prompt, capture_output=True, text=True)
+        command, input=prompt, capture_output=True, text=True)
     if proc.returncode != 0:
         raise RuntimeError(f"llm_run exit {proc.returncode}: {proc.stderr.strip()[:400]}")
     return proc.stdout.strip()
 
 
 def extract_json_array(text):
-    """JSON-Array aus der Antwort ziehen. Salvage-fähig: Bei Truncation (MiniMax läuft
-    ins max_tokens-Limit) werden alle VOLLSTÄNDIGEN Objekte gerettet, ein
+    """JSON-Array aus der Antwort ziehen. Salvage-fähig: Bei einer abgeschnittenen
+    Modellantwort werden alle VOLLSTÄNDIGEN Objekte gerettet, ein
     abgeschnittenes letztes ignoriert — so kostet ein zu langer Batch nur die letzte
     Frage statt den ganzen Batch."""
     text = re.sub(r'```(?:json)?', '', text)  # Codefences entfernen
@@ -198,11 +213,18 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--batches', required=True, help='Verzeichnis mit batch_*.json')
     ap.add_argument('--out', required=True, help='Markdown-Report-Pfad')
-    ap.add_argument('--model', default='MiniMax-M3')
-    ap.add_argument('--max-tokens', type=int, default=8000)
+    ap.add_argument('--backend', choices=('minimax', 'codex'), default='minimax',
+                    help='Bewertungsbackend (Standard: minimax)')
+    ap.add_argument('--model', default=None,
+                    help='Modellname; Standard: MiniMax-M3 bzw. gpt-5.6-terra')
+    ap.add_argument('--effort', choices=('minimal', 'low', 'medium', 'high', 'xhigh'),
+                    default='medium', help='Reasoning-Aufwand für den Codex-Backend')
+    ap.add_argument('--max-tokens', type=int, default=8000,
+                    help='Ausgabeobergrenze pro MiniMax-Aufruf; Codex protokolliert sie nicht')
     ap.add_argument('--timeout', type=int, default=600)
     ap.add_argument('--limit', type=int, default=0, help='nur N Batches (0=alle)')
     args = ap.parse_args()
+    model = args.model or ('gpt-5.6-terra' if args.backend == 'codex' else 'MiniMax-M3')
 
     batch_files = sorted(f for f in os.listdir(args.batches)
                          if re.match(r'batch_\d+\.json$', f))
@@ -217,9 +239,10 @@ def main():
         for v in views:
             all_views[v['id']] = v
         prompt, ref2id = build_prompt(views)
-        print(f"[QA] {bf}: {len(views)} Fragen → MiniMax …", file=sys.stderr)
+        print(f"[QA] {bf}: {len(views)} Fragen → {args.backend}/{model} …", file=sys.stderr)
         try:
-            raw = call_minimax(prompt, args.model, args.max_tokens, args.timeout)
+            raw = call_model(prompt, args.backend, model, args.max_tokens,
+                             args.timeout, args.effort)
             evals = extract_json_array(raw)
             # Opakes Kürzel (F1…) zurück auf die echte Frage-id mappen.
             for e in evals:
@@ -240,11 +263,11 @@ def main():
     json.dump({'errors': errors, 'items': merged},
               open(raw_path, 'w'), ensure_ascii=False, indent=1)
 
-    write_report(args.out, merged, errors, batch_files)
+    write_report(args.out, merged, errors, batch_files, args.backend, model)
     print(f"[QA] Report: {args.out}  (raw: {raw_path})", file=sys.stderr)
 
 
-def write_report(path, merged, errors, batch_files):
+def write_report(path, merged, errors, batch_files, backend, model):
     """Aggregierten Markdown-Report schreiben — Fokus auf Auffälligkeiten."""
     total = len(merged)
     have = [m for m in merged if m['eval']]
@@ -269,7 +292,8 @@ def write_report(path, merged, errors, batch_files):
     systemic.sort(key=lambda x: (-x[1], x[0]))
 
     L = []
-    L.append(f"# MiniMax-QA-Report\n")
+    L.append(f"# Semantischer QA-Report\n")
+    L.append(f"Modell: `{backend}/{model}`\n")
     L.append(f"Batches: {len(batch_files)} · Fragen: {total} · bewertet: {len(have)}"
              f"{' · FEHLER: ' + str(len(errors)) if errors else ''}\n")
     L.append("## Zusammenfassung\n")
@@ -306,7 +330,7 @@ def write_report(path, merged, errors, batch_files):
         L.append("")
 
     block("🔴 Möglicher Sachfehler (keyDoubt)", keydoubt,
-          lambda L, e, v: L.append(f"  - MiniMax-Zweifel: {e.get('keyDoubtGrund','')} "
+          lambda L, e, v: L.append(f"  - Modell-Zweifel: {e.get('keyDoubtGrund','')} "
                                    f"(eigene Antwort {e.get('eigeneAntwort')})"))
     block("🟠 Starker Selbstverräter", giveaway,
           lambda L, e, v: L.append(f"  - Grund: {e.get('selbstverraeterGrund','')}"))

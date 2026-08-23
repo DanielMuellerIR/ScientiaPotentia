@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import {
+  getAttributeLabel,
   isAttrLeakedBeforeAnswer,
   sourceRevealsValue,
   LEAKY_SIBLINGS
@@ -98,5 +99,12 @@ describe('LEAKY_SIBLINGS Tabelle', () => {
       expect(Array.isArray(LEAKY_SIBLINGS[key])).toBe(true);
       expect(LEAKY_SIBLINGS[key].length).toBeGreaterThan(0);
     }
+  });
+});
+
+describe('getAttributeLabel — kontextabhaengige Fachbezeichnung', () => {
+  it('nennt die Familie von Pflanzen und Sprachen fachlich korrekt', () => {
+    expect(getAttributeLabel('family', 'plant')).toBe('Pflanzenfamilie');
+    expect(getAttributeLabel('family', 'language')).toBe('Sprachfamilie');
   });
 });

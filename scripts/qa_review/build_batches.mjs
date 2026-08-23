@@ -1,17 +1,17 @@
 /**
- * QA-Batch-Builder — Schritt 1 der MiniMax-Qualitätssicherung.
+ * QA-Batch-Builder — Schritt 1 der semantischen Qualitätssicherung.
  *
  * Zweck: Aus den generierten Fragen (questions_<domain>.json) eine STRATIFIZIERTE
  * Stichprobe ziehen und für jede Frage exakt das nachbilden, WAS der Spieler vor dem
  * Antworten sieht — Prompt, Optionen, und der Text des linken Panels (Kategorie,
  * Name-oder-„?", die ≤6 sichtbaren Kennwerte nach Selbstverräter-Guard, Quelle).
- * Diese „Spieler-Sicht" geht anschließend gebündelt an MiniMax zur Bewertung
+ * Diese „Spieler-Sicht" geht anschließend gebündelt an ein Sprachmodell zur Bewertung
  * (scripts/qa_review/run_qa.py).
  *
  * Warum stratifiziert statt zufällig: Fragen entstehen aus TEMPLATES (Feld `type`)
  * über viele Konzepte. Ein Defekt in einem Template betrifft potenziell tausende
  * Fragen. Indem wir pro (domain × type) nur k Instanzen ziehen, „deckt" jede
- * Bewertung eine ganze Template-Familie ab — das nutzt das MiniMax-Volumen effizient
+ * Bewertung eine ganze Template-Familie ab — das nutzt das Modellbudget effizient
  * (systematische Fehler finden statt Einzelfälle).
  *
  * WICHTIG (Panel-Treue): Die Filterlogik hier MUSS deckungsgleich mit ConceptVisual.jsx
@@ -35,7 +35,7 @@ import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import {
-  CATEGORY_LABELS, ATTR_LABELS, isAttrLeakedBeforeAnswer, sourceRevealsValue
+  CATEGORY_LABELS, getAttributeLabel, isAttrLeakedBeforeAnswer, sourceRevealsValue
 } from '../../src/components/conceptLabels.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -91,7 +91,7 @@ function reconstructPanel(concept, question) {
       .slice(0, 6);
 
   const visibleAttrs = attrEntries.map(([k, v]) => ({
-    label: ATTR_LABELS[k] || k,
+    label: getAttributeLabel(k, categoryKey),
     value: String(v) + (k === 'value' && attrs.unit ? ` ${attrs.unit}` : '')
   }));
 

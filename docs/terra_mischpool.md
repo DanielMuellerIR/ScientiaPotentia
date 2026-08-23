@@ -1,4 +1,4 @@
-# Terra im Querbeet-Mischpool: Entscheidungsvorlage
+# Terra im Querbeet-Mischpool: Entscheidung
 
 Stand: 2026-08-23
 
@@ -69,6 +69,10 @@ Er würde Kartenklick-Fragen in eine Ansicht ohne Karte mischen.
 
 ## Entscheidung
 
-Für Option 2 ist die Produktentscheidung nötig, ob rund 9,5 % der künftigen
-Querbeet-Fragen aus Geografie stammen sollen, obwohl sie ohne Karte gezeigt
-werden. Ohne diese Freigabe bleibt Option 1 aktiv.
+Daniel hat am 2026-08-23 Option 1 gewählt: Terra bleibt im Querbeet-Mischpool
+ausgeschlossen. Damit behält jede Terra-Frage ihre Weltkarte; die
+Querbeet-CTA nennt weiterhin alle Bereiche außer Geografie. Der Codezustand
+mit `includeInScientia: false` bleibt unverändert.
+
+Option 2 wird nur erneut geprüft, wenn die Produktentscheidung ausdrücklich
+geöffnet wird.

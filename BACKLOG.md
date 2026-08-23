@@ -15,13 +15,15 @@ Vor Übernahme jeden Punkt gegen aktuellen Code, CHANGELOG und bestehende Projek
   nach Daniels Freigabe in v1.92.0 als geprüfter
   [Currency-Rawkatalog](scripts/data_sources/terra_currency_raw.json) integriert und
   der faire Fragetyp reaktiviert.
-- **Astra-Sternbildkontext:** Keine vermeintlich „offiziellen IAU-Strichfiguren“
-  ergänzen. Die IAU erklärt ausdrücklich, dass sie keine solchen Linienmuster definiert;
-  Astra besitzt zudem keine Sternkoordinaten. Vor einer Umsetzung entweder eine konkrete,
-  kompatibel lizenzierte Linienkonvention freigeben oder auf offizielle IAU-Grenzen mit
-  passendem Quelldatensatz umplanen. Quellenlage, Optionen und technischer Rahmen stehen in
+- **Astra-Sternbildkontext:** Daniel hat am 2026-08-23 offizielle IAU-Grenzen gewählt,
+  keine vermeintlich „offiziellen IAU-Strichfiguren“. Astra besitzt noch keine
+  Sternkoordinaten. Die IAU-Grenzdateien verwenden J2000-Koordinaten, aber ihre
+  Bundling-Lizenz ist noch nicht ausdrücklich dokumentiert; vor der Umsetzung diese
+  Lizenz klären. Quellenlage und technischer Rahmen stehen in
   [`docs/astra_sternbilddaten.md`](docs/astra_sternbilddaten.md).
-- Echten iPhone-Hochkantlauf für responsive Shell und VisualPanel.
+- Echten iPhone-Hochkantlauf für responsive Shell und VisualPanel. Daniel hat
+  ihn am 2026-08-23 vertagt; erst fortsetzen, wenn ein reales iPhone verfügbar
+  ist.
 - **Museum-/Explorer-Bildabdeckung:** gezielt erweitern, nur mit Lizenz- und
   Eignungsstichprobe. Am 2026-08-23 wurden die direkt visualisierbaren Lingua-Schriftkonzepte,
   167 Machina-Objekte und 11 eindeutig zuordenbare Astra-Galaxien ergänzt; Rotokas bleibt ohne
@@ -33,14 +35,19 @@ Vor Übernahme jeden Punkt gegen aktuellen Code, CHANGELOG und bestehende Projek
   Content-Ceiling. Der verbleibende Lingua-Eintrag zu Bibelübersetzungen erhielt in v1.98.12
   eine aktuelle, datierte Primärquelle. Die Snapshot-Differenzen rechtfertigen keinen
   Bulk-Append; keine Legacy-Rebuild-Skripte ausführen.
-- Semantischen QA-Lauf (`scripts/qa_review`, MiniMax) auf den aktuellen Daten fahren. Die
-  deterministische Ebene ist mit v1.85.10 abgearbeitet; offen ist nur noch, was
-  strukturelle Checks prinzipiell nicht sehen (Sachfehler, unfaire Distraktoren,
-  Verständlichkeit). Der Lauf verbraucht MiniMax-Kontingent — vorher mit Daniel klären.
-  Preflight am 2026-08-23: eine Frage pro Template über die sieben Nicht-Terra-Domains
-  ergibt 342 Stichproben in 29 Aufrufen zu je höchstens 12 Fragen; mit dem Runner-Standard
-  von 8.000 Ausgabetokens sind höchstens 232.000 Ausgabetokens anzusetzen. Ein
-  generischer Kartenlauf ohne Astra und Homo umfasst 213 Stichproben in 18 Aufrufen.
+- **Semantische QA, Quellen-Triage fortsetzen:** Der Vollauf vom 2026-08-23 mit
+  GPT-5.6 Terra bewertete je eine Frage aus allen 342 Templates der sieben
+  Nicht-Terra-Domains in 29 Aufrufen. Der [Report](docs/qa_reports/qa_2026-08-23_all_gpt56-terra.md)
+  bleibt Kandidatenliste, nicht Wahrheit: Die klaren Befunde sind in v1.98.68
+  quellengeprüft korrigiert (Taxonomie, Winterpalast, Sorbisch, Suezkanal,
+  Michelson–Morley, mehrdeutige Kategorien und äquivalente Antwortoptionen).
+  Ein [Nachlauf](docs/qa_reports/qa_2026-08-23_all_gpt56-terra_validation.md)
+  über 12 geänderte und benachbarte Fragen hatte keine möglichen Sachfehler und
+  keine mehrfach richtige Antwort.
+  Als Nächstes die übrigen modellgemeldeten Sach- und Fairnesskandidaten einzeln
+  gegen Quellen prüfen; insbesondere historische Jahreszahlen, Astro-Werte und
+  Klassifikationen. Ein generischer Kartenlauf ohne Astra und Homo umfasst 213
+  Stichproben in 18 Aufrufen.
 - **Langfristig:** Mischzustand während des Deployments. Assets werden einzeln sichtbar,
   bevor der neue `index.html` erscheint (`deploy.py` lädt den Entrypoint zuletzt und
   ersetzt ihn per atomarem Rename). Das verhindert Datenverlust und halbe Dateien, aber
@@ -53,9 +60,8 @@ Vor Übernahme jeden Punkt gegen aktuellen Code, CHANGELOG und bestehende Projek
   schlimm, es ist nur ein Spiel und es reicht, wenn man langfristig als Todo eine
   Verbesserung anstrebt." Damit bleibt der Punkt als langfristige Verbesserung stehen;
   vorziehen nur, wenn ein Deploy real jemanden gestört hat.
-- Terra im Querbeet-Mischpool? `SCIENTIA_MIX_IDS` lässt Terra bewusst aus (Kartenklick-Fragen
-  brauchen die Weltkarte, geodb-Konzepte passen nicht ins generische ConceptVisual). Seit
-  v1.98.0 sagt die Oberfläche das ehrlich. Alternative wäre, einen kartenfreien Terra-Anteil
-  (reine MCQ-Fragen mit Konzeptkarte) in den Mischpool aufzunehmen — Produktentscheidung,
-  nicht nur Technik. Zahlen, Grenzen und Implementierungsschritte stehen in
+- **Terra im Querbeet-Mischpool (entschieden, 2026-08-23):** `SCIENTIA_MIX_IDS`
+  lässt Terra bewusst aus. Daniel hat die bestehende Option bestätigt, weil
+  Kartenklick-Fragen die Weltkarte brauchen und Geo-Konzepte nicht in die generische
+  Konzeptkarte passen. Zahlen und verworfene Alternative stehen in
   [`docs/terra_mischpool.md`](docs/terra_mischpool.md).

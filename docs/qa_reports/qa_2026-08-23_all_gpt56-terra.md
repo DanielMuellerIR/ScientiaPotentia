@@ -1,0 +1,302 @@
+# Semantischer QA-Report
+
+Modell: `codex/gpt-5.6-terra`
+
+Batches: 29 · Fragen: 342 · bewertet: 342
+
+## Zusammenfassung
+
+- Urteil **behalten**: 274 · **überarbeiten**: 67 · **verwerfen**: 1
+- Selbstverräter stark/schwach/keiner: 30/2/310
+- Distraktoren defekt/schwach/gut: 23/34/285
+- Wissensniveau zu_obskur: 1 · Klarheit unklar: 5
+- Mögliche Sachfehler (keyDoubt): 7
+
+## 🔴 Möglicher Sachfehler (keyDoubt) (7)
+
+- **[natura/natura-fungus-gattung-rev]** Welcher dieser Pilze gehört zur Gattung Porlinge?
+  - Antwort (keyed): Lärchenschwamm
+  - Modell-Zweifel: Der Zunderschwamm ist ebenfalls ein Porling; B ist nicht eindeutig allein richtig. (eigene Antwort A)
+  - Probleme: A und B sind sachlich als Porlinge einzuordnen.; „Gattung Porlinge“ ist taxonomisch unpräzise.
+- **[cultura/cultura-architecture-year]** In welchem Jahr wurde „Winterpalast" fertiggestellt?
+  - Antwort (keyed): 1754
+  - Modell-Zweifel: Der Winterpalast in Sankt Petersburg wurde 1762 fertiggestellt; 1754 war der Baubeginn. (eigene Antwort D)
+  - Probleme: KEYED D verwechselt Baubeginn 1754 mit der Fertigstellung 1762.; Die korrekte Antwort 1762 fehlt.
+- **[lingua/lingua-language-native-speakers-rev]** Welche dieser Sprachen hat rund 1 Millionen Muttersprachler?
+  - Antwort (keyed): Sorbisch
+  - Modell-Zweifel: Sorbisch hat nur einige Zehntausend Sprecher, nicht rund eine Million; Kokborok und wohl auch Farefare liegen eher bei rund einer Million. (eigene Antwort D)
+  - Probleme: KEYED C ist sachlich falsch: Sorbisch hat nicht rund eine Million Muttersprachler.; Farefare und Kokborok können beide ungefähr eine Million Sprecher haben.
+- **[machina/machina-lang-paradigm-rev]** Welche dieser Sprachen ist dem Paradigma „Objektorientiert“ zuzuordnen?
+  - Antwort (keyed): Solidity
+  - Modell-Zweifel: GDScript ist objektorientiert; Solidity kann ebenfalls objektorientierte Merkmale haben. A und C sind damit vertretbar. (eigene Antwort A)
+  - Probleme: A) GDScript ist ebenfalls objektorientiert.; Mehrere fachlich vertretbare Antworten: A und C.
+- **[machina/machina-tool-trade-rev]** Welches dieser Werkzeuge gehört vor allem in das Gewerk „Mess- und Anreißtechnik“?
+  - Antwort (keyed): Wasserwaage
+  - Modell-Zweifel: Der Höhenreißer ist ein typisches Werkzeug zum Messen und Anreißen; auch die Wasserwaage misst, passt aber weniger genau zur genannten Kombination. (eigene Antwort D)
+  - Probleme: C und D sind sachlich beide Messwerkzeuge; die Formulierung grenzt nicht eindeutig ab.; KEYED C ist gegenüber dem präziser passenden Höhenreißer fraglich.
+- **[historia/historia-discovery-discoverer]** Wer entdeckte/beschrieb „Konstanz der Lichtgeschwindigkeit“ als Erster?
+  - Antwort (keyed): Albert Michelson, Edward Morley
+  - Modell-Zweifel: Das Michelson-Morley-Experiment wies keinen Ätherwind nach, formulierte aber nicht als Erste die Konstanz der Lichtgeschwindigkeit. (eigene Antwort D)
+  - Probleme: Panel verrät Antwort D direkt.; Die Zuschreibung der „Konstanz der Lichtgeschwindigkeit“ an Michelson und Morley ist sachlich fragwürdig.
+- **[historia/historia-milestone-field-rev]** Welches dieser Ereignisse gehört zum Bereich „Entdeckung“?
+  - Antwort (keyed): Eröffnung des Suezkanals
+  - Modell-Zweifel: Die Eröffnung des Suezkanals ist ein Bau- und Verkehrsereignis, keine Entdeckung. (eigene Antwort D)
+  - Probleme: KEYED D passt sachlich nicht zum Bereich „Entdeckung“.; Keine der vier Optionen ist eindeutig eine Entdeckung.
+
+## 🟠 Starker Selbstverräter (30)
+
+- **[natura/natura-geology-typ]** Was für eine geologische Formation ist Victoriafälle?
+  - Antwort (keyed): Wasserfall
+  - Grund: Der Name „Victoriafälle“ und Option D „Wasserfall“ verraten die Lösung.
+  - Probleme: „Victoriafälle“ macht „Wasserfall“ ohne Sachwissen eindeutig.
+- **[cultura/cultura-architecture-era]** Welcher Epoche wird das Bauwerk „Burj Khalifa“ zugerechnet?
+  - Antwort (keyed): Moderne
+  - Grund: Das Baujahr 2004–2010 schließt Romanik, Barock und Neugotik sicher aus.
+  - Probleme: Das Panel verrät „Moderne“ über den Bauzeitraum praktisch direkt.
+- **[cultura/cultura-composer-nationality]** Welche Nationalität hatte Giovanni Paisiello?
+  - Antwort (keyed): Italienisch
+  - Grund: Der italienische Vor- und Nachname Paisiello legt C praktisch direkt nahe.
+  - Probleme: Der Name „Giovanni Paisiello“ verrät Italienisch nahezu direkt.
+- **[cultura/cultura-composer-work]** Welches dieser Werke ist ein Hauptwerk von Bedřich Smetana?
+  - Antwort (keyed): Die Moldau
+  - Grund: Die tschechische Nationalität im Panel weist unter den Werktiteln klar auf „Die Moldau“.
+  - Probleme: Die Nationalität „Tschechisch“ im Panel macht „Die Moldau“ zu offensichtlich.
+- **[cultura/cultura-literature-era]** Welcher literarischen Epoche gehört „Parzival" an?
+  - Antwort (keyed): Mittelalter
+  - Grund: Jahr 1210 und „Mittelhochdeutsch“ im Panel führen direkt zum Mittelalter.
+  - Probleme: Panel verrät mit Jahr 1210 und Sprache Mittelhochdeutsch die Lösung Mittelalter.
+- **[cultura/cultura-quote-author]** Von welchem Autor stammt das Zitat: „Je weniger jemand von sich selber weiß, desto weniger hat er von dem, was man 'Kenntnisse' nennt.“?
+  - Antwort (keyed): Arthur Schopenhauer
+  - Grund: Das sichtbare Todesjahr 1860 passt unter den Optionen eindeutig zu Arthur Schopenhauer.
+  - Probleme: Das Panel verrät die Lösung über authorDeathYear: 1860.
+- **[cultura/cultura-quote-complete]** Vervollständige das Zitat: „Der tiefe Schmerz macht erst rechtschaffen; …”
+  - Antwort (keyed): im Glück aber klingt der Mensch oberflächlich.
+  - Grund: Das Panel zeigt das vollständig ergänzte Zitat mit Option B.
+  - Probleme: Das Panel zeigt die richtige Vervollständigung wortgleich.
+- **[cultura/cultura-sculpture-creator]** Wer schuf die Skulptur „Spoonbridge and Cherry“?
+  - Antwort (keyed): Claes Oldenburg und Coosje van Bruggen
+  - Grund: Jahr 1985–1988 und Material passen nur zur modernen Künstleroption B; die übrigen Optionen verweisen auf antike Werke oder sind keine Urheber.
+  - Probleme: Das Panel grenzt die moderne Option B zu deutlich gegen antike Optionen ab.; Option D ist keine Person und beantwortet die Frageform nicht.
+- **[lingua/lingua-etymology-borrowing-path]** Auf welchem Weg gelangte das Wort „Zwiebel" ins Deutsche?
+  - Antwort (keyed): Latein (cepula) → Althochdeutsch (zwibollo) → Deutsch
+  - Grund: Nur D enthält mit „zwibollo“ erkennbar eine Vorform von „Zwiebel“.
+  - Probleme: Option D verrät sich durch die ähnlich aussehende Form „zwibollo“.
+- **[lingua/lingua-etymology-original-meaning-rev]** Welches dieser Wörter bedeutete ursprünglich „Feiertage, Festtage"?
+  - Antwort (keyed): Ferien
+  - Grund: „Ferien“ bedeutet heute bereits freie Tage und passt ohne Etymologiekenntnis unmittelbar zu Festtagen.
+  - Probleme: Die heutige Bedeutung von „Ferien“ macht D ohne Wissen naheliegend.
+- **[lingua/lingua-family-speakers]** Wie viele Muttersprachler hat die Südslawische Sprachen (Zweig)?
+  - Antwort (keyed): 30 Millionen
+  - Grund: Der Panelwert von 0,37 % der Weltbevölkerung ergibt rund 30 Millionen.
+  - Probleme: Der sichtbare Anteil von 0,37 % verrät die Antwort 30 Millionen.
+- **[lingua/lingua-family-world-share]** Welchen Anteil der Weltbevölkerung stellen Muttersprachler der Italische Sprachen (Zweig)?
+  - Antwort (keyed): 12 %
+  - Grund: Die sichtbaren 900 Millionen entsprechen bei rund acht Milliarden Weltbevölkerung etwa 12 %.
+  - Probleme: Der Panelwert von 900 Millionen verrät die Antwort 12 %.
+- **[lingua/lingua-language-total-speakers]** Wie viele Menschen sprechen Portugiesisch insgesamt (Mutter- und Zweitsprachler)?
+  - Antwort (keyed): 263 Millionen
+  - Grund: 236 Mio. Muttersprachler machen nur A als plausible Gesamtzahl erkennbar.
+  - Probleme: Panel verrät A über die Angabe von 236 Mio. Muttersprachlern nahezu direkt.
+- **[machina/machina-acronym-domain]** Welchem Teilgebiet der Informatik ist der Begriff „TLD“ zuzuordnen?
+  - Antwort (keyed): Webtechnik
+  - Grund: Die Quellenzeile nennt „Top-Level-Domain“ und verrät damit den Webbezug.
+  - Probleme: Quellenzeile „Top-Level-Domain“ verrät die Zuordnung zur Webtechnik.
+- **[machina/machina-concept-definition-rev]** Welches IT-Konzept beschreibt folgende Definition?
+„Ein Signal an den Prozessor, das die laufende Verarbeitung unterbricht, um auf ein dringendes Ereignis wie eine Tastatureingabe zu reagieren”
+  - Antwort (keyed): Interrupt (Unterbrechung)
+  - Grund: Nur „Interrupt (Unterbrechung)“ passt unmittelbar zur Definition eines unterbrechenden Signals.
+  - Probleme: Die Optionen verraten die Antwort direkt über den Begriff „Unterbrechung“.
+- **[machina/machina-engine-energy]** Mit welcher Energiequelle arbeitet Permanentmagnet-Synchronmotor primär?
+  - Antwort (keyed): Strom
+  - Grund: Im Panel steht „Typ: Elektrische Maschine“; damit ist Strom direkt ableitbar.
+  - Probleme: Panel verrät mit „Elektrische Maschine“ die Antwort Strom.
+- **[machina/machina-hw-category-rev]** Welche dieser Komponenten gehört zur Gruppe „Kühlung“?
+  - Antwort (keyed): Lüfter
+  - Grund: Ein Lüfter gehört ohne weiteres Fachwissen unmittelbar zur Kühlung.
+  - Probleme: Die Option „Lüfter“ ist gegenüber den drei anderen Optionen zu offensichtlich.
+- **[machina/machina-hw-function]** Welche Aufgabe erfüllt die Komponente Mainboard im Computer?
+  - Antwort (keyed): Zentrale Leiterplatte, die CPU, RAM, Erweiterungskarten und Peripherie verbindet und mit Strom versorgt
+  - Grund: Panel nennt „Hauptplatine/Bus“; nur C beschreibt eine Hauptplatine.
+  - Probleme: Panel verrät die Lösung über „Hauptplatine/Bus“ praktisch direkt.
+- **[machina/machina-lang-ext]** Welche Dateiendung tragen Quelltextdateien der Sprache GDScript typischerweise?
+  - Antwort (keyed): .gd
+  - Grund: Die Endung .gd liegt als Kürzel von GDScript nahe; die übrigen Endungen gehören erkennbar anderen Sprachen.
+  - Probleme: Die richtige Endung .gd wird durch den Sprachnamen nahezu verraten.
+- **[historia/historia-discovery-discoverer]** Wer entdeckte/beschrieb „Konstanz der Lichtgeschwindigkeit“ als Erster?
+  - Antwort (keyed): Albert Michelson, Edward Morley
+  - Grund: Im Panel steht ausdrücklich „Michelson-Morley“, und nur D nennt Michelson und Morley.
+  - Probleme: Panel verrät Antwort D direkt.; Die Zuschreibung der „Konstanz der Lichtgeschwindigkeit“ an Michelson und Morley ist sachlich fragwürdig.
+- **[historia/historia-invention-field]** Welchem Bereich ist die Erfindung „Schnellgefrierverfahren“ zuzuordnen?
+  - Antwort (keyed): Lebensmittel
+  - Grund: „Tiefkühlkost“ im Panel macht Lebensmittel direkt erkennbar.
+  - Probleme: Panel verrät mit „Tiefkühlkost“ direkt Antwort A.
+- **[historia/historia-milestone-field]** Welchem Bereich ist das Ereignis „Erste Implantation eines Herzschrittmachers“ zuzuordnen?
+  - Antwort (keyed): Medizin
+  - Grund: Ein Herzschrittmacher ist ohne weiteres Wissen eindeutig Medizin.
+  - Probleme: Der Ereignisname verrät Antwort A unmittelbar.
+- **[historia/historia-milestone-protagonist]** Welche Person/Gruppe steht im Zentrum von „Erste Landung auf einem Kometen“?
+  - Antwort (keyed): Philae (Rosetta-Mission)
+  - Grund: „Philae“ steht bereits im Ereignisnamen im Panel.
+  - Probleme: Panel verrät mit „(Philae)“ direkt Antwort C.
+- **[homo/homo-devstage-char-rev]** Welches Entwicklungsstadium ist hierdurch gekennzeichnet: „Körperlich ausgereift und geschlechtsreif, mit voller Geschäftsfähigkeit ab der Volljährigkeit"?
+  - Antwort (keyed): Erwachsener
+  - Grund: Die Beschreibung nennt körperliche Reife, Geschlechtsreife und Volljährigkeit direkt.
+  - Probleme: Die Beschreibung verrät B) Erwachsener ohne Wissensabfrage.
+- **[homo/homo-muscle-notable-rev]** Welcher Muskel wird beschrieben als: „Bekanntester Beugemuskel des Oberarms, namensgebend durch zwei Muskelköpfe"?
+  - Antwort (keyed): Bizeps (Musculus biceps brachii)
+  - Grund: „zwei Muskelköpfe“ verweist unmittelbar auf „Bizeps“.
+  - Probleme: „zwei Muskelköpfe“ macht Bizeps ohne Anatomiewissen eindeutig.
+- **[homo/homo-organ-function-rev]** Welches Organ erfüllt folgende Hauptaufgabe: „Milchproduzierende Drüse, die nach einer Schwangerschaft die Säuglingsernährung ermöglicht."?
+  - Antwort (keyed): Brustdrüse (Mamma)
+  - Grund: Die Funktionsbeschreibung „milchproduzierende Drüse“ benennt die Brustdrüse praktisch direkt.
+  - Probleme: Die richtige Antwort ist ohne Sachwissen direkt aus „milchproduzierende Drüse“ ableitbar.
+- **[homo/homo-reflex-response-rev]** Bei welchem Reflex tritt folgende Reaktion auf: „reflexartiges Zugreifen der Hand"?
+  - Antwort (keyed): Greifreflex (Säugling)
+  - Grund: „Zugreifen“ verrät direkt den Greifreflex.
+  - Probleme: Die Formulierung „Zugreifen“ verrät Option D.
+- **[homo/homo-reflex-stimulus-rev]** Welcher Reflex wird durch folgenden Reiz ausgelöst: „Berührung von Zungengrund und weichem Gaumen"?
+  - Antwort (keyed): Würgereflex
+  - Grund: Der Zungengrund löst begrifflich unmittelbar einen Würgereflex aus.
+  - Probleme: Reiz und Bezeichnung „Würgereflex“ machen die Lösung zu offensichtlich.
+- **[homo/homo-sense-function-rev]** Welcher Sinn erbringt folgende Wahrnehmungsleistung: „Nimmt Berührung, Druck und Vibration über spezialisierte Mechanorezeptoren wahr."?
+  - Antwort (keyed): Tastsinn
+  - Grund: „Berührung“ und „Tastsinn“ passen ohne weiteres Wissen direkt zusammen.
+  - Probleme: Die Leistungsbeschreibung verrät den Tastsinn direkt.
+- **[homo/homo-sleep-kind]** Welcher Art ist „Kurzzeitgedächtnis"?
+  - Antwort (keyed): Gedächtnisart
+  - Grund: Der Begriff „Kurzzeitgedächtnis“ bezeichnet offensichtlich eine Gedächtnisart.
+  - Probleme: Die richtige Kategorie steht bereits im Begriff „Kurzzeitgedächtnis“.
+
+## 🟡 Zu obskur / unverständlich (1)
+
+- **[astra/astra-asteroid-year-rev]** Welcher Asteroid wurde im Jahr 2011 entdeckt?
+  - Antwort (keyed): Chiminigagua
+  - Niveau: zu_obskur · Klarheit: klar
+  - Probleme: Entdeckungsjahr eines einzelnen, wenig bekannten Asteroiden ist sehr obskures Detailwissen.
+
+## 🔵 Sonstige überarbeiten/verwerfen (31)
+
+- **[natura/natura-animal-lifespan-rev]** Welches dieser Tiere kann bis zu 30 Jahre alt werden?
+  - Antwort (keyed): Gürteltier
+  - Urteil: ueberarbeiten · Distraktoren: defekt (Steinadler und Flusspferde können ebenfalls 30 Jahre alt werden.)
+  - Probleme: A und D sind bei der Formulierung „bis zu 30 Jahre“ ebenfalls sachlich möglich.; Eine konkrete Art und einheitliche Höchstalter-Definition fehlen.
+- **[natura/natura-geology-height]** Auf welcher Höhe (in Metern über NN) befindet sich Himalaya?
+  - Antwort (keyed): 8.848 m
+  - Urteil: ueberarbeiten · Distraktoren: gut ()
+  - Probleme: Der Himalaya ist ein Gebirge; 8.848 m ist die Höhe des Mount Everest, nicht eine einheitliche Höhe des Himalaya.
+- **[natura/natura-geology-location]** Wo befindet sich Antelope Canyon?
+  - Antwort (keyed): USA, Arizona
+  - Urteil: ueberarbeiten · Distraktoren: defekt (A und D nennen denselben Ort in anderer Reihenfolge.)
+  - Probleme: A „USA, Arizona“ und D „Arizona, USA“ sind identische Antworten.
+- **[natura/natura-mineral-density]** Welche Dichte hat das Mineral Plagioklas?
+  - Antwort (keyed): 2,7 g/cm³
+  - Urteil: ueberarbeiten · Distraktoren: defekt (Plagioklas hat je nach Zusammensetzung eine Dichte etwa im Bereich 2,6–2,8 g/cm³; mehrere Optionen können zutreffen.)
+  - Probleme: Die Dichte von Plagioklas variiert mit dem Natrium-Calcium-Anteil; 2,6, 2,65, 2,7 und 2,8 g/cm³ sind nicht sauber gegeneinander abgrenzbar.
+- **[natura/natura-mineral-mohs]** Welche Mohshärte hat Lapislazuli?
+  - Antwort (keyed): 5,5
+  - Urteil: ueberarbeiten · Distraktoren: defekt (Lapislazuli wird üblicherweise mit Mohshärte 5–5,5 angegeben; auch Option C trifft den Bereich.)
+  - Probleme: Die korrekte Härte ist ein Bereich von 5 bis 5,5; A und C sind daher nicht eindeutig trennbar.
+- **[natura/natura-plant-height]** Welche maximale Höhe erreicht Safran?
+  - Antwort (keyed): 0,3 m
+  - Urteil: ueberarbeiten · Distraktoren: gut ()
+  - Probleme: Im Panel steht fälschlich „Sprachfamilie“ statt Pflanzenfamilie.
+- **[natura/natura-plant-usedas]** Wie wird Litchi hauptsächlich genutzt?
+  - Antwort (keyed): Nahrungsmittel
+  - Urteil: ueberarbeiten · Distraktoren: schwach („Nutzpflanze“ ist ein Oberbegriff, unter den Litchi als Nahrungspflanze ebenfalls fällt.)
+  - Probleme: „Nutzpflanze“ und „Nahrungsmittel“ liegen auf unterschiedlichen Begriffsebenen.
+- **[natura/natura-plant-usedas-rev]** Welche dieser Pflanzen wird hauptsächlich als Heilpflanze genutzt?
+  - Antwort (keyed): Ingwer
+  - Urteil: ueberarbeiten · Distraktoren: schwach (Ingwer wird ebenso verbreitet als Gewürz und Nahrungsmittel verwendet.)
+  - Probleme: „Hauptsächlich als Heilpflanze“ ist bei Ingwer wegen seiner starken kulinarischen Nutzung unscharf.
+- **[cultura/cultura-artwork-country]** Aus welchem Land stammt das Gemälde „Der Turmbau zu Babel (Bruegel)"?
+  - Antwort (keyed): Österreich
+  - Urteil: ueberarbeiten · Distraktoren: gut ()
+  - Probleme: „stammt aus welchem Land“ ist mehrdeutig: Entstehungsort, kulturelle Zuordnung des Malers und heutiger Standort führen zu verschiedenen Ländern.; Das Bild entstand in Antwerpen in den damaligen Niederlanden; KEYED A bezieht sich offenbar auf den heutigen Standort in Österreich.
+- **[cultura/cultura-litmovement-endyear]** Um welches Jahr endete die Literaturepoche Romantik?
+  - Antwort (keyed): 1835
+  - Urteil: ueberarbeiten · Distraktoren: defekt (1835 und 1848 werden je nach Eingrenzung der Romantik als Endpunkt verwendet.)
+  - Probleme: Die Endjahre 1835 und 1848 konkurrieren als gebräuchliche Periodisierungen der Romantik.
+- **[cultura/cultura-sculpture-location]** Wo befindet sich „Merkur (Giambologna)“ heute?
+  - Antwort (keyed): Museo Nazionale del Bargello, Florenz
+  - Urteil: ueberarbeiten · Distraktoren: defekt (A und D nennen denselben Ort.)
+  - Probleme: A und D sind inhaltlich identisch; dadurch gibt es zwei richtige Antworten.
+- **[lingua/lingua-family-distribution]** Wo ist die Hmong-Mien-Sprachfamilie hauptsächlich verbreitet?
+  - Antwort (keyed): Südchina, Südostasien
+  - Urteil: ueberarbeiten · Distraktoren: defekt (A und D nennen dieselben Verbreitungsgebiete in umgekehrter Reihenfolge.)
+  - Probleme: A und D sind sachlich gleich und daher beide richtig.
+- **[lingua/lingua-language-script-type]** Welchen Schrifttyp nutzt die Sprache Hethitisch?
+  - Antwort (keyed): Logografie/Silbenschrift
+  - Urteil: ueberarbeiten · Distraktoren: defekt (A und C bezeichnen beide eine Schrift mit Silbenzeichen und Logogrammen.)
+  - Probleme: A und C sind sachlich nahezu identisch: Keilschrift ist logo-silbisch.
+- **[lingua/lingua-script-charcount]** Wie viele Zeichen umfasst „Runen"?
+  - Antwort (keyed): 24
+  - Urteil: ueberarbeiten · Distraktoren: gut ()
+  - Probleme: „Runen“ umfasst verschiedene historische Runenalphabeten; 24 meint genauer das ältere Futhark.
+- **[lingua/lingua-script-languages-rev]** Für welches dieser Schriftsysteme wird u. a. folgende Sprach-Gruppe verwendet: „Punjabi"?
+  - Antwort (keyed): Gurmukhi-Schrift
+  - Urteil: ueberarbeiten · Distraktoren: gut ()
+  - Probleme: Punjabi ist eine Sprache, keine „Sprach-Gruppe“.; Punjabi wird auch in Shahmukhi geschrieben; die Frage sollte Gurmukhi ausdrücklich als gesuchte Schrift formulieren.
+- **[machina/machina-concept-category]** Welchem Teilgebiet der Informatik ist das Konzept „Polling (Abfrage)” zuzuordnen?
+  - Antwort (keyed): Systemtechnik
+  - Urteil: ueberarbeiten · Distraktoren: gut ()
+  - Probleme: Polling kann je nach Kontext auch Parallelität betreffen; die verlangte Zuordnung zu Systemtechnik ist nicht eindeutig begründet.
+- **[machina/machina-engine-type]** Zu welcher Gattung von Kraftmaschinen zählt Turbofan?
+  - Antwort (keyed): Strömungsmaschine (Turbine)
+  - Urteil: ueberarbeiten · Distraktoren: defekt (Ein Turbofan verbrennt Kraftstoff und kann daher auch als Verbrennungsmotor verstanden werden; B ist neben C sachlich vertretbar.)
+  - Probleme: „Verbrennungsmotor“ ist als zweite sachlich vertretbare Kategorie zu allgemein.
+- **[machina/machina-protocol-layer]** Auf welcher Ebene des Netzwerkmodells ist das Protokoll NetBIOS angesiedelt?
+  - Antwort (keyed): Anwendungsschicht
+  - Urteil: ueberarbeiten · Distraktoren: gut ()
+  - Probleme: NetBIOS wird im OSI-Modell oft der Sitzungsschicht zugeordnet; diese Option fehlt. Das Panel meint offenbar den NetBIOS Name Service als Anwendungsprotokoll.
+- **[machina/machina-simple-function]** Welche mechanische Aufgabe erfüllt Kreuzschubkurbel?
+  - Antwort (keyed): Umwandlung einer Drehbewegung in eine geradlinige Hin- und Herbewegung eines Schiebers ohne Pleuelstange
+  - Urteil: ueberarbeiten · Distraktoren: defekt (A und C beschreiben beide die Umwandlung einer Drehbewegung in eine hin- und hergehende lineare Bewegung ohne Pleuelstange.)
+  - Probleme: A ist neben C sachlich ebenfalls richtig; die Optionen sind nahezu synonym.
+- **[historia/historia-epoch-start]** Um welches Jahr begann die Epoche „Moderne“ (in Europa)?
+  - Antwort (keyed): 1890
+  - Urteil: ueberarbeiten · Distraktoren: schwach (Die zeitliche Einordnung der „Moderne“ hängt stark von Definition und Fachgebiet ab.)
+  - Probleme: „Moderne“ hat keine allgemein eindeutig festgelegte Startjahreszahl; 1890 ist ohne verwendete Definition nicht belastbar.
+- **[historia/historia-invention-country-rev]** Welche dieser Erfindungen stammt aus „Vereinigtes Königreich“?
+  - Antwort (keyed): Hohlraummagnetron
+  - Urteil: ueberarbeiten · Distraktoren: defekt (Auch die Elektrolokomotive kann mit Robert Davidson aus Schottland dem Vereinigten Königreich zugerechnet werden.)
+  - Probleme: Option C kann ebenfalls als Erfindung aus dem Vereinigten Königreich gelten.
+- **[historia/historia-invention-year]** In welchem Jahr wurde „Industrieroboter“ (etwa) erfunden?
+  - Antwort (keyed): 1961
+  - Urteil: ueberarbeiten · Distraktoren: defekt (Bei „etwa“ sind die Jahresoptionen 1959 bis 1962 zu nah beieinander.)
+  - Probleme: „Etwa“ passt nicht zu vier Jahreszahlen im Abstand von nur einem Jahr.
+- **[astra/astra-dwarf-diameter]** Welchen ungefähren Durchmesser hat der Zwergplanet Orcus?
+  - Antwort (keyed): 910 km
+  - Urteil: ueberarbeiten · Distraktoren: defekt (906 km und 910 km sind bei „ungefähr“ praktisch gleich und beide vertretbar.)
+  - Probleme: A) 906 km und B) 910 km sind als ungefähre Durchmesser nicht trennbar.
+- **[astra/astra-dwarf-year]** In welchem Jahr wurde der Zwergplanet Haumea entdeckt?
+  - Antwort (keyed): 2004
+  - Urteil: ueberarbeiten · Distraktoren: gut ()
+  - Probleme: „Entdeckt“ ist bei Haumea mehrdeutig: Beobachtung, Berechnung und Bekanntgabe werden teils unterschiedlichen Jahren zugeordnet.
+- **[astra/astra-mission-launch-year-rev]** Welche dieser Missionen startete im Jahr 2031?
+  - Antwort (keyed): VERITAS
+  - Urteil: ueberarbeiten · Distraktoren: defekt (DAVINCI ist ebenfalls für ein Venus-Startfenster 2031–2032 vorgesehen.)
+  - Probleme: „startete im Jahr 2031“ ist bei einer zukünftigen Mission zeitlich falsch; VERITAS ist nur frühestens für 2031 geplant.; Auch DAVINCI kann 2031 starten; dadurch sind A und B nicht eindeutig trennbar.
+- **[astra/astra-planet-day-rev]** Auf welchem Planeten dauert ein Tag (Rotation) etwa 24 Stunden?
+  - Antwort (keyed): Erde
+  - Urteil: ueberarbeiten · Distraktoren: defekt (Mars rotiert in etwa 24 Stunden (rund 24,6 Stunden) und ist damit ebenfalls korrekt.)
+  - Probleme: Mars (D) erfüllt „etwa 24 Stunden“ ebenfalls; enger formulieren, etwa „genau 24 Stunden“.
+- **[astra/astra-star-magnitude]** Welche scheinbare Helligkeit (Magnitude) hat Wezen ungefähr?
+  - Antwort (keyed): 1,83 mag
+  - Urteil: ueberarbeiten · Distraktoren: defekt (Bei „ungefähr“ sind 1,81 bis 1,86 mag praktisch nicht unterscheidbar.)
+  - Probleme: Die Optionen unterscheiden sich nur um 0,02 bis 0,05 mag, obwohl nach einem Näherungswert gefragt wird.
+- **[homo/homo-cell-system]** Zu welchem Gewebe bzw. System gehört die Zelle „Alpha-Zelle" hauptsächlich?
+  - Antwort (keyed): Hormonsystem
+  - Urteil: ueberarbeiten · Distraktoren: defekt (Alpha-Zellen sind endokrine Drüsenzellen; neben D kann daher auch A zutreffen.)
+  - Probleme: A) Drüsengewebe ist neben D) Hormonsystem sachlich ebenfalls vertretbar.
+- **[homo/homo-muscle-location]** Wo liegt der Muskel mit dem anatomischen Fachbegriff „Musculus rectus femoris"?
+  - Antwort (keyed): vordere Oberschenkelmuskulatur
+  - Urteil: ueberarbeiten · Distraktoren: defekt (A und B beschreiben beide die Vorderseite beziehungsweise vordere Muskulatur des Oberschenkels.)
+  - Probleme: A und B sind sachlich beide richtig; die Antwort ist nicht eindeutig.
+- **[homo/homo-nutrient-class]** Zu welcher Nährstoffgruppe zählt „Zink"?
+  - Antwort (keyed): Spurenelement
+  - Urteil: ueberarbeiten · Distraktoren: schwach (Es gibt nur drei statt der angekündigten vier Optionen.)
+  - Probleme: Option D fehlt.
+- **[homo/homo-organ-weight]** Welches ungefähre Gewicht hat „Harnblase" beim Erwachsenen?
+  - Antwort (keyed): 50 g
+  - Urteil: ueberarbeiten · Distraktoren: schwach (Ohne Angabe, ob die leere Harnblase gemeint ist, hängt das Gewicht stark vom Füllstand ab.)
+  - Probleme: Füllzustand der Harnblase präzisieren; mit Urin kann ihr Gesamtgewicht deutlich höher sein.

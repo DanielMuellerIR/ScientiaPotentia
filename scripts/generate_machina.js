@@ -54,6 +54,17 @@ function containsEitherWay(a, b) {
   return A.includes(B) || B.includes(A);
 }
 
+/**
+ * Zwei zusammengesetzte Paradigmen kollidieren, wenn sie ein gleiches
+ * Teilparadigma ausdrücken. „Objektorientiert“ und
+ * „Objektorientiert/Skriptsprache“ dürfen in einer Reverse-Frage daher nicht
+ * gegeneinander antreten.
+ */
+function classificationsOverlap(a, b) {
+  const parts = value => String(value).split('/').map(part => norm(part)).filter(Boolean);
+  return parts(a).some(left => parts(b).some(right => left === right));
+}
+
 // --- Distraktor-Auswahl (identisch zur Cultura-Engine) ---------------------
 
 function pickCategorical(correct, pool, k = 3) {
@@ -67,10 +78,11 @@ function pickCategorical(correct, pool, k = 3) {
 // pickNumeric: jetzt zentral in ./lib/quizrandom.js (mit Proximity-Guard fuer Messgroessen).
 
 
-function pickNames(correctName, subjectValue, pool, k = 3) {
+function pickNames(correctName, subjectValue, pool, k = 3, valueConflict = null) {
   const subjNorm = norm(subjectValue);
   const candidates = pool
     .filter(p => p.name !== correctName && norm(p.value) !== subjNorm)
+    .filter(p => !valueConflict || !valueConflict(p.value, subjectValue))
     .filter(p => !containsEitherWay(p.name, correctName));
   const cl = String(correctName).length;
   const shuffled = seededShuffle(candidates, correctName);
@@ -133,6 +145,7 @@ const templates = [
   // Distraktor-Sprachen ein ANDERES Paradigma haben.
   {
     category: 'programming_language', attr: 'paradigm', kind: 'name', type: 'machina-lang-paradigm-rev', difficulty: 3,
+    valueConflict: classificationsOverlap,
     prompt: c => `Welche dieser Sprachen ist dem Paradigma „${c.attributes.paradigm}“ zuzuordnen?`
   },
 
@@ -302,6 +315,9 @@ const templates = [
   },
   {
     category: 'tool', attr: 'trade', kind: 'name', type: 'machina-tool-trade-rev', difficulty: 2,
+    // Die Sammelkategorie kombiniert Messen und Anreißen. Ein Höhenreißer
+    // wäre bei einer Wasserwaage als Distraktor fachlich ebenfalls plausibel.
+    skip: c => c.attributes.trade === 'Mess- und Anreißtechnik',
     prompt: c => `Welches dieser Werkzeuge gehört vor allem in das Gewerk „${c.attributes.trade}“?`
   },
 
@@ -422,7 +438,7 @@ for (const tpl of templates) {
     let correct, distractors;
     if (tpl.kind === 'name') {
       correct = c.name;
-      distractors = pickNames(correct, String(rawValue), namePool);
+      distractors = pickNames(correct, String(rawValue), namePool, 3, tpl.valueConflict);
     } else if (tpl.kind === 'num') {
       const n = clean(rawValue);
       if (n === null) { countSkip(tpl, 'kein sauberer Zahlenwert'); continue; }

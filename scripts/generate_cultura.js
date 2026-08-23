@@ -45,7 +45,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { seededShuffle, pickBalanced, pickNumeric, shouldMagnitudeSpread, magnitudeSpreadDistractors } from './lib/quizrandom.js';
-import { norm, deNum, revealsAnswerStrict as revealsAnswer } from './lib/generator_text.js';
+import { norm, deNum, optionKey, distinctOptionValues, revealsAnswerStrict as revealsAnswer } from './lib/generator_text.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -109,8 +109,8 @@ const GENERIC_TITLE = /^\d+\.\s/;
 function pickCategorical(correct, pool, k = 3) {
   // längen-balanciert statt Pool-Reihenfolge: `.slice(0,k)` nahm sonst feste
   // erste-k Einträge → Längen-Bias (richtige Antwort fast immer längste/kürzeste).
-  return pickBalanced(correct, [...new Set(pool.map(String))]
-    .filter(v => v !== String(correct))
+  return pickBalanced(correct, distinctOptionValues(pool)
+    .filter(v => optionKey(v) !== optionKey(correct))
     .filter(v => !containsEitherWay(v, correct)), k);
 }
 

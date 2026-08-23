@@ -29,6 +29,29 @@ export function deNum(value) {
 }
 
 /**
+ * Vergleichsschlüssel für Antwortoptionen. Bei Orts- und Herkunftsangaben
+ * ändert die Reihenfolge kommaseparierter Bestandteile die Bedeutung nicht
+ * ("Rom, Galleria Borghese" = "Galleria Borghese, Rom"). Umlaute und
+ * Satzzeichen sind ebenfalls keine eigenständigen Antwortunterschiede.
+ */
+export function optionKey(value) {
+  const raw = String(value ?? '');
+  const parts = raw.split(',').map(part => norm(part)).filter(Boolean);
+  return parts.length > 1 ? parts.sort().join(',') : norm(raw);
+}
+
+/** Bewahrt die erste Schreibweise jeder semantisch gleichen Option. */
+export function distinctOptionValues(values) {
+  const seen = new Set();
+  return values.map(String).filter(value => {
+    const key = optionKey(value);
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
+/**
  * Selbstverräter-Basis-Check: Steht die Antwort (oder ein markantes
  * Antwort-Wort) schon im Fragetext/Konzeptnamen? Genutzt von Astra/Lingua.
  *

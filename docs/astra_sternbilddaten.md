@@ -2,6 +2,12 @@
 
 Stand: 2026-08-23
 
+## Entscheidung
+
+Daniel hat am 2026-08-23 Option 2 gewählt: Astra soll die offiziellen IAU-Grenzen
+zeigen, keine Sternbild-Strichfiguren. Die Umsetzung bleibt von einer
+nachvollziehbaren Lizenz für den gebündelten Koordinatendatensatz abhängig.
+
 ## Ziel und aktueller Zustand
 
 Sternbildnamen können in Astra als Eigenschaft einzelner Konzepte erscheinen. Für eine
@@ -18,10 +24,15 @@ Quellen:
 
 - [IAU: The Constellations](https://iauarchive.eso.org/public/themes/constellations/)
 - [IAU: What are the constellations?](https://www.iau.org/public/themes/constellations/)
+- [IAU: Public Licensing Policy](https://iau.org/Iau/Copyright.aspx)
+- [VizieR VI/49: Constellation Boundary Data](https://cdsarc.cds.unistra.fr/viz-bin/cat/VI/49)
 
-Die IAU-Seite nennt für ihre Diagramme CC BY 4.0, aber nicht ausdrücklich eine
-Lizenz für die verlinkten Grenzdateien. Solche Daten erst übernehmen, wenn ihre
-Nutzungsbedingungen für das gebündelte Produkt dokumentiert sind.
+Die IAU-Seite liefert für jedes Sternbild eine Textdatei mit J2000-Koordinaten. Die
+allgemeine IAU-Lizenz nennt CC BY 4.0 jedoch ausdrücklich nur für Bilder, Videos und
+Webtexte, nicht für Koordinatendateien. Der referenzierte VizieR-Katalog VI/49 nennt
+das zugrundeliegende Fachwerk, aber ebenfalls keine freie Weiterverwendungslizenz.
+Solche Daten erst übernehmen, wenn ihre Nutzungsbedingungen für das gebündelte Produkt
+dokumentiert sind.
 
 ## Geprüfte Linienquellen
 
@@ -47,16 +58,10 @@ IAU-Standard, bezeichnet werden.
 
 ## Umsetzungsoptionen
 
-1. **Keine Sternkarte:** Die bestehenden Astra-Visualisierungen bleiben unverändert.
-   Das ist die richtige Wahl, wenn Sternbildkontext keinen klaren Lernnutzen hat.
-2. **IAU-Grenzen:** Eine eigene Grenzflächen- oder Grenzlinienansicht verwendet nur
-   geprüfte IAU-Koordinatendaten. Sie ist fachlich amtlich, aber keine vertraute
-   Sternbild-Strichfigur; die Datenlizenz ist vorher zu klären.
-3. **D3-Celestial-Linien:** Eine Sternkarte kann eine explizit benannte
-   D3-Celestial-Konvention verwenden. Sie braucht einen versionierten
-   Quelldatensatz, sichtbare Quellenangabe und eine Kennzeichnung als Konvention.
-
-Von einer direkten Stellarium-Übernahme wird abgeraten.
+Daniel hat IAU-Grenzen gewählt. Eine eigene Grenzflächen- oder Grenzlinienansicht
+verwendet daher nur geprüfte IAU-Koordinatendaten. Sie ist fachlich amtlich, aber keine
+vertraute Sternbild-Strichfigur; die Datenlizenz ist vor dem Import noch zu klären.
+Von einer direkten Stellarium-Übernahme wird weiterhin abgeraten.
 
 ## Technischer Rahmen nach Freigabe
 
@@ -67,6 +72,6 @@ machen keine nachträgliche Änderung aller Sternkonzepte nötig. Eine spezialis
 Astra-Visual-Komponente soll die Daten kapseln; Domain-Shell und Fortschrittsspeicher
 bleiben unverändert.
 
-Für die nächste Umsetzung braucht es Daniels Wahl zwischen Option 1, 2 und 3 sowie
-bei Option 2 oder 3 eine bestätigte Lizenzprüfung des exakt übernommenen
-Datensatzes.
+Für die nächste Umsetzung braucht es eine bestätigte Lizenzprüfung des exakt
+übernommenen IAU-Datensatzes. Erst dann werden Rohquelle, Generator, spezialisierte
+Visual-Komponente und sichtbare Quellenangabe ergänzt.

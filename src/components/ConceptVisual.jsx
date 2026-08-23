@@ -1,7 +1,7 @@
 import React from 'react';
 // Label-Tabellen und Selbstverraeter-Guard-Mengen liegen zentral in conceptLabels.js
 // (geteilt mit Dashboard-Aufschluesselung und den QA-Werkzeugen).
-import { CATEGORY_LABELS, ATTR_LABELS, isAttrLeakedBeforeAnswer, sourceRevealsValue } from './conceptLabels';
+import { CATEGORY_LABELS, getAttributeLabel, isAttrLeakedBeforeAnswer, sourceRevealsValue } from './conceptLabels';
 // Commons-Dateiseite -> direkter, skalierter Bild-Link (geteilt mit Museum/Galerie).
 import AnswerRevealImage from './AnswerRevealImage';
 
@@ -179,7 +179,7 @@ export default function ConceptVisual({
                 }}
               >
                 <div style={{ fontSize: '10.5px', opacity: 0.6, fontWeight: 600, letterSpacing: '0.4px' }}>
-                  {ATTR_LABELS[k] || k}
+                  {getAttributeLabel(k, categoryKey)}
                 </div>
                 <div style={{ fontSize: '13px', fontWeight: 600 }}>
                   {String(v)}{k === 'value' && attrs.unit ? ` ${attrs.unit}` : ''}

@@ -20,7 +20,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { pickBalanced, pickNumeric, shouldMagnitudeSpread, magnitudeSpreadDistractors } from './lib/quizrandom.js';
-import { norm, deNum, revealsAnswerStrict as revealsAnswer } from './lib/generator_text.js';
+import { norm, deNum, optionKey, distinctOptionValues, revealsAnswerStrict as revealsAnswer } from './lib/generator_text.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -59,7 +59,8 @@ function cleanNum(v) {
  *  längste/kürzeste Option). Deckt auch die Reverse-Namens-Distraktoren ab, die
  *  über reverseSafeDistractors → pickCategorical laufen. */
 function pickCategorical(correct, pool, k = 3) {
-  return pickBalanced(correct, [...new Set(pool.map(String))].filter(v => v !== String(correct)), k);
+  return pickBalanced(correct, distinctOptionValues(pool)
+    .filter(value => optionKey(value) !== optionKey(correct)), k);
 }
 
 /**
@@ -190,7 +191,9 @@ const templates = [
     category: 'animal', attr: 'lifespanYears', kind: 'name', type: 'natura-animal-lifespan-rev', difficulty: 4,
     compareKind: 'num',
     subject: c => `${deNum(cleanNum(c.attributes.lifespanYears))} Jahre`,
-    prompt: c => `Welches dieser Tiere kann bis zu ${deNum(cleanNum(c.attributes.lifespanYears))} Jahre alt werden?`
+    // „kann bis zu“ wäre auch für ein Tier mit einem höheren Höchstalter wahr.
+    // Das Höchstalter hält die numerische Reverse-Frage eindeutig.
+    prompt: c => `Welches dieser Tiere erreicht ein Höchstalter von ${deNum(cleanNum(c.attributes.lifespanYears))} Jahren?`
   },
   // Weitere numerische Reverse-Fragen (Wert -> Tiername). Distraktoren-Pool und
   // korrekte Eindeutigkeit übernimmt der Reverse-Korrektheits-Filter über compareKind.

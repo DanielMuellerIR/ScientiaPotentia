@@ -333,6 +333,16 @@ export const ATTR_LABELS = {
   field: 'Bereich'
 };
 
+/**
+ * Liefert den sichtbaren Attributnamen. Der Rohschlüssel `family` wird von
+ * Pflanzen und Sprachen geteilt; erst die Kategorie entscheidet, welche
+ * fachliche Bezeichnung im Panel steht.
+ */
+export function getAttributeLabel(key, category = '') {
+  if (key === 'family' && category === 'plant') return 'Pflanzenfamilie';
+  return ATTR_LABELS[key] || key;
+}
+
 // Diese Freitext-Attribute beschreiben das Konzept so konkret, dass sie vor der
 // Antwort oft indirekt die Loesung verraten. Sie werden erst als Erklaerung nach
 // der Antwort gezeigt.
