@@ -5,6 +5,16 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-08-23 (v1.98.29) — Elektronikmodule im Machina-Museum
+
+- Spannungsregler, Optokoppler, Echtzeituhr und rackmontierte PDU erhalten direkte Bilder.
+  Die Quellen zeigen jeweils das abgefragte Modul oder Gerät und stehen unter CC-BY- oder
+  CC-BY-SA-Lizenzen mit sichtbarer Attribution.
+- Machina enthält damit 148 live geprüfte Konzeptbilder; Scientia insgesamt 5.095.
+
+Verifiziert mit Machina-Generator, Faktenprüfung, Fragen-Audit, vollständigem Commons-Check
+(148 gültig, 0 fehlerhaft) und Browserprüfung von Bild, Attribution und Konsole.
+
 ## 2026-08-23 (v1.98.28) — Weitere Geräte im Machina-Museum
 
 - BIOS-Chip, RAID-Controller, Kartenleser, FIDO2-Sicherheitsschlüssel und Capture-Karte
