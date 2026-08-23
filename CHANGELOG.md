@@ -5,6 +5,16 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-08-23 (v1.98.22) — Grundlegende Hardware im Machina-Museum
+
+- Freie, sichtgeprüfte Objektfotos für HDD, Tastatur, Scanner, Drucker und Webcam ergänzen
+  die bisher schwach abgedeckten Hardwarekonzepte. Vier Bilder sind CC-kompatibel, Scanner
+  und Webcam stehen gemeinfrei beziehungsweise unter CC0.
+- Machina enthält damit 129 live geprüfte Konzeptbilder; Scientia insgesamt 5.065.
+
+Verifiziert mit Machina-Generator, Faktenprüfung, Fragen-Audit, vollständigem Commons-Check
+(129 gültig, 0 fehlerhaft) und Browserprüfung von Bild, Attribution und Konsole.
+
 ## 2026-08-23 (v1.98.21) — Drei weitere Schriftbilder im Lingua-Museum
 
 - Eine N'Ko-Unterrichtsszene sowie zwei deckende Tafeln für Hiragana und Katakana ergänzen
