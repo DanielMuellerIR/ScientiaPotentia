@@ -5,6 +5,16 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-08-23 (v1.98.16) — Javanische Alphabettafel im Lingua-Museum
+
+- Die gemeinfreie Tafel aus Thomas Stamford Raffles’ *History of Java* ergänzt
+  Hanacaraka mit Grundzeichen, Vokalzeichen und Ziffern. Sie zeigt die javanische
+  Schrift selbst, statt sie durch eine Produkt- oder Ortsaufnahme zu vertreten.
+- Lingua enthält damit 190 live geprüfte Konzeptbilder; Scientia insgesamt 5.052.
+
+Verifiziert mit Lingua-Generator, Faktenprüfung, Fragen-Audit, vollständigem Commons-Check
+(190 gültig, 0 fehlerhaft) und Browserprüfung von Bild, Attribution und Konsole.
+
 ## 2026-08-23 (v1.98.15) — Baybayin-Schriftprobe im Lingua-Museum
 
 - Ein CC-BY-SA-Foto von Asenyero ergänzt Baybayin mit einer gegenwärtigen handschriftlichen
