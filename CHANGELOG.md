@@ -5,6 +5,17 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-08-23 (v1.98.12) — Aktuelle Statistik zu Bibelübersetzungen
+
+- Der Lingua-Museumsbestand führt nun die von ProgressBible erhobenen, über die Wycliffe
+  Global Alliance veröffentlichten Zahlen vom 2025-08-01: 4.007 Sprachen mit mindestens
+  einem biblischen Text, darunter 776 vollständige Bibeln.
+- Die unbelegte Superlativ-Aussage sowie die veralteten Nebenangaben zu Druckauflage und
+  Gutenberg-Bibel entfallen. Der Eintrag verweist direkt auf die datierte Fachquelle.
+
+Verifiziert mit Lingua-Generator, Faktenprüfung und Fragen-Audit; der Eintrag bleibt
+bewusst reiner Museumsbestand und erzeugt keine Quizfrage.
+
 ## 2026-08-23 (v1.98.11) — Natura-Bildfenster und Müllers Erdviper
 
 - Die lizenz- und sichtgeprüfte P18-Datei ergänzt Müllers Erdviper im Natura-Museum.
