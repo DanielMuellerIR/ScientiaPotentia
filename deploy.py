@@ -17,6 +17,7 @@ import io
 import json
 import os
 import posixpath
+import re
 import ssl
 import subprocess
 import sys
@@ -39,6 +40,15 @@ ENTRYPOINT = "index.html"
 # unter src/ und wird ins JavaScript-Bundle eingebettet, nie als Datei deployt.
 PROTECTED_FILES = {".htaccess", ".htpasswd"}
 UPLOAD_MARKER = ".uploading-"
+# XSHA256 und XMD5 sind nicht Teil des FTP-Kerns. Manche Server bieten einen
+# oder beide Befehle an; ohne sie bleibt der bewährte Manifest-/Größen-Fallback.
+CHECKSUM_COMMANDS = (
+    ("XSHA256", "sha256", 64),
+    ("XMD5", "md5", 32),
+)
+UNSUPPORTED_FTP_COMMAND_CODES = {"500", "501", "502", "504"}
+CHECKSUM_UNSUPPORTED = object()
+CHECKSUM_UNVERIFIABLE = object()
 
 
 @dataclass
@@ -79,6 +89,99 @@ def get_remote_size(ftps, path):
         ftps.voidcmd("TYPE I")
         return ftps.size(path)
     except ftplib.error_perm:
+        return None
+
+
+def digest_of_file(path, algorithm):
+    """Berechnet einen Dateihash gestückelt für den lokalen Vergleich."""
+    digest = hashlib.new(algorithm)
+    with open(path, "rb") as file_handle:
+        for chunk in iter(lambda: file_handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def is_unsupported_ftp_command(error):
+    """Erkennt nur die FTP-Antworten für einen nicht implementierten Befehl."""
+    return str(error).split(" ", 1)[0] in UNSUPPORTED_FTP_COMMAND_CODES
+
+
+def request_remote_checksum(ftps, command, remote_file, digest_length):
+    """Fragt eine Erweiterungs-Prüfsumme ab, ohne ein Remote-File zu lesen.
+
+    ``CHECKSUM_UNSUPPORTED`` erlaubt den Größen-Fallback. Jede andere
+    unbrauchbare Antwort gilt dagegen als nicht verifiziert und erzwingt einen
+    Upload, statt einen potentiell beschädigten Inhalt zu überspringen.
+    """
+    try:
+        response = ftps.sendcmd(f"{command} {remote_file}")
+    except ftplib.error_perm as error:
+        return CHECKSUM_UNSUPPORTED if is_unsupported_ftp_command(error) else CHECKSUM_UNVERIFIABLE
+    except ftplib.all_errors:
+        return CHECKSUM_UNVERIFIABLE
+
+    match = re.search(
+        rf"(?<![0-9a-fA-F])([0-9a-fA-F]{{{digest_length}}})(?![0-9a-fA-F])",
+        response,
+    )
+    return match.group(1).lower() if match else CHECKSUM_UNVERIFIABLE
+
+
+class RemoteChecksumVerifier:
+    """Wählt einmal pro Deploy die beste verfügbare Server-Prüfsumme.
+
+    Der erste Skip-Kandidat probiert XSHA256 und danach XMD5. Anschließend
+    bleibt der gefundene Befehl gecacht. Lehnt der Server beide Erweiterungen
+    ab, entstehen keine weiteren Zusatzanfragen für die restlichen Dateien.
+    """
+
+    def __init__(self, ftps):
+        self.ftps = ftps
+        self.command = None
+        self.algorithm = None
+        self.digest_length = None
+        self.unavailable = False
+
+    def _expected_digest(self, local_file, algorithm):
+        if algorithm == "sha256":
+            return local_file["sha256"]
+        # MD5 dient ausschließlich dem Vergleich mit einem XMD5-fähigen Server;
+        # das Release-Manifest bleibt unverändert bei SHA-256 als Wahrheit.
+        return digest_of_file(local_file["local_file"], algorithm)
+
+    def matches(self, remote_file, local_file):
+        """Gibt True, False oder None (Erweiterung nicht verfügbar) zurück."""
+        if self.unavailable:
+            return None
+
+        commands = (
+            ((self.command, self.algorithm, self.digest_length),)
+            if self.command is not None
+            else CHECKSUM_COMMANDS
+        )
+        for command, algorithm, digest_length in commands:
+            remote_digest = request_remote_checksum(
+                self.ftps, command, remote_file, digest_length
+            )
+            if remote_digest is CHECKSUM_UNSUPPORTED:
+                if self.command is not None:
+                    # Ein Serverwechsel während eines Deploys darf nicht zu einem
+                    # Skip mit alter Annahme führen.
+                    self.unavailable = True
+                    return None
+                continue
+            if remote_digest is CHECKSUM_UNVERIFIABLE:
+                return False
+
+            if self.command is None:
+                self.command = command
+                self.algorithm = algorithm
+                self.digest_length = digest_length
+                print(f"[DEPLOY] Remote checksum verification enabled: {command}")
+            return remote_digest == self._expected_digest(local_file, algorithm)
+
+        self.unavailable = True
+        print("[DEPLOY] Remote checksum extensions unavailable; using manifest and size fallback.")
         return None
 
 
@@ -208,11 +311,7 @@ def resolve_ftp_host(host):
 
 def sha256_of_file(path):
     """Berechnet SHA-256 gestückelt, damit große Dateien wenig RAM benötigen."""
-    digest = hashlib.sha256()
-    with open(path, "rb") as file_handle:
-        for chunk in iter(lambda: file_handle.read(1024 * 1024), b""):
-            digest.update(chunk)
-    return digest.hexdigest()
+    return digest_of_file(path, "sha256")
 
 
 def empty_manifest():
@@ -340,15 +439,18 @@ def remote_path(remote_base, relative_path):
     return posixpath.join(remote_base, relative_path)
 
 
-def remote_matches_manifest(ftps, remote_file, local_file, remote_metadata):
-    """Ein Skip braucht Remote-Hashbeleg und die tatsächlich gemeldete Größe."""
+def remote_matches_manifest(ftps, remote_file, local_file, remote_metadata, checksum_verifier):
+    """Ein Skip braucht Manifest, aktuelle Größe und ggf. Server-Prüfsumme."""
     if not isinstance(remote_metadata, dict):
         return False
     if remote_metadata.get("sha256") != local_file["sha256"]:
         return False
     if remote_metadata.get("size") != local_file["size"]:
         return False
-    return get_remote_size(ftps, remote_file) == local_file["size"]
+    if get_remote_size(ftps, remote_file) != local_file["size"]:
+        return False
+    checksum_matches = checksum_verifier.matches(remote_file, local_file)
+    return checksum_matches is not False
 
 
 def deploy_dist(ftps, local_dist, remote_base, *, dry_run=False, force=False):
@@ -372,6 +474,7 @@ def _deploy_dist_normalised(ftps, local_dist, remote_base, *, dry_run=False, for
         require_remote_directory(ftps, remote_base)
         remote_manifest = load_remote_manifest(ftps, remote_base)
     remote_files = remote_manifest["files"]
+    checksum_verifier = RemoteChecksumVerifier(ftps) if not dry_run else None
     release_files = {}
     uploaded = 0
     skipped = ignored
@@ -403,7 +506,9 @@ def _deploy_dist_normalised(ftps, local_dist, remote_base, *, dry_run=False, for
         if (
             not force
             and not dry_run
-            and remote_matches_manifest(ftps, target, file, remote_files.get(relative_path))
+            and remote_matches_manifest(
+                ftps, target, file, remote_files.get(relative_path), checksum_verifier
+            )
         ):
             print(f"[DEPLOY] [SKIP] Remote file verified: {relative_path}")
             release_files[relative_path] = metadata

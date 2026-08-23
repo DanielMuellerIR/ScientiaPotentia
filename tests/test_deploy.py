@@ -11,11 +11,22 @@ import deploy
 class FakeFTPS:
     """Kleine speicherinterne FTPS-Gegenstelle für Deploy-Regressionstests."""
 
-    def __init__(self, files=None, fail_upload_suffix=None, directories=None):
+    def __init__(
+        self,
+        files=None,
+        fail_upload_suffix=None,
+        directories=None,
+        checksum_commands=(),
+        malformed_checksum_commands=(),
+    ):
         self.files = dict(files or {})
         self.directories = set(directories if directories is not None else {"/", "/remote"})
         self.history = []
         self.fail_upload_suffix = fail_upload_suffix
+        self.checksum_commands = {command.upper() for command in checksum_commands}
+        self.malformed_checksum_commands = {
+            command.upper() for command in malformed_checksum_commands
+        }
 
     def voidcmd(self, command):
         self.history.append(("voidcmd", command))
@@ -26,6 +37,19 @@ class FakeFTPS:
         if path not in self.files:
             raise ftplib.error_perm("550 missing")
         return len(self.files[path])
+
+    def sendcmd(self, command):
+        self.history.append(("sendcmd", command))
+        command_name, path = command.split(" ", 1)
+        command_name = command_name.upper()
+        if command_name not in self.checksum_commands:
+            raise ftplib.error_perm("502 command not implemented")
+        if path not in self.files:
+            raise ftplib.error_perm("550 missing")
+        if command_name in self.malformed_checksum_commands:
+            return "213 no checksum here"
+        algorithm = {"XSHA256": "sha256", "XMD5": "md5"}[command_name]
+        return f"213 {hashlib.new(algorithm, self.files[path]).hexdigest()}"
 
     def cwd(self, path):
         self.history.append(("cwd", path))
@@ -207,6 +231,68 @@ class DeployTests(unittest.TestCase):
         stored_paths = [event[1] for event in ftps.history if event[0] == "store"]
         self.assertFalse(any(path.startswith("/remote/assets/app.js") for path in stored_paths))
         self.assertFalse(any(path.startswith("/remote/index.html.uploading-") for path in stored_paths))
+
+    def test_server_checksum_reuploads_same_size_corruption_despite_manifest(self):
+        """Ein passendes altes Manifest darf beschädigte Bytes nicht mehr verdecken."""
+        self.write_build(asset=b"fresh")
+        deployed_files = {"index.html": b"new index", "assets/app.js": b"fresh"}
+        ftps = FakeFTPS(
+            {
+                "/remote/index.html": b"new index",
+                "/remote/assets/app.js": b"stale",
+                f"/remote/{deploy.REMOTE_MANIFEST_NAME}": remote_manifest(deployed_files),
+            },
+            checksum_commands={"XSHA256"},
+        )
+
+        result = deploy.deploy_dist(ftps, str(self.dist), "/remote")
+
+        self.assertEqual(result.failed, 0)
+        self.assertEqual(result.uploaded, 1)
+        self.assertEqual(result.skipped, 1)
+        self.assertEqual(ftps.files["/remote/assets/app.js"], b"fresh")
+        self.assertTrue(temporary_upload_of(ftps, "/remote/assets/app.js"))
+
+    def test_xmd5_is_used_when_xsha256_is_unavailable(self):
+        self.write_build()
+        deployed_files = {"index.html": b"new index", "assets/app.js": b"new asset"}
+        ftps = FakeFTPS(
+            {
+                "/remote/index.html": deployed_files["index.html"],
+                "/remote/assets/app.js": deployed_files["assets/app.js"],
+                f"/remote/{deploy.REMOTE_MANIFEST_NAME}": remote_manifest(deployed_files),
+            },
+            checksum_commands={"XMD5"},
+        )
+
+        result = deploy.deploy_dist(ftps, str(self.dist), "/remote")
+
+        self.assertEqual(result.failed, 0)
+        self.assertEqual(result.uploaded, 0)
+        self.assertEqual(result.skipped, 2)
+        checksum_requests = [event[1] for event in ftps.history if event[0] == "sendcmd"]
+        self.assertEqual(checksum_requests[0], "XSHA256 /remote/assets/app.js")
+        self.assertEqual(checksum_requests[1], "XMD5 /remote/assets/app.js")
+        self.assertEqual(checksum_requests[2], "XMD5 /remote/index.html")
+
+    def test_malformed_server_checksum_forces_an_upload(self):
+        self.write_build()
+        deployed_files = {"index.html": b"new index", "assets/app.js": b"new asset"}
+        ftps = FakeFTPS(
+            {
+                "/remote/index.html": deployed_files["index.html"],
+                "/remote/assets/app.js": deployed_files["assets/app.js"],
+                f"/remote/{deploy.REMOTE_MANIFEST_NAME}": remote_manifest(deployed_files),
+            },
+            checksum_commands={"XSHA256"},
+            malformed_checksum_commands={"XSHA256"},
+        )
+
+        result = deploy.deploy_dist(ftps, str(self.dist), "/remote")
+
+        self.assertEqual(result.failed, 0)
+        self.assertEqual(result.uploaded, 2)
+        self.assertEqual(result.skipped, 0)
 
     def test_assets_are_published_atomically_via_rename(self):
         """Auch Assets dürfen nie direkt auf ihren Live-Pfad geschrieben werden."""

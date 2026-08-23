@@ -5,6 +5,20 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-08-23 (v1.98.6) — Deploy prüft serverseitige Hashes
+
+- `deploy.py` nutzt beim inkrementellen Skip nun `XSHA256`, ersatzweise `XMD5`,
+  sofern der FTPS-Server den jeweiligen Befehl anbietet. Ein Remote-Manifest mit
+  passender Größe reicht dann nicht mehr, um eine nachträglich beschädigte Datei
+  gleicher Länge zu überspringen.
+- Server ohne diese Erweiterungen behalten den bisherigen Manifest-/Größen-Fallback;
+  die Website wird nicht vollständig zurückgelesen. Unbrauchbare Prüfsummen-Antworten
+  erzwingen vorsorglich den Upload.
+
+Verifiziert mit 18 isolierten Deploy-Regressionstests, einschließlich gleich großer
+Manipulation, XMD5-Fallback und fehlerhafter Serverantwort, sowie einem Dry-run des
+aktuellen Builds.
+
 ## 2026-08-23 (v1.98.5) — Terra-Fortschritt zählt nur abfragbare Orte
 
 - Das Dashboard leitet bei Terra die Gesamt- und Typzahlen aus den Entitäten ab,

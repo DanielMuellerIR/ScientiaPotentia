@@ -29,13 +29,6 @@ Vor Übernahme jeden Punkt gegen aktuellen Code, CHANGELOG und bestehende Projek
   deterministische Ebene ist mit v1.85.10 abgearbeitet; offen ist nur noch, was
   strukturelle Checks prinzipiell nicht sehen (Sachfehler, unfaire Distraktoren,
   Verständlichkeit). Der Lauf verbraucht MiniMax-Kontingent — vorher mit Daniel klären.
-- Deploy-Skip ohne serverseitige Prüfsumme: `remote_matches_manifest()` vergleicht den
-  lokalen Hash mit dem Wert aus dem Remote-Manifest und prüft an der echten Remotedatei
-  nur die Größe. Eine nachträglich beschädigte Datei gleicher Länge gilt damit weiter als
-  geprüft und wird bei jedem Deploy übersprungen. Sauber wäre eine serverseitige Prüfsumme
-  (`XSHA256`/`XMD5`, sofern der FTP-Server sie anbietet, sonst Fallback auf heute); alle
-  Dateien streamend per `RETR` zu hashen würde dagegen bei jedem Deploy die komplette Site
-  herunterladen und den inkrementellen Vorteil auffressen. Behelf heute: `deploy.py --force`.
 - **Langfristig:** Mischzustand während des Deployments. Assets werden einzeln sichtbar,
   bevor der neue `index.html` erscheint (`deploy.py` lädt den Entrypoint zuletzt und
   ersetzt ihn per atomarem Rename). Das verhindert Datenverlust und halbe Dateien, aber
