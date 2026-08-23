@@ -5,6 +5,16 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-08-23 (v1.98.26) — Vier weitere Galaxienbilder im Astra-Museum
+
+- Freie Aufnahmen ergänzen Bildhauer-, Feuerrad-, Sonnenblumen- und Schwarzauge-Galaxie.
+  Das Bild der Bildhauer-Galaxie stammt von der ESO unter CC BY 4.0, die beiden Aufnahmen
+  von Stephen Rahn stehen unter CC0 und das Hubble-Bild von M101 ist gemeinfrei.
+- Astra enthält damit 486 live geprüfte Konzeptbilder; Scientia insgesamt 5.083.
+
+Verifiziert mit Astra-Generator, Faktenprüfung, Fragen-Audit, vollständigem Commons-Check
+(486 gültig, 0 fehlerhaft) und Browserprüfung von Bild, Attribution und Konsole.
+
 ## 2026-08-23 (v1.98.25) — Vier Galaxienbilder im Astra-Museum
 
 - Gemeinfreie Aufnahmen von Sombrero-Galaxie, Bode-Galaxie, Zigarrengalaxie und Centaurus A
