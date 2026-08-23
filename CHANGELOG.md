@@ -5,6 +5,16 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-08-23 (v1.98.20) — Zwei Schriftbilder im Lingua-Museum
+
+- Eine Museumsaufnahme einer aramäisch-babylonischen Schreiberübung und ein zweisprachiges
+  Inuktitut-Notausgangsschild machen beide Schriftkonzepte konkret sichtbar. Beide Bilder
+  sind CC BY-SA 4.0 lizenziert und im dunklen Museumspanel auf Lesbarkeit geprüft.
+- Lingua enthält damit 195 live geprüfte Konzeptbilder; Scientia insgesamt 5.057.
+
+Verifiziert mit Lingua-Generator, Faktenprüfung, Fragen-Audit, vollständigem Commons-Check
+(195 gültig, 0 fehlerhaft) und Browserprüfung von Bild, Attribution und Konsole.
+
 ## 2026-08-23 (v1.98.19) — Tibetische Silbentafel im Lingua-Museum
 
 - Eine CC-BY-SA-Tafel zeigt die 30 tibetischen Konsonanten mit Umschrift und Aussprache.
