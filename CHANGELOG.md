@@ -5,6 +5,16 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-08-23 (v1.98.34) — Getriebeelemente im Machina-Museum
+
+- Stirnrad, Kegelrad, Schneckenrad und Blattfeder erhalten Bilder, die ihre jeweils
+  charakteristische Kraftübertragung oder Federform zeigen. Die Quellen sind gemeinfrei
+  oder CC-BY-SA-lizenziert und die Attributionen bleiben im Museum sichtbar.
+- Machina enthält damit 166 Konzeptbilder; Scientia insgesamt 5.113.
+
+Verifiziert mit Machina-Generator, Faktenprüfung, Fragen-Audit, vollständigem Commons-Check
+und Browserprüfung von Bild, Attribution, Quiz und Konsole.
+
 ## 2026-08-23 (v1.98.33) — Verbindungen und Lager im Machina-Museum
 
 - Unterlegscheibe, Rollenlager, O-Ring und Schraubenfeder erhalten eine passende Aufnahme
