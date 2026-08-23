@@ -5,6 +5,16 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-08-23 (v1.98.62) — Zerspanungs- und Installationswerkzeuge im Machina-Museum
+
+- Senker, Rohrschneider, Presszange und Kabelschere erhalten jeweils eine eindeutige
+  Werkzeugaufnahme. Die Quellen stehen unter CC0, CC-BY oder CC-BY-SA; die Urheberangaben
+  bleiben im Museum sichtbar.
+- Machina enthält damit 275 Konzeptbilder; Scientia insgesamt 5.222.
+
+Verifiziert mit Machina-Generator, Faktenprüfung, Fragen-Audit, vollständigem Commons-Check
+und Browserprüfung von Bild, Attribution, Quiz und Konsole.
+
 ## 2026-08-23 (v1.98.61) — Werkstatt- und Markierwerkzeuge im Machina-Museum
 
 - Lötkolben, Lötlampe, Schleifklotz und Streichmaß erhalten jeweils eine eindeutige
