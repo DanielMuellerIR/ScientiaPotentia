@@ -4,6 +4,7 @@
 
 - [`bereichs_abgrenzung.md`](bereichs_abgrenzung.md)
 - [`bildquellen_strategie.md`](bildquellen_strategie.md)
+- [`content_ceiling.md`](content_ceiling.md)
 - [`content_pipeline.md`](content_pipeline.md)
 - [`extraktion_sachbuecher_plan.md`](extraktion_sachbuecher_plan.md)
 - [`homo_erweiterung.md`](homo_erweiterung.md)

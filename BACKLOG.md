@@ -22,7 +22,6 @@ Vor Übernahme jeden Punkt gegen aktuellen Code, CHANGELOG und bestehende Projek
   passendem Quelldatensatz umplanen. Quelle:
   https://www.iau.org/Iau/Science/What-we-do/The-Constellations.aspx
 - Echten iPhone-Hochkantlauf für responsive Shell und VisualPanel.
-- Content-Ceilings pro Domain fachlich statt rein numerisch bewerten.
 - Museum-/Explorer-Bildabdeckung gezielt erweitern, nur mit Lizenz- und Eignungsstichprobe.
 - Harvest-Zwischenstände additiv mergen; keine Legacy-Rebuild-Skripte.
 - Semantischen QA-Lauf (`scripts/qa_review`, MiniMax) auf den aktuellen Daten fahren. Die
