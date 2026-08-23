@@ -5,6 +5,16 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-08-23 (v1.98.57) — Holzbearbeitungswerkzeuge im Machina-Museum
+
+- Stemmeisen, Schnitzmesser, Hohlbeitel und Ryoba-Zugsäge erhalten jeweils eine eindeutige
+  Werkzeugaufnahme. Die Quellen stehen unter CC-BY-SA; die Urheberangaben bleiben im Museum
+  sichtbar.
+- Machina enthält damit 256 Konzeptbilder; Scientia insgesamt 5.203.
+
+Verifiziert mit Machina-Generator, Faktenprüfung, Fragen-Audit, vollständigem Commons-Check
+und Browserprüfung von Bild, Attribution, Quiz und Konsole.
+
 ## 2026-08-23 (v1.98.56) — Greif-, Klemm- und Stanzwerkzeuge im Machina-Museum
 
 - Kneifzange, Rohrzange, Gripzange und Lochzange erhalten jeweils eine eindeutige
