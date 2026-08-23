@@ -5,6 +5,17 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-08-23 (v1.98.9) — Sextans-Zwerggalaxie im Astra-Museum
+
+- Die CC0-Aufnahme der Sextans-Zwerggalaxie ergänzt die Astra-Galerie. Der Eintrag behält
+  seine Wikidata-Quelle; die sichtbare Bildattribution nennt Giuseppe Donatiello.
+- Astra umfasst damit 478 live geprüfte freie Konzeptbilder, Scientia insgesamt 5.044.
+  Das Deep-Sky-Bild bleibt im Quiz bis nach der Antwort verborgen.
+
+Verifiziert mit Astra-Generator, `verify:facts -- astra`, Fragen-Audit und vollständigem
+Commons-Check (478 gültig, 0 fehlerhaft); die Browserprüfung bestätigt Bild und Attribution
+im Museum.
+
 ## 2026-08-23 (v1.98.8) — Historia-Bilder und robusterer Commons-Resolver
 
 - Historia ergänzt drei fachlich passende, live lizenzgeprüfte Exponate: Guglielmo Marconi
