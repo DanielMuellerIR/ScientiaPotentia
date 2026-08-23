@@ -5,6 +5,16 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-08-23 (v1.98.28) — Weitere Geräte im Machina-Museum
+
+- BIOS-Chip, RAID-Controller, Kartenleser, FIDO2-Sicherheitsschlüssel und Capture-Karte
+  erhalten direkte Objektbilder. Die Quellen stehen unter CC0, Public Domain oder
+  CC-BY-SA-Lizenzen und wurden im Museum auf sichtbare Credits geprüft.
+- Machina enthält damit 144 live geprüfte Konzeptbilder; Scientia insgesamt 5.091.
+
+Verifiziert mit Machina-Generator, Faktenprüfung, Fragen-Audit, vollständigem Commons-Check
+(144 gültig, 0 fehlerhaft) und Browserprüfung von Bild, Attribution und Konsole.
+
 ## 2026-08-23 (v1.98.27) — Kantenansichten im Astra-Museum
 
 - Nadel-, Wal- und Hockeyschläger-Galaxie erhalten Aufnahmen, die ihre Kantenansicht und
