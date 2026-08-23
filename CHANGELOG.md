@@ -5,6 +5,19 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-08-23 (v1.98.3) — Faktenprüfer erkennt griechische Etymologien korrekt
+
+- `verify_facts.js` prüft englische Warnwörter nun mit Unicode-Wortgrenzen statt
+  JavaScripts ASCII-`\b`. Die Buchstabenfolge `the` in griechischem `theós` oder
+  `theōrein` gilt damit nicht länger als englisches Wort; ein isoliertes englisches
+  `the` bleibt ein Warnsignal.
+- Das Regelwerk liegt testbar in `scripts/lib/english_leak.js`. Der neue Regressionstest
+  hält beide griechischen Fälle und einen echten englischen Satz fest.
+
+Verifiziert mit `verify:facts` für alle sieben JSON-basierten Domains (Lingua: 0 Fehler,
+0 Warnungen), 131 Vitest-Tests, Produktions-Build und Layout-Vertrag. Terra verwendet
+weiter seinen separaten Geodatenpfad und besitzt keinen `concepts_terra.json`-Katalog.
+
 ## 2026-08-23 (v1.98.2) — Suche im Museum und in Galerien präzisiert
 
 - Die Namenssuche vergleicht eingegebene Wörter nur noch mit Tokenanfängen. „eule"

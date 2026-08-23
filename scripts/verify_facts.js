@@ -16,6 +16,7 @@
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+import { hasEnglishLeak } from './lib/english_leak.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -26,30 +27,6 @@ const questionsPath = join(ROOT, 'public', 'data', `questions_${domain}.json`);
 
 const concepts = JSON.parse(readFileSync(conceptsPath, 'utf8'));
 const questions = JSON.parse(readFileSync(questionsPath, 'utf8'));
-
-// Verbreitete englische Wortreste, die in deutschen Quiz-Texten nichts verloren
-// haben. Bewusst eng gehalten, um Fehlalarme zu vermeiden. "planet" ist im
-// Deutschen identisch ("Planet") und daher KEIN Leak -> nicht aufnehmen.
-// Pro Domain konfigurierbar: in lingua (Sprachnamen, Fachbegriffe) und cultura
-// (Werktitel wie "The Scream", "Moby-Dick") sind englische Woerter legitim ->
-// dort keinen Leak-Check fahren (null).
-const LEAK_BY_DOMAIN = {
-  astra: /\b(the|moon|star|distance|diameter|orbit|galaxy)\b/i,
-  // "organ" NICHT aufnehmen: deutsches Wort "Organ" ist identisch (kein Leak).
-  homo: /\b(the|bone|muscle|weight|blood)\b/i,
-  natura: /\b(the|animal|plant|weight|length|species)\b/i,
-  // Sprachnamen, Werktitel und Fachbegriffe werden über gezielte Patterns statt
-  // eines pauschalen Opt-outs geprüft. So bleiben legitime Eigennamen erlaubt.
-  lingua: /\b(the|is|are|spoken|language|word|meaning)\b/i,
-  cultura: /\b(the|is|are|painted|written|novel|poem)\b/i,
-  // Machina: etablierte englische Fachwörter wie HTTP oder Python bleiben
-  // erlaubt; ganze englische Satzreste nicht.
-  machina: /\b(the|is|are|with|from|used|written|language)\b/i,
-  // Historia: Namen bleiben frei, englische Satzreste nicht.
-  historia: /\b(the|is|are|invented|written)\b/i,
-};
-// Unbekannte Domains: konservativ die astra-Liste verwenden.
-const ENGLISH_LEAK = domain in LEAK_BY_DOMAIN ? LEAK_BY_DOMAIN[domain] : LEAK_BY_DOMAIN.astra;
 
 const errors = [];
 const warnings = [];
@@ -86,7 +63,7 @@ for (const q of questions) {
   if (!concepts[q.entityId]) {
     errors.push(`Frage ${tag}: entityId ${q.entityId} hat kein Konzept`);
   }
-  if (ENGLISH_LEAK && ENGLISH_LEAK.test(q.prompt)) {
+  if (hasEnglishLeak(domain, q.prompt)) {
     warnings.push(`Frage ${tag}: moeglicher Englisch-Leak: "${q.prompt}"`);
   }
   // Fairness-Hinweis: weniger als 4 Optionen ist erlaubt, aber auffaellig

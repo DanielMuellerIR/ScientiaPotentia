@@ -32,10 +32,6 @@ Vor Übernahme jeden Punkt gegen aktuellen Code, CHANGELOG und bestehende Projek
 - Weitere Templates auf „Antwort am Skalenboden" prüfen: Der Sweep 2026-07-16 deckte nur
   Wortform-Tells ab. Attribute mit natürlicher Untergrenze (Mindestanzahlen, Zählungen ab 1)
   können denselben Defekt tragen wie `officialIn`; `skipAsk` steht als Hebel bereit.
-- `verify_facts.js` Englisch-Leak-Check: Meldet bei Lingua zwei Fehlalarme auf griechischen
-  Etymologien („én = in + theós = Gott" → „in" als englisches Wort gelesen). Vorbestehend,
-  harmlos, aber dieselbe Klasse wie die 2026-07-16 entrauschten Audit-Fehlalarme: Ein
-  Checker, der dauerhaft Bekanntes meldet, wird ignoriert und verdeckt dann Echtes.
 - Deploy-Skip ohne serverseitige Prüfsumme: `remote_matches_manifest()` vergleicht den
   lokalen Hash mit dem Wert aus dem Remote-Manifest und prüft an der echten Remotedatei
   nur die Größe. Eine nachträglich beschädigte Datei gleicher Länge gilt damit weiter als
