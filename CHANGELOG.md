@@ -5,6 +5,16 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-08-23 (v1.98.23) — Weitere Hardware im Machina-Museum
+
+- DIMM-Riegel, WLAN-Access-Point, Lüfter, Bluetooth-Adapter und Gamepad erhalten direkte
+  Objektbilder. Vier Quellen sind gemeinfrei, die Lüfteraufnahme steht unter CC BY-SA 4.0;
+  alle fünf Bilder wurden im Museumspanel geprüft.
+- Machina enthält damit 134 live geprüfte Konzeptbilder; Scientia insgesamt 5.070.
+
+Verifiziert mit Machina-Generator, Faktenprüfung, Fragen-Audit, vollständigem Commons-Check
+(134 gültig, 0 fehlerhaft) und Browserprüfung von Bild, Attribution und Konsole.
+
 ## 2026-08-23 (v1.98.22) — Grundlegende Hardware im Machina-Museum
 
 - Freie, sichtgeprüfte Objektfotos für HDD, Tastatur, Scanner, Drucker und Webcam ergänzen
