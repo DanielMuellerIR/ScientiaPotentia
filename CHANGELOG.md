@@ -5,6 +5,16 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-08-23 (v1.98.59) — Ernte- und Schnittwerkzeuge im Machina-Museum
+
+- Sense, Handheckenschere und Rebschere erhalten jeweils eine eindeutige Werkzeugaufnahme. Die
+  Quellen stehen unter Public Domain, CC-BY oder CC-BY-SA; die Urheberangaben bleiben im Museum
+  sichtbar.
+- Machina enthält damit 263 Konzeptbilder; Scientia insgesamt 5.210.
+
+Verifiziert mit Machina-Generator, Faktenprüfung, Fragen-Audit, vollständigem Commons-Check
+und Browserprüfung von Bild, Attribution, Quiz und Konsole.
+
 ## 2026-08-23 (v1.98.58) — Gartenwerkzeuge im Machina-Museum
 
 - Sichel, Spaten, Rechen und Hacke erhalten jeweils eine eindeutige Werkzeugaufnahme. Die
