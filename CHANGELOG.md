@@ -5,6 +5,16 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-08-23 (v1.98.52) — Zangenwerkzeuge im Machina-Museum
+
+- Kombizange, Wasserpumpenzange, Seitenschneider und Abisolierzange erhalten jeweils eine
+  eindeutige Objektaufnahme. Die Quellen stehen unter Public Domain, CC0 oder CC-BY-SA; die
+  Urheberangaben bleiben im Museum sichtbar.
+- Machina enthält damit 236 Konzeptbilder; Scientia insgesamt 5.183.
+
+Verifiziert mit Machina-Generator, Faktenprüfung, Fragen-Audit, vollständigem Commons-Check
+und Browserprüfung von Bild, Attribution, Quiz und Konsole.
+
 ## 2026-08-23 (v1.98.51) — Messwerkzeuge im Machina-Museum
 
 - Anschlagwinkel, Schmiege, Senklot und Gliedermaßstab erhalten jeweils eine eindeutige
