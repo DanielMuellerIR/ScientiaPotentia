@@ -5,6 +5,16 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-08-23 (v1.98.19) — Tibetische Silbentafel im Lingua-Museum
+
+- Eine CC-BY-SA-Tafel zeigt die 30 tibetischen Konsonanten mit Umschrift und Aussprache.
+  Sie ersetzt den vorher verworfenen transparenten Kandidaten durch ein im Museum lesbares
+  Schriftbeispiel; die unsichere Urheberschaft bleibt in der sichtbaren Attribution markiert.
+- Lingua enthält damit 193 live geprüfte Konzeptbilder; Scientia insgesamt 5.055.
+
+Verifiziert mit Lingua-Generator, Faktenprüfung, Fragen-Audit, vollständigem Commons-Check
+(193 gültig, 0 fehlerhaft) und Browserprüfung von Bild, Attribution und Konsole.
+
 ## 2026-08-23 (v1.98.18) — Odia-Kalligrafie im Lingua-Museum
 
 - Eine CC-BY-SA-Kalligrafie von Subhashish Panigrahi ergänzt die Odia-Schrift. Das
