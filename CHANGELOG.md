@@ -5,6 +5,16 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-08-23 (v1.98.55) — Gewinde-, Schlüssel- und Nietwerkzeuge im Machina-Museum
+
+- Handgewindebohrer, Innensechskantschlüssel, Drehmomentschlüssel und Blindnietzange erhalten
+  jeweils eine eindeutige Objektaufnahme. Die Quellen stehen unter Public Domain, CC0 oder
+  CC-BY-SA; die Urheberangaben bleiben im Museum sichtbar.
+- Machina enthält damit 248 Konzeptbilder; Scientia insgesamt 5.195.
+
+Verifiziert mit Machina-Generator, Faktenprüfung, Fragen-Audit, vollständigem Commons-Check
+und Browserprüfung von Bild, Attribution, Quiz und Konsole.
+
 ## 2026-08-23 (v1.98.54) — Schlag- und Putzwerkzeuge im Machina-Museum
 
 - Glättkelle, Flachmeißel, Steinmeißel und Körner erhalten jeweils eine eindeutige
