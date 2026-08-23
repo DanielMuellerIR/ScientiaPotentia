@@ -1,8 +1,8 @@
 # Ernte-Ordner (Zwischenstand Faktensammlung)
 
-> **Stand: 2026-07-19.** Rohe Recherche-Ausgabe der Multi-Agent-Sammelrunde (Krisensitzung).
-> **Noch nicht** in `scripts/data_sources/<domain>_raw.json` gemerged. Ablauf/Plan:
-> `docs/content_pipeline.md`.
+> **Stand: 2026-08-23.** Archiv roher Kandidaten aus der damaligen Sammelrunde.
+> Es ist kein freigegebener Merge-Pool: Jeder noch nicht übernommene Kandidat braucht eine
+> aktuelle Einzelprüfung nach `docs/content_pipeline.md`.
 
 ## Inhalt
 
@@ -17,34 +17,49 @@
 - `BRIEFING.md` — Auftrag, den jeder Finder gelesen hat.
 - `BLACKLIST.md` — vom Orchestrator (Opus) gepflegte Sperrliste (Quellen/URLs/Konzepte/Bilder)
   + Korrekturen. Vor jedem neuen Lauf von Findern zu lesen.
-- `resolve_images.cjs` — deterministischer Bild-Resolver (Commons-API, Lizenzprüfung).
-  **Noch zu härten:** smarte Rate-Limits (`generator=search`+`imageinfo` ein Call, `maxlag`,
-  `Retry-After`) — siehe `docs/content_pipeline.md`.
+- `resolve_images.cjs` — historischer Bild-Resolver für diese Sammlung. Aktuelle
+  Bildprüfungen laufen über die projektweiten Resolver- und Lizenz-Gates; gespeicherte
+  Bildfelder sind kein Nachweis einer weiterhin gültigen Lizenz.
 
-## Stand der Daten
+## Auditstand
 
-- **390 Konzepte** gesamt, **Fakten intakt und stichprobengeprüft** (Opus, ~10 Fakten
-  web-verifiziert, alle korrekt bis auf Pinguin-Tauchtiefe → korrigiert).
-- **Bilder: nur `astra_w1.json` hat 16 verifizierte Bilder.** Alle übrigen `imageFile` sind
-  **leer** — ein Sweep-Bug (Rate-Limit-Klartext als „fehlt" fehlinterpretiert) nullte sie,
-  bevor der Resolver durch war. **Fakten unberührt.** `_imgProblem`-Feld markiert betroffene
-  Konzepte. → **Phase C** (Bild-Auflösung) muss vor dem Merge erneut laufen.
+Der Abgleich vom 2026-08-23 ordnet die 390 W1-Kandidaten so ein:
 
-| Datei | Konzepte | verif. Bild |
+- 345 IDs sind bereits mit derselben ID in den aktuellen Rawkatalogen enthalten.
+- Fünf Natura-Kandidaten sind mit abweichender Umlaut-Schreibweise bereits als dasselbe
+  Konzept enthalten (`Weißer Hai`, `Großer Tümmler`, `Großer Abendsegler`,
+  `Küstenmammutbaum Hyperion`, `Hallimasch`).
+- 39 Homo-Kandidaten bleiben wegen des dokumentierten fachlichen Content-Ceilings
+  ungemerged; ein Bulk-Append würde dieses Ceiling umgehen.
+- Der verbleibende Lingua-Kandidat zu Bibelübersetzungen enthält zeitabhängige Zahlen und
+  braucht vor jeder Übernahme eine aktuelle autoritative Quelle.
+
+Die W1-Dateien enthalten inzwischen zwar Bildfelder, deren Lizenzstatus ist aber mit einem
+aktuellen Gate neu zu prüfen. Die frühere Zahl „16 verifizierte Bilder" ist daher kein
+brauchbarer Status mehr.
+
+Eine weitergehende Inventur über 117 Kandidaten- und Raw-Snapshots mit 7.039 Einträgen fand
+nach Deduplizierung von Domain und ID 93 nicht vorhandene IDs. Viele davon sind ältere
+Schreibweisen oder Momentaufnahmen schon enthaltener Konzepte. Der Abgleich entscheidet nur
+über die ID, nicht über Quellenqualität, Fragenfairness oder Bildlizenz; deshalb folgt daraus
+kein automatischer Merge.
+
+| Datei | Konzepte | gespeicherte Bildmetadaten |
 |---|--:|--:|
-| astra_w1 / astra_w1b | 21 / 25 | 16 / 0 |
-| homo_w1 / homo_w1b | 18 / 26 | 0 / 0 |
-| natura_a_w1 / natura_a_w1b | 24 / 25 | 0 / 0 |
-| natura_b_w1 / natura_b_w1b | 23 / 26 | 0 / 0 |
-| cultura_a_w1 / cultura_a_w1b | 22 / 24 | 0 / 0 |
-| cultura_b_w1 / cultura_b_w1b | 22 / 30 | 0 / 0 |
-| lingua_a_w1 / lingua_a_w1b | 25 / 29 | 0 / 0 |
-| lingua_b_w1 / lingua_b_w1b | 24 / 26 | 0 / 0 |
+| astra_w1 / astra_w1b | 21 / 25 | vorhanden / vorhanden |
+| homo_w1 / homo_w1b | 18 / 26 | vorhanden / vorhanden |
+| natura_a_w1 / natura_a_w1b | 24 / 25 | vorhanden / vorhanden |
+| natura_b_w1 / natura_b_w1b | 23 / 26 | vorhanden / vorhanden |
+| cultura_a_w1 / cultura_a_w1b | 22 / 24 | vorhanden / vorhanden |
+| cultura_b_w1 / cultura_b_w1b | 22 / 30 | vorhanden / vorhanden |
+| lingua_a_w1 / lingua_a_w1b | 25 / 29 | vorhanden / vorhanden |
+| lingua_b_w1 / lingua_b_w1b | 24 / 26 | vorhanden / vorhanden |
 
 ## Nächste Schritte (siehe content_pipeline.md)
 
-1. Generator-Hebel (Fragen/Konzept ~10) — zuerst, token-frei.
-2. Phase C erneut: Bilder deterministisch auflösen (gehärteter Resolver), dedupliziert.
-3. Attribut-Keys normalisieren (Englisch/konsistent) + Dedup gegen Bestand, dann Merge in
-   `<domain>_raw.json`.
-4. Für Natura/Cultura/Lingua existieren noch **keine** Generatoren/Registry-Einträge.
+1. Einen verbliebenen Kandidaten nur bei fachlichem Gewinn, aktueller Primär- oder Fachquelle,
+   fairem Fragetyp und passender Visualisierung einzeln übernehmen.
+2. Bildquelle, Lizenz und sichtbare Attribution vor dem Merge erneut prüfen; keine gespeicherte
+   Commons-Metadaten ungeprüft fortschreiben.
+3. Nie die alten Legacy-Rebuild-Skripte verwenden: additive Übernahme in die Rawquelle,
+   Generator, Faktenprüfung, Fragen-Audit und Stichprobe bleiben Pflicht.

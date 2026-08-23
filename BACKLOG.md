@@ -23,7 +23,11 @@ Vor Übernahme jeden Punkt gegen aktuellen Code, CHANGELOG und bestehende Projek
   https://www.iau.org/Iau/Science/What-we-do/The-Constellations.aspx
 - Echten iPhone-Hochkantlauf für responsive Shell und VisualPanel.
 - Museum-/Explorer-Bildabdeckung gezielt erweitern, nur mit Lizenz- und Eignungsstichprobe.
-- Harvest-Zwischenstände additiv mergen; keine Legacy-Rebuild-Skripte.
+- Harvest-Restkandidaten einzeln prüfen: Der W1-Audit vom 2026-08-23 findet 345 von 390
+  Kandidaten bereits mit derselben ID im Rawbestand; fünf Natura-Einträge sind Umlaut-Duplikate,
+  39 Homo-Kandidaten bleiben am dokumentierten Content-Ceiling und der Lingua-Kandidat zu
+  Bibelübersetzungen braucht eine aktuelle autoritative Quelle. Die übrigen Snapshot-Differenzen
+  sind keine Freigabe zum Bulk-Append. Nur additiv übernehmen; keine Legacy-Rebuild-Skripte.
 - Semantischen QA-Lauf (`scripts/qa_review`, MiniMax) auf den aktuellen Daten fahren. Die
   deterministische Ebene ist mit v1.85.10 abgearbeitet; offen ist nur noch, was
   strukturelle Checks prinzipiell nicht sehen (Sachfehler, unfaire Distraktoren,
