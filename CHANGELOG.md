@@ -5,6 +5,16 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-08-23 (v1.98.21) — Drei weitere Schriftbilder im Lingua-Museum
+
+- Eine N'Ko-Unterrichtsszene sowie zwei deckende Tafeln für Hiragana und Katakana ergänzen
+  die Schriftkonzepte. Das Unterrichtsfoto steht unter CC BY-SA 4.0, die beiden Tafeln sind
+  gemeinfrei; jedes Bild wurde im dunklen Museumspanel geprüft.
+- Lingua enthält damit 198 live geprüfte Konzeptbilder; Scientia insgesamt 5.060.
+
+Verifiziert mit Lingua-Generator, Faktenprüfung, Fragen-Audit, vollständigem Commons-Check
+(198 gültig, 0 fehlerhaft) und Browserprüfung von Bild, Attribution und Konsole.
+
 ## 2026-08-23 (v1.98.20) — Zwei Schriftbilder im Lingua-Museum
 
 - Eine Museumsaufnahme einer aramäisch-babylonischen Schreiberübung und ein zweisprachiges
