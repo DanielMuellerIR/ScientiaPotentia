@@ -5,6 +5,16 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-08-23 (v1.98.37) — Lagertechnik im Machina-Museum
+
+- Wälzlager, Kegelrollenlager, Nadellager und Gleitlager erhalten jeweils eine technisch
+  eindeutige Darstellung. Die Quellen stehen unter CC0, Public Domain oder CC-BY-SA und bleiben
+  am Bild attribuiert.
+- Machina enthält damit 178 Konzeptbilder; Scientia insgesamt 5.125.
+
+Verifiziert mit Machina-Generator, Faktenprüfung, Fragen-Audit, vollständigem Commons-Check
+und Browserprüfung von Bild, Attribution, Quiz und Konsole.
+
 ## 2026-08-23 (v1.98.36) — Welle-Nabe-Verbindungen im Machina-Museum
 
 - Passfeder, Zylinderstift, Sicherungsring und Federring zeigen jetzt jeweils die
