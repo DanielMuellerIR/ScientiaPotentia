@@ -5,6 +5,16 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-08-23 (v1.98.17) — Thaana-Tabelle im Lingua-Museum
+
+- Die gemeinfreie Tabelle von Mohonu ergänzt Thaana mit Vokal- und Konsonantenzeichen.
+  Sie zeigt die rechts-nach-links geschriebene maledivische Abugida klar und opak auf
+  hellem Papier.
+- Lingua enthält damit 191 live geprüfte Konzeptbilder; Scientia insgesamt 5.053.
+
+Verifiziert mit Lingua-Generator, Faktenprüfung, Fragen-Audit, vollständigem Commons-Check
+(191 gültig, 0 fehlerhaft) und Browserprüfung von Bild, Attribution und Konsole.
+
 ## 2026-08-23 (v1.98.16) — Javanische Alphabettafel im Lingua-Museum
 
 - Die gemeinfreie Tafel aus Thomas Stamford Raffles’ *History of Java* ergänzt
