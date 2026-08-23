@@ -5,6 +5,16 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-08-23 (v1.98.30) — Mainboard-Details im Machina-Museum
+
+- Direkte Aufnahmen eines TPM-Chips, eines Jumpers und einer Tochterplatine ergänzen drei
+  Hardwarekonzepte, die ohne Objektbild schwer einzuordnen waren. Die Dateien stehen unter
+  CC0 oder Public Domain und nennen ihre Urheber im Museum.
+- Machina enthält damit 151 Konzeptbilder; Scientia insgesamt 5.098.
+
+Verifiziert mit Machina-Generator, Faktenprüfung, Fragen-Audit, vollständigem Commons-Check
+und Browserprüfung von Bild, Attribution, Quiz und Konsole.
+
 ## 2026-08-23 (v1.98.29) — Elektronikmodule im Machina-Museum
 
 - Spannungsregler, Optokoppler, Echtzeituhr und rackmontierte PDU erhalten direkte Bilder.
