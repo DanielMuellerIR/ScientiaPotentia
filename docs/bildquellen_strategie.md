@@ -1,9 +1,17 @@
-> Strategiepapier (Wegwerf-/Arbeitsdokument), erarbeitet 2026-06-24 aus einem Multi-Angle-
-> Opus-Recherche-Workflow (Finder + repo-verifizierte Synthese). Live-API-/Wikidata-Stichproben.
+> **Historisches Strategiepapier, Stand 2026-06-24.** Die Zahlen, Prioritäten und
+> Codebefunde unten sind Momentaufnahmen und keine aktuelle Arbeitsanweisung.
+>
+> **Aktueller Status 2026-08-23:** `resolve_images_batched.cjs` enthält inzwischen auch
+> Historia, Homo und Machina; beide Pageimages-Resolver folgen Weiterleitungen. Der
+> Batch-Resolver trennt Upload-Tracking-Parameter vom Commons-Dateinamen und filtert
+> MIME-Typ sowie Lizenz vor dem Rawimport. Aktuelle Zählstände stehen in
+> `public/data/domain_stats.json`; der verbindliche Ablauf ist
+> [`content_pipeline.md`](content_pipeline.md). Neue Bilder bleiben Einzelentscheidungen
+> mit Live-Lizenzcheck und Sichtprüfung, nicht die hier geschätzten Mengenhebel.
 
 # Mehr freie Bilder fürs Museum — Strategiepapier
 
-Stand: 2026-06-24. Domain: ScientiaPotentia (deutschsprachiges Multi-Domain-Quiz, werbefrei, offline-fähig).
+Historischer Stand: 2026-06-24. Domain: ScientiaPotentia (deutschsprachiges Multi-Domain-Quiz, werbefrei, offline-fähig).
 
 Alle Zahlen unten sind, wo gekennzeichnet, aus Live-API-Stichproben der vier Analyse-Blickwinkel; die strukturellen Behauptungen (sourceUrl-Bestand, QID-Abwesenheit, Resolver-Targets, fehlendes `redirects=1`) habe ich gegen das echte Repo gegengeprüft — sie stimmen.
 

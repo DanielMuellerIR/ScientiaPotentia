@@ -3,7 +3,7 @@
 ## Fach- und Quellenverträge
 
 - [`bereichs_abgrenzung.md`](bereichs_abgrenzung.md)
-- [`bildquellen_strategie.md`](bildquellen_strategie.md)
+- [`bildquellen_strategie.md`](bildquellen_strategie.md) (historische Resolver-Analyse)
 - [`content_ceiling.md`](content_ceiling.md)
 - [`content_pipeline.md`](content_pipeline.md)
 - [`extraktion_sachbuecher_plan.md`](extraktion_sachbuecher_plan.md)
