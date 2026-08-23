@@ -5,6 +5,16 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-08-23 (v1.98.43) — Wellen- und Gelenktechnik im Machina-Museum
+
+- Nocken- und Gelenkwelle, Kardangelenk und Gleichlaufgelenk erhalten jeweils eine
+  fachlich eindeutige Objekt- oder Funktionsdarstellung. Die Quellen stehen unter Public
+  Domain oder CC-BY-SA; die Urheberangaben bleiben im Museum sichtbar.
+- Machina enthält damit 202 Konzeptbilder; Scientia insgesamt 5.149.
+
+Verifiziert mit Machina-Generator, Faktenprüfung, Fragen-Audit, vollständigem Commons-Check
+und Browserprüfung von Bild, Attribution, Quiz und Konsole.
+
 ## 2026-08-23 (v1.98.42) — Lager- und Führungstechnik im Machina-Museum
 
 - Pendelrollen- und Zylinderrollenlager, Linearführung und Axiallager erhalten jeweils eine
