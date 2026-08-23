@@ -46,6 +46,3 @@ Vor Übernahme jeden Punkt gegen aktuellen Code, CHANGELOG und bestehende Projek
   v1.98.0 sagt die Oberfläche das ehrlich. Alternative wäre, einen kartenfreien Terra-Anteil
   (reine MCQ-Fragen mit Konzeptkarte) in den Mischpool aufzunehmen — Produktentscheidung,
   nicht nur Technik.
-- Browser-Gegenprobe für v1.98.0 offen: Footer-Kontrast und -Unterstreichung sowie die neuen
-  Ladehinweise (Hub → Querbeet, Bereichswechsel) sind nur headless geprüft (Vitest,
-  Layoutvertrag, Kontrastrechnung). Der Geräte-/Browserlauf nach LAYOUT.md steht aus.
