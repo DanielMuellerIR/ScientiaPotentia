@@ -5,6 +5,16 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-08-23 (v1.98.36) — Welle-Nabe-Verbindungen im Machina-Museum
+
+- Passfeder, Zylinderstift, Sicherungsring und Federring zeigen jetzt jeweils die
+  charakteristische Bauform. Die Quellen stehen unter CC0, Public Domain oder CC-BY-SA; alle
+  Urheber werden am Bild genannt.
+- Machina enthält damit 174 Konzeptbilder; Scientia insgesamt 5.121.
+
+Verifiziert mit Machina-Generator, Faktenprüfung, Fragen-Audit, vollständigem Commons-Check
+und Browserprüfung von Bild, Attribution, Quiz und Konsole.
+
 ## 2026-08-23 (v1.98.35) — Verbindungselemente im Machina-Museum
 
 - Bolzen, Blindniet, Splint und Spannstift erhalten klare Einzelaufnahmen beziehungsweise ein
