@@ -23,10 +23,10 @@ Vor Übernahme jeden Punkt gegen aktuellen Code, CHANGELOG und bestehende Projek
   https://www.iau.org/Iau/Science/What-we-do/The-Constellations.aspx
 - Echten iPhone-Hochkantlauf für responsive Shell und VisualPanel.
 - **Museum-/Explorer-Bildabdeckung:** gezielt erweitern, nur mit Lizenz- und
-  Eignungsstichprobe. Am 2026-08-23 wurden die direkt visualisierbaren Lingua-Schriftkonzepte
-  und grundlegende Machina-Hardware ergänzt; Rotokas bleibt ohne passenden freien Kandidaten
-  offen. Weitere Bilder nur für fachlich eindeutige Konzepte suchen, keine generischen oder im
-  dunklen Panel unlesbaren Platzhalter übernehmen.
+  Eignungsstichprobe. Am 2026-08-23 wurden die direkt visualisierbaren Lingua-Schriftkonzepte,
+  20 Machina-Geräte und 11 eindeutig zuordenbare Astra-Galaxien ergänzt; Rotokas bleibt ohne
+  passenden freien Kandidaten offen. Weitere Bilder nur für fachlich eindeutige Konzepte suchen,
+  keine generischen oder im dunklen Panel unlesbaren Platzhalter übernehmen.
 - **Harvest-Restkandidaten (abgeschlossen, 2026-08-23):** Der W1-Audit ordnet alle 390
   Kandidaten einzeln ein: 345 stehen bereits mit derselben ID im Rawbestand, fünf
   Natura-Einträge sind Umlaut-Duplikate, 39 Homo-Kandidaten bleiben am dokumentierten
