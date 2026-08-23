@@ -5,6 +5,15 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-08-23 (v1.98.45) — Wellenverbindung und Axialsicherung im Machina-Museum
+
+- Keil und Sprengring erhalten eine fachlich eindeutige Darstellung ihrer Einbau- oder
+  Bauform. Beide Quellen stehen unter CC-BY-SA; die Urheberangaben bleiben im Museum sichtbar.
+- Machina enthält damit 208 Konzeptbilder; Scientia insgesamt 5.155.
+
+Verifiziert mit Machina-Generator, Faktenprüfung, Fragen-Audit, vollständigem Commons-Check
+und Browserprüfung von Bild, Attribution, Quiz und Konsole.
+
 ## 2026-08-23 (v1.98.44) — Verbindungselemente im Machina-Museum
 
 - Stiftschraube, Madenschraube, Zahnscheibe und Gewindestange erhalten jeweils eine
