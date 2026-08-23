@@ -5,6 +5,16 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-08-23 (v1.98.46) — Handwerkzeuge im Machina-Museum
+
+- Schlosserhammer, Fäustel, Gummihammer und Handhobel erhalten jeweils eine eindeutige
+  Objektaufnahme oder Freistellung. Die Quellen stehen unter Public Domain oder CC-BY-SA;
+  die Urheberangaben bleiben im Museum sichtbar.
+- Machina enthält damit 212 Konzeptbilder; Scientia insgesamt 5.159.
+
+Verifiziert mit Machina-Generator, Faktenprüfung, Fragen-Audit, vollständigem Commons-Check
+und Browserprüfung von Bild, Attribution, Quiz und Konsole.
+
 ## 2026-08-23 (v1.98.45) — Wellenverbindung und Axialsicherung im Machina-Museum
 
 - Keil und Sprengring erhalten eine fachlich eindeutige Darstellung ihrer Einbau- oder
