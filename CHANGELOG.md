@@ -5,6 +5,16 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-08-23 (v1.98.24) — Anschlüsse und Kühlung im Machina-Museum
+
+- Direkte Bilder erklären Beamer, LAN-Kabel, RJ45-Buchse, Thunderbolt-3-Anschlüsse und
+  Prozessorkühlung mit Wasser. Der Thunderbolt-Beleg zeigt ausdrücklich USB-C-Buchsen der
+  dritten Generation, passend zur Konzeptbeschreibung.
+- Machina enthält damit 139 live geprüfte Konzeptbilder; Scientia insgesamt 5.075.
+
+Verifiziert mit Machina-Generator, Faktenprüfung, Fragen-Audit, vollständigem Commons-Check
+(139 gültig, 0 fehlerhaft) und Browserprüfung von Bild, Attribution und Konsole.
+
 ## 2026-08-23 (v1.98.23) — Weitere Hardware im Machina-Museum
 
 - DIMM-Riegel, WLAN-Access-Point, Lüfter, Bluetooth-Adapter und Gamepad erhalten direkte
