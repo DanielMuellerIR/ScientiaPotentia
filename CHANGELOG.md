@@ -5,6 +5,17 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-08-23 (v1.98.7) — Nicht freies Astra-Bild entfernt
+
+- Die Live-Prüfung gegen Commons erkannte die gespeicherte Europa-Clipper-
+  Illustration als nicht frei lizenziert. Rohdaten und generierter Konzeptkatalog
+  führen sie nicht länger als Museumsexponat; Quelle, Fakten und die fachliche
+  Astra-Visualisierung bleiben erhalten.
+- Der verbleibende Astra-Bestand umfasst 477 live geprüfte freie Konzeptbilder.
+
+Verifiziert mit Generator, `verify:facts -- astra`, Fragen-Audit sowie einem
+erneuten Commons-Lizenz- und Dateicheck ohne Befund.
+
 ## 2026-08-23 (v1.98.6) — Deploy prüft serverseitige Hashes
 
 - `deploy.py` nutzt beim inkrementellen Skip nun `XSHA256`, ersatzweise `XMD5`,
