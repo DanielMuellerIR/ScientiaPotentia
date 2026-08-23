@@ -5,6 +5,16 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-08-23 (v1.98.15) — Baybayin-Schriftprobe im Lingua-Museum
+
+- Ein CC-BY-SA-Foto von Asenyero ergänzt Baybayin mit einer gegenwärtigen handschriftlichen
+  Schreibprobe. Das Bild zeigt die Schrift im Gebrauch statt einer nicht lesbaren
+  Mehrschriftentafel.
+- Lingua enthält damit 189 live geprüfte Konzeptbilder; Scientia insgesamt 5.051.
+
+Verifiziert mit Lingua-Generator, Faktenprüfung, Fragen-Audit, vollständigem Commons-Check
+(189 gültig, 0 fehlerhaft) und Browserprüfung von Bild, Attribution und Konsole.
+
 ## 2026-08-23 (v1.98.14) — Drei Schriftsysteme im Lingua-Museum
 
 - Je ein gemeinfreies, direktes Schriftbeispiel ergänzt Cree-Silbenzeichen, Vai und
