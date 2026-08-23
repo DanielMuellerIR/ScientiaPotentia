@@ -371,6 +371,10 @@ const templates = [
   },
   {
     category: 'language_family', attr: 'languageCount', kind: 'num', type: 'lingua-family-languagecount', difficulty: 4,
+    // Ein Zweig umfasst begrifflich mindestens eine Sprache. Bei genau einer
+    // Sprache wäre die kleinste Option ohne Fachwissen die sichere Antwort;
+    // `skipAsk` lässt die 1 trotzdem als fairen Distraktor im Pool.
+    skipAsk: c => { const n = cleanNum(c.attributes.languageCount); return n !== null && n < 2; },
     prompt: c => `Wie viele Einzelsprachen gehören zu „${c.name}"?`,
     // Reine Zahl als Option (Einheit steht im Prompt). Mit Suffix "… Sprachen"
     // würde revealsAnswer bei "TurkSPRACHEN"/"BantuSPRACHEN" fälschlich anschlagen.

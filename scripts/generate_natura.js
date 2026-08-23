@@ -277,6 +277,9 @@ const templates = [
   // ==== Minerale (mineral) ===============================================
   {
     category: 'mineral', attr: 'mohsHardness', kind: 'num', type: 'natura-mineral-mohs', difficulty: 3,
+    // Die Mohs-Skala beginnt bei 1. Diese Antwort wäre stets die kleinste
+    // Option; sie bleibt als Distraktor erhalten, wird aber nicht abgefragt.
+    skipAsk: c => { const n = cleanNum(c.attributes.mohsHardness); return n !== null && n < 1.5; },
     prompt: c => `Welche Mohshärte hat ${c.name}?`,
     format: v => `${deNum(v)}`
   },
@@ -422,6 +425,9 @@ for (const tpl of templates) {
 
   for (const c of conceptsInCat) {
     if (tpl.skip && tpl.skip(c)) continue;
+    // `skipAsk` lässt einen Wert im Distraktorpool, stellt aber keine Frage
+    // dazu. So verschiebt sich der Skalenboden nicht zur nächstgrößeren Zahl.
+    if (tpl.skipAsk && tpl.skipAsk(c)) continue;
 
     // Korrekte Antwort bestimmen.
     let correct, distractors;

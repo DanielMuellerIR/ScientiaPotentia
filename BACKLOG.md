@@ -29,9 +29,6 @@ Vor Übernahme jeden Punkt gegen aktuellen Code, CHANGELOG und bestehende Projek
   deterministische Ebene ist mit v1.85.10 abgearbeitet; offen ist nur noch, was
   strukturelle Checks prinzipiell nicht sehen (Sachfehler, unfaire Distraktoren,
   Verständlichkeit). Der Lauf verbraucht MiniMax-Kontingent — vorher mit Daniel klären.
-- Weitere Templates auf „Antwort am Skalenboden" prüfen: Der Sweep 2026-07-16 deckte nur
-  Wortform-Tells ab. Attribute mit natürlicher Untergrenze (Mindestanzahlen, Zählungen ab 1)
-  können denselben Defekt tragen wie `officialIn`; `skipAsk` steht als Hebel bereit.
 - Deploy-Skip ohne serverseitige Prüfsumme: `remote_matches_manifest()` vergleicht den
   lokalen Hash mit dem Wert aus dem Remote-Manifest und prüft an der echten Remotedatei
   nur die Größe. Eine nachträglich beschädigte Datei gleicher Länge gilt damit weiter als

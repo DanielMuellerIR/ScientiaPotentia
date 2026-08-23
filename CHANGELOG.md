@@ -5,6 +5,23 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-08-23 (v1.98.4) — Weitere Skalenboden-Tells entfernt
+
+- Der Audit der numerischen Templates fand zwei weitere Fälle mit einer logisch
+  unvermeidbaren kleinsten Antwort. `lingua-family-languagecount` fragt drei
+  Einsprachen-Zweige nicht mehr ab; `natura-mineral-mohs` überspringt die zwei
+  Minerale mit dem unteren Mohs-Wert 1. Die Werte bleiben in beiden Pools als
+  Distraktoren, sodass sich der Skalenboden nicht nach oben verschiebt.
+- `generate_natura.js` unterstützt dafür denselben `skipAsk`-Hebel wie Lingua.
+  Lebensdauer- und Mondzahl-Fragen bleiben unverändert: Ihre kleinen Werte sind
+  keine begrifflich durch den Fragetext garantierte Untergrenze.
+- Lingua enthält nun 4.874, Natura 13.213 und Scientia insgesamt 49.771 Fragen.
+
+Verifiziert mit Generator-Diffs (genau 3 + 2 entfernte Fragen), `verify:facts`
+für Lingua und Natura, vollständigem Fragen-Audit, 131 Vitest-Tests, Produktions-Build,
+Layout-Vertrag sowie Browserläufen für beide Bereiche mit Quizstart, Visualisierung
+und fehlerfreier Konsole.
+
 ## 2026-08-23 (v1.98.3) — Faktenprüfer erkennt griechische Etymologien korrekt
 
 - `verify_facts.js` prüft englische Warnwörter nun mit Unicode-Wortgrenzen statt
