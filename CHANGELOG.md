@@ -5,6 +5,16 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-08-23 (v1.98.65) — Säge-, Garten- und Zangenbilder im Machina-Museum
+
+- Bogensäge, Grabgabel, Flachzange und Rundzange erhalten jeweils eine eindeutige
+  Werkzeugaufnahme. Die Quellen stehen unter Public Domain, CC0 oder CC-BY-SA; die
+  Urheberangaben bleiben im Museum sichtbar.
+- Machina enthält damit 286 Konzeptbilder; Scientia insgesamt 5.233.
+
+Verifiziert mit Machina-Generator, Faktenprüfung, Fragen-Audit, vollständigem Commons-Check
+und Browserprüfung von Bild, Attribution, Quiz und Konsole.
+
 ## 2026-08-23 (v1.98.64) — Säge-, Spann- und Schärfwerkzeuge im Machina-Museum
 
 - Gehrungssäge, Spannzwinge, Abziehstein und Nagelzieher erhalten jeweils eine eindeutige
