@@ -5,6 +5,19 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-08-23 (v1.98.5) — Terra-Fortschritt zählt nur abfragbare Orte
+
+- Das Dashboard leitet bei Terra die Gesamt- und Typzahlen aus den Entitäten ab,
+  die in der aktuellen Fragenmenge vorkommen. Die nicht abfragbaren Städte Luxemburg
+  und Dschibuti bleiben damit auf Karte und im Atlas, deckeln den Lernfortschritt
+  aber nicht mehr.
+- Fortschrittsdaten für solche Kartenobjekte werden ebenfalls ignoriert. Terra zeigt
+  nun 1.850 Orte, darunter 1.373 Städte, statt 1.852 Orte und 1.375 Städte.
+
+Verifiziert mit `verify_quiz.js` (57.903 Prüfungen, 0 Fehler), 132 Vitest-Tests,
+Produktions-Build, Layout-Vertrag sowie einem Browserlauf mit Karte, Dashboard und
+fehlerfreier Konsole.
+
 ## 2026-08-23 (v1.98.4) — Weitere Skalenboden-Tells entfernt
 
 - Der Audit der numerischen Templates fand zwei weitere Fälle mit einer logisch

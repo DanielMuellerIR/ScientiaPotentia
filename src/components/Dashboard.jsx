@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Flame, AlertCircle, BarChart3, Trophy } from 'lucide-react';
 import QuizLauncher from './QuizLauncher';
 // Deutsche Kategorie-Labels der MCQ-Domains (Tier, Sprachfamilie, …) als Fallback,
@@ -37,7 +37,20 @@ export default function Dashboard({
   onStartDailyReview
 }) {
   const isTerra = domain.id === 'terra';
-  const totalEntitiesCount = Object.keys(geodb.entities).length;
+  // Terra behält Kartenobjekte ohne faire Frage (derzeit zwei Städte) für Atlas
+  // und Karte. Für den Lernfortschritt zählen aber nur Entitäten, die in der
+  // aktuellen Fragenmenge tatsächlich vorkommen.
+  const countedEntities = useMemo(() => {
+    const entities = Object.values(geodb.entities);
+    if (!isTerra) return entities;
+    const askedEntityIds = new Set(questionPool.map((question) => question.entityId));
+    return entities.filter((entity) => askedEntityIds.has(entity.id));
+  }, [geodb.entities, isTerra, questionPool]);
+  const countedEntityIds = useMemo(
+    () => new Set(countedEntities.map((entity) => entity.id)),
+    [countedEntities]
+  );
+  const totalEntitiesCount = countedEntities.length;
   
   // Calculate status counts
   let masteredCount = 0;
@@ -45,6 +58,7 @@ export default function Dashboard({
   let learningCount = 0;
   
   Object.keys(srsProgress).forEach(id => {
+    if (!countedEntityIds.has(id)) return;
     const item = srsProgress[id];
     if (item.repetitions > 0) {
       if (item.interval >= 30) {
@@ -72,7 +86,7 @@ export default function Dashboard({
 
   // Konzepte generisch nach Typ gruppieren (domain-unabhängig).
   const entityTypes = {};
-  Object.values(geodb.entities).forEach(entity => {
+  countedEntities.forEach(entity => {
     const type = entity.type;
     if (!type) return;
     // TYPE_LABELS (Terra/Astra/Homo, Plural) zuerst; sonst singuläres CATEGORY_LABELS

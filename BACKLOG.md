@@ -56,7 +56,3 @@ Vor Übernahme jeden Punkt gegen aktuellen Code, CHANGELOG und bestehende Projek
 - Browser-Gegenprobe für v1.98.0 offen: Footer-Kontrast und -Unterstreichung sowie die neuen
   Ladehinweise (Hub → Querbeet, Bereichswechsel) sind nur headless geprüft (Vitest,
   Layoutvertrag, Kontrastrechnung). Der Geräte-/Browserlauf nach LAYOUT.md steht aus.
-- Terra-Fortschritt deckelt bei 1.850/1.852: Die Städte Luxemburg und Dschibuti sind seit
-  v1.85.11 nicht mehr abfragbar (ihre einzigen Fragen waren Selbstverräter), zählen im
-  Dashboard aber weiter als Karteikarte. Entweder `totalEntitiesCount` aus den tatsächlich
-  abfragbaren Entitäten ableiten oder für beide einen fairen Fragetyp ergänzen.
