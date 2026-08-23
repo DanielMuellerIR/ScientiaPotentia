@@ -5,6 +5,16 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-08-23 (v1.98.18) — Odia-Kalligrafie im Lingua-Museum
+
+- Eine CC-BY-SA-Kalligrafie von Subhashish Panigrahi ergänzt die Odia-Schrift. Das
+  Schriftbild macht die charakteristisch runden Zeichen unmittelbar sichtbar und benötigt
+  keine dekorative Stellvertreterfotografie.
+- Lingua enthält damit 192 live geprüfte Konzeptbilder; Scientia insgesamt 5.054.
+
+Verifiziert mit Lingua-Generator, Faktenprüfung, Fragen-Audit, vollständigem Commons-Check
+(192 gültig, 0 fehlerhaft) und Browserprüfung von Bild, Attribution und Konsole.
+
 ## 2026-08-23 (v1.98.17) — Thaana-Tabelle im Lingua-Museum
 
 - Die gemeinfreie Tabelle von Mohonu ergänzt Thaana mit Vokal- und Konsonantenzeichen.
