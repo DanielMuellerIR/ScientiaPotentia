@@ -5,6 +5,16 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-08-23 (v1.98.32) — Maschinenelemente im Machina-Museum
+
+- Schraube, Schraubenmutter, Kugellager und Kurbelwelle erhalten je eine eindeutige
+  Objektaufnahme. Die Quellen stehen unter CC0, Public Domain oder CC-BY-Lizenzen und
+  machen die Bauform vor der Erklärung sichtbar.
+- Machina enthält damit 158 Konzeptbilder; Scientia insgesamt 5.105.
+
+Verifiziert mit Machina-Generator, Faktenprüfung, Fragen-Audit, vollständigem Commons-Check
+und Browserprüfung von Bild, Attribution, Quiz und Konsole.
+
 ## 2026-08-23 (v1.98.31) — Werkzeuge im Machina-Museum
 
 - Messschieber, Maurerkelle und Spitzzange erhalten klare Objektaufnahmen. Die Quellen stehen
