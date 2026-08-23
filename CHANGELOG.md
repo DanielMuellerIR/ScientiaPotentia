@@ -5,6 +5,16 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-08-23 (v1.98.47) — Mess- und Anreißwerkzeuge im Machina-Museum
+
+- Bandmaß, Bügelmessschraube, Winkelmesser und Zirkel erhalten jeweils eine eindeutig
+  lesbare Objektaufnahme oder Scanansicht. Die Quellen stehen unter Public Domain, CC-BY
+  oder CC-BY-SA; die Urheberangaben bleiben im Museum sichtbar.
+- Machina enthält damit 216 Konzeptbilder; Scientia insgesamt 5.163.
+
+Verifiziert mit Machina-Generator, Faktenprüfung, Fragen-Audit, vollständigem Commons-Check
+und Browserprüfung von Bild, Attribution, Quiz und Konsole.
+
 ## 2026-08-23 (v1.98.46) — Handwerkzeuge im Machina-Museum
 
 - Schlosserhammer, Fäustel, Gummihammer und Handhobel erhalten jeweils eine eindeutige
