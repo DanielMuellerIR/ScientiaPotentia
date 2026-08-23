@@ -10,6 +10,7 @@
 - [`extraktion_sachbuecher_plan.md`](extraktion_sachbuecher_plan.md)
 - [`homo_erweiterung.md`](homo_erweiterung.md)
 - [`homo_erweiterung_runde2.md`](homo_erweiterung_runde2.md)
+- [`terra_mischpool.md`](terra_mischpool.md) (Entscheidungsvorlage für kartenfreie Geografiefragen)
 - [`wissensquellen.md`](wissensquellen.md)
 - [`wissensquellen_extern.md`](wissensquellen_extern.md)
 

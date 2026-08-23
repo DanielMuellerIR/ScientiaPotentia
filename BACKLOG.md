@@ -53,4 +53,5 @@ Vor Übernahme jeden Punkt gegen aktuellen Code, CHANGELOG und bestehende Projek
   brauchen die Weltkarte, geodb-Konzepte passen nicht ins generische ConceptVisual). Seit
   v1.98.0 sagt die Oberfläche das ehrlich. Alternative wäre, einen kartenfreien Terra-Anteil
   (reine MCQ-Fragen mit Konzeptkarte) in den Mischpool aufzunehmen — Produktentscheidung,
-  nicht nur Technik.
+  nicht nur Technik. Zahlen, Grenzen und Implementierungsschritte stehen in
+  [`docs/terra_mischpool.md`](docs/terra_mischpool.md).
