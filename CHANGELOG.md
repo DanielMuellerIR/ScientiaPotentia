@@ -5,6 +5,16 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-08-23 (v1.98.27) — Kantenansichten im Astra-Museum
+
+- Nadel-, Wal- und Hockeyschläger-Galaxie erhalten Aufnahmen, die ihre Kantenansicht und
+  Verformung sichtbar machen. Das ESO-Bild der Nadelgalaxie steht unter CC BY 3.0; die beiden
+  Aufnahmen von Chuck Ayoub unter CC0.
+- Astra enthält damit 489 live geprüfte Konzeptbilder; Scientia insgesamt 5.086.
+
+Verifiziert mit Astra-Generator, Faktenprüfung, Fragen-Audit, vollständigem Commons-Check
+(489 gültig, 0 fehlerhaft) und Browserprüfung von Bild, Attribution und Konsole.
+
 ## 2026-08-23 (v1.98.26) — Vier weitere Galaxienbilder im Astra-Museum
 
 - Freie Aufnahmen ergänzen Bildhauer-, Feuerrad-, Sonnenblumen- und Schwarzauge-Galaxie.
