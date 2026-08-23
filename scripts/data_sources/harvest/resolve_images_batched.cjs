@@ -70,6 +70,32 @@ const J = s => { try { return JSON.parse(s); } catch { return null; } };
 const chunk = (a, n) => { const o = []; for (let i = 0; i < a.length; i += n) o.push(a.slice(i, i + n)); return o; };
 const qidOf = u => (String(u).match(/Q\d+/) || [])[0];
 const deTitle = u => { const m = String(u).match(/de\.wikipedia\.org\/wiki\/([^?#]+)/); return m ? decodeURIComponent(m[1]).replace(/_/g, " ") : null; };
+// Die Pageimages-API ergänzt derzeit utm-Parameter an Commons-Upload-URLs. Nur der
+// Pfadname ist ein Commons-Dateititel; Query und Fragment dürfen nicht mit in die
+// anschließende imageinfo-Abfrage gelangen.
+const fileNameFromUploadUrl = source => {
+  try {
+    const fileName = new URL(source).pathname.split("/").pop();
+    return fileName ? decodeURIComponent(fileName) : null;
+  } catch {
+    return null;
+  }
+};
+// Gleiche konservative Freigabe wie scripts/check_images.cjs: Der Resolver darf
+// weder Video-Dateien noch Lizenztypen liefern, die das nachgelagerte Gate wieder
+// entfernen müsste.
+const isFree = meta => {
+  const lic = (meta?.LicenseShortName?.value || "").toString();
+  const licUrl = (meta?.LicenseUrl?.value || "").toString();
+  const copyrighted = (meta?.Copyrighted?.value || "").toString();
+  const blob = (lic + " " + licUrl).toLowerCase();
+  if (/\b(nc|nd|non[- ]?commercial|noncommercial|no[- ]?deriv|all rights)\b/.test(blob)) return false;
+  if (/public domain|^pd|cc0|creativecommons\.org\/publicdomain/.test(blob)) return true;
+  if (/cc[- ]by|creativecommons\.org\/licenses\/by/.test(blob)) return true;
+  if (/\bfal\b|free art|gfdl/.test(blob)) return true;
+  if (/copyrighted free use|free use/.test(blob) || /^attribution\b/.test(lic.toLowerCase().trim())) return true;
+  return copyrighted.toLowerCase() === "false";
+};
 
 (async () => {
   const raw = JSON.parse(fs.readFileSync(RAWFILE, "utf8"));
@@ -125,7 +151,8 @@ const deTitle = u => { const m = String(u).match(/de\.wikipedia\.org\/wiki\/([^?
       const normTitle = norm[t] || t;
       const pageTitle = redir[normTitle] || normTitle;
       const src = pageByTitle[pageTitle]?.original?.source;
-      if (src) fileForId.set(c.id, decodeURIComponent(src.split("/").pop()));
+      const fileName = src && fileNameFromUploadUrl(src);
+      if (fileName) fileForId.set(c.id, fileName);
     }
     await sleep(120);
   }
@@ -136,7 +163,7 @@ const deTitle = u => { const m = String(u).match(/de\.wikipedia\.org\/wiki\/([^?
   const files = entries.map(([, f]) => "File:" + f);
   const licByFile = new Map();
   for (const grp of chunk(files, 50)) {
-    const url = `https://commons.wikimedia.org/w/api.php?action=query&prop=imageinfo&iiprop=extmetadata|url&format=json&titles=${grp.map(encodeURIComponent).join("|")}`;
+    const url = `https://commons.wikimedia.org/w/api.php?action=query&prop=imageinfo&iiprop=extmetadata|url|mime&format=json&titles=${grp.map(encodeURIComponent).join("|")}`;
     const j = J((await get(url)).body);
     const q = j?.query || {};
     const norm = {}; (q.normalized || []).forEach(n => norm[n.from] = n.to);
@@ -147,12 +174,7 @@ const deTitle = u => { const m = String(u).match(/de\.wikipedia\.org\/wiki\/([^?
       if (!ii) continue;
       const m = ii.extmetadata || {};
       const lic = (m.LicenseShortName?.value || m.License?.value || "").toString();
-      const blob = lic.toLowerCase();
-      // Permissiv sammeln, aber klar Unfreies (NC/ND) ausschliessen — sonst passte
-      // "CC BY-NC-SA" faelschlich über das "cc by"-Token durch. SA bleibt frei.
-      // Die AUTORITATIVE strenge Lizenz-/MIME-Pruefung macht danach check_images.cjs.
-      const nonfree = /\b(nc|nd|non[- ]?commercial|noncommercial|no[- ]?deriv)\b/.test(blob);
-      const ok = !nonfree && (!!lic || String(m.Copyrighted?.value) === "False");
+      const ok = String(ii.mime || "").startsWith("image/") && isFree(m);
       licByFile.set(fTitle, { ok, lic: lic || "Public domain", art: (m.Artist?.value || "").replace(/<[^>]+>/g, "").trim().slice(0, 200) });
     }
     await sleep(120);

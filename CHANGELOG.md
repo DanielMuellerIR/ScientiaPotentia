@@ -5,6 +5,21 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-08-23 (v1.98.8) — Historia-Bilder und robusterer Commons-Resolver
+
+- Historia ergänzt drei fachlich passende, live lizenzgeprüfte Exponate: Guglielmo Marconi
+  zum ersten Transatlantik-Funkspruch, eine Computer-/Webdarstellung zum
+  Informationszeitalter und Karl Jansky zur Radioastronomie. Damit steigt die
+  Historia-Abdeckung von 1.023 auf 1.026 Konzeptbilder; die globale Zahl beträgt 5.043.
+- Beide Pageimages-Resolver lösen den Dateinamen jetzt aus dem URL-Pfad. Wikimedia ergänzt
+  Tracking-Parameter an die aktuellen Upload-URLs; zuvor wurden diese fälschlich Teil des
+  Commons-Dateititels. Der Batch-Resolver fragt außerdem den MIME-Typ ab und verwirft Videos
+  sowie Lizenztypen, die `check_images.cjs` später ablehnen würde.
+
+Verifiziert mit Generator, `verify:facts -- historia`, Fragen-Audit, vollständigem
+Commons-Check (1.026 gültig, 0 fehlerhaft), 132 Vitest-Tests, Produktions-Build,
+Layout-Vertrag und Browserlauf im Historia-Museum inklusive sichtbarer Attributionen.
+
 ## 2026-08-23 (v1.98.7) — Nicht freies Astra-Bild entfernt
 
 - Die Live-Prüfung gegen Commons erkannte die gespeicherte Europa-Clipper-

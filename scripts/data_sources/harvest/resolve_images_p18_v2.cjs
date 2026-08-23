@@ -333,7 +333,7 @@ async function dewikiPageimage(title) {
 
   const encodedTitle = encodeURIComponent(title.replace(/ /g, "_"));
   const url = `https://de.wikipedia.org/w/api.php?action=query&format=json` +
-    `&titles=${encodedTitle}&prop=pageimages&piprop=original&maxlag=5`;
+    `&titles=${encodedTitle}&prop=pageimages&piprop=original&redirects=1&maxlag=5`;
   const j = await apiGet(url);
   const pages = j?.query?.pages;
   let result = null;
@@ -342,10 +342,12 @@ async function dewikiPageimage(title) {
     if (page && page.missing === undefined) {
       const source = page.original?.source;
       if (source) {
-        // Commons-Upload-URL: .../wikipedia/commons/<hash>/<hash>/<Dateiname>
-        const m = source.match(/\/wikipedia\/commons\/[^/]+\/[^/]+\/(.+)$/);
-        if (m) {
-          let fileName = decodeURIComponent(m[1]);
+        // Commons-Upload-URL: .../wikipedia/commons/<hash>/<hash>/<Dateiname>.
+        // Pageimages hängt Tracking-Parameter an; die gehören nicht zum Dateinamen.
+        let fileName = null;
+        try { fileName = decodeURIComponent(new URL(source).pathname.split("/").pop() || ""); }
+        catch { fileName = null; }
+        if (fileName) {
           // .svg.png-Varianten zurück auf .svg normalisieren (de.wiki liefert manchmal .svg.png)
           fileName = fileName.replace(/\.svg\.png$/, ".svg");
           result = "File:" + fileName;
