@@ -37,6 +37,10 @@ Vor Übernahme jeden Punkt gegen aktuellen Code, CHANGELOG und bestehende Projek
   deterministische Ebene ist mit v1.85.10 abgearbeitet; offen ist nur noch, was
   strukturelle Checks prinzipiell nicht sehen (Sachfehler, unfaire Distraktoren,
   Verständlichkeit). Der Lauf verbraucht MiniMax-Kontingent — vorher mit Daniel klären.
+  Preflight am 2026-08-23: eine Frage pro Template über die sieben Nicht-Terra-Domains
+  ergibt 342 Stichproben in 29 Aufrufen zu je höchstens 12 Fragen; mit dem Runner-Standard
+  von 8.000 Ausgabetokens sind höchstens 232.000 Ausgabetokens anzusetzen. Ein
+  generischer Kartenlauf ohne Astra und Homo umfasst 213 Stichproben in 18 Aufrufen.
 - **Langfristig:** Mischzustand während des Deployments. Assets werden einzeln sichtbar,
   bevor der neue `index.html` erscheint (`deploy.py` lädt den Entrypoint zuletzt und
   ersetzt ihn per atomarem Rename). Das verhindert Datenverlust und halbe Dateien, aber
