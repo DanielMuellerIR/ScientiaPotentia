@@ -5,6 +5,16 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-08-23 (v1.98.25) — Vier Galaxienbilder im Astra-Museum
+
+- Gemeinfreie Aufnahmen von Sombrero-Galaxie, Bode-Galaxie, Zigarrengalaxie und Centaurus A
+  machen vier zentrale Galaxien direkt sichtbar. Die Credits nennen NASA, ESA und die jeweils
+  beteiligten Hubble-Teams sichtbar im Museum.
+- Astra enthält damit 482 live geprüfte Konzeptbilder; Scientia insgesamt 5.079.
+
+Verifiziert mit Astra-Generator, Faktenprüfung, Fragen-Audit, vollständigem Commons-Check
+(482 gültig, 0 fehlerhaft) und Browserprüfung von Bild, Attribution und Konsole.
+
 ## 2026-08-23 (v1.98.24) — Anschlüsse und Kühlung im Machina-Museum
 
 - Direkte Bilder erklären Beamer, LAN-Kabel, RJ45-Buchse, Thunderbolt-3-Anschlüsse und
