@@ -5,6 +5,16 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-08-23 (v1.98.48) — Span- und Sägewerkzeuge im Machina-Museum
+
+- Raspel, Japansäge, Fuchsschwanz und Laubsäge erhalten jeweils eine eindeutige
+  Objektaufnahme. Die Quellen stehen unter Public Domain oder CC-BY; die Urheberangaben
+  bleiben im Museum sichtbar.
+- Machina enthält damit 220 Konzeptbilder; Scientia insgesamt 5.167.
+
+Verifiziert mit Machina-Generator, Faktenprüfung, Fragen-Audit, vollständigem Commons-Check
+und Browserprüfung von Bild, Attribution, Quiz und Konsole.
+
 ## 2026-08-23 (v1.98.47) — Mess- und Anreißwerkzeuge im Machina-Museum
 
 - Bandmaß, Bügelmessschraube, Winkelmesser und Zirkel erhalten jeweils eine eindeutig
