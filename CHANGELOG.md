@@ -5,6 +5,16 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-08-23 (v1.98.40) — Weitere Dichtungstechnik im Machina-Museum
+
+- Gleitring-, Labyrinth- und Stopfbuchsendichtung sowie Kolbenring erhalten jeweils eine
+  fachlich eindeutige Schnittzeichnung, Darstellung oder Objektaufnahme. Die Quellen stehen
+  unter Public Domain oder CC-BY-SA; die Urheberangaben bleiben im Museum sichtbar.
+- Machina enthält damit 190 Konzeptbilder; Scientia insgesamt 5.137.
+
+Verifiziert mit Machina-Generator, Faktenprüfung, Fragen-Audit, vollständigem Commons-Check
+und Browserprüfung von Bild, Attribution, Quiz und Konsole.
+
 ## 2026-08-23 (v1.98.39) — Feder-, Dämpfer- und Dichtungstechnik im Machina-Museum
 
 - Drehstabfeder, Stoßdämpfer, Wellendichtring und Flachdichtung erhalten jeweils eine
