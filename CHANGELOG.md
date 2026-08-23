@@ -1,9 +1,18 @@
 # Changelog — Scientia
 
-> **Stand: 2026-08-20.** Diese Datei sammelt die datierte Versions-Chronik, die
+> **Stand: 2026-08-23.** Diese Datei sammelt die datierte Versions-Chronik, die
 > zuvor als Blockquote-Blöcke in `AGENTS.md` gewachsen war und dort ausgelagert
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
+
+## 2026-08-23 (v1.98.31) — Werkzeuge im Machina-Museum
+
+- Messschieber, Maurerkelle und Spitzzange erhalten klare Objektaufnahmen. Die Quellen stehen
+  unter CC0 oder Public Domain und ergänzen die Anleitungstexte mit direkt sichtbarer Form.
+- Machina enthält damit 154 Konzeptbilder; Scientia insgesamt 5.101.
+
+Verifiziert mit Machina-Generator, Faktenprüfung, Fragen-Audit, vollständigem Commons-Check
+und Browserprüfung von Bild, Attribution, Quiz und Konsole.
 
 ## 2026-08-23 (v1.98.30) — Mainboard-Details im Machina-Museum
 
