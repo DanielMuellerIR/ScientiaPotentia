@@ -244,6 +244,26 @@ describe('MuseumExplorer bei realer Bildmenge', () => {
 });
 
 describe('GalleryExplorer-Parität', () => {
+  it('verwendet die gemeinsame Wortanfangssuche im Depot', () => {
+    const galleryConcepts = Object.fromEntries([
+      ['eule', { ...makeConcept('natura', 0, 'animal', 'Galerie'), name: 'Eule' }],
+      ['krokodil', { ...makeConcept('natura', 1, 'animal', 'Galerie'), name: 'Beulenkrokodil' }],
+    ]);
+    render(
+      <GalleryExplorer
+        domain={{ id: 'natura', label: 'Natur & Umwelt', latinName: 'Natura', accent: '#3E7D5A' }}
+        concepts={galleryConcepts}
+      />
+    );
+
+    fireEvent.change(screen.getByLabelText('Exponate durchsuchen'), {
+      target: { value: 'eule' },
+    });
+
+    expect(screen.getByTitle('Eule')).toBeInTheDocument();
+    expect(screen.queryByTitle('Beulenkrokodil')).not.toBeInTheDocument();
+  });
+
   it('nutzt dieselbe Virtualisierung, Pagination, Suche und Lightbox-Basis', async () => {
     const galleryConcepts = makeConceptMap('natura', 1584, 'animal', 'Galerie Tier');
     render(

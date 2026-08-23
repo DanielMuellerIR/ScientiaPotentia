@@ -21,9 +21,6 @@ Vor Übernahme jeden Punkt gegen aktuellen Code, CHANGELOG und bestehende Projek
   kompatibel lizenzierte Linienkonvention freigeben oder auf offizielle IAU-Grenzen mit
   passendem Quelldatensatz umplanen. Quelle:
   https://www.iau.org/Iau/Science/What-we-do/The-Constellations.aspx
-- Depot-/Galerie-Suche matcht Substrings („eule" findet „Beulenkrokodil") — auf
-  Wortanfangs- oder diakritikrobuste Token-Suche umstellen.
-
 - Echten iPhone-Hochkantlauf für responsive Shell und VisualPanel.
 - Content-Ceilings pro Domain fachlich statt rein numerisch bewerten.
 - Museum-/Explorer-Bildabdeckung gezielt erweitern, nur mit Lizenz- und Eignungsstichprobe.

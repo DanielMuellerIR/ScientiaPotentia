@@ -5,6 +5,19 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-08-23 (v1.98.2) — Suche im Museum und in Galerien präzisiert
+
+- Die Namenssuche vergleicht eingegebene Wörter nur noch mit Tokenanfängen. „eule"
+  findet daher „Schnee-Eule", aber nicht mehr das innere Fragment in
+  „Beulenkrokodil".
+- Eine gemeinsame Hilfsfunktion normalisiert Groß-/Kleinschreibung, Umlaute und
+  `ß`; mehrere Suchbegriffe dürfen in beliebiger Reihenfolge in einem Namen stehen.
+  Museum und `GalleryExplorer` verwenden denselben Abgleich.
+
+Verifiziert mit 130 Vitest-Tests (inklusive neuer Gegenprobe), Produktions-Build,
+Layout-Vertrag und Browserlauf im Natura-Depot (Suche „eule" → nur „Schnee-Eule",
+Konsole fehlerfrei).
+
 ## 2026-08-20 (v1.98.1) — Nacht-Review vollständig abgearbeitet
 
 - **Bereichsdaten bleiben konsistent.** `App.jsx` koppelt Domain-ID, Ladezustand,

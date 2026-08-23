@@ -9,6 +9,7 @@ import {
   VirtualExhibitWall,
 } from './ExhibitGalleryShared';
 import ExhibitLightbox, { useExhibitLightbox } from './ExhibitLightbox';
+import { matchesNameTokenPrefix } from '../utils/tokenSearch';
 
 const DOMAIN_BY_ID = Object.fromEntries(DOMAINS.map((domain) => [domain.id, domain]));
 const DOMAIN_ORDER = new Map(DOMAINS.map((domain, index) => [domain.id, index]));
@@ -106,11 +107,11 @@ export default function MuseumExplorer({
     }
   }, [categories, categoryFilter]);
 
-  const query = search.trim().toLocaleLowerCase('de');
+  const query = search.trim();
   const searchActive = query.length > 0;
   const filteredItems = useMemo(() => filterPool.filter((item) => {
     if (categoryFilter !== 'all' && item.category !== categoryFilter) return false;
-    return !query || item.name.toLocaleLowerCase('de').includes(query);
+    return !query || matchesNameTokenPrefix(item.name, query);
   }), [categoryFilter, filterPool, query]);
 
   const hallIndex = halls.findIndex((hall) => hall.domain.id === domainFilter);

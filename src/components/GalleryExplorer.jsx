@@ -6,6 +6,7 @@ import {
   VirtualExhibitWall,
 } from './ExhibitGalleryShared';
 import ExhibitLightbox, { useExhibitLightbox } from './ExhibitLightbox';
+import { matchesNameTokenPrefix } from '../utils/tokenSearch';
 
 // Kategorie -> deutsches Label; unbekannte Kategorien werden kapitalisiert.
 const catLabel = (category) => CATEGORY_LABELS[category]
@@ -66,11 +67,11 @@ export default function GalleryExplorer({ domain, concepts = {} }) {
     if (hallIndex >= halls.length) setHallIndex(0);
   }, [hallIndex, halls]);
 
-  const query = search.trim().toLocaleLowerCase('de');
+  const query = search.trim();
   const searchActive = query.length > 0;
   const depotItems = useMemo(
     () => (searchActive
-      ? items.filter((item) => item.name.toLocaleLowerCase('de').includes(query))
+      ? items.filter((item) => matchesNameTokenPrefix(item.name, query))
       : items),
     [items, query, searchActive]
   );
