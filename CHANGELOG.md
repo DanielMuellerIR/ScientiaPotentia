@@ -5,6 +5,17 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-08-23 (v1.98.10) — Rolandslied im Cultura-Museum
+
+- Eine Public-Domain-Illustration Jean Fouquets zur Schlacht von Roncesvalles ergänzt
+  das Rolandslied. Sie zeigt den zentralen Stoff des Epos, nicht bloß ein dekoratives
+  Autorenporträt.
+- Cultura enthält damit 1.049 live geprüfte Konzeptbilder, Scientia insgesamt 5.045.
+
+Verifiziert mit Cultura-Generator, `verify:facts -- cultura`, Fragen-Audit und vollständigem
+Commons-Check (1.049 gültig, 0 fehlerhaft); die Browserprüfung bestätigt Bild und Attribution
+im Museum.
+
 ## 2026-08-23 (v1.98.9) — Sextans-Zwerggalaxie im Astra-Museum
 
 - Die CC0-Aufnahme der Sextans-Zwerggalaxie ergänzt die Astra-Galerie. Der Eintrag behält
