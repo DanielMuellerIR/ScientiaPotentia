@@ -4,7 +4,7 @@
 // damit KEIN Wikimedia-Rate-Limit (429) auftritt. Schreibt das Ergebnis-Mapping inkrementell.
 //
 // Aufruf:  node resolve_images_batched.cjs <domain> [animalCap] [animalOffset]
-//   <domain>   = astra | natura | cultura | lingua
+//   <domain>   = astra | natura | cultura | lingua | historia | homo | machina
 //   [animalCap]= optionales Limit für natura-Kategorie "animal" (Default: alle)
 //   [animalOffset] = Startindex für ein begrenztes Natura-Tierfenster (Default: 0)
 // Ausgabe:  /tmp/<domain>_images_batched.json  (Array {id, imageFile, imageLicense, imageAttribution})
@@ -16,7 +16,7 @@ const path = require("path");
 const DOMAIN = process.argv[2];
 const ANIMAL_CAP = process.argv[3] ? parseInt(process.argv[3], 10) : Infinity;
 const ANIMAL_OFFSET = process.argv[4] ? parseInt(process.argv[4], 10) : 0;
-if (!DOMAIN) { console.error("Aufruf: node resolve_images_batched.cjs <domain> [animalCap]"); process.exit(1); }
+if (!DOMAIN) { console.error("Aufruf: node resolve_images_batched.cjs <domain> [animalCap] [animalOffset]"); process.exit(1); }
 if ((ANIMAL_CAP !== Infinity && (!Number.isInteger(ANIMAL_CAP) || ANIMAL_CAP < 1)) ||
     !Number.isInteger(ANIMAL_OFFSET) || ANIMAL_OFFSET < 0) {
   console.error("animalCap muss positiv und animalOffset eine nichtnegative ganze Zahl sein.");
