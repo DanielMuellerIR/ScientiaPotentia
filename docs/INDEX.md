@@ -3,6 +3,7 @@
 ## Fach- und Quellenverträge
 
 - [`bereichs_abgrenzung.md`](bereichs_abgrenzung.md)
+- [`astra_sternbilddaten.md`](astra_sternbilddaten.md) (Quellen- und Umsetzungsentscheidung)
 - [`bildquellen_strategie.md`](bildquellen_strategie.md) (historische Resolver-Analyse)
 - [`content_ceiling.md`](content_ceiling.md)
 - [`content_pipeline.md`](content_pipeline.md)

@@ -19,8 +19,8 @@ Vor Übernahme jeden Punkt gegen aktuellen Code, CHANGELOG und bestehende Projek
   ergänzen. Die IAU erklärt ausdrücklich, dass sie keine solchen Linienmuster definiert;
   Astra besitzt zudem keine Sternkoordinaten. Vor einer Umsetzung entweder eine konkrete,
   kompatibel lizenzierte Linienkonvention freigeben oder auf offizielle IAU-Grenzen mit
-  passendem Quelldatensatz umplanen. Quelle:
-  https://www.iau.org/Iau/Science/What-we-do/The-Constellations.aspx
+  passendem Quelldatensatz umplanen. Quellenlage, Optionen und technischer Rahmen stehen in
+  [`docs/astra_sternbilddaten.md`](docs/astra_sternbilddaten.md).
 - Echten iPhone-Hochkantlauf für responsive Shell und VisualPanel.
 - **Museum-/Explorer-Bildabdeckung:** gezielt erweitern, nur mit Lizenz- und
   Eignungsstichprobe. Am 2026-08-23 wurden die direkt visualisierbaren Lingua-Schriftkonzepte,
