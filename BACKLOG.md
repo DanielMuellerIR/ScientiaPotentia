@@ -24,7 +24,7 @@ Vor Übernahme jeden Punkt gegen aktuellen Code, CHANGELOG und bestehende Projek
 - Echten iPhone-Hochkantlauf für responsive Shell und VisualPanel.
 - **Museum-/Explorer-Bildabdeckung:** gezielt erweitern, nur mit Lizenz- und
   Eignungsstichprobe. Am 2026-08-23 wurden die direkt visualisierbaren Lingua-Schriftkonzepte,
-  100 Machina-Objekte und 11 eindeutig zuordenbare Astra-Galaxien ergänzt; Rotokas bleibt ohne
+  104 Machina-Objekte und 11 eindeutig zuordenbare Astra-Galaxien ergänzt; Rotokas bleibt ohne
   passenden freien Kandidaten offen. Weitere Bilder nur für fachlich eindeutige Konzepte suchen,
   keine generischen oder im dunklen Panel unlesbaren Platzhalter übernehmen.
 - **Harvest-Restkandidaten (abgeschlossen, 2026-08-23):** Der W1-Audit ordnet alle 390

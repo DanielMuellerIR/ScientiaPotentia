@@ -5,6 +5,16 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-08-23 (v1.98.50) — Werkstatt-Grundwerkzeuge im Machina-Museum
+
+- Zimmermannshammer, Stechbeitel, Schlosserfeile und Wasserwaage erhalten jeweils eine
+  eindeutige Objektaufnahme. Die Quellen stehen unter Public Domain, CC-BY oder CC-BY-SA; die
+  Urheberangaben bleiben im Museum sichtbar.
+- Machina enthält damit 228 Konzeptbilder; Scientia insgesamt 5.175.
+
+Verifiziert mit Machina-Generator, Faktenprüfung, Fragen-Audit, vollständigem Commons-Check
+und Browserprüfung von Bild, Attribution, Quiz und Konsole.
+
 ## 2026-08-23 (v1.98.49) — Spann- und Klemmwerkzeuge im Machina-Museum
 
 - Schraubstock, Schraubzwinge, Federzwinge und Eckzwinge erhalten jeweils eine eindeutige
