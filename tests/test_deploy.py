@@ -232,6 +232,45 @@ class DeployTests(unittest.TestCase):
         self.assertFalse(any(path.startswith("/remote/assets/app.js") for path in stored_paths))
         self.assertFalse(any(path.startswith("/remote/index.html.uploading-") for path in stored_paths))
 
+    def test_skip_without_server_checksum_is_not_reported_as_verified(self):
+        """Review-Fund 2026-08-25: Ohne XSHA256/XMD5 galt ein Skip als verifiziert.
+
+        Der Skip bleibt richtig — ohne die Erweiterungen müsste sonst jeder Deploy
+        alles neu hochladen. Er darf sich aber nicht als vom Server bestätigt
+        ausgeben: Belegt sind nur Manifest und Größe.
+        """
+        self.write_build()
+        deployed_files = {"index.html": b"new index", "assets/app.js": b"new asset"}
+        ftps = FakeFTPS(
+            {
+                "/remote/index.html": deployed_files["index.html"],
+                "/remote/assets/app.js": deployed_files["assets/app.js"],
+                f"/remote/{deploy.REMOTE_MANIFEST_NAME}": remote_manifest(deployed_files),
+            }
+        )
+
+        result = deploy.deploy_dist(ftps, str(self.dist), "/remote")
+
+        self.assertEqual(result.skipped, 2)
+        self.assertEqual(result.skipped_unverified, 2)
+
+    def test_skip_with_server_checksum_counts_as_verified(self):
+        self.write_build()
+        deployed_files = {"index.html": b"new index", "assets/app.js": b"new asset"}
+        ftps = FakeFTPS(
+            {
+                "/remote/index.html": deployed_files["index.html"],
+                "/remote/assets/app.js": deployed_files["assets/app.js"],
+                f"/remote/{deploy.REMOTE_MANIFEST_NAME}": remote_manifest(deployed_files),
+            },
+            checksum_commands={"XSHA256"},
+        )
+
+        result = deploy.deploy_dist(ftps, str(self.dist), "/remote")
+
+        self.assertEqual(result.skipped, 2)
+        self.assertEqual(result.skipped_unverified, 0)
+
     def test_server_checksum_reuploads_same_size_corruption_despite_manifest(self):
         """Ein passendes altes Manifest darf beschädigte Bytes nicht mehr verdecken."""
         self.write_build(asset=b"fresh")

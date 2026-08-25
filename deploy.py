@@ -58,6 +58,9 @@ class DeployResult:
     failed: int
     manifest: dict
     not_attempted: int = 0
+    #: Anteil an ``skipped``, für den der Server KEINE Prüfsumme liefern konnte —
+    #: dort belegen nur Manifest und Größe die Gleichheit (Review-Fund 2026-08-25).
+    skipped_unverified: int = 0
 
 
 def load_env_credentials(env_path):
@@ -440,7 +443,16 @@ def remote_path(remote_base, relative_path):
 
 
 def remote_matches_manifest(ftps, remote_file, local_file, remote_metadata, checksum_verifier):
-    """Ein Skip braucht Manifest, aktuelle Größe und ggf. Server-Prüfsumme."""
+    """Wie gut ist ein Skip belegt? ``"checksum"``, ``"manifest"`` oder ``False``.
+
+    ``"checksum"`` heißt: Der Server hat den Inhalt selbst bestätigt (XSHA256 oder
+    XMD5). ``"manifest"`` heißt: Manifest und Größe stimmen, aber der Server kann
+    keine Prüfsumme liefern — beschädigte Bytes gleicher Länge blieben damit
+    unentdeckt. Vorher gab die Funktion für beide Fälle True zurück, und der
+    Deploy meldete auch den zweiten Fall als „Remote file verified"
+    (Review-Fund 2026-08-25). Der Skip bleibt: Ohne die Erweiterungen müsste
+    sonst jeder Deploy alles neu hochladen. Sichtbar ist der Unterschied jetzt.
+    """
     if not isinstance(remote_metadata, dict):
         return False
     if remote_metadata.get("sha256") != local_file["sha256"]:
@@ -450,7 +462,9 @@ def remote_matches_manifest(ftps, remote_file, local_file, remote_metadata, chec
     if get_remote_size(ftps, remote_file) != local_file["size"]:
         return False
     checksum_matches = checksum_verifier.matches(remote_file, local_file)
-    return checksum_matches is not False
+    if checksum_matches is False:
+        return False
+    return "checksum" if checksum_matches else "manifest"
 
 
 def deploy_dist(ftps, local_dist, remote_base, *, dry_run=False, force=False):
@@ -478,6 +492,7 @@ def _deploy_dist_normalised(ftps, local_dist, remote_base, *, dry_run=False, for
     release_files = {}
     uploaded = 0
     skipped = ignored
+    skipped_unverified = 0
     failed = 0
     not_attempted = 0
     prepared_directories = {remote_base}
@@ -503,14 +518,22 @@ def _deploy_dist_normalised(ftps, local_dist, remote_base, *, dry_run=False, for
             continue
 
         metadata = {"sha256": file["sha256"], "size": file["size"]}
-        if (
-            not force
-            and not dry_run
-            and remote_matches_manifest(
+        skip_evidence = (
+            remote_matches_manifest(
                 ftps, target, file, remote_files.get(relative_path), checksum_verifier
             )
-        ):
-            print(f"[DEPLOY] [SKIP] Remote file verified: {relative_path}")
+            if not force and not dry_run
+            else False
+        )
+        if skip_evidence:
+            if skip_evidence == "checksum":
+                print(f"[DEPLOY] [SKIP] Remote file verified: {relative_path}")
+            else:
+                print(
+                    "[DEPLOY] [SKIP] Remote file matches manifest and size "
+                    f"(server checksum unavailable): {relative_path}"
+                )
+                skipped_unverified += 1
             release_files[relative_path] = metadata
             skipped += 1
             continue
@@ -540,12 +563,14 @@ def _deploy_dist_normalised(ftps, local_dist, remote_base, *, dry_run=False, for
 
     release_manifest = {"version": MANIFEST_VERSION, "files": release_files}
     if failed:
-        return DeployResult(uploaded, skipped, failed, release_manifest, not_attempted)
+        return DeployResult(uploaded, skipped, failed, release_manifest, not_attempted,
+                            skipped_unverified)
 
     remote_manifest_file = remote_path(remote_base, REMOTE_MANIFEST_NAME)
     if dry_run:
         print(f"[DRY-RUN] Would publish release manifest atomically: {remote_manifest_file}")
-        return DeployResult(uploaded, skipped, failed, release_manifest)
+        return DeployResult(uploaded, skipped, failed, release_manifest,
+                            skipped_unverified=skipped_unverified)
 
     try:
         upload_bytes_atomic(
@@ -557,7 +582,8 @@ def _deploy_dist_normalised(ftps, local_dist, remote_base, *, dry_run=False, for
     except Exception as error:
         print(f"[ERROR] Failed to publish release manifest: {error}")
         failed += 1
-    return DeployResult(uploaded, skipped, failed, release_manifest)
+    return DeployResult(uploaded, skipped, failed, release_manifest,
+                        skipped_unverified=skipped_unverified)
 
 
 def main():
@@ -658,9 +684,18 @@ def main():
         print("=" * 60)
         sys.exit(1)
     else:
+        # Ehrlich zaehlen: Ein Skip ohne Server-Pruefsumme ist NICHT verifiziert,
+        # sondern nur durch Manifest und Groesse gedeckt (Review-Fund 2026-08-25).
+        verified = result.skipped - result.skipped_unverified
+        beleg = f"{verified} remotely verified/skipped"
+        if result.skipped_unverified:
+            beleg += (
+                f", {result.skipped_unverified} skipped on manifest and size only "
+                "(server offers no checksum)"
+            )
         print(
             f"      DEPLOYMENT SUCCESSFUL! Uploaded {result.uploaded} files "
-            f"({result.skipped} remotely verified/skipped)."
+            f"({beleg})."
         )
     print("=" * 60)
 
