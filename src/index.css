@@ -57,6 +57,26 @@
   .domain-overview-categories{grid-template-columns:repeat(auto-fit,minmax(135px,1fr));gap:0 14px}
 }
 
+/* Auf niedrigen Querformat-Viewports darf die feste Zusammenfassung nicht fast
+   den ganzen 38vh-Panelbereich belegen. Der Ring bleibt erkennbar, die Liste
+   gewinnt aber genug Höhe für mehrere vollständig sichtbare Themenzeilen. */
+@media (max-height:600px){
+  @container (max-width:900px){
+    .domain-overview-summary{grid-template-columns:minmax(0,1fr) 72px;gap:8px;padding:8px 12px}
+    .domain-overview-icon{display:none}
+    .domain-overview-copy h2{font-size:20px}
+    .domain-overview-label{font-size:11px}
+    .domain-overview-copy p{display:none}
+    .domain-overview-total{min-width:72px}
+    .domain-progress-ring{width:68px;height:68px}
+    .domain-progress-ring-percent{font-size:24px}
+    .domain-progress-ring-caption{display:none}
+    .domain-overview-categories-pane{padding:7px 12px 6px}
+    .domain-overview-categories-heading{padding-bottom:6px}
+    .domain-overview-categories-heading h3{font-size:14px}
+  }
+}
+
 /* ============================================================
    APP-SHELL LAYOUT — Single Source of Truth fuer das Gesamtlayout.
    Masse stehen als CSS-Variablen oben in :root. Die Shell-Geometrie
