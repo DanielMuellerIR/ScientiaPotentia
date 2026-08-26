@@ -2,8 +2,8 @@
 """QA-Runner — Schritt 2 der semantischen Qualitätssicherung.
 
 Liest die von build_batches.mjs erzeugten Batch-Dateien (Spieler-Sicht je Frage),
-schickt jeden Batch gebündelt an ein gewähltes Sprachmodell (One-Shot über
-theplan/tools/llm_run.py)
+schickt jeden Batch gebündelt an ein gewähltes Sprachmodell (über einen
+konfigurierbaren One-Shot-Runner)
 und lässt jede Frage MEHRDIMENSIONAL bewerten:
 
   - Das gewählte Modell beantwortet die Frage ZUERST selbst (nur aus Frage+Optionen+Panel) und
@@ -14,7 +14,7 @@ und lässt jede Frage MEHRDIMENSIONAL bewerten:
     Distraktor-Qualität — plus konkrete Problem-Benennung und ein Urteil.
 
 Warum One-Shot statt agentischem OpenCode: reine Text→JSON-Bewertung, keine Tools
-nötig → llm_run.py ist deutlich effizienter (schont Zeit/Overhead) und liefert
+nötig → ein One-Shot-Runner spart Zeit und liefert
 sauberes JSON. Inhalte sind öffentlich (live deployt), kein Geheimnis-Belang.
 
 Wichtig (Fairness): Die Optionen werden pro Frage DETERMINISTISCH gemischt, bevor sie
@@ -33,7 +33,7 @@ import re
 import subprocess
 import sys
 
-THEPLAN_LLM_RUN = os.path.expanduser('~/git/theplan/tools/llm_run.py')
+DEFAULT_LLM_RUNNER = os.environ.get('SCIENTIA_LLM_RUNNER', 'llm_run.py')
 
 LETTERS = ['A', 'B', 'C', 'D', 'E', 'F']
 
@@ -150,18 +150,18 @@ def build_prompt(views):
     return RUBRIK + '\n\n'.join(blocks) + '\n\nJETZT das JSON-Array:', ref2id
 
 
-def call_model(prompt, backend, model, max_tokens, timeout, effort):
+def call_model(prompt, backend, model, max_tokens, timeout, effort, runner):
     """Einen Batch über den freigegebenen One-Shot-Backend bewerten lassen.
 
     MiniMax bleibt der bisherige Standard. Der Codex-Backend erlaubt einen
     nachvollziehbaren Lauf mit einem ChatGPT-Modell, ohne den Quiz-Checkout zu
     öffnen: ``llm_run.py`` startet ihn in einem leeren, schreibgeschützten
-    Verzeichnis. ``max_tokens`` begrenzt MiniMax-Ausgaben; die Codex-CLI stellt
+    Verzeichnis. ``max_tokens`` begrenzt MiniMax-Ausgaben; der Codex-Backend stellt
     keine maschinenlesbare Ausgabeobergrenze bereit und protokolliert deshalb
     nur den Modellnamen und den Reasoning-Aufwand im Report.
     """
     command = [
-        'python3', THEPLAN_LLM_RUN, backend, '--model', model,
+        sys.executable, runner, backend, '--model', model,
         '--max-tokens', str(max_tokens), '--timeout', str(timeout),
         '--category', 'todo-audit',
     ]
@@ -223,6 +223,8 @@ def main():
                     help='Ausgabeobergrenze pro MiniMax-Aufruf; Codex protokolliert sie nicht')
     ap.add_argument('--timeout', type=int, default=600)
     ap.add_argument('--limit', type=int, default=0, help='nur N Batches (0=alle)')
+    ap.add_argument('--runner', default=DEFAULT_LLM_RUNNER,
+                    help='Pfad zu einem kompatiblen One-Shot-Runner (Standard: SCIENTIA_LLM_RUNNER oder llm_run.py)')
     args = ap.parse_args()
     model = args.model or ('gpt-5.6-terra' if args.backend == 'codex' else 'MiniMax-M3')
 
@@ -242,7 +244,7 @@ def main():
         print(f"[QA] {bf}: {len(views)} Fragen → {args.backend}/{model} …", file=sys.stderr)
         try:
             raw = call_model(prompt, args.backend, model, args.max_tokens,
-                             args.timeout, args.effort)
+                             args.timeout, args.effort, args.runner)
             evals = extract_json_array(raw)
             # Opakes Kürzel (F1…) zurück auf die echte Frage-id mappen.
             for e in evals:

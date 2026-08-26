@@ -7,7 +7,7 @@ import { ArrowRight, Images as ImagesIcon, Layers, Map as MapIcon } from 'lucide
  * führt es Besucher optisch ansprechend zu den einzelnen Wissensbereichen ODER
  * zum domänenübergreifenden Querbeet-Quiz.
  *
- * Kernidee (siehe CLAUDE.md — Qualität/Umfang sichtbar machen): Jede Bereichs-
+ * Kernidee: Jede Bereichs-
  * karte nennt dynamisch die Anzahl Fragen, Konzepte und freier Bilder aus dem
  * generierten Manifest (public/data/domain_stats.json), damit sofort klar wird,
  * wie umfangreich das Quiz ist.

@@ -94,15 +94,15 @@ python3 scripts/qa_review/run_qa.py \
     --backend codex --model gpt-5.6-terra --effort medium --timeout 600
 ```
 
-`llm_run.py` führt Codex in einem leeren, schreibgeschützten Verzeichnis aus. Die
-Codex-CLI meldet keine maschinenlesbare Zahl erzeugter Tokens; der Report hält daher
-Backend und Modell fest. Der Umfang bleibt über die Anzahl und Größe der Batches
-nachvollziehbar begrenzt.
+`run_qa.py` erwartet einen kompatiblen One-Shot-Runner über `--runner` oder die
+Umgebungsvariable `SCIENTIA_LLM_RUNNER`. Der Runner erhält Backend, Modell, Limits und
+Prompt über die dokumentierte Kommandozeile. Der Report hält Backend und Modell fest;
+der Umfang bleibt über Anzahl und Größe der Batches nachvollziehbar begrenzt.
 
 ## Dateien
 
 - `build_batches.mjs` — Sampling + Panel-Rekonstruktion (ESM, nutzt `conceptLabels.js`).
-- `run_qa.py` — Bewertungs-Rubrik + Modellaufruf (über `~/git/theplan/tools/llm_run.py`)
+- `run_qa.py` — Bewertungs-Rubrik + konfigurierbarer Modellaufruf
   + Report-Aggregation. Die Rubrik steht als `RUBRIK`-Konstante oben in der Datei und ist
   der Ort zum Nachschärfen.
 - Reports landen in `docs/qa_reports/` (Markdown + `.raw.json` mit allen Rohbewertungen).
@@ -112,4 +112,4 @@ nachvollziehbar begrenzt.
 1. Kleinen Kalibrierlauf (`--limit 1`) fahren, Rohbefunde stichprobenartig
    gegenprüfen (liegt das Modell richtig? zu streng/zu lasch?).
 2. `RUBRIK` in `run_qa.py` anpassen (Leitlinien-Block).
-3. Erneut prüfen. Modellschwächen ins theplan-Qualitätslog eintragen.
+3. Erneut prüfen. Wiederkehrende Modellschwächen im QA-Report dokumentieren.

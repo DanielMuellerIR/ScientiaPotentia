@@ -1,133 +1,66 @@
-# Scientia — Multi-Domain-Wissensquiz
+**🌐 Sprache / Language:** [English](README.md) · [Deutsch](README.de.md)
 
-> *Scientia potentia est* — Wissen ist Macht.
+# Scientia
 
-**Scientia** ist ein responsives Wissensspiel für moderne Webbrowser. Das Projekt ist aus
-dem Geografie-Spiel „Terra Weltatlas" entstanden und erweitert die Quiz-Engine auf mehrere
-Wissensbereiche mit eigenem Lernfortschritt.
+Scientia is a responsive, ad-free knowledge quiz with eight subject areas, tailored visualisations and local spaced-repetition progress.
 
-Aktueller Status, Domain-Zahlen, Roadmap und Architekturentscheidungen stehen zentral in
-[`AGENTS.md`](AGENTS.md). Dieses README bleibt bewusst ein knapper Einstieg.
+> *Scientia potentia est* — knowledge is power.
 
----
+[Open the live application](https://dm0.de/sci/)
 
-## Features
+## What it includes
 
-- **Domain-basiertes Lernen:** Jeder Wissensbereich hat eigene Konzepte, Fragen und
-  Spaced-Repetition-Daten.
-- **Terra-Weltatlas:** Interaktive MapLibre-Karte für Länder, subnationale Grenzen, Städte und
-  Flüsse.
-- **Visualisierung pro Frage:** Das linke Panel zeigt passend zur aktiven Frage Karte, 3D-Visual,
-  Anatomiegrafik oder generische Konzeptkarte.
-- **Spaced Repetition:** SM-2-basierter Lernfortschritt wird offline in IndexedDB gespeichert.
-- **Offline-fähige Inhalte:** Quizdaten, Konzepte und gebündelte Assets liegen statisch im Projekt.
-- **Glassmorphic Dark UI:** React/Vite-App mit Vanilla CSS, Lucide-Icons und Web-Audio-Feedback.
+- Eight independently loaded domains: Terra, Astra, Homo, Natura, Cultura, Lingua, Machina and
+  Historia.
+- Nearly 50,000 generated questions based on over 13,000 sourced concepts.
+- An interactive MapLibre atlas for geography, dedicated astronomy and anatomy views, and a
+  concept visual for every remaining question.
+- SM-2-inspired review scheduling stored locally in IndexedDB. No account is required.
+- Static data and bundled application assets for fast, privacy-friendly operation.
 
----
+## Local development
 
-## Technologie-Stack
-
-- **Frontend:** React 18 + Vite
-- **Karten-Rendering:** MapLibre GL JS + PMTiles
-- **3D-Visualisierung:** three.js
-- **Icons:** Lucide-React
-- **Styling:** Vanilla CSS
-- **Datenhaltung:** IndexedDB + statische JSON-/Asset-Dateien
-
----
-
-## Projektstruktur
-
-```text
-ScientiaPotentia/
-├── AGENTS.md                  # Zentrale Projektfakten, Status, Roadmap
-├── public/
-│   ├── assets/                # Gebündelte Domain-Assets inkl. Credits
-│   └── data/                  # Konzepte, Fragen und Terra-Geodaten
-├── scripts/
-│   ├── data_sources/          # Verifizierte Rohdaten pro Domain
-│   ├── generate_questions.js  # Terra-Fragengenerator
-│   ├── generate_<domain>.js   # Generatoren für weitere Domains
-│   ├── verify_facts.js        # Provenance-/Schema-Prüfung
-│   └── verify_quiz.js         # Quiz-Integritätsprüfung
-├── src/
-│   ├── components/            # React-Komponenten inkl. Quiz und Visuals
-│   ├── domains/               # Domain-Registry und Loader
-│   ├── data/                  # Terra-Konzeptdaten
-│   ├── utils/                 # SM-2, Audio, IndexedDB
-│   ├── App.jsx                # Hauptlayout und State-Koordination
-│   └── index.css              # Design-System und CSS-Variablen
-└── package.json
-```
-
----
-
-## Installation & Setup
-
-### 1. Abhängigkeiten installieren
+Scientia requires a current Node.js release supported by Vite.
 
 ```bash
-npm install
-```
-
-### 2. Entwicklungsserver starten
-
-```bash
+npm ci
 npm run dev
 ```
 
-Die Anwendung läuft standardmäßig unter `http://localhost:3000`.
+Vite serves the application at `http://localhost:3000` by default.
 
-### 3. Produktions-Build erstellen
+Build and verify the project with:
 
 ```bash
+npm test
 npm run build
-```
-
-Der optimierte Build wird im Ordner `dist/` abgelegt.
-
-### 4. Deployment lokal prüfen
-
-```bash
+npm run check:layout
 python3 -m unittest tests/test_deploy.py
-python3 deploy.py --dry-run --no-build
 ```
 
-Der Dry-Run liest keine Zugangsdaten und baut keine Netzwerkverbindung auf. Beim
-Dry-Run ist deshalb kein Serververgleich möglich: Er nennt den Zeitstempel der
-neuesten Datei im vorhandenen `dist/`-Baum und listet jede Builddatei als geplanten
-Upload; die tatsächliche Server-Differenz bleibt unbekannt. Beim
-echten FTPS-Deployment werden zunächst alle Assets übertragen. Erst danach werden
-`index.html` und das serverseitige SHA-256-Manifest atomar veröffentlicht; ein Skip
-benötigt sowohl den Remote-Hashbeleg als auch die tatsächlich gemeldete Dateigröße.
+The content pipeline keeps reviewed source data in `scripts/data_sources/*_raw.json` and writes
+the generated application data to `public/data/`. See
+[`docs/content_pipeline.md`](docs/content_pipeline.md) for the workflow and
+[`AGENTS.md`](AGENTS.md) for contribution rules.
 
----
+## Repository layout
 
-## Daten & Validierung
-
-Die Content-Pipeline erzeugt statische Konzepte und Fragen pro Domain. Terra nutzt zusätzlich
-Geodaten und Kartengeometrien. Aktuelle Fragenzahlen und Quellenabdeckung stehen in
-[`AGENTS.md`](AGENTS.md).
-
-Nützliche Prüf- und Generatorbefehle:
-
-```bash
-node scripts/prepare_data.js
-node scripts/generate_questions.js
-node scripts/generate_astra.js
-node scripts/generate_homo.js
-node scripts/verify_facts.js astra
-node scripts/verify_facts.js homo
-node scripts/verify_quiz.js
+```text
+public/                 Static application data and bundled assets
+scripts/data_sources/  Reviewed source data and harvest tooling
+scripts/generate_*.js  Deterministic domain generators
+src/components/        Quiz, visualisation and explorer components
+src/domains/           Domain registry and loaders
+src/utils/             Persistence, learning and UI helpers
 ```
 
-Jeder Fakt braucht eine nachvollziehbare Quelle. Automatische Strukturprüfungen ersetzen keine
-manuelle Faktenstichprobe.
+## Licensing and sources
 
----
+The original software code is available under the [MIT License](LICENSE). Original editorial
+dataset material is separately licensed under [CC BY-SA 4.0](DATA_LICENSE.md), where the project
+holds the necessary rights. Images, quotations, fonts, map data and other third-party material keep
+their own licences and are not relicensed by this repository. See
+[`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md) and the per-asset credit files.
 
-## Lizenzen & Quellen
-
-Das Projekt ist offline-fähig konzipiert und nutzt freie oder passend lizenzierte Quellen, darunter
-Natural Earth, GeoNames, Wikidata, NASA/IAU/ESA sowie gebündelte Assets mit dokumentierten Credits.
-Asset-Credits liegen in den jeweiligen `public/assets/<domain>/.../CREDITS.md`-Dateien.
+Project facts are traced to named sources. A source citation documents provenance; it does not
+imply that the source endorses Scientia.

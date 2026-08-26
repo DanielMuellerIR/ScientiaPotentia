@@ -745,9 +745,8 @@ export default function App() {
         )}
       </main>
 
-      {/* Rechts-Footer: dauerhaft sichtbare, dezente Fußzeile mit den
-          Pflicht-Links (Impressum + Datenschutz, § 5 DDG / DSGVO) und einem
-          kurzen Inhalts-Disclaimer. Sitzt als eigene Shell-Zeile unter dem
+      {/* Dauerhaft sichtbare Fußzeile mit Pflicht-, Quellen- und Lizenzlinks.
+          Sie sitzt als eigene Shell-Zeile unter dem
           Hauptbereich, damit die Links ohne Menü-Öffnen immer erreichbar sind —
           auch auf Mobil. Die Links öffnen in neuem Tab (target=_blank) und
           tragen rel="noopener noreferrer" gegen Tab-Nabbing. */}
@@ -755,6 +754,8 @@ export default function App() {
         <a href="https://dm0.de/impressum.html" target="_blank" rel="noopener noreferrer">Impressum</a>
         <span className="app-footer-sep" aria-hidden="true">·</span>
         <a href="https://dm0.de/datenschutz.html" target="_blank" rel="noopener noreferrer">Datenschutz</a>
+        <span className="app-footer-sep" aria-hidden="true">·</span>
+        <a href="./credits.html">Bild- &amp; Datenquellen</a>
         <span className="app-footer-sep" aria-hidden="true">·</span>
         <span>
           Bildungs- und Unterhaltungszweck. Keine medizinische, rechtliche oder fachliche Beratung. Alle Angaben ohne Gewähr.

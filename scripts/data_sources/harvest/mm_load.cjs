@@ -1,7 +1,6 @@
 // Bergungsfähiger Loader für MiniMax-Harvest-Ausgaben.
 //
-// MiniMax (One-Shot via theplan `llm_run.py minimax`) liefert beim Konzept-Harvest
-// zwei bekannte JSON-Schwächen (siehe theplan/knowledge/p_scientiapotentia.md):
+// Sprachmodelle liefern beim Konzept-Harvest zwei bekannte JSON-Schwächen:
 //   1. Gemischte Anführungszeichen: öffnet mit typografischem „, schließt mit geradem "
 //      → roher JSON.parse scheitert. Deterministischer Repair: „…" -> „…“.
 //   2. Seltene Strukturbrüche bei langen Outputs (>~20 Objekte/Call), z.B.

@@ -26,7 +26,7 @@ const path  = require('path');
 // Hilfsfunktionen (übernommen aus wikiquote_harvest.cjs, unveraendert)
 // ──────────────────────────────────────────────────────────────────────────────
 
-const UA = { 'User-Agent': 'ScientiaQuizWikiquoteHarvest/1.0 (educational; nfetzen@gmail.com)' };
+const UA = { 'User-Agent': 'ScientiaQuizWikiquoteHarvest/1.0 (public educational project)' };
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
 function slug(s) {
@@ -458,6 +458,11 @@ async function harvest() {
     for (const { text, workHint } of parsed) {
       // Längenfilter
       if (text.length < 20 || text.length > 350) { droppedFilter++; continue; }
+      // Abschnitte mit ausdrücklich unsicherer Zuschreibung nicht ernten.
+      if (/(?:fälschlich|zweifelhaft|zugeschrieben|unbelegt)/i.test(workHint || '')) {
+        droppedFilter++;
+        continue;
+      }
 
       // Dedup gegen Bestand + frühere Ernte
       const isDup = existingTexts.some(ex => overlapRatio(ex, text) >= 0.7);
@@ -474,6 +479,7 @@ async function harvest() {
         id,
         name: text,
         category: 'quote',
+        quoteRights: { basis: 'de-original', originalLanguage: 'de' },
         attributes: {
           author,
           authorDeathYear: deathYear,
@@ -481,7 +487,7 @@ async function harvest() {
         },
         sourceName: `Wikiquote – ${author}`,
         sourceUrl:  `https://de.wikiquote.org/wiki/${encodeURIComponent(lemma)}`,
-        verifyNote: `Verbatim aus de.wikiquote, Wikitext-Listenpunkt; Todesjahr ${deathYear} (PD-Gate †≤1955 ok).`,
+        verifyNote: `Wortlaut aus de.wikiquote; deutsches Original; Todesjahr ${deathYear}.`,
       };
 
       candidates.push(concept);

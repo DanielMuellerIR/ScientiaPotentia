@@ -6,6 +6,7 @@ import {
   VirtualExhibitWall,
 } from './ExhibitGalleryShared';
 import ExhibitLightbox, { useExhibitLightbox } from './ExhibitLightbox';
+import ImageCredit from './ImageCredit';
 import { matchesNameTokenPrefix } from '../utils/tokenSearch';
 
 // Kategorie -> deutsches Label; unbekannte Kategorien werden kapitalisiert.
@@ -36,7 +37,10 @@ export default function GalleryExplorer({ domain, concepts = {} }) {
       categoryLabel: catLabel(concept.category || concept.type),
       imageUrl: concept.image.url,
       license: concept.image.license || '',
+      licenseUrl: concept.image.licenseUrl || '',
       attribution: concept.image.attribution || '',
+      sourceUrl: concept.image.sourceUrl || concept.image.url,
+      changes: concept.image.changes || '',
     }))
     .sort((a, b) => a.name.localeCompare(b.name, 'de')), [concepts]);
 
@@ -109,9 +113,9 @@ export default function GalleryExplorer({ domain, concepts = {} }) {
     );
   }
 
-  const credit = lightbox && (lightbox.item.attribution || lightbox.item.license)
-    ? `${[lightbox.item.attribution, lightbox.item.license].filter(Boolean).join(' · ')} · Wikimedia Commons`
-    : '';
+  const credit = lightbox ? (
+    <ImageCredit image={{ ...lightbox.item, url: lightbox.item.imageUrl }} />
+  ) : null;
 
   return (
     <div className="terra-panel slide-in hall-panel">

@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import * as THREE from 'three';
 // Erscheinungs-/Beschriftungsdaten zentral (geteilt mit SolarSystemExplorer).
 import {
-  TEX_BASE, ATTRIBUTION, TEXTURES, BODY_COLORS,
+  TEX_BASE, TEXTURE_CREDIT, TEXTURES, BODY_COLORS,
   CATEGORY_LABELS, ATTR_LABELS, PLANET_ORDER
 } from './astraBodies';
 import { isAttrLeakedBeforeAnswer, sourceRevealsValue } from './conceptLabels';
@@ -28,12 +28,18 @@ import AnswerRevealImage from './AnswerRevealImage';
  *   - activeConcept:    aktuell gefragtes Konzept (oder null außerhalb des Quiz)
  */
 
-// TEX_BASE, ATTRIBUTION, TEXTURES, BODY_COLORS, CATEGORY_LABELS,
+// TEX_BASE, TEXTURE_CREDIT, TEXTURES, BODY_COLORS, CATEGORY_LABELS,
 // ATTR_LABELS, PLANET_ORDER -> jetzt zentral in ./astraBodies (oben importiert).
 
 export const NEUTRAL_STAR_COLOR = 0xffdfbd;
 export const SATURN_RING_TEXTURE = `${TEX_BASE}saturn_rings_pia06175.jpg`;
-export const SATURN_RING_ATTRIBUTION = 'Ringe: NASA/JPL/Space Science Institute · PIA06175';
+export const SATURN_RING_CREDIT = Object.freeze({
+  author: 'NASA/JPL/Space Science Institute',
+  sourceUrl: 'https://photojournal.jpl.nasa.gov/catalog/PIA06175',
+  license: 'NASA Media Usage Guidelines',
+  licenseUrl: 'https://www.nasa.gov/nasa-brand-center/images-and-media/',
+  changes: 'auf 1600 Pixel Breite verkleinert'
+});
 
 const SPECTRAL_COLORS = Object.freeze({
   O: 0x9bb0ff,
@@ -772,11 +778,8 @@ export default function AstraVisual({
       !isAstraAttrLeakedBeforeAnswer('category', testedAttribute));
   const hideConstantValue = disclosure.hideIdentity ||
     (!detailsUnlocked && isAstraAttrLeakedBeforeAnswer('value', testedAttribute));
-  const footerCredits = [
-    hasSurfaceTexture ? ATTRIBUTION : '',
-    disclosure.showRings && activeId === 'saturn' ? SATURN_RING_ATTRIBUTION : '',
-    !hasSurfaceTexture && disclosure.showSource ? `Quelle: ${activeConcept?.source?.name}` : ''
-  ].filter(Boolean);
+  const showSaturnRingCredit = disclosure.showRings && activeId === 'saturn';
+  const showConceptSource = !hasSurfaceTexture && disclosure.showSource;
 
   return (
     <div
@@ -881,9 +884,34 @@ export default function AstraVisual({
           {/* Lizenzzeile (nur bei echten Texturen sichtbar) */}
           <div style={{
             position: 'absolute', bottom: 0, right: 0, padding: '4px 10px',
-            fontSize: '10px', opacity: 0.55, color: '#EAE6DC', pointerEvents: 'none', zIndex: 5
+            fontSize: '10px', opacity: 0.7, color: '#EAE6DC', pointerEvents: 'auto', zIndex: 5
           }}>
-            {footerCredits.join(' · ')}
+            {hasSurfaceTexture && (
+              <>
+                Textur: <a href={TEXTURE_CREDIT.sourceUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit' }}>{TEXTURE_CREDIT.author}</a>
+                {' · '}<a href={TEXTURE_CREDIT.licenseUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit' }}>{TEXTURE_CREDIT.license}</a>
+                {' · '}{TEXTURE_CREDIT.changes}
+              </>
+            )}
+            {showSaturnRingCredit && (
+              <>
+                {hasSurfaceTexture ? ' · ' : ''}
+                Ringe: <a href={SATURN_RING_CREDIT.sourceUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit' }}>{SATURN_RING_CREDIT.author}</a>
+                {' · '}<a href={SATURN_RING_CREDIT.licenseUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit' }}>{SATURN_RING_CREDIT.license}</a>
+                {' · '}{SATURN_RING_CREDIT.changes}
+              </>
+            )}
+            {showConceptSource && (
+              <>
+                {showSaturnRingCredit ? ' · ' : ''}
+                Quelle:{' '}
+                {activeConcept?.source?.url ? (
+                  <a href={activeConcept.source.url} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit' }}>
+                    {activeConcept.source.name}
+                  </a>
+                ) : activeConcept?.source?.name}
+              </>
+            )}
           </div>
         </>
       )}

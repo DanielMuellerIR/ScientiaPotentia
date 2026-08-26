@@ -24,7 +24,7 @@ const path  = require('path');
 // Konfiguration
 // ---------------------------------------------------------------------------
 
-const UA              = 'ScientiaQuizWDQS_W3/1.0 (educational quiz; nfetzen@gmail.com)';
+const UA              = 'ScientiaQuizWDQS_W3/1.0 (public educational project)';
 const SPARQL_ENDPOINT = 'https://query.wikidata.org/sparql';
 const MIN_DELAY_MS    = 1800;  // Etwas länger als Welle 2, um WDQS-Rate zu schonen
 const MAX_RETRIES     = 4;

@@ -408,11 +408,11 @@ class DeployTests(unittest.TestCase):
 
     def test_remote_base_normalisation_rejects_unsafe_targets(self):
         self.assertEqual(deploy.normalise_remote_base("/"), "/")
-        self.assertEqual(deploy.normalise_remote_base("/dm0.de/httpdocs/sci/"), "/dm0.de/httpdocs/sci")
-        self.assertEqual(deploy.normalise_remote_base("//dm0.de//sci"), "/dm0.de/sci")
-        self.assertEqual(deploy.normalise_remote_base("/dm0.de/./sci"), "/dm0.de/sci")
+        self.assertEqual(deploy.normalise_remote_base("/example.com/httpdocs/scientia/"), "/example.com/httpdocs/scientia")
+        self.assertEqual(deploy.normalise_remote_base("//example.com//scientia"), "/example.com/scientia")
+        self.assertEqual(deploy.normalise_remote_base("/example.com/./scientia"), "/example.com/scientia")
         # ".." wird bei absoluten Pfaden von normpath aufgelöst, nicht durchgereicht.
-        self.assertEqual(deploy.normalise_remote_base("/dm0.de/../sci"), "/sci")
+        self.assertEqual(deploy.normalise_remote_base("/example.com/../scientia"), "/scientia")
         for unsafe in ["sci", "./sci", "/remote ", " /remote", "", None]:
             with self.assertRaises(ValueError):
                 deploy.normalise_remote_base(unsafe)

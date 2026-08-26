@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { commonsToDirectUrl } from '../utils/commonsImage';
+import ImageCredit from './ImageCredit';
+import { normaliseImageCredit } from '../utils/imageCredits';
 
 /**
  * Gemeinsames, konservatives Bild-Reveal für Quizvisualisierungen.
@@ -15,8 +17,7 @@ export default function AnswerRevealImage({
   revealed = false,
   variant = 'exhibit',
   fallback = null,
-  width = 640,
-  creditSuffix = 'Wikimedia Commons'
+  width = 640
 }) {
   const [imageFailed, setImageFailed] = useState(false);
   const imageUrl = image?.url || '';
@@ -40,7 +41,7 @@ export default function AnswerRevealImage({
     isOcular ? 'exhibit-drape--ocular' : '',
     revealed ? 'exhibit-drape--lifted' : ''
   ].filter(Boolean).join(' ');
-  const creditParts = [image.attribution, image.license, creditSuffix].filter(Boolean);
+  const credit = normaliseImageCredit(image);
 
   return (
     <div className={isOcular ? 'answer-reveal answer-reveal--ocular' : 'answer-reveal'}>
@@ -64,18 +65,12 @@ export default function AnswerRevealImage({
           <span className="exhibit-drape-q">?</span>
         </div>
       </div>
-      {revealed && creditParts.length > 0 ? (
-        <div className="exhibit-credit" title={`Bild: ${creditParts.join(' · ')}`}>
-          {isOcular ? (
-            <>
-              <span>Bild: {image.attribution || 'Urheberangabe fehlt'}</span>
-              <span className="ocular-credit-license">
-                {[image.license, creditSuffix].filter(Boolean).join(' · ')}
-              </span>
-            </>
-          ) : (
-            <>Bild: {creditParts.join(' · ')}</>
-          )}
+      {revealed && credit ? (
+        <div
+          className="exhibit-credit"
+          title={`Bild: ${credit.attribution} · ${credit.license} · Wikimedia Commons · ${credit.changes}`}
+        >
+          <ImageCredit image={image} split={isOcular} />
         </div>
       ) : null}
     </div>

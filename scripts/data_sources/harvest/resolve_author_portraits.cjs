@@ -1,5 +1,5 @@
 // Autorenporträt-Resolver für Cultura `genre_fiction` (Stand 2026-07-09).
-// Daniels Entscheidung 2026-07-09: genre_fiction wird im Museum NICHT über (unfreie)
+// Projektentscheidung: genre_fiction wird im Museum NICHT über (unfreie)
 // Buchcover bebildert, sondern über FREIE AUTORENPORTRÄTS. Der reguläre
 // resolve_images_batched.cjs löst je Konzept das Werk-Artikelbild auf (= Cover) und ist
 // hier deshalb falsch. Dieses Skript löst stattdessen das de.wikipedia-Hauptbild des

@@ -17,7 +17,7 @@ const path = require('path');
 
 const TAP = 'https://exoplanetarchive.ipac.caltech.edu/TAP/sync';
 const PC_TO_LY = 3.26156;             // 1 Parsec in Lichtjahren
-const UA = { 'User-Agent': 'ScientiaQuizExoHarvest/1.0 (educational; nfetzen@gmail.com)' };
+const UA = { 'User-Agent': 'ScientiaQuizExoHarvest/1.0 (public educational project)' };
 
 // Kuratierte Notabilitäts-Liste: NASA-pl_name -> { de: Anzeigename, fame: dt. Pointe }.
 // "fame" wird zum funFact (warum berühmt) und ist die Notabilitäts-Begründung.

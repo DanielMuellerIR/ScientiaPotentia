@@ -24,7 +24,7 @@ const path = require('path');
 
 // --- Konfiguration -----------------------------------------------------------
 
-const UA = 'ScientiaQuizWDQS/1.0 (educational quiz; nfetzen@gmail.com)';
+const UA = 'ScientiaQuizWDQS/1.0 (public educational project)';
 const SPARQL_ENDPOINT = 'https://query.wikidata.org/sparql';
 // Mindestpause zwischen WDQS-Anfragen in ms
 const MIN_DELAY_MS = 1500;

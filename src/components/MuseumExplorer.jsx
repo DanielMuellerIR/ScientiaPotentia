@@ -9,6 +9,7 @@ import {
   VirtualExhibitWall,
 } from './ExhibitGalleryShared';
 import ExhibitLightbox, { useExhibitLightbox } from './ExhibitLightbox';
+import ImageCredit from './ImageCredit';
 import { matchesNameTokenPrefix } from '../utils/tokenSearch';
 
 const DOMAIN_BY_ID = Object.fromEntries(DOMAINS.map((domain) => [domain.id, domain]));
@@ -59,7 +60,10 @@ export default function MuseumExplorer({
           domainId,
           imageUrl: concept.image.url,
           license: concept.image.license || '',
+          licenseUrl: concept.image.licenseUrl || '',
           attribution: concept.image.attribution || '',
+          sourceUrl: concept.image.sourceUrl || concept.image.url,
+          changes: concept.image.changes || '',
           funFact: concept.funFact || '',
           source: concept.source || null,
           attributes: concept.attributes || {},
@@ -80,7 +84,7 @@ export default function MuseumExplorer({
     }))
     .filter((hall) => hall.items.length > 0), [allItems]);
 
-  // Nach dem asynchronen Laden öffnet das Museum möglichst Daniels aktive
+  // Nach dem asynchronen Laden öffnet das Museum möglichst die aktive
   // Domain; bildlose Domains (z.B. Terra) fallen auf den ersten echten Saal.
   useEffect(() => {
     if (halls.length === 0 || domainFilter === 'all') return;
@@ -142,13 +146,9 @@ export default function MuseumExplorer({
   const lightboxItem = lightbox?.item;
   const lightboxDomain = lightboxItem ? DOMAIN_BY_ID[lightboxItem.domainId] : null;
   const lightboxAccent = lightboxDomain?.accent || 'var(--color-primary)';
-  const credit = lightboxItem && (lightboxItem.attribution || lightboxItem.license)
-    ? [
-      lightboxItem.attribution,
-      lightboxItem.license && `Lizenz: ${lightboxItem.license}`,
-      'Wikimedia Commons',
-    ].filter(Boolean).join(' · ')
-    : '';
+  const credit = lightboxItem ? (
+    <ImageCredit image={{ ...lightboxItem, url: lightboxItem.imageUrl }} />
+  ) : null;
 
   const museumHeader = lightboxItem ? (
     <span

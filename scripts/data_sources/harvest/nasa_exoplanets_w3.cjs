@@ -24,7 +24,7 @@ const path  = require('path');
 
 const TAP      = 'https://exoplanetarchive.ipac.caltech.edu/TAP/sync';
 const PC_TO_LY = 3.26156; // 1 Parsec → Lichtjahre
-const UA       = { 'User-Agent': 'ScientiaQuizExoHarvestW3/1.0 (educational; nfetzen@gmail.com)' };
+const UA       = { 'User-Agent': 'ScientiaQuizExoHarvestW3/1.0 (public educational project)' };
 
 // ---------------------------------------------------------------------------
 // Kuratierte Welle-3-Planeten — berühmt / Meilenstein / Rekordhalter.

@@ -823,7 +823,7 @@ function fetchJSON(url, headers = {}) {
   return new Promise((resolve, reject) => {
     const options = {
       headers: {
-        'User-Agent': 'GeoAtlasQuiz/1.0 (info@dm0.de)',
+        'User-Agent': 'ScientiaQuiz/1.0 (public educational project)',
         ...headers
       },
       timeout: 20000 // 20 seconds timeout

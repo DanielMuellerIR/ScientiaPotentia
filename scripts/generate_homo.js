@@ -15,6 +15,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { pickBalanced, deParse, shouldMagnitudeSpread, magnitudeSpreadDistractors } from './lib/quizrandom.js';
 import { norm, deNum } from './lib/generator_text.js';
+import { buildImageMetadata } from '../src/utils/imageCredits.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -295,9 +296,7 @@ for (const c of raw) {
     source: { name: c.sourceName, url: c.sourceUrl || '' },
     // Bild fürs Museum/Galerie spiegeln (analog generate_natura.js): nur wenn der
     // Resolver ein freies Commons-Bild gefunden hat. Ohne Bild bleibt das Feld weg.
-    image: c.imageFile
-      ? { url: c.imageFile, license: c.imageLicense || '', attribution: c.imageAttribution || '' }
-      : undefined
+    image: buildImageMetadata(c) || undefined
   };
 }
 

@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   NEUTRAL_STAR_COLOR,
+  SATURN_RING_CREDIT,
   SATURN_RING_TEXTURE,
   getAstraDisclosurePolicy,
   hasAtmosphereEvidence,
@@ -8,6 +9,7 @@ import {
   isAstraAttrLeakedBeforeAnswer,
   spectralColorFromAttributes
 } from '../components/AstraVisual';
+import { TEXTURE_CREDIT } from '../components/astraBodies';
 
 const concept = (overrides = {}) => ({
   id: 'astra:test',
@@ -56,6 +58,15 @@ describe('Astra-Sternevidenz', () => {
 });
 
 describe('Astra-Ringe und Atmosphäre', () => {
+  it('dokumentiert Quellen, Lizenzen und technische Änderungen der Texturen', () => {
+    expect(TEXTURE_CREDIT.sourceUrl).toMatch(/^https:\/\//);
+    expect(TEXTURE_CREDIT.licenseUrl).toBe('https://creativecommons.org/licenses/by/4.0/');
+    expect(TEXTURE_CREDIT.changes).toMatch(/3D-Darstellung/);
+    expect(SATURN_RING_CREDIT.sourceUrl).toMatch(/PIA06175/);
+    expect(SATURN_RING_CREDIT.licenseUrl).toMatch(/nasa\.gov/);
+    expect(SATURN_RING_CREDIT.changes).toMatch(/1600 Pixel/);
+  });
+
   it('zeigt Ringe ausschließlich bei hasRings === true und mit Guards', () => {
     const saturn = concept({ id: 'astra:saturn', attributes: { hasRings: true } });
     expect(getAstraDisclosurePolicy({ concept: saturn }).showRings).toBe(true);

@@ -22,11 +22,16 @@ describe('lokaler Terra-Pergamentstil', () => {
     expect(parchmentStyle.version).toBe(8);
     expect(parchmentStyle.layers.length).toBeGreaterThanOrEqual(55);
     expect(parchmentStyle.metadata['scientia:source']).toContain('OpenFreeMap');
+    expect(parchmentStyle.metadata['scientia:source']).toContain('BSD 3-Clause');
+    expect(parchmentStyle.metadata['scientia:source']).toContain('CC BY 4.0');
     expect(parchmentStyle.metadata['scientia:remote-dependencies']).toContain('tiles.openfreemap.org');
 
     // Die lokale JSON-Datei bestimmt nur die Darstellung. Große Kartendaten bleiben
     // beim ursprünglichen Anbieter, damit keine unvollständige Offline-Kopie entsteht.
     expect(parchmentStyle.sources.openmaptiles.url).toBe('https://tiles.openfreemap.org/planet');
+    expect(parchmentStyle.sources.openmaptiles.attribution).toContain('OpenStreetMap contributors');
+    expect(parchmentStyle.sources.openmaptiles.attribution).toContain('OpenMapTiles');
+    expect(parchmentStyle.sources.ne2_shaded.attribution).toContain('Natural Earth');
     expect(parchmentStyle.sources.ne2_shaded.tiles[0]).toContain('tiles.openfreemap.org');
     expect(parchmentStyle.glyphs).toContain('tiles.openfreemap.org');
     expect(parchmentStyle.sprite).toContain('tiles.openfreemap.org');

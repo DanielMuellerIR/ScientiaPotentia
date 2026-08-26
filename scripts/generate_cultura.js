@@ -35,9 +35,8 @@
  *   6. Reverse-Korrektheit: Bei Namens-Antworten ("Welches dieser Werke schuf X?")
  *      müssen alle Distraktor-Konzepte beim getesteten Attribut einen ANDEREN
  *      Wert haben — sonst wären mehrere Optionen richtig.
- *   Copyright-Hinweis: Es werden ausschließlich nackte Fakten (Jahr, Urheber,
- *   Gattung, Material, Maße) abgefragt — keine Zitate oder Textpassagen
- *   geschützter Werke und keine lebenden Personen.
+ *   Zitate durchlaufen zusätzlich scripts/audit_quote_rights.mjs. Der Generator
+ *   setzt diese Rechteprüfung voraus und leitet daraus nur Quizfragen ab.
  *
  * Aufruf: node scripts/generate_cultura.js
  */
@@ -46,6 +45,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { seededShuffle, pickBalanced, pickNumeric, shouldMagnitudeSpread, magnitudeSpreadDistractors } from './lib/quizrandom.js';
 import { norm, deNum, optionKey, distinctOptionValues, revealsAnswerStrict as revealsAnswer } from './lib/generator_text.js';
+import { buildImageMetadata } from '../src/utils/imageCredits.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -166,9 +166,7 @@ for (const c of raw) {
     funFact: c.funFact || '',
     source: { name: c.sourceName, url: c.sourceUrl || '' },
     // Bild fürs spätere Museum + (optionale) Konzept-Illustration mitführen.
-    image: c.imageFile
-      ? { url: c.imageFile, license: c.imageLicense || '', attribution: c.imageAttribution || '' }
-      : null
+    image: buildImageMetadata(c)
   };
 }
 

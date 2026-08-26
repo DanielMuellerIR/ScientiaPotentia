@@ -33,7 +33,9 @@ function makeConcept(domainId, index, category, prefix) {
     image: {
       url: `https://commons.wikimedia.org/wiki/File%3A${domainId}_${category}_${serial}.jpg`,
       license: 'CC BY 4.0',
+      licenseUrl: 'https://creativecommons.org/licenses/by/4.0/',
       attribution: `Urheber ${name}`,
+      changes: 'für die Anzeige technisch skaliert',
     },
   };
 }
@@ -315,7 +317,9 @@ describe('GalleryExplorer-Parität', () => {
     expect(screen.getByRole('dialog', { name: 'Exponat: Galerie Tier 1400' }))
       .toBeInTheDocument();
     expect(screen.getByText(/Urheber Galerie Tier 1400/))
-      .toHaveTextContent('Urheber Galerie Tier 1400 · CC BY 4.0 · Wikimedia Commons');
+      .toHaveTextContent('Bild: Urheber Galerie Tier 1400 · Wikimedia Commons · CC BY 4.0 · für die Anzeige technisch skaliert');
+    expect(screen.getByRole('link', { name: 'Wikimedia Commons' }))
+      .toHaveAttribute('href', expect.stringContaining('File%3Anatura_animal_1400.jpg'));
   });
 
   it('scrollt die Wand bei reduzierter Bewegung ohne Smooth-Animation', () => {

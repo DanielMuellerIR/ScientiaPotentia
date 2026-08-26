@@ -21,6 +21,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { pickBalanced, pickNumeric, shouldMagnitudeSpread, magnitudeSpreadDistractors } from './lib/quizrandom.js';
 import { norm, deNum, optionKey, distinctOptionValues, revealsAnswerStrict as revealsAnswer } from './lib/generator_text.js';
+import { buildImageMetadata } from '../src/utils/imageCredits.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -127,9 +128,7 @@ for (const c of raw) {
     funFact: c.funFact || '',
     source: { name: c.sourceName, url: c.sourceUrl || '' },
     // Bild fürs spätere Museum + (optionale) Konzept-Illustration mitführen.
-    image: c.imageFile
-      ? { url: c.imageFile, license: c.imageLicense || '', attribution: c.imageAttribution || '' }
-      : null
+    image: buildImageMetadata(c)
   };
 }
 

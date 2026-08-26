@@ -23,6 +23,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { seededShuffle, pickBalanced, pickNumeric } from './lib/quizrandom.js';
 import { norm, deNum, revealsAnswerStrict as revealsAnswer } from './lib/generator_text.js';
+import { buildImageMetadata } from '../src/utils/imageCredits.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -112,9 +113,7 @@ for (const c of raw) {
     attributes: c.attributes,
     funFact: c.funFact || '',
     source: { name: c.sourceName, url: c.sourceUrl || '' },
-    image: c.imageFile
-      ? { url: c.imageFile, license: c.imageLicense || '', attribution: c.imageAttribution || '' }
-      : null
+    image: buildImageMetadata(c)
   };
 }
 

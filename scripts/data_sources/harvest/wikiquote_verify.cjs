@@ -17,7 +17,7 @@
 const https = require('https');
 const fs = require('fs');
 
-const UA = { 'User-Agent': 'ScientiaQuizQuoteVerify/1.0 (educational; nfetzen@gmail.com)' };
+const UA = { 'User-Agent': 'ScientiaQuizQuoteVerify/1.0 (public educational project)' };
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
 // Wortlaut normalisieren: Umlaute behalten, aber Anführungen/Gedankenstriche/

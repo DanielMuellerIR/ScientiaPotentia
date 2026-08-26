@@ -26,16 +26,37 @@ import React from 'react';
  */
 
 const ASSET_BASE = 'assets/homo/';
+const PUBLIC_DOMAIN_URL = 'https://commons.wikimedia.org/wiki/Commons:Public_domain';
 
 // Kategorie -> Grafik + Provenienz (alle Public Domain, Wikimedia Commons) +
 // Seitenverhältnis (Breite/Höhe) der Originaldatei (zur Doku; die Marker sitzen
 // passgenau, weil das Bild selbst per height:100%/width:auto sein Verhältnis vorgibt).
 const CATEGORY_ASSET = {
-  bone:      { file: 'skeleton.svg',  author: 'Mikael Häggström', aspect: 435.687 / 841.89 },
-  muscle:    { file: 'muscles.png',   author: 'nach Bouglé',      aspect: 1014 / 3006 },
-  organ:     { file: 'organs.svg',    author: 'Mikael Häggström', aspect: 1363 / 1212 },
-  body_fact: { file: 'body.svg',      author: 'Mikael Häggström', aspect: 1363 / 1234 },
-  species:   { file: 'skeleton.svg',  author: 'Mikael Häggström', aspect: 435.687 / 841.89 }
+  bone: {
+    file: 'skeleton.svg', author: 'Mikael Häggström', aspect: 435.687 / 841.89,
+    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Human_skeleton_front_-_no_labels.svg',
+    changes: 'unverändert gebündelt'
+  },
+  muscle: {
+    file: 'muscles.png', author: 'historische Bouglé-Figur', aspect: 1014 / 3006,
+    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Bougle_whole2_retouched.png',
+    changes: 'unverändert gebündelt'
+  },
+  organ: {
+    file: 'organs.svg', author: 'Mikael Häggström', aspect: 1363 / 1212,
+    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Man_shadow_anatomy.svg',
+    changes: 'Beschriftungen und Linien entfernt'
+  },
+  body_fact: {
+    file: 'body.svg', author: 'Mikael Häggström', aspect: 1363 / 1234,
+    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Adult_male_diagram_template.svg',
+    changes: 'Platzhalter und Linien entfernt'
+  },
+  species: {
+    file: 'skeleton.svg', author: 'Mikael Häggström', aspect: 435.687 / 841.89,
+    sourceUrl: 'https://commons.wikimedia.org/wiki/File:Human_skeleton_front_-_no_labels.svg',
+    changes: 'unverändert gebündelt'
+  }
 };
 const DEFAULT_ASSET = CATEGORY_ASSET.body_fact;
 
@@ -349,9 +370,13 @@ export default function HomoVisual({
       {/* Lizenzzeile klein unten rechts */}
       <div style={{
         position: 'absolute', bottom: 0, right: 0, padding: '3px 9px',
-        fontSize: '10px', color: 'var(--text-muted)', pointerEvents: 'none'
+        fontSize: '10px', color: 'var(--text-muted)', pointerEvents: 'auto'
       }}>
-        Gemeinfrei · {asset.author} · Wikimedia Commons
+        Bild: {asset.author} ·{' '}
+        <a href={asset.sourceUrl} target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>
+        {' · '}
+        <a href={PUBLIC_DOMAIN_URL} target="_blank" rel="noopener noreferrer">Public Domain</a>
+        {' · '}{asset.changes}
       </div>
     </div>
   );

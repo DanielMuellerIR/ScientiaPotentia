@@ -13,7 +13,13 @@ export { CATEGORY_LABELS, ATTR_LABELS } from './conceptLabels';
 
 // Basis-Pfad + Lizenz der echten Oberflächentexturen (Solar System Scope).
 export const TEX_BASE = 'assets/astra/textures/';
-export const ATTRIBUTION = 'Textur: Solar System Scope · CC BY 4.0';
+export const TEXTURE_CREDIT = Object.freeze({
+  author: 'Solar System Scope',
+  sourceUrl: 'https://www.solarsystemscope.com/textures/',
+  license: 'CC BY 4.0',
+  licenseUrl: 'https://creativecommons.org/licenses/by/4.0/',
+  changes: 'unverändert gebündelt; für die 3D-Darstellung auf eine Kugel gerendert'
+});
 
 // Konzept-Id (ohne "astra:"-Präfix) -> echte Oberflächentextur (nur 3D).
 export const TEXTURES = {

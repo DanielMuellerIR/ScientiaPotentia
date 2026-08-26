@@ -4,24 +4,23 @@ Alle Grafiken stammen von **Wikimedia Commons** und stehen in der
 **Gemeinfreiheit (Public Domain)**. Eine Namensnennung ist rechtlich nicht
 erforderlich; die App nennt Urheber und Quelle dennoch im Visualisierungspanel.
 
-| Datei | Inhalt | Urheber | Lizenz |
-| :---- | :----- | :------ | :----- |
-| `skeleton.svg`  | Menschliches Skelett (unbeschriftet) | Mikael Häggström | Public Domain |
-| `muscles.png`   | Muskulatur (Ganzkörper, Bouglé-Figur)| nach Bouglé (hist.)| Public Domain |
-| `organs.svg`    | Innere Organe, **unbeschriftet** (bearb.) | Mikael Häggström | Public Domain |
-| `body.svg`      | Körperschema mit Organen, **unbeschriftet** (bearb.) | Mikael Häggström | Public Domain |
-| `digestive.svg` | Verdauungssystem                     | Mariana Ruiz, Jmarchn | Public Domain |
+| Datei | Inhalt | Urheber | Commons-Dateiseite | Änderung durch Scientia |
+| :---- | :----- | :------ | :------------------ | :---------------------- |
+| `skeleton.svg` | Menschliches Skelett | Mikael Häggström | [`Human skeleton front – no labels.svg`](https://commons.wikimedia.org/wiki/File:Human_skeleton_front_-_no_labels.svg) | unverändert gebündelt |
+| `muscles.png` | Muskulatur (Ganzkörper, Bouglé-Figur) | historische Bouglé-Figur; Retusche laut Dateiseite | [`Bougle whole2 retouched.png`](https://commons.wikimedia.org/wiki/File:Bougle_whole2_retouched.png) | unverändert gebündelt |
+| `organs.svg` | Innere Organe | Mikael Häggström | [`Man shadow anatomy.svg`](https://commons.wikimedia.org/wiki/File:Man_shadow_anatomy.svg) | englische Beschriftungen und Verbindungslinien entfernt |
+| `body.svg` | Körperschema mit Organen | Mikael Häggström | [`Adult male diagram template.svg`](https://commons.wikimedia.org/wiki/File:Adult_male_diagram_template.svg) | Platzhalter und Verbindungslinien entfernt |
+| `digestive.svg` | Verdauungssystem | Mariana Ruiz Villarreal, Jmarchn | [`Digestive system diagram en.svg`](https://commons.wikimedia.org/wiki/File:Digestive_system_diagram_en.svg) | unverändert gebündelt |
 
-Quelle jeweils: https://commons.wikimedia.org/ — Basis sind die „Man shadow"-
-Diagramme von Mikael Häggström (`Man shadow anatomy.svg` bzw.
-`Man shadow template.svg`).
+Lizenz für alle fünf Dateien: [Public Domain](https://commons.wikimedia.org/wiki/Commons:Public_domain).
 
 **Bearbeitung (Stand: 2026-06-04):** Aus `organs.svg` und `body.svg` wurden die
 englischen Beschriftungen bzw. „Example text"-Platzhalter samt der zugehörigen
 Verbindungslinien (Leader-Lines) entfernt — die App ist deutschsprachig und legt
 einen eigenen, konzeptgenauen Marker (Phase 2d) über die Grafik. Die anatomische
 Zeichnung selbst (Silhouette + Organbilder, Public Domain) blieb unverändert, das
-Bearbeiten gemeinfreier Werke ist zulässig. Urheber der Zeichnung bleibt Häggström.
+Bearbeiten gemeinfreier Werke ist zulässig. Urheber der Zeichnung bleibt Häggström. Nicht für die
+Anzeige erforderliche lokale Editorpfade wurden am 2026-08-26 aus den SVG-Metadaten entfernt.
 
 Die Grafiken dienen als kategoriebezogene Übersicht (Knochen → Skelett,
 Muskel → Muskulatur, Organ → innere Organe usw.). Die konzeptgenaue

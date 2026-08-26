@@ -29,9 +29,10 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 LOCAL_DIST = os.path.join(SCRIPT_DIR, "dist")
 MANIFEST_PATH = os.path.join(SCRIPT_DIR, ".deploy-manifest.json")
 
-HOME_DIR = os.path.expanduser("~")
-DEFAULT_ENV = os.path.join(HOME_DIR, "Nextcloud", "Beispiele", "Templates", "Sticky", ".env", "chili.env")
-REMOTE_BASE_DIR = "/dm0.de/httpdocs/sci"
+DEFAULT_ENV = os.environ.get("SCIENTIA_DEPLOY_ENV", os.path.join(SCRIPT_DIR, ".env"))
+# Der absichtlich nicht reale Standard verhindert versehentliche Veröffentlichungen.
+# Das echte Ziel kommt über --remote oder SCIENTIA_DEPLOY_REMOTE.
+REMOTE_BASE_DIR = os.environ.get("SCIENTIA_DEPLOY_REMOTE", "/example.com/httpdocs/scientia")
 REMOTE_MANIFEST_NAME = ".scientia-deploy-manifest.json"
 MANIFEST_VERSION = 1
 ENTRYPOINT = "index.html"
@@ -587,7 +588,7 @@ def _deploy_dist_normalised(ftps, local_dist, remote_base, *, dry_run=False, for
 
 
 def main():
-    parser = argparse.ArgumentParser(description="FTPS-Deploy von dist/ nach dm0.de/sci")
+    parser = argparse.ArgumentParser(description="FTPS-Deploy des Scientia-Builds")
     parser.add_argument("--env", default=DEFAULT_ENV, help="Pfad zur env-Datei mit FTPS-Zugangsdaten")
     parser.add_argument("--remote", default=REMOTE_BASE_DIR, help="Zielverzeichnis auf dem Webspace")
     parser.add_argument(
@@ -600,7 +601,7 @@ def main():
     args = parser.parse_args()
 
     print("=" * 60)
-    print("     SCIENTIA - DEPLOYING TO NETCUP FTPS (dm0.de/sci/)")
+    print("     SCIENTIA - FTPS DEPLOYMENT")
     print("=" * 60)
 
     # Ein ungültiges Ziel soll auffallen, bevor gebaut oder verbunden wird.

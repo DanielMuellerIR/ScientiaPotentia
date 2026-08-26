@@ -1,4 +1,4 @@
-// Wikiquote-Direktparser: erntet gemeinfreie deutsche Zitate VERBATIM von de.wikiquote.org.
+// Wikiquote-Direktparser: erntet gemeinfreie deutsche Originalzitate von de.wikiquote.org.
 //
 // Warum so: LLM-generierte Zitate haben Fehlzuschreibungs- und Wortlaut-Risiko (z.B. hat
 // wikiquote_verify.cjs Kants „Aufklärung…" → fälschlich Tucholsky abgefangen). Verbatim-
@@ -7,8 +7,8 @@
 //
 // Copyright-Gate (HART): §64 UrhG → 70-Jahre-Frist. Nur Autoren †≤1955.
 // Übersetzungen ausgeschlossen (eigenes Copyright des Übersetzers).
-// Aggregator-Lizenz (Wikiquote CC-BY-SA) ist für die Zitat-Texte selbst irrelevant,
-// weil die Texte gemeinfrei sind (PD-old).
+// Der Todesjahr-Grenzwert allein genügt nicht für Übersetzungen. Diese Ernte
+// bleibt deshalb auf überprüfte deutsche Originaltexte beschränkt.
 //
 // Aufruf: node wikiquote_harvest.cjs
 // Ausgabe: /tmp/cultura_quote_cand.json — bereit zum Review+Append (NICHT auto-mergen).
@@ -23,7 +23,7 @@ const fs    = require('fs');
 // ──────────────────────────────────────────────────────────────────────────────
 
 // E-Mail-Adresse für den MediaWiki-User-Agent (Pflicht-Feld laut API-Etiquette).
-const UA = { 'User-Agent': 'ScientiaQuizWikiquoteHarvest/1.0 (educational; nfetzen@gmail.com)' };
+const UA = { 'User-Agent': 'ScientiaQuizWikiquoteHarvest/1.0 (public educational project)' };
 
 // Warte ms Millisekunden (für Rate-Limiting: nie zwei Requests gleichzeitig gegen
 // einen Host schicken — MediaWiki-API ist tolerant, aber sequenziell ist sicher).
@@ -462,6 +462,11 @@ async function harvest() {
             .replace(/^=+\s*|\s*=+$/g, '')                      // führende/endende ==
             .trim()
         : null;
+      // Abschnitte mit ausdrücklich unsicherer Zuschreibung nicht ernten.
+      if (/(?:fälschlich|zweifelhaft|zugeschrieben|unbelegt)/i.test(workCleaned || '')) {
+        droppedFilter++;
+        continue;
+      }
       // Lange komma-getrennte Aufzählungen (Wikiquote-Sammelabschnitte) ausschließen.
       const hasCommaList = workCleaned && (workCleaned.match(/,/g) || []).length >= 3;
       // "Zitate mit Bezug auf X" → kein Werkname.
@@ -478,6 +483,7 @@ async function harvest() {
         id,
         name: text,          // Das Zitat selbst (verbatim aus Wikiquote)
         category: 'quote',
+        quoteRights: { basis: 'de-original', originalLanguage: 'de' },
         attributes: {
           author,
           authorDeathYear: deathYear,
@@ -488,7 +494,7 @@ async function harvest() {
         // Das Feld fehlt lieber, als dass ein generierter Text reinkommt.
         sourceName: `Wikiquote – ${author}`,
         sourceUrl:  `https://de.wikiquote.org/wiki/${encodeURIComponent(lemma)}`,
-        verifyNote: `Verbatim aus de.wikiquote, Wikitext-Listenpunkt; Todesjahr ${deathYear} (PD-Gate †≤1955 ok).`,
+        verifyNote: `Wortlaut aus de.wikiquote; deutsches Original; Todesjahr ${deathYear}.`,
       };
 
       candidates.push(concept);

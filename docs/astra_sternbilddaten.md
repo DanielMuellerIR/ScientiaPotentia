@@ -4,7 +4,7 @@ Stand: 2026-08-23
 
 ## Entscheidung
 
-Daniel hat am 2026-08-23 Option 2 gewählt: Astra soll die offiziellen IAU-Grenzen
+Die Projektentscheidung vom 2026-08-23 lautet: Astra soll die offiziellen IAU-Grenzen
 zeigen, keine Sternbild-Strichfiguren. Die Umsetzung bleibt von einer
 nachvollziehbaren Lizenz für den gebündelten Koordinatendatensatz abhängig.
 
@@ -58,7 +58,7 @@ IAU-Standard, bezeichnet werden.
 
 ## Umsetzungsoptionen
 
-Daniel hat IAU-Grenzen gewählt. Eine eigene Grenzflächen- oder Grenzlinienansicht
+Die gewählte Variante verwendet IAU-Grenzen. Eine eigene Grenzflächen- oder Grenzlinienansicht
 verwendet daher nur geprüfte IAU-Koordinatendaten. Sie ist fachlich amtlich, aber keine
 vertraute Sternbild-Strichfigur; die Datenlizenz ist vor dem Import noch zu klären.
 Von einer direkten Stellarium-Übernahme wird weiterhin abgeraten.

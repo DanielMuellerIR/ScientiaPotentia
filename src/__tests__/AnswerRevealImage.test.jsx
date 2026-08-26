@@ -7,7 +7,9 @@ import { DeepSkyOcular } from '../components/AstraVisual';
 const image = {
   url: 'https://commons.wikimedia.org/wiki/File%3ADeep_Sky_Test.jpg',
   attribution: 'Testobservatorium',
-  license: 'CC BY 4.0'
+  license: 'CC BY 4.0',
+  licenseUrl: 'https://creativecommons.org/licenses/by/4.0/',
+  changes: 'für die Anzeige technisch skaliert'
 };
 
 afterEach(cleanup);
@@ -28,8 +30,11 @@ describe('AnswerRevealImage', () => {
 
     expect(screen.getByAltText('Geheimes Objekt')).toHaveClass('exhibit-img--revealed');
     expect(screen.getByText(/Testobservatorium/)).toHaveTextContent(
-      'Bild: Testobservatorium · CC BY 4.0 · Wikimedia Commons'
+      'Bild: Testobservatorium · Wikimedia Commons · CC BY 4.0 · für die Anzeige technisch skaliert'
     );
+    expect(screen.getByRole('link', { name: 'Wikimedia Commons' })).toHaveAttribute('href', image.url);
+    expect(screen.getByRole('link', { name: 'CC BY 4.0' }))
+      .toHaveAttribute('href', image.licenseUrl);
   });
 
   it('fällt bei einem Bildfehler auf das übergebene Visual zurück', () => {
@@ -54,8 +59,8 @@ describe('AnswerRevealImage', () => {
       />
     );
 
-    expect(screen.getByText(/Public domain/)).toHaveTextContent(
-      'Bild: Public domain · Wikimedia Commons'
+    expect(screen.getByText(/Urheberangabe auf der Dateiseite/)).toHaveTextContent(
+      'Bild: Urheberangabe auf der Dateiseite · Wikimedia Commons · Public domain · für die Anzeige technisch skaliert'
     );
   });
 });

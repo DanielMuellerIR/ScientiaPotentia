@@ -277,7 +277,7 @@
 .hall-lightbox-image{position:relative;display:flex;align-items:center;justify-content:center;background:#0a0a0f;min-height:200px;max-height:var(--hall-lightbox-max-height);overflow:hidden;flex-shrink:0}
 .hall-lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);padding:7px 10px;background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.2);color:#fff;z-index:2}
 .hall-lightbox-nav--prev{left:10px}.hall-lightbox-nav--next{right:10px}
-.hall-lightbox-credit{padding:8px 14px;font-size:11px;color:var(--text-muted);border-top:1px solid var(--border-light);flex-shrink:0}
+.hall-lightbox-credit{padding:8px 14px;font-size:11px;color:var(--text-muted);border-top:1px solid var(--border-light);flex-shrink:0}.hall-lightbox-credit a,.exhibit-credit a{color:inherit;text-decoration:underline;text-underline-offset:2px}.hall-lightbox-credit a:focus-visible,.exhibit-credit a:focus-visible{outline:2px solid var(--color-primary);outline-offset:2px}
 
 /* Museum-spezifische Filter- und Detailergänzungen. */
 .museum-topbar{border-bottom:1px solid var(--border-light)}
