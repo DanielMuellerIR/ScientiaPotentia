@@ -252,6 +252,14 @@ const templates = [
     prompt: c => `Woher stammt ${c.name} ursprünglich?`
   },
   {
+    // Umkehrung: Die Optionen enthalten nur Pflanzen mit abweichender Herkunft.
+    // „Welche dieser" macht klar, dass genau unter den vier Optionen gewählt wird.
+    category: 'plant', attr: 'origin', kind: 'name', type: 'natura-plant-origin-rev', difficulty: 3,
+    compareKind: 'cat',
+    subject: c => c.attributes.origin,
+    prompt: c => `Welche dieser Pflanzen stammt ursprünglich aus der folgenden Region: „${c.attributes.origin}“?`
+  },
+  {
     // Reverse: wissenschaftlicher Name -> Pflanzenname. Der Reverse-Korrektheits-
     // Filter sorgt dafür, dass kein Distraktor denselben wiss. Namen trägt (hier
     // ohnehin alle eindeutig), und schützt zusätzlich gegen den Selbstverräter.
@@ -264,6 +272,14 @@ const templates = [
     category: 'plant', attr: 'maxHeightM', kind: 'num', type: 'natura-plant-height', difficulty: 3,
     prompt: c => `Welche maximale Höhe erreicht ${c.name}?`,
     format: v => `${deNum(v)} m`
+  },
+  {
+    // Gleiche Höhe bleibt als Antwortkonflikt ausgeschlossen. Dadurch besitzt
+    // jede erzeugte Vierergruppe genau eine passende Pflanzenart.
+    category: 'plant', attr: 'maxHeightM', kind: 'name', type: 'natura-plant-height-rev', difficulty: 4,
+    compareKind: 'num',
+    subject: c => `${deNum(cleanNum(c.attributes.maxHeightM))} m`,
+    prompt: c => `Welche dieser Pflanzen erreicht eine maximale Höhe von ${deNum(cleanNum(c.attributes.maxHeightM))} m?`
   },
   {
     category: 'plant', attr: 'maxAgeYears', kind: 'num', type: 'natura-plant-age', difficulty: 4,

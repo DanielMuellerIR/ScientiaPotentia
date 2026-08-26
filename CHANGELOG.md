@@ -5,6 +5,18 @@
 > wurde. Einträge verbatim übernommen (nur Blockquote-Format → Markdown-Überschriften);
 > sortiert neueste zuerst. Stehende Regeln und Entscheidungen bleiben in `AGENTS.md`.
 
+## 2026-08-26 (v1.98.69) — 50.000 Fragen und neue Quiz-Übersicht
+
+- 264 zusätzliche Natura-Fragen kehren bereits verifizierte Angaben zu Herkunft und
+  Maximalhöhe von Pflanzen in faire Multiple-Choice-Fragen um. Scientia umfasst damit
+  50.021 Fragen.
+- Die Startansicht des gemischten Quiz zeigt den Gesamtfortschritt in einem runden
+  Indikator. Die Themen stehen ohne Kartenraster in einem flächig umbrechenden,
+  scrollbareren Bereich; deutsche Bezeichnungen ersetzen interne Kategorie-Schlüssel.
+
+Verifiziert mit Natura-Generator, Faktenprüfung, Fragen-Audit, Tests, Layoutcheck,
+Produktions-Build sowie Browserprüfungen der Desktop- und Mobilansicht.
+
 ## 2026-08-23 (v1.98.68) — Semantische Quiz-QA und Faktenkorrekturen
 
 - Der QA-Runner kann seine Stichproben wahlweise mit GPT-5.6 Terra auswerten. Der

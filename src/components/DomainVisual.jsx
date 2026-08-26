@@ -1,126 +1,119 @@
 import React from 'react';
+import { CATEGORY_LABELS } from './conceptLabels';
 
 /**
- * Generisches Visualisierungs-Panel fuer Domains OHNE interaktive Karte
- * (alles ausser Terra in Phase 1). Fuellt den linken Panel-Bereich, der bei
- * Terra die Weltkarte zeigt, mit einem themenbezogenen Ueberblick:
- * Bereichstitel, Beschreibung und eine Aufschluesselung der Konzept-Kategorien
- * inkl. Sammelfortschritt (entdeckte Konzepte je Kategorie).
+ * Themenübersicht für Domains ohne eigene Karten- oder 3D-Übersicht.
  *
- * Phase 2 ersetzt dies pro Domain durch echte Visualisierungen
- * (z.B. interaktives Sonnensystem fuer Astra).
- *
- * Props:
- *   - domain:      aktive Domain-Definition (Icon, latinName, label, description, accent)
- *   - concepts:    Map conceptKey -> Konzept der aktiven Domain
- *   - srsProgress: globaler Fortschritt (Map conceptKey -> Fortschritt)
+ * Die Zusammenfassung bleibt sichtbar, während die Themenliste ihren eigenen
+ * Scrollbereich nutzt. So passen auch die vielen Kategorien des gemischten
+ * Scientia-Quiz in das linke Panel, ohne oben oder unten abgeschnitten zu werden.
  */
-
-// Deutsche Labels fuer bekannte Kategorien (Fallback: Schluessel). Auf Modul-Ebene,
-// damit das Objekt nicht bei jedem Render neu erzeugt wird (wie in ConceptVisual).
-const CATEGORY_LABELS = {
-  planet: 'Planeten',
-  dwarf_planet: 'Zwergplaneten',
-  moon: 'Monde',
-  star: 'Sterne',
-  galaxy: 'Galaxien',
-  constant: 'Konstanten',
-  bone: 'Knochen',
-  muscle: 'Muskeln',
-  organ: 'Organe',
-  body_fact: 'Körperwerte',
-  species: 'Menschenarten'
-};
-
 export default function DomainVisual({ domain, concepts = {}, srsProgress = {} }) {
   const Icon = domain.Icon;
-  const accent = domain.accent || 'var(--color-primary)';
+  const accent = domain.accent || '#1B305B';
 
-  // Kategorien aus den Konzepten ableiten (z.B. planet, moon, star ...)
-  // und entdeckte Konzepte (repetitions > 0) je Kategorie zaehlen.
-  const cats = {};
-  Object.entries(concepts).forEach(([key, c]) => {
-    const cat = c.category || c.type || 'sonstige';
-    cats[cat] ||= { total: 0, studied: 0 };
-    cats[cat].total++;
-    if (srsProgress[key] && srsProgress[key].repetitions > 0) {
-      cats[cat].studied++;
-    }
-  });
+  const categories = Object.entries(concepts).reduce((groups, [key, concept]) => {
+    const category = concept.category || concept.type || 'sonstige';
+    groups[category] ||= { total: 0, studied: 0 };
+    groups[category].total += 1;
+    if (srsProgress[key]?.repetitions > 0) groups[category].studied += 1;
+    return groups;
+  }, {});
+
+  const categoryEntries = Object.entries(categories)
+    .map(([key, data]) => ({
+      key,
+      label: CATEGORY_LABELS[key] || key.replaceAll('_', ' '),
+      ...data,
+      percent: data.total > 0 ? Math.round((data.studied / data.total) * 100) : 0
+    }))
+    // Große Themen stehen zuerst. Bei Gleichstand hält das deutsche Label die
+    // Reihenfolge stabil und für Menschen nachvollziehbar.
+    .sort((a, b) => b.total - a.total || a.label.localeCompare(b.label, 'de'));
+
+  const total = categoryEntries.reduce((sum, category) => sum + category.total, 0);
+  const studied = categoryEntries.reduce((sum, category) => sum + category.studied, 0);
+  const percent = total > 0 ? Math.round((studied / total) * 100) : 0;
 
   return (
-    <div
-      className="terra-panel"
+    <section
+      className="terra-panel domain-overview"
       style={{
-        height: '100%',
-        position: 'relative',
-        overflow: 'hidden',
-        border: '1px solid var(--border-light)',
-        // Dezenter "Weltraum"-Verlauf, getoent nach Domain-Akzentfarbe
-        background: `radial-gradient(circle at 30% 20%, ${accent}22, transparent 60%), radial-gradient(circle at 80% 70%, ${accent}18, transparent 55%), #0d1326`
+        '--domain-accent': accent,
+        '--domain-glow': `${accent}44`
       }}
+      aria-labelledby="domain-overview-title"
     >
-      <div style={{
-        position: 'relative',
-        height: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: '40px',
-        textAlign: 'center',
-        color: '#EAE6DC'
-      }}>
-        <span style={{
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          width: '88px', height: '88px', borderRadius: '50%',
-          background: `${accent}33`,
-          border: `1px solid ${accent}88`,
-          boxShadow: `0 0 40px ${accent}66`,
-          marginBottom: '20px'
-        }}>
-          <Icon size={44} style={{ color: '#fff' }} />
-        </span>
+      <div className="domain-overview-layout">
+        <header className="domain-overview-summary">
+          <span className="domain-overview-icon" aria-hidden="true">
+            <Icon size={38} />
+          </span>
 
-        <h2 style={{ fontFamily: 'var(--font-title)', fontSize: '30px', fontWeight: 700, margin: 0, letterSpacing: '1px' }}>
-          {domain.latinName}
-        </h2>
-        <div style={{ fontSize: '14px', opacity: 0.7, marginBottom: '8px' }}>{domain.label}</div>
-        <p style={{ fontSize: '14px', maxWidth: '420px', opacity: 0.85, lineHeight: 1.5, marginBottom: '28px' }}>
-          {domain.description}
-        </p>
+          <div className="domain-overview-copy">
+            <h2 id="domain-overview-title">{domain.latinName}</h2>
+            <div className="domain-overview-label">{domain.label}</div>
+            <p>{domain.description}</p>
+          </div>
 
-        {/* Kategorie-Uebersicht mit Sammelfortschritt */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          gap: '10px',
-          width: '100%',
-          maxWidth: '440px'
-        }}>
-          {Object.entries(cats).map(([cat, data]) => {
-            const pct = data.total > 0 ? Math.round((data.studied / data.total) * 100) : 0;
-            return (
-              <div key={cat} style={{
-                background: 'rgba(255,255,255,0.06)',
-                border: '1px solid rgba(255,255,255,0.12)',
-                borderRadius: '8px',
-                padding: '10px 12px',
-                textAlign: 'left',
-                backdropFilter: 'blur(8px)'
-              }}>
-                <div style={{ fontSize: '13px', fontWeight: 600 }}>{CATEGORY_LABELS[cat] || cat}</div>
-                <div style={{ fontSize: '11.5px', opacity: 0.7 }}>
-                  {data.studied} / {data.total} entdeckt · {pct}%
+          <div className="domain-overview-total">
+            <svg
+              className="domain-progress-ring"
+              viewBox="0 0 128 128"
+              role="img"
+              aria-label={`${percent} % entdeckt`}
+              data-testid="domain-progress-ring"
+            >
+              <circle className="domain-progress-ring-track" cx="64" cy="64" r="52" pathLength="100" />
+              {percent > 0 && (
+                <circle
+                  className="domain-progress-ring-value"
+                  cx="64"
+                  cy="64"
+                  r="52"
+                  pathLength="100"
+                  strokeDasharray={`${percent} 100`}
+                />
+              )}
+              <text className="domain-progress-ring-percent" x="64" y="61" textAnchor="middle">
+                {percent}%
+              </text>
+              <text className="domain-progress-ring-caption" x="64" y="79" textAnchor="middle">
+                entdeckt
+              </text>
+            </svg>
+            <div className="domain-overview-count">
+              <strong>{studied.toLocaleString('de-DE')} / {total.toLocaleString('de-DE')}</strong>
+              <span>Konzepte entdeckt</span>
+            </div>
+          </div>
+        </header>
+
+        <div className="domain-overview-categories-pane">
+          <div className="domain-overview-categories-heading">
+            <h3>Fortschritt nach Thema</h3>
+            <span>{categoryEntries.length} Themen</span>
+          </div>
+          <div
+            className="domain-overview-categories"
+            role="list"
+            aria-label="Fortschritt nach Themen"
+            tabIndex="0"
+          >
+            {categoryEntries.map(category => (
+              <div className="domain-overview-category" role="listitem" key={category.key}>
+                <div className="domain-overview-category-topline">
+                  <span>{category.label}</span>
+                  <strong>{category.percent}%</strong>
                 </div>
-                <div style={{ height: '4px', borderRadius: '2px', background: 'rgba(255,255,255,0.12)', marginTop: '6px', overflow: 'hidden' }}>
-                  <div style={{ width: `${pct}%`, height: '100%', background: accent }} />
+                <div className="domain-overview-category-count">
+                  {category.studied.toLocaleString('de-DE')} / {category.total.toLocaleString('de-DE')} entdeckt
                 </div>
               </div>
-            );
-          })}
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
