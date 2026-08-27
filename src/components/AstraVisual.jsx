@@ -135,6 +135,7 @@ export function getAstraDisclosurePolicy({
   const atmosphereHidden = attrHidden('hasAtmosphere') || attrHidden('atmosphere');
   const testedValue = testedAttribute != null ? attrs[testedAttribute] : null;
   const sourceName = concept?.source?.name || '';
+  const sourceUrl = concept?.source?.url || '';
   // Bei Typ-/Kategoriefragen kann schon die charakteristische Oberfläche,
   // ein Ringsystem oder die Bahn die Antwort nahelegen. Dann bleibt die Szene
   // bis zur Antwort ebenso neutral wie bei einer Identitätsfrage.
@@ -152,6 +153,10 @@ export function getAstraDisclosurePolicy({
     showDeepSkyImage: isDeepSky && Boolean(concept?.image?.url),
     revealDeepSkyImage: detailsUnlocked,
     showTransitDiagram: detailsUnlocked && !hideIdentity && hasTransitEvidence(concept),
+    // Eine URL kann die Antwort auch dann verraten, wenn der sichtbare Name
+    // neutral ist (z. B. eine Missionskennung mit Startjahr). Links werden
+    // deshalb grundsätzlich erst nach der Antwort freigeschaltet.
+    sourceLinkUrl: detailsUnlocked ? sourceUrl : '',
     showSource: Boolean(sourceName) && !(beforeAnswer && (
       hideIdentity || sourceRevealsValue(sourceName, testedValue)
     ))
@@ -881,40 +886,42 @@ export default function AstraVisual({
             )}
           </div>
 
-          {/* Lizenzzeile (nur bei echten Texturen sichtbar) */}
-          <div style={{
-            position: 'absolute', bottom: 0, right: 0, padding: '4px 10px',
-            fontSize: '10px', opacity: 0.7, color: '#EAE6DC', pointerEvents: 'auto', zIndex: 5
-          }}>
-            {hasSurfaceTexture && (
-              <>
-                Textur: <a href={TEXTURE_CREDIT.sourceUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit' }}>{TEXTURE_CREDIT.author}</a>
-                {' · '}<a href={TEXTURE_CREDIT.licenseUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit' }}>{TEXTURE_CREDIT.license}</a>
-                {' · '}{TEXTURE_CREDIT.changes}
-              </>
-            )}
-            {showSaturnRingCredit && (
-              <>
-                {hasSurfaceTexture ? ' · ' : ''}
-                Ringe: <a href={SATURN_RING_CREDIT.sourceUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit' }}>{SATURN_RING_CREDIT.author}</a>
-                {' · '}<a href={SATURN_RING_CREDIT.licenseUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit' }}>{SATURN_RING_CREDIT.license}</a>
-                {' · '}{SATURN_RING_CREDIT.changes}
-              </>
-            )}
-            {showConceptSource && (
-              <>
-                {showSaturnRingCredit ? ' · ' : ''}
-                Quelle:{' '}
-                {activeConcept?.source?.url ? (
-                  <a href={activeConcept.source.url} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit' }}>
-                    {activeConcept.source.name}
-                  </a>
-                ) : activeConcept?.source?.name}
-              </>
-            )}
-          </div>
         </>
       )}
+
+      {/* Das CC-BY-Sternenfeld liegt bei jedem Zustand hinter dem Canvas. Sein
+          Nachweis bleibt deshalb auch ohne aktive Frage und ohne Körpertextur sichtbar. */}
+      <div data-testid="astra-asset-credit" style={{
+        position: 'absolute', bottom: 0, right: 0, padding: '4px 10px',
+        fontSize: '10px', opacity: 0.7, color: '#EAE6DC', pointerEvents: 'auto', zIndex: 5
+      }}>
+        Sternenfeld: <a href={TEXTURE_CREDIT.sourceUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit' }}>{TEXTURE_CREDIT.author}</a>
+        {' · '}<a href={TEXTURE_CREDIT.licenseUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit' }}>{TEXTURE_CREDIT.license}</a>
+        {' · '}{TEXTURE_CREDIT.changes}
+        {hasSurfaceTexture && (
+          <>
+            {' · '}Körpertextur: <a href={TEXTURE_CREDIT.sourceUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit' }}>{TEXTURE_CREDIT.author}</a>
+            {' · '}<a href={TEXTURE_CREDIT.licenseUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit' }}>{TEXTURE_CREDIT.license}</a>
+          </>
+        )}
+        {showSaturnRingCredit && (
+          <>
+            {' · '}Ringe: <a href={SATURN_RING_CREDIT.sourceUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit' }}>{SATURN_RING_CREDIT.author}</a>
+            {' · '}<a href={SATURN_RING_CREDIT.licenseUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit' }}>{SATURN_RING_CREDIT.license}</a>
+            {' · '}{SATURN_RING_CREDIT.changes}
+          </>
+        )}
+        {showConceptSource && (
+          <>
+            {' · '}Quelle:{' '}
+            {disclosure.sourceLinkUrl ? (
+              <a href={disclosure.sourceLinkUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit' }}>
+                {activeConcept.source.name}
+              </a>
+            ) : activeConcept?.source?.name}
+          </>
+        )}
+      </div>
     </div>
   );
 }

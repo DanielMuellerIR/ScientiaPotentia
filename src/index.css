@@ -323,6 +323,7 @@
 .exhibit-drape--ocular{inset:10px;border-radius:50%;border:1px solid rgba(188,205,230,.28);overflow:hidden}
 .ocular-reticle{position:absolute;inset:0;border-radius:50%;opacity:.48;background:linear-gradient(90deg,transparent calc(50% - .5px),rgba(202,220,240,.5) 50%,transparent calc(50% + .5px)),linear-gradient(transparent calc(50% - .5px),rgba(202,220,240,.5) 50%,transparent calc(50% + .5px));box-shadow:inset 0 0 0 1px rgba(210,226,244,.34),inset 0 0 38px rgba(0,0,0,.8)}
 .answer-reveal--ocular .exhibit-credit{position:absolute;left:50%;bottom:12px;z-index:3;display:block;width:min(88vw,460px);max-width:none;margin:0;padding:3px 6px;overflow:visible;transform:translateX(-50%);-webkit-line-clamp:unset;border-radius:4px;background:rgba(0,0,0,.72);color:#EAE6DC;text-shadow:0 1px 4px #000}
+.answer-reveal--ocular .exhibit-credit,.answer-reveal--ocular .exhibit-credit a{pointer-events:auto}
 .ocular-credit-license{display:block}
 .deep-sky-neutral{width:100%;height:100%;border-radius:50%;background:radial-gradient(ellipse at 48% 52%,rgba(211,220,240,.44) 0 3%,rgba(137,158,205,.2) 15%,transparent 45%),radial-gradient(circle at 30% 35%,#E8EDF7 0 1px,transparent 2px),radial-gradient(circle at 69% 61%,#C7D5F2 0 1px,transparent 2px),radial-gradient(circle at 58% 27%,#E8EDF7 0 1px,transparent 2px),#02040A;background-size:auto,53px 47px,71px 67px,83px 79px}
 .deep-sky-fallback-label{margin-top:8px;font-size:9px;letter-spacing:.45px;text-transform:uppercase;opacity:.58}

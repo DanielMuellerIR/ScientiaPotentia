@@ -21,7 +21,9 @@ werden daraus erzeugt und nicht direkt bearbeitet.
 ## 3. Bilder auflösen
 
 Die Wikimedia-Commons-Resolver ermitteln Bilddatei, Urheber, Lizenz und Lizenzadresse. Zulässig
-sind Public Domain, CC0, CC BY, CC BY-SA, FAL und GFDL; NC, ND und unklare Rechte werden verworfen.
+sind Public Domain, CC0, CC BY, CC BY-SA, FAL, GFDL sowie die Commons-Freigaben „Attribution“
+und „Copyrighted free use“. Creative-Commons-Angaben brauchen eine konkrete Versionsnummer;
+NC, ND, unbekannte Bezeichnungen und unklare Rechte werden verworfen.
 
 ```bash
 node scripts/data_sources/harvest/resolve_images_batched.cjs <domain>

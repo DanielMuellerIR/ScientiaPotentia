@@ -122,6 +122,7 @@ const META_SECTIONS = new Set([
   'über', 'see also', 'anmerkungen', 'bemerkungen', 'siehe auch', 'trivia',
   'zitate über', 'zitate von', 'posthum', 'briefe', 'quelle', 'nachweise',
   'anekdoten', 'filme', 'fernsehen', 'interviews', 'bekannte zitate',
+  'zugeschrieben', 'zugeschriebene', 'zuschreibungen',
   'zugeschriebene zitate', 'falsch zugeschriebene zitate', 'apokryphe',
   'zweifelhaft', 'umstrittene zitate', 'nicht belegt', 'fälschungen',
   'vermutlich falsch', 'unsicher',
@@ -138,21 +139,33 @@ function isMetaSection(heading) {
 function parseWikitext(wikitext) {
   const results = [];
   let currentWork = null;
+  let metaSectionLevel = null;
   const lines = wikitext.split('\n');
 
   for (const line of lines) {
-    const headingMatch = line.match(/^={2,4}\s*(.+?)\s*={2,4}\s*$/);
+    const headingMatch = line.match(/^(={2,4})\s*(.+?)\s*\1\s*$/);
     if (headingMatch) {
-      const heading = headingMatch[1].trim();
+      const level = headingMatch[1].length;
+      const heading = headingMatch[2].trim();
       if (isMetaSection(heading)) {
         currentWork = null;
+        // Ein tieferer Unterabschnitt darf den übergeordneten Meta-Bereich
+        // nicht verkürzen. Erst eine Überschrift auf derselben oder einer
+        // höheren Ebene beendet die Sperre.
+        metaSectionLevel = metaSectionLevel === null
+          ? level
+          : Math.min(metaSectionLevel, level);
+      } else if (metaSectionLevel !== null && level > metaSectionLevel) {
+        currentWork = null;
       } else {
+        metaSectionLevel = null;
         currentWork = heading;
       }
       continue;
     }
 
     if (/^\*[^*]/.test(line)) {
+      if (metaSectionLevel !== null) continue;
       let text = line
         .replace(/^\*\s*/, '')
         .replace(/\[\[([^\]|]+\|)?([^\]]+)\]\]/g, '$2')
@@ -578,7 +591,11 @@ async function harvest() {
   });
 }
 
-harvest().catch(e => {
-  console.error('FEHLER:', e.message, e.stack);
-  process.exit(1);
-});
+if (require.main === module) {
+  harvest().catch(e => {
+    console.error('FEHLER:', e.message, e.stack);
+    process.exit(1);
+  });
+}
+
+module.exports = { isMetaSection, parseWikitext };

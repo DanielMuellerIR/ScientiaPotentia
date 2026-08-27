@@ -2,11 +2,16 @@
 
 import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
-import { licenseUrlFor, sanitizeImageAttribution } from '../src/utils/imageCredits.js';
+import {
+  isAllowedImageLicense,
+  isConcreteImageAttribution,
+  licenseUrlFor,
+  sanitizeImageAttribution,
+} from '../src/utils/imageCredits.js';
 
 const DOMAINS = ['astra', 'cultura', 'historia', 'homo', 'lingua', 'machina', 'natura'];
 const EMAIL = /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/i;
-const NON_FREE = /\b(?:NC|ND)\b|non[- ]?commercial|no[- ]?deriv|all rights reserved/i;
+const COMMONS_REUSE_URL = 'https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia';
 const errors = [];
 let checked = 0;
 
@@ -24,15 +29,19 @@ function validate(domain, id, image, layer) {
   }
   if (!attribution) errors.push(`${prefix}: Urheberangabe fehlt`);
   if (!/^(?:Public domain|PD\b|CC0\b)/i.test(license)
-      && /^unknown(?: (?:author|artist|creator|source))?(?:\s*\/|$)/i.test(attribution)) {
+      && !isConcreteImageAttribution(attribution)) {
     errors.push(`${prefix}: freie Lizenz verlangt einen konkreten Rechteinhaber`);
   }
   if (EMAIL.test(String(image.attribution ?? image.imageAttribution ?? ''))) {
     errors.push(`${prefix}: Kontaktadresse im Credit`);
   }
   if (!license) errors.push(`${prefix}: Lizenzbezeichnung fehlt`);
-  if (NON_FREE.test(license)) errors.push(`${prefix}: nicht kompatible Lizenz ${license}`);
-  if (!/^https:\/\//.test(licenseUrl)) errors.push(`${prefix}: Lizenzlink fehlt`);
+  else if (!isAllowedImageLicense(license)) {
+    errors.push(`${prefix}: unbekannte oder nicht kompatible Lizenz ${license}`);
+  }
+  if (!/^https:\/\//.test(licenseUrl) || licenseUrl === COMMONS_REUSE_URL) {
+    errors.push(`${prefix}: konkreter Lizenzlink fehlt`);
+  }
   if (!changes) errors.push(`${prefix}: Änderungshinweis fehlt`);
 }
 

@@ -98,5 +98,4 @@ Browser. Pflicht-Gegenprobe vor groesseren Layout-Aenderungen:
 - **844×390** fuer Handy-Querformat: Dropdown scrollbar, alle neun Domains erreichbar und seine
   Unterkante mindestens 8px vor der Viewport-Unterkante.
 
-Siehe auch `docs/archive/mobile-layout-plan.md`. Der maschinelle Check ersetzt diese Gegenprobe und
-einen echten Geraetetest nicht.
+Der maschinelle Check ersetzt diese Gegenprobe und einen echten Geraetetest nicht.

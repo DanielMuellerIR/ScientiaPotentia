@@ -189,6 +189,31 @@ describe('Astra Deep Sky, Transit und Leakschutz', () => {
     expect(isAstraAttrLeakedBeforeAnswer('notableStars', 'brightestStar')).toBe(true);
   });
 
+  it('schaltet eine Quellen-URL unabhängig vom sichtbaren Namen erst nach der Antwort frei', () => {
+    const mission = concept({
+      category: 'mission',
+      source: {
+        name: 'Weltraumkatalog',
+        url: 'https://example.test/catalog?id=2020-087A',
+      },
+      attributes: { launchYear: 2020 },
+    });
+
+    const before = getAstraDisclosurePolicy({
+      concept: mission,
+      testedAttribute: 'launchYear',
+    });
+    const after = getAstraDisclosurePolicy({
+      concept: mission,
+      testedAttribute: 'launchYear',
+      isQuestionAnswered: true,
+    });
+
+    expect(before.showSource).toBe(true);
+    expect(before.sourceLinkUrl).toBe('');
+    expect(after.sourceLinkUrl).toBe(mission.source.url);
+  });
+
   it('neutralisiert bei Planetentypfragen Textur, Ringe und Kontext', () => {
     const saturn = concept({
       id: 'astra:saturn',

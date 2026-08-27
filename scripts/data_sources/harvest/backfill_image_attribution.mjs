@@ -9,7 +9,10 @@
 import { readFile, rename, writeFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { sanitizeImageAttribution } from '../../../src/utils/imageCredits.js';
+import {
+  isConcreteImageAttribution,
+  sanitizeImageAttribution,
+} from '../../../src/utils/imageCredits.js';
 
 const SCRIPT_DIR = dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = join(SCRIPT_DIR, '..');
@@ -84,7 +87,7 @@ function wikiCredit(wikitext, uploadUser, license) {
     return cleanWikiCredit(namedUser[2] || namedUser[1]);
   }
 
-  if (/(?:\bown work\b|\bown photo\b|\bself-photographed\b|\b(?:photo)?graphed by myself\b|\btaken by myself\b|\bi created this image\b|\beigenes werk\b|\bselbst fotografiert\b|\bselbst erstellt\b|\{\{Self[|}])/i.test(wikitext)
+  if (/(?:\bown work\b|\bown photo\b|\bself-photographed\b|\b(?:photo)?graphed by myself\b|\btaken by myself\b|\bi created this image\b|\beigenes werk\b|\bselbst fotografiert\b|\bselbst erstellt\b|\{\{(?:Self[|}]|own\b))/i.test(wikitext)
       && uploadUser) {
     return `Wikimedia-Commons-Nutzer ${sanitizeImageAttribution(uploadUser)}`;
   }
@@ -99,22 +102,28 @@ function wikiCredit(wikitext, uploadUser, license) {
 }
 
 function metadataCredit(metadata, wikitext, uploadUser, license) {
-  const values = [
+  const primaryValues = [
     metadata?.Attribution?.value,
     metadata?.Artist?.value,
-    metadata?.Credit?.value,
   ];
-  return values
+  const primary = primaryValues
     .map(sanitizeImageAttribution)
-    .find((value) => value && !/^unknown(?: (?:author|artist|creator|source))?$/i.test(value))
-    || wikiCredit(wikitext, uploadUser, license);
+    .find(isConcreteImageAttribution);
+  if (primary) return primary;
+
+  // „Credit“ enthält auf Commons häufig nur die Fundstelle. Bei als eigenes
+  // Werk markierten Dateien ist der Upload-Nutzer der belastbarere Urheber.
+  const fromWikitext = wikiCredit(wikitext, uploadUser, license);
+  if (fromWikitext) return fromWikitext;
+  const fallbackCredit = sanitizeImageAttribution(metadata?.Credit?.value);
+  return isConcreteImageAttribution(fallbackCredit) ? fallbackCredit : '';
 }
 
 function attributionNeedsLookup(value, license) {
   const credit = sanitizeImageAttribution(value);
   if (!credit) return true;
   const attributionRequired = !/^(?:Public domain|PD\b|CC0\b)/i.test(String(license || ''));
-  return attributionRequired && /^unknown(?: (?:author|artist|creator|source))?(?:\s*\/|$)/i.test(credit);
+  return attributionRequired && !isConcreteImageAttribution(credit);
 }
 
 async function fetchMetadata(titles) {

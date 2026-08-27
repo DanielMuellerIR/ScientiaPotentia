@@ -250,14 +250,9 @@ const templates = [
     category: 'plant', attr: 'origin', kind: 'cat', type: 'natura-plant-origin', difficulty: 3,
     prompt: c => `Woher stammt ${c.name} ursprünglich?`
   },
-  {
-    // Umkehrung: Die Optionen enthalten nur Pflanzen mit abweichender Herkunft.
-    // „Welche dieser" macht klar, dass genau unter den vier Optionen gewählt wird.
-    category: 'plant', attr: 'origin', kind: 'name', type: 'natura-plant-origin-rev', difficulty: 3,
-    compareKind: 'cat',
-    subject: c => c.attributes.origin,
-    prompt: c => `Welche dieser Pflanzen stammt ursprünglich aus der folgenden Region: „${c.attributes.origin}“?`
-  },
+  // Keine Herkunfts-Umkehrfrage: Freie Angaben wie „Europa“ und „Europa und
+  // Westasien“ überlappen fachlich. Ein byteweicher Vergleich könnte deshalb
+  // mehrere richtige Pflanzennamen als Optionen zulassen.
   {
     // Reverse: wissenschaftlicher Name -> Pflanzenname. Der Reverse-Korrektheits-
     // Filter sorgt dafür, dass kein Distraktor denselben wiss. Namen trägt (hier

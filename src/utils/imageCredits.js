@@ -1,26 +1,36 @@
-const COMMONS_REUSE_URL = 'https://commons.wikimedia.org/wiki/Commons:Reusing_content_outside_Wikimedia';
+import { decodeHTML } from 'entities';
 
 /** Entfernt HTML und private Kontaktadressen aus Commons-Metadaten. */
 export function sanitizeImageAttribution(value) {
-  return String(value || '')
+  return decodeHTML(String(value || ''))
     .replace(/<br\s*\/?\s*>/gi, ' / ')
     .replace(/<[^>]+>/g, ' ')
-    .replace(/&amp;/gi, '&')
-    .replace(/&quot;/gi, '"')
-    .replace(/&#0*39;|&apos;/gi, "'")
-    .replace(/&lt;/gi, '<')
-    .replace(/&gt;/gi, '>')
-    .replace(/&#(\d+);/g, (_, code) => String.fromCodePoint(Number(code)))
     .replace(/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/gi, '')
     .replace(/\bmailto:\s*/gi, '')
     .replace(/\b(Unknown (?:author|artist|creator|source))\s*\1\b/gi, '$1')
     .replace(/\bUnknown\s*Unknown\b/gi, 'Unknown')
-    .replace(/\b(CFCF|wdwd)\b/g, '')
     .replace(/\(\s*\)/g, '')
     .replace(/\s*\/\s*\/\s*/g, ' / ')
     .replace(/\s{2,}/g, ' ')
     .replace(/^[\s/·,;-]+|[\s/·,;-]+$/g, '')
     .trim();
+}
+
+/** Erkennt eine konkrete Person oder Organisation statt eines Kontakt-/Hinweisrests. */
+export function isConcreteImageAttribution(value) {
+  const attribution = sanitizeImageAttribution(value);
+  if (!attribution) return false;
+  return !/^(?:unknown(?: (?:author|artist|creator|source))?|unbekannt|own work|self|none|n\/a|urheber nicht angegeben(?:\b.*)?|please (?:report|contact|notify)\b.*|(?:report|contact) (?:references?|the author)\b.*)[\s.!,:;-]*$/i
+    .test(attribution);
+}
+
+/** Positivliste der im Projekt dokumentierten freien Lizenzfamilien. */
+export function isAllowedImageLicense(label) {
+  const license = String(label || '').trim();
+  if (/^Public domain$/i.test(license)) return true;
+  if (/^CC0(?:\s+1\.0)?$/i.test(license)) return true;
+  if (/^CC\s+BY(?:-SA)?\s+(?:1\.0|2\.0|2\.1|2\.5|3\.0|4\.0)(?:\s+[a-z]{2,3})?$/i.test(license)) return true;
+  return /^(?:FAL|GFDL(?:\s+(?:1\.2|1\.3))?|Attribution|Copyrighted free use)$/i.test(license);
 }
 
 /** Liefert für die in den Rohdaten vorkommenden freien Lizenzen eine kanonische Adresse. */
@@ -39,7 +49,7 @@ export function licenseUrlFor(label) {
     const family = creativeCommons[1] ? 'by-sa' : 'by';
     const version = creativeCommons[2];
     const jurisdiction = creativeCommons[3]?.toLowerCase();
-    if (!version) return COMMONS_REUSE_URL;
+    if (!version) return '';
     return `https://creativecommons.org/licenses/${family}/${version}/${jurisdiction ? `${jurisdiction}/` : ''}`;
   }
   if (lower === 'fal') return 'https://artlibre.org/licence/lal/en/';
@@ -49,7 +59,7 @@ export function licenseUrlFor(label) {
   if (lower === 'copyrighted free use') {
     return 'https://commons.wikimedia.org/wiki/Template:Copyrighted_free_use';
   }
-  return COMMONS_REUSE_URL;
+  return '';
 }
 
 /** Einheitliche Bildmetadaten für alle Domain-Generatoren. */

@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import { readFile } from 'node:fs/promises';
+import { isDocumentedDeathYear } from './lib/quoteRights.mjs';
 
 const CURRENT_YEAR = new Date().getUTCFullYear();
 const PUBLIC_DOMAIN_DEATH_YEAR = CURRENT_YEAR - 71;
@@ -10,10 +11,10 @@ const errors = [];
 
 for (const quote of quotes) {
   const prefix = `cultura:${quote.id}`;
-  const authorDeathYear = Number(quote.attributes?.authorDeathYear);
+  const authorDeathYear = quote.attributes?.authorDeathYear;
   const rights = quote.quoteRights || {};
 
-  if (!Number.isInteger(authorDeathYear) || authorDeathYear > PUBLIC_DOMAIN_DEATH_YEAR) {
+  if (!isDocumentedDeathYear(authorDeathYear) || authorDeathYear > PUBLIC_DOMAIN_DEATH_YEAR) {
     errors.push(`${prefix}: Urheber ist in Deutschland nicht nachweislich gemeinfrei`);
   }
   if (!/^https:\/\//.test(String(quote.sourceUrl || ''))) {
@@ -31,8 +32,8 @@ for (const quote of quotes) {
   }
 
   if (rights.basis === 'public-domain-translation') {
-    const translatorDeathYear = Number(rights.translatorDeathYear);
-    if (!rights.translator || !Number.isInteger(translatorDeathYear)
+    const translatorDeathYear = rights.translatorDeathYear;
+    if (!rights.translator || !isDocumentedDeathYear(translatorDeathYear)
         || translatorDeathYear > PUBLIC_DOMAIN_DEATH_YEAR) {
       errors.push(`${prefix}: Übersetzer und Gemeinfreiheit sind nicht belegt`);
     }

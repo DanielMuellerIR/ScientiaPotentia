@@ -1,6 +1,6 @@
 # Fachliche Content-Ceilings
 
-**Stand: 2026-08-23.** Dieses Dokument ersetzt eine reine Fragenquote als
+**Stand: 2026-08-27.** Dieses Dokument ersetzt eine reine Fragenquote als
 Ausbauziel. Zahlen beschreiben den Umfang, nicht die Qualität oder den Bedarf
 für weitere Konzepte.
 
@@ -37,13 +37,13 @@ die Konzeptkarte oder ein fachliches Schema.
 | Domain | Fragen | Konzepte | Bilder | Fachliche Einordnung |
 |---|---:|---:|---:|---|
 | Terra | 5.116 | 1.852 Kartenobjekte | Karte | Geschlossener, quellgebundener Geodatensatz. Neue Fragen nur bei einem zusätzlichen fairen Kartentyp oder einer überprüften Datensatzänderung; keine künstliche Vermehrung pro Ort. |
-| Astra | 5.055 | 1.560 | 478 | Breites, aber quellenabhängiges Reservoir. Neue Körper, Missionen oder Eigenschaften brauchen stabile Fachquellen. Keine Sternbildlinien ohne freigegebene Konvention oder IAU-Grenzdaten. |
+| Astra | 5.055 | 1.560 | 489 | Breites, aber quellenabhängiges Reservoir. Neue Körper, Missionen oder Eigenschaften brauchen stabile Fachquellen. Keine Sternbildlinien ohne freigegebene Konvention oder IAU-Grenzdaten. |
 | Homo | 1.600 | 599 | 306 | Erreicht das belegte Ceiling von etwa 1.500–1.700 Fragen. Krankheiten, Erreger und Medizingeschichte wären falsche Wege zur Mengensteigerung und gehören nach Natura beziehungsweise Historia. |
-| Natura | 13.213 | 2.402 | 1.878 | Kein numerisches Ceiling: Arten, Lebensräume und Geologie bieten weiter Material. Es gelten aber Notabilität, belastbare Merkmale und eine passende Visualisierung vor weiterer Menge. |
-| Lingua | 4.874 | 1.207 | 184 | Die frühere 5.000er-Orientierung ist fast erreicht, aber kein Grund für Restmaterial. Neue Einträge nur bei klaren Sprach-, Schrift- oder Etymologie-Lernzielen; bloße Flexions- und Dialektlisten bleiben aus. |
-| Cultura | 7.440 | 2.018 | 1.048 | Breites Reservoir mit harter Urheberrechts- und Gegenwartsgrenze. Neue Werke müssen fachlich notabel sein; geschützte 2D-Werke, lange Zitate und lebende Rekordpersonen bleiben ausgeschlossen. |
-| Machina | 6.141 | 2.165 | 124 | Breites Reservoir, aber viele abstrakte Konzepte haben bewusst kein Foto. Neue Fragen müssen Funktionsprinzipien lehren; Markenlogos oder aktuelle Produktlisten sind kein Ersatz für eine Visualisierung. |
-| Historia | 6.332 | 1.244 | 1.023 | Breites Reservoir für datierbare, neutral darstellbare Inhalte. Tagespolitik, wertende Systemdebatten und schlecht belegte Rekordlisten bleiben außerhalb der Domain. |
+| Natura | 13.343 | 2.402 | 1.878 | Kein numerisches Ceiling: Arten, Lebensräume und Geologie bieten weiter Material. Es gelten aber Notabilität, belastbare Merkmale und eine passende Visualisierung vor weiterer Menge. |
+| Lingua | 4.874 | 1.207 | 198 | Die frühere 5.000er-Orientierung ist fast erreicht, aber kein Grund für Restmaterial. Neue Einträge nur bei klaren Sprach-, Schrift- oder Etymologie-Lernzielen; bloße Flexions- und Dialektlisten bleiben aus. |
+| Cultura | 7.373 | 1.987 | 1.047 | Breites Reservoir mit harter Urheberrechts- und Gegenwartsgrenze. Neue Werke müssen fachlich notabel sein; geschützte 2D-Werke, lange Zitate und lebende Rekordpersonen bleiben ausgeschlossen. |
+| Machina | 6.130 | 2.165 | 291 | Breites Reservoir, aber viele abstrakte Konzepte haben bewusst kein Foto. Neue Fragen müssen Funktionsprinzipien lehren; Markenlogos oder aktuelle Produktlisten sind kein Ersatz für eine Visualisierung. |
+| Historia | 6.330 | 1.244 | 1.025 | Breites Reservoir für datierbare, neutral darstellbare Inhalte. Tagespolitik, wertende Systemdebatten und schlecht belegte Rekordlisten bleiben außerhalb der Domain. |
 
 ## Folgen für die Pflege
 
@@ -66,6 +66,6 @@ die Konzeptkarte oder ein fachliches Schema.
 
 - [Domain-Grenzen](bereichs_abgrenzung.md)
 - [Content-Pipeline](content_pipeline.md)
-- [Homo-Erweiterung, Abschnitt 4](homo_erweiterung.md#4-ehrliche-hochrechnung-richtung-5000)
-- [Homo-Erweiterung Runde 2](homo_erweiterung_runde2.md)
-- [Bildquellen-Strategie](bildquellen_strategie.md)
+- [Kuratierte Wissensquellen](wissensquellen.md)
+- [Verifizierte offene Arbeit](../BACKLOG.md)
+- [Aktueller Fragen- und Konzeptstand](../public/data/domain_stats.json)

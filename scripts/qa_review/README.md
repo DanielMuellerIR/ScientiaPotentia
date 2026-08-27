@@ -75,12 +75,15 @@ node scripts/qa_review/build_batches.mjs \
 python3 scripts/qa_review/run_qa.py \
     --batches <scratchdir>/qa_sweep \
     --out docs/qa_reports/qa_<datum>_<scope>.md \
+    --runner /pfad/zu/llm_run.py \
     --max-tokens 12000 --timeout 300 \
     [--limit 1]               # nur N Batches (Kalibrierung)
 ```
 
-Der Runner ist **salvage-fähig**: läuft ein Batch ins Token-Limit, werden die
-vollständigen Objekte gerettet und nur die abgeschnittene letzte Frage verworfen.
+Der Runner ist **salvage-fähig**: Läuft ein Batch ins Token-Limit, landen die
+vollständigen Objekte im Diagnosebericht. Fehlende Bewertungen, Batchfehler oder
+eine unvollständige Abdeckung führen trotzdem zu einem Exit-Code ungleich null;
+ein Teilbericht gilt nie als bestandene QA.
 
 ### Modell wählen
 
@@ -91,11 +94,13 @@ GPT-5.6-Terra-Lauf wird der Codex-Backend ausdrücklich angegeben:
 python3 scripts/qa_review/run_qa.py \
     --batches <scratchdir>/qa_sweep \
     --out docs/qa_reports/qa_<datum>_<scope>.md \
+    --runner /pfad/zu/llm_run.py \
     --backend codex --model gpt-5.6-terra --effort medium --timeout 600
 ```
 
-`run_qa.py` erwartet einen kompatiblen One-Shot-Runner über `--runner` oder die
-Umgebungsvariable `SCIENTIA_LLM_RUNNER`. Der Runner erhält Backend, Modell, Limits und
+`run_qa.py` erwartet einen vorhandenen kompatiblen One-Shot-Runner über `--runner` oder die
+Umgebungsvariable `SCIENTIA_LLM_RUNNER`; ohne einen dieser expliziten Pfade bricht er vor dem
+ersten Batch ab. Der Runner erhält Backend, Modell, Limits und
 Prompt über die dokumentierte Kommandozeile. Der Report hält Backend und Modell fest;
 der Umfang bleibt über Anzahl und Größe der Batches nachvollziehbar begrenzt.
 

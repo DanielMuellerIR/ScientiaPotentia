@@ -33,7 +33,7 @@ import re
 import subprocess
 import sys
 
-DEFAULT_LLM_RUNNER = os.environ.get('SCIENTIA_LLM_RUNNER', 'llm_run.py')
+DEFAULT_LLM_RUNNER = os.environ.get('SCIENTIA_LLM_RUNNER', '')
 
 LETTERS = ['A', 'B', 'C', 'D', 'E', 'F']
 
@@ -224,33 +224,65 @@ def main():
     ap.add_argument('--timeout', type=int, default=600)
     ap.add_argument('--limit', type=int, default=0, help='nur N Batches (0=alle)')
     ap.add_argument('--runner', default=DEFAULT_LLM_RUNNER,
-                    help='Pfad zu einem kompatiblen One-Shot-Runner (Standard: SCIENTIA_LLM_RUNNER oder llm_run.py)')
+                    help='Pfad zu einem kompatiblen One-Shot-Runner; alternativ SCIENTIA_LLM_RUNNER setzen')
     args = ap.parse_args()
     model = args.model or ('gpt-5.6-terra' if args.backend == 'codex' else 'MiniMax-M3')
+
+    if args.limit < 0:
+        ap.error('--limit darf nicht negativ sein')
+    if not os.path.isdir(args.batches):
+        ap.error(f'Batch-Verzeichnis fehlt: {args.batches}')
+    if not args.runner:
+        ap.error('--runner fehlt und SCIENTIA_LLM_RUNNER ist nicht gesetzt')
+    runner = os.path.abspath(os.path.expanduser(args.runner))
+    if not os.path.isfile(runner):
+        ap.error(f'One-Shot-Runner fehlt: {runner}')
 
     batch_files = sorted(f for f in os.listdir(args.batches)
                          if re.match(r'batch_\d+\.json$', f))
     if args.limit:
         batch_files = batch_files[:args.limit]
+    if not batch_files:
+        ap.error(f'keine batch_*.json-Datei in {args.batches}')
 
     all_views = {}
     all_evals = []
     errors = []
     for bf in batch_files:
         views = json.load(open(os.path.join(args.batches, bf)))
+        if not isinstance(views, list) or not views:
+            errors.append((bf, 'Batch enthält keine Fragen'))
+            print(f"[QA] {bf}: FEHLER Batch enthält keine Fragen", file=sys.stderr)
+            continue
         for v in views:
             all_views[v['id']] = v
         prompt, ref2id = build_prompt(views)
         print(f"[QA] {bf}: {len(views)} Fragen → {args.backend}/{model} …", file=sys.stderr)
         try:
             raw = call_model(prompt, args.backend, model, args.max_tokens,
-                             args.timeout, args.effort, args.runner)
+                             args.timeout, args.effort, runner)
             evals = extract_json_array(raw)
+            if not isinstance(evals, list):
+                raise ValueError('Modellantwort ist kein JSON-Array')
             # Opakes Kürzel (F1…) zurück auf die echte Frage-id mappen.
             for e in evals:
                 if e.get('id') in ref2id:
                     e['id'] = ref2id[e['id']]
-            all_evals.extend(evals)
+            expected_ids = set(ref2id.values())
+            received_ids = [e.get('id') for e in evals]
+            all_evals.extend(e for e in evals if e.get('id') in expected_ids)
+            coverage_errors = []
+            missing_ids = expected_ids - set(received_ids)
+            unknown_ids = {item for item in received_ids if item not in expected_ids}
+            duplicate_ids = {item for item in received_ids if received_ids.count(item) > 1}
+            if missing_ids:
+                coverage_errors.append(f'{len(missing_ids)} Bewertungen fehlen')
+            if unknown_ids:
+                coverage_errors.append(f'{len(unknown_ids)} unbekannte IDs')
+            if duplicate_ids:
+                coverage_errors.append(f'{len(duplicate_ids)} doppelte IDs')
+            if coverage_errors:
+                errors.append((bf, ', '.join(coverage_errors)))
             print(f"[QA] {bf}: {len(evals)} Bewertungen erhalten", file=sys.stderr)
         except Exception as e:  # noqa: BLE001 — Batch-Fehler protokollieren, weiterlaufen
             errors.append((bf, str(e)))
@@ -267,6 +299,14 @@ def main():
 
     write_report(args.out, merged, errors, batch_files, args.backend, model)
     print(f"[QA] Report: {args.out}  (raw: {raw_path})", file=sys.stderr)
+    missing_total = sum(1 for item in merged if not item['eval'])
+    if errors or missing_total:
+        print(
+            f"[QA] FEHLER: {len(errors)} Batchfehler, {missing_total} Fragen ohne Bewertung",
+            file=sys.stderr,
+        )
+        return 1
+    return 0
 
 
 def write_report(path, merged, errors, batch_files, backend, model):
@@ -354,4 +394,4 @@ def write_report(path, merged, errors, batch_files, backend, model):
 
 
 if __name__ == '__main__':
-    main()
+    sys.exit(main())

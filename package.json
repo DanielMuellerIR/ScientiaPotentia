@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/generate_domain_stats.js && vite build",
+    "build": "node scripts/sync_third_party_notices.mjs && node scripts/generate_domain_stats.js && vite build",
     "preview": "vite preview",
     "generate:stats": "node scripts/generate_domain_stats.js",
     "check:layout": "node scripts/check_layout_contract.cjs",
@@ -17,12 +17,16 @@
     "test:watch": "vitest"
   },
   "dependencies": {
+    "entities": "^8.0.0",
     "lucide-react": "^0.395.0",
     "maplibre-gl": "^4.3.0",
     "pmtiles": "^3.0.6",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "three": "^0.180.0"
+  },
+  "engines": {
+    "node": "^22.22.2 || ^24.15.0 || >=26.0.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.4.6",

@@ -20,7 +20,9 @@ Scientia ist ein responsives, werbefreies Wissensquiz mit acht Bereichen, passen
 
 ## Lokale Entwicklung
 
-Scientia benötigt eine aktuelle, von Vite unterstützte Node.js-Version.
+Scientia benötigt Node.js `^22.22.2`, `^24.15.0` oder `>=26.0.0`. Das ist die
+gemeinsame unterstützte Versionsmenge von Vite und der jsdom-Testumgebung;
+`.nvmrc` wählt Node 22.22.2 als reproduzierbaren Standard.
 
 ```bash
 npm ci
@@ -37,6 +39,11 @@ npm run build
 npm run check:layout
 python3 -m unittest tests/test_deploy.py
 ```
+
+Für eine FTPS-Veröffentlichung `.env.example` nach `.env` kopieren und dort die
+Platzhalter ersetzen. Git ignoriert `.env`; `deploy.py` akzeptiert über `--env`
+oder `SCIENTIA_DEPLOY_ENV` auch eine andere lokale Zugangsdaten-Datei. Eine Datei
+mit `FTP_PASS` darf nie versioniert werden.
 
 Die Content-Pipeline hält geprüfte Quelldaten in `scripts/data_sources/*_raw.json` und schreibt die
 generierten Anwendungsdaten nach `public/data/`. Der Ablauf steht in

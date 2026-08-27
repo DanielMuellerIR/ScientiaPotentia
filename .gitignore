@@ -4,6 +4,11 @@ dist/
 dist-ssr/
 *.local
 
+# Lokale Deploy-Zugangsdaten; nur die geheimnisfreie Vorlage bleibt versioniert.
+.env
+.env.*
+!.env.example
+
 # System files
 .DS_Store
 Thumbs.db

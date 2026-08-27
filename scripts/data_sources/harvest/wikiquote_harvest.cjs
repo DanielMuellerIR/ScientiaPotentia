@@ -165,6 +165,7 @@ const META_SECTIONS = new Set([
   'über', 'see also', 'anmerkungen', 'bemerkungen', 'siehe auch', 'trivia',
   'zitate über', 'zitate von', 'posthum', 'briefe', 'quelle', 'nachweise',
   'anekdoten', 'filme', 'fernsehen', 'interviews', 'bekannte zitate',
+  'zugeschrieben', 'zugeschriebene', 'zuschreibungen',
   'zugeschriebene zitate', 'falsch zugeschriebene zitate', 'apokryphe',
   'zweifelhaft', 'umstrittene zitate', 'nicht belegt', 'fälschungen',
   'vermutlich falsch', 'unsicher',
@@ -185,18 +186,27 @@ function parseWikitext(wikitext) {
   const results = []; // Array von { text, workHint }
 
   let currentWork = null; // Aktuell aktiver Werk-Abschnitt (oder null)
+  let metaSectionLevel = null;
   const lines = wikitext.split('\n');
 
   for (const line of lines) {
     // Abschnittsüberschriften erkennen: == Titel == (level 2) oder === Titel === (level 3).
-    const headingMatch = line.match(/^={2,4}\s*(.+?)\s*={2,4}\s*$/);
+    const headingMatch = line.match(/^(={2,4})\s*(.+?)\s*\1\s*$/);
     if (headingMatch) {
-      const heading = headingMatch[1].trim();
+      const level = headingMatch[1].length;
+      const heading = headingMatch[2].trim();
       // Meta-Abschnitte signalisieren: work-Hinweis zurücksetzen (kein Werk).
       if (isMetaSection(heading)) {
         currentWork = null;
+        metaSectionLevel = metaSectionLevel === null
+          ? level
+          : Math.min(metaSectionLevel, level);
+      } else if (metaSectionLevel !== null && level > metaSectionLevel) {
+        // Unterüberschriften innerhalb eines Meta-Abschnitts bleiben gesperrt.
+        currentWork = null;
       } else {
         // Alles andere könnte ein Werktitel sein.
+        metaSectionLevel = null;
         currentWork = heading;
       }
       continue;
@@ -205,6 +215,7 @@ function parseWikitext(wikitext) {
     // Hauptlistenpunkt erkennen: beginnt mit genau einem `*` (kein `**`).
     // `**`-Zeilen sind Quellenangaben/Kommentare und werden übersprungen.
     if (/^\*[^*]/.test(line)) {
+      if (metaSectionLevel !== null) continue;
       // Wikitext-Formatierung entfernen: [[Links]], {{Templates}}, ''Kursiv''.
       let text = line
         .replace(/^\*\s*/, '')              // Führendes `*` + Leerzeichen
@@ -629,7 +640,11 @@ async function harvest() {
 // Einstiegspunkt
 // ──────────────────────────────────────────────────────────────────────────────
 
-harvest().catch(e => {
-  console.error('FEHLER:', e.message);
-  process.exit(1);
-});
+if (require.main === module) {
+  harvest().catch(e => {
+    console.error('FEHLER:', e.message);
+    process.exit(1);
+  });
+}
+
+module.exports = { isMetaSection, parseWikitext };

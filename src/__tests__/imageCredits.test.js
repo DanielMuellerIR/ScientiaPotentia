@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import {
   buildImageMetadata,
+  isAllowedImageLicense,
+  isConcreteImageAttribution,
   licenseUrlFor,
   sanitizeImageAttribution,
 } from '../utils/imageCredits';
@@ -12,6 +14,8 @@ describe('Bildnachweise', () => {
     expect(licenseUrlFor('CC0 1.0'))
       .toBe('https://creativecommons.org/publicdomain/zero/1.0/');
     expect(licenseUrlFor('Public domain')).toContain('Commons:Public_domain');
+    expect(licenseUrlFor('CC BY-SA')).toBe('');
+    expect(licenseUrlFor('Proprietary')).toBe('');
   });
 
   it('entfernt HTML und Kontaktadressen, behält aber den Urhebernamen', () => {
@@ -19,6 +23,22 @@ describe('Bildnachweise', () => {
       .toBe('Ada Beispiel / Own work');
     expect(sanitizeImageAttribution('Ada Beispiel (test@example.org)'))
       .toBe('Ada Beispiel');
+    expect(sanitizeImageAttribution('Rolf M&uuml;ller on April 17, 2005.'))
+      .toBe('Rolf Müller on April 17, 2005.');
+  });
+
+  it('unterscheidet konkrete Urheber von bereinigten Hinweisresten', () => {
+    expect(isConcreteImageAttribution('Ada Beispiel')).toBe(true);
+    expect(isConcreteImageAttribution('Please report references to .')).toBe(false);
+    expect(isConcreteImageAttribution('Unknown author')).toBe(false);
+  });
+
+  it('akzeptiert nur dokumentierte freie Lizenzbezeichnungen', () => {
+    expect(isAllowedImageLicense('CC BY-SA 2.5')).toBe(true);
+    expect(isAllowedImageLicense('Attribution')).toBe(true);
+    expect(isAllowedImageLicense('CC BY-SA')).toBe(false);
+    expect(isAllowedImageLicense('CC BY 99.0')).toBe(false);
+    expect(isAllowedImageLicense('Proprietary')).toBe(false);
   });
 
   it('erzeugt Quelle, Lizenzlink und Änderungshinweis aus einem Rohdatensatz', () => {
