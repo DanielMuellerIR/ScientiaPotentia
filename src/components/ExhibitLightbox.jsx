@@ -37,8 +37,14 @@ export function useExhibitLightbox() {
   useEffect(() => {
     if (!lightbox) return undefined;
     const onKeyDown = (event) => {
-      if (event.key === 'ArrowLeft') navigateLightbox(-1);
-      if (event.key === 'ArrowRight') navigateLightbox(1);
+      if (event.key === 'ArrowLeft') {
+        event.preventDefault();
+        navigateLightbox(-1);
+      }
+      if (event.key === 'ArrowRight') {
+        event.preventDefault();
+        navigateLightbox(1);
+      }
     };
     window.addEventListener('keydown', onKeyDown);
     return () => window.removeEventListener('keydown', onKeyDown);

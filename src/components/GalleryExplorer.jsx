@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { ChevronLeft, ChevronRight, Images, Landmark, LayoutGrid } from 'lucide-react';
 import { CATEGORY_LABELS } from './conceptLabels';
 import {
@@ -63,9 +63,22 @@ export default function GalleryExplorer({ domain, concepts = {} }) {
   const [hallIndex, setHallIndex] = useState(0);
   const [view, setView] = useState('rundgang');
   const [search, setSearch] = useState('');
+  const previousDomainIdRef = useRef(domain?.id);
   const {
     lightbox, openLightbox, closeLightbox, navigateLightbox
   } = useExhibitLightbox();
+
+  // React verwendet dieselbe lazy geladene Komponente für mehrere Domains.
+  // Deshalb muss ein Bereichswechsel den alten Saal- und Suchzustand explizit
+  // verwerfen, statt ihn in die nächste Galerie mitzunehmen.
+  useEffect(() => {
+    if (previousDomainIdRef.current === domain?.id) return;
+    previousDomainIdRef.current = domain?.id;
+    setHallIndex(0);
+    setView('rundgang');
+    setSearch('');
+    closeLightbox();
+  }, [closeLightbox, domain?.id]);
 
   useEffect(() => {
     if (hallIndex >= halls.length) setHallIndex(0);

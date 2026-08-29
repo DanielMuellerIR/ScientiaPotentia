@@ -1,9 +1,13 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
   ChevronLeft, ChevronRight, Images, Info, Landmark, LayoutGrid
 } from 'lucide-react';
 import { DOMAINS } from '../domains';
-import { CATEGORY_LABELS } from './conceptLabels';
+import {
+  CATEGORY_LABELS,
+  formatAttributeValue,
+  getAttributeLabel,
+} from './conceptLabels';
 import {
   PaginatedDepot,
   VirtualExhibitWall,
@@ -40,6 +44,7 @@ export default function MuseumExplorer({
   const [categoryFilter, setCategoryFilter] = useState('all');
   const [view, setView] = useState('rundgang');
   const [search, setSearch] = useState('');
+  const syncedActiveDomainRef = useRef(activeDomainId);
   const {
     lightbox, openLightbox, closeLightbox, navigateLightbox
   } = useExhibitLightbox();
@@ -84,14 +89,28 @@ export default function MuseumExplorer({
     }))
     .filter((hall) => hall.items.length > 0), [allItems]);
 
-  // Nach dem asynchronen Laden öffnet das Museum möglichst die aktive
-  // Domain; bildlose Domains (z.B. Terra) fallen auf den ersten echten Saal.
+  // Ein Bereichswechsel in der App öffnet den zugehörigen Museumssaal und
+  // verwirft Filter des vorherigen Bereichs. Interne Saalwechsel bleiben
+  // erhalten, solange sich `activeDomainId` nicht ändert. Die Referenz wird
+  // erst nach dem asynchronen Laden aktualisiert, damit kein Wechsel verloren
+  // geht, während noch keine Säle vorliegen.
   useEffect(() => {
-    if (halls.length === 0 || domainFilter === 'all') return;
+    if (halls.length === 0) return;
+    if (syncedActiveDomainRef.current !== activeDomainId) {
+      syncedActiveDomainRef.current = activeDomainId;
+      const preferred = halls.find((hall) => hall.domain.id === activeDomainId);
+      setDomainFilter((preferred || halls[0]).domain.id);
+      setCategoryFilter('all');
+      setView('rundgang');
+      setSearch('');
+      closeLightbox();
+      return;
+    }
+    if (domainFilter === 'all') return;
     if (halls.some((hall) => hall.domain.id === domainFilter)) return;
     const preferred = halls.find((hall) => hall.domain.id === activeDomainId);
     setDomainFilter((preferred || halls[0]).domain.id);
-  }, [activeDomainId, domainFilter, halls]);
+  }, [activeDomainId, closeLightbox, domainFilter, halls]);
 
   const filterPool = useMemo(
     () => (domainFilter === 'all'
@@ -164,15 +183,26 @@ export default function MuseumExplorer({
     </span>
   ) : null;
 
+  const museumAttributes = lightboxItem
+    ? Object.entries(lightboxItem.attributes || {})
+      .filter(([key, value]) => key !== 'unit' && value !== '' && value != null)
+      .slice(0, 6)
+    : [];
+
   const museumDetails = lightboxItem ? (
     <div className="museum-lightbox-details">
       <h3>{lightboxItem.name}</h3>
-      {Object.keys(lightboxItem.attributes || {}).length > 0 && (
+      {museumAttributes.length > 0 && (
         <div className="museum-attributes">
-          {Object.entries(lightboxItem.attributes).slice(0, 6).map(([key, value]) => (
+          {museumAttributes.map(([key, value]) => (
             <span key={key}>
-              <span>{key}: </span>
-              <b>{typeof value === 'boolean' ? (value ? 'ja' : 'nein') : String(value)}</b>
+              <span>{getAttributeLabel(key, lightboxItem.category)}: </span>
+              <b>
+                {formatAttributeValue(value)}
+                {key === 'value' && lightboxItem.attributes.unit
+                  ? ` ${lightboxItem.attributes.unit}`
+                  : ''}
+              </b>
             </span>
           ))}
         </div>

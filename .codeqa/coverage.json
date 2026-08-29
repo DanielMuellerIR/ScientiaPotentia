@@ -6,7 +6,7 @@
     "token_budget": 8000000,
     "status": "active",
     "started_at": "2026-08-29T20:44:29+02:00",
-    "tokens_spent": 1794900
+    "tokens_spent": 1961146
   },
   "campaign_history": [],
   "scope": {
@@ -457,21 +457,15 @@
       "state": "completed",
       "last_run": {
         "campaign_id": "20260829T204429059458+0200",
-        "completed_at": "2026-08-29T21:25:56+02:00",
-        "observed_head": "dfc97e9c78f5bffcc2ba5a6ff41bcd000e5895d6",
-        "content_sha256": "52092dd94dfcac4e014f1890f2972a8508fac03cf389672c63bd81fa71f2e59e",
+        "completed_at": "2026-08-29T22:13:07+02:00",
+        "observed_head": "b2fbb4867300587cd1801d87230fbd95206235af",
+        "content_sha256": "51ce38dc9fa3df20cea3280cf0c21881a460e11bd5126b56bf130fc764d2e90a",
         "file_count": 2,
-        "review": "full",
+        "review": "delta-plus-boundaries",
         "outcome": "improved",
-        "summary": "Homo filtert Reverse-Distraktoren nun allgemein auf belegbar andere Attributwerte; fünf konkrete Mehrfachantworten wurden beseitigt und vier zuvor pauschal gesperrte 150-g-Organe sicher reaktiviert. Natura verwendet diese Werttrennung bereits und blieb bytegleich.",
+        "summary": "Delta-Review des Homo-Generator-Ausgabepunkts: Eine zentrale Typografie-Normalisierung schließt ältere Promptvorlagen mit korrekten deutschen Anführungszeichen. Der Generator erzeugt weiterhin 599 Konzepte und 1.604 Fragen; Natura und die gemeinsame Rohdaten-/Ausgabegrenze bleiben unberührt.",
         "tests": [
-          "node scripts/generate_homo.js and generate_natura.js: passed twice, byte-identical second runs (599/1604 and 2402/13343)",
-          "npm run verify:facts -- homo/natura: passed, 0 errors",
-          "npm run audit:questions -- homo/natura: passed, 0 structure and answer-leak failures",
-          "reverse-option analysis: Homo 566 and Natura 6468 reverse questions, 0 competing correct options",
-          "npm test: passed (179)",
-          "npm run build: passed",
-          "Browser: Homo quiz answered; visualization, image source and public-domain link checked; 0 console warnings/errors"
+          "1.513/1.604 Homo-Prompts ausschließlich typografisch geändert, alle übrigen Fragefelder per Objektvergleich identisch; 214/214 Vitest-Tests; Homo-Faktenprüfung 0 Fehler; Fragen-Audit 0 Strukturfehler und 0 Antwort-im-Stamm; Produktionsbuild und Browser-Stichprobe. Kein eigener Token-Eintrag, weil Delta-Arbeit und Belege vollständig in P17 gemeldet wurden."
         ]
       }
     },
@@ -674,13 +668,19 @@
       "risk": "medium",
       "priority": 17,
       "reason": "Anatomieansicht, SVG-/Bildzuordnung und Quellenanzeige",
-      "state": "in_progress",
-      "active_run": {
+      "state": "completed",
+      "last_run": {
         "campaign_id": "20260829T204429059458+0200",
-        "started_at": "2026-08-29T22:06:18+02:00",
-        "required_review": "full",
-        "status_at_start": "pending",
-        "covered_pending_paths": []
+        "completed_at": "2026-08-29T22:12:57+02:00",
+        "observed_head": "b2fbb4867300587cd1801d87230fbd95206235af",
+        "content_sha256": "b9e5e46dc723c55c7987cd91b7a3f968e4787d8e483b33b9b508ba13ed12c978",
+        "file_count": 2,
+        "review": "full",
+        "outcome": "improved",
+        "summary": "HomoVisual verwendet nun dieselbe Label- und Leak-Guard-Logik wie die generische Konzeptdarstellung. Dadurch verschwinden rohe Schlüssel und bei Fragen nach Gelenktyp, Reflexart oder Antikörpern bleiben die fachlich verratenden Geschwisterwerte bis zur Antwort verborgen. Asset-Zuordnung, Reverse-Schutz, Markerfreigabe und alle Public-Domain-Nachweise sind explizit getestet.",
+        "tests": [
+          "214/214 Vitest-Tests, davon 12 Homo-Visual-/Typografieregressionen; Datenabgleich über 1.604 Homo-Fragen: 12 frühere Geschwister-Leaks auf 0 und 0 rohe sichtbare Kennwertschlüssel; 1.513 Promptänderungen feldgenau als reine Typografiekorrektur belegt; Faktenprüfung 0 Fehler, Fragen-Audit 0 Strukturfehler/0 Antwort-im-Stamm; 10.468 Bildnachweise; Produktionsbuild; Layoutvertrag 44/44; 21 Deploytests; Browser: typografischer Prompt, Anatomie-Reveal, Public-Domain-Nachweis und fehlerfreie Konsole."
+        ]
       }
     },
     {
@@ -697,7 +697,14 @@
       "risk": "medium",
       "priority": 18,
       "reason": "Galerie-, Museum-, Lightbox- und bereichsübergreifende Hub-Navigation",
-      "state": "pending"
+      "state": "in_progress",
+      "active_run": {
+        "campaign_id": "20260829T204429059458+0200",
+        "started_at": "2026-08-29T22:13:07+02:00",
+        "required_review": "full",
+        "status_at_start": "pending",
+        "covered_pending_paths": []
+      }
     },
     {
       "id": "semantic-qa-runner",

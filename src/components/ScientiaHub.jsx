@@ -1,5 +1,11 @@
 import React from 'react';
 import { ArrowRight, Images as ImagesIcon, Layers, Map as MapIcon } from 'lucide-react';
+import { SCIENTIA_MIX_IDS } from '../domains';
+
+function formatGermanList(labels) {
+  if (labels.length < 2) return labels[0] || '';
+  return `${labels.slice(0, -1).join(', ')} und ${labels.at(-1)}`;
+}
 
 /**
  * Scientia-Startbildschirm ("Hub"). Ersetzt das frühere Dashboard des
@@ -15,14 +21,34 @@ import { ArrowRight, Images as ImagesIcon, Layers, Map as MapIcon } from 'lucide
  * Props:
  *   - domains:          Array der Domain-Registry (inkl. "scientia" selbst)
  *   - stats:            geladenes Manifest { totals, domains } oder null (lädt noch)
+ *   - mixedDomainIds:   Domains, deren Fragen das Querbeet-Quiz tatsächlich lädt
  *   - onSelectDomain:   (domainId) => void  — wechselt in den gewählten Bereich
- *   - onStartMixedQuiz: () => void          — öffnet das Querbeet-Quiz (Mischpool ohne Terra)
+ *   - onStartMixedQuiz: () => void          — öffnet das Querbeet-Quiz
  */
-export default function ScientiaHub({ domains = [], stats = null, onSelectDomain, onStartMixedQuiz }) {
+export default function ScientiaHub({
+  domains = [],
+  stats = null,
+  mixedDomainIds = SCIENTIA_MIX_IDS,
+  onSelectDomain,
+  onStartMixedQuiz,
+}) {
   // Der Mischbereich selbst liefert die Texte/Farbe für das Querbeet-Angebot;
   // die Karten zeigen nur die echten Fachbereiche (Terra … Historia).
   const scientia = domains.find(d => d.id === 'scientia');
   const areaDomains = domains.filter(d => d.id !== 'scientia');
+  const mixedDomainIdSet = new Set(mixedDomainIds);
+  const mixedDomains = areaDomains.filter(domain => mixedDomainIdSet.has(domain.id));
+  const excludedDomains = areaDomains.filter(domain => !mixedDomainIdSet.has(domain.id));
+  const excludedLabels = formatGermanList(excludedDomains.map(domain => domain.label));
+  const mixedScope = excludedDomains.length > 0
+    ? `alle Bereiche außer ${excludedLabels}`
+    : 'alle Bereiche';
+  const mixedDescriptionScope = excludedDomains.length > 0
+    ? `alle Wissensbereiche außer ${excludedLabels}`
+    : 'alle Wissensbereiche';
+  const mixedDescription = mixedDomains.length > 0
+    ? `Fragen quer durch ${mixedDescriptionScope} — ${formatGermanList(mixedDomains.map(domain => domain.label))} gemischt.`
+    : 'Der Querbeet-Mischpool enthält derzeit keine Wissensbereiche.';
 
   // Zahl deutsch gruppieren; solange das Manifest lädt, dezenter Platzhalter.
   const fmt = (n) => (typeof n === 'number' ? n.toLocaleString('de-DE') : '…');
@@ -73,12 +99,8 @@ export default function ScientiaHub({ domains = [], stats = null, onSelectDomain
             <CtaIcon size={26} />
           </span>
           <span className="scientia-hub-cta-text">
-            {/* Kein pauschales "alle Bereiche": Terra ist nicht im Mischpool
-                (SCIENTIA_MIX_IDS), seine Kartenfragen brauchen die Weltkarte. */}
-            <span className="scientia-hub-cta-title">Querbeet · alle Bereiche außer Geografie</span>
-            <span className="scientia-hub-cta-desc">
-              {scientia?.description || 'Fragen quer durch alle Wissensbereiche außer Geografie.'}
-            </span>
+            <span className="scientia-hub-cta-title">Querbeet · {mixedScope}</span>
+            <span className="scientia-hub-cta-desc">{mixedDescription}</span>
           </span>
           <span className="scientia-hub-cta-go">
             Quiz starten <ArrowRight size={18} aria-hidden="true" />

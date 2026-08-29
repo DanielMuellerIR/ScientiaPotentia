@@ -167,6 +167,27 @@ describe('MuseumExplorer bei realer Bildmenge', () => {
     expect(screen.getByText('480 Exponate')).toBeInTheDocument();
   });
 
+  it('folgt einem globalen Bereichswechsel und verwirft alte Museumfilter', async () => {
+    const { rerender } = render(
+      <MuseumExplorer allDomainData={museumFixture} activeDomainId="astra" />
+    );
+    fireEvent.change(screen.getByLabelText('Museum durchsuchen'), {
+      target: { value: 'Astra 0001' },
+    });
+    expect(screen.getByLabelText('Museum durchsuchen')).toHaveValue('Astra 0001');
+
+    rerender(
+      <MuseumExplorer allDomainData={museumFixture} activeDomainId="natura" />
+    );
+
+    await waitFor(() => {
+      expect(screen.getByLabelText('Museumsbereich wählen')).toHaveValue('natura');
+    });
+    expect(screen.getByLabelText('Museum durchsuchen')).toHaveValue('');
+    expect(screen.getByLabelText('Kategorie filtern')).toHaveValue('all');
+    expect(screen.getByTestId('virtual-wall')).toBeInTheDocument();
+  });
+
   it('paginiert das globale Depot strikt und setzt die Seite bei Filtern und Suche zurück', async () => {
     render(
       <MuseumExplorer allDomainData={museumFixture} activeDomainId="natura" />
@@ -229,8 +250,17 @@ describe('MuseumExplorer bei realer Bildmenge', () => {
     expect(screen.getByRole('link', { name: /Quelle: Fachquelle Astra 0059/ }))
       .toHaveAttribute('href', 'https://example.test/astra/planet/0059');
 
-    fireEvent.keyDown(window, { key: 'ArrowRight' });
-    expect(screen.getByRole('dialog', { name: 'Exponat: Astra 0060' })).toBeInTheDocument();
+    const arrowEvent = new KeyboardEvent('keydown', {
+      key: 'ArrowRight',
+      bubbles: true,
+      cancelable: true,
+    });
+    window.dispatchEvent(arrowEvent);
+    expect(arrowEvent.defaultPrevented).toBe(true);
+    await waitFor(() => {
+      expect(screen.getByRole('dialog', { name: 'Exponat: Astra 0060' }))
+        .toBeInTheDocument();
+    });
     expect(screen.getByText('61 / 480')).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /Quelle: Fachquelle Astra 0060/ }))
       .toBeInTheDocument();
@@ -243,9 +273,66 @@ describe('MuseumExplorer bei realer Bildmenge', () => {
     await waitFor(() => expect(screen.queryByRole('dialog')).not.toBeInTheDocument());
     expect(lastCardOnPage).toHaveFocus();
   });
+
+  it('zeigt Museumskennwerte mit Fachlabels und bindet die Einheit an den Wert', () => {
+    const rose = makeConcept('natura', 0, 'plant', 'Rose');
+    rose.name = 'Testrose';
+    rose.attributes = {
+      family: 'Rosaceae',
+      hasRings: true,
+      value: 206,
+      unit: 'Knochen',
+    };
+    render(
+      <MuseumExplorer
+        allDomainData={{ natura: { [rose.id]: rose } }}
+        activeDomainId="natura"
+      />
+    );
+
+    fireEvent.click(screen.getByTestId('hall-exhibit'));
+    expect(screen.getByText('Pflanzenfamilie:')).toBeInTheDocument();
+    expect(screen.getByText('Ringe:')).toBeInTheDocument();
+    expect(screen.getByText('ja')).toBeInTheDocument();
+    expect(screen.getByText('206 Knochen')).toBeInTheDocument();
+    expect(screen.queryByText('family:')).not.toBeInTheDocument();
+    expect(screen.queryByText('unit:')).not.toBeInTheDocument();
+  });
 });
 
 describe('GalleryExplorer-Parität', () => {
+  it('setzt Saal, Suche und Ansicht bei einem Bereichswechsel zurück', async () => {
+    const naturaConcepts = {
+      ...makeConceptMap('natura', 2, 'animal', 'Natura Tier'),
+      ...makeConceptMap('natura', 2, 'plant', 'Natura Pflanze'),
+    };
+    const homoConcepts = {
+      ...makeConceptMap('homo', 2, 'nerve', 'Homo Nerv'),
+      ...makeConceptMap('homo', 2, 'organ', 'Homo Organ'),
+    };
+    const { rerender } = render(
+      <GalleryExplorer
+        domain={{ id: 'natura', label: 'Natur & Umwelt', latinName: 'Natura', accent: '#3E7D5A' }}
+        concepts={naturaConcepts}
+      />
+    );
+    fireEvent.change(screen.getByLabelText('Saal wählen'), { target: { value: '1' } });
+    fireEvent.change(screen.getByLabelText('Exponate durchsuchen'), {
+      target: { value: 'Natura Pflanze' },
+    });
+
+    rerender(
+      <GalleryExplorer
+        domain={{ id: 'homo', label: 'Mensch & Körper', latinName: 'Homo', accent: '#A14D5A' }}
+        concepts={homoConcepts}
+      />
+    );
+
+    await waitFor(() => expect(screen.getByLabelText('Exponate durchsuchen')).toHaveValue(''));
+    expect(screen.getByLabelText('Saal wählen')).toHaveValue('0');
+    expect(screen.getByTestId('virtual-wall')).toBeInTheDocument();
+  });
+
   it('verwendet die gemeinsame Wortanfangssuche im Depot', () => {
     const galleryConcepts = Object.fromEntries([
       ['eule', { ...makeConcept('natura', 0, 'animal', 'Galerie'), name: 'Eule' }],

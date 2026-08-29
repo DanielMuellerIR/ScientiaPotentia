@@ -96,6 +96,23 @@ describe('ScientiaHub', () => {
     });
   });
 
+  it('entfernt den Ausschluss aus Titel und Beschreibung, wenn alle Bereiche gemischt werden', () => {
+    const allAreaIds = DOMAINS.filter(domain => domain.id !== 'scientia').map(domain => domain.id);
+    render(
+      <ScientiaHub
+        domains={DOMAINS}
+        stats={STATS}
+        mixedDomainIds={allAreaIds}
+        onSelectDomain={vi.fn()}
+        onStartMixedQuiz={vi.fn()}
+      />
+    );
+
+    const cta = screen.getByRole('button', { name: /Querbeet/i });
+    expect(within(cta).getByText('Querbeet · alle Bereiche')).toBeInTheDocument();
+    expect(cta).not.toHaveTextContent('außer Geografie');
+  });
+
   it('ordnet in der Definitionsliste erst den Begriff und dann seinen Wert an', () => {
     const { container } = render(
       <ScientiaHub
