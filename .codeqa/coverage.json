@@ -5,7 +5,8 @@
     "id": "20260829T204429059458+0200",
     "token_budget": 8000000,
     "status": "active",
-    "started_at": "2026-08-29T20:44:29+02:00"
+    "started_at": "2026-08-29T20:44:29+02:00",
+    "tokens_spent": 209847
   },
   "campaign_history": [],
   "scope": {
@@ -151,7 +152,8 @@
       "tests/__init__.py",
       "tests/test_deploy.py",
       "tests/test_qa_review.py",
-      "vite.config.js"
+      "vite.config.js",
+      "src/__tests__/db.test.js"
     ],
     "exclusions": []
   },
@@ -166,7 +168,24 @@
       "risk": "critical",
       "priority": 1,
       "reason": "FTPS-Zugangsdaten, Prüfsummen, atomare Veröffentlichung und Datenintegrität",
-      "state": "pending"
+      "state": "completed",
+      "last_run": {
+        "campaign_id": "20260829T204429059458+0200",
+        "completed_at": "2026-08-29T20:48:28+02:00",
+        "observed_head": "0890a1581dfd82b85318609a755edee2b6190d3b",
+        "content_sha256": "dbb1013cc821c83159f29eb2600ced701e58b3a1d97bc186d29f5322048915d3",
+        "file_count": 3,
+        "review": "full",
+        "outcome": "improved",
+        "summary": "Ein während desselben Deployments verschwindender Prüfsummenbefehl markiert den Server nun als unzuverlässig; alle restlichen Dateien werden hochgeladen statt nur anhand von Manifest und Größe übersprungen.",
+        "tests": [
+          "PYTHONDONTWRITEBYTECODE=1 /usr/bin/python3 -m unittest tests.test_deploy.DeployTests.test_disappearing_checksum_support_forces_remaining_uploads: passed (1)",
+          "PYTHONDONTWRITEBYTECODE=1 /usr/bin/python3 -m unittest tests/test_deploy.py: passed (21)",
+          "npm test: passed (150)",
+          "npm run build: passed",
+          "npm run check:layout: passed (44)"
+        ]
+      }
     },
     {
       "id": "progress-persistence",
@@ -175,12 +194,23 @@
         "src/utils/db.js",
         "src/utils/srs.js",
         "src/__tests__/srs.test.js",
-        "scripts/test_srs.js"
+        "scripts/test_srs.js",
+        "src/__tests__/db.test.js"
       ],
       "risk": "critical",
       "priority": 2,
       "reason": "IndexedDB-Migration, Lernfortschritt und SRS-Zeitplanung",
-      "state": "pending"
+      "state": "in_progress",
+      "active_run": {
+        "campaign_id": "20260829T204429059458+0200",
+        "started_at": "2026-08-29T20:48:36+02:00",
+        "required_review": "full",
+        "status_at_start": "pending",
+        "covered_pending_paths": []
+      },
+      "pending_paths": [
+        "src/__tests__/db.test.js"
+      ]
     },
     {
       "id": "content-audit-safety",

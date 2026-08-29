@@ -16,12 +16,17 @@ const DB_VERSION = 2;
 // einmal und teilen das Promise. Bei Fehler/unerwartetem Schliessen wird der
 // Cache geleert, damit der naechste Zugriff sauber neu verbindet.
 let dbPromise = null;
+let resetPromise = null;
 
 /**
  * Liefert die (einmalig geoeffnete, danach gecachte) IndexedDB-Instanz.
  * @returns {Promise<IDBDatabase>}
  */
 export function initDB() {
+  // Während eines vollständigen Resets darf kein Aufrufer eine neue Verbindung
+  // öffnen, bevor deleteDatabase abgeschlossen ist. Danach teilen sich alle
+  // wartenden Aufrufer wieder das normale dbPromise.
+  if (resetPromise) return resetPromise.then(() => initDB());
   if (dbPromise) return dbPromise;
 
   dbPromise = new Promise((resolve, reject) => {
@@ -93,6 +98,46 @@ export function initDB() {
 }
 
 /**
+ * Führt Schreibzugriffe aus und meldet Erfolg erst nach dem Commit der gesamten
+ * IndexedDB-Transaktion. Ein erfolgreicher einzelner Request reicht nicht: Die
+ * Transaktion kann danach noch abbrechen, etwa wegen eines Quota-Fehlers.
+ */
+function runWriteTransaction(db, storeNames, write) {
+  return new Promise((resolve, reject) => {
+    let transaction;
+    try {
+      transaction = db.transaction(storeNames, 'readwrite');
+    } catch (error) {
+      reject(error);
+      return;
+    }
+
+    const rejectTransaction = (event) => {
+      reject(
+        transaction.error
+        || event?.target?.error
+        || new Error('IndexedDB-Transaktion fehlgeschlagen.')
+      );
+    };
+    transaction.oncomplete = () => resolve();
+    transaction.onerror = rejectTransaction;
+    transaction.onabort = rejectTransaction;
+
+    try {
+      write(transaction);
+    } catch (error) {
+      try {
+        transaction.abort();
+      } catch {
+        // Die Transaktion kann bereits inaktiv sein; der ursprüngliche Fehler
+        // bleibt für den Aufrufer aussagekräftiger.
+      }
+      reject(error);
+    }
+  });
+}
+
+/**
  * Retrieves the SRS progress for a single entity.
  * @param {string} entityId 
  * @returns {Promise<Object|null>}
@@ -135,8 +180,7 @@ export async function getAllProgress() {
  */
 export async function saveProgress(entityId, srsData, type, domain = getDomainFromEntityId(entityId)) {
   const db = await initDB();
-  return new Promise((resolve, reject) => {
-    const transaction = db.transaction(['progress'], 'readwrite');
+  return runWriteTransaction(db, ['progress'], transaction => {
     const store = transaction.objectStore('progress');
     
     const record = {
@@ -147,9 +191,7 @@ export async function saveProgress(entityId, srsData, type, domain = getDomainFr
       lastUpdated: Date.now()
     };
 
-    const request = store.put(record);
-    request.onsuccess = () => resolve();
-    request.onerror = () => reject(request.error);
+    store.put(record);
   });
 }
 
@@ -160,8 +202,7 @@ export async function saveProgress(entityId, srsData, type, domain = getDomainFr
  */
 export async function addHistoryLog(logEntry) {
   const db = await initDB();
-  return new Promise((resolve, reject) => {
-    const transaction = db.transaction(['history'], 'readwrite');
+  return runWriteTransaction(db, ['history'], transaction => {
     const store = transaction.objectStore('history');
     
     const record = {
@@ -170,9 +211,7 @@ export async function addHistoryLog(logEntry) {
       timestamp: Date.now()
     };
 
-    const request = store.add(record);
-    request.onsuccess = () => resolve();
-    request.onerror = () => reject(request.error);
+    store.add(record);
   });
 }
 
@@ -197,14 +236,7 @@ export async function addHistoryLog(logEntry) {
 export async function saveProgressAndLog(entityId, srsData, type, logEntry) {
   const db = await initDB();
   const progressDomain = getDomainFromEntityId(entityId);
-  return new Promise((resolve, reject) => {
-    const transaction = db.transaction(['progress', 'history'], 'readwrite');
-    // Auf Transaktions-Ebene (nicht je Request) auflösen: erst wenn BEIDE Writes
-    // committed sind, gilt die Antwort als dauerhaft gespeichert.
-    transaction.oncomplete = () => resolve();
-    transaction.onerror = () => reject(transaction.error);
-    transaction.onabort = () => reject(transaction.error);
-
+  return runWriteTransaction(db, ['progress', 'history'], transaction => {
     transaction.objectStore('progress').put({
       entityId,
       domain: progressDomain,
@@ -245,13 +277,9 @@ export async function getHistoryLogs() {
  */
 export async function saveSetting(key, value) {
   const db = await initDB();
-  return new Promise((resolve, reject) => {
-    const transaction = db.transaction(['settings'], 'readwrite');
+  return runWriteTransaction(db, ['settings'], transaction => {
     const store = transaction.objectStore('settings');
-    const request = store.put({ key, value });
-
-    request.onsuccess = () => resolve();
-    request.onerror = () => reject(request.error);
+    store.put({ key, value });
   });
 }
 
@@ -280,9 +308,31 @@ export async function getSetting(key, defaultValue = null) {
  * @returns {Promise<void>}
  */
 export function clearAllData() {
-  return new Promise((resolve, reject) => {
-    const request = indexedDB.deleteDatabase(DB_NAME);
-    request.onsuccess = () => resolve();
-    request.onerror = () => reject(request.error);
+  if (resetPromise) return resetPromise;
+
+  // Die eigene gecachte Verbindung würde deleteDatabase blockieren. Wir nehmen
+  // sie sofort aus dem Cache, schließen sie nach einem eventuell noch laufenden
+  // Open und halten neue initDB-Aufrufe bis zum Ende des Resets zurück.
+  const connectionPromise = dbPromise;
+  dbPromise = null;
+  resetPromise = (async () => {
+    if (connectionPromise) {
+      try {
+        const db = await connectionPromise;
+        db.close();
+      } catch {
+        // Ein fehlgeschlagenes Open besitzt keine zu schließende Verbindung;
+        // der Löschversuch bleibt trotzdem sinnvoll.
+      }
+    }
+
+    await new Promise((resolve, reject) => {
+      const request = indexedDB.deleteDatabase(DB_NAME);
+      request.onsuccess = () => resolve();
+      request.onerror = () => reject(request.error);
+    });
+  })().finally(() => {
+    resetPromise = null;
   });
+  return resetPromise;
 }
