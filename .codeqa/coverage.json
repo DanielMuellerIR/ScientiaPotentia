@@ -6,7 +6,7 @@
     "token_budget": 8000000,
     "status": "active",
     "started_at": "2026-08-29T20:44:29+02:00",
-    "tokens_spent": 1126059
+    "tokens_spent": 1300303
   },
   "campaign_history": [],
   "scope": {
@@ -372,20 +372,20 @@
       "state": "completed",
       "last_run": {
         "campaign_id": "20260829T204429059458+0200",
-        "completed_at": "2026-08-29T21:15:58+02:00",
-        "observed_head": "4393e6ec7a74978af8164ad55d4b7dc224547a36",
-        "content_sha256": "45c1eae33988f20eb8fef584e989420f45623cb3ffb8641904587f797dfd9b28",
+        "completed_at": "2026-08-29T21:43:06+02:00",
+        "observed_head": "9972cee933c6ad06712160c923c119c227798818",
+        "content_sha256": "e628a3d8f9afd245b9fcd3cb85cb513c5fe80184d13415904d763d723a8e8f88",
         "file_count": 7,
-        "review": "full",
+        "review": "delta-plus-boundaries",
         "outcome": "improved",
-        "summary": "Karte und Atlas reagieren jetzt auf manuelles Zoomen, setzen Provinzebenen zwischen Fragetypen zurück, färben Flussantworten konsistent, laden nur gültige GeoJSON-Antworten und bieten akzentunabhängige Suche mit echten Tastaturzielen.",
+        "summary": "Delta und Bereichsgrenzen erneut geprüft: Atlas zeigt keine aktuellen Staats- oder Regierungschefs mehr; die gebündelte geodb enthält weder die Felder noch politische Beschreibungssätze. Suche, Länderakte, Karte, Attributionen, Quiz und GeoJSON-Lader bleiben unverändert funktionsfähig.",
         "tests": [
-          "npm test -- src/__tests__/MapParchment.test.jsx src/__tests__/tokenSearch.test.js: passed (12)",
-          "npm test: passed (173)",
-          "npm run build: passed",
-          "npm run check:layout: passed (44/44)",
-          "python3 -m unittest tests/test_deploy.py: passed (21)",
-          "Browser: Terra > Weltatlas, Suche agypt, Treffer Ägypten und Länderakte geprüft"
+          "MapParchment.test.jsx: 11 Tests grün, einschließlich Daten- und UI-Regression gegen Politikfelder",
+          "npm test: 180 Tests grün",
+          "npm run build: erfolgreich",
+          "npm run check:layout: 44/44",
+          "Terra-Fragengenerator byteidentisch; verify_quiz 63019 Prüfungen, 0 Fehler",
+          "Echter Browser: Deutschland-Akte ohne Politikfelder, Kartenattribution sichtbar, Terra-Frage beantwortet, Konsole leer"
         ]
       }
     },
@@ -555,13 +555,27 @@
       "risk": "high",
       "priority": 13,
       "reason": "Schreibende Rohdaten-Merges und Datenvorbereitung dürfen nichts überschreiben oder falsch deduplizieren",
-      "state": "in_progress",
-      "active_run": {
+      "state": "completed",
+      "last_run": {
         "campaign_id": "20260829T204429059458+0200",
-        "started_at": "2026-08-29T21:35:32+02:00",
-        "required_review": "full",
-        "status_at_start": "pending",
-        "covered_pending_paths": []
+        "completed_at": "2026-08-29T21:42:56+02:00",
+        "observed_head": "9972cee933c6ad06712160c923c119c227798818",
+        "content_sha256": "3a6f9f22439a0dbcc00d44880a72800226f977e343713bf1e8108d227d14a944",
+        "file_count": 8,
+        "review": "full",
+        "outcome": "improved",
+        "summary": "Alle acht Merge- und Aufbereitungsskripte vollständig geprüft. Vier veraltete Teil-Merges verweigern nun Schreibläufe, die 6.069 später ergänzte Konzepte löschen würden; Machina/Historia schreibt nur noch nach explizitem --write und prüft beide Ziele vorab. fix_umlauts ist standardmäßig ein Dry-Run. prepare_data entfernt aktuelle Staats- und Regierungschefs, schreibt bei fehlenden Wikidata-Höhendaten nicht mehr fail-open und der bestehende Terra-Bestand wurde um 350 politische Felder und 167 politische Sätze bereinigt. merge_astra und merge_phase5 blieben nach vollständiger Prüfung unverändert.",
+        "tests": [
+          "Fünf Merge-Dry-Runs: Arbeitsbaum unverändert",
+          "Vier absichtliche --write-Läufe: Schrumpfung um 1889/1104/2304/772 Konzepte verweigert; fünf Raw-Dateien byteidentisch",
+          "fix_umlauts ohne --write: 27 Funde gemeldet, keine Datei verändert",
+          "node --check für alle acht Bereichsskripte: grün",
+          "Terra-Fragengenerator: 5116 Fragen byteidentisch; verify_quiz 63019 Prüfungen, 0 Fehler",
+          "Terra-Fragenaudit: 0 Strukturfehler, 0 Antwort-im-Stamm, 0 Bias-Templates",
+          "Währungs-Harvester und Offline-Verifier: 172 Quellen, 93 Fragen, 4609 Prüfungen grün",
+          "npm test: 180 Tests grün; npm run build erfolgreich; Layout 44/44; Deployment 21/21",
+          "Echter Browser: Deutschland-Akte ohne Politikfelder, Kartenattribution sichtbar, Terra-Frage beantwortet, Konsole leer"
+        ]
       }
     },
     {
@@ -580,7 +594,14 @@
       "risk": "medium",
       "priority": 14,
       "reason": "Responsive Shell-Vertrag, Build-Einstieg, Statistik- und Rechtshinweis-Synchronisierung",
-      "state": "pending"
+      "state": "in_progress",
+      "active_run": {
+        "campaign_id": "20260829T204429059458+0200",
+        "started_at": "2026-08-29T21:43:15+02:00",
+        "required_review": "full",
+        "status_at_start": "pending",
+        "covered_pending_paths": []
+      }
     },
     {
       "id": "visual-routing-credits",

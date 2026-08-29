@@ -29,7 +29,9 @@ export default defineConfig({
   },
   server: {
     port: 3000,
-    open: true
+    // Headless-Aufrufe dürfen weder den Standardbrowser fokussieren noch ein
+    // zusätzliches Fenster öffnen. Wer die UI prüft, öffnet sie bewusst.
+    open: false
   },
   // Vitest-Konfiguration
   test: {

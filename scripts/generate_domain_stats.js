@@ -26,7 +26,7 @@
  */
 import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { dirname, join } from 'node:path';
+import { dirname, join, resolve } from 'node:path';
 import { DOMAIN_CONFIGS } from '../src/domains/metadata.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -48,9 +48,24 @@ function readJson(path) {
 }
 
 /** Zählt Fragen (Array) eines Bereichs aus questions_<id>.json. */
+export function countQuestionEntries(questions, sourceName = 'Fragenkatalog') {
+  if (!Array.isArray(questions)) {
+    throw new TypeError(`${sourceName} muss ein JSON-Array sein.`);
+  }
+  return questions.length;
+}
+
 function countQuestions(id) {
-  const questions = readJson(join(dataDir, `questions_${id}.json`));
-  return Array.isArray(questions) ? questions.length : 0;
+  const path = join(dataDir, `questions_${id}.json`);
+  return countQuestionEntries(readJson(path), path);
+}
+
+/** Zählt Einträge nur in einer echten JSON-Map, nicht in Arrays oder null. */
+export function countRecordEntries(records, sourceName = 'Konzeptkatalog') {
+  if (records === null || typeof records !== 'object' || Array.isArray(records)) {
+    throw new TypeError(`${sourceName} muss ein JSON-Objekt sein.`);
+  }
+  return Object.entries(records);
 }
 
 /**
@@ -60,12 +75,14 @@ function countQuestions(id) {
  */
 function countConcepts(domain) {
   if (domain.usesGeodb) {
-    const geodb = readJson(join(root, 'src', 'data', 'geodb.json'));
-    const entities = geodb.entities || {};
-    return { concepts: Object.keys(entities).length, images: 0 };
+    const path = join(root, 'src', 'data', 'geodb.json');
+    const geodb = readJson(path);
+    const entries = countRecordEntries(geodb?.entities, `${path}: entities`);
+    return { concepts: entries.length, images: 0 };
   }
-  const map = readJson(join(dataDir, `concepts_${domain.id}.json`));
-  const values = Object.values(map);
+  const path = join(dataDir, `concepts_${domain.id}.json`);
+  const entries = countRecordEntries(readJson(path), path);
+  const values = entries.map(([, concept]) => concept);
   const images = values.filter(concept => {
     const image = concept && concept.image;
     return typeof image === 'string' ? image.trim().length > 0 : Boolean(image);
@@ -73,25 +90,32 @@ function countConcepts(domain) {
   return { concepts: values.length, images };
 }
 
-const domains = {};
-const totals = { questions: 0, concepts: 0, images: 0, domains: DOMAINS.length };
+export function generateDomainStats() {
+  const domains = {};
+  const totals = { questions: 0, concepts: 0, images: 0, domains: DOMAINS.length };
 
-for (const domain of DOMAINS) {
-  const questions = countQuestions(domain.id);
-  const { concepts, images } = countConcepts(domain);
-  domains[domain.id] = { questions, concepts, images, hasMap: Boolean(domain.hasMap) };
-  totals.questions += questions;
-  totals.concepts += concepts;
-  totals.images += images;
+  for (const domain of DOMAINS) {
+    const questions = countQuestions(domain.id);
+    const { concepts, images } = countConcepts(domain);
+    domains[domain.id] = { questions, concepts, images, hasMap: Boolean(domain.hasMap) };
+    totals.questions += questions;
+    totals.concepts += concepts;
+    totals.images += images;
+  }
+
+  const manifest = { totals, domains };
+  const outPath = join(dataDir, 'domain_stats.json');
+  writeFileSync(outPath, JSON.stringify(manifest, null, 2) + '\n', 'utf8');
+
+  // Kurze, maschinenlesbare Zusammenfassung auf stdout (nützlich in der Pipeline).
+  console.log(
+    `domain_stats.json geschrieben: ${totals.questions.toLocaleString('de-DE')} Fragen, ` +
+    `${totals.concepts.toLocaleString('de-DE')} Konzepte, ${totals.images.toLocaleString('de-DE')} Bilder ` +
+    `über ${totals.domains} Bereiche.`
+  );
 }
 
-const manifest = { totals, domains };
-const outPath = join(dataDir, 'domain_stats.json');
-writeFileSync(outPath, JSON.stringify(manifest, null, 2) + '\n', 'utf8');
-
-// Kurze, maschinenlesbare Zusammenfassung auf stdout (nützlich in der Pipeline).
-console.log(
-  `domain_stats.json geschrieben: ${totals.questions.toLocaleString('de-DE')} Fragen, ` +
-  `${totals.concepts.toLocaleString('de-DE')} Konzepte, ${totals.images.toLocaleString('de-DE')} Bilder ` +
-  `über ${totals.domains} Bereiche.`
-);
+const invokedPath = process.argv[1] ? resolve(process.argv[1]) : '';
+if (invokedPath === fileURLToPath(import.meta.url)) {
+  generateDomainStats();
+}
