@@ -7,9 +7,13 @@
  */
 
 import { createHash } from 'node:crypto';
-import { readFile, writeFile } from 'node:fs/promises';
+import { readFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+
+import jsonIo from './json_io.cjs';
+
+const { writeJsonAtomic } = jsonIo;
 
 const SCRIPT_DIR = dirname(fileURLToPath(import.meta.url));
 export const REPO_ROOT = resolve(SCRIPT_DIR, '../../..');
@@ -507,8 +511,7 @@ export async function buildCandidate() {
 
 async function main() {
   const candidate = await buildCandidate();
-  const json = `${JSON.stringify(candidate, null, 2)}\n`;
-  await writeFile(CANDIDATE_PATH, json, 'utf8');
+  writeJsonAtomic(CANDIDATE_PATH, candidate);
   console.log(
     `Currency-Rawdaten geschrieben: ${candidate.summary.entries} Einträge, ` +
       `${candidate.summary.uniqueEnglishNames} Namen, ` +

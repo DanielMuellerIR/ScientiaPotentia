@@ -6,7 +6,7 @@
     "token_budget": 8000000,
     "status": "active",
     "started_at": "2026-08-29T20:44:29+02:00",
-    "tokens_spent": 3300130
+    "tokens_spent": 3335850
   },
   "campaign_history": [],
   "scope": {
@@ -880,7 +880,20 @@
       "risk": "low",
       "priority": 24,
       "reason": "Spezialisierte, deterministische Währungs-Ernte und ihre Offline-Verifikation",
-      "state": "pending"
+      "state": "completed",
+      "last_run": {
+        "campaign_id": "20260829T204429059458+0200",
+        "completed_at": "2026-08-29T23:28:48+02:00",
+        "observed_head": "bd765f12721832f0addf996f7e7f93c36ab450f0",
+        "content_sha256": "5ebefef5b8215a074cb0c3ba79735783b8d1d301624b51cdb07dc0e1848d92ce",
+        "file_count": 2,
+        "review": "full",
+        "outcome": "improved",
+        "summary": "Der Währungsgenerator schreibt die freigegebene Terra-Quellwahrheit über den gemeinsamen atomaren JSON-Pfad; die vollständige Offline- und Live-Verifikation blieb unverändert grün.",
+        "tests": [
+          "Zwei deterministische Generatorläufe bytegleich; 4.609 Offline-Prüfungen; 5.541 Online-Prüfungen gegen EU Publications Office; Syntaxprüfung beider Module; Diff-Check."
+        ]
+      }
     }
   ],
   "architecture": {
