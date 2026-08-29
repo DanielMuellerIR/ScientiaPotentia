@@ -6,7 +6,7 @@
     "token_budget": 8000000,
     "status": "active",
     "started_at": "2026-08-29T20:44:29+02:00",
-    "tokens_spent": 2446408
+    "tokens_spent": 2562324
   },
   "campaign_history": [],
   "scope": {
@@ -756,21 +756,17 @@
       "priority": 20,
       "reason": "Schreibende Kandidaten-, Korrektur-, Deduplizierungs- und JSON-Reparaturwerkzeuge",
       "state": "completed",
-      "pending_paths": [
-        "tests/test_harvest_tools.py",
-        "scripts/data_sources/harvest/json_io.cjs"
-      ],
       "last_run": {
         "campaign_id": "20260829T204429059458+0200",
-        "completed_at": "2026-08-29T22:41:18+02:00",
-        "observed_head": "e820436153f3e7f1cdf3d9525c5fe2bae9902857",
-        "content_sha256": "7a4dd47fdb51c550007d7a62908fdc43f67dfce01f60ae52b12537c8106a5afd",
+        "completed_at": "2026-08-29T22:48:41+02:00",
+        "observed_head": "7765797d328b75c93f61baa111f5dc17e565c266",
+        "content_sha256": "78adbf979ee3ddf209216e27ad22aad197f5388af3a346e4cfbb461e16d79f3f",
         "file_count": 8,
-        "review": "full",
-        "outcome": "improved",
-        "summary": "Schreibende Harvest-Werkzeuge validieren Argumente und vollständige Eingaben, arbeiten standardmäßig als Dry-Run und ersetzen JSON-Dateien atomar; Korrekturen verwenden eindeutige Attribut- oder Konzeptziele, melden verlorene Modellobjekte per Exit-Code und bewahren bestehende Schreibweisen bei Gleichstand. Vier zuvor falsch verschachtelte Machina-/Historia-Korrekturen und die fachlich falsche Cooper-Hewitt-Zuordnung wurden in der Rohquelle berichtigt und reproduzierbar neu generiert.",
+        "review": "delta-plus-boundaries",
+        "outcome": "reviewed-clean",
+        "summary": "Die neu zugeordnete atomare JSON-Hilfe und die vier ergänzten Bild-Harvest-Regressionstests wurden einschließlich aller Aufrufergrenzen nachgeprüft. Die Hilfe bleibt unverändert korrekt; die Tests isolieren temporäre Rawkataloge, prüfen explizite Writes und Komplettabbruch und laden den gebündelten Resolver ohne Netzaufruf.",
         "tests": [
-          "9 gezielte Harvest-Regressionstests; insgesamt 39 Python-Tests und 218 Vitest-Tests; Node-Syntaxprüfung aller sieben Werkzeuge; Faktenprüfung Machina/Historia ohne Fehler; Fragen-Audit 12.461 Fragen ohne Strukturfehler oder Antwort im Stamm; 10.468 vollständige Bildnachweise; Produktionsbuild mit 49.826 Fragen; Layoutvertrag 44/44; Browserstichprobe Quecksilberdampflampe und Soundkarte ohne Konsolenfehler."
+          "13 Harvest-Regressionstests; insgesamt 43 Python-Tests und 218 Vitest-Tests; Syntaxprüfung aller Nutzer von json_io.cjs; Produktionsbuild; Layoutvertrag 44/44; 10.468 vollständige Bildnachweise."
         ]
       }
     },
@@ -788,13 +784,19 @@
       "risk": "medium",
       "priority": 21,
       "reason": "Externe Bildauflösung, Lizenzmetadaten und atomare Rückschreibung in Rohdaten",
-      "state": "in_progress",
-      "active_run": {
+      "state": "completed",
+      "last_run": {
         "campaign_id": "20260829T204429059458+0200",
-        "started_at": "2026-08-29T22:41:18+02:00",
-        "required_review": "full",
-        "status_at_start": "pending",
-        "covered_pending_paths": []
+        "completed_at": "2026-08-29T22:48:21+02:00",
+        "observed_head": "7765797d328b75c93f61baa111f5dc17e565c266",
+        "content_sha256": "b6b62baae4cd821c2fc6bbc03aab608b1c870b96265029ccc8396e1c737a0483",
+        "file_count": 7,
+        "review": "full",
+        "outcome": "improved",
+        "summary": "Raw-Bildmerges und Attribution-Backfill benötigen ein explizites --write, validieren ihre vollständigen Eingaben und schreiben atomar. Alle Resolver ersetzen Ausgaben atomar; gebündelte Resolver brechen bei HTTP-, API- oder JSON-Fehlern vor dem Output ab, beschränken Browserformate und konkrete Urheberangaben und lassen mehrdeutige Wikidata-/Wikipedia-Schlüssel sichtbar aus, statt durch Map-Überschreiben willkürlich nur das letzte Konzept zu bebildern.",
+        "tests": [
+          "13 gezielte Harvest-Regressionstests; insgesamt 43 Python-Tests und 218 Vitest-Tests; Syntaxprüfung aller sieben P21-Skripte; realer Attribution-Backfill-Dry-Run mit 193 vorgemerkten Bereinigungen und unveränderten Rawdateien; 10.468 vollständige Bildnachweise; Produktionsbuild mit 49.826 Fragen; Layoutvertrag 44/44."
+        ]
       }
     },
     {
@@ -815,7 +817,14 @@
       "risk": "low",
       "priority": 22,
       "reason": "Historische NASA-/Wikidata-Ernte für Astronomie und Natur",
-      "state": "pending"
+      "state": "in_progress",
+      "active_run": {
+        "campaign_id": "20260829T204429059458+0200",
+        "started_at": "2026-08-29T22:48:41+02:00",
+        "required_review": "full",
+        "status_at_start": "pending",
+        "covered_pending_paths": []
+      }
     },
     {
       "id": "cultura-lingua-harvest",

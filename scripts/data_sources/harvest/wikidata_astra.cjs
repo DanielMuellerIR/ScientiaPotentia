@@ -20,6 +20,7 @@
 const https = require('https');
 const fs = require('fs');
 const path = require('path');
+const { writeJsonAtomic } = require('./json_io.cjs');
 
 // --- Konfiguration -------------------------------------------------------
 
@@ -622,7 +623,7 @@ async function main() {
   }
 
   // Ausgabe schreiben
-  fs.writeFileSync(OUT_PATH, JSON.stringify(newConcepts, null, 2), 'utf8');
+  writeJsonAtomic(OUT_PATH, newConcepts);
   console.log(`\nGeschrieben: ${OUT_PATH}`);
 }
 

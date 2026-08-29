@@ -14,6 +14,7 @@
 const https = require('https');
 const fs = require('fs');
 const path = require('path');
+const { writeJsonAtomic } = require('./json_io.cjs');
 
 const TAP = 'https://exoplanetarchive.ipac.caltech.edu/TAP/sync';
 const PC_TO_LY = 3.26156;             // 1 Parsec in Lichtjahren
@@ -99,7 +100,7 @@ const round = (n, d) => { const f = 10 ** d; return Math.round(n * f) / f; };
     });
   }
   const outPath = path.join(__dirname, 'exoplanets_nasa.json');
-  fs.writeFileSync(outPath, JSON.stringify(out, null, 2));
+  writeJsonAtomic(outPath, out);
   console.log(`Kuratiert: ${Object.keys(CURATED).length}, im Archiv gefunden: ${found.size}, geschrieben: ${out.length}`);
   if (missing.length) console.log('  Nicht im Archiv (Name-Mismatch prüfen): ' + missing.join(', '));
   console.log('=> ' + outPath);

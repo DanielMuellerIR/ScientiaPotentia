@@ -19,6 +19,7 @@
 const https = require('https');
 const fs = require('fs');
 const path = require('path');
+const { writeJsonAtomic } = require('./json_io.cjs');
 
 // --- Konfiguration ----------------------------------------------------------
 
@@ -146,7 +147,8 @@ function toSlug(name) {
  * Trifft auf:
  *  "Panthera leo"         (2 Tokens: Groß + klein, nur ASCII-Buchstaben)
  *  "Homo sapiens sapiens" (3 rein-latein-Tokens)
- *  "Troglodytes"          (Einzelwort, kein Umlaut)
+ * Einzelwörter werden nicht verworfen: Bei „Tiger“ oder „Giraffe“ lässt sich
+ * aus der Schreibweise nicht zwischen deutschem Namen und Taxon unterscheiden.
  *
  * Trifft NICHT auf:
  *  "Rauchschwalbe", "Braunbär", "Nördlicher See-Elefant" etc.
@@ -155,8 +157,8 @@ function isBinomial(name) {
   if (!name) return false;
   const parts = name.trim().split(/\s+/);
   if (parts.length === 2 && /^[A-Z][a-z]+$/.test(parts[0]) && /^[a-z]+$/.test(parts[1])) return true;
-  if (parts.length === 3 && parts.every(p => /^[A-Za-z]+$/.test(p))) return true;
-  if (parts.length === 1 && /^[A-Za-z]+$/.test(name) && !/[äöüßÄÖÜ]/.test(name)) return true;
+  if (parts.length === 3 && /^[A-Z][a-z]+$/.test(parts[0])
+      && parts.slice(1).every(part => /^[a-z]+$/.test(part))) return true;
   return false;
 }
 
@@ -423,11 +425,15 @@ async function main() {
               `Status unbekannt=${totalSkippedNoStatus}`);
 
   // Ausgabe
-  fs.writeFileSync(OUT_PATH, JSON.stringify(newConcepts, null, 2), 'utf8');
+  writeJsonAtomic(OUT_PATH, newConcepts);
   console.log(`\nGeschrieben: ${OUT_PATH}`);
 }
 
-main().catch(err => {
-  console.error('FEHLER:', err.message);
-  process.exit(1);
-});
+if (require.main === module) {
+  main().catch(err => {
+    console.error('FEHLER:', err.message);
+    process.exit(1);
+  });
+}
+
+module.exports = { convertUnit, isBinomial, normalizeName, toSlug };

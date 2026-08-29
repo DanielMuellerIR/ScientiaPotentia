@@ -304,6 +304,64 @@ console.log(JSON.stringify({{
         self.assertEqual(
             indexed['ambiguous'], [{'key': 'Gelenk', 'ids': ['a', 'b']}])
 
+    def test_natura_harvest_keeps_german_single_word_animal_names(self):
+        scripts = [
+            HARVEST / 'wikidata_natura.cjs',
+            HARVEST / 'wikidata_natura_wd2.cjs',
+            HARVEST / 'wikidata_natura_wd3.cjs',
+            HARVEST / 'wikidata_natura_wd4.cjs',
+        ]
+        code = f"""
+const paths = {json.dumps([str(path) for path in scripts])};
+const results = paths.map(path => {{
+  const {{ isBinomial }} = require(path);
+  return {{
+    tiger: isBinomial('Tiger'),
+    troglodytes: isBinomial('Troglodytes'),
+    binomial: isBinomial('Panthera leo'),
+    trinomial: isBinomial('Homo sapiens sapiens'),
+    commonName: isBinomial('Kleiner roter Panda'),
+  }};
+}});
+console.log(JSON.stringify(results));
+"""
+
+        result = subprocess.run(
+            ['node', '-e', code], capture_output=True, text=True,
+            check=False, timeout=5,
+        )
+
+        self.assertEqual(result.returncode, 0, result.stderr)
+        for classification in json.loads(result.stdout):
+            self.assertFalse(classification['tiger'])
+            self.assertFalse(classification['troglodytes'])
+            self.assertTrue(classification['binomial'])
+            self.assertTrue(classification['trinomial'])
+            self.assertFalse(classification['commonName'])
+
+    def test_astra_harvest_distinguishes_orange_dwarfs_and_giants(self):
+        script = HARVEST / 'wikidata_astra_w4.cjs'
+        code = f"""
+const {{ classifySpectralClass, mapStarType }} = require({json.dumps(str(script))});
+console.log(JSON.stringify({{
+  dwarf: classifySpectralClass('K2 V'),
+  giant: classifySpectralClass('K0 III'),
+  mapped: mapStarType(new Set(['Oranger Zwerg'])),
+}}));
+"""
+
+        result = subprocess.run(
+            ['node', '-e', code], capture_output=True, text=True,
+            check=False, timeout=5,
+        )
+
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(json.loads(result.stdout), {
+            'dwarf': 'Oranger Zwerg',
+            'giant': 'Oranger Riese',
+            'mapped': 'Oranger Zwerg',
+        })
+
 
 if __name__ == '__main__':
     unittest.main()

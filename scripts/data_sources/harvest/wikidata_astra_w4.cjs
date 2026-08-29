@@ -21,6 +21,7 @@
 const https = require('https');
 const fs    = require('fs');
 const path  = require('path');
+const { writeJsonAtomic } = require('./json_io.cjs');
 
 // ---------------------------------------------------------------------------
 // Konfiguration
@@ -270,7 +271,7 @@ const STAR_TYPE_MAP = [
   ['Gelber Riese',                'Gelber Riese'],
   ['Gelber Zwerg',                'Gelber Zwerg'],
   ['Oranger Riese',               'Oranger Riese'],
-  ['Oranger Zwerg',               'Oranger Riese'],
+  ['Oranger Zwerg',               'Oranger Zwerg'],
   ['Weißer Zwerg',                'Weißer Zwerg'],
   ['Weißer Hauptreihen',          'Weißer Hauptreihenstern'],
   ['Weißer Riese',                'Heller Riese'],
@@ -324,7 +325,7 @@ function classifySpectralClass(sc) {
   if (/^K/.test(sc.trim())) {
     if (isSuperGiant) return 'Oranger Riese';
     if (isGiant)      return 'Oranger Riese';
-    return 'Oranger Riese';
+    return 'Oranger Zwerg';
   }
   if (/^M/.test(sc.trim())) {
     if (isSuperGiant) return 'Roter Überriese';
@@ -1101,8 +1102,10 @@ async function main() {
     return;
   }
 
-  fs.writeFileSync(OUT_PATH, JSON.stringify(newConcepts, null, 2), 'utf8');
+  writeJsonAtomic(OUT_PATH, newConcepts);
   console.log(`\nGeschrieben: ${OUT_PATH}`);
 }
 
-main();
+if (require.main === module) main();
+
+module.exports = { classifySpectralClass, mapStarType, toDistanceLy, toKm };

@@ -21,6 +21,7 @@
 const https = require('https');
 const fs    = require('fs');
 const path  = require('path');
+const { writeJsonAtomic } = require('./json_io.cjs');
 
 const TAP      = 'https://exoplanetarchive.ipac.caltech.edu/TAP/sync';
 const PC_TO_LY = 3.26156; // 1 Parsec → Lichtjahre
@@ -280,7 +281,7 @@ function normName(s) {
   }
 
   const outPath = path.join(__dirname, 'exoplanets_nasa_w3.json');
-  fs.writeFileSync(outPath, JSON.stringify(out, null, 2), 'utf8');
+  writeJsonAtomic(outPath, out);
   console.log(`\nGeschrieben: ${outPath}`);
 })().catch(e => {
   console.error('FEHLER:', e.message);
