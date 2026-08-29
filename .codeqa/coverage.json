@@ -6,7 +6,7 @@
     "token_budget": 8000000,
     "status": "active",
     "started_at": "2026-08-29T20:44:29+02:00",
-    "tokens_spent": 325353
+    "tokens_spent": 395268
   },
   "campaign_history": [],
   "scope": {
@@ -269,13 +269,24 @@
       "risk": "high",
       "priority": 4,
       "reason": "Zentrale Domain-Verträge, Lazy Loader, Caches und Bereichswechsel",
-      "state": "in_progress",
-      "active_run": {
+      "state": "completed",
+      "last_run": {
         "campaign_id": "20260829T204429059458+0200",
-        "started_at": "2026-08-29T20:56:12+02:00",
-        "required_review": "full",
-        "status_at_start": "pending",
-        "covered_pending_paths": []
+        "completed_at": "2026-08-29T20:58:45+02:00",
+        "observed_head": "3e15ba6333f6bc3bb409be155c56e4e8bdc6b146",
+        "content_sha256": "9be59ba840d750d693c2b8f142f8f39f825c9b75246091f35f91c0de2f5cefbe",
+        "file_count": 5,
+        "review": "full",
+        "outcome": "improved",
+        "summary": "Registry, Metadaten, Laufzeitcache und Ladeintegration wurden vollständig geprüft. Das Bereichsmenü führt den Fokus nun regelgerecht in den aktiven Menüpunkt, unterstützt Pfeiltasten sowie Home/End, schließt beim Verlassen per Tab und markiert bei einer unbekannten ID den tatsächlich sichtbaren Fallback als aktiv.",
+        "tests": [
+          "npm test -- src/__tests__/DomainSwitcher.test.jsx src/__tests__/AppDomainData.test.jsx: passed (9)",
+          "npm test: passed (157)",
+          "npm run build: passed",
+          "npm run check:layout: passed (44/44)",
+          "python3 -m unittest tests/test_deploy.py tests/test_qa_review.py: passed (23)",
+          "Browser: Tastaturnavigation, Natura-Wechsel, Katalogladung, Quizantwort, Visualisierung und CC-BY-Bildnachweis geprüft; Konsole ohne Warnungen/Fehler"
+        ]
       }
     },
     {
@@ -295,7 +306,14 @@
       "risk": "high",
       "priority": 5,
       "reason": "Fragenauswahl, Antwortauswertung, Fortschrittsschreiben und Rundensteuerung",
-      "state": "pending"
+      "state": "in_progress",
+      "active_run": {
+        "campaign_id": "20260829T204429059458+0200",
+        "started_at": "2026-08-29T20:58:49+02:00",
+        "required_review": "full",
+        "status_at_start": "pending",
+        "covered_pending_paths": []
+      }
     },
     {
       "id": "app-orchestration",

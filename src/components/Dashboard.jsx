@@ -82,7 +82,10 @@ export default function Dashboard({
   const masteredPercent = getPercent(masteredCount);
   const familiarPercent = getPercent(familiarCount);
   const learningPercent = getPercent(learningCount);
-  const unseenPercent = 100 - (masteredPercent + familiarPercent + learningPercent);
+  // Auch „Neu“ aus seiner wirklichen Anzahl berechnen. Der Rundungsrest der
+  // anderen drei Anteile darf sonst fälschlich neue Konzepte vortäuschen
+  // (z. B. 3 von 3 entdeckt: 33 + 33 + 33 ließ früher 1 % „Neu“ übrig).
+  const unseenPercent = getPercent(unseenCount);
 
   // Konzepte generisch nach Typ gruppieren (domain-unabhängig).
   const entityTypes = {};

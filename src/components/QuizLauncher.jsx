@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useId, useState } from 'react';
 import { Compass } from 'lucide-react';
 
 // Spielmodi sind geografiespezifisch (Stadt/Land/Fluss) -> nur bei Terra angeboten.
@@ -41,11 +41,12 @@ export default function QuizLauncher({ domain = { id: 'terra' }, onStart }) {
   const [selectedRound, setSelectedRound] = useState('fixed-10');
   const [playerCount, setPlayerCount] = useState(1);
   const [playerNames, setPlayerNames] = useState(['', '', '', '']);
+  const radioGroupId = useId();
   const isTerra = domain.id === 'terra';
   const isMulti = playerCount > 1;
 
   // Wiederverwendbare Radio-Zeile (gleicher Look wie bisher die Terra-Spielmodi).
-  const radioRow = (checked, onChange, label) => (
+  const radioRow = (name, checked, onChange, label) => (
     <label style={{
       display: 'flex', alignItems: 'center', gap: '8px', padding: '6px 10px',
       borderRadius: '2px',
@@ -53,7 +54,7 @@ export default function QuizLauncher({ domain = { id: 'terra' }, onStart }) {
       background: checked ? 'rgba(27, 48, 91, 0.03)' : 'transparent',
       fontSize: '14px', cursor: 'pointer', fontWeight: checked ? 600 : 500
     }}>
-      <input type="radio" checked={checked} onChange={onChange} style={{ accentColor: 'var(--color-primary)' }} />
+      <input name={name} type="radio" checked={checked} onChange={onChange} style={{ accentColor: 'var(--color-primary)' }} />
       {label}
     </label>
   );
@@ -67,6 +68,13 @@ export default function QuizLauncher({ domain = { id: 'terra' }, onStart }) {
   // Im Mehrspieler-Modus ist Überleben nicht verfügbar (eigene Leben pro Spieler =
   // späterer Ausbau); nur feste Rundenlängen anbieten.
   const roundChoices = ROUND_OPTIONS.filter(opt => !(isMulti && opt.config.kind === 'survival'));
+
+  const handlePlayerCountChange = (count) => {
+    setPlayerCount(count);
+    // Eine zuvor gewählte Überlebensrunde verschwindet ab zwei Spielern. Die
+    // sichtbare Auswahl muss sofort einen gültigen festen Wert widerspiegeln.
+    if (count > 1 && selectedRound === 'survival') setSelectedRound('fixed-25');
+  };
 
   const handleStart = () => {
     let roundId = selectedRound;
@@ -85,10 +93,10 @@ export default function QuizLauncher({ domain = { id: 'terra' }, onStart }) {
       {isTerra ? (
         <>
           {sectionTitle('Spielmodus wählen')}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginBottom: '16px' }}>
+          <div role="radiogroup" aria-label="Spielmodus" style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginBottom: '16px' }}>
             {TERRA_MODES.map(mode =>
               <React.Fragment key={mode.id}>
-                {radioRow(selectedMode === mode.id, () => setSelectedMode(mode.id), mode.label)}
+                {radioRow(`${radioGroupId}-mode`, selectedMode === mode.id, () => setSelectedMode(mode.id), mode.label)}
               </React.Fragment>
             )}
           </div>
@@ -101,10 +109,10 @@ export default function QuizLauncher({ domain = { id: 'terra' }, onStart }) {
 
       {/* Rundenlänge / Überlebens-Modus — für jeden Bereich */}
       {sectionTitle('Spiellänge')}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginBottom: '16px' }}>
+      <div role="radiogroup" aria-label="Spiellänge" style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginBottom: '16px' }}>
         {roundChoices.map(opt =>
           <React.Fragment key={opt.id}>
-            {radioRow(selectedRound === opt.id, () => setSelectedRound(opt.id), opt.label)}
+            {radioRow(`${radioGroupId}-round`, selectedRound === opt.id, () => setSelectedRound(opt.id), opt.label)}
           </React.Fragment>
         )}
       </div>
@@ -117,7 +125,9 @@ export default function QuizLauncher({ domain = { id: 'terra' }, onStart }) {
           return (
             <button
               key={n}
-              onClick={() => setPlayerCount(n)}
+              type="button"
+              aria-pressed={active}
+              onClick={() => handlePlayerCountChange(n)}
               style={{
                 flex: 1, padding: '8px 0', fontSize: '14px', cursor: 'pointer',
                 fontFamily: 'var(--font-title)', fontWeight: active ? 700 : 500,

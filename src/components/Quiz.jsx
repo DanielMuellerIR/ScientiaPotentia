@@ -8,14 +8,63 @@ import { createSilhouettePaths } from '../utils/silhouette';
 import { getDomainIdFromConceptKey } from '../utils/conceptKeys';
 import { Check, X, ArrowRight, Award, RotateCcw, MapPin } from 'lucide-react';
 
+// Diese Werte stehen in Effekt-Abhängigkeiten. Modulkonstanten verhindern, dass
+// ein ausgelassener optionaler Array-Prop bei jedem Render eine neue Referenz
+// erzeugt und dadurch die Quizsession endlos neu initialisiert.
+const EMPTY_LIST = Object.freeze([]);
+const DEFAULT_ROUND_CONFIG = Object.freeze({ kind: 'fixed', length: 10 });
+
+function SilhouettePaths({ paths, width = 160, height = 160 }) {
+  return (
+    <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`} style={{ margin: '0 auto', display: 'block' }}>
+      {paths.map((d, index) => (
+        <path
+          key={index}
+          d={d}
+          fill="#FAF6EE"
+          stroke="#1B305B"
+          strokeWidth="1.5"
+          fillRule="evenodd"
+        />
+      ))}
+    </svg>
+  );
+}
+
+// Nur der seltene Fallback ohne vorkompilierten SVG-Pfad lädt GeoJSON. Würde
+// der Hook in Quiz selbst liegen, zögen auch alle Nicht-Terra-Runden rund
+// 1,7 MiB Länder- und Provinzgeometrie, obwohl sie diese nie verwenden.
+function DynamicSilhouette({ entityId, entityType }) {
+  const geo = useGeoData(['countries', 'subdivisions']);
+  const geojson = entityType === 'state' ? geo.subdivisions : geo.countries;
+  if (!geojson) {
+    return <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>Lade Kontur...</div>;
+  }
+
+  const feature = geojson.features.find(candidate => candidate.id === entityId);
+  if (!feature?.geometry) {
+    return <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>Keine Geometrie</div>;
+  }
+
+  const paths = createSilhouettePaths(feature.geometry, { width: 160, height: 160 });
+  return paths.length > 0 ? <SilhouettePaths paths={paths} /> : null;
+}
+
+function QuestionSilhouette({ question }) {
+  if (question.silhouetteSvgPath) {
+    return <SilhouettePaths paths={[question.silhouetteSvgPath]} />;
+  }
+  return <DynamicSilhouette entityId={question.entityId} entityType={question.entityType} />;
+}
+
 export default function Quiz({ 
   geodb, 
-  questionPool = [],
-  dueEntities = [], 
-  newEntities = [],
+  questionPool = EMPTY_LIST,
+  dueEntities = EMPTY_LIST,
+  newEntities = EMPTY_LIST,
   quizMode = 'all',
-  roundConfig = { kind: 'fixed', length: 10 },
-  players = [],
+  roundConfig = DEFAULT_ROUND_CONFIG,
+  players = EMPTY_LIST,
   clickedMapId = null,
   resetClickedMapId,
   onQuizFinished,
@@ -40,13 +89,9 @@ export default function Quiz({
   const nPlayers = isMultiplayer ? players.length : 1;
   const [playerScores, setPlayerScores] = useState(() => isMultiplayer ? new Array(players.length).fill(0) : []);
   const [currentPlayerIdx, setCurrentPlayerIdx] = useState(0);
-  // GeoJSON-Konturen für die isolierte Silhouetten-Projektion (Code-Review R4:
-  // gemeinsamer Hook statt duplizierter fetch-Folge).
-  const geo = useGeoData(['countries', 'subdivisions']);
-  const countriesGeoJSON = geo.countries || null;
-  const subdivisionsGeoJSON = geo.subdivisions || null;
   const [statusMessage, setStatusMessage] = useState('');
   const [wrongClickIds, setWrongClickIds] = useState([]);
+  const [progressSaveFailed, setProgressSaveFailed] = useState(false);
   const quizQuestions = Array.isArray(questionPool) ? questionPool : [];
 
   // Generate quiz questions on mount or pool change
@@ -167,7 +212,7 @@ export default function Quiz({
             zoomToEntityId: q.entityId || null
           });
 
-          if (!isMultiplayer) saveUserAnswer(q.entityId, q.entityType, true, newAttempts);
+          if (!isMultiplayer) persistUserAnswer(q.entityId, q.entityType, true, newAttempts);
         } else {
           // Wrong Click!
           playErrorBuzzer();
@@ -208,7 +253,7 @@ export default function Quiz({
               zoomToEntityId: q.entityId || null
             });
 
-            if (!isMultiplayer) saveUserAnswer(q.entityId, q.entityType, false, newAttempts);
+            if (!isMultiplayer) persistUserAnswer(q.entityId, q.entityType, false, newAttempts);
           }
         }
         
@@ -485,7 +530,7 @@ export default function Quiz({
         zoomToEntityId: riverId || highlightId || null
       });
 
-      if (!isMultiplayer) saveUserAnswer(q.entityId, q.entityType, true, newAttempts);
+      if (!isMultiplayer) persistUserAnswer(q.entityId, q.entityType, true, newAttempts);
     } else {
       playErrorBuzzer();
       setIsAnswered(true);
@@ -500,7 +545,7 @@ export default function Quiz({
         zoomToEntityId: riverId || highlightId || null
       });
 
-      if (!isMultiplayer) saveUserAnswer(q.entityId, q.entityType, false, newAttempts);
+      if (!isMultiplayer) persistUserAnswer(q.entityId, q.entityType, false, newAttempts);
     }
   };
 
@@ -520,6 +565,32 @@ export default function Quiz({
       qualityScore: quality
     });
   };
+
+  // Die Antwortauswertung soll ohne künstliche Wartezeit zur nächsten Frage
+  // wechseln können. Der asynchrone Schreibvorgang darf deshalb im Hintergrund
+  // laufen, aber ein Transaktionsfehler muss beobachtet und sichtbar werden.
+  const persistUserAnswer = (entityId, entityType, isCorrect, attemptCount) => {
+    void saveUserAnswer(entityId, entityType, isCorrect, attemptCount).catch(error => {
+      console.error('Lernfortschritt konnte nicht gespeichert werden:', error);
+      setProgressSaveFailed(true);
+    });
+  };
+
+  const progressSaveAlert = progressSaveFailed ? (
+    <div
+      role="alert"
+      style={{
+        padding: '9px 12px',
+        borderLeft: '3px solid var(--color-error)',
+        background: 'rgba(132, 32, 41, 0.06)',
+        color: 'var(--color-error)',
+        fontSize: '13px',
+        lineHeight: 1.4
+      }}
+    >
+      Diese Antwort konnte nicht im Lernfortschritt gespeichert werden.
+    </div>
+  ) : null;
 
   const handleNextQuestion = () => {
     // Survival endet, sobald die Leben aufgebraucht sind; sonst weiter, solange der
@@ -544,55 +615,6 @@ export default function Quiz({
       });
     }
   };
-
-  // Rendert eine isolierte Länder- oder Provinzkontur. Die GeoJSON-Projektion
-  // selbst liegt in utils/silhouette.js, damit die Quiz-Komponente nur noch
-  // ihren UI-Zustand und nicht die Kartenmathematik verwaltet.
-  const renderSilhouette = (entityId, entityType) => {
-    // If the active question has a pre-compiled silhouette path, render it directly!
-    const q = questions[currentIdx];
-    if (q && q.entityId === entityId && q.silhouetteSvgPath) {
-      return (
-        <svg width={160} height={160} viewBox="0 0 160 160" style={{ margin: '0 auto', display: 'block' }}>
-          <path 
-            d={q.silhouetteSvgPath} 
-            fill="#FAF6EE" 
-            stroke="#1B305B" 
-            strokeWidth="1.5" 
-            fillRule="evenodd"
-          />
-        </svg>
-      );
-    }
-
-    // Fallback: dynamic calculation from GeoJSON (just in case)
-    const geojson = entityType === 'state' ? subdivisionsGeoJSON : countriesGeoJSON;
-    if (!geojson) return <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>Lade Kontur...</div>;
-
-    const feature = geojson.features.find(f => f.id === entityId);
-    if (!feature || !feature.geometry) return <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>Keine Geometrie</div>;
-
-    const width = 160;
-    const height = 160;
-    const paths = createSilhouettePaths(feature.geometry, { width, height });
-    if (paths.length === 0) return null;
-
-    return (
-      <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`} style={{ margin: '0 auto', display: 'block' }}>
-        {paths.map((d, i) => (
-          <path 
-            key={i} 
-            d={d} 
-            fill="#FAF6EE" 
-            stroke="#1B305B" 
-            strokeWidth="1.5" 
-            fillRule="evenodd"
-          />
-        ))}
-      </svg>
-    );
-  };
-
 
   if (sessionFinished) {
     // Mehrspieler-Rangliste (höchste Trefferzahl gewinnt; Gleichstand = Unentschieden).
@@ -660,6 +682,8 @@ export default function Quiz({
             </>
           )}
         </div>
+
+        {progressSaveAlert}
 
         <div style={{ display: 'flex', gap: '12px', width: '100%', maxWidth: '280px' }}>
           <button 
@@ -782,7 +806,7 @@ export default function Quiz({
         {/* Question Type 2: Isolated Silhouette Outlines Mode (Level 4) */}
         {q.type === 'silhouette' && (
           <div className="silhouette-box" style={{ marginBottom: '20px' }}>
-            {renderSilhouette(q.entityId, q.entityType)}
+            <QuestionSilhouette question={q} />
           </div>
         )}
 
@@ -863,6 +887,7 @@ export default function Quiz({
 
       {/* Answer feedback & Status box */}
       <div style={{ marginTop: '20px' }}>
+        {progressSaveAlert}
         {statusMessage && (
           <div className="slide-in" style={{
             fontSize: '14px',

@@ -246,4 +246,84 @@ describe('Quiz & Map Integration Test', () => {
     await waitFor(() => expect(saveProgressAndLog).toHaveBeenCalled());
     expect(saveProgressAndLog.mock.calls[0][3].domain).toBe('astra');
   });
+
+  it('beobachtet einen fehlgeschlagenen Fortschritts-Commit und warnt sichtbar', async () => {
+    const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    saveProgressAndLog.mockRejectedValueOnce(new Error('Transaktion abgebrochen'));
+    const singleQuestion = [{
+      id: 'single-mars',
+      entityId: 'astra:mars',
+      entityType: 'planet',
+      type: 'name',
+      prompt: 'Welcher Planet ist gemeint?',
+      correctAnswer: 'Mars',
+      options: ['Venus', 'Mars']
+    }];
+
+    render(
+      <QuizMapTestWrapper
+        geodb={{ entities: { 'astra:mars': { id: 'astra:mars', type: 'planet' } } }}
+        questionPool={singleQuestion}
+      />
+    );
+    fireEvent.click(screen.getByRole('button', { name: /Mars$/ }));
+
+    expect(await screen.findByRole('alert')).toHaveTextContent(
+      'Diese Antwort konnte nicht im Lernfortschritt gespeichert werden.'
+    );
+    expect(consoleErrorSpy).toHaveBeenCalledWith(
+      'Lernfortschritt konnte nicht gespeichert werden:',
+      expect.any(Error)
+    );
+
+    // Der Hinweis bleibt auch auf der Abschlussansicht erhalten.
+    fireEvent.click(screen.getByRole('button', { name: /Weiter/i }));
+    expect(screen.getByRole('alert')).toBeInTheDocument();
+    consoleErrorSpy.mockRestore();
+  });
+
+  it('lädt für eine normale Sachfrage keine Terra-Geometrie', () => {
+    global.fetch.mockClear();
+    render(
+      <Quiz
+        geodb={{ entities: { 'natura:wolf': { id: 'natura:wolf', type: 'animal' } } }}
+        questionPool={[{
+          id: 'natura-wolf',
+          entityId: 'natura:wolf',
+          entityType: 'animal',
+          type: 'name',
+          prompt: 'Welches Tier ist gemeint?',
+          correctAnswer: 'Wolf',
+          options: ['Wolf', 'Luchs']
+        }]}
+        onSetQuizState={vi.fn()}
+      />
+    );
+
+    expect(screen.getByText('Welches Tier ist gemeint?')).toBeInTheDocument();
+    expect(global.fetch).not.toHaveBeenCalled();
+  });
+
+  it('lädt GeoJSON weiterhin für den Silhouetten-Fallback ohne SVG-Pfad', async () => {
+    global.fetch.mockClear();
+    const { container } = render(
+      <Quiz
+        geodb={{ entities: { FR: { id: 'FR', type: 'country' } } }}
+        questionPool={[{
+          id: 'fr-silhouette',
+          entityId: 'FR',
+          entityType: 'country',
+          type: 'silhouette',
+          prompt: 'Welches Land zeigt die Kontur?',
+          correctAnswer: 'Frankreich',
+          options: ['Frankreich', 'Spanien']
+        }]}
+        onSetQuizState={vi.fn()}
+      />
+    );
+
+    await waitFor(() => expect(container.querySelector('.silhouette-box path')).toBeInTheDocument());
+    expect(global.fetch).toHaveBeenCalledWith('data/countries.json');
+    expect(global.fetch).toHaveBeenCalledWith('data/subdivisions.json');
+  });
 });
