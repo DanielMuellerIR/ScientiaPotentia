@@ -22,6 +22,11 @@ class HarvestToolTests(unittest.TestCase):
         shared_io = HARVEST / 'json_io.cjs'
         if shared_io.exists():
             shutil.copy2(shared_io, harvest / shared_io.name)
+        license_policy = ROOT / 'scripts' / 'lib' / 'image_license_policy.cjs'
+        if license_policy.exists():
+            policy_target = root / 'scripts' / 'lib' / license_policy.name
+            policy_target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(license_policy, policy_target)
         return root, harvest
 
     @staticmethod
@@ -266,6 +271,29 @@ class HarvestToolTests(unittest.TestCase):
             self.assertNotEqual(result.returncode, 0)
             self.assertEqual(json.loads(raw_path.read_text(encoding='utf-8')), original)
             self.assertIn('keine Commons-Dateiseite', result.stderr)
+
+    def test_apply_images_rejects_unknown_license_before_write(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root, harvest = self.prepare_tool_tree(temporary, 'apply_images.cjs')
+            raw_path = root / 'scripts' / 'data_sources' / 'machina_raw.json'
+            mapping_path = root / 'mapping.json'
+            original = [{'id': 'hammer'}]
+            self.write_json(raw_path, original)
+            self.write_json(mapping_path, [{
+                'id': 'hammer',
+                'imageFile': 'https://commons.wikimedia.org/wiki/File%3AHammer.jpg',
+                'imageLicense': 'unbekannte Lizenz',
+                'imageAttribution': 'Beispielautor',
+            }])
+
+            result = self.run_node(
+                harvest / 'apply_images.cjs', 'machina',
+                f'--mapping={mapping_path}', '--write',
+            )
+
+            self.assertNotEqual(result.returncode, 0)
+            self.assertEqual(json.loads(raw_path.read_text(encoding='utf-8')), original)
+            self.assertIn('keine erlaubte freie Lizenz', result.stderr)
 
     def test_batched_image_resolver_rejects_unknown_domain_before_network(self):
         with tempfile.TemporaryDirectory() as temporary:

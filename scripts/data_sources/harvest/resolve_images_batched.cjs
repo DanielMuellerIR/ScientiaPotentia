@@ -14,6 +14,10 @@ const https = require("https");
 const fs = require("fs");
 const path = require("path");
 const { assertSafeDomain, writeJsonAtomic } = require('./json_io.cjs');
+const {
+  isAllowedCommonsLicenseMetadata,
+  licenseNameFromCommonsMetadata,
+} = require('../../lib/image_license_policy.cjs');
 
 const UA = "ScientiaQuizImageResolverBatched/1.0 (educational quiz; pageimages+P18 only, batched)";
 const ALLOWED_MIME = new Set([
@@ -96,22 +100,6 @@ const fileNameFromUploadUrl = source => {
     return null;
   }
 };
-// Gleiche konservative Freigabe wie scripts/check_images.cjs: Der Resolver darf
-// weder Video-Dateien noch Lizenztypen liefern, die das nachgelagerte Gate wieder
-// entfernen müsste.
-const isFree = meta => {
-  const lic = (meta?.LicenseShortName?.value || "").toString();
-  const licUrl = (meta?.LicenseUrl?.value || "").toString();
-  const copyrighted = (meta?.Copyrighted?.value || "").toString();
-  const blob = (lic + " " + licUrl).toLowerCase();
-  if (/\b(nc|nd|non[- ]?commercial|noncommercial|no[- ]?deriv|all rights)\b/.test(blob)) return false;
-  if (/public domain|^pd|cc0|creativecommons\.org\/publicdomain/.test(blob)) return true;
-  if (/cc[- ]by|creativecommons\.org\/licenses\/by/.test(blob)) return true;
-  if (/\bfal\b|free art|gfdl/.test(blob)) return true;
-  if (/copyrighted free use|free use/.test(blob) || /^attribution\b/.test(lic.toLowerCase().trim())) return true;
-  return copyrighted.toLowerCase() === "false";
-};
-
 async function getJson(url) {
   const response = await get(url);
   if (response.status < 200 || response.status >= 300) {
@@ -245,9 +233,10 @@ async function main() {
       const ii = pageByTitle[pt]?.imageinfo?.[0];
       if (!ii) continue;
       const m = ii.extmetadata || {};
-      const lic = (m.LicenseShortName?.value || m.License?.value || "").toString();
-      const ok = ALLOWED_MIME.has(String(ii.mime || "")) && isFree(m);
-      licByFile.set(fTitle, { ok, lic: lic || "Public domain", art: (m.Artist?.value || "").replace(/<[^>]+>/g, "").trim().slice(0, 200) });
+      const lic = licenseNameFromCommonsMetadata(m);
+      const ok = ALLOWED_MIME.has(String(ii.mime || ""))
+        && isAllowedCommonsLicenseMetadata(m);
+      licByFile.set(fTitle, { ok, lic, art: (m.Artist?.value || "").replace(/<[^>]+>/g, "").trim().slice(0, 200) });
     }
     await sleep(120);
   }
@@ -273,7 +262,7 @@ if (require.main === module) {
 module.exports = {
   addGroupedConcept,
   fileNameFromUploadUrl,
-  isFree,
+  isFree: isAllowedCommonsLicenseMetadata,
   parseArguments,
   uniqueSourceMap,
 };

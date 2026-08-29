@@ -8,6 +8,16 @@ import {
   sanitizeImageAttribution,
 } from '../utils/imageCredits';
 import { commonsToDirectUrl, isWikimediaCommonsUrl } from '../utils/commonsImage';
+import imageLicensePolicy from '../../scripts/lib/image_license_policy.cjs';
+
+const {
+  isAllowedCommonsLicenseMetadata,
+  licenseNameFromCommonsMetadata,
+} = imageLicensePolicy;
+
+const commonsMetadata = values => Object.fromEntries(
+  Object.entries(values).map(([key, value]) => [key, { value }]),
+);
 
 describe('Bildnachweise', () => {
   it('ordnet Creative-Commons-Varianten ihrer kanonischen Lizenzadresse zu', () => {
@@ -40,9 +50,40 @@ describe('Bildnachweise', () => {
   it('akzeptiert nur dokumentierte freie Lizenzbezeichnungen', () => {
     expect(isAllowedImageLicense('CC BY-SA 2.5')).toBe(true);
     expect(isAllowedImageLicense('Attribution')).toBe(true);
+    expect(isAllowedImageLicense('FAL')).toBe(true);
+    expect(isAllowedImageLicense('GFDL 1.2')).toBe(true);
     expect(isAllowedImageLicense('CC BY-SA')).toBe(false);
     expect(isAllowedImageLicense('CC BY 99.0')).toBe(false);
     expect(isAllowedImageLicense('Proprietary')).toBe(false);
+  });
+
+  it('wendet dieselbe Positivliste auf Commons-Metadaten an', () => {
+    expect(isAllowedCommonsLicenseMetadata(commonsMetadata({
+      LicenseShortName: 'CC BY-SA 4.0',
+    }))).toBe(true);
+    expect(isAllowedCommonsLicenseMetadata(commonsMetadata({
+      LicenseShortName: 'GFDL 1.2',
+    }))).toBe(true);
+    expect(isAllowedCommonsLicenseMetadata(commonsMetadata({
+      LicenseShortName: 'CC BY-NC 4.0',
+    }))).toBe(false);
+    expect(isAllowedCommonsLicenseMetadata(commonsMetadata({
+      LicenseShortName: 'irgendeine Lizenz',
+    }))).toBe(false);
+    expect(isAllowedCommonsLicenseMetadata(commonsMetadata({
+      LicenseShortName: 'Public domain',
+      UsageTerms: 'All rights reserved',
+    }))).toBe(false);
+  });
+
+  it('vereinheitlicht Commons-Lizenzvorlagen für die Veröffentlichung', () => {
+    expect(licenseNameFromCommonsMetadata(commonsMetadata({
+      LicenseShortName: 'PD-old',
+      Copyrighted: 'False',
+    }))).toBe('Public domain');
+    expect(licenseNameFromCommonsMetadata(commonsMetadata({
+      LicenseUrl: 'https://creativecommons.org/licenses/by-sa/3.0/de/',
+    }))).toBe('CC BY-SA 3.0 de');
   });
 
   it('erzeugt Quelle, Lizenzlink und Änderungshinweis aus einem Rohdatensatz', () => {

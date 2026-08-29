@@ -17,6 +17,9 @@ const path = require('node:path');
 const {
   assertSafeDomain, readJson, readJsonArray, writeJsonAtomic,
 } = require('./json_io.cjs');
+const {
+  isAllowedImageLicense,
+} = require('../../lib/image_license_policy.cjs');
 
 const ROOT = path.join(__dirname, '..', '..', '..');
 
@@ -97,6 +100,9 @@ function validateMapping(mapping) {
     }
     if (typeof entry.imageLicense !== 'string' || !entry.imageLicense.trim()) {
       throw new Error(`Bild-Mapping: ${entry.id} besitzt keine Lizenzangabe`);
+    }
+    if (!isAllowedImageLicense(entry.imageLicense)) {
+      throw new Error(`Bild-Mapping: ${entry.id} besitzt keine erlaubte freie Lizenz`);
     }
     if (typeof entry.imageAttribution !== 'string' || !entry.imageAttribution.trim()) {
       throw new Error(`Bild-Mapping: ${entry.id} besitzt keine Urheberangabe`);

@@ -158,7 +158,8 @@
       "tests/test_harvest_tools.py",
       "scripts/data_sources/harvest/json_io.cjs",
       "scripts/data_sources/harvest/lingua_harvest_helpers.cjs",
-      "src/__tests__/culturaHarvestSources.test.js"
+      "src/__tests__/culturaHarvestSources.test.js",
+      "scripts/lib/image_license_policy.cjs"
     ],
     "exclusions": []
   },
@@ -781,12 +782,13 @@
         "scripts/data_sources/harvest/resolve_images.cjs",
         "scripts/data_sources/harvest/resolve_images_batched.cjs",
         "scripts/data_sources/harvest/resolve_images_p18.cjs",
-        "scripts/data_sources/harvest/resolve_images_p18_v2.cjs"
+        "scripts/data_sources/harvest/resolve_images_p18_v2.cjs",
+        "scripts/lib/image_license_policy.cjs"
       ],
       "risk": "medium",
       "priority": 21,
       "reason": "Externe Bildauflösung, Lizenzmetadaten und atomare Rückschreibung in Rohdaten",
-      "state": "completed",
+      "state": "pending",
       "last_run": {
         "campaign_id": "20260829T204429059458+0200",
         "completed_at": "2026-08-29T22:48:21+02:00",
@@ -799,7 +801,10 @@
         "tests": [
           "13 gezielte Harvest-Regressionstests; insgesamt 43 Python-Tests und 218 Vitest-Tests; Syntaxprüfung aller sieben P21-Skripte; realer Attribution-Backfill-Dry-Run mit 193 vorgemerkten Bereinigungen und unveränderten Rawdateien; 10.468 vollständige Bildnachweise; Produktionsbuild mit 49.826 Fragen; Layoutvertrag 44/44."
         ]
-      }
+      },
+      "pending_paths": [
+        "scripts/lib/image_license_policy.cjs"
+      ]
     },
     {
       "id": "astra-natura-harvest",
@@ -916,9 +921,15 @@
         "scripts/data_sources/harvest/resolve_images_p18_v2.cjs"
       ],
       "priority": 15,
-      "state": "pending",
+      "state": "in_progress",
       "noted_at": "2026-08-29T20:54:47+02:00",
-      "campaign_id": "20260829T204429059458+0200"
+      "campaign_id": "20260829T204429059458+0200",
+      "started_at": "2026-08-29T23:28:59+02:00",
+      "active_run": {
+        "campaign_id": "20260829T204429059458+0200",
+        "started_at": "2026-08-29T23:28:59+02:00",
+        "observed_head": "bf590347fecf3f9ae1ed3331a53e3de91e70876c"
+      }
     },
     {
       "id": "image-attribution-quality",

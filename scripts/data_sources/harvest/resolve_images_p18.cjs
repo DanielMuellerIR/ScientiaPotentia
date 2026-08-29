@@ -23,6 +23,10 @@ const https = require("https");
 const fs = require("fs");
 const path = require("path");
 const { writeJsonAtomic } = require('./json_io.cjs');
+const {
+  isAllowedCommonsLicenseMetadata,
+  licenseNameFromCommonsMetadata,
+} = require('../../lib/image_license_policy.cjs');
 
 const UA = "ScientiaQuizImageResolverP18/1.0 (educational quiz project; pageimages+P18 only)";
 const OUT_FILE = "/tmp/astra_images2.json";
@@ -57,24 +61,6 @@ function loadBlacklist() {
 }
 const BLACKLIST = loadBlacklist();
 
-// ---------------------------------------------------------------------------
-// Lizenzprüfung (identisch zu resolve_images.cjs)
-// ---------------------------------------------------------------------------
-function isFree(meta) {
-  const lic = (meta?.LicenseShortName?.value || "").toString();
-  const licUrl = (meta?.LicenseUrl?.value || "").toString();
-  const copyrighted = (meta?.Copyrighted?.value || "").toString();
-  const blob = (lic + " " + licUrl).toLowerCase();
-  if (/\b(nc|nd|non[- ]?commercial|noncommercial|no[- ]?deriv|all rights)\b/.test(blob)) return false;
-  if (/public domain|^pd\b|\bpd\b|cc0|creativecommons\.org\/publicdomain/.test(blob)) return true;
-  if (copyrighted.toLowerCase() === "false") return true;
-  if (/cc[- ]by|creativecommons\.org\/licenses\/by/.test(blob)) return true;
-  return false;
-}
-function licName(meta) {
-  return (meta?.LicenseShortName?.value ||
-    (String(meta?.Copyrighted?.value).toLowerCase() === "false" ? "Public domain" : "?")).toString();
-}
 function attribution(meta) {
   const artist = (meta?.Artist?.value || "").toString().replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
   const credit = (meta?.Credit?.value || "").toString().replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
@@ -156,11 +142,12 @@ async function commonsInfoForTitle(rawTitle) {
     const page = Object.values(pages)[0];
     if (page && !page.missing) {
       const ii = page.imageinfo?.[0];
-      if (ii && ALLOWED_MIME.has(ii.mime || "") && isFree(ii.extmetadata)) {
+      if (ii && ALLOWED_MIME.has(ii.mime || "")
+          && isAllowedCommonsLicenseMetadata(ii.extmetadata)) {
         const normalizedTitle = (page.title || title).replace(/ /g, "_");
         result = {
           imageFile: "https://commons.wikimedia.org/wiki/" + encodeURIComponent(normalizedTitle),
-          imageLicense: licName(ii.extmetadata),
+          imageLicense: licenseNameFromCommonsMetadata(ii.extmetadata),
           imageAttribution: attribution(ii.extmetadata),
         };
       }

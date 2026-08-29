@@ -14,6 +14,10 @@ const https = require("https");
 const fs = require("fs");
 const path = require("path");
 const { writeJsonAtomic } = require('./json_io.cjs');
+const {
+  isAllowedCommonsLicenseMetadata,
+  licenseNameFromCommonsMetadata,
+} = require('../../lib/image_license_policy.cjs');
 
 const RAWFILE = path.join(__dirname, "../cultura_raw.json");
 const OUT = "/tmp/cultura_author_portraits.json";
@@ -89,7 +93,7 @@ async function main() {
   }
   console.log(`  pageimages: ${fileForAuthor.size}/${authors.length} Autoren mit Hauptbild`);
 
-  // --- Commons imageinfo gebündelt: Lizenz/Attribution + NC/ND ausschließen ---
+  // --- Commons imageinfo gebündelt: Lizenz/Attribution nach gemeinsamer Positivliste ---
   const files = [...new Set([...fileForAuthor.values()])].map(f => "File:" + f);
   const licByFile = new Map();
   for (const grp of chunk(files, 45)) {
@@ -100,13 +104,12 @@ async function main() {
     for (const fTitle of grp) {
       const ii = pageByTitle[norm[fTitle] || fTitle]?.imageinfo?.[0]; if (!ii) continue;
       const m = ii.extmetadata || {};
-      const lic = (m.LicenseShortName?.value || m.License?.value || "").toString();
-      const nonfree = /\b(nc|nd|non[- ]?commercial|noncommercial|no[- ]?deriv)\b/i.test(lic.toLowerCase());
+      const lic = licenseNameFromCommonsMetadata(m);
       const art = (m.Artist?.value || m.Credit?.value || "")
         .replace(/<[^>]+>/g, "").replace(/\s+/g, ' ').trim().slice(0, 200);
-      const ok = ALLOWED_MIME.has(ii.mime || '') && !nonfree
-        && (!!lic || String(m.Copyrighted?.value) === "False") && Boolean(art);
-      licByFile.set(fTitle, { ok, lic: lic || "Public domain", art });
+      const ok = ALLOWED_MIME.has(ii.mime || '')
+        && isAllowedCommonsLicenseMetadata(m) && Boolean(art);
+      licByFile.set(fTitle, { ok, lic, art });
     }
     await sleep(150);
   }

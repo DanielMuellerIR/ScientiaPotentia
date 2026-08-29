@@ -14,8 +14,8 @@
 //     requests…") statt JSON -> abfangen + Retry mit Backoff, NIEMALS still als "kein Bild"
 //     werten (genau dieser Bug nullte am 2026-06-05 ~350 Bildfelder).
 //   - Dedup-Cache: identischer Suchbegriff -> ein API-Call für viele Konzepte.
-//   - Lizenzfilter STRENG: nur Public Domain / CC0 / CC BY / CC BY-SA (jede Version).
-//     Tabu: NC, ND, "All rights reserved", FAL/GFDL, unklare/fehlende Lizenz.
+//   - Gemeinsamer Lizenzfilter mit Release-Audit und übrigen Resolvern.
+//     Tabu: NC, ND, "All rights reserved" sowie unklare/fehlende Lizenz.
 //   - MIME-Whitelist: nur browser-darstellbare Bildformate (jpeg/png/svg/gif/webp).
 //     Verhindert .djvu-Buchscans und .tiff-Riesendateien als "Bild".
 //   - Blacklist: gesperrte Commons-Dateien aus BLACKLIST.md werden nie verwendet.
@@ -30,6 +30,10 @@ const https = require("https");
 const fs = require("fs");
 const path = require("path");
 const { writeJsonAtomic } = require('./json_io.cjs');
+const {
+  isAllowedCommonsLicenseMetadata,
+  licenseNameFromCommonsMetadata,
+} = require('../../lib/image_license_policy.cjs');
 
 // Wikimedia verlangt einen beschreibenden User-Agent, der das Projekt erkennbar macht.
 const UA = "ScientiaQuizImageResolver/1.0 (educational quiz project)";
@@ -61,30 +65,6 @@ function loadBlacklist() {
 }
 const BLACKLIST = loadBlacklist();
 
-// ---------------------------------------------------------------------------
-// Lizenzprüfung anhand der Commons-extmetadata.
-// Erlaubt sind NUR: Public Domain, CC0, CC BY (jede Version), CC BY-SA (jede Version).
-// Alles andere (NC, ND, "all rights reserved", FAL, GFDL, unklar) wird abgelehnt.
-// ---------------------------------------------------------------------------
-function isFree(meta) {
-  const lic = (meta?.LicenseShortName?.value || "").toString();
-  const licUrl = (meta?.LicenseUrl?.value || "").toString();
-  const copyrighted = (meta?.Copyrighted?.value || "").toString();
-  const blob = (lic + " " + licUrl).toLowerCase();
-  // Harte Ausschlüsse zuerst: NC/ND/all-rights schlagen alles.
-  if (/\b(nc|nd|non[- ]?commercial|noncommercial|no[- ]?deriv|all rights)\b/.test(blob)) return false;
-  // Public Domain / CC0 (auch ohne Kurzname, wenn Commons "Copyrighted: False" meldet).
-  if (/public domain|^pd\b|\bpd\b|cc0|creativecommons\.org\/publicdomain/.test(blob)) return true;
-  if (copyrighted.toLowerCase() === "false") return true;
-  // CC BY / CC BY-SA jeder Version (NC/ND wurde oben schon ausgeschlossen).
-  if (/cc[- ]by|creativecommons\.org\/licenses\/by/.test(blob)) return true;
-  // Alles andere (FAL, GFDL, leere/unbekannte Lizenz) gilt als NICHT frei genug.
-  return false;
-}
-function licName(meta) {
-  return (meta?.LicenseShortName?.value ||
-    (String(meta?.Copyrighted?.value).toLowerCase() === "false" ? "Public domain" : "?")).toString();
-}
 // Urheber-Angabe aus extmetadata (Artist + Credit), HTML-Tags gestrippt, gekürzt.
 function attribution(meta) {
   const artist = (meta?.Artist?.value || "").toString().replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
@@ -171,12 +151,12 @@ async function resolveConcept(term) {
       const ii = p.imageinfo?.[0]; if (!ii) continue;
       if (!ALLOWED_MIME.has(ii.mime || "")) continue;            // nur echte, darstellbare Bilder
       if (BLACKLIST.has((p.title || "").replace(/_/g, " ").trim())) continue; // gesperrte Datei
-      if (isFree(ii.extmetadata)) {
+      if (isAllowedCommonsLicenseMetadata(ii.extmetadata)) {
         result = {
           // Gespeichert wird die Commons-DATEISEITE (nicht die Roh-Bild-URL),
           // damit Lizenz + Urheber für jeden nachprüfbar verlinkt sind.
           imageFile: "https://commons.wikimedia.org/wiki/" + encodeURIComponent(p.title.replace(/ /g, "_")),
-          imageLicense: licName(ii.extmetadata),
+          imageLicense: licenseNameFromCommonsMetadata(ii.extmetadata),
           imageAttribution: attribution(ii.extmetadata),
         };
         break;

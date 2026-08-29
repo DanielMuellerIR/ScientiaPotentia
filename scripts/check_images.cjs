@@ -16,28 +16,12 @@
 
 const https = require("https");
 const fs = require("fs");
+const {
+  isAllowedCommonsLicenseMetadata,
+} = require('./lib/image_license_policy.cjs');
 
 const UA = "ScientiaPotentiaQuiz/1.0 (offline education quiz; contact: local dev)";
 const sleep = ms => new Promise(r => setTimeout(r, ms));
-
-// --- gleiche Lizenz-Logik wie resolve_images.cjs ----------------------------
-function isFree(meta) {
-  const lic = (meta?.LicenseShortName?.value || "").toString();
-  const licUrl = (meta?.LicenseUrl?.value || "").toString();
-  const copyrighted = (meta?.Copyrighted?.value || "").toString();
-  const blob = (lic + " " + licUrl).toLowerCase();
-  if (/\b(nc|nd|non[- ]?commercial|noncommercial|no[- ]?deriv|all rights)\b/.test(blob)) return false;
-  if (/public domain|^pd|cc0|creativecommons\.org\/publicdomain/.test(blob)) return true;
-  if (/cc[- ]by|creativecommons\.org\/licenses\/by/.test(blob)) return true;
-  if (/\bfal\b|free art|gfdl/.test(blob)) return true;
-  // Weitere freie Commons-Lizenz-Vorlagen, deren Kurzname keine "cc by"/"pd"-
-  // Tokens trägt und sonst faelschlich als unfrei galt: {{Attribution}} (frei,
-  // nur Namensnennung) und {{Copyrighted free use}} (frei nutzbar). Der NC/ND-
-  // Riegel oben hat "Attribution-NonCommercial" o.Ae. bereits ausgeschlossen.
-  if (/copyrighted free use|free use/.test(blob) || /^attribution\b/.test(lic.toLowerCase().trim())) return true;
-  if (copyrighted.toLowerCase() === "false") return true;
-  return false;
-}
 
 let lastCall = 0;
 function apiGet(params, tries = 0) {
@@ -120,7 +104,7 @@ function titleFromUrl(u) {
         const ii = p.imageinfo?.[0];
         if (!ii) { e.result = { ok: false, reason: "no imageinfo" }; continue; }
         const isImg = (ii.mime || "").startsWith("image/");
-        const free = isFree(ii.extmetadata);
+        const free = isAllowedCommonsLicenseMetadata(ii.extmetadata);
         e.result = {
           ok: isImg && free,
           reason: !isImg ? "not image (" + ii.mime + ")" : !free ? "license not free" : "ok",
