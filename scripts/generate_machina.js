@@ -68,12 +68,12 @@ function classificationsOverlap(a, b) {
 
 // --- Distraktor-Auswahl (identisch zur Cultura-Engine) ---------------------
 
-function pickCategorical(correct, pool, k = 3) {
+function pickCategorical(correct, pool, k = 3, allowContained = false) {
   // längen-balanciert statt Pool-Reihenfolge: `.slice(0,k)` nahm sonst feste
   // erste-k Einträge → Längen-Bias (richtige Antwort fast immer längste/kürzeste).
   return pickBalanced(correct, [...new Set(pool.map(String))]
     .filter(v => v !== String(correct))
-    .filter(v => !containsEitherWay(v, correct)), k);
+    .filter(v => allowContained || !containsEitherWay(v, correct)), k);
 }
 
 // pickNumeric: jetzt zentral in ./lib/quizrandom.js (mit Proximity-Guard fuer Messgroessen).
@@ -92,7 +92,13 @@ function pickNames(correctName, subjectValue, pool, k = 3, valueConflict = null)
     if (pa !== pb) return pa - pb;
     return Math.abs(a.name.length - cl) - Math.abs(b.name.length - cl);
   });
-  return [...new Set(shuffled.map(p => p.name))].slice(0, k);
+  // Den Standard-Konflikt erst nach dem stabilen Mischen anwenden. So ändert
+  // ein neu erkannter Oberbegriff nur tatsächlich kollidierende Fragen und
+  // mischt nicht den vollständigen generierten Bestand neu.
+  const unambiguous = valueConflict
+    ? shuffled
+    : shuffled.filter(p => !containsEitherWay(p.value, subjectValue));
+  return [...new Set(unambiguous.map(p => p.name))].slice(0, k);
 }
 
 // --- Faktenbasis laden ----------------------------------------------------
@@ -157,7 +163,10 @@ const templates = [
     category: 'file_format', attr: 'compression', kind: 'cat', type: 'machina-format-compression', difficulty: 3,
     // Prompt meidet bewusst den Wortstamm "kompr…" — sonst verrät er die Antwort
     // ("verlustfrei komprimiert") über den Selbstverräter-Guard.
-    prompt: c => `Wie behandelt das Dateiformat ${c.name} die Datenmenge bei der Speicherung?`
+    prompt: c => `Wie behandelt das Dateiformat ${c.name} die Datenmenge bei der Speicherung?`,
+    // „verlustfrei“, „verlustbehaftet“, „unkomprimiert“ und die ausdrückliche
+    // Kombination beider Kompressionsarten sind vier verschiedene Fähigkeiten.
+    allowContainedDistractors: true
   },
   {
     category: 'file_format', attr: 'fullName', kind: 'cat', type: 'machina-format-fullname', difficulty: 3,
@@ -451,7 +460,7 @@ for (const tpl of templates) {
       }
       if (tpl.poolFilter && !tpl.poolFilter(rawValue)) { countSkip(tpl, 'poolFilter'); continue; }
       correct = String(rawValue);
-      distractors = pickCategorical(correct, catPool);
+      distractors = pickCategorical(correct, catPool, 3, tpl.allowContainedDistractors);
     }
 
     const promptText = tpl.prompt(c);

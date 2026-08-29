@@ -6,7 +6,7 @@
     "token_budget": 8000000,
     "status": "active",
     "started_at": "2026-08-29T20:44:29+02:00",
-    "tokens_spent": 939666
+    "tokens_spent": 1032666
   },
   "campaign_history": [],
   "scope": {
@@ -489,13 +489,25 @@
       "risk": "high",
       "priority": 11,
       "reason": "Fachgeneratoren mit Text-, Werk-, Etymologie- und Zitatbezug",
-      "state": "in_progress",
-      "active_run": {
+      "state": "completed",
+      "last_run": {
         "campaign_id": "20260829T204429059458+0200",
-        "started_at": "2026-08-29T21:26:01+02:00",
-        "required_review": "full",
-        "status_at_start": "pending",
-        "covered_pending_paths": []
+        "completed_at": "2026-08-29T21:30:45+02:00",
+        "observed_head": "8c1beafd0c4918866f2f16e941fe7b386f41d7f3",
+        "content_sha256": "9d9adf5a3cce2dc2f6a92344392edb54bffca55aa924e1a5610ad0e86756239a",
+        "file_count": 2,
+        "review": "full",
+        "outcome": "improved",
+        "summary": "Cultura und Lingua vollständig geprüft. Cultura schließt bei Urheber-Rückwärtsfragen Werke desselben oder überlappenden Urhebers aus; dadurch sind vier konkret mehrdeutige Antwortsätze beseitigt. Lingua blieb bei vollständiger Prüfung und deterministischer Neugenerierung byteidentisch.",
+        "tests": [
+          "Cultura- und Lingua-Generatoren jeweils zweimal deterministisch ausgeführt",
+          "verify:facts für cultura und lingua: 0 Fehler",
+          "audit:questions für cultura und lingua: 0 Strukturfehler, 0 Antwort-im-Stamm, 0 Bias-Templates",
+          "audit:quote-rights: 533 Zitate vollständig dokumentiert",
+          "npm test: 179 Tests grün",
+          "npm run build: erfolgreich",
+          "Cultura im echten Browser: Quizantwort, Visualisierung, Bildlizenz und Quelle geprüft; Konsole ohne Warnungen oder Fehler"
+        ]
       }
     },
     {
@@ -507,7 +519,14 @@
       "risk": "high",
       "priority": 12,
       "reason": "Fachgeneratoren mit Technik-, Datierungs- und Urheberschaftsfragen",
-      "state": "pending"
+      "state": "in_progress",
+      "active_run": {
+        "campaign_id": "20260829T204429059458+0200",
+        "started_at": "2026-08-29T21:30:51+02:00",
+        "required_review": "full",
+        "status_at_start": "pending",
+        "covered_pending_paths": []
+      }
     },
     {
       "id": "content-merge-pipeline",

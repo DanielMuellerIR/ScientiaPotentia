@@ -93,7 +93,12 @@ function pickNames(correctName, subjectValue, pool, k = 3) {
     if (pa !== pb) return pa - pb;
     return Math.abs(a.name.length - cl) - Math.abs(b.name.length - cl);
   });
-  return [...new Set(shuffled.map(p => p.name))].slice(0, k);
+  // Ober-/Unterbegriffe und Sammelwerte sind keine eindeutigen Gegensätze:
+  // „Physik“ passt auch zu „Astrophysik / Physik“, „USA“ zu „China/USA“.
+  // Nach dem Mischen filtern, damit sich nur wirklich kollidierende Fragen
+  // ändern und nicht der vollständige generierte Bestand neu sortiert wird.
+  const unambiguous = shuffled.filter(p => !containsEitherWay(p.value, subjectValue));
+  return [...new Set(unambiguous.map(p => p.name))].slice(0, k);
 }
 
 // --- Faktenbasis laden ----------------------------------------------------
