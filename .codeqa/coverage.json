@@ -857,17 +857,13 @@
       "priority": 23,
       "reason": "Historische Wikidata-/Wikiquote-Ernte für Kultur und Sprache",
       "state": "completed",
-      "pending_paths": [
-        "scripts/data_sources/harvest/lingua_harvest_helpers.cjs",
-        "src/__tests__/culturaHarvestSources.test.js"
-      ],
       "last_run": {
         "campaign_id": "20260829T204429059458+0200",
-        "completed_at": "2026-08-29T23:26:57+02:00",
-        "observed_head": "710b7568493f353fc6c1056f76001f8c141d983b",
+        "completed_at": "2026-08-29T23:27:35+02:00",
+        "observed_head": "73a98f7a0fe3e2d8ee386bcd8923214f6a965870",
         "content_sha256": "60eea0118ec572b29158d1e6163f76a829211cddafe28e2e21e85dadc0ea834e",
         "file_count": 15,
-        "review": "full",
+        "review": "delta-plus-boundaries",
         "outcome": "improved",
         "summary": "Wikidata-QID-Namenspaare und Lizenzfilter korrigiert; Lingua-Einzelabfragen validieren Entitäten; Harvest-Läufe brechen bei Teilfehlern ab und schreiben atomar; Wikiquote bewahrt Gedankenstriche und meldet Netz-/Parsefehler; sechs Cultura-Quellen sowie drei fachfremde Bilder ersetzt.",
         "tests": [
