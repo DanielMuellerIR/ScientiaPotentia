@@ -1,70 +1,190 @@
 /**
- * Wendet die Korrekturen der adversarialen Verifier auf eine Faktenbasis an.
+ * Wendet Korrekturen der adversarialen Verifier auf eine Faktenbasis an.
  *
- * Liest scripts/data_sources/<domain>_raw.json + alle harvest/corr_<domain>_*.json
- * (Arrays von Korrektur-Objekten) und schreibt das Raw zurück.
+ * Liest scripts/data_sources/<domain>_raw.json und alle
+ * harvest/corr_<domain>_*.json. Standard ist ein Dry-Run; nur --write ersetzt
+ * den Rohkatalog. Ein unlesbarer oder strukturell ungültiger Korrektursatz
+ * blockiert den gesamten Schreibvorgang.
  *
- * Korrektur-Objekt (eines pro Eintrag):
- *   { "id": "...", "set": { "<attr>": <wert> }, "reason": "..." }   -> Attribut(e) setzen/ändern
- *   { "id": "...", "removeAttr": ["<attr>"], "reason": "..." }       -> Attribut(e) entfernen
- *   { "id": "...", "remove": true, "reason": "..." }                 -> ganzes Konzept verwerfen
+ * Korrektur-Objekt (genau eine Operation pro Eintrag):
+ *   { "id": "...", "set": { "<attr>": <wert> }, "reason": "..." }
+ *   { "id": "...", "removeAttr": ["<attr>"], "reason": "..." }
+ *   { "id": "...", "remove": true, "reason": "..." }
  *
- * Aufruf: node scripts/data_sources/harvest/apply_corrections.cjs <machina|historia> [--dry-run]
+ * Aufruf: node apply_corrections.cjs <machina|historia> [--write]
  */
 const fs = require('node:fs');
 const path = require('node:path');
+const { readJsonArray, writeJsonAtomic } = require('./json_io.cjs');
 
 const HARVEST = __dirname;
 const ROOT = path.join(HARVEST, '..', '..', '..');
-const domain = process.argv[2];
-const DRY = process.argv.includes('--dry-run');
-if (!['machina', 'historia'].includes(domain)) {
-  console.error('Domain machina|historia angeben.'); process.exit(1);
+const CONCEPT_FIELDS = new Set([
+  'name', 'category', 'funFact', 'sourceName', 'sourceUrl', 'verifyNote',
+  'imageSearchTerm', 'imageFile', 'imageLicense', 'imageAttribution',
+]);
+
+function validateSetKey(key) {
+  if (!key.trim()) return 'leerer set-Schlüssel';
+  if (key.startsWith('attributes.')) {
+    return key.slice('attributes.'.length).trim()
+      ? null
+      : 'attributes.<key> benötigt einen Attributnamen';
+  }
+  if (key.startsWith('concept.')) {
+    const field = key.slice('concept.'.length);
+    return CONCEPT_FIELDS.has(field)
+      ? null
+      : `nicht erlaubtes Konzeptfeld: ${field || '—'}`;
+  }
+  return key.includes('.') ? `unbekanntes set-Ziel: ${key}` : null;
 }
 
-const rawPath = path.join(ROOT, 'scripts', 'data_sources', `${domain}_raw.json`);
-const raw = JSON.parse(fs.readFileSync(rawPath, 'utf8'));
-const byId = new Map(raw.map(c => [c.id, c]));
-
-const corrFiles = fs.readdirSync(HARVEST).filter(f => new RegExp(`^corr_${domain}_.*\\.json$`).test(f));
-let applied = 0, removed = 0, skipped = 0;
-const log = [];
-
-for (const f of corrFiles) {
-  let corrs;
-  try { corrs = JSON.parse(fs.readFileSync(path.join(HARVEST, f), 'utf8')); }
-  catch (e) { console.error(`${f}: nicht parsebar (${e.message})`); continue; }
-  if (!Array.isArray(corrs)) continue;
-  for (const c of corrs) {
-    const concept = byId.get(c.id);
-    if (!concept) { skipped++; log.push(`SKIP unbekannte id ${c.id} (${f})`); continue; }
-    if (c.remove) {
-      concept._remove = true; removed++;
-      log.push(`REMOVE ${c.id}: ${c.reason || ''}`);
-    } else if (c.removeAttr) {
-      for (const a of c.removeAttr) delete concept.attributes[a];
-      applied++;
-      log.push(`RMATTR ${c.id} [${c.removeAttr.join(',')}]: ${c.reason || ''}`);
-    } else if (c.set) {
-      for (const [k, v] of Object.entries(c.set)) concept.attributes[k] = v;
-      applied++;
-      log.push(`SET ${c.id} ${JSON.stringify(c.set)}: ${c.reason || ''}`);
+function validateCorrection(correction) {
+  if (!correction || typeof correction !== 'object' || Array.isArray(correction)) {
+    return 'Korrektur-Objekt erwartet';
+  }
+  if (typeof correction.id !== 'string' || !correction.id.trim()) {
+    return 'id fehlt oder ist kein Text';
+  }
+  const hasRemove = correction.remove === true;
+  const hasRemoveAttr = Object.hasOwn(correction, 'removeAttr');
+  const hasSet = Object.hasOwn(correction, 'set');
+  if (Number(hasRemove) + Number(hasRemoveAttr) + Number(hasSet) !== 1) {
+    return 'genau eine Operation remove, removeAttr oder set erforderlich';
+  }
+  if (Object.hasOwn(correction, 'remove') && correction.remove !== true) {
+    return 'remove darf nur true sein';
+  }
+  if (hasRemoveAttr && (
+    !Array.isArray(correction.removeAttr)
+    || correction.removeAttr.length === 0
+    || !correction.removeAttr.every(
+      attribute => typeof attribute === 'string' && attribute.trim())
+  )) {
+    return 'removeAttr muss eine nicht leere Textliste sein';
+  }
+  if (hasSet && (
+    !correction.set || typeof correction.set !== 'object'
+    || Array.isArray(correction.set) || Object.keys(correction.set).length === 0
+  )) {
+    return 'set muss ein nicht leeres Objekt sein';
+  }
+  if (hasSet) {
+    for (const key of Object.keys(correction.set)) {
+      const keyError = validateSetKey(key);
+      if (keyError) return keyError;
     }
   }
+  return null;
 }
 
-const out = raw.filter(c => !c._remove);
-
-console.log(`Domain: ${domain}`);
-console.log(`Korrektur-Dateien: ${corrFiles.length} (${corrFiles.join(', ') || '—'})`);
-console.log(`Attribut-Korrekturen: ${applied}, entfernte Konzepte: ${removed}, übersprungen: ${skipped}`);
-console.log(`Konzepte: ${raw.length} -> ${out.length}`);
-console.log('\n--- Änderungen ---');
-log.forEach(l => console.log('  ' + l));
-
-if (!DRY) {
-  fs.writeFileSync(rawPath, JSON.stringify(out, null, 2), 'utf8');
-  console.log(`\nGeschrieben: ${rawPath}`);
-} else {
-  console.log('\n[DRY-RUN] Nichts geschrieben.');
+function setCorrectionValue(concept, key, value) {
+  if (key.startsWith('concept.')) {
+    concept[key.slice('concept.'.length)] = value;
+    return;
+  }
+  const attribute = key.startsWith('attributes.')
+    ? key.slice('attributes.'.length)
+    : key;
+  concept.attributes[attribute] = value;
 }
+
+function main() {
+  const [domain, ...flags] = process.argv.slice(2);
+  const allowedFlags = new Set(['--write', '--dry-run']);
+  if (!['machina', 'historia'].includes(domain)
+      || flags.some(flag => !allowedFlags.has(flag))
+      || (flags.includes('--write') && flags.includes('--dry-run'))) {
+    console.error('Aufruf: apply_corrections.cjs <machina|historia> [--write]');
+    return 1;
+  }
+  const write = flags.includes('--write');
+  const rawPath = path.join(ROOT, 'scripts', 'data_sources', `${domain}_raw.json`);
+  let raw;
+  try {
+    raw = readJsonArray(rawPath, `${domain}_raw.json`);
+  } catch (error) {
+    console.error(`FEHLER: ${error.message}`);
+    return 1;
+  }
+  const byId = new Map(raw.map(concept => [concept.id, concept]));
+  const correctionFiles = fs.readdirSync(HARVEST)
+    .filter(file => new RegExp(`^corr_${domain}_.*\\.json$`).test(file))
+    .sort((a, b) => a.localeCompare(b, 'de'));
+  const planned = [];
+  const inputErrors = [];
+  for (const file of correctionFiles) {
+    let corrections;
+    try {
+      corrections = readJsonArray(path.join(HARVEST, file), file);
+    } catch (error) {
+      inputErrors.push(error.message);
+      continue;
+    }
+    corrections.forEach((correction, index) => {
+      const error = validateCorrection(correction);
+      if (error) inputErrors.push(`${file} #${index + 1}: ${error}`);
+      else planned.push({ correction, file });
+    });
+  }
+  if (inputErrors.length) {
+    inputErrors.forEach(error => console.error(`FEHLER: ${error}`));
+    console.error('Keine Korrektur angewendet.');
+    return 1;
+  }
+
+  let applied = 0;
+  let removed = 0;
+  let skipped = 0;
+  const removedIds = new Set();
+  const log = [];
+  for (const { correction, file } of planned) {
+    const concept = byId.get(correction.id);
+    if (!concept) {
+      skipped++;
+      log.push(`SKIP unbekannte id ${correction.id} (${file})`);
+      continue;
+    }
+    if (correction.remove) {
+      removedIds.add(correction.id);
+      removed++;
+      log.push(`REMOVE ${correction.id}: ${correction.reason || ''}`);
+      continue;
+    }
+    if (!concept.attributes || typeof concept.attributes !== 'object'
+        || Array.isArray(concept.attributes)) {
+      console.error(`FEHLER: ${correction.id} besitzt kein Attribut-Objekt.`);
+      return 1;
+    }
+    if (correction.removeAttr) {
+      for (const attribute of correction.removeAttr) delete concept.attributes[attribute];
+      applied++;
+      log.push(`RMATTR ${correction.id} [${correction.removeAttr.join(',')}]: ${correction.reason || ''}`);
+    } else {
+      for (const [key, value] of Object.entries(correction.set)) {
+        setCorrectionValue(concept, key, value);
+      }
+      applied++;
+      log.push(`SET ${correction.id} ${JSON.stringify(correction.set)}: ${correction.reason || ''}`);
+    }
+  }
+
+  const output = raw.filter(concept => !removedIds.has(concept.id));
+  console.log(`Domain: ${domain}`);
+  console.log(`Korrektur-Dateien: ${correctionFiles.length} (${correctionFiles.join(', ') || '—'})`);
+  console.log(`Attribut-Korrekturen: ${applied}, entfernte Konzepte: ${removed}, übersprungen: ${skipped}`);
+  console.log(`Konzepte: ${raw.length} -> ${output.length}`);
+  console.log('\n--- Änderungen ---');
+  log.forEach(entry => console.log(`  ${entry}`));
+
+  if (write) {
+    writeJsonAtomic(rawPath, output);
+    console.log(`\nGeschrieben: ${rawPath}`);
+  } else {
+    console.log('\n[DRY-RUN] Nichts geschrieben. Mit --write anwenden.');
+  }
+  return 0;
+}
+
+process.exitCode = main();

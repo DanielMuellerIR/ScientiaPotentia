@@ -6,7 +6,7 @@
     "token_budget": 8000000,
     "status": "active",
     "started_at": "2026-08-29T20:44:29+02:00",
-    "tokens_spent": 2143947
+    "tokens_spent": 2224057
   },
   "campaign_history": [],
   "scope": {
@@ -154,7 +154,9 @@
       "tests/test_qa_review.py",
       "vite.config.js",
       "src/__tests__/db.test.js",
-      "src/__tests__/AppOrchestration.test.jsx"
+      "src/__tests__/AppOrchestration.test.jsx",
+      "tests/test_harvest_tools.py",
+      "scripts/data_sources/harvest/json_io.cjs"
     ],
     "exclusions": []
   },
@@ -723,13 +725,19 @@
       "risk": "medium",
       "priority": 19,
       "reason": "Batchaufteilung, Resume-Sicherheit und maschinenlesbare Auswertung der Inhalts-QA",
-      "state": "in_progress",
-      "active_run": {
+      "state": "completed",
+      "last_run": {
         "campaign_id": "20260829T204429059458+0200",
-        "started_at": "2026-08-29T22:22:07+02:00",
-        "required_review": "full",
-        "status_at_start": "pending",
-        "covered_pending_paths": []
+        "completed_at": "2026-08-29T22:27:07+02:00",
+        "observed_head": "d31dae7de70fb5834ce53a75df7a80aa2d771acd",
+        "content_sha256": "b22b4798ac334a2e1f5f32d18e7d75b783499f1cb83303e71dd7ad77e25ac9e8",
+        "file_count": 4,
+        "review": "full",
+        "outcome": "improved",
+        "summary": "Batch-Builder lehnt ungültige Größen und Domains ab und entfernt eigene Alt-Batches; der Runner prüft Manifest, Frage-IDs, Batch-JSON und das vollständige Bewertungs-Schema, überspringt beschädigte Batches mit maschinenlesbarem Teilbericht und legt Ausgabeverzeichnisse vor Modellaufrufen an.",
+        "tests": [
+          "9 gezielte QA-Runner-Regressionstests; insgesamt 30 Python-Tests und 218 Vitest-Tests; realer Builderlauf: 214 stratifizierte Fragen aus fünf Domains in einem manifestierten Batch; Produktionsbuild; Layoutvertrag 44/44; Python-Kompilierung."
+        ]
       }
     },
     {
@@ -740,12 +748,25 @@
         "scripts/data_sources/harvest/build_dedup.cjs",
         "scripts/data_sources/harvest/fix_cand_umlauts.cjs",
         "scripts/data_sources/harvest/mm_load.cjs",
-        "scripts/data_sources/harvest/normalize_case.cjs"
+        "scripts/data_sources/harvest/normalize_case.cjs",
+        "tests/test_harvest_tools.py",
+        "scripts/data_sources/harvest/json_io.cjs"
       ],
       "risk": "medium",
       "priority": 20,
       "reason": "Schreibende Kandidaten-, Korrektur-, Deduplizierungs- und JSON-Reparaturwerkzeuge",
-      "state": "pending"
+      "state": "in_progress",
+      "active_run": {
+        "campaign_id": "20260829T204429059458+0200",
+        "started_at": "2026-08-29T22:27:07+02:00",
+        "required_review": "full",
+        "status_at_start": "pending",
+        "covered_pending_paths": []
+      },
+      "pending_paths": [
+        "tests/test_harvest_tools.py",
+        "scripts/data_sources/harvest/json_io.cjs"
+      ]
     },
     {
       "id": "image-harvest",

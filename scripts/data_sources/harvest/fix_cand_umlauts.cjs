@@ -9,13 +9,21 @@
  * Prozess, Masse) und Eigennamen/Englisch (Queue, Quelle, Becquerel, Sauerstoff)
  * stehen NICHT in der Liste und bleiben unberührt.
  *
- * Aufruf: node scripts/data_sources/harvest/fix_cand_umlauts.cjs [--dry-run]
+ * Aufruf: node scripts/data_sources/harvest/fix_cand_umlauts.cjs [--write]
  */
 const fs = require('node:fs');
 const path = require('node:path');
+const { readJsonArray, writeJsonAtomic } = require('./json_io.cjs');
 
 const HARVEST = __dirname;
-const DRY = process.argv.includes('--dry-run');
+const flags = process.argv.slice(2);
+const allowedFlags = new Set(['--write', '--dry-run']);
+if (flags.some(flag => !allowedFlags.has(flag))
+    || (flags.includes('--write') && flags.includes('--dry-run'))) {
+  console.error('Aufruf: fix_cand_umlauts.cjs [--write]');
+  process.exit(1);
+}
+const WRITE = flags.includes('--write');
 
 // Felder, in denen Deutsch erwartet wird (Anzeige/Provenance). id/url/image* NICHT.
 const TEXT_FIELDS = new Set(['name', 'funFact', 'verifyNote', 'sourceName']);
@@ -93,16 +101,29 @@ function fixConcept(c, counter) {
   return c;
 }
 
-const files = fs.readdirSync(HARVEST).filter(f => /^cand_(machina|historia)_.*\.json$/.test(f));
+const files = fs.readdirSync(HARVEST)
+  .filter(file => /^cand_(machina|historia)_.*\.json$/.test(file))
+  .sort((a, b) => a.localeCompare(b, 'de'));
+const candidates = [];
+try {
+  for (const file of files) {
+    candidates.push({
+      file,
+      path: path.join(HARVEST, file),
+      data: readJsonArray(path.join(HARVEST, file), file),
+    });
+  }
+} catch (error) {
+  console.error(`FEHLER: ${error.message}`);
+  process.exit(1);
+}
 let grandTotal = 0;
-for (const f of files) {
-  const p = path.join(HARVEST, f);
-  const data = JSON.parse(fs.readFileSync(p, 'utf8'));
+for (const { file, path: filePath, data } of candidates) {
   const counter = {};
   data.forEach(c => fixConcept(c, counter));
   const total = Object.values(counter).reduce((a, b) => a + b, 0);
   grandTotal += total;
-  if (total) console.log(`${f}: ${total} Ersetzungen`, counter);
-  if (!DRY && total) fs.writeFileSync(p, JSON.stringify(data, null, 2), 'utf8');
+  if (total) console.log(`${file}: ${total} Ersetzungen`, counter);
+  if (WRITE && total) writeJsonAtomic(filePath, data);
 }
-console.log(`\nGesamt: ${grandTotal} Ersetzungen${DRY ? ' (DRY-RUN, nichts geschrieben)' : ''}`);
+console.log(`\nGesamt: ${grandTotal} Ersetzungen${WRITE ? '' : ' (DRY-RUN, nichts geschrieben)'}`);

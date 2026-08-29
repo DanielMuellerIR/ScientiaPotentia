@@ -1639,7 +1639,7 @@
     "entityType": "invention",
     "type": "historia-invention-inventor",
     "difficulty": 3,
-    "prompt": "Wer gilt als Erfinder/Entwickler von „Leuchtstofflampe“?",
+    "prompt": "Wer gilt als Erfinder/Entwickler von „Quecksilberdampflampe“?",
     "correctAnswer": "Peter Cooper Hewitt",
     "options": [
       "Peter Cooper Hewitt",
@@ -5610,7 +5610,7 @@
     "entityType": "invention",
     "type": "historia-invention-year",
     "difficulty": 4,
-    "prompt": "In welchem Jahr wurde „Leuchtstofflampe“ (etwa) erfunden?",
+    "prompt": "In welchem Jahr wurde „Quecksilberdampflampe“ (etwa) erfunden?",
     "correctAnswer": "1901",
     "options": [
       "1901",
@@ -10208,7 +10208,7 @@
     "entityType": "invention",
     "type": "historia-invention-country",
     "difficulty": 3,
-    "prompt": "In welchem Land entstand die Erfindung „Leuchtstofflampe“?",
+    "prompt": "In welchem Land entstand die Erfindung „Quecksilberdampflampe“?",
     "correctAnswer": "USA",
     "options": [
       "USA",
@@ -14331,7 +14331,7 @@
     "entityType": "invention",
     "type": "historia-invention-field",
     "difficulty": 2,
-    "prompt": "Welchem Bereich ist die Erfindung „Leuchtstofflampe“ zuzuordnen?",
+    "prompt": "Welchem Bereich ist die Erfindung „Quecksilberdampflampe“ zuzuordnen?",
     "correctAnswer": "Energie",
     "options": [
       "Energie",
@@ -17795,7 +17795,7 @@
       "Narkose (Vollnarkose)",
       "Elektrischer Telegraf",
       "Linotype-Setzmaschine",
-      "Elektrisches Hörgerät"
+      "Quecksilberdampflampe"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -17964,9 +17964,9 @@
     "correctAnswer": "Reibungszündholz",
     "options": [
       "Reibungszündholz",
-      "Leuchtstofflampe",
       "Luftpolsterfolie",
-      "Plasmabildschirm"
+      "Plasmabildschirm",
+      "Sicherheitsnadel"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -18930,12 +18930,12 @@
     "type": "historia-invention-inventor-rev",
     "difficulty": 3,
     "prompt": "Welche dieser Erfindungen geht auf Peter Cooper Hewitt zurück?",
-    "correctAnswer": "Leuchtstofflampe",
+    "correctAnswer": "Quecksilberdampflampe",
     "options": [
-      "Leuchtstofflampe",
-      "Reibungszündholz",
-      "Luftpolsterfolie",
-      "Plasmabildschirm"
+      "Quecksilberdampflampe",
+      "Elektrisches Hörgerät",
+      "Ultraschalldiagnostik",
+      "Linotype-Setzmaschine"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -19085,9 +19085,9 @@
     "correctAnswer": "Linotype-Setzmaschine",
     "options": [
       "Linotype-Setzmaschine",
+      "Quecksilberdampflampe",
       "Ultraschalldiagnostik",
-      "Rastertunnelmikroskop",
-      "Elektrisches Hörgerät"
+      "Rastertunnelmikroskop"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -20037,7 +20037,7 @@
       "Espressomaschine",
       "Sicherheitsnadel",
       "Luftpolsterfolie",
-      "Leuchtstofflampe"
+      "Reibungszündholz"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -20322,7 +20322,7 @@
       "Luftpolsterfolie",
       "Reibungszündholz",
       "Plasmabildschirm",
-      "Leuchtstofflampe"
+      "Espressomaschine"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -20721,7 +20721,7 @@
       "Rastertunnelmikroskop",
       "Linotype-Setzmaschine",
       "Orale Verhütungspille",
-      "Elektrisches Hörgerät"
+      "Quecksilberdampflampe"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -30197,12 +30197,12 @@
     "type": "historia-discovery-field",
     "difficulty": 2,
     "prompt": "Welchem Wissensgebiet ist die Entdeckung „Treibhauseffekt“ zuzuordnen?",
-    "correctAnswer": "Geologie",
+    "correctAnswer": "Chemie",
     "options": [
-      "Geologie",
-      "Biologie",
-      "Genetik",
-      "Biochemie"
+      "Chemie",
+      "Physik",
+      "Medizin",
+      "Genetik"
     ],
     "testedAttribute": "field",
     "answerIsName": false,
@@ -86688,8 +86688,8 @@
     "options": [
       "Narkose (Vollnarkose)",
       "Linotype-Setzmaschine",
-      "Elektrischer Telegraf",
-      "Rastertunnelmikroskop"
+      "Quecksilberdampflampe",
+      "Elektrischer Telegraf"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -87524,8 +87524,8 @@
     "options": [
       "Orale Verhütungspille",
       "Rastertunnelmikroskop",
-      "Linotype-Setzmaschine",
-      "Elektrischer Telegraf"
+      "Quecksilberdampflampe",
+      "Linotype-Setzmaschine"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -87919,12 +87919,12 @@
     "type": "historia-invention-field-rev",
     "difficulty": 3,
     "prompt": "Welche dieser Erfindungen gehört zum Bereich „Energie“?",
-    "correctAnswer": "Leuchtstofflampe",
+    "correctAnswer": "Quecksilberdampflampe",
     "options": [
-      "Leuchtstofflampe",
-      "Sicherheitsnadel",
-      "Plasmabildschirm",
-      "Anrufbeantworter"
+      "Quecksilberdampflampe",
+      "Elektrischer Telegraf",
+      "Ultraschalldiagnostik",
+      "Orale Verhütungspille"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -87999,8 +87999,8 @@
     "options": [
       "Ultraschalldiagnostik",
       "Rastertunnelmikroskop",
-      "Linotype-Setzmaschine",
-      "Wechselstromgenerator"
+      "Quecksilberdampflampe",
+      "Linotype-Setzmaschine"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -89064,7 +89064,7 @@
       "Sicherheitsnadel",
       "Luftpolsterfolie",
       "Plasmabildschirm",
-      "Leuchtstofflampe"
+      "Industrieroboter"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -89443,8 +89443,8 @@
     "options": [
       "Luftpolsterfolie",
       "Reibungszündholz",
-      "Leuchtstofflampe",
-      "Gefriertrocknung"
+      "Gefriertrocknung",
+      "Espressomaschine"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -93049,12 +93049,12 @@
     "type": "historia-invention-country-rev",
     "difficulty": 3,
     "prompt": "Welche dieser Erfindungen stammt aus „USA“?",
-    "correctAnswer": "Leuchtstofflampe",
+    "correctAnswer": "Quecksilberdampflampe",
     "options": [
-      "Leuchtstofflampe",
-      "Reibungszündholz",
-      "Gefriertrocknung",
-      "Espressomaschine"
+      "Quecksilberdampflampe",
+      "Linotype-Setzmaschine",
+      "Ultraschalldiagnostik",
+      "Rastertunnelmikroskop"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -94346,7 +94346,7 @@
       "Espressomaschine",
       "Industrieroboter",
       "Luftpolsterfolie",
-      "Leuchtstofflampe"
+      "Gefriertrocknung"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -95182,7 +95182,7 @@
       "Rastertunnelmikroskop",
       "Orale Verhütungspille",
       "Linotype-Setzmaschine",
-      "Elektrisches Hörgerät"
+      "Quecksilberdampflampe"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -96035,9 +96035,9 @@
     "correctAnswer": "Sauerstoff",
     "options": [
       "Sauerstoff",
-      "Sonnenwind",
-      "Antiproton",
-      "REM-Schlaf"
+      "Antikörper",
+      "REM-Schlaf",
+      "Sonnenwind"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -96074,8 +96074,8 @@
     "options": [
       "Kontinentaldrift",
       "Josephson-Effekt",
-      "Bedingte Reflexe",
-      "Eulersche Zahl e"
+      "W- und Z-Bosonen",
+      "Ringe des Saturn"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -96472,9 +96472,9 @@
     "correctAnswer": "Plattentektonik",
     "options": [
       "Plattentektonik",
-      "Sonnenneutrinos",
       "DNA-Doppelhelix",
-      "Spektralanalyse"
+      "Spektralanalyse",
+      "Neuronendoktrin"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -96491,9 +96491,9 @@
     "correctAnswer": "Ozonloch",
     "options": [
       "Ozonloch",
-      "Elektron",
       "Neutrino",
-      "Edelgase"
+      "Elektron",
+      "Zellkern"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -96700,9 +96700,9 @@
     "correctAnswer": "Edelgase",
     "options": [
       "Edelgase",
-      "Atomkern",
+      "Neutrino",
       "Ozonloch",
-      "Neutrino"
+      "Elektron"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -96720,7 +96720,7 @@
     "options": [
       "Isotope",
       "Lysozym",
-      "Insulin",
+      "Ribosom",
       "Pulsare"
     ],
     "testedAttribute": null,
@@ -96772,13 +96772,13 @@
     "entityType": "discovery",
     "type": "historia-discovery-field-rev",
     "difficulty": 3,
-    "prompt": "Welche dieser Entdeckungen gehört zum Gebiet „Geologie“?",
+    "prompt": "Welche dieser Entdeckungen gehört zum Gebiet „Chemie“?",
     "correctAnswer": "Treibhauseffekt (quantitative Theorie)",
     "options": [
       "Treibhauseffekt (quantitative Theorie)",
       "Beschleunigte Expansion des Universums",
       "Supraleitende Hochtemperatur-Keramiken",
-      "Entschlüsselung des genetischen Codes"
+      "Nachweis der Erdrotation mit dem Pendel"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -96795,8 +96795,8 @@
     "correctAnswer": "Eiszeiten",
     "options": [
       "Eiszeiten",
-      "Vitamin E",
       "Vitamin A",
+      "Vitamin E",
       "Vitamin D"
     ],
     "testedAttribute": null,
@@ -96816,7 +96816,7 @@
       "Innerer Erdkern",
       "DNA-Doppelhelix",
       "Ohmsches Gesetz",
-      "Spektralanalyse"
+      "Sonnenneutrinos"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -97044,7 +97044,7 @@
       "Ozonschicht-Zerstörung durch FCKW",
       "Mutationen durch Röntgenstrahlung",
       "Wiederkehr des Halleyschen Kometen",
-      "Quantenmechanik / Quantentheorie"
+      "Galaxien außerhalb der Milchstraße"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -97138,8 +97138,8 @@
     "options": [
       "Tiefsee-Hydrothermalquellen",
       "Periodensystem der Elemente",
-      "Blutgerinnung und Vitamin K",
-      "Marsmonde Phobos und Deimos"
+      "Marsmonde Phobos und Deimos",
+      "Blutgerinnung und Vitamin K"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -97175,9 +97175,9 @@
     "correctAnswer": "Chlorophyll",
     "options": [
       "Chlorophyll",
-      "Pesterreger",
-      "Stammzellen",
-      "Hall-Effekt"
+      "Hall-Effekt",
+      "Higgs-Boson",
+      "Hebelgesetz"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -97195,8 +97195,8 @@
     "options": [
       "Enzyme (zellfreie Gärung)",
       "Heliozentrisches Weltbild",
-      "Berechnung des Erdumfangs",
-      "Künstliche Radioaktivität"
+      "Künstliche Radioaktivität",
+      "Berechnung des Erdumfangs"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -97612,9 +97612,9 @@
     "correctAnswer": "Radium und Polonium",
     "options": [
       "Radium und Polonium",
-      "Quanten-Hall-Effekt",
       "Relativitätstheorie",
-      "Pascalsches Dreieck"
+      "Quanten-Hall-Effekt",
+      "Satz des Pythagoras"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -97669,9 +97669,9 @@
     "correctAnswer": "Avogadrosches Gesetz",
     "options": [
       "Avogadrosches Gesetz",
+      "Saturnmond Enceladus",
       "Bohrsches Atommodell",
-      "Natürliche Selektion",
-      "Saturnmond Enceladus"
+      "Natürliche Selektion"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -97690,7 +97690,7 @@
       "Ringstruktur des Benzols",
       "Expansion des Universums",
       "Kosmische Röntgenquellen",
-      "Künstliche Radioaktivität"
+      "Heliozentrisches Weltbild"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -98165,7 +98165,7 @@
       "Kohlendioxid (»fixe Luft«)",
       "Van-Allen-Strahlungsgürtel",
       "Nichteuklidische Geometrie",
-      "Mendelsche Vererbungsregeln"
+      "Marsmonde Phobos und Deimos"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -98184,7 +98184,7 @@
       "Wasserstoff (»brennbare Luft«)",
       "Kosmische Hintergrundstrahlung",
       "Röntgenbeugung an Kristallen",
-      "Quantenmechanik / Quantentheorie"
+      "Quantenmechanischer Tunneleffekt"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -98202,8 +98202,8 @@
     "options": [
       "Zusammensetzung des Wassers",
       "Tiefsee-Hydrothermalquellen",
-      "Marsmonde Phobos und Deimos",
-      "Bakterien / Mikroorganismen"
+      "Bakterien / Mikroorganismen",
+      "Umpolung des Erdmagnetfelds"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -98563,8 +98563,8 @@
     "options": [
       "Fullerene (Buckyballs)",
       "Archimedisches Prinzip",
-      "Energieerhaltungssatz",
-      "Boyle-Mariotte-Gesetz"
+      "Ultraviolettstrahlung",
+      "Aberration des Lichts"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -99113,8 +99113,8 @@
     "correctAnswer": "Fluor (Isolierung)",
     "options": [
       "Fluor (Isolierung)",
-      "Restriktionsenzyme",
       "Gravitationswellen",
+      "Restriktionsenzyme",
       "Brownsche Bewegung"
     ],
     "testedAttribute": null,
@@ -99132,8 +99132,8 @@
     "correctAnswer": "Katalyse (Prinzip)",
     "options": [
       "Katalyse (Prinzip)",
-      "Gravitationsgesetz",
       "Gravitationswellen",
+      "Gravitationsgesetz",
       "Restriktionsenzyme"
     ],
     "testedAttribute": null,
@@ -99172,7 +99172,7 @@
       "Kohlenstoff-Nanoröhren",
       "Archimedisches Prinzip",
       "Boyle-Mariotte-Gesetz",
-      "Tscherenkow-Strahlung"
+      "Ultraviolettstrahlung"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -99514,7 +99514,7 @@
       "Ozeanbodenspreizung (Seafloor Spreading)",
       "Anaphylaxie / Allergie als Immunreaktion",
       "Neutronendiffusion / verzögerte Neutronen",
-      "Keplersche Gesetze der Planetenbewegung"
+      "Massenerhaltung bei chemischen Reaktionen"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -99531,8 +99531,8 @@
     "correctAnswer": "Richterskala (Erdbebenstärke)",
     "options": [
       "Richterskala (Erdbebenstärke)",
-      "Elektromagnetische Induktion",
       "Kosmische Hintergrundstrahlung",
+      "Elektromagnetische Induktion",
       "Röntgenbeugung an Kristallen"
     ],
     "testedAttribute": null,
@@ -99550,8 +99550,8 @@
     "correctAnswer": "Mohorovičić-Diskontinuität (Erdkruste-Mantel-Grenze)",
     "options": [
       "Mohorovičić-Diskontinuität (Erdkruste-Mantel-Grenze)",
-      "Helicobacter pylori als Ursache von Magengeschwüren",
       "Lichtgeschwindigkeit als elektromagnetisches Phänomen",
+      "Helicobacter pylori als Ursache von Magengeschwüren",
       "Umwandlung der Elemente durch radioaktiven Zerfall"
     ],
     "testedAttribute": null,
@@ -99571,7 +99571,7 @@
       "Radiometrische Altersbestimmung der Erde",
       "Anaphylaxie / Allergie als Immunreaktion",
       "Massenerhaltung bei chemischen Reaktionen",
-      "Keplersche Gesetze der Planetenbewegung"
+      "Nachweis der Erdrotation mit dem Pendel"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -99590,7 +99590,7 @@
       "Lucy (Australopithecus afarensis)",
       "Mutationen durch Röntgenstrahlung",
       "Ozonschicht-Zerstörung durch FCKW",
-      "Wiederkehr des Halleyschen Kometen"
+      "Quantenmechanik / Quantentheorie"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -99607,8 +99607,8 @@
     "correctAnswer": "Umpolung des Erdmagnetfelds",
     "options": [
       "Umpolung des Erdmagnetfelds",
-      "Blutgerinnung und Vitamin K",
       "Bakterien / Mikroorganismen",
+      "Marsmonde Phobos und Deimos",
       "Zusammensetzung des Wassers"
     ],
     "testedAttribute": null,

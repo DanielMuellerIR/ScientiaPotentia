@@ -12,26 +12,12 @@
  *   node scripts/data_sources/harvest/append_concepts.cjs <domain> <candPathRelativRepo> [--write]
  *   (ohne --write nur Bericht)
  */
-const fs = require('node:fs');
 const path = require('node:path');
+const {
+  assertSafeDomain, readJsonArray, writeJsonAtomic
+} = require('./json_io.cjs');
 
 const ROOT = path.join(__dirname, '..', '..', '..');
-const domain = process.argv[2];
-const candArg = process.argv[3];
-const WRITE = process.argv.includes('--write');
-if (!domain || !candArg) {
-  console.error('Aufruf: append_concepts.cjs <domain> <candPath> [--write]');
-  process.exit(1);
-}
-
-const rawPath = path.join(ROOT, 'scripts', 'data_sources', `${domain}_raw.json`);
-const candPath = path.isAbsolute(candArg) ? candArg : path.join(ROOT, candArg);
-
-const raw = JSON.parse(fs.readFileSync(rawPath, 'utf8'));
-const cand = JSON.parse(fs.readFileSync(candPath, 'utf8'));
-if (!Array.isArray(raw) || !Array.isArray(cand)) {
-  console.error('raw und Kandidatendatei müssen JSON-Arrays sein.'); process.exit(1);
-}
 
 function norm(s) {
   return String(s ?? '').toLowerCase()
@@ -39,37 +25,95 @@ function norm(s) {
     .replace(/[^a-z0-9+#]+/g, ' ').trim();
 }
 
-const ids = new Set(raw.map(c => c.id));
-const nameKeys = new Set(raw.map(c => `${c.category}|${norm(c.name)}`));
+function hasConceptStructure(concept) {
+  return Boolean(
+    concept
+    && typeof concept.id === 'string' && concept.id.trim()
+    && typeof concept.name === 'string' && concept.name.trim()
+    && typeof concept.category === 'string' && concept.category.trim()
+    && concept.attributes && typeof concept.attributes === 'object'
+    && !Array.isArray(concept.attributes)
+  );
+}
 
-const kept = [];
-const dropped = [];
-for (const c of cand) {
-  if (!c || !c.id || !c.name || !c.category || !c.attributes || typeof c.attributes !== 'object') {
-    dropped.push({ name: c && c.name, reason: 'Struktur unvollständig (id/name/category/attributes)' });
-    continue;
+function main() {
+  const [domainArgument, candidateArgument, ...flags] = process.argv.slice(2);
+  if (!domainArgument || !candidateArgument || flags.some(flag => flag !== '--write')) {
+    console.error('Aufruf: append_concepts.cjs <domain> <candPath> [--write]');
+    return 1;
   }
-  const nkey = `${c.category}|${norm(c.name)}`;
-  if (ids.has(c.id)) { dropped.push({ name: c.name, reason: `id-Dublette (${c.id})` }); continue; }
-  if (nameKeys.has(nkey)) { dropped.push({ name: c.name, reason: `Name-Dublette (${c.category})` }); continue; }
-  ids.add(c.id); nameKeys.add(nkey);
-  kept.push(c);
+  let domain;
+  let raw;
+  let candidates;
+  let rawPath;
+  try {
+    domain = assertSafeDomain(domainArgument);
+    rawPath = path.join(ROOT, 'scripts', 'data_sources', `${domain}_raw.json`);
+    const candidatePath = path.isAbsolute(candidateArgument)
+      ? candidateArgument
+      : path.join(ROOT, candidateArgument);
+    raw = readJsonArray(rawPath, `${domain}_raw.json`);
+    candidates = readJsonArray(candidatePath, path.basename(candidatePath));
+    const invalidIndex = raw.findIndex(concept => !hasConceptStructure(concept));
+    if (invalidIndex >= 0) {
+      throw new Error(`Rohkatalog: Konzept ${invalidIndex + 1} ist strukturell unvollständig`);
+    }
+  } catch (error) {
+    console.error(`FEHLER: ${error.message}`);
+    return 1;
+  }
+
+  const ids = new Set(raw.map(concept => concept.id));
+  const nameKeys = new Set(raw.map(
+    concept => `${concept.category}|${norm(concept.name)}`));
+  const kept = [];
+  const dropped = [];
+  for (const concept of candidates) {
+    if (!hasConceptStructure(concept)) {
+      dropped.push({
+        name: concept && concept.name,
+        reason: 'Struktur unvollständig (id/name/category/attributes)',
+      });
+      continue;
+    }
+    const nameKey = `${concept.category}|${norm(concept.name)}`;
+    if (ids.has(concept.id)) {
+      dropped.push({ name: concept.name, reason: `id-Dublette (${concept.id})` });
+      continue;
+    }
+    if (nameKeys.has(nameKey)) {
+      dropped.push({
+        name: concept.name,
+        reason: `Name-Dublette (${concept.category})`,
+      });
+      continue;
+    }
+    ids.add(concept.id);
+    nameKeys.add(nameKey);
+    kept.push(concept);
+  }
+
+  const byCategory = {};
+  for (const concept of kept) {
+    byCategory[concept.category] = (byCategory[concept.category] || 0) + 1;
+  }
+  console.log(`Domain: ${domain}`);
+  console.log(`Bestand: ${raw.length}  Kandidaten: ${candidates.length}  -> neu behalten: ${kept.length}, verworfen: ${dropped.length}`);
+  console.log('Neu nach Kategorie:', byCategory);
+  if (dropped.length) {
+    console.log('--- Verworfen ---');
+    dropped.forEach(item => console.log(`  x ${item.name}: ${item.reason}`));
+  }
+
+  if (flags.includes('--write') && kept.length) {
+    writeJsonAtomic(rawPath, raw.concat(kept));
+    console.log(`\nGeschrieben: ${rawPath} (${raw.length} -> ${raw.length + kept.length})`);
+  } else if (flags.includes('--write')) {
+    console.log('\nKeine neuen Konzepte; Rohkatalog unverändert.');
+  } else {
+    console.log('\n[DRY-RUN] Nichts geschrieben. Mit --write anhängen.');
+  }
+  return 0;
 }
 
-const byCat = {};
-for (const c of kept) byCat[c.category] = (byCat[c.category] || 0) + 1;
-
-console.log(`Domain: ${domain}`);
-console.log(`Bestand: ${raw.length}  Kandidaten: ${cand.length}  -> neu behalten: ${kept.length}, verworfen: ${dropped.length}`);
-console.log('Neu nach Kategorie:', byCat);
-if (dropped.length) {
-  console.log('--- Verworfen ---');
-  dropped.forEach(d => console.log(`  x ${d.name}: ${d.reason}`));
-}
-
-if (WRITE) {
-  fs.writeFileSync(rawPath, JSON.stringify(raw.concat(kept), null, 2), 'utf8');
-  console.log(`\nGeschrieben: ${rawPath} (${raw.length} -> ${raw.length + kept.length})`);
-} else {
-  console.log('\n[DRY-RUN] Nichts geschrieben. Mit --write anhängen.');
-}
+process.exitCode = main();

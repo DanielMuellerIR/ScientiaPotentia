@@ -13,17 +13,38 @@
  *
  * Aufruf: node normalize_case.cjs <domain> [--wave=<suffix>] [--write]
  */
-const fs = require('node:fs');
 const path = require('node:path');
+const {
+  assertSafeDomain, readJsonArray, writeJsonAtomic
+} = require('./json_io.cjs');
 const ROOT = path.join(__dirname, '..', '..', '..');
-const domain = process.argv[2];
+const domainArgument = process.argv[2];
+const flags = process.argv.slice(3);
+const waveFlags = flags.filter(flag => flag.startsWith('--wave='));
+if (!domainArgument || waveFlags.length > 1
+    || flags.some(flag => flag !== '--write' && !/^--wave=[a-zA-Z0-9_-]+$/.test(flag))) {
+  console.error('Aufruf: normalize_case.cjs <domain> [--wave=<suffix>] [--write]');
+  process.exit(1);
+}
+let domain;
+try {
+  domain = assertSafeDomain(domainArgument);
+} catch (error) {
+  console.error(`FEHLER: ${error.message}`);
+  process.exit(1);
+}
 const WRITE = process.argv.includes('--write');
-const waveSuffix = (process.argv.find(a => a.startsWith('--wave=')) || '').split('=')[1] || null;
+const waveSuffix = (waveFlags[0] || '').split('=')[1] || null;
 // Bestehend = Konzept gehört NICHT zur aktuellen Welle (id endet nicht auf -<suffix>).
 const isExisting = c => !waveSuffix || !String(c.id).endsWith('-' + waveSuffix);
-if (!domain) { console.error('Aufruf: normalize_case.cjs <domain> [--wave=<suffix>] [--write]'); process.exit(1); }
 const rawPath = path.join(ROOT, 'scripts', 'data_sources', `${domain}_raw.json`);
-const raw = JSON.parse(fs.readFileSync(rawPath, 'utf8'));
+let raw;
+try {
+  raw = readJsonArray(rawPath, `${domain}_raw.json`);
+} catch (error) {
+  console.error(`FEHLER: ${error.message}`);
+  process.exit(1);
+}
 
 // Alle string-wertigen Attribut-Keys einsammeln (kategoriale Werte).
 const keys = new Set();
@@ -44,10 +65,14 @@ for (const key of keys) {
   for (const [lc, variants] of Object.entries(groups)) {
     const forms = Object.keys(variants);
     if (forms.length < 2) continue; // keine Mehrdeutigkeit
-    // kanonisch = häufigste Schreibung im BESTAND; fällt der Bestand aus, häufigste gesamt
+    // kanonisch = häufigste Schreibung im BESTAND; fällt der Bestand komplett
+    // aus, häufigste gesamt. Bei Bestandsgleichstand entscheidet wie dokumentiert
+    // alphabetisch — die neue Welle darf den Tie-Break nicht beeinflussen.
+    const hasExistingVariant = forms.some(form => variants[form].existing > 0);
     const canonical = forms.sort((a, b) =>
-      (variants[b].existing - variants[a].existing) ||
-      (variants[b].all - variants[a].all) ||
+      (hasExistingVariant
+        ? variants[b].existing - variants[a].existing
+        : variants[b].all - variants[a].all) ||
       a.localeCompare(b, 'de'))[0];
     for (const c of raw) {
       // Nur Wellen-Konzepte (NICHT Bestand) anpassen — verifizierte Bestandswerte
@@ -65,7 +90,7 @@ for (const key of keys) {
 console.log(`${domain}: ${changes.length} Werte normalisiert.`);
 changes.slice(0, 30).forEach(s => console.log('  ' + s));
 if (WRITE && changes.length) {
-  fs.writeFileSync(rawPath, JSON.stringify(raw, null, 2), 'utf8');
+  writeJsonAtomic(rawPath, raw);
   console.log(`Geschrieben: ${rawPath}`);
 } else if (!WRITE) {
   console.log('[DRY-RUN] Mit --write anwenden.');

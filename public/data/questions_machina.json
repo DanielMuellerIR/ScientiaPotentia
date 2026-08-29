@@ -57551,6 +57551,25 @@
     "mapTargetId": null
   },
   {
+    "id": "q_machina_hw-soundkarte_machina-hw-category",
+    "entityId": "machina:hw-soundkarte",
+    "entityType": "hardware",
+    "type": "machina-hw-category",
+    "difficulty": 3,
+    "prompt": "Zu welcher Gruppe von Hardware zählt Soundkarte?",
+    "correctAnswer": "Ausgabegerät",
+    "options": [
+      "Ausgabegerät",
+      "Speicherchip",
+      "Eingabegerät",
+      "Speichermodul"
+    ],
+    "testedAttribute": "category",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
     "id": "q_machina_hw-gamepad_machina-hw-category",
     "entityId": "machina:hw-gamepad",
     "entityType": "hardware",
@@ -73155,7 +73174,7 @@
     "entityType": "concept",
     "type": "machina-concept-definition-rev",
     "difficulty": 4,
-    "prompt": "Welches IT-Konzept beschreibt folgende Definition?\n„Abstraktes theoretisches Rechenmodell, das einen unendlichen Schreib-Lese-Kopf auf einem Band beschreibt und die Grenzen des algorithmisch Berechenbaren definiert”",
+    "prompt": "Welches IT-Konzept beschreibt folgende Definition?\n„Abstraktes theoretisches Rechenmodell mit einem Schreib-Lese-Kopf, der auf einem unendlich langen Band operiert, und das die Grenzen des algorithmisch Berechenbaren definiert”",
     "correctAnswer": "Turing-Maschine",
     "options": [
       "Turing-Maschine",
@@ -94459,8 +94478,8 @@
     "options": [
       "Netzteil",
       "Mikrofon",
-      "L2-Cache",
-      "Joystick"
+      "Joystick",
+      "L2-Cache"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -94479,7 +94498,7 @@
       "Monitor",
       "Scanner",
       "Gamepad",
-      "Repeater"
+      "L3-Cache"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -94536,7 +94555,7 @@
       "Drucker",
       "Scanner",
       "Gamepad",
-      "Tastatur"
+      "L1-Cache"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -94592,8 +94611,8 @@
     "options": [
       "BIOS-Chip",
       "CPU-Cache",
-      "SFP-Modul",
-      "Kopfhörer"
+      "Taktgeber",
+      "Trackball"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -94667,8 +94686,8 @@
     "correctAnswer": "Lautsprecher",
     "options": [
       "Lautsprecher",
-      "PoE-Splitter",
       "Lichtgriffel",
+      "Bandlaufwerk",
       "UFS-Speicher"
     ],
     "testedAttribute": null,
@@ -94762,9 +94781,9 @@
     "correctAnswer": "3D-Drucker",
     "options": [
       "3D-Drucker",
-      "Widerstand",
-      "KVM-Switch",
-      "Leiterbahn"
+      "ZIF-Sockel",
+      "Leiterbahn",
+      "Widerstand"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -94781,8 +94800,8 @@
     "correctAnswer": "Beamer",
     "options": [
       "Beamer",
-      "Router",
       "Stylus",
+      "Router",
       "Lüfter"
     ],
     "testedAttribute": null,
@@ -94834,13 +94853,13 @@
     "entityType": "hardware",
     "type": "machina-hw-category-rev",
     "difficulty": 3,
-    "prompt": "Welche dieser Komponenten gehört zur Gruppe „Hauptplatine/Bus“?",
+    "prompt": "Welche dieser Komponenten gehört zur Gruppe „Ausgabegerät“?",
     "correctAnswer": "Soundkarte",
     "options": [
       "Soundkarte",
       "Kühlkörper",
       "Steuerwerk",
-      "Transistor"
+      "KVM-Switch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -94914,9 +94933,9 @@
     "correctAnswer": "TPM-Chip",
     "options": [
       "TPM-Chip",
-      "Heatpipe",
       "L1-Cache",
-      "Mikrofon"
+      "Mikrofon",
+      "Touchpad"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -95066,9 +95085,9 @@
     "correctAnswer": "Dockingstation",
     "options": [
       "Dockingstation",
-      "Gyroskopsensor",
       "PCI-Steckplatz",
-      "Glasfaserkabel"
+      "Glasfaserkabel",
+      "Tochterplatine"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -95239,7 +95258,7 @@
       "Kopfhörer",
       "Lochkarte",
       "Mainboard",
-      "RTC-Modul"
+      "BIOS-Chip"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -95598,9 +95617,9 @@
     "correctAnswer": "VR-Headset",
     "options": [
       "VR-Headset",
-      "KVM-Switch",
+      "Patchpanel",
       "Steuerwerk",
-      "Soundkarte"
+      "Kühlkörper"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -96322,7 +96341,7 @@
       "DMA-Controller",
       "Tochterplatine",
       "Wärmeleitpaste",
-      "Schwungrad-USV"
+      "PCI-Steckplatz"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -96339,9 +96358,9 @@
     "correctAnswer": "Northbridge",
     "options": [
       "Northbridge",
-      "DisplayPort",
+      "Grafikkarte",
       "Riser-Karte",
-      "Touchscreen"
+      "DisplayPort"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -96358,9 +96377,9 @@
     "correctAnswer": "Southbridge",
     "options": [
       "Southbridge",
-      "Kartenleser",
       "Staubfilter",
-      "Kondensator"
+      "Touchscreen",
+      "RJ45-Buchse"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -96378,8 +96397,8 @@
     "options": [
       "Systembus",
       "USB-Stick",
-      "Kopfhörer",
-      "Taktgeber"
+      "Backplane",
+      "Lochkarte"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -96530,8 +96549,8 @@
     "options": [
       "Siebensegmentanzeige",
       "Umgebungslichtsensor",
-      "PWM-Lüftersteuerung",
-      "Fingerabdrucksensor"
+      "Fingerabdrucksensor",
+      "Beschleunigungssensor"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -96567,9 +96586,9 @@
     "correctAnswer": "Piezo-Summer",
     "options": [
       "Piezo-Summer",
-      "WLAN-Antenne",
+      "Wärmeleitpad",
       "Lichtgriffel",
-      "Wärmeleitpad"
+      "Bandlaufwerk"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -96605,9 +96624,9 @@
     "correctAnswer": "Leiterplatte",
     "options": [
       "Leiterplatte",
-      "WLAN-Antenne",
       "UFS-Speicher",
-      "Netzwerk-Hub"
+      "WLAN-Antenne",
+      "eGPU-Gehäuse"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -96700,9 +96719,9 @@
     "correctAnswer": "Jumper",
     "options": [
       "Jumper",
-      "Lüfter",
+      "Router",
       "Webcam",
-      "Router"
+      "Lüfter"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -97214,8 +97233,8 @@
     "options": [
       "PCIe-Switch",
       "Kartenleser",
-      "Grafikkarte",
-      "Kondensator"
+      "Kondensator",
+      "DisplayPort"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -97346,9 +97365,9 @@
     "correctAnswer": "ZIF-Sockel",
     "options": [
       "ZIF-Sockel",
-      "Magnetband",
-      "Thermistor",
-      "Leiterbahn"
+      "Leiterbahn",
+      "Steuerwerk",
+      "Magnetband"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -97498,9 +97517,9 @@
     "correctAnswer": "Front-Panel-Anschluss",
     "options": [
       "Front-Panel-Anschluss",
+      "Thunderbolt-Anschluss",
       "Beschleunigungssensor",
-      "Quarzoszillator-Modul",
-      "Thunderbolt-Anschluss"
+      "Quarzoszillator-Modul"
     ],
     "testedAttribute": null,
     "answerIsName": true,
