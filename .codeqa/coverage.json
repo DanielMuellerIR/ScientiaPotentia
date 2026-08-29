@@ -6,7 +6,7 @@
     "token_budget": 8000000,
     "status": "active",
     "started_at": "2026-08-29T20:44:29+02:00",
-    "tokens_spent": 395268
+    "tokens_spent": 502708
   },
   "campaign_history": [],
   "scope": {
@@ -153,7 +153,8 @@
       "tests/test_deploy.py",
       "tests/test_qa_review.py",
       "vite.config.js",
-      "src/__tests__/db.test.js"
+      "src/__tests__/db.test.js",
+      "src/__tests__/AppOrchestration.test.jsx"
     ],
     "exclusions": []
   },
@@ -306,13 +307,24 @@
       "risk": "high",
       "priority": 5,
       "reason": "Fragenauswahl, Antwortauswertung, Fortschrittsschreiben und Rundensteuerung",
-      "state": "in_progress",
-      "active_run": {
+      "state": "completed",
+      "last_run": {
         "campaign_id": "20260829T204429059458+0200",
-        "started_at": "2026-08-29T20:58:49+02:00",
-        "required_review": "full",
-        "status_at_start": "pending",
-        "covered_pending_paths": []
+        "completed_at": "2026-08-29T21:05:20+02:00",
+        "observed_head": "07748726a13f1cb995d2de653fce4c94ab1490f7",
+        "content_sha256": "a4afb4ada28bbe2533ceaab6d7af0fc7e02ee5e880795d2a8a447639dec96ae3",
+        "file_count": 10,
+        "review": "full",
+        "outcome": "improved",
+        "summary": "Quiz-Auswahl, Rundensteuerung, Fortschrittsschreiben, Visual-Reveal, Dashboard, Audio- und Mischlogik wurden vollständig geprüft. Fehlgeschlagene Fortschritts-Commits werden beobachtet und sichtbar gemeldet; optionale Array-Props lösen keine Regenerationsschleife mehr aus; GeoJSON lädt nur noch für den tatsächlichen Silhouetten-Fallback; Mehrspielerwechsel, Radiogruppen und Dashboard-Prozente spiegeln den wirklichen Zustand wider.",
+        "tests": [
+          "npm test -- QuizIntegration, Dashboard, AnswerRevealImage, shuffle: passed (21)",
+          "npm test: passed (162)",
+          "npm run build: passed",
+          "npm run check:layout: passed (44/44)",
+          "python3 -m unittest tests/test_deploy.py tests/test_qa_review.py: passed (23)",
+          "Browser: Survival-zu-Mehrspieler-Wechsel, faire 26er-Runde, Antwort, Bild-Reveal und CC-BY-SA-Nachweis geprüft; Konsole ohne Warnungen/Fehler"
+        ]
       }
     },
     {
@@ -320,12 +332,23 @@
       "paths": [
         "src/App.jsx",
         "src/main.jsx",
-        "src/setupTests.js"
+        "src/setupTests.js",
+        "src/__tests__/AppOrchestration.test.jsx"
       ],
       "risk": "high",
       "priority": 6,
       "reason": "Zentrale Lade-, Ansichts-, Spiel- und Shell-Zustände mit breiter Aufrufwirkung",
-      "state": "pending"
+      "state": "in_progress",
+      "active_run": {
+        "campaign_id": "20260829T204429059458+0200",
+        "started_at": "2026-08-29T21:05:25+02:00",
+        "required_review": "full",
+        "status_at_start": "pending",
+        "covered_pending_paths": []
+      },
+      "pending_paths": [
+        "src/__tests__/AppOrchestration.test.jsx"
+      ]
     },
     {
       "id": "terra-map",

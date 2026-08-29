@@ -17,6 +17,29 @@ import { BarChart3, HelpCircle, Compass, Flame, Trophy, Volume2, VolumeX, Images
 const MuseumExplorer = lazy(() => import('./components/MuseumExplorer'));
 const EMPTY_CONCEPTS = Object.freeze({});
 const EMPTY_QUESTIONS = Object.freeze([]);
+const DAY_MS = 24 * 60 * 60 * 1000;
+
+function localDateKey(date) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}
+
+// Neue Werte liegen als lokales ISO-Datum vor. Die zweite Variante liest die
+// frühere Date.toDateString()-Ablage weiter, damit bestehende Streaks erhalten bleiben.
+function parseStoredLocalDate(value) {
+  if (typeof value !== 'string' || !value) return null;
+  const isoMatch = /^(\d{4})-(\d{2})-(\d{2})$/.exec(value);
+  const date = isoMatch
+    ? new Date(Number(isoMatch[1]), Number(isoMatch[2]) - 1, Number(isoMatch[3]))
+    : new Date(value);
+  return Number.isNaN(date.getTime()) ? null : date;
+}
+
+function localDayNumber(date) {
+  return Math.floor(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()) / DAY_MS);
+}
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('dashboard'); // 'dashboard' | 'atlas' | 'explore' | 'quiz' | 'museum'
@@ -120,6 +143,10 @@ export default function App() {
   const [newEntities, setNewEntities] = useState([]);
   const [streakCount, setStreakCount] = useState(0);
   const [highScore, setHighScore] = useState(0);
+  // Eine Runde lebt vollständig im React-Zustand; ein persistierter Zwischenstand
+  // würde nach Reload ohnehin keine Runde wiederherstellen. Die synchrone Referenz
+  // verhindert zudem ein Rennen zwischen Rundenreset und erster Antwort.
+  const activeScoreRef = React.useRef(0);
 
   // Map state to convey quiz styles/highlights
   const [mapState, setMapState] = useState({
@@ -198,34 +225,40 @@ export default function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeDomainId, needsDomainData]);
 
-  // Museum-Daten: beim ersten Öffnen des Museum-Tabs alle Domains parallel laden.
-  // Das Laden geschieht nur einmal (Prüfung Object.keys länge) und wird gecacht.
+  // Museum-Daten: beim Öffnen fehlende Domains parallel laden. Erfolgreiche
+  // Kataloge bleiben gecacht; vorübergehend fehlgeschlagene werden beim nächsten
+  // Museumsbesuch erneut versucht.
   useEffect(() => {
     if (activeTab !== 'museum') return;
-    // Nur nachladen, wenn noch keine Daten vorhanden.
-    if (Object.keys(allDomainData).length > 0) return;
-    let cancelled = false;
-    setMuseumLoading(true);
-    setMuseumLoadFailed(false);
     // 'scientia' ist der domänenübergreifende Mischbereich — seine loadConcepts()
     // liefert ALLE Konzepte der anderen Domains nochmal. Im Museum würde dadurch
     // jedes Bild doppelt erscheinen (doppelte React-Keys, aufgeblähte Zählung,
     // redundanter Filter-Chip). Darum hier überspringen und nur die echten
     // Quell-Domains laden.
     const museumDomains = DOMAINS.filter(domain => domain.id !== 'scientia');
+    // Nur erfolgreiche Kataloge gelten als gecacht. Fehlgeschlagene Domains
+    // bleiben hier übrig und werden beim nächsten Museumsbesuch erneut versucht.
+    const missingDomains = museumDomains.filter(domain => (
+      !Object.prototype.hasOwnProperty.call(allDomainData, domain.id)
+    ));
+    if (missingDomains.length === 0) return;
+    let cancelled = false;
+    setMuseumLoading(true);
+    setMuseumLoadFailed(false);
     Promise.all(
-      museumDomains.map(domain =>
+      missingDomains.map(domain =>
         loadDomainConcepts(domain)
           .then(data => ({ id: domain.id, data, ok: true }))
           .catch(() => ({ id: domain.id, data: {}, ok: false }))
       )
     ).then(results => {
       if (cancelled) return;
-      const map = {};
-      results.forEach(({ id, data }) => { map[id] = data; });
-      setAllDomainData(map);
-      // Kompletter Ladefehler = keine einzige Domain ließ sich laden.
-      setMuseumLoadFailed(results.every(r => !r.ok));
+      const loaded = {};
+      results.filter(result => result.ok).forEach(({ id, data }) => { loaded[id] = data; });
+      setAllDomainData(current => ({ ...current, ...loaded }));
+      // Vorhandene Teildaten bleiben nutzbar. Nur ohne einen einzigen erfolgreichen
+      // Katalog zeigt das Museum den Fehlerzustand; erneutes Öffnen versucht es wieder.
+      setMuseumLoadFailed(Object.keys(allDomainData).length === 0 && Object.keys(loaded).length === 0);
       setMuseumLoading(false);
     });
     return () => { cancelled = true; };
@@ -299,15 +332,18 @@ export default function App() {
         return;
       }
 
-      const lastReview = new Date(lastReviewDateStr);
+      const lastReview = parseStoredLocalDate(lastReviewDateStr);
+      if (!lastReview) {
+        setStreakCount(0);
+        await saveSetting('streakCount', 0);
+        return;
+      }
       const today = new Date();
-      today.setHours(0, 0, 0, 0);
-      lastReview.setHours(0, 0, 0, 0);
+      // Kalendertage statt Millisekunden vergleichen: Ein 25-Stunden-Tag beim
+      // Ende der Sommerzeit darf einen gestrigen Review nicht als zwei Tage alt werten.
+      const diffDays = localDayNumber(today) - localDayNumber(lastReview);
 
-      const diffTime = Math.abs(today - lastReview);
-      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-
-      if (diffDays > 1) {
+      if (diffDays > 1 || diffDays < 0) {
         setStreakCount(0);
         await saveSetting('streakCount', 0);
       } else {
@@ -328,15 +364,12 @@ export default function App() {
   };
 
   const handleAddScorePoints = async (pointsEarned) => {
+    const newScore = activeScoreRef.current + pointsEarned;
+    activeScoreRef.current = newScore;
+    if (newScore <= highScore) return;
+    setHighScore(previous => Math.max(previous, newScore));
     try {
-      const currentScore = await getSetting('activeScore', 0);
-      const newScore = currentScore + pointsEarned;
-      await saveSetting('activeScore', newScore);
-      
-      if (newScore > highScore) {
-        setHighScore(newScore);
-        await saveSetting('highScore', newScore);
-      }
+      await saveSetting('highScore', newScore);
     } catch (e) {
       console.error('Error updating score:', e);
     }
@@ -364,7 +397,10 @@ export default function App() {
     if (targetEntity) {
       setDueEntities([targetEntity]);
       setNewEntities([]);
+      setQuizMode('all');
+      setQuizRoundConfig({ kind: 'fixed', length: 1 });
       setQuizPlayers([]);   // Schnellquiz ist immer Einzelspieler
+      activeScoreRef.current = 0;
       setQuizArmed(true);   // Schnellquiz startet ohne Vorschalt-Screen direkt
       setActiveTab('quiz');
     }
@@ -377,27 +413,36 @@ export default function App() {
     setQuizMode(mode);
     if (roundConfig) setQuizRoundConfig(roundConfig); // feste Länge oder Survival
     setQuizPlayers(Array.isArray(players) ? players : []); // [] = Einzelspieler
+    activeScoreRef.current = 0;
     setQuizArmed(true); // Runde scharf stellen -> Quiz statt Vorschalt-Screen
-    saveSetting('activeScore', 0); // Reset score points for the new round
     setActiveTab('quiz');
   };
 
   const handleQuizFinished = async () => {
     playClick();
-    const today = new Date();
-    const todayStr = today.toDateString();
-    const lastReviewDateStr = await getSetting('lastReviewDate', null);
+    try {
+      const today = new Date();
+      const todayKey = localDateKey(today);
+      const lastReviewDateStr = await getSetting('lastReviewDate', null);
+      const lastReview = parseStoredLocalDate(lastReviewDateStr);
+      const lastReviewKey = lastReview ? localDateKey(lastReview) : null;
 
-    if (lastReviewDateStr !== todayStr) {
-      const newStreak = streakCount + 1;
-      setStreakCount(newStreak);
-      await saveSetting('streakCount', newStreak);
-      await saveSetting('lastReviewDate', todayStr);
+      if (lastReviewKey !== todayKey) {
+        const newStreak = streakCount + 1;
+        setStreakCount(newStreak);
+        await saveSetting('streakCount', newStreak);
+      }
+      // Migriert auch einen alten Date.toDateString()-Wert vom heutigen Tag.
+      if (lastReviewDateStr !== todayKey) await saveSetting('lastReviewDate', todayKey);
+    } catch (e) {
+      // Ein Streak-Schreibfehler darf den Abschluss nicht auf der Ergebnisansicht
+      // festhalten. Die Antwort-Transaktionen selbst behandelt Quiz separat.
+      console.error('Error finishing quiz:', e);
+    } finally {
+      await loadProgressData();
+      setQuizArmed(false); // Runde beendet -> nächster Lern-Quiz-Aufruf zeigt wieder die Wahl
+      setActiveTab('dashboard');
     }
-
-    await loadProgressData();
-    setQuizArmed(false); // Runde beendet -> nächster Lern-Quiz-Aufruf zeigt wieder die Wahl
-    setActiveTab('dashboard');
   };
 
   const handleTabChange = (tab) => {
