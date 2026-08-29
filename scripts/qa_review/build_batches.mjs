@@ -31,7 +31,9 @@
  *   node scripts/qa_review/build_batches.mjs --domain all --per-type 1 --out <dir>
  */
 
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import {
+  readFileSync, writeFileSync, mkdirSync, readdirSync, unlinkSync
+} from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import {
@@ -45,6 +47,7 @@ const DATA_DIR = join(__dirname, '..', '..', 'public', 'data');
 const GENERIC_DOMAINS = ['natura', 'cultura', 'lingua', 'machina', 'historia'];
 // Domains mit eigener grafischer Visualisierung (nur Prompt+Optionen; Panel „grafisch").
 const VISUAL_DOMAINS = { astra: '3D-Planetensystem', homo: 'Anatomie-Grafik' };
+const SUPPORTED_DOMAINS = [...GENERIC_DOMAINS, ...Object.keys(VISUAL_DOMAINS)];
 
 // --- Mini-PRNG (mulberry32), damit die Stichprobe bei gleichem --seed reproduzierbar ist.
 function mulberry32(seed) {
@@ -163,28 +166,62 @@ function sampleDomain(domain, perType, rng) {
 
 function parseArgs(argv) {
   const args = { domain: 'all', perType: 2, batch: 20, seed: 42, out: null };
+  const readValue = (index, flag) => {
+    const value = argv[index + 1];
+    if (value === undefined || value.startsWith('--')) {
+      throw new Error(`${flag} erwartet einen Wert`);
+    }
+    return value;
+  };
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
-    if (a === '--domain') args.domain = argv[++i];
-    else if (a === '--per-type') args.perType = parseInt(argv[++i], 10);
-    else if (a === '--batch') args.batch = parseInt(argv[++i], 10);
-    else if (a === '--seed') args.seed = parseInt(argv[++i], 10);
-    else if (a === '--out') args.out = argv[++i];
+    if (a === '--domain') args.domain = readValue(i++, a);
+    else if (a === '--per-type') args.perType = Number(readValue(i++, a));
+    else if (a === '--batch') args.batch = Number(readValue(i++, a));
+    else if (a === '--seed') args.seed = Number(readValue(i++, a));
+    else if (a === '--out') args.out = readValue(i++, a);
+    else throw new Error(`unbekanntes Argument: ${a}`);
   }
+  if (!args.out) throw new Error('--out <dir> erforderlich');
+  if (!Number.isInteger(args.perType) || args.perType <= 0) {
+    throw new Error('--per-type muss eine positive Ganzzahl sein');
+  }
+  if (!Number.isInteger(args.batch) || args.batch <= 0) {
+    throw new Error('--batch muss eine positive Ganzzahl sein');
+  }
+  if (!Number.isInteger(args.seed)) throw new Error('--seed muss eine Ganzzahl sein');
   return args;
 }
 
+function resolveDomains(domainArgument) {
+  const domains = domainArgument === 'all'
+    ? [...GENERIC_DOMAINS, ...Object.keys(VISUAL_DOMAINS)]
+    : domainArgument === 'generic'
+      ? GENERIC_DOMAINS
+      : domainArgument.split(',').map(d => d.trim()).filter(Boolean);
+  if (!domains.length) throw new Error('--domain enthält keinen Bereich');
+  const unknown = domains.filter((domain) => !SUPPORTED_DOMAINS.includes(domain));
+  if (unknown.length) throw new Error(`nicht unterstützte Domain: ${unknown.join(', ')}`);
+  if (new Set(domains).size !== domains.length) {
+    throw new Error('--domain enthält einen Bereich mehrfach');
+  }
+  return domains;
+}
+
 function main() {
-  const args = parseArgs(process.argv.slice(2));
-  if (!args.out) { console.error('FEHLER: --out <dir> erforderlich'); process.exit(2); }
+  let args;
+  let domains;
+  try {
+    args = parseArgs(process.argv.slice(2));
+    domains = resolveDomains(args.domain);
+  } catch (error) {
+    console.error(`FEHLER: ${error.message}`);
+    process.exitCode = 2;
+    return;
+  }
   mkdirSync(args.out, { recursive: true });
 
   const rng = mulberry32(args.seed);
-  const domains = args.domain === 'all'
-    ? [...GENERIC_DOMAINS, ...Object.keys(VISUAL_DOMAINS)]
-    : args.domain === 'generic'
-      ? GENERIC_DOMAINS
-      : args.domain.split(',').map(d => d.trim());
 
   let allViews = [];
   for (const d of domains) allViews = allViews.concat(sampleDomain(d, args.perType, rng));
@@ -193,6 +230,13 @@ function main() {
   const batches = [];
   for (let i = 0; i < allViews.length; i += args.batch) {
     batches.push(allViews.slice(i, i + args.batch));
+  }
+
+  // Das Ausgabeverzeichnis ist ein Snapshot. Ohne Bereinigung würden kleinere
+  // Folgeläufe alte höhere Batchnummern behalten und der Runner diese zusätzlich
+  // bewerten. Andere Dateien im Verzeichnis bleiben bewusst unangetastet.
+  for (const name of readdirSync(args.out)) {
+    if (/^batch_\d+\.json$/.test(name)) unlinkSync(join(args.out, name));
   }
   batches.forEach((b, idx) => {
     const name = `batch_${String(idx).padStart(3, '0')}.json`;

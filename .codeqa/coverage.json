@@ -6,7 +6,7 @@
     "token_budget": 8000000,
     "status": "active",
     "started_at": "2026-08-29T20:44:29+02:00",
-    "tokens_spent": 1961146
+    "tokens_spent": 2143947
   },
   "campaign_history": [],
   "scope": {
@@ -697,13 +697,19 @@
       "risk": "medium",
       "priority": 18,
       "reason": "Galerie-, Museum-, Lightbox- und bereichsübergreifende Hub-Navigation",
-      "state": "in_progress",
-      "active_run": {
+      "state": "completed",
+      "last_run": {
         "campaign_id": "20260829T204429059458+0200",
-        "started_at": "2026-08-29T22:13:07+02:00",
-        "required_review": "full",
-        "status_at_start": "pending",
-        "covered_pending_paths": []
+        "completed_at": "2026-08-29T22:22:07+02:00",
+        "observed_head": "8fcca1aa4ea451a48d3ee2761e633137b4c8b7ea",
+        "content_sha256": "b1b18af49b6e587798a980f96fd88b1a4999d0de15e9490b5db6682bd3e0480f",
+        "file_count": 7,
+        "review": "full",
+        "outcome": "improved",
+        "summary": "Museum und Galerie verwerfen beim globalen Bereichswechsel veraltete Saal-, Such- und Lightbox-Zustände; die Lightbox verhindert Hintergrundnavigation, zeigt gemeinsame deutsche Kennwertlabels samt Einheit, und der Hub leitet Querbeet-Titel und -Beschreibung aus dem tatsächlichen Mischpool ab.",
+        "tests": [
+          "218 Vitest-Tests; 10.468 Bildnachweise; Vite-Produktionsbuild mit 49.825 Fragen, 13.016 Konzepten und 5.234 Bildern; Layoutvertrag 44/44; Deploy-Tests 21/21; echter Browser: Hub, Natura→Homo-Galeriereset, Homo-Museumssaal, Fachlabels, Bildnachweis, Pfeilnavigation ohne Scrollen, leere Warn-/Fehlerkonsole."
+        ]
       }
     },
     {
@@ -717,7 +723,14 @@
       "risk": "medium",
       "priority": 19,
       "reason": "Batchaufteilung, Resume-Sicherheit und maschinenlesbare Auswertung der Inhalts-QA",
-      "state": "pending"
+      "state": "in_progress",
+      "active_run": {
+        "campaign_id": "20260829T204429059458+0200",
+        "started_at": "2026-08-29T22:22:07+02:00",
+        "required_review": "full",
+        "status_at_start": "pending",
+        "covered_pending_paths": []
+      }
     },
     {
       "id": "harvest-shared-tools",

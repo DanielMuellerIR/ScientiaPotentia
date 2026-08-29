@@ -37,6 +37,20 @@ DEFAULT_LLM_RUNNER = os.environ.get('SCIENTIA_LLM_RUNNER', '')
 
 LETTERS = ['A', 'B', 'C', 'D', 'E', 'F']
 
+EVALUATION_ENUMS = {
+    'eigeneAntwort': {'A', 'B', 'C', 'D'},
+    'basis': {'wissen', 'hinweis', 'raten'},
+    'confidence': {'hoch', 'mittel', 'niedrig'},
+    'selbstverraeter': {'keiner', 'schwach', 'stark'},
+    'wissensniveau': {'allgemein', 'gehoben', 'fachwissen', 'spezialwissen', 'zu_obskur'},
+    'klarheit': {'klar', 'leicht_mehrdeutig', 'unklar'},
+    'distraktoren': {'gut', 'schwach', 'defekt'},
+    'urteil': {'behalten', 'ueberarbeiten', 'verwerfen'},
+}
+EVALUATION_TEXT_FIELDS = (
+    'keyDoubtGrund', 'selbstverraeterGrund', 'distraktorenGrund',
+)
+
 # --- Bewertungs-Rubrik (System-/Aufgabenteil des Prompts) -------------------
 # Bewusst knapp, streng, deutsch. Enums klein halten → stabiles JSON.
 RUBRIK = """Du bist ein strenger Qualitätsprüfer für ein deutsches Wissens-Quiz (Multiple Choice).
@@ -209,6 +223,49 @@ def extract_json_array(text):
     return out
 
 
+def validate_evaluation(evaluation):
+    """Prüft das dokumentierte Modell-Ausgabeschema vollständig.
+
+    Eine vorhandene ID allein darf nicht als Bewertung zählen: Andernfalls kann
+    ein abgeschnittenes oder frei erfundenes Objekt einen grünen Exit-Code
+    erzeugen, obwohl Report und Rohdaten keine verwertbaren Dimensionen tragen.
+    """
+    if not isinstance(evaluation, dict):
+        return ['Objekt erwartet']
+    problems = []
+    if not isinstance(evaluation.get('id'), str) or not evaluation['id'].strip():
+        problems.append('id fehlt oder ist kein Text')
+    for field, allowed in EVALUATION_ENUMS.items():
+        if evaluation.get(field) not in allowed:
+            problems.append(f'{field} fehlt oder ist ungültig')
+    if type(evaluation.get('keyDoubt')) is not bool:  # bool, nicht 0/1 akzeptieren
+        problems.append('keyDoubt fehlt oder ist kein Boolean')
+    for field in EVALUATION_TEXT_FIELDS:
+        if not isinstance(evaluation.get(field), str):
+            problems.append(f'{field} fehlt oder ist kein Text')
+    if (not isinstance(evaluation.get('probleme'), list)
+            or not all(isinstance(item, str) for item in evaluation['probleme'])):
+        problems.append('probleme fehlt oder ist keine Textliste')
+    return problems
+
+
+def validate_view(view):
+    """Validiert die Felder, die Promptbau und Rückzuordnung zwingend brauchen."""
+    if not isinstance(view, dict):
+        return 'Fragenobjekt erwartet'
+    for field in ('id', 'domain', 'type', 'prompt'):
+        if not isinstance(view.get(field), str) or not view[field].strip():
+            return f'{field} fehlt oder ist kein Text'
+    options = view.get('options')
+    if not isinstance(options, list) or len(options) != 4:
+        return 'options muss genau 4 Einträge enthalten'
+    if not all(isinstance(option, str) for option in options):
+        return 'options enthält einen Nicht-Textwert'
+    if view.get('keyedAnswer') not in options:
+        return 'keyedAnswer fehlt in options'
+    return None
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--batches', required=True, help='Verzeichnis mit batch_*.json')
@@ -230,6 +287,10 @@ def main():
 
     if args.limit < 0:
         ap.error('--limit darf nicht negativ sein')
+    if args.max_tokens <= 0:
+        ap.error('--max-tokens muss positiv sein')
+    if args.timeout <= 0:
+        ap.error('--timeout muss positiv sein')
     if not os.path.isdir(args.batches):
         ap.error(f'Batch-Verzeichnis fehlt: {args.batches}')
     if not args.runner:
@@ -238,40 +299,107 @@ def main():
     if not os.path.isfile(runner):
         ap.error(f'One-Shot-Runner fehlt: {runner}')
 
-    batch_files = sorted(f for f in os.listdir(args.batches)
-                         if re.match(r'batch_\d+\.json$', f))
+    batch_files = sorted(
+        (f for f in os.listdir(args.batches) if re.fullmatch(r'batch_\d+\.json', f)),
+        key=lambda filename: int(re.search(r'\d+', filename).group()),
+    )
+    manifest_path = os.path.join(args.batches, 'manifest.json')
+    if os.path.isfile(manifest_path):
+        try:
+            with open(manifest_path, encoding='utf-8') as handle:
+                manifest = json.load(handle)
+            batch_count = manifest.get('batchCount')
+            if type(batch_count) is not int or batch_count < 0:
+                raise ValueError('batchCount fehlt oder ist ungültig')
+            expected_files = {f'batch_{index:03d}.json' for index in range(batch_count)}
+            actual_files = set(batch_files)
+            if actual_files != expected_files:
+                missing = sorted(expected_files - actual_files)
+                stale = sorted(actual_files - expected_files)
+                details = []
+                if missing:
+                    details.append(f'{len(missing)} fehlen')
+                if stale:
+                    details.append(f'{len(stale)} sind nicht im Manifest')
+                raise ValueError(', '.join(details))
+        except (OSError, ValueError, json.JSONDecodeError) as error:
+            ap.error(f'ungültiger Batch-Snapshot: {error}')
     if args.limit:
         batch_files = batch_files[:args.limit]
     if not batch_files:
         ap.error(f'keine batch_*.json-Datei in {args.batches}')
 
+    # Ausgabeverzeichnisse vor dem ersten Modellaufruf anlegen. So scheitert ein
+    # langer Lauf nicht erst beim Schreiben des Rohberichts.
+    os.makedirs(os.path.dirname(os.path.abspath(args.out)), exist_ok=True)
+
     all_views = {}
     all_evals = []
     errors = []
+    loaded_batches = []
+    view_origins = {}
     for bf in batch_files:
-        views = json.load(open(os.path.join(args.batches, bf)))
-        if not isinstance(views, list) or not views:
-            errors.append((bf, 'Batch enthält keine Fragen'))
-            print(f"[QA] {bf}: FEHLER Batch enthält keine Fragen", file=sys.stderr)
-            continue
-        for v in views:
-            all_views[v['id']] = v
-        prompt, ref2id = build_prompt(views)
+        try:
+            with open(os.path.join(args.batches, bf), encoding='utf-8') as handle:
+                views = json.load(handle)
+            if not isinstance(views, list) or not views:
+                raise ValueError('Batch enthält keine Fragen')
+            batch_ids = set()
+            for index, view in enumerate(views, start=1):
+                view_error = validate_view(view)
+                if view_error:
+                    raise ValueError(f'Frage {index}: {view_error}')
+                view_id = view['id']
+                if view_id in batch_ids:
+                    raise ValueError(f'doppelte Frage-ID {view_id} im Batch')
+                if view_id in view_origins:
+                    raise ValueError(
+                        f'doppelte Frage-ID {view_id}; bereits in {view_origins[view_id]}')
+                batch_ids.add(view_id)
+            for view in views:
+                all_views[view['id']] = view
+                view_origins[view['id']] = bf
+            loaded_batches.append((bf, views))
+        except (OSError, ValueError, json.JSONDecodeError) as error:
+            errors.append((bf, str(error)))
+            print(f"[QA] {bf}: FEHLER {error}", file=sys.stderr)
+
+    for bf, views in loaded_batches:
         print(f"[QA] {bf}: {len(views)} Fragen → {args.backend}/{model} …", file=sys.stderr)
         try:
+            prompt, ref2id = build_prompt(views)
             raw = call_model(prompt, args.backend, model, args.max_tokens,
                              args.timeout, args.effort, runner)
             evals = extract_json_array(raw)
             if not isinstance(evals, list):
                 raise ValueError('Modellantwort ist kein JSON-Array')
             # Opakes Kürzel (F1…) zurück auf die echte Frage-id mappen.
-            for e in evals:
-                if e.get('id') in ref2id:
-                    e['id'] = ref2id[e['id']]
+            valid_evals = []
+            schema_errors = []
+            for index, evaluation in enumerate(evals, start=1):
+                if isinstance(evaluation, dict):
+                    evaluation = dict(evaluation)
+                    if evaluation.get('id') in ref2id:
+                        evaluation['id'] = ref2id[evaluation['id']]
+                evaluation_errors = validate_evaluation(evaluation)
+                if evaluation_errors:
+                    schema_errors.append(
+                        f'Objekt {index}: {", ".join(evaluation_errors)}')
+                else:
+                    valid_evals.append(evaluation)
             expected_ids = set(ref2id.values())
-            received_ids = [e.get('id') for e in evals]
-            all_evals.extend(e for e in evals if e.get('id') in expected_ids)
+            received_ids = [evaluation['id'] for evaluation in valid_evals]
+            seen_ids = set()
+            for evaluation in valid_evals:
+                evaluation_id = evaluation['id']
+                if evaluation_id in expected_ids and evaluation_id not in seen_ids:
+                    all_evals.append(evaluation)
+                    seen_ids.add(evaluation_id)
             coverage_errors = []
+            if schema_errors:
+                coverage_errors.append(
+                    f'{len(schema_errors)} ungültige Bewertung(en): '
+                    + '; '.join(schema_errors[:3]))
             missing_ids = expected_ids - set(received_ids)
             unknown_ids = {item for item in received_ids if item not in expected_ids}
             duplicate_ids = {item for item in received_ids if received_ids.count(item) > 1}
@@ -283,19 +411,23 @@ def main():
                 coverage_errors.append(f'{len(duplicate_ids)} doppelte IDs')
             if coverage_errors:
                 errors.append((bf, ', '.join(coverage_errors)))
-            print(f"[QA] {bf}: {len(evals)} Bewertungen erhalten", file=sys.stderr)
+            print(
+                f"[QA] {bf}: {len(valid_evals)}/{len(evals)} gültige Bewertungen erhalten",
+                file=sys.stderr,
+            )
         except Exception as e:  # noqa: BLE001 — Batch-Fehler protokollieren, weiterlaufen
             errors.append((bf, str(e)))
             print(f"[QA] {bf}: FEHLER {e}", file=sys.stderr)
 
     # Rohdaten (id → eval + view) neben dem Report ablegen.
-    raw_path = args.out.rsplit('.', 1)[0] + '.raw.json'
+    raw_path = os.path.splitext(args.out)[0] + '.raw.json'
     merged = []
     eval_by_id = {e.get('id'): e for e in all_evals}
     for vid, view in all_views.items():
         merged.append({'view': view, 'eval': eval_by_id.get(vid)})
-    json.dump({'errors': errors, 'items': merged},
-              open(raw_path, 'w'), ensure_ascii=False, indent=1)
+    with open(raw_path, 'w', encoding='utf-8') as handle:
+        json.dump({'errors': errors, 'items': merged},
+                  handle, ensure_ascii=False, indent=1)
 
     write_report(args.out, merged, errors, batch_files, args.backend, model)
     print(f"[QA] Report: {args.out}  (raw: {raw_path})", file=sys.stderr)
@@ -389,8 +521,9 @@ def write_report(path, merged, errors, batch_files, backend, model):
             L.append(f"- {bf}: {err}")
         L.append("")
 
-    os.makedirs(os.path.dirname(path), exist_ok=True)
-    open(path, 'w').write('\n'.join(L))
+    os.makedirs(os.path.dirname(os.path.abspath(path)), exist_ok=True)
+    with open(path, 'w', encoding='utf-8') as handle:
+        handle.write('\n'.join(L))
 
 
 if __name__ == '__main__':
