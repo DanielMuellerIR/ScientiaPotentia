@@ -6,7 +6,7 @@
     "token_budget": 8000000,
     "status": "active",
     "started_at": "2026-08-29T20:44:29+02:00",
-    "tokens_spent": 3335850
+    "tokens_spent": 3448470
   },
   "campaign_history": [],
   "scope": {
@@ -244,22 +244,15 @@
       "state": "completed",
       "last_run": {
         "campaign_id": "20260829T204429059458+0200",
-        "completed_at": "2026-08-29T20:56:07+02:00",
-        "observed_head": "e8c831e5458355078efcecf8788a3158c60a4984",
-        "content_sha256": "cf3f68376ba8d929194bec2983f84c8acfd65e67cf172e3f26c3c7e03704083a",
+        "completed_at": "2026-08-29T23:34:53+02:00",
+        "observed_head": "1740031586ac6903a28c160d9c5022dd2c32b114",
+        "content_sha256": "9acbb6621addcde8172e7f99c32c5fe7be28bc17abb46e14e67313bad297e408",
         "file_count": 11,
-        "review": "full",
+        "review": "delta-plus-boundaries",
         "outcome": "improved",
-        "summary": "Das Fragen-Audit wertet den optionalen Domain-Parameter aus, meldet fehlende Kataloge und beendet harte Struktur- oder Antwort-im-Fragetext-Befunde mit Exit-Code 1; isolierte Kommandozeilentests sichern diese Veröffentlichungsschranke. Die vollständige Sichtung ergab zusätzlich eine bereichsübergreifend driftende Commons-Lizenzpolitik, die als eigenes Thema erfasst ist.",
+        "summary": "Delta und Aufrufgrenzen geprüft: Der Live-Bildprüfer delegiert die Commons-Lizenzentscheidung an denselben fail-closed Kern wie das Veröffentlichungs-Audit; Reportstruktur, MIME-Prüfung und API-Batch-Verarbeitung bleiben unverändert.",
         "tests": [
-          "npm test -- src/__tests__/auditRules.test.js: passed (13)",
-          "npm test: passed (155)",
-          "npm run audit:questions sowie npm run audit:questions -- machina: passed",
-          "npm run verify:facts -- astra|cultura|historia|homo|lingua|machina|natura: passed",
-          "npm run audit:image-credits: passed (10468)",
-          "npm run audit:quote-rights: passed (533)",
-          "npm run build: passed; npm run check:layout: passed (44/44)",
-          "python3 -m unittest tests/test_deploy.py tests/test_qa_review.py: passed (23)"
+          "node --check scripts/check_images.cjs; audit:image-credits 10.468/10.468; Vitest imageCredits 10/10"
         ]
       }
     },
@@ -625,15 +618,15 @@
       "state": "completed",
       "last_run": {
         "campaign_id": "20260829T204429059458+0200",
-        "completed_at": "2026-08-29T22:06:18+02:00",
-        "observed_head": "32220ff8b83c0eb66bb3bc63dc124d05db54f60e",
-        "content_sha256": "000e3d49d06a31aa79222395118e5b901878115c354924cfcd2a6a4a0e2eae6e",
+        "completed_at": "2026-08-29T23:34:53+02:00",
+        "observed_head": "1740031586ac6903a28c160d9c5022dd2c32b114",
+        "content_sha256": "d383bc6eadb4123de2dec2fce24909ccc64a0eee8c5aab7517e5a72de1b2137b",
         "file_count": 12,
         "review": "delta-plus-boundaries",
         "outcome": "improved",
-        "summary": "Delta-Review der in P16 geänderten gemeinsamen Kennwertgrenze: ConceptVisual verwendet nun denselben primitiven Wertformatierer wie die Astra-Komponenten; boolesche Werte erscheinen dadurch auch in generischen Konzeptkarten als ja/nein. Die vollständige Labeltabelle deckt nun zusätzlich alle sichtbaren Astra-Felder ab, ohne das bestehende kategorienabhängige Label-Routing oder die Leak-Guards zu ändern.",
+        "summary": "Delta und Verbrauchergrenzen geprüft: imageCredits exportiert die bestehende Browser-API nun aus dem gemeinsamen CJS-Kern; ImageCredit und Generatoren behalten ihre Schnittstelle, Lizenzlinks und bestehende Attribution-Bereinigung. Der Produktionsbuild bestätigt die CJS/ESM-Grenze.",
         "tests": [
-          "203/203 Vitest-Tests; gezielte ConceptVisual-, DomainVisual-, AnswerRevealImage-, Label- und Astra-Tests; Datenabgleich über 11.164 Konzepte mit 0 rohen sichtbaren Kennwertschlüsseln. Kein eigener Token-Eintrag, weil Delta-Arbeit und Belege vollständig in P16 gemeldet wurden."
+          "Vitest imageCredits 10/10; audit:image-credits 10.468/10.468; Vite-Build erfolgreich"
         ]
       }
     },
@@ -761,15 +754,15 @@
       "state": "completed",
       "last_run": {
         "campaign_id": "20260829T204429059458+0200",
-        "completed_at": "2026-08-29T22:52:22+02:00",
-        "observed_head": "710b7568493f353fc6c1056f76001f8c141d983b",
-        "content_sha256": "13e5a0b7565001c676e3075973bf35997df241c6060127225cdc729932930316",
+        "completed_at": "2026-08-29T23:34:53+02:00",
+        "observed_head": "1740031586ac6903a28c160d9c5022dd2c32b114",
+        "content_sha256": "80ee096da451d256e959c48e0e28901b6b65005f38b9adebe6e1ce14e2e03110",
         "file_count": 8,
         "review": "delta-plus-boundaries",
-        "outcome": "reviewed-clean",
-        "summary": "Die zwei neuen reinen Klassifikationstests wurden an der gemeinsamen Harvest-Testgrenze geprüft. Sie laden die gegateten Skriptmodule ohne Netzaufruf und belegen dieselbe Binomiallogik in allen vier Natura-Wellen sowie die Astra-K-Stern-Klassifikation.",
+        "outcome": "improved",
+        "summary": "Delta und Testwerkzeug-Grenze geprüft: Der isolierte Harvest-Testbaum übernimmt die neue Lizenzpolicy als echte Laufzeitabhängigkeit; der Mapping-Test beweist vollständigen Abbruch vor einem Schreibzugriff bei unbekannter Lizenz.",
         "tests": [
-          "15 Harvest-Regressionstests; insgesamt 45 Python-Tests und 218 Vitest-Tests; Syntaxprüfung der betroffenen Harvest-Skripte; Produktionsbuild; Layoutvertrag 44/44."
+          "Python Harvest-Werkzeuge 16/16; apply_images-Syntaxprüfung erfolgreich"
         ]
       }
     },
@@ -788,23 +781,20 @@
       "risk": "medium",
       "priority": 21,
       "reason": "Externe Bildauflösung, Lizenzmetadaten und atomare Rückschreibung in Rohdaten",
-      "state": "pending",
+      "state": "completed",
       "last_run": {
         "campaign_id": "20260829T204429059458+0200",
-        "completed_at": "2026-08-29T22:48:21+02:00",
-        "observed_head": "7765797d328b75c93f61baa111f5dc17e565c266",
-        "content_sha256": "b6b62baae4cd821c2fc6bbc03aab608b1c870b96265029ccc8396e1c737a0483",
-        "file_count": 7,
-        "review": "full",
+        "completed_at": "2026-08-29T23:34:53+02:00",
+        "observed_head": "1740031586ac6903a28c160d9c5022dd2c32b114",
+        "content_sha256": "db067a73f39c4a029a1002b5169cabeb82a58c69fd04782745adc40283444f22",
+        "file_count": 8,
+        "review": "delta-plus-boundaries",
         "outcome": "improved",
-        "summary": "Raw-Bildmerges und Attribution-Backfill benötigen ein explizites --write, validieren ihre vollständigen Eingaben und schreiben atomar. Alle Resolver ersetzen Ausgaben atomar; gebündelte Resolver brechen bei HTTP-, API- oder JSON-Fehlern vor dem Output ab, beschränken Browserformate und konkrete Urheberangaben und lassen mehrdeutige Wikidata-/Wikipedia-Schlüssel sichtbar aus, statt durch Map-Überschreiben willkürlich nur das letzte Konzept zu bebildern.",
+        "summary": "Alle acht Bereichsdateien einschließlich des neuen gemeinsamen Lizenzkerns geprüft: Resolver, Autorenporträt-Ernte und Mapping-Import verwenden dieselbe Positivliste, schreiben kanonische Lizenznamen und lehnen unbekannte, NC-, ND- und All-rights-Metadaten geschlossen ab.",
         "tests": [
-          "13 gezielte Harvest-Regressionstests; insgesamt 43 Python-Tests und 218 Vitest-Tests; Syntaxprüfung aller sieben P21-Skripte; realer Attribution-Backfill-Dry-Run mit 193 vorgemerkten Bereinigungen und unveränderten Rawdateien; 10.468 vollständige Bildnachweise; Produktionsbuild mit 49.826 Fragen; Layoutvertrag 44/44."
+          "node --check für alle acht Bereichsskripte; Python Harvest-Werkzeuge 16/16; audit:image-credits 10.468/10.468; Vite-Build erfolgreich"
         ]
-      },
-      "pending_paths": [
-        "scripts/lib/image_license_policy.cjs"
-      ]
+      }
     },
     {
       "id": "astra-natura-harvest",
@@ -921,14 +911,18 @@
         "scripts/data_sources/harvest/resolve_images_p18_v2.cjs"
       ],
       "priority": 15,
-      "state": "in_progress",
+      "state": "completed",
       "noted_at": "2026-08-29T20:54:47+02:00",
       "campaign_id": "20260829T204429059458+0200",
       "started_at": "2026-08-29T23:28:59+02:00",
-      "active_run": {
+      "completed": {
         "campaign_id": "20260829T204429059458+0200",
-        "started_at": "2026-08-29T23:28:59+02:00",
-        "observed_head": "bf590347fecf3f9ae1ed3331a53e3de91e70876c"
+        "completed_at": "2026-08-29T23:34:16+02:00",
+        "observed_head": "1740031586ac6903a28c160d9c5022dd2c32b114",
+        "summary": "Gemeinsame CJS- und ESM-taugliche Positivliste für veröffentlichte Lizenzlabels und Commons-extmetadata eingeführt; Live-Prüfer, alle Bildresolver, Mapping-Import und Web-Audit verwenden denselben Kern. Unbekannte sowie NC/ND/All-rights-Lizenzen scheitern geschlossen, während die im Bestand erlaubten FAL/GFDL-Varianten konsistent bleiben.",
+        "tests": [
+          "node --check für acht geänderte CJS-Skripte; Vitest imageCredits: 10/10; Python Harvest-Werkzeuge: 16/16; audit:image-credits: 10.468/10.468; Vite-Build erfolgreich"
+        ]
       }
     },
     {
