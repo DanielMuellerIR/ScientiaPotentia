@@ -8,9 +8,12 @@
 // Buchstaben). Eigennamen, korrekte ss-Wörter und lateinische Fachbegriffe stehen
 // bewusst NICHT in der Liste und bleiben unberührt.
 //
-// Aufruf: node scripts/fix_umlauts.js   (schreibt direkt zurück)
+// Aufruf: node scripts/fix_umlauts.js          (Dry-Run, zeigt nur Befund)
+//         node scripts/fix_umlauts.js --write  (schreibt direkt zurück)
 
 import { readFileSync, writeFileSync } from 'fs';
+
+const WRITE = process.argv.includes('--write');
 
 const MAP = {
   // -- ae -> ä / äu ----------------------------------------------------
@@ -109,8 +112,9 @@ for (const file of FILES) {
       fileTotal += n;
     }
   }
-  if (fileTotal > 0) writeFileSync(file, text);
+  if (WRITE && fileTotal > 0) writeFileSync(file, text);
   console.log(`${file}: ${fileTotal} Ersetzungen`);
   grandTotal += fileTotal;
 }
 console.log(`Gesamt: ${grandTotal} Ersetzungen`);
+console.log(WRITE ? 'Fertig (geschrieben).' : 'Dry-Run. Mit --write schreiben.');

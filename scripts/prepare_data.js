@@ -1055,15 +1055,14 @@ async function run() {
       };
     });
 
-    // 4. Query Wikidata SPARQL for Heads of State, Government and Highest Peaks
+    // 4. Query Wikidata SPARQL for highest peaks. Gegenwarts- und Tagespolitik
+    // bleibt laut Bereichsvertrag vollständig außerhalb des Datenbestands.
     console.log('4/5. Querying Wikidata SPARQL endpoint...');
     const wikidataCountryQuery = `
-      SELECT ?iso2 ?headOfStateLabel ?headOfGovLabel ?highestPointLabel ?highestPointElevation
+      SELECT ?iso2 ?highestPointLabel ?highestPointElevation
       WHERE {
         ?country wdt:P31/wdt:P279* wd:Q3624078.
         ?country wdt:P297 ?iso2.
-        OPTIONAL { ?country wdt:P35 ?headOfState. }
-        OPTIONAL { ?country wdt:P6 ?headOfGov. }
         OPTIONAL { 
           ?country wdt:P610 ?highestPoint. 
           OPTIONAL { ?highestPoint wdt:P2044 ?highestPointElevation. }
@@ -1081,15 +1080,15 @@ async function run() {
         if (!iso) return;
         
         wikidataResults[iso] = {
-          headOfState: b.headOfStateLabel?.value || null,
-          headOfGov: b.headOfGovLabel?.value || null,
           highestPoint: b.highestPointLabel?.value || null,
           highestPointElevation: b.highestPointElevation?.value ? Math.round(parseFloat(b.highestPointElevation.value)) : null
         };
       });
       console.log(`Wikidata fetch complete! Found details for ${Object.keys(wikidataResults).length} countries.`);
     } catch (wikiErr) {
-      console.warn('Wikidata SPARQL failed (timeout or offline). Using empty defaults for Wikidata fields.', wikiErr.message);
+      // Ohne Höhen-Daten würde der spätere Schreibschritt bestehende Werte
+      // still durch N/A ersetzen. Der Lauf bricht deshalb vor geodb.json ab.
+      throw new Error(`Wikidata SPARQL fehlgeschlagen; geodb.json bleibt unverändert: ${wikiErr.message}`);
     }
 
     // 5. Load pre-fetched cities from wikidata_cities_raw.json or fallback
@@ -1363,7 +1362,6 @@ async function run() {
       const facts = [
         `${meta.germanName || c.properties.name} hat eine Bevölkerung von ca. ${(meta.population / 1000000).toFixed(1)} Millionen Einwohnern auf einer Fläche von ${(meta.area || 0).toLocaleString('de-DE')} km².`,
         wiki.highestPoint ? `Der höchste Punkt des Landes ist der ${wiki.highestPoint}${wiki.highestPointElevation ? ` (${wiki.highestPointElevation} Meter über dem Meeresspiegel)` : ''}.` : null,
-        wiki.headOfState ? `Das offizielle Staatsoberhaupt ist ${wiki.headOfState}${wiki.headOfGov ? ` und die Regierungsgeschäfte werden von ${wiki.headOfGov} geführt` : ''}.` : null,
         meta.currency ? `Die offizielle Währung ist ${meta.currency}.` : null
       ].filter(Boolean);
 
@@ -1383,8 +1381,6 @@ async function run() {
           timezones: meta.timezones?.join(', ') || 'N/A',
           flag: meta.flag || '🏳️',
           currency: meta.currency || 'N/A',
-          headOfState: wiki.headOfState || 'N/A',
-          headOfGov: wiki.headOfGov || 'N/A',
           highestPoint: wiki.highestPoint || 'N/A',
           highestPointElevation: wiki.highestPointElevation || null,
           largestCities: cities

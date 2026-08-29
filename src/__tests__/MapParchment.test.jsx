@@ -9,6 +9,8 @@ import { useGeoData } from '../utils/useGeoData';
 
 const stylePath = resolve(process.cwd(), 'public/map_styles/scientia_parchment.json');
 const parchmentStyle = JSON.parse(readFileSync(stylePath, 'utf8'));
+const geodbPath = resolve(process.cwd(), 'src/data/geodb.json');
+const geodb = JSON.parse(readFileSync(geodbPath, 'utf8'));
 const germanName = ['coalesce', ['get', 'name:de'], ['get', 'name']];
 
 function lastPaintValue(map, layer, property) {
@@ -201,6 +203,39 @@ describe('Terra-Kartenwerkzeuge', () => {
 });
 
 describe('Atlas-Suche', () => {
+  it('hält Gegenwarts- und Tagespolitik aus Datenbestand und Detailansicht heraus', () => {
+    Object.values(geodb.entities).forEach((entity) => {
+      expect(entity.metadata).not.toHaveProperty('headOfState');
+      expect(entity.metadata).not.toHaveProperty('headOfGov');
+      expect(entity.facts || []).not.toEqual(expect.arrayContaining([
+        expect.stringMatching(/Staatsoberhaupt|Regierungsgeschäfte/),
+      ]));
+    });
+
+    render(
+      <Atlas
+        geodb={{
+          entities: {
+            DE: {
+              id: 'DE',
+              type: 'country',
+              name: 'Deutschland',
+              metadata: { capital: 'Berlin', headOfState: 'Darf nicht erscheinen' },
+            },
+          },
+        }}
+        onSelectEntity={vi.fn()}
+      />
+    );
+    fireEvent.change(screen.getByRole('textbox', { name: 'Atlas durchsuchen' }), {
+      target: { value: 'Deutschland' },
+    });
+    fireEvent.click(screen.getByRole('button', { name: /Deutschland.*Staat/ }));
+    expect(screen.queryByText('Staatsoberhaupt:')).not.toBeInTheDocument();
+    expect(screen.queryByText('Regierungschef:')).not.toBeInTheDocument();
+    expect(screen.queryByText('Darf nicht erscheinen')).not.toBeInTheDocument();
+  });
+
   it('findet Umlaute ohne Sondertastatur und bietet ein echtes Tastaturziel an', () => {
     const onSelectEntity = vi.fn();
     render(

@@ -6,7 +6,7 @@
     "token_budget": 8000000,
     "status": "active",
     "started_at": "2026-08-29T20:44:29+02:00",
-    "tokens_spent": 1032666
+    "tokens_spent": 1126059
   },
   "campaign_history": [],
   "scope": {
@@ -519,13 +519,25 @@
       "risk": "high",
       "priority": 12,
       "reason": "Fachgeneratoren mit Technik-, Datierungs- und Urheberschaftsfragen",
-      "state": "in_progress",
-      "active_run": {
+      "state": "completed",
+      "last_run": {
         "campaign_id": "20260829T204429059458+0200",
-        "started_at": "2026-08-29T21:30:51+02:00",
-        "required_review": "full",
-        "status_at_start": "pending",
-        "covered_pending_paths": []
+        "completed_at": "2026-08-29T21:35:27+02:00",
+        "observed_head": "be2f7001aaabd43056566475e5e3e5d63e6bea2a",
+        "content_sha256": "4b67efa60c849899e92d154bea50f2ae02a31fee416b5223e960ba2f906642ad",
+        "file_count": 2,
+        "review": "full",
+        "outcome": "improved",
+        "summary": "Machina und Historia vollständig geprüft. Rückwärtsfragen schließen nun Ober-/Unterbegriffe und Sammelwerte aus: 145 Machina- und 84 Historia-Kollisionen wurden beseitigt. Machinas 74 Kompressionsfragen nutzen nun alle vier fachlich verschiedenen Optionen. Fragenzahl, richtige Antworten und Metadaten blieben unverändert.",
+        "tests": [
+          "Machina- und Historia-Generatoren jeweils zweimal deterministisch ausgeführt",
+          "Bestandsanalyse: 12.460 Fragen, alle mit vier unterschiedlichen Optionen, 0 doppelte IDs, 0 Ober-/Unterbegriff-Kollisionen",
+          "verify:facts für machina und historia: 0 Fehler",
+          "audit:questions für machina und historia: 0 Strukturfehler, 0 Antwort-im-Stamm, 0 Bias-Templates",
+          "npm test: 179 Tests grün",
+          "npm run build: erfolgreich",
+          "Machina und Historia im echten Browser: Quiz, Visualisierung, Bildquelle und freie Lizenz geprüft; Konsole ohne Warnungen oder Fehler"
+        ]
       }
     },
     {
@@ -543,7 +555,14 @@
       "risk": "high",
       "priority": 13,
       "reason": "Schreibende Rohdaten-Merges und Datenvorbereitung dürfen nichts überschreiben oder falsch deduplizieren",
-      "state": "pending"
+      "state": "in_progress",
+      "active_run": {
+        "campaign_id": "20260829T204429059458+0200",
+        "started_at": "2026-08-29T21:35:32+02:00",
+        "required_review": "full",
+        "status_at_start": "pending",
+        "covered_pending_paths": []
+      }
     },
     {
       "id": "shell-layout-build",

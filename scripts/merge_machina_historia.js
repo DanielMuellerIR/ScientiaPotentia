@@ -14,10 +14,10 @@
  * sichten.
  *
  * Aufruf:
- *   node scripts/merge_machina_historia.js            # schreibt nur bei 0 harten Fehlern
- *   node scripts/merge_machina_historia.js --dry-run  # nur Bericht, nichts schreiben
+ *   node scripts/merge_machina_historia.js          # Dry-Run, nur Bericht
+ *   node scripts/merge_machina_historia.js --write  # schreibt nur bei 0 harten Fehlern
  */
-import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
@@ -28,7 +28,19 @@ const OUT = {
   historia: join(__dirname, 'data_sources', 'historia_raw.json')
 };
 
-const DRY = process.argv.includes('--dry-run');
+const WRITE = process.argv.includes('--write');
+
+function refuseShrinkingOutput(path, nextCount) {
+  if (!existsSync(path)) return;
+  const current = JSON.parse(readFileSync(path, 'utf8'));
+  if (!Array.isArray(current)) throw new Error(`${path}: bestehende Quellwahrheit ist kein JSON-Array`);
+  if (nextCount < current.length) {
+    throw new Error(
+      `${path}: Merge würde ${current.length - nextCount} bestehende Konzepte löschen ` +
+      `(${current.length} -> ${nextCount}); Kandidatendateien zuerst vollständig ergänzen`
+    );
+  }
+}
 
 // Erlaubte Kategorien je Domain (müssen zu den Generatoren passen).
 const CATEGORIES = {
@@ -160,9 +172,14 @@ if (errors.length) {
   process.exit(1);
 }
 
-if (DRY) {
+if (!WRITE) {
   console.log('\n[DRY-RUN] Nichts geschrieben.');
 } else {
+  // Alle Zieldateien prüfen, bevor die erste geschrieben wird. So bleibt der
+  // Lauf auch dann atomar, wenn nur eine Domain unvollständige Kandidaten hat.
+  for (const [domain, concepts] of Object.entries(result)) {
+    refuseShrinkingOutput(OUT[domain], concepts.length);
+  }
   for (const [domain, concepts] of Object.entries(result)) {
     writeFileSync(OUT[domain], JSON.stringify(concepts, null, 2), 'utf8');
     console.log(`\nGeschrieben: ${OUT[domain]} (${concepts.length} Konzepte)`);

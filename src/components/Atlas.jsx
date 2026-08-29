@@ -366,14 +366,6 @@ export default function Atlas({ selectedEntity, srsProgress, onStartQuickQuiz, g
                             <span style={{ fontWeight: 600 }}>{selectedEntity.metadata?.area ? `${selectedEntity.metadata.area.toLocaleString('de-DE')} km²` : 'N/A'}</span>
                           </div>
                           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                            <span style={{ color: 'var(--text-muted)' }}>Staatsoberhaupt:</span>
-                            <span style={{ fontWeight: 600, textAlign: 'right', maxWidth: '200px' }}>{selectedEntity.metadata?.headOfState || 'N/A'}</span>
-                          </div>
-                          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                            <span style={{ color: 'var(--text-muted)' }}>Regierungschef:</span>
-                            <span style={{ fontWeight: 600, textAlign: 'right', maxWidth: '200px' }}>{selectedEntity.metadata?.headOfGov || 'N/A'}</span>
-                          </div>
-                          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                             <span style={{ color: 'var(--text-muted)' }}>Währung:</span>
                             <span style={{ fontWeight: 600, textAlign: 'right', maxWidth: '200px' }}>{selectedEntity.metadata?.currency || 'N/A'}</span>
                           </div>
