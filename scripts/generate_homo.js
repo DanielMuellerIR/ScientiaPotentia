@@ -14,7 +14,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { pickBalanced, deParse, shouldMagnitudeSpread, magnitudeSpreadDistractors } from './lib/quizrandom.js';
-import { norm, deNum } from './lib/generator_text.js';
+import { deNum, distinctOptionValues, norm, optionKey } from './lib/generator_text.js';
 import { buildImageMetadata } from '../src/utils/imageCredits.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -31,7 +31,10 @@ const DOMAIN = 'homo';
  *  deParse statt Number(): formatierte Werte wie „1.500 g" sortieren sonst nicht
  *  (Number(„1.500 g")=NaN) und fielen auf feste erste-3-Distraktoren zurück. */
 function pickDistractors(correct, pool, numeric) {
-  const unique = [...new Set(pool.map(v => String(v)))].filter(v => v !== String(correct));
+  const values = pool.map(v => String(v));
+  const unique = numeric
+    ? [...new Set(values)].filter(v => v !== String(correct))
+    : distinctOptionValues(values).filter(v => optionKey(v) !== optionKey(correct));
   if (numeric) {
     const cNum = deParse(correct);
     unique.sort((a, b) => Math.abs(deParse(a) - cNum) - Math.abs(deParse(b) - cNum));
@@ -48,6 +51,35 @@ function pickDistractors(correct, pool, numeric) {
     return !cKey || !vKey || (!cKey.includes(vKey) && !vKey.includes(cKey));
   });
   return pickBalanced(correct, fair.length ? fair : unique, 3);
+}
+
+/**
+ * Vergleichsschlüssel für Reverse-Fragen. Ein Distraktor darf den abgefragten
+ * Wert nicht ebenfalls tragen; Konzepte ohne Vergleichswert sind nicht als
+ * nachweislich falsche Antwort geeignet. Körperwerte berücksichtigen zusätzlich
+ * ihre Einheit, weil z. B. „10 Knochen" und „10 Gramm" verschiedene Fakten sind.
+ */
+function reverseValueKey(c, tpl) {
+  const rawValue = c.attributes?.[tpl.attr];
+  if (rawValue === undefined || rawValue === null || rawValue === '') return null;
+  const value = c.category === 'body_fact' && tpl.attr === 'value'
+    ? `${rawValue}|${c.attributes?.unit || ''}`
+    : rawValue;
+  if (typeof value === 'number') return Number.isFinite(value) ? `number:${value}` : null;
+  return `text:${optionKey(value)}`;
+}
+
+function reverseDistractorNames(subjectConcept, tpl, conceptsInCat) {
+  const askedKey = reverseValueKey(subjectConcept, tpl);
+  if (askedKey === null) return [];
+  return conceptsInCat
+    .filter(candidate => candidate !== subjectConcept)
+    .filter(candidate => !(tpl.skip && tpl.skip(candidate)))
+    .filter(candidate => {
+      const candidateKey = reverseValueKey(candidate, tpl);
+      return candidateKey !== null && candidateKey !== askedKey;
+    })
+    .map(candidate => candidate.name);
 }
 
 // Rundet auf „schoene" Zahlen, damit Distraktoren nicht krumm wirken.
@@ -446,25 +478,15 @@ const templates = [
 
   // ---- Organe: Gewicht-Reverse ----------------------------------------
   // Hinweis: Gewichtsangabe in Gramm. Antwort: der Organname.
-  // Nur sinnvoll, wenn das Gewicht eindeutig ist - Organe mit identischem Gewicht
-  // (Niere/Magen/Milz: alle 150 g) werden per skip ausgeschlossen, damit
-  // kein falsches "richtig" entstehen kann.
-  // Distraktorpool: andere Organnamen (15 insgesamt - ausreichend).
+  // Der zentrale Reverse-Filter schließt alle Organe mit demselben Gewicht aus
+  // dem Distraktorpool aus. So bleiben auch mehrfach belegte Werte lernbar,
+  // ohne eine zweite korrekte Antwort in derselben Vierergruppe zu erzeugen.
   {
     category: 'organ', attr: 'approxWeightGrams', type: 'homo-organ-weight-rev', difficulty: 3,
     nameAnswer: true,
     // Hinweis im Prompt ist das Gewicht; subject liefert den Gewichtstext
     subject: c => `${deNum(c.attributes.approxWeightGrams)} g (ungefähres Gewicht beim Erwachsenen)`,
-    prompt: c => `Welches Organ wiegt beim Erwachsenen ungefähr ${deNum(c.attributes.approxWeightGrams)} Gramm?`,
-    skip: c => {
-      // Organe mit nicht-eindeutigem Gewicht überspringen, damit die Frage
-      // eine klar korrekte Antwort hat. Prüfung: gibt es ein anderes Organ
-      // mit exakt demselben approxWeightGrams-Wert?
-      const w = c.attributes.approxWeightGrams;
-      // Folgende IDs teilen sich 150 g: nieren, magen, milz
-      const AMBIGUOUS_WEIGHTS = [150];
-      return AMBIGUOUS_WEIGHTS.includes(w);
-    }
+    prompt: c => `Welches Organ wiegt beim Erwachsenen ungefähr ${deNum(c.attributes.approxWeightGrams)} Gramm?`
   },
 
   // ---- Organe: Funktion-Reverse ----------------------------------------
@@ -784,10 +806,11 @@ const questions = [];
 for (const tpl of templates) {
   const conceptsInCat = byCategory[tpl.category] || [];
   // nameAnswer: korrekte Antwort ist der Konzeptname (Reverse-Fragen), Distraktoren
-  // sind andere Namen derselben Kategorie. Das im Prompt genannte Attribut muss da sein.
-  const valuePool = conceptsInCat
+  // sind nur Namen mit belegbar anderem Attributwert und entstehen darum später
+  // pro Frage. Vorwärtsfragen teilen sich weiterhin diesen einmal gebauten Pool.
+  const valuePool = tpl.nameAnswer ? [] : conceptsInCat
     .filter(c => !(tpl.skip && tpl.skip(c)))
-    .map(c => (tpl.nameAnswer ? c.name : tpl.valueUnit ? tpl.format(null, c) : tpl.format(c.attributes[tpl.attr], c)))
+    .map(c => (tpl.valueUnit ? tpl.format(null, c) : tpl.format(c.attributes[tpl.attr], c)))
     // Bei dünn besetzten Attributen (z.B. organ.location nur bei wenigen Organen)
     // liefern Konzepte ohne Wert sonst „undefined" als Distraktor. Leere Werte raus.
     .filter(v => v !== undefined && v !== null && v !== '');
@@ -826,7 +849,9 @@ for (const tpl of templates) {
       if (mag) {
         distractors = mag;
       } else {
-        let pool = valuePool.slice();
+        let pool = tpl.nameAnswer
+          ? reverseDistractorNames(c, tpl, conceptsInCat)
+          : valuePool.slice();
         if (tpl.extraDistractors) pool = pool.concat(tpl.extraDistractors);
         distractors = pickDistractors(correct, pool, tpl.numeric);
       }

@@ -6,7 +6,7 @@
     "token_budget": 8000000,
     "status": "active",
     "started_at": "2026-08-29T20:44:29+02:00",
-    "tokens_spent": 761292
+    "tokens_spent": 862451
   },
   "campaign_history": [],
   "scope": {
@@ -429,13 +429,25 @@
       "risk": "high",
       "priority": 9,
       "reason": "Großer bereichsspezifischer Generator mit numerischen Astronomiefragen",
-      "state": "in_progress",
-      "active_run": {
+      "state": "completed",
+      "last_run": {
         "campaign_id": "20260829T204429059458+0200",
-        "started_at": "2026-08-29T21:18:12+02:00",
-        "required_review": "full",
-        "status_at_start": "pending",
-        "covered_pending_paths": []
+        "completed_at": "2026-08-29T21:21:34+02:00",
+        "observed_head": "294c6bcf41979ac2499997e669f84d43a51b7247",
+        "content_sha256": "068c64842e0d1e5fabed1368855c5dc893336664915f0037d44bb385724a5a35",
+        "file_count": 1,
+        "review": "full",
+        "outcome": "improved",
+        "summary": "Astra dedupliziert Textoptionen nun semantisch statt byteweise und erzeugt nur Fragen mit vier unterscheidbaren Optionen; 124 zuvor mehrdeutige Antwortsätze wurden bereinigt, ohne Fragen zu verlieren.",
+        "tests": [
+          "node scripts/generate_astra.js: passed twice, byte-identical second run (1560 concepts, 5055 questions)",
+          "npm run verify:facts -- astra: passed, 0 errors and warnings",
+          "npm run audit:questions -- astra: passed, 0 structure and answer-leak failures",
+          "semantic output check: 0 duplicate option sets, 0 duplicate IDs, 0 wrong option counts",
+          "npm test: passed (179)",
+          "npm run build: passed",
+          "Browser: Astra quiz answered; visualization, source and license links checked; 0 console warnings/errors"
+        ]
       }
     },
     {
@@ -447,7 +459,14 @@
       "risk": "high",
       "priority": 10,
       "reason": "Fachgeneratoren für Anatomie und Natur mit Zahlen- und Einheitendistraktoren",
-      "state": "pending"
+      "state": "in_progress",
+      "active_run": {
+        "campaign_id": "20260829T204429059458+0200",
+        "started_at": "2026-08-29T21:21:39+02:00",
+        "required_review": "full",
+        "status_at_start": "pending",
+        "covered_pending_paths": []
+      }
     },
     {
       "id": "cultura-lingua-generators",
