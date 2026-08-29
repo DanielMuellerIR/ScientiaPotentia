@@ -4,8 +4,10 @@ import {
   isAllowedImageLicense,
   isConcreteImageAttribution,
   licenseUrlFor,
+  normaliseImageCredit,
   sanitizeImageAttribution,
 } from '../utils/imageCredits';
+import { commonsToDirectUrl, isWikimediaCommonsUrl } from '../utils/commonsImage';
 
 describe('Bildnachweise', () => {
   it('ordnet Creative-Commons-Varianten ihrer kanonischen Lizenzadresse zu', () => {
@@ -25,6 +27,8 @@ describe('Bildnachweise', () => {
       .toBe('Ada Beispiel');
     expect(sanitizeImageAttribution('Rolf M&uuml;ller on April 17, 2005.'))
       .toBe('Rolf Müller on April 17, 2005.');
+    expect(sanitizeImageAttribution('Ada Beispiel / Wikimedia Commons'))
+      .toBe('Ada Beispiel');
   });
 
   it('unterscheidet konkrete Urheber von bereinigten Hinweisresten', () => {
@@ -53,5 +57,36 @@ describe('Bildnachweise', () => {
       attribution: 'Ada Beispiel',
       changes: 'für die Anzeige technisch skaliert',
     }));
+  });
+
+  it('nennt nur echte Commons-Hosts Wikimedia Commons', () => {
+    const commons = normaliseImageCredit({
+      url: 'https://commons.wikimedia.org/wiki/File%3ATest.jpg'
+    });
+    const external = normaliseImageCredit({
+      url: 'https://images.nasa.gov/details/test.jpg'
+    });
+
+    expect(commons.sourceLabel).toBe('Wikimedia Commons');
+    expect(external.sourceLabel).toBe('Bildquelle');
+    expect(isWikimediaCommonsUrl(commons.sourceUrl)).toBe(true);
+    expect(isWikimediaCommonsUrl('https://notcommons.wikimedia.org/wiki/File:Test.jpg')).toBe(false);
+  });
+
+  it('gibt Wikimedia Commons nicht als vermeintlichen Urheber aus', () => {
+    expect(normaliseImageCredit({
+      url: 'https://commons.wikimedia.org/wiki/File%3ATest.jpg',
+      attribution: 'Wikimedia Commons'
+    }).attribution).toBe('Urheberangabe auf der Dateiseite');
+  });
+
+  it('wandelt nur echte Commons-Dateiseiten in skalierte Bildadressen um', () => {
+    const commons = 'https://commons.wikimedia.org/wiki/File%3ATest%20image.jpg';
+    const lookalike = 'https://notcommons.wikimedia.org/wiki/File:Test.jpg';
+
+    expect(commonsToDirectUrl(commons, 639.6))
+      .toBe('https://commons.wikimedia.org/wiki/Special:FilePath/Test%20image.jpg?width=640');
+    expect(commonsToDirectUrl(lookalike, 640)).toBe(lookalike);
+    expect(commonsToDirectUrl('keine URL', 640)).toBe('keine URL');
   });
 });

@@ -8,7 +8,7 @@ export default function ImageCredit({ image, split = false }) {
 
   const source = (
     <a href={credit.sourceUrl} target="_blank" rel="noopener noreferrer">
-      Wikimedia Commons
+      {credit.sourceLabel}
     </a>
   );
   const license = credit.licenseUrl ? (

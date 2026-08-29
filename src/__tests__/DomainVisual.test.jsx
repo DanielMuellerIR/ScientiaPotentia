@@ -2,6 +2,7 @@ import React from 'react';
 import { cleanup, render, screen } from '@testing-library/react';
 import { afterEach, describe, expect, it } from 'vitest';
 import { Layers } from 'lucide-react';
+import ConceptVisual from '../components/ConceptVisual';
 import DomainVisual from '../components/DomainVisual';
 
 afterEach(cleanup);
@@ -48,5 +49,47 @@ describe('DomainVisual', () => {
     expect(container.querySelector('.domain-progress-ring-value')).not.toBeInTheDocument();
     expect(screen.getByText('0 / 0')).toBeInTheDocument();
     expect(screen.getByText('0 Themen')).toBeInTheDocument();
+  });
+});
+
+describe('ConceptVisual', () => {
+  it('zeigt Kennwerte mit deutschen Labels und schaltet die getestete Antwort erst danach frei', () => {
+    const domain = {
+      latinName: 'Cultura',
+      label: 'Kultur',
+      accent: '#8C3D2E',
+      Icon: Layers,
+    };
+    const concept = {
+      name: 'Faust I',
+      category: 'literature',
+      attributes: {
+        authorDeathYear: 1832,
+        work: 'Faust I',
+      },
+    };
+    const { rerender } = render(
+      <ConceptVisual
+        domain={domain}
+        concept={concept}
+        testedAttribute="authorDeathYear"
+      />
+    );
+
+    expect(screen.queryByText('Todesjahr des Urhebers')).not.toBeInTheDocument();
+    expect(screen.queryByText('1832')).not.toBeInTheDocument();
+    expect(screen.getByText('Werk')).toBeInTheDocument();
+
+    rerender(
+      <ConceptVisual
+        domain={domain}
+        concept={concept}
+        testedAttribute="authorDeathYear"
+        isQuestionAnswered
+      />
+    );
+
+    expect(screen.getByText('Todesjahr des Urhebers')).toBeInTheDocument();
+    expect(screen.getByText('1832')).toBeInTheDocument();
   });
 });

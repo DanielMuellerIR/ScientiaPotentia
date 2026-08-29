@@ -63,6 +63,25 @@ describe('AnswerRevealImage', () => {
       'Bild: Urheberangabe auf der Dateiseite · Wikimedia Commons · Public domain · für die Anzeige technisch skaliert'
     );
   });
+
+  it('bezeichnet eine externe Dateiseite nicht als Wikimedia Commons', () => {
+    render(
+      <AnswerRevealImage
+        image={{
+          url: 'https://images.nasa.gov/details/test.jpg',
+          attribution: 'NASA',
+          license: 'Public domain'
+        }}
+        name="Weltraumbild"
+        revealed
+      />
+    );
+
+    expect(screen.getByRole('link', { name: 'Bildquelle' }))
+      .toHaveAttribute('href', 'https://images.nasa.gov/details/test.jpg');
+    expect(screen.queryByRole('link', { name: 'Wikimedia Commons' }))
+      .not.toBeInTheDocument();
+  });
 });
 
 describe('DeepSkyOcular', () => {

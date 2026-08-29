@@ -6,7 +6,7 @@
     "token_budget": 8000000,
     "status": "active",
     "started_at": "2026-08-29T20:44:29+02:00",
-    "tokens_spent": 1300303
+    "tokens_spent": 1398899
   },
   "campaign_history": [],
   "scope": {
@@ -594,13 +594,19 @@
       "risk": "medium",
       "priority": 14,
       "reason": "Responsive Shell-Vertrag, Build-Einstieg, Statistik- und Rechtshinweis-Synchronisierung",
-      "state": "in_progress",
-      "active_run": {
+      "state": "completed",
+      "last_run": {
         "campaign_id": "20260829T204429059458+0200",
-        "started_at": "2026-08-29T21:43:15+02:00",
-        "required_review": "full",
-        "status_at_start": "pending",
-        "covered_pending_paths": []
+        "completed_at": "2026-08-29T21:48:51+02:00",
+        "observed_head": "5c32dabef3fa8256f14b98d686961a6d13b64ca3",
+        "content_sha256": "bebd31d5202f19e0ce60baeda2d3484c33a7609f0d728db1403a938ecfb7bfed",
+        "file_count": 9,
+        "review": "full",
+        "outcome": "improved",
+        "summary": "Der Entwicklungsserver bleibt headless; der Statistikgenerator lehnt falsche Fragen-, Konzept- und Ortsstrukturen ab, statt plausible Nullwerte zu veröffentlichen. Statistikmanifest, Shell, Layout und Credits-Seite wurden vollständig geprüft.",
+        "tests": [
+          "182/182 Vitest-Tests; Statistikmanifest in zwei Läufen SHA-256-bytegleich und drei Negativ-Fixtures abgewiesen; Produktionsbuild; Layoutvertrag 44/44 plus JSON ok; Deploy-Tests 21/21; THIRD_PARTY_NOTICES bytegleich; Browser: geladene 49.825/13.016/5.234/8-Kennzahlen, Credits-Navigation, keine Fehlerkonsole."
+        ]
       }
     },
     {
@@ -622,7 +628,14 @@
       "risk": "medium",
       "priority": 15,
       "reason": "VisualPanel-Routing, generische Konzeptdarstellung und sichtbare Bildnachweise",
-      "state": "pending"
+      "state": "in_progress",
+      "active_run": {
+        "campaign_id": "20260829T204429059458+0200",
+        "started_at": "2026-08-29T21:48:51+02:00",
+        "required_review": "full",
+        "status_at_start": "pending",
+        "covered_pending_paths": []
+      }
     },
     {
       "id": "astra-visuals",

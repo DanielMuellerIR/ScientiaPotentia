@@ -68,7 +68,7 @@ export default function AnswerRevealImage({
       {revealed && credit ? (
         <div
           className="exhibit-credit"
-          title={`Bild: ${credit.attribution} · ${credit.license} · Wikimedia Commons · ${credit.changes}`}
+          title={`Bild: ${credit.attribution} · ${credit.license} · ${credit.sourceLabel} · ${credit.changes}`}
         >
           <ImageCredit image={image} split={isOcular} />
         </div>

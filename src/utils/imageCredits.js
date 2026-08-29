@@ -1,4 +1,5 @@
 import { decodeHTML } from 'entities';
+import { isWikimediaCommonsUrl } from './commonsImage.js';
 
 /** Entfernt HTML und private Kontaktadressen aus Commons-Metadaten. */
 export function sanitizeImageAttribution(value) {
@@ -9,6 +10,9 @@ export function sanitizeImageAttribution(value) {
     .replace(/\bmailto:\s*/gi, '')
     .replace(/\b(Unknown (?:author|artist|creator|source))\s*\1\b/gi, '$1')
     .replace(/\bUnknown\s*Unknown\b/gi, 'Unknown')
+    // Commons ist der Fundort, nicht Teil des Urhebernamens. Die separate
+    // Quellenverknüpfung zeigt ihn direkt neben der Attribution ohnehin an.
+    .replace(/\s*(?:\/|·|,)\s*Wikimedia Commons\s*$/i, '')
     .replace(/\(\s*\)/g, '')
     .replace(/\s*\/\s*\/\s*/g, ' / ')
     .replace(/\s{2,}/g, ' ')
@@ -78,11 +82,17 @@ export function buildImageMetadata(concept) {
 /** Ergänzt ältere Concept-JSONs defensiv um ableitbare Credit-Felder. */
 export function normaliseImageCredit(image) {
   if (!image?.url) return null;
+  const sourceUrl = image.sourceUrl || image.url;
+  const sanitizedAttribution = sanitizeImageAttribution(image.attribution);
+  const attribution = /^Wikimedia Commons$/i.test(sanitizedAttribution)
+    ? ''
+    : sanitizedAttribution;
   return {
-    sourceUrl: image.sourceUrl || image.url,
+    sourceUrl,
+    sourceLabel: isWikimediaCommonsUrl(sourceUrl) ? 'Wikimedia Commons' : 'Bildquelle',
     license: image.license || '',
     licenseUrl: image.licenseUrl || licenseUrlFor(image.license),
-    attribution: sanitizeImageAttribution(image.attribution) || 'Urheberangabe auf der Dateiseite',
+    attribution: attribution || 'Urheberangabe auf der Dateiseite',
     changes: image.changes || 'für die Anzeige technisch skaliert',
   };
 }

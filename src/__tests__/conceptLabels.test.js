@@ -107,4 +107,12 @@ describe('getAttributeLabel — kontextabhaengige Fachbezeichnung', () => {
     expect(getAttributeLabel('family', 'plant')).toBe('Pflanzenfamilie');
     expect(getAttributeLabel('family', 'language')).toBe('Sprachfamilie');
   });
+
+  it('zeigt häufige Rohdatenfelder nicht als interne Schlüssel an', () => {
+    expect(getAttributeLabel('authorDeathYear')).toBe('Todesjahr des Urhebers');
+    expect(getAttributeLabel('discoveryMethod')).toBe('Entdeckungsmethode');
+    expect(getAttributeLabel('orbitalPeriodDays')).toBe('Umlaufzeit (Tage)');
+    expect(getAttributeLabel('launchMassKg')).toBe('Startmasse (kg)');
+    expect(getAttributeLabel('completionAnswer')).toBe('Fortsetzung');
+  });
 });
