@@ -803,6 +803,11 @@ const templates = [
 // --- Fragen generieren ----------------------------------------------------
 const questions = [];
 
+/** Schließt deutsche Anführungen typografisch einheitlich, auch in älteren Vorlagen. */
+function formatPromptTypography(prompt) {
+  return String(prompt).replace(/„([^“\n]*)"/gu, '„$1“');
+}
+
 for (const tpl of templates) {
   const conceptsInCat = byCategory[tpl.category] || [];
   // nameAnswer: korrekte Antwort ist der Konzeptname (Reverse-Fragen), Distraktoren
@@ -864,7 +869,7 @@ for (const tpl of templates) {
       entityType: c.category,
       type: tpl.type,
       difficulty: resolveDifficulty(tpl, c, subjectInfo),
-      prompt: tpl.prompt(c, subjectInfo),
+      prompt: formatPromptTypography(tpl.prompt(c, subjectInfo)),
       correctAnswer: correct,
       options: [correct, ...distractors],
       // Selbstverräter-Guard im Visual: das Frontend muss wissen, welches

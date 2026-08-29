@@ -1,4 +1,10 @@
 import React from 'react';
+import {
+  CATEGORY_LABELS,
+  formatAttributeValue,
+  getAttributeLabel,
+  isAttrLeakedBeforeAnswer
+} from './conceptLabels';
 
 /**
  * Homo-Visualisierung: anatomische Übersichtsgrafik pro Quizfrage.
@@ -59,47 +65,6 @@ const CATEGORY_ASSET = {
   }
 };
 const DEFAULT_ASSET = CATEGORY_ASSET.body_fact;
-
-const CATEGORY_LABELS = {
-  bone: 'Knochen', muscle: 'Muskel', organ: 'Organ',
-  body_fact: 'Körperwert', species: 'Menschenart',
-  // Neue Kategorien (Physiologie jenseits der Anatomie, Stand 2026-06-25)
-  cell_type: 'Zelltyp', hormone: 'Hormon', vitamin: 'Vitamin', sense: 'Sinn',
-  digestive_enzyme: 'Verdauungsenzym', nerve: 'Nerv', psych_effect: 'Psychoeffekt',
-  nutrient_macro: 'Nährstoff', development_stage: 'Entwicklungsstadium', brain_lobe: 'Großhirnlappen',
-  // Welle 4 (Stand 2026-06-30): Schlafphasen, Gedächtnisarten, biologische Rhythmen
-  sleep_perception: 'Schlaf & Gedächtnis',
-  // Welle 5 (Stand 2026-07-01): Gelenke, Reflexe, Blutgruppen
-  joint: 'Gelenk', reflex: 'Reflex', blood_group: 'Blutgruppe'
-};
-
-const ATTR_LABELS = {
-  region: 'Region', latinName: 'Lateinisch', notableFor: 'Bekannt für',
-  location: 'Lage', system: 'Organsystem', approxWeightGrams: 'Gewicht (g)',
-  value: 'Wert', epoch: 'Zeitraum',
-  // Phase-5-Keys, die sonst als rohe englische Schlüssel ('function',
-  // 'definition') im Chip durchsickern würden.
-  function: 'Funktion', definition: 'Definition',
-  // Attribute der neuen Kategorien (cell_type/hormone/vitamin/sense).
-  fachName: 'Fachbegriff', gland: 'Bildungsort', hormoneClass: 'Hormonklasse',
-  chemicalName: 'Chemischer Name', solubility: 'Löslichkeit', sensoryOrgan: 'Sinnesorgan',
-  // Welle-2-Attribute (digestive_enzyme/nerve/psych_effect).
-  substrate: 'Substrat', domain: 'Bereich',
-  // Welle-3-Attribute (nutrient_macro/development_stage/brain_lobe).
-  foodSource: 'Nahrungsquelle', nutrientClass: 'Nährstoffgruppe',
-  characteristic: 'Kennzeichen', timeframe: 'Zeitspanne',
-  // Welle-4-Attribut (sleep_perception): grober Klassifikator
-  kind: 'Art',
-  // Welle-5-Attribute (joint/reflex/blood_group).
-  jointType: 'Gelenktyp', bonesInvolved: 'Beteiligte Knochen', movement: 'Beweglichkeit',
-  stimulus: 'Reiz (Auslöser)', response: 'Reaktion', reflexType: 'Reflexart',
-  antigen: 'Antigen', antibody: 'Antikörper'
-};
-
-// Freitext-Chips sind oft erklaerend statt reine Kennwerte. Vor der Antwort
-// koennen sie aber Lage, Funktion oder Namen indirekt verraten. 'characteristic'
-// (Entwicklungsstadium) beschreibt die Phase und wuerde sonst die Zeitspanne-Frage verraten.
-const POST_ANSWER_ATTRS = new Set(['notableFor', 'definition', 'function', 'characteristic']);
 
 // --- Marker-Koordinaten ---------------------------------------------------
 // Normierte Position (0..1) IM JEWEILIGEN GRAFIK-RAHMEN: x = links->rechts,
@@ -249,7 +214,7 @@ export default function HomoVisual({
         .filter(([k, v]) =>
           v !== undefined && v !== null && v !== '' &&
           k !== 'unit' &&
-          (detailsUnlocked || (k !== testedAttribute && !POST_ANSWER_ATTRS.has(k))))
+          (detailsUnlocked || !isAttrLeakedBeforeAnswer(k, testedAttribute)))
         .slice(0, 4);
 
   return (
@@ -349,8 +314,8 @@ export default function HomoVisual({
                     background: 'rgba(27,48,91,0.07)', border: '1px solid rgba(27,48,91,0.15)',
                     color: 'var(--color-primary)'
                   }}>
-                    <span style={{ opacity: 0.65 }}>{ATTR_LABELS[k] || k}: </span>
-                    <b>{String(v)}{k === 'value' && attrs.unit ? ` ${attrs.unit}` : ''}</b>
+                    <span style={{ opacity: 0.65 }}>{getAttributeLabel(k, cat)}: </span>
+                    <b>{formatAttributeValue(v)}{k === 'value' && attrs.unit ? ` ${attrs.unit}` : ''}</b>
                   </span>
                 ))}
               </div>

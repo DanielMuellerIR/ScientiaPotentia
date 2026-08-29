@@ -6,7 +6,7 @@
     "token_budget": 8000000,
     "status": "active",
     "started_at": "2026-08-29T20:44:29+02:00",
-    "tokens_spent": 1623848
+    "tokens_spent": 1794900
   },
   "campaign_history": [],
   "scope": {
@@ -626,15 +626,15 @@
       "state": "completed",
       "last_run": {
         "campaign_id": "20260829T204429059458+0200",
-        "completed_at": "2026-08-29T21:57:55+02:00",
-        "observed_head": "8b96f4c5d7b446721fc4e0a3af9cd9adc4f665e2",
-        "content_sha256": "3af3eccfc223427f1542acfbf2f3d76acd2badd1ed34cd32d4793b9ad30d7127",
+        "completed_at": "2026-08-29T22:06:18+02:00",
+        "observed_head": "32220ff8b83c0eb66bb3bc63dc124d05db54f60e",
+        "content_sha256": "000e3d49d06a31aa79222395118e5b901878115c354924cfcd2a6a4a0e2eae6e",
         "file_count": 12,
-        "review": "full",
+        "review": "delta-plus-boundaries",
         "outcome": "improved",
-        "summary": "Generische Konzeptkarten zeigen für alle Nicht-Astra-Bereiche nur noch fachliche deutsche Kennwertnamen statt interner Schlüssel. Commons-Dateiseiten werden per vollständigem Host erkannt; externe Bildquellen werden nicht mehr als Commons bezeichnet, Credit-Dopplungen entfallen und fehlende Urheber bleiben als Dateiseiten-Fallback sichtbar.",
+        "summary": "Delta-Review der in P16 geänderten gemeinsamen Kennwertgrenze: ConceptVisual verwendet nun denselben primitiven Wertformatierer wie die Astra-Komponenten; boolesche Werte erscheinen dadurch auch in generischen Konzeptkarten als ja/nein. Die vollständige Labeltabelle deckt nun zusätzlich alle sichtbaren Astra-Felder ab, ohne das bestehende kategorienabhängige Label-Routing oder die Leak-Guards zu ändern.",
         "tests": [
-          "188/188 Vitest-Tests; Datenabgleich: 11.164 Konzepte, null rohe sichtbare Kennwertschlüssel außerhalb Astra; 5.234/5.234 Bildquellen als echte Commons-Hosts und skalierte FilePath-Adressen; 10.468 Credit-Felder im Audit; Produktionsbuild; Layoutvertrag 44/44; Browser: Machina-Frage vor/nach Antwort, deutsche Labels, Lightbox-Credit ohne Dopplung, keine Fehlerkonsole."
+          "203/203 Vitest-Tests; gezielte ConceptVisual-, DomainVisual-, AnswerRevealImage-, Label- und Astra-Tests; Datenabgleich über 11.164 Konzepte mit 0 rohen sichtbaren Kennwertschlüsseln. Kein eigener Token-Eintrag, weil Delta-Arbeit und Belege vollständig in P16 gemeldet wurden."
         ]
       }
     },
@@ -650,13 +650,19 @@
       "risk": "medium",
       "priority": 16,
       "reason": "3D-Astronomievisualisierung und Sonnensystem-Explorer mit großen Abhängigkeiten",
-      "state": "in_progress",
-      "active_run": {
+      "state": "completed",
+      "last_run": {
         "campaign_id": "20260829T204429059458+0200",
-        "started_at": "2026-08-29T21:58:12+02:00",
-        "required_review": "full",
-        "status_at_start": "pending",
-        "covered_pending_paths": []
+        "completed_at": "2026-08-29T22:06:07+02:00",
+        "observed_head": "32220ff8b83c0eb66bb3bc63dc124d05db54f60e",
+        "content_sha256": "dbecd03ebd42bdb7a7edcff731c0a3838788f873f4d31eae6922257908d997c4",
+        "file_count": 5,
+        "review": "full",
+        "outcome": "improved",
+        "summary": "Astra verwendet für Missionen, Sternbilder, Meteorschauer, Kometen, Phänomene und sonstige nicht kugelförmige Objekte eine verhüllte Bildtafel mit neutralem Fallback statt einer sachlich falschen Kugel. Der Sonnensystem-Explorer normalisiert erklärende Elternkörper-Zusätze und zeigt dadurch die Monde von Eris, Haumea und Orcus. Sämtliche sichtbaren Astra-Kennwerte tragen deutsche Fachlabels; boolesche Werte erscheinen einheitlich als ja/nein.",
+        "tests": [
+          "203/203 Vitest-Tests; 77 gezielte Astra-, Explorer- und Labeltests; Datenabgleich: 0 rohe sichtbare Schlüssel in 11.164 Konzepten, 120/121 Astra-Monde im Planet-/Zwergplanetmodell zugeordnet (Dactyl gehört zum bewusst nicht dargestellten Asteroiden Ida); 10.468 Bildnachweise; Produktionsbuild; Layoutvertrag 44/44; 21 Deploytests; Browser: Eris mit Dysnomia, zehn Astra-Fragen und fehlerfreie Konsole."
+        ]
       }
     },
     {
@@ -668,7 +674,14 @@
       "risk": "medium",
       "priority": 17,
       "reason": "Anatomieansicht, SVG-/Bildzuordnung und Quellenanzeige",
-      "state": "pending"
+      "state": "in_progress",
+      "active_run": {
+        "campaign_id": "20260829T204429059458+0200",
+        "started_at": "2026-08-29T22:06:18+02:00",
+        "required_review": "full",
+        "status_at_start": "pending",
+        "covered_pending_paths": []
+      }
     },
     {
       "id": "gallery-museum-hub",
