@@ -12,9 +12,10 @@
 //   4. Format-Tell: nur die richtige Option hat Klammer/Zahl/Sonderzeichen,
 //      die Distraktoren nicht (oder umgekehrt).
 //
-// Aufruf: node scripts/audit_questions.cjs [--dump=/tmp/sci_audit]
+// Aufruf: node scripts/audit_questions.cjs [domain] [--dump=/tmp/sci_audit]
 //   --dump schreibt je Domain die auffälligen Fälle + eine Zufallsstichprobe
 //   als JSON für die anschließende semantische LLM-Prüfung.
+//   --data-dir erlaubt isolierte Regressionstests mit einem kleinen Katalog.
 
 const fs = require('fs');
 const path = require('path');
@@ -23,10 +24,22 @@ const path = require('path');
 const { expectsOptions, norm, answerInStem: answerAppearsInStem } = require('./lib/audit_rules.cjs');
 
 const DOMAINS = ['astra', 'cultura', 'historia', 'homo', 'lingua', 'machina', 'natura', 'terra'];
-const DATA = path.join(__dirname, '..', 'public', 'data');
-
-const dumpArg = process.argv.find(a => a.startsWith('--dump='));
-const dumpDir = dumpArg ? dumpArg.split('=')[1] : null;
+const args = process.argv.slice(2);
+const positional = args.filter(arg => !arg.startsWith('--'));
+if (positional.length > 1 || (positional[0] && !DOMAINS.includes(positional[0]))) {
+  console.error(`Unbekannte Domain: ${positional.join(' ') || '(leer)'}`);
+  process.exit(2);
+}
+const selectedDomains = positional[0] ? [positional[0]] : DOMAINS;
+const optionValue = name => {
+  const prefix = `${name}=`;
+  const option = args.find(arg => arg.startsWith(prefix));
+  return option ? option.slice(prefix.length) : null;
+};
+const dataArg = optionValue('--data-dir');
+const DATA = dataArg ? path.resolve(dataArg) : path.join(__dirname, '..', 'public', 'data');
+const dumpArg = optionValue('--dump');
+const dumpDir = dumpArg ? path.resolve(dumpArg) : null;
 if (dumpDir) fs.mkdirSync(dumpDir, { recursive: true });
 
 // `norm` und die Prüfregeln liegen in ./lib/audit_rules.cjs (dort auch getestet).
@@ -45,10 +58,15 @@ function seeded(seed) {
 }
 
 const summary = [];
+let missingCatalogs = 0;
 
-for (const domain of DOMAINS) {
+for (const domain of selectedDomains) {
   const qs = loadQuestions(domain);
-  if (!qs) continue;
+  if (!qs) {
+    console.error(`Fragenkatalog fehlt: ${path.join(DATA, `questions_${domain}.json`)}`);
+    missingCatalogs += 1;
+    continue;
+  }
 
   const byType = {};                 // type -> Statistik
   const answerInStem = [];
@@ -153,3 +171,15 @@ summary.forEach(s => console.log(
   `${s.domain.padEnd(9)} ${String(s.total).padStart(6)} Fragen | Strukt ${s.structural} | Ans-im-Stamm ${s.answerInStem} | Format ${s.formatTell} | Bias-Templates ${s.biasTypes.length}`
 ));
 if (dumpDir) console.log(`\nStichproben + Flags geschrieben nach: ${dumpDir}`);
+
+// Strukturfehler und eine mechanisch im Stamm enthaltene Antwort verletzen
+// harte Projektregeln. Heuristische Format- und Längenhinweise bleiben dagegen
+// Sichtungsbefunde und dürfen den automatischen Lauf nicht allein blockieren.
+const blockingFindings = summary.reduce(
+  (count, item) => count + item.structural + item.answerInStem,
+  missingCatalogs
+);
+if (blockingFindings) {
+  console.error(`\n${blockingFindings} blockierende Fragenfehler gefunden.`);
+  process.exitCode = 1;
+}

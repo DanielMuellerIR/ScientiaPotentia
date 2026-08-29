@@ -6,7 +6,7 @@
     "token_budget": 8000000,
     "status": "active",
     "started_at": "2026-08-29T20:44:29+02:00",
-    "tokens_spent": 209847
+    "tokens_spent": 263944
   },
   "campaign_history": [],
   "scope": {
@@ -200,17 +200,22 @@
       "risk": "critical",
       "priority": 2,
       "reason": "IndexedDB-Migration, Lernfortschritt und SRS-Zeitplanung",
-      "state": "in_progress",
-      "active_run": {
+      "state": "completed",
+      "last_run": {
         "campaign_id": "20260829T204429059458+0200",
-        "started_at": "2026-08-29T20:48:36+02:00",
-        "required_review": "full",
-        "status_at_start": "pending",
-        "covered_pending_paths": []
-      },
-      "pending_paths": [
-        "src/__tests__/db.test.js"
-      ]
+        "completed_at": "2026-08-29T20:52:00+02:00",
+        "observed_head": "ab39b767a093fd9ffa2a26942784ebd80f224ef4",
+        "content_sha256": "6db66225d702addca826e7b2df1f569ce8e5734bd20358c08974cac6ac9e5991",
+        "file_count": 6,
+        "review": "delta-plus-boundaries",
+        "outcome": "improved",
+        "summary": "Die neu ergänzte DB-Regressionsdatei wurde vollständig gelesen; sie belegt Transaktionsabbruch und verbindungsschließenden Reset an der öffentlichen Persistenzgrenze.",
+        "tests": [
+          "npm test -- src/__tests__/db.test.js src/__tests__/srs.test.js: passed (19)",
+          "npm test: passed (152)",
+          "npm run build: passed"
+        ]
+      }
     },
     {
       "id": "content-audit-safety",
@@ -230,7 +235,14 @@
       "risk": "high",
       "priority": 3,
       "reason": "Fakten-, Distraktor-, Bild- und Zitat-Gates schützen veröffentlichte Inhalte",
-      "state": "pending"
+      "state": "in_progress",
+      "active_run": {
+        "campaign_id": "20260829T204429059458+0200",
+        "started_at": "2026-08-29T20:52:04+02:00",
+        "required_review": "full",
+        "status_at_start": "pending",
+        "covered_pending_paths": []
+      }
     },
     {
       "id": "domain-registry-loading",
@@ -554,5 +566,20 @@
     "fit": "gespannt",
     "recommendation": "Das bestehende Paradigma beibehalten. App-Orchestrierung und gemeinsame Generator-/Harvest-Mechanik nur in einzeln verifizierten Bereichen entkoppeln; kein Architekturwechsel."
   },
-  "themes": []
+  "themes": [
+    {
+      "id": "image-license-policy",
+      "summary": "Die zulässigen Commons-Lizenzen werden in src/utils/imageCredits.js, scripts/check_images.cjs und mehreren resolve_images*.cjs separat erkannt. Die Listen und Kommentare weichen bereits bei FAL/GFDL ab; ein gemeinsamer, CJS- und ESM-tauglicher Kern oder eine ausdrücklich dokumentierte konservative Teilmenge verhindert Drift.",
+      "evidence": [
+        "src/utils/imageCredits.js",
+        "scripts/check_images.cjs",
+        "scripts/data_sources/harvest/resolve_images.cjs",
+        "scripts/data_sources/harvest/resolve_images_p18_v2.cjs"
+      ],
+      "priority": 15,
+      "state": "pending",
+      "noted_at": "2026-08-29T20:54:47+02:00",
+      "campaign_id": "20260829T204429059458+0200"
+    }
+  ]
 }

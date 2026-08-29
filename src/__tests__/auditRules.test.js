@@ -4,8 +4,23 @@
 // praktisch unbrauchbar machten — echte Strukturfehler wären darin untergegangen.
 // Diese Tests nageln beide Ursachen fest, damit sie nicht zurückkehren.
 
+import { spawnSync } from 'node:child_process';
+import { mkdtempSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { dirname, join, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { describe, it, expect } from 'vitest';
 import { expectsOptions, answerInStem } from '../../scripts/lib/audit_rules.cjs';
+
+const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
+const AUDIT = join(ROOT, 'scripts', 'audit_questions.cjs');
+
+function runAudit(...args) {
+  return spawnSync(process.execPath, [AUDIT, ...args], {
+    cwd: ROOT,
+    encoding: 'utf8',
+  });
+}
 
 describe('expectsOptions', () => {
   // Fehlalarm 1: Alle 427 Terra-click-map-Fragen wurden als "zu wenige
@@ -64,5 +79,45 @@ describe('answerInStem', () => {
     // Antworten wie "Abjad (nur Konsonanten)" enthalten Klammern.
     expect(answerInStem('Ist das ein Abjad (nur Konsonanten)?', 'Abjad (nur Konsonanten)')).toBe(true);
     expect(answerInStem('Ein ganz anderer Fragetext.', 'Abjad (nur Konsonanten)')).toBe(false);
+  });
+});
+
+describe('Fragen-Audit als Kommandozeilen-Gate', () => {
+  it('prüft bei übergebener Domain nur deren Katalog', () => {
+    const result = runAudit('machina');
+    expect(result.status).toBe(0);
+    expect(result.stdout).toContain('=== MACHINA');
+    expect(result.stdout).not.toContain('=== ASTRA');
+  });
+
+  it('liefert bei harten Fragenfehlern einen Fehler-Exit-Code', () => {
+    const dataDir = mkdtempSync(join(tmpdir(), 'scientia-question-audit-'));
+    try {
+      writeFileSync(join(dataDir, 'questions_machina.json'), JSON.stringify([{
+        id: 'absichtlich-fehlerhaft',
+        type: 'machina-test',
+        prompt: 'Welche Antwort ist Alpha?',
+        correctAnswer: 'Alpha',
+        options: ['Alpha', 'Alpha'],
+      }]));
+
+      const result = runAudit('machina', `--data-dir=${dataDir}`);
+      expect(result.status).toBe(1);
+      expect(result.stdout).toContain('Strukturfehler: 1');
+      expect(result.stderr).toContain('blockierende Fragenfehler');
+    } finally {
+      rmSync(dataDir, { recursive: true, force: true });
+    }
+  });
+
+  it('meldet einen fehlenden angeforderten Katalog als Fehler', () => {
+    const dataDir = mkdtempSync(join(tmpdir(), 'scientia-question-audit-empty-'));
+    try {
+      const result = runAudit('machina', `--data-dir=${dataDir}`);
+      expect(result.status).toBe(1);
+      expect(result.stderr).toContain('Fragenkatalog fehlt');
+    } finally {
+      rmSync(dataDir, { recursive: true, force: true });
+    }
   });
 });
