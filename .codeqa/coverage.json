@@ -1,0 +1,528 @@
+{
+  "schema_version": 2,
+  "project": "ScientiaPotentia",
+  "campaign": {
+    "id": "20260829T204429059458+0200",
+    "token_budget": 8000000,
+    "status": "active",
+    "started_at": "2026-08-29T20:44:29+02:00"
+  },
+  "campaign_history": [],
+  "scope": {
+    "paths": [
+      ".env.example",
+      "deploy.py",
+      "index.html",
+      "package.json",
+      "public/credits.html",
+      "public/map_styles/scientia_parchment.json",
+      "scripts/audit_image_credits.mjs",
+      "scripts/audit_questions.cjs",
+      "scripts/audit_quote_rights.mjs",
+      "scripts/check_images.cjs",
+      "scripts/check_layout_contract.cjs",
+      "scripts/data_sources/harvest/append_concepts.cjs",
+      "scripts/data_sources/harvest/apply_corrections.cjs",
+      "scripts/data_sources/harvest/apply_images.cjs",
+      "scripts/data_sources/harvest/backfill_image_attribution.mjs",
+      "scripts/data_sources/harvest/build_dedup.cjs",
+      "scripts/data_sources/harvest/fix_cand_umlauts.cjs",
+      "scripts/data_sources/harvest/harvest_terra_currency_f.mjs",
+      "scripts/data_sources/harvest/mm_load.cjs",
+      "scripts/data_sources/harvest/nasa_exoplanets.cjs",
+      "scripts/data_sources/harvest/nasa_exoplanets_w3.cjs",
+      "scripts/data_sources/harvest/normalize_case.cjs",
+      "scripts/data_sources/harvest/resolve_author_portraits.cjs",
+      "scripts/data_sources/harvest/resolve_images.cjs",
+      "scripts/data_sources/harvest/resolve_images_batched.cjs",
+      "scripts/data_sources/harvest/resolve_images_p18.cjs",
+      "scripts/data_sources/harvest/resolve_images_p18_v2.cjs",
+      "scripts/data_sources/harvest/verify_terra_currency_f.mjs",
+      "scripts/data_sources/harvest/wikidata_astra.cjs",
+      "scripts/data_sources/harvest/wikidata_astra_w4.cjs",
+      "scripts/data_sources/harvest/wikidata_astra_wd3.cjs",
+      "scripts/data_sources/harvest/wikidata_cultura.cjs",
+      "scripts/data_sources/harvest/wikidata_cultura_w4.cjs",
+      "scripts/data_sources/harvest/wikidata_cultura_wd2.cjs",
+      "scripts/data_sources/harvest/wikidata_cultura_wd3.cjs",
+      "scripts/data_sources/harvest/wikidata_galneb.cjs",
+      "scripts/data_sources/harvest/wikidata_galneb_w3.cjs",
+      "scripts/data_sources/harvest/wikidata_lingua.cjs",
+      "scripts/data_sources/harvest/wikidata_lingua_w5.cjs",
+      "scripts/data_sources/harvest/wikidata_lingua_wd2.cjs",
+      "scripts/data_sources/harvest/wikidata_lingua_wd3.cjs",
+      "scripts/data_sources/harvest/wikidata_lingua_wd4.cjs",
+      "scripts/data_sources/harvest/wikidata_natura.cjs",
+      "scripts/data_sources/harvest/wikidata_natura_wd2.cjs",
+      "scripts/data_sources/harvest/wikidata_natura_wd3.cjs",
+      "scripts/data_sources/harvest/wikidata_natura_wd4.cjs",
+      "scripts/data_sources/harvest/wikiquote_harvest.cjs",
+      "scripts/data_sources/harvest/wikiquote_verify.cjs",
+      "scripts/data_sources/harvest/wikiquote_w4.cjs",
+      "scripts/fix_umlauts.js",
+      "scripts/generate_astra.js",
+      "scripts/generate_cultura.js",
+      "scripts/generate_domain_stats.js",
+      "scripts/generate_historia.js",
+      "scripts/generate_homo.js",
+      "scripts/generate_lingua.js",
+      "scripts/generate_machina.js",
+      "scripts/generate_natura.js",
+      "scripts/generate_questions.js",
+      "scripts/lib/audit_rules.cjs",
+      "scripts/lib/english_leak.js",
+      "scripts/lib/generator_text.js",
+      "scripts/lib/quizrandom.js",
+      "scripts/lib/quoteRights.mjs",
+      "scripts/merge_astra.js",
+      "scripts/merge_cultura.js",
+      "scripts/merge_lingua.js",
+      "scripts/merge_machina_historia.js",
+      "scripts/merge_natura.js",
+      "scripts/merge_phase5.js",
+      "scripts/prepare_data.js",
+      "scripts/qa_review/build_batches.mjs",
+      "scripts/qa_review/run_qa.py",
+      "scripts/sync_third_party_notices.mjs",
+      "scripts/test_srs.js",
+      "scripts/verify_facts.js",
+      "scripts/verify_quiz.js",
+      "src/App.jsx",
+      "src/__tests__/AnswerRevealImage.test.jsx",
+      "src/__tests__/AppDomainData.test.jsx",
+      "src/__tests__/AstraVisualPolicy.test.js",
+      "src/__tests__/Dashboard.test.jsx",
+      "src/__tests__/DomainSwitcher.test.jsx",
+      "src/__tests__/DomainVisual.test.jsx",
+      "src/__tests__/HomoVisualCredits.test.jsx",
+      "src/__tests__/MapParchment.test.jsx",
+      "src/__tests__/MuseumGalleryExplorer.test.jsx",
+      "src/__tests__/QuizIntegration.test.jsx",
+      "src/__tests__/ScientiaHub.test.jsx",
+      "src/__tests__/SolarSystemExplorer.test.jsx",
+      "src/__tests__/auditRules.test.js",
+      "src/__tests__/conceptLabels.test.js",
+      "src/__tests__/englishLeak.test.js",
+      "src/__tests__/imageCredits.test.js",
+      "src/__tests__/legalNotices.test.js",
+      "src/__tests__/quizrandom.test.js",
+      "src/__tests__/quoteRights.test.js",
+      "src/__tests__/shuffle.test.js",
+      "src/__tests__/silhouette.test.js",
+      "src/__tests__/srs.test.js",
+      "src/__tests__/tokenSearch.test.js",
+      "src/__tests__/wikiquoteHarvest.test.js",
+      "src/components/AnswerRevealImage.jsx",
+      "src/components/AstraVisual.jsx",
+      "src/components/Atlas.jsx",
+      "src/components/ConceptVisual.jsx",
+      "src/components/Dashboard.jsx",
+      "src/components/DomainSwitcher.jsx",
+      "src/components/DomainVisual.jsx",
+      "src/components/ExhibitGalleryShared.jsx",
+      "src/components/ExhibitLightbox.jsx",
+      "src/components/GalleryExplorer.jsx",
+      "src/components/HomoVisual.jsx",
+      "src/components/ImageCredit.jsx",
+      "src/components/Map.jsx",
+      "src/components/MuseumExplorer.jsx",
+      "src/components/Quiz.jsx",
+      "src/components/QuizLauncher.jsx",
+      "src/components/ScientiaHub.jsx",
+      "src/components/SolarSystemExplorer.jsx",
+      "src/components/VisualPanel.jsx",
+      "src/components/astraBodies.js",
+      "src/components/conceptLabels.js",
+      "src/domains/index.js",
+      "src/domains/metadata.js",
+      "src/index.css",
+      "src/main.jsx",
+      "src/setupTests.js",
+      "src/utils/audio.js",
+      "src/utils/commonsImage.js",
+      "src/utils/conceptKeys.js",
+      "src/utils/db.js",
+      "src/utils/imageCredits.js",
+      "src/utils/shuffle.js",
+      "src/utils/silhouette.js",
+      "src/utils/srs.js",
+      "src/utils/tokenSearch.js",
+      "src/utils/useGeoData.js",
+      "tests/__init__.py",
+      "tests/test_deploy.py",
+      "tests/test_qa_review.py",
+      "vite.config.js"
+    ],
+    "exclusions": []
+  },
+  "areas": [
+    {
+      "id": "deploy-pipeline",
+      "paths": [
+        ".env.example",
+        "deploy.py",
+        "tests/test_deploy.py"
+      ],
+      "risk": "critical",
+      "priority": 1,
+      "reason": "FTPS-Zugangsdaten, Prüfsummen, atomare Veröffentlichung und Datenintegrität",
+      "state": "pending"
+    },
+    {
+      "id": "progress-persistence",
+      "paths": [
+        "src/utils/conceptKeys.js",
+        "src/utils/db.js",
+        "src/utils/srs.js",
+        "src/__tests__/srs.test.js",
+        "scripts/test_srs.js"
+      ],
+      "risk": "critical",
+      "priority": 2,
+      "reason": "IndexedDB-Migration, Lernfortschritt und SRS-Zeitplanung",
+      "state": "pending"
+    },
+    {
+      "id": "content-audit-safety",
+      "paths": [
+        "scripts/audit_image_credits.mjs",
+        "scripts/audit_questions.cjs",
+        "scripts/audit_quote_rights.mjs",
+        "scripts/check_images.cjs",
+        "scripts/verify_facts.js",
+        "scripts/lib/audit_rules.cjs",
+        "scripts/lib/english_leak.js",
+        "scripts/lib/quoteRights.mjs",
+        "src/__tests__/auditRules.test.js",
+        "src/__tests__/englishLeak.test.js",
+        "src/__tests__/quoteRights.test.js"
+      ],
+      "risk": "high",
+      "priority": 3,
+      "reason": "Fakten-, Distraktor-, Bild- und Zitat-Gates schützen veröffentlichte Inhalte",
+      "state": "pending"
+    },
+    {
+      "id": "domain-registry-loading",
+      "paths": [
+        "src/domains/index.js",
+        "src/domains/metadata.js",
+        "src/components/DomainSwitcher.jsx",
+        "src/__tests__/DomainSwitcher.test.jsx",
+        "src/__tests__/AppDomainData.test.jsx"
+      ],
+      "risk": "high",
+      "priority": 4,
+      "reason": "Zentrale Domain-Verträge, Lazy Loader, Caches und Bereichswechsel",
+      "state": "pending"
+    },
+    {
+      "id": "quiz-runtime",
+      "paths": [
+        "src/components/Quiz.jsx",
+        "src/components/QuizLauncher.jsx",
+        "src/components/AnswerRevealImage.jsx",
+        "src/components/Dashboard.jsx",
+        "src/utils/audio.js",
+        "src/utils/shuffle.js",
+        "src/__tests__/QuizIntegration.test.jsx",
+        "src/__tests__/AnswerRevealImage.test.jsx",
+        "src/__tests__/Dashboard.test.jsx",
+        "src/__tests__/shuffle.test.js"
+      ],
+      "risk": "high",
+      "priority": 5,
+      "reason": "Fragenauswahl, Antwortauswertung, Fortschrittsschreiben und Rundensteuerung",
+      "state": "pending"
+    },
+    {
+      "id": "app-orchestration",
+      "paths": [
+        "src/App.jsx",
+        "src/main.jsx",
+        "src/setupTests.js"
+      ],
+      "risk": "high",
+      "priority": 6,
+      "reason": "Zentrale Lade-, Ansichts-, Spiel- und Shell-Zustände mit breiter Aufrufwirkung",
+      "state": "pending"
+    },
+    {
+      "id": "terra-map",
+      "paths": [
+        "public/map_styles/scientia_parchment.json",
+        "src/components/Atlas.jsx",
+        "src/components/Map.jsx",
+        "src/utils/tokenSearch.js",
+        "src/utils/useGeoData.js",
+        "src/__tests__/MapParchment.test.jsx",
+        "src/__tests__/tokenSearch.test.js"
+      ],
+      "risk": "high",
+      "priority": 7,
+      "reason": "Kartenantworten, Geodatenfilter, Entity-Auswahl und Kartenstil",
+      "state": "pending"
+    },
+    {
+      "id": "generator-core",
+      "paths": [
+        "scripts/generate_questions.js",
+        "scripts/lib/generator_text.js",
+        "scripts/lib/quizrandom.js",
+        "scripts/verify_quiz.js",
+        "src/__tests__/quizrandom.test.js"
+      ],
+      "risk": "high",
+      "priority": 8,
+      "reason": "Gemeinsame Frageerzeugung, Distraktoren, Antwort-Leak-Schutz und Determinismus",
+      "state": "pending"
+    },
+    {
+      "id": "astra-generator",
+      "paths": [
+        "scripts/generate_astra.js"
+      ],
+      "risk": "high",
+      "priority": 9,
+      "reason": "Großer bereichsspezifischer Generator mit numerischen Astronomiefragen",
+      "state": "pending"
+    },
+    {
+      "id": "homo-natura-generators",
+      "paths": [
+        "scripts/generate_homo.js",
+        "scripts/generate_natura.js"
+      ],
+      "risk": "high",
+      "priority": 10,
+      "reason": "Fachgeneratoren für Anatomie und Natur mit Zahlen- und Einheitendistraktoren",
+      "state": "pending"
+    },
+    {
+      "id": "cultura-lingua-generators",
+      "paths": [
+        "scripts/generate_cultura.js",
+        "scripts/generate_lingua.js"
+      ],
+      "risk": "high",
+      "priority": 11,
+      "reason": "Fachgeneratoren mit Text-, Werk-, Etymologie- und Zitatbezug",
+      "state": "pending"
+    },
+    {
+      "id": "machina-historia-generators",
+      "paths": [
+        "scripts/generate_machina.js",
+        "scripts/generate_historia.js"
+      ],
+      "risk": "high",
+      "priority": 12,
+      "reason": "Fachgeneratoren mit Technik-, Datierungs- und Urheberschaftsfragen",
+      "state": "pending"
+    },
+    {
+      "id": "content-merge-pipeline",
+      "paths": [
+        "scripts/fix_umlauts.js",
+        "scripts/merge_astra.js",
+        "scripts/merge_cultura.js",
+        "scripts/merge_lingua.js",
+        "scripts/merge_machina_historia.js",
+        "scripts/merge_natura.js",
+        "scripts/merge_phase5.js",
+        "scripts/prepare_data.js"
+      ],
+      "risk": "high",
+      "priority": 13,
+      "reason": "Schreibende Rohdaten-Merges und Datenvorbereitung dürfen nichts überschreiben oder falsch deduplizieren",
+      "state": "pending"
+    },
+    {
+      "id": "shell-layout-build",
+      "paths": [
+        "index.html",
+        "package.json",
+        "public/credits.html",
+        "scripts/check_layout_contract.cjs",
+        "scripts/generate_domain_stats.js",
+        "scripts/sync_third_party_notices.mjs",
+        "src/index.css",
+        "vite.config.js",
+        "src/__tests__/legalNotices.test.js"
+      ],
+      "risk": "medium",
+      "priority": 14,
+      "reason": "Responsive Shell-Vertrag, Build-Einstieg, Statistik- und Rechtshinweis-Synchronisierung",
+      "state": "pending"
+    },
+    {
+      "id": "visual-routing-credits",
+      "paths": [
+        "src/components/ConceptVisual.jsx",
+        "src/components/DomainVisual.jsx",
+        "src/components/ImageCredit.jsx",
+        "src/components/VisualPanel.jsx",
+        "src/components/conceptLabels.js",
+        "src/utils/commonsImage.js",
+        "src/utils/imageCredits.js",
+        "src/utils/silhouette.js",
+        "src/__tests__/DomainVisual.test.jsx",
+        "src/__tests__/conceptLabels.test.js",
+        "src/__tests__/imageCredits.test.js",
+        "src/__tests__/silhouette.test.js"
+      ],
+      "risk": "medium",
+      "priority": 15,
+      "reason": "VisualPanel-Routing, generische Konzeptdarstellung und sichtbare Bildnachweise",
+      "state": "pending"
+    },
+    {
+      "id": "astra-visuals",
+      "paths": [
+        "src/components/AstraVisual.jsx",
+        "src/components/SolarSystemExplorer.jsx",
+        "src/components/astraBodies.js",
+        "src/__tests__/AstraVisualPolicy.test.js",
+        "src/__tests__/SolarSystemExplorer.test.jsx"
+      ],
+      "risk": "medium",
+      "priority": 16,
+      "reason": "3D-Astronomievisualisierung und Sonnensystem-Explorer mit großen Abhängigkeiten",
+      "state": "pending"
+    },
+    {
+      "id": "homo-visuals",
+      "paths": [
+        "src/components/HomoVisual.jsx",
+        "src/__tests__/HomoVisualCredits.test.jsx"
+      ],
+      "risk": "medium",
+      "priority": 17,
+      "reason": "Anatomieansicht, SVG-/Bildzuordnung und Quellenanzeige",
+      "state": "pending"
+    },
+    {
+      "id": "gallery-museum-hub",
+      "paths": [
+        "src/components/ExhibitGalleryShared.jsx",
+        "src/components/ExhibitLightbox.jsx",
+        "src/components/GalleryExplorer.jsx",
+        "src/components/MuseumExplorer.jsx",
+        "src/components/ScientiaHub.jsx",
+        "src/__tests__/MuseumGalleryExplorer.test.jsx",
+        "src/__tests__/ScientiaHub.test.jsx"
+      ],
+      "risk": "medium",
+      "priority": 18,
+      "reason": "Galerie-, Museum-, Lightbox- und bereichsübergreifende Hub-Navigation",
+      "state": "pending"
+    },
+    {
+      "id": "semantic-qa-runner",
+      "paths": [
+        "scripts/qa_review/build_batches.mjs",
+        "scripts/qa_review/run_qa.py",
+        "tests/__init__.py",
+        "tests/test_qa_review.py"
+      ],
+      "risk": "medium",
+      "priority": 19,
+      "reason": "Batchaufteilung, Resume-Sicherheit und maschinenlesbare Auswertung der Inhalts-QA",
+      "state": "pending"
+    },
+    {
+      "id": "harvest-shared-tools",
+      "paths": [
+        "scripts/data_sources/harvest/append_concepts.cjs",
+        "scripts/data_sources/harvest/apply_corrections.cjs",
+        "scripts/data_sources/harvest/build_dedup.cjs",
+        "scripts/data_sources/harvest/fix_cand_umlauts.cjs",
+        "scripts/data_sources/harvest/mm_load.cjs",
+        "scripts/data_sources/harvest/normalize_case.cjs"
+      ],
+      "risk": "medium",
+      "priority": 20,
+      "reason": "Schreibende Kandidaten-, Korrektur-, Deduplizierungs- und JSON-Reparaturwerkzeuge",
+      "state": "pending"
+    },
+    {
+      "id": "image-harvest",
+      "paths": [
+        "scripts/data_sources/harvest/apply_images.cjs",
+        "scripts/data_sources/harvest/backfill_image_attribution.mjs",
+        "scripts/data_sources/harvest/resolve_author_portraits.cjs",
+        "scripts/data_sources/harvest/resolve_images.cjs",
+        "scripts/data_sources/harvest/resolve_images_batched.cjs",
+        "scripts/data_sources/harvest/resolve_images_p18.cjs",
+        "scripts/data_sources/harvest/resolve_images_p18_v2.cjs"
+      ],
+      "risk": "medium",
+      "priority": 21,
+      "reason": "Externe Bildauflösung, Lizenzmetadaten und atomare Rückschreibung in Rohdaten",
+      "state": "pending"
+    },
+    {
+      "id": "astra-natura-harvest",
+      "paths": [
+        "scripts/data_sources/harvest/nasa_exoplanets.cjs",
+        "scripts/data_sources/harvest/nasa_exoplanets_w3.cjs",
+        "scripts/data_sources/harvest/wikidata_astra.cjs",
+        "scripts/data_sources/harvest/wikidata_astra_w4.cjs",
+        "scripts/data_sources/harvest/wikidata_astra_wd3.cjs",
+        "scripts/data_sources/harvest/wikidata_galneb.cjs",
+        "scripts/data_sources/harvest/wikidata_galneb_w3.cjs",
+        "scripts/data_sources/harvest/wikidata_natura.cjs",
+        "scripts/data_sources/harvest/wikidata_natura_wd2.cjs",
+        "scripts/data_sources/harvest/wikidata_natura_wd3.cjs",
+        "scripts/data_sources/harvest/wikidata_natura_wd4.cjs"
+      ],
+      "risk": "low",
+      "priority": 22,
+      "reason": "Historische NASA-/Wikidata-Ernte für Astronomie und Natur",
+      "state": "pending"
+    },
+    {
+      "id": "cultura-lingua-harvest",
+      "paths": [
+        "scripts/data_sources/harvest/wikidata_cultura.cjs",
+        "scripts/data_sources/harvest/wikidata_cultura_w4.cjs",
+        "scripts/data_sources/harvest/wikidata_cultura_wd2.cjs",
+        "scripts/data_sources/harvest/wikidata_cultura_wd3.cjs",
+        "scripts/data_sources/harvest/wikidata_lingua.cjs",
+        "scripts/data_sources/harvest/wikidata_lingua_w5.cjs",
+        "scripts/data_sources/harvest/wikidata_lingua_wd2.cjs",
+        "scripts/data_sources/harvest/wikidata_lingua_wd3.cjs",
+        "scripts/data_sources/harvest/wikidata_lingua_wd4.cjs",
+        "scripts/data_sources/harvest/wikiquote_harvest.cjs",
+        "scripts/data_sources/harvest/wikiquote_verify.cjs",
+        "scripts/data_sources/harvest/wikiquote_w4.cjs",
+        "src/__tests__/wikiquoteHarvest.test.js"
+      ],
+      "risk": "low",
+      "priority": 23,
+      "reason": "Historische Wikidata-/Wikiquote-Ernte für Kultur und Sprache",
+      "state": "pending"
+    },
+    {
+      "id": "terra-currency-harvest",
+      "paths": [
+        "scripts/data_sources/harvest/harvest_terra_currency_f.mjs",
+        "scripts/data_sources/harvest/verify_terra_currency_f.mjs"
+      ],
+      "risk": "low",
+      "priority": 24,
+      "reason": "Spezialisierte, deterministische Währungs-Ernte und ihre Offline-Verifikation",
+      "state": "pending"
+    }
+  ],
+  "architecture": {
+    "campaign_id": "20260829T204429059458+0200",
+    "recorded_at": "2026-08-29T20:44:29+02:00",
+    "observed_head": "7b94bdc3b93bd271af1c8559e54ff76ef7263c15",
+    "summary": "Die Domain-Registry und die Build-Pipeline trennen Fachbereiche und Datenfluss sauber; src/App.jsx bündelt jedoch Laden, Persistenz, Spielzustand und Shell-Rendering, während Generator- und Harvest-Werkzeuge ähnliche Mechanik mehrfach implementieren.",
+    "paradigm": "Komponentenbasiertes React mit unidirektionalem Datenfluss und Registry; getrennte Source-Generator-Audit-Pipeline",
+    "fit": "gespannt",
+    "recommendation": "Das bestehende Paradigma beibehalten. App-Orchestrierung und gemeinsame Generator-/Harvest-Mechanik nur in einzeln verifizierten Bereichen entkoppeln; kein Architekturwechsel."
+  },
+  "themes": []
+}
