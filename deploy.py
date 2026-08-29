@@ -145,6 +145,11 @@ class RemoteChecksumVerifier:
         self.algorithm = None
         self.digest_length = None
         self.unavailable = False
+        # Ein Server, der einen Prüfsummenbefehl zuerst akzeptiert und später
+        # ablehnt, ist nicht dasselbe wie ein Server ohne diese Erweiterung.
+        # Nach diesem Vertrauensbruch erzwingen wir für alle restlichen Dateien
+        # einen Upload, statt still auf Manifest und Größe zurückzufallen.
+        self.unreliable = False
 
     def _expected_digest(self, local_file, algorithm):
         if algorithm == "sha256":
@@ -155,6 +160,8 @@ class RemoteChecksumVerifier:
 
     def matches(self, remote_file, local_file):
         """Gibt True, False oder None (Erweiterung nicht verfügbar) zurück."""
+        if self.unreliable:
+            return False
         if self.unavailable:
             return None
 
@@ -171,8 +178,8 @@ class RemoteChecksumVerifier:
                 if self.command is not None:
                     # Ein Serverwechsel während eines Deploys darf nicht zu einem
                     # Skip mit alter Annahme führen.
-                    self.unavailable = True
-                    return None
+                    self.unreliable = True
+                    return False
                 continue
             if remote_digest is CHECKSUM_UNVERIFIABLE:
                 return False

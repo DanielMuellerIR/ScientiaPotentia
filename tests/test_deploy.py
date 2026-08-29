@@ -314,6 +314,48 @@ class DeployTests(unittest.TestCase):
         self.assertEqual(checksum_requests[1], "XMD5 /remote/assets/app.js")
         self.assertEqual(checksum_requests[2], "XMD5 /remote/index.html")
 
+    def test_disappearing_checksum_support_forces_remaining_uploads(self):
+        """Ein einmal bestätigter Prüfsummenbefehl darf nicht still degradiert werden."""
+        self.write_build()
+        (self.dist / "assets" / "second.js").write_bytes(b"second")
+        deployed_files = {
+            "index.html": b"new index",
+            "assets/app.js": b"new asset",
+            "assets/second.js": b"second",
+        }
+
+        class DisappearingChecksumFTPS(FakeFTPS):
+            def __init__(self, *args, **kwargs):
+                super().__init__(*args, **kwargs)
+                self.checksum_request_count = 0
+
+            def sendcmd(self, command):
+                self.checksum_request_count += 1
+                if self.checksum_request_count > 1:
+                    self.history.append(("sendcmd", command))
+                    raise ftplib.error_perm("502 command no longer available")
+                return super().sendcmd(command)
+
+        ftps = DisappearingChecksumFTPS(
+            {
+                "/remote/index.html": deployed_files["index.html"],
+                "/remote/assets/app.js": deployed_files["assets/app.js"],
+                "/remote/assets/second.js": deployed_files["assets/second.js"],
+                f"/remote/{deploy.REMOTE_MANIFEST_NAME}": remote_manifest(deployed_files),
+            },
+            checksum_commands={"XSHA256"},
+        )
+
+        result = deploy.deploy_dist(ftps, str(self.dist), "/remote")
+
+        self.assertEqual(result.failed, 0)
+        self.assertEqual(result.uploaded, 2)
+        self.assertEqual(result.skipped, 1)
+        self.assertEqual(result.skipped_unverified, 0)
+        self.assertEqual(ftps.checksum_request_count, 2)
+        self.assertTrue(temporary_upload_of(ftps, "/remote/assets/second.js"))
+        self.assertTrue(temporary_upload_of(ftps, "/remote/index.html"))
+
     def test_malformed_server_checksum_forces_an_upload(self):
         self.write_build()
         deployed_files = {"index.html": b"new index", "assets/app.js": b"new asset"}
