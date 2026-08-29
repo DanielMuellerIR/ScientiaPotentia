@@ -6,7 +6,7 @@
     "token_budget": 8000000,
     "status": "active",
     "started_at": "2026-08-29T20:44:29+02:00",
-    "tokens_spent": 3448470
+    "tokens_spent": 3708101
   },
   "campaign_history": [],
   "scope": {
@@ -244,15 +244,15 @@
       "state": "completed",
       "last_run": {
         "campaign_id": "20260829T204429059458+0200",
-        "completed_at": "2026-08-29T23:34:53+02:00",
-        "observed_head": "1740031586ac6903a28c160d9c5022dd2c32b114",
-        "content_sha256": "9acbb6621addcde8172e7f99c32c5fe7be28bc17abb46e14e67313bad297e408",
+        "completed_at": "2026-08-29T23:46:37+02:00",
+        "observed_head": "f1e69a2fb5abeb095957e3e22e0c9ecd580073e2",
+        "content_sha256": "42eb7da31bcba4ba69b5680d7e7e112c5ac9d8fc74d8e4c9a74f71b3e061fe8c",
         "file_count": 11,
         "review": "delta-plus-boundaries",
         "outcome": "improved",
-        "summary": "Delta und Aufrufgrenzen geprüft: Der Live-Bildprüfer delegiert die Commons-Lizenzentscheidung an denselben fail-closed Kern wie das Veröffentlichungs-Audit; Reportstruktur, MIME-Prüfung und API-Batch-Verarbeitung bleiben unverändert.",
+        "summary": "Delta und Grenzen geprüft: audit_image_credits weist die generischen Urheberangaben 'Wikimedia Commons' und 'Commons' nun unabhängig von der Lizenz zurück; gemeinfreie Bilder mit ehrlich unbekanntem Urheber bleiben zulässig. check_images lädt den unveränderten gemeinsamen Lizenzkern über dessen neue ESM-Datei.",
         "tests": [
-          "node --check scripts/check_images.cjs; audit:image-credits 10.468/10.468; Vitest imageCredits 10/10"
+          "audit:image-credits 10.468/10.468; npm test -- --run 229/229; node --check für Audit und Bildprüfer; Fakten- und Fragen-Audits für sechs betroffene Domains"
         ]
       }
     },
@@ -618,15 +618,15 @@
       "state": "completed",
       "last_run": {
         "campaign_id": "20260829T204429059458+0200",
-        "completed_at": "2026-08-29T23:34:53+02:00",
-        "observed_head": "1740031586ac6903a28c160d9c5022dd2c32b114",
-        "content_sha256": "d383bc6eadb4123de2dec2fce24909ccc64a0eee8c5aab7517e5a72de1b2137b",
+        "completed_at": "2026-08-29T23:46:37+02:00",
+        "observed_head": "f1e69a2fb5abeb095957e3e22e0c9ecd580073e2",
+        "content_sha256": "03b0fc74e65521af1436e67530654f8e3367171b966c3b39a269a7cb837fbd13",
         "file_count": 12,
         "review": "delta-plus-boundaries",
         "outcome": "improved",
-        "summary": "Delta und Verbrauchergrenzen geprüft: imageCredits exportiert die bestehende Browser-API nun aus dem gemeinsamen CJS-Kern; ImageCredit und Generatoren behalten ihre Schnittstelle, Lizenzlinks und bestehende Attribution-Bereinigung. Der Produktionsbuild bestätigt die CJS/ESM-Grenze.",
+        "summary": "Delta und Verbrauchergrenzen geprüft: isConcreteImageAttribution erkennt einen Fundort nicht mehr als Urheber; imageCredits verwendet benannte ESM-Imports, sodass Vite-Entwicklung und Produktionsbuild denselben Lizenzkern laden. ImageCredit zeigt die konkretisierten Urheber mit unveränderten Quellen- und Lizenzlinks.",
         "tests": [
-          "Vitest imageCredits 10/10; audit:image-credits 10.468/10.468; Vite-Build erfolgreich"
+          "Vitest-Gesamtlauf 229/229; Vite-Build; Browser-Stichproben Cultura, Homo und Natura mit geladenen Bildern, korrekten Nachweisen und leerer Konsole"
         ]
       }
     },
@@ -754,15 +754,15 @@
       "state": "completed",
       "last_run": {
         "campaign_id": "20260829T204429059458+0200",
-        "completed_at": "2026-08-29T23:34:53+02:00",
-        "observed_head": "1740031586ac6903a28c160d9c5022dd2c32b114",
-        "content_sha256": "80ee096da451d256e959c48e0e28901b6b65005f38b9adebe6e1ce14e2e03110",
+        "completed_at": "2026-08-29T23:46:37+02:00",
+        "observed_head": "f1e69a2fb5abeb095957e3e22e0c9ecd580073e2",
+        "content_sha256": "2f1eb5dc0b17cc80de1732349dfd78a891a6fdbddb3bc94062fbeab2597d9179",
         "file_count": 8,
         "review": "delta-plus-boundaries",
         "outcome": "improved",
-        "summary": "Delta und Testwerkzeug-Grenze geprüft: Der isolierte Harvest-Testbaum übernimmt die neue Lizenzpolicy als echte Laufzeitabhängigkeit; der Mapping-Test beweist vollständigen Abbruch vor einem Schreibzugriff bei unbekannter Lizenz.",
+        "summary": "Delta und isolierte Testgrenze geprüft: test_harvest_tools kopiert die ESM-Lizenzrichtlinie unter ihrem tatsächlichen Dateinamen in den temporären Harvest-Testbaum; bestehende CJS-Werkzeuge können sie unter den unterstützten Node-Versionen synchron laden.",
         "tests": [
-          "Python Harvest-Werkzeuge 16/16; apply_images-Syntaxprüfung erfolgreich"
+          "python3 -m unittest 46/46; npm test -- --run 229/229; direkter require()-Kompatibilitätstest der ESM-Exports"
         ]
       }
     },
@@ -784,15 +784,15 @@
       "state": "completed",
       "last_run": {
         "campaign_id": "20260829T204429059458+0200",
-        "completed_at": "2026-08-29T23:34:53+02:00",
-        "observed_head": "1740031586ac6903a28c160d9c5022dd2c32b114",
-        "content_sha256": "db067a73f39c4a029a1002b5169cabeb82a58c69fd04782745adc40283444f22",
+        "completed_at": "2026-08-29T23:46:37+02:00",
+        "observed_head": "f1e69a2fb5abeb095957e3e22e0c9ecd580073e2",
+        "content_sha256": "fc83d2ea0e8709244c805ebc7f72bcfe63335bd25c3d31f030734aeda2c32590",
         "file_count": 8,
         "review": "delta-plus-boundaries",
         "outcome": "improved",
-        "summary": "Alle acht Bereichsdateien einschließlich des neuen gemeinsamen Lizenzkerns geprüft: Resolver, Autorenporträt-Ernte und Mapping-Import verwenden dieselbe Positivliste, schreiben kanonische Lizenznamen und lehnen unbekannte, NC-, ND- und All-rights-Metadaten geschlossen ab.",
+        "summary": "Alle acht Bereichsdateien und ihre Daten-/Auditgrenzen geprüft: Der Backfill löst auch bei gemeinfreien Bildern generische Commons-Angaben auf, zählt Nachschlagen und reine Bereinigung getrennt und besitzt geprüfte Fallbacks für nicht maschinenlesbare Dateiseiten. 28 generische Urheber wurden konkretisiert und 193 redundante Commons-Suffixe entfernt; ein zweiter Lauf ändert nichts. Der Lizenzkern ist ohne Logikänderung ESM- und CJS-tauglich.",
         "tests": [
-          "node --check für alle acht Bereichsskripte; Python Harvest-Werkzeuge 16/16; audit:image-credits 10.468/10.468; Vite-Build erfolgreich"
+          "idempotenter Backfill-Dry-Run 0/0/0; 221 geänderte Rohdatensätze ausschließlich imageAttribution; Generator-Determinismus für sechs Domains; node --check für alle acht Bereichsdateien; audit:image-credits 10.468/10.468; Python 46/46; Vitest 229/229; Browser-Stichprobe"
         ]
       }
     },
@@ -935,14 +935,18 @@
         "scripts/data_sources/natura_raw.json"
       ],
       "priority": 16,
-      "state": "in_progress",
+      "state": "completed",
       "noted_at": "2026-08-29T21:58:12+02:00",
       "campaign_id": "20260829T204429059458+0200",
       "started_at": "2026-08-29T23:35:05+02:00",
-      "active_run": {
+      "completed": {
         "campaign_id": "20260829T204429059458+0200",
-        "started_at": "2026-08-29T23:35:05+02:00",
-        "observed_head": "09951179827b37fcd56f6d6d40d78808aa1b9d43"
+        "completed_at": "2026-08-29T23:46:00+02:00",
+        "observed_head": "f1e69a2fb5abeb095957e3e22e0c9ecd580073e2",
+        "summary": "Pauschale Commons-Urheberangaben in 221 Rohdatensätzen bereinigt: 28 generische Angaben anhand von Commons-Metadaten beziehungsweise geprüften Dateiseiten konkretisiert, 193 redundante Commons-Suffixe entfernt und betroffene Domain-Daten reproduzierbar neu erzeugt. Das Release-Audit weist generische Commons-Angaben nun auch bei gemeinfreien Bildern zurück. Die gemeinsame Lizenzrichtlinie ist als ESM-Modul in Browser und Node nutzbar; die Browser-Stichprobe zeigt konkrete Urheber-, Quellen- und Lizenzlinks.",
+        "tests": [
+          "npm test -- --run (229 Tests); python3 -m unittest (46 Tests); npm run audit:image-credits (10.468/10.468); npm run build; npm run check:layout (44/44); python3 -m unittest tests/test_deploy.py (21 Tests); verify:facts und audit:questions für astra, cultura, homo, lingua, machina, natura; Generator-Determinismus für alle sechs Domains; idempotenter Backfill-Dry-Run; Browser-Stichprobe in Cultura, Homo und Natura ohne Konsolenfehler"
+        ]
       }
     }
   ]
