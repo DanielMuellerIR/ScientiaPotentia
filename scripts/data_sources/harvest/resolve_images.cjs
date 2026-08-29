@@ -29,6 +29,7 @@
 const https = require("https");
 const fs = require("fs");
 const path = require("path");
+const { writeJsonAtomic } = require('./json_io.cjs');
 
 // Wikimedia verlangt einen beschreibenden User-Agent, der das Projekt erkennbar macht.
 const UA = "ScientiaQuizImageResolver/1.0 (educational quiz project)";
@@ -207,9 +208,9 @@ async function resolveConcept(term) {
       const r = await resolveConcept(o.imageSearchTerm || o.name);
       if (r) { Object.assign(o, r); delete o._imgProblem; res++; G.resolved++; }
       else { o._imgProblem = PROBLEM_TAG; none++; G.none++; }
-      fs.writeFileSync(f, JSON.stringify(arr, null, 2)); // Teilfortschritt sofort sichern
+      writeJsonAtomic(f, arr); // Teilfortschritt nach jedem Konzept atomar sichern
     }
-    fs.writeFileSync(f, JSON.stringify(arr, null, 2));
+    writeJsonAtomic(f, arr);
     console.log(`${f.padEnd(22)} aufgeloest:${res}  ohne Bild:${none}`);
     if (G.stoppedEarly) break;
   }

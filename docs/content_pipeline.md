@@ -27,7 +27,7 @@ NC, ND, unbekannte Bezeichnungen und unklare Rechte werden verworfen.
 
 ```bash
 node scripts/data_sources/harvest/resolve_images_batched.cjs <domain>
-node scripts/data_sources/harvest/backfill_image_attribution.mjs
+node scripts/data_sources/harvest/backfill_image_attribution.mjs --write
 ```
 
 Ein Bild muss das konkrete Konzept zeigen. Logos, Platzhalter und nur dekorativ passende Bilder

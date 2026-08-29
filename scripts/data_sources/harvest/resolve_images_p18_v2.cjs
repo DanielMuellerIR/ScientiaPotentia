@@ -20,6 +20,7 @@
 const https = require("https");
 const fs = require("fs");
 const path = require("path");
+const { writeJsonAtomic } = require('./json_io.cjs');
 
 const UA = "ScientiaQuizImageResolverP18v2/1.0 (educational quiz project; pageimages+P18 only)";
 const OUT_FILE = "/tmp/astra_images2.json";
@@ -467,7 +468,7 @@ async function resolveConcept(c) {
   }
 
   // Output schreiben
-  fs.writeFileSync(OUT_FILE, JSON.stringify(results, null, 2));
+  writeJsonAtomic(OUT_FILE, results);
   const elapsed = ((Date.now() - t0) / 1000).toFixed(1);
 
   console.log("\n=== ERGEBNIS ===");

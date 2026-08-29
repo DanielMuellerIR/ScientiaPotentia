@@ -4,15 +4,27 @@
  * Ergänzt fehlende Urheberangaben aus Wikimedia Commons und entfernt
  * Kontaktadressen aus vorhandenen Credit-Texten.
  *
- * Aufruf: node scripts/data_sources/harvest/backfill_image_attribution.mjs
+ * Aufruf: node scripts/data_sources/harvest/backfill_image_attribution.mjs [--write]
+ * Ohne --write werden die Änderungen nur ermittelt und gemeldet.
  */
-import { readFile, rename, writeFile } from 'node:fs/promises';
+import { readFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import jsonIo from './json_io.cjs';
 import {
   isConcreteImageAttribution,
   sanitizeImageAttribution,
 } from '../../../src/utils/imageCredits.js';
+
+const { writeJsonAtomic } = jsonIo;
+
+const arguments_ = process.argv.slice(2);
+if (arguments_.some(argument => argument !== '--write')
+    || arguments_.filter(argument => argument === '--write').length > 1) {
+  console.error('Aufruf: backfill_image_attribution.mjs [--write]');
+  process.exit(1);
+}
+const WRITE = arguments_.includes('--write');
 
 const SCRIPT_DIR = dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = join(SCRIPT_DIR, '..');
@@ -217,10 +229,8 @@ for (const [domain, { file, records }] of domainData) {
       if (previous && next) sanitised += 1;
     }
   }
-  if (changed) {
-    const temporary = `${file}.tmp`;
-    await writeFile(temporary, `${JSON.stringify(records, null, 2)}\n`);
-    await rename(temporary, file);
+  if (changed && WRITE) {
+    writeJsonAtomic(file, records);
   }
 }
 
@@ -231,3 +241,4 @@ if (unresolved.length) {
 } else {
   console.log(`${filled} Datensätze ergänzt, ${sanitised} vorhandene Credits bereinigt.`);
 }
+if (!WRITE) console.log('[DRY-RUN] Nichts geschrieben. Mit --write anwenden.');

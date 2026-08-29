@@ -1,7 +1,8 @@
 // Gebündelter Bild-Resolver (Phase D) — Hauptbild via Wikidata-P18 / de.wikipedia pageimages.
 // KEINE Freitextsuche. Im Gegensatz zu den per-Konzept-Resolvern bündelt dieses Skript die
 // API-Aufrufe (bis 50 Einheiten pro Request) → ~Dutzend Requests statt einer pro Konzept,
-// damit KEIN Wikimedia-Rate-Limit (429) auftritt. Schreibt das Ergebnis-Mapping inkrementell.
+// damit KEIN Wikimedia-Rate-Limit (429) auftritt. Schreibt das Ergebnis-Mapping
+// erst nach einem vollständig erfolgreichen Lauf atomar.
 //
 // Aufruf:  node resolve_images_batched.cjs <domain> [animalCap] [animalOffset]
 //   <domain>   = astra | natura | cultura | lingua | historia | homo | machina
@@ -12,20 +13,12 @@
 const https = require("https");
 const fs = require("fs");
 const path = require("path");
+const { assertSafeDomain, writeJsonAtomic } = require('./json_io.cjs');
 
-const DOMAIN = process.argv[2];
-const ANIMAL_CAP = process.argv[3] ? parseInt(process.argv[3], 10) : Infinity;
-const ANIMAL_OFFSET = process.argv[4] ? parseInt(process.argv[4], 10) : 0;
-if (!DOMAIN) { console.error("Aufruf: node resolve_images_batched.cjs <domain> [animalCap] [animalOffset]"); process.exit(1); }
-if ((ANIMAL_CAP !== Infinity && (!Number.isInteger(ANIMAL_CAP) || ANIMAL_CAP < 1)) ||
-    !Number.isInteger(ANIMAL_OFFSET) || ANIMAL_OFFSET < 0) {
-  console.error("animalCap muss positiv und animalOffset eine nichtnegative ganze Zahl sein.");
-  process.exit(1);
-}
-
-const RAWFILE = path.join(__dirname, `../${DOMAIN}_raw.json`);
-const OUT = `/tmp/${DOMAIN}_images_batched.json`;
 const UA = "ScientiaQuizImageResolverBatched/1.0 (educational quiz; pageimages+P18 only, batched)";
+const ALLOWED_MIME = new Set([
+  'image/jpeg', 'image/png', 'image/svg+xml', 'image/gif', 'image/webp',
+]);
 
 // Zielkategorien je Domain (nur Kategorien, bei denen ein echtes Foto/Bild sinnvoll ist)
 const TARGETS = {
@@ -52,6 +45,22 @@ const TARGETS = {
   machina:new Set(["hardware"]),
 };
 
+function parseArguments(arguments_) {
+  const [domainArgument, capArgument, offsetArgument, ...extra] = arguments_;
+  if (!domainArgument || extra.length
+      || (capArgument !== undefined && !/^[1-9]\d*$/.test(capArgument))
+      || (offsetArgument !== undefined && !/^\d+$/.test(offsetArgument))) {
+    throw new Error('Aufruf: node resolve_images_batched.cjs <domain> [animalCap] [animalOffset]');
+  }
+  const domain = assertSafeDomain(domainArgument);
+  if (!TARGETS[domain]) throw new Error(`Unbekannte Domain: ${domain}`);
+  return {
+    domain,
+    animalCap: capArgument === undefined ? Infinity : Number(capArgument),
+    animalOffset: offsetArgument === undefined ? 0 : Number(offsetArgument),
+  };
+}
+
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 function rawGet(url) {
   return new Promise((res, rej) => {
@@ -73,7 +82,6 @@ async function get(url) {
   }
   return rawGet(url);
 }
-const J = s => { try { return JSON.parse(s); } catch { return null; } };
 const chunk = (a, n) => { const o = []; for (let i = 0; i < a.length; i += n) o.push(a.slice(i, i + n)); return o; };
 const qidOf = u => (String(u).match(/Q\d+/) || [])[0];
 const deTitle = u => { const m = String(u).match(/de\.wikipedia\.org\/wiki\/([^?#]+)/); return m ? decodeURIComponent(m[1]).replace(/_/g, " ") : null; };
@@ -104,26 +112,74 @@ const isFree = meta => {
   return copyrighted.toLowerCase() === "false";
 };
 
-(async () => {
-  const raw = JSON.parse(fs.readFileSync(RAWFILE, "utf8"));
-  const cats = TARGETS[DOMAIN];
+async function getJson(url) {
+  const response = await get(url);
+  if (response.status < 200 || response.status >= 300) {
+    throw new Error(`API antwortet mit HTTP ${response.status}`);
+  }
+  let payload;
+  try {
+    payload = JSON.parse(response.body);
+  } catch {
+    throw new Error('API-Antwort ist kein gültiges JSON');
+  }
+  if (payload?.error) {
+    throw new Error(`API-Fehler ${payload.error.code || 'unbekannt'}: ${payload.error.info || 'ohne Beschreibung'}`);
+  }
+  return payload;
+}
+
+function addGroupedConcept(groups, key, concept) {
+  const concepts = groups.get(key) || [];
+  concepts.push(concept);
+  groups.set(key, concepts);
+}
+
+function uniqueSourceMap(groups) {
+  const unique = new Map();
+  const ambiguous = [];
+  for (const [key, concepts] of groups) {
+    if (concepts.length === 1) unique.set(key, concepts[0]);
+    else ambiguous.push({ key, ids: concepts.map(concept => concept.id) });
+  }
+  return { unique, ambiguous };
+}
+
+function logAmbiguousSources(label, ambiguous) {
+  for (const { key, ids } of ambiguous) {
+    console.log(`  Mehrdeutiger ${label} ausgelassen: ${key} -> ${ids.join(', ')}`);
+  }
+}
+
+async function main() {
+  const options = parseArguments(process.argv.slice(2));
+  const rawFile = path.join(__dirname, `../${options.domain}_raw.json`);
+  const outputFile = `/tmp/${options.domain}_images_batched.json`;
+  const raw = JSON.parse(fs.readFileSync(rawFile, "utf8"));
+  if (!Array.isArray(raw)) throw new Error(`${options.domain}_raw.json muss ein JSON-Array sein`);
+  const cats = TARGETS[options.domain];
   let pool = raw.filter(c => cats.has(c.category) && !c.imageFile);
-  if (DOMAIN === "natura" && (ANIMAL_CAP !== Infinity || ANIMAL_OFFSET > 0)) {
-    const animals = pool.filter(c => c.category === "animal").slice(ANIMAL_OFFSET, ANIMAL_OFFSET + ANIMAL_CAP);
+  if (options.domain === "natura" && (options.animalCap !== Infinity || options.animalOffset > 0)) {
+    const animals = pool.filter(c => c.category === "animal")
+      .slice(options.animalOffset, options.animalOffset + options.animalCap);
     pool = pool.filter(c => c.category !== "animal").concat(animals);
   }
-  const animalWindow = DOMAIN === "natura" && (ANIMAL_CAP !== Infinity || ANIMAL_OFFSET > 0)
-    ? ` (Tierfenster ab ${ANIMAL_OFFSET + 1})` : "";
-  console.log(`${DOMAIN}: ${pool.length} bildlose Konzepte in Zielkategorien${animalWindow}`);
+  const animalWindow = options.domain === "natura"
+    && (options.animalCap !== Infinity || options.animalOffset > 0)
+    ? ` (Tierfenster ab ${options.animalOffset + 1})` : "";
+  console.log(`${options.domain}: ${pool.length} bildlose Konzepte in Zielkategorien${animalWindow}`);
 
   // Schritt 1: QID-Konzepte sammeln (sourceUrl mit Q…) und Rest über de.wiki-Titel
-  const byQid = new Map();   // QID -> concept
-  const byTitle = new Map(); // de.wiki-Titel -> concept
+  const qidGroups = new Map();
+  const titleGroups = new Map();
   for (const c of pool) {
     const qid = qidOf(c.sourceUrl);
-    if (qid) byQid.set(qid, c);
-    else { const t = deTitle(c.sourceUrl) || c.name; byTitle.set(t, c); }
+    if (qid) addGroupedConcept(qidGroups, qid, c);
+    else addGroupedConcept(titleGroups, deTitle(c.sourceUrl) || c.name, c);
   }
+  const qidIndex = uniqueSourceMap(qidGroups);
+  const byQid = qidIndex.unique;
+  logAmbiguousSources('Wikidata-Schlüssel', qidIndex.ambiguous);
 
   // id -> bare Commons-Dateiname (ohne "File:")
   const fileForId = new Map();
@@ -132,7 +188,7 @@ const isFree = meta => {
   const qids = [...byQid.keys()];
   for (const grp of chunk(qids, 50)) {
     const url = `https://www.wikidata.org/w/api.php?action=wbgetentities&ids=${grp.join("|")}&props=claims&format=json`;
-    const j = J((await get(url)).body);
+    const j = await getJson(url);
     const ents = j?.entities || {};
     for (const qid of grp) {
       const f = ents[qid]?.claims?.P18?.[0]?.mainsnak?.datavalue?.value;
@@ -144,11 +200,18 @@ const isFree = meta => {
 
   // --- Schritt 3: de.wikipedia pageimages gebündelt (50 Titel/Request) für QID-lose + QIDs ohne P18 ---
   // QIDs ohne P18 nachträglich per de.wiki-Titel versuchen (Titel = concept.name)
-  for (const [qid, c] of byQid) if (!fileForId.has(c.id)) byTitle.set(deTitle(c.sourceUrl) || c.name, c);
+  for (const [, c] of byQid) {
+    if (!fileForId.has(c.id)) {
+      addGroupedConcept(titleGroups, deTitle(c.sourceUrl) || c.name, c);
+    }
+  }
+  const titleIndex = uniqueSourceMap(titleGroups);
+  const byTitle = titleIndex.unique;
+  logAmbiguousSources('Wikipedia-Titel', titleIndex.ambiguous);
   const titles = [...byTitle.keys()];
   for (const grp of chunk(titles, 50)) {
     const url = `https://de.wikipedia.org/w/api.php?action=query&prop=pageimages&piprop=original&redirects=1&format=json&titles=${grp.map(encodeURIComponent).join("|")}`;
-    const j = J((await get(url)).body);
+    const j = await getJson(url);
     const q = j?.query || {};
     // Titel-Auflösung: erst Normalisierung (Leerzeichen/Unterstrich), dann Redirect
     // (redirects=1) -> finaler Seitentitel. Ohne die redirect-Kette griffe redirects=1 nicht.
@@ -173,7 +236,7 @@ const isFree = meta => {
   const licByFile = new Map();
   for (const grp of chunk(files, 50)) {
     const url = `https://commons.wikimedia.org/w/api.php?action=query&prop=imageinfo&iiprop=extmetadata|url|mime&format=json&titles=${grp.map(encodeURIComponent).join("|")}`;
-    const j = J((await get(url)).body);
+    const j = await getJson(url);
     const q = j?.query || {};
     const norm = {}; (q.normalized || []).forEach(n => norm[n.from] = n.to);
     const pageByTitle = {}; Object.values(q.pages || {}).forEach(p => { if (p.title) pageByTitle[p.title] = p; });
@@ -183,7 +246,7 @@ const isFree = meta => {
       if (!ii) continue;
       const m = ii.extmetadata || {};
       const lic = (m.LicenseShortName?.value || m.License?.value || "").toString();
-      const ok = String(ii.mime || "").startsWith("image/") && isFree(m);
+      const ok = ALLOWED_MIME.has(String(ii.mime || "")) && isFree(m);
       licByFile.set(fTitle, { ok, lic: lic || "Public domain", art: (m.Artist?.value || "").replace(/<[^>]+>/g, "").trim().slice(0, 200) });
     }
     await sleep(120);
@@ -193,9 +256,24 @@ const isFree = meta => {
   const out = [];
   for (const [id, f] of entries) {
     const lic = licByFile.get("File:" + f);
-    if (!lic || !lic.ok) continue;
+    if (!lic || !lic.ok || !lic.art) continue;
     out.push({ id, imageFile: `https://commons.wikimedia.org/wiki/File%3A${encodeURIComponent(f)}`, imageLicense: lic.lic, imageAttribution: lic.art });
   }
-  fs.writeFileSync(OUT, JSON.stringify(out, null, 2) + "\n");
-  console.log(`FERTIG: ${out.length}/${pool.length} Bilder → ${OUT}`);
-})();
+  writeJsonAtomic(outputFile, out);
+  console.log(`FERTIG: ${out.length}/${pool.length} Bilder → ${outputFile}`);
+}
+
+if (require.main === module) {
+  main().catch((error) => {
+    console.error(`FEHLER: ${error.message}`);
+    process.exitCode = 1;
+  });
+}
+
+module.exports = {
+  addGroupedConcept,
+  fileNameFromUploadUrl,
+  isFree,
+  parseArguments,
+  uniqueSourceMap,
+};

@@ -201,6 +201,109 @@ class HarvestToolTests(unittest.TestCase):
                 ['Alpha', 'alpha', 'alpha', 'alpha', 'alpha'],
             )
 
+    def test_apply_images_is_dry_by_default_and_writes_only_explicitly(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root, harvest = self.prepare_tool_tree(temporary, 'apply_images.cjs')
+            raw_path = root / 'scripts' / 'data_sources' / 'machina_raw.json'
+            mapping_path = root / 'mapping.json'
+            original = [{'id': 'hammer', 'name': 'Hammer'}]
+            mapping = [{
+                'id': 'hammer',
+                'imageFile': 'https://commons.wikimedia.org/wiki/File%3AHammer.jpg',
+                'imageLicense': 'CC BY-SA 4.0',
+                'imageAttribution': 'Beispielautor',
+            }]
+            self.write_json(raw_path, original)
+            self.write_json(mapping_path, mapping)
+
+            dry = self.run_node(
+                harvest / 'apply_images.cjs', 'machina',
+                f'--mapping={mapping_path}',
+            )
+
+            self.assertEqual(dry.returncode, 0, dry.stderr)
+            self.assertEqual(json.loads(raw_path.read_text(encoding='utf-8')), original)
+            self.assertIn('DRY-RUN', dry.stdout)
+
+            written = self.run_node(
+                harvest / 'apply_images.cjs', 'machina',
+                f'--mapping={mapping_path}', '--write',
+            )
+
+            self.assertEqual(written.returncode, 0, written.stderr)
+            concept = json.loads(raw_path.read_text(encoding='utf-8'))[0]
+            self.assertEqual(concept['imageFile'], mapping[0]['imageFile'])
+            self.assertEqual(concept['imageLicense'], 'CC BY-SA 4.0')
+            self.assertEqual(concept['imageAttribution'], 'Beispielautor')
+
+    def test_apply_images_rejects_entire_invalid_mapping_before_write(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root, harvest = self.prepare_tool_tree(temporary, 'apply_images.cjs')
+            raw_path = root / 'scripts' / 'data_sources' / 'machina_raw.json'
+            mapping_path = root / 'mapping.json'
+            original = [{'id': 'first'}, {'id': 'second'}]
+            self.write_json(raw_path, original)
+            self.write_json(mapping_path, [
+                {
+                    'id': 'first',
+                    'imageFile': 'https://commons.wikimedia.org/wiki/File%3AFirst.jpg',
+                    'imageLicense': 'CC BY 4.0',
+                    'imageAttribution': 'Erster Autor',
+                },
+                {
+                    'id': 'second',
+                    'imageFile': 'https://example.invalid/not-commons.jpg',
+                    'imageLicense': 'CC BY 4.0',
+                    'imageAttribution': 'Zweiter Autor',
+                },
+            ])
+
+            result = self.run_node(
+                harvest / 'apply_images.cjs', 'machina',
+                f'--mapping={mapping_path}', '--write',
+            )
+
+            self.assertNotEqual(result.returncode, 0)
+            self.assertEqual(json.loads(raw_path.read_text(encoding='utf-8')), original)
+            self.assertIn('keine Commons-Dateiseite', result.stderr)
+
+    def test_batched_image_resolver_rejects_unknown_domain_before_network(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            _, harvest = self.prepare_tool_tree(
+                temporary, 'resolve_images_batched.cjs')
+
+            result = self.run_node(
+                harvest / 'resolve_images_batched.cjs', 'not_a_domain')
+
+            self.assertNotEqual(result.returncode, 0)
+            self.assertIn('Unbekannte Domain', result.stderr)
+
+    def test_batched_image_resolver_marks_duplicate_sources_as_ambiguous(self):
+        script = HARVEST / 'resolve_images_batched.cjs'
+        code = f"""
+const resolver = require({json.dumps(str(script))});
+const groups = new Map();
+resolver.addGroupedConcept(groups, 'Gelenk', {{ id: 'a' }});
+resolver.addGroupedConcept(groups, 'Gelenk', {{ id: 'b' }});
+resolver.addGroupedConcept(groups, 'Knochen', {{ id: 'c' }});
+const result = resolver.uniqueSourceMap(groups);
+console.log(JSON.stringify({{
+  unique: [...result.unique.keys()],
+  ambiguous: result.ambiguous,
+}}));
+"""
+
+        result = subprocess.run(
+            ['node', '-e', code], capture_output=True, text=True,
+            check=False, timeout=5,
+        )
+
+        self.assertEqual(result.returncode, 0, result.stderr)
+        indexed = json.loads(result.stdout)
+        self.assertEqual(indexed['unique'], ['Knochen'])
+        self.assertEqual(
+            indexed['ambiguous'], [{'key': 'Gelenk', 'ids': ['a', 'b']}])
+
 
 if __name__ == '__main__':
     unittest.main()

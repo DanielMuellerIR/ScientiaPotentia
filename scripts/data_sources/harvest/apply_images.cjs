@@ -1,63 +1,200 @@
 /**
- * Wendet das vom gebündelten Resolver erzeugte Bild-Mapping additiv auf die
- * Faktenbasis <domain>_raw.json an — und kann anschließend (mit --prune) die von
- * check_images.cjs als ungültig markierten Bilder wieder entfernen.
+ * Wendet ein vom Bild-Resolver erzeugtes Mapping additiv auf
+ * <domain>_raw.json an oder entfernt explizit als ungültig geprüfte Bilder.
  *
- * Hintergrund: resolve_images_batched.cjs schreibt nur nach /tmp; das Zurück-
- * schreiben in raw.json war bisher ein ad-hoc-Einzeiler (fehleranfällig, da pro
- * Welle wiederholt). Dieser Helfer kapselt beide wiederkehrenden Schritte.
+ * Die Rawdatei ändert sich nur mit --write. Vorher werden Rawkatalog und das
+ * vollständige Mapping beziehungsweise Prüfergebnis eingelesen und validiert;
+ * der abschließende Write ersetzt die Datei atomar.
  *
  * Aufruf:
- *   node apply_images.cjs <domain>                 # /tmp-Mapping in raw mergen
- *   node apply_images.cjs <domain> --prune=<check.json>  # ungültige Bilder entfernen
+ *   node apply_images.cjs <domain> [--mapping=<datei.json>] [--write]
+ *   node apply_images.cjs <domain> --prune=<check.json> [--write]
  *
- * Merge ist additiv: nur Konzepte OHNE imageFile bekommen ein Bild gesetzt
- * (der Resolver liefert ohnehin nur bildlose). Bestehende Bilder bleiben unangetastet.
+ * Ohne --mapping wird /tmp/<domain>_images_batched.json verwendet. Der Merge
+ * ist additiv: Bestehende imageFile-Felder bleiben unangetastet.
  */
-const fs = require('node:fs');
 const path = require('node:path');
+const {
+  assertSafeDomain, readJson, readJsonArray, writeJsonAtomic,
+} = require('./json_io.cjs');
 
 const ROOT = path.join(__dirname, '..', '..', '..');
-const domain = process.argv[2];
-const pruneArg = (process.argv.find(a => a.startsWith('--prune=')) || '').split('=')[1];
-if (!domain) { console.error('Aufruf: apply_images.cjs <domain> [--prune=<check.json>]'); process.exit(1); }
 
-const rawPath = path.join(ROOT, 'scripts', 'data_sources', `${domain}_raw.json`);
-const raw = JSON.parse(fs.readFileSync(rawPath, 'utf8'));
-const byId = new Map(raw.map(c => [c.id, c]));
+function parseArguments(arguments_) {
+  const [domainArgument, ...flags] = arguments_;
+  const writeCount = flags.filter(flag => flag === '--write').length;
+  const mappingFlags = flags.filter(flag => flag.startsWith('--mapping='));
+  const pruneFlags = flags.filter(flag => flag.startsWith('--prune='));
+  const unknown = flags.filter(flag => (
+    flag !== '--write'
+    && !flag.startsWith('--mapping=')
+    && !flag.startsWith('--prune=')
+  ));
+  if (!domainArgument || unknown.length || writeCount > 1
+      || mappingFlags.length > 1 || pruneFlags.length > 1
+      || (mappingFlags.length && pruneFlags.length)) {
+    throw new Error('Aufruf: apply_images.cjs <domain> [--mapping=<datei.json> | --prune=<check.json>] [--write]');
+  }
+  const valueAfterEquals = (flag, name) => {
+    if (!flag) return null;
+    const value = flag.slice(flag.indexOf('=') + 1);
+    if (!value) throw new Error(`${name} benötigt einen Dateipfad`);
+    return value;
+  };
+  return {
+    domain: assertSafeDomain(domainArgument),
+    write: writeCount === 1,
+    mappingArgument: valueAfterEquals(mappingFlags[0], '--mapping'),
+    pruneArgument: valueAfterEquals(pruneFlags[0], '--prune'),
+  };
+}
 
-if (pruneArg) {
-  // --- Prune-Modus: Bilder entfernen, die check_images.cjs als nicht-ok flaggte ---
-  const check = JSON.parse(fs.readFileSync(path.isAbsolute(pruneArg) ? pruneArg : path.join(ROOT, pruneArg), 'utf8'));
-  let removed = 0;
-  for (const [id, res] of Object.entries(check)) {
-    // ok!==true UND ein Ergebnis liegt vor (unbeantwortete API-Lücken NICHT löschen)
-    if (res && res.ok === false) {
-      const c = byId.get(id);
-      if (c && c.imageFile) {
-        delete c.imageFile; delete c.imageLicense; delete c.imageAttribution;
-        removed++;
-        console.log(`  - entfernt: ${id} [${res.reason}]`);
-      }
+function resolveInputPath(argument, fallback) {
+  if (!argument) return fallback;
+  return path.isAbsolute(argument) ? argument : path.join(ROOT, argument);
+}
+
+function indexRawConcepts(raw) {
+  const byId = new Map();
+  raw.forEach((concept, index) => {
+    if (!concept || typeof concept !== 'object' || Array.isArray(concept)
+        || typeof concept.id !== 'string' || !concept.id.trim()) {
+      throw new Error(`Rohkatalog: Konzept ${index + 1} besitzt keine gültige id`);
+    }
+    if (byId.has(concept.id)) {
+      throw new Error(`Rohkatalog: doppelte id ${concept.id}`);
+    }
+    byId.set(concept.id, concept);
+  });
+  return byId;
+}
+
+function isCommonsFilePage(value) {
+  if (typeof value !== 'string') return false;
+  try {
+    const url = new URL(value);
+    return url.protocol === 'https:'
+      && url.hostname === 'commons.wikimedia.org'
+      && /^\/wiki\/(?:File|Datei):/i.test(decodeURIComponent(url.pathname));
+  } catch {
+    return false;
+  }
+}
+
+function validateMapping(mapping) {
+  const ids = new Set();
+  mapping.forEach((entry, index) => {
+    if (!entry || typeof entry !== 'object' || Array.isArray(entry)
+        || typeof entry.id !== 'string' || !entry.id.trim()) {
+      throw new Error(`Bild-Mapping: Eintrag ${index + 1} besitzt keine gültige id`);
+    }
+    if (ids.has(entry.id)) {
+      throw new Error(`Bild-Mapping: doppelte id ${entry.id}`);
+    }
+    ids.add(entry.id);
+    if (!isCommonsFilePage(entry.imageFile)) {
+      throw new Error(`Bild-Mapping: ${entry.id} besitzt keine Commons-Dateiseite`);
+    }
+    if (typeof entry.imageLicense !== 'string' || !entry.imageLicense.trim()) {
+      throw new Error(`Bild-Mapping: ${entry.id} besitzt keine Lizenzangabe`);
+    }
+    if (typeof entry.imageAttribution !== 'string' || !entry.imageAttribution.trim()) {
+      throw new Error(`Bild-Mapping: ${entry.id} besitzt keine Urheberangabe`);
+    }
+  });
+}
+
+function validatePruneResult(check) {
+  if (!check || typeof check !== 'object' || Array.isArray(check)) {
+    throw new Error('Prüfergebnis muss ein JSON-Objekt sein');
+  }
+  for (const [id, result] of Object.entries(check)) {
+    if (!id.trim() || !result || typeof result !== 'object' || Array.isArray(result)
+        || (result.ok !== true && result.ok !== false)) {
+      throw new Error(`Prüfergebnis für ${id || 'leere id'} benötigt ok=true|false`);
     }
   }
-  fs.writeFileSync(rawPath, JSON.stringify(raw, null, 2), 'utf8');
-  console.log(`Prune fertig: ${removed} ungültige Bilder entfernt aus ${rawPath}`);
-  process.exit(0);
 }
 
-// --- Apply-Modus: /tmp-Mapping mergen ---
-const mapPath = `/tmp/${domain}_images_batched.json`;
-const mapping = JSON.parse(fs.readFileSync(mapPath, 'utf8'));
-let applied = 0, skipped = 0;
-for (const m of mapping) {
-  const c = byId.get(m.id);
-  if (!c) { skipped++; continue; }
-  if (c.imageFile) { skipped++; continue; }      // additiv: bestehendes Bild nie überschreiben
-  c.imageFile = m.imageFile;
-  if (m.imageLicense) c.imageLicense = m.imageLicense;
-  if (m.imageAttribution) c.imageAttribution = m.imageAttribution;
-  applied++;
+function applyMapping(byId, mapping) {
+  let applied = 0;
+  let skipped = 0;
+  for (const entry of mapping) {
+    const concept = byId.get(entry.id);
+    if (!concept || concept.imageFile) {
+      skipped++;
+      continue;
+    }
+    concept.imageFile = entry.imageFile;
+    concept.imageLicense = entry.imageLicense;
+    concept.imageAttribution = entry.imageAttribution;
+    applied++;
+  }
+  return { applied, skipped, changed: applied };
 }
-fs.writeFileSync(rawPath, JSON.stringify(raw, null, 2), 'utf8');
-console.log(`Apply fertig: ${applied} Bilder gesetzt, ${skipped} übersprungen → ${rawPath}`);
+
+function pruneImages(byId, check) {
+  let removed = 0;
+  for (const [id, result] of Object.entries(check)) {
+    if (result.ok !== false) continue;
+    const concept = byId.get(id);
+    if (!concept?.imageFile) continue;
+    delete concept.imageFile;
+    delete concept.imageLicense;
+    delete concept.imageAttribution;
+    removed++;
+    console.log(`  - entfernt: ${id} [${result.reason || 'ohne Begründung'}]`);
+  }
+  return { removed, changed: removed };
+}
+
+function main() {
+  try {
+    const options = parseArguments(process.argv.slice(2));
+    const rawPath = path.join(
+      ROOT, 'scripts', 'data_sources', `${options.domain}_raw.json`);
+    const raw = readJsonArray(rawPath, `${options.domain}_raw.json`);
+    const byId = indexRawConcepts(raw);
+    let result;
+
+    if (options.pruneArgument) {
+      const prunePath = resolveInputPath(options.pruneArgument);
+      const check = readJson(prunePath, path.basename(prunePath));
+      validatePruneResult(check);
+      result = pruneImages(byId, check);
+      console.log(`Prune: ${result.removed} ungültige Bilder zum Entfernen vorgemerkt.`);
+    } else {
+      const fallback = `/tmp/${options.domain}_images_batched.json`;
+      const mappingPath = resolveInputPath(options.mappingArgument, fallback);
+      const mapping = readJsonArray(mappingPath, path.basename(mappingPath));
+      validateMapping(mapping);
+      result = applyMapping(byId, mapping);
+      console.log(`Apply: ${result.applied} Bilder zum Setzen vorgemerkt, ${result.skipped} übersprungen.`);
+    }
+
+    if (options.write && result.changed) {
+      writeJsonAtomic(rawPath, raw);
+      console.log(`Geschrieben: ${rawPath}`);
+    } else if (options.write) {
+      console.log('Keine Änderung; Rohkatalog nicht neu geschrieben.');
+    } else {
+      console.log('[DRY-RUN] Nichts geschrieben. Mit --write anwenden.');
+    }
+    return 0;
+  } catch (error) {
+    console.error(`FEHLER: ${error.message}`);
+    return 1;
+  }
+}
+
+if (require.main === module) process.exitCode = main();
+
+module.exports = {
+  applyMapping,
+  indexRawConcepts,
+  isCommonsFilePage,
+  parseArguments,
+  pruneImages,
+  validateMapping,
+  validatePruneResult,
+};
