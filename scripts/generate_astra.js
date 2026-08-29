@@ -18,7 +18,13 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { pickBalanced, deParse, shouldMagnitudeSpread, magnitudeSpreadDistractors } from './lib/quizrandom.js';
-import { norm, deNum, revealsAnswerStrict as revealsAnswer } from './lib/generator_text.js';
+import {
+  deNum,
+  distinctOptionValues,
+  norm,
+  optionKey,
+  revealsAnswerStrict as revealsAnswer,
+} from './lib/generator_text.js';
 import { buildImageMetadata } from '../src/utils/imageCredits.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -50,7 +56,10 @@ function roundSig(x, sig = 2) {
  * Der korrekte Wert wird stets ausgeschlossen, Duplikate werden entfernt.
  */
 function pickDistractors(correct, pool, numeric) {
-  const unique = [...new Set(pool.map(v => String(v)))].filter(v => v !== String(correct));
+  const values = pool.map(v => String(v));
+  const unique = numeric
+    ? [...new Set(values)].filter(v => v !== String(correct))
+    : distinctOptionValues(values).filter(v => optionKey(v) !== optionKey(correct));
   if (numeric) {
     // deParse statt Number(): einheitsbehaftete Werte („4,5 mag", „7,3 km")
     // ergeben mit Number()=NaN → die Wertnähe-Sortierung versagte und fiel auf
@@ -983,11 +992,11 @@ for (const tpl of templates) {
       }
     }
 
-    // Faire Frage braucht mind. 1 Distraktor; wir streben 3 an. Weniger als 2
-    // Optionen wären keine echte Wahl -> überspringen.
-    if (distractors.length < 1) continue;
-
     const options = [correct, ...distractors];
+    // Die Quizoberfläche erwartet vier unterscheidbare Optionen. Ein zu kleiner
+    // Pool oder zwei nur orthografisch verschiedene Varianten darf deshalb
+    // keine schwächere Zwei-/Drei-Antwort-Frage erzeugen.
+    if (options.length !== 4 || new Set(options.map(optionKey)).size !== 4) continue;
 
     questions.push({
       // type im id -> eindeutig, auch wenn zwei Templates dasselbe Attribut nutzen

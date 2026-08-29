@@ -6,7 +6,7 @@
     "token_budget": 8000000,
     "status": "active",
     "started_at": "2026-08-29T20:44:29+02:00",
-    "tokens_spent": 702656
+    "tokens_spent": 761292
   },
   "campaign_history": [],
   "scope": {
@@ -401,13 +401,24 @@
       "risk": "high",
       "priority": 8,
       "reason": "Gemeinsame Frageerzeugung, Distraktoren, Antwort-Leak-Schutz und Determinismus",
-      "state": "in_progress",
-      "active_run": {
+      "state": "completed",
+      "last_run": {
         "campaign_id": "20260829T204429059458+0200",
-        "started_at": "2026-08-29T21:16:03+02:00",
-        "required_review": "full",
-        "status_at_start": "pending",
-        "covered_pending_paths": []
+        "completed_at": "2026-08-29T21:18:08+02:00",
+        "observed_head": "3de2b10261ef5b45da8b3ab00dad34f056b824c4",
+        "content_sha256": "1b5886f813ef3b48b7fa1c78ebc85a8a2458db162c5ba070b98f2f81a565c900",
+        "file_count": 5,
+        "review": "full",
+        "outcome": "improved",
+        "summary": "Gemeinsame Generatorhelfer verwerfen nicht-endliche Zahlen und nach Formatierung doppelte Distraktoren; der Terra-Prüfer erkennt doppelte Fragen-IDs, und die ungenutzte zweite Flächenberechnung wurde entfernt.",
+        "tests": [
+          "npm test -- src/__tests__/quizrandom.test.js: passed (8)",
+          "node scripts/generate_questions.js: passed, generated output unchanged (5116 questions)",
+          "node scripts/verify_quiz.js: passed (63019 checks)",
+          "npm run audit:questions -- terra: passed, 0 structure and answer-leak failures",
+          "npm test: passed (179)",
+          "npm run build: passed"
+        ]
       }
     },
     {
@@ -418,7 +429,14 @@
       "risk": "high",
       "priority": 9,
       "reason": "Großer bereichsspezifischer Generator mit numerischen Astronomiefragen",
-      "state": "pending"
+      "state": "in_progress",
+      "active_run": {
+        "campaign_id": "20260829T204429059458+0200",
+        "started_at": "2026-08-29T21:18:12+02:00",
+        "required_review": "full",
+        "status_at_start": "pending",
+        "covered_pending_paths": []
+      }
     },
     {
       "id": "homo-natura-generators",
