@@ -24,6 +24,11 @@
 const https = require('https');
 const fs = require('fs');
 const path = require('path');
+const { writeJsonAtomic } = require('./json_io.cjs');
+const {
+  assertExpectedEntity,
+  buildSingleLanguageQuery,
+} = require('./lingua_harvest_helpers.cjs');
 
 // --- Konfiguration ----------------------------------------------------------
 
@@ -223,19 +228,18 @@ const SINGLE_ITEMS = [
   { qid: 'Q13275', nameDE: 'Somali',      family: 'Afroasiatisch' },  // ggf. schon im raw
   { qid: 'Q33864', nameDE: 'Oromo',       family: 'Afroasiatisch' },
   { qid: 'Q34124', nameDE: 'Tigrinya',    family: 'Afroasiatisch (Semitisch)' },
-  { qid: 'Q34302', nameDE: 'Tibetisch',   family: 'Sinotibetisch' },
-  { qid: 'Q13199', nameDE: 'Birmanisch',  family: 'Sinotibetisch' },
-  { qid: 'Q35891', nameDE: 'Dzongkha',    family: 'Sinotibetisch' },
-  { qid: 'Q35500', nameDE: 'Lettisch',    family: 'Indogermanisch (Baltisch)' },
-  { qid: 'Q9078',  nameDE: 'Litauisch',   family: 'Indogermanisch (Baltisch)' },
-  { qid: 'Q9068',  nameDE: 'Irisch',      family: 'Indogermanisch (Keltisch)' },
-  { qid: 'Q9058',  nameDE: 'Walisisch',   family: 'Indogermanisch (Keltisch)' },
+  { qid: 'Q34271', nameDE: 'Tibetisch',   family: 'Sinotibetisch' },
+  { qid: 'Q9228',  nameDE: 'Birmanisch',  family: 'Sinotibetisch' },
+  { qid: 'Q33081', nameDE: 'Dzongkha',    family: 'Sinotibetisch' },
+  { qid: 'Q9078',  nameDE: 'Lettisch',    family: 'Indogermanisch (Baltisch)' },
+  { qid: 'Q9083',  nameDE: 'Litauisch',   family: 'Indogermanisch (Baltisch)' },
+  { qid: 'Q9142',  nameDE: 'Irisch',      family: 'Indogermanisch (Keltisch)' },
+  { qid: 'Q9309',  nameDE: 'Walisisch',   family: 'Indogermanisch (Keltisch)' },
   { qid: 'Q9072',  nameDE: 'Estnisch',    family: 'Uralisch' },
   { qid: 'Q34004', nameDE: 'Shona',       family: 'Niger-Kongo (Bantu)' },
   { qid: 'Q35876', nameDE: 'Guaraní',     family: 'Tupí-Guaraní' },   // eigene Familie
-  { qid: 'Q33578', nameDE: 'Kongolesisch', family: 'Niger-Kongo (Bantu)' },
-  { qid: 'Q35284', nameDE: 'Twi',         family: 'Niger-Kongo' },
-  { qid: 'Q34138', nameDE: 'Bambara',     family: 'Niger-Kongo' },
+  { qid: 'Q36850', nameDE: 'Twi',         family: 'Niger-Kongo' },
+  { qid: 'Q33243', nameDE: 'Bambara',     family: 'Niger-Kongo' },
 ];
 
 // --- SPARQL-Query aufbauen --------------------------------------------------
@@ -261,25 +265,6 @@ function buildGroupQuery(group) {
   ].join('\n');
 }
 
-function buildSingleQuery(qid) {
-  return [
-    'SELECT ?speakers ?scriptLabel',
-    'WHERE {',
-    '  OPTIONAL { wd:' + qid + ' wdt:P1098 ?speakers . }',
-    '  OPTIONAL {',
-    '    wd:' + qid + ' wdt:P282 ?script .',
-    '    ?script rdfs:label ?scriptLabel .',
-    '    FILTER(LANG(?scriptLabel) = "de")',
-    '  }',
-    '  FILTER EXISTS {',
-    '    ?dw schema:about wd:' + qid + ' ;',
-    '        schema:isPartOf <https://de.wikipedia.org/> .',
-    '  }',
-    '}',
-    'LIMIT 5',
-  ].join('\n');
-}
-
 function buildOfficialCountryQuery(qid) {
   return [
     'SELECT (COUNT(DISTINCT ?country) AS ?cnt)',
@@ -296,7 +281,7 @@ const rawData = JSON.parse(fs.readFileSync(RAW_PATH, 'utf8'));
 let wd1Data = [];
 if (fs.existsSync(WD1_PATH)) {
   try { wd1Data = JSON.parse(fs.readFileSync(WD1_PATH, 'utf8')); }
-  catch (e) { console.warn('wd1 nicht lesbar:', e.message); }
+  catch (e) { throw new Error(`wd1 nicht lesbar: ${e.message}`); }
 }
 
 const existingIds   = new Set([
@@ -326,9 +311,7 @@ async function main() {
     try {
       data = await sparqlQuery(query);
     } catch (e) {
-      console.warn(`  FEHLER: ${e.message} — überspringe`);
-      await sleep(MIN_DELAY_MS);
-      continue;
+      throw new Error(`${label}: ${e.message}`);
     }
 
     const bindings = data.results?.bindings || [];
@@ -375,13 +358,8 @@ async function main() {
 
     console.log(`  Abfrage: ${item.nameDE} (${item.qid})`);
     try {
-      const data = await sparqlQuery(buildSingleQuery(item.qid));
-      const bindings = data.results?.bindings || [];
-      if (bindings.length === 0) {
-        console.log('    Kein dewiki-Sitelink oder keine Daten');
-        await sleep(MIN_DELAY_MS);
-        continue;
-      }
+      const data = await sparqlQuery(buildSingleLanguageQuery(item.qid));
+      const bindings = assertExpectedEntity(item, data.results?.bindings || []);
       const row = bindings[0];
       const speakersRaw = row.speakers?.value ? Number(row.speakers.value) : null;
       const speakersM = (speakersRaw && isFinite(speakersRaw) && speakersRaw > 0)
@@ -402,7 +380,7 @@ async function main() {
       });
       console.log(`    OK — ${speakersM ?? '?'} Mio., ${script || '?'}`);
     } catch (e) {
-      console.warn(`    FEHLER: ${e.message}`);
+      throw new Error(`Einzel-Item ${item.nameDE}: ${e.message}`);
     }
     await sleep(MIN_DELAY_MS);
   }
@@ -420,7 +398,7 @@ async function main() {
       if (cnt > 0) lang.officialIn = cnt;
       if (cnt > 0) console.log(`  ${lang.nameDE}: officialIn=${cnt}`);
     } catch (e) {
-      console.warn(`  officialIn FEHLER ${lang.nameDE}: ${e.message}`);
+      throw new Error(`officialIn ${lang.nameDE}: ${e.message}`);
     }
     await sleep(MIN_DELAY_MS);
   }
@@ -460,7 +438,7 @@ async function main() {
     return a.name.localeCompare(b.name, 'de');
   });
 
-  fs.writeFileSync(OUT_PATH, JSON.stringify(output, null, 2), 'utf8');
+  writeJsonAtomic(OUT_PATH, output);
 
   console.log(`\n=== Ergebnis ===`);
   console.log(`Neue Sprachen gespeichert: ${output.length}`);
@@ -473,7 +451,9 @@ async function main() {
   }
 }
 
-main().catch(err => {
-  console.error('Fataler Fehler:', err);
-  process.exit(1);
-});
+if (require.main === module) {
+  main().catch(err => {
+    console.error('Fataler Fehler:', err);
+    process.exit(1);
+  });
+}

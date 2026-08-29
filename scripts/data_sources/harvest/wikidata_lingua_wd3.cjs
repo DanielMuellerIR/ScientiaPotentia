@@ -37,6 +37,11 @@
 const https = require('https');
 const fs = require('fs');
 const path = require('path');
+const { writeJsonAtomic } = require('./json_io.cjs');
+const {
+  assertExpectedEntity,
+  buildSingleLanguageQuery,
+} = require('./lingua_harvest_helpers.cjs');
 
 // --- Konfiguration ----------------------------------------------------------
 
@@ -297,25 +302,6 @@ function buildGroupQuery(group) {
   ].join('\n');
 }
 
-function buildSingleQuery(qid) {
-  return [
-    'SELECT ?speakers ?scriptLabel',
-    'WHERE {',
-    '  OPTIONAL { wd:' + qid + ' wdt:P1098 ?speakers . }',
-    '  OPTIONAL {',
-    '    wd:' + qid + ' wdt:P282 ?script .',
-    '    ?script rdfs:label ?scriptLabel .',
-    '    FILTER(LANG(?scriptLabel) = "de")',
-    '  }',
-    '  FILTER EXISTS {',
-    '    ?dw schema:about wd:' + qid + ' ;',
-    '        schema:isPartOf <https://de.wikipedia.org/> .',
-    '  }',
-    '}',
-    'LIMIT 5',
-  ].join('\n');
-}
-
 function buildOfficialCountryQuery(qid) {
   return [
     'SELECT (COUNT(DISTINCT ?country) AS ?cnt)',
@@ -332,12 +318,12 @@ const rawData = JSON.parse(fs.readFileSync(RAW_PATH, 'utf8'));
 let wd1Data = [];
 if (fs.existsSync(WD1_PATH)) {
   try { wd1Data = JSON.parse(fs.readFileSync(WD1_PATH, 'utf8')); }
-  catch (e) { console.warn('wd1 nicht lesbar:', e.message); }
+  catch (e) { throw new Error(`wd1 nicht lesbar: ${e.message}`); }
 }
 let wd2Data = [];
 if (fs.existsSync(WD2_PATH)) {
   try { wd2Data = JSON.parse(fs.readFileSync(WD2_PATH, 'utf8')); }
-  catch (e) { console.warn('wd2 nicht lesbar:', e.message); }
+  catch (e) { throw new Error(`wd2 nicht lesbar: ${e.message}`); }
 }
 
 const existingIds   = new Set([
@@ -368,9 +354,7 @@ async function main() {
     try {
       data = await sparqlQuery(query);
     } catch (e) {
-      console.warn(`  FEHLER: ${e.message} — überspringe`);
-      await sleep(MIN_DELAY_MS);
-      continue;
+      throw new Error(`${label}: ${e.message}`);
     }
 
     const bindings = data.results?.bindings || [];
@@ -418,13 +402,8 @@ async function main() {
 
     console.log(`  Abfrage: ${item.nameDE} (${item.qid})`);
     try {
-      const data = await sparqlQuery(buildSingleQuery(item.qid));
-      const bindings = data.results?.bindings || [];
-      if (bindings.length === 0) {
-        console.log('    Kein dewiki-Sitelink oder keine Daten');
-        await sleep(MIN_DELAY_MS);
-        continue;
-      }
+      const data = await sparqlQuery(buildSingleLanguageQuery(item.qid));
+      const bindings = assertExpectedEntity(item, data.results?.bindings || []);
       const row = bindings[0];
       const speakersRaw = row.speakers?.value ? Number(row.speakers.value) : null;
       const speakersM = (speakersRaw && isFinite(speakersRaw) && speakersRaw > 0)
@@ -445,7 +424,7 @@ async function main() {
       });
       console.log(`    OK — ${speakersM ?? '?'} Mio., ${script || '?'}`);
     } catch (e) {
-      console.warn(`    FEHLER: ${e.message}`);
+      throw new Error(`Einzel-Item ${item.nameDE}: ${e.message}`);
     }
     await sleep(MIN_DELAY_MS);
   }
@@ -463,7 +442,7 @@ async function main() {
       if (cnt > 0) lang.officialIn = cnt;
       if (cnt > 0) console.log(`  ${lang.nameDE}: officialIn=${cnt}`);
     } catch (e) {
-      console.warn(`  officialIn FEHLER ${lang.nameDE}: ${e.message}`);
+      throw new Error(`officialIn ${lang.nameDE}: ${e.message}`);
     }
     await sleep(MIN_DELAY_MS);
   }
@@ -503,7 +482,7 @@ async function main() {
     return a.name.localeCompare(b.name, 'de');
   });
 
-  fs.writeFileSync(OUT_PATH, JSON.stringify(output, null, 2), 'utf8');
+  writeJsonAtomic(OUT_PATH, output);
 
   console.log(`\n=== Ergebnis ===`);
   console.log(`Neue Sprachen gespeichert: ${output.length}`);
@@ -516,7 +495,9 @@ async function main() {
   }
 }
 
-main().catch(err => {
-  console.error('Fataler Fehler:', err);
-  process.exit(1);
-});
+if (require.main === module) {
+  main().catch(err => {
+    console.error('Fataler Fehler:', err);
+    process.exit(1);
+  });
+}

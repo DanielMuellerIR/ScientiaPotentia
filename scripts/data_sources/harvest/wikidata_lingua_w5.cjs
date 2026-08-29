@@ -3,7 +3,7 @@
  *
  * Fünfte WDQS-Ernte für Lingua-Konzepte — drei Kategorien:
  *   1. language      — weitere Sprachen (Einzel-Items mit verifizierten QIDs)
- *   2. writing_system — weitere Schriftsysteme (handkuratiert mit Wikidata-QIDs)
+ *   2. writing_system — weitere Schriftsysteme (handkuratiert mit Quelllinks)
  *   3. language_family — weitere Sprachfamilien (handkuratiert)
  *
  * Strategie: Keine Gruppen-Queries mit P279* (zu viele transitive Fehlzuordnungen
@@ -23,6 +23,11 @@
 const https = require('https');
 const fs    = require('fs');
 const path  = require('path');
+const { writeJsonAtomic } = require('./json_io.cjs');
+const {
+  assertExpectedEntity,
+  buildSingleLanguageQuery,
+} = require('./lingua_harvest_helpers.cjs');
 
 // --- Konfiguration ----------------------------------------------------------
 
@@ -91,7 +96,7 @@ function toSlug(name) {
 function loadJsonIfExists(p) {
   if (!fs.existsSync(p)) return [];
   try { return JSON.parse(fs.readFileSync(p, 'utf8')); }
-  catch (e) { console.warn(`${p} nicht lesbar: ${e.message}`); return []; }
+  catch (e) { throw new Error(`${p} nicht lesbar: ${e.message}`); }
 }
 
 // --- Bestand laden — Dedup-Pool aufbauen -----------------------------------
@@ -170,70 +175,70 @@ function normalizeScript(label) {
 const LANG_SINGLES = [
   // Romanisch
   { qid: 'Q150',   name: 'Französisch',   family: 'Indogermanisch (Romanisch)' },
-  { qid: 'Q298',   name: 'Rumänisch',      family: 'Indogermanisch (Romanisch)' },
-  { qid: 'Q652',   name: 'Katalanisch',    family: 'Indogermanisch (Romanisch)' },
-  { qid: 'Q33111', name: 'Galicisch',      family: 'Indogermanisch (Romanisch)' },
-  { qid: 'Q33111', name: 'Galicisch',      family: 'Indogermanisch (Romanisch)' },  // Wird per Dedup bereinigt
+  { qid: 'Q7913',  name: 'Rumänisch',      family: 'Indogermanisch (Romanisch)' },
+  { qid: 'Q7026',  name: 'Katalanisch',    family: 'Indogermanisch (Romanisch)' },
+  { qid: 'Q9307',  name: 'Galicisch',      family: 'Indogermanisch (Romanisch)' },
+  { qid: 'Q9307',  name: 'Galicisch',      family: 'Indogermanisch (Romanisch)' },  // Wird per Dedup bereinigt
 
   // Slawisch
   { qid: 'Q7918',  name: 'Bulgarisch',     family: 'Indogermanisch (Slawisch)' },
-  { qid: 'Q9301',  name: 'Mazedonisch',    family: 'Indogermanisch (Slawisch)' },
-  { qid: 'Q9166',  name: 'Slowenisch',     family: 'Indogermanisch (Slawisch)' },
+  { qid: 'Q9296',  name: 'Mazedonisch',    family: 'Indogermanisch (Slawisch)' },
+  { qid: 'Q9063',  name: 'Slowenisch',     family: 'Indogermanisch (Slawisch)' },
   { qid: 'Q9058',  name: 'Slowakisch',     family: 'Indogermanisch (Slawisch)' },
-  { qid: 'Q33702', name: 'Weißrussisch',   family: 'Indogermanisch (Slawisch)' },
+  { qid: 'Q9091',  name: 'Weißrussisch',   family: 'Indogermanisch (Slawisch)' },
 
   // Germanisch
   { qid: 'Q188',   name: 'Deutsch',        family: 'Indogermanisch (Germanisch)' },
-  { qid: 'Q9078',  name: 'Dänisch',        family: 'Indogermanisch (Germanisch)' },
-  { qid: 'Q9067',  name: 'Norwegisch',     family: 'Indogermanisch (Germanisch)' },
+  { qid: 'Q9035',  name: 'Dänisch',        family: 'Indogermanisch (Germanisch)' },
+  { qid: 'Q9043',  name: 'Norwegisch',     family: 'Indogermanisch (Germanisch)' },
   { qid: 'Q9027',  name: 'Schwedisch',     family: 'Indogermanisch (Germanisch)' },
 
   // Indisch / Indo-Iranisch
-  { qid: 'Q1569',  name: 'Marathi',        family: 'Indogermanisch (Indo-Iranisch)' },
-  { qid: 'Q33823', name: 'Odia',           family: 'Indogermanisch (Indo-Iranisch)' },
+  { qid: 'Q1571',  name: 'Marathi',        family: 'Indogermanisch (Indo-Iranisch)' },
+  { qid: 'Q33810', name: 'Odia',           family: 'Indogermanisch (Indo-Iranisch)' },
   { qid: 'Q33997', name: 'Sindhi',         family: 'Indogermanisch (Indo-Iranisch)' },
-  { qid: 'Q33445', name: 'Maithili',       family: 'Indogermanisch (Indo-Iranisch)' },
-  { qid: 'Q9292',  name: 'Assamesisch',    family: 'Indogermanisch (Indo-Iranisch)' },
+  { qid: 'Q36109', name: 'Maithili',       family: 'Indogermanisch (Indo-Iranisch)' },
+  { qid: 'Q29401', name: 'Assamesisch',    family: 'Indogermanisch (Indo-Iranisch)' },
 
   // Dravidisch
   { qid: 'Q36236', name: 'Malayalam',      family: 'Dravidisch' },
-  { qid: 'Q33084', name: 'Kannada',        family: 'Dravidisch' },
-  { qid: 'Q35952', name: 'Tulu',           family: 'Dravidisch' },  // Qualitätssprache, notable
+  { qid: 'Q33673', name: 'Kannada',        family: 'Dravidisch' },
+  { qid: 'Q34251', name: 'Tulu',           family: 'Dravidisch' },  // Qualitätssprache, notable
 
   // Turksprachen
-  { qid: 'Q9248',  name: 'Kirgisisch',     family: 'Turksprachen' },
-  { qid: 'Q9235',  name: 'Turkmenisch',    family: 'Turksprachen' },
-  { qid: 'Q9239',  name: 'Baschkirisch',   family: 'Turksprachen' },
-  { qid: 'Q9240',  name: 'Tatarisch',      family: 'Turksprachen' },
-  { qid: 'Q9243',  name: 'Uigurisch',      family: 'Turksprachen' },
+  { qid: 'Q9255',  name: 'Kirgisisch',     family: 'Turksprachen' },
+  { qid: 'Q9267',  name: 'Turkmenisch',    family: 'Turksprachen' },
+  { qid: 'Q13389', name: 'Baschkirisch',   family: 'Turksprachen' },
+  { qid: 'Q25285', name: 'Tatarisch',      family: 'Turksprachen' },
+  { qid: 'Q13263', name: 'Uigurisch',      family: 'Turksprachen' },
 
   // Uralisch
-  { qid: 'Q36447', name: 'Komi',           family: 'Uralisch' },
-  { qid: 'Q33250', name: 'Erzya',          family: 'Uralisch' },
-  { qid: 'Q35499', name: 'Udmurtisch',     family: 'Uralisch' },
+  { qid: 'Q36126', name: 'Komi',           family: 'Uralisch' },
+  { qid: 'Q29952', name: 'Ersjanisch',     family: 'Uralisch' },
+  { qid: 'Q13238', name: 'Udmurtisch',     family: 'Uralisch' },
 
   // Sinotibetisch
-  { qid: 'Q36559', name: 'Hokkien',        family: 'Sinotibetisch (Sinitisch)' },
-  { qid: 'Q34271', name: 'Wu (Chinesisch)',family: 'Sinotibetisch (Sinitisch)' },
+  { qid: 'Q1624231', name: 'Hokkien',        family: 'Sinotibetisch (Sinitisch)' },
+  { qid: 'Q34290',   name: 'Wu (Chinesisch)',family: 'Sinotibetisch (Sinitisch)' },
   { qid: 'Q33375', name: 'Hakka',          family: 'Sinotibetisch (Sinitisch)' },
 
   // Austronesisch
   { qid: 'Q33549', name: 'Javanisch',      family: 'Austronesisch (Malayo-Polynesisch)' },
-  { qid: 'Q33670', name: 'Sundanesisch',   family: 'Austronesisch (Malayo-Polynesisch)' },
-  { qid: 'Q35132', name: 'Maduresisch',    family: 'Austronesisch (Malayo-Polynesisch)' },
-  { qid: 'Q35936', name: 'Waray',          family: 'Austronesisch (Malayo-Polynesisch)' },
-  { qid: 'Q35933', name: 'Kapampangan',    family: 'Austronesisch (Malayo-Polynesisch)' },
-  { qid: 'Q33890', name: 'Madagassisch',   family: 'Austronesisch (Malayo-Polynesisch)' },
+  { qid: 'Q34002', name: 'Sundanesisch',   family: 'Austronesisch (Malayo-Polynesisch)' },
+  { qid: 'Q36213', name: 'Maduresisch',    family: 'Austronesisch (Malayo-Polynesisch)' },
+  { qid: 'Q34279', name: 'Waray-Waray',    family: 'Austronesisch (Malayo-Polynesisch)' },
+  { qid: 'Q36121', name: 'Kapampangan',    family: 'Austronesisch (Malayo-Polynesisch)' },
+  { qid: 'Q7930',  name: 'Madagassisch',   family: 'Austronesisch (Malayo-Polynesisch)' },
 
   // Quechuan
   { qid: 'Q5218',  name: 'Quechua',        family: 'Quechuan' },
 
   // Niger-Kongo
-  { qid: 'Q33243', name: 'Yoruba',         family: 'Niger-Kongo' },
-  { qid: 'Q33491', name: 'Fulfulde',       family: 'Niger-Kongo' },
-  { qid: 'Q7930',  name: 'Lingala',        family: 'Niger-Kongo' },
-  { qid: 'Q33965', name: 'Kinyarwanda',    family: 'Niger-Kongo' },
-  { qid: 'Q3307',  name: 'Igbo',           family: 'Niger-Kongo' },
+  { qid: 'Q34311', name: 'Yoruba',         family: 'Niger-Kongo' },
+  { qid: 'Q33454', name: 'Fulfulde',       family: 'Niger-Kongo' },
+  { qid: 'Q36217', name: 'Lingala',        family: 'Niger-Kongo' },
+  { qid: 'Q33573', name: 'Kinyarwanda',    family: 'Niger-Kongo' },
+  { qid: 'Q33578', name: 'Igbo',           family: 'Niger-Kongo' },
 
   // Mongolisch
   { qid: 'Q9246',  name: 'Mongolisch',     family: 'Mongolisch' },
@@ -258,7 +263,6 @@ const WRITING_SYSTEM_ITEMS = [
   {
     id:   'gujarati-schrift',
     name: 'Gujarati-Schrift',
-    qid:  'Q8196',
     attributes: {
       scriptType:     'Abugida',
       charCount:      49,
@@ -270,13 +274,12 @@ const WRITING_SYSTEM_ITEMS = [
     funFact:    'Die Gujarati-Schrift entstand im 16. Jahrhundert aus der Devanagari und unterscheidet sich von ihr durch das Fehlen der charakteristischen oberen Querlinie — ein Detail, das Nicht-Kenner leicht verwirrt.',
     sourceName: 'Wikipedia: Gujarati script',
     sourceUrl:  'https://en.wikipedia.org/wiki/Gujarati_script',
-    verifyNote: 'Wikidata Q8196; ~49 Grundzeichen; ~56 Mio. Gujarati-Sprecher (Ethnologue 2023); Abugida links-nach-rechts; ca. 1592 in Briefform belegt.',
+    verifyNote: '~49 Grundzeichen; ~56 Mio. Gujarati-Sprecher (Ethnologue 2023); Abugida links-nach-rechts; ca. 1592 in Briefform belegt.',
     imageSearchTerm: 'Gujarati script writing system India',
   },
   {
     id:   'odia-schrift',
     name: 'Odia-Schrift',
-    qid:  'Q28390',
     attributes: {
       scriptType:     'Abugida',
       charCount:      55,
@@ -287,13 +290,12 @@ const WRITING_SYSTEM_ITEMS = [
     funFact:    'Die Odia-Schrift ist bekannt für ihre markant runden Formen — sie entstanden, weil die Buchstaben traditionell in Palmblätter geritzt wurden; spitze Winkel hätten das Blatt gespalten.',
     sourceName: 'Wikipedia: Odia alphabet',
     sourceUrl:  'https://en.wikipedia.org/wiki/Odia_alphabet',
-    verifyNote: 'Wikidata Q28390; ~55 Zeichen; ~38 Mio. Sprecher; Abugida links-nach-rechts; aus Brahmi-Linie.',
+    verifyNote: '~55 Zeichen; ~38 Mio. Sprecher; Abugida links-nach-rechts; aus Brahmi-Linie.',
     imageSearchTerm: 'Odia Oriya script writing system',
   },
   {
     id:   'singhalesische-schrift',
     name: 'Singhalesische Schrift',
-    qid:  'Q8222',
     attributes: {
       scriptType:     'Abugida',
       charCount:      54,
@@ -304,13 +306,12 @@ const WRITING_SYSTEM_ITEMS = [
     funFact:    'Die singhalesische Schrift wird ausschließlich für eine einzige Sprache verwendet — das Singhalesische auf Sri Lanka; ihre geschwungenen Formen entstanden wie bei vielen südasiatischen Schriften aus dem Schreiben auf Palmblätter.',
     sourceName: 'Wikipedia: Sinhala script',
     sourceUrl:  'https://en.wikipedia.org/wiki/Sinhala_script',
-    verifyNote: 'Wikidata Q8222; ~54 Zeichen; ~17 Mio. Sprecher; Abugida links-nach-rechts; aus süd-brahmi Linie.',
+    verifyNote: '~54 Zeichen; ~17 Mio. Sprecher; Abugida links-nach-rechts; aus süd-brahmi Linie.',
     imageSearchTerm: 'Sinhala script Sri Lanka writing system',
   },
   {
     id:   'birmanische-schrift',
     name: 'Birmanische Schrift',
-    qid:  'Q8214',
     attributes: {
       scriptType:     'Abugida',
       charCount:      33,
@@ -321,13 +322,12 @@ const WRITING_SYSTEM_ITEMS = [
     funFact:    'Die birmanische Schrift besteht aus fast ausschließlich kreisförmigen Buchstaben — auch hier verhinderten die runden Formen das Aufspalten von Palmblatt-Beschreibmaterial, auf dem traditionell geschrieben wurde.',
     sourceName: 'Wikipedia: Mon–Burmese script',
     sourceUrl:  'https://en.wikipedia.org/wiki/Mon%E2%80%93Burmese_script',
-    verifyNote: 'Wikidata Q8214; 33 Grundkonsonanten; ~38 Mio. Birmanisch-Sprecher; Abugida links-nach-rechts; aus Brahmi abgeleitet.',
+    verifyNote: '33 Grundkonsonanten; ~38 Mio. Birmanisch-Sprecher; Abugida links-nach-rechts; aus Brahmi abgeleitet.',
     imageSearchTerm: 'Burmese Myanmar script writing system',
   },
   {
     id:   'geez-schrift',
     name: 'Ge\'ez-Schrift (Äthiopisches Silbenalphabet)',
-    qid:  'Q8461',
     attributes: {
       scriptType:     'Abugida',
       charCount:      231,
@@ -339,13 +339,12 @@ const WRITING_SYSTEM_ITEMS = [
     funFact:    'Die Ge\'ez-Schrift ist eine der ältesten noch aktiv genutzten Schriften der Welt — sie wurde um 350 n. Chr. für die äthiopische Kirchensprache Ge\'ez kodifiziert und wird heute vor allem für Amharisch und Tigrinya verwendet.',
     sourceName: 'Wikipedia: Ge\'ez script',
     sourceUrl:  'https://en.wikipedia.org/wiki/Ge%27ez_script',
-    verifyNote: 'Wikidata Q8461; 231 Silbenzeichen (7 Vokalformen × 33 Basiskonsonanten); ~30 Mio. Nutzer; Abugida; ca. 4. Jhd. n. Chr.',
+    verifyNote: '231 Silbenzeichen (7 Vokalformen × 33 Basiskonsonanten); ~30 Mio. Nutzer; Abugida; ca. 4. Jhd. n. Chr.',
     imageSearchTerm: 'Ge\'ez Ethiopic script Amharic writing system',
   },
   {
     id:   'thaana-schrift',
     name: 'Thaana-Schrift',
-    qid:  'Q8201',
     attributes: {
       scriptType:     'Abugida',
       charCount:      24,
@@ -357,13 +356,12 @@ const WRITING_SYSTEM_ITEMS = [
     funFact:    'Die Thaana-Schrift der Malediven ist die einzige Abugida, die von rechts nach links geschrieben wird — sie entstand im 18. Jahrhundert als Mischung arabischer und indischer Schrifttraditionen.',
     sourceName: 'Wikipedia: Thaana',
     sourceUrl:  'https://en.wikipedia.org/wiki/Thaana',
-    verifyNote: 'Wikidata Q8201; 24 Buchstaben; ~400.000 Sprecher; Abugida rechts-nach-links; ab 18. Jhd. belegt.',
+    verifyNote: '24 Buchstaben; ~400.000 Sprecher; Abugida rechts-nach-links; ab 18. Jhd. belegt.',
     imageSearchTerm: 'Thaana script Maldives Dhivehi writing system',
   },
   {
     id:   'nko-alphabet',
     name: 'N\'Ko-Alphabet',
-    qid:  'Q35876',
     attributes: {
       scriptType:     'Alphabet',
       charCount:      27,
@@ -375,13 +373,12 @@ const WRITING_SYSTEM_ITEMS = [
     funFact:    'Das N\'Ko-Alphabet wurde 1949 vom guineischen Schriftreformer Solomana Kante erfunden — für alle Mandé-Sprachen Westafrikas, die bis dahin keine einheitliche Schrift hatten.',
     sourceName: 'Wikipedia: N\'Ko alphabet',
     sourceUrl:  'https://en.wikipedia.org/wiki/N%27Ko_alphabet',
-    verifyNote: 'Wikidata Q35876; 27 Buchstaben; Alphabet rechts-nach-links; ~20 Mio. Mandé-Sprecher; erfunden 1949 von Solomana Kante.',
+    verifyNote: '27 Buchstaben; Alphabet rechts-nach-links; ~20 Mio. Mandé-Sprecher; erfunden 1949 von Solomana Kante.',
     imageSearchTerm: 'N\'Ko alphabet West Africa Mande writing system',
   },
   {
     id:   'glagolitisches-alphabet',
     name: 'Glagolitisches Alphabet',
-    qid:  'Q8205',
     attributes: {
       scriptType:     'Alphabet',
       charCount:      41,
@@ -393,13 +390,12 @@ const WRITING_SYSTEM_ITEMS = [
     funFact:    'Das glagolitische Alphabet ist die älteste slawische Schrift — Kyrill und Method schufen es um 862 n. Chr. für die slawischen Völker. Das spätere kyrillische Alphabet verdrängte es fast vollständig, doch in Kroatien blieb es bis ins 19. Jahrhundert lebendig.',
     sourceName: 'Wikipedia: Glagolitic script',
     sourceUrl:  'https://en.wikipedia.org/wiki/Glagolitic_script',
-    verifyNote: 'Wikidata Q8205; 41 Buchstaben; heute nur noch liturgisch und historisch; Alphabet links-nach-rechts; erfunden 862 n. Chr.',
+    verifyNote: '41 Buchstaben; heute nur noch liturgisch und historisch; Alphabet links-nach-rechts; erfunden 862 n. Chr.',
     imageSearchTerm: 'Glagolitic script Slavic alphabet Cyril Method',
   },
   {
     id:   'cree-silbenschrift',
     name: 'Cree-Silbenschrift',
-    qid:  'Q35790',
     attributes: {
       scriptType:     'Abugida (Silbenschrift)',
       charCount:      72,
@@ -411,13 +407,12 @@ const WRITING_SYSTEM_ITEMS = [
     funFact:    'Die Cree-Silbenschrift wurde 1840 vom britischen Methodisten-Missionar James Evans für die Cree-Sprache entwickelt — ohne Computer, mit Drucktypen aus Blei und Baumrinde. Sie ist heute noch die offiziell anerkannte Schrift der Cree in Kanada.',
     sourceName: 'Wikipedia: Canadian Aboriginal syllabics',
     sourceUrl:  'https://en.wikipedia.org/wiki/Canadian_Aboriginal_syllabics',
-    verifyNote: 'Wikidata Q35790; ~72 Zeichen (je nach Sprache variiert); Abugida links-nach-rechts; erfunden 1840 von James Evans.',
+    verifyNote: '~72 Zeichen (je nach Sprache variiert); Abugida links-nach-rechts; erfunden 1840 von James Evans.',
     imageSearchTerm: 'Cree syllabics Canadian Aboriginal writing system',
   },
   {
     id:   'tifinagh',
     name: 'Tifinagh',
-    qid:  'Q35767',
     attributes: {
       scriptType:     'Abjad (traditionell), Alphabet (modern)',
       charCount:      33,
@@ -428,7 +423,7 @@ const WRITING_SYSTEM_ITEMS = [
     funFact:    'Tifinagh ist eine der ältesten lebenden Schriften Afrikas — die Tuareg schreiben damit seit mindestens 2.500 Jahren. Marokko offizialisierte 2011 eine modernisierte Version (IRCAM-Tifinagh) als offizielle Schrift für Tamazight.',
     sourceName: 'Wikipedia: Tifinagh',
     sourceUrl:  'https://en.wikipedia.org/wiki/Tifinagh',
-    verifyNote: 'Wikidata Q35767; 33 Zeichen (IRCAM-Standard); ~8 Mio. Berber-Sprecher in Marokko; Abjad-Ursprung, moderne Variante Alphabet; min. 2500 Jahre alt.',
+    verifyNote: '33 Zeichen (IRCAM-Standard); ~8 Mio. Berber-Sprecher in Marokko; Abjad-Ursprung, moderne Variante Alphabet; min. 2500 Jahre alt.',
     imageSearchTerm: 'Tifinagh script Berber Tuareg Africa',
   },
 ];
@@ -444,7 +439,6 @@ const LANGUAGE_FAMILY_ITEMS = [
   {
     id:   'khoisan',
     name: 'Khoisan-Sprachen (Sammelgruppe)',
-    qid:  'Q33315',
     attributes: {
       languageCount:  35,
       speakersMillions: 0.5,
@@ -455,13 +449,12 @@ const LANGUAGE_FAMILY_ITEMS = [
     funFact:    'Die Khoisan-Sprachen sind berühmt für ihre Klicklaute — bis zu fünf distinkte Klick-Konsonanten gelten als Phoneme. Linguistische Analysen deuten darauf hin, dass San-Sprachen zu den ältesten lebenden Sprachtraditionen der Menschheit gehören könnten.',
     sourceName: 'Wikipedia: Khoisan languages',
     sourceUrl:  'https://en.wikipedia.org/wiki/Khoisan_languages',
-    verifyNote: 'Wikidata Q33315; Sammelterm für drei genealogisch unabhängige Familien (Khoe, Tuu, Kx\'a); ~35 Sprachen; ~500.000 Sprecher; Distribution: Südliches Afrika.',
+    verifyNote: 'Sammelterm für drei genealogisch unabhängige Familien (Khoe, Tuu, Kx\'a); ~35 Sprachen; ~500.000 Sprecher; Distribution: Südliches Afrika.',
     imageSearchTerm: 'Khoisan click languages Southern Africa map',
   },
   {
     id:   'tupiguarani',
     name: 'Tupí-Guaraní-Sprachfamilie',
-    qid:  'Q31746',
     attributes: {
       languageCount:  70,
       speakersMillions: 8,
@@ -472,13 +465,12 @@ const LANGUAGE_FAMILY_ITEMS = [
     funFact:    'Guaraní ist neben Spanisch Amtssprache Paraguays — und das obwohl Paraguay kein indigenes Mehrheitsland ist. Rund 90 % der paraguayischen Bevölkerung sprechen Guaraní, was es zur erfolgreichsten indigenen Sprache Südamerikas macht.',
     sourceName: 'Wikipedia: Tupian languages',
     sourceUrl:  'https://en.wikipedia.org/wiki/Tupian_languages',
-    verifyNote: 'Wikidata Q31746; ~70 Sprachen; ~6–8 Mio. Sprecher (Guaraní dominiert); Distribution: Südamerika; Guaraní seit 1992 Amtssprache Paraguays.',
+    verifyNote: '~70 Sprachen; ~6–8 Mio. Sprecher (Guaraní dominiert); Distribution: Südamerika; Guaraní seit 1992 Amtssprache Paraguays.',
     imageSearchTerm: 'Tupi-Guarani language family South America Paraguay map',
   },
   {
     id:   'nordkaukasisch',
     name: 'Nordkaukasische Sprachfamilien',
-    qid:  'Q510948',
     attributes: {
       languageCount:  38,
       speakersMillions: 5,
@@ -488,13 +480,12 @@ const LANGUAGE_FAMILY_ITEMS = [
     funFact:    'Daghestan gilt als Sprachenwunder des Kaukasus — auf einem Gebiet kleiner als die Schweiz werden über 30 verschiedene nordostkaukasische Sprachen gesprochen, einige von wenigen Tausend Menschen in einzelnen Dörfern.',
     sourceName: 'Wikipedia: Northeast Caucasian languages',
     sourceUrl:  'https://en.wikipedia.org/wiki/Northeast_Caucasian_languages',
-    verifyNote: 'Wikidata Q510948 (NO-Kaukasisch) + Q36224 (NW-Kaukasisch); Sammelterm für zwei unabhängige Familien; ~38 Sprachen; ~5 Mio. Sprecher; Daghestan: >30 Sprachen.',
+    verifyNote: 'Sammelterm für zwei unabhängige Familien; ~38 Sprachen; ~5 Mio. Sprecher; Daghestan: >30 Sprachen.',
     imageSearchTerm: 'Caucasian language families Dagestan Northeast Caucasian map',
   },
   {
     id:   'maya',
     name: 'Maya-Sprachfamilie',
-    qid:  'Q484001',
     attributes: {
       languageCount:  31,
       speakersMillions: 6,
@@ -505,13 +496,12 @@ const LANGUAGE_FAMILY_ITEMS = [
     funFact:    'Die Maya-Sprachen werden heute von rund 6 Millionen Menschen gesprochen — trotz jahrhundertelanger kolonialer Unterdrückung. Besonders K\'ichean- und Q\'eqchi\'-Sprachen wachsen wieder, seitdem Guatemala indigene Sprachen als Amtssprachen anerkannt hat.',
     sourceName: 'Wikipedia: Mayan languages',
     sourceUrl:  'https://en.wikipedia.org/wiki/Mayan_languages',
-    verifyNote: 'Wikidata Q484001; 31 lebende Sprachen; ~6 Mio. Sprecher (Ethnologue 2023); Distribution: Mexiko, Guatemala, Belize, Honduras.',
+    verifyNote: '31 lebende Sprachen; ~6 Mio. Sprecher (Ethnologue 2023); Distribution: Mexiko, Guatemala, Belize, Honduras.',
     imageSearchTerm: 'Mayan language family Mesoamerica Guatemala map',
   },
   {
     id:   'otomanguisch',
     name: 'Otomanguische Sprachfamilie',
-    qid:  'Q46350',
     attributes: {
       languageCount:  175,
       speakersMillions: 1.7,
@@ -522,13 +512,12 @@ const LANGUAGE_FAMILY_ITEMS = [
     funFact:    'Die otomanguische Familie umfasst Sprachen mit außergewöhnlich komplexen Tonsystemen — Trique aus Oaxaca hat bis zu acht distinkte Töne und gilt als eine der tonal reichsten Sprachen weltweit.',
     sourceName: 'Wikipedia: Oto-Manguean languages',
     sourceUrl:  'https://en.wikipedia.org/wiki/Oto-Manguean_languages',
-    verifyNote: 'Wikidata Q46350; ~175 Sprachen; ~1,7 Mio. Sprecher; Distribution: Mexiko (hauptsächlich Oaxaca); tonale Komplexität bis 8 Töne (Trique).',
+    verifyNote: '~175 Sprachen; ~1,7 Mio. Sprecher; Distribution: Mexiko (hauptsächlich Oaxaca); tonale Komplexität bis 8 Töne (Trique).',
     imageSearchTerm: 'Oto-Manguean language family Mexico Oaxaca map',
   },
   {
     id:   'japanisch',
     name: 'Japanische Sprachfamilie (Japonisch)',
-    qid:  'Q9680',
     attributes: {
       languageCount:  5,
       speakersMillions: 128,
@@ -539,13 +528,12 @@ const LANGUAGE_FAMILY_ITEMS = [
     funFact:    'Die japanische Sprachfamilie ist ein Sprachenisolat — kein belegter Verwandter außerhalb Japans und der Ryukyu-Inseln ist bekannt. Die ryukyuanischen Sprachen gelten heute als eigenständige Sprachen (nicht Dialekte), sind aber stark gefährdet.',
     sourceName: 'Wikipedia: Japonic languages',
     sourceUrl:  'https://en.wikipedia.org/wiki/Japonic_languages',
-    verifyNote: 'Wikidata Q9680; 5 Sprachen (Japanisch + 4 ryukyuanische); ~128 Mio. Sprecher; Distribution: Japan. UNESCO: Ryukyuanische Sprachen gefährdet.',
+    verifyNote: '5 Sprachen (Japanisch + 4 ryukyuanische); ~128 Mio. Sprecher; Distribution: Japan. UNESCO: Ryukyuanische Sprachen gefährdet.',
     imageSearchTerm: 'Japonic language family Japan Ryukyu map',
   },
   {
     id:   'mongolisch',
     name: 'Mongolische Sprachfamilie',
-    qid:  'Q33681',
     attributes: {
       languageCount:  13,
       speakersMillions: 10,
@@ -555,7 +543,7 @@ const LANGUAGE_FAMILY_ITEMS = [
     funFact:    'Die mongolische Sprachfamilie ist die Heimat der traditionellen mongolischen Schrift — eine der wenigen Schriften der Welt, die von oben nach unten und von links nach rechts geschrieben wird.',
     sourceName: 'Wikipedia: Mongolic languages',
     sourceUrl:  'https://en.wikipedia.org/wiki/Mongolic_languages',
-    verifyNote: 'Wikidata Q33681; ~13 Sprachen; ~10 Mio. Sprecher; Distribution: Mongolei, Innere Mongolei, Burjatien, Kalmückien.',
+    verifyNote: '~13 Sprachen; ~10 Mio. Sprecher; Distribution: Mongolei, Innere Mongolei, Burjatien, Kalmückien.',
     imageSearchTerm: 'Mongolic language family map Mongolia',
   },
 ];
@@ -587,30 +575,9 @@ async function main() {
 
     console.log(`  Abfrage: ${item.name} (${item.qid})`);
 
-    // SPARQL: Sprecherzahl + Schrift — dewiki-Sitelink als Notabilitäts-Filter
-    const query = `
-SELECT ?speakers ?scriptLabel WHERE {
-  OPTIONAL { wd:${item.qid} wdt:P1098 ?speakers . }
-  OPTIONAL {
-    wd:${item.qid} wdt:P282 ?script .
-    ?script rdfs:label ?scriptLabel .
-    FILTER(LANG(?scriptLabel) = "de")
-  }
-  FILTER EXISTS {
-    ?dw schema:about wd:${item.qid} ;
-        schema:isPartOf <https://de.wikipedia.org/> .
-  }
-} LIMIT 5`;
-
     try {
-      const data = await sparqlQuery(query);
-      const bindings = data.results?.bindings || [];
-
-      if (bindings.length === 0) {
-        console.log('    Kein dewiki-Sitelink — übersprungen');
-        await sleep(MIN_DELAY_MS);
-        continue;
-      }
+      const data = await sparqlQuery(buildSingleLanguageQuery(item.qid));
+      const bindings = assertExpectedEntity(item, data.results?.bindings || []);
 
       const row = bindings[0];
       const speakersRaw = row.speakers?.value ? Number(row.speakers.value) : null;
@@ -625,7 +592,7 @@ SELECT ?speakers ?scriptLabel WHERE {
       });
       console.log(`    OK — ${speakersM ?? '?'} Mio., ${script || '?'}, ${item.family}`);
     } catch (e) {
-      console.warn(`    FEHLER: ${e.message}`);
+      throw new Error(`Einzel-Item ${item.name}: ${e.message}`);
     }
     await sleep(MIN_DELAY_MS);
   }
@@ -647,7 +614,7 @@ SELECT (COUNT(DISTINCT ?country) AS ?cnt) WHERE {
       const cnt  = parseInt(data.results?.bindings?.[0]?.cnt?.value || '0', 10);
       if (cnt > 0) { lang.officialIn = cnt; console.log(`  ${lang.nameDE}: officialIn=${cnt}`); }
     } catch (e) {
-      console.warn(`  FEHLER ${lang.nameDE}: ${e.message}`);
+      throw new Error(`officialIn ${lang.nameDE}: ${e.message}`);
     }
     await sleep(MIN_DELAY_MS);
   }
@@ -761,7 +728,7 @@ SELECT (COUNT(DISTINCT ?country) AS ?cnt) WHERE {
     return a.name.localeCompare(b.name, 'de');
   });
 
-  fs.writeFileSync(OUT_PATH, JSON.stringify(output, null, 2), 'utf8');
+  writeJsonAtomic(OUT_PATH, output);
 
   // =========================================================================
   // Report
@@ -794,7 +761,9 @@ SELECT (COUNT(DISTINCT ?country) AS ?cnt) WHERE {
   }
 }
 
-main().catch(err => {
-  console.error('Fataler Fehler:', err);
-  process.exit(1);
-});
+if (require.main === module) {
+  main().catch(err => {
+    console.error('Fataler Fehler:', err);
+    process.exit(1);
+  });
+}

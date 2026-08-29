@@ -23,6 +23,11 @@
 const https = require('https');
 const fs = require('fs');
 const path = require('path');
+const { writeJsonAtomic } = require('./json_io.cjs');
+const {
+  assertExpectedEntity,
+  buildSingleLanguageQuery,
+} = require('./lingua_harvest_helpers.cjs');
 
 // --- Konfiguration ----------------------------------------------------------
 
@@ -197,48 +202,48 @@ const LANG_GROUPS = [
   { topLabel: 'Indogermanisch', branchLabel: 'Indo-Iranisch', familyQid: 'Q33514', limit: 50 },
   // Sinotibetisch: Hokkien (Min Nan), Wu, Hakka noch nicht
   { topLabel: 'Sinotibetisch', branchLabel: 'Sinitisch', familyQid: 'Q33857', limit: 20 },
-  // Quechuan (Q4972975) — Quechua, Kichwa etc.
-  { topLabel: 'Quechuan', branchLabel: null, familyQid: 'Q4972975', limit: 15 },
+  // Quechua-Makrosprache und -Familie (Q5218) — Quechua, Kichwa etc.
+  { topLabel: 'Quechuan', branchLabel: null, familyQid: 'Q5218', limit: 15 },
 ];
 
 // --- Einzel-Items: bekannte Weltsprachen, die noch fehlen -------------------
 // Alle QIDs per Wikidata-Suche verifiziert.
 const SINGLE_ITEMS = [
   // Indogermanisch – Indo-Iranisch
-  { qid: 'Q1569',   nameDE: 'Marathi',       family: 'Indogermanisch (Indo-Iranisch)' },
-  { qid: 'Q33823',  nameDE: 'Odia',          family: 'Indogermanisch (Indo-Iranisch)' },
+  { qid: 'Q1571',   nameDE: 'Marathi',       family: 'Indogermanisch (Indo-Iranisch)' },
+  { qid: 'Q33810',  nameDE: 'Odia',          family: 'Indogermanisch (Indo-Iranisch)' },
   { qid: 'Q33997',  nameDE: 'Sindhi',        family: 'Indogermanisch (Indo-Iranisch)' },
-  { qid: 'Q33445',  nameDE: 'Maithili',      family: 'Indogermanisch (Indo-Iranisch)' },
+  { qid: 'Q36109',  nameDE: 'Maithili',      family: 'Indogermanisch (Indo-Iranisch)' },
   // Turksprachen
-  { qid: 'Q9248',   nameDE: 'Kirgisisch',    family: 'Turksprachen' },
-  { qid: 'Q9235',   nameDE: 'Turkmenisch',   family: 'Turksprachen' },
-  { qid: 'Q9239',   nameDE: 'Baschkirisch',  family: 'Turksprachen' },
-  { qid: 'Q9240',   nameDE: 'Tatarisch',     family: 'Turksprachen' },
-  { qid: 'Q9243',   nameDE: 'Uigurisch',     family: 'Turksprachen' },
+  { qid: 'Q9255',   nameDE: 'Kirgisisch',    family: 'Turksprachen' },
+  { qid: 'Q9267',   nameDE: 'Turkmenisch',   family: 'Turksprachen' },
+  { qid: 'Q13389',  nameDE: 'Baschkirisch',  family: 'Turksprachen' },
+  { qid: 'Q25285',  nameDE: 'Tatarisch',     family: 'Turksprachen' },
+  { qid: 'Q13263',  nameDE: 'Uigurisch',     family: 'Turksprachen' },
   // Sinotibetisch – Sinitische Varianten
-  { qid: 'Q36559',  nameDE: 'Hokkien',       family: 'Sinotibetisch (Sinitisch)' },
-  { qid: 'Q34271',  nameDE: 'Wu',            family: 'Sinotibetisch (Sinitisch)' },
+  { qid: 'Q1624231', nameDE: 'Hokkien',       family: 'Sinotibetisch (Sinitisch)' },
+  { qid: 'Q34290',  nameDE: 'Wu',            family: 'Sinotibetisch (Sinitisch)' },
   { qid: 'Q33375',  nameDE: 'Hakka',         family: 'Sinotibetisch (Sinitisch)' },
   // Uralisch
-  { qid: 'Q35499',  nameDE: 'Udmurtisch',    family: 'Uralisch' },
-  { qid: 'Q36447',  nameDE: 'Komi',          family: 'Uralisch' },
-  { qid: 'Q33250',  nameDE: 'Erzya',         family: 'Uralisch' },
+  { qid: 'Q13238',  nameDE: 'Udmurtisch',    family: 'Uralisch' },
+  { qid: 'Q36126',  nameDE: 'Komi',          family: 'Uralisch' },
+  { qid: 'Q29952',  nameDE: 'Ersjanisch',    family: 'Uralisch' },
   // Austronesisch – weitere Philippinen-Sprachen
-  { qid: 'Q35936',  nameDE: 'Waray-Waray',   family: 'Austronesisch' },
-  { qid: 'Q35933',  nameDE: 'Kapampangan',   family: 'Austronesisch' },
+  { qid: 'Q34279',  nameDE: 'Waray-Waray',   family: 'Austronesisch' },
+  { qid: 'Q36121',  nameDE: 'Kapampangan',   family: 'Austronesisch' },
   // Quechuan
   { qid: 'Q5218',   nameDE: 'Quechua',       family: 'Quechuan' },
   // Niger-Kongo – wichtige Sprachen
-  { qid: 'Q7930',   nameDE: 'Lingala',       family: 'Niger-Kongo (Bantu)' },
-  { qid: 'Q33965',  nameDE: 'Kinyarwanda',   family: 'Niger-Kongo (Bantu)' },
-  { qid: 'Q3307',   nameDE: 'Igbo',          family: 'Niger-Kongo' },
+  { qid: 'Q36217',  nameDE: 'Lingala',       family: 'Niger-Kongo (Bantu)' },
+  { qid: 'Q33573',  nameDE: 'Kinyarwanda',   family: 'Niger-Kongo (Bantu)' },
+  { qid: 'Q33578',  nameDE: 'Igbo',          family: 'Niger-Kongo' },
   // Mongolisch (Sprachfamilie Mongolic)
   { qid: 'Q9246',   nameDE: 'Mongolisch',    family: 'Mongolisch' },
   // Weitere indo-iranische Sprachen
-  { qid: 'Q33573',  nameDE: 'Balochi',       family: 'Indogermanisch (Indo-Iranisch)' },
+  { qid: 'Q33049',  nameDE: 'Balochi',       family: 'Indogermanisch (Indo-Iranisch)' },
   // Sonstige bekannte Sprachen
-  { qid: 'Q36396',  nameDE: 'Armenisch',     family: 'Indogermanisch' },
-  { qid: 'Q9292',   nameDE: 'Assamisch',     family: 'Indogermanisch (Indo-Iranisch)' }, // Dedup-Kandidat (assamesisch)
+  { qid: 'Q8785',   nameDE: 'Armenisch',     family: 'Indogermanisch' },
+  { qid: 'Q29401',  nameDE: 'Assamesisch',   family: 'Indogermanisch (Indo-Iranisch)' },
 ];
 
 // --- SPARQL-Query-Builder ---------------------------------------------------
@@ -264,25 +269,6 @@ function buildGroupQuery(group) {
   ].join('\n');
 }
 
-function buildSingleQuery(qid) {
-  return [
-    'SELECT ?speakers ?scriptLabel',
-    'WHERE {',
-    '  OPTIONAL { wd:' + qid + ' wdt:P1098 ?speakers . }',
-    '  OPTIONAL {',
-    '    wd:' + qid + ' wdt:P282 ?script .',
-    '    ?script rdfs:label ?scriptLabel .',
-    '    FILTER(LANG(?scriptLabel) = "de")',
-    '  }',
-    '  FILTER EXISTS {',
-    '    ?dw schema:about wd:' + qid + ' ;',
-    '        schema:isPartOf <https://de.wikipedia.org/> .',
-    '  }',
-    '}',
-    'LIMIT 5',
-  ].join('\n');
-}
-
 function buildOfficialCountryQuery(qid) {
   return [
     'SELECT (COUNT(DISTINCT ?country) AS ?cnt)',
@@ -298,7 +284,7 @@ function buildOfficialCountryQuery(qid) {
 function loadJsonIfExists(p) {
   if (!fs.existsSync(p)) return [];
   try { return JSON.parse(fs.readFileSync(p, 'utf8')); }
-  catch (e) { console.warn(`${p} nicht lesbar: ${e.message}`); return []; }
+  catch (e) { throw new Error(`${p} nicht lesbar: ${e.message}`); }
 }
 
 const rawData = JSON.parse(fs.readFileSync(RAW_PATH, 'utf8'));
@@ -333,9 +319,7 @@ async function main() {
     try {
       data = await sparqlQuery(query);
     } catch (e) {
-      console.warn(`  FEHLER: ${e.message} — überspringe`);
-      await sleep(MIN_DELAY_MS);
-      continue;
+      throw new Error(`${label}: ${e.message}`);
     }
 
     const bindings = data.results?.bindings || [];
@@ -383,13 +367,8 @@ async function main() {
 
     console.log(`  Abfrage: ${item.nameDE} (${item.qid})`);
     try {
-      const data = await sparqlQuery(buildSingleQuery(item.qid));
-      const bindings = data.results?.bindings || [];
-      if (bindings.length === 0) {
-        console.log('    Kein dewiki-Sitelink oder keine Daten');
-        await sleep(MIN_DELAY_MS);
-        continue;
-      }
+      const data = await sparqlQuery(buildSingleLanguageQuery(item.qid));
+      const bindings = assertExpectedEntity(item, data.results?.bindings || []);
       const row = bindings[0];
       const speakersRaw = row.speakers?.value ? Number(row.speakers.value) : null;
       const speakersM = (speakersRaw && isFinite(speakersRaw) && speakersRaw > 0)
@@ -409,7 +388,7 @@ async function main() {
       });
       console.log(`    OK — ${speakersM ?? '?'} Mio., ${script || '?'}`);
     } catch (e) {
-      console.warn(`    FEHLER: ${e.message}`);
+      throw new Error(`Einzel-Item ${item.nameDE}: ${e.message}`);
     }
     await sleep(MIN_DELAY_MS);
   }
@@ -427,7 +406,7 @@ async function main() {
       if (cnt > 0) lang.officialIn = cnt;
       if (cnt > 0) console.log(`  ${lang.nameDE}: officialIn=${cnt}`);
     } catch (e) {
-      console.warn(`  officialIn FEHLER ${lang.nameDE}: ${e.message}`);
+      throw new Error(`officialIn ${lang.nameDE}: ${e.message}`);
     }
     await sleep(MIN_DELAY_MS);
   }
@@ -468,7 +447,7 @@ async function main() {
     return a.name.localeCompare(b.name, 'de');
   });
 
-  fs.writeFileSync(OUT_PATH, JSON.stringify(output, null, 2), 'utf8');
+  writeJsonAtomic(OUT_PATH, output);
 
   console.log(`\n=== Ergebnis ===`);
   console.log(`Neue Sprachen gespeichert: ${output.length}`);
@@ -481,7 +460,9 @@ async function main() {
   }
 }
 
-main().catch(err => {
-  console.error('Fataler Fehler:', err);
-  process.exit(1);
-});
+if (require.main === module) {
+  main().catch(err => {
+    console.error('Fataler Fehler:', err);
+    process.exit(1);
+  });
+}

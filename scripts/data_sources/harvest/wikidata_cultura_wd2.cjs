@@ -17,6 +17,7 @@
 const https = require('https');
 const fs    = require('fs');
 const path  = require('path');
+const { writeJsonAtomic } = require('./json_io.cjs');
 
 // --- Konfiguration ----------------------------------------------------------
 
@@ -145,27 +146,6 @@ function addConcept(concept) {
 async function queryComposers() {
   console.log('\n=== Query 1: Komponisten (Sitelink ≥10) ===');
 
-  // Wikidata-QID → deutscher Epochenname (Werte MÜSSEN exakt im Bestand vorkommen
-  // oder einer neuen, konsistenten Schreibweise entsprechen).
-  const ERA_MAP = {
-    Q8361:    'Barock',
-    Q81881:   'Wiener Klassik',
-    Q14915627:'Wiener Klassik',
-    Q12017736:'Romantik',
-    Q39614:   'Romantik',
-    Q131816:  'Spätromantik',
-    Q28692761:'Romantik',
-    Q2287068: 'Moderne',
-    Q571525:  'Moderne',
-    Q838948:  'Moderne',
-    Q188473:  'Barock',
-    Q1306494: 'Renaissance',
-    Q46870:   'Renaissance',
-    Q208505:  'Impressionismus',
-    Q181639:  'Romantik',
-    Q82753:   'Romantik',
-  };
-
   // Nationalitäts-Mapping — Werte wie im Bestand
   const NAT_MAP = {
     Q183: 'Deutsch',        Q40:  'Österreichisch',  Q36:  'Polnisch',
@@ -182,7 +162,7 @@ async function queryComposers() {
   // Outer Join holt dann dewiki-Artikel, Labels, Attribute.
   // birthDate/deathDate Pflichtfelder — stellt numerische Fragen sicher.
   const query = `
-SELECT DISTINCT ?item ?qid ?label ?birthYear ?deathYear ?natQid ?eraQid ?notableWork WHERE {
+SELECT DISTINCT ?item ?qid ?label ?birthYear ?deathYear ?natQid ?notableWork WHERE {
   { SELECT ?item (COUNT(?sl) AS ?sitelinks) WHERE {
       ?item wdt:P106 wd:Q36834 .
       ?sl schema:about ?item .
@@ -200,8 +180,6 @@ SELECT DISTINCT ?item ?qid ?label ?birthYear ?deathYear ?natQid ?eraQid ?notable
   FILTER(?birthYear < 1940)
   # Nationalität (optional)
   OPTIONAL { ?item wdt:P27 ?natItem . BIND(SUBSTR(STR(?natItem), 32) AS ?natQid) }
-  # Musikrichtung/Epoche (optional)
-  OPTIONAL { ?item wdt:P136 ?eraItem . BIND(SUBSTR(STR(?eraItem), 32) AS ?eraQid) }
   # Hauptwerk (optional, deutsches Label)
   OPTIONAL {
     ?item wdt:P800 ?workItem .
@@ -226,13 +204,11 @@ LIMIT 120
         birthYear:   cleanYear(val(b, 'birthYear')),
         deathYear:   cleanYear(val(b, 'deathYear')),
         natQid:      val(b, 'natQid'),
-        eraQid:      val(b, 'eraQid'),
         notableWork: val(b, 'notableWork'),
         qid,
       });
     } else {
       const e = seen.get(qid);
-      if (!e.eraQid      && val(b, 'eraQid'))      e.eraQid      = val(b, 'eraQid');
       if (!e.notableWork && val(b, 'notableWork'))  e.notableWork = val(b, 'notableWork');
     }
   }
@@ -240,7 +216,7 @@ LIMIT 120
   let added = 0, skipped = 0;
 
   for (const [qid, info] of seen) {
-    const { name, birthYear, deathYear, natQid, eraQid, notableWork } = info;
+    const { name, birthYear, deathYear, natQid, notableWork } = info;
     if (!name || !birthYear || !deathYear) { skipped++; continue; }
 
     const slug = toSlug(name);
@@ -249,7 +225,6 @@ LIMIT 120
     const attributes = { birthYear, deathYear };
 
     if (natQid && NAT_MAP[natQid]) attributes.nationality = NAT_MAP[natQid];
-    if (eraQid && ERA_MAP[eraQid]) attributes.era = ERA_MAP[eraQid];
     if (notableWork)                attributes.notableWork = notableWork;
 
     // Mindest-Qualität: nationality oder notableWork muss vorhanden sein
@@ -263,7 +238,7 @@ LIMIT 120
       funFact:  '',
       sourceName: 'Wikidata',
       sourceUrl:  `https://www.wikidata.org/wiki/${qid}`,
-      verifyNote: `P569→birthYear:${birthYear}, P570→deathYear:${deathYear}${natQid ? `, P27→${natQid}` : ''}${eraQid ? `, P136→${eraQid}` : ''}${notableWork ? ', P800→notableWork' : ''}`,
+      verifyNote: `P569→birthYear:${birthYear}, P570→deathYear:${deathYear}${natQid ? `, P27→${natQid}` : ''}${notableWork ? ', P800→notableWork' : ''}`,
       imageSearchTerm: `${name} composer portrait`,
     });
 
@@ -279,6 +254,8 @@ LIMIT 120
 // Attribute: creator, year, medium, location (alle exakt wie Bestand)
 // Höherer Sitelink-Schwellwert (15): artwork-Pool hat 34 Einträge —
 // nur sehr bekannte Gemälde sollen hinzukommen.
+// Der Urheber muss spätestens 1955 gestorben sein; sonst ist die EU-Schutzfrist
+// von 70 Jahren nach dem Todesjahr nicht sicher abgelaufen.
 // ============================================================================
 
 async function queryArtworks() {
@@ -298,6 +275,9 @@ SELECT DISTINCT ?item ?qid ?label ?creatorLabel ?year ?mediumLabel ?locationLabe
   # Urheber (Pflicht)
   ?item wdt:P170 ?creator .
   ?creator rdfs:label ?creatorLabel FILTER(LANG(?creatorLabel) = "de")
+  ?creator wdt:P570 ?creatorDeathDate .
+  BIND(YEAR(?creatorDeathDate) AS ?creatorDeathYear)
+  FILTER(?creatorDeathYear < 1956)
   # Entstehungsjahr (Pflicht)
   ?item wdt:P571 ?created .
   BIND(YEAR(?created) AS ?year)
@@ -409,12 +389,12 @@ LIMIT 50
 async function queryArchitecture() {
   console.log('\n=== Query 3: Bauwerke (Sitelink ≥20) ===');
 
-  // Batches: Kathedralen (Q2977), Schlösser (Q23413), Paläste (Q16748867)
+  // Batches: Kathedralen (Q2977), Burgen (Q23413), Paläste (Q16560)
   let allBindings = [];
   const batches = [
     { label: 'Kathedralen',  typeQid: 'Q2977'     },
-    { label: 'Schlösser',    typeQid: 'Q23413'    },
-    { label: 'Paläste',      typeQid: 'Q16748867' },
+    { label: 'Burgen',       typeQid: 'Q23413' },
+    { label: 'Paläste',      typeQid: 'Q16560' },
   ];
   for (const b of batches) {
     console.log(`  Batch: ${b.label}...`);
@@ -586,7 +566,7 @@ LIMIT 80
 
 // ============================================================================
 // QUERY 5 — Literatur (literature), Sitelink-Filter ≥ 15
-// Typen: Roman (Q7725310), Epos (Q8261), Drama (Q25379), Novelle (Q149537).
+// Typen: Roman (Q8261) und literarisches Werk (Q7725634).
 // Attribute: author, year, language, genre (alle wie Bestand-Schreibweise)
 // ============================================================================
 
@@ -638,7 +618,7 @@ async function queryLiterature() {
   // Sprache und Gattung bleiben optional (erhöhen Ergebnis-Qualität ohne Timeout).
   const query = `
 SELECT DISTINCT ?item ?qid ?label ?authorLabel ?year ?langLabel ?genreLabel WHERE {
-  VALUES ?type { wd:Q7725310 wd:Q8261 }
+  VALUES ?type { wd:Q8261 wd:Q7725634 }
   ?item wdt:P31 ?type .
   # Deutsches Wikipedia (Pflicht)
   ?article schema:about ?item ;
@@ -753,12 +733,11 @@ async function main() {
 
     await queryLiterature();
   } catch (err) {
-    console.error('\nFEHLER:', err.message);
-    process.exit(1);
+    throw new Error(`Cultura-Welle 2 fehlgeschlagen: ${err.message}`);
   }
 
   // Ergebnis schreiben
-  fs.writeFileSync(OUT_PATH, JSON.stringify(newConcepts, null, 2), 'utf8');
+  writeJsonAtomic(OUT_PATH, newConcepts);
 
   console.log('\n=== Zusammenfassung ===');
   const cats = {};
@@ -768,4 +747,9 @@ async function main() {
   console.log(`\nGeschrieben: ${OUT_PATH}`);
 }
 
-main();
+if (require.main === module) {
+  main().catch(err => {
+    console.error('\nFEHLER:', err.message);
+    process.exit(1);
+  });
+}

@@ -16,6 +16,7 @@
 const https = require('https');
 const fs = require('fs');
 const path = require('path');
+const { writeJsonAtomic } = require('./json_io.cjs');
 
 // --- Konfiguration -------------------------------------------------------
 
@@ -155,24 +156,6 @@ function addConcept(concept) {
 async function queryComposers() {
   console.log('\n=== Query 1: Komponisten ===');
 
-  // Epochen-Mapping: Wikidata-QIDs auf deutsche Bezeichnungen wie im Bestand.
-  // Nur weit verbreitete, eindeutige Epochen — sonst weglassen.
-  const ERA_MAP = {
-    Q8361: 'Barock',
-    Q81881: 'Klassik',     // Wiener Klassik
-    Q14915627: 'Klassik',
-    Q12017736: 'Romantik',
-    Q39614: 'Romantik',
-    Q131816: 'Romantik',   // Spätromantik
-    Q28692761: 'Romantik',
-    Q2287068: 'Moderne',
-    Q571525: 'Moderne',
-    Q838948: 'Zeitgenössisch',
-    Q188473: 'Barock',     // Frühbarock
-    Q1306494: 'Renaissance',
-    Q46870: 'Renaissance',
-  };
-
   // Nationalitäts-Mapping: P27-QID → deutsches Landesnamen-Label (wie im Bestand).
   const NAT_MAP = {
     Q183: 'Deutsch', Q40: 'Österreichisch', Q36: 'Polnisch', Q159: 'Russisch',
@@ -180,13 +163,13 @@ async function queryComposers() {
     Q34: 'Schwedisch', Q55: 'Niederländisch', Q35: 'Dänisch', Q28: 'Ungarisch',
     Q191: 'Estnisch', Q37: 'Litauisch', Q218: 'Rumänisch', Q211: 'Lettisch',
     Q31: 'Belgisch', Q32: 'Luxemburgisch', Q39: 'Schweizerisch', Q20: 'Norwegisch',
-    Q33: 'Finnisch', Q45: 'Portugiesisch', Q77: 'Argentinisch', Q16: 'Kanadisch',
-    Q30: 'Amerikanisch', Q736: 'Brasilianisch', Q155: 'Brasilianisch',
+    Q33: 'Finnisch', Q45: 'Portugiesisch', Q414: 'Argentinisch', Q16: 'Kanadisch',
+    Q30: 'Amerikanisch', Q155: 'Brasilianisch',
     Q228: 'Andorranisch', Q184: 'Weißrussisch', Q233: 'Maltesisch',
     Q229: 'Zypriotisch', Q214: 'Slowakisch', Q213: 'Tschechisch',
     Q224: 'Kroatisch', Q215: 'Slowenisch', Q219: 'Bulgarisch',
-    Q220: 'Nordmazedonisch', Q222: 'Albanisch', Q225: 'Bosnisch',
-    Q403: 'Serbisch', Q458: 'Europäisch',
+    Q221: 'Nordmazedonisch', Q222: 'Albanisch', Q225: 'Bosnisch',
+    Q403: 'Serbisch',
   };
 
   // Zuerst bekannte, qualitativ hochwertige Klassik-Komponisten abfragen.
@@ -320,14 +303,10 @@ async function queryComposersKnown() {
     Q34: 'Schwedisch', Q55: 'Niederländisch', Q35: 'Dänisch', Q28: 'Ungarisch',
     Q191: 'Estnisch', Q37: 'Litauisch', Q218: 'Rumänisch', Q211: 'Lettisch',
     Q31: 'Belgisch', Q32: 'Luxemburgisch', Q39: 'Schweizerisch', Q20: 'Norwegisch',
-    Q33: 'Finnisch', Q45: 'Portugiesisch', Q77: 'Argentinisch', Q16: 'Kanadisch',
-    Q30: 'Amerikanisch', Q736: 'Brasilianisch', Q155: 'Brasilianisch',
+    Q33: 'Finnisch', Q45: 'Portugiesisch', Q414: 'Argentinisch', Q16: 'Kanadisch',
+    Q30: 'Amerikanisch', Q155: 'Brasilianisch',
     Q213: 'Tschechisch', Q214: 'Slowakisch', Q224: 'Kroatisch',
-    Q215: 'Slowenisch', Q403: 'Serbisch', Q131964: 'Tschechisch',
-    Q3932079: 'Italienisch', Q12548: 'Deutsch', Q4948: 'Italienisch',
-    Q699964: 'Tschechisch', Q174306: 'Italienisch', Q209857: 'Italienisch',
-    Q153015: 'Deutsch', Q3399982: 'Italienisch', Q170174: 'Italienisch',
-    Q533534: 'Österreichisch',
+    Q215: 'Slowenisch', Q403: 'Serbisch',
   };
 
   // Gezielte bekannte Komponisten per deutschem Label
@@ -435,6 +414,8 @@ LIMIT 80
 // =========================================================================
 // QUERY 2 — Gemälde (artwork)
 // Kriterien: P31 = Gemälde (Q3305213), dewiki, P170 (Urheber), P571 (Jahr).
+// Der Urheber muss spätestens 1955 gestorben sein; sonst ist die EU-Schutzfrist
+// von 70 Jahren nach dem Todesjahr nicht sicher abgelaufen.
 // Attribute: creator, year, medium, location, country, era
 // =========================================================================
 
@@ -456,6 +437,9 @@ SELECT DISTINCT ?item ?qid ?label ?creatorLabel ?year ?mediumLabel ?locationLabe
   # Urheber
   ?item wdt:P170 ?creator .
   ?creator rdfs:label ?creatorLabel FILTER(LANG(?creatorLabel) = "de")
+  ?creator wdt:P570 ?creatorDeathDate .
+  BIND(YEAR(?creatorDeathDate) AS ?creatorDeathYear)
+  FILTER(?creatorDeathYear < 1956)
   # Entstehungsjahr
   ?item wdt:P571 ?created .
   BIND(YEAR(?created) AS ?year)
@@ -782,7 +766,7 @@ async function queryLiterature() {
   // (keine Optionals im Join — zu teuer).
   const query = `
 SELECT DISTINCT ?item ?qid ?label ?authorLabel ?year ?langLabel WHERE {
-  VALUES ?type { wd:Q7725310 wd:Q8261 }
+  VALUES ?type { wd:Q8261 wd:Q7725634 }
   ?item wdt:P31 ?type .
   ?article schema:about ?item ;
            schema:inLanguage "de" ;
@@ -887,12 +871,11 @@ async function main() {
 
     await queryLiterature();
   } catch (err) {
-    console.error('\nFEHLER:', err.message);
-    process.exit(1);
+    throw new Error(`Cultura-Harvest fehlgeschlagen: ${err.message}`);
   }
 
   // Ergebnis schreiben
-  fs.writeFileSync(OUT_PATH, JSON.stringify(newConcepts, null, 2), 'utf8');
+  writeJsonAtomic(OUT_PATH, newConcepts);
 
   console.log('\n=== Zusammenfassung ===');
   const cats = {};
@@ -902,4 +885,9 @@ async function main() {
   console.log(`\nGeschrieben: ${OUT_PATH}`);
 }
 
-main();
+if (require.main === module) {
+  main().catch(err => {
+    console.error('\nFEHLER:', err.message);
+    process.exit(1);
+  });
+}

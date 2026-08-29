@@ -22,6 +22,7 @@
 const https = require('https');
 const fs    = require('fs');
 const path  = require('path');
+const { writeJsonAtomic } = require('./json_io.cjs');
 
 // --- Konfiguration ----------------------------------------------------------
 
@@ -126,18 +127,14 @@ const NAT_MAP = {
   Q31:  'Belgisch',       Q39:  'Schweizerisch',   Q20:  'Norwegisch',
   Q33:  'Finnisch',       Q45:  'Portugiesisch',   Q30:  'Amerikanisch',
   Q213: 'Tschechisch',    Q214: 'Slowakisch',      Q224: 'Kroatisch',
-  Q215: 'Slowenisch',     Q403: 'Serbisch',        Q237: 'Ukrainisch',
-  Q232: 'Lettisch',       Q37:  'Litauisch',       Q191: 'Estnisch',
-  Q218: 'Rumänisch',      Q219: 'Bulgarisch',      Q220: 'Nordmazedonisch',
+  Q215: 'Slowenisch',     Q403: 'Serbisch',        Q212: 'Ukrainisch',
+  Q211: 'Lettisch',       Q37:  'Litauisch',       Q191: 'Estnisch',
+  Q218: 'Rumänisch',      Q219: 'Bulgarisch',      Q221: 'Nordmazedonisch',
   Q222: 'Albanisch',      Q225: 'Bosnisch',        Q41:  'Griechisch',
-  Q43:  'Türkisch',       Q77:  'Argentinisch',    Q155: 'Brasilianisch',
-  Q136: 'Mexikanisch',    Q16:  'Kanadisch',       Q258: 'Südafrikanisch',
+  Q43:  'Türkisch',       Q414: 'Argentinisch',    Q155: 'Brasilianisch',
+  Q96:  'Mexikanisch',    Q16:  'Kanadisch',       Q258: 'Südafrikanisch',
   Q664: 'Neuseeländisch', Q408: 'Australisch',     Q717: 'Venezolanisch',
   Q750: 'Bolivianisch',   Q733: 'Paraguayisch',    Q298: 'Chilenisch',
-  // Historische Entitäten → moderne Entsprechungen
-  Q12560: 'Österreichisch',  // Habsburger Österreich
-  Q174193:'Deutsch',         // Preußen
-  Q177303:'Österreichisch',  // Österreich-Ungarn (fallback)
 };
 
 // --- Dedup-Liste ------------------------------------------------------------
@@ -304,7 +301,7 @@ LIMIT 100
 //  - P31=Q3305213 (Gemälde) Pflicht
 //  - Sitelink-Subquery ≥ 20 (nur weltbekannte Werke)
 //  - Entstehungsjahr vor 1923 (Public Domain sicher)
-//  - BLACKLIST: kein Guernica (Q42332, Picasso geschützt bis 2043)
+//  - Urheber muss spätestens 1955 gestorben sein (EU-Schutzfrist abgelaufen)
 // ============================================================================
 
 async function queryArtworks() {
@@ -317,8 +314,6 @@ WHERE {
   # Sitelink-Count direkt (kein Subquery-Timeout)
   ?item wikibase:sitelinks ?sitelinks .
   FILTER(?sitelinks >= 20)
-  # BLACKLIST: Guernica ausschließen (Picasso geschützt bis 2043)
-  FILTER(?item != wd:Q42332)
   # Deutsches Wikipedia
   ?article schema:about ?item ;
            schema:inLanguage "de" ;
@@ -327,6 +322,9 @@ WHERE {
   # Urheber (Pflicht)
   ?item wdt:P170 ?creator .
   ?creator rdfs:label ?creatorLabel FILTER(LANG(?creatorLabel) = "de")
+  ?creator wdt:P570 ?creatorDeathDate .
+  BIND(YEAR(?creatorDeathDate) AS ?creatorDeathYear)
+  FILTER(?creatorDeathYear < 1956)
   # Entstehungsjahr (Pflicht, Public-Domain-Filter)
   ?item wdt:P571 ?created .
   BIND(YEAR(?created) AS ?year)
@@ -411,8 +409,9 @@ LIMIT 80
 // QUERY 3 — Literarische Werke (literature)
 //
 // QUALITÄTSREGELN:
-//  - P31 NUR in erlaubten Typen: Roman (Q7725634), Epos (Q8253), Drama (Q25379),
-//    Theaterstück (Q186451), Tragödie (Q1344), Komödie (Q40831), Novelle (Q149537)
+//  - P31 NUR in erlaubten Typen: Roman (Q8261), literarisches Werk (Q7725634),
+//    Bühnenwerk (Q25379), dramatisches Werk (Q116476516), Tragödie (Q80930),
+//    Komödie (Q40831), Novelle (Q149537), Epos (Q37484)
 //    → KEINE Nachschlagewerke, Enzyklopädien, historischen Ereignisse
 //  - Sitelink-Subquery ≥ 25 (nur weltbekannte Werke)
 //  - Autor (P50) Pflicht
@@ -460,7 +459,7 @@ LIMIT 60
   const queryB = `
 SELECT DISTINCT ?item ?qid ?label ?authorLabel ?year ?langLabel ?genreLabel ?sitelinks
 WHERE {
-  VALUES ?type { wd:Q25379 wd:Q149537 wd:Q186451 wd:Q8253 wd:Q1344 wd:Q40831 }
+  VALUES ?type { wd:Q25379 wd:Q116476516 wd:Q149537 wd:Q80930 wd:Q40831 wd:Q37484 }
   ?item wdt:P31 ?type .
   ?item wikibase:sitelinks ?sitelinks .
   FILTER(?sitelinks >= 25)
@@ -521,9 +520,9 @@ LIMIT 60
   // Liste bekannt-problematischer Werke, die kein literarisches Werk sind
   // (Wikidata-Klassifizierung nicht immer korrekt):
   const BLACKLISTED_ITEMS = new Set([
-    'Q11584',  // The World Factbook (Nachschlagewerk)
-    'Q165980', // Dictionary of National Biography (Nachschlagewerk/Biografie-Lexikon)
-    'Q152095', // Boxeraufstand (historisches Ereignis, kein literarisches Werk)
+    'Q11191',   // The World Factbook (Nachschlagewerk)
+    'Q1210343', // Dictionary of National Biography (Biografie-Lexikon)
+    'Q150229',  // Boxeraufstand (historisches Ereignis, kein literarisches Werk)
   ]);
 
   let added = 0, skipped = 0;
@@ -713,13 +712,13 @@ async function queryArchitecture() {
 
   // Enge Typen-Auswahl: nur Typen, die sehr bekannte Einzelbauwerke liefern.
   // Q44539 = Tempel, Q2977 = Kathedrale, Q16560 = Palast/Schloss, Q12280 = Brücke,
-  // Q23413 = Burg, Q131647 = Moschee
+  // Q23413 = Burg, Q32815 = Moschee
   // wikibase:sitelinks direkt (kein Subquery-Timeout).
   const query = `
 SELECT DISTINCT ?item ?qid ?label ?year ?countryLabel ?sitelinks
 WHERE {
   VALUES ?type {
-    wd:Q44539 wd:Q2977 wd:Q16560 wd:Q12280 wd:Q23413 wd:Q131647
+    wd:Q44539 wd:Q2977 wd:Q16560 wd:Q12280 wd:Q23413 wd:Q32815
   }
   ?item wdt:P31 ?type .
   # Sitelink-Count direkt
@@ -826,12 +825,11 @@ async function main() {
     await queryArchitecture();
 
   } catch (err) {
-    console.error('\nFEHLER:', err.message);
-    process.exit(1);
+    throw new Error(`Cultura-Welle 3 fehlgeschlagen: ${err.message}`);
   }
 
   // Ergebnis schreiben
-  fs.writeFileSync(OUT_PATH, JSON.stringify(newConcepts, null, 2), 'utf8');
+  writeJsonAtomic(OUT_PATH, newConcepts);
 
   console.log('\n=== Zusammenfassung ===');
   const cats = {};
@@ -841,4 +839,9 @@ async function main() {
   console.log(`\nGeschrieben: ${OUT_PATH}`);
 }
 
-main();
+if (require.main === module) {
+  main().catch(err => {
+    console.error('\nFEHLER:', err.message);
+    process.exit(1);
+  });
+}

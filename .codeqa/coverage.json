@@ -6,7 +6,7 @@
     "token_budget": 8000000,
     "status": "active",
     "started_at": "2026-08-29T20:44:29+02:00",
-    "tokens_spent": 2562324
+    "tokens_spent": 3300130
   },
   "campaign_history": [],
   "scope": {
@@ -156,7 +156,9 @@
       "src/__tests__/db.test.js",
       "src/__tests__/AppOrchestration.test.jsx",
       "tests/test_harvest_tools.py",
-      "scripts/data_sources/harvest/json_io.cjs"
+      "scripts/data_sources/harvest/json_io.cjs",
+      "scripts/data_sources/harvest/lingua_harvest_helpers.cjs",
+      "src/__tests__/culturaHarvestSources.test.js"
     ],
     "exclusions": []
   },
@@ -758,15 +760,15 @@
       "state": "completed",
       "last_run": {
         "campaign_id": "20260829T204429059458+0200",
-        "completed_at": "2026-08-29T22:48:41+02:00",
-        "observed_head": "7765797d328b75c93f61baa111f5dc17e565c266",
-        "content_sha256": "78adbf979ee3ddf209216e27ad22aad197f5388af3a346e4cfbb461e16d79f3f",
+        "completed_at": "2026-08-29T22:52:22+02:00",
+        "observed_head": "710b7568493f353fc6c1056f76001f8c141d983b",
+        "content_sha256": "13e5a0b7565001c676e3075973bf35997df241c6060127225cdc729932930316",
         "file_count": 8,
         "review": "delta-plus-boundaries",
         "outcome": "reviewed-clean",
-        "summary": "Die neu zugeordnete atomare JSON-Hilfe und die vier ergänzten Bild-Harvest-Regressionstests wurden einschließlich aller Aufrufergrenzen nachgeprüft. Die Hilfe bleibt unverändert korrekt; die Tests isolieren temporäre Rawkataloge, prüfen explizite Writes und Komplettabbruch und laden den gebündelten Resolver ohne Netzaufruf.",
+        "summary": "Die zwei neuen reinen Klassifikationstests wurden an der gemeinsamen Harvest-Testgrenze geprüft. Sie laden die gegateten Skriptmodule ohne Netzaufruf und belegen dieselbe Binomiallogik in allen vier Natura-Wellen sowie die Astra-K-Stern-Klassifikation.",
         "tests": [
-          "13 Harvest-Regressionstests; insgesamt 43 Python-Tests und 218 Vitest-Tests; Syntaxprüfung aller Nutzer von json_io.cjs; Produktionsbuild; Layoutvertrag 44/44; 10.468 vollständige Bildnachweise."
+          "15 Harvest-Regressionstests; insgesamt 45 Python-Tests und 218 Vitest-Tests; Syntaxprüfung der betroffenen Harvest-Skripte; Produktionsbuild; Layoutvertrag 44/44."
         ]
       }
     },
@@ -817,13 +819,19 @@
       "risk": "low",
       "priority": 22,
       "reason": "Historische NASA-/Wikidata-Ernte für Astronomie und Natur",
-      "state": "in_progress",
-      "active_run": {
+      "state": "completed",
+      "last_run": {
         "campaign_id": "20260829T204429059458+0200",
-        "started_at": "2026-08-29T22:48:41+02:00",
-        "required_review": "full",
-        "status_at_start": "pending",
-        "covered_pending_paths": []
+        "completed_at": "2026-08-29T22:52:13+02:00",
+        "observed_head": "710b7568493f353fc6c1056f76001f8c141d983b",
+        "content_sha256": "096fc2fe8878239529c8d820f7ff4e73899bb82168585d4d81e9624c7b301e68",
+        "file_count": 11,
+        "review": "full",
+        "outcome": "improved",
+        "summary": "Alle elf Astra-/Natura-Harvester schreiben Kandidatenausgaben atomar. Die vier Natura-Wellen unterscheiden lateinische Binomina von deutschen einwortigen Tiernamen, statt ASCII-Namen wie Tiger, Giraffe oder Elefant pauschal zu verwerfen; Astra Welle 4 klassifiziert K-Hauptreihensterne als Orange Zwerge und K-Riesen weiterhin als Orange Riesen.",
+        "tests": [
+          "15 gezielte Harvest-Regressionstests; insgesamt 45 Python-Tests und 218 Vitest-Tests; Syntaxprüfung aller elf P22-Skripte; Faktenprüfung Astra/Natura ohne Fehler; Fragen-Audit 18.398 Fragen ohne Strukturfehler oder Antwort im Stamm; 10.468 vollständige Bildnachweise; Produktionsbuild; Layoutvertrag 44/44."
+        ]
       }
     },
     {
@@ -841,12 +849,31 @@
         "scripts/data_sources/harvest/wikiquote_harvest.cjs",
         "scripts/data_sources/harvest/wikiquote_verify.cjs",
         "scripts/data_sources/harvest/wikiquote_w4.cjs",
-        "src/__tests__/wikiquoteHarvest.test.js"
+        "src/__tests__/wikiquoteHarvest.test.js",
+        "scripts/data_sources/harvest/lingua_harvest_helpers.cjs",
+        "src/__tests__/culturaHarvestSources.test.js"
       ],
       "risk": "low",
       "priority": 23,
       "reason": "Historische Wikidata-/Wikiquote-Ernte für Kultur und Sprache",
-      "state": "pending"
+      "state": "completed",
+      "pending_paths": [
+        "scripts/data_sources/harvest/lingua_harvest_helpers.cjs",
+        "src/__tests__/culturaHarvestSources.test.js"
+      ],
+      "last_run": {
+        "campaign_id": "20260829T204429059458+0200",
+        "completed_at": "2026-08-29T23:26:57+02:00",
+        "observed_head": "710b7568493f353fc6c1056f76001f8c141d983b",
+        "content_sha256": "60eea0118ec572b29158d1e6163f76a829211cddafe28e2e21e85dadc0ea834e",
+        "file_count": 15,
+        "review": "full",
+        "outcome": "improved",
+        "summary": "Wikidata-QID-Namenspaare und Lizenzfilter korrigiert; Lingua-Einzelabfragen validieren Entitäten; Harvest-Läufe brechen bei Teilfehlern ab und schreiben atomar; Wikiquote bewahrt Gedankenstriche und meldet Netz-/Parsefehler; sechs Cultura-Quellen sowie drei fachfremde Bilder ersetzt.",
+        "tests": [
+          "227 Vitest-Tests; 45 Python-Tests; Build; Layout 44/44; Deploy 21; Fakten Cultura/Lingua 0 Fehler; Fragen-Audit 0 Struktur/Antwort-Leak; 10.468 Bildnachweise; 533 Zitate; deterministische Generatorläufe; UI-Stichprobe Cultura/Lingua und Purcell ohne Browserfehler."
+        ]
+      }
     },
     {
       "id": "terra-currency-harvest",

@@ -21,6 +21,7 @@
 const https = require('https');
 const fs    = require('fs');
 const path  = require('path');
+const { writeJsonAtomic } = require('./json_io.cjs');
 
 // ──────────────────────────────────────────────────────────────────────────────
 // Hilfsfunktionen (übernommen aus wikiquote_harvest.cjs, unveraendert)
@@ -62,13 +63,38 @@ function overlapRatio(a, b) {
 // ──────────────────────────────────────────────────────────────────────────────
 
 function fetchWikitext(lemma, tries = 0) {
-  return new Promise(resolve => {
+  return new Promise((resolve, reject) => {
     const url = 'https://de.wikiquote.org/w/api.php'
       + '?action=query&prop=revisions&rvprop=content&rvslots=main'
       + '&format=json&titles=' + encodeURIComponent(lemma);
 
-    https.get(url, { headers: UA }, res => {
+    let retryStarted = false;
+    const retry = error => {
+      if (retryStarted) return;
+      retryStarted = true;
+      if (tries >= 3) {
+        reject(error);
+        return;
+      }
+      setTimeout(
+        () => fetchWikitext(lemma, tries + 1).then(resolve, reject),
+        800 * (tries + 1),
+      );
+    };
+
+    const req = https.get(url, { headers: UA }, res => {
+      if (res.statusCode === 429 || res.statusCode >= 500) {
+        res.resume();
+        retry(new Error(`Wikiquote HTTP ${res.statusCode} für ${lemma}`));
+        return;
+      }
+      if (res.statusCode !== 200) {
+        res.resume();
+        reject(new Error(`Wikiquote HTTP ${res.statusCode} für ${lemma}`));
+        return;
+      }
       let raw = '';
+      res.on('error', retry);
       res.on('data', chunk => raw += chunk);
       res.on('end', () => {
         try {
@@ -77,17 +103,12 @@ function fetchWikitext(lemma, tries = 0) {
           if (page.missing !== undefined) { resolve(''); return; }
           resolve(page.revisions[0].slots.main['*'] || '');
         } catch (e) {
-          resolve('');
+          retry(new Error(`Wikiquote-Antwort für ${lemma} nicht parsebar: ${e.message}`));
         }
       });
-    }).on('error', async () => {
-      if (tries < 3) {
-        await sleep(800);
-        resolve(await fetchWikitext(lemma, tries + 1));
-      } else {
-        resolve('');
-      }
     });
+    req.on('error', retry);
+    req.setTimeout(30000, () => req.destroy(new Error('Wikiquote-Timeout')));
   });
 }
 
@@ -96,17 +117,17 @@ function fetchWikitext(lemma, tries = 0) {
 // ──────────────────────────────────────────────────────────────────────────────
 
 function stripQuotationMarks(s) {
-  // Quellenanhänge nach schließendem Anführungszeichen abschneiden.
-  s = s.replace(/["""]\s*[–—-].+$/, '');
+  // Nur Text hinter einem wirklich schließenden Anführungszeichen gilt als
+  // Quellenanhang. Ein Gedankenstrich innerhalb des Zitats bleibt erhalten.
+  const quoted = s.trim().match(/^[„"»«](.*)[“”"«»]\s*(?:[–—-].*)?$/);
+  if (quoted) s = quoted[1];
+
   s = s.replace(/\s+https?:\/\/\S+/g, '');
-  // Äußere Anführungszeichen entfernen.
+  // Verbliebene äußere Anführungszeichen entfernen.
   s = s
     .replace(/^[„"»«"]\s*/, '')
     .replace(/\s*["""«»]\s*$/, '')
     .trim();
-  // Nochmals Quellenanhang ohne Anführungszeichen prüfen.
-  s = s.replace(/[.!?]\s*[–—-]\s+.{5,}$/, m => m[0]);
-  s = s.replace(/\s*[–—]\s*.{0,120}$/, '').trim();
   return s.trim();
 }
 
@@ -514,7 +535,7 @@ async function harvest() {
 
   // ── Vollständige Ernte speichern ──
   const fullPath = '/tmp/cultura_quote_w4.json';
-  fs.writeFileSync(fullPath, JSON.stringify(candidates, null, 2));
+  writeJsonAtomic(fullPath, candidates);
 
   // ── Kuratierte Top-Auswahl: max. 10 pro Autor, Qualitätsfilter ──
   const qualFiltered = candidates.filter(c => {
@@ -557,7 +578,7 @@ async function harvest() {
   }
 
   const topPath = '/tmp/cultura_quote_w4_top.json';
-  fs.writeFileSync(topPath, JSON.stringify(selected, null, 2));
+  writeJsonAtomic(topPath, selected);
 
   // ── Report ──
   console.log('\n════════════════════════════════════════════════');

@@ -16,6 +16,7 @@
 
 const https = require('https');
 const fs = require('fs');
+const { writeJsonAtomic } = require('./json_io.cjs');
 
 const UA = { 'User-Agent': 'ScientiaQuizQuoteVerify/1.0 (public educational project)' };
 const sleep = ms => new Promise(r => setTimeout(r, ms));
@@ -30,12 +31,40 @@ function norm(s) {
 const toks = s => norm(s).split(' ').filter(w => w.length >= 3);
 
 function fetchPage(title, tries = 0) {
-  return new Promise(res => {
+  return new Promise((resolve, reject) => {
     const url = 'https://de.wikiquote.org/w/api.php?action=query&prop=revisions&rvprop=content&rvslots=main&format=json&titles=' + encodeURIComponent(title);
-    https.get(url, { headers: UA }, r => {
-      let d = ''; r.on('data', c => d += c);
-      r.on('end', () => { try { const p = Object.values(JSON.parse(d).query.pages)[0]; res(p.missing !== undefined ? '' : (p.revisions[0].slots.main['*'] || '')); } catch (e) { res(''); } });
-    }).on('error', async () => { if (tries < 3) { await sleep(800); res(await fetchPage(title, tries + 1)); } else res(''); });
+    let retryStarted = false;
+    const retry = error => {
+      if (retryStarted) return;
+      retryStarted = true;
+      if (tries >= 3) { reject(error); return; }
+      setTimeout(() => fetchPage(title, tries + 1).then(resolve, reject), 800 * (tries + 1));
+    };
+    const req = https.get(url, { headers: UA }, response => {
+      if (response.statusCode === 429 || response.statusCode >= 500) {
+        response.resume();
+        retry(new Error(`Wikiquote HTTP ${response.statusCode} für ${title}`));
+        return;
+      }
+      if (response.statusCode !== 200) {
+        response.resume();
+        reject(new Error(`Wikiquote HTTP ${response.statusCode} für ${title}`));
+        return;
+      }
+      let data = '';
+      response.on('error', retry);
+      response.on('data', chunk => data += chunk);
+      response.on('end', () => {
+        try {
+          const page = Object.values(JSON.parse(data).query.pages)[0];
+          resolve(page.missing !== undefined ? '' : (page.revisions[0].slots.main['*'] || ''));
+        } catch (error) {
+          retry(new Error(`Wikiquote-Antwort für ${title} nicht parsebar: ${error.message}`));
+        }
+      });
+    });
+    req.on('error', retry);
+    req.setTimeout(30000, () => req.destroy(new Error('Wikiquote-Timeout')));
   });
 }
 
@@ -66,7 +95,7 @@ if (require.main === module) {
     console.log(`Wikiquote-Seiten geladen: ${authorsLoaded}/${authorsTotal}`);
     console.log(`VERIFIZIERT (Overlap>=${min}): ${verified.length}/${quotes.length}`);
     dropped.sort((a, b) => b.hit - a.hit).forEach(({ q, hit }) => console.log(`  ✗ ${hit.toFixed(2)} ${q.attributes.author}: ${q.name.slice(0, 50)}`));
-    if (outFile) { fs.writeFileSync(outFile, JSON.stringify(verified.map(v => v.q), null, 2)); console.log(`=> ${outFile}: ${verified.length} Objekte`); }
+    if (outFile) { writeJsonAtomic(outFile, verified.map(v => v.q)); console.log(`=> ${outFile}: ${verified.length} Objekte`); }
   });
 }
 

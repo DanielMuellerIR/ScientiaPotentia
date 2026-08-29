@@ -22,6 +22,7 @@
 const https = require('https');
 const fs    = require('fs');
 const path  = require('path');
+const { writeJsonAtomic } = require('./json_io.cjs');
 
 // --- Konfiguration ----------------------------------------------------------
 
@@ -287,13 +288,6 @@ LIMIT 80
     }
   }
 
-  // --- Blacklist bekannter Nicht-Musikwerke oder bereits vorhander Konzepte -
-  // Diese QIDs sind in Wikidata als Komposition klassifiziert, gehören aber nicht
-  // in ein Musik-Quiz oder sind problematisch:
-  const BLACKLIST = new Set([
-    'Q189729', // Shostakovich: nicht im System, aber Dopplung-Check via Name ausreichend
-  ]);
-
   // --- Genre-Normalisierung: Wikidata-Genre → lesbare deutsche Gattungsbezeichnung --
   // Viele klassische Werke haben kein P136-Genre in Wikidata. Dann Gattung aus dem
   // Werktitel ableiten — z.B. „5. Sinfonie" → „Sinfonie".
@@ -363,7 +357,6 @@ LIMIT 80
     'Q141005',  // La Espero (Esperanto-Hymne)
     'Q18288',   // Katjuscha (Russisches Volkslied)
     'Q131718',  // Hava Nagila (jüdisches Volkslied)
-    'Q891180',  // Bésame mucho (lateinamerikanisches Lied)
     'Q391180',  // Bésame mucho (korrekte QID)
     'Q205891',  // 'O sole mio (neapolitanisches Volkslied)
     'Q844046',  // Summertime (Jazz/Gershwin Musical)
@@ -371,8 +364,8 @@ LIMIT 80
     'Q1890794', // The Entertainer (Ragtime)
     'Q596389',  // Poljuschko Pole (Sowjet-Folklore)
     'Q918029',  // El cóndor pasa (peruanische Volksmusik)
-    'Q4233720', // La Marseillaise (Nationalhymne)
-    'Q74930',   // Oh! Susanna (Minstrel-Song)
+    'Q41180',   // La Marseillaise (Nationalhymne)
+    'Q573938',  // Oh! Susanna (Minstrel-Song)
     'Q182268',  // Land of Hope and Glory (Marsch/patriotisch)
     'Q1049431', // When I Think of You
     'Q57',      // Never Gonna Give You Up (falls doch drin)
@@ -384,7 +377,6 @@ LIMIT 80
   let added = 0, skipped = 0, dupSkipped = 0;
 
   for (const [qid, info] of seen) {
-    if (BLACKLIST.has(qid)) { skipped++; continue; }
     if (COMPOSITION_BLACKLIST.has(qid)) {
       console.log(`  - SKIP (QID-Blacklist Volksmusik/Pop): ${info.name} [${qid}]`);
       skipped++;
@@ -440,9 +432,9 @@ LIMIT 80
 // QUERY 2 — Literarische Werke (literature)
 //
 // QUALITÄTSREGELN:
-//  - P31-Typ NUR in Whitelist: Roman (Q8261), lit. Werk (Q7725634),
-//    Drama (Q25379), Theaterstück (Q186451), Tragödie (Q1344), Komödie (Q40831),
-//    Novelle (Q149537), Epos (Q8253) — KEINE Nachschlagewerke/Sachbücher
+//  - P31-Typ NUR in Whitelist: Roman (Q8261), literarisches Werk (Q7725634),
+//    Bühnenwerk (Q25379), dramatisches Werk (Q116476516), Tragödie (Q80930),
+//    Komödie (Q40831), Novelle (Q149537), Epos (Q37484)
 //  - Autor P50 Pflicht
 //  - Erscheinungsjahr P577 Pflicht + < 1970 (Qualitätsschwelle)
 //  - Sitelinks ≥ 25
@@ -493,15 +485,11 @@ LIMIT 80
 
   console.log('\n=== Query 2b: Literatur — Dramen/Epen/Novellen (SL ≥ 25) ===');
 
-  // Batch B: Dramen, Tragödien, Komödien, Novellen, Epen
-  // Q116476516 = dramatisches Werk (Wikidata-Typ für Shakespeare-Stücke etc.)
-  // Q25379 = Drama (abstrakte Klasse — oft nicht direkt als P31 verwendet)
-  // Q149537 = Novelle, Q8253 = Epos, Q1344 = Tragödie (Gattung)
-  // Q116780 = Theaterstück, Q7725635 = dramatisches Werk (Alternativ-QID)
+  // Batch B: Bühnenwerke, Dramen, Tragödien, Komödien, Novellen und Epen.
   const queryB = `
 SELECT DISTINCT ?item ?qid ?label ?authorLabel ?year ?langLabel ?genreLabel ?sitelinks
 WHERE {
-  VALUES ?type { wd:Q116476516 wd:Q25379 wd:Q149537 wd:Q186451 wd:Q8253 wd:Q1344 wd:Q40831 }
+  VALUES ?type { wd:Q116476516 wd:Q25379 wd:Q149537 wd:Q80930 wd:Q40831 wd:Q37484 }
   ?item wdt:P31 ?type .
   ?item wikibase:sitelinks ?sitelinks .
   FILTER(?sitelinks >= 25)
@@ -560,17 +548,16 @@ LIMIT 80
 
   // --- Bekannte Nicht-Belletristik / Nicht-Literatur-Werke (Blacklist) ------
   const BLACKLISTED_ITEMS = new Set([
-    'Q11584',  // The World Factbook (Nachschlagewerk)
-    'Q165980', // Dictionary of National Biography
-    'Q152095', // Boxeraufstand (historisches Ereignis)
-    'Q47209',  // Communist Manifesto (politisches Pamphlet)
-    'Q7251',   // Wikipedia
+    'Q11191',   // The World Factbook (Nachschlagewerk)
+    'Q1210343', // Dictionary of National Biography
+    'Q150229',  // Boxeraufstand (historisches Ereignis)
+    'Q40591',   // Manifest der Kommunistischen Partei (politisches Pamphlet)
+    'Q52',      // Wikipedia
     'Q48244',  // Mein Kampf (inhaltlich ungeeignet für Quizkontext)
     'Q123397', // Politeia / Der Staat (Platon — Philosophietraktat, keine Belletristik)
     'Q131719', // Der Fürst (Machiavelli — politische Abhandlung, keine Belletristik)
-    'Q9268',   // Koran
-    'Q8054',   // Bibel
-    'Q25287',  // Philosophie-Werke (allg.)
+    'Q428',    // Koran
+    'Q1845',   // Bibel
   ]);
 
   let added = 0, skipped = 0, dupSkipped = 0;
@@ -655,11 +642,10 @@ async function queryArtworks() {
   // Bekannte Probleme als QID-Blacklist:
   // Q185372 = Mädchen mit Perlenohrgehänge — Duplikat von bestehendem "Perlenohrring"-Eintrag
   // Q910199 = Les Demoiselles d'Avignon (Picasso 1907 — geschützt bis 2044!)
-  // Q42332  = Guernica (bereits in SPARQL gefiltert)
+  // Picasso-Werke werden über das Todesjahr des Urhebers ausgeschlossen.
   const ARTWORK_BLACKLIST = new Set([
     'Q185372',  // Perlenohrgehänge = Duplikat von Perlenohrring (anderes DE-Label, selbes Bild)
     'Q910199',  // Les Demoiselles d'Avignon — Picasso geschützt bis 2044
-    'Q12282',   // weitere Picasso-Werke falls vorhanden
   ]);
 
   // Artwork-Query: Sitelinks ≥ 25, P571 < 1923 (Public Domain).
@@ -672,11 +658,12 @@ WHERE {
   ?item wdt:P31 wd:Q3305213 .
   ?item wikibase:sitelinks ?sitelinks .
   FILTER(?sitelinks >= 25)
-  # Guernica direkt ausschließen; weitere Picasso-Werke via QID-Blacklist
-  FILTER(?item != wd:Q42332)
   ?item rdfs:label ?label FILTER(LANG(?label) = "de")
   ?item wdt:P170 ?creator .
   ?creator rdfs:label ?creatorLabel FILTER(LANG(?creatorLabel) = "de")
+  ?creator wdt:P570 ?creatorDeathDate .
+  BIND(YEAR(?creatorDeathDate) AS ?creatorDeathYear)
+  FILTER(?creatorDeathYear < 1956)
   ?item wdt:P571 ?created .
   BIND(YEAR(?created) AS ?year)
   FILTER(?year > 0 && ?year < 1920)
@@ -760,41 +747,31 @@ async function main() {
   for (const c of rawData) beforeCounts[c.category] = (beforeCounts[c.category] || 0) + 1;
   console.log('Bestand nach Kategorie:', JSON.stringify(beforeCounts));
 
-  // Jede Query einzeln mit Fehlerbehandlung — bei Timeout/502 werden bereits
-  // gesammelte Konzepte trotzdem geschrieben (kein Datenverlust).
+  // Jede Teilabfrage muss erfolgreich sein. Ein Teilergebnis darf die letzte
+  // vollständige Kandidatendatei nicht ersetzen.
   try {
     await queryCompositions();
   } catch (err) {
-    console.error('\nFEHLER (composition):', err.message, '— fahre fort...');
+    throw new Error(`composition: ${err.message}`);
   }
   await sleep(MIN_DELAY_MS);
 
   try {
     await queryLiterature();
   } catch (err) {
-    console.error('\nFEHLER (literature):', err.message, '— fahre fort...');
+    throw new Error(`literature: ${err.message}`);
   }
   await sleep(MIN_DELAY_MS);
 
   try {
     await queryArtworks();
   } catch (err) {
-    console.error('\nFEHLER (artwork):', err.message, '— fahre fort (ggf. Artwork-Lücke)...');
+    throw new Error(`artwork: ${err.message}`);
   }
-
-  // --- Ergebnis schreiben --------------------------------------------------
-  fs.writeFileSync(OUT_PATH, JSON.stringify(newConcepts, null, 2), 'utf8');
-
-  console.log('\n=== Zusammenfassung ===');
-  const cats = {};
-  for (const c of newConcepts) cats[c.category] = (cats[c.category] || 0) + 1;
-  for (const [k, v] of Object.entries(cats)) console.log(`  ${k}: ${v}`);
-  console.log(`  GESAMT: ${newConcepts.length} neue Konzepte`);
-  console.log(`\nGeschrieben: ${OUT_PATH}`);
 
   // --- Plausibilitäts-Selbstkontrolle -------------------------------------
   console.log('\n=== Selbstkontrolle ===');
-  const reread = JSON.parse(fs.readFileSync(OUT_PATH, 'utf8'));
+  const reread = newConcepts;
 
   // 1. Stichprobe: Haben alle Konzepte Pflichtfelder?
   let malformed = 0;
@@ -845,10 +822,26 @@ async function main() {
     console.warn(`  WARNUNG: ${ids.length - uniqueIds.size} doppelte IDs im Ergebnis!`);
   }
 
-  if (malformed === 0 && umlautSuspect === 0 && uniqueIds.size === ids.length) {
-    console.log('  ✓ Alle Plausibilitätsprüfungen bestanden.');
+  if (malformed > 0 || umlautSuspect > 0 || uniqueIds.size !== ids.length) {
+    throw new Error('Plausibilitätsprüfung der Cultura-Welle 4 fehlgeschlagen');
   }
+  console.log('  ✓ Alle Plausibilitätsprüfungen bestanden.');
+
+  // --- Ergebnis erst nach vollständiger Prüfung atomar schreiben ----------
+  writeJsonAtomic(OUT_PATH, newConcepts);
+
+  console.log('\n=== Zusammenfassung ===');
+  const cats = {};
+  for (const c of newConcepts) cats[c.category] = (cats[c.category] || 0) + 1;
+  for (const [k, v] of Object.entries(cats)) console.log(`  ${k}: ${v}`);
+  console.log(`  GESAMT: ${newConcepts.length} neue Konzepte`);
+  console.log(`\nGeschrieben: ${OUT_PATH}`);
   console.log(`  Ausgabedatei: ${OUT_PATH} (${reread.length} Konzepte)`);
 }
 
-main();
+if (require.main === module) {
+  main().catch(err => {
+    console.error('\nFEHLER:', err.message);
+    process.exit(1);
+  });
+}

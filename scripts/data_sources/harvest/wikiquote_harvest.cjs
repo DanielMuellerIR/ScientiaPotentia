@@ -17,6 +17,7 @@
 
 const https = require('https');
 const fs    = require('fs');
+const { writeJsonAtomic } = require('./json_io.cjs');
 
 // ──────────────────────────────────────────────────────────────────────────────
 // Konfiguration & Hilfsfunktionen
@@ -70,17 +71,43 @@ function overlapRatio(a, b) {
 // ──────────────────────────────────────────────────────────────────────────────
 
 // Holt den rohen Wikitext der de.wikiquote-Seite mit dem gegebenen Lemma (Titel).
-// Gibt leeren String zurück bei 404/Fehler (Seite fehlt oder API-Fehler).
-// Wiederholung bei Netzfehler (bis zu 3 Versuche, 800 ms Backoff).
+// Gibt nur bei einer tatsächlich fehlenden Seite einen leeren String zurück.
+// Netz-, HTTP- und Parsefehler werden wiederholt und danach nach außen gegeben,
+// damit keine unvollständige Ernte als erfolgreicher Lauf gespeichert wird.
 function fetchWikitext(lemma, tries = 0) {
-  return new Promise(resolve => {
+  return new Promise((resolve, reject) => {
     // MediaWiki-API: action=query, prop=revisions, rvslots=main liefert Wikitext.
     const url = 'https://de.wikiquote.org/w/api.php'
       + '?action=query&prop=revisions&rvprop=content&rvslots=main'
       + '&format=json&titles=' + encodeURIComponent(lemma);
 
-    https.get(url, { headers: UA }, res => {
+    let retryStarted = false;
+    const retry = error => {
+      if (retryStarted) return;
+      retryStarted = true;
+      if (tries >= 3) {
+        reject(error);
+        return;
+      }
+      setTimeout(
+        () => fetchWikitext(lemma, tries + 1).then(resolve, reject),
+        800 * (tries + 1),
+      );
+    };
+
+    const req = https.get(url, { headers: UA }, res => {
+      if (res.statusCode === 429 || res.statusCode >= 500) {
+        res.resume();
+        retry(new Error(`Wikiquote HTTP ${res.statusCode} für ${lemma}`));
+        return;
+      }
+      if (res.statusCode !== 200) {
+        res.resume();
+        reject(new Error(`Wikiquote HTTP ${res.statusCode} für ${lemma}`));
+        return;
+      }
       let raw = '';
+      res.on('error', retry);
       res.on('data', chunk => raw += chunk);
       res.on('end', () => {
         try {
@@ -91,18 +118,17 @@ function fetchWikitext(lemma, tries = 0) {
           // Wikitext steckt im Slot „main" unter dem Schlüssel „*".
           resolve(page.revisions[0].slots.main['*'] || '');
         } catch (e) {
-          resolve('');
+          retry(new Error(`Wikiquote-Antwort für ${lemma} nicht parsebar: ${e.message}`));
         }
       });
-    }).on('error', async () => {
-      if (tries < 3) {
-        await sleep(800);
-        resolve(await fetchWikitext(lemma, tries + 1));
-      } else {
-        resolve('');
-      }
     });
+    resErrorHandler(req, retry);
   });
+}
+
+function resErrorHandler(req, retry) {
+  req.on('error', retry);
+  req.setTimeout(30000, () => req.destroy(new Error('Wikiquote-Timeout')));
 }
 
 // ──────────────────────────────────────────────────────────────────────────────
@@ -127,24 +153,19 @@ function fetchWikitext(lemma, tries = 0) {
 //    Muster: <Zitat>[„"] – Quellenanmerkung ODER Zitat." - Quellenanmerkung
 //    Der saubere Zitat-Text endet mit dem schließenden Anführungszeichen.
 function stripQuotationMarks(s) {
-  // Schritt 1: Quellenanhänge nach dem schließenden Anführungszeichen abschneiden.
-  // Typisch: „Text." – Quellenanmerkung mit Gedankenstrich nach dem Schluß-"
-  // Variante A: endet mit " – oder " - (Gedankenstrich/Bindestrich nach Anf.zeichen)
-  s = s.replace(/["""]\s*[–—-].+$/, '');
-  // Variante B: URL im Text → alles ab http entfernen
+  // Nur Text hinter einem wirklich schließenden Anführungszeichen gilt als
+  // Quellenanhang. Ein Gedankenstrich innerhalb des Zitats bleibt erhalten.
+  const quoted = s.trim().match(/^[„"»«](.*)[“”"«»]\s*(?:[–—-].*)?$/);
+  if (quoted) s = quoted[1];
+
+  // URL im Text → alles ab http entfernen.
   s = s.replace(/\s+https?:\/\/\S+/g, '');
 
-  // Schritt 2: Äußere Anführungszeichen entfernen.
+  // Verbliebene äußere Anführungszeichen entfernen.
   s = s
     .replace(/^[„"»«"]\s*/, '')   // Anfang: öffnendes Anführungszeichen
     .replace(/\s*["""«»]\s*$/, '') // Ende: schließendes Anführungszeichen
     .trim();
-
-  // Schritt 3: Nochmal Quellenanhang prüfen (manchmal ohne Anführungszeichen am Ende).
-  // Muster: Text." - Quellenanmerkung
-  s = s.replace(/[.!?]\s*[–—-]\s+.{5,}$/, m => m[0]); // Behält nur das Satzzeichen
-  // Muster: Text." – oder Text." —
-  s = s.replace(/\s*[–—]\s*.{0,120}$/, '').trim();
 
   return s.trim();
 }
@@ -402,6 +423,7 @@ async function harvest() {
   let droppedTooLong  = 0;
   let droppedDedup    = 0;
   let droppedEmpty    = 0;
+  let droppedFilter   = 0;
 
   const authorStats = []; // Pro-Autor-Report für den finalen Report
   const candidates  = []; // Finale Kandidaten-Liste
@@ -531,7 +553,7 @@ async function harvest() {
   // ──────────────────────────────────────────────────────────────────────────
 
   const fullPath = '/tmp/cultura_quote_cand_full.json';
-  fs.writeFileSync(fullPath, JSON.stringify(candidates, null, 2));
+  writeJsonAtomic(fullPath, candidates);
   console.log(`\nVolle Ernte gespeichert: ${candidates.length} Zitate → ${fullPath}`);
 
   // ──────────────────────────────────────────────────────────────────────────
@@ -602,7 +624,7 @@ async function harvest() {
   // ──────────────────────────────────────────────────────────────────────────
 
   const outPath = '/tmp/cultura_quote_cand.json';
-  fs.writeFileSync(outPath, JSON.stringify(selected, null, 2));
+  writeJsonAtomic(outPath, selected);
 
   // ──────────────────────────────────────────────────────────────────────────
   // Konsolen-Report
@@ -617,6 +639,7 @@ async function harvest() {
   console.log(`Rohzitate (alle parsed):  ${totalRaw}`);
   console.log(`  Dropped zu kurz/lang:   ${droppedTooShort + droppedTooLong}`);
   console.log(`  Dropped Dedup:          ${droppedDedup}`);
+  console.log(`  Dropped Zuschreibung:  ${droppedFilter}`);
   console.log(`Kandidaten (voll):        ${candidates.length}`);
   console.log(`Kandidaten (Auswahl):     ${selected.length}`);
   console.log(`\n=> Voll:    ${fullPath}`);

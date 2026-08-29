@@ -22,6 +22,7 @@
 const https = require('https');
 const fs = require('fs');
 const path = require('path');
+const { writeJsonAtomic } = require('./json_io.cjs');
 
 // --- Konfiguration ----------------------------------------------------------
 
@@ -304,9 +305,7 @@ async function main() {
     try {
       data = await sparqlQuery(query);
     } catch (e) {
-      console.warn(`  FEHLER: ${e.message} — überspringe Gruppe`);
-      await sleep(MIN_DELAY_MS);
-      continue;
+      throw new Error(`${groupName}: ${e.message}`);
     }
 
     const bindings = data.results?.bindings || [];
@@ -374,7 +373,7 @@ async function main() {
       const cnt = parseInt(data.results?.bindings?.[0]?.cnt?.value || '0', 10);
       if (cnt > 0) lang.officialIn = cnt;
     } catch (e) {
-      console.warn(`  officialIn FEHLER für ${lang.nameDE}: ${e.message}`);
+      throw new Error(`officialIn ${lang.nameDE}: ${e.message}`);
     }
     await sleep(MIN_DELAY_MS);
   }
@@ -382,7 +381,6 @@ async function main() {
   // --- Ausgabe-Format aufbauen -----------------------------------------------
 
   const output = [];
-  let skippedNoFamily = 0;
   let skippedNoSpeakers = 0;
 
   for (const lang of results.values()) {
@@ -409,7 +407,7 @@ async function main() {
       funFact: '',
       sourceName: 'Wikidata',
       sourceUrl: `https://www.wikidata.org/wiki/${lang.qid}`,
-      verifyNote: `P1098=${lang.speakersMillionsNative ? lang.speakersMillionsNative + ' Mio.' : 'n/a'}, P282=${lang.script || 'n/a'}, P171-Familie=${lang.family || 'n/a'}, officialIn=${lang.officialIn ?? 'n/a'}`,
+      verifyNote: `P1098=${lang.speakersMillionsNative ? lang.speakersMillionsNative + ' Mio.' : 'n/a'}, P282=${lang.script || 'n/a'}, P279-Familie=${lang.family || 'n/a'}, officialIn=${lang.officialIn ?? 'n/a'}`,
       imageSearchTerm: `${lang.nameDE} language`,
     });
   }
@@ -422,7 +420,7 @@ async function main() {
     return a.name.localeCompare(b.name, 'de');
   });
 
-  fs.writeFileSync(OUT_PATH, JSON.stringify(output, null, 2), 'utf8');
+  writeJsonAtomic(OUT_PATH, output);
 
   console.log(`\n=== Ergebnis ===`);
   console.log(`Neue Sprachen gespeichert: ${output.length}`);
@@ -436,7 +434,9 @@ async function main() {
   }
 }
 
-main().catch(err => {
-  console.error('Fataler Fehler:', err);
-  process.exit(1);
-});
+if (require.main === module) {
+  main().catch(err => {
+    console.error('Fataler Fehler:', err);
+    process.exit(1);
+  });
+}
