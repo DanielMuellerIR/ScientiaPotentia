@@ -6,7 +6,7 @@
     "token_budget": 8000000,
     "status": "active",
     "started_at": "2026-08-29T20:44:29+02:00",
-    "tokens_spent": 587835
+    "tokens_spent": 702656
   },
   "campaign_history": [],
   "scope": {
@@ -369,13 +369,24 @@
       "risk": "high",
       "priority": 7,
       "reason": "Kartenantworten, Geodatenfilter, Entity-Auswahl und Kartenstil",
-      "state": "in_progress",
-      "active_run": {
+      "state": "completed",
+      "last_run": {
         "campaign_id": "20260829T204429059458+0200",
-        "started_at": "2026-08-29T21:11:07+02:00",
-        "required_review": "full",
-        "status_at_start": "pending",
-        "covered_pending_paths": []
+        "completed_at": "2026-08-29T21:15:58+02:00",
+        "observed_head": "4393e6ec7a74978af8164ad55d4b7dc224547a36",
+        "content_sha256": "45c1eae33988f20eb8fef584e989420f45623cb3ffb8641904587f797dfd9b28",
+        "file_count": 7,
+        "review": "full",
+        "outcome": "improved",
+        "summary": "Karte und Atlas reagieren jetzt auf manuelles Zoomen, setzen Provinzebenen zwischen Fragetypen zurück, färben Flussantworten konsistent, laden nur gültige GeoJSON-Antworten und bieten akzentunabhängige Suche mit echten Tastaturzielen.",
+        "tests": [
+          "npm test -- src/__tests__/MapParchment.test.jsx src/__tests__/tokenSearch.test.js: passed (12)",
+          "npm test: passed (173)",
+          "npm run build: passed",
+          "npm run check:layout: passed (44/44)",
+          "python3 -m unittest tests/test_deploy.py: passed (21)",
+          "Browser: Terra > Weltatlas, Suche agypt, Treffer Ägypten und Länderakte geprüft"
+        ]
       }
     },
     {
@@ -390,7 +401,14 @@
       "risk": "high",
       "priority": 8,
       "reason": "Gemeinsame Frageerzeugung, Distraktoren, Antwort-Leak-Schutz und Determinismus",
-      "state": "pending"
+      "state": "in_progress",
+      "active_run": {
+        "campaign_id": "20260829T204429059458+0200",
+        "started_at": "2026-08-29T21:16:03+02:00",
+        "required_review": "full",
+        "status_at_start": "pending",
+        "covered_pending_paths": []
+      }
     },
     {
       "id": "astra-generator",

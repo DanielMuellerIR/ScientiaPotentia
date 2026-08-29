@@ -56,6 +56,7 @@ function run() {
   let passed = 0;
   let failed = 0;
   const errors = [];
+  const seenQuestionIds = new Set();
 
   const assert = (condition, questionId, message) => {
     if (condition) {
@@ -69,6 +70,10 @@ function run() {
   questions.forEach(q => {
     // 1. Check basic structure
     assert(q.id && typeof q.id === 'string', q.id || 'unknown', 'ID is missing or not a string');
+    if (q.id && typeof q.id === 'string') {
+      assert(!seenQuestionIds.has(q.id), q.id, 'question ID is duplicated');
+      seenQuestionIds.add(q.id);
+    }
     assert(q.entityId && typeof q.entityId === 'string', q.id, 'entityId is missing');
     assert(q.type && typeof q.type === 'string', q.id, 'type is missing');
     assert(typeof q.difficulty === 'number' && q.difficulty >= 1 && q.difficulty <= 4, q.id, `Invalid difficulty: ${q.difficulty}`);

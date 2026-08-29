@@ -211,10 +211,24 @@ const RELATIVE_DUP = 0.01; // 1 %
 export function pickNumeric(correctNum, poolNums, format, k = 3) {
   const guardProximity = !Number.isInteger(correctNum) && correctNum !== 0;
   const unique = [...new Set(poolNums)].filter(n => {
+    if (typeof n !== 'number' || !Number.isFinite(n)) return false;
     if (n === correctNum) return false;
     if (guardProximity && Math.abs(n - correctNum) / Math.abs(correctNum) < RELATIVE_DUP) return false;
     return true;
   });
   unique.sort((a, b) => Math.abs(a - correctNum) - Math.abs(b - correctNum));
-  return unique.slice(0, k).map(format);
+
+  // Unterschiedliche Rohwerte können nach Rundung dieselbe sichtbare Option
+  // ergeben. Die richtige Antwort und bereits gewählte Distraktoren deshalb
+  // erst nach derselben Formatierung vergleichen, die auch die Frage nutzt.
+  const seen = new Set([String(format(correctNum))]);
+  const picked = [];
+  for (const value of unique) {
+    const formatted = String(format(value));
+    if (seen.has(formatted)) continue;
+    seen.add(formatted);
+    picked.push(formatted);
+    if (picked.length === k) break;
+  }
+  return picked;
 }
