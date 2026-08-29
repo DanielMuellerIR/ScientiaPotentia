@@ -32,18 +32,36 @@ export function useGeoData(keys) {
 
   useEffect(() => {
     let cancelled = false;
-    const requested = depKey.split(',');
+    const requested = depKey ? depKey.split(',').filter(Boolean) : [];
+
+    if (requested.length === 0) {
+      setData({});
+      return () => { cancelled = true; };
+    }
 
     Promise.all(
-      requested.map(name =>
-        fetch(GEO_FILES[name])
-          .then(res => res.json())
-          .then(json => [name, json])
+      requested.map(name => {
+        const url = GEO_FILES[name];
+        return Promise.resolve()
+          .then(() => {
+            if (!url) throw new Error(`Unbekannte Geometriedatei: ${name}`);
+            return fetch(url);
+          })
+          .then(res => {
+            if (!res.ok) throw new Error(`HTTP ${res.status || 'Fehler'}`);
+            return res.json();
+          })
+          .then(json => {
+            if (!json || !Array.isArray(json.features)) {
+              throw new Error('Ungültige GeoJSON-FeatureCollection');
+            }
+            return [name, json];
+          })
           .catch(err => {
             console.error(`Failed to load ${name} geometry:`, err);
             return [name, null];
-          })
-      )
+          });
+      })
     ).then(entries => {
       // Nach Unmount nicht mehr in den State schreiben (vermeidet React-Warnung).
       if (!cancelled) setData(Object.fromEntries(entries));

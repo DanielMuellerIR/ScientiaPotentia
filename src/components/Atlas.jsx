@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { Globe, Compass, Award, Calendar, ChevronRight } from 'lucide-react';
+import { matchesNameTokenPrefix } from '../utils/tokenSearch';
 
 // Einzelner Tab-Button der Unterreiter-Leiste (Übersicht/Geografie/Städte/Regionen).
 // Kapselt die gemeinsamen Styles; nur der Aktiv-Zustand (activeSubTab === id) und
@@ -8,6 +9,8 @@ function SubTab({ id, label, activeSubTab, onSelect }) {
   const isActive = activeSubTab === id;
   return (
     <button
+      type="button"
+      aria-pressed={isActive}
       onClick={() => onSelect(id)}
       style={{
         background: isActive ? 'var(--bg-card)' : 'transparent',
@@ -38,6 +41,7 @@ export default function Atlas({ selectedEntity, srsProgress, onStartQuickQuiz, g
     switch (t) {
       case 'country': return 'Souveräner Staat';
       case 'state': return 'Bundesland / Staat';
+      case 'city': return 'Stadt';
       case 'river': return 'Fluss';
       default: return 'Geografisches Objekt';
     }
@@ -71,12 +75,11 @@ export default function Atlas({ selectedEntity, srsProgress, onStartQuickQuiz, g
   // Tastendruck die gesamte Entity-Datenbank (Terra: tausende Eintraege) neu scannen.
   const filteredSearch = useMemo(() => {
     if (searchQuery.trim() === '') return [];
-    const query = searchQuery.toLowerCase();
-    return Object.values(geodb.entities).filter(entity =>
-      (entity.name && entity.name.toLowerCase().includes(query)) ||
-      (entity.englishName && entity.englishName.toLowerCase().includes(query)) ||
-      (entity.id && entity.id.toLowerCase().includes(query))
-    ).slice(0, 5);
+    return Object.values(geodb.entities).filter(entity => (
+      matchesNameTokenPrefix(entity.name, searchQuery) ||
+      matchesNameTokenPrefix(entity.englishName, searchQuery) ||
+      matchesNameTokenPrefix(entity.id, searchQuery)
+    )).slice(0, 5);
   }, [searchQuery, geodb.entities]);
 
   // Unter-Einheiten (Bundeslaender/Provinzen) des aktuellen Landes — einmal
@@ -108,6 +111,7 @@ export default function Atlas({ selectedEntity, srsProgress, onStartQuickQuiz, g
       <div style={{ position: 'relative', marginBottom: '16px', zIndex: 100 }}>
         <input 
           type="text"
+          aria-label="Atlas durchsuchen"
           placeholder="Ort, Land oder Fluss suchen..."
           value={searchQuery}
           onChange={handleSearchChange}
@@ -144,10 +148,15 @@ export default function Atlas({ selectedEntity, srsProgress, onStartQuickQuiz, g
                                   entity.type === 'city' ? 'Stadt' : 'Fluss';
               const flag = entity.metadata?.flag || (entity.type === 'river' ? '🌊' : '📍');
               return (
-                <div 
+                <button
                   key={entity.id}
+                  type="button"
                   onClick={() => handleSelectSearchResult(entity.id)}
                   style={{
+                    width: '100%',
+                    border: 0,
+                    background: 'transparent',
+                    textAlign: 'left',
                     padding: '8px 12px',
                     cursor: 'pointer',
                     fontSize: '13.5px',
@@ -165,7 +174,7 @@ export default function Atlas({ selectedEntity, srsProgress, onStartQuickQuiz, g
                   <span style={{ fontSize: '11px', color: 'var(--text-muted)', textTransform: 'uppercase' }}>
                     {displayType}
                   </span>
-                </div>
+                </button>
               );
             })}
           </div>
@@ -211,9 +220,14 @@ export default function Atlas({ selectedEntity, srsProgress, onStartQuickQuiz, g
                 {selectedEntity.type === 'state' && selectedEntity.metadata?.countryId && (
                   <>
                     {' in '}
-                    <span 
+                    <button
+                      type="button"
                       onClick={() => onSelectEntity && onSelectEntity(selectedEntity.metadata.countryId)}
                       style={{ 
+                        border: 0,
+                        padding: 0,
+                        background: 'transparent',
+                        font: 'inherit',
                         color: 'var(--color-secondary)', 
                         cursor: 'pointer', 
                         textDecoration: 'underline',
@@ -221,7 +235,7 @@ export default function Atlas({ selectedEntity, srsProgress, onStartQuickQuiz, g
                       }}
                     >
                       {geodb?.entities[selectedEntity.metadata.countryId]?.name || selectedEntity.metadata.countryId}
-                    </span>
+                    </button>
                   </>
                 )}
               </span>
@@ -310,7 +324,8 @@ export default function Atlas({ selectedEntity, srsProgress, onStartQuickQuiz, g
                           {selectedEntity.metadata?.countries && selectedEntity.metadata.countries.map(cId => {
                             const countryEntity = geodb?.entities[cId];
                             return (
-                              <span 
+                              <button
+                                type="button"
                                 key={cId}
                                 onClick={() => handleSelectSearchResult(cId)}
                                 style={{
@@ -326,7 +341,7 @@ export default function Atlas({ selectedEntity, srsProgress, onStartQuickQuiz, g
                                 }}
                               >
                                 {countryEntity?.metadata?.flag} {countryEntity?.name || cId}
-                              </span>
+                              </button>
                             );
                           })}
                         </div>
@@ -531,12 +546,15 @@ export default function Atlas({ selectedEntity, srsProgress, onStartQuickQuiz, g
 
           {/* Actions */}
           <button 
+            type="button"
             className="btn-terra-primary"
             onClick={() => onStartQuickQuiz(selectedEntity.id)}
             style={{ width: '100%', justifyContent: 'center' }}
           >
             <Compass size={18} />
-            Diesen Umriss lernen
+            {selectedEntity.type === 'country' || selectedEntity.type === 'state'
+              ? 'Diesen Umriss lernen'
+              : 'Dieses Objekt lernen'}
           </button>
         </div>
       )}

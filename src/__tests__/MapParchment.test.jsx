@@ -1,13 +1,28 @@
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import maplibregl from 'maplibre-gl';
+import Atlas from '../components/Atlas';
 import Map from '../components/Map';
+import { useGeoData } from '../utils/useGeoData';
 
 const stylePath = resolve(process.cwd(), 'public/map_styles/scientia_parchment.json');
 const parchmentStyle = JSON.parse(readFileSync(stylePath, 'utf8'));
 const germanName = ['coalesce', ['get', 'name:de'], ['get', 'name']];
+
+function lastPaintValue(map, layer, property) {
+  return map.setPaintProperty.mock.calls
+    .filter(([candidateLayer, candidateProperty]) => (
+      candidateLayer === layer && candidateProperty === property
+    ))
+    .at(-1)?.[2];
+}
+
+function GeoProbe({ keys }) {
+  const data = useGeoData(keys);
+  return <output>{JSON.stringify(data)}</output>;
+}
 
 afterEach(() => {
   cleanup();
@@ -133,5 +148,107 @@ describe('Terra-Kartenwerkzeuge', () => {
     expect(screen.getByRole('button', { name: 'Kartenwerkzeuge einblenden' }))
       .toHaveAttribute('title', 'Kartenwerkzeuge einblenden');
     expect(document.querySelector('.terra-map')).toHaveClass('terra-map-controls-hidden');
+  });
+
+  it('aktualisiert Provinzgrenzen beim Zoomen und setzt sie nach einer Provinzfrage zurück', async () => {
+    const { rerender } = render(<Map mode="atlas" onSelectEntity={vi.fn()} />);
+    const map = maplibregl.Map.mock.instances[0];
+    await waitFor(() => expect(map.setPaintProperty).toHaveBeenCalled());
+
+    const zoomEnd = map.on.mock.calls.find(([event]) => event === 'zoomend')?.[1];
+    expect(zoomEnd).toBeTypeOf('function');
+    map.getZoom.mockReturnValue(4);
+    act(() => zoomEnd());
+
+    await waitFor(() => {
+      expect(lastPaintValue(map, 'subdivisions-borders', 'line-opacity')).toBe(0.6);
+      expect(lastPaintValue(map, 'subdivisions-fill', 'fill-opacity')).toBe(0.35);
+    });
+
+    rerender(<Map mode="quiz" showSubdivisions onSelectEntity={vi.fn()} />);
+    await waitFor(() => {
+      expect(lastPaintValue(map, 'subdivisions-borders', 'line-opacity')).toBe(0.8);
+      expect(lastPaintValue(map, 'subdivisions-fill', 'fill-opacity')).toBe(0.8);
+    });
+
+    rerender(<Map mode="quiz" showSubdivisions={false} onSelectEntity={vi.fn()} />);
+    await waitFor(() => {
+      expect(lastPaintValue(map, 'subdivisions-borders', 'line-opacity')).toBe(0);
+      expect(lastPaintValue(map, 'subdivisions-fill', 'fill-opacity')).toBe(0);
+    });
+  });
+
+  it('färbt einen richtig beantworteten Fluss passend zur Legende grün', async () => {
+    render(
+      <Map
+        mode="quiz"
+        correctIds={['river_seine']}
+        zoomToEntityId="river_seine"
+        onSelectEntity={vi.fn()}
+      />
+    );
+    const map = maplibregl.Map.mock.instances[0];
+
+    await waitFor(() => {
+      expect(lastPaintValue(map, 'rivers-line', 'line-color')).toEqual([
+        'case',
+        ['==', ['get', 'id'], 'river_seine'],
+        '#2C5E43',
+        'transparent'
+      ]);
+    });
+  });
+});
+
+describe('Atlas-Suche', () => {
+  it('findet Umlaute ohne Sondertastatur und bietet ein echtes Tastaturziel an', () => {
+    const onSelectEntity = vi.fn();
+    render(
+      <Atlas
+        geodb={{
+          entities: {
+            EG: { id: 'EG', type: 'country', name: 'Ägypten', metadata: { flag: '🇪🇬' } },
+            DE: { id: 'DE', type: 'country', name: 'Deutschland' },
+          },
+        }}
+        onSelectEntity={onSelectEntity}
+      />
+    );
+
+    fireEvent.change(screen.getByRole('textbox', { name: 'Atlas durchsuchen' }), {
+      target: { value: 'agypt' },
+    });
+    const result = screen.getByRole('button', { name: /Ägypten.*Staat/ });
+    result.focus();
+    expect(result).toHaveFocus();
+    fireEvent.keyDown(result, { key: 'Enter' });
+    fireEvent.click(result);
+    expect(onSelectEntity).toHaveBeenCalledWith('EG');
+  });
+});
+
+describe('GeoJSON-Lader', () => {
+  it('führt für eine leere Anforderung keinen Fetch aus', async () => {
+    render(<GeoProbe keys={[]} />);
+    await screen.findByText('{}');
+    expect(global.fetch).not.toHaveBeenCalled();
+  });
+
+  it('verwirft eine HTTP-Fehlerantwort auch dann, wenn sie gültiges JSON enthält', async () => {
+    const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    global.fetch.mockResolvedValueOnce({
+      ok: false,
+      status: 404,
+      json: () => Promise.resolve({ features: [] }),
+    });
+
+    render(<GeoProbe keys={['countries']} />);
+
+    await screen.findByText('{"countries":null}');
+    expect(consoleErrorSpy).toHaveBeenCalledWith(
+      'Failed to load countries geometry:',
+      expect.any(Error)
+    );
+    consoleErrorSpy.mockRestore();
   });
 });

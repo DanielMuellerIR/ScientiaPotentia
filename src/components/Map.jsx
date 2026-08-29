@@ -61,6 +61,7 @@ export default function Map({
   const mapContainerRef = useRef(null);
   const mapRef = useRef(null);
   const [mapLoaded, setMapLoaded] = useState(false);
+  const [viewZoom, setViewZoom] = useState(1.5);
   // Beide echten MapLibre-Werkzeuge teilen einen gut erreichbaren Schalter.
   // Die Attribution bleibt davon unberührt und damit immer sichtbar.
   const [areMapControlsVisible, setAreMapControlsVisible] = useState(true);
@@ -115,6 +116,9 @@ export default function Map({
     });
 
     mapRef.current = map;
+    // Subdivisionen werden im Atlas ab Zoomstufe 3 eingeblendet. Der React-State
+    // sorgt dafür, dass ein reines Mausrad-/Pinch-Zoomen die Paint-Regeln neu setzt.
+    map.on('zoomend', () => setViewZoom(map.getZoom()));
 
     // NavigationControl liefert hier nur die drehbare, echte Kompassrose.
     // Zoomtasten würden auf kleinen Karten unnötig Platz für Labels verdecken.
@@ -368,13 +372,13 @@ export default function Map({
                                   correctIds.some(id => id && typeof id === 'string' && id.includes('-')) || 
                                   wrongIds.some(id => id && typeof id === 'string' && id.includes('-'));
       
-      if (isSubdivisionActive) {
-        map.setPaintProperty('subdivisions-borders', 'line-opacity', 0.8);
-        map.setPaintProperty('subdivisions-fill', 'fill-opacity', 0.5);
-      }
+      // Eine vorherige Provinzfrage darf ihre Flächen nicht in die nächste
+      // Länderfrage mitnehmen. Darum beide Werte in jedem Quizdurchlauf setzen.
+      map.setPaintProperty('subdivisions-borders', 'line-opacity', isSubdivisionActive ? 0.8 : 0.0);
+      map.setPaintProperty('subdivisions-fill', 'fill-opacity', isSubdivisionActive ? 0.8 : 0.0);
 
       // Quiz dynamic colors expression
-      const buildColorExpression = (sourceId) => {
+      const buildColorExpression = () => {
         const colorExpression = ['match', ['get', 'id']];
         correctIds.forEach(id => {
           if (id && typeof id === 'string') {
@@ -395,12 +399,11 @@ export default function Map({
         return matchOrConstant(colorExpression);
       };
 
-      map.setPaintProperty('countries-fill', 'fill-color', buildColorExpression('countries'));
+      map.setPaintProperty('countries-fill', 'fill-color', buildColorExpression());
       map.setPaintProperty('countries-fill', 'fill-opacity', 0.7);
 
       if (isSubdivisionActive) {
-        map.setPaintProperty('subdivisions-fill', 'fill-color', buildColorExpression('subdivisions'));
-        map.setPaintProperty('subdivisions-fill', 'fill-opacity', 0.8);
+        map.setPaintProperty('subdivisions-fill', 'fill-color', buildColorExpression());
       }
 
     } else {
@@ -408,9 +411,8 @@ export default function Map({
       map.setPaintProperty('countries-borders', 'line-opacity', 0.6);
       
       // Make subnational boundaries visible when zoomed in or when a subdivision is selected
-      const currentZoom = map.getZoom();
       const isSubdivisionSelected = selectedId && typeof selectedId === 'string' && selectedId.includes('-');
-      const areSubdivisionsVisible = currentZoom > 3 || isSubdivisionSelected;
+      const areSubdivisionsVisible = viewZoom > 3 || isSubdivisionSelected;
       
       map.setPaintProperty('subdivisions-borders', 'line-opacity', areSubdivisionsVisible ? 0.6 : 0.0);
       map.setPaintProperty('subdivisions-fill', 'fill-opacity', areSubdivisionsVisible ? 0.35 : 0.0);
@@ -499,6 +501,11 @@ export default function Map({
         map.setPaintProperty('rivers-line', 'line-opacity', 0.0);
       } else if (mode === 'quiz') {
         if (activeRiverId) {
+          const activeRiverColor = correctIds.includes(activeRiverId)
+            ? '#2C5E43'
+            : wrongIds.includes(activeRiverId)
+              ? '#842029'
+              : '#B58900';
           // Highlight the active river prominently, hide others during quiz
           map.setPaintProperty('rivers-line', 'line-opacity', [
             'case',
@@ -515,7 +522,7 @@ export default function Map({
           map.setPaintProperty('rivers-line', 'line-color', [
             'case',
             ['==', ['get', 'id'], activeRiverId],
-            '#1B305B', // Navy: ausgewählter Fluss
+            activeRiverColor,
             'transparent'
           ]);
         } else {
@@ -549,7 +556,7 @@ export default function Map({
         }
       }
     }
-  }, [mapLoaded, selectedId, highlightedIds, wrongIds, correctIds, progressHeatmap, mode, showSubdivisions, zoomToEntityId]);
+  }, [mapLoaded, selectedId, highlightedIds, wrongIds, correctIds, progressHeatmap, mode, showSubdivisions, zoomToEntityId, viewZoom]);
 
   // Handle map center panning/zooming to country or subdivision context
   useEffect(() => {

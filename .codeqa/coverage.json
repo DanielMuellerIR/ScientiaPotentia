@@ -6,7 +6,7 @@
     "token_budget": 8000000,
     "status": "active",
     "started_at": "2026-08-29T20:44:29+02:00",
-    "tokens_spent": 502708
+    "tokens_spent": 587835
   },
   "campaign_history": [],
   "scope": {
@@ -338,17 +338,22 @@
       "risk": "high",
       "priority": 6,
       "reason": "Zentrale Lade-, Ansichts-, Spiel- und Shell-Zustände mit breiter Aufrufwirkung",
-      "state": "in_progress",
-      "active_run": {
+      "state": "completed",
+      "last_run": {
         "campaign_id": "20260829T204429059458+0200",
-        "started_at": "2026-08-29T21:05:25+02:00",
-        "required_review": "full",
-        "status_at_start": "pending",
-        "covered_pending_paths": []
-      },
-      "pending_paths": [
-        "src/__tests__/AppOrchestration.test.jsx"
-      ]
+        "completed_at": "2026-08-29T21:11:00+02:00",
+        "observed_head": "68b4fbe7cdcc334a5dedc7f4453199ad54f9640d",
+        "content_sha256": "3d08bb9c364dbf5bca7e0c487f8d33d68a9d46812e4f221bb562aade063a0377",
+        "file_count": 4,
+        "review": "delta-plus-boundaries",
+        "outcome": "improved",
+        "summary": "Die während des Vollreviews ergänzte Orchestrierungs-Testdatei wurde vollständig gelesen und deckt Score-Rennen, Einfragen-Schnelltest, fehlertoleranten Abschluss, ISO-Datumsmigration und Museum-Retry an den öffentlichen App-Übergängen ab.",
+        "tests": [
+          "npm test -- src/__tests__/AppOrchestration.test.jsx: passed (6)",
+          "npm test: passed (168)",
+          "npm run build: passed"
+        ]
+      }
     },
     {
       "id": "terra-map",
@@ -364,7 +369,14 @@
       "risk": "high",
       "priority": 7,
       "reason": "Kartenantworten, Geodatenfilter, Entity-Auswahl und Kartenstil",
-      "state": "pending"
+      "state": "in_progress",
+      "active_run": {
+        "campaign_id": "20260829T204429059458+0200",
+        "started_at": "2026-08-29T21:11:07+02:00",
+        "required_review": "full",
+        "status_at_start": "pending",
+        "covered_pending_paths": []
+      }
     },
     {
       "id": "generator-core",
