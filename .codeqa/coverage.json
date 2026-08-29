@@ -6,7 +6,7 @@
     "token_budget": 8000000,
     "status": "active",
     "started_at": "2026-08-29T20:44:29+02:00",
-    "tokens_spent": 862451
+    "tokens_spent": 939666
   },
   "campaign_history": [],
   "scope": {
@@ -459,13 +459,25 @@
       "risk": "high",
       "priority": 10,
       "reason": "Fachgeneratoren für Anatomie und Natur mit Zahlen- und Einheitendistraktoren",
-      "state": "in_progress",
-      "active_run": {
+      "state": "completed",
+      "last_run": {
         "campaign_id": "20260829T204429059458+0200",
-        "started_at": "2026-08-29T21:21:39+02:00",
-        "required_review": "full",
-        "status_at_start": "pending",
-        "covered_pending_paths": []
+        "completed_at": "2026-08-29T21:25:56+02:00",
+        "observed_head": "dfc97e9c78f5bffcc2ba5a6ff41bcd000e5895d6",
+        "content_sha256": "52092dd94dfcac4e014f1890f2972a8508fac03cf389672c63bd81fa71f2e59e",
+        "file_count": 2,
+        "review": "full",
+        "outcome": "improved",
+        "summary": "Homo filtert Reverse-Distraktoren nun allgemein auf belegbar andere Attributwerte; fünf konkrete Mehrfachantworten wurden beseitigt und vier zuvor pauschal gesperrte 150-g-Organe sicher reaktiviert. Natura verwendet diese Werttrennung bereits und blieb bytegleich.",
+        "tests": [
+          "node scripts/generate_homo.js and generate_natura.js: passed twice, byte-identical second runs (599/1604 and 2402/13343)",
+          "npm run verify:facts -- homo/natura: passed, 0 errors",
+          "npm run audit:questions -- homo/natura: passed, 0 structure and answer-leak failures",
+          "reverse-option analysis: Homo 566 and Natura 6468 reverse questions, 0 competing correct options",
+          "npm test: passed (179)",
+          "npm run build: passed",
+          "Browser: Homo quiz answered; visualization, image source and public-domain link checked; 0 console warnings/errors"
+        ]
       }
     },
     {
@@ -477,7 +489,14 @@
       "risk": "high",
       "priority": 11,
       "reason": "Fachgeneratoren mit Text-, Werk-, Etymologie- und Zitatbezug",
-      "state": "pending"
+      "state": "in_progress",
+      "active_run": {
+        "campaign_id": "20260829T204429059458+0200",
+        "started_at": "2026-08-29T21:26:01+02:00",
+        "required_review": "full",
+        "status_at_start": "pending",
+        "covered_pending_paths": []
+      }
     },
     {
       "id": "machina-historia-generators",

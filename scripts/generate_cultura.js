@@ -128,10 +128,15 @@ function pickCategorical(correct, pool, k = 3) {
  * Namen mit Klammerzusatz ("Pietà (Michelangelo)") werden nachrangig gewählt,
  * weil die Klammer dem Rater Eliminations-Hinweise liefert.
  */
-function pickNames(correctName, subjectValue, pool, k = 3) {
+function pickNames(correctName, subjectValue, pool, k = 3, overlapValues = false) {
   const subjNorm = norm(subjectValue);
   const candidates = pool
-    .filter(p => p.name !== correctName && norm(p.value) !== subjNorm)
+    .filter(p => p.name !== correctName)
+    .filter(p => norm(p.value) !== subjNorm)
+    // Bei Urhebern sind „Michelangelo", „Michelangelo Buonarroti" und
+    // „Michelangelo (zugeschrieben)" dieselbe bzw. eine überlappende Antwort.
+    // Bei Werkstiteln wäre ein Teilstring dagegen kein Gleichheitsbeweis.
+    .filter(p => !overlapValues || !containsEitherWay(p.value, subjectValue))
     .filter(p => !containsEitherWay(p.name, correctName));
   // Klammerfreie Namen zuerst, dann längen-balanciert (gegen „kürzeste raten"),
   // Gleichstände seeded gemischt (Variation + stabile Diffs).
@@ -224,7 +229,8 @@ const templates = [
   // Reverse: vom Künstler aufs Werk (Distraktoren = Werke ANDERER Künstler).
   {
     category: 'artwork', attr: 'creator', kind: 'name', type: 'cultura-artwork-creator-rev', difficulty: 3,
-    prompt: c => `Welches dieser Gemälde schuf ${beforeParen(String(c.attributes.creator))}?`
+    prompt: c => `Welches dieser Gemälde schuf ${beforeParen(String(c.attributes.creator))}?`,
+    overlapValues: true
   },
 
   // ==== Skulpturen (sculpture) =============================================
@@ -255,7 +261,8 @@ const templates = [
   {
     category: 'sculpture', attr: 'creator', kind: 'name', type: 'cultura-sculpture-creator-rev', difficulty: 3,
     prompt: c => `Welche dieser Skulpturen schuf ${beforeParen(String(c.attributes.creator))}?`,
-    skip: c => /unbekannt/i.test(String(c.attributes.creator || ''))
+    skip: c => /unbekannt/i.test(String(c.attributes.creator || '')),
+    overlapValues: true
   },
   // Entstehungsland der Skulptur: Slash-Werte ("Italien / Vatikan",
   // "Griechenland / Rom") sind mehrdeutig -> skip. Klammer-Werte ("Griechenland
@@ -395,7 +402,8 @@ const templates = [
   {
     category: 'composition', attr: 'composer', kind: 'name', type: 'cultura-composition-composer-rev', difficulty: 3,
     prompt: c => `Welche dieser Kompositionen stammt von ${String(c.attributes.composer)}?`,
-    skip: c => GENERIC_TITLE.test(beforeParen(c.name))
+    skip: c => GENERIC_TITLE.test(beforeParen(c.name)),
+    overlapValues: true
   },
   {
     category: 'composition', attr: 'composer', kind: 'cat', type: 'cultura-composition-composer', difficulty: 2,
@@ -452,7 +460,8 @@ const templates = [
   // Autoren mit mehreren Werken im Pool stellt pickNames die Korrektheit sicher).
   {
     category: 'literature', attr: 'author', kind: 'name', type: 'cultura-literature-author-rev', difficulty: 3,
-    prompt: c => `Welches dieser Werke schrieb ${beforeParen(String(c.attributes.author))}?`
+    prompt: c => `Welches dieser Werke schrieb ${beforeParen(String(c.attributes.author))}?`,
+    overlapValues: true
   },
 
   // ==== Genre-Literatur (genre_fiction) — Populärliteratur =================
@@ -502,7 +511,8 @@ const templates = [
   // Reverse: vom Autor aufs Werk (wie cultura-literature-author-rev).
   {
     category: 'genre_fiction', attr: 'author', kind: 'name', type: 'cultura-genrefic-author-rev', difficulty: 3,
-    prompt: c => `Welches dieser Werke schrieb ${beforeParen(String(c.attributes.author))}?`
+    prompt: c => `Welches dieser Werke schrieb ${beforeParen(String(c.attributes.author))}?`,
+    overlapValues: true
   },
   // ==== Zitate (quote) — ausschließlich gemeinfreie deutschsprachige Klassiker.
   // Datenmodell: name = der Zitattext selbst (ohne äußere Anführungszeichen);
@@ -627,7 +637,7 @@ for (const tpl of templates) {
     let correct, distractors;
     if (tpl.kind === 'name') {
       correct = c.name;
-      distractors = pickNames(correct, String(rawValue), namePool);
+      distractors = pickNames(correct, String(rawValue), namePool, 3, tpl.overlapValues);
     } else if (tpl.kind === 'num') {
       const n = clean(rawValue);
       if (n === null) { countSkip(tpl, 'kein sauberer Zahlenwert (Bereich/v. Chr./Text)'); continue; }
