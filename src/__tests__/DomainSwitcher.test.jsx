@@ -42,8 +42,16 @@ describe('DomainSwitcher', () => {
     expect(options).toHaveLength(9);
     expect(screen.getByRole('menuitemradio', { name: /Terra/ }))
       .toHaveAttribute('aria-checked', 'true');
+    expect(screen.getByRole('menuitemradio', { name: /Terra/ })).toHaveFocus();
     expect(screen.getByRole('menuitemradio', { name: /Astra/ }))
       .toHaveAttribute('aria-checked', 'false');
+
+    fireEvent.keyDown(menu, { key: 'ArrowDown' });
+    expect(screen.getByRole('menuitemradio', { name: /Astra/ })).toHaveFocus();
+    fireEvent.keyDown(menu, { key: 'End' });
+    expect(screen.getByRole('menuitemradio', { name: /Historia/ })).toHaveFocus();
+    fireEvent.keyDown(menu, { key: 'Home' });
+    expect(screen.getByRole('menuitemradio', { name: /Scientia/ })).toHaveFocus();
 
     fireEvent.click(screen.getByRole('menuitemradio', { name: /Astra/ }));
     expect(onSelect).toHaveBeenCalledOnce();
@@ -62,5 +70,45 @@ describe('DomainSwitcher', () => {
     expect(screen.queryByRole('menu')).not.toBeInTheDocument();
     expect(trigger).toHaveAttribute('aria-expanded', 'false');
     expect(trigger).toHaveFocus();
+  });
+
+  it('markiert bei einer unbekannten aktiven ID den sichtbaren Fallback als aktiv', () => {
+    render(
+      <DomainSwitcher
+        domains={DOMAINS}
+        activeId="entfernte-domain"
+        onSelect={vi.fn()}
+      />
+    );
+
+    fireEvent.click(screen.getByRole('button', {
+      name: 'Wissensbereich wechseln, aktuell Scientia: Alle Bereiche außer Geografie',
+    }));
+
+    expect(screen.getByRole('menuitemradio', { name: /Scientia/ }))
+      .toHaveAttribute('aria-checked', 'true');
+  });
+
+  it('schließt das Menü, wenn Tab den Bereichsschalter verlässt', () => {
+    render(
+      <div>
+        <DomainSwitcher
+          domains={DOMAINS}
+          activeId="terra"
+          onSelect={vi.fn()}
+        />
+        <button type="button">Nächstes Element</button>
+      </div>
+    );
+
+    fireEvent.click(screen.getByRole('button', {
+      name: 'Wissensbereich wechseln, aktuell Terra: Geografie',
+    }));
+    const nextButton = screen.getByRole('button', { name: 'Nächstes Element' });
+    fireEvent.blur(screen.getByRole('menuitemradio', { name: /Terra/ }), {
+      relatedTarget: nextButton,
+    });
+
+    expect(screen.queryByRole('menu')).not.toBeInTheDocument();
   });
 });

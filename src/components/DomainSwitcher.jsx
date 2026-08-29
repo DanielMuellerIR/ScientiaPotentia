@@ -17,6 +17,7 @@ export default function DomainSwitcher({ domains, activeId, onSelect, srsProgres
   const [open, setOpen] = useState(false);
   const rootRef = useRef(null);
   const triggerRef = useRef(null);
+  const optionRefs = useRef([]);
   const menuId = useId();
 
   // Klick außerhalb schließt das Dropdown. Escape schließt es ebenfalls und
@@ -54,6 +55,27 @@ export default function DomainSwitcher({ domains, activeId, onSelect, srsProgres
   const active = domains.find(d => d.id === activeId) || domains[0];
   const ActiveIcon = active.Icon;
 
+  // Ein ARIA-Menü führt den Fokus beim Öffnen in seine aktive Option und
+  // bewegt ihn mit Pfeiltasten. Tab darf das Menü verlassen; onBlur schließt
+  // es dann, damit kein unsichtbar zurückgelassenes Dropdown offen bleibt.
+  useEffect(() => {
+    if (!open) return;
+    const activeIndex = Math.max(0, domains.findIndex(domain => domain.id === active.id));
+    optionRefs.current[activeIndex]?.focus();
+  }, [active.id, domains, open]);
+
+  const handleMenuKeyDown = (event) => {
+    const currentIndex = optionRefs.current.findIndex(option => option === document.activeElement);
+    let nextIndex;
+    if (event.key === 'ArrowDown') nextIndex = (currentIndex + 1) % domains.length;
+    else if (event.key === 'ArrowUp') nextIndex = (currentIndex - 1 + domains.length) % domains.length;
+    else if (event.key === 'Home') nextIndex = 0;
+    else if (event.key === 'End') nextIndex = domains.length - 1;
+    else return;
+    event.preventDefault();
+    optionRefs.current[nextIndex]?.focus();
+  };
+
   const handleSelect = (domainId) => {
     onSelect(domainId);
     setOpen(false);
@@ -61,7 +83,13 @@ export default function DomainSwitcher({ domains, activeId, onSelect, srsProgres
   };
 
   return (
-    <div ref={rootRef} className="domain-switcher-root">
+    <div
+      ref={rootRef}
+      className="domain-switcher-root"
+      onBlur={event => {
+        if (!event.currentTarget.contains(event.relatedTarget)) setOpen(false);
+      }}
+    >
       {/* Auslöser: zeigt aktiven Bereich */}
       <button
         ref={triggerRef}
@@ -98,13 +126,15 @@ export default function DomainSwitcher({ domains, activeId, onSelect, srsProgres
           className="domain-switcher-menu slide-in"
           role="menu"
           aria-label="Wissensbereiche"
+          onKeyDown={handleMenuKeyDown}
         >
-          {domains.map(d => {
+          {domains.map((d, index) => {
             const Icon = d.Icon;
-            const isActive = d.id === activeId;
+            const isActive = d.id === active.id;
             const studied = studiedByDomain[d.id] || 0;
             return (
               <button
+                ref={option => { optionRefs.current[index] = option; }}
                 key={d.id}
                 type="button"
                 role="menuitemradio"
