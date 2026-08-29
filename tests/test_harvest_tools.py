@@ -22,7 +22,7 @@ class HarvestToolTests(unittest.TestCase):
         shared_io = HARVEST / 'json_io.cjs'
         if shared_io.exists():
             shutil.copy2(shared_io, harvest / shared_io.name)
-        license_policy = ROOT / 'scripts' / 'lib' / 'image_license_policy.cjs'
+        license_policy = ROOT / 'scripts' / 'lib' / 'image_license_policy.js'
         if license_policy.exists():
             policy_target = root / 'scripts' / 'lib' / license_policy.name
             policy_target.parent.mkdir(parents=True, exist_ok=True)

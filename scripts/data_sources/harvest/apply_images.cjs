@@ -19,7 +19,7 @@ const {
 } = require('./json_io.cjs');
 const {
   isAllowedImageLicense,
-} = require('../../lib/image_license_policy.cjs');
+} = require('../../lib/image_license_policy.js');
 
 const ROOT = path.join(__dirname, '..', '..', '..');
 

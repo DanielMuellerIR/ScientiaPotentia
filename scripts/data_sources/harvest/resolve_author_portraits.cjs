@@ -17,7 +17,7 @@ const { writeJsonAtomic } = require('./json_io.cjs');
 const {
   isAllowedCommonsLicenseMetadata,
   licenseNameFromCommonsMetadata,
-} = require('../../lib/image_license_policy.cjs');
+} = require('../../lib/image_license_policy.js');
 
 const RAWFILE = path.join(__dirname, "../cultura_raw.json");
 const OUT = "/tmp/cultura_author_portraits.json";

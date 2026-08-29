@@ -1,11 +1,9 @@
 import { decodeHTML } from 'entities';
-import imageLicensePolicy from '../../scripts/lib/image_license_policy.cjs';
-import { isWikimediaCommonsUrl } from './commonsImage.js';
-
-const {
+import {
   isAllowedImageLicense,
   licenseUrlFor,
-} = imageLicensePolicy;
+} from '../../scripts/lib/image_license_policy.js';
+import { isWikimediaCommonsUrl } from './commonsImage.js';
 
 export { isAllowedImageLicense, licenseUrlFor };
 
@@ -32,7 +30,7 @@ export function sanitizeImageAttribution(value) {
 export function isConcreteImageAttribution(value) {
   const attribution = sanitizeImageAttribution(value);
   if (!attribution) return false;
-  return !/^(?:unknown(?: (?:author|artist|creator|source))?|unbekannt|own work|self|none|n\/a|urheber nicht angegeben(?:\b.*)?|please (?:report|contact|notify)\b.*|(?:report|contact) (?:references?|the author)\b.*)[\s.!,:;-]*$/i
+  return !/^(?:wikimedia commons|commons|unknown(?: (?:author|artist|creator|source))?|unbekannt|own work|self|none|n\/a|urheber nicht angegeben(?:\b.*)?|please (?:report|contact|notify)\b.*|(?:report|contact) (?:references?|the author)\b.*)[\s.!,:;-]*$/i
     .test(attribution);
 }
 

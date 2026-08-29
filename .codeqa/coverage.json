@@ -159,7 +159,7 @@
       "scripts/data_sources/harvest/json_io.cjs",
       "scripts/data_sources/harvest/lingua_harvest_helpers.cjs",
       "src/__tests__/culturaHarvestSources.test.js",
-      "scripts/lib/image_license_policy.cjs"
+      "scripts/lib/image_license_policy.js"
     ],
     "exclusions": []
   },
@@ -776,7 +776,7 @@
         "scripts/data_sources/harvest/resolve_images_batched.cjs",
         "scripts/data_sources/harvest/resolve_images_p18.cjs",
         "scripts/data_sources/harvest/resolve_images_p18_v2.cjs",
-        "scripts/lib/image_license_policy.cjs"
+        "scripts/lib/image_license_policy.js"
       ],
       "risk": "medium",
       "priority": 21,
@@ -935,9 +935,15 @@
         "scripts/data_sources/natura_raw.json"
       ],
       "priority": 16,
-      "state": "pending",
+      "state": "in_progress",
       "noted_at": "2026-08-29T21:58:12+02:00",
-      "campaign_id": "20260829T204429059458+0200"
+      "campaign_id": "20260829T204429059458+0200",
+      "started_at": "2026-08-29T23:35:05+02:00",
+      "active_run": {
+        "campaign_id": "20260829T204429059458+0200",
+        "started_at": "2026-08-29T23:35:05+02:00",
+        "observed_head": "09951179827b37fcd56f6d6d40d78808aa1b9d43"
+      }
     }
   ]
 }

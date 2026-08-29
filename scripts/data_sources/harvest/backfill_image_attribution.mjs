@@ -40,6 +40,18 @@ const KNOWN_CREDITS = new Map([
   ['File:Acheta-domestica-1.jpg', 'Luis Fernández García'],
   ['File:XN Haematopota pluvialis 00 cropped.jpg', 'Guido Gerding / Luis Fernández García'],
   ['File:DianeJLH.jpg', 'Jean-Laurent Hentz'],
+  ['File:St james palace.jpg', 'ChrisO'],
+  ['File:Rectus abdominis.png', 'Chrizz'],
+  ['File:Orectolobus ornatus 01 Pengo.jpg', 'Wikimedia-Commons-Nutzer Pengo'],
+  ['File:Ramphastos tucanus.jpg', 'Wikimedia-Commons-Nutzer Daph Chloe'],
+  ['File:K626 Requiem Mozart.jpg', 'Wolfgang Amadeus Mozart / Österreichische Nationalbibliothek'],
+  ['File:Eroica Beethoven title.jpg', 'Ludwig van Beethoven'],
+  ['File:Piano Concerto 1 Liszt.png', 'Alton / nach Franz Liszt'],
+  ['File:Humpback anglerfish.png', 'August Brauer / Die Tiefsee-Fische (1906)'],
+  ['File:Amblyraja hyperborea.jpg', 'George Brown Goode und Tarleton H. Bean / Oceanic Ichthyology (1896)'],
+  ['File:Hoke ed u tomas u guerino armin zikkurat landart rosental kaernten.jpg', 'Hans Peter Schaefer'],
+  ['File:Dona i Ocell.JPG', 'Dibuap'],
+  ['File:Pelodytes punctatus side.jpg', 'Teuteul'],
 ]);
 
 function commonsTitle(imageUrl) {
@@ -135,7 +147,9 @@ function attributionNeedsLookup(value, license) {
   const credit = sanitizeImageAttribution(value);
   if (!credit) return true;
   const attributionRequired = !/^(?:Public domain|PD\b|CC0\b)/i.test(String(license || ''));
-  return attributionRequired && !isConcreteImageAttribution(credit);
+  const genericCommonsCredit = /^(?:Wikimedia Commons|Commons)$/i.test(credit);
+  return genericCommonsCredit
+    || (attributionRequired && !isConcreteImageAttribution(credit));
 }
 
 async function fetchMetadata(titles) {
@@ -216,7 +230,9 @@ for (const [domain, { file, records }] of domainData) {
     if (!concept.imageFile) continue;
     const previous = String(concept.imageAttribution || '');
     let next = sanitizeImageAttribution(previous);
+    let lookedUp = false;
     if (attributionNeedsLookup(next, concept.imageLicense)) {
+      lookedUp = true;
       const title = commonsTitle(concept.imageFile);
       const remote = metadata.get(title);
       next = remote?.credit || '';
@@ -226,7 +242,7 @@ for (const [domain, { file, records }] of domainData) {
     if (next !== previous) {
       concept.imageAttribution = next;
       changed = true;
-      if (previous && next) sanitised += 1;
+      if (previous && next && !lookedUp) sanitised += 1;
     }
   }
   if (changed && WRITE) {

@@ -1,5 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import {
+  isAllowedCommonsLicenseMetadata,
+  licenseNameFromCommonsMetadata,
+} from '../../scripts/lib/image_license_policy.js';
+import {
   buildImageMetadata,
   isAllowedImageLicense,
   isConcreteImageAttribution,
@@ -8,12 +12,6 @@ import {
   sanitizeImageAttribution,
 } from '../utils/imageCredits';
 import { commonsToDirectUrl, isWikimediaCommonsUrl } from '../utils/commonsImage';
-import imageLicensePolicy from '../../scripts/lib/image_license_policy.cjs';
-
-const {
-  isAllowedCommonsLicenseMetadata,
-  licenseNameFromCommonsMetadata,
-} = imageLicensePolicy;
 
 const commonsMetadata = values => Object.fromEntries(
   Object.entries(values).map(([key, value]) => [key, { value }]),
@@ -45,6 +43,7 @@ describe('Bildnachweise', () => {
     expect(isConcreteImageAttribution('Ada Beispiel')).toBe(true);
     expect(isConcreteImageAttribution('Please report references to .')).toBe(false);
     expect(isConcreteImageAttribution('Unknown author')).toBe(false);
+    expect(isConcreteImageAttribution('Wikimedia Commons')).toBe(false);
   });
 
   it('akzeptiert nur dokumentierte freie Lizenzbezeichnungen', () => {

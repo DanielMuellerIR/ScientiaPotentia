@@ -24,7 +24,7 @@ const { writeJsonAtomic } = require('./json_io.cjs');
 const {
   isAllowedCommonsLicenseMetadata,
   licenseNameFromCommonsMetadata,
-} = require('../../lib/image_license_policy.cjs');
+} = require('../../lib/image_license_policy.js');
 
 const UA = "ScientiaQuizImageResolverP18v2/1.0 (educational quiz project; pageimages+P18 only)";
 const OUT_FILE = "/tmp/astra_images2.json";

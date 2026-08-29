@@ -33,7 +33,7 @@ const { writeJsonAtomic } = require('./json_io.cjs');
 const {
   isAllowedCommonsLicenseMetadata,
   licenseNameFromCommonsMetadata,
-} = require('../../lib/image_license_policy.cjs');
+} = require('../../lib/image_license_policy.js');
 
 // Wikimedia verlangt einen beschreibenden User-Agent, der das Projekt erkennbar macht.
 const UA = "ScientiaQuizImageResolver/1.0 (educational quiz project)";

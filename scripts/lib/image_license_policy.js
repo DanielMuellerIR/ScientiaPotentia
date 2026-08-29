@@ -1,5 +1,4 @@
 /** Gemeinsame Positivliste für veröffentlichte und neu geerntete Bilder. */
-'use strict';
 
 const CC_VERSION = '(?:1\\.0|2\\.0|2\\.1|2\\.5|3\\.0|4\\.0)';
 const CC_LABEL = new RegExp(
@@ -13,7 +12,7 @@ function metadataValue(metadata, key) {
   return String(metadata?.[key]?.value ?? '').trim();
 }
 
-function isAllowedImageLicense(label) {
+export function isAllowedImageLicense(label) {
   const license = String(label || '').trim();
   if (/^Public domain$/i.test(license)) return true;
   if (/^CC0(?:\s+1\.0)?$/i.test(license)) return true;
@@ -28,7 +27,7 @@ function isAllowedImageLicense(label) {
  * domain“ vereinheitlicht, wenn Commons sie ausdrücklich als nicht
  * urheberrechtlich geschützt kennzeichnet.
  */
-function licenseNameFromCommonsMetadata(metadata) {
+export function licenseNameFromCommonsMetadata(metadata) {
   const shortName = metadataValue(metadata, 'LicenseShortName')
     || metadataValue(metadata, 'License');
   if (isAllowedImageLicense(shortName)) return shortName;
@@ -54,7 +53,7 @@ function licenseNameFromCommonsMetadata(metadata) {
 }
 
 /** Prüft Commons-extmetadata mit derselben Positivliste wie das Release-Audit. */
-function isAllowedCommonsLicenseMetadata(metadata) {
+export function isAllowedCommonsLicenseMetadata(metadata) {
   const blob = [
     metadataValue(metadata, 'LicenseShortName'),
     metadataValue(metadata, 'License'),
@@ -65,7 +64,7 @@ function isAllowedCommonsLicenseMetadata(metadata) {
   return isAllowedImageLicense(licenseNameFromCommonsMetadata(metadata));
 }
 
-function licenseUrlFor(label) {
+export function licenseUrlFor(label) {
   const license = String(label || '').trim();
   const lower = license.toLowerCase();
   if (!license) return '';
@@ -96,10 +95,3 @@ function licenseUrlFor(label) {
   }
   return '';
 }
-
-module.exports = {
-  isAllowedCommonsLicenseMetadata,
-  isAllowedImageLicense,
-  licenseNameFromCommonsMetadata,
-  licenseUrlFor,
-};

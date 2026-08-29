@@ -17,7 +17,7 @@ const { assertSafeDomain, writeJsonAtomic } = require('./json_io.cjs');
 const {
   isAllowedCommonsLicenseMetadata,
   licenseNameFromCommonsMetadata,
-} = require('../../lib/image_license_policy.cjs');
+} = require('../../lib/image_license_policy.js');
 
 const UA = "ScientiaQuizImageResolverBatched/1.0 (educational quiz; pageimages+P18 only, batched)";
 const ALLOWED_MIME = new Set([

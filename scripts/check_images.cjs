@@ -18,7 +18,7 @@ const https = require("https");
 const fs = require("fs");
 const {
   isAllowedCommonsLicenseMetadata,
-} = require('./lib/image_license_policy.cjs');
+} = require('./lib/image_license_policy.js');
 
 const UA = "ScientiaPotentiaQuiz/1.0 (offline education quiz; contact: local dev)";
 const sleep = ms => new Promise(r => setTimeout(r, ms));

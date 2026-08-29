@@ -28,8 +28,10 @@ function validate(domain, id, image, layer) {
     errors.push(`${prefix}: keine Commons-Dateiseite als Quelle`);
   }
   if (!attribution) errors.push(`${prefix}: Urheberangabe fehlt`);
-  if (!/^(?:Public domain|PD\b|CC0\b)/i.test(license)
-      && !isConcreteImageAttribution(attribution)) {
+  const attributionRequired = !/^(?:Public domain|PD\b|CC0\b)/i.test(license);
+  const genericCommonsCredit = /^(?:Wikimedia Commons|Commons)$/i.test(attribution);
+  if (!isConcreteImageAttribution(attribution)
+      && (attributionRequired || genericCommonsCredit)) {
     errors.push(`${prefix}: freie Lizenz verlangt einen konkreten Rechteinhaber`);
   }
   if (EMAIL.test(String(image.attribution ?? image.imageAttribution ?? ''))) {
