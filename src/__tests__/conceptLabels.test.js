@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import {
   getAttributeLabel,
+  formatAttributeValue,
   isAttrLeakedBeforeAnswer,
   sourceRevealsValue,
   LEAKY_SIBLINGS
@@ -106,6 +107,12 @@ describe('getAttributeLabel — kontextabhaengige Fachbezeichnung', () => {
   it('nennt die Familie von Pflanzen und Sprachen fachlich korrekt', () => {
     expect(getAttributeLabel('family', 'plant')).toBe('Pflanzenfamilie');
     expect(getAttributeLabel('family', 'language')).toBe('Sprachfamilie');
+  });
+
+  it('formatiert boolesche Kennwerte als deutschen sichtbaren Text', () => {
+    expect(formatAttributeValue(true)).toBe('ja');
+    expect(formatAttributeValue(false)).toBe('nein');
+    expect(formatAttributeValue(12.5)).toBe('12.5');
   });
 
   it('zeigt häufige Rohdatenfelder nicht als interne Schlüssel an', () => {

@@ -4,6 +4,7 @@ import {
   PLANET_COLORS, BODY_COLORS, STAR_COLORS, BODY_LOOK,
   CATEGORY_LABELS, ATTR_LABELS, bodyColorCss, hexCss
 } from './astraBodies';
+import { formatAttributeValue } from './conceptLabels';
 
 /**
  * Astra-Erkundung: das Sonnensystem als interaktive 2D-Karte — analog zur
@@ -70,6 +71,15 @@ const MOON_REVEAL_PX = 7;
 
 // Körperradius in Weltkoordinaten (= km), maßstabsgetreu aus dem Durchmesser.
 const bodyWorldRadius = diameterKm => (Number(diameterKm) || 0) / 2;
+
+/** Entfernt erklärende Zusätze, damit „Eris (Zwergplanet)“ zu „Eris“ passt. */
+export function normalizeParentBodyName(value) {
+  return String(value || '')
+    .trim()
+    .replace(/\s*\([^)]*\)\s*$/u, '')
+    .trim()
+    .toLocaleLowerCase('de-DE');
+}
 
 // Lineare Interpolation + sanfte Ease-Kurve für die Kamerafahrt.
 const lerp = (a, b, t) => a + (b - a) * t;
@@ -212,7 +222,7 @@ export default function SolarSystemExplorer({ domain, concepts = {} }) {
     // Monde nach Zentralkörper (deutscher Name in attributes.parentPlanet) gruppieren.
     const moonsByParent = {};
     for (const m of moonCs) {
-      const p = String(m.attributes?.parentPlanet || '').trim();
+      const p = normalizeParentBodyName(m.attributes?.parentPlanet);
       (moonsByParent[p] = moonsByParent[p] || []).push(m);
     }
 
@@ -222,7 +232,7 @@ export default function SolarSystemExplorer({ domain, concepts = {} }) {
     // Monde schematisch um ihren Planeten staffeln (echte Bahnradien fehlen in
     // den Daten). Abstand in km, relativ zum Planetenradius -> wirkt stimmig.
     const layoutMoons = (parentName, px, py, parentR) => {
-      const list = moonsByParent[parentName] || [];
+      const list = moonsByParent[normalizeParentBodyName(parentName)] || [];
       let fit = parentR * 2.4;
       const moons = list.map((m, j) => {
         const orbit = parentR * (2.2 + j * 1.15);
@@ -843,7 +853,7 @@ function InfoCard({ body, parent, accent }) {
           <span key={k} style={{ fontSize: 11.5, padding: '3px 8px', borderRadius: 6,
             background: 'rgba(255,255,255,0.09)', border: '1px solid rgba(255,255,255,0.13)' }}>
             <span style={{ opacity: 0.6 }}>{ATTR_LABELS[k] || k}: </span>
-            <b>{typeof v === 'boolean' ? (v ? 'ja' : 'nein') : String(v)}</b>
+            <b>{formatAttributeValue(v)}</b>
           </span>
         ))}
       </div>

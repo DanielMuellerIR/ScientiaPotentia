@@ -5,7 +5,7 @@ import {
   TEX_BASE, TEXTURE_CREDIT, TEXTURES, BODY_COLORS,
   CATEGORY_LABELS, ATTR_LABELS, PLANET_ORDER
 } from './astraBodies';
-import { isAttrLeakedBeforeAnswer, sourceRevealsValue } from './conceptLabels';
+import { formatAttributeValue, isAttrLeakedBeforeAnswer, sourceRevealsValue } from './conceptLabels';
 import AnswerRevealImage from './AnswerRevealImage';
 
 /**
@@ -51,6 +51,14 @@ const SPECTRAL_COLORS = Object.freeze({
   M: 0xffb56c
 });
 const DEEP_SKY_CATEGORIES = new Set(['galaxy', 'nebula', 'star_cluster']);
+const EXHIBIT_REVEAL_CATEGORIES = new Set([
+  'comet',
+  'constellation',
+  'meteor_shower',
+  'mission',
+  'object',
+  'phenomenon'
+]);
 const CONTEXT_ATTRS = ['orderFromSun', 'distanceFromSunAU', 'distanceLy', 'parentPlanet', 'location'];
 const ASTRA_LEAKY_SIBLINGS = Object.freeze({
   // Sternlisten nennen den hellsten Stern oft direkt. Dieser Astra-Sonderfall
@@ -130,6 +138,7 @@ export function getAstraDisclosurePolicy({
   const attrs = concept?.attributes || {};
   const category = concept?.category || concept?.type || '';
   const isDeepSky = DEEP_SKY_CATEGORIES.has(category);
+  const usesExhibitReveal = EXHIBIT_REVEAL_CATEGORIES.has(category);
   const beforeAnswer = !detailsUnlocked;
   const attrHidden = key => beforeAnswer && isAstraAttrLeakedBeforeAnswer(key, testedAttribute);
   const atmosphereHidden = attrHidden('hasAtmosphere') || attrHidden('atmosphere');
@@ -150,6 +159,7 @@ export function getAstraDisclosurePolicy({
     showAtmosphere: hasAtmosphereEvidence(attrs) && !neutralizeSceneIdentity && !atmosphereHidden,
     showContextMap: !neutralizeSceneIdentity && !CONTEXT_ATTRS.some(attrHidden),
     isDeepSky,
+    usesExhibitReveal,
     showDeepSkyImage: isDeepSky && Boolean(concept?.image?.url),
     revealDeepSkyImage: detailsUnlocked,
     showTransitDiagram: detailsUnlocked && !hideIdentity && hasTransitEvidence(concept),
@@ -161,6 +171,35 @@ export function getAstraDisclosurePolicy({
       hideIdentity || sourceRevealsValue(sourceName, testedValue)
     ))
   };
+}
+
+function NeutralAstraExhibit() {
+  return (
+    <div className="answer-reveal">
+      <div className="exhibit-frame" role="img" aria-label="Neutrale schematische Astra-Ansicht">
+        <div className="exhibit-mat">
+          <span className="exhibit-drape-q" aria-hidden="true">?</span>
+        </div>
+      </div>
+      <div className="deep-sky-fallback-label">Schematische Ansicht</div>
+    </div>
+  );
+}
+
+/** Bildtafel für nicht kugelförmige Astra-Kategorien wie Missionen und Kometen. */
+export function AstraExhibitReveal({ concept, revealed }) {
+  if (!EXHIBIT_REVEAL_CATEGORIES.has(concept?.category || concept?.type)) return null;
+  return (
+    <div style={{ position: 'absolute', inset: '88px 0 76px', zIndex: 2, display: 'grid', placeItems: 'center' }}>
+      <AnswerRevealImage
+        image={concept?.image}
+        name={concept?.name}
+        revealed={revealed}
+        width={960}
+        fallback={<NeutralAstraExhibit />}
+      />
+    </div>
+  );
 }
 
 function NeutralDeepSkyOcular() {
@@ -685,7 +724,7 @@ export default function AstraVisual({
     // Deep-Sky-Objekte liegen vollständig im DOM-Okular. Dort gibt es für
     // Galaxie, Nebel und Sternhaufen dasselbe neutrale Ladefehler-/Ohne-Bild-
     // Fallback; dadurch fällt keine Kategorie auf eine irreführende Kugel zurück.
-    if (disclosure.isDeepSky) return;
+    if (disclosure.isDeepSky || disclosure.usesExhibitReveal) return;
     if (cat === 'constant') return;
 
     body.visible = true;
@@ -756,6 +795,7 @@ export default function AstraVisual({
     disclosure.neutralizeSceneIdentity,
     disclosure.neutralizeStar,
     disclosure.isDeepSky,
+    disclosure.usesExhibitReveal,
     disclosure.showAtmosphere,
     disclosure.showRings
   ]);
@@ -799,6 +839,10 @@ export default function AstraVisual({
 
       {activeConcept && disclosure.isDeepSky ? (
         <DeepSkyOcular concept={activeConcept} revealed={disclosure.revealDeepSkyImage} />
+      ) : null}
+
+      {activeConcept && disclosure.usesExhibitReveal ? (
+        <AstraExhibitReveal concept={activeConcept} revealed={disclosure.detailsUnlocked} />
       ) : null}
 
       {activeConcept && disclosure.showTransitDiagram ? <ExoplanetTransitDiagram /> : null}
@@ -870,7 +914,7 @@ export default function AstraVisual({
                         background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.15)'
                       }}>
                         <span style={{ opacity: 0.6 }}>{ATTR_LABELS[k] || k}: </span>
-                        <b>{String(v)}</b>
+                        <b>{formatAttributeValue(v)}</b>
                       </span>
                     ))}
                   </div>

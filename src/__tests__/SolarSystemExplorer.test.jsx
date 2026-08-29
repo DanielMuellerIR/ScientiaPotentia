@@ -2,7 +2,7 @@ import { afterAll, afterEach, beforeEach, describe, expect, it, vi } from 'vites
 import { cleanup, fireEvent, render, screen, waitFor, within } from '@testing-library/react';
 import SolarSystemExplorer, {
   MIN_HIT_RADIUS, cameraAnimationDuration, declutterLabels,
-  interpolateCamera, resolveBodyHit, shouldShowInnerInset
+  interpolateCamera, normalizeParentBodyName, resolveBodyHit, shouldShowInnerInset
 } from '../components/SolarSystemExplorer';
 
 const originalWidth = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'clientWidth');
@@ -112,6 +112,34 @@ describe('Sonnensystem-Explorer: lesbare Außenansicht', () => {
     await waitFor(() => {
       expect(screen.getByText('Monde (9)')).toBeInTheDocument();
       expect(screen.getByTestId('solar-inner-inset')).toHaveStyle({ right: '210px' });
+    });
+  });
+
+  it('ordnet Monde auch bei einem erklärenden Zwergplanet-Zusatz ihrem Körper zu', async () => {
+    reducedMotion = true;
+    const dwarfSystem = {
+      sun: concepts.sun,
+      eris: {
+        id: 'astra:eris',
+        name: 'Eris',
+        category: 'dwarf_planet',
+        attributes: { diameterKm: 2326, numMoons: 1 }
+      },
+      dysnomia: {
+        id: 'astra:dysnomia',
+        name: 'Dysnomia',
+        category: 'moon',
+        attributes: { parentPlanet: 'Eris (Zwergplanet)', diameterKm: 700 }
+      }
+    };
+
+    expect(normalizeParentBodyName(' Eris (Zwergplanet) ')).toBe('eris');
+    render(<SolarSystemExplorer domain={{ accent: '#5B4B8A' }} concepts={dwarfSystem} />);
+    fireEvent.click(screen.getByTestId('solar-hit-eris'));
+
+    await waitFor(() => {
+      expect(screen.getByText('Dysnomia')).toBeInTheDocument();
+      expect(screen.getByText('1 Monde')).toBeInTheDocument();
     });
   });
 

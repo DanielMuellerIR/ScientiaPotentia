@@ -1,5 +1,8 @@
-import { describe, expect, it } from 'vitest';
+import React from 'react';
+import { cleanup, render, screen } from '@testing-library/react';
+import { afterEach, describe, expect, it } from 'vitest';
 import {
+  AstraExhibitReveal,
   NEUTRAL_STAR_COLOR,
   SATURN_RING_CREDIT,
   SATURN_RING_TEXTURE,
@@ -10,6 +13,8 @@ import {
   spectralColorFromAttributes
 } from '../components/AstraVisual';
 import { TEXTURE_CREDIT } from '../components/astraBodies';
+
+afterEach(cleanup);
 
 const concept = (overrides = {}) => ({
   id: 'astra:test',
@@ -142,6 +147,54 @@ describe('Astra Deep Sky, Transit und Leakschutz', () => {
       expect(policy.showDeepSkyImage).toBe(false);
     }
   );
+
+  it.each(['comet', 'constellation', 'meteor_shower', 'mission', 'object', 'phenomenon'])(
+    'markiert die nicht kugelförmige Kategorie %s für die Bildtafel',
+    category => {
+      expect(getAstraDisclosurePolicy({ concept: concept({ category }) }).usesExhibitReveal)
+        .toBe(true);
+    }
+  );
+
+  it.each(['planet', 'dwarf_planet', 'moon', 'star', 'exoplanet', 'asteroid'])(
+    'behält die körperförmige Kategorie %s in der 3D-Szene',
+    category => {
+      expect(getAstraDisclosurePolicy({ concept: concept({ category }) }).usesExhibitReveal)
+        .toBe(false);
+    }
+  );
+
+  it('verhüllt die Bildtafel bis zur Antwort und nutzt ohne Bild ein neutrales Schema', () => {
+    const mission = concept({
+      category: 'mission',
+      name: 'Testmission',
+      image: {
+        url: 'https://upload.wikimedia.org/wikipedia/commons/a/a1/Test.jpg',
+        attribution: 'Testautor',
+        license: 'CC BY 4.0',
+        licenseUrl: 'https://creativecommons.org/licenses/by/4.0/',
+        sourceUrl: 'https://commons.wikimedia.org/wiki/File:Test.jpg'
+      }
+    });
+    const { rerender } = render(React.createElement(AstraExhibitReveal, {
+      concept: mission,
+      revealed: false
+    }));
+
+    expect(screen.getByRole('img', { name: 'Verhülltes Exponat' })).toBeInTheDocument();
+    expect(screen.queryByText('Testautor')).not.toBeInTheDocument();
+
+    rerender(React.createElement(AstraExhibitReveal, { concept: mission, revealed: true }));
+    expect(screen.getByRole('img', { name: 'Testmission' })).toBeInTheDocument();
+    expect(screen.getByTitle(/Bild: Testautor/)).toBeInTheDocument();
+
+    rerender(React.createElement(AstraExhibitReveal, {
+      concept: concept({ category: 'mission', image: null }),
+      revealed: true
+    }));
+    expect(screen.getByRole('img', { name: 'Neutrale schematische Astra-Ansicht' }))
+      .toBeInTheDocument();
+  });
 
   it('zeigt das Transit-Schema nur mit passender Methode und nach der Antwort', () => {
     const transit = concept({
