@@ -27,7 +27,10 @@ const {
   isAllowedCommonsLicenseMetadata,
   licenseNameFromCommonsMetadata,
 } = require('../../lib/image_license_policy.js');
-const { fileNameFromUploadUrl } = require('./image_resolution_policy.cjs');
+const {
+  fileNameFromUploadUrl,
+  selectP18File,
+} = require('./image_resolution_policy.cjs');
 
 const UA = "ScientiaQuizImageResolverP18/1.0 (educational quiz project; pageimages+P18 only)";
 const OUT_FILE = "/tmp/astra_images2.json";
@@ -169,9 +172,9 @@ async function wikidataP18(qid) {
   if (!entity) return null;
   const p18 = entity.claims?.P18;
   if (!p18 || !p18.length) return null;
-  // Bestes Preferred / Normal Statement nehmen
-  const stmt = p18.find(s => s.rank === "preferred") || p18[0];
-  const val = stmt?.mainsnak?.datavalue?.value;
+  // Mehrdeutige oder veraltete Aussagen dürfen nicht durch ihre Listenposition
+  // entscheiden, welches Bild veröffentlicht wird.
+  const val = selectP18File(p18);
   if (!val) return null;
   // P18-Wert ist ein Dateiname (z.B. "Pluto-01_Stern_3_pb.jpg"), kein "File:"-Präfix
   const fileTitle = "File:" + val;

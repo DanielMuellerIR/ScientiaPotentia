@@ -379,6 +379,12 @@ console.log(JSON.stringify({{
         self.assertIsNone(value['multipleNormal'])
         self.assertEqual(value['io'], 'Io (Mond)')
 
+    def test_all_p18_resolvers_use_shared_rank_policy(self):
+        for script_name in ('resolve_images_p18.cjs', 'resolve_images_p18_v2.cjs'):
+            source = (HARVEST / script_name).read_text(encoding='utf-8')
+            self.assertIn('selectP18File(p18)', source, script_name)
+            self.assertNotIn('p18.find(', source, script_name)
+
     def test_apply_images_rejects_entire_invalid_mapping_before_write(self):
         with tempfile.TemporaryDirectory() as temporary:
             root, harvest = self.prepare_tool_tree(temporary, 'apply_images.cjs')

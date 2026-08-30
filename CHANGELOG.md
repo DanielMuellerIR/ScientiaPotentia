@@ -2,6 +2,11 @@
 
 Dieses Changelog beginnt mit dem für eine öffentliche Veröffentlichung bereinigten Projektstand.
 
+## [1.99.2] — 2026-08-30
+
+- Alle Wikidata-Bildresolver lehnen veraltete oder mehrdeutige P18-Aussagen ab und
+  verwenden dieselbe eindeutige Rangregel.
+
 ## [1.99.1] — 2026-08-30
 
 - Schnellquiz, Wiederholungsrunden und Fortschrittsspeicherung verwenden nun die richtige
