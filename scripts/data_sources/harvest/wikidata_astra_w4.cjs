@@ -300,41 +300,48 @@ function mapStarType(typeCandidates) {
  */
 function classifySpectralClass(sc) {
   if (!sc) return null;
-  const luminosity = String(sc).match(
-    /(?:^|\s)(IAB|IA|IB(?:-II)?|IC|I|II-III|II|III|IV|V)(?=\s|$)/i,
-  )?.[1]?.toUpperCase() || '';
-  const isSuperGiant = /^(?:I|IA|IAB|IB|IB-II|IC)$/.test(luminosity);
-  const isGiant = /^(?:II|II-III|III)$/.test(luminosity);
-  const isSubgiant = luminosity === 'IV';
+  const spectralClass = String(sc).trim().toUpperCase();
+  // P215 schreibt die Leuchtkraftklasse sowohl kompakt (F7Ib, A1IV) als auch
+  // abgesetzt (K0 III). Nach Temperaturbuchstabe und -zahl beginnt der Teil,
+  // den wir hier auswerten; Suffixe wie „e“ ändern die Klasse nicht.
+  const luminosityPart = spectralClass
+    .replace(/^[OBAFGKM](?:\d+(?:\.\d+)?)?/, '')
+    .trim();
+  const luminosity = luminosityPart.match(
+    /^(IAB|IA(?:E|[+0-])?|IB(?:-IIA?)?|IC|II-III|III-IV|IV-V|II|III|IV|V|I)/,
+  )?.[1] || '';
+  const isSuperGiant = /^(?:I|IA(?:E|[+0-])?|IAB|IB(?:-IIA?)?|IC)$/.test(luminosity);
+  const isGiant = /^(?:II|II-III|III|III-IV)$/.test(luminosity);
+  const isSubgiant = /^(?:IV|IV-V)$/.test(luminosity);
 
-  const firstLetter = sc.trim()[0]?.toUpperCase();
+  const firstLetter = spectralClass[0];
   if (!firstLetter) return null;
 
-  if (/^[OB]/.test(sc.trim())) {
+  if (/^[OB]/.test(spectralClass)) {
     if (isSuperGiant) return 'Blauer Überriese';
     if (isGiant)      return 'Blauer Riese';
     if (isSubgiant)   return 'Blauweißer Unterriese';
     return 'Blauer Hauptreihenstern';
   }
-  if (/^A/.test(sc.trim())) {
+  if (/^A/.test(spectralClass)) {
     if (isSuperGiant) return 'Blauer Überriese';
     if (isGiant)      return 'Heller Riese';
     if (isSubgiant)   return 'Weißer Unterriese';
     return 'Weißer Hauptreihenstern';
   }
-  if (/^[FG]/.test(sc.trim())) {
+  if (/^[FG]/.test(spectralClass)) {
     if (isSuperGiant) return 'Gelber Überriese';
     if (isGiant)      return 'Gelber Riese';
     if (isSubgiant)   return 'Gelber Unterriese';
     return 'Gelber Zwerg';
   }
-  if (/^K/.test(sc.trim())) {
+  if (/^K/.test(spectralClass)) {
     if (isSuperGiant) return 'Oranger Überriese';
     if (isGiant)      return 'Oranger Riese';
     if (isSubgiant)   return 'Oranger Unterriese';
     return 'Oranger Zwerg';
   }
-  if (/^M/.test(sc.trim())) {
+  if (/^M/.test(spectralClass)) {
     if (isSuperGiant) return 'Roter Überriese';
     if (isGiant)      return 'Roter Riese';
     if (isSubgiant)   return 'Roter Unterriese';

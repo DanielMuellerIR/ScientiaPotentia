@@ -522,6 +522,10 @@ console.log(JSON.stringify({{
   orangeSubgiant: classifySpectralClass('K1 IV'),
   orangeSupergiant: classifySpectralClass('K5 Ib'),
   orangeIntermediateSupergiant: classifySpectralClass('K4 Ib-II'),
+  compactSupergiant: classifySpectralClass('F7Ib'),
+  compactSubgiant: classifySpectralClass('A1IV'),
+  giantSubgiantTransition: classifySpectralClass('G8 III-IV'),
+  subgiantDwarfTransition: classifySpectralClass('F8 IV-V'),
   genericMainSequence: mapStarType(new Set(['Hauptreihenstern'])),
   mapped: mapStarType(new Set(['Oranger Zwerg'])),
 }}));
@@ -540,6 +544,10 @@ console.log(JSON.stringify({{
             'orangeSubgiant': 'Oranger Unterriese',
             'orangeSupergiant': 'Oranger Überriese',
             'orangeIntermediateSupergiant': 'Oranger Überriese',
+            'compactSupergiant': 'Gelber Überriese',
+            'compactSubgiant': 'Weißer Unterriese',
+            'giantSubgiantTransition': 'Gelber Riese',
+            'subgiantDwarfTransition': 'Gelber Unterriese',
             'genericMainSequence': None,
             'mapped': 'Oranger Zwerg',
         })

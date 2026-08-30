@@ -2,6 +2,11 @@
 
 Dieses Changelog beginnt mit dem für eine öffentliche Veröffentlichung bereinigten Projektstand.
 
+## [1.99.3] — 2026-08-30
+
+- Die Astronomie-Ernte erkennt Leuchtkraftklassen auch in kompakten und hybriden
+  Spektralangaben und ordnet Riesen sowie Unterriesen dadurch korrekt ein.
+
 ## [1.99.2] — 2026-08-30
 
 - Alle Wikidata-Bildresolver lehnen veraltete oder mehrdeutige P18-Aussagen ab und
