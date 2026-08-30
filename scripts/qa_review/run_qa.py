@@ -124,6 +124,21 @@ def deterministic_shuffle(options, seed_str):
     return [options[i] for i in idx]
 
 
+def file_sha256(path):
+    digest = hashlib.sha256()
+    with open(path, 'rb') as handle:
+        for block in iter(lambda: handle.read(1024 * 1024), b''):
+            digest.update(block)
+    return digest.hexdigest()
+
+
+def snapshot_hash(inputs, batches):
+    digest = hashlib.sha256()
+    for name, value in sorted([*inputs.items(), *batches.items()]):
+        digest.update(f'{name}\0{value}\n'.encode('utf-8'))
+    return digest.hexdigest()
+
+
 def format_question(view, ref):
     """Eine Frage als kompakten Textblock für das Modell rendern. `ref` ist ein OPAKES
     Kürzel (F1, F2 …) statt der echten Frage-id — die id enthält Konzept-Slugs
@@ -304,28 +319,52 @@ def main():
         key=lambda filename: int(re.search(r'\d+', filename).group()),
     )
     manifest_path = os.path.join(args.batches, 'manifest.json')
-    if os.path.isfile(manifest_path):
-        try:
-            with open(manifest_path, encoding='utf-8') as handle:
-                manifest = json.load(handle)
-            batch_count = manifest.get('batchCount')
-            if type(batch_count) is not int or batch_count < 0:
-                raise ValueError('batchCount fehlt oder ist ungültig')
-            expected_files = {f'batch_{index:03d}.json' for index in range(batch_count)}
-            actual_files = set(batch_files)
-            if actual_files != expected_files:
-                missing = sorted(expected_files - actual_files)
-                stale = sorted(actual_files - expected_files)
-                details = []
-                if missing:
-                    details.append(f'{len(missing)} fehlen')
-                if stale:
-                    details.append(f'{len(stale)} sind nicht im Manifest')
-                raise ValueError(', '.join(details))
-        except (OSError, ValueError, json.JSONDecodeError) as error:
-            ap.error(f'ungültiger Batch-Snapshot: {error}')
+    if not os.path.isfile(manifest_path):
+        ap.error('ungültiger Batch-Snapshot: manifest.json fehlt')
+    try:
+        with open(manifest_path, encoding='utf-8') as handle:
+            manifest = json.load(handle)
+        batch_count = manifest.get('batchCount')
+        if type(batch_count) is not int or batch_count < 0:
+            raise ValueError('batchCount fehlt oder ist ungültig')
+        expected_files = {f'batch_{index:03d}.json' for index in range(batch_count)}
+        actual_files = set(batch_files)
+        if actual_files != expected_files:
+            missing = sorted(expected_files - actual_files)
+            stale = sorted(actual_files - expected_files)
+            details = []
+            if missing:
+                details.append(f'{len(missing)} fehlen')
+            if stale:
+                details.append(f'{len(stale)} sind nicht im Manifest')
+            raise ValueError(', '.join(details))
+        input_hashes = manifest.get('inputs')
+        batch_hashes = manifest.get('batches')
+        expected_snapshot = manifest.get('snapshotSha256')
+        if not isinstance(input_hashes, dict) or not isinstance(batch_hashes, dict):
+            raise ValueError('Input- oder Batch-Hashes fehlen')
+        if set(batch_hashes) != expected_files:
+            raise ValueError('Batch-Hashmenge stimmt nicht mit batchCount überein')
+        repo_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+        for relative, expected_hash in input_hashes.items():
+            if (not isinstance(relative, str) or os.path.isabs(relative)
+                    or '..' in relative.split(os.sep)):
+                raise ValueError(f'ungültiger Inputpfad: {relative!r}')
+            actual_hash = file_sha256(os.path.join(repo_root, relative))
+            if actual_hash != expected_hash:
+                raise ValueError(f'Input-Hash weicht ab: {relative}')
+        for filename, expected_hash in batch_hashes.items():
+            if file_sha256(os.path.join(args.batches, filename)) != expected_hash:
+                raise ValueError(f'Batch-Hash weicht ab: {filename}')
+        calculated_snapshot = snapshot_hash(input_hashes, batch_hashes)
+        if expected_snapshot != calculated_snapshot:
+            raise ValueError('Snapshot-Hash weicht ab')
+    except (OSError, ValueError, json.JSONDecodeError) as error:
+        ap.error(f'ungültiger Batch-Snapshot: {error}')
+    all_batch_files = list(batch_files)
     if args.limit:
         batch_files = batch_files[:args.limit]
+    omitted_batch_files = all_batch_files[len(batch_files):]
     if not batch_files:
         ap.error(f'keine batch_*.json-Datei in {args.batches}')
 
@@ -336,6 +375,11 @@ def main():
     all_views = {}
     all_evals = []
     errors = []
+    if omitted_batch_files:
+        errors.append((
+            'Abdeckung',
+            f'{len(omitted_batch_files)} Manifest-Batches wegen --limit ungeprüft',
+        ))
     loaded_batches = []
     view_origins = {}
     for bf in batch_files:
@@ -426,10 +470,12 @@ def main():
     for vid, view in all_views.items():
         merged.append({'view': view, 'eval': eval_by_id.get(vid)})
     with open(raw_path, 'w', encoding='utf-8') as handle:
-        json.dump({'errors': errors, 'items': merged},
+        json.dump({'snapshotSha256': manifest['snapshotSha256'],
+                   'errors': errors, 'items': merged},
                   handle, ensure_ascii=False, indent=1)
 
-    write_report(args.out, merged, errors, batch_files, args.backend, model)
+    write_report(args.out, merged, errors, batch_files, args.backend, model,
+                 manifest['snapshotSha256'], len(all_batch_files))
     print(f"[QA] Report: {args.out}  (raw: {raw_path})", file=sys.stderr)
     missing_total = sum(1 for item in merged if not item['eval'])
     if errors or missing_total:
@@ -441,7 +487,8 @@ def main():
     return 0
 
 
-def write_report(path, merged, errors, batch_files, backend, model):
+def write_report(path, merged, errors, batch_files, backend, model,
+                 snapshot_sha256, total_batch_count):
     """Aggregierten Markdown-Report schreiben — Fokus auf Auffälligkeiten."""
     total = len(merged)
     have = [m for m in merged if m['eval']]
@@ -468,7 +515,8 @@ def write_report(path, merged, errors, batch_files, backend, model):
     L = []
     L.append(f"# Semantischer QA-Report\n")
     L.append(f"Modell: `{backend}/{model}`\n")
-    L.append(f"Batches: {len(batch_files)} · Fragen: {total} · bewertet: {len(have)}"
+    L.append(f"Snapshot SHA-256: `{snapshot_sha256}`\n")
+    L.append(f"Batches: {len(batch_files)}/{total_batch_count} · Fragen: {total} · bewertet: {len(have)}"
              f"{' · FEHLER: ' + str(len(errors)) if errors else ''}\n")
     L.append("## Zusammenfassung\n")
     L.append(f"- Urteil **behalten**: {count('urteil','behalten')} · "

@@ -18,6 +18,7 @@
 const https = require('https');
 const fs    = require('fs');
 const { writeJsonAtomic } = require('./json_io.cjs');
+const { stripQuotationMarks } = require('./wikiquote_cleaning.cjs');
 
 // ──────────────────────────────────────────────────────────────────────────────
 // Konfiguration & Hilfsfunktionen
@@ -152,24 +153,6 @@ function resErrorHandler(req, retry) {
 // 2. Quellenangaben am Ende abschneiden (Wikiquote-Praxis: Zitat" – Quellenangabe).
 //    Muster: <Zitat>[„"] – Quellenanmerkung ODER Zitat." - Quellenanmerkung
 //    Der saubere Zitat-Text endet mit dem schließenden Anführungszeichen.
-function stripQuotationMarks(s) {
-  // Nur Text hinter einem wirklich schließenden Anführungszeichen gilt als
-  // Quellenanhang. Ein Gedankenstrich innerhalb des Zitats bleibt erhalten.
-  const quoted = s.trim().match(/^[„"»«](.*)[“”"«»]\s*(?:[–—-].*)?$/);
-  if (quoted) s = quoted[1];
-
-  // URL im Text → alles ab http entfernen.
-  s = s.replace(/\s+https?:\/\/\S+/g, '');
-
-  // Verbliebene äußere Anführungszeichen entfernen.
-  s = s
-    .replace(/^[„"»«"]\s*/, '')   // Anfang: öffnendes Anführungszeichen
-    .replace(/\s*["""«»]\s*$/, '') // Ende: schließendes Anführungszeichen
-    .trim();
-
-  return s.trim();
-}
-
 // Prüft, ob ein Text wie eine Gedichtstrophe aussieht (für Quiz ungeeignet:
 // mehrzeilig, hat `//`-Umbrüche, kein geschlossener Gedanke in einer Zeile).
 function isVerseFragment(text) {

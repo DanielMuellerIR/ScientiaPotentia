@@ -22,6 +22,7 @@ const https = require('https');
 const fs    = require('fs');
 const path  = require('path');
 const { writeJsonAtomic } = require('./json_io.cjs');
+const { stripQuotationMarks } = require('./wikiquote_cleaning.cjs');
 
 // ──────────────────────────────────────────────────────────────────────────────
 // Hilfsfunktionen (übernommen aus wikiquote_harvest.cjs, unveraendert)
@@ -115,21 +116,6 @@ function fetchWikitext(lemma, tries = 0) {
 // ──────────────────────────────────────────────────────────────────────────────
 // Wikitext-Parser
 // ──────────────────────────────────────────────────────────────────────────────
-
-function stripQuotationMarks(s) {
-  // Nur Text hinter einem wirklich schließenden Anführungszeichen gilt als
-  // Quellenanhang. Ein Gedankenstrich innerhalb des Zitats bleibt erhalten.
-  const quoted = s.trim().match(/^[„"»«](.*)[“”"«»]\s*(?:[–—-].*)?$/);
-  if (quoted) s = quoted[1];
-
-  s = s.replace(/\s+https?:\/\/\S+/g, '');
-  // Verbliebene äußere Anführungszeichen entfernen.
-  s = s
-    .replace(/^[„"»«"]\s*/, '')
-    .replace(/\s*["""«»]\s*$/, '')
-    .trim();
-  return s.trim();
-}
 
 function isVerseFragment(text) {
   if (text.includes(' // ')) return true;

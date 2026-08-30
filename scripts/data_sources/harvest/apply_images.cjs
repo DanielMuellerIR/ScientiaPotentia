@@ -20,6 +20,10 @@ const {
 const {
   isAllowedImageLicense,
 } = require('../../lib/image_license_policy.js');
+const {
+  isBlacklistedConcept,
+  isBlacklistedFile,
+} = require('./image_resolution_policy.cjs');
 
 const ROOT = path.join(__dirname, '..', '..', '..');
 
@@ -84,7 +88,7 @@ function isCommonsFilePage(value) {
   }
 }
 
-function validateMapping(mapping) {
+function validateMapping(mapping, byId = null) {
   const ids = new Set();
   mapping.forEach((entry, index) => {
     if (!entry || typeof entry !== 'object' || Array.isArray(entry)
@@ -95,8 +99,17 @@ function validateMapping(mapping) {
       throw new Error(`Bild-Mapping: doppelte id ${entry.id}`);
     }
     ids.add(entry.id);
+    if (byId && !byId.has(entry.id)) {
+      throw new Error(`Bild-Mapping: unbekannte id ${entry.id}`);
+    }
+    if (isBlacklistedConcept(entry.id)) {
+      throw new Error(`Bild-Mapping: gesperrtes Konzept ${entry.id}`);
+    }
     if (!isCommonsFilePage(entry.imageFile)) {
       throw new Error(`Bild-Mapping: ${entry.id} besitzt keine Commons-Dateiseite`);
+    }
+    if (isBlacklistedFile(entry.imageFile)) {
+      throw new Error(`Bild-Mapping: gesperrte Commons-Datei für ${entry.id}`);
     }
     if (typeof entry.imageLicense !== 'string' || !entry.imageLicense.trim()) {
       throw new Error(`Bild-Mapping: ${entry.id} besitzt keine Lizenzangabe`);
@@ -124,11 +137,16 @@ function validatePruneResult(check) {
 
 function applyMapping(byId, mapping) {
   let applied = 0;
-  let skipped = 0;
+  let alreadyImaged = 0;
   for (const entry of mapping) {
     const concept = byId.get(entry.id);
-    if (!concept || concept.imageFile) {
-      skipped++;
+    if (!concept) {
+      // validateMapping(mapping, byId) muss diesen Zustand vor jeder Mutation
+      // verhindern. Der Wächter bleibt für direkte Aufrufer bestehen.
+      throw new Error(`Bild-Mapping: unbekannte id ${entry.id}`);
+    }
+    if (concept.imageFile) {
+      alreadyImaged++;
       continue;
     }
     concept.imageFile = entry.imageFile;
@@ -136,7 +154,7 @@ function applyMapping(byId, mapping) {
     concept.imageAttribution = entry.imageAttribution;
     applied++;
   }
-  return { applied, skipped, changed: applied };
+  return { applied, alreadyImaged, changed: applied };
 }
 
 function pruneImages(byId, check) {
@@ -173,9 +191,10 @@ function main() {
       const fallback = `/tmp/${options.domain}_images_batched.json`;
       const mappingPath = resolveInputPath(options.mappingArgument, fallback);
       const mapping = readJsonArray(mappingPath, path.basename(mappingPath));
-      validateMapping(mapping);
+      validateMapping(mapping, byId);
       result = applyMapping(byId, mapping);
-      console.log(`Apply: ${result.applied} Bilder zum Setzen vorgemerkt, ${result.skipped} übersprungen.`);
+      console.log(`Apply: ${result.applied} Bilder zum Setzen vorgemerkt, `
+        + `${result.alreadyImaged} bereits bebilderte Konzepte unverändert.`);
     }
 
     if (options.write && result.changed) {

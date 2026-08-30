@@ -18,6 +18,13 @@ const {
   isAllowedCommonsLicenseMetadata,
   licenseNameFromCommonsMetadata,
 } = require('../../lib/image_license_policy.js');
+const { DEWIKI_MAP } = require('./resolve_images_p18_v2.cjs');
+const {
+  fileNameFromUploadUrl,
+  isBlacklistedConcept,
+  isBlacklistedFile,
+  selectP18File,
+} = require('./image_resolution_policy.cjs');
 
 const UA = "ScientiaQuizImageResolverBatched/1.0 (educational quiz; pageimages+P18 only, batched)";
 const ALLOWED_MIME = new Set([
@@ -92,14 +99,6 @@ const deTitle = u => { const m = String(u).match(/de\.wikipedia\.org\/wiki\/([^?
 // Die Pageimages-API ergänzt derzeit utm-Parameter an Commons-Upload-URLs. Nur der
 // Pfadname ist ein Commons-Dateititel; Query und Fragment dürfen nicht mit in die
 // anschließende imageinfo-Abfrage gelangen.
-const fileNameFromUploadUrl = source => {
-  try {
-    const fileName = new URL(source).pathname.split("/").pop();
-    return fileName ? decodeURIComponent(fileName) : null;
-  } catch {
-    return null;
-  }
-};
 async function getJson(url) {
   const response = await get(url);
   if (response.status < 200 || response.status >= 300) {
@@ -139,6 +138,39 @@ function logAmbiguousSources(label, ambiguous) {
   }
 }
 
+function pageTitleForConcept(concept, domain) {
+  return deTitle(concept.sourceUrl)
+    || (domain === 'astra' ? (DEWIKI_MAP[concept.id] || null) : null);
+}
+
+function collectResolvedPageImages(requestedTitles, byTitle, query) {
+  const normalized = new Map((query.normalized || []).map(row => [row.from, row.to]));
+  const redirects = new Map((query.redirects || []).map(row => [row.from, row.to]));
+  const pages = new Map(Object.values(query.pages || {})
+    .filter(page => page.title).map(page => [page.title, page]));
+  return requestedTitles.map((requestedTitle) => {
+    const normalizedTitle = normalized.get(requestedTitle) || requestedTitle;
+    const finalTitle = redirects.get(normalizedTitle) || normalizedTitle;
+    const fileName = fileNameFromUploadUrl(pages.get(finalTitle)?.original?.source);
+    return { concept: byTitle.get(requestedTitle), finalTitle, fileName };
+  }).filter(row => row.concept && row.fileName);
+}
+
+function uniqueFinalPageImages(rows) {
+  const groups = new Map();
+  for (const row of rows) addGroupedConcept(groups, row.finalTitle, row);
+  const assignments = new Map();
+  const ambiguous = [];
+  for (const [title, candidates] of groups) {
+    if (candidates.length === 1) {
+      assignments.set(candidates[0].concept.id, candidates[0].fileName);
+    } else {
+      ambiguous.push({ key: title, ids: candidates.map(row => row.concept.id) });
+    }
+  }
+  return { assignments, ambiguous };
+}
+
 async function main() {
   const options = parseArguments(process.argv.slice(2));
   const rawFile = path.join(__dirname, `../${options.domain}_raw.json`);
@@ -146,7 +178,8 @@ async function main() {
   const raw = JSON.parse(fs.readFileSync(rawFile, "utf8"));
   if (!Array.isArray(raw)) throw new Error(`${options.domain}_raw.json muss ein JSON-Array sein`);
   const cats = TARGETS[options.domain];
-  let pool = raw.filter(c => cats.has(c.category) && !c.imageFile);
+  let pool = raw.filter(c => cats.has(c.category) && !c.imageFile
+    && !isBlacklistedConcept(c.id));
   if (options.domain === "natura" && (options.animalCap !== Infinity || options.animalOffset > 0)) {
     const animals = pool.filter(c => c.category === "animal")
       .slice(options.animalOffset, options.animalOffset + options.animalCap);
@@ -163,7 +196,10 @@ async function main() {
   for (const c of pool) {
     const qid = qidOf(c.sourceUrl);
     if (qid) addGroupedConcept(qidGroups, qid, c);
-    else addGroupedConcept(titleGroups, deTitle(c.sourceUrl) || c.name, c);
+    else {
+      const title = pageTitleForConcept(c, options.domain);
+      if (title) addGroupedConcept(titleGroups, title, c);
+    }
   }
   const qidIndex = uniqueSourceMap(qidGroups);
   const byQid = qidIndex.unique;
@@ -179,8 +215,8 @@ async function main() {
     const j = await getJson(url);
     const ents = j?.entities || {};
     for (const qid of grp) {
-      const f = ents[qid]?.claims?.P18?.[0]?.mainsnak?.datavalue?.value;
-      if (f) fileForId.set(byQid.get(qid).id, f);
+      const f = selectP18File(ents[qid]?.claims?.P18);
+      if (f && !isBlacklistedFile(f)) fileForId.set(byQid.get(qid).id, f);
     }
     await sleep(120);
   }
@@ -190,31 +226,25 @@ async function main() {
   // QIDs ohne P18 nachträglich per de.wiki-Titel versuchen (Titel = concept.name)
   for (const [, c] of byQid) {
     if (!fileForId.has(c.id)) {
-      addGroupedConcept(titleGroups, deTitle(c.sourceUrl) || c.name, c);
+      const title = pageTitleForConcept(c, options.domain);
+      if (title) addGroupedConcept(titleGroups, title, c);
     }
   }
   const titleIndex = uniqueSourceMap(titleGroups);
   const byTitle = titleIndex.unique;
   logAmbiguousSources('Wikipedia-Titel', titleIndex.ambiguous);
   const titles = [...byTitle.keys()];
+  const resolvedPageImages = [];
   for (const grp of chunk(titles, 50)) {
     const url = `https://de.wikipedia.org/w/api.php?action=query&prop=pageimages&piprop=original&redirects=1&format=json&titles=${grp.map(encodeURIComponent).join("|")}`;
     const j = await getJson(url);
-    const q = j?.query || {};
-    // Titel-Auflösung: erst Normalisierung (Leerzeichen/Unterstrich), dann Redirect
-    // (redirects=1) -> finaler Seitentitel. Ohne die redirect-Kette griffe redirects=1 nicht.
-    const norm = {}; (q.normalized || []).forEach(n => norm[n.from] = n.to);
-    const redir = {}; (q.redirects || []).forEach(r => redir[r.from] = r.to);
-    const pageByTitle = {}; Object.values(q.pages || {}).forEach(p => { if (p.title) pageByTitle[p.title] = p; });
-    for (const t of grp) {
-      const c = byTitle.get(t);
-      const normTitle = norm[t] || t;
-      const pageTitle = redir[normTitle] || normTitle;
-      const src = pageByTitle[pageTitle]?.original?.source;
-      const fileName = src && fileNameFromUploadUrl(src);
-      if (fileName) fileForId.set(c.id, fileName);
-    }
+    resolvedPageImages.push(...collectResolvedPageImages(grp, byTitle, j?.query || {}));
     await sleep(120);
+  }
+  const finalPageIndex = uniqueFinalPageImages(resolvedPageImages);
+  logAmbiguousSources('finaler Wikipedia-Titel', finalPageIndex.ambiguous);
+  for (const [id, fileName] of finalPageIndex.assignments) {
+    if (!isBlacklistedFile(fileName)) fileForId.set(id, fileName);
   }
   console.log(`  Nach pageimages: ${fileForId.size} Konzepte mit Bilddatei`);
 
@@ -245,7 +275,7 @@ async function main() {
   const out = [];
   for (const [id, f] of entries) {
     const lic = licByFile.get("File:" + f);
-    if (!lic || !lic.ok || !lic.art) continue;
+    if (!lic || !lic.ok || !lic.art || isBlacklistedConcept(id) || isBlacklistedFile(f)) continue;
     out.push({ id, imageFile: `https://commons.wikimedia.org/wiki/File%3A${encodeURIComponent(f)}`, imageLicense: lic.lic, imageAttribution: lic.art });
   }
   writeJsonAtomic(outputFile, out);
@@ -261,8 +291,12 @@ if (require.main === module) {
 
 module.exports = {
   addGroupedConcept,
+  collectResolvedPageImages,
   fileNameFromUploadUrl,
   isFree: isAllowedCommonsLicenseMetadata,
   parseArguments,
+  pageTitleForConcept,
+  selectP18File,
+  uniqueFinalPageImages,
   uniqueSourceMap,
 };

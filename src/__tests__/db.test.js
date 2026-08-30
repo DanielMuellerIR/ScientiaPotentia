@@ -53,6 +53,20 @@ afterEach(() => {
 });
 
 describe('IndexedDB-Schreibverträge', () => {
+  it('führt alte Lingua-Aliase ohne Lernstandsverlust auf kanonische IDs zusammen', async () => {
+    vi.resetModules();
+    const db = await import('../utils/db');
+    expect(db.canonicalProgressEntityId('lingua:fula')).toBe('lingua:fulfulde');
+    expect(db.canonicalProgressEntityId('lingua:weissrussisch')).toBe('lingua:belarussisch');
+    expect(db.mergeAliasedProgress(
+      { entityId: 'lingua:fulfulde', repetitions: 2, lastUpdated: 20, interval: 3 },
+      { entityId: 'lingua:fula', repetitions: 4, lastUpdated: 10, interval: 9 },
+      'lingua:fulfulde',
+    )).toEqual(expect.objectContaining({
+      entityId: 'lingua:fulfulde', repetitions: 4, interval: 9, lastUpdated: 20,
+    }));
+  });
+
   it('meldet einen Setting-Write erst nach dem Transaktions-Commit als erfolgreich', async () => {
     const harness = createIndexedDbHarness();
     const db = await loadOpenedDb(harness);

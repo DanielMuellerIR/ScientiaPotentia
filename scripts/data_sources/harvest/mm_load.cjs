@@ -58,7 +58,38 @@ function scanObjects(s) {
   if (start >= 0 || depth > 0) {
     structuralDrops.push(`unvollständig: ${s.slice(Math.max(0, start), Math.max(0, start) + 80)}`);
   }
+  if (inStr) structuralDrops.push('unvollständiger JSON-String am Ausgabeende');
   return { objects, structuralDrops };
+}
+
+function validateArrayWrapper(source) {
+  const text = source.trim();
+  const problems = [];
+  if (!text.startsWith('[')) problems.push('äußeres JSON-Array beginnt nicht mit [');
+  if (!text.endsWith(']')) problems.push('äußeres JSON-Array endet nicht mit ]');
+  let depth = 0;
+  let inString = false;
+  let escaped = false;
+  for (const ch of text) {
+    if (inString) {
+      if (escaped) escaped = false;
+      else if (ch === '\\') escaped = true;
+      else if (ch === '"') inString = false;
+      continue;
+    }
+    if (ch === '"') inString = true;
+    else if (ch === '[') depth += 1;
+    else if (ch === ']') {
+      depth -= 1;
+      if (depth < 0) {
+        problems.push('unerwartete schließende Array-Klammer');
+        depth = 0;
+      }
+    }
+  }
+  if (depth !== 0) problems.push('unausgeglichene Array-Klammern');
+  if (inString) problems.push('unvollständiger String in äußerem JSON-Array');
+  return [...new Set(problems)];
 }
 
 function extractObjects(s) {
@@ -69,7 +100,7 @@ function extractObjects(s) {
 function load(file) {
   const raw = quoteRepair(fs.readFileSync(file, "utf8").replace(/```json/gi, "").replace(/```/g, ""));
   const { objects, structuralDrops } = scanObjects(raw);
-  const good = [], dropped = [...structuralDrops];
+  const good = [], dropped = [...validateArrayWrapper(raw), ...structuralDrops];
   for (const o of objects) {
     try { good.push(JSON.parse(o)); }
     catch (e) { dropped.push(o.slice(0, 80)); }   // kaputtes Objekt: droppen + merken
@@ -125,4 +156,4 @@ function main() {
 
 if (require.main === module) process.exitCode = main();
 
-module.exports = { quoteRepair, extractObjects, load, scanObjects };
+module.exports = { quoteRepair, extractObjects, load, scanObjects, validateArrayWrapper };

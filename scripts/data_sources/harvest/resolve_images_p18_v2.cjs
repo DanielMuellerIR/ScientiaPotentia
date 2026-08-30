@@ -422,7 +422,7 @@ async function resolveConcept(c) {
 // ---------------------------------------------------------------------------
 // Hauptprogramm
 // ---------------------------------------------------------------------------
-(async () => {
+async function main() {
   const t0 = Date.now();
   const data = JSON.parse(fs.readFileSync(ASTRA_FILE, "utf8"));
 
@@ -470,4 +470,13 @@ async function resolveConcept(c) {
     console.log(`  ${via.padEnd(18)} ${n}`)
   );
   console.log(`\nOutput: ${OUT_FILE} (${results.length} Einträge)`);
-})();
+}
+
+if (require.main === module) {
+  main().catch((error) => {
+    console.error(`FEHLER: ${error.message}`);
+    process.exitCode = 1;
+  });
+}
+
+module.exports = { AMBIGUOUS_NAMES, DEWIKI_MAP };

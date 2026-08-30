@@ -75,7 +75,8 @@ function expectedReviewSample(entityIds) {
 const currencyPath = process.env.TERRA_CURRENCY_F_CANDIDATE
   ? resolve(process.env.TERRA_CURRENCY_F_CANDIDATE)
   : CURRENCY_DATA_PATH;
-const currencyData = JSON.parse(await readFile(currencyPath, 'utf8'));
+const currencyBytes = await readFile(currencyPath);
+const currencyData = JSON.parse(currencyBytes);
 const geodbBytes = await readFile(GEODB_PATH);
 const geodb = JSON.parse(geodbBytes);
 const countries = Object.values(geodb.entities)
@@ -84,6 +85,14 @@ const countries = Object.values(geodb.entities)
 const currencyCountries = countries.filter((entity) => entity.metadata?.currency !== 'N/A');
 const entries = currencyData.entries;
 const countryNameLeakIds = new Set(COUNTRY_NAME_LEAK_IDS);
+
+const reviewText = await readFile(
+  resolve(REPO_ROOT, 'scripts/data_sources/harvest/terra_currency_f_review.md'), 'utf8');
+const documentedOutputHash = reviewText.match(
+  /\b([a-f0-9]{64})\s+terra_currency_raw\.json\b/u,
+)?.[1];
+assert(documentedOutputHash, 'Review-Dokument enthält keinen Output-Hash');
+equal(sha256(currencyBytes), documentedOutputHash, 'Dokumentierter Output-Hash');
 
 equal(currencyData.metadata.artifact, 'terra-currency', 'Artefaktkennung');
 equal(currencyData.metadata.schemaVersion, 2, 'Schema-Version');

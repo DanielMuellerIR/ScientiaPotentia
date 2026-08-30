@@ -70,7 +70,11 @@ export default function Quiz({
   onQuizFinished,
   onSetQuizState,
   onActiveConceptChange,
-  onAddScore
+  onAddScore,
+  entityFilterId = null,
+  onQuizRestart,
+  onTrackProgressWrite,
+  onFlushProgressWrites,
 }) {
   const [questions, setQuestions] = useState([]);
   const [currentIdx, setCurrentIdx] = useState(0);
@@ -97,7 +101,7 @@ export default function Quiz({
   // Generate quiz questions on mount or pool change
   useEffect(() => {
     generateQuizSession();
-  }, [dueEntities, newEntities, quizMode, questionPool]);
+  }, [dueEntities, newEntities, quizMode, questionPool, entityFilterId]);
 
   // Meldet die aktive Frage ans linke Visual-Panel. Dieser Effekt ist bewusst
   // vom Karten-Setup getrennt: Der Antwortzustand aendert sich nach einem Klick,
@@ -307,7 +311,10 @@ export default function Quiz({
   };
 
   const generateQuizSession = () => {
-    if (quizQuestions.length === 0) {
+    const eligibleQuestions = entityFilterId
+      ? quizQuestions.filter(question => question.entityId === entityFilterId)
+      : quizQuestions;
+    if (eligibleQuestions.length === 0) {
       applySession([]);
       return;
     }
@@ -345,11 +352,11 @@ export default function Quiz({
         // (SRS-Priorisierung via sortPool bleibt erhalten).
         let pool = [];
         if (type === 'city') {
-          pool = quizQuestions.filter(q => q.entityType === 'city');
+          pool = eligibleQuestions.filter(q => q.entityType === 'city');
         } else if (type === 'country') {
-          pool = quizQuestions.filter(q => q.entityType === 'country' || q.entityType === 'state');
+          pool = eligibleQuestions.filter(q => q.entityType === 'country' || q.entityType === 'state');
         } else if (type === 'river') {
-          pool = quizQuestions.filter(q => q.entityType === 'river' || q.type === 'city-river');
+          pool = eligibleQuestions.filter(q => q.entityType === 'river' || q.type === 'city-river');
         }
         return sortPool(pool);
       };
@@ -407,13 +414,13 @@ export default function Quiz({
     // 2. Standardmodi: gesamter Fragenpool (ohne Schwierigkeitsstufen), nur nach
     //    Spielmodus-Kategorie gefiltert. Die Mischung kommt aus sortPool (Zufall +
     //    SRS-Priorisierung fälliger/neuer Konzepte).
-    let filteredQuestions = quizQuestions;
+    let filteredQuestions = eligibleQuestions;
     if (quizMode === 'countries') {
-      filteredQuestions = quizQuestions.filter(q => q.entityType === 'country' || q.entityType === 'state');
+      filteredQuestions = eligibleQuestions.filter(q => q.entityType === 'country' || q.entityType === 'state');
     } else if (quizMode === 'cities') {
-      filteredQuestions = quizQuestions.filter(q => q.entityType === 'city');
+      filteredQuestions = eligibleQuestions.filter(q => q.entityType === 'city');
     } else if (quizMode === 'rivers') {
-      filteredQuestions = quizQuestions.filter(q => q.entityType === 'river' || q.type === 'city-river');
+      filteredQuestions = eligibleQuestions.filter(q => q.entityType === 'river' || q.type === 'city-river');
     }
 
     const sortedQuestions = sortPool(filteredQuestions);
@@ -570,27 +577,31 @@ export default function Quiz({
   // wechseln können. Der asynchrone Schreibvorgang darf deshalb im Hintergrund
   // laufen, aber ein Transaktionsfehler muss beobachtet und sichtbar werden.
   const persistUserAnswer = (entityId, entityType, isCorrect, attemptCount) => {
-    void saveUserAnswer(entityId, entityType, isCorrect, attemptCount).catch(error => {
+    const write = saveUserAnswer(entityId, entityType, isCorrect, attemptCount);
+    if (onTrackProgressWrite) onTrackProgressWrite(write);
+    else void write.catch(error => {
       console.error('Lernfortschritt konnte nicht gespeichert werden:', error);
       setProgressSaveFailed(true);
     });
   };
 
   const progressSaveAlert = progressSaveFailed ? (
-    <div
-      role="alert"
-      style={{
-        padding: '9px 12px',
-        borderLeft: '3px solid var(--color-error)',
-        background: 'rgba(132, 32, 41, 0.06)',
-        color: 'var(--color-error)',
-        fontSize: '13px',
-        lineHeight: 1.4
-      }}
-    >
+    <div role="alert" style={{ padding: '9px 12px', borderLeft: '3px solid var(--color-error)',
+      background: 'rgba(132, 32, 41, 0.06)', color: 'var(--color-error)', fontSize: '13px' }}>
       Diese Antwort konnte nicht im Lernfortschritt gespeichert werden.
     </div>
   ) : null;
+
+  const handleRestart = async () => {
+    if (onFlushProgressWrites) await onFlushProgressWrites();
+    if (onQuizRestart) onQuizRestart();
+    generateQuizSession();
+  };
+
+  const handleFinish = async () => {
+    if (onFlushProgressWrites) await onFlushProgressWrites();
+    if (onQuizFinished) await onQuizFinished();
+  };
 
   const handleNextQuestion = () => {
     // Survival endet, sobald die Leben aufgebraucht sind; sonst weiter, solange der
@@ -689,7 +700,7 @@ export default function Quiz({
           <button 
             className="btn-terra"
             style={{ flex: 1, justifyContent: 'center' }}
-            onClick={generateQuizSession}
+            onClick={handleRestart}
           >
             <RotateCcw size={15} />
             Erneut
@@ -697,7 +708,7 @@ export default function Quiz({
           <button 
             className="btn-terra-primary"
             style={{ flex: 1, justifyContent: 'center' }}
-            onClick={onQuizFinished}
+            onClick={handleFinish}
           >
             Fortfahren
           </button>
@@ -707,7 +718,13 @@ export default function Quiz({
   }
 
   const q = questions[currentIdx];
-  if (!q) return null;
+  if (!q) {
+    return (
+      <div className="terra-panel slide-in" role="status" style={{ padding: '24px' }}>
+        Für dieses Konzept ist noch keine Quizfrage verfügbar.
+      </div>
+    );
+  }
 
   return (
     <div className="terra-panel slide-in" style={{

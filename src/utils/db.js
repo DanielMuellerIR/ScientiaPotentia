@@ -8,7 +8,32 @@
 import { getDomainIdFromConceptKey as getDomainFromEntityId } from './conceptKeys';
 
 const DB_NAME = 'GeoAtlasDB';
-const DB_VERSION = 2;
+const DB_VERSION = 3;
+const PROGRESS_ENTITY_ALIASES = Object.freeze({
+  'lingua:fula': 'lingua:fulfulde',
+  'lingua:weissrussisch': 'lingua:belarussisch',
+  'lingua:malagasy': 'lingua:madagassisch',
+  'lingua:madura': 'lingua:maduresisch',
+});
+
+export function canonicalProgressEntityId(entityId) {
+  return PROGRESS_ENTITY_ALIASES[entityId] || entityId;
+}
+
+export function mergeAliasedProgress(existing, aliasRecord, canonicalId) {
+  if (!existing) return { ...aliasRecord, entityId: canonicalId, domain: 'lingua' };
+  const existingRank = [Number(existing.repetitions) || 0, Number(existing.lastUpdated) || 0];
+  const aliasRank = [Number(aliasRecord.repetitions) || 0, Number(aliasRecord.lastUpdated) || 0];
+  const aliasWins = aliasRank[0] > existingRank[0]
+    || (aliasRank[0] === existingRank[0] && aliasRank[1] > existingRank[1]);
+  const winner = aliasWins ? aliasRecord : existing;
+  return {
+    ...winner,
+    entityId: canonicalId,
+    domain: 'lingua',
+    lastUpdated: Math.max(Number(existing.lastUpdated) || 0, Number(aliasRecord.lastUpdated) || 0),
+  };
+}
 
 // Gecachte Verbindung: Bisher oeffnete jede getProgress/saveProgress/… einen
 // EIGENEN IndexedDB-Handle (pro Quiz-Antwort gleich mehrere) und schloss keinen
@@ -86,6 +111,43 @@ export function initDB() {
       if (!db.objectStoreNames.contains('settings')) {
         db.createObjectStore('settings', { keyPath: 'key' });
       }
+
+      if (event.oldVersion < 3 && db.objectStoreNames.contains('progress')) {
+        const transaction = event.target.transaction;
+        const progressStore = transaction.objectStore('progress');
+        const progressCursor = progressStore.openCursor();
+        progressCursor.onsuccess = () => {
+          const cursor = progressCursor.result;
+          if (!cursor) return;
+          const canonicalId = canonicalProgressEntityId(cursor.value.entityId);
+          if (canonicalId === cursor.value.entityId) {
+            cursor.continue();
+            return;
+          }
+          const aliasRecord = cursor.value;
+          const existingRequest = progressStore.get(canonicalId);
+          existingRequest.onsuccess = () => {
+            progressStore.put(mergeAliasedProgress(
+              existingRequest.result, aliasRecord, canonicalId));
+            cursor.delete();
+            cursor.continue();
+          };
+        };
+
+        if (db.objectStoreNames.contains('history')) {
+          const historyStore = transaction.objectStore('history');
+          const historyCursor = historyStore.openCursor();
+          historyCursor.onsuccess = () => {
+            const cursor = historyCursor.result;
+            if (!cursor) return;
+            const canonicalId = canonicalProgressEntityId(cursor.value.entityId);
+            if (canonicalId !== cursor.value.entityId) {
+              cursor.update({ ...cursor.value, entityId: canonicalId, domain: 'lingua' });
+            }
+            cursor.continue();
+          };
+        }
+      }
     };
   });
 
@@ -144,10 +206,11 @@ function runWriteTransaction(db, storeNames, write) {
  */
 export async function getProgress(entityId) {
   const db = await initDB();
+  const canonicalId = canonicalProgressEntityId(entityId);
   return new Promise((resolve, reject) => {
     const transaction = db.transaction(['progress'], 'readonly');
     const store = transaction.objectStore('progress');
-    const request = store.get(entityId);
+    const request = store.get(canonicalId);
 
     request.onsuccess = () => resolve(request.result || null);
     request.onerror = () => reject(request.error);
@@ -180,12 +243,13 @@ export async function getAllProgress() {
  */
 export async function saveProgress(entityId, srsData, type, domain = getDomainFromEntityId(entityId)) {
   const db = await initDB();
+  const canonicalId = canonicalProgressEntityId(entityId);
   return runWriteTransaction(db, ['progress'], transaction => {
     const store = transaction.objectStore('progress');
     
     const record = {
-      entityId,
-      domain,
+      entityId: canonicalId,
+      domain: getDomainFromEntityId(canonicalId) || domain,
       type,
       ...srsData,
       lastUpdated: Date.now()
@@ -202,12 +266,14 @@ export async function saveProgress(entityId, srsData, type, domain = getDomainFr
  */
 export async function addHistoryLog(logEntry) {
   const db = await initDB();
+  const canonicalId = canonicalProgressEntityId(logEntry.entityId);
   return runWriteTransaction(db, ['history'], transaction => {
     const store = transaction.objectStore('history');
     
     const record = {
       ...logEntry,
-      domain: logEntry.domain || getDomainFromEntityId(logEntry.entityId),
+      entityId: canonicalId,
+      domain: logEntry.domain || getDomainFromEntityId(canonicalId),
       timestamp: Date.now()
     };
 
@@ -235,10 +301,11 @@ export async function addHistoryLog(logEntry) {
  */
 export async function saveProgressAndLog(entityId, srsData, type, logEntry) {
   const db = await initDB();
-  const progressDomain = getDomainFromEntityId(entityId);
+  const canonicalId = canonicalProgressEntityId(entityId);
+  const progressDomain = getDomainFromEntityId(canonicalId);
   return runWriteTransaction(db, ['progress', 'history'], transaction => {
     transaction.objectStore('progress').put({
-      entityId,
+      entityId: canonicalId,
       domain: progressDomain,
       type,
       ...srsData,
@@ -246,7 +313,7 @@ export async function saveProgressAndLog(entityId, srsData, type, logEntry) {
     });
     transaction.objectStore('history').add({
       ...logEntry,
-      entityId,
+      entityId: canonicalId,
       domain: logEntry.domain || progressDomain,
       timestamp: Date.now()
     });

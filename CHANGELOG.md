@@ -2,6 +2,18 @@
 
 Dieses Changelog beginnt mit dem für eine öffentliche Veröffentlichung bereinigten Projektstand.
 
+## [1.99.1] — 2026-08-30
+
+- Schnellquiz, Wiederholungsrunden und Fortschrittsspeicherung verwenden nun die richtige
+  Konzept- und Rundenbasis; Schreibfehler bleiben auch nach dem Quiz sichtbar.
+- Doppelte Sprachkonzepte wurden zusammengeführt und vorhandener Lernfortschritt wird auf die
+  kanonischen Einträge migriert.
+- Bildauswahl und Bildnachweise prüfen Sperrlisten, eindeutige Wikidata-Bilder, freie Lizenzen
+  und konkrete Rechteinhaber vor der Veröffentlichung.
+- Ernte-, Merge- und semantische QA-Werkzeuge brechen bei Datenverlust, unvollständigen
+  Modellantworten, ungültigen Quellen oder einem veralteten Prüfsnapshot kontrolliert ab.
+- Tastaturnavigation im Bereichsmenü verwendet genau einen fokussierbaren Menüeintrag.
+
 ## [1.99.0] — 2026-08-26
 
 - Öffentliche Projekt- und Beitragsdokumentation ohne lokale Arbeitsnotizen oder private

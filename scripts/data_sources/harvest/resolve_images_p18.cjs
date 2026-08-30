@@ -27,6 +27,7 @@ const {
   isAllowedCommonsLicenseMetadata,
   licenseNameFromCommonsMetadata,
 } = require('../../lib/image_license_policy.js');
+const { fileNameFromUploadUrl } = require('./image_resolution_policy.cjs');
 
 const UA = "ScientiaQuizImageResolverP18/1.0 (educational quiz project; pageimages+P18 only)";
 const OUT_FILE = "/tmp/astra_images2.json";
@@ -195,9 +196,8 @@ async function dewikiPageimage(title) {
   if (!source) return null;
   // Dateinamen aus Commons-URL extrahieren:
   // https://upload.wikimedia.org/wikipedia/commons/3/37/Foo.jpg → File:Foo.jpg
-  const m = source.match(/\/wikipedia\/commons\/[^/]+\/[^/]+\/(.+)$/);
-  if (!m) return null;
-  let fileName = decodeURIComponent(m[1]);
+  const fileName = fileNameFromUploadUrl(source);
+  if (!fileName) return null;
   return "File:" + fileName;
 }
 

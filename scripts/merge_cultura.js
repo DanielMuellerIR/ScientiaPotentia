@@ -47,23 +47,12 @@
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+import { assertPreservesExistingConceptIds } from './lib/merge_safety.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const HARVEST = join(__dirname, 'data_sources', 'harvest');
 const OUT_PATH = join(__dirname, 'data_sources', 'cultura_raw.json');
 const WRITE = process.argv.includes('--write');
-
-function refuseShrinkingOutput(path, nextCount) {
-  if (!existsSync(path)) return;
-  const current = JSON.parse(readFileSync(path, 'utf8'));
-  if (!Array.isArray(current)) throw new Error(`${path}: bestehende Quellwahrheit ist kein JSON-Array`);
-  if (nextCount < current.length) {
-    throw new Error(
-      `${path}: Merge würde ${current.length - nextCount} bestehende Konzepte löschen ` +
-      `(${current.length} -> ${nextCount}); Erntedateien zuerst vollständig ergänzen`
-    );
-  }
-}
 
 const FILES = ['cultura_a_w1.json', 'cultura_a_w1b.json', 'cultura_b_w1.json', 'cultura_b_w1b.json'];
 
@@ -334,7 +323,7 @@ if (dropped.length) {
 }
 
 if (WRITE) {
-  refuseShrinkingOutput(OUT_PATH, merged.length);
+  assertPreservesExistingConceptIds(OUT_PATH, merged);
   writeFileSync(OUT_PATH, JSON.stringify(merged, null, 2), 'utf8');
   console.log(`\nGeschrieben: ${OUT_PATH} (${merged.length} Konzepte)`);
 } else {

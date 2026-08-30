@@ -30,6 +30,11 @@ export function sanitizeImageAttribution(value) {
 export function isConcreteImageAttribution(value) {
   const attribution = sanitizeImageAttribution(value);
   if (!attribution) return false;
+  // Ein technischer Quellenrest benennt keinen Urheber. Insbesondere können
+  // fehlerhafte Commons-Metadaten aus URL, DOI und einem fremden Dateititel
+  // bestehen und dürfen das Veröffentlichungs-Audit nicht passieren.
+  if (/^(?:https?:|(?:https?:\s*\/)|doi(?:\.org|:)|(?:file|datei):|(?:source|quelle)\s*:)/i
+    .test(attribution)) return false;
   return !/^(?:wikimedia commons|commons|unknown(?: (?:author|artist|creator|source))?|unbekannt|own work|self|none|n\/a|urheber nicht angegeben(?:\b.*)?|please (?:report|contact|notify)\b.*|(?:report|contact) (?:references?|the author)\b.*)[\s.!,:;-]*$/i
     .test(attribution);
 }

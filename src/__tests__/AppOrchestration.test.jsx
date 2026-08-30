@@ -22,7 +22,11 @@ vi.mock('../domains', () => {
     { ...domain, id: 'natura', latinName: 'Natura', hasMap: false },
     { ...domain, id: 'cultura', latinName: 'Cultura', hasMap: false },
   ];
-  const concepts = { target: { id: 'target', type: 'country', name: 'Ziel' } };
+  const concepts = {
+    target: { id: 'target', type: 'country', name: 'Ziel' },
+    city_LU_luxemburg: { id: 'city_LU_luxemburg', type: 'city', name: 'Luxemburg' },
+    city_DJ_dschibuti: { id: 'city_DJ_dschibuti', type: 'city', name: 'Dschibuti' },
+  };
   const questions = [{
     id: 'target-question',
     entityId: 'target',
@@ -53,7 +57,11 @@ vi.mock('../components/VisualPanel', () => ({
 }));
 vi.mock('../components/Atlas', () => ({
   default: ({ onStartQuickQuiz }) => (
-    <button type="button" onClick={() => onStartQuickQuiz('target')}>Schnelltest starten</button>
+    <div>
+      <button type="button" onClick={() => onStartQuickQuiz('target')}>Schnelltest starten</button>
+      <button type="button" onClick={() => onStartQuickQuiz('city_LU_luxemburg')}>Luxemburg testen</button>
+      <button type="button" onClick={() => onStartQuickQuiz('city_DJ_dschibuti')}>Dschibuti testen</button>
+    </div>
   ),
 }));
 vi.mock('../components/QuizLauncher', () => ({
@@ -67,11 +75,18 @@ vi.mock('../components/QuizLauncher', () => ({
   ),
 }));
 vi.mock('../components/Quiz', () => ({
-  default: ({ dueEntities, onAddScore, onQuizFinished, roundConfig }) => (
+  default: ({ dueEntities, entityFilterId, onAddScore, onQuizFinished, onQuizRestart,
+    onTrackProgressWrite, roundConfig }) => (
     <div>
       <div data-testid="round-config">{JSON.stringify(roundConfig)}</div>
       <div data-testid="due-ids">{dueEntities.map(entity => entity.id).join(',')}</div>
+      <div data-testid="entity-filter">{entityFilterId || ''}</div>
       <button type="button" onClick={() => onAddScore(10)}>10 Punkte</button>
+      <button type="button" onClick={onQuizRestart}>Erneut</button>
+      <button type="button" onClick={() => {
+        onTrackProgressWrite(Promise.reject(new Error('Antwort-Commit fehlgeschlagen')));
+        onQuizFinished();
+      }}>Fehlerhaft speichern und abschließen</button>
       <button type="button" onClick={onQuizFinished}>Runde abschließen</button>
     </div>
   ),
@@ -121,6 +136,11 @@ describe('App-Orchestrierung', () => {
     expect(getSetting).not.toHaveBeenCalledWith('activeScore', expect.anything());
     expect(saveSetting).not.toHaveBeenCalledWith('activeScore', expect.anything());
     expect(saveSetting).toHaveBeenCalledWith('highScore', 20);
+
+    fireEvent.click(screen.getByRole('button', { name: 'Erneut' }));
+    fireEvent.click(screen.getByRole('button', { name: '10 Punkte' }));
+    expect(screen.getByLabelText('Bestmarke: 20')).toBeInTheDocument();
+    expect(saveSetting).not.toHaveBeenCalledWith('highScore', 30);
   });
 
   it('beschränkt den Atlas-Schnelltest auf das gewählte Konzept und eine Frage', async () => {
@@ -133,6 +153,32 @@ describe('App-Orchestrierung', () => {
       JSON.stringify({ kind: 'fixed', length: 1 })
     );
     expect(screen.getByTestId('due-ids')).toHaveTextContent('target');
+    expect(screen.getByTestId('entity-filter')).toHaveTextContent('target');
+  });
+
+  it.each([
+    ['Luxemburg testen', 'Luxemburg'],
+    ['Dschibuti testen', 'Dschibuti'],
+  ])('startet für verwaiste Terra-Städte keine fremde Frage: %s', async (button, city) => {
+    render(<App />);
+    fireEvent.click(screen.getByRole('button', { name: 'Weltatlas' }));
+    fireEvent.click(await screen.findByRole('button', { name: 'Ziel wählen' }));
+    fireEvent.click(screen.getByRole('button', { name: button }));
+
+    expect(screen.getByRole('alert')).toHaveTextContent(
+      `Für ${city} ist noch keine Quizfrage verfügbar.`);
+    expect(screen.queryByTestId('round-config')).not.toBeInTheDocument();
+  });
+
+  it('zeigt einen späten Antwort-Commitfehler auch nach dem Aushängen des Quiz', async () => {
+    const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    await openQuiz();
+    fireEvent.click(screen.getByRole('button', { name: 'Fehlerhaft speichern und abschließen' }));
+
+    expect(await screen.findByText('Test-Hub')).toBeInTheDocument();
+    expect(screen.getByRole('alert')).toHaveTextContent(
+      'Mindestens eine Antwort konnte nicht im Lernfortschritt gespeichert werden.');
+    consoleErrorSpy.mockRestore();
   });
 
   it('kehrt auch bei einem Streak-Speicherfehler aus der Ergebnisansicht zurück', async () => {

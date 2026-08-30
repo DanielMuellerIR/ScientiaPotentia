@@ -16,6 +16,7 @@ const path = require('node:path');
 const {
   assertSafeDomain, readJsonArray, writeJsonAtomic
 } = require('./json_io.cjs');
+const { validateCatalog, validateConcept } = require('./concept_validation.cjs');
 
 const ROOT = path.join(__dirname, '..', '..', '..');
 
@@ -25,15 +26,8 @@ function norm(s) {
     .replace(/[^a-z0-9+#]+/g, ' ').trim();
 }
 
-function hasConceptStructure(concept) {
-  return Boolean(
-    concept
-    && typeof concept.id === 'string' && concept.id.trim()
-    && typeof concept.name === 'string' && concept.name.trim()
-    && typeof concept.category === 'string' && concept.category.trim()
-    && concept.attributes && typeof concept.attributes === 'object'
-    && !Array.isArray(concept.attributes)
-  );
+function hasConceptStructure(concept, options) {
+  return validateConcept(concept, options) === null;
 }
 
 function main() {
@@ -69,10 +63,11 @@ function main() {
   const kept = [];
   const dropped = [];
   for (const concept of candidates) {
-    if (!hasConceptStructure(concept)) {
+    const candidateOptions = { requireSource: true, requireAttributeValues: true };
+    if (!hasConceptStructure(concept, candidateOptions)) {
       dropped.push({
         name: concept && concept.name,
-        reason: 'Struktur unvollständig (id/name/category/attributes)',
+        reason: `Struktur unvollständig (${validateConcept(concept, candidateOptions)})`,
       });
       continue;
     }
@@ -105,8 +100,15 @@ function main() {
     dropped.forEach(item => console.log(`  x ${item.name}: ${item.reason}`));
   }
 
+  const merged = raw.concat(kept);
+  const outputError = validateCatalog(merged);
+  if (outputError) {
+    console.error(`FEHLER: Zusammengeführter Katalog ungültig: ${outputError}`);
+    return 1;
+  }
+
   if (flags.includes('--write') && kept.length) {
-    writeJsonAtomic(rawPath, raw.concat(kept));
+    writeJsonAtomic(rawPath, merged);
     console.log(`\nGeschrieben: ${rawPath} (${raw.length} -> ${raw.length + kept.length})`);
   } else if (flags.includes('--write')) {
     console.log('\nKeine neuen Konzepte; Rohkatalog unverändert.');
@@ -116,4 +118,6 @@ function main() {
   return 0;
 }
 
-process.exitCode = main();
+if (require.main === module) process.exitCode = main();
+
+module.exports = { hasConceptStructure, main, norm };

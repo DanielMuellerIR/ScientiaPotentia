@@ -18,7 +18,9 @@ function normalizeEntityName(value) {
     .normalize('NFKD')
     .replace(/\p{Diacritic}/gu, '')
     .toLowerCase()
-    .replace(/\([^)]*\)/g, ' ')
+    // Nur bekannte Sprachzusätze sind reine Schreibvarianten. Ein beliebiger
+    // Klammerinhalt kann die Bedeutung ändern (Wu (Chinesisch) ≠ Wu (Fluss)).
+    .replace(/\((?:sprache|language|chinesisch|dialekt)\)/gi, ' ')
     .replace(/[’'`´]/g, '')
     .replace(/[^a-z0-9]+/g, ' ')
     .trim();
@@ -78,8 +80,39 @@ function buildSingleLanguageQuery(qid) {
   ].join('\n');
 }
 
+/**
+ * SPARQL erzeugt aus mehreren Sprecher- und Schriftwerten ein Kreuzprodukt.
+ * Die Reihenfolge ist nicht definiert; deshalb werden die fachlichen
+ * Dimensionen getrennt dedupliziert und Mehrdeutigkeiten nicht geraten.
+ * `wdt:` liefert dabei nur statements mit bestem Rang (preferred vor normal,
+ * deprecated nie).
+ */
+function selectLanguageFacts(bindings, normalizeScript = value => value || null) {
+  const speakers = new Set();
+  const scripts = new Set();
+  for (const row of bindings || []) {
+    if (row.speakers?.value !== undefined) {
+      const number = Number(row.speakers.value);
+      if (Number.isFinite(number) && number > 0) speakers.add(number);
+    }
+    const script = normalizeScript(row.scriptLabel?.value);
+    if (script) scripts.add(script);
+  }
+  if (speakers.size > 1) {
+    throw new Error(`mehrdeutige P1098-Werte: ${[...speakers].sort((a, b) => a - b).join(', ')}`);
+  }
+  if (scripts.size > 1) {
+    throw new Error(`mehrdeutige P282-Werte: ${[...scripts].sort().join(', ')}`);
+  }
+  return {
+    speakersRaw: speakers.size ? [...speakers][0] : null,
+    script: scripts.size ? [...scripts][0] : null,
+  };
+}
+
 module.exports = {
   assertExpectedEntity,
   buildSingleLanguageQuery,
   normalizeEntityName,
+  selectLanguageFacts,
 };

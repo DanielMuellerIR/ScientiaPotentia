@@ -44,6 +44,9 @@ describe('Bildnachweise', () => {
     expect(isConcreteImageAttribution('Please report references to .')).toBe(false);
     expect(isConcreteImageAttribution('Unknown author')).toBe(false);
     expect(isConcreteImageAttribution('Wikimedia Commons')).toBe(false);
+    expect(isConcreteImageAttribution(
+      'https: / doi.org/10.1038/example / File:Homo_luzonensis_diagram.jpg',
+    )).toBe(false);
   });
 
   it('akzeptiert nur dokumentierte freie Lizenzbezeichnungen', () => {
@@ -53,6 +56,9 @@ describe('Bildnachweise', () => {
     expect(isAllowedImageLicense('GFDL 1.2')).toBe(true);
     expect(isAllowedImageLicense('CC BY-SA')).toBe(false);
     expect(isAllowedImageLicense('CC BY 99.0')).toBe(false);
+    expect(isAllowedImageLicense('CC BY 4.0 nc')).toBe(false);
+    expect(isAllowedImageLicense('CC BY-SA 4.0 nd')).toBe(false);
+    expect(isAllowedImageLicense('CC BY 4.0 xyz')).toBe(false);
     expect(isAllowedImageLicense('Proprietary')).toBe(false);
   });
 
@@ -66,6 +72,9 @@ describe('Bildnachweise', () => {
     expect(isAllowedCommonsLicenseMetadata(commonsMetadata({
       LicenseShortName: 'CC BY-NC 4.0',
     }))).toBe(false);
+    expect(licenseUrlFor('CC BY 4.0 nc')).toBe('');
+    expect(licenseUrlFor('CC BY-SA 4.0 nd')).toBe('');
+    expect(licenseUrlFor('CC BY 4.0 xyz')).toBe('');
     expect(isAllowedCommonsLicenseMetadata(commonsMetadata({
       LicenseShortName: 'irgendeine Lizenz',
     }))).toBe(false);

@@ -143,10 +143,31 @@ export default function App() {
   const [newEntities, setNewEntities] = useState([]);
   const [streakCount, setStreakCount] = useState(0);
   const [highScore, setHighScore] = useState(0);
+  const [progressSaveFailed, setProgressSaveFailed] = useState(false);
+  const [quizStartError, setQuizStartError] = useState('');
+  const [quizEntityFilterId, setQuizEntityFilterId] = useState(null);
   // Eine Runde lebt vollständig im React-Zustand; ein persistierter Zwischenstand
   // würde nach Reload ohnehin keine Runde wiederherstellen. Die synchrone Referenz
   // verhindert zudem ein Rennen zwischen Rundenreset und erster Antwort.
   const activeScoreRef = React.useRef(0);
+  const pendingQuizWritesRef = React.useRef(new Set());
+
+  const trackQuizProgressWrite = (writePromise) => {
+    const tracked = Promise.resolve(writePromise)
+      .catch((error) => {
+        console.error('Lernfortschritt konnte nicht gespeichert werden:', error);
+        setProgressSaveFailed(true);
+      })
+      .finally(() => pendingQuizWritesRef.current.delete(tracked));
+    pendingQuizWritesRef.current.add(tracked);
+    return tracked;
+  };
+
+  const flushQuizProgressWrites = async () => {
+    while (pendingQuizWritesRef.current.size > 0) {
+      await Promise.allSettled([...pendingQuizWritesRef.current]);
+    }
+  };
 
   // Map state to convey quiz styles/highlights
   const [mapState, setMapState] = useState({
@@ -395,6 +416,12 @@ export default function App() {
     playClick();
     const targetEntity = concepts[entityId];
     if (targetEntity) {
+      if (!questionPool.some(question => question.entityId === entityId)) {
+        setQuizStartError(`Für ${targetEntity.name} ist noch keine Quizfrage verfügbar.`);
+        return;
+      }
+      setQuizStartError('');
+      setQuizEntityFilterId(entityId);
       setDueEntities([targetEntity]);
       setNewEntities([]);
       setQuizMode('all');
@@ -413,6 +440,8 @@ export default function App() {
     setQuizMode(mode);
     if (roundConfig) setQuizRoundConfig(roundConfig); // feste Länge oder Survival
     setQuizPlayers(Array.isArray(players) ? players : []); // [] = Einzelspieler
+    setQuizEntityFilterId(null);
+    setQuizStartError('');
     activeScoreRef.current = 0;
     setQuizArmed(true); // Runde scharf stellen -> Quiz statt Vorschalt-Screen
     setActiveTab('quiz');
@@ -421,6 +450,7 @@ export default function App() {
   const handleQuizFinished = async () => {
     playClick();
     try {
+      await flushQuizProgressWrites();
       const today = new Date();
       const todayKey = localDateKey(today);
       const lastReviewDateStr = await getSetting('lastReviewDate', null);
@@ -445,8 +475,9 @@ export default function App() {
     }
   };
 
-  const handleTabChange = (tab) => {
+  const handleTabChange = async (tab) => {
     playClick();
+    if (activeTabRef.current === 'quiz') await flushQuizProgressWrites();
     // Direkter Klick auf den Lern-Quiz-Tab: Runde "entschärfen", damit zuerst der
     // Vorschalt-Screen mit Stufenwahl erscheint (nicht sofort Stufe 1).
     if (tab === 'quiz') setQuizArmed(false);
@@ -455,14 +486,17 @@ export default function App() {
 
   // Wechsel des Wissensbereichs: aktive Domain setzen und Ansicht zurücksetzen.
   // Konzepte/Fragen werden vom Lade-Effekt (Abhängigkeit activeDomainId) geholt.
-  const handleDomainChange = (domainId) => {
+  const handleDomainChange = async (domainId) => {
     if (domainId === activeDomainId) return;
     playClick();
+    if (activeTabRef.current === 'quiz') await flushQuizProgressWrites();
     setActiveDomainId(domainId);
     // Domains mit Explorer (z.B. Astra) starten direkt im Erkundungsbereich,
     // alle anderen in der Übersicht.
     setActiveTab(getDomainById(domainId).Explorer ? 'explore' : 'dashboard');
     setQuizArmed(false); // Bereichswechsel -> Quizrunde zurücksetzen
+    setQuizEntityFilterId(null);
+    setQuizStartError('');
     setSelectedEntityId(null);
     setClickedMapId(null);
     setActiveConceptKey(null);
@@ -625,6 +659,16 @@ export default function App() {
         </div>
       </header>
 
+      {(progressSaveFailed || quizStartError) && (
+        <div
+          role="alert"
+          style={{ padding: '9px 16px', borderLeft: '3px solid var(--color-error)',
+            color: 'var(--color-error)', background: 'rgba(132, 32, 41, 0.06)', fontSize: '13px' }}
+        >
+          {quizStartError || 'Mindestens eine Antwort konnte nicht im Lernfortschritt gespeichert werden.'}
+        </div>
+      )}
+
       {/* Main Layout Area. Der --explore-Modifier laesst die Galerie/den Explorer
           auf Mobil die volle Hoehe nutzen (Sidebar ausgeblendet, s. index.css);
           die Shell-Geometrie selbst bleibt unveraendert in den CSS-Klassen. */}
@@ -763,6 +807,10 @@ export default function App() {
               clickedMapId={clickedMapId}
               resetClickedMapId={() => setClickedMapId(null)}
               onQuizFinished={handleQuizFinished}
+              entityFilterId={quizEntityFilterId}
+              onQuizRestart={() => { activeScoreRef.current = 0; }}
+              onTrackProgressWrite={trackQuizProgressWrite}
+              onFlushProgressWrites={flushQuizProgressWrites}
               onSetQuizState={setMapState}
               onActiveConceptChange={handleActiveConceptChange}
               onAddScore={handleAddScorePoints}

@@ -11,12 +11,14 @@ import { readFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import jsonIo from './json_io.cjs';
+import stagedWrites from './staged_attribution_writes.cjs';
 import {
   isConcreteImageAttribution,
   sanitizeImageAttribution,
 } from '../../../src/utils/imageCredits.js';
 
 const { writeJsonAtomic } = jsonIo;
+const { commitCompletedAttributionBackfill } = stagedWrites;
 
 const arguments_ = process.argv.slice(2);
 if (arguments_.some(argument => argument !== '--write')
@@ -223,6 +225,7 @@ const metadata = await fetchMetadata([...missingTitles]);
 let filled = 0;
 let sanitised = 0;
 const unresolved = [];
+const changedDomains = new Set();
 
 for (const [domain, { file, records }] of domainData) {
   let changed = false;
@@ -245,16 +248,21 @@ for (const [domain, { file, records }] of domainData) {
       if (previous && next && !lookedUp) sanitised += 1;
     }
   }
-  if (changed && WRITE) {
-    writeJsonAtomic(file, records);
-  }
+  if (changed) changedDomains.add(domain);
 }
+
+commitCompletedAttributionBackfill({
+  domainData, changedDomains, unresolved, write: WRITE, writeJsonAtomic,
+});
 
 if (unresolved.length) {
   console.error(`Keine Urheberangabe für ${unresolved.length} Bilder:`);
   unresolved.slice(0, 20).forEach((item) => console.error(`- ${item}`));
   process.exitCode = 1;
 } else {
+  // Erst der vollständig erfolgreiche Gesamtlauf darf Dateien ersetzen. So
+  // hinterlässt eine einzige nicht auflösbare Commons-Angabe keine teilweise
+  // aktualisierten Domainkataloge.
   console.log(`${filled} Datensätze ergänzt, ${sanitised} vorhandene Credits bereinigt.`);
 }
 if (!WRITE) console.log('[DRY-RUN] Nichts geschrieben. Mit --write anwenden.');

@@ -27,6 +27,7 @@ const { writeJsonAtomic } = require('./json_io.cjs');
 const {
   assertExpectedEntity,
   buildSingleLanguageQuery,
+  selectLanguageFacts,
 } = require('./lingua_harvest_helpers.cjs');
 
 // --- Konfiguration ----------------------------------------------------------
@@ -369,12 +370,10 @@ async function main() {
     try {
       const data = await sparqlQuery(buildSingleLanguageQuery(item.qid));
       const bindings = assertExpectedEntity(item, data.results?.bindings || []);
-      const row = bindings[0];
-      const speakersRaw = row.speakers?.value ? Number(row.speakers.value) : null;
+      const { speakersRaw, script } = selectLanguageFacts(bindings, normalizeScript);
       const speakersM = (speakersRaw && isFinite(speakersRaw) && speakersRaw > 0)
         ? Math.round(speakersRaw / 1e5) / 10
         : null;
-      const script = normalizeScript(row.scriptLabel?.value);
 
       if (!speakersM && !item.family) {
         console.log('    Übersprungen (kein Sprecher+Familie)');

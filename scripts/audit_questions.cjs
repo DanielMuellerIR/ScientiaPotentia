@@ -75,7 +75,7 @@ for (const domain of selectedDomains) {
 
   for (const q of qs) {
     const opts = q.options || [];
-    const correct = q.correctAnswer ?? opts[0];
+    const correct = q.correctAnswer;
     const prompt = q.prompt || q.question || '';
     const type = q.type || '?';
 
@@ -89,9 +89,10 @@ for (const domain of selectedDomains) {
     // Optionslose Typen (click-map) überspringen: dort ist `options: []` korrekt.
     const normOpts = opts.map(norm);
     const dup = new Set(normOpts).size !== normOpts.length;
-    const hasCorrect = normOpts.includes(norm(correct));
-    if (expectsOptions(type) && (opts.length < 2 || dup || !hasCorrect)) {
-      structural.push({ id: q.id, type, reason: opts.length < 2 ? 'zu wenige Optionen' : dup ? 'Dubletten-Option' : 'correctAnswer fehlt in options', prompt, correct, options: opts });
+    const hasAnswerKey = typeof correct === 'string' && correct.trim().length > 0;
+    const hasCorrect = hasAnswerKey && normOpts.includes(norm(correct));
+    if (expectsOptions(type) && (opts.length < 2 || dup || !hasAnswerKey || !hasCorrect)) {
+      structural.push({ id: q.id, type, reason: opts.length < 2 ? 'zu wenige Optionen' : dup ? 'Dubletten-Option' : !hasAnswerKey ? 'correctAnswer fehlt' : 'correctAnswer fehlt in options', prompt, correct, options: opts });
     }
 
     // --- Längen-Bias ---

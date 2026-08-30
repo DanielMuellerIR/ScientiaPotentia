@@ -20,6 +20,7 @@
 import { existsSync, readFileSync, writeFileSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+import { assertPreservesExistingConceptIds } from './lib/merge_safety.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const HARVEST = join(__dirname, 'data_sources', 'harvest');
@@ -29,18 +30,6 @@ const OUT = {
 };
 
 const WRITE = process.argv.includes('--write');
-
-function refuseShrinkingOutput(path, nextCount) {
-  if (!existsSync(path)) return;
-  const current = JSON.parse(readFileSync(path, 'utf8'));
-  if (!Array.isArray(current)) throw new Error(`${path}: bestehende Quellwahrheit ist kein JSON-Array`);
-  if (nextCount < current.length) {
-    throw new Error(
-      `${path}: Merge würde ${current.length - nextCount} bestehende Konzepte löschen ` +
-      `(${current.length} -> ${nextCount}); Kandidatendateien zuerst vollständig ergänzen`
-    );
-  }
-}
 
 // Erlaubte Kategorien je Domain (müssen zu den Generatoren passen).
 const CATEGORIES = {
@@ -178,7 +167,7 @@ if (!WRITE) {
   // Alle Zieldateien prüfen, bevor die erste geschrieben wird. So bleibt der
   // Lauf auch dann atomar, wenn nur eine Domain unvollständige Kandidaten hat.
   for (const [domain, concepts] of Object.entries(result)) {
-    refuseShrinkingOutput(OUT[domain], concepts.length);
+    assertPreservesExistingConceptIds(OUT[domain], concepts);
   }
   for (const [domain, concepts] of Object.entries(result)) {
     writeFileSync(OUT[domain], JSON.stringify(concepts, null, 2), 'utf8');

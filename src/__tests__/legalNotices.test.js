@@ -14,6 +14,8 @@ describe('veröffentlichte Drittanbieterhinweise', () => {
     const canonical = readFileSync(resolve(root, 'THIRD_PARTY_NOTICES.md'), 'utf8');
     const published = readFileSync(resolve(root, 'public/THIRD_PARTY_NOTICES.md'), 'utf8');
     expect(published).toBe(canonical);
+    expect(canonical).toContain('entities — BSD 2-Clause');
+    expect(canonical).toContain('Copyright (c) Felix Böhm');
   });
 
   it('sind von der ausgelieferten Credits-Seite direkt verlinkt', () => {

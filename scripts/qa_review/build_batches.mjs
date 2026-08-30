@@ -36,6 +36,7 @@ import {
 } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+import { createHash } from 'node:crypto';
 import {
   CATEGORY_LABELS, getAttributeLabel, isAttrLeakedBeforeAnswer, sourceRevealsValue
 } from '../../src/components/conceptLabels.js';
@@ -48,6 +49,13 @@ const GENERIC_DOMAINS = ['natura', 'cultura', 'lingua', 'machina', 'historia'];
 // Domains mit eigener grafischer Visualisierung (nur Prompt+Optionen; Panel „grafisch").
 const VISUAL_DOMAINS = { astra: '3D-Planetensystem', homo: 'Anatomie-Grafik' };
 const SUPPORTED_DOMAINS = [...GENERIC_DOMAINS, ...Object.keys(VISUAL_DOMAINS)];
+
+const sha256 = value => createHash('sha256').update(value).digest('hex');
+function snapshotHash(inputs, batches) {
+  return sha256([...Object.entries(inputs), ...Object.entries(batches)]
+    .sort(([left], [right]) => left.localeCompare(right))
+    .map(([name, hash]) => `${name}\0${hash}\n`).join(''));
+}
 
 // --- Mini-PRNG (mulberry32), damit die Stichprobe bei gleichem --seed reproduzierbar ist.
 function mulberry32(seed) {
@@ -238,15 +246,29 @@ function main() {
   for (const name of readdirSync(args.out)) {
     if (/^batch_\d+\.json$/.test(name)) unlinkSync(join(args.out, name));
   }
+  const batchHashes = {};
   batches.forEach((b, idx) => {
     const name = `batch_${String(idx).padStart(3, '0')}.json`;
-    writeFileSync(join(args.out, name), JSON.stringify(b, null, 2));
+    const bytes = JSON.stringify(b, null, 2);
+    writeFileSync(join(args.out, name), bytes);
+    batchHashes[name] = sha256(bytes);
   });
+
+  const inputHashes = {};
+  for (const domain of domains) {
+    for (const kind of ['questions', 'concepts']) {
+      const relative = `public/data/${kind}_${domain}.json`;
+      inputHashes[relative] = sha256(readFileSync(join(__dirname, '..', '..', relative)));
+    }
+  }
 
   const manifest = {
     seed: args.seed, perType: args.perType, batchSize: args.batch,
     domains, totalQuestions: allViews.length, batchCount: batches.length,
-    byDomain: Object.fromEntries(domains.map(d => [d, allViews.filter(v => v.domain === d).length]))
+    byDomain: Object.fromEntries(domains.map(d => [d, allViews.filter(v => v.domain === d).length])),
+    inputs: inputHashes,
+    batches: batchHashes,
+    snapshotSha256: snapshotHash(inputHashes, batchHashes),
   };
   writeFileSync(join(args.out, 'manifest.json'), JSON.stringify(manifest, null, 2));
   console.log(JSON.stringify(manifest, null, 2));

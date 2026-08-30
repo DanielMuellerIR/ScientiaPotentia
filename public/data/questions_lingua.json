@@ -798,25 +798,6 @@
     "mapTargetId": null
   },
   {
-    "id": "q_lingua_malagasy_lingua-language-family",
-    "entityId": "lingua:malagasy",
-    "entityType": "language",
-    "type": "lingua-language-family",
-    "difficulty": 3,
-    "prompt": "Zu welcher Sprachfamilie gehört Malagasy?",
-    "correctAnswer": "Austronesisch (Malayo-Polynesisch)",
-    "options": [
-      "Austronesisch (Malayo-Polynesisch)",
-      "Kreolsprache (französisch basiert)",
-      "Portugiesisch-basierte Kreolsprache",
-      "Französisch-basierte Kreolsprache"
-    ],
-    "testedAttribute": "family",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
     "id": "q_lingua_tadschikisch_lingua-language-family",
     "entityId": "lingua:tadschikisch",
     "entityType": "language",
@@ -988,25 +969,6 @@
     "mapTargetId": null
   },
   {
-    "id": "q_lingua_fula_lingua-language-family",
-    "entityId": "lingua:fula",
-    "entityType": "language",
-    "type": "lingua-language-family",
-    "difficulty": 3,
-    "prompt": "Zu welcher Sprachfamilie gehört Fula?",
-    "correctAnswer": "Niger-Kongo",
-    "options": [
-      "Niger-Kongo",
-      "Kartvelisch",
-      "Plansprache",
-      "Mongolisch"
-    ],
-    "testedAttribute": "family",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
     "id": "q_lingua_oromo_lingua-language-family",
     "entityId": "lingua:oromo",
     "entityType": "language",
@@ -1094,25 +1056,6 @@
       "Nilo-Saharanisch",
       "Indogermanisch",
       "Nordkaukasisch",
-      "Uto-Aztekisch"
-    ],
-    "testedAttribute": "family",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_lingua_madura_lingua-language-family",
-    "entityId": "lingua:madura",
-    "entityType": "language",
-    "type": "lingua-language-family",
-    "difficulty": 3,
-    "prompt": "Zu welcher Sprachfamilie gehört Madura?",
-    "correctAnswer": "Austronesisch",
-    "options": [
-      "Austronesisch",
-      "Afroasiatisch",
-      "Maya-Sprachen",
       "Uto-Aztekisch"
     ],
     "testedAttribute": "family",
@@ -3128,25 +3071,6 @@
       "Uralische Sprachfamilie",
       "Englischbasiertes Kreol",
       "Eskimo-aleutisch (Inuit)"
-    ],
-    "testedAttribute": "family",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_lingua_weissrussisch_lingua-language-family",
-    "entityId": "lingua:weissrussisch",
-    "entityType": "language",
-    "type": "lingua-language-family",
-    "difficulty": 3,
-    "prompt": "Zu welcher Sprachfamilie gehört Weißrussisch?",
-    "correctAnswer": "Indogermanisch (Slawisch)",
-    "options": [
-      "Indogermanisch (Slawisch)",
-      "Niger-Kongo-Sprachfamilie",
-      "Afroasiatisch (Ägyptisch)",
-      "Mongolische Sprachfamilie"
     ],
     "testedAttribute": "family",
     "answerIsName": false,
@@ -6004,25 +5928,6 @@
     "mapTargetId": null
   },
   {
-    "id": "q_lingua_malagasy_lingua-language-script",
-    "entityId": "lingua:malagasy",
-    "entityType": "language",
-    "type": "lingua-language-script",
-    "difficulty": 2,
-    "prompt": "Mit welcher Schrift wird Malagasy geschrieben?",
-    "correctAnswer": "Lateinisches Alphabet",
-    "options": [
-      "Lateinisches Alphabet",
-      "Kyrillisches Alphabet",
-      "Thailändische Schrift",
-      "Maltesisches Alphabet"
-    ],
-    "testedAttribute": "script",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
     "id": "q_lingua_tadschikisch_lingua-language-script",
     "entityId": "lingua:tadschikisch",
     "entityType": "language",
@@ -6137,25 +6042,6 @@
     "mapTargetId": null
   },
   {
-    "id": "q_lingua_fula_lingua-language-script",
-    "entityId": "lingua:fula",
-    "entityType": "language",
-    "type": "lingua-language-script",
-    "difficulty": 2,
-    "prompt": "Mit welcher Schrift wird Fula geschrieben?",
-    "correctAnswer": "Lateinisches Alphabet",
-    "options": [
-      "Lateinisches Alphabet",
-      "Kyrillisches Alphabet",
-      "Thailändische Schrift",
-      "Maltesisches Alphabet"
-    ],
-    "testedAttribute": "script",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
     "id": "q_lingua_oromo_lingua-language-script",
     "entityId": "lingua:oromo",
     "entityType": "language",
@@ -6244,25 +6130,6 @@
       "Äthiopische Schrift (Ge'ez)",
       "Aramäische / syrische Schrift",
       "luxemburgisches Braille"
-    ],
-    "testedAttribute": "script",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_lingua_madura_lingua-language-script",
-    "entityId": "lingua:madura",
-    "entityType": "language",
-    "type": "lingua-language-script",
-    "difficulty": 2,
-    "prompt": "Mit welcher Schrift wird Madura geschrieben?",
-    "correctAnswer": "Lateinisches Alphabet",
-    "options": [
-      "Lateinisches Alphabet",
-      "Kyrillisches Alphabet",
-      "Thailändische Schrift",
-      "Maltesisches Alphabet"
     ],
     "testedAttribute": "script",
     "answerIsName": false,
@@ -8030,25 +7897,6 @@
       "Devanagari",
       "Hangul",
       "Keilschrift"
-    ],
-    "testedAttribute": "script",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_lingua_weissrussisch_lingua-language-script",
-    "entityId": "lingua:weissrussisch",
-    "entityType": "language",
-    "type": "lingua-language-script",
-    "difficulty": 2,
-    "prompt": "Mit welcher Schrift wird Weißrussisch geschrieben?",
-    "correctAnswer": "Kyrillisches Alphabet",
-    "options": [
-      "Kyrillisches Alphabet",
-      "Griechisches Alphabet",
-      "Maltesisches Alphabet",
-      "Thailändische Schrift"
     ],
     "testedAttribute": "script",
     "answerIsName": false,
@@ -11134,25 +10982,6 @@
     "mapTargetId": null
   },
   {
-    "id": "q_lingua_malagasy_lingua-language-native-speakers",
-    "entityId": "lingua:malagasy",
-    "entityType": "language",
-    "type": "lingua-language-native-speakers",
-    "difficulty": 3,
-    "prompt": "Wie viele Muttersprachler hat Malagasy?",
-    "correctAnswer": "18 Millionen",
-    "options": [
-      "18 Millionen",
-      "1,8 Millionen",
-      "199 Millionen",
-      "34,5 Millionen"
-    ],
-    "testedAttribute": "speakersMillionsNative",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
     "id": "q_lingua_tadschikisch_lingua-language-native-speakers",
     "entityId": "lingua:tadschikisch",
     "entityType": "language",
@@ -11324,25 +11153,6 @@
     "mapTargetId": null
   },
   {
-    "id": "q_lingua_fula_lingua-language-native-speakers",
-    "entityId": "lingua:fula",
-    "entityType": "language",
-    "type": "lingua-language-native-speakers",
-    "difficulty": 3,
-    "prompt": "Wie viele Muttersprachler hat Fula?",
-    "correctAnswer": "24 Millionen",
-    "options": [
-      "24 Millionen",
-      "2,4 Millionen",
-      "236 Millionen",
-      "48,2 Millionen"
-    ],
-    "testedAttribute": "speakersMillionsNative",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
     "id": "q_lingua_oromo_lingua-language-native-speakers",
     "entityId": "lingua:oromo",
     "entityType": "language",
@@ -11431,25 +11241,6 @@
       "1,5 Millionen",
       "154 Millionen",
       "32,4 Millionen"
-    ],
-    "testedAttribute": "speakersMillionsNative",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_lingua_madura_lingua-language-native-speakers",
-    "entityId": "lingua:madura",
-    "entityType": "language",
-    "type": "lingua-language-native-speakers",
-    "difficulty": 3,
-    "prompt": "Wie viele Muttersprachler hat Madura?",
-    "correctAnswer": "15 Millionen",
-    "options": [
-      "15 Millionen",
-      "1,5 Millionen",
-      "154 Millionen",
-      "8,3 Millionen"
     ],
     "testedAttribute": "speakersMillionsNative",
     "answerIsName": false,
@@ -13585,25 +13376,6 @@
     "mapTargetId": null
   },
   {
-    "id": "q_lingua_weissrussisch_lingua-language-native-speakers",
-    "entityId": "lingua:weissrussisch",
-    "entityType": "language",
-    "type": "lingua-language-native-speakers",
-    "difficulty": 3,
-    "prompt": "Wie viele Muttersprachler hat Weißrussisch?",
-    "correctAnswer": "7,6 Millionen",
-    "options": [
-      "7,6 Millionen",
-      "800 Tausend",
-      "77 Millionen",
-      "3,7 Millionen"
-    ],
-    "testedAttribute": "speakersMillionsNative",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
     "id": "q_lingua_madagassisch_lingua-language-native-speakers",
     "entityId": "lingua:madagassisch",
     "entityType": "language",
@@ -13667,12 +13439,12 @@
     "type": "lingua-language-native-speakers",
     "difficulty": 3,
     "prompt": "Wie viele Muttersprachler hat Bosnisch?",
-    "correctAnswer": "2,6 Millionen",
+    "correctAnswer": "2,5 Millionen",
     "options": [
-      "2,6 Millionen",
+      "2,5 Millionen",
       "280 Tausend",
       "26 Millionen",
-      "5,6 Millionen"
+      "5,5 Millionen"
     ],
     "testedAttribute": "speakersMillionsNative",
     "answerIsName": false,
@@ -13686,12 +13458,12 @@
     "type": "lingua-language-native-speakers",
     "difficulty": 3,
     "prompt": "Wie viele Muttersprachler hat Gilaki?",
-    "correctAnswer": "2,5 Millionen",
+    "correctAnswer": "2,6 Millionen",
     "options": [
-      "2,5 Millionen",
+      "2,6 Millionen",
       "280 Tausend",
       "26 Millionen",
-      "5,2 Millionen"
+      "5,5 Millionen"
     ],
     "testedAttribute": "speakersMillionsNative",
     "answerIsName": false,
@@ -17014,9 +16786,9 @@
     "correctAnswer": "Englisch",
     "options": [
       "Englisch",
-      "isiXhosa",
-      "Polnisch",
-      "Setswana"
+      "Serbisch",
+      "Türkisch",
+      "Arabisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -17034,8 +16806,8 @@
     "options": [
       "Spanisch",
       "Englisch",
-      "Laotisch",
-      "Persisch"
+      "Finnisch",
+      "Sardisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -17052,9 +16824,9 @@
     "correctAnswer": "Hindi",
     "options": [
       "Hindi",
-      "Dogri",
-      "Sango",
-      "Khmer"
+      "Hausa",
+      "Khmer",
+      "Sango"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -17071,9 +16843,9 @@
     "correctAnswer": "Arabisch",
     "options": [
       "Arabisch",
-      "Tigrinya",
-      "Lettisch",
-      "Persisch"
+      "Persisch",
+      "Xitsonga",
+      "Lettisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -17090,9 +16862,9 @@
     "correctAnswer": "Deutsch",
     "options": [
       "Deutsch",
+      "Dänisch",
       "Guaraní",
-      "Bislama",
-      "Nahuatl"
+      "Tagalog"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -17109,9 +16881,9 @@
     "correctAnswer": "Französisch",
     "options": [
       "Französisch",
+      "Katalanisch",
       "Kalmückisch",
-      "Kinyarwanda",
-      "Katalanisch"
+      "Italienisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -17147,9 +16919,9 @@
     "correctAnswer": "Russisch",
     "options": [
       "Russisch",
-      "Chamorro",
-      "Tigrinya",
-      "Türkisch"
+      "Fulfulde",
+      "Laotisch",
+      "isiXhosa"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -17187,7 +16959,7 @@
       "Bengali",
       "Paschtu",
       "Kannada",
-      "Balochi"
+      "Bislama"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -17204,9 +16976,9 @@
     "correctAnswer": "Punjabi",
     "options": [
       "Punjabi",
-      "Soninke",
-      "Balochi",
-      "Kikongo"
+      "Paschtu",
+      "Nahuatl",
+      "Bislama"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -17223,9 +16995,9 @@
     "correctAnswer": "Suaheli (Swahili)",
     "options": [
       "Suaheli (Swahili)",
-      "Jakutisch (Sacha)",
+      "Meitei (Manipuri)",
       "Chichewa (Nyanja)",
-      "Meitei (Manipuri)"
+      "Jakutisch (Sacha)"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -17242,9 +17014,9 @@
     "correctAnswer": "Türkisch",
     "options": [
       "Türkisch",
-      "Lettisch",
-      "Fulfulde",
-      "Malagasy"
+      "Serbisch",
+      "Estnisch",
+      "Sardisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -17261,9 +17033,9 @@
     "correctAnswer": "Koreanisch",
     "options": [
       "Koreanisch",
-      "Mongolisch",
-      "Birmanisch",
-      "Papiamentu"
+      "Slowakisch",
+      "Ukrainisch",
+      "Norwegisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -17339,7 +17111,7 @@
       "Malaiisch",
       "Armenisch",
       "Georgisch",
-      "Nauruisch"
+      "Ungarisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -17357,8 +17129,8 @@
     "options": [
       "Tamil",
       "Dogri",
-      "Shona",
-      "Sango"
+      "Sango",
+      "Shona"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -17394,9 +17166,9 @@
     "correctAnswer": "Urdu",
     "options": [
       "Urdu",
-      "Komi",
       "Dari",
-      "Fula"
+      "Komi",
+      "Dogri"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -17413,9 +17185,9 @@
     "correctAnswer": "Italienisch",
     "options": [
       "Italienisch",
-      "Mazedonisch",
-      "Französisch",
-      "Katalanisch"
+      "Turkmenisch",
+      "Katalanisch",
+      "Französisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -17432,9 +17204,9 @@
     "correctAnswer": "Persisch",
     "options": [
       "Persisch",
-      "Sardisch",
-      "Fulfulde",
-      "Malagasy"
+      "Estnisch",
+      "Tigrinya",
+      "Russisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -17470,9 +17242,9 @@
     "correctAnswer": "Polnisch",
     "options": [
       "Polnisch",
-      "Malagasy",
-      "Maorisch",
-      "Tigrinya"
+      "Fulfulde",
+      "Englisch",
+      "Maorisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -17641,8 +17413,8 @@
     "correctAnswer": "Rumänisch",
     "options": [
       "Rumänisch",
-      "Hebräisch",
-      "Palauisch",
+      "Amharisch",
+      "Albanisch",
       "Kroatisch"
     ],
     "testedAttribute": null,
@@ -17679,9 +17451,9 @@
     "correctAnswer": "Niederländisch",
     "options": [
       "Niederländisch",
-      "Tschuwaschisch",
       "Marshallesisch",
-      "Siswati (Swati)"
+      "Tschuwaschisch",
+      "Vietnamesisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -17803,25 +17575,6 @@
     "mapTargetId": null
   },
   {
-    "id": "q_lingua_malagasy_lingua-language-official-countries-rev",
-    "entityId": "lingua:malagasy",
-    "entityType": "language",
-    "type": "lingua-language-official-countries-rev",
-    "difficulty": 4,
-    "prompt": "Welche dieser Sprachen ist in 1 Land Amtssprache?",
-    "correctAnswer": "Malagasy",
-    "options": [
-      "Malagasy",
-      "Chamorro",
-      "Setswana",
-      "Arabisch"
-    ],
-    "testedAttribute": null,
-    "answerIsName": true,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
     "id": "q_lingua_tadschikisch_lingua-language-official-countries-rev",
     "entityId": "lingua:tadschikisch",
     "entityType": "language",
@@ -17907,9 +17660,9 @@
     "correctAnswer": "Schwedisch",
     "options": [
       "Schwedisch",
-      "Norwegisch",
-      "Mongolisch",
-      "Kasachisch"
+      "Birmanisch",
+      "Ukrainisch",
+      "Norwegisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -17926,8 +17679,8 @@
     "correctAnswer": "Griechisch",
     "options": [
       "Griechisch",
-      "Papiamentu",
       "Slowenisch",
+      "Birmanisch",
       "Bulgarisch"
     ],
     "testedAttribute": null,
@@ -17974,25 +17727,6 @@
     "mapTargetId": null
   },
   {
-    "id": "q_lingua_fula_lingua-language-official-countries-rev",
-    "entityId": "lingua:fula",
-    "entityType": "language",
-    "type": "lingua-language-official-countries-rev",
-    "difficulty": 4,
-    "prompt": "Welche dieser Sprachen ist in 1 Land Amtssprache?",
-    "correctAnswer": "Fula",
-    "options": [
-      "Fula",
-      "Urdu",
-      "Hindi",
-      "Tamil"
-    ],
-    "testedAttribute": null,
-    "answerIsName": true,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
     "id": "q_lingua_somali_lingua-language-official-countries-rev",
     "entityId": "lingua:somali",
     "entityType": "language",
@@ -18002,7 +17736,7 @@
     "correctAnswer": "Somali",
     "options": [
       "Somali",
-      "Nepali",
+      "Sindhi",
       "Yoruba",
       "Dioula"
     ],
@@ -18078,9 +17812,9 @@
     "correctAnswer": "Albanisch",
     "options": [
       "Albanisch",
-      "Afrikaans",
-      "Nauruisch",
-      "Ungarisch"
+      "Hebräisch",
+      "Japanisch",
+      "Rumänisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -18097,9 +17831,9 @@
     "correctAnswer": "Guaraní",
     "options": [
       "Guaraní",
-      "Bislama",
       "Kikongo",
-      "Maninka"
+      "Balochi",
+      "Soninke"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -18382,9 +18116,9 @@
     "correctAnswer": "Serbisch",
     "options": [
       "Serbisch",
-      "Tigrinya",
-      "Samoisch",
-      "Kurdisch"
+      "Sardisch",
+      "Arabisch",
+      "Türkisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -18439,9 +18173,9 @@
     "correctAnswer": "Kroatisch",
     "options": [
       "Kroatisch",
-      "Malaiisch",
-      "Malayalam",
-      "Nauruisch"
+      "Hebräisch",
+      "Rumänisch",
+      "Ungarisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -18458,8 +18192,8 @@
     "correctAnswer": "Dänisch",
     "options": [
       "Dänisch",
-      "Kannada",
-      "Deutsch",
+      "Paschtu",
+      "Tagalog",
       "Bambara"
     ],
     "testedAttribute": null,
@@ -18554,8 +18288,8 @@
     "options": [
       "Mazedonisch",
       "Italienisch",
-      "Indonesisch",
-      "Katalanisch"
+      "Kalmückisch",
+      "Indonesisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -18715,25 +18449,6 @@
     "mapTargetId": null
   },
   {
-    "id": "q_lingua_weissrussisch_lingua-language-official-countries-rev",
-    "entityId": "lingua:weissrussisch",
-    "entityType": "language",
-    "type": "lingua-language-official-countries-rev",
-    "difficulty": 4,
-    "prompt": "Welche dieser Sprachen ist in 1 Land Amtssprache?",
-    "correctAnswer": "Weißrussisch",
-    "options": [
-      "Weißrussisch",
-      "Turkmenisch",
-      "Französisch",
-      "Portugiesisch"
-    ],
-    "testedAttribute": null,
-    "answerIsName": true,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
     "id": "q_lingua_madagassisch_lingua-language-official-countries-rev",
     "entityId": "lingua:madagassisch",
     "entityType": "language",
@@ -18762,9 +18477,9 @@
     "correctAnswer": "Aymara",
     "options": [
       "Aymara",
-      "Telugu",
-      "Dioula",
-      "Sindhi"
+      "Sindhi",
+      "Nepali",
+      "Yoruba"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -18800,9 +18515,9 @@
     "correctAnswer": "Samoisch",
     "options": [
       "Samoisch",
-      "Persisch",
-      "Xitsonga",
-      "Maorisch"
+      "Serbisch",
+      "Kurdisch",
+      "Tigrinya"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -18895,8 +18610,8 @@
     "correctAnswer": "Setswana",
     "options": [
       "Setswana",
-      "Maorisch",
       "isiXhosa",
+      "Finnisch",
       "Kurdisch"
     ],
     "testedAttribute": null,
@@ -18914,8 +18629,8 @@
     "correctAnswer": "Sesotho (Süd-Sotho)",
     "options": [
       "Sesotho (Süd-Sotho)",
-      "Filipino (Pilipino)",
       "Nord-Sotho (Sepedi)",
+      "Filipino (Pilipino)",
       "Tigrinya (Tigrigna)"
     ],
     "testedAttribute": null,
@@ -19066,9 +18781,9 @@
     "correctAnswer": "Quechua",
     "options": [
       "Quechua",
-      "Bislama",
-      "Kikongo",
-      "Dänisch"
+      "isiZulu",
+      "Maninka",
+      "Bislama"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -19085,9 +18800,9 @@
     "correctAnswer": "Chamorro",
     "options": [
       "Chamorro",
-      "Malagasy",
-      "Xitsonga",
-      "Finnisch"
+      "Russisch",
+      "Persisch",
+      "Maorisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -19123,8 +18838,8 @@
     "correctAnswer": "Siswati (Swati)",
     "options": [
       "Siswati (Swati)",
-      "Seychellenkreol",
       "Kirundi (Rundi)",
+      "Seychellenkreol",
       "Marshallesisch"
     ],
     "testedAttribute": null,
@@ -19446,8 +19161,8 @@
     "correctAnswer": "Filipino (Pilipino)",
     "options": [
       "Filipino (Pilipino)",
-      "Tigrinya (Tigrigna)",
       "Sesotho (Süd-Sotho)",
+      "Tigrinya (Tigrigna)",
       "Nord-Sotho (Sepedi)"
     ],
     "testedAttribute": null,
@@ -69114,7 +68829,7 @@
       "Mandarin (Hochchinesisch)",
       "Venetisch (Venezianisch)",
       "Mordwinisch (Erzya/Moksha)",
-      "Zentralatlas-Tamazight"
+      "Jamaika-Kreol (Patois)"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -69131,9 +68846,9 @@
     "correctAnswer": "Englisch",
     "options": [
       "Englisch",
-      "Maithili",
+      "Kurdisch",
       "Arabisch",
-      "Lettisch"
+      "Bikolano"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -69150,9 +68865,9 @@
     "correctAnswer": "Spanisch",
     "options": [
       "Spanisch",
-      "Schilluk",
-      "Tigrinya",
-      "Russisch"
+      "Maithili",
+      "Estnisch",
+      "Serbisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -69169,9 +68884,9 @@
     "correctAnswer": "Hindi",
     "options": [
       "Hindi",
+      "Fante",
       "Dogri",
-      "Shona",
-      "Hakka"
+      "Dinka"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -69188,9 +68903,9 @@
     "correctAnswer": "Arabisch",
     "options": [
       "Arabisch",
-      "Baskisch",
-      "Rohingya",
-      "Xitsonga"
+      "Finnisch",
+      "Chamorro",
+      "Rohingya"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -69207,9 +68922,9 @@
     "correctAnswer": "Deutsch",
     "options": [
       "Deutsch",
-      "Dagaare",
-      "Jingpho",
-      "Guaraní"
+      "Tarifit",
+      "Tagalog",
+      "Bedscha"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -69226,9 +68941,9 @@
     "correctAnswer": "Französisch",
     "options": [
       "Französisch",
-      "Mazanderani",
-      "Italienisch",
-      "Indonesisch"
+      "Balinesisch",
+      "Kalmückisch",
+      "Italienisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -69245,9 +68960,9 @@
     "correctAnswer": "Portugiesisch",
     "options": [
       "Portugiesisch",
-      "Krimtatarisch",
       "Fidschi-Hindi",
-      "Vietnamesisch"
+      "Vietnamesisch",
+      "Luxemburgisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -69264,9 +68979,9 @@
     "correctAnswer": "Russisch",
     "options": [
       "Russisch",
-      "Maithili",
-      "Fulfulde",
-      "Bhojpuri"
+      "Maorisch",
+      "Dzongkha",
+      "Xitsonga"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -69283,9 +68998,9 @@
     "correctAnswer": "Japanisch",
     "options": [
       "Japanisch",
-      "Albanisch",
-      "Kabylisch",
-      "Rumänisch"
+      "Palauisch",
+      "Walisisch",
+      "Ungarisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -69302,9 +69017,9 @@
     "correctAnswer": "Bengali",
     "options": [
       "Bengali",
-      "Syrisch",
-      "Kikongo",
-      "Bedscha"
+      "Bedscha",
+      "Bislama",
+      "Quechua"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -69321,9 +69036,9 @@
     "correctAnswer": "Punjabi",
     "options": [
       "Punjabi",
-      "Syrisch",
-      "Saraiki",
-      "Santali"
+      "Min Nan",
+      "Dagbani",
+      "Kannada"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -69340,9 +69055,9 @@
     "correctAnswer": "Suaheli (Swahili)",
     "options": [
       "Suaheli (Swahili)",
+      "Chichewa (Nyanja)",
       "Tshivenda (Venda)",
-      "Aserbaidschanisch",
-      "Chichewa (Nyanja)"
+      "Aserbaidschanisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -69359,9 +69074,9 @@
     "correctAnswer": "Türkisch",
     "options": [
       "Türkisch",
-      "Tigrinya",
-      "Lettisch",
-      "Fulfulde"
+      "Sardisch",
+      "Schilluk",
+      "Lettisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -69379,8 +69094,8 @@
     "options": [
       "Koreanisch",
       "Kirgisisch",
-      "Slowenisch",
-      "Maltesisch"
+      "Schwedisch",
+      "Norwegisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -69399,7 +69114,7 @@
       "Vietnamesisch",
       "Fidschi-Hindi",
       "Krimtatarisch",
-      "Luxemburgisch"
+      "Singhalesisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -69416,9 +69131,9 @@
     "correctAnswer": "Indonesisch",
     "options": [
       "Indonesisch",
-      "Kapampangan",
-      "Lombardisch",
-      "Maduresisch"
+      "Tschechisch",
+      "Mazedonisch",
+      "Assamesisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -69435,9 +69150,9 @@
     "correctAnswer": "Telugu",
     "options": [
       "Telugu",
-      "Nepali",
       "Yoruba",
-      "Zhuang"
+      "Sindhi",
+      "Aymara"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -69454,9 +69169,9 @@
     "correctAnswer": "Malaiisch",
     "options": [
       "Malaiisch",
-      "Walisisch",
+      "Tibetisch",
       "Nauruisch",
-      "Ossetisch"
+      "Uigurisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -69473,9 +69188,9 @@
     "correctAnswer": "Tamil",
     "options": [
       "Tamil",
-      "Oromo",
-      "Shona",
-      "Tigre"
+      "Abron",
+      "Mòoré",
+      "Hakka"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -69492,9 +69207,9 @@
     "correctAnswer": "Kantonesisch",
     "options": [
       "Kantonesisch",
-      "Madagassisch",
       "Thailändisch",
-      "Aragonesisch"
+      "Belarussisch",
+      "Baschkirisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -69511,9 +69226,9 @@
     "correctAnswer": "Urdu",
     "options": [
       "Urdu",
+      "Susu",
       "Komi",
-      "Bodo",
-      "Afar"
+      "Mari"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -69530,9 +69245,9 @@
     "correctAnswer": "Javanisch",
     "options": [
       "Javanisch",
-      "Amharisch",
-      "Tuwinisch",
-      "Japanisch"
+      "Usbekisch",
+      "Tatarisch",
+      "Litauisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -69549,9 +69264,9 @@
     "correctAnswer": "Italienisch",
     "options": [
       "Italienisch",
-      "Mazedonisch",
-      "Indonesisch",
-      "Balinesisch"
+      "Balinesisch",
+      "Kapampangan",
+      "Mazedonisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -69568,9 +69283,9 @@
     "correctAnswer": "Gujarati",
     "options": [
       "Gujarati",
-      "Malagasy",
-      "Lettisch",
-      "Awarisch"
+      "Polnisch",
+      "Sardisch",
+      "Bairisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -69587,9 +69302,9 @@
     "correctAnswer": "Persisch",
     "options": [
       "Persisch",
-      "Maorisch",
-      "Tigrinya",
-      "Gujarati"
+      "Kokborok",
+      "Samoisch",
+      "Fulfulde"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -69606,9 +69321,9 @@
     "correctAnswer": "Kannada",
     "options": [
       "Kannada",
-      "Marathi",
-      "Soninke",
-      "isiZulu"
+      "Bislama",
+      "Paschtu",
+      "Tagalog"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -69626,7 +69341,7 @@
     "options": [
       "Polnisch",
       "Schilluk",
-      "Sardisch",
+      "Persisch",
       "Englisch"
     ],
     "testedAttribute": null,
@@ -69644,9 +69359,9 @@
     "correctAnswer": "Paschtu",
     "options": [
       "Paschtu",
-      "Bengali",
-      "Santali",
-      "Dagbani"
+      "Bedscha",
+      "Dagbani",
+      "Bengali"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -69663,9 +69378,9 @@
     "correctAnswer": "Yoruba",
     "options": [
       "Yoruba",
-      "Kabiyé",
-      "Sidama",
-      "Kanuri"
+      "Somali",
+      "Telugu",
+      "Brahui"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -69682,9 +69397,9 @@
     "correctAnswer": "Malayalam",
     "options": [
       "Malayalam",
-      "Albanisch",
-      "Nauruisch",
-      "Tatarisch"
+      "Kabylisch",
+      "Walisisch",
+      "Hebräisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -69701,9 +69416,9 @@
     "correctAnswer": "Ukrainisch",
     "options": [
       "Ukrainisch",
+      "Norwegisch",
       "Burjatisch",
-      "Bretonisch",
-      "Abchasisch"
+      "Mapudungun"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -69720,9 +69435,9 @@
     "correctAnswer": "Usbekisch",
     "options": [
       "Usbekisch",
-      "Uigurisch",
-      "Palauisch",
-      "Tatarisch"
+      "Javanisch",
+      "Malayalam",
+      "Malaiisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -69739,9 +69454,9 @@
     "correctAnswer": "Amharisch",
     "options": [
       "Amharisch",
-      "Uigurisch",
-      "Armenisch",
-      "Tuwinisch"
+      "Kroatisch",
+      "Nauruisch",
+      "Japanisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -69758,9 +69473,9 @@
     "correctAnswer": "Kurdisch",
     "options": [
       "Kurdisch",
-      "Lettisch",
-      "Sardisch",
-      "isiXhosa"
+      "Estnisch",
+      "Russisch",
+      "Türkisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -69777,9 +69492,9 @@
     "correctAnswer": "Thailändisch",
     "options": [
       "Thailändisch",
-      "Kantonesisch",
       "Madagassisch",
-      "Sundanesisch"
+      "Tadschikisch",
+      "Kantonesisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -69796,9 +69511,9 @@
     "correctAnswer": "Rumänisch",
     "options": [
       "Rumänisch",
-      "Uigurisch",
+      "Walisisch",
       "Tuwinisch",
-      "Malayalam"
+      "Uigurisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -69815,9 +69530,9 @@
     "correctAnswer": "Tagalog",
     "options": [
       "Tagalog",
-      "Syrisch",
-      "Ilokano",
-      "Konkani"
+      "Dagbani",
+      "Paschtu",
+      "isiZulu"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -69853,9 +69568,9 @@
     "correctAnswer": "Aserbaidschanisch",
     "options": [
       "Aserbaidschanisch",
+      "Chichewa (Nyanja)",
       "Suaheli (Swahili)",
-      "Asturisch (Bable)",
-      "Chichewa (Nyanja)"
+      "Jakutisch (Sacha)"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -69872,9 +69587,9 @@
     "correctAnswer": "Nepali",
     "options": [
       "Nepali",
-      "Brahui",
-      "Nobiin",
-      "Romani"
+      "Romani",
+      "Yoruba",
+      "Nobiin"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -69891,9 +69606,9 @@
     "correctAnswer": "Kasachisch",
     "options": [
       "Kasachisch",
-      "Slowakisch",
-      "Birmanisch",
-      "Yi (Nuosu)"
+      "Mongolisch",
+      "Schwedisch",
+      "Birmanisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -69910,9 +69625,9 @@
     "correctAnswer": "Ungarisch",
     "options": [
       "Ungarisch",
+      "Georgisch",
       "Palauisch",
-      "Javanisch",
-      "Japanisch"
+      "Uigurisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -69929,9 +69644,9 @@
     "correctAnswer": "isiZulu",
     "options": [
       "isiZulu",
-      "Paschtu",
-      "Nahuatl",
-      "Cebuano"
+      "Soninke",
+      "Cebuano",
+      "Balochi"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -69948,28 +69663,9 @@
     "correctAnswer": "Singhalesisch",
     "options": [
       "Singhalesisch",
+      "Vietnamesisch",
       "Luxemburgisch",
-      "Portugiesisch",
-      "Vietnamesisch"
-    ],
-    "testedAttribute": null,
-    "answerIsName": true,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_lingua_malagasy_lingua-language-native-speakers-rev",
-    "entityId": "lingua:malagasy",
-    "entityType": "language",
-    "type": "lingua-language-native-speakers-rev",
-    "difficulty": 4,
-    "prompt": "Welche dieser Sprachen hat rund 18 Millionen Muttersprachler?",
-    "correctAnswer": "Malagasy",
-    "options": [
-      "Malagasy",
-      "Finnisch",
-      "Sardisch",
-      "Spanisch"
+      "Portugiesisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -69986,9 +69682,9 @@
     "correctAnswer": "Tadschikisch",
     "options": [
       "Tadschikisch",
-      "Thailändisch",
       "Sundanesisch",
-      "Weißrussisch"
+      "Kantonesisch",
+      "Belarussisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -70005,9 +69701,9 @@
     "correctAnswer": "Finnisch",
     "options": [
       "Finnisch",
-      "Dzongkha",
+      "Awarisch",
       "Serbisch",
-      "Bairisch"
+      "Dzongkha"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -70024,9 +69720,9 @@
     "correctAnswer": "Hebräisch",
     "options": [
       "Hebräisch",
-      "Ungarisch",
-      "Galicisch",
-      "Afrikaans"
+      "Tibetisch",
+      "Albanisch",
+      "Kaschmiri"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -70044,7 +69740,7 @@
     "options": [
       "Katalanisch",
       "Indonesisch",
-      "Mazanderani",
+      "Minangkabau",
       "Italienisch"
     ],
     "testedAttribute": null,
@@ -70062,8 +69758,8 @@
     "correctAnswer": "Schwedisch",
     "options": [
       "Schwedisch",
-      "Kirgisisch",
-      "Slowakisch",
+      "Hiligaynon",
+      "Taschelhit",
       "Banyumasan"
     ],
     "testedAttribute": null,
@@ -70081,9 +69777,9 @@
     "correctAnswer": "Griechisch",
     "options": [
       "Griechisch",
-      "Birmanisch",
+      "Bulgarisch",
       "Friaulisch",
-      "Mongolisch"
+      "Koreanisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -70100,9 +69796,9 @@
     "correctAnswer": "Hausa",
     "options": [
       "Hausa",
-      "Dinka",
-      "Shona",
-      "Wolof"
+      "Mòoré",
+      "Lango",
+      "Oromo"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -70119,9 +69815,9 @@
     "correctAnswer": "Birmanisch",
     "options": [
       "Birmanisch",
-      "Friaulisch",
-      "Mapudungun",
-      "Kirgisisch"
+      "Mongolisch",
+      "Slowenisch",
+      "Bretonisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -70138,28 +69834,9 @@
     "correctAnswer": "Sundanesisch",
     "options": [
       "Sundanesisch",
-      "Sizilianisch",
+      "Thailändisch",
       "Hawaiianisch",
-      "Kantonesisch"
-    ],
-    "testedAttribute": null,
-    "answerIsName": true,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_lingua_fula_lingua-language-native-speakers-rev",
-    "entityId": "lingua:fula",
-    "entityType": "language",
-    "type": "lingua-language-native-speakers-rev",
-    "difficulty": 4,
-    "prompt": "Welche dieser Sprachen hat rund 24 Millionen Muttersprachler?",
-    "correctAnswer": "Fula",
-    "options": [
-      "Fula",
-      "Afar",
-      "Dari",
-      "Igbo"
+      "Madagassisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -70177,7 +69854,7 @@
     "options": [
       "Oromo",
       "Hindi",
-      "Awngi",
+      "Wolof",
       "Gedeo"
     ],
     "testedAttribute": null,
@@ -70195,8 +69872,8 @@
     "correctAnswer": "Zentralatlas-Tamazight",
     "options": [
       "Zentralatlas-Tamazight",
-      "marokkanisches Amazigh",
       "Jamaika-Kreol (Patois)",
+      "marokkanisches Amazigh",
       "Venetisch (Venezianisch)"
     ],
     "testedAttribute": null,
@@ -70214,9 +69891,9 @@
     "correctAnswer": "Somali",
     "options": [
       "Somali",
-      "Romani",
-      "Yoruba",
-      "Acholi"
+      "Sidama",
+      "Tuareg",
+      "Kikuyu"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -70234,7 +69911,7 @@
     "options": [
       "Cebuano",
       "Maninka",
-      "Dänisch",
+      "Lingala",
       "Bedscha"
     ],
     "testedAttribute": null,
@@ -70252,28 +69929,9 @@
     "correctAnswer": "Kanuri",
     "options": [
       "Kanuri",
-      "Aymara",
-      "Nepali",
-      "Dioula"
-    ],
-    "testedAttribute": null,
-    "answerIsName": true,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_lingua_madura_lingua-language-native-speakers-rev",
-    "entityId": "lingua:madura",
-    "entityType": "language",
-    "type": "lingua-language-native-speakers-rev",
-    "difficulty": 4,
-    "prompt": "Welche dieser Sprachen hat rund 15 Millionen Muttersprachler?",
-    "correctAnswer": "Madura",
-    "options": [
-      "Madura",
-      "Aymara",
-      "Zhuang",
-      "Somali"
+      "Gilaki",
+      "Romani",
+      "Yoruba"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -70290,9 +69948,9 @@
     "correctAnswer": "Banyumasan",
     "options": [
       "Banyumasan",
-      "Taschelhit",
-      "Schwedisch",
-      "Ukrainisch"
+      "Hiligaynon",
+      "Abchasisch",
+      "Slowakisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -70309,9 +69967,9 @@
     "correctAnswer": "Akan",
     "options": [
       "Akan",
-      "Odia",
-      "Susu",
-      "Igbo"
+      "Igbo",
+      "Afar",
+      "Odia"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -70328,9 +69986,9 @@
     "correctAnswer": "Ilokano",
     "options": [
       "Ilokano",
-      "Dänisch",
-      "Maninka",
-      "Jingpho"
+      "Cebuano",
+      "Soninke",
+      "Maninka"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -70347,9 +70005,9 @@
     "correctAnswer": "Shona",
     "options": [
       "Shona",
-      "Baule",
-      "Mòoré",
-      "Tigre"
+      "Awngi",
+      "Khmer",
+      "Dogri"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -70366,9 +70024,9 @@
     "correctAnswer": "Hiligaynon",
     "options": [
       "Hiligaynon",
-      "Maltesisch",
-      "Kirgisisch",
-      "Papiamentu"
+      "Koreanisch",
+      "Papiamentu",
+      "Griechisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -70385,9 +70043,9 @@
     "correctAnswer": "Taschelhit",
     "options": [
       "Taschelhit",
-      "Ukrainisch",
+      "Mapudungun",
       "Slowenisch",
-      "Yi (Nuosu)"
+      "Maltesisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -70404,9 +70062,9 @@
     "correctAnswer": "Mòoré",
     "options": [
       "Mòoré",
-      "Hindi",
-      "Baule",
-      "Abron"
+      "Khmer",
+      "Wolof",
+      "Iraqw"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -70424,8 +70082,8 @@
     "options": [
       "Bambara",
       "Guaraní",
-      "Bedscha",
-      "Luganda"
+      "Quechua",
+      "Bislama"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -70442,9 +70100,9 @@
     "correctAnswer": "Albanisch",
     "options": [
       "Albanisch",
-      "Uigurisch",
       "Galicisch",
-      "Kabylisch"
+      "Ungarisch",
+      "Walisisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -70462,8 +70120,8 @@
     "options": [
       "Walisisch",
       "Ungarisch",
-      "Ossetisch",
-      "Amharisch"
+      "Tatarisch",
+      "Javanisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -70480,9 +70138,9 @@
     "correctAnswer": "Kabylisch",
     "options": [
       "Kabylisch",
-      "Galicisch",
-      "Ossetisch",
-      "Albanisch"
+      "Amharisch",
+      "Malayalam",
+      "Nauruisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -70499,9 +70157,9 @@
     "correctAnswer": "Buginesisch",
     "options": [
       "Buginesisch",
-      "Katalanisch",
-      "Mazanderani",
-      "Mazedonisch"
+      "Turkmenisch",
+      "Kinyarwanda",
+      "Kalmückisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -70518,9 +70176,9 @@
     "correctAnswer": "Guaraní",
     "options": [
       "Guaraní",
-      "Punjabi",
-      "isiZulu",
-      "Marathi"
+      "Dänisch",
+      "Bedscha",
+      "Syrisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -70537,9 +70195,9 @@
     "correctAnswer": "Tarifit",
     "options": [
       "Tarifit",
-      "Kikongo",
-      "Soninke",
-      "Jingpho"
+      "Bedscha",
+      "Santali",
+      "Tagalog"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -70556,9 +70214,9 @@
     "correctAnswer": "Balinesisch",
     "options": [
       "Balinesisch",
-      "Turkmenisch",
-      "Lombardisch",
-      "Tschechisch"
+      "Französisch",
+      "Maduresisch",
+      "Turkmenisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -70575,7 +70233,7 @@
     "correctAnswer": "Litauisch",
     "options": [
       "Litauisch",
-      "Palauisch",
+      "Kaschmiri",
       "Malayalam",
       "Usbekisch"
     ],
@@ -70594,9 +70252,9 @@
     "correctAnswer": "Georgisch",
     "options": [
       "Georgisch",
-      "Ossetisch",
-      "Javanisch",
-      "Tibetisch"
+      "Hebräisch",
+      "Galicisch",
+      "Afrikaans"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -70613,9 +70271,9 @@
     "correctAnswer": "Wolof",
     "options": [
       "Wolof",
-      "Mòoré",
-      "Dogri",
-      "Oromo"
+      "Awngi",
+      "Baule",
+      "Shona"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -70632,9 +70290,9 @@
     "correctAnswer": "Maninka",
     "options": [
       "Maninka",
-      "Balochi",
-      "Cebuano",
-      "Jingpho"
+      "Konkani",
+      "Tagalog",
+      "Syrisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -70652,8 +70310,8 @@
     "options": [
       "Dagbani",
       "Saraiki",
-      "Jingpho",
-      "Bislama"
+      "Min Nan",
+      "Santali"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -70670,9 +70328,9 @@
     "correctAnswer": "Abron",
     "options": [
       "Abron",
-      "Dogri",
-      "Khmer",
-      "Fante"
+      "Khasi",
+      "Scots",
+      "Baule"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -70708,7 +70366,7 @@
     "correctAnswer": "Luo",
     "options": [
       "Luo",
-      "Mon",
+      "Fur",
       "Fon",
       "Tiv"
     ],
@@ -70728,8 +70386,8 @@
     "options": [
       "Twi",
       "Mon",
-      "Fur",
-      "Fon"
+      "Fon",
+      "Fur"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -70746,9 +70404,9 @@
     "correctAnswer": "Fante",
     "options": [
       "Fante",
-      "Lango",
       "Scots",
-      "Tamil"
+      "Hausa",
+      "Iraqw"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -70765,9 +70423,9 @@
     "correctAnswer": "Dioula",
     "options": [
       "Dioula",
-      "Nobiin",
-      "Gilaki",
-      "Kanuri"
+      "Sindhi",
+      "Zhuang",
+      "Sidama"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -70784,9 +70442,9 @@
     "correctAnswer": "marokkanisches Amazigh",
     "options": [
       "marokkanisches Amazigh",
-      "Jamaika-Kreol (Patois)",
       "Zentralatlas-Tamazight",
-      "Dhivehi (Maledivisch)"
+      "Jamaika-Kreol (Patois)",
+      "Samisch (Nordsamisch)"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -70804,8 +70462,8 @@
     "options": [
       "Susu",
       "Odia",
-      "Lahu",
-      "Garo"
+      "Akan",
+      "Igbo"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -70822,9 +70480,9 @@
     "correctAnswer": "Baule",
     "options": [
       "Baule",
-      "Mòoré",
+      "Shona",
       "Hindi",
-      "Khmer"
+      "Gondi"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -70841,8 +70499,8 @@
     "correctAnswer": "Lango",
     "options": [
       "Lango",
-      "Fante",
-      "Tamil",
+      "Oromo",
+      "Abron",
       "Hausa"
     ],
     "testedAttribute": null,
@@ -70860,9 +70518,9 @@
     "correctAnswer": "Schilluk",
     "options": [
       "Schilluk",
-      "Malagasy",
-      "Sardisch",
-      "Serbisch"
+      "Bhojpuri",
+      "isiXhosa",
+      "Xitsonga"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -70879,7 +70537,7 @@
     "correctAnswer": "Sidama",
     "options": [
       "Sidama",
-      "Aymara",
+      "Nepali",
       "Telugu",
       "Zhuang"
     ],
@@ -70898,9 +70556,9 @@
     "correctAnswer": "Afar",
     "options": [
       "Afar",
-      "Mari",
-      "Odia",
-      "Lahu"
+      "Nuer",
+      "Lahu",
+      "Susu"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -70917,8 +70575,8 @@
     "correctAnswer": "Bodo",
     "options": [
       "Bodo",
-      "Fula",
-      "Dari",
+      "Mari",
+      "Igbo",
       "Lahu"
     ],
     "testedAttribute": null,
@@ -70937,8 +70595,8 @@
     "options": [
       "Lettisch",
       "Estnisch",
-      "Serbisch",
-      "Bosnisch"
+      "Mandinka",
+      "Kurdisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -70956,8 +70614,8 @@
     "options": [
       "Dinka",
       "Hausa",
-      "Wolof",
-      "Hakka"
+      "Shona",
+      "Abron"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -70974,9 +70632,9 @@
     "correctAnswer": "Mandinka",
     "options": [
       "Mandinka",
-      "Persisch",
-      "Rohingya",
-      "Schilluk"
+      "Kurdisch",
+      "Russisch",
+      "Chamorro"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -70993,9 +70651,9 @@
     "correctAnswer": "Estnisch",
     "options": [
       "Estnisch",
-      "Awarisch",
-      "Chamorro",
-      "Bosnisch"
+      "Lettisch",
+      "Serbisch",
+      "Tigrinya"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -71012,8 +70670,8 @@
     "correctAnswer": "Acholi",
     "options": [
       "Acholi",
-      "Romani",
-      "Nepali",
+      "Somali",
+      "Nobiin",
       "Aymara"
     ],
     "testedAttribute": null,
@@ -71031,9 +70689,9 @@
     "correctAnswer": "Bedscha",
     "options": [
       "Bedscha",
-      "Saraiki",
-      "Kannada",
-      "Bengali"
+      "Paschtu",
+      "Lingala",
+      "Dänisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -71050,9 +70708,9 @@
     "correctAnswer": "Tibetisch",
     "options": [
       "Tibetisch",
-      "Javanisch",
-      "Hebräisch",
-      "Usbekisch"
+      "Kroatisch",
+      "Amharisch",
+      "Afrikaans"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -71071,7 +70729,7 @@
       "Tuareg",
       "Irisch",
       "Kikuyu",
-      "Somali"
+      "Sindhi"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -71089,8 +70747,8 @@
     "options": [
       "Dagaare",
       "Konkani",
-      "Nahuatl",
-      "Maninka"
+      "Dagbani",
+      "Marathi"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -71107,9 +70765,9 @@
     "correctAnswer": "Soninke",
     "options": [
       "Soninke",
-      "Quechua",
       "Konkani",
-      "Marathi"
+      "Saraiki",
+      "Kannada"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -71126,9 +70784,9 @@
     "correctAnswer": "Garo",
     "options": [
       "Garo",
-      "Dari",
+      "Tulu",
       "Lahu",
-      "Tulu"
+      "Igbo"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -71145,9 +70803,9 @@
     "correctAnswer": "Gedeo",
     "options": [
       "Gedeo",
-      "Abron",
-      "Hausa",
-      "Tamil"
+      "Khasi",
+      "Tamil",
+      "Oromo"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -71164,9 +70822,9 @@
     "correctAnswer": "Kabiyé",
     "options": [
       "Kabiyé",
+      "Sindhi",
       "Yoruba",
-      "Nobiin",
-      "Aymara"
+      "Nobiin"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -71183,9 +70841,9 @@
     "correctAnswer": "Jingpho",
     "options": [
       "Jingpho",
-      "Marathi",
       "Deutsch",
-      "Kannada"
+      "Dagaare",
+      "Bedscha"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -71203,8 +70861,8 @@
     "options": [
       "Nuer",
       "Garo",
-      "Urdu",
-      "Dari"
+      "Akan",
+      "Urdu"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -71221,9 +70879,9 @@
     "correctAnswer": "Baskisch",
     "options": [
       "Baskisch",
-      "Russisch",
-      "Rohingya",
-      "Englisch"
+      "Bhojpuri",
+      "Polnisch",
+      "Bairisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -71240,9 +70898,9 @@
     "correctAnswer": "Farefare",
     "options": [
       "Farefare",
+      "Fulfulde",
       "Bhojpuri",
-      "Jiddisch",
-      "Türkisch"
+      "Chamorro"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -71259,9 +70917,9 @@
     "correctAnswer": "Fur",
     "options": [
       "Fur",
+      "Luo",
       "Ewe",
-      "Mon",
-      "Tiv"
+      "Mon"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -71280,7 +70938,7 @@
       "Ga",
       "Wu",
       "Luo",
-      "Ewe"
+      "Mon"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -71297,9 +70955,9 @@
     "correctAnswer": "Kokborok",
     "options": [
       "Kokborok",
-      "Spanisch",
-      "Schilluk",
-      "Samoisch"
+      "Bhojpuri",
+      "Sorbisch",
+      "Persisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -71316,9 +70974,9 @@
     "correctAnswer": "Nobiin",
     "options": [
       "Nobiin",
-      "Dioula",
-      "Romani",
-      "Acholi"
+      "Acholi",
+      "Kikuyu",
+      "Kabiyé"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -71335,9 +70993,9 @@
     "correctAnswer": "Akha",
     "options": [
       "Akha",
+      "Susu",
       "Komi",
-      "Odia",
-      "Mari"
+      "Akan"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -71354,9 +71012,9 @@
     "correctAnswer": "Awngi",
     "options": [
       "Awngi",
-      "Gondi",
-      "Oromo",
-      "Baule"
+      "Baule",
+      "Hindi",
+      "Lango"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -71373,9 +71031,9 @@
     "correctAnswer": "Iraqw",
     "options": [
       "Iraqw",
-      "Khmer",
-      "Scots",
-      "Mòoré"
+      "Mòoré",
+      "Hakka",
+      "Tigre"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -71392,9 +71050,9 @@
     "correctAnswer": "Lahu",
     "options": [
       "Lahu",
-      "Tulu",
       "Bodo",
-      "Afar"
+      "Akha",
+      "Odia"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -71411,9 +71069,9 @@
     "correctAnswer": "Mari",
     "options": [
       "Mari",
-      "Igbo",
-      "Komi",
-      "Tulu"
+      "Garo",
+      "Dari",
+      "Igbo"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -71431,8 +71089,8 @@
     "options": [
       "Schemaitisch",
       "Tadschikisch",
-      "Belarussisch",
-      "Hawaiianisch"
+      "Hawaiianisch",
+      "Belarussisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -71449,9 +71107,9 @@
     "correctAnswer": "Dzongkha",
     "options": [
       "Dzongkha",
-      "Estnisch",
-      "Samoisch",
-      "Setswana"
+      "Chamorro",
+      "Kokborok",
+      "Samoisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -71468,9 +71126,9 @@
     "correctAnswer": "Irisch",
     "options": [
       "Irisch",
-      "Sidama",
-      "Brahui",
-      "Romani"
+      "Tuareg",
+      "Kanuri",
+      "Sidama"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -71487,9 +71145,9 @@
     "correctAnswer": "Khmer",
     "options": [
       "Khmer",
-      "Mòoré",
-      "Fante",
-      "Hindi"
+      "Tigre",
+      "Tamil",
+      "Fante"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -71506,9 +71164,9 @@
     "correctAnswer": "Assamesisch",
     "options": [
       "Assamesisch",
+      "Balinesisch",
       "Kinyarwanda",
-      "Kalmückisch",
-      "Indonesisch"
+      "Turkmenisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -71525,9 +71183,9 @@
     "correctAnswer": "Tschechisch",
     "options": [
       "Tschechisch",
-      "Assamesisch",
-      "Italienisch",
-      "Buginesisch"
+      "Lombardisch",
+      "Minangkabau",
+      "Mazanderani"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -71544,8 +71202,8 @@
     "correctAnswer": "Afrikaans",
     "options": [
       "Afrikaans",
-      "Tatarisch",
-      "Litauisch",
+      "Hebräisch",
+      "Georgisch",
       "Japanisch"
     ],
     "testedAttribute": null,
@@ -71563,9 +71221,9 @@
     "correctAnswer": "Dari",
     "options": [
       "Dari",
-      "Bodo",
-      "Akan",
-      "Lahu"
+      "Tulu",
+      "Nuer",
+      "Mari"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -71582,9 +71240,9 @@
     "correctAnswer": "Bulgarisch",
     "options": [
       "Bulgarisch",
-      "Mapudungun",
-      "Hiligaynon",
-      "Papiamentu"
+      "Friaulisch",
+      "Slowenisch",
+      "Banyumasan"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -71601,9 +71259,9 @@
     "correctAnswer": "Serbisch",
     "options": [
       "Serbisch",
-      "Finnisch",
-      "Malagasy",
-      "Persisch"
+      "Baskisch",
+      "Bairisch",
+      "Rohingya"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -71620,9 +71278,9 @@
     "correctAnswer": "Belarussisch",
     "options": [
       "Belarussisch",
-      "Sundanesisch",
-      "Kantonesisch",
-      "Thailändisch"
+      "Baschkirisch",
+      "Hawaiianisch",
+      "Kantonesisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -71639,9 +71297,9 @@
     "correctAnswer": "Tigrinya",
     "options": [
       "Tigrinya",
-      "Kokborok",
-      "Estnisch",
-      "Sorbisch"
+      "Rohingya",
+      "Persisch",
+      "Bhojpuri"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -71659,8 +71317,8 @@
     "options": [
       "Kroatisch",
       "Rumänisch",
-      "Tuwinisch",
-      "Galicisch"
+      "Amharisch",
+      "Afrikaans"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -71677,9 +71335,9 @@
     "correctAnswer": "Dänisch",
     "options": [
       "Dänisch",
-      "Guaraní",
-      "Jingpho",
-      "Bislama"
+      "Tarifit",
+      "Bislama",
+      "Bedscha"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -71696,9 +71354,9 @@
     "correctAnswer": "Slowakisch",
     "options": [
       "Slowakisch",
-      "Burjatisch",
-      "Schwedisch",
-      "Slowenisch"
+      "Norwegisch",
+      "Slowenisch",
+      "Griechisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -71716,8 +71374,8 @@
     "options": [
       "Laotisch",
       "Englisch",
-      "Tigrinya",
-      "Bikolano"
+      "Maorisch",
+      "Fulfulde"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -71734,8 +71392,8 @@
     "correctAnswer": "Norwegisch",
     "options": [
       "Norwegisch",
+      "Friaulisch",
       "Papiamentu",
-      "Bretonisch",
       "Burjatisch"
     ],
     "testedAttribute": null,
@@ -71753,9 +71411,9 @@
     "correctAnswer": "Gondi",
     "options": [
       "Gondi",
-      "Khmer",
-      "Dinka",
-      "Tigre"
+      "Iraqw",
+      "Baule",
+      "Khmer"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -71772,9 +71430,9 @@
     "correctAnswer": "Slowenisch",
     "options": [
       "Slowenisch",
-      "Udmurtisch",
-      "Banyumasan",
-      "Papiamentu"
+      "Maltesisch",
+      "Bretonisch",
+      "Udmurtisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -71791,9 +71449,9 @@
     "correctAnswer": "Mazedonisch",
     "options": [
       "Mazedonisch",
-      "Balinesisch",
-      "Tschechisch",
-      "Französisch"
+      "Buginesisch",
+      "Mazanderani",
+      "Maduresisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -71811,8 +71469,8 @@
     "options": [
       "Tulu",
       "Garo",
-      "Mari",
-      "Lahu"
+      "Nuer",
+      "Dari"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -71831,7 +71489,7 @@
       "Brahui",
       "Zhuang",
       "Irisch",
-      "Kanuri"
+      "Telugu"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -71848,9 +71506,9 @@
     "correctAnswer": "Sardisch",
     "options": [
       "Sardisch",
+      "Serbisch",
       "Polnisch",
-      "Awarisch",
-      "Bikolano"
+      "Schilluk"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -71867,9 +71525,9 @@
     "correctAnswer": "Jiddisch",
     "options": [
       "Jiddisch",
-      "Bhojpuri",
-      "Polnisch",
-      "Maorisch"
+      "Maithili",
+      "Farefare",
+      "Finnisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -71886,8 +71544,8 @@
     "correctAnswer": "Khasi",
     "options": [
       "Khasi",
-      "Lango",
-      "Khmer",
+      "Wolof",
+      "Shona",
       "Scots"
     ],
     "testedAttribute": null,
@@ -71905,9 +71563,9 @@
     "correctAnswer": "Mon",
     "options": [
       "Mon",
-      "Twi",
+      "Ewe",
       "Luo",
-      "Fur"
+      "Fon"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -71925,8 +71583,8 @@
     "options": [
       "Tigre",
       "Hausa",
-      "Baule",
-      "Oromo"
+      "Lango",
+      "Dinka"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -71943,9 +71601,9 @@
     "correctAnswer": "Westfriesisch",
     "options": [
       "Westfriesisch",
-      "Vietnamesisch",
-      "Krimtatarisch",
-      "Luxemburgisch"
+      "Luxemburgisch",
+      "Fidschi-Hindi",
+      "Singhalesisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -71962,9 +71620,9 @@
     "correctAnswer": "Maltesisch",
     "options": [
       "Maltesisch",
-      "Kasachisch",
-      "Taschelhit",
-      "Kirgisisch"
+      "Mongolisch",
+      "Mapudungun",
+      "Griechisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -71981,9 +71639,9 @@
     "correctAnswer": "Syrisch",
     "options": [
       "Syrisch",
-      "Dagaare",
-      "Nahuatl",
-      "Dagbani"
+      "Saraiki",
+      "Konkani",
+      "Marathi"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -72000,9 +71658,9 @@
     "correctAnswer": "Luxemburgisch",
     "options": [
       "Luxemburgisch",
-      "Fidschi-Hindi",
-      "Krimtatarisch",
-      "Westfriesisch"
+      "Westfriesisch",
+      "Singhalesisch",
+      "Vietnamesisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -72019,9 +71677,9 @@
     "correctAnswer": "Marathi",
     "options": [
       "Marathi",
-      "Bambara",
-      "Luganda",
-      "Paschtu"
+      "Bengali",
+      "Bedscha",
+      "Kannada"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -72039,8 +71697,8 @@
     "options": [
       "Wu",
       "Ga",
-      "Tiv",
-      "Mon"
+      "Twi",
+      "Fon"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -72057,9 +71715,9 @@
     "correctAnswer": "Min Nan",
     "options": [
       "Min Nan",
-      "isiZulu",
-      "Konkani",
-      "Guaraní"
+      "Santali",
+      "Maninka",
+      "Saraiki"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -72076,9 +71734,9 @@
     "correctAnswer": "Hakka",
     "options": [
       "Hakka",
-      "Awngi",
       "Dogri",
-      "Khasi"
+      "Tamil",
+      "Dinka"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -72095,9 +71753,9 @@
     "correctAnswer": "Romani",
     "options": [
       "Romani",
-      "Nobiin",
-      "Zhuang",
-      "Brahui"
+      "Acholi",
+      "Gilaki",
+      "Zhuang"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -72114,9 +71772,9 @@
     "correctAnswer": "Igbo",
     "options": [
       "Igbo",
-      "Nuer",
-      "Odia",
-      "Komi"
+      "Bodo",
+      "Komi",
+      "Urdu"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -72133,9 +71791,9 @@
     "correctAnswer": "Tatarisch",
     "options": [
       "Tatarisch",
-      "Amharisch",
       "Usbekisch",
-      "Kaschmiri"
+      "Kaschmiri",
+      "Afrikaans"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -72152,9 +71810,9 @@
     "correctAnswer": "Maithili",
     "options": [
       "Maithili",
-      "Malagasy",
-      "Baskisch",
-      "Englisch"
+      "Rohingya",
+      "Arabisch",
+      "Estnisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -72171,9 +71829,9 @@
     "correctAnswer": "Lingala",
     "options": [
       "Lingala",
-      "Jingpho",
-      "Min Nan",
-      "Punjabi"
+      "Cebuano",
+      "Dagbani",
+      "Kannada"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -72190,9 +71848,9 @@
     "correctAnswer": "Turkmenisch",
     "options": [
       "Turkmenisch",
-      "Assamesisch",
-      "Kalmückisch",
-      "Lombardisch"
+      "Lombardisch",
+      "Balinesisch",
+      "Tschechisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -72209,9 +71867,9 @@
     "correctAnswer": "Odia",
     "options": [
       "Odia",
-      "Komi",
-      "Igbo",
-      "Nuer"
+      "Dari",
+      "Urdu",
+      "Igbo"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -72228,9 +71886,9 @@
     "correctAnswer": "Balochi",
     "options": [
       "Balochi",
-      "Paschtu",
+      "Bambara",
       "Deutsch",
-      "Nahuatl"
+      "Bedscha"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -72247,9 +71905,9 @@
     "correctAnswer": "Uigurisch",
     "options": [
       "Uigurisch",
-      "Palauisch",
-      "Ungarisch",
-      "Kaschmiri"
+      "Kabylisch",
+      "Tatarisch",
+      "Afrikaans"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -72267,8 +71925,8 @@
     "options": [
       "Kinyarwanda",
       "Minangkabau",
-      "Französisch",
-      "Italienisch"
+      "Indonesisch",
+      "Französisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -72285,9 +71943,9 @@
     "correctAnswer": "Armenisch",
     "options": [
       "Armenisch",
-      "Nauruisch",
+      "Galicisch",
       "Albanisch",
-      "Uigurisch"
+      "Litauisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -72304,9 +71962,9 @@
     "correctAnswer": "Mongolisch",
     "options": [
       "Mongolisch",
-      "Maltesisch",
-      "Bulgarisch",
-      "Kasachisch"
+      "Bretonisch",
+      "Hiligaynon",
+      "Abchasisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -72323,9 +71981,9 @@
     "correctAnswer": "Kirgisisch",
     "options": [
       "Kirgisisch",
-      "Hiligaynon",
+      "Griechisch",
       "Birmanisch",
-      "Udmurtisch"
+      "Hiligaynon"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -72342,9 +72000,9 @@
     "correctAnswer": "Fulfulde",
     "options": [
       "Fulfulde",
-      "Awarisch",
-      "Farefare",
-      "Jiddisch"
+      "Baskisch",
+      "Serbisch",
+      "Bhojpuri"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -72361,9 +72019,9 @@
     "correctAnswer": "Bikolano",
     "options": [
       "Bikolano",
+      "Maithili",
       "Lettisch",
-      "Gujarati",
-      "Estnisch"
+      "Gujarati"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -72380,9 +72038,9 @@
     "correctAnswer": "Minangkabau",
     "options": [
       "Minangkabau",
-      "Assamesisch",
+      "Maduresisch",
       "Kapampangan",
-      "Kinyarwanda"
+      "Kalmückisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -72400,27 +72058,8 @@
     "options": [
       "Santali",
       "Deutsch",
-      "Konkani",
-      "Quechua"
-    ],
-    "testedAttribute": null,
-    "answerIsName": true,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_lingua_weissrussisch_lingua-language-native-speakers-rev",
-    "entityId": "lingua:weissrussisch",
-    "entityType": "language",
-    "type": "lingua-language-native-speakers-rev",
-    "difficulty": 4,
-    "prompt": "Welche dieser Sprachen hat rund 7,6 Millionen Muttersprachler?",
-    "correctAnswer": "Weißrussisch",
-    "options": [
-      "Weißrussisch",
-      "Thailändisch",
-      "Tadschikisch",
-      "Hawaiianisch"
+      "K'iche'",
+      "isiZulu"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -72437,9 +72076,9 @@
     "correctAnswer": "Madagassisch",
     "options": [
       "Madagassisch",
+      "Hawaiianisch",
       "Sizilianisch",
-      "Kantonesisch",
-      "Tadschikisch"
+      "Schemaitisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -72456,9 +72095,9 @@
     "correctAnswer": "Aymara",
     "options": [
       "Aymara",
-      "Gilaki",
       "Yoruba",
-      "Kikuyu"
+      "Dioula",
+      "Nepali"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -72475,9 +72114,9 @@
     "correctAnswer": "Mazanderani",
     "options": [
       "Mazanderani",
-      "Turkmenisch",
+      "Lombardisch",
       "Kapampangan",
-      "Kinyarwanda"
+      "Turkmenisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -72490,13 +72129,13 @@
     "entityType": "language",
     "type": "lingua-language-native-speakers-rev",
     "difficulty": 4,
-    "prompt": "Welche dieser Sprachen hat rund 2,6 Millionen Muttersprachler?",
+    "prompt": "Welche dieser Sprachen hat rund 2,5 Millionen Muttersprachler?",
     "correctAnswer": "Bosnisch",
     "options": [
       "Bosnisch",
-      "Dzongkha",
-      "Finnisch",
-      "Englisch"
+      "Englisch",
+      "Kurdisch",
+      "Farefare"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -72509,13 +72148,13 @@
     "entityType": "language",
     "type": "lingua-language-native-speakers-rev",
     "difficulty": 4,
-    "prompt": "Welche dieser Sprachen hat rund 2,5 Millionen Muttersprachler?",
+    "prompt": "Welche dieser Sprachen hat rund 2,6 Millionen Muttersprachler?",
     "correctAnswer": "Gilaki",
     "options": [
       "Gilaki",
-      "Zhuang",
-      "Sidama",
-      "Yoruba"
+      "Kanuri",
+      "Nepali",
+      "Nobiin"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -72532,9 +72171,9 @@
     "correctAnswer": "Konkani",
     "options": [
       "Konkani",
-      "Dänisch",
-      "Luganda",
-      "Bambara"
+      "Ilokano",
+      "Punjabi",
+      "Quechua"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -72551,9 +72190,9 @@
     "correctAnswer": "Nahuatl",
     "options": [
       "Nahuatl",
-      "Dagaare",
-      "Jingpho",
-      "Lingala"
+      "Balochi",
+      "Punjabi",
+      "Luganda"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -72570,7 +72209,7 @@
     "correctAnswer": "Tschetschenisch",
     "options": [
       "Tschetschenisch",
-      "Seychellenkreol",
+      "Kirundi (Rundi)",
       "Siswati (Swati)",
       "Luba (Tshiluba)"
     ],
@@ -72589,9 +72228,9 @@
     "correctAnswer": "Awarisch",
     "options": [
       "Awarisch",
-      "Samoisch",
+      "Lettisch",
       "Laotisch",
-      "Jiddisch"
+      "Dzongkha"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -72608,9 +72247,9 @@
     "correctAnswer": "Abchasisch",
     "options": [
       "Abchasisch",
-      "Taschelhit",
-      "Norwegisch",
-      "Bretonisch"
+      "Friaulisch",
+      "Kasachisch",
+      "Schwedisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -72627,9 +72266,9 @@
     "correctAnswer": "Galicisch",
     "options": [
       "Galicisch",
-      "Tatarisch",
-      "Georgisch",
-      "Tuwinisch"
+      "Javanisch",
+      "Hebräisch",
+      "Georgisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -72646,9 +72285,9 @@
     "correctAnswer": "Maduresisch",
     "options": [
       "Maduresisch",
-      "Kapampangan",
-      "Turkmenisch",
-      "Minangkabau"
+      "Lombardisch",
+      "Minangkabau",
+      "Tschechisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -72665,9 +72304,9 @@
     "correctAnswer": "Samoisch",
     "options": [
       "Samoisch",
+      "Maorisch",
       "Bosnisch",
-      "Persisch",
-      "Maorisch"
+      "Finnisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -72684,9 +72323,9 @@
     "correctAnswer": "Maorisch",
     "options": [
       "Maorisch",
-      "Russisch",
-      "Setswana",
-      "Türkisch"
+      "Samoisch",
+      "Bairisch",
+      "Xitsonga"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -72703,8 +72342,8 @@
     "correctAnswer": "Hawaiianisch",
     "options": [
       "Hawaiianisch",
-      "Tadschikisch",
-      "Schemaitisch",
+      "Madagassisch",
+      "Sizilianisch",
       "Sundanesisch"
     ],
     "testedAttribute": null,
@@ -72722,9 +72361,9 @@
     "correctAnswer": "Saraiki",
     "options": [
       "Saraiki",
-      "Dagaare",
-      "Tarifit",
-      "Quechua"
+      "Dagbani",
+      "isiZulu",
+      "Soninke"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -72741,9 +72380,9 @@
     "correctAnswer": "Rohingya",
     "options": [
       "Rohingya",
-      "Sorbisch",
-      "Awarisch",
-      "Gujarati"
+      "Russisch",
+      "Finnisch",
+      "Türkisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -72762,7 +72401,7 @@
       "Zhuang",
       "Telugu",
       "Sidama",
-      "Aymara"
+      "Tuareg"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -72779,8 +72418,8 @@
     "correctAnswer": "Sindhi",
     "options": [
       "Sindhi",
-      "Acholi",
-      "Kanuri",
+      "Sidama",
+      "Dioula",
       "Kabiyé"
     ],
     "testedAttribute": null,
@@ -72798,9 +72437,9 @@
     "correctAnswer": "Bhojpuri",
     "options": [
       "Bhojpuri",
+      "Persisch",
       "Jiddisch",
-      "Bikolano",
-      "Tigrinya"
+      "Farefare"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -72817,9 +72456,9 @@
     "correctAnswer": "Kapampangan",
     "options": [
       "Kapampangan",
-      "Minangkabau",
-      "Turkmenisch",
-      "Tschechisch"
+      "Buginesisch",
+      "Katalanisch",
+      "Minangkabau"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -72855,9 +72494,9 @@
     "correctAnswer": "Papiamentu",
     "options": [
       "Papiamentu",
-      "Mongolisch",
       "Ukrainisch",
-      "Maltesisch"
+      "Maltesisch",
+      "Kirgisisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -72874,9 +72513,9 @@
     "correctAnswer": "Setswana",
     "options": [
       "Setswana",
-      "Chamorro",
-      "Gujarati",
-      "Schilluk"
+      "Estnisch",
+      "Samoisch",
+      "Tigrinya"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -72912,9 +72551,9 @@
     "correctAnswer": "isiXhosa",
     "options": [
       "isiXhosa",
-      "Serbisch",
-      "Sardisch",
-      "Chamorro"
+      "Maorisch",
+      "Chamorro",
+      "Sorbisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -72931,9 +72570,9 @@
     "correctAnswer": "Xitsonga",
     "options": [
       "Xitsonga",
-      "Gujarati",
-      "Kurdisch",
-      "Bhojpuri"
+      "Bhojpuri",
+      "Maithili",
+      "Laotisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -72950,9 +72589,9 @@
     "correctAnswer": "Luganda",
     "options": [
       "Luganda",
-      "Kannada",
-      "Nahuatl",
-      "Dagbani"
+      "Kikongo",
+      "Bambara",
+      "Deutsch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -72969,9 +72608,9 @@
     "correctAnswer": "Kikuyu",
     "options": [
       "Kikuyu",
-      "Nepali",
-      "Gilaki",
-      "Nobiin"
+      "Somali",
+      "Acholi",
+      "Dioula"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -72988,9 +72627,9 @@
     "correctAnswer": "Kikongo",
     "options": [
       "Kikongo",
-      "Soninke",
-      "Maninka",
-      "Paschtu"
+      "Ilokano",
+      "Marathi",
+      "Bengali"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -73007,8 +72646,8 @@
     "correctAnswer": "Chichewa (Nyanja)",
     "options": [
       "Chichewa (Nyanja)",
+      "Asturisch (Bable)",
       "Tshivenda (Venda)",
-      "Suaheli (Swahili)",
       "Jakutisch (Sacha)"
     ],
     "testedAttribute": null,
@@ -73026,9 +72665,9 @@
     "correctAnswer": "Yi (Nuosu)",
     "options": [
       "Yi (Nuosu)",
+      "Burjatisch",
       "Schwedisch",
-      "Taschelhit",
-      "Slowakisch"
+      "Kirgisisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -73045,9 +72684,9 @@
     "correctAnswer": "K'iche'",
     "options": [
       "K'iche'",
-      "Maninka",
-      "Santali",
-      "Saraiki"
+      "Quechua",
+      "Saraiki",
+      "Maninka"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -73064,9 +72703,9 @@
     "correctAnswer": "Yukatekisches Maya",
     "options": [
       "Yukatekisches Maya",
+      "Jakutisch (Sacha)",
       "Asturisch (Bable)",
-      "Nord-Sotho (Sepedi)",
-      "Kapverdisches Kreol"
+      "Aserbaidschanisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -73083,8 +72722,8 @@
     "correctAnswer": "Mapudungun",
     "options": [
       "Mapudungun",
-      "Slowenisch",
       "Abchasisch",
+      "Slowakisch",
       "Udmurtisch"
     ],
     "testedAttribute": null,
@@ -73102,9 +72741,9 @@
     "correctAnswer": "Sorbisch",
     "options": [
       "Sorbisch",
-      "Awarisch",
-      "Sardisch",
-      "Baskisch"
+      "Maorisch",
+      "Baskisch",
+      "Samoisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -73121,9 +72760,9 @@
     "correctAnswer": "Bretonisch",
     "options": [
       "Bretonisch",
-      "Taschelhit",
       "Udmurtisch",
-      "Slowakisch"
+      "Kirgisisch",
+      "Taschelhit"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -73140,9 +72779,9 @@
     "correctAnswer": "Schottisch-Gälisch",
     "options": [
       "Schottisch-Gälisch",
-      "Meitei (Manipuri)",
-      "Asturisch (Bable)",
-      "Sesotho (Süd-Sotho)"
+      "Jakutisch (Sacha)",
+      "Sesotho (Süd-Sotho)",
+      "Filipino (Pilipino)"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -73178,9 +72817,9 @@
     "correctAnswer": "Ossetisch",
     "options": [
       "Ossetisch",
-      "Amharisch",
-      "Usbekisch",
-      "Rumänisch"
+      "Tatarisch",
+      "Armenisch",
+      "Tuwinisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -73197,9 +72836,9 @@
     "correctAnswer": "Burjatisch",
     "options": [
       "Burjatisch",
-      "Taschelhit",
-      "Mongolisch",
-      "Maltesisch"
+      "Bulgarisch",
+      "Slowenisch",
+      "Mongolisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -73216,9 +72855,9 @@
     "correctAnswer": "Bislama",
     "options": [
       "Bislama",
-      "Santali",
+      "Bambara",
       "Bengali",
-      "Dänisch"
+      "Saraiki"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -73235,8 +72874,8 @@
     "correctAnswer": "Neapolitanisch",
     "options": [
       "Neapolitanisch",
-      "Marshallesisch",
       "Tschuwaschisch",
+      "Marshallesisch",
       "Niederländisch"
     ],
     "testedAttribute": null,
@@ -73254,9 +72893,9 @@
     "correctAnswer": "Sizilianisch",
     "options": [
       "Sizilianisch",
+      "Thailändisch",
       "Hawaiianisch",
-      "Weißrussisch",
-      "Baschkirisch"
+      "Sundanesisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -73292,9 +72931,9 @@
     "correctAnswer": "Bairisch",
     "options": [
       "Bairisch",
-      "Maithili",
-      "isiXhosa",
-      "Malagasy"
+      "Chamorro",
+      "Setswana",
+      "Samoisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -73330,9 +72969,9 @@
     "correctAnswer": "Scots",
     "options": [
       "Scots",
-      "Tamil",
-      "Shona",
-      "Mòoré"
+      "Mòoré",
+      "Tigre",
+      "Hausa"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -73351,7 +72990,7 @@
       "Kaschmiri",
       "Ossetisch",
       "Hebräisch",
-      "Amharisch"
+      "Tibetisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -73368,9 +73007,9 @@
     "correctAnswer": "Meitei (Manipuri)",
     "options": [
       "Meitei (Manipuri)",
-      "Suaheli (Swahili)",
       "Tshivenda (Venda)",
-      "Asturisch (Bable)"
+      "Suaheli (Swahili)",
+      "Jakutisch (Sacha)"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -73387,8 +73026,8 @@
     "correctAnswer": "Dhivehi (Maledivisch)",
     "options": [
       "Dhivehi (Maledivisch)",
-      "Jamaika-Kreol (Patois)",
       "marokkanisches Amazigh",
+      "Jamaika-Kreol (Patois)",
       "Filipino (Pilipino)"
     ],
     "testedAttribute": null,
@@ -73425,9 +73064,9 @@
     "correctAnswer": "Quechua",
     "options": [
       "Quechua",
-      "Balochi",
-      "Soninke",
-      "Min Nan"
+      "isiZulu",
+      "Paschtu",
+      "Deutsch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -73444,9 +73083,9 @@
     "correctAnswer": "Chamorro",
     "options": [
       "Chamorro",
-      "Arabisch",
-      "Laotisch",
-      "Bairisch"
+      "Xitsonga",
+      "Kokborok",
+      "Spanisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -73463,9 +73102,9 @@
     "correctAnswer": "Jamaika-Kreol (Patois)",
     "options": [
       "Jamaika-Kreol (Patois)",
-      "Zentralatlas-Tamazight",
       "marokkanisches Amazigh",
-      "Ndebele (Süd-Ndebele)"
+      "Zentralatlas-Tamazight",
+      "Samisch (Nordsamisch)"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -73483,8 +73122,8 @@
     "options": [
       "Tshivenda (Venda)",
       "Suaheli (Swahili)",
-      "Asturisch (Bable)",
-      "Meitei (Manipuri)"
+      "Meitei (Manipuri)",
+      "Asturisch (Bable)"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -73501,9 +73140,9 @@
     "correctAnswer": "Siswati (Swati)",
     "options": [
       "Siswati (Swati)",
-      "Tschetschenisch",
       "Seychellenkreol",
-      "Luba (Tshiluba)"
+      "Luba (Tshiluba)",
+      "Tschetschenisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -73539,9 +73178,9 @@
     "correctAnswer": "Nord-Sotho (Sepedi)",
     "options": [
       "Nord-Sotho (Sepedi)",
-      "Tigrinya (Tigrigna)",
       "Kapverdisches Kreol",
-      "Sesotho (Süd-Sotho)"
+      "Sesotho (Süd-Sotho)",
+      "Tigrinya (Tigrigna)"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -73558,9 +73197,9 @@
     "correctAnswer": "Dogri",
     "options": [
       "Dogri",
-      "Dinka",
-      "Shona",
-      "Hakka"
+      "Lango",
+      "Gondi",
+      "Khasi"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -73577,9 +73216,9 @@
     "correctAnswer": "Lombardisch",
     "options": [
       "Lombardisch",
-      "Indonesisch",
-      "Minangkabau",
-      "Assamesisch"
+      "Mazedonisch",
+      "Katalanisch",
+      "Minangkabau"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -73598,7 +73237,7 @@
       "Venetisch (Venezianisch)",
       "Mandarin (Hochchinesisch)",
       "marokkanisches Amazigh",
-      "Zentralatlas-Tamazight"
+      "Mordwinisch (Erzya/Moksha)"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -73615,9 +73254,9 @@
     "correctAnswer": "Asturisch (Bable)",
     "options": [
       "Asturisch (Bable)",
-      "Aserbaidschanisch",
+      "Meitei (Manipuri)",
       "Tshivenda (Venda)",
-      "Chichewa (Nyanja)"
+      "Aserbaidschanisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -73634,9 +73273,9 @@
     "correctAnswer": "Aragonesisch",
     "options": [
       "Aragonesisch",
-      "Madagassisch",
-      "Sundanesisch",
-      "Hawaiianisch"
+      "Tadschikisch",
+      "Baschkirisch",
+      "Belarussisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -73653,9 +73292,9 @@
     "correctAnswer": "Friaulisch",
     "options": [
       "Friaulisch",
-      "Mongolisch",
-      "Hiligaynon",
-      "Bretonisch"
+      "Kirgisisch",
+      "Birmanisch",
+      "Ukrainisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -73672,9 +73311,9 @@
     "correctAnswer": "Krimtatarisch",
     "options": [
       "Krimtatarisch",
-      "Portugiesisch",
       "Luxemburgisch",
-      "Fidschi-Hindi"
+      "Fidschi-Hindi",
+      "Portugiesisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -73691,8 +73330,8 @@
     "correctAnswer": "Tschuwaschisch",
     "options": [
       "Tschuwaschisch",
-      "Niederländisch",
       "Marshallesisch",
+      "Niederländisch",
       "Neapolitanisch"
     ],
     "testedAttribute": null,
@@ -73710,9 +73349,9 @@
     "correctAnswer": "Baschkirisch",
     "options": [
       "Baschkirisch",
+      "Kantonesisch",
       "Belarussisch",
-      "Tadschikisch",
-      "Sundanesisch"
+      "Madagassisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -73729,8 +73368,8 @@
     "correctAnswer": "Jakutisch (Sacha)",
     "options": [
       "Jakutisch (Sacha)",
+      "Aserbaidschanisch",
       "Chichewa (Nyanja)",
-      "Suaheli (Swahili)",
       "Meitei (Manipuri)"
     ],
     "testedAttribute": null,
@@ -73748,9 +73387,9 @@
     "correctAnswer": "Udmurtisch",
     "options": [
       "Udmurtisch",
+      "Maltesisch",
       "Burjatisch",
-      "Slowakisch",
-      "Mongolisch"
+      "Hiligaynon"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -73767,9 +73406,9 @@
     "correctAnswer": "Komi",
     "options": [
       "Komi",
-      "Susu",
-      "Tulu",
-      "Urdu"
+      "Bodo",
+      "Akha",
+      "Igbo"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -73805,9 +73444,9 @@
     "correctAnswer": "Kalmückisch",
     "options": [
       "Kalmückisch",
-      "Kinyarwanda",
-      "Buginesisch",
-      "Turkmenisch"
+      "Turkmenisch",
+      "Maduresisch",
+      "Katalanisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -73825,8 +73464,8 @@
     "options": [
       "Tuwinisch",
       "Malayalam",
-      "Ungarisch",
-      "Javanisch"
+      "Kabylisch",
+      "Kaschmiri"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -73843,9 +73482,9 @@
     "correctAnswer": "Nauruisch",
     "options": [
       "Nauruisch",
-      "Uigurisch",
-      "Walisisch",
-      "Afrikaans"
+      "Rumänisch",
+      "Kabylisch",
+      "Albanisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -73862,9 +73501,9 @@
     "correctAnswer": "Marshallesisch",
     "options": [
       "Marshallesisch",
-      "Neapolitanisch",
+      "Tschuwaschisch",
       "Niederländisch",
-      "Tschuwaschisch"
+      "Neapolitanisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -73881,9 +73520,9 @@
     "correctAnswer": "Palauisch",
     "options": [
       "Palauisch",
+      "Javanisch",
       "Tatarisch",
-      "Japanisch",
-      "Ungarisch"
+      "Japanisch"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -73900,9 +73539,9 @@
     "correctAnswer": "Kapverdisches Kreol",
     "options": [
       "Kapverdisches Kreol",
-      "Filipino (Pilipino)",
       "Nord-Sotho (Sepedi)",
-      "Sesotho (Süd-Sotho)"
+      "Sesotho (Süd-Sotho)",
+      "Filipino (Pilipino)"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -73919,9 +73558,9 @@
     "correctAnswer": "Seychellenkreol",
     "options": [
       "Seychellenkreol",
-      "Siswati (Swati)",
       "Kirundi (Rundi)",
-      "Mauritius-Kreol"
+      "Mauritius-Kreol",
+      "Siswati (Swati)"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -73938,9 +73577,9 @@
     "correctAnswer": "Fon",
     "options": [
       "Fon",
-      "Twi",
-      "Luo",
-      "Tiv"
+      "Ewe",
+      "Tiv",
+      "Fur"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -73957,9 +73596,9 @@
     "correctAnswer": "Tiv",
     "options": [
       "Tiv",
-      "Mon",
-      "Luo",
-      "Fon"
+      "Fur",
+      "Ewe",
+      "Mon"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -73976,8 +73615,8 @@
     "correctAnswer": "Luba (Tshiluba)",
     "options": [
       "Luba (Tshiluba)",
-      "Siswati (Swati)",
       "Kirundi (Rundi)",
+      "Siswati (Swati)",
       "Mauritius-Kreol"
     ],
     "testedAttribute": null,
@@ -73996,8 +73635,8 @@
     "options": [
       "Filipino (Pilipino)",
       "Kapverdisches Kreol",
-      "Nord-Sotho (Sepedi)",
-      "Tigrinya (Tigrigna)"
+      "Tigrinya (Tigrigna)",
+      "Sesotho (Süd-Sotho)"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -74014,9 +73653,9 @@
     "correctAnswer": "Tigrinya (Tigrigna)",
     "options": [
       "Tigrinya (Tigrigna)",
+      "Nord-Sotho (Sepedi)",
       "Filipino (Pilipino)",
-      "Sesotho (Süd-Sotho)",
-      "Nord-Sotho (Sepedi)"
+      "Sesotho (Süd-Sotho)"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -74035,7 +73674,7 @@
       "Ndebele (Süd-Ndebele)",
       "Jamaika-Kreol (Patois)",
       "marokkanisches Amazigh",
-      "Filipino (Pilipino)"
+      "Sesotho (Süd-Sotho)"
     ],
     "testedAttribute": null,
     "answerIsName": true,

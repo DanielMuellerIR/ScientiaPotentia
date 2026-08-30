@@ -199,7 +199,7 @@
     "verifyNote": "Wikipedia-Artikel; Ethnologue listet 1.540 Sprachen, ~600 Mio. Muttersprachler; de.wikipedia.org bestätigt.",
     "imageFile": "https://commons.wikimedia.org/wiki/File%3AMap_of_the_Niger%E2%80%93Congo_languages.svg",
     "imageLicense": "CC BY-SA 4.0",
-    "imageAttribution": "File:Africa_map_blank.svg: User:Sting Derivative work: User:SUM1 Language info: compiled from various Ethnologue country maps, as also compiled in Muturzikin. / Created from File:Africa_map_blank.svg."
+    "imageAttribution": "Sting; Bearbeitung und Sprachdaten: SUM1"
   },
   {
     "id": "austronesisch",
@@ -453,7 +453,7 @@
     "verifyNote": "Ethnologue-Zählung 1.540 Sprachen; Bantu >500; bestätigt über de.wikipedia.org (ca. 1.400–1.540 Sprachen).",
     "imageFile": "https://commons.wikimedia.org/wiki/File%3AMap_of_the_Niger%E2%80%93Congo_languages.svg",
     "imageLicense": "CC BY-SA 4.0",
-    "imageAttribution": "File:Africa_map_blank.svg: User:Sting Derivative work: User:SUM1 Language info: compiled from various Ethnologue country maps, as also compiled in Muturzikin. / Created from File:Africa_map_blank.svg."
+    "imageAttribution": "Sting; Bearbeitung und Sprachdaten: SUM1"
   },
   {
     "id": "griechisch-erstes-vokalphabet",
@@ -1284,7 +1284,7 @@
     "verifyNote": "Wikipedia; Anzahl Klassen bestätigt über de.wikipedia.org/wiki/Bantusprachen",
     "imageFile": "https://commons.wikimedia.org/wiki/File%3AMap_of_the_Bantu_languages.svg",
     "imageLicense": "CC BY-SA 4.0",
-    "imageAttribution": "File:Africa_map_blank.svg: User:Sting Derivative work: User:SUM1 Language info: compiled from various Ethnologue country maps, as also compiled in Muturzikin. / Created from File:Africa_map_blank.svg."
+    "imageAttribution": "Sting; Bearbeitung und Sprachdaten: SUM1"
   },
   {
     "id": "grammar-fact-laengsteswort-deutsch",
@@ -2480,25 +2480,6 @@
     "imageAttribution": "User:Chathurank / en:Image:Sri Lanka in Sinhala Language.png"
   },
   {
-    "id": "malagasy",
-    "name": "Malagasy",
-    "category": "language",
-    "attributes": {
-      "speakersMillionsNative": 18,
-      "family": "Austronesisch (Malayo-Polynesisch)",
-      "script": "Lateinisches Alphabet",
-      "officialIn": 1
-    },
-    "funFact": "",
-    "sourceName": "Wikidata",
-    "sourceUrl": "https://www.wikidata.org/wiki/Q7930",
-    "verifyNote": "P1098=18 Mio. (Wikidata), P282=Lateinisches Alphabet, P279*=Q143158 Malayo-Polynesisch, officialIn=1 (Madagaskar)",
-    "imageSearchTerm": "Malagasy language Madagascar",
-    "imageFile": "https://commons.wikimedia.org/wiki/File%3AMalagasy_green_lynx_spider_(Peucetia_madagascariensis)_male.jpg",
-    "imageLicense": "CC BY-SA 4.0",
-    "imageAttribution": "Charles J. Sharp / Own work, from Sharp Photography, sharpphotography.co.uk"
-  },
-  {
     "id": "tadschikisch",
     "name": "Tadschikisch",
     "category": "language",
@@ -2660,22 +2641,6 @@
     "imageSearchTerm": "Sundanesisch language"
   },
   {
-    "id": "fula",
-    "name": "Fula",
-    "category": "language",
-    "attributes": {
-      "speakersMillionsNative": 24,
-      "family": "Niger-Kongo",
-      "officialIn": 1,
-      "script": "Lateinisches Alphabet"
-    },
-    "funFact": "",
-    "sourceName": "Wikidata",
-    "sourceUrl": "https://www.wikidata.org/wiki/Q33454",
-    "verifyNote": "P1098=24 Mio., P282=Adlam (Schrift), Familie=Niger-Kongo, officialIn=1",
-    "imageSearchTerm": "Fula language"
-  },
-  {
     "id": "oromo",
     "name": "Oromo",
     "category": "language",
@@ -2750,21 +2715,6 @@
     "sourceUrl": "https://www.wikidata.org/wiki/Q36094",
     "verifyNote": "P1098=15 Mio., P282=Arabisches Alphabet (Abjad), Familie=Nilo-Saharanisch, officialIn=n/a",
     "imageSearchTerm": "Kanuri language"
-  },
-  {
-    "id": "madura",
-    "name": "Madura",
-    "category": "language",
-    "attributes": {
-      "speakersMillionsNative": 15,
-      "family": "Austronesisch",
-      "script": "Lateinisches Alphabet"
-    },
-    "funFact": "",
-    "sourceName": "Wikidata",
-    "sourceUrl": "https://www.wikidata.org/wiki/Q36213",
-    "verifyNote": "P1098=15 Mio., P282=Lateinisches Alphabet, Familie=Austronesisch, officialIn=n/a",
-    "imageSearchTerm": "Madura language"
   },
   {
     "id": "banyumasan",
@@ -3837,6 +3787,7 @@
   {
     "id": "belarussisch",
     "name": "Belarussisch",
+    "aliases": ["Weißrussisch"],
     "category": "language",
     "attributes": {
       "speakersMillionsNative": 7.6,
@@ -5484,6 +5435,7 @@
   {
     "id": "fulfulde",
     "name": "Fulfulde",
+    "aliases": ["Fula"],
     "category": "language",
     "attributes": {
       "speakersMillionsNative": 24,
@@ -5543,24 +5495,9 @@
     "imageSearchTerm": "Santali language"
   },
   {
-    "id": "weissrussisch",
-    "name": "Weißrussisch",
-    "category": "language",
-    "attributes": {
-      "speakersMillionsNative": 7.6,
-      "family": "Indogermanisch (Slawisch)",
-      "script": "Kyrillisches Alphabet",
-      "officialIn": 1
-    },
-    "funFact": "",
-    "sourceName": "Wikidata",
-    "sourceUrl": "https://www.wikidata.org/wiki/Q9091",
-    "verifyNote": "P1098=7.6 Mio., P282=Belarussisches Alphabet, Familie=Indogermanisch (Slawisch), officialIn=1",
-    "imageSearchTerm": "Weißrussisch language"
-  },
-  {
     "id": "madagassisch",
     "name": "Madagassisch",
+    "aliases": ["Malagasy"],
     "category": "language",
     "attributes": {
       "speakersMillionsNative": 18,
@@ -5610,14 +5547,14 @@
     "name": "Bosnisch",
     "category": "language",
     "attributes": {
-      "speakersMillionsNative": 2.6,
+      "speakersMillionsNative": 2.5,
       "family": "Indogermanisch (Slawisch)",
       "script": "Lateinisches Alphabet"
     },
     "funFact": "",
-    "sourceName": "Wikidata",
-    "sourceUrl": "https://www.wikidata.org/wiki/Q9301",
-    "verifyNote": "P1098=19 Mio., P282=serbisches Alphabet, Familie=Indogermanisch (Slawisch) [Script korrigiert: serbisches Alphabet falsch, Bosnisch = Lateinschrift. Sprecherzahl korrigiert: 19 Mio. = Gesamtbevölkerung Region; ~2,5 Mio. Muttersprachler]",
+    "sourceName": "European Language Equality – Report on the Bosnian Language",
+    "sourceUrl": "https://european-language-equality.eu/wp-content/uploads/2022/03/ELE___Deliverable_D1_36__Language_Report_Bosnian_.pdf",
+    "verifyNote": "ELE-Bericht D1.36 (2022), S. 5: rund 2,5 Mio. Muttersprachler in Europa; Bosnisch verwendet die lateinische Schrift.",
     "imageSearchTerm": "Bosnisch language"
   },
   {
@@ -5626,13 +5563,13 @@
     "category": "language",
     "attributes": {
       "family": "Indogermanisch (Indo-Iranisch)",
-      "speakersMillionsNative": 2.5,
+      "speakersMillionsNative": 2.6,
       "script": "Arabisches Alphabet"
     },
     "funFact": "",
     "sourceName": "Wikidata",
     "sourceUrl": "https://www.wikidata.org/wiki/Q33657",
-    "verifyNote": "P1098=2.6 Mio., P282=Arabische Schrift, Familie=Indogermanisch (Indo-Iranisch), officialIn=n/a",
+    "verifyNote": "Wikidata Q33657, P1098: 2.550.000 Erstsprachler (Stand 2023, Quelle Ethnologue), auf eine Nachkommastelle gerundet 2,6 Mio.; P282=Arabische Schrift.",
     "imageSearchTerm": "Gilaki language"
   },
   {
@@ -5729,6 +5666,7 @@
   {
     "id": "maduresisch",
     "name": "Maduresisch",
+    "aliases": ["Madura"],
     "category": "language",
     "attributes": {
       "speakersMillionsNative": 15,

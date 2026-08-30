@@ -1,10 +1,13 @@
 /** Gemeinsame Positivliste für veröffentlichte und neu geerntete Bilder. */
 
 const CC_VERSION = '(?:1\\.0|2\\.0|2\\.1|2\\.5|3\\.0|4\\.0)';
-const CC_LABEL = new RegExp(
-  `^CC\\s+BY(?:-SA)?\\s+${CC_VERSION}(?:\\s+[a-z]{2,3})?$`,
-  'i',
-);
+// Nur Länderfassungen, die im kuratierten Bestand tatsächlich vorkommen. Ein
+// freier Suffix würde auch die Lizenzbestandteile NC/ND und Fantasiewerte als
+// vermeintliche Rechtsordnung akzeptieren.
+const CC_JURISDICTIONS = new Set([
+  'at', 'ch', 'cz', 'de', 'es', 'fr', 'igo', 'it', 'jp', 'kr', 'nl', 'pl', 'us',
+]);
+const CC_LABEL = new RegExp(`^CC\\s+BY(?:-SA)?\\s+(${CC_VERSION})(?:\\s+([a-z]{2,3}))?$`, 'i');
 const RESTRICTED_METADATA =
   /\b(?:nc|nd|non[- ]?commercial|noncommercial|no[- ]?deriv(?:ative)?s?|all rights(?: reserved)?)\b/i;
 
@@ -14,9 +17,14 @@ function metadataValue(metadata, key) {
 
 export function isAllowedImageLicense(label) {
   const license = String(label || '').trim();
+  if (RESTRICTED_METADATA.test(license)) return false;
   if (/^Public domain$/i.test(license)) return true;
   if (/^CC0(?:\s+1\.0)?$/i.test(license)) return true;
-  if (CC_LABEL.test(license)) return true;
+  const creativeCommons = license.match(CC_LABEL);
+  if (creativeCommons) {
+    const jurisdiction = creativeCommons[2]?.toLowerCase();
+    return !jurisdiction || CC_JURISDICTIONS.has(jurisdiction);
+  }
   return /^(?:FAL|GFDL(?:\s+(?:1\.2|1\.3))?|Attribution|Copyrighted free use)$/i
     .test(license);
 }
@@ -42,7 +50,8 @@ export function licenseNameFromCommonsMetadata(metadata) {
   if (creativeCommons) {
     const family = creativeCommons[1].toLowerCase() === 'by-sa' ? 'BY-SA' : 'BY';
     const jurisdiction = creativeCommons[3] ? ` ${creativeCommons[3].toLowerCase()}` : '';
-    return `CC ${family} ${creativeCommons[2]}${jurisdiction}`;
+    const label = `CC ${family} ${creativeCommons[2]}${jurisdiction}`;
+    return isAllowedImageLicense(label) ? label : (shortName || '?');
   }
 
   const publicDomain = metadataValue(metadata, 'Copyrighted').toLowerCase() === 'false'
@@ -81,7 +90,7 @@ export function licenseUrlFor(label) {
     const family = creativeCommons[1] ? 'by-sa' : 'by';
     const version = creativeCommons[2];
     const jurisdiction = creativeCommons[3]?.toLowerCase();
-    if (!version) return '';
+    if (!version || !isAllowedImageLicense(license)) return '';
     return `https://creativecommons.org/licenses/${family}/${version}/${jurisdiction ? `${jurisdiction}/` : ''}`;
   }
   if (lower === 'fal') return 'https://artlibre.org/licence/lal/en/';

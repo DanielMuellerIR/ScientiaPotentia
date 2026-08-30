@@ -247,6 +247,22 @@ describe('Quiz & Map Integration Test', () => {
     expect(saveProgressAndLog.mock.calls[0][3].domain).toBe('astra');
   });
 
+  it('beschränkt einen Schnelltest strikt auf die angeforderte Entity', () => {
+    render(
+      <Quiz
+        geodb={geodbMock}
+        questionPool={questionPoolMock}
+        entityFilterId="FR"
+        dueEntities={[geodbMock.entities.FR]}
+        onSetQuizState={vi.fn()}
+      />
+    );
+
+    expect(screen.getByText('Klicke auf Frankreich!')).toBeInTheDocument();
+    expect(screen.queryByText('Welcher Fluss fließt direkt durch die Stadt Paris?'))
+      .not.toBeInTheDocument();
+  });
+
   it('beobachtet einen fehlgeschlagenen Fortschritts-Commit und warnt sichtbar', async () => {
     const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     saveProgressAndLog.mockRejectedValueOnce(new Error('Transaktion abgebrochen'));

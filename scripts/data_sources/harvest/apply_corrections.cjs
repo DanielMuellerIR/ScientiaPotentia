@@ -16,6 +16,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const { readJsonArray, writeJsonAtomic } = require('./json_io.cjs');
+const { isHttpUrl, validateCatalog } = require('./concept_validation.cjs');
 
 const HARVEST = __dirname;
 const ROOT = path.join(HARVEST, '..', '..', '..');
@@ -23,6 +24,18 @@ const CONCEPT_FIELDS = new Set([
   'name', 'category', 'funFact', 'sourceName', 'sourceUrl', 'verifyNote',
   'imageSearchTerm', 'imageFile', 'imageLicense', 'imageAttribution',
 ]);
+
+function validateSetValue(key, value) {
+  if (value === null || value === undefined) return `${key} darf nicht null sein`;
+  if (typeof value === 'string' && !value.trim()) return `${key} darf nicht leer sein`;
+  if (key === 'concept.sourceUrl' && !isHttpUrl(value)) {
+    return 'concept.sourceUrl muss eine HTTP(S)-URL sein';
+  }
+  if (key.startsWith('concept.') && typeof value !== 'string') {
+    return `${key} muss Text sein`;
+  }
+  return null;
+}
 
 function validateSetKey(key) {
   if (!key.trim()) return 'leerer set-Schlüssel';
@@ -71,9 +84,11 @@ function validateCorrection(correction) {
     return 'set muss ein nicht leeres Objekt sein';
   }
   if (hasSet) {
-    for (const key of Object.keys(correction.set)) {
+    for (const [key, value] of Object.entries(correction.set)) {
       const keyError = validateSetKey(key);
       if (keyError) return keyError;
+      const valueError = validateSetValue(key, value);
+      if (valueError) return valueError;
     }
   }
   return null;
@@ -108,7 +123,10 @@ function main() {
     console.error(`FEHLER: ${error.message}`);
     return 1;
   }
-  const byId = new Map(raw.map(concept => [concept.id, concept]));
+  // Korrekturen laufen auf einer Kopie. Erst der vollständig validierte
+  // Ausgabekatalog darf die Quellwahrheit atomar ersetzen.
+  const working = structuredClone(raw);
+  const byId = new Map(working.map(concept => [concept.id, concept]));
   const correctionFiles = fs.readdirSync(HARVEST)
     .filter(file => new RegExp(`^corr_${domain}_.*\\.json$`).test(file))
     .sort((a, b) => a.localeCompare(b, 'de'));
@@ -170,7 +188,13 @@ function main() {
     }
   }
 
-  const output = raw.filter(concept => !removedIds.has(concept.id));
+  const output = working.filter(concept => !removedIds.has(concept.id));
+  const outputError = validateCatalog(output);
+  if (outputError) {
+    console.error(`FEHLER: Ausgabekatalog ungültig: ${outputError}`);
+    console.error('Keine Korrektur angewendet.');
+    return 1;
+  }
   console.log(`Domain: ${domain}`);
   console.log(`Korrektur-Dateien: ${correctionFiles.length} (${correctionFiles.join(', ') || '—'})`);
   console.log(`Attribut-Korrekturen: ${applied}, entfernte Konzepte: ${removed}, übersprungen: ${skipped}`);
@@ -187,4 +211,6 @@ function main() {
   return 0;
 }
 
-process.exitCode = main();
+if (require.main === module) process.exitCode = main();
+
+module.exports = { main, setCorrectionValue, validateCorrection, validateSetKey, validateSetValue };

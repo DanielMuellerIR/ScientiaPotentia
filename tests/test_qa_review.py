@@ -1,4 +1,5 @@
 import json
+import hashlib
 from pathlib import Path
 import subprocess
 import sys
@@ -12,6 +13,20 @@ RUN_QA = ROOT / 'scripts' / 'qa_review' / 'run_qa.py'
 
 
 class QaReviewRunnerTests(unittest.TestCase):
+    @staticmethod
+    def write_manifest(batches):
+        hashes = {
+            path.name: hashlib.sha256(path.read_bytes()).hexdigest()
+            for path in sorted(batches.glob('batch_*.json'))
+        }
+        material = ''.join(
+            f'{name}\0{value}\n' for name, value in sorted(hashes.items()))
+        manifest = {
+            'batchCount': len(hashes), 'inputs': {}, 'batches': hashes,
+            'snapshotSha256': hashlib.sha256(material.encode()).hexdigest(),
+        }
+        (batches / 'manifest.json').write_text(json.dumps(manifest), encoding='utf-8')
+
     @staticmethod
     def make_view(question_id='q1'):
         return {
@@ -47,8 +62,13 @@ class QaReviewRunnerTests(unittest.TestCase):
         )
 
     def run_qa(self, *args):
+        arguments = list(map(str, args))
+        if '--batches' in arguments:
+            batches = Path(arguments[arguments.index('--batches') + 1])
+            if batches.is_dir() and not (batches / 'manifest.json').exists():
+                self.write_manifest(batches)
         return subprocess.run(
-            [sys.executable, str(RUN_QA), *map(str, args)],
+            [sys.executable, str(RUN_QA), *arguments],
             cwd=ROOT,
             capture_output=True,
             text=True,
@@ -81,7 +101,7 @@ class QaReviewRunnerTests(unittest.TestCase):
             batches = temporary / 'batches'
             batches.mkdir()
             views = [self.make_view(f'q{i}') for i in range(2)]
-            (batches / 'batch_001.json').write_text(json.dumps(views), encoding='utf-8')
+            (batches / 'batch_000.json').write_text(json.dumps(views), encoding='utf-8')
             runner = temporary / 'fake_runner.py'
             self.write_runner(runner, [self.make_evaluation('F1')])
             report = temporary / 'report.md'
@@ -167,7 +187,8 @@ class QaReviewRunnerTests(unittest.TestCase):
             (batches / 'batch_000.json').write_text(payload, encoding='utf-8')
             (batches / 'batch_001.json').write_text(payload, encoding='utf-8')
             (batches / 'manifest.json').write_text(
-                json.dumps({'batchCount': 1}), encoding='utf-8')
+                json.dumps({'batchCount': 1, 'inputs': {}, 'batches': {},
+                            'snapshotSha256': ''}), encoding='utf-8')
             runner = temporary / 'fake_runner.py'
             self.write_runner(runner, [self.make_evaluation('F1')])
 
@@ -179,6 +200,62 @@ class QaReviewRunnerTests(unittest.TestCase):
             self.assertEqual(result.returncode, 2)
             self.assertIn('ungültiger Batch-Snapshot', result.stderr)
             self.assertIn('nicht im Manifest', result.stderr)
+
+    def test_missing_manifest_is_rejected_before_model_call(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            temporary = Path(temporary)
+            batches = temporary / 'batches'
+            batches.mkdir()
+            (batches / 'batch_000.json').write_text(
+                json.dumps([self.make_view()]), encoding='utf-8')
+            runner = temporary / 'fake_runner.py'
+            self.write_runner(runner, [self.make_evaluation('F1')])
+            result = subprocess.run(
+                [sys.executable, str(RUN_QA), '--batches', str(batches),
+                 '--out', str(temporary / 'report.md'), '--runner', str(runner)],
+                cwd=ROOT, capture_output=True, text=True, check=False)
+
+            self.assertEqual(result.returncode, 2)
+            self.assertIn('manifest.json fehlt', result.stderr)
+
+    def test_changed_batch_hash_is_rejected_before_model_call(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            temporary = Path(temporary)
+            batches = temporary / 'batches'
+            batches.mkdir()
+            batch = batches / 'batch_000.json'
+            batch.write_text(json.dumps([self.make_view()]), encoding='utf-8')
+            self.write_manifest(batches)
+            batch.write_text(json.dumps([self.make_view('tampered')]), encoding='utf-8')
+            runner = temporary / 'fake_runner.py'
+            self.write_runner(runner, [self.make_evaluation('F1')])
+
+            result = self.run_qa(
+                '--batches', batches, '--out', temporary / 'report.md', '--runner', runner)
+
+            self.assertEqual(result.returncode, 2)
+            self.assertIn('Batch-Hash weicht ab', result.stderr)
+
+    def test_limit_run_is_explicitly_non_certifying(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            temporary = Path(temporary)
+            batches = temporary / 'batches'
+            batches.mkdir()
+            (batches / 'batch_000.json').write_text(
+                json.dumps([self.make_view('q0')]), encoding='utf-8')
+            (batches / 'batch_001.json').write_text(
+                json.dumps([self.make_view('q1')]), encoding='utf-8')
+            runner = temporary / 'fake_runner.py'
+            self.write_runner(runner, [self.make_evaluation('F1')])
+            report = temporary / 'report.md'
+
+            result = self.run_qa(
+                '--batches', batches, '--out', report, '--runner', runner, '--limit', '1')
+
+            self.assertEqual(result.returncode, 1)
+            self.assertIn('1/2', report.read_text(encoding='utf-8'))
+            raw = json.loads(report.with_suffix('.raw.json').read_text(encoding='utf-8'))
+            self.assertEqual(raw['errors'][0][0], 'Abdeckung')
 
     def test_creates_missing_report_directory(self):
         with tempfile.TemporaryDirectory() as temporary:

@@ -277,7 +277,9 @@ const STAR_TYPE_MAP = [
   ['Weißer Riese',                'Heller Riese'],
   ['Heller Riese',                'Heller Riese'],
   ['Unterriese',                  'Blauweißer Unterriese'],
-  ['Hauptreihenstern',            'Gelber Zwerg'],          // Fallback Hauptreihe → Gelber Zwerg
+  // Ohne Spektralklasse verrät „Hauptreihenstern“ keine Farbe. null lässt den
+  // Aufrufer anschließend die konkrete P215-Klasse auswerten.
+  ['Hauptreihenstern',            null],
   ['Bedeckungsveränderlicher',    'Bedeckungsveränderlicher'],
   ['Stern',                       null],                    // zu generisch → verwerfen
 ];
@@ -298,11 +300,12 @@ function mapStarType(typeCandidates) {
  */
 function classifySpectralClass(sc) {
   if (!sc) return null;
-  // Hauptsequenz-Stern (V) oder keine Luminositätsklasse → Zwerg
-  // Überriese (I, Ia, Ib) hat höchste Priorität
-  const isSuperGiant = /[I]a?\b|Ib\b|Ic\b/.test(sc) && !/^.*(?:II|III|IV|V)/.test(sc);
-  const isGiant      = /\bII\b|\bIII\b|\bII-III\b/.test(sc);
-  const isSubgiant   = /\bIV\b/.test(sc);
+  const luminosity = String(sc).match(
+    /(?:^|\s)(IAB|IA|IB(?:-II)?|IC|I|II-III|II|III|IV|V)(?=\s|$)/i,
+  )?.[1]?.toUpperCase() || '';
+  const isSuperGiant = /^(?:I|IA|IAB|IB|IB-II|IC)$/.test(luminosity);
+  const isGiant = /^(?:II|II-III|III)$/.test(luminosity);
+  const isSubgiant = luminosity === 'IV';
 
   const firstLetter = sc.trim()[0]?.toUpperCase();
   if (!firstLetter) return null;
@@ -310,26 +313,31 @@ function classifySpectralClass(sc) {
   if (/^[OB]/.test(sc.trim())) {
     if (isSuperGiant) return 'Blauer Überriese';
     if (isGiant)      return 'Blauer Riese';
+    if (isSubgiant)   return 'Blauweißer Unterriese';
     return 'Blauer Hauptreihenstern';
   }
   if (/^A/.test(sc.trim())) {
     if (isSuperGiant) return 'Blauer Überriese';
     if (isGiant)      return 'Heller Riese';
+    if (isSubgiant)   return 'Weißer Unterriese';
     return 'Weißer Hauptreihenstern';
   }
   if (/^[FG]/.test(sc.trim())) {
     if (isSuperGiant) return 'Gelber Überriese';
     if (isGiant)      return 'Gelber Riese';
+    if (isSubgiant)   return 'Gelber Unterriese';
     return 'Gelber Zwerg';
   }
   if (/^K/.test(sc.trim())) {
-    if (isSuperGiant) return 'Oranger Riese';
+    if (isSuperGiant) return 'Oranger Überriese';
     if (isGiant)      return 'Oranger Riese';
+    if (isSubgiant)   return 'Oranger Unterriese';
     return 'Oranger Zwerg';
   }
   if (/^M/.test(sc.trim())) {
     if (isSuperGiant) return 'Roter Überriese';
     if (isGiant)      return 'Roter Riese';
+    if (isSubgiant)   return 'Roter Unterriese';
     return 'Roter Zwerg';
   }
   return null;

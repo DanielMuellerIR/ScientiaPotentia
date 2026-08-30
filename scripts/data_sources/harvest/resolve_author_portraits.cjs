@@ -18,6 +18,7 @@ const {
   isAllowedCommonsLicenseMetadata,
   licenseNameFromCommonsMetadata,
 } = require('../../lib/image_license_policy.js');
+const { fileNameFromUploadUrl } = require('./image_resolution_policy.cjs');
 
 const RAWFILE = path.join(__dirname, "../cultura_raw.json");
 const OUT = "/tmp/cultura_author_portraits.json";
@@ -87,7 +88,8 @@ async function main() {
     for (const a of grp) {
       const pt = redir[norm[a] || a] || norm[a] || a;
       const src = pageByTitle[pt]?.original?.source;
-      if (src) fileForAuthor.set(a, decodeURIComponent(src.split("/").pop()));
+      const fileName = fileNameFromUploadUrl(src);
+      if (fileName) fileForAuthor.set(a, fileName);
     }
     await sleep(150);
   }
@@ -127,7 +129,11 @@ async function main() {
   console.log(`FERTIG: ${out.length} Konzept-Bilder (${new Set(out.map(o => o.imageFile)).size} distinkte Porträts) → ${OUT}`);
 }
 
-main().catch((error) => {
-  console.error(`FEHLER: ${error.message}`);
-  process.exitCode = 1;
-});
+if (require.main === module) {
+  main().catch((error) => {
+    console.error(`FEHLER: ${error.message}`);
+    process.exitCode = 1;
+  });
+}
+
+module.exports = { fileNameFromUploadUrl };

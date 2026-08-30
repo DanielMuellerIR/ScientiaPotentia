@@ -40,6 +40,7 @@ describe('DomainSwitcher', () => {
 
     const options = screen.getAllByRole('menuitemradio');
     expect(options).toHaveLength(9);
+    expect(options.filter(option => option.tabIndex === 0)).toHaveLength(1);
     expect(screen.getByRole('menuitemradio', { name: /Terra/ }))
       .toHaveAttribute('aria-checked', 'true');
     expect(screen.getByRole('menuitemradio', { name: /Terra/ })).toHaveFocus();
@@ -48,6 +49,9 @@ describe('DomainSwitcher', () => {
 
     fireEvent.keyDown(menu, { key: 'ArrowDown' });
     expect(screen.getByRole('menuitemradio', { name: /Astra/ })).toHaveFocus();
+    expect(options.filter(option => option.tabIndex === 0)).toEqual([
+      screen.getByRole('menuitemradio', { name: /Astra/ }),
+    ]);
     fireEvent.keyDown(menu, { key: 'End' });
     expect(screen.getByRole('menuitemradio', { name: /Historia/ })).toHaveFocus();
     fireEvent.keyDown(menu, { key: 'Home' });

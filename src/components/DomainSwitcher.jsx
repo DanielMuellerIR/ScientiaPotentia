@@ -15,6 +15,7 @@ import { getDomainIdFromConceptKey } from '../domains';
  */
 export default function DomainSwitcher({ domains, activeId, onSelect, srsProgress = {} }) {
   const [open, setOpen] = useState(false);
+  const [focusedIndex, setFocusedIndex] = useState(0);
   const rootRef = useRef(null);
   const triggerRef = useRef(null);
   const optionRefs = useRef([]);
@@ -61,6 +62,7 @@ export default function DomainSwitcher({ domains, activeId, onSelect, srsProgres
   useEffect(() => {
     if (!open) return;
     const activeIndex = Math.max(0, domains.findIndex(domain => domain.id === active.id));
+    setFocusedIndex(activeIndex);
     optionRefs.current[activeIndex]?.focus();
   }, [active.id, domains, open]);
 
@@ -73,6 +75,7 @@ export default function DomainSwitcher({ domains, activeId, onSelect, srsProgres
     else if (event.key === 'End') nextIndex = domains.length - 1;
     else return;
     event.preventDefault();
+    setFocusedIndex(nextIndex);
     optionRefs.current[nextIndex]?.focus();
   };
 
@@ -139,6 +142,8 @@ export default function DomainSwitcher({ domains, activeId, onSelect, srsProgres
                 type="button"
                 role="menuitemradio"
                 aria-checked={isActive}
+                tabIndex={index === focusedIndex ? 0 : -1}
+                onFocus={() => setFocusedIndex(index)}
                 className={`domain-switcher-option${isActive ? ' domain-switcher-option--active' : ''}`}
                 onClick={() => handleSelect(d.id)}
                 style={{ borderColor: isActive ? d.accent : 'transparent' }}

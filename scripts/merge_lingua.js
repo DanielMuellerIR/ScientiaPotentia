@@ -46,23 +46,12 @@
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+import { assertPreservesExistingConceptIds } from './lib/merge_safety.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const HARVEST = join(__dirname, 'data_sources', 'harvest');
 const OUT_PATH = join(__dirname, 'data_sources', 'lingua_raw.json');
 const WRITE = process.argv.includes('--write');
-
-function refuseShrinkingOutput(path, nextCount) {
-  if (!existsSync(path)) return;
-  const current = JSON.parse(readFileSync(path, 'utf8'));
-  if (!Array.isArray(current)) throw new Error(`${path}: bestehende Quellwahrheit ist kein JSON-Array`);
-  if (nextCount < current.length) {
-    throw new Error(
-      `${path}: Merge würde ${current.length - nextCount} bestehende Konzepte löschen ` +
-      `(${current.length} -> ${nextCount}); Erntedateien zuerst vollständig ergänzen`
-    );
-  }
-}
 
 const FILES = ['lingua_a_w1.json', 'lingua_a_w1b.json', 'lingua_b_w1.json', 'lingua_b_w1b.json'];
 
@@ -72,6 +61,12 @@ const FILES = ['lingua_a_w1.json', 'lingua_a_w1b.json', 'lingua_b_w1.json', 'lin
 // meistübersetztes Buch). Eine Fassung reicht; die language_fact-Fassung
 // hat die reicheren Attribute.
 const MANUAL_DROP = new Set(['language-curio-bibel-uebersetzungen']);
+const CANONICAL_LANGUAGE_BY_QID = new Map([
+  ['Q33454', { id: 'fulfulde', name: 'Fulfulde', aliases: ['Fula'] }],
+  ['Q9091', { id: 'belarussisch', name: 'Belarussisch', aliases: ['Weißrussisch'] }],
+  ['Q7930', { id: 'madagassisch', name: 'Madagassisch', aliases: ['Malagasy'] }],
+  ['Q36213', { id: 'maduresisch', name: 'Maduresisch', aliases: ['Madura'] }],
+]);
 
 // Quasi-Dubletten ÜBER Kategoriegrenzen hinweg: dasselbe Thema einmal als
 // Grundkonzept und einmal als Rekord-/Fakt-Eintrag. Sie bleiben BEWUSST
@@ -319,9 +314,11 @@ function normalizeConcept(c) {
   // Auf die vom Generator erwarteten Felder reduzieren + Bild/Quelle erhalten.
   // Textfixes nur auf deutschsprachige Anzeigefelder + Attributwerte anwenden —
   // NICHT auf id, URLs oder (englische) Bild-Attributionen.
+  const qid = String(c.sourceUrl || '').match(/\/wiki\/(Q\d+)/)?.[1];
+  const canonical = c.category === 'language' ? CANONICAL_LANGUAGE_BY_QID.get(qid) : null;
   const out = {
-    id: c.id,
-    name: fixText(c.name),
+    id: canonical?.id || c.id,
+    name: canonical?.name || fixText(c.name),
     category: c.category,
     attributes: fixTextDeep(attrs),
     funFact: fixText(c.funFact || ''),
@@ -333,6 +330,7 @@ function normalizeConcept(c) {
     imageLicense: c.imageLicense || '',
     imageAttribution: c.imageAttribution || ''
   };
+  if (canonical?.aliases?.length) out.aliases = canonical.aliases;
   // Marker der Bild-Recherche ("kein freies Bild gefunden") mitführen,
   // damit ein späterer Bilder-Refresh weiß, wo noch Lücken sind.
   if (c._imgProblem) out._imgProblem = c._imgProblem;
@@ -402,7 +400,7 @@ console.log('\n--- Quasi-Dubletten über Kategoriegrenzen (BEHALTEN, nur zur Inf
 CROSS_CATEGORY_NEAR_DUPES.forEach(d => console.log('  ~ ' + d));
 
 if (WRITE) {
-  refuseShrinkingOutput(OUT_PATH, merged.length);
+  assertPreservesExistingConceptIds(OUT_PATH, merged);
   writeFileSync(OUT_PATH, JSON.stringify(merged, null, 2), 'utf8');
   console.log(`\nGeschrieben: ${OUT_PATH} (${merged.length} Konzepte)`);
 } else {
