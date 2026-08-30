@@ -563,10 +563,16 @@ try {{
     {{ speakers: {{ value: '200' }}, scriptLabel: {{ value: 'Lateinisch' }} }},
   ]);
 }} catch (error) {{ ambiguous = error.message; }}
+const grouped = h.groupLanguageBindings([
+  {{ lang: {{ value: 'http://www.wikidata.org/entity/Q1' }}, speakers: {{ value: '100' }} }},
+  {{ lang: {{ value: 'http://www.wikidata.org/entity/Q1' }}, scriptLabel: {{ value: 'Lateinisch' }} }},
+  {{ lang: {{ value: 'http://www.wikidata.org/entity/Q2' }} }},
+]);
 console.log(JSON.stringify({{
   language: h.normalizeEntityName('Wu (Chinesisch)'),
   river: h.normalizeEntityName('Wu (Fluss)'),
   ambiguous,
+  grouped: [...grouped].map(([qid, rows]) => [qid, rows.length]),
 }}));
 """
         result = subprocess.run(
@@ -576,6 +582,12 @@ console.log(JSON.stringify({{
         self.assertEqual(value['language'], 'wu')
         self.assertEqual(value['river'], 'wu fluss')
         self.assertIn('mehrdeutige P1098', value['ambiguous'])
+        self.assertEqual(value['grouped'], [['Q1', 2], ['Q2', 1]])
+        for script_name in (
+                'wikidata_lingua_wd2.cjs', 'wikidata_lingua_wd3.cjs',
+                'wikidata_lingua_wd4.cjs'):
+            source = (HARVEST / script_name).read_text(encoding='utf-8')
+            self.assertIn('groupLanguageBindings(bindings)', source, script_name)
 
     def test_wikiquote_cleaner_removes_source_suffix_but_preserves_inner_dash(self):
         cleaner = HARVEST / 'wikiquote_cleaning.cjs'

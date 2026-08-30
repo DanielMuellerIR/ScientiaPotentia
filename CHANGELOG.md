@@ -2,6 +2,11 @@
 
 Dieses Changelog beginnt mit dem für eine öffentliche Veröffentlichung bereinigten Projektstand.
 
+## [1.99.4] — 2026-08-30
+
+- Gruppenabfragen der Sprachernte prüfen alle Wikidata-Aussagen je Sprache gemeinsam,
+  statt Sprecherzahl oder Schrift aus einer zufälligen Antwortzeile zu übernehmen.
+
 ## [1.99.3] — 2026-08-30
 
 - Die Astronomie-Ernte erkennt Leuchtkraftklassen auch in kompakten und hybriden

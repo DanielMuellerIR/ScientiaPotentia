@@ -27,6 +27,7 @@ const { writeJsonAtomic } = require('./json_io.cjs');
 const {
   assertExpectedEntity,
   buildSingleLanguageQuery,
+  groupLanguageBindings,
   selectLanguageFacts,
 } = require('./lingua_harvest_helpers.cjs');
 
@@ -327,8 +328,8 @@ async function main() {
     console.log(`  ${bindings.length} Treffer`);
     let added = 0, deduped = 0;
 
-    for (const row of bindings) {
-      const qid    = row.lang?.value?.replace('http://www.wikidata.org/entity/', '');
+    for (const [qid, entityBindings] of groupLanguageBindings(bindings)) {
+      const row = entityBindings[0];
       const nameDE = row.langLabel?.value;
       if (!qid || !nameDE) continue;
       // Kein deutsches Label → QID-Fallback, überspringen
@@ -341,12 +342,11 @@ async function main() {
         continue;
       }
 
-      const speakersRaw = row.speakers?.value ? Number(row.speakers.value) : null;
+      const { speakersRaw, script } = selectLanguageFacts(entityBindings, normalizeScript);
       const speakersM = (speakersRaw && isFinite(speakersRaw) && speakersRaw > 0)
         ? Math.round(speakersRaw / 1e5) / 10
         : null;
 
-      const script = normalizeScript(row.scriptLabel?.value);
       const family = mapFamily(group.topLabel, group.branchLabel);
 
       results.set(qid, { qid, nameDE, slug, speakersM, script, family, officialIn: null });

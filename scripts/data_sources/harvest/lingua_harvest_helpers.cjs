@@ -110,9 +110,21 @@ function selectLanguageFacts(bindings, normalizeScript = value => value || null)
   };
 }
 
+function groupLanguageBindings(bindings) {
+  const groups = new Map();
+  for (const row of bindings || []) {
+    const qid = row.lang?.value?.match(/Q\d+$/)?.[0];
+    if (!qid) continue;
+    if (!groups.has(qid)) groups.set(qid, []);
+    groups.get(qid).push(row);
+  }
+  return groups;
+}
+
 module.exports = {
   assertExpectedEntity,
   buildSingleLanguageQuery,
+  groupLanguageBindings,
   normalizeEntityName,
   selectLanguageFacts,
 };
