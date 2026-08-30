@@ -2,15 +2,24 @@
   "schema_version": 2,
   "project": "ScientiaPotentia",
   "campaign": {
-    "id": "20260829T204429059458+0200",
-    "token_budget": 8000000,
+    "id": "20260830T110041702224+0200",
+    "token_budget": 3000000,
     "status": "complete",
-    "started_at": "2026-08-29T20:44:29+02:00",
-    "tokens_spent": 3729051,
-    "finished_at": "2026-08-29T23:46:58+02:00",
+    "started_at": "2026-08-30T11:00:41+02:00",
+    "finished_at": "2026-08-30T11:11:26+02:00",
     "finish_reason": "all-current"
   },
-  "campaign_history": [],
+  "campaign_history": [
+    {
+      "id": "20260829T204429059458+0200",
+      "token_budget": 8000000,
+      "status": "complete",
+      "started_at": "2026-08-29T20:44:29+02:00",
+      "tokens_spent": 3729051,
+      "finished_at": "2026-08-29T23:46:58+02:00",
+      "finish_reason": "all-current"
+    }
+  ],
   "scope": {
     "paths": [
       ".env.example",
@@ -161,7 +170,14 @@
       "scripts/data_sources/harvest/json_io.cjs",
       "scripts/data_sources/harvest/lingua_harvest_helpers.cjs",
       "src/__tests__/culturaHarvestSources.test.js",
-      "scripts/lib/image_license_policy.js"
+      "scripts/lib/image_license_policy.js",
+      "scripts/data_sources/harvest/IMAGE_BLACKLIST.json",
+      "scripts/data_sources/harvest/concept_validation.cjs",
+      "scripts/data_sources/harvest/image_resolution_policy.cjs",
+      "scripts/data_sources/harvest/staged_attribution_writes.cjs",
+      "scripts/data_sources/harvest/wikiquote_cleaning.cjs",
+      "scripts/lib/merge_safety.js",
+      "src/__tests__/mergeSafety.test.js"
     ],
     "exclusions": []
   },
@@ -210,18 +226,17 @@
       "reason": "IndexedDB-Migration, Lernfortschritt und SRS-Zeitplanung",
       "state": "completed",
       "last_run": {
-        "campaign_id": "20260829T204429059458+0200",
-        "completed_at": "2026-08-29T20:52:00+02:00",
-        "observed_head": "ab39b767a093fd9ffa2a26942784ebd80f224ef4",
-        "content_sha256": "6db66225d702addca826e7b2df1f569ce8e5734bd20358c08974cac6ac9e5991",
+        "campaign_id": "20260830T110041702224+0200",
+        "completed_at": "2026-08-30T11:01:47+02:00",
+        "observed_head": "8481f72be0b17889b4e680c6117808f5a9f9398c",
+        "content_sha256": "9855f9d9779903d60794de7f97b2bfcd53eaf68f6d045df666ed33ad73332fa4",
         "file_count": 6,
         "review": "delta-plus-boundaries",
-        "outcome": "improved",
-        "summary": "Die neu ergänzte DB-Regressionsdatei wurde vollständig gelesen; sie belegt Transaktionsabbruch und verbindungsschließenden Reset an der öffentlichen Persistenzgrenze.",
+        "outcome": "reviewed-clean",
+        "summary": "DB-v3-Aliasmigration, Konfliktzusammenführung, Laufzeitleitungen und SRS-Grenzen am aktuellen HEAD geprüft; die kanonische ID wird in Progress und History konsistent verwendet, ohne eine weitere Änderung zu rechtfertigen.",
         "tests": [
-          "npm test -- src/__tests__/db.test.js src/__tests__/srs.test.js: passed (19)",
-          "npm test: passed (152)",
-          "npm run build: passed"
+          "npx vitest run src/__tests__/db.test.js src/__tests__/srs.test.js: passed",
+          "node scripts/test_srs.js: passed"
         ]
       }
     },
@@ -245,16 +260,19 @@
       "reason": "Fakten-, Distraktor-, Bild- und Zitat-Gates schützen veröffentlichte Inhalte",
       "state": "completed",
       "last_run": {
-        "campaign_id": "20260829T204429059458+0200",
-        "completed_at": "2026-08-29T23:46:37+02:00",
-        "observed_head": "f1e69a2fb5abeb095957e3e22e0c9ecd580073e2",
-        "content_sha256": "42eb7da31bcba4ba69b5680d7e7e112c5ac9d8fc74d8e4c9a74f71b3e061fe8c",
+        "campaign_id": "20260830T110041702224+0200",
+        "completed_at": "2026-08-30T11:02:27+02:00",
+        "observed_head": "8481f72be0b17889b4e680c6117808f5a9f9398c",
+        "content_sha256": "329b8973c4ef54fd07204b50b4cbc184c040e27aeae9bec5c7ca13bbe8c57eff",
         "file_count": 11,
         "review": "delta-plus-boundaries",
-        "outcome": "improved",
-        "summary": "Delta und Grenzen geprüft: audit_image_credits weist die generischen Urheberangaben 'Wikimedia Commons' und 'Commons' nun unabhängig von der Lizenz zurück; gemeinfreie Bilder mit ehrlich unbekanntem Urheber bleiben zulässig. check_images lädt den unveränderten gemeinsamen Lizenzkern über dessen neue ESM-Datei.",
+        "outcome": "reviewed-clean",
+        "summary": "Fehlender Antwortschlüssel, optionslose Fragetypen sowie Bild- und Zitatrechte-Grenzen am aktuellen Katalog geprüft; die verschärften Blocker sind konsistent und alle Gesamtaudits grün.",
         "tests": [
-          "audit:image-credits 10.468/10.468; npm test -- --run 229/229; node --check für Audit und Bildprüfer; Fakten- und Fragen-Audits für sechs betroffene Domains"
+          "npx vitest run src/__tests__/auditRules.test.js src/__tests__/englishLeak.test.js src/__tests__/quoteRights.test.js src/__tests__/imageCredits.test.js: passed (25)",
+          "npm run audit:questions: passed, 49.803 Fragen ohne Strukturfehler",
+          "npm run audit:image-credits: passed, 10.466 Prüfungen",
+          "npm run audit:quote-rights: passed, 533 Zitate"
         ]
       }
     },
@@ -272,21 +290,16 @@
       "reason": "Zentrale Domain-Verträge, Lazy Loader, Caches und Bereichswechsel",
       "state": "completed",
       "last_run": {
-        "campaign_id": "20260829T204429059458+0200",
-        "completed_at": "2026-08-29T20:58:45+02:00",
-        "observed_head": "3e15ba6333f6bc3bb409be155c56e4e8bdc6b146",
-        "content_sha256": "9be59ba840d750d693c2b8f142f8f39f825c9b75246091f35f91c0de2f5cefbe",
+        "campaign_id": "20260830T110041702224+0200",
+        "completed_at": "2026-08-30T11:02:40+02:00",
+        "observed_head": "8481f72be0b17889b4e680c6117808f5a9f9398c",
+        "content_sha256": "9e8bfae1bcc3c0ae47149929c0c068c58d73397aa6e59f01a77d00c8afb77836",
         "file_count": 5,
-        "review": "full",
-        "outcome": "improved",
-        "summary": "Registry, Metadaten, Laufzeitcache und Ladeintegration wurden vollständig geprüft. Das Bereichsmenü führt den Fokus nun regelgerecht in den aktiven Menüpunkt, unterstützt Pfeiltasten sowie Home/End, schließt beim Verlassen per Tab und markiert bei einer unbekannten ID den tatsächlich sichtbaren Fallback als aktiv.",
+        "review": "delta-plus-boundaries",
+        "outcome": "reviewed-clean",
+        "summary": "Roving-Tabindex, Pfeiltasten, Escape/Blur sowie Registry-Wechselgrenzen geprüft; genau eine Menüoption bleibt im Tabablauf, Registry und Lazy Loading bleiben unverändert.",
         "tests": [
-          "npm test -- src/__tests__/DomainSwitcher.test.jsx src/__tests__/AppDomainData.test.jsx: passed (9)",
-          "npm test: passed (157)",
-          "npm run build: passed",
-          "npm run check:layout: passed (44/44)",
-          "python3 -m unittest tests/test_deploy.py tests/test_qa_review.py: passed (23)",
-          "Browser: Tastaturnavigation, Natura-Wechsel, Katalogladung, Quizantwort, Visualisierung und CC-BY-Bildnachweis geprüft; Konsole ohne Warnungen/Fehler"
+          "npx vitest run src/__tests__/DomainSwitcher.test.jsx src/__tests__/AppDomainData.test.jsx: passed (9)"
         ]
       }
     },
@@ -309,16 +322,16 @@
       "reason": "Fragenauswahl, Antwortauswertung, Fortschrittsschreiben und Rundensteuerung",
       "state": "completed",
       "last_run": {
-        "campaign_id": "20260829T204429059458+0200",
-        "completed_at": "2026-08-29T21:58:12+02:00",
-        "observed_head": "8b96f4c5d7b446721fc4e0a3af9cd9adc4f665e2",
-        "content_sha256": "473e63aaeed0b3abdc86743bef6f51c01b3b5486e2f3889617d4960f85c7c909",
+        "campaign_id": "20260830T110041702224+0200",
+        "completed_at": "2026-08-30T11:02:59+02:00",
+        "observed_head": "8481f72be0b17889b4e680c6117808f5a9f9398c",
+        "content_sha256": "632db62edc070f60205c4c617693815c463481774beac60c7eaf6199770ef7ed",
         "file_count": 10,
         "review": "delta-plus-boundaries",
-        "outcome": "improved",
-        "summary": "Delta-Review der gemeinsamen AnswerRevealImage-Grenze: Der vor der Antwort geschützte Alternativtext, der Fehler-Fallback und das Reveal-Verhalten bleiben unverändert; nach der Antwort nutzt auch der Tooltip den aus der tatsächlichen Quelladresse abgeleiteten Namen. Die Änderung und ihre ImageCredit-/Normalisierungsgrenzen wurden in P15 vollständig geprüft und dort gebucht.",
+        "outcome": "reviewed-clean",
+        "summary": "Schnellquiz-Filter, Session-Reset, Schreib-Tracking/Fallback und Abschluss-/Neustartgrenzen vollständig nachgelesen; der Filter greift vor allen Auswahlmodi und die lokalen Fehlerpfade bleiben für eigenständige Quiz-Aufrufer erhalten.",
         "tests": [
-          "188/188 Vitest-Tests; 52 gezielte Visual-, Reveal- und Credit-Regressionen; Produktionsbuild; Layoutvertrag 44/44; Browser: unbeantwortete/beantwortete Machina-Frage, Galerie-Lightbox und fehlerfreie Konsole. Kein eigener Token-Eintrag, weil Delta-Arbeit in P15 gemeldet wurde."
+          "npx vitest run src/__tests__/QuizIntegration.test.jsx src/__tests__/AnswerRevealImage.test.jsx src/__tests__/Dashboard.test.jsx src/__tests__/shuffle.test.js: passed"
         ]
       }
     },
@@ -335,18 +348,16 @@
       "reason": "Zentrale Lade-, Ansichts-, Spiel- und Shell-Zustände mit breiter Aufrufwirkung",
       "state": "completed",
       "last_run": {
-        "campaign_id": "20260829T204429059458+0200",
-        "completed_at": "2026-08-29T21:11:00+02:00",
-        "observed_head": "68b4fbe7cdcc334a5dedc7f4453199ad54f9640d",
-        "content_sha256": "3d08bb9c364dbf5bca7e0c487f8d33d68a9d46812e4f221bb562aade063a0377",
+        "campaign_id": "20260830T110041702224+0200",
+        "completed_at": "2026-08-30T11:03:25+02:00",
+        "observed_head": "8481f72be0b17889b4e680c6117808f5a9f9398c",
+        "content_sha256": "6b3ac91b07fe4c1f1fa116ff5b403a74a2d1df9b0cf53e8ed9e1e6bf40cb20cb",
         "file_count": 4,
         "review": "delta-plus-boundaries",
-        "outcome": "improved",
-        "summary": "Die während des Vollreviews ergänzte Orchestrierungs-Testdatei wurde vollständig gelesen und deckt Score-Rennen, Einfragen-Schnelltest, fehlertoleranten Abschluss, ISO-Datumsmigration und Museum-Retry an den öffentlichen App-Übergängen ab.",
+        "outcome": "reviewed-clean",
+        "summary": "App-weite Schreib-Promise-Menge, Fehlerlebensdauer, Navigations-/Domainwechsel und Score-Reset gegen die Quiz-Grenze geprüft; neue Writes während eines Flushs werden durch die Schleife ebenfalls erfasst, und alle Startpfade setzen Filter und Rundenscore konsistent.",
         "tests": [
-          "npm test -- src/__tests__/AppOrchestration.test.jsx: passed (6)",
-          "npm test: passed (168)",
-          "npm run build: passed"
+          "npx vitest run src/__tests__/AppOrchestration.test.jsx src/__tests__/AppDomainData.test.jsx src/__tests__/QuizIntegration.test.jsx: passed"
         ]
       }
     },
@@ -539,31 +550,27 @@
         "scripts/merge_machina_historia.js",
         "scripts/merge_natura.js",
         "scripts/merge_phase5.js",
-        "scripts/prepare_data.js"
+        "scripts/prepare_data.js",
+        "scripts/lib/merge_safety.js",
+        "src/__tests__/mergeSafety.test.js"
       ],
       "risk": "high",
       "priority": 13,
       "reason": "Schreibende Rohdaten-Merges und Datenvorbereitung dürfen nichts überschreiben oder falsch deduplizieren",
       "state": "completed",
       "last_run": {
-        "campaign_id": "20260829T204429059458+0200",
-        "completed_at": "2026-08-29T21:42:56+02:00",
-        "observed_head": "9972cee933c6ad06712160c923c119c227798818",
-        "content_sha256": "3a6f9f22439a0dbcc00d44880a72800226f977e343713bf1e8108d227d14a944",
-        "file_count": 8,
-        "review": "full",
-        "outcome": "improved",
-        "summary": "Alle acht Merge- und Aufbereitungsskripte vollständig geprüft. Vier veraltete Teil-Merges verweigern nun Schreibläufe, die 6.069 später ergänzte Konzepte löschen würden; Machina/Historia schreibt nur noch nach explizitem --write und prüft beide Ziele vorab. fix_umlauts ist standardmäßig ein Dry-Run. prepare_data entfernt aktuelle Staats- und Regierungschefs, schreibt bei fehlenden Wikidata-Höhendaten nicht mehr fail-open und der bestehende Terra-Bestand wurde um 350 politische Felder und 167 politische Sätze bereinigt. merge_astra und merge_phase5 blieben nach vollständiger Prüfung unverändert.",
+        "campaign_id": "20260830T110041702224+0200",
+        "completed_at": "2026-08-30T11:03:46+02:00",
+        "observed_head": "8481f72be0b17889b4e680c6117808f5a9f9398c",
+        "content_sha256": "cd657a01dad9e8c11403ef52a0bdb07d016b8152ee964252c0b64a3c071ffe6d",
+        "file_count": 10,
+        "review": "delta-plus-boundaries",
+        "outcome": "reviewed-clean",
+        "summary": "Gemeinsamer ID-Erhaltungsschutz einschließlich der neuen Pfade, erlaubter Ergänzung, gleichgroßer Ersetzung und aller vier Schreibgrenzen geprüft; bestehende Merge-Deduplizierung verhindert doppelte Ausgaben, Astra bleibt bewusst append-/refresh-basiert.",
         "tests": [
-          "Fünf Merge-Dry-Runs: Arbeitsbaum unverändert",
-          "Vier absichtliche --write-Läufe: Schrumpfung um 1889/1104/2304/772 Konzepte verweigert; fünf Raw-Dateien byteidentisch",
-          "fix_umlauts ohne --write: 27 Funde gemeldet, keine Datei verändert",
-          "node --check für alle acht Bereichsskripte: grün",
-          "Terra-Fragengenerator: 5116 Fragen byteidentisch; verify_quiz 63019 Prüfungen, 0 Fehler",
-          "Terra-Fragenaudit: 0 Strukturfehler, 0 Antwort-im-Stamm, 0 Bias-Templates",
-          "Währungs-Harvester und Offline-Verifier: 172 Quellen, 93 Fragen, 4609 Prüfungen grün",
-          "npm test: 180 Tests grün; npm run build erfolgreich; Layout 44/44; Deployment 21/21",
-          "Echter Browser: Deutschland-Akte ohne Politikfelder, Kartenattribution sichtbar, Terra-Frage beantwortet, Konsole leer"
+          "npx vitest run src/__tests__/mergeSafety.test.js: passed (2)",
+          "node --check auf vier geänderten Merge-Skripten: passed",
+          "Dry-runs merge_cultura, merge_lingua, merge_machina_historia, merge_natura: passed"
         ]
       }
     },
@@ -585,16 +592,16 @@
       "reason": "Responsive Shell-Vertrag, Build-Einstieg, Statistik- und Rechtshinweis-Synchronisierung",
       "state": "completed",
       "last_run": {
-        "campaign_id": "20260829T204429059458+0200",
-        "completed_at": "2026-08-29T21:48:51+02:00",
-        "observed_head": "5c32dabef3fa8256f14b98d686961a6d13b64ca3",
-        "content_sha256": "bebd31d5202f19e0ce60baeda2d3484c33a7609f0d728db1403a938ecfb7bfed",
+        "campaign_id": "20260830T110041702224+0200",
+        "completed_at": "2026-08-30T11:10:44+02:00",
+        "observed_head": "20f33e230aaf4d8f4313ba2eb61ac8b15579e5a0",
+        "content_sha256": "6f4c270084d343c6d44a733db7982f5a52e330a8039a1bda7a805061f313e5f6",
         "file_count": 9,
-        "review": "full",
-        "outcome": "improved",
-        "summary": "Der Entwicklungsserver bleibt headless; der Statistikgenerator lehnt falsche Fragen-, Konzept- und Ortsstrukturen ab, statt plausible Nullwerte zu veröffentlichen. Statistikmanifest, Shell, Layout und Credits-Seite wurden vollständig geprüft.",
+        "review": "delta-plus-boundaries",
+        "outcome": "reviewed-clean",
+        "summary": "Die CodeQA-Fixes sind mit den Versionen 1.99.2 bis 1.99.4 und konkreten Changelog-Einträgen konsistent dokumentiert; Paket-Lockstep, Rechtshinweise, Shell- und Layoutgrenzen bleiben unverändert intakt.",
         "tests": [
-          "182/182 Vitest-Tests; Statistikmanifest in zwei Läufen SHA-256-bytegleich und drei Negativ-Fixtures abgewiesen; Produktionsbuild; Layoutvertrag 44/44 plus JSON ok; Deploy-Tests 21/21; THIRD_PARTY_NOTICES bytegleich; Browser: geladene 49.825/13.016/5.234/8-Kennzahlen, Credits-Navigation, keine Fehlerkonsole."
+          "npx vitest run src/__tests__/legalNotices.test.js: 4 Tests bestanden; npm run check:layout: 44/44 Prüfungen bestanden"
         ]
       }
     },
@@ -619,16 +626,16 @@
       "reason": "VisualPanel-Routing, generische Konzeptdarstellung und sichtbare Bildnachweise",
       "state": "completed",
       "last_run": {
-        "campaign_id": "20260829T204429059458+0200",
-        "completed_at": "2026-08-29T23:46:37+02:00",
-        "observed_head": "f1e69a2fb5abeb095957e3e22e0c9ecd580073e2",
-        "content_sha256": "03b0fc74e65521af1436e67530654f8e3367171b966c3b39a269a7cb837fbd13",
+        "campaign_id": "20260830T110041702224+0200",
+        "completed_at": "2026-08-30T11:05:18+02:00",
+        "observed_head": "8481f72be0b17889b4e680c6117808f5a9f9398c",
+        "content_sha256": "25d0338a71af8b5bca703be4523ebf0ffee964063117ee25c91b81001ffcedd4",
         "file_count": 12,
         "review": "delta-plus-boundaries",
-        "outcome": "improved",
-        "summary": "Delta und Verbrauchergrenzen geprüft: isConcreteImageAttribution erkennt einen Fundort nicht mehr als Urheber; imageCredits verwendet benannte ESM-Imports, sodass Vite-Entwicklung und Produktionsbuild denselben Lizenzkern laden. ImageCredit zeigt die konkretisierten Urheber mit unveränderten Quellen- und Lizenzlinks.",
+        "outcome": "reviewed-clean",
+        "summary": "Sanitization, konkrete Attribution, Laufzeit-Fallback, Lizenzlinks und alle visuellen Verbraucher geprüft; URL-, DOI-, File:- und reine Quellenreste scheitern am Publikationsaudit, während die Anzeige einen sicheren Dateiseiten-Fallback behält.",
         "tests": [
-          "Vitest-Gesamtlauf 229/229; Vite-Build; Browser-Stichproben Cultura, Homo und Natura mit geladenen Bildern, korrekten Nachweisen und leerer Konsole"
+          "npx vitest run src/__tests__/DomainVisual.test.jsx src/__tests__/conceptLabels.test.js src/__tests__/imageCredits.test.js src/__tests__/silhouette.test.js: 4 Dateien, 48 Tests bestanden; npm run audit:image-credits: 10466 bestanden"
         ]
       }
     },
@@ -725,16 +732,16 @@
       "reason": "Batchaufteilung, Resume-Sicherheit und maschinenlesbare Auswertung der Inhalts-QA",
       "state": "completed",
       "last_run": {
-        "campaign_id": "20260829T204429059458+0200",
-        "completed_at": "2026-08-29T22:27:07+02:00",
-        "observed_head": "d31dae7de70fb5834ce53a75df7a80aa2d771acd",
-        "content_sha256": "b22b4798ac334a2e1f5f32d18e7d75b783499f1cb83303e71dd7ad77e25ac9e8",
+        "campaign_id": "20260830T110041702224+0200",
+        "completed_at": "2026-08-30T11:05:34+02:00",
+        "observed_head": "8481f72be0b17889b4e680c6117808f5a9f9398c",
+        "content_sha256": "31a027196688e43515776f227d734af744e97ba271927e2dfc0a9945a8fd2e5e",
         "file_count": 4,
-        "review": "full",
-        "outcome": "improved",
-        "summary": "Batch-Builder lehnt ungültige Größen und Domains ab und entfernt eigene Alt-Batches; der Runner prüft Manifest, Frage-IDs, Batch-JSON und das vollständige Bewertungs-Schema, überspringt beschädigte Batches mit maschinenlesbarem Teilbericht und legt Ausgabeverzeichnisse vor Modellaufrufen an.",
+        "review": "delta-plus-boundaries",
+        "outcome": "reviewed-clean",
+        "summary": "Manifestpflicht, reproduzierbare Eingabe- und Batch-Hashes, Snapshotbindung, Pfadprüfung, Limit-Semantik, Teilabdeckung und Reportausgabe gegen Builder- und Runner-Grenzen geprüft; ein begrenzter Lauf bleibt absichtlich nicht zertifizierend.",
         "tests": [
-          "9 gezielte QA-Runner-Regressionstests; insgesamt 30 Python-Tests und 218 Vitest-Tests; realer Builderlauf: 214 stratifizierte Fragen aus fünf Domains in einem manifestierten Batch; Produktionsbuild; Layoutvertrag 44/44; Python-Kompilierung."
+          "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest tests.test_qa_review: 12 Tests bestanden; realer Builderlauf über alle Domains: 29 Batches, 14 Eingaben und Snapshot-Hashes verifiziert"
         ]
       }
     },
@@ -748,23 +755,24 @@
         "scripts/data_sources/harvest/mm_load.cjs",
         "scripts/data_sources/harvest/normalize_case.cjs",
         "tests/test_harvest_tools.py",
-        "scripts/data_sources/harvest/json_io.cjs"
+        "scripts/data_sources/harvest/json_io.cjs",
+        "scripts/data_sources/harvest/concept_validation.cjs"
       ],
       "risk": "medium",
       "priority": 20,
       "reason": "Schreibende Kandidaten-, Korrektur-, Deduplizierungs- und JSON-Reparaturwerkzeuge",
       "state": "completed",
       "last_run": {
-        "campaign_id": "20260829T204429059458+0200",
-        "completed_at": "2026-08-29T23:46:37+02:00",
-        "observed_head": "f1e69a2fb5abeb095957e3e22e0c9ecd580073e2",
-        "content_sha256": "2f1eb5dc0b17cc80de1732349dfd78a891a6fdbddb3bc94062fbeab2597d9179",
-        "file_count": 8,
+        "campaign_id": "20260830T110041702224+0200",
+        "completed_at": "2026-08-30T11:10:50+02:00",
+        "observed_head": "20f33e230aaf4d8f4313ba2eb61ac8b15579e5a0",
+        "content_sha256": "dca9e98419f8f86c12df98243ee7d6634c93e948f39273de090435d1518c1fbc",
+        "file_count": 9,
         "review": "delta-plus-boundaries",
-        "outcome": "improved",
-        "summary": "Delta und isolierte Testgrenze geprüft: test_harvest_tools kopiert die ESM-Lizenzrichtlinie unter ihrem tatsächlichen Dateinamen in den temporären Harvest-Testbaum; bestehende CJS-Werkzeuge können sie unter den unterstützten Node-Versionen synchron laden.",
+        "outcome": "reviewed-clean",
+        "summary": "Gemeinsame Harvest-Wächter bleiben durch die neu ergänzten Verdrahtungs- und Formatregressionen abgedeckt; die Teständerungen prüfen P18-Policy, reale Spektralformate und QID-Gruppierung ohne die Schreibwerkzeuggrenzen zu verändern.",
         "tests": [
-          "python3 -m unittest 46/46; npm test -- --run 229/229; direkter require()-Kompatibilitätstest der ESM-Exports"
+          "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest tests.test_harvest_tools: 27 Tests bestanden"
         ]
       }
     },
@@ -778,23 +786,26 @@
         "scripts/data_sources/harvest/resolve_images_batched.cjs",
         "scripts/data_sources/harvest/resolve_images_p18.cjs",
         "scripts/data_sources/harvest/resolve_images_p18_v2.cjs",
-        "scripts/lib/image_license_policy.js"
+        "scripts/lib/image_license_policy.js",
+        "scripts/data_sources/harvest/IMAGE_BLACKLIST.json",
+        "scripts/data_sources/harvest/image_resolution_policy.cjs",
+        "scripts/data_sources/harvest/staged_attribution_writes.cjs"
       ],
       "risk": "medium",
       "priority": 21,
       "reason": "Externe Bildauflösung, Lizenzmetadaten und atomare Rückschreibung in Rohdaten",
       "state": "completed",
       "last_run": {
-        "campaign_id": "20260829T204429059458+0200",
-        "completed_at": "2026-08-29T23:46:37+02:00",
-        "observed_head": "f1e69a2fb5abeb095957e3e22e0c9ecd580073e2",
-        "content_sha256": "fc83d2ea0e8709244c805ebc7f72bcfe63335bd25c3d31f030734aeda2c32590",
-        "file_count": 8,
+        "campaign_id": "20260830T110041702224+0200",
+        "completed_at": "2026-08-30T11:07:02+02:00",
+        "observed_head": "d6903d09bb475b82cb2692112a806594c69de782",
+        "content_sha256": "b786def06e901170507fc2c679e7c2c91721d70ae2d1d553a4e99cc13efbf53e",
+        "file_count": 11,
         "review": "delta-plus-boundaries",
         "outcome": "improved",
-        "summary": "Alle acht Bereichsdateien und ihre Daten-/Auditgrenzen geprüft: Der Backfill löst auch bei gemeinfreien Bildern generische Commons-Angaben auf, zählt Nachschlagen und reine Bereinigung getrennt und besitzt geprüfte Fallbacks für nicht maschinenlesbare Dateiseiten. 28 generische Urheber wurden konkretisiert und 193 redundante Commons-Suffixe entfernt; ein zweiter Lauf ändert nichts. Der Lizenzkern ist ohne Logikänderung ESM- und CJS-tauglich.",
+        "summary": "Resolver, Lizenzpolicy, Sperrliste, P18-Ränge, URL-Dateinamen, Mapping-Preflight und gestufte Attribution geprüft. Zusätzlicher Fund behoben: Auch beide älteren P18-Resolver verwenden jetzt die gemeinsame eindeutige Rangregel und lehnen veraltete oder mehrdeutige Aussagen ab.",
         "tests": [
-          "idempotenter Backfill-Dry-Run 0/0/0; 221 geänderte Rohdatensätze ausschließlich imageAttribution; Generator-Determinismus für sechs Domains; node --check für alle acht Bereichsdateien; audit:image-credits 10.468/10.468; Python 46/46; Vitest 229/229; Browser-Stichprobe"
+          "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest tests.test_harvest_tools: 27 Tests bestanden; node --check für beide P18-Resolver; npm run audit:image-credits: 10466 bestanden"
         ]
       }
     },
@@ -818,16 +829,16 @@
       "reason": "Historische NASA-/Wikidata-Ernte für Astronomie und Natur",
       "state": "completed",
       "last_run": {
-        "campaign_id": "20260829T204429059458+0200",
-        "completed_at": "2026-08-29T22:52:13+02:00",
-        "observed_head": "710b7568493f353fc6c1056f76001f8c141d983b",
-        "content_sha256": "096fc2fe8878239529c8d820f7ff4e73899bb82168585d4d81e9624c7b301e68",
+        "campaign_id": "20260830T110041702224+0200",
+        "completed_at": "2026-08-30T11:08:43+02:00",
+        "observed_head": "4f84a560e5d334ec94a944f5f411f55c453c1f3c",
+        "content_sha256": "e11f4410b66fcdaeffc32f0300f0082c58bd01fd4c323faefdf981e04c793586",
         "file_count": 11,
-        "review": "full",
+        "review": "delta-plus-boundaries",
         "outcome": "improved",
-        "summary": "Alle elf Astra-/Natura-Harvester schreiben Kandidatenausgaben atomar. Die vier Natura-Wellen unterscheiden lateinische Binomina von deutschen einwortigen Tiernamen, statt ASCII-Namen wie Tiger, Giraffe oder Elefant pauschal zu verwerfen; Astra Welle 4 klassifiziert K-Hauptreihensterne als Orange Zwerge und K-Riesen weiterhin als Orange Riesen.",
+        "summary": "Astronomie-/Natur-Ernte, Query-Gruppierung, Typzuordnung, Quellen und atomare Ausgaben geprüft. Zusätzlicher Fund behoben: Der Sternklassifizierer erkennt reale kompakte P215-Werte sowie III-IV- und IV-V-Übergänge, statt sie mangels Leerzeichen als Zwerge einzuordnen.",
         "tests": [
-          "15 gezielte Harvest-Regressionstests; insgesamt 45 Python-Tests und 218 Vitest-Tests; Syntaxprüfung aller elf P22-Skripte; Faktenprüfung Astra/Natura ohne Fehler; Fragen-Audit 18.398 Fragen ohne Strukturfehler oder Antwort im Stamm; 10.468 vollständige Bildnachweise; Produktionsbuild; Layoutvertrag 44/44."
+          "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest tests.test_harvest_tools: 27 Tests bestanden; node --check scripts/data_sources/harvest/wikidata_astra_w4.cjs"
         ]
       }
     },
@@ -848,23 +859,24 @@
         "scripts/data_sources/harvest/wikiquote_w4.cjs",
         "src/__tests__/wikiquoteHarvest.test.js",
         "scripts/data_sources/harvest/lingua_harvest_helpers.cjs",
-        "src/__tests__/culturaHarvestSources.test.js"
+        "src/__tests__/culturaHarvestSources.test.js",
+        "scripts/data_sources/harvest/wikiquote_cleaning.cjs"
       ],
       "risk": "low",
       "priority": 23,
       "reason": "Historische Wikidata-/Wikiquote-Ernte für Kultur und Sprache",
       "state": "completed",
       "last_run": {
-        "campaign_id": "20260829T204429059458+0200",
-        "completed_at": "2026-08-29T23:27:35+02:00",
-        "observed_head": "73a98f7a0fe3e2d8ee386bcd8923214f6a965870",
-        "content_sha256": "60eea0118ec572b29158d1e6163f76a829211cddafe28e2e21e85dadc0ea834e",
-        "file_count": 15,
+        "campaign_id": "20260830T110041702224+0200",
+        "completed_at": "2026-08-30T11:10:12+02:00",
+        "observed_head": "20f33e230aaf4d8f4313ba2eb61ac8b15579e5a0",
+        "content_sha256": "5ed55594052243e05aaf90a043c22ced176d19cb3be53cd22a9ff91b4112f0e3",
+        "file_count": 16,
         "review": "delta-plus-boundaries",
         "outcome": "improved",
-        "summary": "Wikidata-QID-Namenspaare und Lizenzfilter korrigiert; Lingua-Einzelabfragen validieren Entitäten; Harvest-Läufe brechen bei Teilfehlern ab und schreiben atomar; Wikiquote bewahrt Gedankenstriche und meldet Netz-/Parsefehler; sechs Cultura-Quellen sowie drei fachfremde Bilder ersetzt.",
+        "summary": "Kultur-/Sprachqueries, QID-Identität, Faktenauswahl, Sprecherquellen, Wikiquote-Bereinigung, Rechte- und Schreibgrenzen geprüft. Zusätzlicher Fund behoben: Auch Gruppenabfragen bündeln nun alle Sprecher-/Schrift-Bindings je QID und lehnen Mehrdeutigkeiten ab, statt die erste API-Zeile zu übernehmen.",
         "tests": [
-          "227 Vitest-Tests; 45 Python-Tests; Build; Layout 44/44; Deploy 21; Fakten Cultura/Lingua 0 Fehler; Fragen-Audit 0 Struktur/Antwort-Leak; 10.468 Bildnachweise; 533 Zitate; deterministische Generatorläufe; UI-Stichprobe Cultura/Lingua und Purcell ohne Browserfehler."
+          "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest tests.test_harvest_tools: 27 Tests bestanden; npx vitest run wikiquoteHarvest+culturaHarvestSources: 13 Tests bestanden; node --check für Lingua WD2-WD4"
         ]
       }
     },
@@ -879,28 +891,28 @@
       "reason": "Spezialisierte, deterministische Währungs-Ernte und ihre Offline-Verifikation",
       "state": "completed",
       "last_run": {
-        "campaign_id": "20260829T204429059458+0200",
-        "completed_at": "2026-08-29T23:28:48+02:00",
-        "observed_head": "bd765f12721832f0addf996f7e7f93c36ab450f0",
-        "content_sha256": "5ebefef5b8215a074cb0c3ba79735783b8d1d301624b51cdb07dc0e1848d92ce",
+        "campaign_id": "20260830T110041702224+0200",
+        "completed_at": "2026-08-30T11:10:30+02:00",
+        "observed_head": "20f33e230aaf4d8f4313ba2eb61ac8b15579e5a0",
+        "content_sha256": "771954ce11e9e6502d4128f6799422128b84f488ae710cad7eb5200ce85b978b",
         "file_count": 2,
-        "review": "full",
-        "outcome": "improved",
-        "summary": "Der Währungsgenerator schreibt die freigegebene Terra-Quellwahrheit über den gemeinsamen atomaren JSON-Pfad; die vollständige Offline- und Live-Verifikation blieb unverändert grün.",
+        "review": "delta-plus-boundaries",
+        "outcome": "reviewed-clean",
+        "summary": "Gepinnte EU-Projektion, Parser-Rückbildung, Quellenentscheidungen, deterministische Stichprobe, veröffentlichte Fragen und Review-Hashes geprüft; der Offline-Verifier bindet nun den dokumentierten Output-Hash an die tatsächlich gelesenen Bytes.",
         "tests": [
-          "Zwei deterministische Generatorläufe bytegleich; 4.609 Offline-Prüfungen; 5.541 Online-Prüfungen gegen EU Publications Office; Syntaxprüfung beider Module; Diff-Check."
+          "node scripts/data_sources/harvest/verify_terra_currency_f.mjs: 4611 Offline-Prüfungen bestanden; 172 Quellen, 93 Fragen, 79 Ländername-Leaks kontrolliert ausgelassen"
         ]
       }
     }
   ],
   "architecture": {
-    "campaign_id": "20260829T204429059458+0200",
-    "recorded_at": "2026-08-29T20:44:29+02:00",
-    "observed_head": "7b94bdc3b93bd271af1c8559e54ff76ef7263c15",
-    "summary": "Die Domain-Registry und die Build-Pipeline trennen Fachbereiche und Datenfluss sauber; src/App.jsx bündelt jedoch Laden, Persistenz, Spielzustand und Shell-Rendering, während Generator- und Harvest-Werkzeuge ähnliche Mechanik mehrfach implementieren.",
+    "campaign_id": "20260830T110041702224+0200",
+    "recorded_at": "2026-08-30T11:01:02+02:00",
+    "observed_head": "8481f72be0b17889b4e680c6117808f5a9f9398c",
+    "summary": "Domain-Registry und Datenpipeline trennen Fachbereiche weiterhin tragfähig; src/App.jsx bündelt Laden, Persistenz, Spielzustand und Shell-Rendering, während historische Harvest-Wellen trotz neuer gemeinsamer Wächter ähnliche Netz- und Normalisierungslogik mehrfach tragen.",
     "paradigm": "Komponentenbasiertes React mit unidirektionalem Datenfluss und Registry; getrennte Source-Generator-Audit-Pipeline",
     "fit": "gespannt",
-    "recommendation": "Das bestehende Paradigma beibehalten. App-Orchestrierung und gemeinsame Generator-/Harvest-Mechanik nur in einzeln verifizierten Bereichen entkoppeln; kein Architekturwechsel."
+    "recommendation": "Bestehendes Paradigma beibehalten. App-Orchestrierung und Harvest-Grenzen nur bereichsweise entkoppeln; ein Architekturwechsel bringt gegenüber gezielten Extraktionen derzeit keinen belegbaren Nutzen."
   },
   "themes": [
     {
