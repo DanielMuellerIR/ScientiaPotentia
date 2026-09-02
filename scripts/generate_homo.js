@@ -14,7 +14,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { pickBalanced, deParse, shouldMagnitudeSpread, magnitudeSpreadDistractors } from './lib/quizrandom.js';
-import { deNum, distinctOptionValues, norm, optionKey } from './lib/generator_text.js';
+import { deNum, distinctOptionValues, isUsableOptionValue, norm, optionKey } from './lib/generator_text.js';
 import { buildImageMetadata } from '../src/utils/imageCredits.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -1155,10 +1155,16 @@ for (const tpl of templates) {
   // pro Frage. Vorwärtsfragen teilen sich weiterhin diesen einmal gebauten Pool.
   const valuePool = tpl.nameAnswer ? [] : conceptsInCat
     .filter(c => !(tpl.skip && tpl.skip(c)))
-    .map(c => (tpl.valueUnit ? tpl.format(null, c) : tpl.format(c.attributes[tpl.attr], c)))
     // Bei dünn besetzten Attributen (z.B. organ.location nur bei wenigen Organen)
-    // liefern Konzepte ohne Wert sonst „undefined" als Distraktor. Leere Werte raus.
-    .filter(v => v !== undefined && v !== null && v !== '');
+    // zuerst den ROHWERT prüfen und erst danach formatieren. Umgekehrt macht der
+    // Formatter aus dem fehlenden Wert einen Text („undefined", „NaN cm"), den
+    // ein Leerwert-Filter nicht mehr erkennt.
+    .map(c => ({ concept: c, raw: tpl.valueUnit ? c.attributes.value : c.attributes[tpl.attr] }))
+    .filter(({ raw }) => raw !== undefined && raw !== null && raw !== '')
+    .map(({ concept, raw }) => (tpl.valueUnit ? tpl.format(null, concept) : tpl.format(raw, concept)))
+    // Zweites Netz für Formatter, die aus einem vorhandenen, aber unpassenden
+    // Wert doch noch ein Sentinel bauen.
+    .filter(isUsableOptionValue);
 
   for (const c of conceptsInCat) {
     if (tpl.skip && tpl.skip(c)) continue;
@@ -1168,6 +1174,9 @@ for (const tpl of templates) {
     if (rawValue === undefined || rawValue === null || rawValue === '') continue;
 
     const correct = tpl.nameAnswer ? c.name : (tpl.valueUnit ? tpl.format(null, c) : tpl.format(rawValue, c));
+    // Formatierte Antwort muss ein echter Wert sein: „undefined"/„NaN" wären
+    // eine unlösbare Frage, kein Distraktorproblem.
+    if (!isUsableOptionValue(correct)) continue;
     const subjectInfo = resolveSubject(c, tpl, correct);
 
     // Selbstverräter: steckt die Antwort schon im Hinweis (Name/Wert), Frage verwerfen.
@@ -1201,6 +1210,9 @@ for (const tpl of templates) {
         distractors = pickDistractors(correct, pool, tpl.numeric);
       }
     }
+    // Letztes Netz: kein Distraktorweg (Pool, Körperfakten, Größenordnungs-
+    // spreizung) darf ein Sentinel wie „undefined"/„NaN cm" durchlassen.
+    distractors = distractors.filter(isUsableOptionValue);
     if (distractors.length < 1) continue;
 
     questions.push({

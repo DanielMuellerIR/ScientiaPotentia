@@ -11,6 +11,11 @@
 //      <2 distinkte Optionen.
 //   4. Format-Tell: nur die richtige Option hat Klammer/Zahl/Sonderzeichen,
 //      die Distraktoren nicht (oder umgekehrt).
+//   5. Sentinel-Optionen: „undefined", „NaN km" und Ähnliches — der Generator
+//      hat einen fehlenden Rohwert formatiert, statt ihn zu verwerfen.
+//   6. Dominante Lösung je Fragetyp: ist dieselbe Antwort in mindestens der
+//      Hälfte aller Fälle richtig, lohnt sich blindes Raten. Freigegebene
+//      Ausnahmen samt Obergrenze stehen in ./lib/dominance_policy.cjs.
 //
 // Aufruf: node scripts/audit_questions.cjs [domain] [--dump=/tmp/sci_audit]
 //   --dump schreibt je Domain die auffälligen Fälle + eine Zufallsstichprobe
@@ -21,7 +26,10 @@ const fs = require('fs');
 const path = require('path');
 // `answerInStem` heißt hier `answerAppearsInStem`, weil unten ein gleichnamiges
 // Sammel-Array für die Treffer steht.
-const { expectsOptions, norm, answerInStem: answerAppearsInStem } = require('./lib/audit_rules.cjs');
+const {
+  expectsOptions, norm, answerInStem: answerAppearsInStem, isUsableOptionValue,
+} = require('./lib/audit_rules.cjs');
+const { dominanceVerdict } = require('./lib/dominance_policy.cjs');
 
 const DOMAINS = ['astra', 'cultura', 'historia', 'homo', 'lingua', 'machina', 'natura', 'terra'];
 const args = process.argv.slice(2);
@@ -72,6 +80,7 @@ for (const domain of selectedDomains) {
   const answerInStem = [];
   const structural = [];
   const formatTell = [];
+  const sentinelOptions = [];
 
   for (const q of qs) {
     const opts = q.options || [];
@@ -127,6 +136,14 @@ for (const domain of selectedDomains) {
       answerInStem.push({ id: q.id, type, prompt, correct, options: opts });
     }
 
+    // --- Sentinel-Optionen ---
+    // Ein formatierter Fehlwert („undefined", „NaN km") ist keine Stilfrage,
+    // sondern eine unlösbare Option und darum ein harter Fehler.
+    const sentinels = opts.filter(o => !isUsableOptionValue(o));
+    if (sentinels.length) {
+      sentinelOptions.push({ id: q.id, type, prompt, correct, options: opts, sentinels });
+    }
+
     // --- Format-Tell: Klammer/Ziffer nur bei der richtigen Option ---
     const hasSpecial = s => /[()0-9]/.test(String(s));
     const correctSpecial = hasSpecial(correct);
@@ -152,17 +169,22 @@ for (const domain of selectedDomains) {
   // Dominante Antwort: Wenn dieselbe Loesung in der Haelfte aller Fragen eines
   // Typs richtig ist, gewinnt schon das blosse Raten dieser einen Antwort. Das
   // ist unabhaengig von der Optionslaenge und blieb darum bisher unsichtbar.
-  const dominantTypes = typeStats.filter(t => t.n >= 8 && t.topAnswerShare >= 50);
+  const dominantTypes = typeStats
+    .filter(t => t.n >= 8 && t.topAnswerShare >= 50)
+    .map(t => ({ ...t, verdict: dominanceVerdict(t.type, t.topAnswerShare) }));
+  // Nicht freigegebene (oder über ihre Obergrenze gestiegene) Dominanz blockiert.
+  const unapprovedDominance = dominantTypes.filter(t => !t.verdict.accepted);
 
   summary.push({
     domain, total: qs.length, structural: structural.length,
     answerInStem: answerInStem.length, formatTell: formatTell.length,
-    biasTypes, dominantTypes,
+    sentinelOptions: sentinelOptions.length, biasTypes, dominantTypes,
+    unapprovedDominance,
   });
 
   // Konsolen-Report je Domain
   console.log(`\n=== ${domain.toUpperCase()}  (${qs.length} Fragen) ===`);
-  console.log(`  Strukturfehler: ${structural.length} | Antwort-im-Stamm: ${answerInStem.length} | Format-Tell: ${formatTell.length}`);
+  console.log(`  Strukturfehler: ${structural.length} | Antwort-im-Stamm: ${answerInStem.length} | Format-Tell: ${formatTell.length} | Sentinel-Optionen: ${sentinelOptions.length}`);
   if (biasTypes.length) {
     console.log(`  ⚠ Längen-Bias-Templates (n≥8, longest≥50% oder shortest≥55%):`);
     biasTypes.sort((a, b) => Math.max(b.pctLongest, b.pctShortest) - Math.max(a.pctLongest, a.pctShortest))
@@ -173,9 +195,15 @@ for (const domain of selectedDomains) {
   if (dominantTypes.length) {
     console.log(`  ⚠ Dominante Antwort (n≥8, häufigste Lösung ≥50 %):`);
     dominantTypes.sort((a, b) => b.topAnswerShare - a.topAnswerShare)
-      .forEach(t => console.log(`     ${t.type}  n=${t.n}  häufigste Lösung ${t.topAnswerShare} %`));
+      .forEach(t => console.log(
+        `     ${t.verdict.accepted ? 'freigegeben' : '✗ OFFEN     '} ${t.type}`
+        + `  n=${t.n}  häufigste Lösung ${t.topAnswerShare} %  — ${t.verdict.reason}`));
   }
   if (structural.length) structural.slice(0, 5).forEach(s => console.log(`     STRUKT ${s.id}: ${s.reason}`));
+  if (sentinelOptions.length) {
+    console.log(`  ✗ Sentinel-Optionen (formatierter Fehlwert statt echtem Wert):`);
+    sentinelOptions.slice(0, 5).forEach(s => console.log(`     ${s.id} [${s.type}]: ${s.sentinels.join(' | ')}`));
+  }
 
   // --- Dump für LLM-Prüfung ---
   if (dumpDir) {
@@ -186,7 +214,8 @@ for (const domain of selectedDomains) {
       domain,
       flagged: {
         structural, answerInStem: answerInStem.slice(0, 40),
-        formatTell: formatTell.slice(0, 40), biasTypes, dominantTypes,
+        formatTell: formatTell.slice(0, 40), sentinelOptions: sentinelOptions.slice(0, 40),
+        biasTypes, dominantTypes,
       },
       randomSample: sample,
     }, null, 2));
@@ -195,15 +224,24 @@ for (const domain of selectedDomains) {
 
 console.log('\n\n===== GESAMT-ÜBERSICHT =====');
 summary.forEach(s => console.log(
-  `${s.domain.padEnd(9)} ${String(s.total).padStart(6)} Fragen | Strukt ${s.structural} | Ans-im-Stamm ${s.answerInStem} | Format ${s.formatTell} | Bias-Templates ${s.biasTypes.length} | Dominant ${s.dominantTypes.length}`
+  `${s.domain.padEnd(9)} ${String(s.total).padStart(6)} Fragen | Strukt ${s.structural} | Ans-im-Stamm ${s.answerInStem} | Format ${s.formatTell} | Sentinel ${s.sentinelOptions} | Bias-Templates ${s.biasTypes.length} | Dominant ${s.dominantTypes.length} (davon offen ${s.unapprovedDominance.length})`
 ));
 if (dumpDir) console.log(`\nStichproben + Flags geschrieben nach: ${dumpDir}`);
 
-// Strukturfehler und eine mechanisch im Stamm enthaltene Antwort verletzen
-// harte Projektregeln. Heuristische Format- und Längenhinweise bleiben dagegen
-// Sichtungsbefunde und dürfen den automatischen Lauf nicht allein blockieren.
+// Strukturfehler, eine mechanisch im Stamm enthaltene Antwort, Sentinel-Optionen
+// und nicht freigegebene Dominanz verletzen harte Projektregeln. Heuristische
+// Format- und Längenhinweise bleiben dagegen Sichtungsbefunde und dürfen den
+// automatischen Lauf nicht allein blockieren.
+const openDominance = summary.flatMap(item => item.unapprovedDominance);
+if (openDominance.length) {
+  console.error('\nNicht freigegebene Dominanz — entweder den Fragetyp überarbeiten');
+  console.error('oder ihn mit Begründung in scripts/lib/dominance_policy.cjs freigeben:');
+  openDominance.forEach(t => console.error(
+    `  ${t.type}  n=${t.n}  häufigste Lösung ${t.topAnswerShare} %  (${t.verdict.reason})`));
+}
 const blockingFindings = summary.reduce(
-  (count, item) => count + item.structural + item.answerInStem,
+  (count, item) => count + item.structural + item.answerInStem + item.sentinelOptions
+    + item.unapprovedDominance.length,
   missingCatalogs
 );
 if (blockingFindings) {

@@ -120,9 +120,13 @@ const CONTINENT_PATTERNS = [
   ['Afrika', /afrika|sahara|sahel|madagask|kongo|serengeti|namib|kalahari|äthiop|kenia|tansania|sambia|simbabwe|botswana|angola|kamerun|nigeria|senegal|marokko|ägypten|gambia|ghana|mali\b|sudan|somalia|uganda|ruanda|mosambik|malawi|tschad|tunesien|algerien|libyen|kapprovinz|sansibar|komoren|seychellen|niger(delta|\b)|elfenbeinküste|benin|togo|gabun|eritrea|dschibuti|lesotho|swasiland|okavango/],
   ['Europa', /europa|europä|skandinav|alpen|iberisch|balkan|britisch|karpaten|pyrenäen|deutschland|frankreich|spanien|italien|griechenland|polen|schweden|norwegen|finnland|dänemark|niederlande|schweiz|österreich|ungarn|rumänien|bulgarien|portugal|irland|schottland/],
   ['Asien', /asien|asiat|indien|indisch|china|chines|japan|himalaja|himalaya|sibirien|borneo|sumatra|\bjava\b|sulawesi|philippin|indonesi|malaysia|thailand|vietnam|korea|mongolei|iran\b|arab|kaukasus|nepal|bhutan|myanmar|\bburma|sri lanka|taiwan|kasachstan|afghanistan|pakistan|bangladesch|laos|kambodscha|tibet|jemen|oman|israel|türkei|anatolien|naher osten|levante|syrien|irak|bali\b|lombok|sundainseln|molukken/],
-  ['Nordamerika', /nordamerika|kanada|alaska|\busa\b|vereinigte staaten|mexiko|mexik|kalifornien|florida|texas|rocky mountains|great plains|appalach|mississippi|arizona|nevada|oregon|alberta|ontario|québec|quebec|yukon|labrador|neuengland|großen seen/],
+  // Mittelamerika und die Karibik sind keine eigenen Erdteile, sondern Teil
+  // Nordamerikas (Sieben-Kontinente-Modell). Sie stehen darum in derselben
+  // Familie: Die Frage lautet „Auf welchem Erdteil …?", und „Mittelamerika" war
+  // als Antwort darauf sachlich falsch — beim kubanischen Bienenkolibri ebenso
+  // wie bei den mittelamerikanischen Schildkröten.
+  ['Nordamerika', /nordamerika|kanada|alaska|\busa\b|vereinigte staaten|mexiko|mexik|kalifornien|florida|texas|rocky mountains|great plains|appalach|mississippi|arizona|nevada|oregon|alberta|ontario|québec|quebec|yukon|labrador|neuengland|großen seen|mittelamerika|zentralamerika|costa rica|panama|guatemala|honduras|nicaragua|belize|karibik|karibisch|kuba\b|jamaika|hispaniola|puerto rico|antillen|bahamas|trinidad|dominikanische/],
   ['Südamerika', /südamerika|amazon|anden|brasilien|argentin|\bperu\b|chile|kolumbien|venezuela|ecuador|bolivien|patagonien|galapagos|galápagos|guyana|guayana|paraguay|uruguay|surinam|feuerland|orinoko|pantanal|cerrado/],
-  ['Mittelamerika', /mittelamerika|zentralamerika|costa rica|panama|guatemala|honduras|nicaragua|belize|karibik|karibisch|kuba\b|jamaika|hispaniola|puerto rico|antillen|bahamas|trinidad|dominikanische/],
   ['Australien und Ozeanien', /australi|neuseeland|neuguinea|tasmani|ozeanien|melanesien|polynesien|fidschi|hawaii|papua|salomonen|vanuatu|samoa|queensland|new south wales|victoria\b/],
   ['Antarktis', /antarkti|südpolar/]
 ];

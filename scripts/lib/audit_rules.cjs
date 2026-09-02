@@ -63,4 +63,29 @@ function answerInStem(prompt, correct) {
   return re.test(norm(prompt));
 }
 
-module.exports = { OPTIONLESS_TYPES, expectsOptions, norm, answerInStem };
+/**
+ * Sentinel-Antwortoptionen: Texte, die kein echter Wert sind, sondern das
+ * sichtbar gewordene Ergebnis eines fehlenden Rohwerts. `${undefined}` wird zu
+ * "undefined", die Zahlformatierung eines fehlenden Werts zu "NaN km", eine
+ * Division ohne Wert zu "Infinity". Als Antwortoption sind sie unlösbar.
+ *
+ * Bewusst nur diese drei JavaScript-Sentinels und bewusst mit Beachtung der
+ * Groß-/Kleinschreibung: Das deutsche Wort „null“ ist ein gültiger Bestandteil
+ * von Fachtexten („bei null Verweisen freigeben“) und darf nicht anschlagen,
+ * ebenso wenig ein Name, in dem die Zeichenfolge nur zufällig steckt
+ * („NaNo-Beschichtung“).
+ */
+const OPTION_SENTINEL = /(?:^|[\s([{,;:/–-])(?:undefined|NaN|Infinity)(?:$|[\s)\]},;:/–-])/;
+
+/** Taugt der Wert als Antwortoption (nicht leer, kein Sentinel)? */
+function isUsableOptionValue(value) {
+  if (value === undefined || value === null) return false;
+  const text = String(value).trim();
+  if (!text) return false;
+  return !OPTION_SENTINEL.test(text);
+}
+
+module.exports = {
+  OPTIONLESS_TYPES, expectsOptions, norm, answerInStem,
+  OPTION_SENTINEL, isUsableOptionValue,
+};

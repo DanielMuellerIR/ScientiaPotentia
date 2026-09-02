@@ -343,6 +343,51 @@ class HarvestToolTests(unittest.TestCase):
             self.assertNotEqual(blocked.returncode, 0)
             self.assertIn('gesperrtes Konzept', blocked.stderr)
 
+    def test_purge_blacklisted_is_dry_by_default_and_removes_only_blocked_ids(self):
+        # Nacht-Review 2026-09-02: "Guernica" stand laut BLACKLIST.md zur
+        # kompletten Streichung, blieb aber in cultura_raw.json und im Release.
+        # Der Merge taugte nicht zum Aufräumen (er würde 1.800 später ergänzte
+        # Konzepte mitlöschen), also gibt es dieses eng begrenzte Werkzeug.
+        with tempfile.TemporaryDirectory() as temporary:
+            root, harvest = self.prepare_tool_tree(temporary, 'purge_blacklisted.cjs')
+            raw_path = root / 'scripts' / 'data_sources' / 'cultura_raw.json'
+            bestand = [
+                {'id': 'guernica', 'name': 'Guernica'},
+                {'id': 'mona-lisa', 'name': 'Mona Lisa'},
+            ]
+            self.write_json(raw_path, bestand)
+
+            dry = self.run_node(harvest / 'purge_blacklisted.cjs')
+            self.assertEqual(dry.returncode, 0, dry.stderr)
+            self.assertIn('guernica', dry.stdout)
+            self.assertEqual(json.loads(raw_path.read_text(encoding='utf-8')), bestand)
+
+            check = self.run_node(harvest / 'purge_blacklisted.cjs', '--check')
+            self.assertEqual(check.returncode, 1)
+
+            written = self.run_node(harvest / 'purge_blacklisted.cjs', '--write')
+            self.assertEqual(written.returncode, 0, written.stderr)
+            self.assertEqual(
+                json.loads(raw_path.read_text(encoding='utf-8')),
+                [{'id': 'mona-lisa', 'name': 'Mona Lisa'}])
+
+            after = self.run_node(harvest / 'purge_blacklisted.cjs', '--check')
+            self.assertEqual(after.returncode, 0)
+
+    def test_purge_blacklisted_also_catches_a_blocked_image_file(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root, harvest = self.prepare_tool_tree(temporary, 'purge_blacklisted.cjs')
+            raw_path = root / 'scripts' / 'data_sources' / 'cultura_raw.json'
+            self.write_json(raw_path, [{
+                'id': 'anderes-werk',
+                'name': 'Anderes Werk',
+                'imageFile': "https://commons.wikimedia.org/wiki/File%3APablo_Picasso%27s_Guernica.jpg",
+            }])
+
+            result = self.run_node(harvest / 'purge_blacklisted.cjs', '--check')
+            self.assertEqual(result.returncode, 1)
+            self.assertIn('anderes-werk', result.stdout)
+
     def test_batched_image_policy_handles_p18_redirects_and_ambiguous_titles(self):
         script = HARVEST / 'resolve_images_batched.cjs'
         code = f"""
@@ -367,6 +412,14 @@ console.log(JSON.stringify({{
     {{ rank: 'normal', mainsnak: {{ datavalue: {{ value: 'B.jpg' }} }} }},
   ]),
   io: resolver.pageTitleForConcept({{ id: 'io', name: 'Io' }}, 'astra'),
+  ohneQuelle: resolver.pageTitleForConcept({{ id: 'x', name: 'Rotfuchs' }}, 'natura'),
+  englischeQuelle: resolver.pageTitleForConcept(
+    {{ id: 'y', name: 'Die weinende Frau', sourceUrl: 'https://en.wikipedia.org/wiki/The_Weeping_Woman' }},
+    'cultura'),
+  deutscheQuelleGewinnt: resolver.pageTitleForConcept(
+    {{ id: 'z', name: 'Anderer Name', sourceUrl: 'https://de.wikipedia.org/wiki/Rotfuchs' }},
+    'natura'),
+  ohneName: resolver.pageTitleForConcept({{ id: 'q', name: '  ' }}, 'machina'),
 }}));
 """
         result = subprocess.run(
@@ -378,6 +431,12 @@ console.log(JSON.stringify({{
         self.assertEqual(value['preferred'], 'Preferred.jpg')
         self.assertIsNone(value['multipleNormal'])
         self.assertEqual(value['io'], 'Io (Mond)')
+        # Ohne Namensrückfall stellte der Resolver für über 600 bildlose
+        # Konzepte ohne deutschen Quelllink gar keine Anfrage (Fund 2026-09-02).
+        self.assertEqual(value['ohneQuelle'], 'Rotfuchs')
+        self.assertEqual(value['englischeQuelle'], 'Die weinende Frau')
+        self.assertEqual(value['deutscheQuelleGewinnt'], 'Rotfuchs')
+        self.assertIsNone(value['ohneName'])
 
     def test_all_p18_resolvers_use_shared_rank_policy(self):
         for script_name in ('resolve_images_p18.cjs', 'resolve_images_p18_v2.cjs'):

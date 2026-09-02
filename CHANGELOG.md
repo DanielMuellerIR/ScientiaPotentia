@@ -2,9 +2,29 @@
 
 Dieses Changelog beginnt mit dem für eine öffentliche Veröffentlichung bereinigten Projektstand.
 
+## [2.0.1] — 2026-09-02
+
+- 99 Fragen in Astra und Mensch & Körper zeigten „undefined“ oder „NaN km“ als Antwortoption:
+  Ein fehlender Rohwert lief durch die Textformatierung und landete als scheinbar echter Wert
+  im Distraktorenpool. Die Generatoren prüfen den Rohwert jetzt vor dem Formatieren, und das
+  Fragen-Audit lässt solche Optionen nicht mehr durch.
+- 28 Exoplaneten-Fragen boten zwei Schreibweisen derselben Entdeckungsmethode als getrennte
+  Optionen — damit war auch der vermeintlich falsche Distraktor richtig. Die Methoden haben
+  jetzt je eine Kanonform; die eine Frage mit zwei Entdeckungsmethoden entfällt.
+- Picassos „Guernica“ ist bis 2043 urheberrechtlich geschützt und war als gesperrt vermerkt,
+  wurde aber weiter mit Bild ausgeliefert. Das Konzept und seine acht Fragen sind entfernt; der
+  Bildnachweis-Audit schlägt jetzt bei jedem gesperrten Konzept fehl.
+- Die Frage nach dem Erdteil eines Tieres nannte für Kuba, die Antillen und Mittelamerika
+  „Mittelamerika“ — das ist keine Erdteilangabe. Diese Verbreitungsgebiete zählen jetzt zu
+  Nordamerika.
+- Der gebündelte Bildsucher fragt wieder unter dem Konzeptnamen an, wenn eine Quelle keinen
+  deutschen Wikipedia-Titel hergibt; zuvor übersprang er über 600 bildlose Konzepte still.
+- Das Fragen-Audit blockiert jetzt bei Fragetypen mit dominanter Lösung, solange sie nicht in
+  `scripts/lib/dominance_policy.cjs` mit Begründung und Obergrenze freigegeben sind.
+
 ## [2.0.0] — 2026-09-02
 
-- Mensch & Körper wächst von 1.604 auf 3.179 Fragen: neu sind Blutgefäße, Bänder und Sehnen,
+- Mensch & Körper wächst von 1.604 auf 3.242 Fragen: neu sind Blutgefäße, Bänder und Sehnen,
   Hirnstrukturen, Botenstoffe, Bestandteile der Sinnesorgane, Zähne, Gewebearten und Bausteine
   des Immunsystems; Organe, Muskeln, Nerven, Menschenarten und Vitamine wurden vertieft.
 - Bereits geprüfte, aber nie abgefragte Angaben ergeben neue Fragen in vier weiteren Bereichen:

@@ -47,7 +47,13 @@
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+import { createRequire } from 'node:module';
 import { assertPreservesExistingConceptIds } from './lib/merge_safety.js';
+
+// Die Sperrliste liegt maschinenlesbar in harvest/IMAGE_BLACKLIST.json (Begründung
+// je Eintrag in harvest/BLACKLIST.md). Sie wird hier eingelesen statt kopiert,
+// damit ein neuer Eintrag nicht an zwei Stellen gepflegt werden muss.
+const require = createRequire(import.meta.url);
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const HARVEST = join(__dirname, 'data_sources', 'harvest');
@@ -56,11 +62,12 @@ const WRITE = process.argv.includes('--write');
 
 const FILES = ['cultura_a_w1.json', 'cultura_a_w1b.json', 'cultura_b_w1.json', 'cultura_b_w1b.json'];
 
-// --- BLACKLIST (aus harvest/BLACKLIST.md) ------------------------------------
-// Guernica (Picasso) ist bis 2043 urheberrechtlich geschützt -> Konzept komplett
-// gesperrt. Abgeglichen wird gegen id UND normalisierten Namen, damit auch eine
-// abweichende Schreibweise ("guernica-picasso") hängen bleibt.
-const BLACKLISTED = ['guernica'];
+// --- BLACKLIST (aus harvest/IMAGE_BLACKLIST.json) ----------------------------
+// Beispiel Guernica (Picasso): bis 2043 urheberrechtlich geschützt -> Konzept
+// komplett gesperrt. Abgeglichen wird gegen id UND normalisierten Namen, damit
+// auch eine abweichende Schreibweise ("guernica-picasso") hängen bleibt.
+const BLACKLISTED = require(join(HARVEST, 'IMAGE_BLACKLIST.json')).conceptIds
+  .map(id => String(id).toLowerCase());
 
 // --- 1. Attribut-Key-Aliase je Kategorie -> kanonisch englisch ---------------
 // Nur Keys, die als Synonyme auftreten oder auf die der Generator Fragen baut.
@@ -323,7 +330,11 @@ if (dropped.length) {
 }
 
 if (WRITE) {
-  assertPreservesExistingConceptIds(OUT_PATH, merged);
+  // Gesperrte IDs dürfen verschwinden — sie sollen es sogar. Ohne diese
+  // ausdrückliche Löschliste hielte die Sicherheitsprüfung ausgerechnet den
+  // vorgesehenen Bereinigungsweg auf. Alle anderen bestehenden IDs bleiben
+  // geschützt.
+  assertPreservesExistingConceptIds(OUT_PATH, merged, BLACKLISTED);
   writeFileSync(OUT_PATH, JSON.stringify(merged, null, 2), 'utf8');
   console.log(`\nGeschrieben: ${OUT_PATH} (${merged.length} Konzepte)`);
 } else {

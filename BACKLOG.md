@@ -1,11 +1,12 @@
 # Backlog
 
-- 18 Fragetypen haben eine dominante Lösung: Dieselbe Antwort ist in mindestens der Hälfte
-  aller Fälle richtig, am stärksten bei Schriftrichtung (85 %), Netzwerkschicht (82 %),
-  Schrifttyp einer Sprache (81 %), Motorgattung (81 %) und Sprache der Genre-Literatur (80 %).
-  `npm run audit:questions` listet sie unter „Dominante Antwort". Je Typ ist zu entscheiden,
-  ob der Distraktorpool erweitert, die Frage umformuliert oder der Typ gestrichen wird. Die
-  Verteilung bildet teils die Wirklichkeit ab, macht die Frage aber trotzdem erratbar.
+- Vier Fragetypen sind dominant, weil der eigene Bestand schief ist, nicht die Welt: Sprache
+  der Genre-Literatur (80 % Englisch), Amtssprachenländer (51 % „2 Länder"), Geologietyp
+  (50 % Vulkan) und Essbarkeit von Pilzen (58 % essbar). Sie sind in
+  `scripts/lib/dominance_policy.cjs` mit Begründung und Obergrenze freigegeben; abbauen lässt
+  sich das nur über einen breiteren Bestand, nicht über andere Distraktoren. Die übrigen
+  vierzehn dominanten Typen bilden die Wirklichkeit ab (die meisten Schriften laufen von links
+  nach rechts, die IUCN stuft die Mehrheit der Arten als nicht gefährdet ein) und bleiben so.
 - Die Bildabdeckung von Homo hinkt der Konzeptzahl hinterher: 946 Konzepte, 306 Bilder. Die
   acht neuen Kategorien der Welle vom 2026-09-02 haben noch keine aufgelösten Commons-Bilder.
 - Die vier Lingua-Kategorien Lehnwort, Sprachkuriosum, Grammatik und Phonetik (80 Konzepte)

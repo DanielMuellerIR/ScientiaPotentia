@@ -10,7 +10,8 @@ import { tmpdir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { describe, it, expect } from 'vitest';
-import { expectsOptions, answerInStem } from '../../scripts/lib/audit_rules.cjs';
+import { expectsOptions, answerInStem, isUsableOptionValue } from '../../scripts/lib/audit_rules.cjs';
+import { dominanceVerdict } from '../../scripts/lib/dominance_policy.cjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 const AUDIT = join(ROOT, 'scripts', 'audit_questions.cjs');
@@ -82,6 +83,50 @@ describe('answerInStem', () => {
   });
 });
 
+describe('isUsableOptionValue', () => {
+  // Nacht-Review 2026-09-02: 99 veröffentlichte Fragen zeigten „undefined" oder
+  // „NaN km" als Option, weil der Generator einen fehlenden Rohwert formatiert
+  // hatte. Der Audit prüfte damals nur Struktur und meldete null Fehler.
+  it('weist formatierte Fehlwerte zurück', () => {
+    expect(isUsableOptionValue('undefined')).toBe(false);
+    expect(isUsableOptionValue('NaN km')).toBe(false);
+    expect(isUsableOptionValue('NaN cm')).toBe(false);
+    expect(isUsableOptionValue('Infinity Jahre')).toBe(false);
+    expect(isUsableOptionValue(undefined)).toBe(false);
+    expect(isUsableOptionValue('   ')).toBe(false);
+  });
+
+  it('lässt echte Werte und deutsches „null" durch', () => {
+    expect(isUsableOptionValue('1995')).toBe(true);
+    expect(isUsableOptionValue('3,5 cm')).toBe(true);
+    // Fachtext, in dem „null" ein normales Wort ist — kein Sentinel.
+    expect(isUsableOptionValue('Freigabe bei null Verweisen')).toBe(true);
+    // Zeichenfolge nur zufällig enthalten.
+    expect(isUsableOptionValue('NaNo-Beschichtung')).toBe(true);
+    expect(isUsableOptionValue('undefinedX')).toBe(true);
+  });
+});
+
+describe('dominanceVerdict', () => {
+  // Der Audit meldete dominante Fragetypen bisher nur; sie konnten trotzdem
+  // veröffentlicht werden. Jetzt braucht jede Dominanz eine Freigabe.
+  it('blockiert einen nicht freigegebenen Fragetyp', () => {
+    expect(dominanceVerdict('ein-neuer-typ', 55).accepted).toBe(false);
+  });
+
+  it('blockiert einen freigegebenen Typ oberhalb seiner Obergrenze', () => {
+    const verdict = dominanceVerdict('natura-animal-status', 95);
+    expect(verdict.accepted).toBe(false);
+    expect(verdict.reason).toContain('Obergrenze');
+  });
+
+  it('lässt den freigegebenen Typ unterhalb seiner Obergrenze durch', () => {
+    const verdict = dominanceVerdict('natura-animal-status', 67.2);
+    expect(verdict.accepted).toBe(true);
+    expect(verdict.reason).toContain('IUCN');
+  });
+});
+
 describe('Fragen-Audit als Kommandozeilen-Gate', () => {
   it('prüft bei übergebener Domain nur deren Katalog', () => {
     const result = runAudit('machina');
@@ -105,6 +150,49 @@ describe('Fragen-Audit als Kommandozeilen-Gate', () => {
       expect(result.status).toBe(1);
       expect(result.stdout).toContain('Strukturfehler: 1');
       expect(result.stderr).toContain('blockierende Fragenfehler');
+    } finally {
+      rmSync(dataDir, { recursive: true, force: true });
+    }
+  });
+
+  it('blockiert Sentinel-Optionen aus einem fehlenden Rohwert', () => {
+    const dataDir = mkdtempSync(join(tmpdir(), 'scientia-question-audit-sentinel-'));
+    try {
+      writeFileSync(join(dataDir, 'questions_machina.json'), JSON.stringify([{
+        id: 'sentinel-option',
+        type: 'machina-test',
+        prompt: 'Wie groß ist das Bauteil?',
+        correctAnswer: '3 cm',
+        options: ['3 cm', 'NaN cm', 'undefined', '5 cm'],
+      }]));
+
+      const result = runAudit('machina', `--data-dir=${dataDir}`);
+      expect(result.status).toBe(1);
+      expect(result.stdout).toContain('Sentinel-Optionen: 1');
+      expect(result.stderr).toContain('blockierende Fragenfehler');
+    } finally {
+      rmSync(dataDir, { recursive: true, force: true });
+    }
+  });
+
+  it('blockiert einen nicht freigegebenen Fragetyp mit dominanter Lösung', () => {
+    const dataDir = mkdtempSync(join(tmpdir(), 'scientia-question-audit-dominanz-'));
+    try {
+      // Acht Fragen desselben Typs, sechsmal dieselbe Lösung (75 %).
+      const questions = Array.from({ length: 8 }, (_, index) => ({
+        id: `dominant-${index}`,
+        type: 'machina-dominanz-test',
+        prompt: `Frage ${index}?`,
+        correctAnswer: index < 6 ? 'Alpha' : `Beta ${index}`,
+        options: [index < 6 ? 'Alpha' : `Beta ${index}`, 'Gamma', 'Delta', 'Epsilon'],
+      }));
+      writeFileSync(join(dataDir, 'questions_machina.json'), JSON.stringify(questions));
+
+      const result = runAudit('machina', `--data-dir=${dataDir}`);
+      expect(result.status).toBe(1);
+      expect(result.stdout).toContain('Strukturfehler: 0');
+      expect(result.stderr).toContain('Nicht freigegebene Dominanz');
+      expect(result.stderr).toContain('machina-dominanz-test');
     } finally {
       rmSync(dataDir, { recursive: true, force: true });
     }

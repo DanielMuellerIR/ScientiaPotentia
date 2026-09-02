@@ -138,9 +138,21 @@ function logAmbiguousSources(label, ambiguous) {
   }
 }
 
+/**
+ * Titel für die de.wikipedia-Abfrage eines Konzepts.
+ *
+ * Reihenfolge: belegter de.wikipedia-Link, dann die gepflegte Astra-Zuordnung
+ * (dort heißen Artikel oft anders als das Konzept, z. B. „Io (Mond)"), zuletzt
+ * der Konzeptname selbst. Der Namensrückfall ist der Regelfall für Konzepte
+ * ohne oder mit fremdsprachiger Quelle — ohne ihn stellte der Resolver für sie
+ * gar keine Anfrage und die Bildabdeckung stagnierte still (über 600 Konzepte
+ * in Natura und Cultura).
+ */
 function pageTitleForConcept(concept, domain) {
-  return deTitle(concept.sourceUrl)
-    || (domain === 'astra' ? (DEWIKI_MAP[concept.id] || null) : null);
+  const mapped = domain === 'astra' ? (DEWIKI_MAP[concept.id] || null) : null;
+  const name = typeof concept.name === 'string' && concept.name.trim()
+    ? concept.name.trim() : null;
+  return deTitle(concept.sourceUrl) || mapped || name;
 }
 
 function collectResolvedPageImages(requestedTitles, byTitle, query) {
@@ -223,7 +235,8 @@ async function main() {
   console.log(`  Wikidata P18: ${fileForId.size}/${qids.length} QIDs mit Bild`);
 
   // --- Schritt 3: de.wikipedia pageimages gebündelt (50 Titel/Request) für QID-lose + QIDs ohne P18 ---
-  // QIDs ohne P18 nachträglich per de.wiki-Titel versuchen (Titel = concept.name)
+  // QIDs ohne P18 nachträglich per de.wiki-Titel versuchen (Quelle, Astra-Zuordnung
+  // oder Konzeptname, siehe pageTitleForConcept)
   for (const [, c] of byQid) {
     if (!fileForId.has(c.id)) {
       const title = pageTitleForConcept(c, options.domain);

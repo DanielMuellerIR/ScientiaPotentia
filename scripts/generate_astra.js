@@ -21,6 +21,7 @@ import { pickBalanced, deParse, shouldMagnitudeSpread, magnitudeSpreadDistractor
 import {
   deNum,
   distinctOptionValues,
+  isUsableOptionValue,
   norm,
   optionKey,
   revealsAnswerStrict as revealsAnswer,
@@ -743,16 +744,27 @@ const templates = [
   // Vier Methoden im Pool: Transit, Radial Velocity, Imaging, Pulsar Timing
   // -> immer 3 Distraktoren aus der Kategorie verfügbar. Keine Reverse-Frage
   // (Methode hat viele Träger, Eindeutigkeit nicht gegeben).
-  // Die Rohwerte stehen englisch in den Daten -> hier auf die deutschen
-  // Fachbegriffe abgebildet (das Quiz ist durchgehend deutschsprachig).
+  // Die Rohwerte nennen dieselbe Methode in bis zu drei Schreibweisen (englisch
+  // aus dem Exoplanet Archive, deutsch mit und ohne „-methode"). Ohne
+  // Vereinheitlichung standen zwei Namen derselben Methode als getrennte
+  // Optionen in einer Frage — in 28 Fragen war damit auch der „falsche"
+  // Distraktor sachlich richtig. Darum eine Kanonform je Methode.
   {
     category: 'exoplanet', attr: 'discoveryMethod', type: 'astra-exo-discovery-method', difficulty: 3,
+    // Doppelmethoden ("Radialgeschwindigkeit und Transit") nennen zwei richtige
+    // Antworten und taugen für eine Einfachauswahl nicht.
+    skip: c => / und /.test(String(c.attributes.discoveryMethod || '')),
     prompt: c => `Wie wurde der Exoplanet ${c.name} entdeckt?`,
     format: v => ({
       'Transit': 'Transitmethode',
+      'Transitmethode': 'Transitmethode',
       'Radial Velocity': 'Radialgeschwindigkeitsmethode',
+      'Radialgeschwindigkeit': 'Radialgeschwindigkeitsmethode',
+      'Radialgeschwindigkeitsmethode': 'Radialgeschwindigkeitsmethode',
       'Pulsar Timing': 'Pulsar-Timing',
-      'Imaging': 'Direkte Abbildung'
+      'Imaging': 'Direkte Abbildung',
+      'Direkte Beobachtung': 'Direkte Abbildung',
+      'Direkte Abbildung': 'Direkte Abbildung'
     }[v] || v)
   },
 
@@ -985,10 +997,16 @@ for (const tpl of templates) {
   // stattdessen pro Frage selbst -> hier leer lassen.
   const valuePool = (tpl.reverseUnique || tpl.numericByValue || tpl.spreadNumeric) ? [] : conceptsInCat
     .filter(c => !(tpl.skip && tpl.skip(c)))
-    .map(c => (tpl.nameAnswer ? c.name : tpl.format(c.attributes[tpl.attr], c)))
     // Dünn besetzte Attribute (z.B. dwarf_planet.numMoons nur bei einigen
-    // Zwergplaneten) würden sonst „undefined" als Distraktor liefern. Leere raus.
-    .filter(v => v !== undefined && v !== null && v !== '');
+    // Zwergplaneten): Erst den ROHWERT prüfen, dann formatieren. Andersherum
+    // macht der Formatter aus dem fehlenden Wert einen gültig aussehenden Text
+    // („undefined", „NaN km"), den kein Leerwert-Filter mehr erkennt.
+    .map(c => ({ concept: c, raw: tpl.nameAnswer ? c.name : c.attributes[tpl.attr] }))
+    .filter(({ raw }) => raw !== undefined && raw !== null && raw !== '')
+    .map(({ concept, raw }) => (tpl.nameAnswer ? concept.name : tpl.format(raw, concept)))
+    // Zweites Netz für Formatter, die aus einem vorhandenen, aber unbrauchbaren
+    // Wert doch noch ein Sentinel bauen (z.B. deNum eines Nicht-Zahl-Strings).
+    .filter(isUsableOptionValue);
 
   for (const c of conceptsInCat) {
     if (tpl.skip && tpl.skip(c)) continue;
@@ -1008,6 +1026,9 @@ for (const tpl of templates) {
     if ((tpl.numericByValue || tpl.spreadNumeric) && !(typeof rawValue === 'number' && isFinite(rawValue))) continue;
 
     const correct = tpl.nameAnswer ? c.name : tpl.format(rawValue, c);
+    // Formatierte Antwort muss ein echter Wert sein: „undefined"/„NaN" wären
+    // eine unlösbare Frage, kein Distraktorproblem.
+    if (!isUsableOptionValue(correct)) continue;
 
     // Selbstverräter: steckt die Antwort schon im Hinweis, Frage verwerfen.
     const subject = tpl.subject ? tpl.subject(c) : c.name;
@@ -1124,7 +1145,9 @@ for (const tpl of templates) {
       }
     }
 
-    const options = [correct, ...distractors];
+    // Letztes Netz: kein Distraktorweg (Pool, Nachbarwerte, Größenordnungs-
+    // spreizung) darf ein Sentinel wie „undefined"/„NaN km" durchlassen.
+    const options = [correct, ...distractors.filter(isUsableOptionValue)];
     // Die Quizoberfläche erwartet vier unterscheidbare Optionen. Ein zu kleiner
     // Pool oder zwei nur orthografisch verschiedene Varianten darf deshalb
     // keine schwächere Zwei-/Drei-Antwort-Frage erzeugen.

@@ -11,6 +11,13 @@
  *     lokal in generate_homo.js bleibt (Komposita-Stämme wie „Kaumuskel").
  */
 
+// Die Sentinel-Regel („undefined“/„NaN“/„Infinity“ als Antwortoption) gehört
+// fachlich zum Fragen-Audit und liegt darum in audit_rules.cjs. Die Generatoren
+// wenden sie vorbeugend an, der Release-Audit prüft dasselbe noch einmal am
+// erzeugten Katalog — beide nutzen dieselbe Definition, damit sie nicht
+// auseinanderlaufen (wie früher die sieben norm-Kopien).
+export { isUsableOptionValue } from './audit_rules.cjs';
+
 /**
  * Normalisiert einen String für Vergleiche: Kleinschreibung, Umlaute
  * vereinfacht (ä->a usw.), alles Nicht-Alphanumerische zu Leerzeichen.
@@ -99,3 +106,4 @@ export function revealsAnswerStrict(subject, answer) {
   }
   return false;
 }
+
