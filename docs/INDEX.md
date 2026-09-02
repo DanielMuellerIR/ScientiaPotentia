@@ -6,6 +6,7 @@
 - [`astra_sternbilddaten.md`](astra_sternbilddaten.md)
 - [`content_ceiling.md`](content_ceiling.md)
 - [`content_pipeline.md`](content_pipeline.md)
+- [`attribut_luecken.md`](attribut_luecken.md)
 - [`wissensquellen.md`](wissensquellen.md)
 
 ## Technische und fachliche Entscheidungen

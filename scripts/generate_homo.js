@@ -427,8 +427,14 @@ const templates = [
     format: v => v
   },
   // ---- Organe: Lage (Körperregion) -----------------------------------
+  // Gefragt wird 'bodyRegion' (fünf gleichrangige Werte), nicht mehr die
+  // beschreibende 'location'. Deren Texte reichten von „Bauchhöhle" bis zu
+  // 141 Zeichen langen Sätzen — als Antwortoption war die richtige Lösung
+  // damit über ihre Länge erratbar (Audit-Fund 2026-09-02). 'location' bleibt
+  // als erklärender Chip erhalten und wird beim Fragen nach der Region
+  // ausgeblendet (LEAKY_SIBLINGS in src/components/conceptLabels.js).
   {
-    category: 'organ', attr: 'location', type: 'homo-organ-location', difficulty: 2, regionAnswer: true,
+    category: 'organ', attr: 'bodyRegion', type: 'homo-organ-location', difficulty: 2, regionAnswer: true,
     prompt: (c, subject) => `In welcher Körperregion liegt das Organ „${subject.label}"?`,
     format: v => v
   },
@@ -797,6 +803,340 @@ const templates = [
     subject: c => c.attributes.antibody,
     prompt: c => `Welche Blutgruppe trägt im Plasma folgende Antikörper: „${c.attributes.antibody}"?`,
     skip: c => !/^blutgruppe-(a|b|ab|0)$/.test(c.id)
+  },
+  // ==== Welle 6 (Stand 2026-09-02): acht neue Kategorien + Attributvertiefung ====
+  // Neue Kategorien: blood_vessel, ligament_tendon, brain_structure, neurotransmitter,
+  // sense_organ_part, tooth, tissue_type, immune_component. Vertiefung bestehender
+  // Kategorien: organ.latinName, muscle.antagonist/insertion, nerve.cranialNumber/
+  // nerveKind/innervates/region, species.brainVolumeCc/heightCm, vitamin/nutrient
+  // foodSource. Gleiche Engine; function/notableFor/definition bleiben POST_ANSWER-
+  // verborgen, weitere Leak-Geschwister stehen in src/components/conceptLabels.js.
+  // Kürzt Klammerzusätze („Bizeps (Musculus biceps brachii)" -> „Bizeps"), damit
+  // Antwortoptionen gleichförmig sind und der Guard nicht über „Musculus" anschlägt.
+  // ---- Blutgefäße (blood_vessel) -------------------------------------------
+  {
+    category: 'blood_vessel', attr: 'latinName', type: 'homo-vessel-latin', difficulty: 3,
+    prompt: c => `Wie lautet der lateinische Name des Blutgefäßes „${c.name}"?`,
+    format: v => v
+  },
+  {
+    category: 'blood_vessel', attr: 'latinName', type: 'homo-vessel-latin-rev', difficulty: 3, nameAnswer: true,
+    subject: c => c.attributes.latinName,
+    prompt: c => `Welches Blutgefäß trägt den lateinischen Namen „${c.attributes.latinName}"?`
+  },
+  {
+    category: 'blood_vessel', attr: 'region', type: 'homo-vessel-region', difficulty: 2, regionAnswer: true,
+    prompt: (c, subject) => subject.usesLatinHint
+      ? `In welcher Körperregion verläuft das Blutgefäß „${subject.label}" hauptsächlich?`
+      : `In welcher Körperregion verläuft das Blutgefäß „${subject.label}" hauptsächlich?`,
+    format: v => v
+  },
+  {
+    category: 'blood_vessel', attr: 'supplies', type: 'homo-vessel-supplies-rev', difficulty: 3, nameAnswer: true,
+    subject: c => c.attributes.supplies,
+    prompt: c => `Welches Blutgefäß wird so beschrieben: „${c.attributes.supplies}"?`
+  },
+  {
+    category: 'blood_vessel', attr: 'notableFor', type: 'homo-vessel-notable-rev', difficulty: 2, nameAnswer: true,
+    subject: c => c.attributes.notableFor,
+    prompt: c => `Welches Blutgefäß ist bekannt als: „${c.attributes.notableFor}"?`
+  },
+  // ---- Bänder, Sehnen, Knorpel (ligament_tendon) ---------------------------
+  {
+    category: 'ligament_tendon', attr: 'latinName', type: 'homo-ligament-latin', difficulty: 3,
+    prompt: c => `Wie lautet der lateinische Name der Struktur „${c.name}"?`,
+    format: v => v
+  },
+  {
+    category: 'ligament_tendon', attr: 'latinName', type: 'homo-ligament-latin-rev', difficulty: 3, nameAnswer: true,
+    subject: c => c.attributes.latinName,
+    prompt: c => `Welche Struktur trägt den lateinischen Namen „${c.attributes.latinName}"?`
+  },
+  {
+    category: 'ligament_tendon', attr: 'region', type: 'homo-ligament-region', difficulty: 2, regionAnswer: true,
+    prompt: (c, subject) => `In welcher Körperregion liegt „${subject.label}"?`,
+    format: v => v
+  },
+  {
+    category: 'ligament_tendon', attr: 'kind', type: 'homo-ligament-kind', difficulty: 2,
+    prompt: c => `Welche Art von Struktur ist „${c.name}"?`,
+    format: v => v
+  },
+  {
+    category: 'ligament_tendon', attr: 'function', type: 'homo-ligament-function-rev', difficulty: 3, nameAnswer: true,
+    subject: c => c.attributes.function,
+    prompt: c => `Welche Struktur erfüllt folgende Aufgabe: „${c.attributes.function}"?`
+  },
+  {
+    category: 'ligament_tendon', attr: 'notableFor', type: 'homo-ligament-notable-rev', difficulty: 2, nameAnswer: true,
+    subject: c => c.attributes.notableFor,
+    prompt: c => `Welche Struktur wird so beschrieben: „${c.attributes.notableFor}"?`
+  },
+  // ---- Hirnstrukturen (brain_structure) ------------------------------------
+  {
+    category: 'brain_structure', attr: 'latinName', type: 'homo-brain-latin', difficulty: 3,
+    prompt: c => `Wie lautet der lateinische Name der Hirnstruktur „${c.name}"?`,
+    format: v => v
+  },
+  {
+    category: 'brain_structure', attr: 'latinName', type: 'homo-brain-latin-rev', difficulty: 3, nameAnswer: true,
+    subject: c => c.attributes.latinName,
+    prompt: c => `Welche Hirnstruktur trägt den lateinischen Namen „${c.attributes.latinName}"?`
+  },
+  {
+    category: 'brain_structure', attr: 'location', type: 'homo-brain-location', difficulty: 3,
+    prompt: c => `Zu welchem Hirnabschnitt gehört „${c.name}"?`,
+    format: v => v
+  },
+  {
+    category: 'brain_structure', attr: 'function', type: 'homo-brain-function', difficulty: 3,
+    prompt: c => `Welche Aufgabe erfüllt die Hirnstruktur „${c.name}" vor allem?`,
+    format: v => v
+  },
+  {
+    category: 'brain_structure', attr: 'function', type: 'homo-brain-function-rev', difficulty: 3, nameAnswer: true,
+    subject: c => c.attributes.function,
+    prompt: c => `Welche Hirnstruktur erfüllt vor allem folgende Aufgabe: „${c.attributes.function}"?`
+  },
+  {
+    category: 'brain_structure', attr: 'notableFor', type: 'homo-brain-notable-rev', difficulty: 3, nameAnswer: true,
+    subject: c => c.attributes.notableFor,
+    prompt: c => `Welche Hirnstruktur wird so beschrieben: „${c.attributes.notableFor}"?`
+  },
+  // ---- Neurotransmitter (neurotransmitter) ---------------------------------
+  {
+    category: 'neurotransmitter', attr: 'chemicalClass', type: 'homo-nt-class', difficulty: 3,
+    prompt: c => `Zu welcher Stoffklasse gehört der Botenstoff „${c.name}"?`,
+    format: v => v
+  },
+  {
+    category: 'neurotransmitter', attr: 'producedIn', type: 'homo-nt-produced', difficulty: 3,
+    prompt: c => `Wo wird der Botenstoff „${c.name}" hauptsächlich gebildet?`,
+    format: v => v
+  },
+  {
+    category: 'neurotransmitter', attr: 'function', type: 'homo-nt-function', difficulty: 2,
+    prompt: c => `Welche Hauptwirkung hat der Botenstoff „${c.name}"?`,
+    format: v => v
+  },
+  {
+    category: 'neurotransmitter', attr: 'function', type: 'homo-nt-function-rev', difficulty: 3, nameAnswer: true,
+    subject: c => c.attributes.function,
+    prompt: c => `Welcher Botenstoff des Nervensystems hat folgende Hauptwirkung: „${c.attributes.function}"?`
+  },
+  {
+    category: 'neurotransmitter', attr: 'notableFor', type: 'homo-nt-notable-rev', difficulty: 3, nameAnswer: true,
+    subject: c => c.attributes.notableFor,
+    prompt: c => `Welcher Botenstoff wird so beschrieben: „${c.attributes.notableFor}"?`
+  },
+  // ---- Bestandteile der Sinnesorgane und der Haut (sense_organ_part) --------
+  {
+    category: 'sense_organ_part', attr: 'parentOrgan', type: 'homo-sensepart-organ', difficulty: 1,
+    prompt: c => `Zu welchem Sinnesorgan gehört „${c.name}"?`,
+    format: v => v
+  },
+  {
+    category: 'sense_organ_part', attr: 'latinName', type: 'homo-sensepart-latin', difficulty: 3,
+    prompt: c => `Wie lautet der lateinische Name von „${c.name}"?`,
+    format: v => v
+  },
+  {
+    category: 'sense_organ_part', attr: 'latinName', type: 'homo-sensepart-latin-rev', difficulty: 3, nameAnswer: true,
+    subject: c => c.attributes.latinName,
+    prompt: c => `Welcher Bestandteil eines Sinnesorgans trägt den lateinischen Namen „${c.attributes.latinName}"?`
+  },
+  {
+    category: 'sense_organ_part', attr: 'function', type: 'homo-sensepart-function', difficulty: 2,
+    prompt: c => `Welche Aufgabe erfüllt „${c.name}"?`,
+    format: v => v
+  },
+  {
+    category: 'sense_organ_part', attr: 'function', type: 'homo-sensepart-function-rev', difficulty: 3, nameAnswer: true,
+    subject: c => c.attributes.function,
+    prompt: c => `Welcher Bestandteil eines Sinnesorgans erfüllt folgende Aufgabe: „${c.attributes.function}"?`
+  },
+  {
+    category: 'sense_organ_part', attr: 'notableFor', type: 'homo-sensepart-notable-rev', difficulty: 2, nameAnswer: true,
+    subject: c => c.attributes.notableFor,
+    prompt: c => `Welcher Bestandteil eines Sinnesorgans wird so beschrieben: „${c.attributes.notableFor}"?`
+  },
+  // ---- Zähne und Zahnaufbau (tooth) ----------------------------------------
+  {
+    category: 'tooth', attr: 'latinName', type: 'homo-tooth-latin', difficulty: 3,
+    prompt: c => `Wie lautet der lateinische Name von „${c.name}"?`,
+    format: v => v
+  },
+  {
+    category: 'tooth', attr: 'latinName', type: 'homo-tooth-latin-rev', difficulty: 3, nameAnswer: true,
+    subject: c => c.attributes.latinName,
+    prompt: c => `Welcher Zahn bzw. Zahnbestandteil trägt den lateinischen Namen „${c.attributes.latinName}"?`
+  },
+  {
+    category: 'tooth', attr: 'function', type: 'homo-tooth-function-rev', difficulty: 2, nameAnswer: true,
+    subject: c => c.attributes.function,
+    prompt: c => `Welcher Zahn bzw. Zahnbestandteil erfüllt folgende Aufgabe: „${c.attributes.function}"?`
+  },
+  {
+    category: 'tooth', attr: 'notableFor', type: 'homo-tooth-notable-rev', difficulty: 2, nameAnswer: true,
+    subject: c => c.attributes.notableFor,
+    prompt: c => `Welcher Zahn bzw. Zahnbestandteil wird so beschrieben: „${c.attributes.notableFor}"?`
+  },
+  // Ein Fragetyp auf 'countAdult' entfällt: Jeder Zahntyp kommt im bleibenden
+  // Gebiss genau viermal vor (je einer pro Quadrant). Die richtige Antwort wäre
+  // immer „4" — die Frage prüft nichts. Der Wert bleibt als Chip sichtbar.
+  {
+    category: 'tooth', attr: 'eruptionAgeYears', type: 'homo-tooth-eruption', difficulty: 3,
+    prompt: c => `In welchem Alter bricht der bleibende Zahn „${c.name}" typischerweise durch?`,
+    format: v => `${v} Jahre`
+  },
+  // ---- Gewebearten (tissue_type) -------------------------------------------
+  {
+    category: 'tissue_type', attr: 'tissueClass', type: 'homo-tissue-class', difficulty: 2,
+    prompt: c => `Zu welcher Gewebeklasse gehört „${c.name}"?`,
+    format: v => v
+  },
+  {
+    category: 'tissue_type', attr: 'occurrence', type: 'homo-tissue-occurrence', difficulty: 3,
+    prompt: c => `Wo kommt das Gewebe „${c.name}" typischerweise vor?`,
+    format: v => v
+  },
+  {
+    category: 'tissue_type', attr: 'occurrence', type: 'homo-tissue-occurrence-rev', difficulty: 3, nameAnswer: true,
+    subject: c => c.attributes.occurrence,
+    prompt: c => `Welche Gewebeart findet sich typischerweise hier: „${c.attributes.occurrence}"?`
+  },
+  {
+    category: 'tissue_type', attr: 'function', type: 'homo-tissue-function-rev', difficulty: 3, nameAnswer: true,
+    subject: c => c.attributes.function,
+    prompt: c => `Welche Gewebeart erfüllt folgende Aufgabe: „${c.attributes.function}"?`
+  },
+  {
+    category: 'tissue_type', attr: 'notableFor', type: 'homo-tissue-notable-rev', difficulty: 3, nameAnswer: true,
+    subject: c => c.attributes.notableFor,
+    prompt: c => `Welche Gewebeart wird so beschrieben: „${c.attributes.notableFor}"?`
+  },
+  // ---- Bausteine des Immunsystems (immune_component) -----------------------
+  {
+    category: 'immune_component', attr: 'componentType', type: 'homo-immune-type', difficulty: 2,
+    prompt: c => `Welche Art von Baustein des Immunsystems ist „${c.name}"?`,
+    format: v => v
+  },
+  {
+    category: 'immune_component', attr: 'location', type: 'homo-immune-location', difficulty: 3,
+    prompt: c => `Wo kommt „${c.name}" hauptsächlich vor bzw. wo wirkt es?`,
+    format: v => v
+  },
+  {
+    category: 'immune_component', attr: 'function', type: 'homo-immune-function', difficulty: 2,
+    prompt: c => `Welche Aufgabe erfüllt „${c.name}" im Immunsystem?`,
+    format: v => v
+  },
+  {
+    category: 'immune_component', attr: 'function', type: 'homo-immune-function-rev', difficulty: 3, nameAnswer: true,
+    subject: c => c.attributes.function,
+    prompt: c => `Welcher Baustein des Immunsystems erfüllt folgende Aufgabe: „${c.attributes.function}"?`
+  },
+  {
+    category: 'immune_component', attr: 'notableFor', type: 'homo-immune-notable-rev', difficulty: 3, nameAnswer: true,
+    subject: c => c.attributes.notableFor,
+    prompt: c => `Welcher Baustein des Immunsystems wird so beschrieben: „${c.attributes.notableFor}"?`
+  },
+  // ---- Vertiefung: Organe (latinName) --------------------------------------
+  {
+    category: 'organ', attr: 'latinName', type: 'homo-organ-latin', difficulty: 3,
+    prompt: c => `Wie lautet der lateinische (anatomische) Name des Organs „${c.name}"?`,
+    format: v => v
+  },
+  {
+    category: 'organ', attr: 'latinName', type: 'homo-organ-latin-rev', difficulty: 3, nameAnswer: true,
+    subject: c => c.attributes.latinName,
+    prompt: c => `Welches Organ trägt den lateinischen Namen „${c.attributes.latinName}"?`
+  },
+  // ---- Vertiefung: Muskeln (region, antagonist, insertion) ------------------
+  {
+    // Nur die neun gleichrangigen Regionswerte fragen. Ältere Einträge tragen an
+    // dieser Stelle eine ausführliche Lagebeschreibung („Tiefe Beugerschicht des
+    // Unterarms"); als Antwortoption wäre sie deutlich länger als die übrigen.
+    category: 'muscle', attr: 'region', type: 'homo-muscle-region', difficulty: 2, regionAnswer: true,
+    subject: c => String(c.name).replace(/\s*\(.*?\)\s*$/, ''),
+    prompt: (c, subject) => `In welcher Körperregion liegt der Muskel „${subject.label}"?`,
+    format: v => v,
+    skip: c => !['Kopf', 'Hals', 'Rumpf', 'Schulter', 'Arm', 'Hand', 'Hüfte', 'Bein', 'Fuß']
+      .includes(c.attributes.region)
+  },
+
+  {
+    // Antwort und Hinweis ohne Klammerzusatz (siehe Kopfkommentar der Welle 6).
+    category: 'muscle', attr: 'antagonist', type: 'homo-muscle-antagonist', difficulty: 3,
+    subject: c => String(c.name).replace(/\s*\(.*?\)\s*$/, ''),
+    prompt: c => `Welcher Muskel ist der Gegenspieler (Antagonist) von „${String(c.name).replace(/\s*\(.*?\)\s*$/, '')}"?`,
+    format: v => String(v).replace(/\s*\(.*?\)\s*$/, '')
+  },
+  {
+    category: 'muscle', attr: 'insertion', type: 'homo-muscle-insertion', difficulty: 3,
+    subject: c => String(c.name).replace(/\s*\(.*?\)\s*$/, ''),
+    prompt: c => `An welchem Knochen setzt der Muskel „${String(c.name).replace(/\s*\(.*?\)\s*$/, '')}" hauptsächlich an?`,
+    format: v => v
+  },
+  // ---- Vertiefung: Nerven (cranialNumber, nerveKind, innervates, region) ----
+  {
+    category: 'nerve', attr: 'cranialNumber', type: 'homo-nerve-cranial', difficulty: 3,
+    prompt: c => `Welche Nummer trägt der „${c.name}" unter den zwölf Hirnnerven?`,
+    format: v => `${v}. Hirnnerv`
+  },
+  {
+    category: 'nerve', attr: 'cranialNumber', type: 'homo-nerve-cranial-rev', difficulty: 3, nameAnswer: true,
+    subject: c => `${c.attributes.cranialNumber}. Hirnnerv`,
+    prompt: c => `Welcher Nerv ist der ${c.attributes.cranialNumber}. Hirnnerv?`
+  },
+  // Ein Fragetyp auf 'nerveKind' entfällt bewusst: „Hirnnerv" ist mit Abstand
+  // die kürzeste der vier Gruppenbezeichnungen und zugleich in gut drei von vier
+  // Fällen die richtige Antwort — wer immer die kürzeste Option wählt, gewinnt.
+  // Die Gruppe bleibt als erklärender Chip sichtbar; die Hirnnerven werden über
+  // ihre Nummer abgefragt.
+  {
+    category: 'nerve', attr: 'innervates', type: 'homo-nerve-innervates-rev', difficulty: 3, nameAnswer: true,
+    subject: c => c.attributes.innervates,
+    prompt: c => `Welcher Nerv versorgt hauptsächlich: „${c.attributes.innervates}"?`
+  },
+  {
+    category: 'nerve', attr: 'region', type: 'homo-nerve-region', difficulty: 2, regionAnswer: true,
+    prompt: (c, subject) => subject.usesLatinHint
+      ? `In welcher Körperregion verläuft der Nerv „${subject.label}" hauptsächlich?`
+      : `In welcher Körperregion verläuft der „${subject.label}" hauptsächlich?`,
+    format: v => v,
+    // Ein Teil der Nerven trägt eine zusammengesetzte Region („Brustkorb /
+    // Schulter"). Solche Werte sind deutlich länger als die einfachen und
+    // verrieten sich in der Optionsliste über ihre Länge; sie bleiben deshalb
+    // als erklärender Chip stehen, werden aber nicht abgefragt.
+    skip: c => String(c.attributes.region || '').includes('/')
+  },
+  // ---- Vertiefung: Menschenarten (brainVolumeCc, heightCm) ------------------
+  {
+    category: 'species', attr: 'brainVolumeCc', type: 'homo-species-brain', difficulty: 3,
+    prompt: c => `Welches Hirnvolumen hatte „${c.name}" typischerweise?`,
+    format: v => `${deNum(v)} cm³`, numeric: true
+  },
+  {
+    category: 'species', attr: 'brainVolumeCc', type: 'homo-species-brain-rev', difficulty: 4, nameAnswer: true,
+    subject: c => `${deNum(c.attributes.brainVolumeCc)} cm³ Hirnvolumen`,
+    prompt: c => `Welche Menschenart hatte ein typisches Hirnvolumen von etwa ${deNum(c.attributes.brainVolumeCc)} cm³?`
+  },
+  {
+    category: 'species', attr: 'heightCm', type: 'homo-species-height', difficulty: 3,
+    prompt: c => `Wie groß war „${c.name}" typischerweise?`,
+    format: v => `${deNum(v)} cm`, numeric: true
+  },
+  // ---- Vertiefung: Nahrungsquellen (vitamin, nutrient_macro) ----------------
+  {
+    category: 'vitamin', attr: 'foodSource', type: 'homo-vitamin-food', difficulty: 2,
+    prompt: c => `In welchen Lebensmitteln kommt „${c.name}" besonders reichlich vor?`,
+    format: v => v
+  },
+  {
+    category: 'nutrient_macro', attr: 'foodSource', type: 'homo-nutrient-food', difficulty: 2,
+    prompt: c => `In welchen Lebensmitteln kommt „${c.name}" besonders reichlich vor?`,
+    format: v => v
   }
 ];
 

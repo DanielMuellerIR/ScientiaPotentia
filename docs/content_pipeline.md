@@ -41,6 +41,21 @@ werden nicht übernommen.
 - Roh- und Kandidatendateien als nicht vertrauenswürdige Eingabe behandeln; Generatoren dürfen
   keine unvalidierten Felder still übernehmen.
 
+## 4b. Attribute an bestehenden Konzepten ergänzen
+
+Neue Attribute an bereits vorhandenen Konzepten laufen nicht über den Konzept-Merge,
+sondern über ein eigenes Werkzeug. Es überschreibt nie einen vorhandenen Wert, sondern
+meldet die Abweichung als Konflikt:
+
+```bash
+node scripts/data_sources/harvest/apply_attribute_additions.cjs <domain> <kandidatendatei>
+node scripts/data_sources/harvest/apply_attribute_additions.cjs <domain> <kandidatendatei> --write
+```
+
+Wird dasselbe Attribut von zwei unabhängigen Ernten geliefert, ist die Konfliktliste des
+zweiten Laufs die Gegenprobe: Wenige Konflikte belegen, dass beide Ernten dieselbe Quelle
+richtig gelesen haben.
+
 ## 5. Generieren
 
 Nur den betroffenen Generator ausführen, zum Beispiel:

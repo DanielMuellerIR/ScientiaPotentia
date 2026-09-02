@@ -837,6 +837,138 @@ const templates = [
     prompt: c => `Welcher ist der hellste Stern im Sternbild „${c.name.replace(/\s*\([^)]*\)\s*$/, '')}"?`,
     format: v => v,
     skip: c => !c.attributes.brightestStar
+  },
+
+  // ==== Welle 2026-09-02: bisher ungenutzte, bereits geprüfte Attribute ====
+  // Kometen und Sternhaufen standen vollständig in der Faktenbasis, hatten aber
+  // keinen einzigen Fragetyp. Dazu kommen Attribute, die bei anderen Kategorien
+  // schon lange belegt, aber nie abgefragt wurden.
+
+  // ---- Kometen ---------------------------------------------------------
+  {
+    category: 'comet', attr: 'discoveredYear', type: 'astra-comet-year', difficulty: 4,
+    prompt: c => `In welchem Jahr wurde der Komet ${c.name} entdeckt?`,
+    format: v => `${v}`, numeric: true
+  },
+  {
+    category: 'comet', attr: 'orbitalPeriodYears', type: 'astra-comet-period', difficulty: 4,
+    prompt: c => `Wie lange braucht der Komet ${c.name} für einen Umlauf um die Sonne?`,
+    format: v => `${deNum(v)} Jahre`, numeric: true
+  },
+  {
+    category: 'comet', attr: 'perihelionDistanceAU', type: 'astra-comet-perihelion', difficulty: 4,
+    prompt: c => `Wie nah kommt der Komet ${c.name} der Sonne in seinem sonnennächsten Punkt?`,
+    format: v => `${deNum(v)} AE`, numeric: true
+  },
+  {
+    category: 'comet', attr: 'nucleusSizeKm', type: 'astra-comet-nucleus', difficulty: 4,
+    prompt: c => `Welchen ungefähren Kerndurchmesser hat der Komet ${c.name}?`,
+    format: v => `${deNum(v)} km`, numeric: true
+  },
+  {
+    category: 'comet', attr: 'orbitalPeriodYears', type: 'astra-comet-period-rev', difficulty: 4,
+    nameAnswer: true, reverseUnique: true,
+    subject: c => `${deNum(c.attributes.orbitalPeriodYears)} Jahre`,
+    format: (_v, c) => c.name,
+    prompt: c => `Welcher Komet braucht rund ${deNum(c.attributes.orbitalPeriodYears)} Jahre für einen Sonnenumlauf?`
+  },
+
+  // ---- Sternhaufen -----------------------------------------------------
+  {
+    category: 'star_cluster', attr: 'constellation', type: 'astra-cluster-constellation', difficulty: 3,
+    prompt: c => `In welchem Sternbild steht der Sternhaufen ${c.name}?`,
+    format: v => v
+  },
+  {
+    category: 'star_cluster', attr: 'type', type: 'astra-cluster-type', difficulty: 2,
+    prompt: c => `Welcher Art von Sternhaufen ist ${c.name}?`,
+    format: v => v
+  },
+  {
+    category: 'star_cluster', attr: 'distanceLy', type: 'astra-cluster-distance', difficulty: 4,
+    prompt: c => `Wie weit ist der Sternhaufen ${c.name} von der Erde entfernt?`,
+    format: v => `${deNum(v)} Lichtjahre`, numeric: true
+  },
+  {
+    category: 'star_cluster', attr: 'numStars', type: 'astra-cluster-stars', difficulty: 4,
+    prompt: c => `Wie viele Sterne umfasst der Sternhaufen ${c.name} ungefähr?`,
+    format: v => `${deNum(v)}`, numeric: true
+  },
+  {
+    category: 'star_cluster', attr: 'ageMillionYears', type: 'astra-cluster-age', difficulty: 4,
+    prompt: c => `Wie alt ist der Sternhaufen ${c.name} ungefähr?`,
+    format: v => `${deNum(v)} Millionen Jahre`, numeric: true
+  },
+  {
+    category: 'star_cluster', attr: 'constellation', type: 'astra-cluster-constellation-rev', difficulty: 4,
+    nameAnswer: true, reverseUnique: true,
+    subject: c => c.attributes.constellation,
+    format: (_v, c) => c.name,
+    prompt: c => `Welcher Sternhaufen steht im Sternbild ${c.attributes.constellation}?`
+  },
+
+  // ---- Nebel: Nebeltyp -------------------------------------------------
+  {
+    category: 'nebula', attr: 'type', type: 'astra-nebula-type', difficulty: 3,
+    prompt: c => `Um welche Art von Nebel handelt es sich bei ${c.name}?`,
+    format: v => v
+  },
+
+  // ---- Exoplaneten: Zentralstern --------------------------------------
+  {
+    category: 'exoplanet', attr: 'hostStar', type: 'astra-exoplanet-host', difficulty: 4,
+    prompt: c => `Welchen Stern umkreist der Exoplanet ${c.name}?`,
+    format: v => v
+  },
+
+  // ---- Sternbilder: Sichtbarkeit --------------------------------------
+  {
+    category: 'constellation', attr: 'visibility', type: 'astra-constellation-visibility', difficulty: 3,
+    prompt: c => `An welchem Teil des Himmels ist das Sternbild ${c.name} zu sehen?`,
+    format: v => v
+  },
+
+  // ---- Monde: Entdeckungsjahr -----------------------------------------
+  {
+    category: 'moon', attr: 'discoveredYear', type: 'astra-moon-year', difficulty: 4,
+    prompt: c => `In welchem Jahr wurde der Mond ${c.name} entdeckt?`,
+    format: v => `${v}`, numeric: true
+  },
+
+  // ---- Exoplaneten, Asteroiden, Missionen: Typ und Ziel ----------------
+  {
+    category: 'exoplanet', attr: 'type', type: 'astra-exoplanet-type', difficulty: 3,
+    prompt: c => `Zu welchem Planetentyp zählt der Exoplanet ${c.name}?`,
+    format: v => v
+  },
+  {
+    category: 'asteroid', attr: 'type', type: 'astra-asteroid-type', difficulty: 4,
+    prompt: c => `Zu welcher Gruppe von Kleinkörpern zählt ${c.name}?`,
+    format: v => v
+  },
+  {
+    category: 'mission', attr: 'target', type: 'astra-mission-target', difficulty: 3,
+    prompt: c => `Welches Ziel hatte die Mission ${c.name}?`,
+    format: v => v
+  },
+
+  // ---- Sterne und Galaxien: markante Eigenschaft (nur Gegenrichtung) ----
+  // Die Vorwärtsfrage entfällt bewusst: „notableFor" ist ein Freitext, dessen
+  // Formulierung den Namen häufig mitliefert. In der Gegenrichtung ist der Text
+  // der Hinweis und der Name die Antwort — das bleibt fair.
+  {
+    category: 'star', attr: 'notableFor', type: 'astra-star-notable-rev', difficulty: 3,
+    nameAnswer: true, reverseUnique: true,
+    subject: c => c.attributes.notableFor,
+    format: (_v, c) => c.name,
+    prompt: c => `Welcher Stern wird so beschrieben: „${c.attributes.notableFor}"?`
+  },
+  {
+    category: 'galaxy', attr: 'notableFor', type: 'astra-galaxy-notable-rev', difficulty: 3,
+    nameAnswer: true, reverseUnique: true,
+    subject: c => c.attributes.notableFor,
+    format: (_v, c) => c.name,
+    prompt: c => `Welche Galaxie wird so beschrieben: „${c.attributes.notableFor}"?`
   }
 ];
 

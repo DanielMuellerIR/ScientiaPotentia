@@ -107,8 +107,44 @@ function reverseSafeDistractors(subjectConcept, askedValue, conceptsInCat, compa
  */
 // pickNumeric: jetzt zentral in ./lib/quizrandom.js (mit Proximity-Guard fuer Messgroessen).
 
+// --- Kontinent aus dem Verbreitungsgebiet ---------------------------------
+// Das Attribut 'range' ist ein belegter Freitext ("Afrika südlich der Sahara",
+// "Kolumbien"). Als Antwortoption taugt er nicht: die Texte sind 3 bis 115
+// Zeichen lang, die richtige Lösung wäre über ihre Länge erratbar, und viele
+// Tiere teilen sich denselben Wortlaut. Stattdessen wird daraus mechanisch ein
+// Kontinent abgeleitet — kein neuer Fakt, nur eine Vergröberung der bereits
+// geprüften Angabe. Die Ableitung ist bewusst streng: Sie greift nur, wenn
+// genau eine Kontinentfamilie anschlägt und der Text keine erdteilübergreifende
+// Angabe enthält. Alles andere bleibt ohne Wert und erzeugt keine Frage.
+const CONTINENT_PATTERNS = [
+  ['Afrika', /afrika|sahara|sahel|madagask|kongo|serengeti|namib|kalahari|äthiop|kenia|tansania|sambia|simbabwe|botswana|angola|kamerun|nigeria|senegal|marokko|ägypten|gambia|ghana|mali\b|sudan|somalia|uganda|ruanda|mosambik|malawi|tschad|tunesien|algerien|libyen|kapprovinz|sansibar|komoren|seychellen|niger(delta|\b)|elfenbeinküste|benin|togo|gabun|eritrea|dschibuti|lesotho|swasiland|okavango/],
+  ['Europa', /europa|europä|skandinav|alpen|iberisch|balkan|britisch|karpaten|pyrenäen|deutschland|frankreich|spanien|italien|griechenland|polen|schweden|norwegen|finnland|dänemark|niederlande|schweiz|österreich|ungarn|rumänien|bulgarien|portugal|irland|schottland/],
+  ['Asien', /asien|asiat|indien|indisch|china|chines|japan|himalaja|himalaya|sibirien|borneo|sumatra|\bjava\b|sulawesi|philippin|indonesi|malaysia|thailand|vietnam|korea|mongolei|iran\b|arab|kaukasus|nepal|bhutan|myanmar|\bburma|sri lanka|taiwan|kasachstan|afghanistan|pakistan|bangladesch|laos|kambodscha|tibet|jemen|oman|israel|türkei|anatolien|naher osten|levante|syrien|irak|bali\b|lombok|sundainseln|molukken/],
+  ['Nordamerika', /nordamerika|kanada|alaska|\busa\b|vereinigte staaten|mexiko|mexik|kalifornien|florida|texas|rocky mountains|great plains|appalach|mississippi|arizona|nevada|oregon|alberta|ontario|québec|quebec|yukon|labrador|neuengland|großen seen/],
+  ['Südamerika', /südamerika|amazon|anden|brasilien|argentin|\bperu\b|chile|kolumbien|venezuela|ecuador|bolivien|patagonien|galapagos|galápagos|guyana|guayana|paraguay|uruguay|surinam|feuerland|orinoko|pantanal|cerrado/],
+  ['Mittelamerika', /mittelamerika|zentralamerika|costa rica|panama|guatemala|honduras|nicaragua|belize|karibik|karibisch|kuba\b|jamaika|hispaniola|puerto rico|antillen|bahamas|trinidad|dominikanische/],
+  ['Australien und Ozeanien', /australi|neuseeland|neuguinea|tasmani|ozeanien|melanesien|polynesien|fidschi|hawaii|papua|salomonen|vanuatu|samoa|queensland|new south wales|victoria\b/],
+  ['Antarktis', /antarkti|südpolar/]
+];
+// Angaben, die mehrere Erdteile umfassen oder gar keinen nennen (Meere, Tropen,
+// "Eurasien", Spannweiten mit "bis", Aufzählungen wie "Nord- und Mittelamerikas").
+const CONTINENT_BLOCKERS = /eurasi|weltweit|kosmopolit|zirkumpolar|erdteil|kontinent|\bozean|weltmeer|alle meere|tiefsee|arktis|holarkt|paläarkt|nearkt|neotrop|tropen|subtropen|nordhalbkugel|südhalbkugel|\bbis\b|sowie|außer |mittelmeer|atlantik|pazifik|indischer|- und /;
+function continentFromRange(rangeText) {
+  const text = String(rangeText || '').toLowerCase();
+  if (!text || CONTINENT_BLOCKERS.test(text)) return null;
+  const hits = CONTINENT_PATTERNS.filter(([, pattern]) => pattern.test(text));
+  return hits.length === 1 ? hits[0][0] : null;
+}
+
 // --- Faktenbasis laden ---------------------------------------------------
 const raw = JSON.parse(readFileSync(RAW_PATH, 'utf8'));
+
+// Abgeleiteten Kontinent ergaenzen, bevor Konzeptspeicher und Templates lesen.
+for (const c of raw) {
+  if (c.category !== 'animal') continue;
+  const continent = continentFromRange(c.attributes && c.attributes.range);
+  if (continent) c.attributes.continent = continent;
+}
 
 // Konzepte nach Kategorie gruppieren (für kategorie-interne Distraktoren).
 const byCategory = {};
@@ -132,6 +168,7 @@ for (const c of raw) {
   };
 }
 
+
 // --- Frage-Templates -----------------------------------------------------
 // kind: 'cat' (kategorisch), 'num' (numerisch, nutzt rohe Zahl), 'name' (Reverse:
 // Antwort = Konzeptname). attr = abgefragtes Attribut. skip = optionaler Filter.
@@ -151,6 +188,13 @@ const templates = [
   {
     category: 'animal', attr: 'order', kind: 'cat', type: 'natura-animal-order', difficulty: 4,
     prompt: c => `Zu welcher Ordnung gehört ${c.name}?`
+  },
+  {
+    // 'continent' wird aus dem belegten Verbreitungsgebiet abgeleitet (siehe
+    // continentFromRange). Tiere ohne eindeutigen Erdteil tragen das Feld nicht
+    // und erzeugen darum keine Frage.
+    category: 'animal', attr: 'continent', kind: 'cat', type: 'natura-animal-continent', difficulty: 2,
+    prompt: c => `Auf welchem Erdteil ist ${c.name} heimisch?`
   },
   {
     category: 'animal', attr: 'maxWeightKg', kind: 'num', type: 'natura-animal-weight', difficulty: 3,

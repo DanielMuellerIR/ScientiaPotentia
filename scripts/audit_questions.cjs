@@ -82,8 +82,14 @@ for (const domain of selectedDomains) {
     (byType[type] ||= {
       type, n: 0, longest: 0, shortest: 0,
       lenCorrect: 0, lenDistract: 0, nDistract: 0,
+      // Haeufigkeit jeder richtigen Antwort je Fragetyp (Dominanz-Pruefung).
+      answerCounts: new Map(),
     });
     const t = byType[type];
+    if (typeof correct === 'string' && correct.trim()) {
+      const key = norm(correct);
+      t.answerCounts.set(key, (t.answerCounts.get(key) || 0) + 1);
+    }
 
     // --- Struktur ---
     // Optionslose Typen (click-map) überspringen: dort ist `options: []` korrekt.
@@ -133,14 +139,26 @@ for (const domain of selectedDomains) {
   // Typ-Statistik auswerten — Bias-Flag bei deutlicher Abweichung von 25 %.
   const typeStats = Object.values(byType).map(t => ({
     type: t.type, n: t.n,
+    // Anteil der haeufigsten richtigen Antwort an allen Fragen dieses Typs.
+    topAnswerShare: t.n
+      ? +(100 * Math.max(0, ...t.answerCounts.values()) / t.n).toFixed(1)
+      : 0,
     pctLongest: t.n ? +(100 * t.longest / t.n).toFixed(1) : 0,
     pctShortest: t.n ? +(100 * t.shortest / t.n).toFixed(1) : 0,
     avgLenCorrect: t.n ? +(t.lenCorrect / t.n).toFixed(1) : 0,
     avgLenDistract: t.nDistract ? +(t.lenDistract / t.nDistract).toFixed(1) : 0,
   }));
   const biasTypes = typeStats.filter(t => t.n >= 8 && (t.pctLongest >= 50 || t.pctShortest >= 55));
+  // Dominante Antwort: Wenn dieselbe Loesung in der Haelfte aller Fragen eines
+  // Typs richtig ist, gewinnt schon das blosse Raten dieser einen Antwort. Das
+  // ist unabhaengig von der Optionslaenge und blieb darum bisher unsichtbar.
+  const dominantTypes = typeStats.filter(t => t.n >= 8 && t.topAnswerShare >= 50);
 
-  summary.push({ domain, total: qs.length, structural: structural.length, answerInStem: answerInStem.length, formatTell: formatTell.length, biasTypes });
+  summary.push({
+    domain, total: qs.length, structural: structural.length,
+    answerInStem: answerInStem.length, formatTell: formatTell.length,
+    biasTypes, dominantTypes,
+  });
 
   // Konsolen-Report je Domain
   console.log(`\n=== ${domain.toUpperCase()}  (${qs.length} Fragen) ===`);
@@ -152,6 +170,11 @@ for (const domain of selectedDomains) {
   } else {
     console.log(`  ✓ kein auffälliger Längen-Bias auf Template-Ebene`);
   }
+  if (dominantTypes.length) {
+    console.log(`  ⚠ Dominante Antwort (n≥8, häufigste Lösung ≥50 %):`);
+    dominantTypes.sort((a, b) => b.topAnswerShare - a.topAnswerShare)
+      .forEach(t => console.log(`     ${t.type}  n=${t.n}  häufigste Lösung ${t.topAnswerShare} %`));
+  }
   if (structural.length) structural.slice(0, 5).forEach(s => console.log(`     STRUKT ${s.id}: ${s.reason}`));
 
   // --- Dump für LLM-Prüfung ---
@@ -161,7 +184,10 @@ for (const domain of selectedDomains) {
       .map(q => ({ id: q.id, type: q.type, prompt: q.prompt, correctAnswer: q.correctAnswer, options: q.options }));
     fs.writeFileSync(path.join(dumpDir, `${domain}.json`), JSON.stringify({
       domain,
-      flagged: { structural, answerInStem: answerInStem.slice(0, 40), formatTell: formatTell.slice(0, 40), biasTypes },
+      flagged: {
+        structural, answerInStem: answerInStem.slice(0, 40),
+        formatTell: formatTell.slice(0, 40), biasTypes, dominantTypes,
+      },
       randomSample: sample,
     }, null, 2));
   }
@@ -169,7 +195,7 @@ for (const domain of selectedDomains) {
 
 console.log('\n\n===== GESAMT-ÜBERSICHT =====');
 summary.forEach(s => console.log(
-  `${s.domain.padEnd(9)} ${String(s.total).padStart(6)} Fragen | Strukt ${s.structural} | Ans-im-Stamm ${s.answerInStem} | Format ${s.formatTell} | Bias-Templates ${s.biasTypes.length}`
+  `${s.domain.padEnd(9)} ${String(s.total).padStart(6)} Fragen | Strukt ${s.structural} | Ans-im-Stamm ${s.answerInStem} | Format ${s.formatTell} | Bias-Templates ${s.biasTypes.length} | Dominant ${s.dominantTypes.length}`
 ));
 if (dumpDir) console.log(`\nStichproben + Flags geschrieben nach: ${dumpDir}`);
 

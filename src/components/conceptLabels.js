@@ -44,6 +44,16 @@ export const CATEGORY_LABELS = {
   joint: 'Gelenk',
   reflex: 'Reflex',
   blood_group: 'Blutgruppe',
+  // Homo — Welle 6 (Stand 2026-09-02): Gefäße, Bandapparat, Gehirn, Botenstoffe,
+  // Sinnesorgan-Bestandteile, Zähne, Gewebe, Immunsystem
+  blood_vessel: 'Blutgefäß',
+  ligament_tendon: 'Band und Sehne',
+  brain_structure: 'Hirnstruktur',
+  neurotransmitter: 'Botenstoff',
+  sense_organ_part: 'Sinnesorgan-Teil',
+  tooth: 'Zahn',
+  tissue_type: 'Gewebeart',
+  immune_component: 'Immunsystem',
   // Natura
   animal: 'Tier',
   plant: 'Pflanze',
@@ -141,6 +151,23 @@ export const ATTR_LABELS = {
   reflexType: 'Reflexart',
   antigen: 'Antigen',
   antibody: 'Antikörper',
+  // Homo — Welle 6 (Stand 2026-09-02).
+  bodyRegion: 'Körperregion',
+  vesselType: 'Gefäßart',
+  supplies: 'Versorgungsgebiet',
+  parentOrgan: 'Sinnesorgan',
+  countAdult: 'Anzahl im Gebiss',
+  eruptionAgeYears: 'Durchbruch (Jahre)',
+  tissueClass: 'Gewebeklasse',
+  occurrence: 'Vorkommen',
+  componentType: 'Art des Bausteins',
+  chemicalClass: 'Stoffklasse',
+  producedIn: 'Bildungsort',
+  insertion: 'Ansatz',
+  nerveKind: 'Nervengruppe',
+  cranialNumber: 'Hirnnerv Nr.',
+  brainVolumeCc: 'Hirnvolumen (cm³)',
+  heightCm: 'Körpergröße (cm)',
   approxWeightGrams: 'Gewicht (g)',
   value: 'Wert',
   unit: 'Einheit',
@@ -842,6 +869,9 @@ export const LEAKY_SIBLINGS = {
   // Personen-Lebensdaten: 'lifespan' nennt Geburts- UND Todesjahr im Klartext.
   birthYear: ['lifespan'],
   deathYear: ['lifespan'],
+  // Gegenrichtung: Wird nach den Lebensdaten gefragt, verraten Geburts- und
+  // Todesjahr als eigene Chips die Antwort.
+  lifespan: ['birthYear', 'deathYear'],
   // Kunstrichtungen/Epochen: Perioden-String und Hauptvertreter datieren die Richtung.
   startYear: ['period', 'mainRepresentatives'],
   endYear: ['period', 'mainRepresentatives'],
@@ -864,7 +894,37 @@ export const LEAKY_SIBLINGS = {
   jointType: ['movement'],
   reflexType: ['stimulus', 'response'],
   antibody: ['antigen'],
-  antigen: ['antibody']
+  antigen: ['antibody'],
+  // Natura: Der Erdteil wird aus dem Verbreitungsgebiet abgeleitet — steht
+  // dieses als Chip im Panel, ist die Antwort dort wörtlich abzulesen.
+  continent: ['range'],
+  // Homo Welle 6: Der lateinische Name buchstabiert Gefaessart und Region aus
+  // ("Arteria carotis communis" nennt die Arterie und ueber "carotis" den Hals),
+  // das Versorgungsgebiet legt beides ebenfalls nahe. Umgekehrt verraet der
+  // lateinische Name die gefragte deutsche Bezeichnung nicht, weil dort das
+  // Konzept selbst gesucht ist. Ansatz und Gegenspieler eines Muskels benennen
+  // seine Region; die Hirnnerv-Nummer korreliert mit der Nervengruppe.
+  bodyRegion: ['location'],
+  vesselType: ['latinName', 'supplies'],
+  supplies: ['latinName'],
+  parentOrgan: ['latinName'],
+  tissueClass: ['occurrence'],
+  occurrence: ['tissueClass'],
+  componentType: ['location'],
+  chemicalClass: ['producedIn'],
+  countAdult: ['eruptionAgeYears'],
+  eruptionAgeYears: ['countAdult'],
+  nerveKind: ['cranialNumber', 'innervates'],
+  cranialNumber: ['nerveKind', 'innervates'],
+  insertion: ['antagonist'],
+  antagonist: ['insertion'],
+  // Wird nach der Funktion eines Muskels gefragt, verrät der sichtbare
+  // Gegenspieler sie fast vollständig: Wer als Antagonist den großen
+  // Gesäßmuskel (einen Hüftstrecker) liest, weiß, dass der gesuchte Muskel die
+  // Hüfte beugt. Der Ansatzknochen grenzt die Funktion ebenfalls stark ein.
+  function: ['antagonist', 'insertion'],
+  brainVolumeCc: ['heightCm'],
+  heightCm: ['brainVolumeCc']
 };
 
 /**

@@ -198,6 +198,15 @@ const templates = [
   // 1 anderer kategorialer Wert vorhanden). Reverse funktioniert, weil pickNames
   // aus dem Namens-Pool schöpft — dort genug Kandidaten pro TCP-/UDP-Gruppe.
   // Sammelwert-Konzepte werden übersprungen; eindeutige Zuordnung nötig.
+  // Transportprotokoll: die klassische Netzwerkfrage („setzt auf TCP oder UDP
+  // auf?"). Die Werte sind kurz und gleich lang; „-" (kein Transport) und die
+  // Mischangabe bleiben draußen, weil sie keine saubere Option ergeben.
+  {
+    category: 'network_protocol', attr: 'transport', kind: 'cat', type: 'machina-protocol-transport', difficulty: 3,
+    prompt: c => `Auf welchem Transportprotokoll setzt ${c.name} auf?`,
+    skip: c => !['TCP', 'UDP', 'IP', 'Ethernet'].includes(c.attributes.transport),
+    poolFilter: v => ['TCP', 'UDP', 'IP', 'Ethernet'].includes(v)
+  },
   {
     category: 'network_protocol', attr: 'transport', kind: 'name', type: 'machina-protocol-transport-rev', difficulty: 3,
     skip: c => /\/|und/i.test(String(c.attributes.transport || '')),
@@ -275,6 +284,15 @@ const templates = [
   {
     category: 'concept', attr: 'definition', kind: 'name', type: 'machina-concept-definition-rev', difficulty: 4,
     prompt: c => `Welches IT-Konzept beschreibt folgende Definition?\n„${c.attributes.definition}”`
+  },
+  // Gegenrichtung zur Definition: der Name steht im Prompt, gesucht ist die
+  // richtige Beschreibung. Alle 302 Definitionen sind einzeln formuliert und
+  // ähnlich lang, die Distraktoren stammen aus derselben Kategorie. Der
+  // Selbstverräter-Guard verwirft die Fälle, in denen die Definition den Namen
+  // buchstäblich enthält.
+  {
+    category: 'concept', attr: 'definition', kind: 'cat', type: 'machina-concept-definition', difficulty: 3,
+    prompt: c => `Wie lässt sich das IT-Konzept „${c.name}” am besten beschreiben?`
   },
 
   // ==== Reverse-Hebel (mehr Fragetypen je Konzept, token-frei) =============
@@ -360,6 +378,17 @@ const templates = [
   {
     category: 'engine', attr: 'energySource', kind: 'name', type: 'machina-engine-energy-rev', difficulty: 2,
     prompt: c => `Welche dieser Kraftmaschinen wird primär mit „${c.attributes.energySource}“ betrieben?`
+  },
+  // Funktionsprinzip: das eigentliche Lernziel der Domain („Wie funktioniert
+  // es?"). Alle 67 Prinzipien sind einzeln formuliert; beide Richtungen sind
+  // dadurch eindeutig.
+  {
+    category: 'engine', attr: 'principle', kind: 'cat', type: 'machina-engine-principle', difficulty: 3,
+    prompt: c => `Auf welchem Funktionsprinzip beruht ${c.name}?`
+  },
+  {
+    category: 'engine', attr: 'principle', kind: 'name', type: 'machina-engine-principle-rev', difficulty: 4,
+    prompt: c => `Welche Kraftmaschine arbeitet nach folgendem Prinzip?\n„${c.attributes.principle}“`
   },
 
   // ---- Fertigungsverfahren (manufacturing_process) -----------------------

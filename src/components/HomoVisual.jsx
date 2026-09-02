@@ -64,6 +64,22 @@ const CATEGORY_ASSET = {
     changes: 'unverändert gebündelt'
   }
 };
+
+// Welle 6: Die neuen Kategorien bekommen keine eigene Grafik, sondern die
+// fachlich passende der fünf vorhandenen. Blutgefäße und Immunsystem verlaufen
+// durch den ganzen Körper (Organ-Torso), Bänder und Sehnen gehören zum
+// Bewegungsapparat (Skelett), Hirnstrukturen, Botenstoffe, Zähne und
+// Sinnesorgan-Bestandteile sitzen im Kopf-/Organschema. Gewebearten haben
+// keinen Ort im Körper und behalten die neutrale Körpergrafik (DEFAULT_ASSET).
+const CATEGORY_ASSET_ALIAS = {
+  blood_vessel: 'organ',
+  immune_component: 'organ',
+  brain_structure: 'organ',
+  neurotransmitter: 'organ',
+  sense_organ_part: 'organ',
+  tooth: 'organ',
+  ligament_tendon: 'bone'
+};
 const DEFAULT_ASSET = CATEGORY_ASSET.body_fact;
 
 // --- Marker-Koordinaten ---------------------------------------------------
@@ -147,6 +163,29 @@ const ORGAN_ZONES = [
   [/ausscheid|harn|uro|niere/, { x: 0.50, y: 0.70 }]
 ];
 
+// Welle 6: Regionswerte der neuen Kategorien -> Punkt auf der jeweiligen Grafik.
+// Gefäße liegen im Organ-Torso (gleiche Lagen wie ORGAN_ZONES), Bänder und
+// Sehnen am Skelett (gleiche Lagen wie BONE_ZONES, ergänzt um Knie/Schulter/
+// Hüfte, die es als Knochenregion nicht gibt).
+const VESSEL_ZONES = {
+  kopf: { x: 0.50, y: 0.13 }, hals: { x: 0.50, y: 0.24 },
+  brustkorb: { x: 0.50, y: 0.42 }, bauch: { x: 0.50, y: 0.60 },
+  'brustkorb und bauch': { x: 0.50, y: 0.52 }, becken: { x: 0.50, y: 0.80 },
+  arm: { x: 0.20, y: 0.45 }, bein: { x: 0.42, y: 0.92 }
+};
+const LIGAMENT_ZONES = {
+  kopf: { x: 0.50, y: 0.07 }, hals: { x: 0.50, y: 0.13 },
+  rumpf: { x: 0.50, y: 0.30 }, schulter: { x: 0.37, y: 0.20 },
+  arm: { x: 0.17, y: 0.37 }, hand: { x: 0.10, y: 0.62 },
+  hufte: { x: 0.47, y: 0.46 }, bein: { x: 0.355, y: 0.62 },
+  knie: { x: 0.36, y: 0.665 }, fuss: { x: 0.31, y: 0.96 }
+};
+/** Regionstext auf den Zonen-Schlüssel bringen („Hüfte" -> „hufte", „Fuß" -> „fuss"). */
+function normalizeRegion(value) {
+  return String(value || '').toLowerCase()
+    .replace(/ß/g, 'ss').replace(/ä/g, 'a').replace(/ö/g, 'o').replace(/ü/g, 'u');
+}
+
 /** Bestimmt die Marker-Position für das aktive Konzept (oder null = kein Punkt). */
 function resolveMarker(concept) {
   if (!concept) return null;
@@ -166,7 +205,18 @@ function resolveMarker(concept) {
   if (cat === 'organ') {
     const sys = String(a.system || '').toLowerCase();
     const hit = ORGAN_ZONES.find(([re]) => re.test(sys));
-    return hit ? hit[1] : null;
+    // Trifft kein Organsystem, verortet die kuratierte Körperregion das Organ.
+    return hit ? hit[1] : (VESSEL_ZONES[normalizeRegion(a.bodyRegion)] || null);
+  }
+  // Welle 6: Gefäße und Bandapparat werden über ihre Region verortet — Gefäße im
+  // Organ-Torso, Bänder und Sehnen am Skelett. Alle anderen neuen Kategorien
+  // (Hirnstrukturen, Botenstoffe, Zähne, Gewebe, Immunsystem) haben keinen
+  // sinnvollen Einzelpunkt auf diesen Ganzkörpergrafiken.
+  if (cat === 'blood_vessel') {
+    return VESSEL_ZONES[normalizeRegion(a.region)] || null;
+  }
+  if (cat === 'ligament_tendon') {
+    return LIGAMENT_ZONES[normalizeRegion(a.region)] || null;
   }
   return null; // body_fact, species, Haut -> Ganzkörper, kein Einzelpunkt
 }
@@ -187,7 +237,8 @@ export default function HomoVisual({
 
   // Ohne aktive Frage: ruhige Themen-Darstellung (Skelett) als Standbild.
   const cat = activeConcept?.category || activeConcept?.type;
-  const asset = (cat && CATEGORY_ASSET[cat]) || DEFAULT_ASSET;
+  const assetKey = (cat && CATEGORY_ASSET_ALIAS[cat]) || cat;
+  const asset = (assetKey && CATEGORY_ASSET[assetKey]) || DEFAULT_ASSET;
   const catLabel = CATEGORY_LABELS[cat] || cat || '';
 
   // Selbstverräter-Schutz: Bei unbeantworteten Reverse-/Fachbegriff-Fragen bzw.
@@ -198,7 +249,12 @@ export default function HomoVisual({
     (!detailsUnlocked && (
       testedAttribute === 'region' ||
       testedAttribute === 'location' ||
-      testedAttribute === 'system'
+      testedAttribute === 'system' ||
+      testedAttribute === 'bodyRegion' ||
+      // Welle 6: Das übergeordnete Sinnesorgan und die Gefäßart lassen sich am
+      // Markerpunkt ablesen, deshalb bleibt er bis zur Antwort verborgen.
+      testedAttribute === 'parentOrgan' ||
+      testedAttribute === 'vesselType'
     ));
   const marker = markerLeaks ? null : resolveMarker(activeConcept);
 

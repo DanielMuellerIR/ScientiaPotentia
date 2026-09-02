@@ -292,6 +292,10 @@ const templates = [
     prompt: c => `In welchem Land steht das Bauwerk „${c.name}“?`
   },
   {
+    category: 'architecture', attr: 'style', kind: 'cat', type: 'cultura-architecture-style', difficulty: 4,
+    prompt: c => `Welchem Baustil wird „${c.name}“ zugerechnet?`
+  },
+  {
     category: 'architecture', attr: 'material', kind: 'cat', type: 'cultura-architecture-material', difficulty: 3,
     prompt: c => `Aus welchem Material wurde „${c.name}“ hauptsächlich errichtet?`
   },
@@ -342,10 +346,30 @@ const templates = [
   },
 
   // ==== Literaturepochen (literary_movement) ===============================
+  // Merkmale und Hauptvertreter der Epochen: bewusst nur als Gegenrichtung.
+  // Die Freitexte sind 18 bis 184 Zeichen lang; als Antwortoption wäre die
+  // richtige Lösung über ihre Länge erratbar. Als Hinweis im Fragetext ist das
+  // unschädlich, die Antwort ist dann der Epochenname.
+  {
+    category: 'art_movement', attr: 'characteristics', kind: 'name', type: 'cultura-artmovement-characteristics-rev', difficulty: 3,
+    prompt: c => `Welche Kunstrichtung ist durch folgende Merkmale gekennzeichnet?\n„${c.attributes.characteristics}“`
+  },
+  {
+    category: 'art_movement', attr: 'mainRepresentatives', kind: 'name', type: 'cultura-artmovement-representatives-rev', difficulty: 3,
+    prompt: c => `Welcher Kunstrichtung werden diese Namen zugerechnet?\n„${c.attributes.mainRepresentatives}“`
+  },
   {
     category: 'literary_movement', attr: 'originCountry', kind: 'cat', type: 'cultura-litmovement-country', difficulty: 3,
     prompt: c => `In welchem Land entstand die Literaturepoche ${beforeParen(c.name)}?`,
     skip: c => /,/.test(String(c.attributes.originCountry || ''))
+  },
+  {
+    category: 'literary_movement', attr: 'characteristics', kind: 'name', type: 'cultura-litmovement-characteristics-rev', difficulty: 3,
+    prompt: c => `Welche Literaturepoche ist durch folgende Merkmale gekennzeichnet?\n„${c.attributes.characteristics}“`
+  },
+  {
+    category: 'literary_movement', attr: 'mainRepresentatives', kind: 'name', type: 'cultura-litmovement-representatives-rev', difficulty: 3,
+    prompt: c => `Welcher Literaturepoche werden diese Autoren zugerechnet?\n„${c.attributes.mainRepresentatives}“`
   },
   {
     category: 'literary_movement', attr: 'startYear', kind: 'num', type: 'cultura-litmovement-year', difficulty: 4,
@@ -416,6 +440,19 @@ const templates = [
   {
     category: 'composition', attr: 'genre', kind: 'cat', type: 'cultura-composition-genre', difficulty: 2,
     prompt: c => `Welcher Gattung gehört „${c.name}“ an?`
+  },
+  // Musikepoche: zehn kurze, gleichförmige Werte — die klassische Einordnungsfrage.
+  // Lebensdaten der Komponisten: alle Werte tragen dasselbe Format „1685–1750",
+  // die Optionen sind daher gleich lang. Geburts- und Todesjahr werden im Panel
+  // ausgeblendet, solange danach gefragt wird (LEAKY_SIBLINGS).
+  {
+    category: 'composer', attr: 'lifespan', kind: 'cat', type: 'cultura-composer-lifespan', difficulty: 4,
+    prompt: c => `In welchen Jahren lebte ${c.name}?`
+  },
+  {
+    category: 'composition', attr: 'era', kind: 'cat', type: 'cultura-composition-era', difficulty: 2,
+    prompt: c => `Welcher Musikepoche wird „${beforeParen(c.name)}“ zugerechnet?`,
+    skip: c => GENERIC_TITLE.test(beforeParen(c.name))
   },
   {
     category: 'composition', attr: 'year', kind: 'num', type: 'cultura-composition-year', difficulty: 3,

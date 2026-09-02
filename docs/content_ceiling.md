@@ -1,6 +1,6 @@
 # Fachliche Content-Ceilings
 
-**Stand: 2026-08-27.** Dieses Dokument ersetzt eine reine Fragenquote als
+**Stand: 2026-09-02.** Dieses Dokument ersetzt eine reine Fragenquote als
 Ausbauziel. Zahlen beschreiben den Umfang, nicht die Qualität oder den Bedarf
 für weitere Konzepte.
 
@@ -37,21 +37,24 @@ die Konzeptkarte oder ein fachliches Schema.
 | Domain | Fragen | Konzepte | Bilder | Fachliche Einordnung |
 |---|---:|---:|---:|---|
 | Terra | 5.116 | 1.852 Kartenobjekte | Karte | Geschlossener, quellgebundener Geodatensatz. Neue Fragen nur bei einem zusätzlichen fairen Kartentyp oder einer überprüften Datensatzänderung; keine künstliche Vermehrung pro Ort. |
-| Astra | 5.055 | 1.560 | 489 | Breites, aber quellenabhängiges Reservoir. Neue Körper, Missionen oder Eigenschaften brauchen stabile Fachquellen. Keine Sternbildlinien ohne freigegebene Konvention oder IAU-Grenzdaten. |
-| Homo | 1.600 | 599 | 306 | Erreicht das belegte Ceiling von etwa 1.500–1.700 Fragen. Krankheiten, Erreger und Medizingeschichte wären falsche Wege zur Mengensteigerung und gehören nach Natura beziehungsweise Historia. |
-| Natura | 13.343 | 2.402 | 1.878 | Kein numerisches Ceiling: Arten, Lebensräume und Geologie bieten weiter Material. Es gelten aber Notabilität, belastbare Merkmale und eine passende Visualisierung vor weiterer Menge. |
-| Lingua | 4.874 | 1.207 | 198 | Die frühere 5.000er-Orientierung ist fast erreicht, aber kein Grund für Restmaterial. Neue Einträge nur bei klaren Sprach-, Schrift- oder Etymologie-Lernzielen; bloße Flexions- und Dialektlisten bleiben aus. |
-| Cultura | 7.373 | 1.987 | 1.047 | Breites Reservoir mit harter Urheberrechts- und Gegenwartsgrenze. Neue Werke müssen fachlich notabel sein; geschützte 2D-Werke, lange Zitate und lebende Rekordpersonen bleiben ausgeschlossen. |
-| Machina | 6.130 | 2.165 | 291 | Breites Reservoir, aber viele abstrakte Konzepte haben bewusst kein Foto. Neue Fragen müssen Funktionsprinzipien lehren; Markenlogos oder aktuelle Produktlisten sind kein Ersatz für eine Visualisierung. |
+| Astra | 5.552 | 1.560 | 489 | Breites, aber quellenabhängiges Reservoir. Kometen und Sternhaufen sind seit 2026-09-02 erschlossen. Neue Körper, Missionen oder Eigenschaften brauchen stabile Fachquellen. Keine Sternbildlinien ohne freigegebene Konvention oder IAU-Grenzdaten. |
+| Homo | 3.179 | 946 | 306 | Das frühere Ceiling von 1.500 bis 1.700 Fragen war zu eng gezogen: Es beschrieb die damals angelegten Kategorien, nicht die Domain. Acht neue Kategorien innerhalb der Körpergrenze (Blutgefäße, Bandapparat, Hirnstrukturen, Botenstoffe, Sinnesorgan-Bestandteile, Zähne, Gewebe, Immunsystem) haben die Zahl fast verdoppelt. Krankheiten und Medizingeschichte bleiben weiterhin draußen. |
+| Natura | 13.846 | 2.402 | 1.878 | Kein numerisches Ceiling: Arten, Lebensräume und Geologie bieten weiter Material. Es gelten aber Notabilität, belastbare Merkmale und eine passende Visualisierung vor weiterer Menge. |
+| Lingua | 4.851 | 1.202 | 197 | Neue Einträge nur bei klaren Sprach-, Schrift- oder Etymologie-Lernzielen; bloße Flexions- und Dialektlisten bleiben aus. Die Restattribute der Kategorien Lehnwort, Sprachkuriosum, Grammatik und Phonetik sind Einzelfälle mit je eigenen Schlüsseln und taugen deshalb nicht für einen Fragetyp mit kategorie-internen Distraktoren. |
+| Cultura | 7.740 | 1.987 | 1.047 | Breites Reservoir mit harter Urheberrechts- und Gegenwartsgrenze. Neue Werke müssen fachlich notabel sein; geschützte 2D-Werke, lange Zitate und lebende Rekordpersonen bleiben ausgeschlossen. |
+| Machina | 6.536 | 2.165 | 291 | Breites Reservoir, aber viele abstrakte Konzepte haben bewusst kein Foto. Neue Fragen müssen Funktionsprinzipien lehren; Markenlogos oder aktuelle Produktlisten sind kein Ersatz für eine Visualisierung. |
 | Historia | 6.330 | 1.244 | 1.025 | Breites Reservoir für datierbare, neutral darstellbare Inhalte. Tagespolitik, wertende Systemdebatten und schlecht belegte Rekordlisten bleiben außerhalb der Domain. |
 
 ## Folgen für die Pflege
 
 - Die Zahl 5.000 ist nur noch ein historischer Orientierungswert. Sie ist kein
   Release-Gate und kein Auftrag, einen Bereich darunter aufzufüllen.
-- Homo bleibt auf seinem belegten Ceiling. Erweiterungen werden nur als
-  ausdrücklich neue, regelkonforme Kategorie geplant, nicht aus einer
-  Zahlenlücke abgeleitet.
+- Ein Ceiling beschreibt immer nur die bereits angelegten Kategorien. Bevor ein
+  Bereich als fertig gilt, ist zu prüfen, ob es innerhalb seiner Grenze noch
+  ganze Themenfelder ohne eigene Kategorie gibt. Bei Homo waren das acht.
+- Ein zweiter, oft übersehener Hebel sind Attribute, die in den Rohdaten geprüft
+  vorliegen, aber von keinem Fragetyp genutzt werden. Sie kosten keine neue
+  Recherche. `docs/attribut_luecken.md` hält den jeweiligen Stand fest.
 - Bei Natura, Astra, Lingua, Cultura, Machina und Historia entscheidet die
   dokumentierte Restlücke einer Kategorie über eine Welle, nicht der
   Gesamtzähler der Domain.

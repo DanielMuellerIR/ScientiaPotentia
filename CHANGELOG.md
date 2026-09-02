@@ -2,6 +2,21 @@
 
 Dieses Changelog beginnt mit dem für eine öffentliche Veröffentlichung bereinigten Projektstand.
 
+## [2.0.0] — 2026-09-02
+
+- Mensch & Körper wächst von 1.604 auf 3.179 Fragen: neu sind Blutgefäße, Bänder und Sehnen,
+  Hirnstrukturen, Botenstoffe, Bestandteile der Sinnesorgane, Zähne, Gewebearten und Bausteine
+  des Immunsystems; Organe, Muskeln, Nerven, Menschenarten und Vitamine wurden vertieft.
+- Bereits geprüfte, aber nie abgefragte Angaben ergeben neue Fragen in vier weiteren Bereichen:
+  Erdteil eines Tieres, Kometen und Sternhaufen, Beschreibung eines IT-Konzepts, Transport- und
+  Funktionsprinzipien, Musikepoche, Merkmale und Hauptvertreter der Kunst- und Literaturepochen.
+- Die Lagefrage zu Organen nennt jetzt eine von fünf gleichrangigen Körperregionen statt eines
+  unterschiedlich langen Beschreibungstextes, dessen Länge die Lösung verriet.
+- Zwei Schultermuskeln trugen vertauschte deutsche Namen; die Korrektur betrifft alle daraus
+  erzeugten Fragen.
+- Das Fragen-Audit meldet zusätzlich Fragetypen, bei denen dieselbe Lösung in mindestens der
+  Hälfte aller Fälle richtig ist.
+
 ## [1.99.4] — 2026-08-30
 
 - Gruppenabfragen der Sprachernte prüfen alle Wikidata-Aussagen je Sprache gemeinsam,
