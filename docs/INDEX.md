@@ -15,7 +15,6 @@
 
 ## Qualitätssicherung
 
-- [`qa_reports/`](qa_reports/)
 - [`../scripts/qa_review/README.md`](../scripts/qa_review/README.md)
 
 ## Asset- und Werkzeugdokumentation

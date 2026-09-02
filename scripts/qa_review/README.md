@@ -111,6 +111,9 @@ der Umfang bleibt über Anzahl und Größe der Batches nachvollziehbar begrenzt.
   + Report-Aggregation. Die Rubrik steht als `RUBRIK`-Konstante oben in der Datei und ist
   der Ort zum Nachschärfen.
 - Reports landen in `docs/qa_reports/` (Markdown + `.raw.json` mit allen Rohbewertungen).
+  Das Verzeichnis ist bewusst nicht versioniert: Die Berichte sind Arbeitsprotokolle
+  eines Sprachmodells über die Fragen, kein Projektinhalt. Nach dem Auswerten außerhalb
+  des Repos ablegen.
 
 ## Nachschärfen (das „immer wieder kontrollieren")
 

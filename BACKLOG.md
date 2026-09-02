@@ -15,8 +15,9 @@
 - Lizenz der vorgesehenen IAU-Grenzdaten ausdrücklich dokumentieren, bevor sie gebündelt werden.
 - Responsive Shell und VisualPanel auf einem echten iPhone im Hochformat prüfen.
 - Bildabdeckung in Museum und Explorern nur mit fachlich eindeutigen, freien Kandidaten erweitern.
-- Verbleibende Sach- und Fairnesskandidaten aus den semantischen QA-Berichten einzeln gegen
-  belastbare Quellen prüfen.
+- Verbleibende Sach- und Fairnesskandidaten aus den semantischen QA-Läufen einzeln gegen
+  belastbare Quellen prüfen. Die Berichte liegen außerhalb des Repos; `scripts/qa_review/`
+  erzeugt neue nach `docs/qa_reports/` (nicht versioniert).
 - Das Deployment langfristig auf unveränderliche Release-Verzeichnisse mit einem atomar
   umgeschalteten Release-Zeiger umstellen. Der aktuelle Ablauf veröffentlicht Assets vor dem
   Entrypoint und kann deshalb kurzzeitig alten Code mit neuen Daten kombinieren.
