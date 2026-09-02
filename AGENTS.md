@@ -26,6 +26,10 @@ Leitspruch.
   Rückwärtskompatibilität ändern.
 - Das Lernsystem verfolgt Konzepte, nicht einzelne Fragen.
 - Fachlogik gehört in Registry oder Domain-Komponenten, nicht als Sonderfall in die App-Shell.
+- Module, die sowohl im Browser als auch in Node-Generatoren laufen (z. B.
+  `src/utils/imageCredits.js`), immer mit Dateiendung importieren
+  (`../src/utils/imageCredits.js`). Vite löst fehlende `.js`-Endungen still auf,
+  Node nicht — der Fehler zeigt sich erst im Generator-Lauf (belegt 2026-08-29).
 
 ## Visualisierung und Bildrechte
 
