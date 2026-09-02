@@ -12,7 +12,7 @@ Scientia is a responsive, ad-free knowledge quiz with eight subject areas, tailo
 
 - Eight independently loaded domains: Terra, Astra, Homo, Natura, Cultura, Lingua, Machina and
   Historia.
-- Nearly 50,000 generated questions based on over 13,000 sourced concepts.
+- Over 53,000 generated questions based on more than 13,000 sourced concepts.
 - An interactive MapLibre atlas for geography, dedicated astronomy and anatomy views, and a
   concept visual for every remaining question.
 - SM-2-inspired review scheduling stored locally in IndexedDB. No account is required.

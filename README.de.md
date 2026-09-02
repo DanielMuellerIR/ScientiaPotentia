@@ -12,7 +12,7 @@ Scientia ist ein responsives, werbefreies Wissensquiz mit acht Bereichen, passen
 
 - Acht unabhängig geladene Bereiche: Terra, Astra, Homo, Natura, Cultura, Lingua, Machina und
   Historia.
-- Knapp 50.000 generierte Fragen auf Grundlage von über 13.000 belegten Konzepten.
+- Über 53.000 generierte Fragen auf Grundlage von über 13.000 belegten Konzepten.
 - Interaktiver MapLibre-Atlas für Geografie, eigene Astronomie- und Anatomieansichten sowie eine
   Konzeptvisualisierung für jede weitere Frage.
 - An SM-2 angelehnte Wiederholungsplanung in IndexedDB. Ein Konto ist nicht nötig.
