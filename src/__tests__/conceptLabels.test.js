@@ -101,6 +101,17 @@ describe('LEAKY_SIBLINGS Tabelle', () => {
       expect(LEAKY_SIBLINGS[key].length).toBeGreaterThan(0);
     }
   });
+
+  it('blendet bei der Frage nach der Körperregion die verratenden Chips aus', () => {
+    // CodeQA 2026-09-03: `bodyRegion` war eingetragen, das gleichnamige
+    // Attribut `region` nicht. Gemessen waren 40 von 63 Muskelregion-Fragen aus
+    // dem Panel ablesbar — „Gluteus maximus" zeigte location „Gesäß / Hüfte",
+    // gefragt war „Hüfte".
+    expect(LEAKY_SIBLINGS.region).toContain('location');
+    expect(LEAKY_SIBLINGS.region).toContain('function');
+    expect(LEAKY_SIBLINGS.region).toContain('supplies');
+    expect(LEAKY_SIBLINGS.region).toContain('nerveKind');
+  });
 });
 
 describe('getAttributeLabel — kontextabhaengige Fachbezeichnung', () => {

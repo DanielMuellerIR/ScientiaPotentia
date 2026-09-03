@@ -22,6 +22,17 @@ Dieses Changelog beginnt mit dem für eine öffentliche Veröffentlichung berein
 - Die Frage nach der Asteroidengruppe mischte Spektralklasse und Bahngruppe, die sich nicht
   ausschließen: Eros ist S-Typ und erdnah zugleich. Gefragt wird jetzt nur nach der
   Spektralklasse.
+- In 40 von 63 Fragen nach der Körperregion eines Muskels stand die Antwort wörtlich in einem
+  sichtbaren Merkmal daneben — die Lage, die Funktion oder das Versorgungsgebiet nannten sie.
+  Diese Angaben bleiben jetzt bis zur Antwort verborgen. Dasselbe galt für Gefäße und Nerven.
+- „Protein" und „Molekül" standen als getrennte Antworten auf die Frage nach der Art eines
+  Immunbausteins, obwohl ein Protein ein Molekül ist; in 15 von 22 Fragen waren beide zur Wahl.
+  Ebenso nannten die Organsystemfragen zehn Systeme in 19 Schreibweisen. Beides vereinheitlicht.
+- Die Frage nach dem Gegenspieler eines Muskels bot in fünf Fällen den gefragten Muskel selbst
+  als Option an. Die Frage nach der Art eines Bandes blieb nach dem Selbstverräter-Filter mit
+  fünf Fragen übrig, vier davon mit derselben Lösung; sie entfällt.
+- Der Seeotter war „Nordamerika" zugeordnet, obwohl sein Verbreitungsgebiet Kamtschatka und die
+  Kurilen einschließt. Erdteilübergreifende Gebiete erzeugen jetzt keine Erdteilfrage mehr.
 - 32 Asteroidenfragen boten Meter und Kilometer im selben Optionssatz an, 66 Kometenfragen
   begannen mit „der Komet Komet …", und in vier Exoplanetenfragen stand der gesuchte Wirtsstern
   bereits im Planetennamen. Alles behoben.

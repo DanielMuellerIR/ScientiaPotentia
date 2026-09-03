@@ -905,6 +905,13 @@ export const LEAKY_SIBLINGS = {
   // Konzept selbst gesucht ist. Ansatz und Gegenspieler eines Muskels benennen
   // seine Region; die Hirnnerv-Nummer korreliert mit der Nervengruppe.
   bodyRegion: ['location'],
+  // Wird nach der Körperregion gefragt, steht die Antwort in mehreren anderen
+  // Chips woertlich drin: "Gluteus maximus" hat location "Gesäß / Hüfte",
+  // die Funktion nennt "beugt die Hüfte", das Versorgungsgebiet einer Arterie
+  // nennt den Arm. Gemessen 2026-09-03: 40 von 63 Muskelregion-Fragen waren so
+  // aus dem Panel ablesbar (dazu 10 von 36 Gefaess- und 7 von 29 Nervenfragen).
+  region: ['location', 'function', 'notableFor', 'insertion', 'antagonist',
+    'supplies', 'innervates', 'nerveKind', 'type'],
   vesselType: ['latinName', 'supplies'],
   supplies: ['latinName'],
   parentOrgan: ['latinName'],

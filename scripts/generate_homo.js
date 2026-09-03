@@ -30,6 +30,23 @@ const DOMAIN = 'homo';
  *  entsteht. seededShuffle/deParse: siehe scripts/lib/quizrandom.js.
  *  deParse statt Number(): formatierte Werte wie „1.500 g" sortieren sonst nicht
  *  (Number(„1.500 g")=NaN) und fielen auf feste erste-3-Distraktoren zurück. */
+// Organsysteme: Der Bestand nennt zehn Systeme in 19 Schreibweisen
+// („Verdauung"/„Verdauungssystem", „Sinnesorgan"/„Sinnesorgane",
+// „Endokrines System"/„Hormonsystem"). Standen zwei davon in einer Frage, war
+// auch der Distraktor richtig. Eine Kanonform je System (CodeQA 2026-09-03).
+const ORGAN_SYSTEM_CANON = {
+  'Verdauung': 'Verdauungssystem',
+  'Verdauungssystem (Geschmacks- und Schluckorgan)': 'Verdauungssystem',
+  'Atmung': 'Atmungssystem',
+  'Ausscheidung': 'Ausscheidungssystem',
+  'Sinnesorgane': 'Sinnesorgan',
+  'Hormonsystem': 'Endokrines System',
+  'Endokrines System (Hormonsystem)': 'Endokrines System',
+  'Lymphsystem': 'Lymphatisches System',
+  'Lymphatisches System (Immunsystem)': 'Lymphatisches System',
+};
+const organSystem = value => ORGAN_SYSTEM_CANON[value] ?? value;
+
 function pickDistractors(correct, pool, numeric, seed = String(correct)) {
   // `seed` ist die Konzept-ID der Frage; warum das noetig ist, steht bei
   // pickBalanced in ./lib/quizrandom.js.
@@ -361,7 +378,7 @@ const templates = [
   {
     category: 'organ', attr: 'system', type: 'homo-organ-system', difficulty: 2,
     prompt: c => `Zu welchem Organsystem gehört „${c.name}" hauptsächlich?`,
-    format: v => v
+    format: v => organSystem(v)
   },
   {
     category: 'organ', attr: 'approxWeightGrams', type: 'homo-organ-weight', difficulty: 3,
@@ -859,11 +876,12 @@ const templates = [
     prompt: (c, subject) => `In welcher Körperregion liegt „${subject.label}"?`,
     format: v => v
   },
-  {
-    category: 'ligament_tendon', attr: 'kind', type: 'homo-ligament-kind', difficulty: 2,
-    prompt: c => `Welche Art von Struktur ist „${c.name}"?`,
-    format: v => v
-  },
+  // homo-ligament-kind gestrichen (CodeQA 2026-09-03): Der Selbstverraeter-Guard
+  // verwirft jedes Konzept, dessen Name die Antwort enthaelt — also alle elf
+  // „Band", alle vier „Sehne" und beide „Meniskus". Von 27 Konzepten blieben
+  // fuenf Fragen uebrig, davon viermal „Knorpel" als Loesung. Wer stur „Knorpel"
+  // tippt, gewinnt vier von fuenf. Die Schwelle n>=8 der Dominanzpruefung
+  // verdeckte das. `kind` bleibt als erklaerender Chip im Panel.
   {
     category: 'ligament_tendon', attr: 'function', type: 'homo-ligament-function-rev', difficulty: 3, nameAnswer: true,
     subject: c => c.attributes.function,
@@ -1019,9 +1037,15 @@ const templates = [
   },
   // ---- Bausteine des Immunsystems (immune_component) -----------------------
   {
+    // „Protein" und „Molekül" sind keine sich ausschliessenden Kategorien: MHC
+    // I/II sind Proteine, Zytokine und Interferone sind beides. In 15 von 22
+    // Fragen standen beide Etiketten zur Auswahl, in 7 davon war eines die
+    // gewertete Loesung — die Frage prueft dann, welches Wort die Datenbasis
+    // gewaehlt hat, nicht Wissen. Beide zaehlen jetzt als „Molekül"; ein Protein
+    // ist eines, die Aussage bleibt also richtig (CodeQA 2026-09-03).
     category: 'immune_component', attr: 'componentType', type: 'homo-immune-type', difficulty: 2,
     prompt: c => `Welche Art von Baustein des Immunsystems ist „${c.name}"?`,
-    format: v => v
+    format: v => (v === 'Protein' ? 'Molekül' : v)
   },
   {
     category: 'immune_component', attr: 'location', type: 'homo-immune-location', difficulty: 3,
@@ -1069,6 +1093,11 @@ const templates = [
 
   {
     // Antwort und Hinweis ohne Klammerzusatz (siehe Kopfkommentar der Welle 6).
+    // Antagonisten sind wechselseitig gepflegt, darum steht der gefragte Muskel
+    // selbst im Distraktorenpool. In 5 von 26 Fragen stand „Bizeps" als Option
+    // unter der Frage nach dem Gegenspieler des Bizeps — trivial ausschliessbar
+    // und damit ein geschenkter Rateanteil (CodeQA 2026-09-03).
+    subjectIsNeverAnswer: true,
     category: 'muscle', attr: 'antagonist', type: 'homo-muscle-antagonist', difficulty: 3,
     subject: c => String(c.name).replace(/\s*\(.*?\)\s*$/, ''),
     prompt: c => `Welcher Muskel ist der Gegenspieler (Antagonist) von „${String(c.name).replace(/\s*\(.*?\)\s*$/, '')}"?`,
@@ -1209,6 +1238,12 @@ for (const tpl of templates) {
           ? reverseDistractorNames(c, tpl, conceptsInCat)
           : valuePool.slice();
         if (tpl.extraDistractors) pool = pool.concat(tpl.extraDistractors);
+        // Das gefragte Konzept selbst ist bei wechselseitigen Attributen
+        // (Gegenspieler) im Pool und wäre als Option trivial ausschliessbar.
+        if (tpl.subjectIsNeverAnswer && tpl.subject) {
+          const own = optionKey(tpl.subject(c));
+          pool = pool.filter(value => optionKey(value) !== own);
+        }
         distractors = pickDistractors(correct, pool, tpl.numeric, c.id);
       }
     }
