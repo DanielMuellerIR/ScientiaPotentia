@@ -20,7 +20,13 @@ export function sanitizeImageAttribution(value) {
     // Quellenverknüpfung zeigt ihn direkt neben der Attribution ohnehin an.
     .replace(/\s*(?:\/|·|,)\s*Wikimedia Commons\s*$/i, '')
     .replace(/\(\s*\)/g, '')
-    .replace(/\s*\/\s*\/\s*/g, ' / ')
+    // Nur ein LEERES Segment zwischen zwei Trennern zusammenziehen — also mit
+    // Leerzeichen dazwischen, wie es nach dem Entfernen von „Wikimedia
+    // Commons" oder leeren Klammern entsteht. Ohne diese Bedingung traf die
+    // Regel jedes „http://" im Credit und machte daraus „http: /":
+    // 333 veröffentlichte Urhebernachweise trugen einen toten Quelllink
+    // (CodeQA 2026-09-03).
+    .replace(/\s*\/\s+\/\s*/g, ' / ')
     .replace(/\s{2,}/g, ' ')
     .replace(/^[\s/·,;-]+|[\s/·,;-]+$/g, '')
     .trim();

@@ -35,6 +35,12 @@ describe('Bildnachweise', () => {
       .toBe('Ada Beispiel');
     expect(sanitizeImageAttribution('Rolf M&uuml;ller on April 17, 2005.'))
       .toBe('Rolf Müller on April 17, 2005.');
+    // CodeQA 2026-09-03: Die Regel gegen ein leeres Segment („A / / B") traf
+    // jedes „http://" im Credit und machte daraus „http: / ". 333 veröffentlichte
+    // Urhebernachweise trugen dadurch einen toten Quelllink.
+    expect(sanitizeImageAttribution('Ronny Overhate / https://pixabay.com/en/owl-1134'))
+      .toBe('Ronny Overhate / https://pixabay.com/en/owl-1134');
+    expect(sanitizeImageAttribution('NASA / / JPL')).toBe('NASA / JPL');
     expect(sanitizeImageAttribution('Ada Beispiel / Wikimedia Commons'))
       .toBe('Ada Beispiel');
   });

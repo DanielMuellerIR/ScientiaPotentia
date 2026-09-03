@@ -14,6 +14,10 @@ Dieses Changelog beginnt mit dem für eine öffentliche Veröffentlichung berein
 - Der Bildnachweis-Audit und das Fragen-Audit laufen jetzt in `npm run build` mit und brechen
   die Veröffentlichung ab. Ein leerer Fragen- oder Bildkatalog gilt nicht mehr als bestanden.
 - Die Struktur- und Provenance-Prüfung deckt jetzt auch Terra ab; zuvor brach sie dort ab.
+- 333 veröffentlichte Bildnachweise trugen einen toten Quelllink: Eine Aufräumregel im
+  Urhebertext zog jedes doppelte Schrägstrichpaar zusammen und machte aus „https://pixabay.com/…"
+  ein „https: / pixabay.com/…". Die Regel greift jetzt nur noch bei einem wirklich leeren
+  Segment, und die 333 bereits beschädigten Angaben sind in den Rohdaten repariert.
 - In Astra boten mehrere Fragetypen zwei Optionen an, die dasselbe bedeuten — damit war auch
   der vermeintlich falsche Distraktor richtig: „H-II-Gebiet" neben „Emissionsnebel" (46 von 96
   Nebelfragen), drei Schreibweisen von „Heißer Jupiter" (10 von 62), „Mond (Schwerefeld)" neben
