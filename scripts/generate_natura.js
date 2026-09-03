@@ -59,9 +59,11 @@ function cleanNum(v) {
  *  `.slice` nahm sonst feste erste-k Einträge → richtige Antwort fast immer
  *  längste/kürzeste Option). Deckt auch die Reverse-Namens-Distraktoren ab, die
  *  über reverseSafeDistractors → pickCategorical laufen. */
-function pickCategorical(correct, pool, k = 3) {
+function pickCategorical(correct, pool, k = 3, seed = String(correct)) {
+  // `seed` ist die Konzept-ID der Frage; warum das noetig ist, steht bei
+  // pickBalanced in ./lib/quizrandom.js.
   return pickBalanced(correct, distinctOptionValues(pool)
-    .filter(value => optionKey(value) !== optionKey(correct)), k);
+    .filter(value => optionKey(value) !== optionKey(correct)), k, seed);
 }
 
 /**
@@ -511,7 +513,7 @@ for (const tpl of templates) {
       const safeNames = reverseSafeDistractors(c, askedRaw, conceptsInCat, tpl.attr, compareKind);
       // Bei <3 zulässigen Distraktoren ist keine 4-Optionen-Frage möglich -> überspringen.
       if (safeNames.length < 3) continue;
-      distractors = pickCategorical(correct, safeNames);
+      distractors = pickCategorical(correct, safeNames, 3, c.id);
     } else if (tpl.kind === 'num') {
       const n = cleanNum(c.attributes[tpl.attr]);
       if (n === null) continue;
@@ -526,7 +528,7 @@ for (const tpl of templates) {
       if (v === undefined || v === null || v === '') continue;
       if (tpl.poolFilter && !tpl.poolFilter(v)) continue;
       correct = String(v);
-      distractors = pickCategorical(correct, catPool);
+      distractors = pickCategorical(correct, catPool, 3, c.id);
     }
 
     // Selbstverräter: steckt die Antwort schon im Hinweis, Frage verwerfen.

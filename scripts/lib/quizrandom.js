@@ -58,17 +58,64 @@ export function seededShuffle(arr, seedStr) {
  * sind oft kürzer als der restliche Wortschatz, also wäre die richtige Antwort
  * überzufällig die kürzeste Option. Length-Balancing rückt die richtige Antwort
  * in die Mitte der Längenverteilung der vier Optionen, sodass weder „längste"
- * noch „kürzeste raten" überdurchschnittlich trifft. Gleich-nahe Kandidaten
- * werden seeded gemischt (Variation + stabile Git-Diffs). Standard-Seed ist die
+ * noch „kürzeste raten" überdurchschnittlich trifft. Standard-Seed ist die
  * richtige Antwort; Generatoren dürfen für mehrere Fragen mit derselben Antwort
  * zusätzlich eine stabile Fragen-ID übergeben.
+ *
+ * Warum verzerrt ziehen statt „die k längennächsten nehmen" (CodeQA
+ * 2026-09-03): Der harte Schnitt war eine totale Ordnung über den Pool. Ein
+ * Wert, dessen Länge von der jeweils richtigen Antwort weit abwich, kam damit
+ * NIE unter die k Nächsten — er erschien im ganzen Katalog nur noch als
+ * richtige Antwort. Gemessen waren das 31 Fragetypen und 832 Fragen, darunter
+ * „Schlangen" (206 von 206), „USA" (102 von 102) und „Australien und Ozeanien"
+ * (65 von 65): Wer diese Option sah, konnte sie ohne jedes Wissen anklicken.
+ * Nach dem Umbau sind es 6 Typen und 76 Fragen, und zwar dort, wo der Pool zu
+ * klein für eine andere Wahl ist.
+ *
+ * Der zweite Teil des Fehlers saß im Seed: Ohne eigene Fragen-ID ist er die
+ * richtige Antwort, dann bekommen ALLE Fragen mit derselben Antwort dieselben
+ * Distraktoren. Terra übergab als einziger Generator eine Fragen-ID — und war
+ * als einziger nicht betroffen. Alle Generatoren reichen jetzt die Konzept-ID
+ * durch.
  */
 export function pickBalanced(correct, candidates, k = 3, seed = String(correct)) {
   const cLen = String(correct).length;
   const shuffled = seededShuffle(candidates, seed);
   // stabiler Sort nach Längen-Nähe; das Vor-Mischen randomisiert Gleichstände.
   shuffled.sort((a, b) => Math.abs(String(a).length - cLen) - Math.abs(String(b).length - cLen));
-  return shuffled.slice(0, k);
+  // Verzerrte Ziehung statt `slice(0, k)`: `rng() ** 5` zieht den Index stark
+  // nach vorne, lässt aber jeden Kandidaten zum Zug kommen. Der harte Schnitt
+  // war eine totale Ordnung — ein Wert, dessen Länge von der jeweils richtigen
+  // Antwort weit abwich, kam nie unter die k Nächsten und erschien im Katalog
+  // nur noch als richtige Antwort (CodeQA 2026-09-03).
+  const rng = makeRng(`${seed}|balance`);
+  const picked = [];
+  while (picked.length < k && shuffled.length) {
+    picked.push(shuffled.splice(Math.floor(shuffled.length * rng() ** 5), 1)[0]);
+  }
+
+  // Nachbesserung genau gegen den Effekt, den diese Funktion verhindern soll:
+  // Ist die richtige Antwort als EINZIGE die längste (oder kürzeste) der vier
+  // Optionen, tausche den am weitesten entfernten Distraktor gegen einen
+  // Kandidaten, der das aufhebt. Gibt es keinen, bleibt es wie gezogen — dann
+  // gibt der Bestand es nicht her. Die verzerrte Ziehung sorgt für Vielfalt,
+  // diese Korrektur für die Längenlage.
+  const len = value => String(value).length;
+  const isLongest = picked.length === k && picked.every(value => len(value) < cLen);
+  const isShortest = picked.length === k && picked.every(value => len(value) > cLen);
+  if (isLongest || isShortest) {
+    const fits = value => (isLongest ? len(value) >= cLen : len(value) <= cLen);
+    const replacement = shuffled.find(fits);
+    if (replacement !== undefined) {
+      // Den unpassendsten Distraktor ersetzen, nicht einen beliebigen.
+      let worst = 0;
+      for (let i = 1; i < picked.length; i++) {
+        if (Math.abs(len(picked[i]) - cLen) > Math.abs(len(picked[worst]) - cLen)) worst = i;
+      }
+      picked[worst] = replacement;
+    }
+  }
+  return picked;
 }
 
 /**

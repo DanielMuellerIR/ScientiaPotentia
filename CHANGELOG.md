@@ -2,6 +2,19 @@
 
 Dieses Changelog beginnt mit dem für eine öffentliche Veröffentlichung bereinigten Projektstand.
 
+## [2.0.2] — 2026-09-03
+
+- 832 Fragen in allen acht Wissensbereichen zeigten eine Antwortoption, die im ganzen Katalog
+  nur als richtige Lösung vorkam und nie als falsche — wer sie sah, konnte sie ohne Wissen
+  anklicken. Betroffen waren unter anderem „Schlangen" (206 von 206 Fragen), „USA" (102 von 102)
+  und „Australien und Ozeanien" (65 von 65). Die Distraktorenauswahl nahm bisher stets die drei
+  längenähnlichsten Werte und seedete zudem mit der richtigen Antwort, sodass alle Fragen mit
+  derselben Lösung dieselben falschen Optionen bekamen. Beides ist behoben; es bleiben 76 Fragen,
+  deren Wertevorrat schlicht zu klein ist.
+- Der Bildnachweis-Audit und das Fragen-Audit laufen jetzt in `npm run build` mit und brechen
+  die Veröffentlichung ab. Ein leerer Fragen- oder Bildkatalog gilt nicht mehr als bestanden.
+- Die Struktur- und Provenance-Prüfung deckt jetzt auch Terra ab; zuvor brach sie dort ab.
+
 ## [2.0.1] — 2026-09-02
 
 - 99 Fragen in Astra und Mensch & Körper zeigten „undefined“ oder „NaN km“ als Antwortoption:

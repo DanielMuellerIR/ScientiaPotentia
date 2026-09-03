@@ -27,8 +27,37 @@ describe('deterministische Generator-Zufallsauswahl', () => {
   it('kann gleiche richtige Antworten über die Fragen-ID verschieden verteilen', () => {
     const candidates = ['AAA', 'BBB', 'CCC', 'DDD', 'EEE', 'FFF'];
 
-    expect(pickBalanced('ZZZ', candidates, 3, 'q1')).toEqual(['CCC', 'DDD', 'BBB']);
-    expect(pickBalanced('ZZZ', candidates, 3, 'q2')).toEqual(['FFF', 'BBB', 'AAA']);
+    // Geprüft wird die Eigenschaft, nicht ein eingefrorenes Tripel: derselbe
+    // Seed liefert bytegleich dasselbe Ergebnis (stabile Git-Diffs), ein
+    // anderer Seed eine andere Auswahl (gleiche Antwort ≠ gleiche Distraktoren).
+    expect(pickBalanced('ZZZ', candidates, 3, 'q1'))
+      .toEqual(pickBalanced('ZZZ', candidates, 3, 'q1'));
+    expect(pickBalanced('ZZZ', candidates, 3, 'q1'))
+      .not.toEqual(pickBalanced('ZZZ', candidates, 3, 'q2'));
+    expect(pickBalanced('ZZZ', candidates, 3, 'q1')).toHaveLength(3);
+  });
+
+  it('lässt auch einen Längen-Ausreißer als Distraktor zu', () => {
+    // CodeQA 2026-09-03: Die frühere Nächste-k-Auswahl war eine totale Ordnung.
+    // Ein Wert, dessen Länge weit von der richtigen Antwort abwich, kam nie
+    // unter die k Nächsten — im ganzen Katalog erschien er nur als richtige
+    // Antwort (gemessen 31 Fragetypen, 832 Fragen). Wer ihn sah, konnte ihn
+    // ohne Wissen anklicken.
+    const candidates = ['Afrika', 'Asien', 'Europa', 'Nordamerika', 'Australien und Ozeanien'];
+    const gezogen = new Set();
+    for (let frage = 0; frage < 40; frage++) {
+      for (const wert of pickBalanced('Südamerika', candidates, 3, `q${frage}`)) gezogen.add(wert);
+    }
+    expect(gezogen).toContain('Australien und Ozeanien');
+  });
+
+  it('hält die richtige Antwort aus der Längen-Randlage heraus', () => {
+    // Die eigentliche Aufgabe von pickBalanced: Steht die richtige Antwort als
+    // einzige ganz oben oder ganz unten in der Längenverteilung, verrät sie sich.
+    const candidates = ['kurz', 'mittellang', 'ziemlich lang', 'sehr viel laenger als alles'];
+    const distraktoren = pickBalanced('mittel', candidates, 3, 'q1');
+    const laengen = distraktoren.map(v => v.length);
+    expect(Math.max(...laengen)).toBeGreaterThan('mittel'.length);
   });
 
   it('liest deutsch formatierte Zahlen samt Vorzeichen und Einheit', () => {

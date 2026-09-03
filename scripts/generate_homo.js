@@ -30,7 +30,9 @@ const DOMAIN = 'homo';
  *  entsteht. seededShuffle/deParse: siehe scripts/lib/quizrandom.js.
  *  deParse statt Number(): formatierte Werte wie „1.500 g" sortieren sonst nicht
  *  (Number(„1.500 g")=NaN) und fielen auf feste erste-3-Distraktoren zurück. */
-function pickDistractors(correct, pool, numeric) {
+function pickDistractors(correct, pool, numeric, seed = String(correct)) {
+  // `seed` ist die Konzept-ID der Frage; warum das noetig ist, steht bei
+  // pickBalanced in ./lib/quizrandom.js.
   const values = pool.map(v => String(v));
   const unique = numeric
     ? [...new Set(values)].filter(v => v !== String(correct))
@@ -50,7 +52,7 @@ function pickDistractors(correct, pool, numeric) {
     const vKey = norm(v).replace(/ /g, '');
     return !cKey || !vKey || (!cKey.includes(vKey) && !vKey.includes(cKey));
   });
-  return pickBalanced(correct, fair.length ? fair : unique, 3);
+  return pickBalanced(correct, fair.length ? fair : unique, 3, seed);
 }
 
 /**
@@ -1207,7 +1209,7 @@ for (const tpl of templates) {
           ? reverseDistractorNames(c, tpl, conceptsInCat)
           : valuePool.slice();
         if (tpl.extraDistractors) pool = pool.concat(tpl.extraDistractors);
-        distractors = pickDistractors(correct, pool, tpl.numeric);
+        distractors = pickDistractors(correct, pool, tpl.numeric, c.id);
       }
     }
     // Letztes Netz: kein Distraktorweg (Pool, Körperfakten, Größenordnungs-

@@ -154,12 +154,14 @@ function isCleanEpoch(v) {
  * Optional schließt conflictFn Kandidaten aus, die der korrekten Antwort zu
  * ähnlich sind (mehrdeutige Optionen).
  */
-function pickCategorical(correct, pool, k = 3, conflictFn = null) {
+function pickCategorical(correct, pool, k = 3, conflictFn = null, seed = String(correct)) {
+  // `seed` ist die Konzept-ID der Frage; warum das noetig ist, steht bei
+  // pickBalanced in ./lib/quizrandom.js.
   // längen-balanciert statt Pool-Reihenfolge: `.slice(0,k)` nahm sonst feste
   // erste-k Einträge → Längen-Bias (richtige Antwort fast immer längste/kürzeste).
   return pickBalanced(correct, distinctOptionValues(pool)
     .filter(v => optionKey(v) !== optionKey(correct))
-    .filter(v => !conflictFn || !conflictFn(v, String(correct))), k);
+    .filter(v => !conflictFn || !conflictFn(v, String(correct))), k, seed);
 }
 
 /**
@@ -661,7 +663,7 @@ for (const tpl of templates) {
       distractors = pickBalanced(correct, [...new Set(catPool
         .filter(e => e.name !== correct)
         .filter(e => !valuesShareToken(e.value, String(vRaw)))
-        .map(e => e.name))], 3);
+        .map(e => e.name))], 3, c.id);
     } else if (tpl.kind === 'num') {
       const n = cleanNum(vRaw);
       if (n === null) { skipStats.noValue++; continue; } // "ca. 1.000"-Strings usw.
@@ -674,7 +676,7 @@ for (const tpl of templates) {
     } else { // 'cat'
       if (vRaw === undefined || vRaw === null || vRaw === '') { skipStats.noValue++; continue; }
       correct = String(transform(vRaw));
-      distractors = pickCategorical(correct, catPool, 3, tpl.similarGuard ? optionsTooSimilar : null);
+      distractors = pickCategorical(correct, catPool, 3, tpl.similarGuard ? optionsTooSimilar : null, c.id);
     }
 
     // Optionale statische Zusatz-Distraktoren anhängen (z.B. für

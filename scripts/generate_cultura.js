@@ -106,12 +106,14 @@ const GENERIC_TITLE = /^\d+\.\s/;
  * Fairness-Filter: Werte, die die korrekte Antwort enthalten (oder von ihr
  * enthalten werden), fliegen raus — sonst zwei vertretbare Antworten.
  */
-function pickCategorical(correct, pool, k = 3) {
+function pickCategorical(correct, pool, k = 3, seed = String(correct)) {
+  // `seed` ist die Konzept-ID der Frage; warum das noetig ist, steht bei
+  // pickBalanced in ./lib/quizrandom.js.
   // längen-balanciert statt Pool-Reihenfolge: `.slice(0,k)` nahm sonst feste
   // erste-k Einträge → Längen-Bias (richtige Antwort fast immer längste/kürzeste).
   return pickBalanced(correct, distinctOptionValues(pool)
     .filter(v => optionKey(v) !== optionKey(correct))
-    .filter(v => !containsEitherWay(v, correct)), k);
+    .filter(v => !containsEitherWay(v, correct)), k, seed);
 }
 
 /**
@@ -694,7 +696,7 @@ for (const tpl of templates) {
       }
       if (tpl.poolFilter && !tpl.poolFilter(rawValue)) { countSkip(tpl, 'poolFilter'); continue; }
       correct = String(rawValue);
-      distractors = pickCategorical(correct, catPool);
+      distractors = pickCategorical(correct, catPool, 3, c.id);
     }
 
     // Selbstverräter: Guard prüft den FINALEN Fragetext (nach beforeParen-

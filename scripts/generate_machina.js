@@ -68,12 +68,14 @@ function classificationsOverlap(a, b) {
 
 // --- Distraktor-Auswahl (identisch zur Cultura-Engine) ---------------------
 
-function pickCategorical(correct, pool, k = 3, allowContained = false) {
+function pickCategorical(correct, pool, k = 3, allowContained = false, seed = String(correct)) {
+  // `seed` ist die Konzept-ID der Frage; warum das noetig ist, steht bei
+  // pickBalanced in ./lib/quizrandom.js.
   // längen-balanciert statt Pool-Reihenfolge: `.slice(0,k)` nahm sonst feste
   // erste-k Einträge → Längen-Bias (richtige Antwort fast immer längste/kürzeste).
   return pickBalanced(correct, [...new Set(pool.map(String))]
     .filter(v => v !== String(correct))
-    .filter(v => allowContained || !containsEitherWay(v, correct)), k);
+    .filter(v => allowContained || !containsEitherWay(v, correct)), k, seed);
 }
 
 // pickNumeric: jetzt zentral in ./lib/quizrandom.js (mit Proximity-Guard fuer Messgroessen).
@@ -489,7 +491,7 @@ for (const tpl of templates) {
       }
       if (tpl.poolFilter && !tpl.poolFilter(rawValue)) { countSkip(tpl, 'poolFilter'); continue; }
       correct = String(rawValue);
-      distractors = pickCategorical(correct, catPool, 3, tpl.allowContainedDistractors);
+      distractors = pickCategorical(correct, catPool, 3, tpl.allowContainedDistractors, c.id);
     }
 
     const promptText = tpl.prompt(c);

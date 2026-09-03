@@ -56,7 +56,9 @@ function roundSig(x, sig = 2) {
  * - numeric=false: die ersten abweichenden Werte in Pool-Reihenfolge
  * Der korrekte Wert wird stets ausgeschlossen, Duplikate werden entfernt.
  */
-function pickDistractors(correct, pool, numeric) {
+function pickDistractors(correct, pool, numeric, seed = String(correct)) {
+  // `seed` ist die Konzept-ID der Frage; warum das noetig ist, steht bei
+  // pickBalanced in ./lib/quizrandom.js.
   const values = pool.map(v => String(v));
   const unique = numeric
     ? [...new Set(values)].filter(v => v !== String(correct))
@@ -71,7 +73,7 @@ function pickDistractors(correct, pool, numeric) {
     return unique.slice(0, 3);
   }
   // numeric=false: längen-balanciert statt Pool-Reihenfolge → kein Längen-Bias.
-  return pickBalanced(correct, unique, 3);
+  return pickBalanced(correct, unique, 3, seed);
 }
 
 // --- deterministischer Mini-Hash (FNV-1a) ---------------------------------
@@ -1067,7 +1069,7 @@ for (const tpl of templates) {
       const namePoolWithExtras = tpl.extraDistractors
         ? namePool.concat(tpl.extraDistractors)
         : namePool;
-      distractors = pickDistractors(correct, namePoolWithExtras, false);
+      distractors = pickDistractors(correct, namePoolWithExtras, false, c.id);
     } else if (tpl.spreadNumeric) {
       // --- Proportional gestreute Distraktoren (Welle 3) -----------------
       // Für CLUSTERNDE Attribute (Exoplaneten-Radius/-Masse/-Umlaufzeit häufen
@@ -1141,7 +1143,7 @@ for (const tpl of templates) {
       } else {
         let pool = valuePool.slice();
         if (tpl.extraDistractors) pool = pool.concat(tpl.extraDistractors);
-        distractors = pickDistractors(correct, pool, tpl.numeric);
+        distractors = pickDistractors(correct, pool, tpl.numeric, c.id);
       }
     }
 

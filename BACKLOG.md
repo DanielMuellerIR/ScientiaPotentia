@@ -1,5 +1,16 @@
 # Backlog
 
+- Sechs Fragetypen haben weiterhin eine Option, die nur als richtige Antwort vorkommt und nie
+  als Distraktor (76 Fragen): `astra-nebula-type` „planetarischer Nebel", `machina-algo-complexity`
+  „O(n²)", `historia-figure-field` „Naturwissenschaft (allg.)", `terra/river-country`
+  „Deutschland", `astra-exo-distance` „40,5 Lichtjahre" und `terra/currency` „CFA-Franc (BEAC)".
+  Vor der Umstellung von `pickBalanced` am 2026-09-03 waren es 31 Typen und 832 Fragen. Der Rest
+  liegt an zu kleinen oder zu einseitigen Wertevorräten, nicht an der Auswahl — abbauen lässt er
+  sich nur über mehr Werte im Bestand.
+- `machina-elem-category` bietet nur sieben Werte an, und die beiden häufigsten Antworten
+  („Verbindungselement", „Getriebeelement") sind zugleich die beiden längsten. Dadurch ist die
+  richtige Antwort dort überdurchschnittlich oft die längste Option. Abhilfe liegt im Bestand:
+  mehr Bauelemente in den kurzen Kategorien.
 - Vier Fragetypen sind dominant, weil der eigene Bestand schief ist, nicht die Welt: Sprache
   der Genre-Literatur (80 % Englisch), Amtssprachenländer (51 % „2 Länder"), Geologietyp
   (50 % Vulkan) und Essbarkeit von Pilzen (58 % essbar). Sie sind in
