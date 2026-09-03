@@ -10,11 +10,18 @@
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
+import { computeDomainStats } from '../../scripts/generate_domain_stats.js';
 
 const root = resolve(import.meta.dirname, '../..');
 const readJson = (relativePath) => JSON.parse(readFileSync(resolve(root, relativePath), 'utf8'));
 
-const stats = readJson('public/data/domain_stats.json');
+// Sollzahlen aus den tatsächlich veröffentlichten Katalogen, nicht aus dem
+// abgelegten Manifest: Das Manifest entsteht erst im Build, also nach diesem
+// Test. Verglichen wird es hier gegen die Kataloge, die Doku gegen dieselbe
+// Rechnung (Nacht-Review 2026-09-03 — eine zusätzliche Astra-Frage ohne
+// Manifest-Lauf ließ zuvor alle Tests dieser Datei grün).
+const stats = computeDomainStats();
+const manifest = readJson('public/data/domain_stats.json');
 const packageJson = readJson('package.json');
 const lockfile = readJson('package-lock.json');
 
@@ -25,6 +32,21 @@ describe('Projektversion', () => {
   it('steht im Lockfile identisch zu package.json', () => {
     expect(lockfile.version).toBe(packageJson.version);
     expect(lockfile.packages[''].version).toBe(packageJson.version);
+  });
+});
+
+describe('Bestandsmanifest', () => {
+  it('entspricht den generierten Katalogen', () => {
+    expect(manifest).toEqual(stats);
+  });
+
+  it('summiert die Bereichszahlen korrekt auf', () => {
+    const sum = (key) => Object.values(stats.domains)
+      .reduce((total, domain) => total + domain[key], 0);
+    expect(stats.totals.questions).toBe(sum('questions'));
+    expect(stats.totals.concepts).toBe(sum('concepts'));
+    expect(stats.totals.images).toBe(sum('images'));
+    expect(stats.totals.domains).toBe(Object.keys(stats.domains).length);
   });
 });
 

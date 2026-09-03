@@ -89,16 +89,19 @@ for (const domain of selectedDomains) {
     const type = q.type || '?';
 
     (byType[type] ||= {
+      // `n` zaehlt nur Fragen mit mindestens drei Optionen — die Laengenstatistik
+      // ist erst ab drei Optionen aussagekraeftig.
       type, n: 0, longest: 0, shortest: 0,
       lenCorrect: 0, lenDistract: 0, nDistract: 0,
+      // `nAnswered` zaehlt dagegen JEDE beantwortbare Frage des Typs, also auch
+      // den zulaessigen Zwei-Optionen-Fall. Die Dominanzpruefung braucht diese
+      // Grundgesamtheit: Sonst bliebe ein reiner Zwei-Optionen-Typ mit immer
+      // derselben Loesung unsichtbar (Nacht-Review 2026-09-03).
+      nAnswered: 0,
       // Haeufigkeit jeder richtigen Antwort je Fragetyp (Dominanz-Pruefung).
       answerCounts: new Map(),
     });
     const t = byType[type];
-    if (typeof correct === 'string' && correct.trim()) {
-      const key = norm(correct);
-      t.answerCounts.set(key, (t.answerCounts.get(key) || 0) + 1);
-    }
 
     // --- Struktur ---
     // Optionslose Typen (click-map) überspringen: dort ist `options: []` korrekt.
@@ -108,6 +111,15 @@ for (const domain of selectedDomains) {
     const hasCorrect = hasAnswerKey && normOpts.includes(norm(correct));
     if (expectsOptions(type) && (opts.length < 2 || dup || !hasAnswerKey || !hasCorrect)) {
       structural.push({ id: q.id, type, reason: opts.length < 2 ? 'zu wenige Optionen' : dup ? 'Dubletten-Option' : !hasAnswerKey ? 'correctAnswer fehlt' : 'correctAnswer fehlt in options', prompt, correct, options: opts });
+    }
+
+    // --- Antwortverteilung (Grundlage der Dominanzpruefung) ---
+    // Genau dieselbe Menge, die die Strukturpruefung als gueltig durchlaesst:
+    // optionserwartender Typ, mindestens zwei Optionen, Loesung darunter.
+    if (expectsOptions(type) && opts.length >= 2 && hasCorrect) {
+      t.nAnswered++;
+      const key = norm(correct);
+      t.answerCounts.set(key, (t.answerCounts.get(key) || 0) + 1);
     }
 
     // --- Längen-Bias ---
@@ -155,10 +167,11 @@ for (const domain of selectedDomains) {
 
   // Typ-Statistik auswerten — Bias-Flag bei deutlicher Abweichung von 25 %.
   const typeStats = Object.values(byType).map(t => ({
-    type: t.type, n: t.n,
-    // Anteil der haeufigsten richtigen Antwort an allen Fragen dieses Typs.
-    topAnswerShare: t.n
-      ? +(100 * Math.max(0, ...t.answerCounts.values()) / t.n).toFixed(1)
+    type: t.type, n: t.n, nAnswered: t.nAnswered,
+    // Anteil der haeufigsten richtigen Antwort an allen beantwortbaren Fragen
+    // dieses Typs — bewusst `nAnswered`, nicht die Laengenstichprobe `n`.
+    topAnswerShare: t.nAnswered
+      ? +(100 * Math.max(0, ...t.answerCounts.values()) / t.nAnswered).toFixed(1)
       : 0,
     pctLongest: t.n ? +(100 * t.longest / t.n).toFixed(1) : 0,
     pctShortest: t.n ? +(100 * t.shortest / t.n).toFixed(1) : 0,
@@ -170,7 +183,7 @@ for (const domain of selectedDomains) {
   // Typs richtig ist, gewinnt schon das blosse Raten dieser einen Antwort. Das
   // ist unabhaengig von der Optionslaenge und blieb darum bisher unsichtbar.
   const dominantTypes = typeStats
-    .filter(t => t.n >= 8 && t.topAnswerShare >= 50)
+    .filter(t => t.nAnswered >= 8 && t.topAnswerShare >= 50)
     .map(t => ({ ...t, verdict: dominanceVerdict(t.type, t.topAnswerShare) }));
   // Nicht freigegebene (oder über ihre Obergrenze gestiegene) Dominanz blockiert.
   const unapprovedDominance = dominantTypes.filter(t => !t.verdict.accepted);
@@ -197,7 +210,7 @@ for (const domain of selectedDomains) {
     dominantTypes.sort((a, b) => b.topAnswerShare - a.topAnswerShare)
       .forEach(t => console.log(
         `     ${t.verdict.accepted ? 'freigegeben' : '✗ OFFEN     '} ${t.type}`
-        + `  n=${t.n}  häufigste Lösung ${t.topAnswerShare} %  — ${t.verdict.reason}`));
+        + `  n=${t.nAnswered}  häufigste Lösung ${t.topAnswerShare} %  — ${t.verdict.reason}`));
   }
   if (structural.length) structural.slice(0, 5).forEach(s => console.log(`     STRUKT ${s.id}: ${s.reason}`));
   if (sentinelOptions.length) {
@@ -237,7 +250,7 @@ if (openDominance.length) {
   console.error('\nNicht freigegebene Dominanz — entweder den Fragetyp überarbeiten');
   console.error('oder ihn mit Begründung in scripts/lib/dominance_policy.cjs freigeben:');
   openDominance.forEach(t => console.error(
-    `  ${t.type}  n=${t.n}  häufigste Lösung ${t.topAnswerShare} %  (${t.verdict.reason})`));
+    `  ${t.type}  n=${t.nAnswered}  häufigste Lösung ${t.topAnswerShare} %  (${t.verdict.reason})`));
 }
 const blockingFindings = summary.reduce(
   (count, item) => count + item.structural + item.answerInStem + item.sentinelOptions

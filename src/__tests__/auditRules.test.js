@@ -198,6 +198,32 @@ describe('Fragen-Audit als Kommandozeilen-Gate', () => {
     }
   });
 
+  it('blockiert Dominanz auch bei einem Zwei-Optionen-Fragetyp', () => {
+    // Nacht-Review 2026-09-03: Die Dominanzquote wurde gegen die
+    // Laengenstichprobe gerechnet, die erst ab drei Optionen zaehlt. Acht
+    // gueltige Zwei-Optionen-Fragen mit immer derselben Loesung liefen deshalb
+    // mit „Dominant 0" und Exit 0 durch, obwohl sie voll erratbar sind.
+    const dataDir = mkdtempSync(join(tmpdir(), 'scientia-question-audit-zwei-'));
+    try {
+      const questions = Array.from({ length: 8 }, (_, index) => ({
+        id: `zwei-optionen-${index}`,
+        type: 'machina-zwei-optionen-test',
+        prompt: `Frage ${index}?`,
+        correctAnswer: 'Alpha',
+        options: ['Alpha', `Beta ${index}`],
+      }));
+      writeFileSync(join(dataDir, 'questions_machina.json'), JSON.stringify(questions));
+
+      const result = runAudit('machina', `--data-dir=${dataDir}`);
+      expect(result.status).toBe(1);
+      expect(result.stdout).toContain('Strukturfehler: 0');
+      expect(result.stdout).toContain('Dominant 1');
+      expect(result.stderr).toContain('machina-zwei-optionen-test');
+    } finally {
+      rmSync(dataDir, { recursive: true, force: true });
+    }
+  });
+
   it('meldet einen fehlenden angeforderten Katalog als Fehler', () => {
     const dataDir = mkdtempSync(join(tmpdir(), 'scientia-question-audit-empty-'));
     try {

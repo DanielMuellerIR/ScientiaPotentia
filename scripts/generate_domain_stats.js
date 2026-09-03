@@ -90,7 +90,13 @@ function countConcepts(domain) {
   return { concepts: values.length, images };
 }
 
-export function generateDomainStats() {
+/**
+ * Zählt den aktuellen Bestand aus den generierten Dateien und liefert das
+ * Manifest, ohne etwas zu schreiben. Getrennt vom Schreiben, damit der
+ * Konsistenztest dieselben Zahlen aus den Katalogen ableiten kann, statt dem
+ * abgelegten Manifest zu glauben (Nacht-Review 2026-09-03).
+ */
+export function computeDomainStats() {
   const domains = {};
   const totals = { questions: 0, concepts: 0, images: 0, domains: DOMAINS.length };
 
@@ -103,7 +109,12 @@ export function generateDomainStats() {
     totals.images += images;
   }
 
-  const manifest = { totals, domains };
+  return { totals, domains };
+}
+
+export function generateDomainStats() {
+  const manifest = computeDomainStats();
+  const { totals } = manifest;
   const outPath = join(dataDir, 'domain_stats.json');
   writeFileSync(outPath, JSON.stringify(manifest, null, 2) + '\n', 'utf8');
 
