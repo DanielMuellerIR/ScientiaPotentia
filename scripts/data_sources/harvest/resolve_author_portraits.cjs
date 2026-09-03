@@ -31,10 +31,20 @@ const ALLOWED_MIME = new Set([
 ]);
 
 const sleep = ms => new Promise(r => setTimeout(r, ms));
-function rawGet(url) {
+// Weiterleitungen mit Zaehler: Ohne ihn haengt eine Redirect-Schleife den Lauf
+// endlos, weil rawGet sich unbegrenzt selbst aufruft (CodeQA 2026-09-03).
+const MAX_REDIRECTS = 5;
+function rawGet(url, redirects = 0) {
   return new Promise((res, rej) => {
     https.get(url, { headers: { "User-Agent": UA } }, r => {
-      if (r.statusCode >= 300 && r.statusCode < 400 && r.headers.location) { r.resume(); return rawGet(r.headers.location).then(res, rej); }
+      if (r.statusCode >= 300 && r.statusCode < 400 && r.headers.location) {
+        r.resume();
+        if (redirects >= MAX_REDIRECTS) {
+          rej(new Error(`Mehr als ${MAX_REDIRECTS} Weiterleitungen fuer ${url}`));
+          return;
+        }
+        return rawGet(r.headers.location, redirects + 1).then(res, rej);
+      }
       let d = ""; r.on("data", c => d += c); r.on("end", () => res({ status: r.statusCode, body: d, headers: r.headers }));
     }).on("error", rej);
   });
