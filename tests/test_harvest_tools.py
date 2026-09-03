@@ -39,6 +39,9 @@ class HarvestToolTests(unittest.TestCase):
         for shared_name in (
             'concept_validation.cjs', 'image_resolution_policy.cjs',
             'IMAGE_BLACKLIST.json', 'resolve_images_p18_v2.cjs',
+            # credit_text.cjs kuerzt Urhebernachweise an der Wortgrenze und wird
+            # von allen fuenf Bild-Aufloesern eingebunden (CodeQA 2026-09-03).
+            'credit_text.cjs',
         ):
             shared = HARVEST / shared_name
             if shared.exists() and not (harvest / shared_name).exists():
