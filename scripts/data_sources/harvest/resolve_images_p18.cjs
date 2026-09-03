@@ -23,6 +23,7 @@ const https = require("https");
 const fs = require("fs");
 const path = require("path");
 const { writeJsonAtomic } = require('./json_io.cjs');
+const { truncateCredit } = require('./credit_text.cjs');
 const {
   isAllowedCommonsLicenseMetadata,
   licenseNameFromCommonsMetadata,
@@ -58,7 +59,7 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
 function attribution(meta) {
   const artist = (meta?.Artist?.value || "").toString().replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
   const credit = (meta?.Credit?.value || "").toString().replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
-  return [artist, credit].filter(Boolean).join(" / ").slice(0, 200) || "Wikimedia Commons";
+  return truncateCredit([artist, credit].filter(Boolean).join(" / ")) || "Wikimedia Commons";
 }
 
 // ---------------------------------------------------------------------------

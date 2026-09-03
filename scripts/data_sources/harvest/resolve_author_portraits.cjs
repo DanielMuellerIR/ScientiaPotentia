@@ -14,6 +14,7 @@ const https = require("https");
 const fs = require("fs");
 const path = require("path");
 const { writeJsonAtomic } = require('./json_io.cjs');
+const { truncateCredit } = require('./credit_text.cjs');
 const {
   isAllowedCommonsLicenseMetadata,
   licenseNameFromCommonsMetadata,
@@ -109,8 +110,8 @@ async function main() {
       const ii = pageByTitle[norm[fTitle] || fTitle]?.imageinfo?.[0]; if (!ii) continue;
       const m = ii.extmetadata || {};
       const lic = licenseNameFromCommonsMetadata(m);
-      const art = (m.Artist?.value || m.Credit?.value || "")
-        .replace(/<[^>]+>/g, "").replace(/\s+/g, ' ').trim().slice(0, 200);
+      const art = truncateCredit((m.Artist?.value || m.Credit?.value || "")
+        .replace(/<[^>]+>/g, ""));
       const ok = ALLOWED_MIME.has(ii.mime || '')
         && isAllowedCommonsLicenseMetadata(m) && Boolean(art);
       licByFile.set(fTitle, { ok, lic, art });

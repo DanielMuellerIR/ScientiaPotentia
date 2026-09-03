@@ -17,10 +17,10 @@
   erst im `npm run build` — dann für die ganze Domain. Die Prüfung braucht zuerst ein Modul,
   das beide Welten laden können; ein Muster dafür gibt es bereits (`scripts/lib/audit_rules.cjs`
   wird von `generator_text.js` re-exportiert).
-- 60 veröffentlichte Bildnachweise enthalten statt eines Urhebers einen mehrzeiligen
-  Commons-Rechtehinweis („Permission details / ACKNOWLEDGMENT FOR PUBLICATIONS …"), und 112
-  Nachweise sind bei 200 Zeichen mitten im Wort abgeschnitten. Beides entsteht in den
-  Bild-Auflösern; der Bildnachweis-Audit prüft nur auf Konkretheit, nicht auf Wohlgeformtheit.
+- 109 veröffentlichte Bildnachweise sind bei 200 Zeichen mitten im Wort abgeschnitten. Die
+  Auflöser kürzen seit dem 2026-09-03 an der Wortgrenze und markieren den Schnitt, aber die
+  vorhandenen Rohdaten tragen den harten Schnitt bereits — sie werden erst bei einem erneuten
+  Auflöserlauf ganz. Der mehrzeilige Commons-Rechtetext in 60 Nachweisen ist behoben.
 - Sechs Fragetypen haben weiterhin eine Option, die nur als richtige Antwort vorkommt und nie
   als Distraktor (76 Fragen): `astra-nebula-type` „planetarischer Nebel", `machina-algo-complexity`
   „O(n²)", `historia-figure-field` „Naturwissenschaft (allg.)", `terra/river-country`

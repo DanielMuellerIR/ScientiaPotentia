@@ -30,6 +30,7 @@ const https = require("https");
 const fs = require("fs");
 const path = require("path");
 const { writeJsonAtomic } = require('./json_io.cjs');
+const { truncateCredit } = require('./credit_text.cjs');
 const {
   isBlacklistedFile, isBlacklistedConcept,
 } = require('./image_resolution_policy.cjs');
@@ -57,7 +58,7 @@ const ALLOWED_MIME = new Set(["image/jpeg", "image/png", "image/svg+xml", "image
 function attribution(meta) {
   const artist = (meta?.Artist?.value || "").toString().replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
   const credit = (meta?.Credit?.value || "").toString().replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
-  return [artist, credit].filter(Boolean).join(" / ").slice(0, 200) || "Wikimedia Commons";
+  return truncateCredit([artist, credit].filter(Boolean).join(" / ")) || "Wikimedia Commons";
 }
 
 // Laufzeit-Statistik (im Abschlussbericht ausgegeben).

@@ -19,6 +19,7 @@ const {
   licenseNameFromCommonsMetadata,
 } = require('../../lib/image_license_policy.js');
 const { DEWIKI_MAP } = require('./resolve_images_p18_v2.cjs');
+const { truncateCredit } = require('./credit_text.cjs');
 const {
   fileNameFromUploadUrl,
   isBlacklistedConcept,
@@ -279,7 +280,10 @@ async function main() {
       const lic = licenseNameFromCommonsMetadata(m);
       const ok = ALLOWED_MIME.has(String(ii.mime || ""))
         && isAllowedCommonsLicenseMetadata(m);
-      licByFile.set(fTitle, { ok, lic, art: (m.Artist?.value || "").replace(/<[^>]+>/g, "").trim().slice(0, 200) });
+      // truncateCredit vereinheitlicht auch den Whitespace — dieser Aufloeser
+      // war als einziger ohne, dadurch standen mehrzeilige Rechtetexte im
+      // Bildnachweis (CodeQA 2026-09-03).
+      licByFile.set(fTitle, { ok, lic, art: truncateCredit((m.Artist?.value || "").replace(/<[^>]+>/g, "")) });
     }
     await sleep(120);
   }

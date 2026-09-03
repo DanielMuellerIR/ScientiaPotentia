@@ -37,6 +37,10 @@ Dieses Changelog beginnt mit dem für eine öffentliche Veröffentlichung berein
   fünf Fragen übrig, vier davon mit derselben Lösung; sie entfällt.
 - Der Seeotter war „Nordamerika" zugeordnet, obwohl sein Verbreitungsgebiet Kamtschatka und die
   Kurilen einschließt. Erdteilübergreifende Gebiete erzeugen jetzt keine Erdteilfrage mehr.
+- 60 Bildnachweise zeigten statt eines Urhebers einen mehrzeiligen Commons-Rechtetext
+  („Permission details / ACKNOWLEDGMENT FOR PUBLICATIONS …"). Der Rechtetext wird jetzt vom
+  Urhebernamen getrennt; künftige Auflöserläufe kürzen lange Angaben an der Wortgrenze statt
+  mitten im Wort.
 - Zehn Zitatfragen hatten „Sonstige" oder „Anderes" als richtige Antwort — Restekategorien der
   Datenbasis, keine Werktitel. Solche Fragen sind nicht beantwortbar und entfallen; das
   Fragen-Audit blockiert einen Sammelwert als Lösung künftig, lässt ihn als falsche Option aber zu.

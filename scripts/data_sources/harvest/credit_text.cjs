@@ -1,0 +1,40 @@
+/**
+ * Kürzung von Urhebernachweisen aus Commons-Metadaten.
+ *
+ * Hintergrund (CodeQA 2026-09-03): Alle fünf Bild-Auflöser schnitten die
+ * Urheberangabe mit `slice(0, 200)` hart ab — mitten im Wort und mitten in
+ * einer URL. Gemessen waren 56 Rohdatensätze exakt 200 Zeichen lang und 112
+ * veröffentlichte Nachweise ≥ 195 Zeichen, mit Endstücken wie
+ * „… Canadian Space Agency (https://www.asc-c". Bei CC-BY und CC-BY-SA ist ein
+ * Namensfragment keine korrekte Namensnennung.
+ *
+ * Diese Fassung kürzt an der letzten Wortgrenze und markiert den Schnitt mit
+ * einem Auslassungszeichen, damit sichtbar bleibt, dass der Nachweis
+ * unvollständig ist. Die vollständige Angabe steht weiterhin auf der
+ * verlinkten Commons-Dateiseite.
+ */
+
+/** Höchstlänge eines Urhebernachweises. Darüber wird an der Wortgrenze gekürzt. */
+const MAX_CREDIT_LENGTH = 200;
+
+/**
+ * Kürzt einen Urhebernachweis auf höchstens `limit` Zeichen, ohne ein Wort zu
+ * zerschneiden. Passt der Text, kommt er unverändert zurück.
+ *
+ * @param {string} value  Urhebertext aus den Commons-Metadaten.
+ * @param {number} [limit]  Höchstlänge einschließlich Auslassungszeichen.
+ * @returns {string}
+ */
+function truncateCredit(value, limit = MAX_CREDIT_LENGTH) {
+  const text = String(value ?? '').replace(/\s+/g, ' ').trim();
+  if (text.length <= limit) return text;
+  // Platz für das Auslassungszeichen freihalten und an der letzten Wort- oder
+  // Trennzeichengrenze davor schneiden.
+  const room = limit - 2;
+  const cut = text.slice(0, room);
+  const boundary = Math.max(cut.lastIndexOf(' '), cut.lastIndexOf('/'), cut.lastIndexOf(';'));
+  const head = boundary > room / 2 ? cut.slice(0, boundary) : cut;
+  return `${head.replace(/[\s/;,·-]+$/, '')} …`;
+}
+
+module.exports = { MAX_CREDIT_LENGTH, truncateCredit };

@@ -7,10 +7,25 @@ import { isWikimediaCommonsUrl } from './commonsImage.js';
 
 export { isAllowedImageLicense, licenseUrlFor };
 
+/**
+ * Commons-Rechtetext, der hinter dem eigentlichen Urheber steht: Genehmigungs-
+ * hinweise, Danksagungen und Lizenzbausteine. Sie gehören nicht in die
+ * Namensnennung — 60 veröffentlichte Bildnachweise bestanden ab der zweiten
+ * Zeile aus solchem Text („Permission details / ACKNOWLEDGMENT FOR
+ * PUBLICATIONS / All refereed publications …", CodeQA 2026-09-03).
+ */
+const CREDIT_BOILERPLATE =
+  /\s*(?:Permission\s+details|Acknowledge?ments?|You\s+are\s+free|This\s+file\s+is\s+licensed|Licensing)\b[\s\S]*$/i;
+
 /** Entfernt HTML und private Kontaktadressen aus Commons-Metadaten. */
 export function sanitizeImageAttribution(value) {
   return decodeHTML(String(value || ''))
     .replace(/<br\s*\/?\s*>/gi, ' / ')
+    // Zeilenumbrüche zuerst: Vier der fünf Bild-Auflöser vereinheitlichen den
+    // Whitespace selbst, resolve_images_batched.cjs tat es nicht — dadurch
+    // standen mehrzeilige Textblöcke im Bildnachweis.
+    .replace(/\s+/g, ' ')
+    .replace(CREDIT_BOILERPLATE, '')
     .replace(/<[^>]+>/g, ' ')
     .replace(/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/gi, '')
     .replace(/\bmailto:\s*/gi, '')

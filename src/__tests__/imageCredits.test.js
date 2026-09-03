@@ -35,6 +35,13 @@ describe('Bildnachweise', () => {
       .toBe('Ada Beispiel');
     expect(sanitizeImageAttribution('Rolf M&uuml;ller on April 17, 2005.'))
       .toBe('Rolf Müller on April 17, 2005.');
+    // CodeQA 2026-09-03: 60 Bildnachweise bestanden ab der zweiten Zeile aus
+    // Commons-Rechtetext statt aus einem Urhebernamen.
+    expect(sanitizeImageAttribution(
+      'Hubble Legacy Archive\nPermission details\nACKNOWLEDGMENT FOR PUBLICATIONS\nAlle …'))
+      .toBe('Hubble Legacy Archive');
+    expect(sanitizeImageAttribution('Credit:\nImage: ESA & NASA\nAcknowledgements:\nPI'))
+      .toBe('Credit: Image: ESA & NASA');
     // CodeQA 2026-09-03: Die Regel gegen ein leeres Segment („A / / B") traf
     // jedes „http://" im Credit und machte daraus „http: / ". 333 veröffentlichte
     // Urhebernachweise trugen dadurch einen toten Quelllink.
