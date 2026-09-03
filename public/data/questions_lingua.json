@@ -66490,8 +66490,8 @@
     "correctAnswer": "Logografie",
     "options": [
       "Logografie",
-      "Abdschad",
       "Alphabet",
+      "Abdschad",
       "Silbenschrift"
     ],
     "testedAttribute": "scriptType",
@@ -66509,8 +66509,8 @@
     "correctAnswer": "Alphabet",
     "options": [
       "Alphabet",
-      "Abugida",
-      "Abjad",
+      "Abdschad",
+      "Logografie",
       "Silbenschrift"
     ],
     "testedAttribute": "scriptType",
@@ -66528,8 +66528,8 @@
     "correctAnswer": "Alphabet",
     "options": [
       "Alphabet",
+      "Abugida",
       "Logografie",
-      "Abjad",
       "Silbenschrift + Logografie"
     ],
     "testedAttribute": "scriptType",
@@ -66548,8 +66548,8 @@
     "options": [
       "Abugida",
       "Logografie",
-      "Logografie/Silbenschrift",
-      "Abjad"
+      "Silbenschrift + Logografie",
+      "Alphabet"
     ],
     "testedAttribute": "scriptType",
     "answerIsName": false,
@@ -66563,12 +66563,12 @@
     "type": "lingua-language-script-type",
     "difficulty": 2,
     "prompt": "Welchen Schrifttyp nutzt die Sprache Arabisch?",
-    "correctAnswer": "Abjad",
+    "correctAnswer": "Abdschad",
     "options": [
-      "Abjad",
-      "Abugida",
+      "Abdschad",
       "Alphabet",
-      "Abdschad"
+      "Abugida",
+      "Logografie"
     ],
     "testedAttribute": "scriptType",
     "answerIsName": false,
@@ -66606,7 +66606,7 @@
       "Alphabet",
       "Abdschad",
       "Abugida",
-      "Abjad"
+      "Logografie"
     ],
     "testedAttribute": "scriptType",
     "answerIsName": false,
@@ -66661,8 +66661,8 @@
     "correctAnswer": "Silbenschrift + Logografie",
     "options": [
       "Silbenschrift + Logografie",
-      "Logografie/Silbenschrift",
       "Featural Alphabet (Silbensegmente)",
+      "Alphabet",
       "Abdschad"
     ],
     "testedAttribute": "scriptType",
@@ -66681,27 +66681,8 @@
     "options": [
       "Abugida",
       "Alphabet",
-      "Abjad",
+      "Logografie",
       "Abdschad"
-    ],
-    "testedAttribute": "scriptType",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_lingua_punjabi_lingua-language-script-type",
-    "entityId": "lingua:punjabi",
-    "entityType": "language",
-    "type": "lingua-language-script-type",
-    "difficulty": 2,
-    "prompt": "Welchen Schrifttyp nutzt die Sprache Punjabi?",
-    "correctAnswer": "Abugida / Abjad",
-    "options": [
-      "Abugida / Abjad",
-      "Logografie/Silbenschrift",
-      "Silbenschrift",
-      "Alphabet"
     ],
     "testedAttribute": "scriptType",
     "answerIsName": false,
@@ -66737,7 +66718,7 @@
     "correctAnswer": "Alphabet",
     "options": [
       "Alphabet",
-      "Abjad",
+      "Logografie",
       "Abdschad",
       "Abugida"
     ],
@@ -66757,8 +66738,8 @@
     "options": [
       "Featural Alphabet (Silbensegmente)",
       "Silbenschrift + Logografie",
-      "Logografie/Silbenschrift",
-      "Abugida / Abjad"
+      "Silbenschrift",
+      "Logografie"
     ],
     "testedAttribute": "scriptType",
     "answerIsName": false,
@@ -66794,9 +66775,9 @@
     "correctAnswer": "Alphabet",
     "options": [
       "Alphabet",
-      "Abjad",
-      "Abugida",
-      "Abugida / Abjad"
+      "Logografie",
+      "Abdschad",
+      "Silbenschrift"
     ],
     "testedAttribute": "scriptType",
     "answerIsName": false,
@@ -66813,8 +66794,8 @@
     "correctAnswer": "Alphabet",
     "options": [
       "Alphabet",
-      "Abugida",
       "Abdschad",
+      "Abugida",
       "Logografie"
     ],
     "testedAttribute": "scriptType",
@@ -66833,7 +66814,7 @@
     "options": [
       "Abugida",
       "Abdschad",
-      "Abjad",
+      "Silbenschrift + Logografie",
       "Alphabet"
     ],
     "testedAttribute": "scriptType",
@@ -66853,7 +66834,7 @@
       "Alphabet",
       "Abdschad",
       "Abugida",
-      "Abugida / Abjad"
+      "Silbenschrift"
     ],
     "testedAttribute": "scriptType",
     "answerIsName": false,
@@ -66905,12 +66886,12 @@
     "type": "lingua-language-script-type",
     "difficulty": 2,
     "prompt": "Welchen Schrifttyp nutzt die Sprache Aramäisch?",
-    "correctAnswer": "Abjad",
+    "correctAnswer": "Abdschad",
     "options": [
-      "Abjad",
-      "Abugida",
       "Abdschad",
-      "Alphabet"
+      "Alphabet",
+      "Abugida",
+      "Logografie"
     ],
     "testedAttribute": "scriptType",
     "answerIsName": false,
@@ -66946,7 +66927,7 @@
     "correctAnswer": "Alphabet",
     "options": [
       "Alphabet",
-      "Logografie",
+      "Abugida",
       "Abdschad",
       "Silbenschrift"
     ],
@@ -66984,9 +66965,9 @@
     "correctAnswer": "Alphabet",
     "options": [
       "Alphabet",
-      "Abugida / Abjad",
+      "Silbenschrift",
       "Abdschad",
-      "Logografie"
+      "Abugida"
     ],
     "testedAttribute": "scriptType",
     "answerIsName": false,
@@ -67005,7 +66986,7 @@
       "Alphabet",
       "Abdschad",
       "Abugida",
-      "Abjad"
+      "Logografie"
     ],
     "testedAttribute": "scriptType",
     "answerIsName": false,
@@ -67022,9 +67003,9 @@
     "correctAnswer": "Silbenschrift",
     "options": [
       "Silbenschrift",
-      "Abugida / Abjad",
-      "Abdschad",
-      "Logografie"
+      "Logografie",
+      "Featural Alphabet (Silbensegmente)",
+      "Alphabet"
     ],
     "testedAttribute": "scriptType",
     "answerIsName": false,
@@ -67060,9 +67041,9 @@
     "correctAnswer": "Abugida",
     "options": [
       "Abugida",
-      "Abjad",
+      "Alphabet",
       "Abdschad",
-      "Alphabet"
+      "Logografie"
     ],
     "testedAttribute": "scriptType",
     "answerIsName": false,
@@ -67079,9 +67060,9 @@
     "correctAnswer": "Alphabet",
     "options": [
       "Alphabet",
-      "Logografie",
+      "Abugida",
       "Abdschad",
-      "Abugida / Abjad"
+      "Silbenschrift"
     ],
     "testedAttribute": "scriptType",
     "answerIsName": false,
@@ -67098,9 +67079,9 @@
     "correctAnswer": "Alphabet",
     "options": [
       "Alphabet",
-      "Logografie",
+      "Abugida",
       "Abdschad",
-      "Abugida"
+      "Logografie"
     ],
     "testedAttribute": "scriptType",
     "answerIsName": false,
@@ -67117,9 +67098,9 @@
     "correctAnswer": "Alphabet",
     "options": [
       "Alphabet",
-      "Abugida",
+      "Abdschad",
       "Silbenschrift + Logografie",
-      "Logografie/Silbenschrift"
+      "Silbenschrift"
     ],
     "testedAttribute": "scriptType",
     "answerIsName": false,
@@ -67138,7 +67119,7 @@
       "Alphabet",
       "Abugida",
       "Abdschad",
-      "Abjad"
+      "Logografie"
     ],
     "testedAttribute": "scriptType",
     "answerIsName": false,
@@ -67156,7 +67137,7 @@
     "options": [
       "Alphabet",
       "Abdschad",
-      "Abjad",
+      "Logografie",
       "Abugida"
     ],
     "testedAttribute": "scriptType",
@@ -67193,9 +67174,9 @@
     "correctAnswer": "Alphabet",
     "options": [
       "Alphabet",
-      "Abjad",
+      "Abugida",
       "Abdschad",
-      "Abugida"
+      "Logografie"
     ],
     "testedAttribute": "scriptType",
     "answerIsName": false,
@@ -67250,7 +67231,7 @@
     "correctAnswer": "Abugida",
     "options": [
       "Abugida",
-      "Abjad",
+      "Logografie",
       "Abdschad",
       "Alphabet"
     ],
@@ -67288,7 +67269,7 @@
     "correctAnswer": "Alphabet",
     "options": [
       "Alphabet",
-      "Silbenschrift",
+      "Logografie",
       "Abdschad",
       "Abugida"
     ],
@@ -67421,7 +67402,7 @@
     "correctAnswer": "Alphabet",
     "options": [
       "Alphabet",
-      "Silbenschrift",
+      "Logografie",
       "Abdschad",
       "Abugida"
     ],
@@ -67440,8 +67421,8 @@
     "correctAnswer": "Alphabet",
     "options": [
       "Alphabet",
-      "Abugida",
       "Abdschad",
+      "Abugida",
       "Logografie"
     ],
     "testedAttribute": "scriptType",
@@ -67459,9 +67440,9 @@
     "correctAnswer": "Silbenschrift",
     "options": [
       "Silbenschrift",
-      "Abugida / Abjad",
       "Logografie",
-      "Abugida"
+      "Abdschad",
+      "Featural Alphabet (Silbensegmente)"
     ],
     "testedAttribute": "scriptType",
     "answerIsName": false,
@@ -67499,7 +67480,7 @@
       "Alphabet",
       "Abugida",
       "Abdschad",
-      "Logografie/Silbenschrift"
+      "Silbenschrift + Logografie"
     ],
     "testedAttribute": "scriptType",
     "answerIsName": false,
@@ -67556,7 +67537,7 @@
       "Alphabet",
       "Abugida",
       "Abdschad",
-      "Abugida / Abjad"
+      "Silbenschrift"
     ],
     "testedAttribute": "scriptType",
     "answerIsName": false,
@@ -67573,7 +67554,7 @@
     "correctAnswer": "Alphabet",
     "options": [
       "Alphabet",
-      "Abjad",
+      "Logografie",
       "Abdschad",
       "Abugida"
     ],
@@ -67593,7 +67574,7 @@
     "options": [
       "Alphabet",
       "Abdschad",
-      "Abugida / Abjad",
+      "Silbenschrift",
       "Abugida"
     ],
     "testedAttribute": "scriptType",
@@ -67669,8 +67650,8 @@
     "options": [
       "Alphabet",
       "Abdschad",
-      "Logografie",
-      "Abjad"
+      "Abugida",
+      "Logografie"
     ],
     "testedAttribute": "scriptType",
     "answerIsName": false,
@@ -67725,8 +67706,8 @@
     "correctAnswer": "Alphabet",
     "options": [
       "Alphabet",
+      "Abugida",
       "Logografie",
-      "Abjad",
       "Abdschad"
     ],
     "testedAttribute": "scriptType",
@@ -67764,7 +67745,7 @@
     "options": [
       "Alphabet",
       "Abdschad",
-      "Abjad",
+      "Logografie",
       "Silbenschrift"
     ],
     "testedAttribute": "scriptType",
@@ -67782,9 +67763,9 @@
     "correctAnswer": "Abugida",
     "options": [
       "Abugida",
-      "Abdschad",
       "Alphabet",
-      "Abjad"
+      "Abdschad",
+      "Logografie"
     ],
     "testedAttribute": "scriptType",
     "answerIsName": false,
@@ -67803,7 +67784,7 @@
       "Alphabet",
       "Abugida",
       "Abdschad",
-      "Abjad"
+      "Logografie"
     ],
     "testedAttribute": "scriptType",
     "answerIsName": false,
@@ -67820,8 +67801,8 @@
     "correctAnswer": "Alphabet",
     "options": [
       "Alphabet",
-      "Abugida / Abjad",
-      "Logografie/Silbenschrift",
+      "Silbenschrift",
+      "Silbenschrift + Logografie",
       "Abdschad"
     ],
     "testedAttribute": "scriptType",
@@ -67841,7 +67822,7 @@
       "Alphabet",
       "Abdschad",
       "Abugida",
-      "Abugida / Abjad"
+      "Silbenschrift"
     ],
     "testedAttribute": "scriptType",
     "answerIsName": false,
@@ -67860,7 +67841,7 @@
       "Alphabet",
       "Abdschad",
       "Abugida",
-      "Abjad"
+      "Logografie"
     ],
     "testedAttribute": "scriptType",
     "answerIsName": false,
@@ -67916,7 +67897,7 @@
     "options": [
       "Alphabet",
       "Abdschad",
-      "Abjad",
+      "Logografie",
       "Abugida"
     ],
     "testedAttribute": "scriptType",
@@ -67954,8 +67935,8 @@
     "options": [
       "Alphabet",
       "Abdschad",
-      "Logografie",
-      "Abugida"
+      "Abugida",
+      "Logografie"
     ],
     "testedAttribute": "scriptType",
     "answerIsName": false,
@@ -67974,7 +67955,7 @@
       "Abugida",
       "Abdschad",
       "Alphabet",
-      "Abjad"
+      "Logografie"
     ],
     "testedAttribute": "scriptType",
     "answerIsName": false,
@@ -67991,9 +67972,9 @@
     "correctAnswer": "Alphabet",
     "options": [
       "Alphabet",
-      "Logografie",
+      "Abugida",
       "Abdschad",
-      "Abugida / Abjad"
+      "Silbenschrift"
     ],
     "testedAttribute": "scriptType",
     "answerIsName": false,
@@ -68011,7 +67992,7 @@
     "options": [
       "Alphabet",
       "Abdschad",
-      "Logografie",
+      "Abugida",
       "Silbenschrift"
     ],
     "testedAttribute": "scriptType",
@@ -68029,8 +68010,8 @@
     "correctAnswer": "Alphabet",
     "options": [
       "Alphabet",
-      "Logografie/Silbenschrift",
       "Silbenschrift + Logografie",
+      "Silbenschrift",
       "Abdschad"
     ],
     "testedAttribute": "scriptType",
@@ -68105,9 +68086,9 @@
     "correctAnswer": "Alphabet",
     "options": [
       "Alphabet",
-      "Abugida",
+      "Abdschad",
       "Silbenschrift + Logografie",
-      "Abdschad"
+      "Abugida"
     ],
     "testedAttribute": "scriptType",
     "answerIsName": false,
@@ -68162,9 +68143,9 @@
     "correctAnswer": "Alphabet",
     "options": [
       "Alphabet",
-      "Silbenschrift",
+      "Logografie",
       "Abdschad",
-      "Logografie/Silbenschrift"
+      "Silbenschrift + Logografie"
     ],
     "testedAttribute": "scriptType",
     "answerIsName": false,
@@ -68182,8 +68163,8 @@
     "options": [
       "Alphabet",
       "Abdschad",
-      "Logografie",
-      "Abugida"
+      "Abugida",
+      "Logografie"
     ],
     "testedAttribute": "scriptType",
     "answerIsName": false,
@@ -68201,8 +68182,8 @@
     "options": [
       "Alphabet",
       "Abugida",
-      "Logografie",
-      "Abdschad"
+      "Abdschad",
+      "Logografie"
     ],
     "testedAttribute": "scriptType",
     "answerIsName": false,
@@ -68296,8 +68277,8 @@
     "options": [
       "Alphabet",
       "Abugida",
-      "Abugida / Abjad",
-      "Silbenschrift"
+      "Silbenschrift",
+      "Logografie"
     ],
     "testedAttribute": "scriptType",
     "answerIsName": false,
@@ -68315,7 +68296,7 @@
     "options": [
       "Alphabet",
       "Silbenschrift + Logografie",
-      "Logografie",
+      "Abugida",
       "Abdschad"
     ],
     "testedAttribute": "scriptType",
@@ -68333,9 +68314,9 @@
     "correctAnswer": "Alphabet",
     "options": [
       "Alphabet",
+      "Abdschad",
       "Abugida",
-      "Logografie",
-      "Abdschad"
+      "Logografie"
     ],
     "testedAttribute": "scriptType",
     "answerIsName": false,
@@ -68352,9 +68333,9 @@
     "correctAnswer": "Alphabet",
     "options": [
       "Alphabet",
-      "Abjad",
-      "Abugida",
-      "Abdschad"
+      "Logografie",
+      "Abdschad",
+      "Abugida"
     ],
     "testedAttribute": "scriptType",
     "answerIsName": false,
@@ -68372,7 +68353,7 @@
     "options": [
       "Alphabet",
       "Abdschad",
-      "Abugida / Abjad",
+      "Silbenschrift",
       "Abugida"
     ],
     "testedAttribute": "scriptType",
@@ -68409,9 +68390,9 @@
     "correctAnswer": "Alphabet",
     "options": [
       "Alphabet",
-      "Abugida / Abjad",
-      "Abugida",
-      "Abjad"
+      "Silbenschrift",
+      "Abdschad",
+      "Logografie"
     ],
     "testedAttribute": "scriptType",
     "answerIsName": false,
@@ -68429,8 +68410,8 @@
     "options": [
       "Alphabet",
       "Abdschad",
-      "Abugida / Abjad",
-      "Logografie"
+      "Silbenschrift",
+      "Abugida"
     ],
     "testedAttribute": "scriptType",
     "answerIsName": false,
@@ -68506,7 +68487,7 @@
       "Abugida",
       "Alphabet",
       "Abdschad",
-      "Abjad"
+      "Logografie"
     ],
     "testedAttribute": "scriptType",
     "answerIsName": false,
@@ -68561,9 +68542,9 @@
     "correctAnswer": "Alphabet",
     "options": [
       "Alphabet",
-      "Logografie",
+      "Abugida",
       "Abdschad",
-      "Abugida"
+      "Logografie"
     ],
     "testedAttribute": "scriptType",
     "answerIsName": false,
@@ -68577,12 +68558,12 @@
     "type": "lingua-language-script-type",
     "difficulty": 2,
     "prompt": "Welchen Schrifttyp nutzt die Sprache Sumerisch?",
-    "correctAnswer": "Logografie/Silbenschrift",
+    "correctAnswer": "Silbenschrift + Logografie",
     "options": [
-      "Logografie/Silbenschrift",
-      "Alphabet",
       "Silbenschrift + Logografie",
-      "Abugida / Abjad"
+      "Abdschad",
+      "Featural Alphabet (Silbensegmente)",
+      "Alphabet"
     ],
     "testedAttribute": "scriptType",
     "answerIsName": false,
@@ -68596,12 +68577,12 @@
     "type": "lingua-language-script-type",
     "difficulty": 2,
     "prompt": "Welchen Schrifttyp nutzt die Sprache Akkadisch?",
-    "correctAnswer": "Logografie/Silbenschrift",
+    "correctAnswer": "Silbenschrift + Logografie",
     "options": [
-      "Logografie/Silbenschrift",
+      "Silbenschrift + Logografie",
       "Alphabet",
-      "Abugida / Abjad",
-      "Featural Alphabet (Silbensegmente)"
+      "Featural Alphabet (Silbensegmente)",
+      "Abdschad"
     ],
     "testedAttribute": "scriptType",
     "answerIsName": false,
@@ -68615,12 +68596,12 @@
     "type": "lingua-language-script-type",
     "difficulty": 2,
     "prompt": "Welchen Schrifttyp nutzt die Sprache Hethitisch?",
-    "correctAnswer": "Logografie/Silbenschrift",
+    "correctAnswer": "Silbenschrift + Logografie",
     "options": [
-      "Logografie/Silbenschrift",
       "Silbenschrift + Logografie",
-      "Abugida / Abjad",
-      "Featural Alphabet (Silbensegmente)"
+      "Featural Alphabet (Silbensegmente)",
+      "Alphabet",
+      "Abdschad"
     ],
     "testedAttribute": "scriptType",
     "answerIsName": false,
@@ -68639,7 +68620,7 @@
       "Abugida",
       "Abdschad",
       "Alphabet",
-      "Abjad"
+      "Logografie"
     ],
     "testedAttribute": "scriptType",
     "answerIsName": false,
@@ -68656,8 +68637,8 @@
     "correctAnswer": "Logografie",
     "options": [
       "Logografie",
-      "Alphabet",
       "Abdschad",
+      "Alphabet",
       "Silbenschrift"
     ],
     "testedAttribute": "scriptType",
@@ -68694,9 +68675,9 @@
     "correctAnswer": "Alphabet",
     "options": [
       "Alphabet",
-      "Abugida",
-      "Abjad",
-      "Logografie/Silbenschrift"
+      "Abdschad",
+      "Logografie",
+      "Silbenschrift + Logografie"
     ],
     "testedAttribute": "scriptType",
     "answerIsName": false,
@@ -68733,7 +68714,7 @@
     "options": [
       "Alphabet",
       "Abdschad",
-      "Abugida / Abjad",
+      "Silbenschrift",
       "Abugida"
     ],
     "testedAttribute": "scriptType",
@@ -68767,12 +68748,12 @@
     "type": "lingua-language-script-type",
     "difficulty": 2,
     "prompt": "Welchen Schrifttyp nutzt die Sprache Ladino (Judenspanisch)?",
-    "correctAnswer": "Abjad",
+    "correctAnswer": "Abdschad",
     "options": [
-      "Abjad",
-      "Abugida",
+      "Abdschad",
       "Alphabet",
-      "Abdschad"
+      "Logografie",
+      "Abugida"
     ],
     "testedAttribute": "scriptType",
     "answerIsName": false,
@@ -68791,7 +68772,7 @@
       "Alphabet",
       "Abdschad",
       "Abugida",
-      "Abjad"
+      "Logografie"
     ],
     "testedAttribute": "scriptType",
     "answerIsName": false,
@@ -68809,8 +68790,8 @@
     "options": [
       "Alphabet",
       "Abdschad",
-      "Logografie",
-      "Abugida"
+      "Abugida",
+      "Logografie"
     ],
     "testedAttribute": "scriptType",
     "answerIsName": false,

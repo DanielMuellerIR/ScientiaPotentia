@@ -180,6 +180,18 @@ const coreNorm = s => norm(beforeParen(s)).replace(/ /g, '');
  * der anderen steckt: "Lateinisches Alphabet" in "Lateinisches Alphabet mit
  * Diakritika" -> beide gemeinsam in einer Frage wären mehrdeutig.
  */
+// Schrifttypen: Der Bestand nennt dieselbe Schriftart in zwei Umschriften
+// („Abdschad" deutsch, „Abjad" englisch) und dieselbe Mischform in zwei
+// Wortstellungen. In 6 Fragen war die richtige Antwort dadurch doppelt
+// vertreten, in 26 weiteren standen zwei Namen desselben Typs als Optionen
+// nebeneinander. Der vorhandene similarGuard greift dort nicht: Er prüft auf
+// Enthaltensein, und „Abdschad" steckt nicht in „Abjad" (CodeQA 2026-09-03).
+const SCRIPT_TYPE_CANON = {
+  'Abjad': 'Abdschad',
+  'Logografie/Silbenschrift': 'Silbenschrift + Logografie',
+};
+const scriptType = value => SCRIPT_TYPE_CANON[value] ?? value;
+
 function optionsTooSimilar(a, b) {
   const A = coreNorm(a), B = coreNorm(b);
   return !!A && !!B && (A.includes(B) || B.includes(A));
@@ -465,6 +477,10 @@ const templates = [
     type: 'lingua-language-script-type', difficulty: 2,
     testedAttribute: 'scriptType',
     prompt: c => `Welchen Schrifttyp nutzt die Sprache ${c.name}?`,
+    // Mischwerte („Abugida / Abjad") nennen zwei Schrifttypen und taugen für
+    // eine Einfachauswahl nicht.
+    skip: c => / \/ /.test(String(c.attributes.scriptType || '')),
+    transform: v => scriptType(v),
     similarGuard: true  // "Alphabet" vs. "Featural Alphabet" trennen
   },
 

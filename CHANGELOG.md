@@ -33,6 +33,9 @@ Dieses Changelog beginnt mit dem für eine öffentliche Veröffentlichung berein
   fünf Fragen übrig, vier davon mit derselben Lösung; sie entfällt.
 - Der Seeotter war „Nordamerika" zugeordnet, obwohl sein Verbreitungsgebiet Kamtschatka und die
   Kurilen einschließt. Erdteilübergreifende Gebiete erzeugen jetzt keine Erdteilfrage mehr.
+- Die Frage nach dem Schrifttyp einer Sprache bot „Abdschad" und „Abjad" als getrennte
+  Optionen an — zwei Umschriften desselben Schrifttyps. In 26 Fragen standen beide zur Wahl,
+  in 6 davon war eine die gewertete Lösung. Beide Schreibweisen sind vereinheitlicht.
 - 32 Asteroidenfragen boten Meter und Kilometer im selben Optionssatz an, 66 Kometenfragen
   begannen mit „der Komet Komet …", und in vier Exoplanetenfragen stand der gesuchte Wirtsstern
   bereits im Planetennamen. Alles behoben.
