@@ -7,6 +7,13 @@
   Vor der Umstellung von `pickBalanced` am 2026-09-03 waren es 31 Typen und 832 Fragen. Der Rest
   liegt an zu kleinen oder zu einseitigen Wertevorräten, nicht an der Auswahl — abbauen lässt er
   sich nur über mehr Werte im Bestand.
+- Zwölf Fragen in Historia und Machina bieten zwei Optionen an, deren Oberbegriff gleich ist und
+  die sich nur im Klammerzusatz unterscheiden: „Europa (Ursprung: Italien)" neben „Europa
+  (Ursprung: England)", „Kompiliert (zu C)" neben „Kompiliert (Cross-Compile)". Anders als bei
+  den Astra-Fällen bezeichnen sie wirklich Verschiedenes und sind mit Fachwissen unterscheidbar,
+  darum bleiben sie vorerst. Ein Zusammenziehen auf den Oberbegriff würde in
+  `historia-epoch-region` 23 von rund 50 Epochen auf „Europa" legen und die Gegenrichtung
+  mehrdeutig machen — der Abbau gehört in den Bestand, nicht in die Auswahl.
 - `machina-elem-category` bietet nur sieben Werte an, und die beiden häufigsten Antworten
   („Verbindungselement", „Getriebeelement") sind zugleich die beiden längsten. Dadurch ist die
   richtige Antwort dort überdurchschnittlich oft die längste Option. Abhilfe liegt im Bestand:
