@@ -50,6 +50,7 @@ import { dirname, join } from 'node:path';
 import { createRequire } from 'node:module';
 import { assertPreservesExistingConceptIds } from './lib/merge_safety.js';
 import { applyTextFix } from './lib/merge_text.js';
+import { blacklistReason, blacklistedConceptIds } from './lib/merge_blacklist.js';
 
 // Die Sperrliste liegt maschinenlesbar in harvest/IMAGE_BLACKLIST.json (Begründung
 // je Eintrag in harvest/BLACKLIST.md). Sie wird hier eingelesen statt kopiert,
@@ -67,14 +68,7 @@ const FILES = ['cultura_a_w1.json', 'cultura_a_w1b.json', 'cultura_b_w1.json', '
 // Beispiel Guernica (Picasso): bis 2043 urheberrechtlich geschützt -> Konzept
 // komplett gesperrt. Abgeglichen wird gegen id UND normalisierten Namen, damit
 // auch eine abweichende Schreibweise ("guernica-picasso") hängen bleibt.
-const BLACKLISTED = require(join(HARVEST, 'IMAGE_BLACKLIST.json')).conceptIds
-  .map(id => String(id).toLowerCase());
-// Die Sperrliste kennt neben den Konzept-IDs auch gesperrte Bilddateien
-// (`commonsFileTitles`). Die prüft dieselbe Funktion wie Bildauflösung, Purge
-// und Bildrechte-Audit — sonst hätte der Merge eine Erntezeile mit gesperrter
-// Datei, aber unauffälliger ID durchgelassen (Nacht-Review 2026-09-03).
-const { isBlacklistedConcept, isBlacklistedFile } = require(
-  join(HARVEST, 'image_resolution_policy.cjs'));
+const BLACKLISTED = blacklistedConceptIds();
 
 // --- 1. Attribut-Key-Aliase je Kategorie -> kanonisch englisch ---------------
 // Nur Keys, die als Synonyme auftreten oder auf die der Generator Fragen baut.
@@ -293,24 +287,12 @@ for (const file of FILES) {
   const arr = await readJsonWithRetry(join(HARVEST, file));
   let kept = 0;
   for (const c0 of arr) {
-    // BLACKLIST zuerst: gesperrte Konzepte gar nicht erst normalisieren.
-    // Der Teilstring-Vergleich bleibt zusätzlich zur exakten ID-Prüfung, damit
-    // auch eine abgewandelte Schreibweise hängen bleibt.
-    if (isBlacklistedConcept(c0.id)
-      || BLACKLISTED.some(b => norm(c0.id).includes(b) || norm(c0.name).includes(b))) {
-      dropped.push({ name: c0.name, category: c0.category, reason: 'BLACKLIST (siehe harvest/BLACKLIST.md)' });
-      if (c0.id) blockedIds.push(String(c0.id));
-      continue;
-    }
-    // Gesperrte Bilddatei an einem sonst unauffälligen Konzept: Der Purge-Lauf
-    // wirft dasselbe Konzept später ohnehin weg, also hier schon verwerfen —
-    // sonst stünde das gesperrte Bild bis dahin in cultura_raw.json.
-    if (c0.imageFile && isBlacklistedFile(c0.imageFile)) {
-      dropped.push({
-        name: c0.name, category: c0.category,
-        reason: `BLACKLIST-Bilddatei ${c0.imageFile} (siehe harvest/BLACKLIST.md)`,
-      });
-      if (c0.id) blockedIds.push(String(c0.id));
+    // BLACKLIST zuerst: gesperrte Konzepte gar nicht erst normalisieren
+    // (Regel und Begründung in ./lib/merge_blacklist.js — dieselbe für alle Merges).
+    const blocked = blacklistReason(c0);
+    if (blocked) {
+      dropped.push({ name: c0.name, category: c0.category, reason: blocked });
+      blockedIds.push(String(c0.id || ''));
       continue;
     }
     const before = warnings.length;

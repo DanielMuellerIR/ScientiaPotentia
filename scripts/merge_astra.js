@@ -43,6 +43,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+import { blacklistReason } from './lib/merge_blacklist.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const HARVEST = join(__dirname, 'data_sources', 'harvest');
@@ -413,12 +414,21 @@ for (const c of existing) (namesByCat[c.category] ||= new Set()).add(norm(c.name
 
 const fileStats = {};
 const dropped = [];
+const blockedIds = [];   // nur fuer den Bericht; merge_astra loescht nie
 
 for (const file of FILES) {
   const arr = await readJsonRetry(join(HARVEST, file));
   let added = 0, refreshed = 0;
 
   for (const c0 of arr) {
+    // BLACKLIST zuerst: gesperrte Konzepte gar nicht erst normalisieren
+    // (Regel und Begründung in ./lib/merge_blacklist.js).
+    const blocked = blacklistReason(c0);
+    if (blocked) {
+      dropped.push({ name: c0.name, category: c0.category, reason: blocked });
+      blockedIds.push(String(c0.id || ''));
+      continue;
+    }
     const c = normalizeConcept(c0);
 
     // UPSERT: id schon im Bestand -> nur Bildfelder auffrischen (idempotent;

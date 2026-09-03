@@ -47,6 +47,7 @@ import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { assertPreservesExistingConceptIds } from './lib/merge_safety.js';
+import { blacklistReason } from './lib/merge_blacklist.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const HARVEST = join(__dirname, 'data_sources', 'harvest');
@@ -357,12 +358,21 @@ const merged = [];
 const idsByCat = {};       // Kategorie -> Set(id)
 const namesByCat = {};     // Kategorie -> Set(normalisierter Name)
 const dropped = [];
+const blockedIds = [];   // wegen der Sperrliste verworfen — dürfen fehlen
 const fileStats = {};
 
 for (const file of FILES) {
   const arr = await readHarvestJson(join(HARVEST, file));
   let kept = 0;
   for (const c0 of arr) {
+    // BLACKLIST zuerst: gesperrte Konzepte gar nicht erst normalisieren
+    // (Regel und Begründung in ./lib/merge_blacklist.js).
+    const blocked = blacklistReason(c0);
+    if (blocked) {
+      dropped.push({ name: c0.name, category: c0.category, reason: blocked });
+      blockedIds.push(String(c0.id || ''));
+      continue;
+    }
     // Manuelle Drops VOR der Normalisierung (deren Keys brauchen keine Aliase).
     if (MANUAL_DROP.has(c0.id)) {
       dropped.push({ name: c0.name, category: c0.category, reason: 'MANUAL_DROP (inhaltliche Dublette von meistuebersetzes-buch)' });
@@ -400,7 +410,7 @@ console.log('\n--- Quasi-Dubletten über Kategoriegrenzen (BEHALTEN, nur zur Inf
 CROSS_CATEGORY_NEAR_DUPES.forEach(d => console.log('  ~ ' + d));
 
 if (WRITE) {
-  assertPreservesExistingConceptIds(OUT_PATH, merged);
+  assertPreservesExistingConceptIds(OUT_PATH, merged, blockedIds);
   writeFileSync(OUT_PATH, JSON.stringify(merged, null, 2), 'utf8');
   console.log(`\nGeschrieben: ${OUT_PATH} (${merged.length} Konzepte)`);
 } else {

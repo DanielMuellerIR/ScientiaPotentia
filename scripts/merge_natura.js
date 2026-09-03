@@ -28,6 +28,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { assertPreservesExistingConceptIds } from './lib/merge_safety.js';
 import { applyTextFix } from './lib/merge_text.js';
+import { blacklistReason } from './lib/merge_blacklist.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -186,12 +187,21 @@ const merged = [];
 const idsByCat = {};       // Kategorie -> Set(id)
 const namesByCat = {};     // Kategorie -> Set(normalisierter Name)
 let dropped = [];
+const blockedIds = [];   // wegen der Sperrliste verworfen — dürfen fehlen
 const fileStats = {};
 
 for (const file of FILES) {
   const arr = JSON.parse(readFileSync(join(HARVEST, file), 'utf8'));
   let kept = 0;
   for (const c0 of arr) {
+    // BLACKLIST zuerst: gesperrte Konzepte gar nicht erst normalisieren
+    // (Regel und Begründung in ./lib/merge_blacklist.js).
+    const blocked = blacklistReason(c0);
+    if (blocked) {
+      dropped.push({ name: c0.name, category: c0.category, reason: blocked });
+      blockedIds.push(String(c0.id || ''));
+      continue;
+    }
     const c = normalizeConcept(c0);
     (idsByCat[c.category] ||= new Set());
     (namesByCat[c.category] ||= new Set());
@@ -227,7 +237,7 @@ if (dropped.length) {
 }
 
 if (WRITE) {
-  assertPreservesExistingConceptIds(OUT_PATH, merged);
+  assertPreservesExistingConceptIds(OUT_PATH, merged, blockedIds);
   writeFileSync(OUT_PATH, JSON.stringify(merged, null, 2), 'utf8');
   console.log(`\nGeschrieben: ${OUT_PATH} (${merged.length} Konzepte)`);
 } else {

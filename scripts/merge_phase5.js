@@ -21,6 +21,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { applyTextFix } from './lib/merge_text.js';
+import { blacklistReason } from './lib/merge_blacklist.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -111,8 +112,16 @@ for (const domain of ['astra', 'homo']) {
   const namesByCat = {};
   for (const c of raw) (namesByCat[c.category] ||= []).push(norm(c.name));
 
-  const kept = [], dropped = [];
+  const kept = [], dropped = [], blockedIds = [];
   for (const c0 of incoming) {
+    // BLACKLIST zuerst: gesperrte Konzepte gar nicht erst normalisieren
+    // (Regel und Begründung in ./lib/merge_blacklist.js).
+    const blocked = blacklistReason(c0);
+    if (blocked) {
+      dropped.push({ name: c0.name, reason: blocked });
+      blockedIds.push(String(c0.id || ''));
+      continue;
+    }
     const c = clean(c0);
     const nn = norm(c.name);
     const catNames = namesByCat[c.category] ||= [];

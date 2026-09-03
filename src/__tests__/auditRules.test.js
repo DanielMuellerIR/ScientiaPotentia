@@ -144,12 +144,17 @@ describe('dominanceVerdict', () => {
 });
 
 describe('Fragen-Audit als Kommandozeilen-Gate', () => {
+  // Dieser Fall faehrt den Audit ueber den echten Machina-Katalog (6.536 Fragen)
+  // und braucht auf diesem Rechner 3,5 bis 4 Sekunden. Mit dem 5-Sekunden-
+  // Standard von Vitest lief er unter Last in einen Timeout, ohne dass etwas
+  // kaputt war (CodeQA 2026-09-03). Alle anderen Faelle nutzen --data-dir mit
+  // einem Mini-Katalog und bleiben im Millisekundenbereich.
   it('prüft bei übergebener Domain nur deren Katalog', () => {
     const result = runAudit('machina');
     expect(result.status).toBe(0);
     expect(result.stdout).toContain('=== MACHINA');
     expect(result.stdout).not.toContain('=== ASTRA');
-  });
+  }, 30_000);
 
   it('liefert bei harten Fragenfehlern einen Fehler-Exit-Code', () => {
     const dataDir = mkdtempSync(join(tmpdir(), 'scientia-question-audit-'));
