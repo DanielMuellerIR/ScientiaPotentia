@@ -56,6 +56,71 @@ function roundSig(x, sig = 2) {
  * - numeric=false: die ersten abweichenden Werte in Pool-Reihenfolge
  * Der korrekte Wert wird stets ausgeschlossen, Duplikate werden entfernt.
  */
+// --- Kanonformen für mehrdeutige Kategorienwerte (CodeQA 2026-09-03) ------
+// Dieselbe Krankheit wie bei den Entdeckungsmethoden: Der Rohbestand nennt
+// denselben Sachverhalt in mehreren Schreibweisen. Standen zwei davon in einer
+// Frage, war auch der „falsche" Distraktor richtig. Darum je eine Kanonform.
+
+/** Alles ab der ersten Klammer oder dem ersten Schrägstrich abschneiden. */
+function headValue(value) {
+  return String(value ?? '').split(/[(/]/)[0].trim();
+}
+
+// Nebeltypen. „H-II-Gebiet" und „Emissionsnebel (H-II-Gebiet)" bezeichnen
+// denselben Nebeltyp wie „Emissionsnebel" — ein H-II-Gebiet IST ein
+// Emissionsnebel. Bis zu drei der vier Optionen waren dadurch richtig (46 von
+// 96 Fragen). Werte, die keine Nebelklasse benennen (Mischformen, ein
+// veränderlicher Stern, eine Sternentstehungsregion), erzeugen keine Frage.
+const NEBULA_TYPE_CANON = {
+  'H-II-Gebiet': 'Emissionsnebel',
+  'Emissionsnebel (H-II-Gebiet)': 'Emissionsnebel',
+  'Planetarischer Nebel': 'planetarischer Nebel',
+  'Protoplanetarischer Nebel': 'protoplanetarischer Nebel',
+};
+const NEBULA_TYPES_ALLOWED = new Set([
+  'planetarischer Nebel', 'Emissionsnebel', 'Reflexionsnebel',
+  'Supernovaüberrest', 'Dunkelnebel', 'protoplanetarischer Nebel',
+]);
+const nebulaType = value => NEBULA_TYPE_CANON[value] ?? value;
+
+// Sternbild-Sichtbarkeit: dieselbe Aussage in anderer Wortstellung.
+const VISIBILITY_CANON = {
+  'Nordhimmel, zirkumpolar in Mitteleuropa': 'Nordhimmel, in Mitteleuropa zirkumpolar',
+};
+const visibility = value => VISIBILITY_CANON[value] ?? value;
+
+// Asteroiden: Das Attribut `type` mischt zwei Dimensionen — Spektralklasse
+// (S/C/M/E/G-Typ) und dynamische Gruppe (erdnah, Apollo, Trojaner, Zentaur).
+// Beide standen im selben Optionssatz, obwohl sie sich nicht ausschließen:
+// Eros ist S-Typ UND erdnah, Bennu Apollo UND C-Typ. Gefragt wird deshalb nur
+// noch nach der Spektralklasse; die fünf Klassen schließen einander aus.
+const ASTEROID_SPECTRAL = new Set(['S-Typ', 'C-Typ', 'M-Typ', 'E-Typ', 'G-Typ']);
+const isSpectralType = value => !String(value).includes('/')
+  && ASTEROID_SPECTRAL.has(headValue(value));
+
+// Missionsziele: Der Klammerzusatz nennt den Missionszweck, nicht das Ziel.
+// „Mond (Schwerefeld)" neben „Mond (Lander + Rover Yutu)" machte den Distraktor
+// auf die gestellte Frage („Welches Ziel?") ebenfalls richtig.
+const isSingleTarget = value => !/ und /.test(String(value));
+
+/**
+ * Verrät der Planetenname bereits den Wirtsstern? Verglichen wird der
+ * Sternname vor der Klammer: zuerst als Ganzes, dann über seine Zahlentokens,
+ * weil „Gliese 581 c" und „GJ 581" sich nur über die 581 gleichen.
+ */
+function hostNameLeaks(planetName, hostStar) {
+  const core = headValue(hostStar);
+  if (!core) return false;
+  const planet = String(planetName).toLowerCase();
+  if (planet.includes(core.toLowerCase())) return true;
+  const numbers = core.match(/\d+/g) || [];
+  return numbers.some(number => new RegExp(`(?:^|\\D)${number}(?:\\D|$)`).test(planet));
+}
+
+// Kometennamen tragen das Gattungswort bereits („Komet Hale-Bopp"), der
+// Fragetext stellte es ein zweites Mal davor.
+const cometName = concept => String(concept.name).replace(/^Komet\s+/i, '');
+
 function pickDistractors(correct, pool, numeric, seed = String(correct)) {
   // `seed` ist die Konzept-ID der Frage; warum das noetig ist, steht bei
   // pickBalanced in ./lib/quizrandom.js.
@@ -254,6 +319,11 @@ const templates = [
     category: 'constant', attr: '__name__', type: 'astra-constant-value', difficulty: 3,
     subject: c => `${c.attributes.value} ${c.attributes.unit}`, // Hinweis ist der Wert
     prompt: c => `Welche astronomische Größe hat ungefähr den Wert von ${c.attributes.value} ${c.attributes.unit}?`,
+    // „Mittlere Entfernung Erde-Sonne" IST die Astronomische Einheit. Beide
+    // Namen standen als getrennte Optionen zur Auswahl, obwohl sie dieselbe
+    // Größe benennen (CodeQA 2026-09-03). Der Eintrag bleibt als Karte im
+    // Bestand, stellt aber keine Frage mehr und taucht in keinem Optionssatz auf.
+    skip: c => c.id === 'earth_sun_distance',
     format: (_v, c) => c.name,
     nameAnswer: true
   },
@@ -305,7 +375,13 @@ const templates = [
   },
   // ---- Konstanten: Name -> Wert (Gegenrichtung zur bestehenden Frage) -
   {
+    // Nur Konstanten in Kilometern: Der Distraktorenpool sind die Werte der
+    // anderen Konstanten, und die tragen je eigene Einheiten. „299792458 m/s"
+    // neben „5.97217e24 kg" ist allein über die Einheit lösbar und verstößt
+    // gegen „Distraktoren aus derselben Dimension". Nur die km-Gruppe hat genug
+    // Träger für vier Optionen; Erde-Sonne fällt als Dublette der AE weg.
     category: 'constant', attr: 'value', type: 'astra-constant-name', difficulty: 2,
+    skip: c => c.attributes.unit !== 'km' || c.id === 'earth_sun_distance',
     prompt: c => `Welchen Wert hat ${c.name} ungefähr?`,
     format: (_v, c) => `${c.attributes.value} ${c.attributes.unit}`
   },
@@ -544,7 +620,13 @@ const templates = [
     category: 'asteroid', attr: 'diameterKm', type: 'astra-asteroid-diameter', difficulty: 3,
     numericByValue: true,
     prompt: c => `Welchen ungefähren Durchmesser hat der Asteroid ${c.name}?`,
-    format: v => v < 1 ? `${deNum(v * 1000)} m` : `${deNum(v)} km`
+    // Die Einheit richtet sich nach dem GEFRAGTEN Asteroiden, nicht nach der
+    // jeweiligen Option. Vorher formatierte derselbe wertabhängige Ausdruck
+    // jede Option einzeln, sodass in 32 von 279 Fragen Meter und Kilometer im
+    // selben Optionssatz standen — der Ausreißer war ohne Rechnen erkennbar.
+    format: (v, c) => (c.attributes.diameterKm < 1
+      ? `${deNum(v * 1000)} m`
+      : `${deNum(v)} km`)
   },
   {
     category: 'asteroid', attr: 'diameterKm', type: 'astra-asteroid-diameter-rev', difficulty: 4,
@@ -861,22 +943,22 @@ const templates = [
   // ---- Kometen ---------------------------------------------------------
   {
     category: 'comet', attr: 'discoveredYear', type: 'astra-comet-year', difficulty: 4,
-    prompt: c => `In welchem Jahr wurde der Komet ${c.name} entdeckt?`,
+    prompt: c => `In welchem Jahr wurde der Komet ${cometName(c)} entdeckt?`,
     format: v => `${v}`, numeric: true
   },
   {
     category: 'comet', attr: 'orbitalPeriodYears', type: 'astra-comet-period', difficulty: 4,
-    prompt: c => `Wie lange braucht der Komet ${c.name} für einen Umlauf um die Sonne?`,
+    prompt: c => `Wie lange braucht der Komet ${cometName(c)} für einen Umlauf um die Sonne?`,
     format: v => `${deNum(v)} Jahre`, numeric: true
   },
   {
     category: 'comet', attr: 'perihelionDistanceAU', type: 'astra-comet-perihelion', difficulty: 4,
-    prompt: c => `Wie nah kommt der Komet ${c.name} der Sonne in seinem sonnennächsten Punkt?`,
+    prompt: c => `Wie nah kommt der Komet ${cometName(c)} der Sonne in seinem sonnennächsten Punkt?`,
     format: v => `${deNum(v)} AE`, numeric: true
   },
   {
     category: 'comet', attr: 'nucleusSizeKm', type: 'astra-comet-nucleus', difficulty: 4,
-    prompt: c => `Welchen ungefähren Kerndurchmesser hat der Komet ${c.name}?`,
+    prompt: c => `Welchen ungefähren Kerndurchmesser hat der Komet ${cometName(c)}?`,
     format: v => `${deNum(v)} km`, numeric: true
   },
   {
@@ -893,11 +975,10 @@ const templates = [
     prompt: c => `In welchem Sternbild steht der Sternhaufen ${c.name}?`,
     format: v => v
   },
-  {
-    category: 'star_cluster', attr: 'type', type: 'astra-cluster-type', difficulty: 2,
-    prompt: c => `Welcher Art von Sternhaufen ist ${c.name}?`,
-    format: v => v
-  },
+  // astra-cluster-type gestrichen (CodeQA 2026-09-03): Der Bestand kennt nur
+  // „offener Sternhaufen" und „Kugelsternhaufen" (plus eine Schreibvariante),
+  // erreicht die Vier-Optionen-Schwelle also nie. Das Template erzeugte im
+  // gesamten Katalog null Fragen. Der Typ bleibt als Chip im Panel sichtbar.
   {
     category: 'star_cluster', attr: 'distanceLy', type: 'astra-cluster-distance', difficulty: 4,
     prompt: c => `Wie weit ist der Sternhaufen ${c.name} von der Erde entfernt?`,
@@ -925,12 +1006,18 @@ const templates = [
   {
     category: 'nebula', attr: 'type', type: 'astra-nebula-type', difficulty: 3,
     prompt: c => `Um welche Art von Nebel handelt es sich bei ${c.name}?`,
-    format: v => v
+    skip: c => !NEBULA_TYPES_ALLOWED.has(nebulaType(c.attributes.type)),
+    format: v => nebulaType(v)
   },
 
   // ---- Exoplaneten: Zentralstern --------------------------------------
   {
+    // Viele Exoplaneten heißen nach ihrem Wirtsstern („GJ 357 c" -> „GJ 357"),
+    // dann ist die Antwort aus dem Fragetext abzulesen. revealsAnswerStrict
+    // greift dort nicht, weil die gemeinsamen Bestandteile Ziffern oder
+    // Kürzel unter vier Zeichen sind (CodeQA 2026-09-03: 4 von 11 Fragen).
     category: 'exoplanet', attr: 'hostStar', type: 'astra-exoplanet-host', difficulty: 4,
+    skip: c => hostNameLeaks(c.name, c.attributes.hostStar),
     prompt: c => `Welchen Stern umkreist der Exoplanet ${c.name}?`,
     format: v => v
   },
@@ -939,7 +1026,7 @@ const templates = [
   {
     category: 'constellation', attr: 'visibility', type: 'astra-constellation-visibility', difficulty: 3,
     prompt: c => `An welchem Teil des Himmels ist das Sternbild ${c.name} zu sehen?`,
-    format: v => v
+    format: v => visibility(v)
   },
 
   // ---- Monde: Entdeckungsjahr -----------------------------------------
@@ -951,19 +1038,24 @@ const templates = [
 
   // ---- Exoplaneten, Asteroiden, Missionen: Typ und Ziel ----------------
   {
+    // Der Klammerzusatz („Heißer Jupiter (aufgeblähter Gasriese)") ist eine
+    // Einzelfallbeschreibung, kein Planetentyp. Drei Optionen konnten so
+    // denselben Typ nennen (10 von 62 Fragen).
     category: 'exoplanet', attr: 'type', type: 'astra-exoplanet-type', difficulty: 3,
     prompt: c => `Zu welchem Planetentyp zählt der Exoplanet ${c.name}?`,
-    format: v => v
+    format: v => headValue(v)
   },
   {
-    category: 'asteroid', attr: 'type', type: 'astra-asteroid-type', difficulty: 4,
-    prompt: c => `Zu welcher Gruppe von Kleinkörpern zählt ${c.name}?`,
-    format: v => v
+    category: 'asteroid', attr: 'type', type: 'astra-asteroid-spectral', difficulty: 4,
+    prompt: c => `Welcher Spektralklasse gehört der Asteroid ${c.name} an?`,
+    skip: c => !isSpectralType(c.attributes.type),
+    format: v => headValue(v)
   },
   {
     category: 'mission', attr: 'target', type: 'astra-mission-target', difficulty: 3,
     prompt: c => `Welches Ziel hatte die Mission ${c.name}?`,
-    format: v => v
+    skip: c => !isSingleTarget(c.attributes.target),
+    format: v => headValue(v)
   },
 
   // ---- Sterne und Galaxien: markante Eigenschaft (nur Gegenrichtung) ----

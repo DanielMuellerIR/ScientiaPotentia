@@ -99,6 +99,25 @@ const ACCEPTED_DOMINANCE = {
     reason: 'Kleine Kategorie mit zehn Fragen, in der Vulkane überwiegen. Abbau über '
       + 'weitere Geologieobjekte anderer Typen.',
   },
+  // Erst seit der Kanonform 2026-09-03 sichtbar: Vorher standen „Emissionsnebel",
+  // „H-II-Gebiet" und „Emissionsnebel (H-II-Gebiet)" als drei getrennte Werte im
+  // Bestand und teilten den Anteil unter sich auf — obwohl sie denselben
+  // Nebeltyp benennen und in 46 von 96 Fragen gemeinsam zur Auswahl standen.
+  'astra-nebula-type': {
+    maxShare: 65,
+    reason: 'Emissionsnebel samt H-II-Gebieten stellen die Mehrheit der katalogisierten '
+      + 'hellen Nebel. Abbau über mehr planetarische Nebel, Reflexions- und Dunkelnebel.',
+  },
+  'astra-mission-target': {
+    maxShare: 65,
+    reason: 'Der Mond ist das mit Abstand meistbesuchte Ziel der erfassten Missionen. '
+      + 'Abbau über mehr Missionen zu Planeten, Kleinkörpern und Sonnenbeobachtung.',
+  },
+  'astra-asteroid-spectral': {
+    maxShare: 57,
+    reason: 'S-Typ-Asteroiden stellen die Mehrheit der erfassten Hauptgürtelobjekte. '
+      + 'Abbau über mehr C-, M-, E- und G-Typen im Bestand.',
+  },
   'natura-fungus-essbarkeit': {
     maxShare: 63,
     reason: 'Der Pilzbestand ist auf bekannte Speisepilze ausgerichtet. Abbau über '

@@ -14,6 +14,17 @@ Dieses Changelog beginnt mit dem für eine öffentliche Veröffentlichung berein
 - Der Bildnachweis-Audit und das Fragen-Audit laufen jetzt in `npm run build` mit und brechen
   die Veröffentlichung ab. Ein leerer Fragen- oder Bildkatalog gilt nicht mehr als bestanden.
 - Die Struktur- und Provenance-Prüfung deckt jetzt auch Terra ab; zuvor brach sie dort ab.
+- In Astra boten mehrere Fragetypen zwei Optionen an, die dasselbe bedeuten — damit war auch
+  der vermeintlich falsche Distraktor richtig: „H-II-Gebiet" neben „Emissionsnebel" (46 von 96
+  Nebelfragen), drei Schreibweisen von „Heißer Jupiter" (10 von 62), „Mond (Schwerefeld)" neben
+  „Mond (Lander + Rover Yutu)" und „Astronomische Einheit" neben „Mittlere Entfernung
+  Erde-Sonne". Alle betroffenen Angaben haben jetzt eine Kanonform.
+- Die Frage nach der Asteroidengruppe mischte Spektralklasse und Bahngruppe, die sich nicht
+  ausschließen: Eros ist S-Typ und erdnah zugleich. Gefragt wird jetzt nur nach der
+  Spektralklasse.
+- 32 Asteroidenfragen boten Meter und Kilometer im selben Optionssatz an, 66 Kometenfragen
+  begannen mit „der Komet Komet …", und in vier Exoplanetenfragen stand der gesuchte Wirtsstern
+  bereits im Planetennamen. Alles behoben.
 
 ## [2.0.1] — 2026-09-02
 

@@ -22068,7 +22068,7 @@
     "correctAnswer": "Lichtgeschwindigkeit",
     "options": [
       "Lichtgeschwindigkeit",
-      "Durchmesser der Sonne",
+      "Hubble-Konstante (H0)",
       "Alter des Universums",
       "Oberflächentemperatur der Sonne"
     ],
@@ -22088,7 +22088,7 @@
     "options": [
       "Astronomische Einheit (AE)",
       "Gravitationskonstante (G)",
-      "Mittlere Entfernung Erde-Sonne",
+      "Oberflächentemperatur der Sonne",
       "Mittlere Mondentfernung"
     ],
     "testedAttribute": null,
@@ -22107,7 +22107,7 @@
     "options": [
       "Lichtjahr",
       "Parsec",
-      "Mittlere Entfernung Erde-Sonne",
+      "Astronomische Einheit (AE)",
       "Solarkonstante"
     ],
     "testedAttribute": null,
@@ -22182,7 +22182,7 @@
     "correctAnswer": "Alter der Sonne",
     "options": [
       "Alter der Sonne",
-      "Hubble-Konstante (H0)",
+      "Durchmesser der Sonne",
       "Alter der Erde",
       "Lichtgeschwindigkeit"
     ],
@@ -22203,7 +22203,7 @@
       "Durchmesser der Sonne",
       "Hubble-Konstante (H0)",
       "Sonnenmasse (M_Sonne)",
-      "Lichtgeschwindigkeit"
+      "Alter des Universums"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -22220,28 +22220,9 @@
     "correctAnswer": "Oberflächentemperatur der Sonne",
     "options": [
       "Oberflächentemperatur der Sonne",
-      "Alter der Erde",
       "Lichtjahr",
-      "Mittlere Entfernung Erde-Sonne"
-    ],
-    "testedAttribute": null,
-    "answerIsName": true,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_earth_sun_distance_astra-constant-value",
-    "entityId": "astra:earth_sun_distance",
-    "entityType": "constant",
-    "type": "astra-constant-value",
-    "difficulty": 3,
-    "prompt": "Welche astronomische Größe hat ungefähr den Wert von 149600000 km?",
-    "correctAnswer": "Mittlere Entfernung Erde-Sonne",
-    "options": [
-      "Mittlere Entfernung Erde-Sonne",
-      "Oberflächentemperatur der Sonne",
-      "Astronomische Einheit (AE)",
-      "Gravitationskonstante (G)"
+      "Solarkonstante",
+      "Astronomische Einheit (AE)"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -22278,7 +22259,7 @@
     "options": [
       "Sonnenmasse (M_Sonne)",
       "Hubble-Konstante (H0)",
-      "Erdmasse (M_Erde)",
+      "Gravitationskonstante (G)",
       "Durchmesser der Sonne"
     ],
     "testedAttribute": null,
@@ -22296,9 +22277,9 @@
     "correctAnswer": "Erdmasse (M_Erde)",
     "options": [
       "Erdmasse (M_Erde)",
-      "Lichtjahr",
-      "Durchmesser der Sonne",
-      "Mittlere Mondentfernung"
+      "Alter der Sonne",
+      "Alter des Universums",
+      "Sonnenmasse (M_Sonne)"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -22316,8 +22297,8 @@
     "options": [
       "Mondmasse (M_Mond)",
       "Erdmasse (M_Erde)",
-      "Alter des Universums",
-      "Lichtgeschwindigkeit"
+      "Lichtgeschwindigkeit",
+      "Alter des Universums"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -29906,25 +29887,6 @@
     "mapTargetId": null
   },
   {
-    "id": "q_astra_speed_of_light_astra-constant-name",
-    "entityId": "astra:speed_of_light",
-    "entityType": "constant",
-    "type": "astra-constant-name",
-    "difficulty": 2,
-    "prompt": "Welchen Wert hat Lichtgeschwindigkeit ungefähr?",
-    "correctAnswer": "299792458 m/s",
-    "options": [
-      "299792458 m/s",
-      "1.98847e30 kg",
-      "67.4 km/s/Mpc",
-      "4.54 Milliarden Jahre"
-    ],
-    "testedAttribute": "value",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
     "id": "q_astra_astronomical_unit_astra-constant-name",
     "entityId": "astra:astronomical_unit",
     "entityType": "constant",
@@ -29934,9 +29896,9 @@
     "correctAnswer": "149597870.7 km",
     "options": [
       "149597870.7 km",
-      "67.4 km/s/Mpc",
-      "6.67430e-11 m^3 kg^-1 s^-2",
-      "1.98847e30 kg"
+      "3.0857e13 km",
+      "9460730472580.8 km",
+      "1392700 km"
     ],
     "testedAttribute": "value",
     "answerIsName": false,
@@ -29953,9 +29915,9 @@
     "correctAnswer": "9460730472580.8 km",
     "options": [
       "9460730472580.8 km",
-      "4.6 Milliarden Jahre",
+      "149597870.7 km",
       "384399 km",
-      "13.8 Milliarden Jahre"
+      "3.0857e13 km"
     ],
     "testedAttribute": "value",
     "answerIsName": false,
@@ -29972,66 +29934,9 @@
     "correctAnswer": "3.0857e13 km",
     "options": [
       "3.0857e13 km",
-      "299792458 m/s",
-      "149600000 km",
-      "67.4 km/s/Mpc"
-    ],
-    "testedAttribute": "value",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_age_of_universe_astra-constant-name",
-    "entityId": "astra:age_of_universe",
-    "entityType": "constant",
-    "type": "astra-constant-name",
-    "difficulty": 2,
-    "prompt": "Welchen Wert hat Alter des Universums ungefähr?",
-    "correctAnswer": "13.8 Milliarden Jahre",
-    "options": [
-      "13.8 Milliarden Jahre",
-      "4.54 Milliarden Jahre",
-      "9460730472580.8 km",
-      "4.6 Milliarden Jahre"
-    ],
-    "testedAttribute": "value",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_age_of_earth_astra-constant-name",
-    "entityId": "astra:age_of_earth",
-    "entityType": "constant",
-    "type": "astra-constant-name",
-    "difficulty": 2,
-    "prompt": "Welchen Wert hat Alter der Erde ungefähr?",
-    "correctAnswer": "4.54 Milliarden Jahre",
-    "options": [
-      "4.54 Milliarden Jahre",
-      "13.8 Milliarden Jahre",
-      "4.6 Milliarden Jahre",
-      "9460730472580.8 km"
-    ],
-    "testedAttribute": "value",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_age_of_sun_astra-constant-name",
-    "entityId": "astra:age_of_sun",
-    "entityType": "constant",
-    "type": "astra-constant-name",
-    "difficulty": 2,
-    "prompt": "Welchen Wert hat Alter der Sonne ungefähr?",
-    "correctAnswer": "4.6 Milliarden Jahre",
-    "options": [
-      "4.6 Milliarden Jahre",
-      "149600000 km",
-      "4.54 Milliarden Jahre",
-      "149597870.7 km"
+      "149597870.7 km",
+      "1392700 km",
+      "384399 km"
     ],
     "testedAttribute": "value",
     "answerIsName": false,
@@ -30048,123 +29953,9 @@
     "correctAnswer": "1392700 km",
     "options": [
       "1392700 km",
-      "1361 W/m^2",
       "384399 km",
-      "7.346e22 kg"
-    ],
-    "testedAttribute": "value",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_sun_surface_temperature_astra-constant-name",
-    "entityId": "astra:sun_surface_temperature",
-    "entityType": "constant",
-    "type": "astra-constant-name",
-    "difficulty": 2,
-    "prompt": "Welchen Wert hat Oberflächentemperatur der Sonne ungefähr?",
-    "correctAnswer": "5772 K",
-    "options": [
-      "5772 K",
-      "13.8 Milliarden Jahre",
-      "4.54 Milliarden Jahre",
-      "384399 km"
-    ],
-    "testedAttribute": "value",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_earth_sun_distance_astra-constant-name",
-    "entityId": "astra:earth_sun_distance",
-    "entityType": "constant",
-    "type": "astra-constant-name",
-    "difficulty": 2,
-    "prompt": "Welchen Wert hat Mittlere Entfernung Erde-Sonne ungefähr?",
-    "correctAnswer": "149600000 km",
-    "options": [
-      "149600000 km",
       "3.0857e13 km",
-      "299792458 m/s",
-      "1.98847e30 kg"
-    ],
-    "testedAttribute": "value",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_gravitationskonstante_astra-constant-name",
-    "entityId": "astra:gravitationskonstante",
-    "entityType": "constant",
-    "type": "astra-constant-name",
-    "difficulty": 2,
-    "prompt": "Welchen Wert hat Gravitationskonstante (G) ungefähr?",
-    "correctAnswer": "6.67430e-11 m^3 kg^-1 s^-2",
-    "options": [
-      "6.67430e-11 m^3 kg^-1 s^-2",
-      "13.8 Milliarden Jahre",
-      "4.54 Milliarden Jahre",
-      "4.6 Milliarden Jahre"
-    ],
-    "testedAttribute": "value",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_sonnenmasse_astra-constant-name",
-    "entityId": "astra:sonnenmasse",
-    "entityType": "constant",
-    "type": "astra-constant-name",
-    "difficulty": 2,
-    "prompt": "Welchen Wert hat Sonnenmasse (M_Sonne) ungefähr?",
-    "correctAnswer": "1.98847e30 kg",
-    "options": [
-      "1.98847e30 kg",
-      "67.4 km/s/Mpc",
-      "1361 W/m^2",
-      "299792458 m/s"
-    ],
-    "testedAttribute": "value",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_erdmasse_astra-constant-name",
-    "entityId": "astra:erdmasse",
-    "entityType": "constant",
-    "type": "astra-constant-name",
-    "difficulty": 2,
-    "prompt": "Welchen Wert hat Erdmasse (M_Erde) ungefähr?",
-    "correctAnswer": "5.97217e24 kg",
-    "options": [
-      "5.97217e24 kg",
-      "4.6 Milliarden Jahre",
-      "7.346e22 kg",
-      "384399 km"
-    ],
-    "testedAttribute": "value",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_mondmasse_astra-constant-name",
-    "entityId": "astra:mondmasse",
-    "entityType": "constant",
-    "type": "astra-constant-name",
-    "difficulty": 2,
-    "prompt": "Welchen Wert hat Mondmasse (M_Mond) ungefähr?",
-    "correctAnswer": "7.346e22 kg",
-    "options": [
-      "7.346e22 kg",
-      "1361 W/m^2",
-      "3.0857e13 km",
-      "1392700 km"
+      "149597870.7 km"
     ],
     "testedAttribute": "value",
     "answerIsName": false,
@@ -30181,47 +29972,9 @@
     "correctAnswer": "384399 km",
     "options": [
       "384399 km",
-      "1361 W/m^2",
       "1392700 km",
-      "5772 K"
-    ],
-    "testedAttribute": "value",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_solarkonstante_astra-constant-name",
-    "entityId": "astra:solarkonstante",
-    "entityType": "constant",
-    "type": "astra-constant-name",
-    "difficulty": 2,
-    "prompt": "Welchen Wert hat Solarkonstante ungefähr?",
-    "correctAnswer": "1361 W/m^2",
-    "options": [
-      "1361 W/m^2",
-      "1392700 km",
-      "384399 km",
-      "299792458 m/s"
-    ],
-    "testedAttribute": "value",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_hubble-konstante_astra-constant-name",
-    "entityId": "astra:hubble-konstante",
-    "entityType": "constant",
-    "type": "astra-constant-name",
-    "difficulty": 2,
-    "prompt": "Welchen Wert hat Hubble-Konstante (H0) ungefähr?",
-    "correctAnswer": "67.4 km/s/Mpc",
-    "options": [
-      "67.4 km/s/Mpc",
-      "4.54 Milliarden Jahre",
-      "5.97217e24 kg",
-      "299792458 m/s"
+      "3.0857e13 km",
+      "149597870.7 km"
     ],
     "testedAttribute": "value",
     "answerIsName": false,
@@ -52925,7 +52678,7 @@
     "options": [
       "492 m",
       "170 m",
-      "5 km",
+      "5.000 m",
       "330 m"
     ],
     "testedAttribute": "diameterKm",
@@ -52944,7 +52697,7 @@
     "options": [
       "900 m",
       "170 m",
-      "8 km",
+      "8.000 m",
       "492 m"
     ],
     "testedAttribute": "diameterKm",
@@ -52963,7 +52716,7 @@
     "options": [
       "350 m",
       "170 m",
-      "3,9 km",
+      "3.900 m",
       "720 m"
     ],
     "testedAttribute": "diameterKm",
@@ -57124,7 +56877,7 @@
     "options": [
       "330 m",
       "170 m",
-      "3,9 km",
+      "3.900 m",
       "350 m"
     ],
     "testedAttribute": "diameterKm",
@@ -57142,7 +56895,7 @@
     "correctAnswer": "1,4 km",
     "options": [
       "1,4 km",
-      "170 m",
+      "0,17 km",
       "12,2 km",
       "2,5 km"
     ],
@@ -57161,7 +56914,7 @@
     "correctAnswer": "2,5 km",
     "options": [
       "2,5 km",
-      "330 m",
+      "0,33 km",
       "21 km",
       "5,2 km"
     ],
@@ -57180,7 +56933,7 @@
     "correctAnswer": "2,4 km",
     "options": [
       "2,4 km",
-      "330 m",
+      "0,33 km",
       "21 km",
       "4,5 km"
     ],
@@ -57200,7 +56953,7 @@
     "options": [
       "780 m",
       "170 m",
-      "8 km",
+      "8.000 m",
       "400 m"
     ],
     "testedAttribute": "diameterKm",
@@ -57238,7 +56991,7 @@
     "options": [
       "170 m",
       "330 m",
-      "1,5 km",
+      "1.500 m",
       "350 m"
     ],
     "testedAttribute": "diameterKm",
@@ -57275,7 +57028,7 @@
     "correctAnswer": "5,2 km",
     "options": [
       "5,2 km",
-      "530 m",
+      "0,53 km",
       "52,8 km",
       "12,2 km"
     ],
@@ -57295,7 +57048,7 @@
     "options": [
       "720 m",
       "170 m",
-      "7 km",
+      "7.000 m",
       "330 m"
     ],
     "testedAttribute": "diameterKm",
@@ -57313,7 +57066,7 @@
     "correctAnswer": "4,5 km",
     "options": [
       "4,5 km",
-      "492 m",
+      "0,492 km",
       "51 km",
       "8 km"
     ],
@@ -57332,7 +57085,7 @@
     "correctAnswer": "3,9 km",
     "options": [
       "3,9 km",
-      "400 m",
+      "0,4 km",
       "38 km",
       "2,3 km"
     ],
@@ -57351,7 +57104,7 @@
     "correctAnswer": "5,1 km",
     "options": [
       "5,1 km",
-      "492 m",
+      "0,492 km",
       "51 km",
       "12,2 km"
     ],
@@ -57370,9 +57123,9 @@
     "correctAnswer": "1,5 km",
     "options": [
       "1,5 km",
-      "170 m",
+      "0,17 km",
       "16,8 km",
-      "720 m"
+      "0,72 km"
     ],
     "testedAttribute": "diameterKm",
     "answerIsName": false,
@@ -57408,7 +57161,7 @@
     "correctAnswer": "1 km",
     "options": [
       "1 km",
-      "170 m",
+      "0,17 km",
       "12,2 km",
       "2,1 km"
     ],
@@ -57427,7 +57180,7 @@
     "correctAnswer": "4 km",
     "options": [
       "4 km",
-      "400 m",
+      "0,4 km",
       "38 km",
       "2,3 km"
     ],
@@ -57446,7 +57199,7 @@
     "correctAnswer": "7 km",
     "options": [
       "7 km",
-      "720 m",
+      "0,72 km",
       "71 km",
       "4 km"
     ],
@@ -57465,7 +57218,7 @@
     "correctAnswer": "2 km",
     "options": [
       "2 km",
-      "170 m",
+      "0,17 km",
       "21 km",
       "4,5 km"
     ],
@@ -57940,7 +57693,7 @@
     "correctAnswer": "4 km",
     "options": [
       "4 km",
-      "400 m",
+      "0,4 km",
       "38 km",
       "2,3 km"
     ],
@@ -57960,8 +57713,8 @@
     "options": [
       "800 m",
       "170 m",
-      "8 km",
-      "1,4 km"
+      "8.000 m",
+      "1.400 m"
     ],
     "testedAttribute": "diameterKm",
     "answerIsName": false,
@@ -57978,7 +57731,7 @@
     "correctAnswer": "1,4 km",
     "options": [
       "1,4 km",
-      "170 m",
+      "0,17 km",
       "12,2 km",
       "2,5 km"
     ],
@@ -57997,7 +57750,7 @@
     "correctAnswer": "5 km",
     "options": [
       "5 km",
-      "492 m",
+      "0,492 km",
       "51 km",
       "2,5 km"
     ],
@@ -58017,7 +57770,7 @@
     "options": [
       "330 m",
       "170 m",
-      "3,9 km",
+      "3.900 m",
       "720 m"
     ],
     "testedAttribute": "diameterKm",
@@ -58035,7 +57788,7 @@
     "correctAnswer": "2,3 km",
     "options": [
       "2,3 km",
-      "170 m",
+      "0,17 km",
       "21 km",
       "4,8 km"
     ],
@@ -58054,9 +57807,9 @@
     "correctAnswer": "1,1 km",
     "options": [
       "1,1 km",
-      "170 m",
+      "0,17 km",
       "12,2 km",
-      "530 m"
+      "0,53 km"
     ],
     "testedAttribute": "diameterKm",
     "answerIsName": false,
@@ -58074,7 +57827,7 @@
     "options": [
       "530 m",
       "170 m",
-      "5,2 km",
+      "5.200 m",
       "330 m"
     ],
     "testedAttribute": "diameterKm",
@@ -58092,7 +57845,7 @@
     "correctAnswer": "8 km",
     "options": [
       "8 km",
-      "800 m",
+      "0,8 km",
       "75 km",
       "4,5 km"
     ],
@@ -58111,7 +57864,7 @@
     "correctAnswer": "4,6 km",
     "options": [
       "4,6 km",
-      "492 m",
+      "0,492 km",
       "51 km",
       "2,4 km"
     ],
@@ -58131,7 +57884,7 @@
     "options": [
       "400 m",
       "170 m",
-      "4 km",
+      "4.000 m",
       "900 m"
     ],
     "testedAttribute": "diameterKm",
@@ -58149,7 +57902,7 @@
     "correctAnswer": "2,1 km",
     "options": [
       "2,1 km",
-      "170 m",
+      "0,17 km",
       "21 km",
       "1,1 km"
     ],
@@ -58168,7 +57921,7 @@
     "correctAnswer": "4,8 km",
     "options": [
       "4,8 km",
-      "492 m",
+      "0,492 km",
       "51 km",
       "2,5 km"
     ],
@@ -96031,7 +95784,7 @@
     "entityType": "comet",
     "type": "astra-comet-year",
     "difficulty": 4,
-    "prompt": "In welchem Jahr wurde der Komet Komet Hale-Bopp entdeckt?",
+    "prompt": "In welchem Jahr wurde der Komet Hale-Bopp entdeckt?",
     "correctAnswer": "1995",
     "options": [
       "1995",
@@ -96050,7 +95803,7 @@
     "entityType": "comet",
     "type": "astra-comet-year",
     "difficulty": 4,
-    "prompt": "In welchem Jahr wurde der Komet Komet Tschurjumow-Gerassimenko entdeckt?",
+    "prompt": "In welchem Jahr wurde der Komet Tschurjumow-Gerassimenko entdeckt?",
     "correctAnswer": "1969",
     "options": [
       "1969",
@@ -96069,7 +95822,7 @@
     "entityType": "comet",
     "type": "astra-comet-year",
     "difficulty": 4,
-    "prompt": "In welchem Jahr wurde der Komet Komet NEOWISE entdeckt?",
+    "prompt": "In welchem Jahr wurde der Komet NEOWISE entdeckt?",
     "correctAnswer": "2020",
     "options": [
       "2020",
@@ -96088,7 +95841,7 @@
     "entityType": "comet",
     "type": "astra-comet-year",
     "difficulty": 4,
-    "prompt": "In welchem Jahr wurde der Komet Komet Shoemaker-Levy 9 entdeckt?",
+    "prompt": "In welchem Jahr wurde der Komet Shoemaker-Levy 9 entdeckt?",
     "correctAnswer": "1993",
     "options": [
       "1993",
@@ -96107,7 +95860,7 @@
     "entityType": "comet",
     "type": "astra-comet-year",
     "difficulty": 4,
-    "prompt": "In welchem Jahr wurde der Komet Komet Encke entdeckt?",
+    "prompt": "In welchem Jahr wurde der Komet Encke entdeckt?",
     "correctAnswer": "1786",
     "options": [
       "1786",
@@ -96126,7 +95879,7 @@
     "entityType": "comet",
     "type": "astra-comet-year",
     "difficulty": 4,
-    "prompt": "In welchem Jahr wurde der Komet Komet Tempel-Tuttle entdeckt?",
+    "prompt": "In welchem Jahr wurde der Komet Tempel-Tuttle entdeckt?",
     "correctAnswer": "1865",
     "options": [
       "1865",
@@ -96145,7 +95898,7 @@
     "entityType": "comet",
     "type": "astra-comet-year",
     "difficulty": 4,
-    "prompt": "In welchem Jahr wurde der Komet Komet Hyakutake entdeckt?",
+    "prompt": "In welchem Jahr wurde der Komet Hyakutake entdeckt?",
     "correctAnswer": "1996",
     "options": [
       "1996",
@@ -96164,7 +95917,7 @@
     "entityType": "comet",
     "type": "astra-comet-year",
     "difficulty": 4,
-    "prompt": "In welchem Jahr wurde der Komet Komet McNaught entdeckt?",
+    "prompt": "In welchem Jahr wurde der Komet McNaught entdeckt?",
     "correctAnswer": "2006",
     "options": [
       "2006",
@@ -96183,7 +95936,7 @@
     "entityType": "comet",
     "type": "astra-comet-year",
     "difficulty": 4,
-    "prompt": "In welchem Jahr wurde der Komet Komet West entdeckt?",
+    "prompt": "In welchem Jahr wurde der Komet West entdeckt?",
     "correctAnswer": "1975",
     "options": [
       "1975",
@@ -96202,7 +95955,7 @@
     "entityType": "comet",
     "type": "astra-comet-year",
     "difficulty": 4,
-    "prompt": "In welchem Jahr wurde der Komet Komet Donati entdeckt?",
+    "prompt": "In welchem Jahr wurde der Komet Donati entdeckt?",
     "correctAnswer": "1858",
     "options": [
       "1858",
@@ -96221,7 +95974,7 @@
     "entityType": "comet",
     "type": "astra-comet-year",
     "difficulty": 4,
-    "prompt": "In welchem Jahr wurde der Komet Komet Ikeya-Seki entdeckt?",
+    "prompt": "In welchem Jahr wurde der Komet Ikeya-Seki entdeckt?",
     "correctAnswer": "1965",
     "options": [
       "1965",
@@ -96240,7 +95993,7 @@
     "entityType": "comet",
     "type": "astra-comet-year",
     "difficulty": 4,
-    "prompt": "In welchem Jahr wurde der Komet Komet Kohoutek entdeckt?",
+    "prompt": "In welchem Jahr wurde der Komet Kohoutek entdeckt?",
     "correctAnswer": "1973",
     "options": [
       "1973",
@@ -96259,7 +96012,7 @@
     "entityType": "comet",
     "type": "astra-comet-year",
     "difficulty": 4,
-    "prompt": "In welchem Jahr wurde der Komet Komet Holmes (17P) entdeckt?",
+    "prompt": "In welchem Jahr wurde der Komet Holmes (17P) entdeckt?",
     "correctAnswer": "1892",
     "options": [
       "1892",
@@ -96278,7 +96031,7 @@
     "entityType": "comet",
     "type": "astra-comet-year",
     "difficulty": 4,
-    "prompt": "In welchem Jahr wurde der Komet Komet Bennett entdeckt?",
+    "prompt": "In welchem Jahr wurde der Komet Bennett entdeckt?",
     "correctAnswer": "1969",
     "options": [
       "1969",
@@ -96297,7 +96050,7 @@
     "entityType": "comet",
     "type": "astra-comet-year",
     "difficulty": 4,
-    "prompt": "In welchem Jahr wurde der Komet Komet ISON entdeckt?",
+    "prompt": "In welchem Jahr wurde der Komet ISON entdeckt?",
     "correctAnswer": "2012",
     "options": [
       "2012",
@@ -96316,7 +96069,7 @@
     "entityType": "comet",
     "type": "astra-comet-year",
     "difficulty": 4,
-    "prompt": "In welchem Jahr wurde der Komet Komet Tsuchinshan-ATLAS entdeckt?",
+    "prompt": "In welchem Jahr wurde der Komet Tsuchinshan-ATLAS entdeckt?",
     "correctAnswer": "2023",
     "options": [
       "2023",
@@ -96335,7 +96088,7 @@
     "entityType": "comet",
     "type": "astra-comet-year",
     "difficulty": 4,
-    "prompt": "In welchem Jahr wurde der Komet Komet Pons-Brooks (12P) entdeckt?",
+    "prompt": "In welchem Jahr wurde der Komet Pons-Brooks (12P) entdeckt?",
     "correctAnswer": "1812",
     "options": [
       "1812",
@@ -96354,7 +96107,7 @@
     "entityType": "comet",
     "type": "astra-comet-year",
     "difficulty": 4,
-    "prompt": "In welchem Jahr wurde der Komet Komet Swift-Tuttle (109P) entdeckt?",
+    "prompt": "In welchem Jahr wurde der Komet Swift-Tuttle (109P) entdeckt?",
     "correctAnswer": "1862",
     "options": [
       "1862",
@@ -96373,7 +96126,7 @@
     "entityType": "comet",
     "type": "astra-comet-year",
     "difficulty": 4,
-    "prompt": "In welchem Jahr wurde der Komet Komet Wild 2 (81P) entdeckt?",
+    "prompt": "In welchem Jahr wurde der Komet Wild 2 (81P) entdeckt?",
     "correctAnswer": "1978",
     "options": [
       "1978",
@@ -96392,7 +96145,7 @@
     "entityType": "comet",
     "type": "astra-comet-year",
     "difficulty": 4,
-    "prompt": "In welchem Jahr wurde der Komet Komet Tempel 1 (9P) entdeckt?",
+    "prompt": "In welchem Jahr wurde der Komet Tempel 1 (9P) entdeckt?",
     "correctAnswer": "1867",
     "options": [
       "1867",
@@ -96411,7 +96164,7 @@
     "entityType": "comet",
     "type": "astra-comet-year",
     "difficulty": 4,
-    "prompt": "In welchem Jahr wurde der Komet Komet Hartley 2 (103P) entdeckt?",
+    "prompt": "In welchem Jahr wurde der Komet Hartley 2 (103P) entdeckt?",
     "correctAnswer": "1986",
     "options": [
       "1986",
@@ -96430,7 +96183,7 @@
     "entityType": "comet",
     "type": "astra-comet-year",
     "difficulty": 4,
-    "prompt": "In welchem Jahr wurde der Komet Komet Borrelly (19P) entdeckt?",
+    "prompt": "In welchem Jahr wurde der Komet Borrelly (19P) entdeckt?",
     "correctAnswer": "1904",
     "options": [
       "1904",
@@ -96449,7 +96202,7 @@
     "entityType": "comet",
     "type": "astra-comet-year",
     "difficulty": 4,
-    "prompt": "In welchem Jahr wurde der Komet Komet 2I/Borisov entdeckt?",
+    "prompt": "In welchem Jahr wurde der Komet 2I/Borisov entdeckt?",
     "correctAnswer": "2019",
     "options": [
       "2019",
@@ -96487,7 +96240,7 @@
     "entityType": "comet",
     "type": "astra-comet-period",
     "difficulty": 4,
-    "prompt": "Wie lange braucht der Komet Komet Hale-Bopp für einen Umlauf um die Sonne?",
+    "prompt": "Wie lange braucht der Komet Hale-Bopp für einen Umlauf um die Sonne?",
     "correctAnswer": "2.520 Jahre",
     "options": [
       "2.520 Jahre",
@@ -96506,7 +96259,7 @@
     "entityType": "comet",
     "type": "astra-comet-period",
     "difficulty": 4,
-    "prompt": "Wie lange braucht der Komet Komet Tschurjumow-Gerassimenko für einen Umlauf um die Sonne?",
+    "prompt": "Wie lange braucht der Komet Tschurjumow-Gerassimenko für einen Umlauf um die Sonne?",
     "correctAnswer": "6,44 Jahre",
     "options": [
       "6,44 Jahre",
@@ -96525,7 +96278,7 @@
     "entityType": "comet",
     "type": "astra-comet-period",
     "difficulty": 4,
-    "prompt": "Wie lange braucht der Komet Komet Encke für einen Umlauf um die Sonne?",
+    "prompt": "Wie lange braucht der Komet Encke für einen Umlauf um die Sonne?",
     "correctAnswer": "3,3 Jahre",
     "options": [
       "3,3 Jahre",
@@ -96544,7 +96297,7 @@
     "entityType": "comet",
     "type": "astra-comet-period",
     "difficulty": 4,
-    "prompt": "Wie lange braucht der Komet Komet Tempel-Tuttle für einen Umlauf um die Sonne?",
+    "prompt": "Wie lange braucht der Komet Tempel-Tuttle für einen Umlauf um die Sonne?",
     "correctAnswer": "33,2 Jahre",
     "options": [
       "33,2 Jahre",
@@ -96563,7 +96316,7 @@
     "entityType": "comet",
     "type": "astra-comet-period",
     "difficulty": 4,
-    "prompt": "Wie lange braucht der Komet Komet Hyakutake für einen Umlauf um die Sonne?",
+    "prompt": "Wie lange braucht der Komet Hyakutake für einen Umlauf um die Sonne?",
     "correctAnswer": "98.000 Jahre",
     "options": [
       "98.000 Jahre",
@@ -96582,7 +96335,7 @@
     "entityType": "comet",
     "type": "astra-comet-period",
     "difficulty": 4,
-    "prompt": "Wie lange braucht der Komet Komet Lovejoy (C/2011 W3) für einen Umlauf um die Sonne?",
+    "prompt": "Wie lange braucht der Komet Lovejoy (C/2011 W3) für einen Umlauf um die Sonne?",
     "correctAnswer": "698 Jahre",
     "options": [
       "698 Jahre",
@@ -96601,7 +96354,7 @@
     "entityType": "comet",
     "type": "astra-comet-period",
     "difficulty": 4,
-    "prompt": "Wie lange braucht der Komet Komet Donati für einen Umlauf um die Sonne?",
+    "prompt": "Wie lange braucht der Komet Donati für einen Umlauf um die Sonne?",
     "correctAnswer": "1.927 Jahre",
     "options": [
       "1.927 Jahre",
@@ -96620,7 +96373,7 @@
     "entityType": "comet",
     "type": "astra-comet-period",
     "difficulty": 4,
-    "prompt": "Wie lange braucht der Komet Komet Holmes (17P) für einen Umlauf um die Sonne?",
+    "prompt": "Wie lange braucht der Komet Holmes (17P) für einen Umlauf um die Sonne?",
     "correctAnswer": "6,88 Jahre",
     "options": [
       "6,88 Jahre",
@@ -96639,7 +96392,7 @@
     "entityType": "comet",
     "type": "astra-comet-period",
     "difficulty": 4,
-    "prompt": "Wie lange braucht der Komet Komet Bennett für einen Umlauf um die Sonne?",
+    "prompt": "Wie lange braucht der Komet Bennett für einen Umlauf um die Sonne?",
     "correctAnswer": "1.747 Jahre",
     "options": [
       "1.747 Jahre",
@@ -96658,7 +96411,7 @@
     "entityType": "comet",
     "type": "astra-comet-period",
     "difficulty": 4,
-    "prompt": "Wie lange braucht der Komet Komet Pons-Brooks (12P) für einen Umlauf um die Sonne?",
+    "prompt": "Wie lange braucht der Komet Pons-Brooks (12P) für einen Umlauf um die Sonne?",
     "correctAnswer": "71 Jahre",
     "options": [
       "71 Jahre",
@@ -96677,7 +96430,7 @@
     "entityType": "comet",
     "type": "astra-comet-period",
     "difficulty": 4,
-    "prompt": "Wie lange braucht der Komet Komet Swift-Tuttle (109P) für einen Umlauf um die Sonne?",
+    "prompt": "Wie lange braucht der Komet Swift-Tuttle (109P) für einen Umlauf um die Sonne?",
     "correctAnswer": "133 Jahre",
     "options": [
       "133 Jahre",
@@ -96696,7 +96449,7 @@
     "entityType": "comet",
     "type": "astra-comet-period",
     "difficulty": 4,
-    "prompt": "Wie lange braucht der Komet Komet Wild 2 (81P) für einen Umlauf um die Sonne?",
+    "prompt": "Wie lange braucht der Komet Wild 2 (81P) für einen Umlauf um die Sonne?",
     "correctAnswer": "6,41 Jahre",
     "options": [
       "6,41 Jahre",
@@ -96715,7 +96468,7 @@
     "entityType": "comet",
     "type": "astra-comet-period",
     "difficulty": 4,
-    "prompt": "Wie lange braucht der Komet Komet Tempel 1 (9P) für einen Umlauf um die Sonne?",
+    "prompt": "Wie lange braucht der Komet Tempel 1 (9P) für einen Umlauf um die Sonne?",
     "correctAnswer": "5,5 Jahre",
     "options": [
       "5,5 Jahre",
@@ -96734,7 +96487,7 @@
     "entityType": "comet",
     "type": "astra-comet-period",
     "difficulty": 4,
-    "prompt": "Wie lange braucht der Komet Komet Hartley 2 (103P) für einen Umlauf um die Sonne?",
+    "prompt": "Wie lange braucht der Komet Hartley 2 (103P) für einen Umlauf um die Sonne?",
     "correctAnswer": "6,46 Jahre",
     "options": [
       "6,46 Jahre",
@@ -96753,7 +96506,7 @@
     "entityType": "comet",
     "type": "astra-comet-period",
     "difficulty": 4,
-    "prompt": "Wie lange braucht der Komet Komet Borrelly (19P) für einen Umlauf um die Sonne?",
+    "prompt": "Wie lange braucht der Komet Borrelly (19P) für einen Umlauf um die Sonne?",
     "correctAnswer": "6,85 Jahre",
     "options": [
       "6,85 Jahre",
@@ -96791,7 +96544,7 @@
     "entityType": "comet",
     "type": "astra-comet-perihelion",
     "difficulty": 4,
-    "prompt": "Wie nah kommt der Komet Komet Tschurjumow-Gerassimenko der Sonne in seinem sonnennächsten Punkt?",
+    "prompt": "Wie nah kommt der Komet Tschurjumow-Gerassimenko der Sonne in seinem sonnennächsten Punkt?",
     "correctAnswer": "1,24 AE",
     "options": [
       "1,24 AE",
@@ -96810,7 +96563,7 @@
     "entityType": "comet",
     "type": "astra-comet-perihelion",
     "difficulty": 4,
-    "prompt": "Wie nah kommt der Komet Komet NEOWISE der Sonne in seinem sonnennächsten Punkt?",
+    "prompt": "Wie nah kommt der Komet NEOWISE der Sonne in seinem sonnennächsten Punkt?",
     "correctAnswer": "0,29 AE",
     "options": [
       "0,29 AE",
@@ -96829,7 +96582,7 @@
     "entityType": "comet",
     "type": "astra-comet-perihelion",
     "difficulty": 4,
-    "prompt": "Wie nah kommt der Komet Komet Hyakutake der Sonne in seinem sonnennächsten Punkt?",
+    "prompt": "Wie nah kommt der Komet Hyakutake der Sonne in seinem sonnennächsten Punkt?",
     "correctAnswer": "0,23 AE",
     "options": [
       "0,23 AE",
@@ -96848,7 +96601,7 @@
     "entityType": "comet",
     "type": "astra-comet-perihelion",
     "difficulty": 4,
-    "prompt": "Wie nah kommt der Komet Komet McNaught der Sonne in seinem sonnennächsten Punkt?",
+    "prompt": "Wie nah kommt der Komet McNaught der Sonne in seinem sonnennächsten Punkt?",
     "correctAnswer": "0,171 AE",
     "options": [
       "0,171 AE",
@@ -96867,7 +96620,7 @@
     "entityType": "comet",
     "type": "astra-comet-perihelion",
     "difficulty": 4,
-    "prompt": "Wie nah kommt der Komet Komet Lovejoy (C/2011 W3) der Sonne in seinem sonnennächsten Punkt?",
+    "prompt": "Wie nah kommt der Komet Lovejoy (C/2011 W3) der Sonne in seinem sonnennächsten Punkt?",
     "correctAnswer": "0,0056 AE",
     "options": [
       "0,0056 AE",
@@ -96886,7 +96639,7 @@
     "entityType": "comet",
     "type": "astra-comet-perihelion",
     "difficulty": 4,
-    "prompt": "Wie nah kommt der Komet Komet West der Sonne in seinem sonnennächsten Punkt?",
+    "prompt": "Wie nah kommt der Komet West der Sonne in seinem sonnennächsten Punkt?",
     "correctAnswer": "0,197 AE",
     "options": [
       "0,197 AE",
@@ -96905,7 +96658,7 @@
     "entityType": "comet",
     "type": "astra-comet-perihelion",
     "difficulty": 4,
-    "prompt": "Wie nah kommt der Komet Komet Donati der Sonne in seinem sonnennächsten Punkt?",
+    "prompt": "Wie nah kommt der Komet Donati der Sonne in seinem sonnennächsten Punkt?",
     "correctAnswer": "0,578 AE",
     "options": [
       "0,578 AE",
@@ -96924,7 +96677,7 @@
     "entityType": "comet",
     "type": "astra-comet-perihelion",
     "difficulty": 4,
-    "prompt": "Wie nah kommt der Komet Komet Ikeya-Seki der Sonne in seinem sonnennächsten Punkt?",
+    "prompt": "Wie nah kommt der Komet Ikeya-Seki der Sonne in seinem sonnennächsten Punkt?",
     "correctAnswer": "0,0078 AE",
     "options": [
       "0,0078 AE",
@@ -96943,7 +96696,7 @@
     "entityType": "comet",
     "type": "astra-comet-perihelion",
     "difficulty": 4,
-    "prompt": "Wie nah kommt der Komet Komet Kohoutek der Sonne in seinem sonnennächsten Punkt?",
+    "prompt": "Wie nah kommt der Komet Kohoutek der Sonne in seinem sonnennächsten Punkt?",
     "correctAnswer": "0,1424 AE",
     "options": [
       "0,1424 AE",
@@ -96962,7 +96715,7 @@
     "entityType": "comet",
     "type": "astra-comet-perihelion",
     "difficulty": 4,
-    "prompt": "Wie nah kommt der Komet Komet Holmes (17P) der Sonne in seinem sonnennächsten Punkt?",
+    "prompt": "Wie nah kommt der Komet Holmes (17P) der Sonne in seinem sonnennächsten Punkt?",
     "correctAnswer": "2,053 AE",
     "options": [
       "2,053 AE",
@@ -96981,7 +96734,7 @@
     "entityType": "comet",
     "type": "astra-comet-perihelion",
     "difficulty": 4,
-    "prompt": "Wie nah kommt der Komet Komet Bennett der Sonne in seinem sonnennächsten Punkt?",
+    "prompt": "Wie nah kommt der Komet Bennett der Sonne in seinem sonnennächsten Punkt?",
     "correctAnswer": "0,538 AE",
     "options": [
       "0,538 AE",
@@ -97000,7 +96753,7 @@
     "entityType": "comet",
     "type": "astra-comet-perihelion",
     "difficulty": 4,
-    "prompt": "Wie nah kommt der Komet Komet ISON der Sonne in seinem sonnennächsten Punkt?",
+    "prompt": "Wie nah kommt der Komet ISON der Sonne in seinem sonnennächsten Punkt?",
     "correctAnswer": "0,0125 AE",
     "options": [
       "0,0125 AE",
@@ -97019,7 +96772,7 @@
     "entityType": "comet",
     "type": "astra-comet-perihelion",
     "difficulty": 4,
-    "prompt": "Wie nah kommt der Komet Komet Tsuchinshan-ATLAS der Sonne in seinem sonnennächsten Punkt?",
+    "prompt": "Wie nah kommt der Komet Tsuchinshan-ATLAS der Sonne in seinem sonnennächsten Punkt?",
     "correctAnswer": "0,391 AE",
     "options": [
       "0,391 AE",
@@ -97038,7 +96791,7 @@
     "entityType": "comet",
     "type": "astra-comet-perihelion",
     "difficulty": 4,
-    "prompt": "Wie nah kommt der Komet Komet Pons-Brooks (12P) der Sonne in seinem sonnennächsten Punkt?",
+    "prompt": "Wie nah kommt der Komet Pons-Brooks (12P) der Sonne in seinem sonnennächsten Punkt?",
     "correctAnswer": "0,78 AE",
     "options": [
       "0,78 AE",
@@ -97057,7 +96810,7 @@
     "entityType": "comet",
     "type": "astra-comet-perihelion",
     "difficulty": 4,
-    "prompt": "Wie nah kommt der Komet Komet Swift-Tuttle (109P) der Sonne in seinem sonnennächsten Punkt?",
+    "prompt": "Wie nah kommt der Komet Swift-Tuttle (109P) der Sonne in seinem sonnennächsten Punkt?",
     "correctAnswer": "0,96 AE",
     "options": [
       "0,96 AE",
@@ -97076,7 +96829,7 @@
     "entityType": "comet",
     "type": "astra-comet-perihelion",
     "difficulty": 4,
-    "prompt": "Wie nah kommt der Komet Komet Wild 2 (81P) der Sonne in seinem sonnennächsten Punkt?",
+    "prompt": "Wie nah kommt der Komet Wild 2 (81P) der Sonne in seinem sonnennächsten Punkt?",
     "correctAnswer": "1,6 AE",
     "options": [
       "1,6 AE",
@@ -97095,7 +96848,7 @@
     "entityType": "comet",
     "type": "astra-comet-perihelion",
     "difficulty": 4,
-    "prompt": "Wie nah kommt der Komet Komet Tempel 1 (9P) der Sonne in seinem sonnennächsten Punkt?",
+    "prompt": "Wie nah kommt der Komet Tempel 1 (9P) der Sonne in seinem sonnennächsten Punkt?",
     "correctAnswer": "1,53 AE",
     "options": [
       "1,53 AE",
@@ -97114,7 +96867,7 @@
     "entityType": "comet",
     "type": "astra-comet-perihelion",
     "difficulty": 4,
-    "prompt": "Wie nah kommt der Komet Komet Hartley 2 (103P) der Sonne in seinem sonnennächsten Punkt?",
+    "prompt": "Wie nah kommt der Komet Hartley 2 (103P) der Sonne in seinem sonnennächsten Punkt?",
     "correctAnswer": "1,06 AE",
     "options": [
       "1,06 AE",
@@ -97133,7 +96886,7 @@
     "entityType": "comet",
     "type": "astra-comet-perihelion",
     "difficulty": 4,
-    "prompt": "Wie nah kommt der Komet Komet Borrelly (19P) der Sonne in seinem sonnennächsten Punkt?",
+    "prompt": "Wie nah kommt der Komet Borrelly (19P) der Sonne in seinem sonnennächsten Punkt?",
     "correctAnswer": "1,355 AE",
     "options": [
       "1,355 AE",
@@ -97152,7 +96905,7 @@
     "entityType": "comet",
     "type": "astra-comet-perihelion",
     "difficulty": 4,
-    "prompt": "Wie nah kommt der Komet Komet 2I/Borisov der Sonne in seinem sonnennächsten Punkt?",
+    "prompt": "Wie nah kommt der Komet 2I/Borisov der Sonne in seinem sonnennächsten Punkt?",
     "correctAnswer": "2,01 AE",
     "options": [
       "2,01 AE",
@@ -97190,7 +96943,7 @@
     "entityType": "comet",
     "type": "astra-comet-nucleus",
     "difficulty": 4,
-    "prompt": "Welchen ungefähren Kerndurchmesser hat der Komet Komet Hale-Bopp?",
+    "prompt": "Welchen ungefähren Kerndurchmesser hat der Komet Hale-Bopp?",
     "correctAnswer": "60 km",
     "options": [
       "60 km",
@@ -97209,7 +96962,7 @@
     "entityType": "comet",
     "type": "astra-comet-nucleus",
     "difficulty": 4,
-    "prompt": "Welchen ungefähren Kerndurchmesser hat der Komet Komet Tschurjumow-Gerassimenko?",
+    "prompt": "Welchen ungefähren Kerndurchmesser hat der Komet Tschurjumow-Gerassimenko?",
     "correctAnswer": "4 km",
     "options": [
       "4 km",
@@ -97228,7 +96981,7 @@
     "entityType": "comet",
     "type": "astra-comet-nucleus",
     "difficulty": 4,
-    "prompt": "Welchen ungefähren Kerndurchmesser hat der Komet Komet Hyakutake?",
+    "prompt": "Welchen ungefähren Kerndurchmesser hat der Komet Hyakutake?",
     "correctAnswer": "4,8 km",
     "options": [
       "4,8 km",
@@ -97247,7 +97000,7 @@
     "entityType": "comet",
     "type": "astra-comet-nucleus",
     "difficulty": 4,
-    "prompt": "Welchen ungefähren Kerndurchmesser hat der Komet Komet Swift-Tuttle (109P)?",
+    "prompt": "Welchen ungefähren Kerndurchmesser hat der Komet Swift-Tuttle (109P)?",
     "correctAnswer": "26 km",
     "options": [
       "26 km",
@@ -97266,7 +97019,7 @@
     "entityType": "comet",
     "type": "astra-comet-nucleus",
     "difficulty": 4,
-    "prompt": "Welchen ungefähren Kerndurchmesser hat der Komet Komet Wild 2 (81P)?",
+    "prompt": "Welchen ungefähren Kerndurchmesser hat der Komet Wild 2 (81P)?",
     "correctAnswer": "4 km",
     "options": [
       "4 km",
@@ -97285,7 +97038,7 @@
     "entityType": "comet",
     "type": "astra-comet-nucleus",
     "difficulty": 4,
-    "prompt": "Welchen ungefähren Kerndurchmesser hat der Komet Komet Tempel 1 (9P)?",
+    "prompt": "Welchen ungefähren Kerndurchmesser hat der Komet Tempel 1 (9P)?",
     "correctAnswer": "6 km",
     "options": [
       "6 km",
@@ -97304,7 +97057,7 @@
     "entityType": "comet",
     "type": "astra-comet-nucleus",
     "difficulty": 4,
-    "prompt": "Welchen ungefähren Kerndurchmesser hat der Komet Komet Hartley 2 (103P)?",
+    "prompt": "Welchen ungefähren Kerndurchmesser hat der Komet Hartley 2 (103P)?",
     "correctAnswer": "1,6 km",
     "options": [
       "1,6 km",
@@ -97323,7 +97076,7 @@
     "entityType": "comet",
     "type": "astra-comet-nucleus",
     "difficulty": 4,
-    "prompt": "Welchen ungefähren Kerndurchmesser hat der Komet Komet Borrelly (19P)?",
+    "prompt": "Welchen ungefähren Kerndurchmesser hat der Komet Borrelly (19P)?",
     "correctAnswer": "8 km",
     "options": [
       "8 km",
@@ -99370,94 +99123,18 @@
     "mapTargetId": null
   },
   {
-    "id": "q_astra_nebel-orionnebel_astra-nebula-type",
-    "entityId": "astra:nebel-orionnebel",
-    "entityType": "nebula",
-    "type": "astra-nebula-type",
-    "difficulty": 3,
-    "prompt": "Um welche Art von Nebel handelt es sich bei Orionnebel?",
-    "correctAnswer": "Emissions- und Reflexionsnebel",
-    "options": [
-      "Emissions- und Reflexionsnebel",
-      "pulsationsveränderlicher Stern",
-      "Dunkelwolke vor Emissionsnebel IC 434",
-      "Emissionsnebel (H-II-Gebiet)"
-    ],
-    "testedAttribute": "type",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_nebel-krebsnebel_astra-nebula-type",
-    "entityId": "astra:nebel-krebsnebel",
-    "entityType": "nebula",
-    "type": "astra-nebula-type",
-    "difficulty": 3,
-    "prompt": "Um welche Art von Nebel handelt es sich bei Krebsnebel?",
-    "correctAnswer": "Supernovaüberrest / Pulsarwindnebel",
-    "options": [
-      "Supernovaüberrest / Pulsarwindnebel",
-      "Dunkelwolke vor Emissionsnebel IC 434",
-      "Molekülwolke / Sternentstehungsgebiet",
-      "Emissionsnebel"
-    ],
-    "testedAttribute": "type",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_nebel-adlernebel_astra-nebula-type",
-    "entityId": "astra:nebel-adlernebel",
-    "entityType": "nebula",
-    "type": "astra-nebula-type",
-    "difficulty": 3,
-    "prompt": "Um welche Art von Nebel handelt es sich bei Adlernebel?",
-    "correctAnswer": "Emissions- und Reflexionsnebel mit offenem Sternhaufen",
-    "options": [
-      "Emissions- und Reflexionsnebel mit offenem Sternhaufen",
-      "Bipolarer Nebel",
-      "Dunkelwolke vor Emissionsnebel IC 434",
-      "Molekülwolke / Sternentstehungsgebiet"
-    ],
-    "testedAttribute": "type",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_nebel-pferdekopfnebel_astra-nebula-type",
-    "entityId": "astra:nebel-pferdekopfnebel",
-    "entityType": "nebula",
-    "type": "astra-nebula-type",
-    "difficulty": 3,
-    "prompt": "Um welche Art von Nebel handelt es sich bei Pferdekopfnebel?",
-    "correctAnswer": "Dunkelwolke vor Emissionsnebel IC 434",
-    "options": [
-      "Dunkelwolke vor Emissionsnebel IC 434",
-      "Molekülwolke / Sternentstehungsgebiet",
-      "Emissionsnebel",
-      "Dunkel- und Emissionsnebel"
-    ],
-    "testedAttribute": "type",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
     "id": "q_astra_lagunennebel_astra-nebula-type",
     "entityId": "astra:lagunennebel",
     "entityType": "nebula",
     "type": "astra-nebula-type",
     "difficulty": 3,
     "prompt": "Um welche Art von Nebel handelt es sich bei Lagunennebel?",
-    "correctAnswer": "H-II-Gebiet",
+    "correctAnswer": "Emissionsnebel",
     "options": [
-      "H-II-Gebiet",
-      "Dunkelnebel",
       "Emissionsnebel",
-      "Diffuser Nebel"
+      "Reflexionsnebel",
+      "Supernovaüberrest",
+      "Dunkelnebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -99471,31 +99148,12 @@
     "type": "astra-nebula-type",
     "difficulty": 3,
     "prompt": "Um welche Art von Nebel handelt es sich bei Trifidnebel?",
-    "correctAnswer": "H-II-Gebiet",
+    "correctAnswer": "Emissionsnebel",
     "options": [
-      "H-II-Gebiet",
-      "Dunkelnebel",
-      "Diffuser Nebel",
-      "Emissionsnebel"
-    ],
-    "testedAttribute": "type",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_30-doradus_astra-nebula-type",
-    "entityId": "astra:30-doradus",
-    "entityType": "nebula",
-    "type": "astra-nebula-type",
-    "difficulty": 3,
-    "prompt": "Um welche Art von Nebel handelt es sich bei 30 Doradus?",
-    "correctAnswer": "Sternentstehungsregion",
-    "options": [
-      "Sternentstehungsregion",
-      "Dunkel- und Emissionsnebel",
-      "Planetarischer Nebel",
-      "Protoplanetarischer Nebel"
+      "Emissionsnebel",
+      "Reflexionsnebel",
+      "Supernovaüberrest",
+      "Dunkelnebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -99512,9 +99170,9 @@
     "correctAnswer": "Reflexionsnebel",
     "options": [
       "Reflexionsnebel",
-      "Bipolarer Nebel",
       "Emissionsnebel",
-      "Diffuser Nebel"
+      "Supernovaüberrest",
+      "Dunkelnebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -99528,12 +99186,12 @@
     "type": "astra-nebula-type",
     "difficulty": 3,
     "prompt": "Um welche Art von Nebel handelt es sich bei Omeganebel?",
-    "correctAnswer": "H-II-Gebiet",
+    "correctAnswer": "Emissionsnebel",
     "options": [
-      "H-II-Gebiet",
-      "Bipolarer Nebel",
-      "Sternentstehungsregion",
-      "Dunkelnebel"
+      "Emissionsnebel",
+      "Dunkelnebel",
+      "Supernovaüberrest",
+      "Reflexionsnebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -99547,12 +99205,12 @@
     "type": "astra-nebula-type",
     "difficulty": 3,
     "prompt": "Um welche Art von Nebel handelt es sich bei Messier 43?",
-    "correctAnswer": "H-II-Gebiet",
+    "correctAnswer": "Emissionsnebel",
     "options": [
-      "H-II-Gebiet",
-      "Dunkelnebel",
       "Emissionsnebel",
-      "Bipolarer Nebel"
+      "Reflexionsnebel",
+      "Dunkelnebel",
+      "Supernovaüberrest"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -99566,12 +99224,12 @@
     "type": "astra-nebula-type",
     "difficulty": 3,
     "prompt": "Um welche Art von Nebel handelt es sich bei Nordamerikanebel?",
-    "correctAnswer": "H-II-Gebiet",
+    "correctAnswer": "Emissionsnebel",
     "options": [
-      "H-II-Gebiet",
-      "Dunkelnebel",
       "Emissionsnebel",
-      "Planetarischer Nebel"
+      "Reflexionsnebel",
+      "Supernovaüberrest",
+      "Dunkelnebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -99588,8 +99246,8 @@
     "correctAnswer": "planetarischer Nebel",
     "options": [
       "planetarischer Nebel",
-      "Sternentstehungsregion",
       "Supernovaüberrest",
+      "protoplanetarischer Nebel",
       "Emissionsnebel"
     ],
     "testedAttribute": "type",
@@ -99604,12 +99262,12 @@
     "type": "astra-nebula-type",
     "difficulty": 3,
     "prompt": "Um welche Art von Nebel handelt es sich bei Bleistiftnebel?",
-    "correctAnswer": "H-II-Gebiet",
+    "correctAnswer": "Emissionsnebel",
     "options": [
-      "H-II-Gebiet",
-      "Emissions- und Reflexionsnebel",
-      "Dunkelnebel",
-      "Sternentstehungsregion"
+      "Emissionsnebel",
+      "planetarischer Nebel",
+      "Reflexionsnebel",
+      "Dunkelnebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -99623,12 +99281,12 @@
     "type": "astra-nebula-type",
     "difficulty": 3,
     "prompt": "Um welche Art von Nebel handelt es sich bei Seelennebel?",
-    "correctAnswer": "H-II-Gebiet",
+    "correctAnswer": "Emissionsnebel",
     "options": [
-      "H-II-Gebiet",
-      "Supernovaüberrest / Pulsarwindnebel",
       "Emissionsnebel",
-      "Dunkelnebel"
+      "Dunkelnebel",
+      "Reflexionsnebel",
+      "Supernovaüberrest"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -99645,9 +99303,9 @@
     "correctAnswer": "Supernovaüberrest",
     "options": [
       "Supernovaüberrest",
-      "Planetarischer Nebel",
+      "Emissionsnebel",
       "Reflexionsnebel",
-      "Bipolarer Nebel"
+      "planetarischer Nebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -99661,12 +99319,12 @@
     "type": "astra-nebula-type",
     "difficulty": 3,
     "prompt": "Um welche Art von Nebel handelt es sich bei Pelikannebel?",
-    "correctAnswer": "H-II-Gebiet",
+    "correctAnswer": "Emissionsnebel",
     "options": [
-      "H-II-Gebiet",
+      "Emissionsnebel",
+      "Reflexionsnebel",
       "Dunkelnebel",
-      "Diffuser Nebel",
-      "Bipolarer Nebel"
+      "Supernovaüberrest"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -99683,9 +99341,9 @@
     "correctAnswer": "Supernovaüberrest",
     "options": [
       "Supernovaüberrest",
-      "Bipolarer Nebel",
       "Reflexionsnebel",
-      "Planetarischer Nebel"
+      "Emissionsnebel",
+      "planetarischer Nebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -99699,31 +99357,12 @@
     "type": "astra-nebula-type",
     "difficulty": 3,
     "prompt": "Um welche Art von Nebel handelt es sich bei Höhlennebel?",
-    "correctAnswer": "H-II-Gebiet",
+    "correctAnswer": "Emissionsnebel",
     "options": [
-      "H-II-Gebiet",
-      "Dunkelnebel",
-      "Diffuser Nebel",
-      "Reflexionsnebel"
-    ],
-    "testedAttribute": "type",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_vela-supernova_astra-nebula-type",
-    "entityId": "astra:vela-supernova",
-    "entityType": "nebula",
-    "type": "astra-nebula-type",
-    "difficulty": 3,
-    "prompt": "Um welche Art von Nebel handelt es sich bei Vela-Supernova?",
-    "correctAnswer": "Diffuser Nebel",
-    "options": [
-      "Diffuser Nebel",
       "Emissionsnebel",
-      "Bipolarer Nebel",
-      "Emissions- und Reflexionsnebel"
+      "Reflexionsnebel",
+      "Supernovaüberrest",
+      "Dunkelnebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -99740,9 +99379,9 @@
     "correctAnswer": "planetarischer Nebel",
     "options": [
       "planetarischer Nebel",
-      "Sternentstehungsregion",
-      "Molekülwolke / Sternentstehungsgebiet",
-      "Supernovaüberrest"
+      "Supernovaüberrest",
+      "Dunkelnebel",
+      "protoplanetarischer Nebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -99759,28 +99398,9 @@
     "correctAnswer": "Supernovaüberrest",
     "options": [
       "Supernovaüberrest",
-      "Planetarischer Nebel",
       "Reflexionsnebel",
-      "pulsationsveränderlicher Stern"
-    ],
-    "testedAttribute": "type",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_cw-leonis_astra-nebula-type",
-    "entityId": "astra:cw-leonis",
-    "entityType": "nebula",
-    "type": "astra-nebula-type",
-    "difficulty": 3,
-    "prompt": "Um welche Art von Nebel handelt es sich bei CW Leonis?",
-    "correctAnswer": "pulsationsveränderlicher Stern",
-    "options": [
-      "pulsationsveränderlicher Stern",
-      "Emissions- und Reflexionsnebel",
-      "Emissionsnebel (H-II-Gebiet)",
-      "Supernovaüberrest"
+      "Emissionsnebel",
+      "planetarischer Nebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -99797,9 +99417,9 @@
     "correctAnswer": "Supernovaüberrest",
     "options": [
       "Supernovaüberrest",
-      "Bipolarer Nebel",
-      "Supernovaüberrest / Pulsarwindnebel",
-      "Reflexionsnebel"
+      "Reflexionsnebel",
+      "protoplanetarischer Nebel",
+      "Emissionsnebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -99816,9 +99436,9 @@
     "correctAnswer": "planetarischer Nebel",
     "options": [
       "planetarischer Nebel",
-      "pulsationsveränderlicher Stern",
-      "Sternentstehungsregion",
-      "Supernovaüberrest"
+      "protoplanetarischer Nebel",
+      "Supernovaüberrest",
+      "Reflexionsnebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -99835,9 +99455,9 @@
     "correctAnswer": "planetarischer Nebel",
     "options": [
       "planetarischer Nebel",
-      "Reflexionsnebel",
-      "Sternentstehungsregion",
-      "Supernovaüberrest"
+      "Supernovaüberrest",
+      "protoplanetarischer Nebel",
+      "Reflexionsnebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -99854,9 +99474,9 @@
     "correctAnswer": "planetarischer Nebel",
     "options": [
       "planetarischer Nebel",
-      "Sternentstehungsregion",
       "Supernovaüberrest",
-      "Bipolarer Nebel"
+      "Reflexionsnebel",
+      "protoplanetarischer Nebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -99870,12 +99490,12 @@
     "type": "astra-nebula-type",
     "difficulty": 3,
     "prompt": "Um welche Art von Nebel handelt es sich bei Pelican Nebula?",
-    "correctAnswer": "H-II-Gebiet",
+    "correctAnswer": "Emissionsnebel",
     "options": [
-      "H-II-Gebiet",
-      "Planetarischer Nebel",
+      "Emissionsnebel",
       "Dunkelnebel",
-      "Diffuser Nebel"
+      "Reflexionsnebel",
+      "Supernovaüberrest"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -99889,12 +99509,12 @@
     "type": "astra-nebula-type",
     "difficulty": 3,
     "prompt": "Um welche Art von Nebel handelt es sich bei Cave Nebula?",
-    "correctAnswer": "H-II-Gebiet",
+    "correctAnswer": "Emissionsnebel",
     "options": [
-      "H-II-Gebiet",
-      "Dunkelnebel",
-      "Diffuser Nebel",
-      "Emissionsnebel"
+      "Emissionsnebel",
+      "Reflexionsnebel",
+      "Supernovaüberrest",
+      "Dunkelnebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -99911,9 +99531,9 @@
     "correctAnswer": "planetarischer Nebel",
     "options": [
       "planetarischer Nebel",
-      "Sternentstehungsregion",
       "Supernovaüberrest",
-      "Bipolarer Nebel"
+      "Reflexionsnebel",
+      "protoplanetarischer Nebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -99930,9 +99550,9 @@
     "correctAnswer": "Supernovaüberrest",
     "options": [
       "Supernovaüberrest",
-      "Protoplanetarischer Nebel",
+      "planetarischer Nebel",
       "Reflexionsnebel",
-      "Bipolarer Nebel"
+      "Emissionsnebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -99946,12 +99566,12 @@
     "type": "astra-nebula-type",
     "difficulty": 3,
     "prompt": "Um welche Art von Nebel handelt es sich bei Sh2-106?",
-    "correctAnswer": "H-II-Gebiet",
+    "correctAnswer": "Emissionsnebel",
     "options": [
-      "H-II-Gebiet",
-      "Dunkelnebel",
+      "Emissionsnebel",
       "Reflexionsnebel",
-      "Sternentstehungsregion"
+      "Supernovaüberrest",
+      "Dunkelnebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -99968,9 +99588,9 @@
     "correctAnswer": "planetarischer Nebel",
     "options": [
       "planetarischer Nebel",
-      "Sternentstehungsregion",
-      "Dunkelwolke vor Emissionsnebel IC 434",
-      "Supernovaüberrest"
+      "Supernovaüberrest",
+      "Dunkelnebel",
+      "protoplanetarischer Nebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -99987,9 +99607,9 @@
     "correctAnswer": "planetarischer Nebel",
     "options": [
       "planetarischer Nebel",
+      "Supernovaüberrest",
       "Reflexionsnebel",
-      "Sternentstehungsregion",
-      "Supernovaüberrest"
+      "protoplanetarischer Nebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -100003,12 +99623,12 @@
     "type": "astra-nebula-type",
     "difficulty": 3,
     "prompt": "Um welche Art von Nebel handelt es sich bei Gum 19?",
-    "correctAnswer": "H-II-Gebiet",
+    "correctAnswer": "Emissionsnebel",
     "options": [
-      "H-II-Gebiet",
-      "Dunkelnebel",
       "Emissionsnebel",
-      "Diffuser Nebel"
+      "Reflexionsnebel",
+      "Dunkelnebel",
+      "Supernovaüberrest"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -100022,12 +99642,12 @@
     "type": "astra-nebula-type",
     "difficulty": 3,
     "prompt": "Um welche Art von Nebel handelt es sich bei Rosettennebel?",
-    "correctAnswer": "Emissionsnebel (H-II-Gebiet)",
+    "correctAnswer": "Emissionsnebel",
     "options": [
-      "Emissionsnebel (H-II-Gebiet)",
-      "Emissions- und Reflexionsnebel",
-      "pulsationsveränderlicher Stern",
-      "Dunkel- und Emissionsnebel"
+      "Emissionsnebel",
+      "Reflexionsnebel",
+      "Supernovaüberrest",
+      "Dunkelnebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -100041,12 +99661,12 @@
     "type": "astra-nebula-type",
     "difficulty": 3,
     "prompt": "Um welche Art von Nebel handelt es sich bei Carinanebel?",
-    "correctAnswer": "Emissionsnebel (H-II-Gebiet)",
+    "correctAnswer": "Emissionsnebel",
     "options": [
-      "Emissionsnebel (H-II-Gebiet)",
-      "Emissions- und Reflexionsnebel",
-      "pulsationsveränderlicher Stern",
-      "Sternentstehungsregion"
+      "Emissionsnebel",
+      "Reflexionsnebel",
+      "Dunkelnebel",
+      "Supernovaüberrest"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -100060,12 +99680,12 @@
     "type": "astra-nebula-type",
     "difficulty": 3,
     "prompt": "Um welche Art von Nebel handelt es sich bei Tarantelnebel?",
-    "correctAnswer": "Emissionsnebel (H-II-Gebiet)",
+    "correctAnswer": "Emissionsnebel",
     "options": [
-      "Emissionsnebel (H-II-Gebiet)",
-      "pulsationsveränderlicher Stern",
-      "Protoplanetarischer Nebel",
-      "Dunkel- und Emissionsnebel"
+      "Emissionsnebel",
+      "Reflexionsnebel",
+      "Dunkelnebel",
+      "Supernovaüberrest"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -100079,31 +99699,12 @@
     "type": "astra-nebula-type",
     "difficulty": 3,
     "prompt": "Um welche Art von Nebel handelt es sich bei Katzenpfotennebel?",
-    "correctAnswer": "Emissionsnebel (H-II-Gebiet)",
+    "correctAnswer": "Emissionsnebel",
     "options": [
-      "Emissionsnebel (H-II-Gebiet)",
-      "pulsationsveränderlicher Stern",
-      "Dunkel- und Emissionsnebel",
-      "Emissions- und Reflexionsnebel"
-    ],
-    "testedAttribute": "type",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_nebel-kegelnebel_astra-nebula-type",
-    "entityId": "astra:nebel-kegelnebel",
-    "entityType": "nebula",
-    "type": "astra-nebula-type",
-    "difficulty": 3,
-    "prompt": "Um welche Art von Nebel handelt es sich bei Kegelnebel?",
-    "correctAnswer": "Dunkel- und Emissionsnebel",
-    "options": [
-      "Dunkel- und Emissionsnebel",
-      "Emissions- und Reflexionsnebel",
-      "Protoplanetarischer Nebel",
-      "Sternentstehungsregion"
+      "Emissionsnebel",
+      "Reflexionsnebel",
+      "Supernovaüberrest",
+      "Dunkelnebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -100120,9 +99721,9 @@
     "correctAnswer": "Reflexionsnebel",
     "options": [
       "Reflexionsnebel",
-      "Bipolarer Nebel",
-      "Diffuser Nebel",
-      "Emissionsnebel (H-II-Gebiet)"
+      "Emissionsnebel",
+      "Supernovaüberrest",
+      "planetarischer Nebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -100136,12 +99737,12 @@
     "type": "astra-nebula-type",
     "difficulty": 3,
     "prompt": "Um welche Art von Nebel handelt es sich bei Flammennebel?",
-    "correctAnswer": "Emissionsnebel (H-II-Gebiet)",
+    "correctAnswer": "Emissionsnebel",
     "options": [
-      "Emissionsnebel (H-II-Gebiet)",
-      "pulsationsveränderlicher Stern",
-      "Emissions- und Reflexionsnebel",
-      "Dunkel- und Emissionsnebel"
+      "Emissionsnebel",
+      "Reflexionsnebel",
+      "Dunkelnebel",
+      "Supernovaüberrest"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -100155,12 +99756,12 @@
     "type": "astra-nebula-type",
     "difficulty": 3,
     "prompt": "Um welche Art von Nebel handelt es sich bei Kaliforniennebel?",
-    "correctAnswer": "Emissionsnebel (H-II-Gebiet)",
+    "correctAnswer": "Emissionsnebel",
     "options": [
-      "Emissionsnebel (H-II-Gebiet)",
-      "Dunkel- und Emissionsnebel",
-      "pulsationsveränderlicher Stern",
-      "Emissions- und Reflexionsnebel"
+      "Emissionsnebel",
+      "Reflexionsnebel",
+      "Supernovaüberrest",
+      "Dunkelnebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -100177,9 +99778,9 @@
     "correctAnswer": "Emissionsnebel",
     "options": [
       "Emissionsnebel",
-      "H-II-Gebiet",
-      "Bipolarer Nebel",
-      "Diffuser Nebel"
+      "Dunkelnebel",
+      "Reflexionsnebel",
+      "Supernovaüberrest"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -100196,9 +99797,9 @@
     "correctAnswer": "Emissionsnebel",
     "options": [
       "Emissionsnebel",
-      "Diffuser Nebel",
-      "Bipolarer Nebel",
-      "Supernovaüberrest"
+      "Reflexionsnebel",
+      "Supernovaüberrest",
+      "Dunkelnebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -100215,9 +99816,9 @@
     "correctAnswer": "Emissionsnebel",
     "options": [
       "Emissionsnebel",
-      "Diffuser Nebel",
       "Reflexionsnebel",
-      "Bipolarer Nebel"
+      "Dunkelnebel",
+      "Supernovaüberrest"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -100234,9 +99835,9 @@
     "correctAnswer": "Reflexionsnebel",
     "options": [
       "Reflexionsnebel",
-      "Bipolarer Nebel",
       "Emissionsnebel",
-      "Sternentstehungsregion"
+      "Supernovaüberrest",
+      "planetarischer Nebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -100253,28 +99854,9 @@
     "correctAnswer": "Emissionsnebel",
     "options": [
       "Emissionsnebel",
-      "Diffuser Nebel",
-      "Bipolarer Nebel",
-      "Reflexionsnebel"
-    ],
-    "testedAttribute": "type",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_nebel-kokonnebel-ic5146_astra-nebula-type",
-    "entityId": "astra:nebel-kokonnebel-ic5146",
-    "entityType": "nebula",
-    "type": "astra-nebula-type",
-    "difficulty": 3,
-    "prompt": "Um welche Art von Nebel handelt es sich bei Kokonnebel (IC 5146)?",
-    "correctAnswer": "Emissions- und Reflexionsnebel",
-    "options": [
-      "Emissions- und Reflexionsnebel",
+      "Reflexionsnebel",
       "Dunkelnebel",
-      "Emissionsnebel (H-II-Gebiet)",
-      "pulsationsveränderlicher Stern"
+      "Supernovaüberrest"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -100291,9 +99873,9 @@
     "correctAnswer": "planetarischer Nebel",
     "options": [
       "planetarischer Nebel",
-      "Sternentstehungsregion",
       "Supernovaüberrest",
-      "Protoplanetarischer Nebel"
+      "Reflexionsnebel",
+      "protoplanetarischer Nebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -100311,8 +99893,8 @@
     "options": [
       "planetarischer Nebel",
       "Supernovaüberrest",
-      "Sternentstehungsregion",
-      "Protoplanetarischer Nebel"
+      "Reflexionsnebel",
+      "protoplanetarischer Nebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -100330,8 +99912,8 @@
     "options": [
       "Emissionsnebel",
       "Reflexionsnebel",
-      "H-II-Gebiet",
-      "Diffuser Nebel"
+      "Dunkelnebel",
+      "Supernovaüberrest"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -100348,9 +99930,9 @@
     "correctAnswer": "Emissionsnebel",
     "options": [
       "Emissionsnebel",
-      "Diffuser Nebel",
       "Reflexionsnebel",
-      "Bipolarer Nebel"
+      "Supernovaüberrest",
+      "Dunkelnebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -100367,9 +99949,9 @@
     "correctAnswer": "Emissionsnebel",
     "options": [
       "Emissionsnebel",
-      "H-II-Gebiet",
-      "Planetarischer Nebel",
-      "Diffuser Nebel"
+      "Supernovaüberrest",
+      "Dunkelnebel",
+      "Reflexionsnebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -100386,9 +99968,9 @@
     "correctAnswer": "Emissionsnebel",
     "options": [
       "Emissionsnebel",
-      "Diffuser Nebel",
-      "Supernovaüberrest",
-      "Bipolarer Nebel"
+      "Reflexionsnebel",
+      "Dunkelnebel",
+      "Supernovaüberrest"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -100405,9 +99987,9 @@
     "correctAnswer": "planetarischer Nebel",
     "options": [
       "planetarischer Nebel",
-      "Sternentstehungsregion",
       "Supernovaüberrest",
-      "Supernovaüberrest / Pulsarwindnebel"
+      "protoplanetarischer Nebel",
+      "Dunkelnebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -100425,7 +100007,7 @@
     "options": [
       "Emissionsnebel",
       "Reflexionsnebel",
-      "Diffuser Nebel",
+      "Supernovaüberrest",
       "Dunkelnebel"
     ],
     "testedAttribute": "type",
@@ -100443,9 +100025,9 @@
     "correctAnswer": "Emissionsnebel",
     "options": [
       "Emissionsnebel",
-      "Bipolarer Nebel",
-      "Diffuser Nebel",
-      "Protoplanetarischer Nebel"
+      "Reflexionsnebel",
+      "Supernovaüberrest",
+      "Dunkelnebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -100463,27 +100045,8 @@
     "options": [
       "Emissionsnebel",
       "Supernovaüberrest",
-      "Diffuser Nebel",
-      "Planetarischer Nebel"
-    ],
-    "testedAttribute": "type",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_nebula-ngc6514-h3_astra-nebula-type",
-    "entityId": "astra:nebula-ngc6514-h3",
-    "entityType": "nebula",
-    "type": "astra-nebula-type",
-    "difficulty": 3,
-    "prompt": "Um welche Art von Nebel handelt es sich bei NGC 6514?",
-    "correctAnswer": "Emissions- und Reflexionsnebel",
-    "options": [
-      "Emissions- und Reflexionsnebel",
-      "pulsationsveränderlicher Stern",
-      "Emissionsnebel (H-II-Gebiet)",
-      "Dunkel- und Emissionsnebel"
+      "Reflexionsnebel",
+      "Dunkelnebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -100500,9 +100063,9 @@
     "correctAnswer": "planetarischer Nebel",
     "options": [
       "planetarischer Nebel",
-      "Protoplanetarischer Nebel",
-      "Sternentstehungsregion",
-      "Supernovaüberrest"
+      "Reflexionsnebel",
+      "Supernovaüberrest",
+      "protoplanetarischer Nebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -100519,9 +100082,9 @@
     "correctAnswer": "planetarischer Nebel",
     "options": [
       "planetarischer Nebel",
-      "Sternentstehungsregion",
-      "Molekülwolke / Sternentstehungsgebiet",
-      "Supernovaüberrest"
+      "Supernovaüberrest",
+      "protoplanetarischer Nebel",
+      "Reflexionsnebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -100538,9 +100101,9 @@
     "correctAnswer": "Emissionsnebel",
     "options": [
       "Emissionsnebel",
-      "Diffuser Nebel",
       "Reflexionsnebel",
-      "Bipolarer Nebel"
+      "Supernovaüberrest",
+      "Dunkelnebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -100558,8 +100121,8 @@
     "options": [
       "Emissionsnebel",
       "Dunkelnebel",
-      "Diffuser Nebel",
-      "Bipolarer Nebel"
+      "Reflexionsnebel",
+      "Supernovaüberrest"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -100576,28 +100139,9 @@
     "correctAnswer": "Emissionsnebel",
     "options": [
       "Emissionsnebel",
-      "Diffuser Nebel",
       "Reflexionsnebel",
-      "Bipolarer Nebel"
-    ],
-    "testedAttribute": "type",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_nebula-ngc1976-h3_astra-nebula-type",
-    "entityId": "astra:nebula-ngc1976-h3",
-    "entityType": "nebula",
-    "type": "astra-nebula-type",
-    "difficulty": 3,
-    "prompt": "Um welche Art von Nebel handelt es sich bei NGC 1976?",
-    "correctAnswer": "Emissions- und Reflexionsnebel",
-    "options": [
-      "Emissions- und Reflexionsnebel",
-      "Emissionsnebel (H-II-Gebiet)",
-      "pulsationsveränderlicher Stern",
-      "Diffuser Nebel"
+      "Dunkelnebel",
+      "Supernovaüberrest"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -100614,9 +100158,9 @@
     "correctAnswer": "planetarischer Nebel",
     "options": [
       "planetarischer Nebel",
-      "Sternentstehungsregion",
       "Supernovaüberrest",
-      "Reflexionsnebel"
+      "Reflexionsnebel",
+      "protoplanetarischer Nebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -100633,9 +100177,9 @@
     "correctAnswer": "Emissionsnebel",
     "options": [
       "Emissionsnebel",
-      "Diffuser Nebel",
       "Reflexionsnebel",
-      "Bipolarer Nebel"
+      "Supernovaüberrest",
+      "Dunkelnebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -100652,9 +100196,9 @@
     "correctAnswer": "Reflexionsnebel",
     "options": [
       "Reflexionsnebel",
-      "Bipolarer Nebel",
       "Emissionsnebel",
-      "Diffuser Nebel"
+      "Supernovaüberrest",
+      "Dunkelnebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -100671,9 +100215,9 @@
     "correctAnswer": "Emissionsnebel",
     "options": [
       "Emissionsnebel",
-      "Supernovaüberrest",
-      "H-II-Gebiet",
-      "Diffuser Nebel"
+      "Reflexionsnebel",
+      "Dunkelnebel",
+      "Supernovaüberrest"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -100690,9 +100234,9 @@
     "correctAnswer": "Emissionsnebel",
     "options": [
       "Emissionsnebel",
-      "Bipolarer Nebel",
+      "Reflexionsnebel",
       "Dunkelnebel",
-      "Diffuser Nebel"
+      "Supernovaüberrest"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -100709,9 +100253,9 @@
     "correctAnswer": "Emissionsnebel",
     "options": [
       "Emissionsnebel",
-      "Planetarischer Nebel",
-      "Supernovaüberrest / Pulsarwindnebel",
-      "Diffuser Nebel"
+      "Dunkelnebel",
+      "protoplanetarischer Nebel",
+      "Reflexionsnebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -100729,8 +100273,8 @@
     "options": [
       "Supernovaüberrest",
       "Reflexionsnebel",
-      "Bipolarer Nebel",
-      "Planetarischer Nebel"
+      "Emissionsnebel",
+      "planetarischer Nebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -100747,9 +100291,9 @@
     "correctAnswer": "Supernovaüberrest",
     "options": [
       "Supernovaüberrest",
-      "Diffuser Nebel",
-      "H-II-Gebiet",
-      "Emissions- und Reflexionsnebel mit offenem Sternhaufen"
+      "planetarischer Nebel",
+      "Emissionsnebel",
+      "protoplanetarischer Nebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -100767,8 +100311,8 @@
     "options": [
       "Supernovaüberrest",
       "Reflexionsnebel",
-      "Planetarischer Nebel",
-      "Bipolarer Nebel"
+      "Emissionsnebel",
+      "planetarischer Nebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -100785,9 +100329,9 @@
     "correctAnswer": "Emissionsnebel",
     "options": [
       "Emissionsnebel",
-      "Diffuser Nebel",
-      "Bipolarer Nebel",
-      "Reflexionsnebel"
+      "Reflexionsnebel",
+      "Supernovaüberrest",
+      "Dunkelnebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -100804,9 +100348,9 @@
     "correctAnswer": "Emissionsnebel",
     "options": [
       "Emissionsnebel",
-      "Diffuser Nebel",
-      "Bipolarer Nebel",
-      "Reflexionsnebel"
+      "Reflexionsnebel",
+      "Dunkelnebel",
+      "Supernovaüberrest"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -100823,9 +100367,9 @@
     "correctAnswer": "Supernovaüberrest",
     "options": [
       "Supernovaüberrest",
-      "Planetarischer Nebel",
+      "planetarischer Nebel",
       "Reflexionsnebel",
-      "Bipolarer Nebel"
+      "Emissionsnebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -100842,9 +100386,9 @@
     "correctAnswer": "Emissionsnebel",
     "options": [
       "Emissionsnebel",
-      "Diffuser Nebel",
-      "Bipolarer Nebel",
-      "Planetarischer Nebel"
+      "Reflexionsnebel",
+      "Supernovaüberrest",
+      "Dunkelnebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -100861,9 +100405,9 @@
     "correctAnswer": "Emissionsnebel",
     "options": [
       "Emissionsnebel",
-      "Diffuser Nebel",
-      "Bipolarer Nebel",
-      "Reflexionsnebel"
+      "Reflexionsnebel",
+      "Dunkelnebel",
+      "Supernovaüberrest"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -100880,8 +100424,8 @@
     "correctAnswer": "Emissionsnebel",
     "options": [
       "Emissionsnebel",
-      "Diffuser Nebel",
-      "Bipolarer Nebel",
+      "Reflexionsnebel",
+      "Dunkelnebel",
       "Supernovaüberrest"
     ],
     "testedAttribute": "type",
@@ -100899,9 +100443,9 @@
     "correctAnswer": "Emissionsnebel",
     "options": [
       "Emissionsnebel",
-      "Protoplanetarischer Nebel",
-      "Dunkel- und Emissionsnebel",
-      "Diffuser Nebel"
+      "Supernovaüberrest",
+      "Dunkelnebel",
+      "Reflexionsnebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -100918,9 +100462,9 @@
     "correctAnswer": "Emissionsnebel",
     "options": [
       "Emissionsnebel",
-      "Emissionsnebel (H-II-Gebiet)",
-      "Diffuser Nebel",
-      "Bipolarer Nebel"
+      "planetarischer Nebel",
+      "Reflexionsnebel",
+      "Dunkelnebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -100938,8 +100482,8 @@
     "options": [
       "Emissionsnebel",
       "Dunkelnebel",
-      "pulsationsveränderlicher Stern",
-      "Diffuser Nebel"
+      "planetarischer Nebel",
+      "Reflexionsnebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -100957,8 +100501,8 @@
     "options": [
       "Supernovaüberrest",
       "Reflexionsnebel",
-      "Bipolarer Nebel",
-      "Protoplanetarischer Nebel"
+      "Emissionsnebel",
+      "planetarischer Nebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -100975,9 +100519,9 @@
     "correctAnswer": "Emissionsnebel",
     "options": [
       "Emissionsnebel",
+      "Reflexionsnebel",
       "Supernovaüberrest",
-      "H-II-Gebiet",
-      "Diffuser Nebel"
+      "Dunkelnebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -100994,9 +100538,9 @@
     "correctAnswer": "Dunkelnebel",
     "options": [
       "Dunkelnebel",
-      "pulsationsveränderlicher Stern",
-      "H-II-Gebiet",
-      "Emissionsnebel"
+      "planetarischer Nebel",
+      "Emissionsnebel",
+      "Reflexionsnebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -101013,9 +100557,9 @@
     "correctAnswer": "Emissionsnebel",
     "options": [
       "Emissionsnebel",
-      "Diffuser Nebel",
       "Reflexionsnebel",
-      "Dunkel- und Emissionsnebel"
+      "Dunkelnebel",
+      "planetarischer Nebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -101032,9 +100576,9 @@
     "correctAnswer": "Emissionsnebel",
     "options": [
       "Emissionsnebel",
+      "Supernovaüberrest",
       "Dunkelnebel",
-      "Emissionsnebel (H-II-Gebiet)",
-      "Diffuser Nebel"
+      "Reflexionsnebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -101051,9 +100595,9 @@
     "correctAnswer": "Emissionsnebel",
     "options": [
       "Emissionsnebel",
-      "Diffuser Nebel",
-      "Bipolarer Nebel",
-      "Supernovaüberrest"
+      "Reflexionsnebel",
+      "Supernovaüberrest",
+      "Dunkelnebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -101070,9 +100614,9 @@
     "correctAnswer": "Emissionsnebel",
     "options": [
       "Emissionsnebel",
-      "Diffuser Nebel",
-      "Bipolarer Nebel",
-      "pulsationsveränderlicher Stern"
+      "Reflexionsnebel",
+      "Supernovaüberrest",
+      "Dunkelnebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -101089,9 +100633,9 @@
     "correctAnswer": "Emissionsnebel",
     "options": [
       "Emissionsnebel",
-      "Diffuser Nebel",
       "Reflexionsnebel",
-      "Bipolarer Nebel"
+      "Supernovaüberrest",
+      "Dunkelnebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -101108,9 +100652,9 @@
     "correctAnswer": "planetarischer Nebel",
     "options": [
       "planetarischer Nebel",
-      "Emissionsnebel",
+      "protoplanetarischer Nebel",
       "Supernovaüberrest",
-      "Sternentstehungsregion"
+      "Emissionsnebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -101127,9 +100671,9 @@
     "correctAnswer": "planetarischer Nebel",
     "options": [
       "planetarischer Nebel",
-      "Sternentstehungsregion",
       "Supernovaüberrest",
-      "Emissionsnebel (H-II-Gebiet)"
+      "Reflexionsnebel",
+      "protoplanetarischer Nebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -101146,9 +100690,9 @@
     "correctAnswer": "planetarischer Nebel",
     "options": [
       "planetarischer Nebel",
-      "Sternentstehungsregion",
       "Supernovaüberrest",
-      "Protoplanetarischer Nebel"
+      "Reflexionsnebel",
+      "protoplanetarischer Nebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -101166,8 +100710,8 @@
     "options": [
       "Dunkelnebel",
       "Emissionsnebel",
-      "H-II-Gebiet",
-      "Molekülwolke / Sternentstehungsgebiet"
+      "Reflexionsnebel",
+      "protoplanetarischer Nebel"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -101184,30 +100728,11 @@
     "correctAnswer": "Dunkelnebel",
     "options": [
       "Dunkelnebel",
-      "Molekülwolke / Sternentstehungsgebiet",
-      "Emissions- und Reflexionsnebel",
-      "H-II-Gebiet"
+      "protoplanetarischer Nebel",
+      "Supernovaüberrest",
+      "Emissionsnebel"
     ],
     "testedAttribute": "type",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_55-cancri-e-janssen_astra-exoplanet-host",
-    "entityId": "astra:55-cancri-e-janssen",
-    "entityType": "exoplanet",
-    "type": "astra-exoplanet-host",
-    "difficulty": 4,
-    "prompt": "Welchen Stern umkreist der Exoplanet 55 Cancri e (Janssen)?",
-    "correctAnswer": "55 Cnc",
-    "options": [
-      "55 Cnc",
-      "Kepler-186",
-      "GJ 357 (Roter Zwerg)",
-      "70 Vir"
-    ],
-    "testedAttribute": "hostStar",
     "answerIsName": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
@@ -101222,9 +100747,9 @@
     "correctAnswer": "bet Pic",
     "options": [
       "bet Pic",
-      "GJ 1214",
-      "HAT-P-7",
-      "WASP-39"
+      "KOI-351",
+      "HD 39091",
+      "Upsilon Andromedae A"
     ],
     "testedAttribute": "hostStar",
     "answerIsName": false,
@@ -101241,47 +100766,9 @@
     "correctAnswer": "KOI-351",
     "options": [
       "KOI-351",
-      "HAT-P-7",
-      "CoRoT-7",
-      "WASP-33"
-    ],
-    "testedAttribute": "hostStar",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_gliese-581-c_astra-exoplanet-host",
-    "entityId": "astra:gliese-581-c",
-    "entityType": "exoplanet",
-    "type": "astra-exoplanet-host",
-    "difficulty": 4,
-    "prompt": "Welchen Stern umkreist der Exoplanet Gliese 581 c?",
-    "correctAnswer": "GJ 581",
-    "options": [
-      "GJ 581",
-      "GJ 436",
-      "K2-3 (Roter Zwerg)",
-      "Kepler-69"
-    ],
-    "testedAttribute": "hostStar",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_47-ursae-majoris-b_astra-exoplanet-host",
-    "entityId": "astra:47-ursae-majoris-b",
-    "entityType": "exoplanet",
-    "type": "astra-exoplanet-host",
-    "difficulty": 4,
-    "prompt": "Welchen Stern umkreist der Exoplanet 47 Ursae Majoris b?",
-    "correctAnswer": "47 UMa",
-    "options": [
-      "47 UMa",
-      "HR 8799",
-      "GJ 581",
-      "70 Vir"
+      "bet Pic",
+      "HD 39091",
+      "Upsilon Andromedae A"
     ],
     "testedAttribute": "hostStar",
     "answerIsName": false,
@@ -101298,9 +100785,9 @@
     "correctAnswer": "HD 39091",
     "options": [
       "HD 39091",
-      "LHS 3844",
-      "Upsilon Andromedae A",
-      "GJ 667 C"
+      "KOI-351",
+      "Luytens Stern (Roter Zwerg)",
+      "bet Pic"
     ],
     "testedAttribute": "hostStar",
     "answerIsName": false,
@@ -101317,9 +100804,9 @@
     "correctAnswer": "GSC 02652-01324 (Roter Zwerg/K-Stern)",
     "options": [
       "GSC 02652-01324 (Roter Zwerg/K-Stern)",
-      "HD 219134 (Oranger Zwerg, K-Typ)",
-      "OGLE-2005-BLG-390L (Roter Zwerg)",
-      "HAT-P-32"
+      "Luytens Stern (Roter Zwerg)",
+      "Upsilon Andromedae A",
+      "bet Pic"
     ],
     "testedAttribute": "hostStar",
     "answerIsName": false,
@@ -101336,66 +100823,9 @@
     "correctAnswer": "Luytens Stern (Roter Zwerg)",
     "options": [
       "Luytens Stern (Roter Zwerg)",
-      "Barnards Stern (Roter Zwerg)",
-      "Kepler-1647 (Doppelstern)",
-      "Kepler-62 (Oranger Zwerg)"
-    ],
-    "testedAttribute": "hostStar",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_exoplanet-k2-3-d-h4_astra-exoplanet-host",
-    "entityId": "astra:exoplanet-k2-3-d-h4",
-    "entityType": "exoplanet",
-    "type": "astra-exoplanet-host",
-    "difficulty": 4,
-    "prompt": "Welchen Stern umkreist der Exoplanet K2-3 d?",
-    "correctAnswer": "K2-3 (Roter Zwerg)",
-    "options": [
-      "K2-3 (Roter Zwerg)",
-      "YZ Ceti (Roter Zwerg)",
-      "Kepler-1229",
-      "K2-72 (Roter Zwerg)"
-    ],
-    "testedAttribute": "hostStar",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_exoplanet-k2-72-e-h4_astra-exoplanet-host",
-    "entityId": "astra:exoplanet-k2-72-e-h4",
-    "entityType": "exoplanet",
-    "type": "astra-exoplanet-host",
-    "difficulty": 4,
-    "prompt": "Welchen Stern umkreist der Exoplanet K2-72 e?",
-    "correctAnswer": "K2-72 (Roter Zwerg)",
-    "options": [
-      "K2-72 (Roter Zwerg)",
-      "Luytens Stern (Roter Zwerg)",
-      "K2-3 (Roter Zwerg)",
-      "YZ Ceti (Roter Zwerg)"
-    ],
-    "testedAttribute": "hostStar",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_exoplanet-gj-357-c-h4_astra-exoplanet-host",
-    "entityId": "astra:exoplanet-gj-357-c-h4",
-    "entityType": "exoplanet",
-    "type": "astra-exoplanet-host",
-    "difficulty": 4,
-    "prompt": "Welchen Stern umkreist der Exoplanet GJ 357 c?",
-    "correctAnswer": "GJ 357 (Roter Zwerg)",
-    "options": [
-      "GJ 357 (Roter Zwerg)",
-      "K2-72 (Roter Zwerg)",
       "Upsilon Andromedae A",
-      "YZ Ceti (Roter Zwerg)"
+      "GSC 02652-01324 (Roter Zwerg/K-Stern)",
+      "HD 39091"
     ],
     "testedAttribute": "hostStar",
     "answerIsName": false,
@@ -101450,9 +100880,9 @@
     "correctAnswer": "Nordhimmel, in Mitteleuropa zirkumpolar",
     "options": [
       "Nordhimmel, in Mitteleuropa zirkumpolar",
+      "Südhimmel, am Himmelsäquator beginnend",
       "Südhimmel, zwischen Skorpion und Zentaur",
-      "Nordhimmel, zirkumpolar in Mitteleuropa",
-      "nur Südhalbkugel (südlich 20° N)"
+      "Nordhimmel, unterhalb Großer Bär"
     ],
     "testedAttribute": "visibility",
     "answerIsName": false,
@@ -101469,7 +100899,7 @@
     "correctAnswer": "Nordhimmel, in Mitteleuropa zirkumpolar",
     "options": [
       "Nordhimmel, in Mitteleuropa zirkumpolar",
-      "Nordhimmel, zirkumpolar in Mitteleuropa",
+      "Südhimmel, am Himmelsäquator beginnend",
       "weltweit, Himmelsäquator",
       "Südhimmel, zwischen Skorpion und Zentaur"
     ],
@@ -101488,9 +100918,9 @@
     "correctAnswer": "Nordhimmel, in Mitteleuropa zirkumpolar",
     "options": [
       "Nordhimmel, in Mitteleuropa zirkumpolar",
-      "Nordhimmel, zirkumpolar in Mitteleuropa",
       "Südhimmel, zwischen Skorpion und Zentaur",
-      "Südhimmel, am Himmelsäquator beginnend"
+      "Südhimmel, am Himmelsäquator beginnend",
+      "nur Südhalbkugel (südlich 20° N)"
     ],
     "testedAttribute": "visibility",
     "answerIsName": false,
@@ -101507,9 +100937,9 @@
     "correctAnswer": "Nordhimmel, in Mitteleuropa zirkumpolar",
     "options": [
       "Nordhimmel, in Mitteleuropa zirkumpolar",
-      "Nordhimmel, zirkumpolar in Mitteleuropa",
       "Südhimmel, am Himmelsäquator beginnend",
-      "am Himmelsäquator und Südhimmel"
+      "Südhimmel, zwischen Skorpion und Zentaur",
+      "Südhimmel, nahe Alpha Centauri"
     ],
     "testedAttribute": "visibility",
     "answerIsName": false,
@@ -101547,7 +100977,7 @@
       "Nordhimmel",
       "Tierkreis",
       "Südhimmel",
-      "Nordhimmel, Tierkreis"
+      "Südhimmel, Tierkreis"
     ],
     "testedAttribute": "visibility",
     "answerIsName": false,
@@ -101564,7 +100994,7 @@
     "correctAnswer": "Nordhimmel",
     "options": [
       "Nordhimmel",
-      "Nordhimmel, Tierkreis",
+      "Südhimmel, Tierkreis",
       "Südhimmel",
       "Tierkreis"
     ],
@@ -101585,7 +101015,7 @@
       "Nordhimmel, Tierkreis",
       "Südhimmel, Tierkreis",
       "am Himmelsäquator",
-      "Äquatornah, nahe Pegasus"
+      "weltweit, Himmelsäquator"
     ],
     "testedAttribute": "visibility",
     "answerIsName": false,
@@ -101604,7 +101034,7 @@
       "Nordhimmel, Tierkreis",
       "Südhimmel, Tierkreis",
       "am Himmelsäquator",
-      "Südhimmel, am Himmelsäquator beginnend"
+      "Äquatornah, nahe Pegasus"
     ],
     "testedAttribute": "visibility",
     "answerIsName": false,
@@ -101659,9 +101089,9 @@
     "correctAnswer": "Tierkreis, am Himmelsäquator",
     "options": [
       "Tierkreis, am Himmelsäquator",
-      "Nordhimmel, zirkumpolar in Mitteleuropa",
-      "Tierkreis",
-      "Südhimmel, am Himmelssüdpol"
+      "Südhimmel, am Himmelsäquator beginnend",
+      "Südhimmel",
+      "Südhimmel, nahe Himmelssüdpol"
     ],
     "testedAttribute": "visibility",
     "answerIsName": false,
@@ -101718,7 +101148,7 @@
       "Südhimmel, Tierkreis",
       "Nordhimmel, Tierkreis",
       "am Himmelsäquator",
-      "Nordhimmel"
+      "Südhimmel, nahe Alpha Centauri"
     ],
     "testedAttribute": "visibility",
     "answerIsName": false,
@@ -101773,8 +101203,8 @@
     "correctAnswer": "Tierkreis",
     "options": [
       "Tierkreis",
-      "am Himmelsäquator und Südhimmel",
-      "Nordhimmel, zirkumpolar in Mitteleuropa",
+      "Südhimmel, nahe Alpha Centauri",
+      "Südhimmel, am Himmelsäquator beginnend",
       "Südhimmel"
     ],
     "testedAttribute": "visibility",
@@ -101812,8 +101242,8 @@
     "options": [
       "Nordhimmel",
       "am Himmelsäquator",
-      "Südhimmel",
-      "Tierkreis"
+      "Tierkreis",
+      "Südhimmel"
     ],
     "testedAttribute": "visibility",
     "answerIsName": false,
@@ -101887,8 +101317,8 @@
     "correctAnswer": "Nordhimmel",
     "options": [
       "Nordhimmel",
+      "Südhimmel, nahe Alpha Centauri",
       "am Himmelsäquator und Südhimmel",
-      "nur Südhalbkugel (südlich 20° N)",
       "Südhimmel"
     ],
     "testedAttribute": "visibility",
@@ -101946,7 +101376,7 @@
       "Südhimmel",
       "Tierkreis",
       "Nordhimmel",
-      "Südhimmel, Tierkreis"
+      "am Himmelsäquator"
     ],
     "testedAttribute": "visibility",
     "answerIsName": false,
@@ -101982,8 +101412,8 @@
     "correctAnswer": "Südhimmel, am Himmelsäquator beginnend",
     "options": [
       "Südhimmel, am Himmelsäquator beginnend",
-      "Nordhimmel, zirkumpolar in Mitteleuropa",
       "Nordhimmel, in Mitteleuropa zirkumpolar",
+      "Südhimmel, zwischen Skorpion und Zentaur",
       "nur Südhalbkugel (südlich 20° N)"
     ],
     "testedAttribute": "visibility",
@@ -102003,7 +101433,7 @@
       "am Himmelsäquator und Südhimmel",
       "weltweit, Himmelsäquator",
       "Nordhimmel, unterhalb Großer Bär",
-      "Nordhimmel, in Mitteleuropa zirkumpolar"
+      "Südhimmel, zwischen Skorpion und Zentaur"
     ],
     "testedAttribute": "visibility",
     "answerIsName": false,
@@ -102022,7 +101452,7 @@
       "Südhimmel",
       "Tierkreis",
       "Südhimmel, zwischen Skorpion und Zentaur",
-      "Nordhimmel, zirkumpolar in Mitteleuropa"
+      "Nordhimmel, in Mitteleuropa zirkumpolar"
     ],
     "testedAttribute": "visibility",
     "answerIsName": false,
@@ -102041,7 +101471,7 @@
       "Südhimmel",
       "Tierkreis",
       "Nordhimmel",
-      "Südhimmel, am Himmelsäquator beginnend"
+      "nur Südhalbkugel (südlich 20° N)"
     ],
     "testedAttribute": "visibility",
     "answerIsName": false,
@@ -102060,7 +101490,7 @@
       "am Himmelsäquator",
       "Nordhimmel, Tierkreis",
       "Südhimmel",
-      "Nordhimmel"
+      "weltweit, Himmelsäquator"
     ],
     "testedAttribute": "visibility",
     "answerIsName": false,
@@ -102078,7 +101508,7 @@
     "options": [
       "am Himmelsäquator",
       "Südhimmel, Tierkreis",
-      "Tierkreis, am Himmelsäquator",
+      "Südhimmel, am Himmelssüdpol",
       "Nordhimmel"
     ],
     "testedAttribute": "visibility",
@@ -102098,7 +101528,7 @@
       "Nordhimmel",
       "Äquatornah, nahe Pegasus",
       "Südhimmel",
-      "Südhimmel, nahe Alpha Centauri"
+      "Südhimmel, nahe Himmelssüdpol"
     ],
     "testedAttribute": "visibility",
     "answerIsName": false,
@@ -102115,9 +101545,9 @@
     "correctAnswer": "Nordhimmel",
     "options": [
       "Nordhimmel",
-      "Südhimmel, am Himmelssüdpol",
+      "weltweit, Himmelsäquator",
       "Südhimmel",
-      "Nordhimmel, zirkumpolar in Mitteleuropa"
+      "Nordhimmel, in Mitteleuropa zirkumpolar"
     ],
     "testedAttribute": "visibility",
     "answerIsName": false,
@@ -102136,7 +101566,7 @@
       "Nordhimmel",
       "Tierkreis",
       "Südhimmel, Tierkreis",
-      "Nordhimmel, in Mitteleuropa zirkumpolar"
+      "Südhimmel, am Himmelsäquator beginnend"
     ],
     "testedAttribute": "visibility",
     "answerIsName": false,
@@ -102192,7 +101622,7 @@
     "options": [
       "Südhimmel",
       "Tierkreis",
-      "Äquatornah, nahe Pegasus",
+      "weltweit, Himmelsäquator",
       "Nordhimmel"
     ],
     "testedAttribute": "visibility",
@@ -102287,8 +101717,8 @@
     "options": [
       "Südhimmel",
       "Tierkreis",
-      "am Himmelsäquator",
-      "Äquatornah, nahe Pegasus"
+      "Nordhimmel",
+      "Nordhimmel, Tierkreis"
     ],
     "testedAttribute": "visibility",
     "answerIsName": false,
@@ -102383,7 +101813,7 @@
       "Südhimmel",
       "Südhimmel, nahe Himmelssüdpol",
       "Tierkreis",
-      "Äquatornah, nahe Pegasus"
+      "weltweit, Himmelsäquator"
     ],
     "testedAttribute": "visibility",
     "answerIsName": false,
@@ -102400,7 +101830,7 @@
     "correctAnswer": "Nordhimmel",
     "options": [
       "Nordhimmel",
-      "nur Südhalbkugel (südlich 20° N)",
+      "am Himmelsäquator und Südhimmel",
       "Südhimmel",
       "Südhimmel, nahe Alpha Centauri"
     ],
@@ -102438,8 +101868,8 @@
     "correctAnswer": "Nordhimmel",
     "options": [
       "Nordhimmel",
-      "Südhimmel",
       "Tierkreis",
+      "Südhimmel",
       "am Himmelsäquator"
     ],
     "testedAttribute": "visibility",
@@ -102476,7 +101906,7 @@
     "correctAnswer": "am Himmelsäquator",
     "options": [
       "am Himmelsäquator",
-      "Südhimmel, nahe Himmelssüdpol",
+      "Tierkreis, am Himmelsäquator",
       "Südhimmel, Tierkreis",
       "Nordhimmel"
     ],
@@ -102514,8 +101944,8 @@
     "correctAnswer": "am Himmelsäquator und Südhimmel",
     "options": [
       "am Himmelsäquator und Südhimmel",
-      "Südhimmel, am Himmelssüdpol",
       "nur Südhalbkugel (südlich 20° N)",
+      "Südhimmel, nahe Alpha Centauri",
       "Südhimmel, nahe Himmelssüdpol"
     ],
     "testedAttribute": "visibility",
@@ -102534,7 +101964,7 @@
     "options": [
       "Südhimmel",
       "Tierkreis",
-      "weltweit, Himmelsäquator",
+      "Nordhimmel, Tierkreis",
       "Nordhimmel"
     ],
     "testedAttribute": "visibility",
@@ -102552,7 +101982,7 @@
     "correctAnswer": "Nordhimmel",
     "options": [
       "Nordhimmel",
-      "Südhimmel, am Himmelssüdpol",
+      "Äquatornah, nahe Pegasus",
       "Nordhimmel, Tierkreis",
       "Südhimmel"
     ],
@@ -102571,8 +102001,8 @@
     "correctAnswer": "am Himmelsäquator",
     "options": [
       "am Himmelsäquator",
+      "Äquatornah, nahe Pegasus",
       "Nordhimmel",
-      "Südhimmel, am Himmelssüdpol",
       "Südhimmel, Tierkreis"
     ],
     "testedAttribute": "visibility",
@@ -102609,7 +102039,7 @@
     "correctAnswer": "Südhimmel",
     "options": [
       "Südhimmel",
-      "Südhimmel, am Himmelsäquator beginnend",
+      "Nordhimmel, unterhalb Großer Bär",
       "Tierkreis",
       "am Himmelsäquator"
     ],
@@ -102686,7 +102116,7 @@
     "options": [
       "Südhimmel",
       "Nordhimmel, Tierkreis",
-      "Südhimmel, am Himmelssüdpol",
+      "Äquatornah, nahe Pegasus",
       "Tierkreis"
     ],
     "testedAttribute": "visibility",
@@ -102704,9 +102134,9 @@
     "correctAnswer": "Südhimmel, nahe Himmelssüdpol",
     "options": [
       "Südhimmel, nahe Himmelssüdpol",
-      "am Himmelsäquator und Südhimmel",
-      "Tierkreis, am Himmelsäquator",
-      "Südhimmel, nahe Alpha Centauri"
+      "Südhimmel, am Himmelssüdpol",
+      "Südhimmel, nahe Alpha Centauri",
+      "Tierkreis, am Himmelsäquator"
     ],
     "testedAttribute": "visibility",
     "answerIsName": false,
@@ -102723,8 +102153,8 @@
     "correctAnswer": "Südhimmel, am Himmelssüdpol",
     "options": [
       "Südhimmel, am Himmelssüdpol",
+      "weltweit, Himmelsäquator",
       "Äquatornah, nahe Pegasus",
-      "Südhimmel, nahe Alpha Centauri",
       "Tierkreis, am Himmelsäquator"
     ],
     "testedAttribute": "visibility",
@@ -102782,7 +102212,7 @@
       "Südhimmel",
       "Tierkreis",
       "Nordhimmel",
-      "Äquatornah, nahe Pegasus"
+      "Nordhimmel, Tierkreis"
     ],
     "testedAttribute": "visibility",
     "answerIsName": false,
@@ -102818,7 +102248,7 @@
     "correctAnswer": "Südhimmel",
     "options": [
       "Südhimmel",
-      "Südhimmel, nahe Himmelssüdpol",
+      "Tierkreis, am Himmelsäquator",
       "Tierkreis",
       "Nordhimmel"
     ],
@@ -102875,8 +102305,8 @@
     "correctAnswer": "Südhimmel",
     "options": [
       "Südhimmel",
-      "Nordhimmel",
       "Tierkreis",
+      "Nordhimmel",
       "am Himmelsäquator"
     ],
     "testedAttribute": "visibility",
@@ -102891,12 +102321,12 @@
     "type": "astra-constellation-visibility",
     "difficulty": 3,
     "prompt": "An welchem Teil des Himmels ist das Sternbild Giraffe (Camelopardalis) zu sehen?",
-    "correctAnswer": "Nordhimmel, zirkumpolar in Mitteleuropa",
+    "correctAnswer": "Nordhimmel, in Mitteleuropa zirkumpolar",
     "options": [
-      "Nordhimmel, zirkumpolar in Mitteleuropa",
       "Nordhimmel, in Mitteleuropa zirkumpolar",
+      "Südhimmel, am Himmelsäquator beginnend",
       "Südhimmel, am Himmelssüdpol",
-      "Nordhimmel, Tierkreis"
+      "Südhimmel, zwischen Skorpion und Zentaur"
     ],
     "testedAttribute": "visibility",
     "answerIsName": false,
@@ -102915,7 +102345,7 @@
       "Nordhimmel, unterhalb Großer Bär",
       "am Himmelsäquator und Südhimmel",
       "nur Südhalbkugel (südlich 20° N)",
-      "Nordhimmel, zirkumpolar in Mitteleuropa"
+      "Südhimmel, am Himmelsäquator beginnend"
     ],
     "testedAttribute": "visibility",
     "answerIsName": false,
@@ -102933,8 +102363,8 @@
     "options": [
       "Äquatornah, nahe Pegasus",
       "weltweit, Himmelsäquator",
-      "Nordhimmel, Tierkreis",
-      "Südhimmel, am Himmelssüdpol"
+      "Südhimmel, am Himmelssüdpol",
+      "Nordhimmel, Tierkreis"
     ],
     "testedAttribute": "visibility",
     "answerIsName": false,
@@ -102951,7 +102381,7 @@
     "correctAnswer": "Südhimmel, nahe Alpha Centauri",
     "options": [
       "Südhimmel, nahe Alpha Centauri",
-      "Äquatornah, nahe Pegasus",
+      "weltweit, Himmelsäquator",
       "Nordhimmel, unterhalb Großer Bär",
       "Südhimmel, Tierkreis"
     ],
@@ -102970,8 +102400,8 @@
     "correctAnswer": "Südhimmel, zwischen Skorpion und Zentaur",
     "options": [
       "Südhimmel, zwischen Skorpion und Zentaur",
-      "Südhimmel, am Himmelsäquator beginnend",
-      "Nordhimmel, zirkumpolar in Mitteleuropa",
+      "nur Südhalbkugel (südlich 20° N)",
+      "Nordhimmel, in Mitteleuropa zirkumpolar",
       "Nordhimmel, Tierkreis"
     ],
     "testedAttribute": "visibility",
@@ -102990,7 +102420,7 @@
     "options": [
       "Südhimmel, nahe Himmelssüdpol",
       "Tierkreis, am Himmelsäquator",
-      "Südhimmel, am Himmelssüdpol",
+      "am Himmelsäquator und Südhimmel",
       "Südhimmel, nahe Alpha Centauri"
     ],
     "testedAttribute": "visibility",
@@ -103008,7 +102438,7 @@
     "correctAnswer": "Südhimmel, nahe Himmelssüdpol",
     "options": [
       "Südhimmel, nahe Himmelssüdpol",
-      "weltweit, Himmelsäquator",
+      "Äquatornah, nahe Pegasus",
       "Tierkreis, am Himmelsäquator",
       "Nordhimmel, unterhalb Großer Bär"
     ],
@@ -104034,8 +103464,8 @@
     "correctAnswer": "Heißer Jupiter",
     "options": [
       "Heißer Jupiter",
-      "Mini-Neptun",
-      "Gasriese",
+      "Neptun-ähnlich",
+      "Junger Gasriese",
       "Gesteinsplanet"
     ],
     "testedAttribute": "type",
@@ -104053,9 +103483,9 @@
     "correctAnswer": "Heißer Jupiter",
     "options": [
       "Heißer Jupiter",
-      "Neptun-ähnlich",
       "Gesteinsplanet",
-      "Gesteinsplanet (sub-erdgroß)"
+      "Neptun-ähnlich",
+      "Gasriese"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -104088,12 +103518,12 @@
     "type": "astra-exoplanet-type",
     "difficulty": 3,
     "prompt": "Zu welchem Planetentyp zählt der Exoplanet TrES-4 b?",
-    "correctAnswer": "Heißer Jupiter (aufgeblähter Gasriese)",
+    "correctAnswer": "Heißer Jupiter",
     "options": [
-      "Heißer Jupiter (aufgeblähter Gasriese)",
-      "Heißer Jupiter (durch Gezeiten verformt)",
-      "Gesteinsplanet (sub-erdgroß)",
-      "Brauner-Zwerg-Grenzobjekt"
+      "Heißer Jupiter",
+      "Gesteinsplanet",
+      "Mini-Neptun",
+      "Zirkumbinärer Planet"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -104110,9 +103540,9 @@
     "correctAnswer": "Heißer Jupiter",
     "options": [
       "Heißer Jupiter",
-      "Zirkumbinärer Planet",
-      "Super-Erde",
-      "Gesteinsplanet"
+      "Junger Gasriese",
+      "Gesteinsplanet",
+      "Neptun-ähnlich"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -104126,12 +103556,12 @@
     "type": "astra-exoplanet-type",
     "difficulty": 3,
     "prompt": "Zu welchem Planetentyp zählt der Exoplanet HAT-P-1 b?",
-    "correctAnswer": "Heißer Jupiter (geringe Dichte)",
+    "correctAnswer": "Heißer Jupiter",
     "options": [
-      "Heißer Jupiter (geringe Dichte)",
-      "Super-Erde (nahe habitabler Zone)",
-      "Junger Gasriese (magentafarben)",
-      "Gasriese (gemäßigte Temperatur)"
+      "Heißer Jupiter",
+      "Neptun-ähnlich",
+      "Gesteinsplanet",
+      "Junger Gasriese"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -104148,9 +103578,9 @@
     "correctAnswer": "Neptun-ähnlich",
     "options": [
       "Neptun-ähnlich",
-      "Gesteinsplanet",
-      "Super-Erde (umstritten)",
-      "Heißer Jupiter"
+      "Heißer Jupiter",
+      "Mini-Neptun",
+      "Gesteinsplanet"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -104164,12 +103594,12 @@
     "type": "astra-exoplanet-type",
     "difficulty": 3,
     "prompt": "Zu welchem Planetentyp zählt der Exoplanet HAT-P-2 b?",
-    "correctAnswer": "Heißer Jupiter (hohe Masse, exzentrisch)",
+    "correctAnswer": "Heißer Jupiter",
     "options": [
-      "Heißer Jupiter (hohe Masse, exzentrisch)",
-      "Heißer Jupiter (durch Gezeiten verformt)",
-      "Heißer Jupiter (aufgeblähter Gasriese)",
-      "Heißer Jupiter (hohe Masse)"
+      "Heißer Jupiter",
+      "Neptun-ähnlich",
+      "Gesteinsplanet",
+      "Super-Erde"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -104205,9 +103635,9 @@
     "correctAnswer": "Heißer Jupiter",
     "options": [
       "Heißer Jupiter",
-      "Neptun-ähnlich",
-      "Heißer Jupiter (hohe Masse, exzentrisch)",
-      "Gesteinsplanet"
+      "Gesteinsplanet",
+      "Brauner-Zwerg-Grenzobjekt",
+      "Neptun-ähnlich"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -104226,7 +103656,7 @@
       "Heißer Jupiter",
       "Gesteinsplanet",
       "Neptun-ähnlich",
-      "Gasriese"
+      "Heiße Super-Erde"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -104240,12 +103670,12 @@
     "type": "astra-exoplanet-type",
     "difficulty": 3,
     "prompt": "Zu welchem Planetentyp zählt der Exoplanet WASP-6 b?",
-    "correctAnswer": "Heißer Jupiter (geringe Dichte)",
+    "correctAnswer": "Heißer Jupiter",
     "options": [
-      "Heißer Jupiter (geringe Dichte)",
-      "Gasriese (in habitabler Zone)",
-      "Gesteinsplanet (habitable Zone)",
-      "Gasriese (gemäßigte Temperatur)"
+      "Heißer Jupiter",
+      "Gesteinsplanet",
+      "Neptun-ähnlich",
+      "Junger Gasriese"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -104259,12 +103689,12 @@
     "type": "astra-exoplanet-type",
     "difficulty": 3,
     "prompt": "Zu welchem Planetentyp zählt der Exoplanet WASP-14 b?",
-    "correctAnswer": "Heißer Jupiter (hohe Masse)",
+    "correctAnswer": "Heißer Jupiter",
     "options": [
-      "Heißer Jupiter (hohe Masse)",
-      "Super-Erde (habitable Zone)",
-      "Super-Erde (umstritten)",
-      "Mini-Neptun / Super-Erde"
+      "Heißer Jupiter",
+      "Neptun-ähnlich",
+      "Super-Erde",
+      "Heiße Super-Erde"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -104278,12 +103708,12 @@
     "type": "astra-exoplanet-type",
     "difficulty": 3,
     "prompt": "Zu welchem Planetentyp zählt der Exoplanet WASP-103 b?",
-    "correctAnswer": "Heißer Jupiter (durch Gezeiten verformt)",
+    "correctAnswer": "Heißer Jupiter",
     "options": [
-      "Heißer Jupiter (durch Gezeiten verformt)",
-      "Heißer Jupiter (hohe Masse, exzentrisch)",
-      "Heißer Jupiter (aufgeblähter Gasriese)",
-      "Neptun-ähnlich"
+      "Heißer Jupiter",
+      "Gesteinsplanet",
+      "Neptun-ähnlich",
+      "Zirkumbinärer Gasriese"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -104301,8 +103731,8 @@
     "options": [
       "Heißer Jupiter",
       "Gesteinsplanet",
-      "Mini-Neptun / Super-Erde",
-      "Gasriese"
+      "Mini-Neptun",
+      "Heiße Super-Erde"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -104319,7 +103749,7 @@
     "correctAnswer": "Heißer Jupiter",
     "options": [
       "Heißer Jupiter",
-      "Heißer Jupiter (aufgebläht)",
+      "Super-Erde",
       "Neptun-ähnlich",
       "Gesteinsplanet"
     ],
@@ -104338,9 +103768,9 @@
     "correctAnswer": "Brauner-Zwerg-Grenzobjekt",
     "options": [
       "Brauner-Zwerg-Grenzobjekt",
-      "Super-Erde / Mini-Neptun",
-      "Mini-Neptun / Super-Erde",
-      "Super-Erde / Gesteinsplanet"
+      "Zirkumbinärer Gasriese",
+      "Heißer Gesteinsplanet",
+      "Zirkumbinärer Planet"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -104354,12 +103784,12 @@
     "type": "astra-exoplanet-type",
     "difficulty": 3,
     "prompt": "Zu welchem Planetentyp zählt der Exoplanet CoRoT-9 b?",
-    "correctAnswer": "Gasriese (gemäßigte Temperatur)",
+    "correctAnswer": "Gasriese",
     "options": [
-      "Gasriese (gemäßigte Temperatur)",
-      "Gesteinsplanet",
-      "Heißer Jupiter",
-      "Gesteinsplanet (habitable Zone)"
+      "Gasriese",
+      "Zirkumbinärer Gasriese",
+      "Heißer Gesteinsplanet",
+      "Super-Erde"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -104376,9 +103806,9 @@
     "correctAnswer": "Neptun-ähnlich",
     "options": [
       "Neptun-ähnlich",
-      "Gesteinsplanet",
       "Heißer Jupiter",
-      "Mini-Neptun"
+      "Gesteinsplanet",
+      "Junger Gasriese"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -104397,7 +103827,7 @@
       "Heißer Jupiter",
       "Neptun-ähnlich",
       "Gesteinsplanet",
-      "Mini-Neptun"
+      "Junger Gasriese"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -104430,12 +103860,12 @@
     "type": "astra-exoplanet-type",
     "difficulty": 3,
     "prompt": "Zu welchem Planetentyp zählt der Exoplanet Kepler-8 b?",
-    "correctAnswer": "Heißer Jupiter (aufgebläht)",
+    "correctAnswer": "Heißer Jupiter",
     "options": [
-      "Heißer Jupiter (aufgebläht)",
-      "Brauner-Zwerg-Grenzobjekt",
-      "Gesteinsplanet (Mars-Größe)",
-      "Gesteinsplanet (sub-erdgroß)"
+      "Heißer Jupiter",
+      "Junger Gasriese",
+      "Neptun-ähnlich",
+      "Heiße Super-Erde"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -104452,8 +103882,8 @@
     "correctAnswer": "Zirkumbinärer Planet",
     "options": [
       "Zirkumbinärer Planet",
-      "Super-Erde / Mini-Neptun",
-      "Gesteinsplanet",
+      "Heißer Gesteinsplanet",
+      "Heiße Super-Erde",
       "Zirkumbinärer Gasriese"
     ],
     "testedAttribute": "type",
@@ -104471,9 +103901,9 @@
     "correctAnswer": "Zirkumbinärer Planet",
     "options": [
       "Zirkumbinärer Planet",
-      "Heiße Super-Erde",
-      "Zirkumbinärer Gasriese",
-      "Super-Erde (umstritten)"
+      "Mini-Neptun",
+      "Heißer Gesteinsplanet",
+      "Zirkumbinärer Gasriese"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -104490,9 +103920,9 @@
     "correctAnswer": "Zirkumbinärer Planet",
     "options": [
       "Zirkumbinärer Planet",
-      "Heiße Super-Erde",
-      "Gesteinsplanet (sub-erdgroß)",
-      "Gesteinsplanet (habitable Zone)"
+      "Mini-Neptun",
+      "Gesteinsplanet",
+      "Heißer Gesteinsplanet"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -104509,9 +103939,9 @@
     "correctAnswer": "Zirkumbinärer Gasriese",
     "options": [
       "Zirkumbinärer Gasriese",
+      "Heißer Gesteinsplanet",
       "Zirkumbinärer Planet",
-      "Super-Erde / Mini-Neptun",
-      "Super-Erde (umstritten)"
+      "Brauner-Zwerg-Grenzobjekt"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -104525,12 +103955,12 @@
     "type": "astra-exoplanet-type",
     "difficulty": 3,
     "prompt": "Zu welchem Planetentyp zählt der Exoplanet Kepler-70 b?",
-    "correctAnswer": "Heißer Gesteinsplanet (extrem)",
+    "correctAnswer": "Heißer Gesteinsplanet",
     "options": [
-      "Heißer Gesteinsplanet (extrem)",
-      "Heißer Jupiter (geringe Dichte)",
-      "Gasriese (gemäßigte Temperatur)",
-      "Gasriese (in habitabler Zone)"
+      "Heißer Gesteinsplanet",
+      "Zirkumbinärer Planet",
+      "Zirkumbinärer Gasriese",
+      "Brauner-Zwerg-Grenzobjekt"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -104548,8 +103978,8 @@
     "options": [
       "Mini-Neptun",
       "Super-Erde",
-      "Neptun-ähnlich",
-      "Heiße Super-Erde"
+      "Gasriese",
+      "Neptun-ähnlich"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -104566,9 +103996,9 @@
     "correctAnswer": "Gesteinsplanet",
     "options": [
       "Gesteinsplanet",
+      "Neptun-ähnlich",
       "Heißer Jupiter",
-      "Junger Gasriese",
-      "Heiße Super-Erde"
+      "Junger Gasriese"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -104585,9 +104015,9 @@
     "correctAnswer": "Gesteinsplanet",
     "options": [
       "Gesteinsplanet",
-      "Super-Erde / Mini-Neptun",
-      "Heißer Jupiter",
-      "Neptun-ähnlich"
+      "Heiße Super-Erde",
+      "Neptun-ähnlich",
+      "Heißer Jupiter"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -104604,7 +104034,7 @@
     "correctAnswer": "Gesteinsplanet",
     "options": [
       "Gesteinsplanet",
-      "Zirkumbinärer Gasriese",
+      "Heiße Super-Erde",
       "Heißer Jupiter",
       "Neptun-ähnlich"
     ],
@@ -104620,12 +104050,12 @@
     "type": "astra-exoplanet-type",
     "difficulty": 3,
     "prompt": "Zu welchem Planetentyp zählt der Exoplanet Kepler-62 c?",
-    "correctAnswer": "Gesteinsplanet (Mars-Größe)",
+    "correctAnswer": "Gesteinsplanet",
     "options": [
-      "Gesteinsplanet (Mars-Größe)",
-      "Heißer Jupiter (aufgebläht)",
-      "Mini-Neptun",
-      "Super-Erde / Gesteinsplanet"
+      "Gesteinsplanet",
+      "Heißer Jupiter",
+      "Brauner-Zwerg-Grenzobjekt",
+      "Neptun-ähnlich"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -104639,12 +104069,12 @@
     "type": "astra-exoplanet-type",
     "difficulty": 3,
     "prompt": "Zu welchem Planetentyp zählt der Exoplanet Kepler-62 d?",
-    "correctAnswer": "Mini-Neptun / Super-Erde",
+    "correctAnswer": "Mini-Neptun",
     "options": [
-      "Mini-Neptun / Super-Erde",
-      "Super-Erde (umstritten)",
-      "Super-Erde / Mini-Neptun",
-      "Heißer Gesteinsplanet (extrem)"
+      "Mini-Neptun",
+      "Super-Erde",
+      "Gasriese",
+      "Junger Gasriese"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -104658,12 +104088,12 @@
     "type": "astra-exoplanet-type",
     "difficulty": 3,
     "prompt": "Zu welchem Planetentyp zählt der Exoplanet Kepler-80 d?",
-    "correctAnswer": "Super-Erde / Mini-Neptun",
+    "correctAnswer": "Super-Erde",
     "options": [
-      "Super-Erde / Mini-Neptun",
-      "Mini-Neptun / Super-Erde",
-      "Super-Erde (umstritten)",
-      "Heißer Jupiter (hohe Masse)"
+      "Super-Erde",
+      "Mini-Neptun",
+      "Gasriese",
+      "Heißer Jupiter"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -104677,12 +104107,12 @@
     "type": "astra-exoplanet-type",
     "difficulty": 3,
     "prompt": "Zu welchem Planetentyp zählt der Exoplanet Kepler-444 c?",
-    "correctAnswer": "Gesteinsplanet (sub-erdgroß)",
+    "correctAnswer": "Gesteinsplanet",
     "options": [
-      "Gesteinsplanet (sub-erdgroß)",
-      "Gasriese (in habitabler Zone)",
-      "Super-Erde (habitable Zone)",
-      "Mini-Neptun / Super-Erde"
+      "Gesteinsplanet",
+      "Neptun-ähnlich",
+      "Heißer Jupiter",
+      "Super-Erde"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -104699,9 +104129,9 @@
     "correctAnswer": "Gasriese",
     "options": [
       "Gasriese",
-      "Heißer Jupiter (hohe Masse)",
+      "Heiße Super-Erde",
       "Super-Erde",
-      "Heißer Jupiter"
+      "Mini-Neptun"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -104718,9 +104148,9 @@
     "correctAnswer": "Super-Erde",
     "options": [
       "Super-Erde",
-      "Gasriese",
-      "Heiße Super-Erde",
-      "Super-Erde / Gesteinsplanet"
+      "Mini-Neptun",
+      "Gesteinsplanet",
+      "Gasriese"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -104738,7 +104168,7 @@
     "options": [
       "Super-Erde",
       "Mini-Neptun",
-      "Heißer Jupiter (durch Gezeiten verformt)",
+      "Brauner-Zwerg-Grenzobjekt",
       "Gasriese"
     ],
     "testedAttribute": "type",
@@ -104758,7 +104188,7 @@
       "Super-Erde",
       "Mini-Neptun",
       "Gasriese",
-      "Junger Gasriese"
+      "Gesteinsplanet"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -104772,12 +104202,12 @@
     "type": "astra-exoplanet-type",
     "difficulty": 3,
     "prompt": "Zu welchem Planetentyp zählt der Exoplanet HD 97658 b?",
-    "correctAnswer": "Super-Erde / Mini-Neptun",
+    "correctAnswer": "Super-Erde",
     "options": [
-      "Super-Erde / Mini-Neptun",
-      "Mini-Neptun / Super-Erde",
-      "Brauner-Zwerg-Grenzobjekt",
-      "Super-Erde (umstritten)"
+      "Super-Erde",
+      "Mini-Neptun",
+      "Gasriese",
+      "Neptun-ähnlich"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -104795,8 +104225,8 @@
     "options": [
       "Neptun-ähnlich",
       "Gesteinsplanet",
-      "Heißer Jupiter (aufgebläht)",
-      "Heiße Super-Erde"
+      "Gasriese",
+      "Heißer Jupiter"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -104810,12 +104240,12 @@
     "type": "astra-exoplanet-type",
     "difficulty": 3,
     "prompt": "Zu welchem Planetentyp zählt der Exoplanet HD 28185 b?",
-    "correctAnswer": "Gasriese (in habitabler Zone)",
+    "correctAnswer": "Gasriese",
     "options": [
-      "Gasriese (in habitabler Zone)",
-      "Heißer Gesteinsplanet (extrem)",
-      "Heißer Jupiter (aufgeblähter Gasriese)",
-      "Gesteinsplanet (sub-erdgroß)"
+      "Gasriese",
+      "Super-Erde",
+      "Heiße Super-Erde",
+      "Mini-Neptun"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -104832,9 +104262,9 @@
     "correctAnswer": "Neptun-ähnlich",
     "options": [
       "Neptun-ähnlich",
-      "Heißer Jupiter",
       "Gesteinsplanet",
-      "Gasriese (gemäßigte Temperatur)"
+      "Heißer Jupiter",
+      "Zirkumbinärer Gasriese"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -104848,12 +104278,12 @@
     "type": "astra-exoplanet-type",
     "difficulty": 3,
     "prompt": "Zu welchem Planetentyp zählt der Exoplanet Gliese 581 d?",
-    "correctAnswer": "Super-Erde (umstritten)",
+    "correctAnswer": "Super-Erde",
     "options": [
-      "Super-Erde (umstritten)",
-      "Mini-Neptun / Super-Erde",
-      "Super-Erde / Mini-Neptun",
-      "Zirkumbinärer Planet"
+      "Super-Erde",
+      "Mini-Neptun",
+      "Gasriese",
+      "Heißer Jupiter"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -104872,7 +104302,7 @@
       "Gasriese",
       "Super-Erde",
       "Mini-Neptun",
-      "Heißer Jupiter"
+      "Neptun-ähnlich"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -104889,7 +104319,7 @@
     "correctAnswer": "Neptun-ähnlich",
     "options": [
       "Neptun-ähnlich",
-      "Gasriese",
+      "Junger Gasriese",
       "Gesteinsplanet",
       "Heißer Jupiter"
     ],
@@ -104905,12 +104335,12 @@
     "type": "astra-exoplanet-type",
     "difficulty": 3,
     "prompt": "Zu welchem Planetentyp zählt der Exoplanet Gliese 504 b?",
-    "correctAnswer": "Junger Gasriese (magentafarben)",
+    "correctAnswer": "Junger Gasriese",
     "options": [
-      "Junger Gasriese (magentafarben)",
-      "Heißer Jupiter (geringe Dichte)",
-      "Gesteinsplanet (habitable Zone)",
-      "Gasriese (gemäßigte Temperatur)"
+      "Junger Gasriese",
+      "Heißer Jupiter",
+      "Neptun-ähnlich",
+      "Heiße Super-Erde"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -104927,8 +104357,8 @@
     "correctAnswer": "Heißer Jupiter",
     "options": [
       "Heißer Jupiter",
-      "Gesteinsplanet",
       "Neptun-ähnlich",
+      "Gesteinsplanet",
       "Junger Gasriese"
     ],
     "testedAttribute": "type",
@@ -104946,9 +104376,9 @@
     "correctAnswer": "Gasriese",
     "options": [
       "Gasriese",
-      "Mini-Neptun",
-      "Heißer Jupiter (hohe Masse)",
-      "Junger Gasriese (magentafarben)"
+      "Super-Erde",
+      "Junger Gasriese",
+      "Zirkumbinärer Gasriese"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -104965,7 +104395,7 @@
     "correctAnswer": "Heiße Super-Erde",
     "options": [
       "Heiße Super-Erde",
-      "Gesteinsplanet",
+      "Heißer Jupiter",
       "Junger Gasriese",
       "Zirkumbinärer Planet"
     ],
@@ -104984,8 +104414,8 @@
     "correctAnswer": "Gesteinsplanet",
     "options": [
       "Gesteinsplanet",
-      "Neptun-ähnlich",
       "Heißer Jupiter",
+      "Neptun-ähnlich",
       "Junger Gasriese"
     ],
     "testedAttribute": "type",
@@ -105000,12 +104430,12 @@
     "type": "astra-exoplanet-type",
     "difficulty": 3,
     "prompt": "Zu welchem Planetentyp zählt der Exoplanet GJ 1061 d?",
-    "correctAnswer": "Gesteinsplanet (habitable Zone)",
+    "correctAnswer": "Gesteinsplanet",
     "options": [
-      "Gesteinsplanet (habitable Zone)",
-      "Heiße Super-Erde",
-      "Gasriese (gemäßigte Temperatur)",
-      "Heißer Jupiter (geringe Dichte)"
+      "Gesteinsplanet",
+      "Heißer Gesteinsplanet",
+      "Heißer Jupiter",
+      "Neptun-ähnlich"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -105019,12 +104449,12 @@
     "type": "astra-exoplanet-type",
     "difficulty": 3,
     "prompt": "Zu welchem Planetentyp zählt der Exoplanet GJ 273 b?",
-    "correctAnswer": "Super-Erde (habitable Zone)",
+    "correctAnswer": "Super-Erde",
     "options": [
-      "Super-Erde (habitable Zone)",
-      "Heißer Jupiter (aufgebläht)",
-      "Heißer Jupiter (hohe Masse)",
-      "Gesteinsplanet (Mars-Größe)"
+      "Super-Erde",
+      "Mini-Neptun",
+      "Gasriese",
+      "Gesteinsplanet"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -105038,12 +104468,12 @@
     "type": "astra-exoplanet-type",
     "difficulty": 3,
     "prompt": "Zu welchem Planetentyp zählt der Exoplanet YZ Ceti b?",
-    "correctAnswer": "Gesteinsplanet (sub-erdgroß)",
+    "correctAnswer": "Gesteinsplanet",
     "options": [
-      "Gesteinsplanet (sub-erdgroß)",
-      "Heißer Jupiter (hohe Masse)",
-      "Super-Erde (habitable Zone)",
-      "Gasriese (in habitabler Zone)"
+      "Gesteinsplanet",
+      "Heißer Jupiter",
+      "Neptun-ähnlich",
+      "Junger Gasriese"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -105057,12 +104487,12 @@
     "type": "astra-exoplanet-type",
     "difficulty": 3,
     "prompt": "Zu welchem Planetentyp zählt der Exoplanet Barnards Stern b?",
-    "correctAnswer": "Gesteinsplanet (sub-erdgroß)",
+    "correctAnswer": "Gesteinsplanet",
     "options": [
-      "Gesteinsplanet (sub-erdgroß)",
-      "Heißer Jupiter (hohe Masse)",
-      "Gasriese (in habitabler Zone)",
-      "Gesteinsplanet (Mars-Größe)"
+      "Gesteinsplanet",
+      "Neptun-ähnlich",
+      "Zirkumbinärer Gasriese",
+      "Heißer Jupiter"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -105076,12 +104506,12 @@
     "type": "astra-exoplanet-type",
     "difficulty": 3,
     "prompt": "Zu welchem Planetentyp zählt der Exoplanet LHS 1140 c?",
-    "correctAnswer": "Super-Erde / Gesteinsplanet",
+    "correctAnswer": "Super-Erde",
     "options": [
-      "Super-Erde / Gesteinsplanet",
-      "Gesteinsplanet (Mars-Größe)",
-      "Gasriese (in habitabler Zone)",
-      "Heißer Jupiter (aufgebläht)"
+      "Super-Erde",
+      "Mini-Neptun",
+      "Gesteinsplanet",
+      "Gasriese"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -105095,12 +104525,12 @@
     "type": "astra-exoplanet-type",
     "difficulty": 3,
     "prompt": "Zu welchem Planetentyp zählt der Exoplanet K2-3 d?",
-    "correctAnswer": "Super-Erde (nahe habitabler Zone)",
+    "correctAnswer": "Super-Erde",
     "options": [
-      "Super-Erde (nahe habitabler Zone)",
-      "Junger Gasriese (magentafarben)",
-      "Heißer Jupiter (aufgeblähter Gasriese)",
-      "Gesteinsplanet (habitable Zone)"
+      "Super-Erde",
+      "Mini-Neptun",
+      "Neptun-ähnlich",
+      "Gasriese"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -105114,12 +104544,12 @@
     "type": "astra-exoplanet-type",
     "difficulty": 3,
     "prompt": "Zu welchem Planetentyp zählt der Exoplanet K2-72 e?",
-    "correctAnswer": "Gesteinsplanet (habitable Zone)",
+    "correctAnswer": "Gesteinsplanet",
     "options": [
-      "Gesteinsplanet (habitable Zone)",
-      "Gesteinsplanet (sub-erdgroß)",
-      "Gasriese (gemäßigte Temperatur)",
-      "Junger Gasriese (magentafarben)"
+      "Gesteinsplanet",
+      "Junger Gasriese",
+      "Neptun-ähnlich",
+      "Heißer Jupiter"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -105136,9 +104566,9 @@
     "correctAnswer": "Zirkumbinärer Planet",
     "options": [
       "Zirkumbinärer Planet",
+      "Heißer Gesteinsplanet",
       "Zirkumbinärer Gasriese",
-      "Super-Erde (umstritten)",
-      "Mini-Neptun"
+      "Heißer Jupiter"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -105174,9 +104604,9 @@
     "correctAnswer": "Gesteinsplanet",
     "options": [
       "Gesteinsplanet",
-      "Neptun-ähnlich",
-      "Gasriese (gemäßigte Temperatur)",
-      "Mini-Neptun / Super-Erde"
+      "Heißer Jupiter",
+      "Heißer Gesteinsplanet",
+      "Mini-Neptun"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -105193,9 +104623,9 @@
     "correctAnswer": "Junger Gasriese",
     "options": [
       "Junger Gasriese",
+      "Mini-Neptun",
       "Heißer Jupiter",
-      "Heiße Super-Erde",
-      "Super-Erde / Mini-Neptun"
+      "Heiße Super-Erde"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -105203,94 +104633,18 @@
     "mapTargetId": null
   },
   {
-    "id": "q_astra_asteroid-bennu_astra-asteroid-type",
-    "entityId": "astra:asteroid-bennu",
-    "entityType": "asteroid",
-    "type": "astra-asteroid-type",
-    "difficulty": 4,
-    "prompt": "Zu welcher Gruppe von Kleinkörpern zählt Bennu?",
-    "correctAnswer": "Apollo-Typ",
-    "options": [
-      "Apollo-Typ",
-      "Zentaur",
-      "Apollo-Typ (NEO)",
-      "Erdnaher Asteroid"
-    ],
-    "testedAttribute": "type",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_asteroid-ryugu_astra-asteroid-type",
-    "entityId": "astra:asteroid-ryugu",
-    "entityType": "asteroid",
-    "type": "astra-asteroid-type",
-    "difficulty": 4,
-    "prompt": "Zu welcher Gruppe von Kleinkörpern zählt Ryugu?",
-    "correctAnswer": "Apollo-Typ",
-    "options": [
-      "Apollo-Typ",
-      "M-Typ (Hauptgürtel)",
-      "Zentaur",
-      "S-Typ"
-    ],
-    "testedAttribute": "type",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_asteroid-apophis_astra-asteroid-type",
-    "entityId": "astra:asteroid-apophis",
-    "entityType": "asteroid",
-    "type": "astra-asteroid-type",
-    "difficulty": 4,
-    "prompt": "Zu welcher Gruppe von Kleinkörpern zählt Apophis?",
-    "correctAnswer": "S-Typ / Aten-Typ",
-    "options": [
-      "S-Typ / Aten-Typ",
-      "Zentaur",
-      "C-Typ (Hauptgürtel)",
-      "G-Typ (Hauptgürtel)"
-    ],
-    "testedAttribute": "type",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_asteroid-eros_astra-asteroid-type",
-    "entityId": "astra:asteroid-eros",
-    "entityType": "asteroid",
-    "type": "astra-asteroid-type",
-    "difficulty": 4,
-    "prompt": "Zu welcher Gruppe von Kleinkörpern zählt Eros?",
-    "correctAnswer": "Erdnaher Asteroid",
-    "options": [
-      "Erdnaher Asteroid",
-      "E-Typ (Hauptgürtel)",
-      "Jupiter-Trojaner",
-      "Apollo-Typ"
-    ],
-    "testedAttribute": "type",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_asteroid-mathilde_astra-asteroid-type",
+    "id": "q_astra_asteroid-mathilde_astra-asteroid-spectral",
     "entityId": "astra:asteroid-mathilde",
     "entityType": "asteroid",
-    "type": "astra-asteroid-type",
+    "type": "astra-asteroid-spectral",
     "difficulty": 4,
-    "prompt": "Zu welcher Gruppe von Kleinkörpern zählt Mathilde?",
+    "prompt": "Welcher Spektralklasse gehört der Asteroid Mathilde an?",
     "correctAnswer": "C-Typ",
     "options": [
       "C-Typ",
-      "C-Typ (Hauptgürtel)",
       "M-Typ",
-      "S-Typ"
+      "G-Typ",
+      "E-Typ"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -105298,112 +104652,17 @@
     "mapTargetId": null
   },
   {
-    "id": "q_astra_asteroid-itokawa_astra-asteroid-type",
-    "entityId": "astra:asteroid-itokawa",
-    "entityType": "asteroid",
-    "type": "astra-asteroid-type",
-    "difficulty": 4,
-    "prompt": "Zu welcher Gruppe von Kleinkörpern zählt Itokawa?",
-    "correctAnswer": "Erdnaher Asteroid",
-    "options": [
-      "Erdnaher Asteroid",
-      "M-Typ (metallisch)",
-      "Jupiter-Trojaner",
-      "Apollo-Typ (NEO)"
-    ],
-    "testedAttribute": "type",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_asteroid-icarus_astra-asteroid-type",
-    "entityId": "astra:asteroid-icarus",
-    "entityType": "asteroid",
-    "type": "astra-asteroid-type",
-    "difficulty": 4,
-    "prompt": "Zu welcher Gruppe von Kleinkörpern zählt Ikarus?",
-    "correctAnswer": "Erdnaher Asteroid",
-    "options": [
-      "Erdnaher Asteroid",
-      "M-Typ (metallisch)",
-      "Apollo-Typ (NEO)",
-      "S-Typ / Aten-Typ"
-    ],
-    "testedAttribute": "type",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_asteroid-geographos_astra-asteroid-type",
-    "entityId": "astra:asteroid-geographos",
-    "entityType": "asteroid",
-    "type": "astra-asteroid-type",
-    "difficulty": 4,
-    "prompt": "Zu welcher Gruppe von Kleinkörpern zählt Geographos?",
-    "correctAnswer": "Erdnaher Asteroid",
-    "options": [
-      "Erdnaher Asteroid",
-      "M-Typ (metallisch)",
-      "Apollo-Typ (NEO)",
-      "M-Typ (Hauptgürtel)"
-    ],
-    "testedAttribute": "type",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_asteroid-toutatis_astra-asteroid-type",
-    "entityId": "astra:asteroid-toutatis",
-    "entityType": "asteroid",
-    "type": "astra-asteroid-type",
-    "difficulty": 4,
-    "prompt": "Zu welcher Gruppe von Kleinkörpern zählt Toutatis?",
-    "correctAnswer": "Erdnaher Asteroid",
-    "options": [
-      "Erdnaher Asteroid",
-      "S-Typ / Aten-Typ",
-      "Jupiter-Trojaner",
-      "M-Typ (metallisch)"
-    ],
-    "testedAttribute": "type",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_asteroid-didymos_astra-asteroid-type",
-    "entityId": "astra:asteroid-didymos",
-    "entityType": "asteroid",
-    "type": "astra-asteroid-type",
-    "difficulty": 4,
-    "prompt": "Zu welcher Gruppe von Kleinkörpern zählt Didymos?",
-    "correctAnswer": "Erdnaher Asteroid",
-    "options": [
-      "Erdnaher Asteroid",
-      "Jupiter-Trojaner",
-      "M-Typ (Hauptgürtel)",
-      "S-Typ / Aten-Typ"
-    ],
-    "testedAttribute": "type",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_asteroid-lutetia_astra-asteroid-type",
+    "id": "q_astra_asteroid-lutetia_astra-asteroid-spectral",
     "entityId": "astra:asteroid-lutetia",
     "entityType": "asteroid",
-    "type": "astra-asteroid-type",
+    "type": "astra-asteroid-spectral",
     "difficulty": 4,
-    "prompt": "Zu welcher Gruppe von Kleinkörpern zählt Lutetia?",
+    "prompt": "Welcher Spektralklasse gehört der Asteroid Lutetia an?",
     "correctAnswer": "M-Typ",
     "options": [
       "M-Typ",
+      "E-Typ",
       "C-Typ",
-      "Zentaur / Kometenähnlich",
       "S-Typ"
     ],
     "testedAttribute": "type",
@@ -105412,18 +104671,18 @@
     "mapTargetId": null
   },
   {
-    "id": "q_astra_asteroid-steins_astra-asteroid-type",
+    "id": "q_astra_asteroid-steins_astra-asteroid-spectral",
     "entityId": "astra:asteroid-steins",
     "entityType": "asteroid",
-    "type": "astra-asteroid-type",
+    "type": "astra-asteroid-spectral",
     "difficulty": 4,
-    "prompt": "Zu welcher Gruppe von Kleinkörpern zählt Šteins?",
+    "prompt": "Welcher Spektralklasse gehört der Asteroid Šteins an?",
     "correctAnswer": "E-Typ",
     "options": [
       "E-Typ",
-      "S-Typ",
-      "S-Typ / Aten-Typ",
-      "C-Typ"
+      "C-Typ",
+      "M-Typ",
+      "G-Typ"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -105431,18 +104690,37 @@
     "mapTargetId": null
   },
   {
-    "id": "q_astra_asteroid-florence_astra-asteroid-type",
+    "id": "q_astra_asteroid-florence_astra-asteroid-spectral",
     "entityId": "astra:asteroid-florence",
     "entityType": "asteroid",
-    "type": "astra-asteroid-type",
+    "type": "astra-asteroid-spectral",
     "difficulty": 4,
-    "prompt": "Zu welcher Gruppe von Kleinkörpern zählt Florence?",
+    "prompt": "Welcher Spektralklasse gehört der Asteroid Florence an?",
+    "correctAnswer": "S-Typ",
+    "options": [
+      "S-Typ",
+      "M-Typ",
+      "C-Typ",
+      "G-Typ"
+    ],
+    "testedAttribute": "type",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_asteroid-astraea-h4_astra-asteroid-spectral",
+    "entityId": "astra:asteroid-astraea-h4",
+    "entityType": "asteroid",
+    "type": "astra-asteroid-spectral",
+    "difficulty": 4,
+    "prompt": "Welcher Spektralklasse gehört der Asteroid Astraea (5 Astraea) an?",
     "correctAnswer": "S-Typ",
     "options": [
       "S-Typ",
       "C-Typ",
       "M-Typ",
-      "Apollo-Typ (NEO)"
+      "E-Typ"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -105450,36 +104728,55 @@
     "mapTargetId": null
   },
   {
-    "id": "q_astra_asteroid-astraea-h4_astra-asteroid-type",
-    "entityId": "astra:asteroid-astraea-h4",
-    "entityType": "asteroid",
-    "type": "astra-asteroid-type",
-    "difficulty": 4,
-    "prompt": "Zu welcher Gruppe von Kleinkörpern zählt Astraea (5 Astraea)?",
-    "correctAnswer": "S-Typ (Hauptgürtel)",
-    "options": [
-      "S-Typ (Hauptgürtel)",
-      "C-Typ (Hauptgürtel)",
-      "M-Typ (Hauptgürtel)",
-      "E-Typ (Hauptgürtel)"
-    ],
-    "testedAttribute": "type",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_asteroid-hebe-h4_astra-asteroid-type",
+    "id": "q_astra_asteroid-hebe-h4_astra-asteroid-spectral",
     "entityId": "astra:asteroid-hebe-h4",
     "entityType": "asteroid",
-    "type": "astra-asteroid-type",
+    "type": "astra-asteroid-spectral",
     "difficulty": 4,
-    "prompt": "Zu welcher Gruppe von Kleinkörpern zählt Hebe (6 Hebe)?",
-    "correctAnswer": "S-Typ (Hauptgürtel)",
+    "prompt": "Welcher Spektralklasse gehört der Asteroid Hebe (6 Hebe) an?",
+    "correctAnswer": "S-Typ",
     "options": [
-      "S-Typ (Hauptgürtel)",
-      "E-Typ (Hauptgürtel)",
-      "C-Typ (Hauptgürtel)",
+      "S-Typ",
+      "E-Typ",
+      "M-Typ",
+      "G-Typ"
+    ],
+    "testedAttribute": "type",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_asteroid-iris-h4_astra-asteroid-spectral",
+    "entityId": "astra:asteroid-iris-h4",
+    "entityType": "asteroid",
+    "type": "astra-asteroid-spectral",
+    "difficulty": 4,
+    "prompt": "Welcher Spektralklasse gehört der Asteroid Iris (7 Iris) an?",
+    "correctAnswer": "S-Typ",
+    "options": [
+      "S-Typ",
+      "E-Typ",
+      "C-Typ",
+      "G-Typ"
+    ],
+    "testedAttribute": "type",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_asteroid-flora-h4_astra-asteroid-spectral",
+    "entityId": "astra:asteroid-flora-h4",
+    "entityType": "asteroid",
+    "type": "astra-asteroid-spectral",
+    "difficulty": 4,
+    "prompt": "Welcher Spektralklasse gehört der Asteroid Flora (8 Flora) an?",
+    "correctAnswer": "S-Typ",
+    "options": [
+      "S-Typ",
+      "E-Typ",
+      "M-Typ",
       "C-Typ"
     ],
     "testedAttribute": "type",
@@ -105488,56 +104785,18 @@
     "mapTargetId": null
   },
   {
-    "id": "q_astra_asteroid-iris-h4_astra-asteroid-type",
-    "entityId": "astra:asteroid-iris-h4",
-    "entityType": "asteroid",
-    "type": "astra-asteroid-type",
-    "difficulty": 4,
-    "prompt": "Zu welcher Gruppe von Kleinkörpern zählt Iris (7 Iris)?",
-    "correctAnswer": "S-Typ (Hauptgürtel)",
-    "options": [
-      "S-Typ (Hauptgürtel)",
-      "M-Typ (Hauptgürtel)",
-      "Apollo-Typ (NEO)",
-      "E-Typ (Hauptgürtel)"
-    ],
-    "testedAttribute": "type",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_asteroid-flora-h4_astra-asteroid-type",
-    "entityId": "astra:asteroid-flora-h4",
-    "entityType": "asteroid",
-    "type": "astra-asteroid-type",
-    "difficulty": 4,
-    "prompt": "Zu welcher Gruppe von Kleinkörpern zählt Flora (8 Flora)?",
-    "correctAnswer": "S-Typ (Hauptgürtel)",
-    "options": [
-      "S-Typ (Hauptgürtel)",
-      "C-Typ (Hauptgürtel)",
-      "S-Typ / Aten-Typ",
-      "G-Typ (Hauptgürtel)"
-    ],
-    "testedAttribute": "type",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_asteroid-metis-h4_astra-asteroid-type",
+    "id": "q_astra_asteroid-metis-h4_astra-asteroid-spectral",
     "entityId": "astra:asteroid-metis-h4",
     "entityType": "asteroid",
-    "type": "astra-asteroid-type",
+    "type": "astra-asteroid-spectral",
     "difficulty": 4,
-    "prompt": "Zu welcher Gruppe von Kleinkörpern zählt Metis (9 Metis)?",
-    "correctAnswer": "S-Typ (Hauptgürtel)",
+    "prompt": "Welcher Spektralklasse gehört der Asteroid Metis (9 Metis) an?",
+    "correctAnswer": "S-Typ",
     "options": [
-      "S-Typ (Hauptgürtel)",
       "S-Typ",
-      "C-Typ (Hauptgürtel)",
-      "E-Typ (Hauptgürtel)"
+      "M-Typ",
+      "G-Typ",
+      "C-Typ"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -105545,18 +104804,18 @@
     "mapTargetId": null
   },
   {
-    "id": "q_astra_asteroid-parthenope-h4_astra-asteroid-type",
+    "id": "q_astra_asteroid-parthenope-h4_astra-asteroid-spectral",
     "entityId": "astra:asteroid-parthenope-h4",
     "entityType": "asteroid",
-    "type": "astra-asteroid-type",
+    "type": "astra-asteroid-spectral",
     "difficulty": 4,
-    "prompt": "Zu welcher Gruppe von Kleinkörpern zählt Parthenope (11 Parthenope)?",
-    "correctAnswer": "S-Typ (Hauptgürtel)",
+    "prompt": "Welcher Spektralklasse gehört der Asteroid Parthenope (11 Parthenope) an?",
+    "correctAnswer": "S-Typ",
     "options": [
-      "S-Typ (Hauptgürtel)",
-      "E-Typ (Hauptgürtel)",
-      "C-Typ (Hauptgürtel)",
-      "Erdnaher Asteroid"
+      "S-Typ",
+      "E-Typ",
+      "C-Typ",
+      "G-Typ"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -105564,18 +104823,18 @@
     "mapTargetId": null
   },
   {
-    "id": "q_astra_asteroid-egeria-h4_astra-asteroid-type",
+    "id": "q_astra_asteroid-egeria-h4_astra-asteroid-spectral",
     "entityId": "astra:asteroid-egeria-h4",
     "entityType": "asteroid",
-    "type": "astra-asteroid-type",
+    "type": "astra-asteroid-spectral",
     "difficulty": 4,
-    "prompt": "Zu welcher Gruppe von Kleinkörpern zählt Egeria (13 Egeria)?",
-    "correctAnswer": "G-Typ (Hauptgürtel)",
+    "prompt": "Welcher Spektralklasse gehört der Asteroid Egeria (13 Egeria) an?",
+    "correctAnswer": "G-Typ",
     "options": [
-      "G-Typ (Hauptgürtel)",
-      "S-Typ (Hauptgürtel)",
-      "C-Typ (Hauptgürtel)",
-      "M-Typ (Hauptgürtel)"
+      "G-Typ",
+      "C-Typ",
+      "E-Typ",
+      "M-Typ"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -105583,18 +104842,18 @@
     "mapTargetId": null
   },
   {
-    "id": "q_astra_asteroid-eunomia-h4_astra-asteroid-type",
+    "id": "q_astra_asteroid-eunomia-h4_astra-asteroid-spectral",
     "entityId": "astra:asteroid-eunomia-h4",
     "entityType": "asteroid",
-    "type": "astra-asteroid-type",
+    "type": "astra-asteroid-spectral",
     "difficulty": 4,
-    "prompt": "Zu welcher Gruppe von Kleinkörpern zählt Eunomia (15 Eunomia)?",
-    "correctAnswer": "S-Typ (Hauptgürtel)",
+    "prompt": "Welcher Spektralklasse gehört der Asteroid Eunomia (15 Eunomia) an?",
+    "correctAnswer": "S-Typ",
     "options": [
-      "S-Typ (Hauptgürtel)",
-      "G-Typ (Hauptgürtel)",
-      "C-Typ (Hauptgürtel)",
-      "M-Typ (metallisch)"
+      "S-Typ",
+      "C-Typ",
+      "M-Typ",
+      "G-Typ"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -105602,18 +104861,18 @@
     "mapTargetId": null
   },
   {
-    "id": "q_astra_asteroid-psyche-h4_astra-asteroid-type",
+    "id": "q_astra_asteroid-psyche-h4_astra-asteroid-spectral",
     "entityId": "astra:asteroid-psyche-h4",
     "entityType": "asteroid",
-    "type": "astra-asteroid-type",
+    "type": "astra-asteroid-spectral",
     "difficulty": 4,
-    "prompt": "Zu welcher Gruppe von Kleinkörpern zählt Psyche (16 Psyche)?",
-    "correctAnswer": "M-Typ (metallisch)",
+    "prompt": "Welcher Spektralklasse gehört der Asteroid Psyche (16 Psyche) an?",
+    "correctAnswer": "M-Typ",
     "options": [
-      "M-Typ (metallisch)",
       "M-Typ",
-      "E-Typ (Hauptgürtel)",
-      "Erdnaher Asteroid"
+      "C-Typ",
+      "E-Typ",
+      "G-Typ"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -105621,17 +104880,93 @@
     "mapTargetId": null
   },
   {
-    "id": "q_astra_asteroid-fortuna-h4_astra-asteroid-type",
+    "id": "q_astra_asteroid-fortuna-h4_astra-asteroid-spectral",
     "entityId": "astra:asteroid-fortuna-h4",
     "entityType": "asteroid",
-    "type": "astra-asteroid-type",
+    "type": "astra-asteroid-spectral",
     "difficulty": 4,
-    "prompt": "Zu welcher Gruppe von Kleinkörpern zählt Fortuna (19 Fortuna)?",
-    "correctAnswer": "G-Typ (Hauptgürtel)",
+    "prompt": "Welcher Spektralklasse gehört der Asteroid Fortuna (19 Fortuna) an?",
+    "correctAnswer": "G-Typ",
     "options": [
-      "G-Typ (Hauptgürtel)",
-      "S-Typ (Hauptgürtel)",
-      "C-Typ (Hauptgürtel)",
+      "G-Typ",
+      "S-Typ",
+      "C-Typ",
+      "M-Typ"
+    ],
+    "testedAttribute": "type",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_asteroid-massalia-h4_astra-asteroid-spectral",
+    "entityId": "astra:asteroid-massalia-h4",
+    "entityType": "asteroid",
+    "type": "astra-asteroid-spectral",
+    "difficulty": 4,
+    "prompt": "Welcher Spektralklasse gehört der Asteroid Massalia (20 Massalia) an?",
+    "correctAnswer": "S-Typ",
+    "options": [
+      "S-Typ",
+      "E-Typ",
+      "M-Typ",
+      "G-Typ"
+    ],
+    "testedAttribute": "type",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_asteroid-lutetia-h4_astra-asteroid-spectral",
+    "entityId": "astra:asteroid-lutetia-h4",
+    "entityType": "asteroid",
+    "type": "astra-asteroid-spectral",
+    "difficulty": 4,
+    "prompt": "Welcher Spektralklasse gehört der Asteroid Lutetia (21 Lutetia) an?",
+    "correctAnswer": "M-Typ",
+    "options": [
+      "M-Typ",
+      "C-Typ",
+      "G-Typ",
+      "E-Typ"
+    ],
+    "testedAttribute": "type",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_asteroid-kalliope-h4_astra-asteroid-spectral",
+    "entityId": "astra:asteroid-kalliope-h4",
+    "entityType": "asteroid",
+    "type": "astra-asteroid-spectral",
+    "difficulty": 4,
+    "prompt": "Welcher Spektralklasse gehört der Asteroid Kalliope (22 Kalliope) an?",
+    "correctAnswer": "M-Typ",
+    "options": [
+      "M-Typ",
+      "G-Typ",
+      "C-Typ",
+      "E-Typ"
+    ],
+    "testedAttribute": "type",
+    "answerIsName": false,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_asteroid-themis-h4_astra-asteroid-spectral",
+    "entityId": "astra:asteroid-themis-h4",
+    "entityType": "asteroid",
+    "type": "astra-asteroid-spectral",
+    "difficulty": 4,
+    "prompt": "Welcher Spektralklasse gehört der Asteroid Themis (24 Themis) an?",
+    "correctAnswer": "C-Typ",
+    "options": [
+      "C-Typ",
+      "E-Typ",
+      "G-Typ",
       "S-Typ"
     ],
     "testedAttribute": "type",
@@ -105640,94 +104975,18 @@
     "mapTargetId": null
   },
   {
-    "id": "q_astra_asteroid-massalia-h4_astra-asteroid-type",
-    "entityId": "astra:asteroid-massalia-h4",
-    "entityType": "asteroid",
-    "type": "astra-asteroid-type",
-    "difficulty": 4,
-    "prompt": "Zu welcher Gruppe von Kleinkörpern zählt Massalia (20 Massalia)?",
-    "correctAnswer": "S-Typ (Hauptgürtel)",
-    "options": [
-      "S-Typ (Hauptgürtel)",
-      "S-Typ / Aten-Typ",
-      "E-Typ (Hauptgürtel)",
-      "C-Typ"
-    ],
-    "testedAttribute": "type",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_asteroid-lutetia-h4_astra-asteroid-type",
-    "entityId": "astra:asteroid-lutetia-h4",
-    "entityType": "asteroid",
-    "type": "astra-asteroid-type",
-    "difficulty": 4,
-    "prompt": "Zu welcher Gruppe von Kleinkörpern zählt Lutetia (21 Lutetia)?",
-    "correctAnswer": "M-Typ (Hauptgürtel)",
-    "options": [
-      "M-Typ (Hauptgürtel)",
-      "G-Typ (Hauptgürtel)",
-      "C-Typ (Hauptgürtel)",
-      "E-Typ (Hauptgürtel)"
-    ],
-    "testedAttribute": "type",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_asteroid-kalliope-h4_astra-asteroid-type",
-    "entityId": "astra:asteroid-kalliope-h4",
-    "entityType": "asteroid",
-    "type": "astra-asteroid-type",
-    "difficulty": 4,
-    "prompt": "Zu welcher Gruppe von Kleinkörpern zählt Kalliope (22 Kalliope)?",
-    "correctAnswer": "M-Typ (Hauptgürtel)",
-    "options": [
-      "M-Typ (Hauptgürtel)",
-      "Zentaur / Kometenähnlich",
-      "G-Typ (Hauptgürtel)",
-      "E-Typ (Hauptgürtel)"
-    ],
-    "testedAttribute": "type",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_asteroid-themis-h4_astra-asteroid-type",
-    "entityId": "astra:asteroid-themis-h4",
-    "entityType": "asteroid",
-    "type": "astra-asteroid-type",
-    "difficulty": 4,
-    "prompt": "Zu welcher Gruppe von Kleinkörpern zählt Themis (24 Themis)?",
-    "correctAnswer": "C-Typ (Hauptgürtel)",
-    "options": [
-      "C-Typ (Hauptgürtel)",
-      "M-Typ (Hauptgürtel)",
-      "E-Typ (Hauptgürtel)",
-      "S-Typ (Hauptgürtel)"
-    ],
-    "testedAttribute": "type",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_asteroid-amphitrite-h4_astra-asteroid-type",
+    "id": "q_astra_asteroid-amphitrite-h4_astra-asteroid-spectral",
     "entityId": "astra:asteroid-amphitrite-h4",
     "entityType": "asteroid",
-    "type": "astra-asteroid-type",
+    "type": "astra-asteroid-spectral",
     "difficulty": 4,
-    "prompt": "Zu welcher Gruppe von Kleinkörpern zählt Amphitrite (29 Amphitrite)?",
-    "correctAnswer": "S-Typ (Hauptgürtel)",
+    "prompt": "Welcher Spektralklasse gehört der Asteroid Amphitrite (29 Amphitrite) an?",
+    "correctAnswer": "S-Typ",
     "options": [
-      "S-Typ (Hauptgürtel)",
-      "M-Typ (Hauptgürtel)",
-      "E-Typ (Hauptgürtel)",
-      "G-Typ (Hauptgürtel)"
+      "S-Typ",
+      "G-Typ",
+      "M-Typ",
+      "E-Typ"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -105735,18 +104994,18 @@
     "mapTargetId": null
   },
   {
-    "id": "q_astra_asteroid-euphrosyne-h4_astra-asteroid-type",
+    "id": "q_astra_asteroid-euphrosyne-h4_astra-asteroid-spectral",
     "entityId": "astra:asteroid-euphrosyne-h4",
     "entityType": "asteroid",
-    "type": "astra-asteroid-type",
+    "type": "astra-asteroid-spectral",
     "difficulty": 4,
-    "prompt": "Zu welcher Gruppe von Kleinkörpern zählt Euphrosyne (31 Euphrosyne)?",
-    "correctAnswer": "C-Typ (Hauptgürtel)",
+    "prompt": "Welcher Spektralklasse gehört der Asteroid Euphrosyne (31 Euphrosyne) an?",
+    "correctAnswer": "C-Typ",
     "options": [
-      "C-Typ (Hauptgürtel)",
-      "E-Typ (Hauptgürtel)",
-      "Apollo-Typ",
-      "G-Typ (Hauptgürtel)"
+      "C-Typ",
+      "S-Typ",
+      "M-Typ",
+      "E-Typ"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -105754,18 +105013,18 @@
     "mapTargetId": null
   },
   {
-    "id": "q_astra_asteroid-nysa-h4_astra-asteroid-type",
+    "id": "q_astra_asteroid-nysa-h4_astra-asteroid-spectral",
     "entityId": "astra:asteroid-nysa-h4",
     "entityType": "asteroid",
-    "type": "astra-asteroid-type",
+    "type": "astra-asteroid-spectral",
     "difficulty": 4,
-    "prompt": "Zu welcher Gruppe von Kleinkörpern zählt Nysa (44 Nysa)?",
-    "correctAnswer": "E-Typ (Hauptgürtel)",
+    "prompt": "Welcher Spektralklasse gehört der Asteroid Nysa (44 Nysa) an?",
+    "correctAnswer": "E-Typ",
     "options": [
-      "E-Typ (Hauptgürtel)",
-      "Erdnaher Asteroid",
-      "G-Typ (Hauptgürtel)",
-      "S-Typ (Hauptgürtel)"
+      "E-Typ",
+      "M-Typ",
+      "S-Typ",
+      "G-Typ"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -105773,132 +105032,18 @@
     "mapTargetId": null
   },
   {
-    "id": "q_astra_asteroid-phocaea-h4_astra-asteroid-type",
+    "id": "q_astra_asteroid-phocaea-h4_astra-asteroid-spectral",
     "entityId": "astra:asteroid-phocaea-h4",
     "entityType": "asteroid",
-    "type": "astra-asteroid-type",
+    "type": "astra-asteroid-spectral",
     "difficulty": 4,
-    "prompt": "Zu welcher Gruppe von Kleinkörpern zählt Phocaea (25 Phocaea)?",
-    "correctAnswer": "S-Typ (Hauptgürtel)",
+    "prompt": "Welcher Spektralklasse gehört der Asteroid Phocaea (25 Phocaea) an?",
+    "correctAnswer": "S-Typ",
     "options": [
-      "S-Typ (Hauptgürtel)",
-      "C-Typ (Hauptgürtel)",
-      "M-Typ (Hauptgürtel)",
-      "E-Typ (Hauptgürtel)"
-    ],
-    "testedAttribute": "type",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_asteroid-eurybates-h4_astra-asteroid-type",
-    "entityId": "astra:asteroid-eurybates-h4",
-    "entityType": "asteroid",
-    "type": "astra-asteroid-type",
-    "difficulty": 4,
-    "prompt": "Zu welcher Gruppe von Kleinkörpern zählt Eurybates?",
-    "correctAnswer": "Jupiter-Trojaner",
-    "options": [
-      "Jupiter-Trojaner",
-      "Apollo-Typ (NEO)",
-      "S-Typ (Hauptgürtel)",
-      "S-Typ / Aten-Typ"
-    ],
-    "testedAttribute": "type",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_asteroid-polymele-h4_astra-asteroid-type",
-    "entityId": "astra:asteroid-polymele-h4",
-    "entityType": "asteroid",
-    "type": "astra-asteroid-type",
-    "difficulty": 4,
-    "prompt": "Zu welcher Gruppe von Kleinkörpern zählt Polymele?",
-    "correctAnswer": "Jupiter-Trojaner",
-    "options": [
-      "Jupiter-Trojaner",
-      "S-Typ / Aten-Typ",
-      "G-Typ (Hauptgürtel)",
-      "Apollo-Typ (NEO)"
-    ],
-    "testedAttribute": "type",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_asteroid-leucus-h4_astra-asteroid-type",
-    "entityId": "astra:asteroid-leucus-h4",
-    "entityType": "asteroid",
-    "type": "astra-asteroid-type",
-    "difficulty": 4,
-    "prompt": "Zu welcher Gruppe von Kleinkörpern zählt Leucus?",
-    "correctAnswer": "Jupiter-Trojaner",
-    "options": [
-      "Jupiter-Trojaner",
-      "Apollo-Typ (NEO)",
-      "S-Typ (Hauptgürtel)",
-      "M-Typ (Hauptgürtel)"
-    ],
-    "testedAttribute": "type",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_asteroid-orus-h4_astra-asteroid-type",
-    "entityId": "astra:asteroid-orus-h4",
-    "entityType": "asteroid",
-    "type": "astra-asteroid-type",
-    "difficulty": 4,
-    "prompt": "Zu welcher Gruppe von Kleinkörpern zählt Orus?",
-    "correctAnswer": "Jupiter-Trojaner",
-    "options": [
-      "Jupiter-Trojaner",
-      "Apollo-Typ (NEO)",
-      "S-Typ / Aten-Typ",
-      "Erdnaher Asteroid"
-    ],
-    "testedAttribute": "type",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_asteroid-hidalgo-h4_astra-asteroid-type",
-    "entityId": "astra:asteroid-hidalgo-h4",
-    "entityType": "asteroid",
-    "type": "astra-asteroid-type",
-    "difficulty": 4,
-    "prompt": "Zu welcher Gruppe von Kleinkörpern zählt Hidalgo (944 Hidalgo)?",
-    "correctAnswer": "Zentaur / Kometenähnlich",
-    "options": [
-      "Zentaur / Kometenähnlich",
-      "S-Typ (Hauptgürtel)",
-      "C-Typ (Hauptgürtel)",
-      "E-Typ (Hauptgürtel)"
-    ],
-    "testedAttribute": "type",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_asteroid-chiron-h4_astra-asteroid-type",
-    "entityId": "astra:asteroid-chiron-h4",
-    "entityType": "asteroid",
-    "type": "astra-asteroid-type",
-    "difficulty": 4,
-    "prompt": "Zu welcher Gruppe von Kleinkörpern zählt Chiron (2060 Chiron)?",
-    "correctAnswer": "Zentaur",
-    "options": [
-      "Zentaur",
       "S-Typ",
-      "Apollo-Typ",
-      "C-Typ"
+      "C-Typ",
+      "E-Typ",
+      "G-Typ"
     ],
     "testedAttribute": "type",
     "answerIsName": false,
@@ -105906,96 +105051,20 @@
     "mapTargetId": null
   },
   {
-    "id": "q_astra_asteroid-gault-h4_astra-asteroid-type",
+    "id": "q_astra_asteroid-gault-h4_astra-asteroid-spectral",
     "entityId": "astra:asteroid-gault-h4",
     "entityType": "asteroid",
-    "type": "astra-asteroid-type",
+    "type": "astra-asteroid-spectral",
     "difficulty": 4,
-    "prompt": "Zu welcher Gruppe von Kleinkörpern zählt Gault (6478 Gault)?",
-    "correctAnswer": "S-Typ (Hauptgürtel)",
+    "prompt": "Welcher Spektralklasse gehört der Asteroid Gault (6478 Gault) an?",
+    "correctAnswer": "S-Typ",
     "options": [
-      "S-Typ (Hauptgürtel)",
-      "G-Typ (Hauptgürtel)",
-      "Apollo-Typ (NEO)",
-      "S-Typ / Aten-Typ"
+      "S-Typ",
+      "C-Typ",
+      "E-Typ",
+      "G-Typ"
     ],
     "testedAttribute": "type",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_asteroid-hermes-h4_astra-asteroid-type",
-    "entityId": "astra:asteroid-hermes-h4",
-    "entityType": "asteroid",
-    "type": "astra-asteroid-type",
-    "difficulty": 4,
-    "prompt": "Zu welcher Gruppe von Kleinkörpern zählt Hermes (69230 Hermes)?",
-    "correctAnswer": "Apollo-Typ (NEO)",
-    "options": [
-      "Apollo-Typ (NEO)",
-      "Jupiter-Trojaner",
-      "S-Typ / Aten-Typ",
-      "G-Typ (Hauptgürtel)"
-    ],
-    "testedAttribute": "type",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_asteroid-icarus-h4_astra-asteroid-type",
-    "entityId": "astra:asteroid-icarus-h4",
-    "entityType": "asteroid",
-    "type": "astra-asteroid-type",
-    "difficulty": 4,
-    "prompt": "Zu welcher Gruppe von Kleinkörpern zählt Icarus (1566 Icarus)?",
-    "correctAnswer": "Apollo-Typ (NEO)",
-    "options": [
-      "Apollo-Typ (NEO)",
-      "Erdnaher Asteroid",
-      "G-Typ (Hauptgürtel)",
-      "Jupiter-Trojaner"
-    ],
-    "testedAttribute": "type",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_mission-cassini_astra-mission-target",
-    "entityId": "astra:mission-cassini",
-    "entityType": "mission",
-    "type": "astra-mission-target",
-    "difficulty": 3,
-    "prompt": "Welches Ziel hatte die Mission Cassini-Huygens?",
-    "correctAnswer": "Saturn und seine Monde",
-    "options": [
-      "Saturn und seine Monde",
-      "Mars (Nordpolregion)",
-      "Asteroid (162173) Ryugu",
-      "Mond (Lander + Rover Yutu)"
-    ],
-    "testedAttribute": "target",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_mission-galileo-orbiter-h4_astra-mission-target",
-    "entityId": "astra:mission-galileo-orbiter-h4",
-    "entityType": "mission",
-    "type": "astra-mission-target",
-    "difficulty": 3,
-    "prompt": "Welches Ziel hatte die Mission Galileo (Orbiter)?",
-    "correctAnswer": "Jupiter und seine Monde",
-    "options": [
-      "Jupiter und seine Monde",
-      "Asteroid (162173) Ryugu",
-      "Mond (Lander + Rover Yutu)",
-      "Saturn und seine Monde"
-    ],
-    "testedAttribute": "target",
     "answerIsName": false,
     "silhouetteSvgPath": null,
     "mapTargetId": null
@@ -106011,8 +105080,8 @@
     "options": [
       "Mond",
       "Mars",
-      "Venus",
-      "Erdorbit"
+      "Sonne",
+      "Venus"
     ],
     "testedAttribute": "target",
     "answerIsName": false,
@@ -106026,12 +105095,12 @@
     "type": "astra-mission-target",
     "difficulty": 3,
     "prompt": "Welches Ziel hatte die Mission MAVEN?",
-    "correctAnswer": "Mars (obere Atmosphaere)",
+    "correctAnswer": "Mars",
     "options": [
-      "Mars (obere Atmosphaere)",
-      "Jupiter und seine Monde",
-      "Asteroid (162173) Ryugu",
-      "Mond (Probenrueckfuehrung)"
+      "Mars",
+      "Mond",
+      "Sonne",
+      "Venus"
     ],
     "testedAttribute": "target",
     "answerIsName": false,
@@ -106045,12 +105114,12 @@
     "type": "astra-mission-target",
     "difficulty": 3,
     "prompt": "Welches Ziel hatte die Mission NEAR Shoemaker?",
-    "correctAnswer": "Asteroid (433) Eros",
+    "correctAnswer": "Asteroid",
     "options": [
-      "Asteroid (433) Eros",
-      "Jupiter und seine Monde",
-      "Sonne (Polregionen)",
-      "Mond (Umrundung)"
+      "Asteroid",
+      "Venus",
+      "Erdorbit",
+      "Sonnenwind"
     ],
     "testedAttribute": "target",
     "answerIsName": false,
@@ -106068,8 +105137,8 @@
     "options": [
       "Mond",
       "Mars",
-      "Venus",
-      "Erdorbit"
+      "Sonne",
+      "Venus"
     ],
     "testedAttribute": "target",
     "answerIsName": false,
@@ -106083,12 +105152,12 @@
     "type": "astra-mission-target",
     "difficulty": 3,
     "prompt": "Welches Ziel hatte die Mission Ulysses?",
-    "correctAnswer": "Sonne (Polregionen)",
+    "correctAnswer": "Sonne",
     "options": [
-      "Sonne (Polregionen)",
-      "Mars (obere Atmosphaere)",
-      "Asteroid (433) Eros",
-      "Mars (Spurengase)"
+      "Sonne",
+      "Asteroid",
+      "Venus",
+      "Mars"
     ],
     "testedAttribute": "target",
     "answerIsName": false,
@@ -106102,12 +105171,12 @@
     "type": "astra-mission-target",
     "difficulty": 3,
     "prompt": "Welches Ziel hatte die Mission Genesis?",
-    "correctAnswer": "Sonnenwind (L1)",
+    "correctAnswer": "Sonnenwind",
     "options": [
-      "Sonnenwind (L1)",
-      "Mars (Nordpolregion)",
-      "Mond (Umrundung)",
-      "Sonne (L1)"
+      "Sonnenwind",
+      "Asteroid",
+      "Erdorbit",
+      "Venus"
     ],
     "testedAttribute": "target",
     "answerIsName": false,
@@ -106125,8 +105194,8 @@
     "options": [
       "Mond",
       "Mars",
-      "Asteroid (433) Eros",
-      "Erdorbit"
+      "Erdorbit",
+      "Venus"
     ],
     "testedAttribute": "target",
     "answerIsName": false,
@@ -106144,8 +105213,8 @@
     "options": [
       "Mond",
       "Mars",
-      "Mars (obere Atmosphaere)",
-      "Venus"
+      "Sonnenwind",
+      "Sonne"
     ],
     "testedAttribute": "target",
     "answerIsName": false,
@@ -106159,12 +105228,12 @@
     "type": "astra-mission-target",
     "difficulty": 3,
     "prompt": "Welches Ziel hatte die Mission Chang'e 3?",
-    "correctAnswer": "Mond (Lander + Rover Yutu)",
+    "correctAnswer": "Mond",
     "options": [
-      "Mond (Lander + Rover Yutu)",
-      "Mars",
-      "Asteroid (162173) Ryugu",
-      "Mond (Probenrueckfuehrung)"
+      "Mond",
+      "Sonnenwind",
+      "Venus",
+      "Mars"
     ],
     "testedAttribute": "target",
     "answerIsName": false,
@@ -106178,12 +105247,12 @@
     "type": "astra-mission-target",
     "difficulty": 3,
     "prompt": "Welches Ziel hatte die Mission GRAIL?",
-    "correctAnswer": "Mond (Schwerefeld)",
+    "correctAnswer": "Mond",
     "options": [
-      "Mond (Schwerefeld)",
-      "Asteroid (433) Eros",
-      "Mond (Probenrueckfuehrung)",
-      "Sonnenwind (L1)"
+      "Mond",
+      "Mars",
+      "Asteroid",
+      "Venus"
     ],
     "testedAttribute": "target",
     "answerIsName": false,
@@ -106197,12 +105266,12 @@
     "type": "astra-mission-target",
     "difficulty": 3,
     "prompt": "Welches Ziel hatte die Mission Aditya-L1?",
-    "correctAnswer": "Sonne (L1)",
+    "correctAnswer": "Sonne",
     "options": [
-      "Sonne (L1)",
-      "Erdorbit",
-      "Sonnenwind (L1)",
-      "Mars (Spurengase)"
+      "Sonne",
+      "Venus",
+      "Mars",
+      "Erdorbit"
     ],
     "testedAttribute": "target",
     "answerIsName": false,
@@ -106220,8 +105289,8 @@
     "options": [
       "Mond",
       "Mars",
-      "Venus und Halleyscher Komet",
-      "Venus"
+      "Sonnenwind",
+      "Sonne"
     ],
     "testedAttribute": "target",
     "answerIsName": false,
@@ -106238,9 +105307,9 @@
     "correctAnswer": "Mond",
     "options": [
       "Mond",
-      "Venus",
       "Mars",
-      "Erdorbit"
+      "Venus",
+      "Sonne"
     ],
     "testedAttribute": "target",
     "answerIsName": false,
@@ -106257,8 +105326,8 @@
     "correctAnswer": "Mond",
     "options": [
       "Mond",
-      "Mond (Umrundung)",
-      "Mond (Lander + Rover Yutu)",
+      "Sonne",
+      "Sonnenwind",
       "Mars"
     ],
     "testedAttribute": "target",
@@ -106276,28 +105345,9 @@
     "correctAnswer": "Mond",
     "options": [
       "Mond",
-      "Sonnenwind (L1)",
+      "Sonne",
       "Mars",
-      "Mars (Spurengase)"
-    ],
-    "testedAttribute": "target",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_mission-vega-1-h4_astra-mission-target",
-    "entityId": "astra:mission-vega-1-h4",
-    "entityType": "mission",
-    "type": "astra-mission-target",
-    "difficulty": 3,
-    "prompt": "Welches Ziel hatte die Mission Vega 1?",
-    "correctAnswer": "Venus und Halleyscher Komet",
-    "options": [
-      "Venus und Halleyscher Komet",
-      "Mars (Nordpolregion)",
-      "Mond (Probenrueckfuehrung)",
-      "Asteroid (433) Eros"
+      "Venus"
     ],
     "testedAttribute": "target",
     "answerIsName": false,
@@ -106311,12 +105361,12 @@
     "type": "astra-mission-target",
     "difficulty": 3,
     "prompt": "Welches Ziel hatte die Mission Luna 16?",
-    "correctAnswer": "Mond (Probenrueckfuehrung)",
+    "correctAnswer": "Mond",
     "options": [
-      "Mond (Probenrueckfuehrung)",
-      "Mond (Lander + Rover Yutu)",
-      "Venus und Halleyscher Komet",
-      "Mars (obere Atmosphaere)"
+      "Mond",
+      "Mars",
+      "Sonne",
+      "Venus"
     ],
     "testedAttribute": "target",
     "answerIsName": false,
@@ -106330,12 +105380,12 @@
     "type": "astra-mission-target",
     "difficulty": 3,
     "prompt": "Welches Ziel hatte die Mission Apollo 8?",
-    "correctAnswer": "Mond (Umrundung)",
+    "correctAnswer": "Mond",
     "options": [
-      "Mond (Umrundung)",
-      "Mond (Schwerefeld)",
-      "Sonnenwind (L1)",
-      "Mars (Spurengase)"
+      "Mond",
+      "Mars",
+      "Venus",
+      "Sonne"
     ],
     "testedAttribute": "target",
     "answerIsName": false,
@@ -106352,9 +105402,9 @@
     "correctAnswer": "Erdorbit",
     "options": [
       "Erdorbit",
-      "Sonne (L1)",
-      "Venus und Halleyscher Komet",
-      "Venus"
+      "Asteroid",
+      "Mond",
+      "Sonnenwind"
     ],
     "testedAttribute": "target",
     "answerIsName": false,
@@ -106371,9 +105421,9 @@
     "correctAnswer": "Erdorbit",
     "options": [
       "Erdorbit",
+      "Sonnenwind",
       "Mond",
-      "Venus und Halleyscher Komet",
-      "Sonne (L1)"
+      "Asteroid"
     ],
     "testedAttribute": "target",
     "answerIsName": false,
@@ -106387,12 +105437,12 @@
     "type": "astra-mission-target",
     "difficulty": 3,
     "prompt": "Welches Ziel hatte die Mission Hayabusa2?",
-    "correctAnswer": "Asteroid (162173) Ryugu",
+    "correctAnswer": "Asteroid",
     "options": [
-      "Asteroid (162173) Ryugu",
-      "Saturn und seine Monde",
-      "Jupiter und seine Monde",
-      "Mars (obere Atmosphaere)"
+      "Asteroid",
+      "Erdorbit",
+      "Sonnenwind",
+      "Sonne"
     ],
     "testedAttribute": "target",
     "answerIsName": false,
