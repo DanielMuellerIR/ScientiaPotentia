@@ -2,12 +2,12 @@
   "schema_version": 2,
   "project": "ScientiaPotentia",
   "campaign": {
-    "id": "20260903T094956560120+0200",
-    "token_budget": 2000000,
+    "id": "20260903T134120134844+0200",
+    "token_budget": 859000,
     "status": "complete",
-    "started_at": "2026-09-03T09:49:56+02:00",
-    "tokens_spent": 1141000,
-    "finished_at": "2026-09-03T11:08:16+02:00",
+    "started_at": "2026-09-03T13:41:20+02:00",
+    "tokens_spent": 424000,
+    "finished_at": "2026-09-03T14:08:22+02:00",
     "finish_reason": "all-current"
   },
   "campaign_history": [
@@ -26,6 +26,15 @@
       "status": "complete",
       "started_at": "2026-08-30T11:00:41+02:00",
       "finished_at": "2026-08-30T11:11:26+02:00",
+      "finish_reason": "all-current"
+    },
+    {
+      "id": "20260903T094956560120+0200",
+      "token_budget": 2000000,
+      "status": "complete",
+      "started_at": "2026-09-03T09:49:56+02:00",
+      "tokens_spent": 1141000,
+      "finished_at": "2026-09-03T11:08:16+02:00",
       "finish_reason": "all-current"
     }
   ],
@@ -195,7 +204,9 @@
       "src/__tests__/imageCreditsAudit.test.js",
       "scripts/lib/merge_text.js",
       "scripts/lib/merge_blacklist.js",
-      "src/__tests__/mergeText.test.js"
+      "src/__tests__/mergeText.test.js",
+      "scripts/data_sources/harvest/credit_text.cjs",
+      "src/__tests__/imageResolutionPolicy.test.js"
     ],
     "exclusions": []
   },
@@ -281,16 +292,16 @@
       "reason": "Fakten-, Distraktor-, Bild- und Zitat-Gates schützen veröffentlichte Inhalte",
       "state": "completed",
       "last_run": {
-        "campaign_id": "20260903T094956560120+0200",
-        "completed_at": "2026-09-03T11:07:22+02:00",
-        "observed_head": "f3ae8cb02efa9dd12e27a8aa03ad9a198e74d229",
-        "content_sha256": "43609dfbea6fcd463f09b28ac615ba508ffb78bf88522d1b70e4332d13615712",
+        "campaign_id": "20260903T134120134844+0200",
+        "completed_at": "2026-09-03T14:08:01+02:00",
+        "observed_head": "dd2981b5c7115504fb9fbd2e3de87e7ea244f105",
+        "content_sha256": "65f117e63277e4944aa6c801e4f881e2b3d69a20011693d04758b4cbf46f9958",
         "file_count": 14,
         "review": "delta-plus-boundaries",
-        "outcome": "reviewed-clean",
-        "summary": "Delta seit dem letzten Abschluss ist der Timeout von 30 Sekunden fuer den einen Testfall, der den Audit ueber die echten 6.536 Machina-Fragen faehrt (gemessen 3,5 bis 4 Sekunden, Vitest-Standard 5). Keine Regelaenderung.",
+        "outcome": "improved",
+        "summary": "Delta ist die neue harte Regel gegen Sammelwerte als Loesung: audit_rules kennt COLLECTIVE_ANSWERS und isSpecificAnswer, audit_questions blockiert sie mit eigener Spalte in der Uebersicht und laesst sie als Distraktor zu. Zehn unbeantwortbare Fragen sind damit weg.",
         "tests": [
-          "npm test: 279 passed, Fragen-Audit ueber alle acht Bereiche exit 0"
+          "audit_questions alle acht Bereiche: Sammelwert 0, exit 0; npm test 295 passed"
         ]
       }
     },
@@ -500,16 +511,16 @@
       "reason": "Fachgeneratoren mit Text-, Werk-, Etymologie- und Zitatbezug",
       "state": "completed",
       "last_run": {
-        "campaign_id": "20260903T094956560120+0200",
-        "completed_at": "2026-09-03T11:07:22+02:00",
-        "observed_head": "f3ae8cb02efa9dd12e27a8aa03ad9a198e74d229",
-        "content_sha256": "31373ad1d03a2387cdaf9c95539b7469a2e44671f6bcf52d300631ff51e4e95a",
+        "campaign_id": "20260903T134120134844+0200",
+        "completed_at": "2026-09-03T14:08:02+02:00",
+        "observed_head": "dd2981b5c7115504fb9fbd2e3de87e7ea244f105",
+        "content_sha256": "19b1b9be938013c00d4c65789b895b7dd94afe50d9d669f7dcf33ba07b41ac34",
         "file_count": 2,
         "review": "delta-plus-boundaries",
-        "outcome": "reviewed-clean",
-        "summary": "Delta ist die Umstellung von generate_cultura und generate_lingua auf numericDistractors (bytegleiche Ausgabe).",
+        "outcome": "improved",
+        "summary": "Delta ist der skip in generate_cultura fuer Zitate ohne konkreten Werktitel. Cultura faellt von 7.759 auf 7.749 Fragen; content_ceiling.md und Manifest nachgezogen.",
         "tests": [
-          "Generatorlauf bytegleich; audit_questions cultura/lingua exit 0"
+          "audit_questions cultura: exit 0; verify_facts cultura: 0 Fehler"
         ]
       }
     },
@@ -560,17 +571,16 @@
       "reason": "Schreibende Rohdaten-Merges und Datenvorbereitung dürfen nichts überschreiben oder falsch deduplizieren",
       "state": "completed",
       "last_run": {
-        "campaign_id": "20260903T094956560120+0200",
-        "completed_at": "2026-09-03T11:08:15+02:00",
-        "observed_head": "f3ae8cb02efa9dd12e27a8aa03ad9a198e74d229",
-        "content_sha256": "14bec3c29861e9c488b0a0f0da436ccf4b32dc1e840631cb69c272012423dab8",
+        "campaign_id": "20260903T134120134844+0200",
+        "completed_at": "2026-09-03T14:08:02+02:00",
+        "observed_head": "dd2981b5c7115504fb9fbd2e3de87e7ea244f105",
+        "content_sha256": "babd2ecdddb8e5ec5b1f8ff4217642539b772360bb76bd4a34c3978ff8ccf03b",
         "file_count": 13,
         "review": "delta-plus-boundaries",
         "outcome": "improved",
-        "summary": "Nachtrag: Die beiden in dieser Kampagne entstandenen Dateien merge_blacklist.js (gemeinsame Sperrlisten-Regel aller Merges) und mergeText.test.js gehoeren in den Bereich. Inhalt und Belege wie im vorherigen Abschluss.",
+        "summary": "Delta sind zwei Querschnitts-Funde: merge-dedup-precision (Klammerzusatz bleibt im Dedup-Schluessel, Teilstring-Regel in phase5 meldet statt zu verwerfen) und silent-degradation (prepare_data wirft bei unlesbarer Staedte-Zwischendatei, beide Skripte loesen Pfade ueber die Skriptlage auf, fix_umlauts schreibt atomar).",
         "tests": [
-          "npm test: 279 passed",
-          "Trockenlaeufe aller Merges unveraendert"
+          "Trockenlaeufe aller Merges unveraendert; injizierte Faelle belegt; npm test 295 passed"
         ]
       }
     },
@@ -629,16 +639,16 @@
       "reason": "VisualPanel-Routing, generische Konzeptdarstellung und sichtbare Bildnachweise",
       "state": "completed",
       "last_run": {
-        "campaign_id": "20260903T094956560120+0200",
-        "completed_at": "2026-09-03T11:07:23+02:00",
-        "observed_head": "f3ae8cb02efa9dd12e27a8aa03ad9a198e74d229",
-        "content_sha256": "a92c170b13ac5c9a0acc63fd486aede79d4fa16fad15d91068108e5d88208edf",
+        "campaign_id": "20260903T134120134844+0200",
+        "completed_at": "2026-09-03T14:08:02+02:00",
+        "observed_head": "dd2981b5c7115504fb9fbd2e3de87e7ea244f105",
+        "content_sha256": "bb5407348c262c3f22accc4557c3f736670d98da845afee85a4d580053468ec9",
         "file_count": 12,
         "review": "delta-plus-boundaries",
         "outcome": "improved",
-        "summary": "Delta ist die Reparatur von sanitizeImageAttribution: Die Regel gegen ein leeres Segment traf jedes http:// im Credit und hinterliess 333 tote Quelllinks. Ursache behoben, Rohdaten repariert, Regressionstest ergaenzt.",
+        "summary": "Delta ist die Bereinigung von sanitizeImageAttribution: jeder Whitespace wird vereinheitlicht und Commons-Rechtetext abgeschnitten. 60 mehrzeilige Nachweise und aller Genehmigungstext sind aus dem Bestand verschwunden.",
         "tests": [
-          "0 zerstoerte URLs im Bestand (vorher 333); Bildnachweis-Audit 10.464 Pruefungen ohne Befund"
+          "Bestand nachgezaehlt: mehrzeilig 60 -> 0; Bildnachweis-Audit 10.464 Pruefungen"
         ]
       }
     },
@@ -768,17 +778,16 @@
       "reason": "Schreibende Kandidaten-, Korrektur-, Deduplizierungs- und JSON-Reparaturwerkzeuge",
       "state": "completed",
       "last_run": {
-        "campaign_id": "20260903T094956560120+0200",
-        "completed_at": "2026-09-03T11:05:12+02:00",
-        "observed_head": "94df0e36648222faf761059896d3ef3e252282da",
-        "content_sha256": "b583be6662d9232e59706374a79f8eebc59235102f121bb19840a5e6cdd3eeb9",
+        "campaign_id": "20260903T134120134844+0200",
+        "completed_at": "2026-09-03T14:08:02+02:00",
+        "observed_head": "dd2981b5c7115504fb9fbd2e3de87e7ea244f105",
+        "content_sha256": "38dd74d1aa0e1c39f52639b92728df34e60f686d831883f76500c64a84a021b8",
         "file_count": 10,
         "review": "delta-plus-boundaries",
         "outcome": "improved",
-        "summary": "build_dedup blockiert einen leeren Katalog statt die Dedup-Datei zu leeren; apply_attribute_additions meldet uebersprungene Ergaenzungen mit Exit 1 und akzeptiert Boolean-Werte; fix_cand_umlauts prueft alle Domains statt nur machina und historia (36 statt 0 gefundene Ersetzungen). Die fehlende Quellenspeicherung derselben Datei steht begruendet im BACKLOG.",
+        "summary": "Delta sind die Eingabepruefungen: concept_validation weist Sammelwerte und Nicht-Skalare ab, apply_corrections prueft Attributwerte, Bildlizenz und Sperrliste und verlangt ausgeschriebene set-Schluessel, apply_attribute_additions haengt die verlangte Quelle an verifyNote.",
         "tests": [
-          "tests/test_harvest_tools.py: 30 Tests OK, darunter der neue Leerkatalog-Fall",
-          "npm test: 273 passed"
+          "tests/test_harvest_tools.py: 33 OK; Trockenlauf apply_corrections laeuft durch"
         ]
       }
     },
@@ -796,25 +805,26 @@
         "scripts/data_sources/harvest/IMAGE_BLACKLIST.json",
         "scripts/data_sources/harvest/image_resolution_policy.cjs",
         "scripts/data_sources/harvest/staged_attribution_writes.cjs",
-        "scripts/data_sources/harvest/purge_blacklisted.cjs"
+        "scripts/data_sources/harvest/purge_blacklisted.cjs",
+        "scripts/data_sources/harvest/credit_text.cjs",
+        "src/__tests__/imageResolutionPolicy.test.js"
       ],
       "risk": "medium",
       "priority": 21,
       "reason": "Externe Bildauflösung, Lizenzmetadaten und atomare Rückschreibung in Rohdaten",
       "state": "completed",
       "last_run": {
-        "campaign_id": "20260903T094956560120+0200",
-        "completed_at": "2026-09-03T11:03:53+02:00",
-        "observed_head": "303a009447f7ef2cb11fa3205c8f4671c296cada",
-        "content_sha256": "65ea405e4a3d6a8ce978527928d117803a198f4c9611d35c4ef79c539f7c09d4",
-        "file_count": 12,
+        "campaign_id": "20260903T134120134844+0200",
+        "completed_at": "2026-09-03T14:08:21+02:00",
+        "observed_head": "dd2981b5c7115504fb9fbd2e3de87e7ea244f105",
+        "content_sha256": "14323a666d8cb9f8f6e664fe4ef117918f6089eca26d05e1af522552c84e8a55",
+        "file_count": 14,
         "review": "delta-plus-boundaries",
         "outcome": "improved",
-        "summary": "Alle fuenf Bild-Aufloeser pruefen jetzt Konzept und Datei ueber image_resolution_policy.cjs; die drei Regex-Parser auf BLACKLIST.md sind weg, resolve_author_portraits hatte gar keine Pruefung. Nicht gefixt und begruendet im BACKLOG: die fehlende Konkretheitspruefung im Preflight von apply_images (ESM/CJS-Grenze), 60 mehrzeilige und 112 abgeschnittene Urhebernachweise.",
+        "summary": "Nachtrag: credit_text.cjs (gemeinsame Kuerzung der Urhebernachweise an der Wortgrenze) und imageResolutionPolicy.test.js gehoeren in den Bereich. Inhalt und Belege wie im vorherigen Abschluss.",
         "tests": [
-          "npm test: 273 passed",
-          "Bildnachweis-Audit: 10.464 Pruefungen ohne Befund",
-          "Sperrlisten-Abdeckung nachgezaehlt: 5 von 5 Aufloesern pruefen Datei und Konzept"
+          "npm test: 295 passed",
+          "Bildnachweis-Audit ohne Befund"
         ]
       }
     },
@@ -1097,6 +1107,148 @@
         "tests": [
           "Alle drei Generatoren erzeugen nach dem Umbau bytegleiche Kataloge",
           "npm test: 273 passed"
+        ]
+      }
+    },
+    {
+      "id": "collective-answer-values",
+      "summary": "Sammelwerte wie 'Sonstige' stehen in 7 veroeffentlichten Fragen als RICHTIGE Antwort ('Aus welchem Werk stammt das Zitat ...? -> Sonstige') und in 17 weiteren als Distraktor. Solche Fragen sind unbeantwortbar. Weder concept_validation.cjs noch audit_questions.cjs kennen die Klasse; isUsableOptionValue faengt nur formatierte Fehlwerte (undefined/NaN).",
+      "evidence": [
+        "scripts/lib/audit_rules.cjs",
+        "scripts/generate_cultura.js",
+        "scripts/data_sources/harvest/concept_validation.cjs"
+      ],
+      "priority": 1,
+      "state": "completed",
+      "noted_at": "2026-09-03T13:42:00+02:00",
+      "campaign_id": "20260903T134120134844+0200",
+      "started_at": "2026-09-03T13:46:06+02:00",
+      "completed": {
+        "campaign_id": "20260903T134120134844+0200",
+        "completed_at": "2026-09-03T13:47:25+02:00",
+        "observed_head": "c26f4ec9effce9a20a28a126bae50b3ffeac3b06",
+        "summary": "Drei Schichten: audit_rules kennt COLLECTIVE_ANSWERS/isSpecificAnswer, audit_questions blockiert einen Sammelwert als Loesung (Distraktor bleibt zulaessig), generate_cultura ueberspringt Zitate ohne konkreten Werktitel, und concept_validation weist Sammelwerte sowie Nicht-Skalare schon beim Ernten ab. Zehn unbeantwortbare Fragen weg; 'unbekannt' bewusst ausgenommen, weil es fuer einen antiken Bildhauer die richtige Auskunft ist.",
+        "tests": [
+          "audit_questions alle acht Bereiche: Sammelwert 0, exit 0",
+          "npm test: 283 passed; tests/test_harvest_tools.py: 31 OK"
+        ]
+      }
+    },
+    {
+      "id": "attribution-quality",
+      "summary": "60 veroeffentlichte Bildnachweise enthalten statt eines Urhebers einen mehrzeiligen Commons-Rechtehinweis ('Permission details / ACKNOWLEDGMENT FOR PUBLICATIONS ...'), 112 sind bei 200 Zeichen mitten im Wort abgeschnitten. Ursachen: resolve_images_batched kollabiert als einziger Aufloeser keinen Whitespace, und alle fuenf schneiden hart mit slice(0,200). Bei CC-BY ist ein Fragment keine korrekte Namensnennung.",
+      "evidence": [
+        "src/utils/imageCredits.js",
+        "scripts/data_sources/harvest/resolve_images_batched.cjs"
+      ],
+      "priority": 1,
+      "state": "completed",
+      "noted_at": "2026-09-03T13:47:46+02:00",
+      "campaign_id": "20260903T134120134844+0200",
+      "started_at": "2026-09-03T13:47:46+02:00",
+      "completed": {
+        "campaign_id": "20260903T134120134844+0200",
+        "completed_at": "2026-09-03T13:52:44+02:00",
+        "observed_head": "4ae0d3921c3fee0e368efc73700153d04f65a312",
+        "summary": "sanitizeImageAttribution vereinheitlicht jeden Whitespace und schneidet Commons-Rechtetext (Permission details, Acknowledgements, Lizenzbausteine) ab: 60 mehrzeilige Nachweise und aller Rechtetext sind aus dem Bestand verschwunden. Alle fuenf Aufloeser kuerzen ueber den neuen Helfer credit_text.cjs an der Wortgrenze mit Auslassungszeichen statt hart bei 200 Zeichen. Die 109 bereits abgeschnittenen Nachweise brauchen einen erneuten Aufloeserlauf, das steht im BACKLOG.",
+        "tests": [
+          "Bestand nachgezaehlt: mehrzeilig 60 -> 0, Commons-Rechtetext -> 0",
+          "npm test: 283 passed; tests/test_harvest_tools.py: 31 OK",
+          "Bildnachweis-Audit: 10.464 Pruefungen ohne Befund"
+        ]
+      }
+    },
+    {
+      "id": "merge-dedup-precision",
+      "summary": "normalizeForDedup loescht Klammerinhalte, sodass 'David (Michelangelo)', 'David (Donatello)' und 'David (Bernini)' denselben Schluessel haben — kaeme eine Erntedatei mit mehreren, ueberlebte nur die erste. Ebenso 'Johann Strauss (Sohn)/(Vater)' und vier weitere Gruppen. merge_phase5 verwirft zusaetzlich per Teilstring-Regel: 36 Paare in astra (Titan/Titania, Sirius/Sirius B), 35 in homo (Wirbel/Halswirbel), 55 in cultura, 182 in natura.",
+      "evidence": [
+        "scripts/lib/merge_text.js",
+        "scripts/merge_phase5.js",
+        "scripts/merge_cultura.js"
+      ],
+      "priority": 1,
+      "state": "completed",
+      "noted_at": "2026-09-03T13:53:12+02:00",
+      "campaign_id": "20260903T134120134844+0200",
+      "started_at": "2026-09-03T13:53:12+02:00",
+      "completed": {
+        "campaign_id": "20260903T134120134844+0200",
+        "completed_at": "2026-09-03T13:58:30+02:00",
+        "observed_head": "8c8ef6d1f99a509d033207e9720e8b2843dbdda2",
+        "summary": "Der Dedup-Schluessel behaelt den Klammerzusatz; klammerlose Gleichheit ist nur noch eine Warnung. merge_phase5 meldet Teilstring-Aehnlichkeit statt zu verwerfen. Nachgestellt in astra und cultura: vorher still verworfene Konzepte kommen jetzt hinzu und werden gemeldet.",
+        "tests": [
+          "Trockenlaeufe aller Merges unveraendert; injizierte Faelle belegt",
+          "npm test: 285 passed; Harvest- und Deploy-Tests OK"
+        ]
+      }
+    },
+    {
+      "id": "resolver-robustness",
+      "summary": "resolve_images_batched faellt neuerdings auf den Konzeptnamen zurueck, ohne den AMBIGUOUS_NAMES-Schutz zu nutzen, den resolve_images_p18_v2 dafuer exportiert — ein Homonym bekaeme das Hauptbild eines fremden Lemmas, und kein Waechter merkt das. Dazu: resolve_images und resolve_images_p18 enden auch bei komplettem Netzausfall mit Exit 0, fileNameFromUploadUrl liest bei Thumbnail-URLs das falsche Pfadsegment, und p18 und p18_v2 schreiben dieselbe /tmp-Datei.",
+      "evidence": [
+        "scripts/data_sources/harvest/resolve_images_batched.cjs",
+        "scripts/data_sources/harvest/resolve_images.cjs",
+        "scripts/data_sources/harvest/image_resolution_policy.cjs"
+      ],
+      "priority": 2,
+      "state": "completed",
+      "noted_at": "2026-09-03T13:58:56+02:00",
+      "campaign_id": "20260903T134120134844+0200",
+      "started_at": "2026-09-03T14:01:28+02:00",
+      "completed": {
+        "campaign_id": "20260903T134120134844+0200",
+        "completed_at": "2026-09-03T14:02:04+02:00",
+        "observed_head": "792d0dcd7332bf53827b5323e99e7587a478981e",
+        "summary": "AMBIGUOUS_NAMES-Schutz und Titel-Reihenfolge in resolve_images_batched angeglichen; fileNameFromUploadUrl liest Thumbnail-Titel korrekt; resolve_images und p18 melden einen kompletten Netzausfall mit Exit 1; p18 und p18_v2 haben eigene Ausgabedateien; beide gebuendelten Aufloeser begrenzen Weiterleitungen auf fuenf. image_resolution_policy.cjs bekommt seine ersten zehn Tests.",
+        "tests": [
+          "npm test: 295 passed",
+          "Bildnachweis-Audit 10.464 Pruefungen; Harvest- und Deploy-Tests OK"
+        ]
+      }
+    },
+    {
+      "id": "silent-degradation",
+      "summary": "prepare_data.js faengt einen JSON-Fehler in wikidata_cities_raw.json ab, warnt nur und faellt auf eine handgepflegte Notliste zurueck — die veroeffentlichte geodb.json wird still schlechter, Exit 0. Direkt daneben zeigt der SPARQL-Pfad, wie es gedacht ist (wirft ausdruecklich). Dazu CWD-relative Pfade: aus einem Unterverzeichnis gestartet legt prepare_data.js stillschweigend ein zweites public/data an und schreibt dorthin.",
+      "evidence": [
+        "scripts/prepare_data.js",
+        "scripts/fix_umlauts.js"
+      ],
+      "priority": 2,
+      "state": "completed",
+      "noted_at": "2026-09-03T14:02:23+02:00",
+      "campaign_id": "20260903T134120134844+0200",
+      "started_at": "2026-09-03T14:02:23+02:00",
+      "completed": {
+        "campaign_id": "20260903T134120134844+0200",
+        "completed_at": "2026-09-03T14:04:17+02:00",
+        "observed_head": "9bde60a4b5869e49f726a55737d0b5083ce3ba4c",
+        "summary": "prepare_data wirft bei unlesbarer Staedte-Zwischendatei statt still auf eine Notliste zurueckzufallen, und beide Skripte loesen ihre Pfade ueber die Skriptlage statt ueber das Arbeitsverzeichnis auf. fix_umlauts schreibt zusaetzlich atomar.",
+        "tests": [
+          "fix_umlauts liefert aus Repo und /tmp dieselben 31 Ersetzungen",
+          "npm test: 295 passed; Harvest- und Deploy-Tests OK"
+        ]
+      }
+    },
+    {
+      "id": "correction-input-validation",
+      "summary": "apply_corrections.cjs prueft den Typ eines set-Wertes nur fuer concept.*-Schluessel: validateCorrection({set:{'attributes.jahr':{w:1}}}) liefert null. Ein Objekt landet als Option '[object Object]' im Katalog. Ausserdem stehen imageFile/imageLicense/imageAttribution in CONCEPT_FIELDS, ohne dass Lizenz- oder Sperrlistenpruefung greift, und ein barer Schluessel wie 'category' landet immer in attributes, obwohl beide Ebenen existieren. apply_attribute_additions verlangt eine sourceUrl, speichert sie aber nicht.",
+      "evidence": [
+        "scripts/data_sources/harvest/apply_corrections.cjs",
+        "scripts/data_sources/harvest/apply_attribute_additions.cjs"
+      ],
+      "priority": 2,
+      "state": "completed",
+      "noted_at": "2026-09-03T14:04:29+02:00",
+      "campaign_id": "20260903T134120134844+0200",
+      "started_at": "2026-09-03T14:04:29+02:00",
+      "completed": {
+        "campaign_id": "20260903T134120134844+0200",
+        "completed_at": "2026-09-03T14:07:35+02:00",
+        "observed_head": "dd2981b5c7115504fb9fbd2e3de87e7ea244f105",
+        "summary": "apply_corrections prueft Attributwerte auf Skalare, Bildlizenz gegen die Positivliste und Bilddatei gegen die Sperrliste; bare set-Schluessel, die wie ein Konzeptfeld heissen, muessen ausgeschrieben werden (drei vorhandene Faelle praezisiert). apply_attribute_additions haengt die verlangte Quelle an verifyNote, statt sie zu verwerfen.",
+        "tests": [
+          "tests/test_harvest_tools.py: 33 OK, zwei neue Faelle",
+          "npm test: 295 passed; Trockenlauf apply_corrections laeuft durch"
         ]
       }
     }
