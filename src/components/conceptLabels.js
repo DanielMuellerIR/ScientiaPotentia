@@ -151,6 +151,10 @@ export const ATTR_LABELS = {
   reflexType: 'Reflexart',
   antigen: 'Antigen',
   antibody: 'Antikörper',
+  // Der aus dem Verbreitungsgebiet abgeleitete Erdteil hatte als einziges
+  // Attribut im ganzen Bestand keine deutsche Bezeichnung und erschien im
+  // Konzeptpanel als roher Schluessel „continent" (CodeQA 2026-09-03).
+  continent: 'Erdteil',
   // Homo — Welle 6 (Stand 2026-09-02).
   bodyRegion: 'Körperregion',
   vesselType: 'Gefäßart',

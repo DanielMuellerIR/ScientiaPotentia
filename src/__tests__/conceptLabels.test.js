@@ -127,6 +127,9 @@ describe('getAttributeLabel — kontextabhaengige Fachbezeichnung', () => {
   });
 
   it('zeigt häufige Rohdatenfelder nicht als interne Schlüssel an', () => {
+    // CodeQA 2026-09-03: Über alle sieben Bereiche nachgezählt war `continent`
+    // der einzige von 40.677 Attributschlüsseln ohne deutsche Bezeichnung.
+    expect(getAttributeLabel('continent')).toBe('Erdteil');
     expect(getAttributeLabel('authorDeathYear')).toBe('Todesjahr des Urhebers');
     expect(getAttributeLabel('discoveryMethod')).toBe('Entdeckungsmethode');
     expect(getAttributeLabel('orbitalPeriodDays')).toBe('Umlaufzeit (Tage)');
