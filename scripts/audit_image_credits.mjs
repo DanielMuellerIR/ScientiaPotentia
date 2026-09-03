@@ -42,7 +42,6 @@ function validate(domain, id, image, layer) {
   const license = String(image.license ?? image.imageLicense ?? '');
   const sourceUrl = String(image.sourceUrl ?? image.url ?? image.imageFile ?? '');
   const licenseUrl = String(image.licenseUrl ?? image.imageLicenseUrl ?? licenseUrlFor(license));
-  const changes = String(image.changes ?? image.imageChanges ?? 'für die Anzeige technisch skaliert');
 
   if (!sourceUrl.startsWith('https://commons.wikimedia.org/wiki/File')) {
     errors.push(`${prefix}: keine Commons-Dateiseite als Quelle`);
@@ -64,7 +63,11 @@ function validate(domain, id, image, layer) {
   if (!/^https:\/\//.test(licenseUrl) || licenseUrl === COMMONS_REUSE_URL) {
     errors.push(`${prefix}: konkreter Lizenzlink fehlt`);
   }
-  if (!changes) errors.push(`${prefix}: Änderungshinweis fehlt`);
+  // Der Änderungshinweis wird hier bewusst NICHT geprüft: Er stammt nicht aus
+  // dem Bestand, sondern setzt sich zentral in `buildImageMetadata`
+  // (src/utils/imageCredits.js). Die frühere Prüfung las erst den eigenen
+  // Default und fragte ihn dann ab — sie konnte nie auslösen und bestätigte
+  // nur sich selbst (CodeQA 2026-09-03).
 }
 
 for (const domain of DOMAINS) {
@@ -96,5 +99,17 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`✓ ${checked} Bildnachweise enthalten Quelle, Urheber, freie Lizenz, Lizenzlink und Änderungshinweis.`);
+// Untergrenze: Null Prüfungen sind kein bestandener Audit, sondern ein
+// abgebrochener Generatorlauf oder ein leerer Katalog. Da dieser Audit in
+// `npm run build` hängt, hätte er einen bildlosen Release durchgewinkt
+// (CodeQA 2026-09-03).
+if (!checked) {
+  console.error('✗ Kein einziger Bildnachweis geprüft — Roh- oder Generatorkatalog leer.');
+  process.exit(1);
+}
+
+// Bewusst ohne „Änderungshinweis": Den setzt nicht der Bestand, sondern
+// `buildImageMetadata` in src/utils/imageCredits.js zentral für jedes Bild.
+// Ihn hier als geprüfte Eigenschaft auszuweisen, wäre eine Selbstbestätigung.
+console.log(`✓ ${checked} Bildnachweise enthalten Quelle, Urheber, freie Lizenz und Lizenzlink.`);
 console.log('✓ kein gesperrtes Konzept und keine gesperrte Bilddatei im Bestand.');

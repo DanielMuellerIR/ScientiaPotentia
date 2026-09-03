@@ -43,8 +43,9 @@ domainspezifische Visuals zur registrierten Komponente und sonst zu `ConceptVisu
   Bildadressen gleichzusetzen.
 - Gebündelte Assets dokumentieren ihre Herkunft im jeweiligen `CREDITS.md`.
 - `npm run audit:image-credits` muss für veröffentlichte Konzeptbilder ohne Befund enden.
-  `npm run build` führt den Audit selbst aus und bricht bei einem Befund ab, damit kein
-  gesperrtes Bild ohne manuelle Prüfung in ein Release gelangt.
+  `npm run build` führt diesen Audit und `audit_questions.cjs` selbst aus und bricht bei
+  einem Befund ab, damit weder ein gesperrtes Bild noch ein fehlerhafter Fragenkatalog ohne
+  manuelle Prüfung in ein Release gelangt.
 
 ## Inhalts-Pipeline
 

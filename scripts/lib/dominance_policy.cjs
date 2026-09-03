@@ -111,7 +111,11 @@ const ACCEPTED_DOMINANCE = {
  * Rückgabe: `{ accepted, maxShare, reason }` — `accepted: false` blockiert.
  */
 function dominanceVerdict(type, topAnswerShare) {
-  const entry = ACCEPTED_DOMINANCE[type];
+  // `Object.hasOwn` statt eines einfachen Zugriffs: Ein Fragetyp namens
+  // "constructor" oder "toString" traefe sonst ein geerbtes Object.prototype-
+  // Member, `topAnswerShare > undefined` waere false — und der Typ bekaeme einen
+  // Freibrief statt einer Sperre (CodeQA 2026-09-03).
+  const entry = Object.hasOwn(ACCEPTED_DOMINANCE, type) ? ACCEPTED_DOMINANCE[type] : null;
   if (!entry) return { accepted: false, maxShare: null, reason: 'nicht freigegeben' };
   if (topAnswerShare > entry.maxShare) {
     return {

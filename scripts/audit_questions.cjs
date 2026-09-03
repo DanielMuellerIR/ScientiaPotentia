@@ -70,13 +70,21 @@ let missingCatalogs = 0;
 
 for (const domain of selectedDomains) {
   const qs = loadQuestions(domain);
-  if (!qs) {
-    console.error(`Fragenkatalog fehlt: ${path.join(DATA, `questions_${domain}.json`)}`);
+  // Ein leerer Katalog ist kein bestandener Audit, sondern ein abgebrochener
+  // oder leergefilterter Generatorlauf. Ohne diese Untergrenze meldete der Lauf
+  // "0 Fragen | Strukt 0 | ... " und endete mit Exit 0 (CodeQA 2026-09-03).
+  if (!qs || qs.length === 0) {
+    console.error(qs
+      ? `Fragenkatalog leer: ${path.join(DATA, `questions_${domain}.json`)}`
+      : `Fragenkatalog fehlt: ${path.join(DATA, `questions_${domain}.json`)}`);
     missingCatalogs += 1;
     continue;
   }
 
-  const byType = {};                 // type -> Statistik
+  // Object.create(null): Ein Fragetyp namens "constructor" oder "toString"
+  // wuerde in einem normalen Objektliteral ein geerbtes Member treffen, keinen
+  // eigenen Eintrag anlegen — und aus jeder Statistik verschwinden.
+  const byType = Object.create(null);  // type -> Statistik
   const answerInStem = [];
   const structural = [];
   const formatTell = [];
@@ -151,7 +159,10 @@ for (const domain of selectedDomains) {
     // --- Sentinel-Optionen ---
     // Ein formatierter Fehlwert („undefined", „NaN km") ist keine Stilfrage,
     // sondern eine unlösbare Option und darum ein harter Fehler.
+    // Der Fragetext entsteht aus denselben Rohwerten wie die Optionen
+    // ("Hauptstadt von undefined?"), wurde aber nie geprueft (CodeQA 2026-09-03).
     const sentinels = opts.filter(o => !isUsableOptionValue(o));
+    if (!isUsableOptionValue(prompt)) sentinels.push(prompt);
     if (sentinels.length) {
       sentinelOptions.push({ id: q.id, type, prompt, correct, options: opts, sentinels });
     }

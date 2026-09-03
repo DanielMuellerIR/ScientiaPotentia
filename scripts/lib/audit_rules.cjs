@@ -75,7 +75,10 @@ function answerInStem(prompt, correct) {
  * ebenso wenig ein Name, in dem die Zeichenfolge nur zufällig steckt
  * („NaNo-Beschichtung“).
  */
-const OPTION_SENTINEL = /(?:^|[\s([{,;:/–-])(?:undefined|NaN|Infinity)(?:$|[\s)\]},;:/–-])/;
+// Die Grenzzeichen umfassen auch Satzzeichen (`?`, `!`, `.`), weil dieselbe
+// Regel seit CodeQA 2026-09-03 den Fragetext prueft: „Hauptstadt von
+// undefined?" endet auf ein Fragezeichen und rutschte sonst durch.
+const OPTION_SENTINEL = /(?:^|[\s([{,;:/–-])(?:undefined|NaN|Infinity)(?:$|[\s)\]},;:/–!?.-])/;
 
 /** Taugt der Wert als Antwortoption (nicht leer, kein Sentinel)? */
 function isUsableOptionValue(value) {

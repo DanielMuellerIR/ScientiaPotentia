@@ -125,6 +125,22 @@ describe('dominanceVerdict', () => {
     expect(verdict.accepted).toBe(true);
     expect(verdict.reason).toContain('IUCN');
   });
+
+  it('lässt genau auf der Obergrenze durch', () => {
+    // Der Vergleich ist strikt (`>`), passend zur Formulierung „steigt der
+    // Anteil darüber". Der Grenzfall war bisher untestet.
+    expect(dominanceVerdict('natura-animal-status', 72).accepted).toBe(true);
+    expect(dominanceVerdict('natura-animal-status', 72.1).accepted).toBe(false);
+  });
+
+  it('gibt einem Fragetyp mit dem Namen einer Object-Eigenschaft keinen Freibrief', () => {
+    // CodeQA 2026-09-03: `ACCEPTED_DOMINANCE[type]` traf bei "constructor" oder
+    // "toString" ein geerbtes Object.prototype-Member; `99 > undefined` ist
+    // false, der Typ galt damit als freigegeben.
+    for (const name of ['constructor', 'toString', 'valueOf', 'hasOwnProperty']) {
+      expect(dominanceVerdict(name, 99).accepted, name).toBe(false);
+    }
+  });
 });
 
 describe('Fragen-Audit als Kommandozeilen-Gate', () => {
@@ -219,6 +235,43 @@ describe('Fragen-Audit als Kommandozeilen-Gate', () => {
       expect(result.stdout).toContain('Strukturfehler: 0');
       expect(result.stdout).toContain('Dominant 1');
       expect(result.stderr).toContain('machina-zwei-optionen-test');
+    } finally {
+      rmSync(dataDir, { recursive: true, force: true });
+    }
+  });
+
+  it('blockiert einen leeren Katalog wie einen fehlenden', () => {
+    // CodeQA 2026-09-03: `[]` ist truthy, die Pruefung `if (!qs)` griff nicht.
+    // Ein abgebrochener Generatorlauf meldete "0 Fragen ... Dominant 0" und
+    // endete mit Exit 0 — seit heute laeuft der Audit in `npm run build`.
+    const dataDir = mkdtempSync(join(tmpdir(), 'scientia-question-audit-leer-'));
+    try {
+      writeFileSync(join(dataDir, 'questions_machina.json'), '[]');
+
+      const result = runAudit('machina', `--data-dir=${dataDir}`);
+      expect(result.status).toBe(1);
+      expect(result.stderr).toContain('Fragenkatalog leer');
+    } finally {
+      rmSync(dataDir, { recursive: true, force: true });
+    }
+  });
+
+  it('blockiert einen formatierten Fehlwert im Fragetext', () => {
+    // Die Sentinel-Regel pruefte nur die Optionen. Fragetexte entstehen aus
+    // denselben Rohwerten — "Hauptstadt von undefined?" lief durch.
+    const dataDir = mkdtempSync(join(tmpdir(), 'scientia-question-audit-prompt-'));
+    try {
+      writeFileSync(join(dataDir, 'questions_machina.json'), JSON.stringify([{
+        id: 'sentinel-im-prompt',
+        type: 'machina-test',
+        prompt: 'Wie heißt die Hauptstadt von undefined?',
+        correctAnswer: 'Alpha',
+        options: ['Alpha', 'Beta', 'Gamma', 'Delta'],
+      }]));
+
+      const result = runAudit('machina', `--data-dir=${dataDir}`);
+      expect(result.status).toBe(1);
+      expect(result.stdout).toContain('Sentinel-Optionen: 1');
     } finally {
       rmSync(dataDir, { recursive: true, force: true });
     }

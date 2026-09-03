@@ -142,4 +142,10 @@ function titleFromUrl(u) {
     fs.writeFileSync(jsonOut, JSON.stringify(map, null, 2));
     console.log(`\nGeschrieben: ${jsonOut}`);
   }
+
+  // Eine tote Datei oder eine nicht-freie Lizenz ist ein Befund, kein Bericht:
+  // Ohne Exit-Code meldete das Skript auch bei "license not free" Erfolg — wer
+  // es in eine Pipeline haengt, bekaeme ein gruenes Signal (CodeQA 2026-09-03).
+  // Unbeantwortete Anfragen sind dagegen nur eine API-Luecke und bleiben Hinweis.
+  if (bad.length) process.exitCode = 1;
 })();

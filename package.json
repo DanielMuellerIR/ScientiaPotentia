@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/sync_third_party_notices.mjs && node scripts/generate_domain_stats.js && node scripts/audit_image_credits.mjs && vite build",
+    "build": "node scripts/sync_third_party_notices.mjs && node scripts/generate_domain_stats.js && node scripts/audit_image_credits.mjs && node scripts/audit_questions.cjs && vite build",
     "preview": "vite preview",
     "generate:stats": "node scripts/generate_domain_stats.js",
     "check:layout": "node scripts/check_layout_contract.cjs",
