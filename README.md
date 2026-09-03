@@ -44,6 +44,13 @@ For an FTPS release, copy `.env.example` to the ignored local file `.env` and
 replace its placeholders. `deploy.py` also accepts another credentials file via
 `--env` or `SCIENTIA_DEPLOY_ENV`; never commit a file containing `FTP_PASS`.
 
+Releases are immutable: every file under `data/` carries a content hash in its
+name, just like the bundles Vite emits, and `index.html` is the single switch
+that points at one consistent set. A browser holding the previous entry point
+keeps loading the files that belong to it, so a release never mixes old code with
+new data. Superseded files stay on the server for the last three releases and are
+removed afterwards; `deploy.py` only ever deletes what it uploaded itself.
+
 The content pipeline keeps reviewed source data in `scripts/data_sources/*_raw.json` and writes
 the generated application data to `public/data/`. See
 [`docs/content_pipeline.md`](docs/content_pipeline.md) for the workflow and

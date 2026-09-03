@@ -108,8 +108,12 @@
 - Verbleibende Sach- und Fairnesskandidaten aus den semantischen QA-Läufen einzeln gegen
   belastbare Quellen prüfen. Die Berichte liegen außerhalb des Repos; `scripts/qa_review/`
   erzeugt neue nach `docs/qa_reports/` (nicht versioniert).
-- Das Deployment langfristig auf unveränderliche Release-Verzeichnisse mit einem atomar
-  umgeschalteten Release-Zeiger umstellen. Der aktuelle Ablauf veröffentlicht Assets vor dem
-  Entrypoint und kann deshalb kurzzeitig alten Code mit neuen Daten kombinieren.
+- Die Vite-Bundles unter `assets/` sammeln sich auf dem Server genauso an wie früher die
+  Katalogdateien: Sie tragen ihren Hash im Namen, werden also nie überschrieben, und die
+  Aufräumregel des Deploys erfasst sie erst, seit das Manifest eine Historie führt
+  (2026-09-03). Alles, was vor diesem Datum hochgeladen wurde, steht in keiner Historie und
+  bleibt deshalb dauerhaft liegen. Ein einmaliger Abgleich gegen ein Verzeichnis-Listing
+  könnte das bereinigen — er müsste sehr vorsichtig gebaut werden, weil er anders als die
+  jetzige Regel auch Dateien sieht, die das Skript nie selbst hochgeladen hat.
 - Terra erst dann in den Bereichsmix aufnehmen, wenn Kartenfragen und generische Konzeptkarten
   denselben visuellen Vertrag erfüllen.

@@ -1,8 +1,61 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import { renameSync } from 'node:fs';
+import { join } from 'node:path';
+import { buildDataAssetMap } from './scripts/lib/data_asset_hashes.mjs';
+
+/**
+ * Gibt den Katalogdateien unter `public/data/` ihren Inhaltshash in den Namen
+ * und schreibt die Zuordnung als Meta-Tag in die `index.html`.
+ *
+ * Damit ist der Einstieg der einzige Punkt, an dem ein Release sichtbar wird:
+ * Solange ein Browser die alte `index.html` hat, lädt er ausschließlich die
+ * Dateien, die zu ihr gehören — Bundles wie Kataloge. Vorher trugen nur die
+ * Bundles einen Hash, die Kataloge lagen unter festen Namen und wurden beim
+ * Deploy überschrieben; in diesem Fenster sah alter Code neue Daten.
+ *
+ * Der Hash wird aus `public/data/` berechnet, weil Vite dieses Verzeichnis
+ * unverändert nach `dist/` kopiert. Das Umbenennen passiert danach in `dist/`;
+ * die Quelldateien bleiben unangetastet.
+ *
+ * Nur der Produktionsbau ist betroffen. Der Entwicklungsserver liefert
+ * `public/` direkt aus, dort gibt es kein Meta-Tag und `dataUrl()` in
+ * `src/utils/dataUrl.js` bleibt beim Klarnamen.
+ */
+function hashedDataAssets() {
+  let assetMap = {};
+  return {
+    name: 'scientia-hashed-data-assets',
+    apply: 'build',
+    buildStart() {
+      assetMap = buildDataAssetMap(join(import.meta.dirname, 'public', 'data'));
+    },
+    transformIndexHtml() {
+      return [{
+        tag: 'meta',
+        attrs: { name: 'scientia-data-map', content: JSON.stringify(assetMap) },
+        injectTo: 'head'
+      }];
+    },
+    closeBundle() {
+      // Nach dem Schreiben von dist/: Die kopierten Katalogdateien tragen noch
+      // ihren Klarnamen und bekommen ihn hier gegen den gehashten getauscht.
+      const distData = join(import.meta.dirname, 'dist', 'data');
+      for (const [plain, hashed] of Object.entries(assetMap)) {
+        try {
+          renameSync(join(distData, plain), join(distData, hashed));
+        } catch (error) {
+          // ENOENT heißt: Die Datei kam gar nicht erst in den Build. Das ist ein
+          // echter Fehler — ohne sie fehlt der Katalog im Release.
+          throw new Error(`Katalogdatei ${plain} fehlt in dist/data: ${error.message}`);
+        }
+      }
+    }
+  };
+}
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), hashedDataAssets()],
   base: './',
   build: {
     // maplibre-gl (~800 kB) und three.js (~490 kB, lazy) sind je EINE grosse Bibliothek

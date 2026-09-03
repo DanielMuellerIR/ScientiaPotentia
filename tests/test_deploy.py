@@ -492,6 +492,128 @@ class DeployTests(unittest.TestCase):
         self.assertIn(("delete", stale), ftps.history)
         self.assertNotIn(stale, ftps.files)
 
+    # ---- Release-Historie und Aufräumen abgelöster Dateien -----------------
+
+    def test_manifest_carries_the_previous_release_in_its_history(self):
+        """Der abgelöste Stand muss im neuen Manifest als jüngster Vorgänger stehen."""
+        self.write_build()
+        ftps = FakeFTPS()
+        ftps.files[f"/remote/{deploy.REMOTE_MANIFEST_NAME}"] = json.dumps({
+            "version": 2,
+            "files": {"data/questions.old.json": {"sha256": "a" * 64, "size": 3}},
+            "history": [],
+        }).encode("utf-8")
+
+        result = deploy.deploy_dist(ftps, str(self.dist), "/remote")
+
+        self.assertEqual(result.failed, 0)
+        self.assertEqual(result.manifest["version"], 2)
+        self.assertEqual(result.manifest["history"][0], ["data/questions.old.json"])
+
+    def test_superseded_data_files_survive_the_configured_number_of_releases(self):
+        """Eine abgelöste Katalogdatei bleibt liegen, solange sie in der Historie steht."""
+        self.write_build()
+        stale = "data/questions_lingua.deadbeef.json"
+        history = [[stale]] + [[f"data/other{index}.json"] for index in range(deploy.RELEASE_HISTORY_LENGTH - 2)]
+        ftps = FakeFTPS({f"/remote/{stale}": b"alter Katalog"})
+        ftps.files[f"/remote/{deploy.REMOTE_MANIFEST_NAME}"] = json.dumps({
+            "version": 2, "files": {}, "history": history,
+        }).encode("utf-8")
+
+        result = deploy.deploy_dist(ftps, str(self.dist), "/remote")
+
+        self.assertEqual(result.removed, 0)
+        self.assertIn(f"/remote/{stale}", ftps.files)
+
+    def test_data_file_is_removed_once_it_drops_out_of_the_history(self):
+        """Fällt sie hinten heraus, wird sie gelöscht — kein Browser kann sie noch anfordern."""
+        self.write_build()
+        stale = "data/questions_lingua.deadbeef.json"
+        # Die Historie ist voll; der abgelöste Stand rückt vorn ein und schiebt
+        # den ältesten Eintrag mit dieser Datei heraus.
+        history = [[f"data/keep{index}.json"] for index in range(deploy.RELEASE_HISTORY_LENGTH - 1)]
+        history.append([stale])
+        ftps = FakeFTPS({f"/remote/{stale}": b"alter Katalog"})
+        ftps.files[f"/remote/{deploy.REMOTE_MANIFEST_NAME}"] = json.dumps({
+            "version": 2, "files": {}, "history": history,
+        }).encode("utf-8")
+
+        result = deploy.deploy_dist(ftps, str(self.dist), "/remote")
+
+        self.assertEqual(result.removed, 1)
+        self.assertNotIn(f"/remote/{stale}", ftps.files)
+
+    def test_a_file_still_in_the_current_release_is_never_removed(self):
+        """Was der neue Stand selbst ausliefert, darf die Historie nicht abräumen."""
+        self.write_build()
+        history = [[f"data/keep{index}.json"] for index in range(deploy.RELEASE_HISTORY_LENGTH - 1)]
+        history.append(["index.html", "assets/app.js"])
+        ftps = FakeFTPS()
+        ftps.files[f"/remote/{deploy.REMOTE_MANIFEST_NAME}"] = json.dumps({
+            "version": 2, "files": {}, "history": history,
+        }).encode("utf-8")
+
+        result = deploy.deploy_dist(ftps, str(self.dist), "/remote")
+
+        self.assertEqual(result.removed, 0)
+        self.assertEqual(ftps.files["/remote/index.html"], b"new index")
+        self.assertEqual(ftps.files["/remote/assets/app.js"], b"new asset")
+
+    def test_nothing_is_removed_when_the_manifest_could_not_be_published(self):
+        """Ohne veröffentlichtes Manifest führt der Server noch die alte Historie."""
+        self.write_build()
+        stale = "data/questions_lingua.deadbeef.json"
+        history = [[f"data/keep{index}.json"] for index in range(deploy.RELEASE_HISTORY_LENGTH - 1)]
+        history.append([stale])
+        ftps = FakeFTPS(
+            {f"/remote/{stale}": b"alter Katalog"},
+            fail_upload_suffix=deploy.REMOTE_MANIFEST_NAME,
+        )
+        ftps.files[f"/remote/{deploy.REMOTE_MANIFEST_NAME}"] = json.dumps({
+            "version": 2, "files": {}, "history": history,
+        }).encode("utf-8")
+
+        result = deploy.deploy_dist(ftps, str(self.dist), "/remote")
+
+        self.assertEqual(result.failed, 1)
+        self.assertEqual(result.removed, 0)
+        self.assertIn(f"/remote/{stale}", ftps.files)
+
+    def test_version_one_manifest_is_still_read_incrementally(self):
+        """Der erste Lauf nach der Umstellung darf nicht alles neu hochladen."""
+        self.write_build()
+        ftps = FakeFTPS(
+            {"/remote/assets/app.js": b"new asset", "/remote/index.html": b"old index"},
+            checksum_commands=("XSHA256",),
+        )
+        ftps.files[f"/remote/{deploy.REMOTE_MANIFEST_NAME}"] = json.dumps({
+            "version": 1,
+            "files": {"assets/app.js": {
+                "sha256": hashlib.sha256(b"new asset").hexdigest(), "size": len(b"new asset"),
+            }},
+        }).encode("utf-8")
+
+        result = deploy.deploy_dist(ftps, str(self.dist), "/remote")
+
+        self.assertEqual(result.failed, 0)
+        # Das unveraenderte Asset wird uebersprungen, nur der Entrypoint geht hoch.
+        self.assertEqual(result.uploaded, 1)
+        self.assertEqual(result.manifest["history"][0], ["assets/app.js"])
+
+    def test_broken_history_never_deletes_anything(self):
+        """Eine unbrauchbare Historie kostet Speicher, aber niemals eine Datei."""
+        self.write_build()
+        ftps = FakeFTPS({"/remote/data/alt.json": b"alt"})
+        ftps.files[f"/remote/{deploy.REMOTE_MANIFEST_NAME}"] = json.dumps({
+            "version": 2, "files": {},
+            "history": ["kein Array", {"auch": "nicht"}, ["/absolut/verboten", "../raus"]],
+        }).encode("utf-8")
+
+        result = deploy.deploy_dist(ftps, str(self.dist), "/remote")
+
+        self.assertEqual(result.removed, 0)
+        self.assertIn("/remote/data/alt.json", ftps.files)
+
     def test_each_remote_directory_is_prepared_only_once(self):
         self.write_build()
         (self.dist / "assets" / "second.js").write_bytes(b"second")

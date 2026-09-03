@@ -6,6 +6,17 @@ Der Release-Einstieg ``index.html`` wird erst veröffentlicht, nachdem alle
 referenzierten Dateien erfolgreich auf dem Server liegen. Ein serverseitiges
 SHA-256-Manifest ist die gemeinsame Wahrheit für inkrementelle Deployments;
 das lokale Manifest dient nur als Diagnosekopie.
+
+Seit dem 2026-09-03 tragen auch die Katalogdateien unter ``data/`` ihren
+Inhaltshash im Namen (siehe ``src/utils/dataUrl.js``). Ein Release überschreibt
+damit keine Datei mehr, die eine laufende Sitzung noch braucht: Wer die alte
+``index.html`` hat, lädt weiter genau die Dateien, die zu ihr gehören. Der
+Einstieg ist der einzige Umschaltpunkt, und er wird atomar per Rename gesetzt.
+
+Weil abgelöste Dateien dadurch liegen bleiben, führt das Manifest zusätzlich die
+Dateilisten der letzten ``RELEASE_HISTORY_LENGTH`` Releases. Was aus dieser
+Historie herausfällt, wird nach einem vollständigen Release gelöscht — und zwar
+ausschließlich, was dieses Skript selbst einmal hochgeladen hat.
 """
 
 import argparse
@@ -34,7 +45,15 @@ DEFAULT_ENV = os.environ.get("SCIENTIA_DEPLOY_ENV", os.path.join(SCRIPT_DIR, ".e
 # Das echte Ziel kommt über --remote oder SCIENTIA_DEPLOY_REMOTE.
 REMOTE_BASE_DIR = os.environ.get("SCIENTIA_DEPLOY_REMOTE", "/example.com/httpdocs/scientia")
 REMOTE_MANIFEST_NAME = ".scientia-deploy-manifest.json"
-MANIFEST_VERSION = 1
+# Version 2 führt zusätzlich ``history``. Version 1 wird weiterhin gelesen (dann
+# ohne Historie), damit der erste Deploy nach der Umstellung inkrementell bleibt
+# und nicht alle 57 MB erneut hochlädt.
+MANIFEST_VERSION = 2
+SUPPORTED_MANIFEST_VERSIONS = (1, 2)
+#: So viele abgelöste Releases bleiben vollständig erreichbar, bevor ihre Dateien
+#: gelöscht werden. Drei Releases decken laufende Sitzungen und einen Rücksprung
+#: auf den Vorgänger ab, ohne den Webspace unbegrenzt wachsen zu lassen.
+RELEASE_HISTORY_LENGTH = 3
 ENTRYPOINT = "index.html"
 # Vorsichtsmaßnahme für künftige Dateien aus public/: Diese Serverkonfigurationen
 # werden nur überschrieben, wenn --force gesetzt ist. geodb.json liegt dagegen
@@ -62,6 +81,8 @@ class DeployResult:
     #: Anteil an ``skipped``, für den der Server KEINE Prüfsumme liefern konnte —
     #: dort belegen nur Manifest und Größe die Gleichheit (Review-Fund 2026-08-25).
     skipped_unverified: int = 0
+    #: Abgelöste Dateien früherer Releases, die nach diesem Lauf entfernt wurden.
+    removed: int = 0
 
 
 def load_env_credentials(env_path):
@@ -326,12 +347,40 @@ def sha256_of_file(path):
 
 
 def empty_manifest():
-    return {"version": MANIFEST_VERSION, "files": {}}
+    return {"version": MANIFEST_VERSION, "files": {}, "history": []}
+
+
+def is_safe_relative_path(value):
+    """Nur relative, aufsteigsfreie Pfade dürfen in ein Manifest."""
+    return (
+        isinstance(value, str)
+        and value != ""
+        and not value.startswith("/")
+        and ".." not in value.split("/")
+    )
+
+
+def normalise_history(data):
+    """Liest die Dateilisten früherer Releases, neueste zuerst.
+
+    Alles Unbrauchbare fällt weg statt den Deploy zu stoppen: Eine kaputte
+    Historie darf höchstens dazu führen, dass abgelöste Dateien länger liegen
+    bleiben — niemals dazu, dass etwas Falsches gelöscht wird.
+    """
+    entries = data.get("history")
+    if not isinstance(entries, list):
+        return []
+    releases = []
+    for entry in entries[:RELEASE_HISTORY_LENGTH]:
+        if not isinstance(entry, list):
+            continue
+        releases.append(sorted({path for path in entry if is_safe_relative_path(path)}))
+    return releases
 
 
 def normalise_manifest(data):
-    """Akzeptiert nur das aktuelle, pfadbereinigte Manifestformat."""
-    if not isinstance(data, dict) or data.get("version") != MANIFEST_VERSION:
+    """Akzeptiert die unterstützten, pfadbereinigten Manifestformate."""
+    if not isinstance(data, dict) or data.get("version") not in SUPPORTED_MANIFEST_VERSIONS:
         return empty_manifest()
     files = data.get("files")
     if not isinstance(files, dict):
@@ -339,9 +388,7 @@ def normalise_manifest(data):
 
     valid_files = {}
     for relative_path, metadata in files.items():
-        if not isinstance(relative_path, str) or relative_path.startswith("/"):
-            continue
-        if ".." in relative_path.split("/") or not isinstance(metadata, dict):
+        if not is_safe_relative_path(relative_path) or not isinstance(metadata, dict):
             continue
         file_hash = metadata.get("sha256")
         file_size = metadata.get("size")
@@ -353,7 +400,11 @@ def normalise_manifest(data):
             and file_size >= 0
         ):
             valid_files[relative_path] = {"sha256": file_hash, "size": file_size}
-    return {"version": MANIFEST_VERSION, "files": valid_files}
+    return {
+        "version": MANIFEST_VERSION,
+        "files": valid_files,
+        "history": normalise_history(data),
+    }
 
 
 def manifest_bytes(manifest):
@@ -475,6 +526,59 @@ def remote_matches_manifest(ftps, remote_file, local_file, remote_metadata, chec
     return "checksum" if checksum_matches else "manifest"
 
 
+def obsolete_release_files(release_files, previous_release, old_history):
+    """Welche Dateien früherer Releases werden nicht mehr gebraucht?
+
+    Gelöscht wird ausschließlich, was in einem Release stand, das jetzt aus der
+    Historie herausfällt, und was weder im aktuellen Release noch in einem der
+    aufbewahrten Vorgänger vorkommt. Ein Verzeichnis-Listing des Servers wird
+    bewusst nicht herangezogen: So kann dieses Skript nur Dateien löschen, die es
+    selbst einmal hochgeladen hat — nie etwas Fremdes, das im Zielverzeichnis
+    liegt.
+
+    Der Entrypoint und die geschützten Serverdateien bleiben immer stehen.
+
+    :returns: (Löschkandidaten als sortierte Liste, neue Historie)
+    """
+    kept_history = [sorted(previous_release)] + old_history[:RELEASE_HISTORY_LENGTH - 1]
+    dropped_history = old_history[RELEASE_HISTORY_LENGTH - 1:]
+
+    still_needed = set(release_files)
+    for release in kept_history:
+        still_needed.update(release)
+
+    obsolete = set()
+    for release in dropped_history:
+        obsolete.update(release)
+    obsolete -= still_needed
+    obsolete.discard(ENTRYPOINT)
+    obsolete = {
+        path for path in obsolete
+        if posixpath.basename(path) not in PROTECTED_FILES
+        and posixpath.basename(path) != REMOTE_MANIFEST_NAME
+    }
+    return sorted(obsolete), kept_history
+
+
+def remove_obsolete_files(ftps, remote_base, obsolete_paths):
+    """Löscht abgelöste Releasedateien; jeder Fehlschlag bleibt eine Warnung.
+
+    Ein nicht gelöschtes Altstück kostet nur Speicher. Den Deploy deshalb
+    scheitern zu lassen wäre falsch — der Release ist zu diesem Zeitpunkt bereits
+    vollständig und live.
+    """
+    removed = 0
+    for relative_path in obsolete_paths:
+        target = remote_path(remote_base, relative_path)
+        try:
+            ftps.delete(target)
+            removed += 1
+            print(f"[DEPLOY] Removed superseded release file: {relative_path}")
+        except Exception as error:
+            print(f"[WARN] Superseded release file could not be removed: {relative_path} ({error})")
+    return removed
+
+
 def deploy_dist(ftps, local_dist, remote_base, *, dry_run=False, force=False):
     """Öffentliche Vertragsgrenze: normalisiert das Ziel genau einmal."""
     normalised_base = normalise_remote_base(remote_base)
@@ -569,7 +673,18 @@ def _deploy_dist_normalised(ftps, local_dist, remote_base, *, dry_run=False, for
                 not_attempted = len(files) - index - 1
                 break
 
-    release_manifest = {"version": MANIFEST_VERSION, "files": release_files}
+    # Die Historie rückt eine Stelle weiter: Der Stand, der gerade abgelöst wird,
+    # ist ab jetzt der jüngste Vorgänger. Was hinten herausfällt, wird nicht mehr
+    # gebraucht — dessen Dateien kann kein Browser mehr anfordern, weil keine
+    # ausgelieferte index.html mehr auf sie zeigt.
+    obsolete_paths, kept_history = obsolete_release_files(
+        release_files, sorted(remote_files), remote_manifest.get("history", [])
+    )
+    release_manifest = {
+        "version": MANIFEST_VERSION,
+        "files": release_files,
+        "history": kept_history,
+    }
     if failed:
         return DeployResult(uploaded, skipped, failed, release_manifest, not_attempted,
                             skipped_unverified)
@@ -590,8 +705,15 @@ def _deploy_dist_normalised(ftps, local_dist, remote_base, *, dry_run=False, for
     except Exception as error:
         print(f"[ERROR] Failed to publish release manifest: {error}")
         failed += 1
+        # Ohne veröffentlichtes Manifest darf nichts gelöscht werden: Der Server
+        # führt dann noch die alte Historie, und ein späterer Lauf müsste die
+        # gelöschten Dateien für seine Rechnung wiederfinden.
+        return DeployResult(uploaded, skipped, failed, release_manifest,
+                            skipped_unverified=skipped_unverified)
+
+    removed = remove_obsolete_files(ftps, remote_base, obsolete_paths)
     return DeployResult(uploaded, skipped, failed, release_manifest,
-                        skipped_unverified=skipped_unverified)
+                        skipped_unverified=skipped_unverified, removed=removed)
 
 
 def main():

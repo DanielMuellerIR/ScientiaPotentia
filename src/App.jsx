@@ -10,6 +10,7 @@ import { DOMAINS, getDomainById, loadDomainConcepts, loadDomainData } from './do
 import pkg from '../package.json';
 import { getAllProgress, getSetting, saveSetting } from './utils/db';
 import { playClick, isAudioMuted, setAudioMuted } from './utils/audio';
+import { dataUrl } from './utils/dataUrl';
 import { BarChart3, HelpCircle, Compass, Flame, Trophy, Volume2, VolumeX, Images } from 'lucide-react';
 
 // Museum-Explorer lazy laden — enthält keine schweren Abhängigkeiten,
@@ -191,7 +192,7 @@ export default function App() {
   // dezente Platzhalter statt Zahlen — kein harter Fehler.
   useEffect(() => {
     let cancelled = false;
-    fetch('data/domain_stats.json')
+    fetch(dataUrl('domain_stats.json'))
       .then(res => (res.ok ? res.json() : null))
       .then(data => { if (!cancelled) setDomainStats(data); })
       .catch(() => { if (!cancelled) setDomainStats(null); });

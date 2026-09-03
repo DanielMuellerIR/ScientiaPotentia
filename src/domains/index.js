@@ -1,6 +1,9 @@
 import { lazy } from 'react';
 import { Globe2, Sparkles, PersonStanding, Orbit, Leaf, Languages, Landmark, Images, Cpu, ScrollText, Layers } from 'lucide-react';
 import { DOMAIN_CONFIGS, SCIENTIA_MIX_IDS } from './metadata';
+// Katalogdateien tragen im Produktionsbau ihren Inhaltshash im Namen; dataUrl
+// loest den Klarnamen dorthin auf (siehe src/utils/dataUrl.js).
+import { dataUrl } from '../utils/dataUrl';
 
 export { SCIENTIA_MIX_IDS } from './metadata';
 
@@ -71,7 +74,7 @@ const DOMAIN_DETAILS = {
     accent: '#1B305B',
     // Terra wird visuell von der bestehenden Weltkarte (Map.jsx) dargestellt.
     loadConcepts: () => import('../data/geodb.json').then(module => module.default.entities),
-    loadQuestions: () => fetch('data/questions_terra.json').then(handleJson)
+    loadQuestions: () => fetch(dataUrl('questions_terra.json')).then(handleJson)
   },
   astra: {
     latinName: 'Astra',
@@ -86,8 +89,8 @@ const DOMAIN_DETAILS = {
     Explorer: SolarSystemExplorer,
     explorerLabel: 'Sonnensystem',
     ExplorerIcon: Orbit,
-    loadConcepts: () => fetch('data/concepts_astra.json').then(handleJson),
-    loadQuestions: () => fetch('data/questions_astra.json').then(handleJson)
+    loadConcepts: () => fetch(dataUrl('concepts_astra.json')).then(handleJson),
+    loadQuestions: () => fetch(dataUrl('questions_astra.json')).then(handleJson)
   },
   homo: {
     latinName: 'Homo',
@@ -102,8 +105,8 @@ const DOMAIN_DETAILS = {
     Explorer: GalleryExplorer,
     explorerLabel: 'Galerie',
     ExplorerIcon: Images,
-    loadConcepts: () => fetch('data/concepts_homo.json').then(handleJson),
-    loadQuestions: () => fetch('data/questions_homo.json').then(handleJson)
+    loadConcepts: () => fetch(dataUrl('concepts_homo.json')).then(handleJson),
+    loadQuestions: () => fetch(dataUrl('questions_homo.json')).then(handleJson)
   },
   natura: {
     latinName: 'Natura',
@@ -117,8 +120,8 @@ const DOMAIN_DETAILS = {
     Explorer: GalleryExplorer,
     explorerLabel: 'Galerie',
     ExplorerIcon: Images,
-    loadConcepts: () => fetch('data/concepts_natura.json').then(handleJson),
-    loadQuestions: () => fetch('data/questions_natura.json').then(handleJson)
+    loadConcepts: () => fetch(dataUrl('concepts_natura.json')).then(handleJson),
+    loadQuestions: () => fetch(dataUrl('questions_natura.json')).then(handleJson)
   },
   lingua: {
     latinName: 'Lingua',
@@ -132,8 +135,8 @@ const DOMAIN_DETAILS = {
     Explorer: GalleryExplorer,
     explorerLabel: 'Galerie',
     ExplorerIcon: Images,
-    loadConcepts: () => fetch('data/concepts_lingua.json').then(handleJson),
-    loadQuestions: () => fetch('data/questions_lingua.json').then(handleJson)
+    loadConcepts: () => fetch(dataUrl('concepts_lingua.json')).then(handleJson),
+    loadQuestions: () => fetch(dataUrl('questions_lingua.json')).then(handleJson)
   },
   cultura: {
     latinName: 'Cultura',
@@ -147,8 +150,8 @@ const DOMAIN_DETAILS = {
     Explorer: GalleryExplorer,
     explorerLabel: 'Galerie',
     ExplorerIcon: Images,
-    loadConcepts: () => fetch('data/concepts_cultura.json').then(handleJson),
-    loadQuestions: () => fetch('data/questions_cultura.json').then(handleJson)
+    loadConcepts: () => fetch(dataUrl('concepts_cultura.json')).then(handleJson),
+    loadQuestions: () => fetch(dataUrl('questions_cultura.json')).then(handleJson)
   },
   machina: {
     latinName: 'Machina',
@@ -165,8 +168,8 @@ const DOMAIN_DETAILS = {
     Explorer: GalleryExplorer,
     explorerLabel: 'Galerie',
     ExplorerIcon: Images,
-    loadConcepts: () => fetch('data/concepts_machina.json').then(handleJson),
-    loadQuestions: () => fetch('data/questions_machina.json').then(handleJson)
+    loadConcepts: () => fetch(dataUrl('concepts_machina.json')).then(handleJson),
+    loadQuestions: () => fetch(dataUrl('questions_machina.json')).then(handleJson)
   },
   historia: {
     latinName: 'Historia',
@@ -181,8 +184,8 @@ const DOMAIN_DETAILS = {
     Explorer: GalleryExplorer,
     explorerLabel: 'Galerie',
     ExplorerIcon: Images,
-    loadConcepts: () => fetch('data/concepts_historia.json').then(handleJson),
-    loadQuestions: () => fetch('data/questions_historia.json').then(handleJson)
+    loadConcepts: () => fetch(dataUrl('concepts_historia.json')).then(handleJson),
+    loadQuestions: () => fetch(dataUrl('questions_historia.json')).then(handleJson)
   }
 };
 

@@ -50,6 +50,14 @@ Dieses Changelog beginnt mit dem für eine öffentliche Veröffentlichung berein
 - 32 Asteroidenfragen boten Meter und Kilometer im selben Optionssatz an, 66 Kometenfragen
   begannen mit „der Komet Komet …", und in vier Exoplanetenfragen stand der gesuchte Wirtsstern
   bereits im Planetennamen. Alles behoben.
+- Ein Release kann keine laufende Sitzung mehr zerbrechen. Bisher trugen nur die
+  JavaScript- und CSS-Bündel einen Inhaltshash im Namen; die Katalogdateien unter `data/`
+  lagen unter festen Namen und wurden beim Deploy überschrieben. Wer die Seite offen hatte,
+  bekam in diesem Moment neue Daten zu altem Code — bei einer Feldumbenennung ein Abbruch.
+  Jetzt tragen auch die Kataloge ihren Hash, und die `index.html` ist der einzige Punkt, an
+  dem ein Release sichtbar wird. Abgelöste Dateien bleiben drei Releases lang liegen und
+  werden danach entfernt; gelöscht wird ausschließlich, was das Deployskript selbst einmal
+  hochgeladen hat.
 - Vier Lingua-Kategorien erzeugen erstmals Fragen: Lehnwort, Sprachkuriosum, Grammatik und
   Sprachfakt kommen zusammen auf 47 neue Fragen. Ihre Konzepte tragen fast durchweg eigene
   Attributschlüssel, deshalb findet die übliche Frage „welchen Wert hat dieses Konzept?" dort

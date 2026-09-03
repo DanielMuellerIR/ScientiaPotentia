@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { dataUrl } from './dataUrl';
 
 /**
  * Lädt eine oder mehrere GeoJSON-Geometriedateien aus dem /data-Verzeichnis und
@@ -16,10 +17,12 @@ import { useState, useEffect } from 'react';
 
 // Zuordnung logischer Name -> Pfad. Bewusst zentral, damit Quiz und Map dieselben
 // Dateien meinen und Tippfehler an einer Stelle auffallen.
+// Die Werte sind Klarnamen; dataUrl() setzt daraus die tatsaechliche Adresse
+// zusammen und beruecksichtigt den Inhaltshash des Produktionsbaus.
 const GEO_FILES = {
-  countries: 'data/countries.json',
-  subdivisions: 'data/subdivisions.json',
-  rivers: 'data/rivers.json'
+  countries: 'countries.json',
+  subdivisions: 'subdivisions.json',
+  rivers: 'rivers.json'
 };
 
 export function useGeoData(keys) {
@@ -45,7 +48,7 @@ export function useGeoData(keys) {
         return Promise.resolve()
           .then(() => {
             if (!url) throw new Error(`Unbekannte Geometriedatei: ${name}`);
-            return fetch(url);
+            return fetch(dataUrl(url));
           })
           .then(res => {
             if (!res.ok) throw new Error(`HTTP ${res.status || 'Fehler'}`);
