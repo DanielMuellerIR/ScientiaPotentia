@@ -30,6 +30,8 @@ const {
 const {
   fileNameFromUploadUrl,
   selectP18File,
+  isBlacklistedFile,
+  isBlacklistedConcept,
 } = require('./image_resolution_policy.cjs');
 
 const UA = "ScientiaQuizImageResolverP18/1.0 (educational quiz project; pageimages+P18 only)";
@@ -46,24 +48,12 @@ const P18_ONLY_CATS = new Set(["asteroid", "star"]);
 const ALLOWED_MIME = new Set(["image/jpeg", "image/png", "image/svg+xml", "image/gif", "image/webp"]);
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
-// ---------------------------------------------------------------------------
-// Blacklist aus BLACKLIST.md einlesen (identisch zu resolve_images.cjs)
-// ---------------------------------------------------------------------------
-function loadBlacklist() {
-  const set = new Set();
-  try {
-    const md = fs.readFileSync(path.join(__dirname, "BLACKLIST.md"), "utf8");
-    const re = /commons\.wikimedia\.org\/wiki\/(File:[^\s)\]]+)/gi;
-    let m;
-    while ((m = re.exec(md))) {
-      let title = m[1];
-      try { title = decodeURIComponent(title); } catch { /* schon dekodiert */ }
-      set.add(title.replace(/_/g, " ").trim());
-    }
-  } catch { /* keine BLACKLIST.md → leere Sperrliste */ }
-  return set;
-}
-const BLACKLIST = loadBlacklist();
+// Sperrliste: maschinenlesbar aus IMAGE_BLACKLIST.json ueber die gemeinsame
+// Regel in image_resolution_policy.cjs. Vorher las diese Datei die Sperrliste
+// per Regex aus dem Fliesstext BLACKLIST.md — damit wirkte ein Eintrag nur,
+// wenn er dort als vollstaendige Commons-URL stand, und gesperrte KONZEPT-IDs
+// wirkten gar nicht. Dass "Guernica" trotzdem haengen blieb, lag an der
+// doppelten Pflege in beiden Dateien (CodeQA 2026-09-03).
 
 function attribution(meta) {
   const artist = (meta?.Artist?.value || "").toString().replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
@@ -133,7 +123,7 @@ async function commonsInfoForTitle(rawTitle) {
   if (commonsCache.has(title)) { STATS.cacheHits++; return commonsCache.get(title); }
 
   // Schwarzliste sofort prüfen — spart API-Call
-  if (BLACKLIST.has(title)) { commonsCache.set(title, null); return null; }
+  if (isBlacklistedFile(title)) { commonsCache.set(title, null); return null; }
 
   const encodedTitle = encodeURIComponent(title.replace(/ /g, "_"));
   const url = `https://commons.wikimedia.org/w/api.php?action=query&format=json` +
@@ -274,7 +264,9 @@ async function resolveConcept(c) {
   const data = JSON.parse(fs.readFileSync(ASTRA_FILE, "utf8"));
 
   // Zielkonzepte: TARGET_CATS ohne imageFile
-  const targets = data.filter(c => TARGET_CATS.has(c.category) && !c.imageFile);
+  // Gesperrte Konzepte gar nicht erst aufloesen — wie in resolve_images_batched.
+  const targets = data.filter(c => TARGET_CATS.has(c.category) && !c.imageFile
+    && !isBlacklistedConcept(c.id));
   console.log(`Zielkonzepte (ohne imageFile): ${targets.length}`);
   console.log(`Kategorien: galaxy=${targets.filter(c=>c.category==='galaxy').length}` +
     ` nebula=${targets.filter(c=>c.category==='nebula').length}` +

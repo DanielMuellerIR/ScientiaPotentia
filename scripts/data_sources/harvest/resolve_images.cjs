@@ -31,6 +31,9 @@ const fs = require("fs");
 const path = require("path");
 const { writeJsonAtomic } = require('./json_io.cjs');
 const {
+  isBlacklistedFile, isBlacklistedConcept,
+} = require('./image_resolution_policy.cjs');
+const {
   isAllowedCommonsLicenseMetadata,
   licenseNameFromCommonsMetadata,
 } = require('../../lib/image_license_policy.js');
@@ -43,27 +46,12 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
 // Nur diese MIME-Typen gelten als brauchbares Quiz-Bild (browser-darstellbar).
 const ALLOWED_MIME = new Set(["image/jpeg", "image/png", "image/svg+xml", "image/gif", "image/webp"]);
 
-// ---------------------------------------------------------------------------
-// Blacklist: gesperrte Commons-Dateiseiten aus BLACKLIST.md einlesen.
-// Wir extrahieren alle commons.wikimedia.org/wiki/File:...-URLs und normalisieren
-// sie auf den Dateititel ("File:Xyz.jpg", Unterstriche -> Leerzeichen, dekodiert),
-// damit der Vergleich unabhängig von URL-Encoding funktioniert.
-// ---------------------------------------------------------------------------
-function loadBlacklist() {
-  const set = new Set();
-  try {
-    const md = fs.readFileSync(path.join(__dirname, "BLACKLIST.md"), "utf8");
-    const re = /commons\.wikimedia\.org\/wiki\/(File:[^\s)\]]+)/gi;
-    let m;
-    while ((m = re.exec(md))) {
-      let title = m[1];
-      try { title = decodeURIComponent(title); } catch { /* schon dekodiert */ }
-      set.add(title.replace(/_/g, " ").trim());
-    }
-  } catch { /* keine BLACKLIST.md -> leere Sperrliste */ }
-  return set;
-}
-const BLACKLIST = loadBlacklist();
+// Sperrliste: maschinenlesbar aus IMAGE_BLACKLIST.json ueber die gemeinsame
+// Regel in image_resolution_policy.cjs. Vorher las diese Datei die Sperrliste
+// per Regex aus dem Fliesstext BLACKLIST.md — damit wirkte ein Eintrag nur,
+// wenn er dort als vollstaendige Commons-URL stand, und gesperrte KONZEPT-IDs
+// wirkten gar nicht. Dass "Guernica" trotzdem haengen blieb, lag an der
+// doppelten Pflege in beiden Dateien (CodeQA 2026-09-03).
 
 // Urheber-Angabe aus extmetadata (Artist + Credit), HTML-Tags gestrippt, gekürzt.
 function attribution(meta) {
@@ -150,7 +138,7 @@ async function resolveConcept(term) {
     for (const p of ordered) {
       const ii = p.imageinfo?.[0]; if (!ii) continue;
       if (!ALLOWED_MIME.has(ii.mime || "")) continue;            // nur echte, darstellbare Bilder
-      if (BLACKLIST.has((p.title || "").replace(/_/g, " ").trim())) continue; // gesperrte Datei
+      if (isBlacklistedFile(p.title || "")) continue; // gesperrte Datei
       if (isAllowedCommonsLicenseMetadata(ii.extmetadata)) {
         result = {
           // Gespeichert wird die Commons-DATEISEITE (nicht die Roh-Bild-URL),
@@ -183,6 +171,10 @@ async function resolveConcept(term) {
     let res = 0, none = 0;
     for (const o of arr) {
       if (o.imageFile) continue;                  // schon gesetzt -> nie überschreiben
+      // Gesperrtes Konzept gar nicht erst aufloesen. Dieses Skript schreibt sein
+      // Ergebnis direkt in die Erntedatei, es gibt hier also keinen zweiten
+      // Wächter davor (CodeQA 2026-09-03).
+      if (isBlacklistedConcept(o.id)) continue;
       if (overBudget()) { G.stoppedEarly = true; break; }
       G.total++;
       const r = await resolveConcept(o.imageSearchTerm || o.name);

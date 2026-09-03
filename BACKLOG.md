@@ -6,6 +6,13 @@
   bewusst stehen: Sie sind zugleich die Schlüssel des Lernfortschritts in IndexedDB, ein
   Umbenennen würde den Fortschritt zu diesen Konzepten stillschweigend zurücksetzen. Eine
   Bereinigung braucht eine Migration.
+- `isConcreteImageAttribution` liegt in `src/utils/imageCredits.js` (ESM) und wird vom
+  Release-Audit genutzt, aber nicht vom Preflight in
+  `scripts/data_sources/harvest/apply_images.cjs` (CommonJS). Dadurch nimmt `apply_images
+  --write` ein Bild mit dem generischen Urheber „Wikimedia Commons" an, und der Fehler platzt
+  erst im `npm run build` — dann für die ganze Domain. Die Prüfung braucht zuerst ein Modul,
+  das beide Welten laden können; ein Muster dafür gibt es bereits (`scripts/lib/audit_rules.cjs`
+  wird von `generator_text.js` re-exportiert).
 - 60 veröffentlichte Bildnachweise enthalten statt eines Urhebers einen mehrzeiligen
   Commons-Rechtehinweis („Permission details / ACKNOWLEDGMENT FOR PUBLICATIONS …"), und 112
   Nachweise sind bei 200 Zeichen mitten im Wort abgeschnitten. Beides entsteht in den

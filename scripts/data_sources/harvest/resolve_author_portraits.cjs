@@ -18,7 +18,9 @@ const {
   isAllowedCommonsLicenseMetadata,
   licenseNameFromCommonsMetadata,
 } = require('../../lib/image_license_policy.js');
-const { fileNameFromUploadUrl } = require('./image_resolution_policy.cjs');
+const {
+  fileNameFromUploadUrl, isBlacklistedFile, isBlacklistedConcept,
+} = require('./image_resolution_policy.cjs');
 
 const RAWFILE = path.join(__dirname, "../cultura_raw.json");
 const OUT = "/tmp/cultura_author_portraits.json";
@@ -121,7 +123,12 @@ async function main() {
   for (const [author, ids] of authorToIds) {
     const f = fileForAuthor.get(author); if (!f) continue;
     const lic = licByFile.get("File:" + f); if (!lic || !lic.ok) continue;
+    // Sperrliste: gesperrtes Konzept oder gesperrte Datei nie zuweisen. Diese
+    // Datei pruefte sie bisher gar nicht (CodeQA 2026-09-03); der Kopfkommentar
+    // nennt "direkt mergen" als Weg an apply_images.cjs vorbei.
+    if (isBlacklistedFile(f)) continue;
     for (const id of ids) {
+      if (isBlacklistedConcept(id)) continue;
       out.push({ id, imageFile: `https://commons.wikimedia.org/wiki/File%3A${encodeURIComponent(f)}`, imageLicense: lic.lic, imageAttribution: lic.art });
     }
   }

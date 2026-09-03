@@ -117,6 +117,12 @@ function validateMapping(mapping, byId = null) {
     if (!isAllowedImageLicense(entry.imageLicense)) {
       throw new Error(`Bild-Mapping: ${entry.id} besitzt keine erlaubte freie Lizenz`);
     }
+    // TODO(CodeQA 2026-09-03): Hier fehlt die Konkretheitspruefung des
+    // Release-Audits — "Wikimedia Commons" ist der Fundort, kein Urheber, und
+    // genau diesen Rueckfallwert setzen die Aufloeser. isConcreteImageAttribution
+    // liegt in src/utils/imageCredits.js (ESM), diese Datei ist CommonJS; die
+    // Pruefung braucht zuerst ein von beiden Welten ladbares Modul. Bis dahin
+    // blockiert der Bildnachweis-Audit im Build. Steht im BACKLOG.
     if (typeof entry.imageAttribution !== 'string' || !entry.imageAttribution.trim()) {
       throw new Error(`Bild-Mapping: ${entry.id} besitzt keine Urheberangabe`);
     }
