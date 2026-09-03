@@ -1,5 +1,10 @@
 import { createRequire } from 'node:module';
+import { readFileSync } from 'node:fs';
+import { dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
+
+const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 
 const require = createRequire(import.meta.url);
 const {
@@ -82,5 +87,33 @@ describe('Lingua-Wikidata-Einzelabfragen', () => {
         itemAltLabel: { value: 'slowakische Sprache' },
       }],
     )).toThrow('Q9058 bezeichnet laut Wikidata');
+  });
+});
+
+describe('Zitat-Normalisierung (wikiquote_cleaning)', () => {
+  const { normalizeQuoteText, quoteTokens } = require(
+    '../../scripts/data_sources/harvest/wikiquote_cleaning.cjs');
+
+  it('entfernt auch typografische Anfuehrungszeichen', () => {
+    // CodeQA 2026-09-03: wikiquote_harvest und wikiquote_w4 trugen eine Kopie
+    // dieser Funktion, die nur die geraden Anfuehrungszeichen kannte. Aus
+    // „Die Freiheit" wurde dort das Dedup-Token `freiheit"` statt `freiheit`,
+    // sodass die Overlap-Dublettenpruefung schlechter griff als im Verifizierer.
+    expect(normalizeQuoteText('Er sagte: „Die Freiheit“ ist das Wichtigste.'))
+      .toBe('er sagte die freiheit ist das wichtigste');
+    expect(quoteTokens('„Freiheit“ ist ‚wichtig‘')).toEqual(['freiheit', 'ist', 'wichtig']);
+  });
+
+  it('behaelt Umlaute und loest ß auf', () => {
+    expect(normalizeQuoteText('Größe und Übermut')).toBe('grösse und übermut');
+  });
+
+  it('wird von allen drei Wikiquote-Werkzeugen genutzt statt kopiert', () => {
+    for (const tool of ['wikiquote_verify', 'wikiquote_harvest', 'wikiquote_w4']) {
+      const source = readFileSync(
+        resolve(ROOT, 'scripts/data_sources/harvest', `${tool}.cjs`), 'utf8');
+      expect(source, tool).toContain('const norm = normalizeQuoteText;');
+      expect(source, tool).not.toContain('function norm(s) {');
+    }
   });
 });

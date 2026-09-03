@@ -22,7 +22,9 @@ const https = require('https');
 const fs    = require('fs');
 const path  = require('path');
 const { writeJsonAtomic } = require('./json_io.cjs');
-const { stripQuotationMarks } = require('./wikiquote_cleaning.cjs');
+const {
+  stripQuotationMarks, normalizeQuoteText, quoteTokens,
+} = require('./wikiquote_cleaning.cjs');
 
 // ──────────────────────────────────────────────────────────────────────────────
 // Hilfsfunktionen (übernommen aus wikiquote_harvest.cjs, unveraendert)
@@ -39,18 +41,11 @@ function slug(s) {
     .replace(/^-+|-+$/g, '');
 }
 
-function norm(s) {
-  return String(s || '').toLowerCase()
-    .replace(/[„"""»«‚''']/g, ' ')
-    .replace(/[–—-]/g, ' ')
-    .replace(/[…]/g, ' ')
-    .replace(/[.,;:!?()\[\]]/g, ' ')
-    .replace(/ß/g, 'ss')
-    .replace(/\s+/g, ' ')
-    .trim();
-}
-
-const toks = s => norm(s).split(' ').filter(w => w.length >= 3);
+// `norm`/`toks` liegen seit CodeQA 2026-09-03 zentral in wikiquote_cleaning.cjs.
+// Die frueheren Kopien waren auseinandergedriftet: Diese hier kannte nur die
+// geraden Anfuehrungszeichen, der Verifizierer auch die typografischen.
+const norm = normalizeQuoteText;
+const toks = quoteTokens;
 
 function overlapRatio(a, b) {
   const ta = new Set(toks(a));

@@ -18,7 +18,9 @@
 const https = require('https');
 const fs    = require('fs');
 const { writeJsonAtomic } = require('./json_io.cjs');
-const { stripQuotationMarks } = require('./wikiquote_cleaning.cjs');
+const {
+  stripQuotationMarks, normalizeQuoteText, quoteTokens,
+} = require('./wikiquote_cleaning.cjs');
 
 // ──────────────────────────────────────────────────────────────────────────────
 // Konfiguration & Hilfsfunktionen
@@ -40,21 +42,12 @@ function slug(s) {
     .replace(/^-+|-+$/g, '');
 }
 
-// Normalisierungsfunktion (aus wikiquote_verify.cjs übernommen, für Dedup).
-// Achtung: ß→ss, Anführungszeichen/Satzzeichen/Whitespace vereinheitlicht.
-function norm(s) {
-  return String(s || '').toLowerCase()
-    .replace(/[„"""»«‚''']/g, ' ')
-    .replace(/[–—-]/g, ' ')
-    .replace(/[…]/g, ' ')
-    .replace(/[.,;:!?()\[\]]/g, ' ')
-    .replace(/ß/g, 'ss')
-    .replace(/\s+/g, ' ')
-    .trim();
-}
-
-// Token-Liste für Overlap-Dedup (Wörter ≥3 Zeichen).
-const toks = s => norm(s).split(' ').filter(w => w.length >= 3);
+// `norm`/`toks` liegen seit CodeQA 2026-09-03 zentral in wikiquote_cleaning.cjs.
+// Die frueheren Kopien waren auseinandergedriftet: Diese hier kannte nur die
+// geraden Anfuehrungszeichen, der Verifizierer auch die typografischen. Aus
+// „Die Freiheit" wurde deshalb das Dedup-Token `freiheit"` statt `freiheit`.
+const norm = normalizeQuoteText;
+const toks = quoteTokens;
 
 // Overlap-Anteil zweier Texte (0.0–1.0). Wird für Dedup gegen Bestand genutzt:
 // Wenn ein Kandidat zu ≥0.7 Overlap mit einem bestehenden Zitat hat, wird er

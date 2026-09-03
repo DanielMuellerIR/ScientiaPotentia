@@ -20,4 +20,33 @@ function stripQuotationMarks(value) {
     .trim();
 }
 
-module.exports = { stripQuotationMarks };
+/**
+ * Wortlaut eines Zitats für den Vergleich normalisieren: Kleinschreibung,
+ * Anführungen, Gedankenstriche, Auslassungspunkte und Satzzeichen zu
+ * Leerzeichen, ß zu ss. Umlaute bleiben, weil sichtbares Deutsch sie führt.
+ *
+ * Warum hier und nicht je Skript (CodeQA 2026-09-03): Die Funktion stand
+ * dreimal kopiert in wikiquote_verify.cjs, wikiquote_harvest.cjs und
+ * wikiquote_w4.cjs — und war auseinandergedriftet. Die beiden Erntekopien
+ * kannten nur die geraden Anführungszeichen, nicht die typografischen. Aus
+ * „Er sagte: „Die Freiheit" ist das Wichtigste." wurde dort das Dedup-Token
+ * `freiheit"` statt `freiheit`, sodass die Overlap-Dublettenprüfung bei
+ * echten Wikiquote-Texten schlechter griff als beim Verifizierer.
+ */
+function normalizeQuoteText(value) {
+  return String(value || '').toLowerCase()
+    .replace(/[„“”"»«‚‘’']/g, ' ')
+    .replace(/[–—-]/g, ' ')
+    .replace(/[…]/g, ' ')
+    .replace(/[.,;:!?()\[\]]/g, ' ')
+    .replace(/ß/g, 'ss')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+/** Wort-Tokens ab drei Zeichen — Grundlage des Overlap-Dedup. */
+function quoteTokens(value) {
+  return normalizeQuoteText(value).split(' ').filter(word => word.length >= 3);
+}
+
+module.exports = { stripQuotationMarks, normalizeQuoteText, quoteTokens };

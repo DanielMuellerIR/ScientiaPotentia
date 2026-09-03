@@ -17,18 +17,16 @@
 const https = require('https');
 const fs = require('fs');
 const { writeJsonAtomic } = require('./json_io.cjs');
+const { normalizeQuoteText, quoteTokens } = require('./wikiquote_cleaning.cjs');
 
 const UA = { 'User-Agent': 'ScientiaQuizQuoteVerify/1.0 (public educational project)' };
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
-// Wortlaut normalisieren: Umlaute behalten, aber Anführungen/Gedankenstriche/
-// Satzzeichen/Whitespace vereinheitlichen (ß->ss), damit nur der Wortbestand zählt.
-function norm(s) {
-  return String(s || '').toLowerCase()
-    .replace(/[„“”"»«‚‘’']/g, ' ').replace(/[–—-]/g, ' ').replace(/[…]/g, ' ')
-    .replace(/[.,;:!?()\[\]]/g, ' ').replace(/ß/g, 'ss').replace(/\s+/g, ' ').trim();
-}
-const toks = s => norm(s).split(' ').filter(w => w.length >= 3);
+// `norm`/`toks` liegen seit CodeQA 2026-09-03 zentral in wikiquote_cleaning.cjs.
+// Die frueheren Kopien waren auseinandergedriftet: Diese hier kannte nur die
+// geraden Anfuehrungszeichen, der Verifizierer auch die typografischen.
+const norm = normalizeQuoteText;
+const toks = quoteTokens;
 
 function fetchPage(title, tries = 0) {
   return new Promise((resolve, reject) => {
