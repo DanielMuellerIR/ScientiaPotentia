@@ -19,7 +19,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import { pickBalanced, pickNumeric, shouldMagnitudeSpread, magnitudeSpreadDistractors } from './lib/quizrandom.js';
+import { pickBalanced, pickNumeric, numericDistractors } from './lib/quizrandom.js';
 import { norm, deNum, optionKey, distinctOptionValues, revealsAnswerStrict as revealsAnswer } from './lib/generator_text.js';
 import { buildImageMetadata } from '../src/utils/imageCredits.js';
 
@@ -520,9 +520,8 @@ for (const tpl of templates) {
       correct = tpl.format(n);
       // Größenordnungs-Distraktoren, wo das Maß über ≥2 Größenordnungen streut
       // (Tier-Länge/-Gewicht/-Tempo, Pflanzenhöhe/-alter); sonst Nachbarwert.
-      distractors = (shouldMagnitudeSpread(n, numPool, tpl.attr)
-        && magnitudeSpreadDistractors(n, numPool, tpl.format, { seed: c.id }))
-        || pickNumeric(n, numPool, tpl.format);
+      distractors = numericDistractors(n, numPool, tpl.format,
+        { attribute: tpl.attr, seed: c.id });
     } else { // 'cat'
       const v = c.attributes[tpl.attr];
       if (v === undefined || v === null || v === '') continue;

@@ -119,6 +119,25 @@ export function pickBalanced(correct, candidates, k = 3, seed = String(correct))
 }
 
 /**
+ * Numerische Distraktoren nach der Standardregel der Domain-Generatoren:
+ * Streut das Maß über mindestens zwei Größenordnungen, werden die Distraktoren
+ * proportional gestreut, sonst sind es die wertnächsten Nachbarn.
+ *
+ * Die drei Zeilen standen in generate_natura.js, generate_lingua.js und
+ * generate_cultura.js wortgleich ausgeschrieben (CodeQA 2026-09-03). Hier
+ * stehen sie einmal, damit eine Änderung an der Regel nicht an zwei Stellen
+ * hängen bleibt. generate_homo.js und generate_astra.js rufen dieselben beiden
+ * Funktionen, fallen aber bewusst auf einen anderen Weg zurück
+ * (pickDistractors bzw. eine eigene Nachbarwert-Sortierung) und bleiben darum
+ * eigenständig.
+ */
+export function numericDistractors(value, pool, format, { attribute, seed }) {
+  return (shouldMagnitudeSpread(value, pool, attribute)
+    && magnitudeSpreadDistractors(value, pool, format, { seed }))
+    || pickNumeric(value, pool, format);
+}
+
+/**
  * Zieht die erste Zahl aus einem deutsch formatierten Wert-String.
  *   „2.500.000 Lichtjahre" -> 2500000   (Punkt = Tausendertrenner)
  *   „4,5 mag" -> 4.5                     (Komma = Dezimaltrenner)
