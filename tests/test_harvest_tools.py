@@ -43,11 +43,15 @@ class HarvestToolTests(unittest.TestCase):
             shared = HARVEST / shared_name
             if shared.exists() and not (harvest / shared_name).exists():
                 shutil.copy2(shared, harvest / shared_name)
-        license_policy = ROOT / 'scripts' / 'lib' / 'image_license_policy.js'
-        if license_policy.exists():
-            policy_target = root / 'scripts' / 'lib' / license_policy.name
-            policy_target.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copy2(license_policy, policy_target)
+        # concept_validation.cjs prueft seit 2026-09-03 auch auf Sammelwerte und
+        # nutzt dafuer dieselbe Regel wie das Fragen-Audit — audit_rules.cjs
+        # gehoert darum in den Testbaum.
+        for shared_lib in ('image_license_policy.js', 'audit_rules.cjs'):
+            source = ROOT / 'scripts' / 'lib' / shared_lib
+            if source.exists():
+                target = root / 'scripts' / 'lib' / shared_lib
+                target.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(source, target)
         return root, harvest
 
     @staticmethod
@@ -199,6 +203,26 @@ class HarvestToolTests(unittest.TestCase):
             self.assertEqual(result.returncode, 0, result.stderr)
             self.assertEqual(json.loads(raw_path.read_text(encoding='utf-8')), [])
             self.assertIn('sourceName', result.stdout)
+
+    def test_append_concepts_rejects_collective_attribute_value(self):
+        """CodeQA 2026-09-03: 'Sonstige' als Werktitel erzeugte zehn
+        unbeantwortbare Fragen. Der Wert faellt jetzt schon beim Ernten auf."""
+        with tempfile.TemporaryDirectory() as temporary:
+            root, harvest = self.prepare_tool_tree(temporary, 'append_concepts.cjs')
+            raw_path = root / 'scripts' / 'data_sources' / 'machina_raw.json'
+            self.write_json(raw_path, [])
+            candidate_path = root / 'kandidaten.json'
+            self.write_json(candidate_path, [{
+                'id': 'sammelwert', 'name': 'Sammelwert', 'category': 'tool',
+                'attributes': {'werk': 'Sonstige'},
+                'sourceName': 'Quelle', 'sourceUrl': 'https://example.org/a',
+            }])
+
+            result = self.run_node(
+                harvest / 'append_concepts.cjs', 'machina', candidate_path, '--write')
+
+            self.assertIn('Sammelwert', result.stdout + result.stderr)
+            self.assertEqual(json.loads(raw_path.read_text(encoding='utf-8')), [])
 
     def test_dedup_builder_preserves_output_when_catalog_is_empty(self):
         """CodeQA 2026-09-03: Ein leerer Rohkatalog lief mit Exit 0 durch und
