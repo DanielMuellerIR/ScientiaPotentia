@@ -93,10 +93,15 @@
   (Hand ohne Knochen, Füße ohne Knochen, lackierte Zehen für ein Gelenk). Der Bildrechte-Audit
   kann das nicht prüfen. Ein maschineller Vorfilter müsste mindestens die Commons-Kategorien
   gegen die Domain halten — Tiermotive gehören nicht in Mensch & Körper.
-- Fünf Lingua-Kategorien erzeugen bis heute keine einzige Frage, weil ihre Attributschlüssel je
-  Konzept verschieden sind: Lehnwort (29), Sprachkuriosum (23), Sprachfakt (14), Grammatik (14)
-  und Phonetik (14) — zusammen 94 Konzepte, nachgezählt am 2026-09-03. Sie brauchen einen
-  eigenen Fragetyp; Begründung in `docs/attribut_luecken.md`.
+- Phonetik ist die einzige Lingua-Kategorie ohne Fragetyp (14 Konzepte). Lehnwort,
+  Sprachkuriosum, Grammatik und Sprachfakt tragen seit dem 2026-09-03 zusammen 47 Fragen in der
+  Umkehrrichtung. In der Phonetik nennt der Schlüssel `type` in 7 von 10 Fällen die Lösung
+  bereits im Hinweis; die drei verbleibenden Fragen tragen keinen eigenen Fragetyp. Ein Abbau
+  bräuchte ein beschreibendes Attribut, das den Fachbegriff nicht wiederholt.
+- Von den 94 Konzepten der fünf kleinen Lingua-Kategorien erzeugen 47 weiterhin keine Frage —
+  sie tragen den jeweiligen Schlüssel nicht oder nennen die Lösung im Hinweis. Das ist keine
+  Lücke der Auswahl, sondern des Bestands: Diese Konzepte bräuchten je ein zusätzliches,
+  beschreibendes Attribut.
 - Lizenz der vorgesehenen IAU-Grenzdaten ausdrücklich dokumentieren, bevor sie gebündelt werden.
 - Responsive Shell und VisualPanel auf einem echten iPhone im Hochformat prüfen.
 - Bildabdeckung in Museum und Explorern nur mit fachlich eindeutigen, freien Kandidaten erweitern.

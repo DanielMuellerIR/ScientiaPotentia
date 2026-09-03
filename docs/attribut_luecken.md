@@ -1,6 +1,6 @@
 # Geprüfte Attribute ohne Fragetyp
 
-**Stand: 2026-09-02.**
+**Stand: 2026-09-03.**
 
 Neben neuen Konzepten gibt es einen zweiten Hebel für mehr Fragen, der keine neue
 Recherche kostet: Attribute, die in `scripts/data_sources/<domain>_raw.json` bereits
@@ -18,16 +18,37 @@ hält fest, was am 2026-09-02 noch offen war und warum.
 | Cultura | Musikepoche, Lebensdaten der Komponisten, Baustil, Merkmale und Hauptvertreter der Kunst- und Literaturepochen | 394 |
 | Homo | Körperregion von Muskeln und Organen, lateinische Organnamen, Gegenspieler, Ansatz, Hirnnerv-Nummer, Versorgungsgebiet, Hirnvolumen, Körpergröße, Nahrungsquelle | Teil der Homo-Welle |
 
+## Am 2026-09-03 erschlossen
+
+| Bereich | Attribut oder Kategorie | Neue Fragen |
+|---|---|---:|
+| Lingua | Lehnwort (`examples`), Sprachkuriosum (`definition`), Grammatik (`principle`), Sprachfakt (Namenshälfte) — alle in der Umkehrrichtung | 47 |
+
+Der Hebel war nicht ein neues Attribut, sondern die Richtung der Frage. Solange man
+vorwärts fragt („welchen Wert hat dieses Konzept?"), braucht man einen Pool aus
+Attributwerten — den gibt es in diesen Kategorien nicht. Rückwärts gefragt („welches
+Konzept passt zu diesem Wert?") ist der Pool die Menge der Konzeptnamen, und davon hat
+jede Kategorie 14 bis 29. Zur Vollständigkeit: Die Vorwärtsfrage nach der
+Herkunftssprache eines Lehnworts scheiterte nicht am Pool — `sourceLanguage` hat 23
+Belegungen mit 20 verschiedenen Werten — sondern daran, dass 18 der 23 Konzeptnamen die
+Antwort selbst nennen („Türkische Lehnwörter im Deutschen" → Türkisch).
+
+Wo die eigene Kategorie zu klein oder inhaltlich zu bunt für vergleichbare Optionen ist,
+kann ein Template seine Distraktoren aus einer Nachbarkategorie ziehen (`namePool` in
+`scripts/generate_lingua.js`). Sprachfakt nutzt das: Die 14 Konzepte meinen teils
+Sprachen, teils Schriften, teils Familien, und die Optionen kommen jeweils aus der
+passenden der drei großen Kategorien.
+
 ## Bewusst nicht erschlossen
 
 Ein Attribut wird nur zur Frage, wenn seine Werte innerhalb der Kategorie
 vergleichbar sind. Diese Fälle erfüllen das nicht:
 
-- **Lingua, Kategorien Lehnwort, Sprachkuriosum, Grammatik und Phonetik.** Zusammen
-  80 Konzepte, aber fast jedes trägt eigene Attributschlüssel (`clickTypeCount`,
-  `longestGermanSingleWordPalindrome`, `hawaiianPhonemeCount`). Es gibt keinen
-  gemeinsamen Schlüssel mit genug Belegungen für einen Distraktorpool. Diese
-  Konzepte bräuchten einen eigenen Fragetyp, der den Fun-Fact selbst prüft.
+- **Lingua, Kategorie Phonetik.** 14 Konzepte. Der Schlüssel `type` ist mit 10
+  Belegungen der einzige tragfähige, nennt aber in 7 Fällen die Lösung schon im
+  Hinweis („Aspiration (Behauchung)" ↔ „Behauchung von Verschlusslauten"). Die
+  drei verbleibenden Fragen rechtfertigen keinen eigenen Fragetyp
+  (Entscheidung Daniel, 2026-09-03).
 - **Lingua, `language.countries` (110) und `writing_system.languagesUsing` (60).**
   Aufzählungen von 5 bis 86 Zeichen Länge. Als Antwortoption wäre die richtige
   Lösung über ihre Länge erratbar.

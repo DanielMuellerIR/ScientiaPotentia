@@ -50,6 +50,14 @@ Dieses Changelog beginnt mit dem für eine öffentliche Veröffentlichung berein
 - 32 Asteroidenfragen boten Meter und Kilometer im selben Optionssatz an, 66 Kometenfragen
   begannen mit „der Komet Komet …", und in vier Exoplanetenfragen stand der gesuchte Wirtsstern
   bereits im Planetennamen. Alles behoben.
+- Vier Lingua-Kategorien erzeugen erstmals Fragen: Lehnwort, Sprachkuriosum, Grammatik und
+  Sprachfakt kommen zusammen auf 47 neue Fragen. Ihre Konzepte tragen fast durchweg eigene
+  Attributschlüssel, deshalb findet die übliche Frage „welchen Wert hat dieses Konzept?" dort
+  keinen Distraktorenpool. Gefragt wird jetzt umgekehrt — der Attributwert ist der Hinweis, der
+  Konzeptname die Antwort: „Zu welcher Wortgruppe gehören ‚Basar, Karawane, Schach'?" Bei den
+  Sprachfakten kommen die falschen Optionen aus der passenden Nachbarkategorie, damit
+  „Keilschrift" neben „Devanagari" steht und nicht neben „Ungarisch". Phonetik bleibt ohne
+  Fragetyp: Dort nennt die Typangabe in sieben von zehn Fällen die gesuchte Lösung.
 - Mensch & Körper hat 57 neue Konzeptbilder: 363 statt 306 von 946 Konzepten sind bebildert.
   Der gebündelte Bild-Auflöser fand für 64 der 274 bildlosen Konzepte in den Zielkategorien ein
   freies Commons-Bild; sieben davon sind nach Sichtung aussortiert, weil sie fachlich nicht zum

@@ -243,11 +243,57 @@ for (const c of raw) {
 // skip           = optionaler Konzept-Filter.
 // nameDisplay    = Anzeige-Name bei Reverse-Fragen (Etymologie: ohne Suffix).
 // extraDistractors = statische Zusatz-Distraktoren wenn dynamischer Pool klein.
+// readValue      = Wert berechnen statt aus einem Attribut lesen.
+// namePool       = Distraktor-Namen aus einer anderen Kategorie ziehen.
 //
-// Bewusst OHNE Templates: language_fact, loanword, grammar_fact, phonetics,
-// language_curio — dort existieren keine 4 vergleichbaren Werte je Dimension
-// (z.B. loanword: nur 2 Konzepte mit sourceLanguage). Diese Konzepte bleiben
-// reiner Museums-Bestand.
+// Die fünf kleinen Kategorien (loanword, language_curio, grammar_fact,
+// phonetics, language_fact) haben keinen gemeinsamen Attributschlüssel mit
+// genug Belegungen — eine Vorwärtsfrage „welchen Wert hat dieses Konzept?"
+// findet dort keinen Distraktorpool. Sie werden seit dem 2026-09-03 in der
+// UMGEKEHRTEN Richtung gefragt: Der Attributwert ist der Hinweis, der
+// Konzeptname die Antwort, und der Distraktorpool sind die übrigen
+// Konzeptnamen derselben Kategorie (bei language_fact die der passenden
+// Nachbarkategorie). Siehe die Templates am Ende dieser Liste.
+/**
+ * Zuordnung der `language_fact`-Konzepte zu ihrem Antwort-Konzept.
+ *
+ * Diese Kategorie trägt ihre Aussage im zweiteiligen Namen — „Ungarisch —
+ * Sprache mit den meisten Kasus". Der Teil nach dem Gedankenstrich ist der
+ * Fragehinweis, der Teil davor benennt die Lösung. Gefragt wird aber nicht
+ * nach dem Fakt-Konzept selbst, sondern nach dem Ding, über das es etwas
+ * aussagt: Alle elf haben ein Gegenstück in `language`, `writing_system` oder
+ * `language_family`, und dessen Name ist die Antwort. Nur so stammen Lösung
+ * und Distraktoren aus demselben Namensraum — „Keilschrift" steht dann neben
+ * „Devanagari" und „Runen", nicht neben „Ungarisch".
+ *
+ * `pool` = Kategorie, aus der die Distraktoren kommen.
+ * `answer` = exakter Name des Gegenstücks (muss dort existieren).
+ * `word` = Gattungswort für den Fragetext.
+ *
+ * Die drei Konzepte ohne Gedankenstrich im Namen (Gebärdensprachen,
+ * Kreolsprachen, Bibelübersetzungen) stehen bewusst nicht hier: Sie beschreiben
+ * kein einzelnes Gegenstück und bleiben Museums-Bestand.
+ */
+const LANGUAGE_FACT_TARGETS = {
+  'englisch-meistgesprochen':          { pool: 'language',        answer: 'Englisch',                     word: 'Sprache' },
+  'khmer-alphabet-laengste':           { pool: 'writing_system',  answer: 'Khmer-Schrift',                word: 'Schrift' },
+  'lateinisch-weiteste-schrift':       { pool: 'writing_system',  answer: 'Lateinisches Alphabet',        word: 'Schrift' },
+  'baskisch-sprachbarriere':           { pool: 'language',        answer: 'Baskisch',                     word: 'Sprache' },
+  'mandarin-meiste-muttersprachler':   { pool: 'language',        answer: 'Mandarin (Hochchinesisch)',    word: 'Sprache' },
+  'niger-kongo-sprachenreich':         { pool: 'language_family', answer: 'Niger-Kongo-Sprachfamilie',    word: 'Sprachfamilie' },
+  'griechisch-erstes-vokalphabet':     { pool: 'writing_system',  answer: 'Griechisches Alphabet',        word: 'Schrift' },
+  'austronesisch-groesste-ausdehnung': { pool: 'language_family', answer: 'Austronesische Sprachfamilie', word: 'Sprachfamilie' },
+  'keilschrift-aelteste-schrift':      { pool: 'writing_system',  answer: 'Keilschrift',                  word: 'Schrift' },
+  'hangul-juengste-grosse-schrift':    { pool: 'writing_system',  answer: 'Hangul',                       word: 'Schrift' },
+  'ungarisch-meiste-faelle':           { pool: 'language',        answer: 'Ungarisch',                    word: 'Sprache' }
+};
+
+/** Teil des Konzeptnamens nach dem Gedankenstrich, sonst null. */
+function factDescription(name) {
+  const index = String(name).indexOf('—');
+  return index === -1 ? null : String(name).slice(index + 1).trim();
+}
+
 const templates = [
   // ==== Sprachen (language) — 16 Konzepte, durchgehend gleiche Attribute ===
   {
@@ -616,6 +662,76 @@ const templates = [
     type: 'lingua-script-languages-rev', difficulty: 3,
     subject: c => String(c.attributes.languagesUsing),
     prompt: c => `Für welches dieser Schriftsysteme wird u. a. folgende Sprach-Gruppe verwendet: „${c.attributes.languagesUsing}"?`
+  },
+
+  // ==== Die fünf kleinen Kategorien — nur in der Umkehrrichtung ============
+  // Gemeinsame Bauweise: Hinweis ist der Attributwert, Antwort der
+  // Konzeptname, Distraktoren sind die übrigen Namen der Kategorie. Der
+  // Selbstverräter-Guard (revealsAnswer) verwirft die Konzepte, deren Hinweis
+  // die Lösung schon enthält; die Zahlen unten sind am 2026-09-03 gemessen.
+
+  // ---- loanword.examples (Reverse) — Schwierigkeit 3 ---------------------
+  // Zu welcher Wortgruppe gehören „Basar, Karawane, Schach"? -> Persische Lehnwörter.
+  // Gefragt wird nach der Wortgruppe, nicht nach der Herkunft: Nicht jede Option
+  // benennt eine Herkunftssprache („Falsche Freunde (faux amis)").
+  // 24 der 29 Lehnwort-Konzepte führen Beispielwörter; einer fällt am
+  // Selbstverräter-Guard, bleiben 23 Fragen.
+  // Die Vorwärtsrichtung (sourceLanguage) ist hier nicht möglich: 18 der 23
+  // Konzeptnamen nennen die Herkunftssprache bereits selbst („Türkische
+  // Lehnwörter im Deutschen" -> Türkisch).
+  // valuesShareToken als Distraktor-Guard: Konzepte mit überlappenden
+  // Beispiellisten („Algebra, Alkohol" bei den arabischen Wissenschafts- UND
+  // den arabischen Lehnwörtern im Englischen) wären beide richtig.
+  {
+    category: 'loanword', attr: 'examples', kind: 'name',
+    type: 'lingua-loanword-examples-rev', difficulty: 3,
+    subject: c => String(c.attributes.examples),
+    prompt: c => `Zu welcher Wortgruppe gehören „${c.attributes.examples}"?`
+  },
+
+  // ---- language_curio.definition (Reverse) — Schwierigkeit 3 -------------
+  // „Satz, der alle Buchstaben eines Alphabets enthält" -> Pangramm.
+  // 14 der 23 Kuriositäten tragen eine Definition, fünf nennen darin den
+  // gesuchten Begriff (etwa „Bouba-Kiki-Effekt"), bleiben 9 Fragen.
+  {
+    category: 'language_curio', attr: 'definition', kind: 'name',
+    type: 'lingua-curio-definition-rev', difficulty: 3,
+    subject: c => String(c.attributes.definition),
+    prompt: c => `Wie heißt dieses sprachliche Phänomen: „${c.attributes.definition}"?`
+  },
+
+  // ---- grammar_fact.principle (Reverse) — Schwierigkeit 4 ---------------
+  // „ganzer Satz als ein Wort" -> Polysynthetische Sprachen.
+  // 8 der 14 Grammatik-Konzepte tragen ein Prinzip, eines nennt darin die
+  // Lösung („Zählklassifikatoren"), bleiben 7 Fragen.
+  {
+    category: 'grammar_fact', attr: 'principle', kind: 'name',
+    type: 'lingua-grammar-principle-rev', difficulty: 4,
+    subject: c => String(c.attributes.principle),
+    prompt: c => `Welche grammatische Besonderheit folgt diesem Prinzip: „${c.attributes.principle}"?`
+  },
+
+  // ---- language_fact (Reverse, Pool aus der Nachbarkategorie) — Stufe 3 --
+  // „längstes Alphabet der Welt" -> Khmer-Schrift.
+  // Sonderfall: Der Hinweis steckt im Namen (nach dem Gedankenstrich), die
+  // Antwort ist das zugeordnete Nachbarkonzept, und die Distraktoren kommen
+  // aus dessen Kategorie — siehe LANGUAGE_FACT_TARGETS. Von den 11 zugeordneten
+  // Konzepten fallen drei am Selbstverräter-Guard, weil ihr Gattungswort in
+  // beiden Hälften des Namens steht („älteste bekannte Schrift" -> Keilschrift,
+  // „sprachenreichste Familie" -> Niger-Kongo-Sprachfamilie, „erstes
+  // vollständiges Vokalphabet" -> Griechisches Alphabet). Bleiben 8 Fragen.
+  // Die phonetics-Kategorie hat kein Gegenstück in dieser Liste: Dort nennt der
+  // Typ in 7 von 10 Fällen die Lösung („Aspiration (Behauchung)" <-> „Behauchung
+  // von Verschlusslauten"), drei verbleibende Fragen tragen keinen eigenen
+  // Fragetyp (Entscheidung Daniel, 2026-09-03).
+  {
+    category: 'language_fact', attr: null, kind: 'name',
+    type: 'lingua-fact-subject-rev', difficulty: 3,
+    readValue: c => (LANGUAGE_FACT_TARGETS[c.id] ? factDescription(c.name) : null),
+    nameDisplay: c => LANGUAGE_FACT_TARGETS[c.id].answer,
+    namePool: (c, byCat) => byCat[LANGUAGE_FACT_TARGETS[c.id].pool].map(x => x.name),
+    subject: c => factDescription(c.name),
+    prompt: c => `Auf welche ${LANGUAGE_FACT_TARGETS[c.id].word} trifft diese Beschreibung zu: „${factDescription(c.name)}"?`
   }
 ];
 
@@ -630,13 +746,21 @@ for (const tpl of templates) {
   const conceptsInCat = byCategory[tpl.category] || [];
   const transform = tpl.transform || (v => v);
   const displayName = c => (tpl.nameDisplay ? tpl.nameDisplay(c) : c.name);
+  // Der geprüfte Wert kommt normalerweise aus einem Attribut. `readValue` erlaubt
+  // ihn zu berechnen — language_fact trägt seine Aussage im zweiteiligen Namen
+  // ("Ungarisch — Sprache mit den meisten Kasus") und hat keinen gemeinsamen
+  // Attributschlüssel. Liefert `readValue` nichts, wird das Konzept übersprungen.
+  // Bewusst NICHT `valueOf` genannt: den Namen erbt jedes Objekt von
+  // Object.prototype, `tpl.valueOf` wäre also immer belegt und würde für jedes
+  // Template das Template selbst als Wert liefern.
+  const readValue = c => (tpl.readValue ? tpl.readValue(c) : c.attributes[tpl.attr]);
 
   // Distraktor-Pools je Template einmal aufbauen.
   let catPool = [];   // 'cat': transformierte Werte; 'name': { name, value }
   let numPool = [];   // rohe Zahlen für kind='num'
   for (const c of conceptsInCat) {
     if (tpl.skip && tpl.skip(c)) continue;
-    const vRaw = c.attributes[tpl.attr];
+    const vRaw = readValue(c);
     if (tpl.kind === 'name') {
       if (vRaw != null && vRaw !== '') catPool.push({ name: displayName(c), value: String(vRaw) });
     } else if (tpl.kind === 'num') {
@@ -654,7 +778,10 @@ for (const tpl of templates) {
   const uniqueSize = tpl.kind === 'num'
     ? new Set(numPool).size
     : new Set(tpl.kind === 'name' ? catPool.map(e => e.name) : catPool).size + extraCount;
-  if (uniqueSize < 4) {
+  // `namePool`-Templates ziehen ihre Distraktoren aus einer ANDEREN Kategorie
+  // (siehe language_fact unten). Ihr kategorie-interner Pool ist naturgemäß
+  // klein und sagt nichts über die tatsächliche Optionsvielfalt aus.
+  if (!tpl.namePool && uniqueSize < 4) {
     console.log(`Template ${tpl.type} übersprungen: nur ${uniqueSize} vergleichbare Werte.`);
     continue;
   }
@@ -666,20 +793,31 @@ for (const tpl of templates) {
     // Frage nur für einen Teil der Konzepte fair ist, die übrigen Werte aber als
     // Distraktoren gebraucht werden — siehe officialIn-Template.
     if (tpl.skipAsk && tpl.skipAsk(c)) { skipStats.unfair++; continue; }
-    const vRaw = c.attributes[tpl.attr];
+    const vRaw = readValue(c);
 
     // Korrekte Antwort + Distraktoren bestimmen.
     let correct, distractors;
     if (tpl.kind === 'name') {
       if (vRaw == null || vRaw === '') { skipStats.noValue++; continue; }
       correct = displayName(c);
-      // Reverse-Korrektheit: Distraktor-Konzepte müssen beim getesteten
-      // Attribut einen ANDEREN, nicht überlappenden Wert haben — sonst
-      // wären mehrere Optionen richtig.
-      distractors = pickBalanced(correct, [...new Set(catPool
-        .filter(e => e.name !== correct)
-        .filter(e => !valuesShareToken(e.value, String(vRaw)))
-        .map(e => e.name))], 3, c.id);
+      // `namePool`: Distraktoren aus einer anderen Kategorie. Nötig, wenn die
+      // eigene Kategorie zu klein oder inhaltlich zu bunt für vergleichbare
+      // Optionen ist — bei language_fact stehen 14 Konzepte nebeneinander, die
+      // teils Sprachen, teils Schriften, teils Familien meinen. Der Pool nennt
+      // dann die passende Nachbarkategorie, deren Namen denselben Namensraum
+      // teilen ("Keilschrift" neben "Devanagari", nicht neben "Ungarisch").
+      // Ausgeschlossen wird, wer ein Wort-Token mit der Lösung teilt, sonst
+      // stünde "Griechisch" neben "Griechisches Alphabet".
+      const namensKandidaten = tpl.namePool
+        ? tpl.namePool(c, byCategory).filter(n => n !== correct && !valuesShareToken(n, correct))
+        : [...new Set(catPool
+          .filter(e => e.name !== correct)
+          // Reverse-Korrektheit: Distraktor-Konzepte müssen beim getesteten
+          // Attribut einen ANDEREN, nicht überlappenden Wert haben — sonst
+          // wären mehrere Optionen richtig.
+          .filter(e => !valuesShareToken(e.value, String(vRaw)))
+          .map(e => e.name))];
+      distractors = pickBalanced(correct, namensKandidaten, 3, c.id);
     } else if (tpl.kind === 'num') {
       const n = cleanNum(vRaw);
       if (n === null) { skipStats.noValue++; continue; } // "ca. 1.000"-Strings usw.
