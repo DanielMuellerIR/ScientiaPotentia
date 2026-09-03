@@ -17,6 +17,37 @@
   Auflöser kürzen seit dem 2026-09-03 an der Wortgrenze und markieren den Schnitt, aber die
   vorhandenen Rohdaten tragen den harten Schnitt bereits — sie werden erst bei einem erneuten
   Auflöserlauf ganz. Der mehrzeilige Commons-Rechtetext in 60 Nachweisen ist behoben.
+- `resolve_images_p18.cjs` löst nichts mehr auf. Ein Lauf gegen die echte Commons-API am
+  2026-09-03 ergab 0 von 176 Astra-Konzepten, in einer Probe mit zwölf Planeten und Monden
+  0 von 12. Ihm fehlt die Titelzuordnung `DEWIKI_MAP`, deshalb fragt er „Merkur" und „Venus"
+  ab — beides Begriffsklärungsseiten ohne Artikelbild. `resolve_images_p18_v2.cjs` löste
+  dieselben zwölf Konzepte zu zehn auf. Dazu kommt: Der Auflöser stellt je Konzept bis zu drei
+  einzelne Anfragen im 200-ms-Takt, läuft damit in das Limit für nicht angemeldete Clients und
+  hält sich darin fest; jede abgewiesene Anfrage wird still zu „kein freies Bild". Entweder die
+  Zuordnung nachziehen und bündeln, oder die Datei zugunsten von v2 aufgeben.
+- 14 der 99 gepflegten Titel in `DEWIKI_MAP` (`resolve_images_p18_v2.cjs`) treffen kein
+  Artikelbild, geprüft am 2026-09-03 gegen de.wikipedia: neun zeigen auf Begriffsklärungsseiten
+  (Neptun, Haumea, Iapetus, Quaoar, Kiviuq, Ijiraq, Paaliaq, Siarnaq, Erriapus), fünf auf gar
+  kein Lemma (Sedna (Zwergplanet), Orcus (Zwergplanet), Nereid (Mond), Sombrero-Galaxie,
+  Barnard's Galaxie). Der Auflöser meldet für sie „kein freies Bild", obwohl das richtige Lemma
+  ein freies Bild hat — „Neptun (Planet)" trägt ein CC0-Bild. Neben den korrigierten Titeln
+  fehlt eine Prüfung auf `pageprops.disambiguation`, sonst bleibt der nächste solche Eintrag
+  wieder unsichtbar.
+- `resolve_images_batched.cjs` wirft fremdsprachige Quellen weg. Läufe am 2026-09-03 ergaben
+  0 von 55 Lingua- und 0 von 40 Machina-Konzepten. 47 der 55 Lingua-Konzepte haben eine
+  en.wikipedia-Quelle; `pageTitleForConcept` kann damit nichts anfangen und rät stattdessen den
+  deutschen Konzeptnamen als Lemma — von 55 so angefragten Titeln existieren 49 auf
+  de.wikipedia nicht („Khoisan-Sprachen (Sammelgruppe)", „Maya-Sprachfamilie"). Über
+  `langlinks` en→de oder `pageprops.wikibase_item` mit anschließendem P18 wäre die Quelle
+  verwertbar.
+- `resolve_author_portraits.cjs` prüft nicht, ob das Artikelbild ein Porträt zeigt. Der Lauf am
+  2026-09-03 fand für 2 von 33 Autoren ein Bild, und das eine davon ist `Moers_Signatur.svg` —
+  eine Unterschrift. Dass die übrigen 31 leer ausgehen, liegt an der Datenlage: die deutschen
+  Artikel dieser Autoren enthalten kein Bild (gegengeprüft an „Dan Simmons").
+- Kein Bild-Auflöser bricht ab, solange die API ihn dauerhaft abweist. Der Wächter gegen den
+  stillen Nulllauf greift erst am Ende; `resolve_images_p18.cjs` lief so am 2026-09-03 zehn
+  Minuten lang durch 60 Konzepte ohne einen einzigen Treffer. Eine Abbruchbedingung nach einer
+  Reihe aufeinanderfolgender abgewiesener Anfragen fehlt.
 - Sechs Fragetypen haben weiterhin eine Option, die nur als richtige Antwort vorkommt und nie
   als Distraktor (76 Fragen): `astra-nebula-type` „planetarischer Nebel", `machina-algo-complexity`
   „O(n²)", `historia-figure-field` „Naturwissenschaft (allg.)", `terra/river-country`
