@@ -88,7 +88,31 @@ function isUsableOptionValue(value) {
   return !OPTION_SENTINEL.test(text);
 }
 
+/**
+ * Sammelbezeichnungen aus dem Datenmodell — Restekategorien, keine Fakten.
+ *
+ * Als RICHTIGE Antwort machen sie eine Frage unbeantwortbar: „Aus welchem Werk
+ * stammt das Zitat …? -> Sonstige" prüft kein Wissen und ist nicht belegbar.
+ * Gemessen am 2026-09-03: sieben veröffentlichte Fragen, alle in
+ * `cultura-quote-work`.
+ *
+ * Bewusst NICHT in der Liste: „unbekannt". Für einen antiken Bildhauer ist das
+ * die fachlich richtige Antwort, keine Restekategorie. Als Distraktor sind
+ * Sammelbezeichnungen ebenfalls zulässig — schwach, aber nicht falsch.
+ */
+const COLLECTIVE_ANSWERS = new Set([
+  'sonstige', 'sonstiges', 'andere', 'anderes', 'andere schriften',
+  'diverse', 'diverses', 'verschiedene', 'verschiedenes', 'mehrere',
+  'k.a.', 'n/a', 'keine angabe',
+]);
+
+/** Benennt der Wert etwas Konkretes — oder nur eine Restekategorie? */
+function isSpecificAnswer(value) {
+  return !COLLECTIVE_ANSWERS.has(String(value ?? '').trim().toLowerCase());
+}
+
 module.exports = {
   OPTIONLESS_TYPES, expectsOptions, norm, answerInStem,
   OPTION_SENTINEL, isUsableOptionValue,
+  COLLECTIVE_ANSWERS, isSpecificAnswer,
 };

@@ -28,6 +28,7 @@ const path = require('path');
 // Sammel-Array für die Treffer steht.
 const {
   expectsOptions, norm, answerInStem: answerAppearsInStem, isUsableOptionValue,
+  isSpecificAnswer,
 } = require('./lib/audit_rules.cjs');
 const { dominanceVerdict } = require('./lib/dominance_policy.cjs');
 
@@ -89,6 +90,7 @@ for (const domain of selectedDomains) {
   const structural = [];
   const formatTell = [];
   const sentinelOptions = [];
+  const collectiveAnswers = [];
 
   for (const q of qs) {
     const opts = q.options || [];
@@ -167,6 +169,13 @@ for (const domain of selectedDomains) {
       sentinelOptions.push({ id: q.id, type, prompt, correct, options: opts, sentinels });
     }
 
+    // --- Sammelwert als Loesung ---
+    // Eine Restekategorie ("Sonstige") beantwortet die Frage nicht und ist
+    // nicht belegbar. Als Distraktor bleibt sie zulaessig (CodeQA 2026-09-03).
+    if (expectsOptions(type) && hasAnswerKey && !isSpecificAnswer(correct)) {
+      collectiveAnswers.push({ id: q.id, type, prompt, correct, options: opts });
+    }
+
     // --- Format-Tell: Klammer/Ziffer nur bei der richtigen Option ---
     const hasSpecial = s => /[()0-9]/.test(String(s));
     const correctSpecial = hasSpecial(correct);
@@ -203,7 +212,7 @@ for (const domain of selectedDomains) {
     domain, total: qs.length, structural: structural.length,
     answerInStem: answerInStem.length, formatTell: formatTell.length,
     sentinelOptions: sentinelOptions.length, biasTypes, dominantTypes,
-    unapprovedDominance,
+    unapprovedDominance, collectiveAnswers: collectiveAnswers.length,
   });
 
   // Konsolen-Report je Domain
@@ -228,6 +237,10 @@ for (const domain of selectedDomains) {
     console.log(`  ✗ Sentinel-Optionen (formatierter Fehlwert statt echtem Wert):`);
     sentinelOptions.slice(0, 5).forEach(s => console.log(`     ${s.id} [${s.type}]: ${s.sentinels.join(' | ')}`));
   }
+  if (collectiveAnswers.length) {
+    console.log(`  ✗ Sammelwert als Lösung (Restekategorie beantwortet die Frage nicht):`);
+    collectiveAnswers.slice(0, 5).forEach(c => console.log(`     ${c.id} [${c.type}]: ${c.correct}`));
+  }
 
   // --- Dump für LLM-Prüfung ---
   if (dumpDir) {
@@ -239,6 +252,7 @@ for (const domain of selectedDomains) {
       flagged: {
         structural, answerInStem: answerInStem.slice(0, 40),
         formatTell: formatTell.slice(0, 40), sentinelOptions: sentinelOptions.slice(0, 40),
+        collectiveAnswers,
         biasTypes, dominantTypes,
       },
       randomSample: sample,
@@ -248,7 +262,7 @@ for (const domain of selectedDomains) {
 
 console.log('\n\n===== GESAMT-ÜBERSICHT =====');
 summary.forEach(s => console.log(
-  `${s.domain.padEnd(9)} ${String(s.total).padStart(6)} Fragen | Strukt ${s.structural} | Ans-im-Stamm ${s.answerInStem} | Format ${s.formatTell} | Sentinel ${s.sentinelOptions} | Bias-Templates ${s.biasTypes.length} | Dominant ${s.dominantTypes.length} (davon offen ${s.unapprovedDominance.length})`
+  `${s.domain.padEnd(9)} ${String(s.total).padStart(6)} Fragen | Strukt ${s.structural} | Ans-im-Stamm ${s.answerInStem} | Format ${s.formatTell} | Sentinel ${s.sentinelOptions} | Sammelwert ${s.collectiveAnswers} | Bias-Templates ${s.biasTypes.length} | Dominant ${s.dominantTypes.length} (davon offen ${s.unapprovedDominance.length})`
 ));
 if (dumpDir) console.log(`\nStichproben + Flags geschrieben nach: ${dumpDir}`);
 
@@ -265,7 +279,7 @@ if (openDominance.length) {
 }
 const blockingFindings = summary.reduce(
   (count, item) => count + item.structural + item.answerInStem + item.sentinelOptions
-    + item.unapprovedDominance.length,
+    + item.collectiveAnswers + item.unapprovedDominance.length,
   missingCatalogs
 );
 if (blockingFindings) {

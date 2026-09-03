@@ -45,6 +45,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { seededShuffle, pickBalanced, pickNumeric, numericDistractors } from './lib/quizrandom.js';
 import { norm, deNum, optionKey, distinctOptionValues, revealsAnswerStrict as revealsAnswer } from './lib/generator_text.js';
+import { isSpecificAnswer } from './lib/audit_rules.cjs';
 import { buildImageMetadata } from '../src/utils/imageCredits.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -566,7 +567,10 @@ const templates = [
   {
     // (2) Zitat -> Werk. Nur Zitate mit eindeutigem Werk (sonst Skip).
     category: 'quote', attr: 'work', kind: 'cat', type: 'cultura-quote-work', difficulty: 4,
-    skip: c => !c.attributes.work,
+    // Sammelbezeichnungen wie „Sonstige" oder „Anderes" sind Restekategorien
+    // des Datenmodells, kein Werktitel. Als Lösung machen sie die Frage
+    // unbeantwortbar; zehn veröffentlichte Fragen waren so (CodeQA 2026-09-03).
+    skip: c => !c.attributes.work || !isSpecificAnswer(c.attributes.work),
     prompt: c => `Aus welchem Werk stammt das Zitat: „${c.name}“?`
   },
   {

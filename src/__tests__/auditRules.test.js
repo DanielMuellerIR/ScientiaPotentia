@@ -10,7 +10,9 @@ import { tmpdir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { describe, it, expect } from 'vitest';
-import { expectsOptions, answerInStem, isUsableOptionValue } from '../../scripts/lib/audit_rules.cjs';
+import {
+  expectsOptions, answerInStem, isUsableOptionValue, isSpecificAnswer,
+} from '../../scripts/lib/audit_rules.cjs';
 import { dominanceVerdict } from '../../scripts/lib/dominance_policy.cjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
@@ -104,6 +106,22 @@ describe('isUsableOptionValue', () => {
     // Zeichenfolge nur zufällig enthalten.
     expect(isUsableOptionValue('NaNo-Beschichtung')).toBe(true);
     expect(isUsableOptionValue('undefinedX')).toBe(true);
+  });
+});
+
+describe('isSpecificAnswer', () => {
+  it('erkennt Restekategorien des Datenmodells', () => {
+    for (const value of ['Sonstige', 'Anderes', 'Andere Schriften', 'diverse', 'mehrere']) {
+      expect(isSpecificAnswer(value), value).toBe(false);
+    }
+  });
+
+  it('haelt „unbekannt" fuer eine konkrete Antwort', () => {
+    // Fuer einen antiken Bildhauer ist das die fachlich richtige Auskunft,
+    // keine Restekategorie — anders als „Sonstige".
+    expect(isSpecificAnswer('unbekannt')).toBe(true);
+    expect(isSpecificAnswer('Unbekannt')).toBe(true);
+    expect(isSpecificAnswer('Faust')).toBe(true);
   });
 });
 
@@ -277,6 +295,48 @@ describe('Fragen-Audit als Kommandozeilen-Gate', () => {
       const result = runAudit('machina', `--data-dir=${dataDir}`);
       expect(result.status).toBe(1);
       expect(result.stdout).toContain('Sentinel-Optionen: 1');
+    } finally {
+      rmSync(dataDir, { recursive: true, force: true });
+    }
+  });
+
+  it('blockiert einen Sammelwert als Loesung', () => {
+    // CodeQA 2026-09-03: „Aus welchem Werk stammt das Zitat …? -> Sonstige"
+    // stand zehnmal im veroeffentlichten Bestand. Eine Restekategorie
+    // beantwortet die Frage nicht und ist nicht belegbar.
+    const dataDir = mkdtempSync(join(tmpdir(), 'scientia-question-audit-sammel-'));
+    try {
+      writeFileSync(join(dataDir, 'questions_machina.json'), JSON.stringify([{
+        id: 'sammelwert-als-loesung',
+        type: 'machina-test',
+        prompt: 'Aus welcher Gruppe stammt das Bauteil?',
+        correctAnswer: 'Sonstige',
+        options: ['Sonstige', 'Getriebeelement', 'Dichtung', 'Zugmittel'],
+      }]));
+
+      const result = runAudit('machina', `--data-dir=${dataDir}`);
+      expect(result.status).toBe(1);
+      expect(result.stdout).toContain('Sammelwert 1');
+    } finally {
+      rmSync(dataDir, { recursive: true, force: true });
+    }
+  });
+
+  it('laesst denselben Sammelwert als Distraktor durch', () => {
+    // Als falsche Option ist eine Restekategorie schwach, aber nicht falsch.
+    const dataDir = mkdtempSync(join(tmpdir(), 'scientia-question-audit-sammel-ok-'));
+    try {
+      writeFileSync(join(dataDir, 'questions_machina.json'), JSON.stringify([{
+        id: 'sammelwert-als-distraktor',
+        type: 'machina-test',
+        prompt: 'Aus welcher Gruppe stammt das Bauteil?',
+        correctAnswer: 'Dichtung',
+        options: ['Dichtung', 'Sonstige', 'Getriebeelement', 'Zugmittel'],
+      }]));
+
+      const result = runAudit('machina', `--data-dir=${dataDir}`);
+      expect(result.status).toBe(0);
+      expect(result.stdout).toContain('Sammelwert 0');
     } finally {
       rmSync(dataDir, { recursive: true, force: true });
     }
