@@ -79,18 +79,13 @@
   sich das nur über einen breiteren Bestand, nicht über andere Distraktoren. Die übrigen
   vierzehn dominanten Typen bilden die Wirklichkeit ab (die meisten Schriften laufen von links
   nach rechts, die IUCN stuft die Mehrheit der Arten als nicht gefährdet ein) und bleiben so.
-- Die Bildabdeckung von Homo hinkt der Konzeptzahl hinterher: 946 Konzepte, 361 Bilder. Der
-  gebündelte Auflöserlauf vom 2026-09-03 hat 55 Bilder ergänzt und damit die Zielkategorien
+- Die Bildabdeckung von Homo hinkt der Konzeptzahl hinterher: 946 Konzepte, 363 Bilder. Der
+  gebündelte Auflöserlauf vom 2026-09-03 hat 57 Bilder ergänzt und damit die Zielkategorien
   weitgehend ausgeschöpft: Von 274 bildlosen Konzepten dort fand er für 64 ein freies Bild, 210
   haben auf de.wikipedia kein Artikelbild oder teilen sich ein mehrdeutiges Lemma. Die
   verbleibenden 585 bildlosen Konzepte teilen sich in 366 außerhalb der Zielkategorien —
   angeführt von `psych_effect` (128), `sense_organ_part` (38), `blood_vessel` (36) und
   `ligament_tendon` (27) — und 219 innerhalb, für die der Auflöser kein Artikelbild fand.
-- Zwei Homo-Bilder liegen Daniel zur Entscheidung vor, statt veröffentlicht zu sein:
-  `organ-penis` (beschriftetes Realfoto der Genitalien, während das Gegenstück `organ-scheide`
-  eine Schemazeichnung nutzt) und `organ-plazenta` (Foto eines menschlichen Embryos mit
-  Plazenta). Beide sind fachlich korrekt und frei lizenziert; die Frage ist die Darstellungsform
-  in einem Quiz für allgemeines Publikum.
 - Die Motivtreue der Bild-Auflöser braucht bei jedem Lauf eine Sichtung von Hand. Im
   Homo-Lauf vom 2026-09-03 waren 7 von 64 Zuordnungen fachlich falsch, obwohl Lizenz, Urheber
   und MIME-Typ stimmten: ein Katzenfötus für „Fötus", ein saugendes Kalb für „Saugreflex",

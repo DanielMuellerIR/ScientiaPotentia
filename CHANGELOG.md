@@ -50,12 +50,12 @@ Dieses Changelog beginnt mit dem für eine öffentliche Veröffentlichung berein
 - 32 Asteroidenfragen boten Meter und Kilometer im selben Optionssatz an, 66 Kometenfragen
   begannen mit „der Komet Komet …", und in vier Exoplanetenfragen stand der gesuchte Wirtsstern
   bereits im Planetennamen. Alles behoben.
-- Mensch & Körper hat 55 neue Konzeptbilder: 361 statt 306 von 946 Konzepten sind bebildert.
+- Mensch & Körper hat 57 neue Konzeptbilder: 363 statt 306 von 946 Konzepten sind bebildert.
   Der gebündelte Bild-Auflöser fand für 64 der 274 bildlosen Konzepte in den Zielkategorien ein
-  freies Commons-Bild; neun davon sind nach Sichtung aussortiert, weil sie fachlich nicht zum
+  freies Commons-Bild; sieben davon sind nach Sichtung aussortiert, weil sie fachlich nicht zum
   Konzept passen — darunter ein Katzenfötus für „Fötus", ein saugendes Kalb für „Saugreflex" und
-  Rinder-Markknochen für „Knochenmark". Der Bildrechte-Audit prüft Lizenz und Urheber, nicht das
-  Motiv; diese Prüfung bleibt Handarbeit.
+  Rinder-Markknochen für „Knochenmark". Ein weiteres nannte statt eines Urhebers nur „Own work.".
+  Der Bildrechte-Audit prüft Lizenz und Urheber, nicht das Motiv; diese Prüfung bleibt Handarbeit.
 
 ## [2.0.1] — 2026-09-02
 
