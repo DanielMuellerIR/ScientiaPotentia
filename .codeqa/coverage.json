@@ -2,12 +2,11 @@
   "schema_version": 2,
   "project": "ScientiaPotentia",
   "campaign": {
-    "id": "20260830T110041702224+0200",
-    "token_budget": 3000000,
-    "status": "complete",
-    "started_at": "2026-08-30T11:00:41+02:00",
-    "finished_at": "2026-08-30T11:11:26+02:00",
-    "finish_reason": "all-current"
+    "id": "20260903T094956560120+0200",
+    "token_budget": 2000000,
+    "status": "active",
+    "started_at": "2026-09-03T09:49:56+02:00",
+    "tokens_spent": 870000
   },
   "campaign_history": [
     {
@@ -17,6 +16,14 @@
       "started_at": "2026-08-29T20:44:29+02:00",
       "tokens_spent": 3729051,
       "finished_at": "2026-08-29T23:46:58+02:00",
+      "finish_reason": "all-current"
+    },
+    {
+      "id": "20260830T110041702224+0200",
+      "token_budget": 3000000,
+      "status": "complete",
+      "started_at": "2026-08-30T11:00:41+02:00",
+      "finished_at": "2026-08-30T11:11:26+02:00",
       "finish_reason": "all-current"
     }
   ],
@@ -177,7 +184,14 @@
       "scripts/data_sources/harvest/staged_attribution_writes.cjs",
       "scripts/data_sources/harvest/wikiquote_cleaning.cjs",
       "scripts/lib/merge_safety.js",
-      "src/__tests__/mergeSafety.test.js"
+      "src/__tests__/mergeSafety.test.js",
+      "scripts/data_sources/harvest/apply_attribute_additions.cjs",
+      "scripts/data_sources/harvest/purge_blacklisted.cjs",
+      "scripts/lib/dominance_policy.cjs",
+      "src/__tests__/releaseConsistency.test.js",
+      "src/__tests__/verifyFacts.test.js",
+      "src/__tests__/imageCreditsAudit.test.js",
+      "scripts/lib/merge_text.js"
     ],
     "exclusions": []
   },
@@ -253,26 +267,27 @@
         "scripts/lib/quoteRights.mjs",
         "src/__tests__/auditRules.test.js",
         "src/__tests__/englishLeak.test.js",
-        "src/__tests__/quoteRights.test.js"
+        "src/__tests__/quoteRights.test.js",
+        "scripts/lib/dominance_policy.cjs",
+        "src/__tests__/verifyFacts.test.js",
+        "src/__tests__/imageCreditsAudit.test.js"
       ],
       "risk": "high",
       "priority": 3,
       "reason": "Fakten-, Distraktor-, Bild- und Zitat-Gates schützen veröffentlichte Inhalte",
       "state": "completed",
       "last_run": {
-        "campaign_id": "20260830T110041702224+0200",
-        "completed_at": "2026-08-30T11:02:27+02:00",
-        "observed_head": "8481f72be0b17889b4e680c6117808f5a9f9398c",
-        "content_sha256": "329b8973c4ef54fd07204b50b4cbc184c040e27aeae9bec5c7ca13bbe8c57eff",
-        "file_count": 11,
+        "campaign_id": "20260903T094956560120+0200",
+        "completed_at": "2026-09-03T10:43:41+02:00",
+        "observed_head": "7c9d94051579b1ffd56194c9179615f6c04197a7",
+        "content_sha256": "600b222198e2b2b54d2ea0f86c78c9ac41a3b532b3d59b51b74d8b14ad9ad6ee",
+        "file_count": 14,
         "review": "delta-plus-boundaries",
-        "outcome": "reviewed-clean",
-        "summary": "Fehlender Antwortschlüssel, optionslose Fragetypen sowie Bild- und Zitatrechte-Grenzen am aktuellen Katalog geprüft; die verschärften Blocker sind konsistent und alle Gesamtaudits grün.",
+        "outcome": "improved",
+        "summary": "Nachbuchung nach dem Astra-Bereich: Der Delta seit dem Abschluss von heute Vormittag sind drei neue Freigaben in dominance_policy.cjs (astra-nebula-type, astra-mission-target, astra-asteroid-spectral), die erst durch die Kanonform sichtbar wurden. Jede traegt Begruendung und Obergrenze; der Audit laeuft ueber alle acht Bereiche mit Exit 0.",
         "tests": [
-          "npx vitest run src/__tests__/auditRules.test.js src/__tests__/englishLeak.test.js src/__tests__/quoteRights.test.js src/__tests__/imageCredits.test.js: passed (25)",
-          "npm run audit:questions: passed, 49.803 Fragen ohne Strukturfehler",
-          "npm run audit:image-credits: passed, 10.466 Prüfungen",
-          "npm run audit:quote-rights: passed, 533 Zitate"
+          "audit_questions alle acht Bereiche: exit 0",
+          "npm test: 270 passed"
         ]
       }
     },
@@ -409,21 +424,17 @@
       "reason": "Gemeinsame Frageerzeugung, Distraktoren, Antwort-Leak-Schutz und Determinismus",
       "state": "completed",
       "last_run": {
-        "campaign_id": "20260829T204429059458+0200",
-        "completed_at": "2026-08-29T21:18:08+02:00",
-        "observed_head": "3de2b10261ef5b45da8b3ab00dad34f056b824c4",
-        "content_sha256": "1b5886f813ef3b48b7fa1c78ebc85a8a2458db162c5ba070b98f2f81a565c900",
+        "campaign_id": "20260903T094956560120+0200",
+        "completed_at": "2026-09-03T10:38:44+02:00",
+        "observed_head": "eadff691fc17830b6c0267db638c273a99f30ec5",
+        "content_sha256": "2ecf663e0e03260122c18989567dc474fad79b400d87662ac082c47c89d3b2da",
         "file_count": 5,
-        "review": "full",
-        "outcome": "improved",
-        "summary": "Gemeinsame Generatorhelfer verwerfen nicht-endliche Zahlen und nach Formatierung doppelte Distraktoren; der Terra-Prüfer erkennt doppelte Fragen-IDs, und die ungenutzte zweite Flächenberechnung wurde entfernt.",
+        "review": "delta-plus-boundaries",
+        "outcome": "reviewed-clean",
+        "summary": "Delta ist der Re-Export von isUsableOptionValue aus audit_rules (funktioniert, in Node ESM gegen die CJS-Datei geprueft) und der pickBalanced-Umbau des Querschnitts-Funds never-distractor-options samt drei neuer Eigenschaftstests. Grenzen geprueft: verify_quiz bestaetigt 63.019 Pruefungen ohne Fehlschlag, magnitudeSpreadDistractors erhaelt an allen Aufrufstellen bereits eine Fragen-ID als Seed. Die fuenffach ausgeschriebene Magnitude-Kette ist als Querschnitts-Fund magnitude-spread-chain notiert statt hier mitgefixt.",
         "tests": [
-          "npm test -- src/__tests__/quizrandom.test.js: passed (8)",
-          "node scripts/generate_questions.js: passed, generated output unchanged (5116 questions)",
-          "node scripts/verify_quiz.js: passed (63019 checks)",
-          "npm run audit:questions -- terra: passed, 0 structure and answer-leak failures",
-          "npm test: passed (179)",
-          "npm run build: passed"
+          "node scripts/verify_quiz.js: 63019 passed, 0 failed",
+          "npm test: 270 passed"
         ]
       }
     },
@@ -437,22 +448,18 @@
       "reason": "Großer bereichsspezifischer Generator mit numerischen Astronomiefragen",
       "state": "completed",
       "last_run": {
-        "campaign_id": "20260829T204429059458+0200",
-        "completed_at": "2026-08-29T21:21:34+02:00",
-        "observed_head": "294c6bcf41979ac2499997e669f84d43a51b7247",
-        "content_sha256": "068c64842e0d1e5fabed1368855c5dc893336664915f0037d44bb385724a5a35",
+        "campaign_id": "20260903T094956560120+0200",
+        "completed_at": "2026-09-03T10:32:56+02:00",
+        "observed_head": "cc858e11a0c0bfd19d5f15fe9789936bd9cfbd04",
+        "content_sha256": "bca092bb787db7d0044908f317ff1f877fe527c77255d7b5eccb26d412f45e71",
         "file_count": 1,
-        "review": "full",
+        "review": "delta-plus-boundaries",
         "outcome": "improved",
-        "summary": "Astra dedupliziert Textoptionen nun semantisch statt byteweise und erzeugt nur Fragen mit vier unterscheidbaren Optionen; 124 zuvor mehrdeutige Antwortsätze wurden bereinigt, ohne Fragen zu verlieren.",
+        "summary": "Kanonformen fuer nebula.type, exoplanet.type, mission.target und constellation.visibility beseitigen gleichbedeutende Optionspaare; asteroid.type auf die disjunkte Spektralklasse beschraenkt; Einheitenmischung bei Durchmesser und Konstanten behoben; doppeltes Gattungswort in 66 Kometenprompts und 4 Wirtsstern-Leaks entfernt; totes Template astra-cluster-type gestrichen",
         "tests": [
-          "node scripts/generate_astra.js: passed twice, byte-identical second run (1560 concepts, 5055 questions)",
-          "npm run verify:facts -- astra: passed, 0 errors and warnings",
-          "npm run audit:questions -- astra: passed, 0 structure and answer-leak failures",
-          "semantic output check: 0 duplicate option sets, 0 duplicate IDs, 0 wrong option counts",
-          "npm test: passed (179)",
-          "npm run build: passed",
-          "Browser: Astra quiz answered; visualization, source and license links checked; 0 console warnings/errors"
+          "audit_questions astra + alle Bereiche: exit 0",
+          "verify_facts astra: 0 Fehler",
+          "npm test: 269 passed"
         ]
       }
     },
@@ -467,16 +474,18 @@
       "reason": "Fachgeneratoren für Anatomie und Natur mit Zahlen- und Einheitendistraktoren",
       "state": "completed",
       "last_run": {
-        "campaign_id": "20260829T204429059458+0200",
-        "completed_at": "2026-08-29T22:13:07+02:00",
-        "observed_head": "b2fbb4867300587cd1801d87230fbd95206235af",
-        "content_sha256": "51ce38dc9fa3df20cea3280cf0c21881a460e11bd5126b56bf130fc764d2e90a",
+        "campaign_id": "20260903T094956560120+0200",
+        "completed_at": "2026-09-03T10:36:54+02:00",
+        "observed_head": "eadff691fc17830b6c0267db638c273a99f30ec5",
+        "content_sha256": "8fd9b2c7454dffdb1935ad9150c21ee9adabbb91dfbc843ce519db42ee49f744",
         "file_count": 2,
         "review": "delta-plus-boundaries",
         "outcome": "improved",
-        "summary": "Delta-Review des Homo-Generator-Ausgabepunkts: Eine zentrale Typografie-Normalisierung schließt ältere Promptvorlagen mit korrekten deutschen Anführungszeichen. Der Generator erzeugt weiterhin 599 Konzepte und 1.604 Fragen; Natura und die gemeinsame Rohdaten-/Ausgabegrenze bleiben unberührt.",
+        "summary": "region als Leak-Geschwister eingetragen (40 von 63 Muskelregion-Fragen waren aus dem Panel ablesbar); Protein/Molekuel und 19 Organsystem-Schreibweisen auf Kanonformen gezogen; Subjekt aus dem Antagonisten-Pool entfernt; homo-ligament-kind mit 80 Prozent Dominanz bei nur fuenf Fragen gestrichen; Kamtschatka und Kurilen im Asien-Muster der Erdteilableitung ergaenzt",
         "tests": [
-          "1.513/1.604 Homo-Prompts ausschließlich typografisch geändert, alle übrigen Fragefelder per Objektvergleich identisch; 214/214 Vitest-Tests; Homo-Faktenprüfung 0 Fehler; Fragen-Audit 0 Strukturfehler und 0 Antwort-im-Stamm; Produktionsbuild und Browser-Stichprobe. Kein eigener Token-Eintrag, weil Delta-Arbeit und Belege vollständig in P17 gemeldet wurden."
+          "npm test: 270 passed",
+          "audit_questions alle acht Bereiche: exit 0",
+          "verify_facts homo/natura: 0 Fehler"
         ]
       }
     },
@@ -491,22 +500,18 @@
       "reason": "Fachgeneratoren mit Text-, Werk-, Etymologie- und Zitatbezug",
       "state": "completed",
       "last_run": {
-        "campaign_id": "20260829T204429059458+0200",
-        "completed_at": "2026-08-29T21:30:45+02:00",
-        "observed_head": "8c1beafd0c4918866f2f16e941fe7b386f41d7f3",
-        "content_sha256": "9d9adf5a3cce2dc2f6a92344392edb54bffca55aa924e1a5610ad0e86756239a",
+        "campaign_id": "20260903T094956560120+0200",
+        "completed_at": "2026-09-03T10:42:16+02:00",
+        "observed_head": "d1893d5c1578181871560427254ec41ae20c0501",
+        "content_sha256": "0d9939997a6ff8ce17303036ac81ae5492a9115d1c026114fc54cbc289639f39",
         "file_count": 2,
-        "review": "full",
+        "review": "delta-plus-boundaries",
         "outcome": "improved",
-        "summary": "Cultura und Lingua vollständig geprüft. Cultura schließt bei Urheber-Rückwärtsfragen Werke desselben oder überlappenden Urhebers aus; dadurch sind vier konkret mehrdeutige Antwortsätze beseitigt. Lingua blieb bei vollständiger Prüfung und deterministischer Neugenerierung byteidentisch.",
+        "summary": "Kanonform fuer lingua-language-script-type: Abdschad/Abjad und die beiden Wortstellungen der Misch-Schrift waren getrennte Werte, in 26 Fragen gemeinsam zur Auswahl und in 6 als doppelte Loesung. Mischwert 'Abugida / Abjad' stellt keine Frage mehr. Cultura-Delta geprueft und unauffaellig.",
         "tests": [
-          "Cultura- und Lingua-Generatoren jeweils zweimal deterministisch ausgeführt",
-          "verify:facts für cultura und lingua: 0 Fehler",
-          "audit:questions für cultura und lingua: 0 Strukturfehler, 0 Antwort-im-Stamm, 0 Bias-Templates",
-          "audit:quote-rights: 533 Zitate vollständig dokumentiert",
-          "npm test: 179 Tests grün",
-          "npm run build: erfolgreich",
-          "Cultura im echten Browser: Quizantwort, Visualisierung, Bildlizenz und Quelle geprüft; Konsole ohne Warnungen oder Fehler"
+          "audit_questions lingua/cultura und alle Bereiche: exit 0",
+          "npm test: 270 passed",
+          "verify_facts lingua/cultura: 0 Fehler"
         ]
       }
     },
@@ -521,22 +526,17 @@
       "reason": "Fachgeneratoren mit Technik-, Datierungs- und Urheberschaftsfragen",
       "state": "completed",
       "last_run": {
-        "campaign_id": "20260829T204429059458+0200",
-        "completed_at": "2026-08-29T21:35:27+02:00",
-        "observed_head": "be2f7001aaabd43056566475e5e3e5d63e6bea2a",
-        "content_sha256": "4b67efa60c849899e92d154bea50f2ae02a31fee416b5223e960ba2f906642ad",
+        "campaign_id": "20260903T094956560120+0200",
+        "completed_at": "2026-09-03T10:39:47+02:00",
+        "observed_head": "851bfd46c637fd636c2576a3e7395f161120585f",
+        "content_sha256": "323cab63e452a81d50c7b9b5c64bba253dadb766504c1001da7d6610b87f8d29",
         "file_count": 2,
-        "review": "full",
-        "outcome": "improved",
-        "summary": "Machina und Historia vollständig geprüft. Rückwärtsfragen schließen nun Ober-/Unterbegriffe und Sammelwerte aus: 145 Machina- und 84 Historia-Kollisionen wurden beseitigt. Machinas 74 Kompressionsfragen nutzen nun alle vier fachlich verschiedenen Optionen. Fragenzahl, richtige Antworten und Metadaten blieben unverändert.",
+        "review": "delta-plus-boundaries",
+        "outcome": "reviewed-clean",
+        "summary": "Delta sind zwei neue Machina-Fragetypen (Transportprotokoll, Konzeptbeschreibung, Funktionsprinzip) und die Seed-Durchreichung in Historia. Geprueft: kein Konzeptname steht in seiner eigenen Definition (0 von 162), machina-protocol-transport ist mit 58 Prozent freigegeben, kein Sentinel, kein Antwort-im-Stamm. Zwoelf Fragen mit gleichlautendem Optionskopf sind fachlich unterscheidbar und als Beobachtung im BACKLOG statt als Fehler.",
         "tests": [
-          "Machina- und Historia-Generatoren jeweils zweimal deterministisch ausgeführt",
-          "Bestandsanalyse: 12.460 Fragen, alle mit vier unterschiedlichen Optionen, 0 doppelte IDs, 0 Ober-/Unterbegriff-Kollisionen",
-          "verify:facts für machina und historia: 0 Fehler",
-          "audit:questions für machina und historia: 0 Strukturfehler, 0 Antwort-im-Stamm, 0 Bias-Templates",
-          "npm test: 179 Tests grün",
-          "npm run build: erfolgreich",
-          "Machina und Historia im echten Browser: Quiz, Visualisierung, Bildquelle und freie Lizenz geprüft; Konsole ohne Warnungen oder Fehler"
+          "audit_questions machina/historia: exit 0",
+          "verify_quiz: 63019 Pruefungen, 0 Fehlschlaege"
         ]
       }
     },
@@ -552,27 +552,31 @@
         "scripts/merge_phase5.js",
         "scripts/prepare_data.js",
         "scripts/lib/merge_safety.js",
-        "src/__tests__/mergeSafety.test.js"
+        "src/__tests__/mergeSafety.test.js",
+        "scripts/lib/merge_text.js"
       ],
       "risk": "high",
       "priority": 13,
       "reason": "Schreibende Rohdaten-Merges und Datenvorbereitung dürfen nichts überschreiben oder falsch deduplizieren",
       "state": "completed",
       "last_run": {
-        "campaign_id": "20260830T110041702224+0200",
-        "completed_at": "2026-08-30T11:03:46+02:00",
-        "observed_head": "8481f72be0b17889b4e680c6117808f5a9f9398c",
-        "content_sha256": "cd657a01dad9e8c11403ef52a0bdb07d016b8152ee964252c0b64a3c071ffe6d",
-        "file_count": 10,
+        "campaign_id": "20260903T094956560120+0200",
+        "completed_at": "2026-09-03T10:57:24+02:00",
+        "observed_head": "18bbc7661d1a619f4c150faf136d15a9bc97ee15",
+        "content_sha256": "c5b9dbd70b7f0a3f51e21d7f4780e2feb7d200671742a76e3df3b4ce5029a491",
+        "file_count": 11,
         "review": "delta-plus-boundaries",
-        "outcome": "reviewed-clean",
-        "summary": "Gemeinsamer ID-Erhaltungsschutz einschließlich der neuen Pfade, erlaubter Ergänzung, gleichgroßer Ersetzung und aller vier Schreibgrenzen geprüft; bestehende Merge-Deduplizierung verhindert doppelte Ausgaben, Astra bleibt bewusst append-/refresh-basiert.",
+        "outcome": "improved",
+        "summary": "Deutsche Textkorrekturen liefen in drei Merges ueber das ganze Konzeptobjekt und haben 38 Konzept-IDs sowie einen Urheberlink zerschrieben; die Regel liegt jetzt einmal in scripts/lib/merge_text.js, die Wortlisten bleiben je Skript. merge_astra loeschte beim Upsert Bildfelder, wenn die Ernte keine liefert. Die zerschriebene URL ist repariert, die IDs bleiben wegen der IndexedDB-Fortschrittsschluessel mit Begruendung im BACKLOG.",
         "tests": [
-          "npx vitest run src/__tests__/mergeSafety.test.js: passed (2)",
-          "node --check auf vier geänderten Merge-Skripten: passed",
-          "Dry-runs merge_cultura, merge_lingua, merge_machina_historia, merge_natura: passed"
+          "Trockenlaeufe aller Merges unveraendert",
+          "npm test: 273 passed",
+          "Bildnachweis-Audit und test_deploy ohne Befund"
         ]
-      }
+      },
+      "pending_paths": [
+        "scripts/lib/merge_text.js"
+      ]
     },
     {
       "id": "shell-layout-build",
@@ -585,23 +589,26 @@
         "scripts/sync_third_party_notices.mjs",
         "src/index.css",
         "vite.config.js",
-        "src/__tests__/legalNotices.test.js"
+        "src/__tests__/legalNotices.test.js",
+        "src/__tests__/releaseConsistency.test.js"
       ],
       "risk": "medium",
       "priority": 14,
       "reason": "Responsive Shell-Vertrag, Build-Einstieg, Statistik- und Rechtshinweis-Synchronisierung",
       "state": "completed",
       "last_run": {
-        "campaign_id": "20260830T110041702224+0200",
-        "completed_at": "2026-08-30T11:10:44+02:00",
-        "observed_head": "20f33e230aaf4d8f4313ba2eb61ac8b15579e5a0",
-        "content_sha256": "6f4c270084d343c6d44a733db7982f5a52e330a8039a1bda7a805061f313e5f6",
-        "file_count": 9,
+        "campaign_id": "20260903T094956560120+0200",
+        "completed_at": "2026-09-03T10:43:41+02:00",
+        "observed_head": "7c9d94051579b1ffd56194c9179615f6c04197a7",
+        "content_sha256": "a2d7e072dafa8e11834f3266a2aa226c705fc9993ef45160b9eaaa13f3efa272",
+        "file_count": 10,
         "review": "delta-plus-boundaries",
-        "outcome": "reviewed-clean",
-        "summary": "Die CodeQA-Fixes sind mit den Versionen 1.99.2 bis 1.99.4 und konkreten Changelog-Einträgen konsistent dokumentiert; Paket-Lockstep, Rechtshinweise, Shell- und Layoutgrenzen bleiben unverändert intakt.",
+        "outcome": "improved",
+        "summary": "Delta ist die Build-Kette in package.json (beide Audits als Release-Gate), computeDomainStats als reine Funktion und der neue releaseConsistency-Test. Alles in dieser Sitzung selbst gebaut und mit dem Szenario des Nacht-Reviews nachgestellt: eine zusaetzliche Astra-Frage ohne Manifest-Lauf laesst den Test jetzt rot werden, vorher blieb er gruen. Grenzen geprueft: deploy.py bricht bei Build-Fehler ab, damit sind die Audits ein echtes Deploy-Gate; index.css, check_layout_contract, vite.config und credits.html sind seit dem letzten Review unveraendert.",
         "tests": [
-          "npx vitest run src/__tests__/legalNotices.test.js: 4 Tests bestanden; npm run check:layout: 44/44 Prüfungen bestanden"
+          "releaseConsistency.test.js: 12 passed, Repro mit veraltetem Manifest rot",
+          "npm run build inkl. beider Audits: passed",
+          "npm run check:layout: 44/44"
         ]
       }
     },
@@ -626,16 +633,17 @@
       "reason": "VisualPanel-Routing, generische Konzeptdarstellung und sichtbare Bildnachweise",
       "state": "completed",
       "last_run": {
-        "campaign_id": "20260830T110041702224+0200",
-        "completed_at": "2026-08-30T11:05:18+02:00",
-        "observed_head": "8481f72be0b17889b4e680c6117808f5a9f9398c",
-        "content_sha256": "25d0338a71af8b5bca703be4523ebf0ffee964063117ee25c91b81001ffcedd4",
+        "campaign_id": "20260903T094956560120+0200",
+        "completed_at": "2026-09-03T10:43:28+02:00",
+        "observed_head": "7c9d94051579b1ffd56194c9179615f6c04197a7",
+        "content_sha256": "7e299f9b8115a42b3f08a11a0671e9302f850400b8c88efa1d9f728b95d41e2a",
         "file_count": 12,
         "review": "delta-plus-boundaries",
-        "outcome": "reviewed-clean",
-        "summary": "Sanitization, konkrete Attribution, Laufzeit-Fallback, Lizenzlinks und alle visuellen Verbraucher geprüft; URL-, DOI-, File:- und reine Quellenreste scheitern am Publikationsaudit, während die Anzeige einen sicheren Dateiseiten-Fallback behält.",
+        "outcome": "improved",
+        "summary": "Label-Abdeckung ueber alle sieben Bereiche nachgerechnet: 40.677 Attributschluessel und 11.505 Kategorien, davon ein einziger ohne deutsche Bezeichnung (continent) — behoben und getestet. Delta im Uebrigen: Welle-6-Labels und der Panel-Leak bei region, der im Bereich homo-natura-generators geschlossen wurde.",
         "tests": [
-          "npx vitest run src/__tests__/DomainVisual.test.jsx src/__tests__/conceptLabels.test.js src/__tests__/imageCredits.test.js src/__tests__/silhouette.test.js: 4 Dateien, 48 Tests bestanden; npm run audit:image-credits: 10466 bestanden"
+          "npm test: 270 passed",
+          "Label-Abdeckung nachgezaehlt: 0 rohe Schluessel, 0 rohe Kategorien"
         ]
       }
     },
@@ -677,16 +685,17 @@
       "reason": "Anatomieansicht, SVG-/Bildzuordnung und Quellenanzeige",
       "state": "completed",
       "last_run": {
-        "campaign_id": "20260829T204429059458+0200",
-        "completed_at": "2026-08-29T22:12:57+02:00",
-        "observed_head": "b2fbb4867300587cd1801d87230fbd95206235af",
-        "content_sha256": "b9e5e46dc723c55c7987cd91b7a3f968e4787d8e483b33b9b508ba13ed12c978",
+        "campaign_id": "20260903T094956560120+0200",
+        "completed_at": "2026-09-03T10:42:40+02:00",
+        "observed_head": "d1893d5c1578181871560427254ec41ae20c0501",
+        "content_sha256": "a05e17cb36e3148bf4a15e562bd51617d0be252383c49b207f9dc08d3e83aeed",
         "file_count": 2,
-        "review": "full",
-        "outcome": "improved",
-        "summary": "HomoVisual verwendet nun dieselbe Label- und Leak-Guard-Logik wie die generische Konzeptdarstellung. Dadurch verschwinden rohe Schlüssel und bei Fragen nach Gelenktyp, Reflexart oder Antikörpern bleiben die fachlich verratenden Geschwisterwerte bis zur Antwort verborgen. Asset-Zuordnung, Reverse-Schutz, Markerfreigabe und alle Public-Domain-Nachweise sind explizit getestet.",
+        "review": "delta-plus-boundaries",
+        "outcome": "reviewed-clean",
+        "summary": "Delta ordnet die acht neuen Homo-Kategorien der Welle 6 den fuenf vorhandenen Grafiken zu und verortet Gefaesse und Baender ueber ihre Region. Nachgerechnet: alle 36 blood_vessel- und 27 ligament_tendon-Konzepte treffen einen Zonen-Schluessel, kein Marker faellt still weg. Der Selbstverraeter-Schutz deckt die neuen getesteten Attribute bodyRegion, parentOrgan und vesselType mit ab.",
         "tests": [
-          "214/214 Vitest-Tests, davon 12 Homo-Visual-/Typografieregressionen; Datenabgleich über 1.604 Homo-Fragen: 12 frühere Geschwister-Leaks auf 0 und 0 rohe sichtbare Kennwertschlüssel; 1.513 Promptänderungen feldgenau als reine Typografiekorrektur belegt; Faktenprüfung 0 Fehler, Fragen-Audit 0 Strukturfehler/0 Antwort-im-Stamm; 10.468 Bildnachweise; Produktionsbuild; Layoutvertrag 44/44; 21 Deploytests; Browser: typografischer Prompt, Anatomie-Reveal, Public-Domain-Nachweis und fehlerfreie Konsole."
+          "HomoVisualCredits.test.jsx: 12 passed",
+          "Zonenabdeckung nachgezaehlt: 0 Konzepte ohne Treffer"
         ]
       }
     },
@@ -756,12 +765,13 @@
         "scripts/data_sources/harvest/normalize_case.cjs",
         "tests/test_harvest_tools.py",
         "scripts/data_sources/harvest/json_io.cjs",
-        "scripts/data_sources/harvest/concept_validation.cjs"
+        "scripts/data_sources/harvest/concept_validation.cjs",
+        "scripts/data_sources/harvest/apply_attribute_additions.cjs"
       ],
       "risk": "medium",
       "priority": 20,
       "reason": "Schreibende Kandidaten-, Korrektur-, Deduplizierungs- und JSON-Reparaturwerkzeuge",
-      "state": "completed",
+      "state": "pending",
       "last_run": {
         "campaign_id": "20260830T110041702224+0200",
         "completed_at": "2026-08-30T11:10:50+02:00",
@@ -774,7 +784,10 @@
         "tests": [
           "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest tests.test_harvest_tools: 27 Tests bestanden"
         ]
-      }
+      },
+      "pending_paths": [
+        "scripts/data_sources/harvest/apply_attribute_additions.cjs"
+      ]
     },
     {
       "id": "image-harvest",
@@ -789,12 +802,13 @@
         "scripts/lib/image_license_policy.js",
         "scripts/data_sources/harvest/IMAGE_BLACKLIST.json",
         "scripts/data_sources/harvest/image_resolution_policy.cjs",
-        "scripts/data_sources/harvest/staged_attribution_writes.cjs"
+        "scripts/data_sources/harvest/staged_attribution_writes.cjs",
+        "scripts/data_sources/harvest/purge_blacklisted.cjs"
       ],
       "risk": "medium",
       "priority": 21,
       "reason": "Externe Bildauflösung, Lizenzmetadaten und atomare Rückschreibung in Rohdaten",
-      "state": "completed",
+      "state": "pending",
       "last_run": {
         "campaign_id": "20260830T110041702224+0200",
         "completed_at": "2026-08-30T11:07:02+02:00",
@@ -807,7 +821,10 @@
         "tests": [
           "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest tests.test_harvest_tools: 27 Tests bestanden; node --check für beide P18-Resolver; npm run audit:image-credits: 10466 bestanden"
         ]
-      }
+      },
+      "pending_paths": [
+        "scripts/data_sources/harvest/purge_blacklisted.cjs"
+      ]
     },
     {
       "id": "astra-natura-harvest",
@@ -960,6 +977,112 @@
         "summary": "Pauschale Commons-Urheberangaben in 221 Rohdatensätzen bereinigt: 28 generische Angaben anhand von Commons-Metadaten beziehungsweise geprüften Dateiseiten konkretisiert, 193 redundante Commons-Suffixe entfernt und betroffene Domain-Daten reproduzierbar neu erzeugt. Das Release-Audit weist generische Commons-Angaben nun auch bei gemeinfreien Bildern zurück. Die gemeinsame Lizenzrichtlinie ist als ESM-Modul in Browser und Node nutzbar; die Browser-Stichprobe zeigt konkrete Urheber-, Quellen- und Lizenzlinks.",
         "tests": [
           "npm test -- --run (229 Tests); python3 -m unittest (46 Tests); npm run audit:image-credits (10.468/10.468); npm run build; npm run check:layout (44/44); python3 -m unittest tests/test_deploy.py (21 Tests); verify:facts und audit:questions für astra, cultura, homo, lingua, machina, natura; Generator-Determinismus für alle sechs Domains; idempotenter Backfill-Dry-Run; Browser-Stichprobe in Cultura, Homo und Natura ohne Konsolenfehler"
+        ]
+      }
+    },
+    {
+      "id": "never-distractor-options",
+      "summary": "pickBalanced sortiert die Kandidaten strikt nach Laengennaehe und nimmt slice(0,k). Bei kleinem Vokabular ist das eine totale Ordnung: Ein Laengen-Ausreisser wird nie als Distraktor gezogen und taucht nur noch als richtige Antwort auf. Gemessen ueber alle acht Kataloge: 31 Fragetypen, 832 Fragen, u.a. natura-animal-order 'Schlangen' 206/206, historia-invention-country 'USA' 102/102, natura-animal-continent 'Australien und Ozeanien' 65/65.",
+      "evidence": [
+        "scripts/lib/quizrandom.js",
+        "scripts/generate_natura.js",
+        "scripts/generate_historia.js",
+        "scripts/generate_homo.js"
+      ],
+      "priority": 1,
+      "state": "completed",
+      "noted_at": "2026-09-03T10:08:35+02:00",
+      "campaign_id": "20260903T094956560120+0200",
+      "started_at": "2026-09-03T10:08:43+02:00",
+      "completed": {
+        "campaign_id": "20260903T094956560120+0200",
+        "completed_at": "2026-09-03T10:27:04+02:00",
+        "observed_head": "d5df811643b40b381d7745644c4d2ac7f8f0231a",
+        "summary": "pickBalanced zieht statt des harten slice(0,k) verzerrt (rng()**5) und korrigiert danach die Randlage der richtigen Antwort; alle sechs Domain-Generatoren reichen die Konzept-ID als Seed durch (Terra tat das schon und war als einziger nicht betroffen). Nur-richtig-Optionen: 31 Typen / 832 Fragen -> 6 Typen / 76 Fragen, bei unveraenderten Format-Tells (1203 -> 1202) und Laengen-Bias-Templates (2 -> 2). Rest im BACKLOG.",
+        "tests": [
+          "npm test: 269 passed",
+          "audit_questions alle acht Bereiche: exit 0",
+          "verify:facts alle acht Bereiche: 0 Fehler",
+          "npm run build + check:layout + test_deploy: passed"
+        ]
+      }
+    },
+    {
+      "id": "merge-norm-duplication",
+      "summary": "Fuenf byte-identische norm-Kopien in merge_natura.js:133, merge_lingua.js:293, merge_astra.js:336, merge_cultura.js:203 und merge_phase5.js:79. merge_machina_historia.js:45 weicht bewusst ab (behaelt + und #) und bleibt eigenstaendig.",
+      "evidence": [
+        "scripts/merge_astra.js",
+        "scripts/merge_cultura.js",
+        "scripts/merge_lingua.js",
+        "scripts/merge_natura.js",
+        "scripts/merge_phase5.js"
+      ],
+      "priority": 3,
+      "state": "pending",
+      "noted_at": "2026-09-03T10:08:35+02:00",
+      "campaign_id": "20260903T094956560120+0200"
+    },
+    {
+      "id": "merge-image-blacklist",
+      "summary": "Nur merge_cultura befragt IMAGE_BLACKLIST.json. merge_astra.js:427-430 frischt imageFile/imageLicense/imageAttribution auf und nimmt neue Konzepte auf, ohne die Sperrliste zu pruefen; merge_lingua, merge_natura und merge_phase5 ebenso. Downstream fangen purge_blacklisted.cjs und der Bildnachweis-Audit im Build es ab, die Pruefung fehlt aber an der Quelle.",
+      "evidence": [
+        "scripts/merge_astra.js",
+        "scripts/merge_lingua.js",
+        "scripts/merge_natura.js",
+        "scripts/merge_phase5.js"
+      ],
+      "priority": 3,
+      "state": "pending",
+      "noted_at": "2026-09-03T10:08:36+02:00",
+      "campaign_id": "20260903T094956560120+0200"
+    },
+    {
+      "id": "wikiquote-norm-drift",
+      "summary": "wikiquote_harvest.cjs:45 und wikiquote_w4.cjs:42 normalisieren nur gerade Anfuehrungszeichen, wikiquote_verify.cjs:26 auch die typografischen. Der Kommentar in harvest:43 nennt verify als Quelle der Kopie. Folge: 'freiheit\"' statt 'freiheit' als Dedup-Token, die Overlap-Dublettenerkennung greift bei echten Zitaten schlechter.",
+      "evidence": [
+        "scripts/data_sources/harvest/wikiquote_harvest.cjs",
+        "scripts/data_sources/harvest/wikiquote_w4.cjs",
+        "scripts/data_sources/harvest/wikiquote_verify.cjs"
+      ],
+      "priority": 2,
+      "state": "completed",
+      "noted_at": "2026-09-03T10:08:36+02:00",
+      "campaign_id": "20260903T094956560120+0200",
+      "started_at": "2026-09-03T10:43:50+02:00",
+      "completed": {
+        "campaign_id": "20260903T094956560120+0200",
+        "completed_at": "2026-09-03T10:45:46+02:00",
+        "observed_head": "f35b578d7cd48784a0a756276e0f50734e80a73f",
+        "summary": "normalizeQuoteText und quoteTokens liegen jetzt zentral in wikiquote_cleaning.cjs; die drei kopierten und auseinandergedrifteten norm/toks-Definitionen in wikiquote_verify, wikiquote_harvest und wikiquote_w4 sind Aliase darauf. Die Ernte strippt damit auch typografische Anfuehrungszeichen, wie es der Verifizierer schon tat.",
+        "tests": [
+          "npm test: 273 passed",
+          "wikiquoteHarvest.test.js: 14 passed, darunter drei neue"
+        ]
+      }
+    },
+    {
+      "id": "magnitude-spread-chain",
+      "summary": "Die Kette 'shouldMagnitudeSpread(...) && magnitudeSpreadDistractors(..., {seed: c.id}) || Nachbarwert-Fallback' steht in fuenf Generatoren (astra 5x, homo/natura/lingua/cultura je 2x) wortgleich ausgeschrieben; in generate_astra.js sind die drei Bloecke bereits auseinandergedriftet (einer filtert nicht gegen rawValue, einer prueft zusaetzlich den Typ). Ein Helfer in scripts/lib/quizrandom.js wuerde die Drift beenden.",
+      "evidence": [
+        "scripts/lib/quizrandom.js",
+        "scripts/generate_astra.js",
+        "scripts/generate_homo.js",
+        "scripts/generate_natura.js",
+        "scripts/generate_lingua.js"
+      ],
+      "priority": 3,
+      "state": "completed",
+      "noted_at": "2026-09-03T10:38:44+02:00",
+      "campaign_id": "20260903T094956560120+0200",
+      "started_at": "2026-09-03T10:46:01+02:00",
+      "completed": {
+        "campaign_id": "20260903T094956560120+0200",
+        "completed_at": "2026-09-03T10:47:52+02:00",
+        "observed_head": "14474dc1f800e59c2c5957bce14742e9984296fb",
+        "summary": "numericDistractors in scripts/lib/quizrandom.js fasst die in natura, lingua und cultura wortgleiche Kette zusammen. Homo und Astra nutzen dieselben Bausteine mit bewusst anderem Rueckfallweg und bleiben eigenstaendig; der urspruengliche Befund 'fuenf Generatoren wortgleich' trifft nachgeprueft nur auf drei zu.",
+        "tests": [
+          "Alle drei Generatoren erzeugen nach dem Umbau bytegleiche Kataloge",
+          "npm test: 273 passed"
         ]
       }
     }
