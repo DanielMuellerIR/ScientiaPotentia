@@ -121,6 +121,16 @@ function main() {
       }
       concept.attributes = concept.attributes || {};
       concept.attributes[key] = value;
+      // Die Quelle mitschreiben. validateAddition verlangt sie ("die Rohdaten
+      // müssen jeden prüfbaren Fakt belegen"), der Anwendungspfad verwarf sie
+      // bisher — für ergänzte Attribute stand danach keine Quelle mehr im Repo
+      // (CodeQA 2026-09-03).
+      const beleg = `${key}: ${entry.sourceUrl}`
+        + (entry.verifyNote ? ` (${entry.verifyNote})` : '');
+      const vorhanden = typeof concept.verifyNote === 'string' ? concept.verifyNote.trim() : '';
+      if (!vorhanden.includes(entry.sourceUrl)) {
+        concept.verifyNote = vorhanden ? `${vorhanden} | ${beleg}` : beleg;
+      }
       perAttribute[key] = (perAttribute[key] || 0) + 1;
       applied.push({ id: entry.id, key });
     }

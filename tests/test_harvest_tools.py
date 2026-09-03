@@ -227,6 +227,56 @@ class HarvestToolTests(unittest.TestCase):
             self.assertIn('Sammelwert', result.stdout + result.stderr)
             self.assertEqual(json.loads(raw_path.read_text(encoding='utf-8')), [])
 
+    def test_attribute_additions_record_their_source(self):
+        """CodeQA 2026-09-03: validateAddition verlangt eine sourceUrl, der
+        Anwendungspfad verwarf sie — fuer die ergaenzten Attribute stand danach
+        keine Quelle mehr im Repo."""
+        with tempfile.TemporaryDirectory() as temporary:
+            root, harvest = self.prepare_tool_tree(
+                temporary, 'apply_attribute_additions.cjs')
+            raw_path = root / 'scripts' / 'data_sources' / 'machina_raw.json'
+            self.write_json(raw_path, [{
+                'id': 'werkzeug', 'name': 'Werkzeug', 'category': 'tool',
+                'attributes': {}, 'sourceName': 'Quelle',
+                'sourceUrl': 'https://example.org/a',
+            }])
+            additions_path = root / 'ergaenzungen.json'
+            self.write_json(additions_path, [{
+                'id': 'werkzeug', 'attributes': {'gewicht': '3 kg'},
+                'sourceUrl': 'https://example.org/beleg',
+                'verifyNote': 'Handbuch S. 7',
+            }])
+
+            result = self.run_node(
+                harvest / 'apply_attribute_additions.cjs', 'machina',
+                additions_path, '--write')
+
+            self.assertEqual(result.returncode, 0, result.stderr)
+            concept = json.loads(raw_path.read_text(encoding='utf-8'))[0]
+            self.assertEqual(concept['attributes']['gewicht'], '3 kg')
+            self.assertIn('https://example.org/beleg', concept['verifyNote'])
+            self.assertIn('Handbuch S. 7', concept['verifyNote'])
+
+    def test_apply_corrections_rejects_non_scalar_attribute_value(self):
+        """Ein Objekt als Attributwert landete als Option '[object Object]'."""
+        with tempfile.TemporaryDirectory() as temporary:
+            root, harvest = self.prepare_tool_tree(temporary, 'apply_corrections.cjs')
+            raw_path = root / 'scripts' / 'data_sources' / 'machina_raw.json'
+            self.write_json(raw_path, [{
+                'id': 'werkzeug', 'name': 'Werkzeug', 'category': 'tool',
+                'attributes': {'jahr': 1900}, 'sourceName': 'Quelle',
+                'sourceUrl': 'https://example.org/a',
+            }])
+            self.write_json(harvest / 'corr_machina_test.json', [{
+                'id': 'werkzeug', 'set': {'attributes.jahr': {'wert': 1}},
+                'reason': 'Test',
+            }])
+
+            result = self.run_node(harvest / 'apply_corrections.cjs', 'machina', '--write')
+
+            self.assertNotEqual(result.returncode, 0)
+            self.assertIn('Text, Zahl oder Ja/Nein', result.stdout + result.stderr)
+
     def test_dedup_builder_preserves_output_when_catalog_is_empty(self):
         """CodeQA 2026-09-03: Ein leerer Rohkatalog lief mit Exit 0 durch und
         ueberschrieb die vorhandene dedup_<domain>.json mit einer leeren Liste;

@@ -17,6 +17,8 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { readJsonArray, writeJsonAtomic } = require('./json_io.cjs');
 const { isHttpUrl, validateCatalog } = require('./concept_validation.cjs');
+const { isAllowedImageLicense } = require('../../lib/image_license_policy.js');
+const { isBlacklistedFile } = require('./image_resolution_policy.cjs');
 
 const HARVEST = __dirname;
 const ROOT = path.join(HARVEST, '..', '..', '..');
@@ -34,6 +36,22 @@ function validateSetValue(key, value) {
   if (key.startsWith('concept.') && typeof value !== 'string') {
     return `${key} muss Text sein`;
   }
+  // Attributwerte wurden bisher gar nicht auf den Typ geprüft: Ein Objekt oder
+  // eine Liste landete als Option „[object Object]" im Katalog, und das
+  // Fragen-Audit sieht darin einen gültigen Text (CodeQA 2026-09-03).
+  if (typeof value !== 'string' && typeof value !== 'number' && typeof value !== 'boolean') {
+    return `${key} muss Text, Zahl oder Ja/Nein sein`;
+  }
+  // Bildfelder stehen in CONCEPT_FIELDS, aber diese Datei kannte weder die
+  // Lizenzliste noch die Sperrliste — anders als apply_images.cjs. Eine
+  // Korrekturdatei konnte damit ein gesperrtes oder unfrei lizenziertes Bild
+  // an den Prüfungen vorbei in den Rohkatalog schreiben.
+  if (key === 'concept.imageLicense' && !isAllowedImageLicense(value)) {
+    return `concept.imageLicense: keine erlaubte freie Lizenz (${value})`;
+  }
+  if (key === 'concept.imageFile' && isBlacklistedFile(value)) {
+    return `concept.imageFile: gesperrte Bilddatei (siehe harvest/BLACKLIST.md)`;
+  }
   return null;
 }
 
@@ -50,7 +68,13 @@ function validateSetKey(key) {
       ? null
       : `nicht erlaubtes Konzeptfeld: ${field || '—'}`;
   }
-  return key.includes('.') ? `unbekanntes set-Ziel: ${key}` : null;
+  if (key.includes('.')) return `unbekanntes set-Ziel: ${key}`;
+  // Ein barer Schlüssel landet in `attributes`. Heisst er wie ein Konzeptfeld
+  // („category" gibt es auf beiden Ebenen), sieht weder Autor noch Protokoll,
+  // welche Ebene getroffen wurde. Die Ebene muss ausgeschrieben werden.
+  return CONCEPT_FIELDS.has(key)
+    ? `mehrdeutiger set-Schlüssel „${key}": bitte „attributes.${key}" oder „concept.${key}" schreiben`
+    : null;
 }
 
 function validateCorrection(correction) {

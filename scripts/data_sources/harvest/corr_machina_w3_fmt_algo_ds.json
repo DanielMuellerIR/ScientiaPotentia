@@ -26,7 +26,7 @@
   },
   {
     "id": "fft",
-    "set": { "category": "Signalverarbeitung" },
+    "set": { "attributes.category": "Signalverarbeitung" },
     "reason": "Die FFT ist kein Sortieralgorithmus, sondern ein Algorithmus zur effizienten Berechnung der diskreten Fouriertransformation fuer Frequenzanalyse in der Signalverarbeitung."
   },
   {
@@ -46,7 +46,7 @@
   },
   {
     "id": "crc",
-    "set": { "category": "Fehlererkennung" },
+    "set": { "attributes.category": "Fehlererkennung" },
     "reason": "CRC (Zyklische Redundanzpruefung) ist ein Fehlererkennungsverfahren, keine Kryptografie. CRC ist nicht kollisionsresistent und kryptografisch wertlos. Die korrekte Kategorie ist 'Fehlererkennung'."
   },
   {
