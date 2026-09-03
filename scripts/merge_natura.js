@@ -27,7 +27,7 @@ import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { assertPreservesExistingConceptIds } from './lib/merge_safety.js';
-import { applyTextFix, normalizeForDedup } from './lib/merge_text.js';
+import { applyTextFix, normalizeForDedup, normalizeIgnoringParentheses } from './lib/merge_text.js';
 import { blacklistReason } from './lib/merge_blacklist.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -185,7 +185,8 @@ function normalizeConcept(c) {
 // --- Zusammenführen + Dedup --------------------------------------------------
 const merged = [];
 const idsByCat = {};       // Kategorie -> Set(id)
-const namesByCat = {};     // Kategorie -> Set(normalisierter Name)
+const namesByCat = {};
+const loosePerCat = {};   // klammerlose Namen je Kategorie — nur fuer Hinweise     // Kategorie -> Set(normalisierter Name)
 let dropped = [];
 const blockedIds = [];   // wegen der Sperrliste verworfen — dürfen fehlen
 const fileStats = {};
@@ -209,9 +210,17 @@ for (const file of FILES) {
     let reason = null;
     if (idsByCat[c.category].has(c.id)) reason = `id-Kollision (${c.id})`;
     else if (namesByCat[c.category].has(nn)) reason = `Name vorhanden (${c.name})`;
+    // Klammerlose Gleichheit ist nur noch ein Hinweis: „Kanopus" neben
+    // „Kanopus (Canopus)" ist wahrscheinlich dieselbe Sache, „David
+    // (Michelangelo)" neben „David (Donatello)" aber nicht (CodeQA 2026-09-03).
+    else if (loosePerCat[c.category]?.has(normalizeIgnoringParentheses(c.name))) {
+      warnings.push(`Name unterscheidet sich nur im Klammerzusatz: ${c.name}`);
+    }
+
     if (reason) { dropped.push({ name: c.name, category: c.category, reason }); continue; }
     idsByCat[c.category].add(c.id);
     namesByCat[c.category].add(nn);
+    (loosePerCat[c.category] ||= new Set()).add(normalizeIgnoringParentheses(c.name));
     merged.push(c);
     kept++;
   }

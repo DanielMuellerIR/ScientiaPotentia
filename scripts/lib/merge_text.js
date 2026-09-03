@@ -70,5 +70,24 @@ function fixDeep(value, fix) {
 export function normalizeForDedup(value) {
   return String(value ?? '').toLowerCase()
     .replace(/ß/g, 'ss').replace(/ä/g, 'a').replace(/ö/g, 'o').replace(/ü/g, 'u')
-    .replace(/\(.*?\)/g, ' ').replace(/[^a-z0-9]+/g, '').trim();
+    .replace(/[^a-z0-9]+/g, '').trim();
+}
+
+/**
+ * Derselbe Schlüssel, aber ohne Klammerzusatz — für einen Hinweis, nicht fürs
+ * Verwerfen.
+ *
+ * Bis zum 2026-09-03 löschte der Dedup-Schlüssel selbst die Klammerinhalte.
+ * Damit fielen „David (Michelangelo)", „David (Donatello)" und „David
+ * (Bernini)" auf denselben Wert, ebenso „Johann Strauss (Sohn)" und „(Vater)"
+ * oder die 6. Sinfonie von Beethoven und die von Tschaikowski. Stünden zwei
+ * davon in einer Erntedatei, überlebte nur die erste — still, als „Name
+ * vorhanden" protokolliert und damit nicht als Verlust erkennbar.
+ *
+ * Jetzt entscheidet der vollständige Name über das Verwerfen; die
+ * klammerlose Form liefert nur noch eine Warnung, damit eine echte Dublette
+ * („Kanopus" neben „Kanopus (Canopus)") trotzdem auffällt.
+ */
+export function normalizeIgnoringParentheses(value) {
+  return normalizeForDedup(String(value ?? '').replace(/\(.*?\)/g, ' '));
 }

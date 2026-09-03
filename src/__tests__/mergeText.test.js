@@ -10,7 +10,9 @@ import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 
-import { applyTextFix, normalizeForDedup } from '../../scripts/lib/merge_text.js';
+import {
+  applyTextFix, normalizeForDedup, normalizeIgnoringParentheses,
+} from '../../scripts/lib/merge_text.js';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 
@@ -67,9 +69,12 @@ describe('applyTextFix', () => {
 });
 
 describe('normalizeForDedup', () => {
-  it('loest Umlaute auf und entfernt Klammerinhalte', () => {
+  it('loest Umlaute auf und behaelt den Klammerzusatz', () => {
+    // Bis zum 2026-09-03 loeschte der Schluessel Klammerinhalte („David
+    // (Michelangelo)" -> „david"). Genau das machte verschiedene Werke
+    // ununterscheidbar; der Zusatz gehoert deshalb in den Schluessel.
     expect(normalizeForDedup('Weißer Hai')).toBe('weisserhai');
-    expect(normalizeForDedup('David (Michelangelo)')).toBe('david');
+    expect(normalizeForDedup('David (Michelangelo)')).toBe('davidmichelangelo');
     expect(normalizeForDedup(null)).toBe('');
   });
 
@@ -79,6 +84,25 @@ describe('normalizeForDedup', () => {
       const source = readFileSync(join(ROOT, 'scripts', `${script}.js`), 'utf8');
       expect(source, script).toContain('const norm = normalizeForDedup;');
     }
+  });
+
+  it('unterscheidet Werke, die sich nur im Klammerzusatz unterscheiden', () => {
+    // CodeQA 2026-09-03: Der Schluessel loeschte Klammerinhalte. „David
+    // (Michelangelo)", „(Donatello)" und „(Bernini)" fielen damit auf denselben
+    // Wert — stuenden zwei in einer Erntedatei, ueberlebte nur die erste.
+    expect(normalizeForDedup('David (Michelangelo)'))
+      .not.toBe(normalizeForDedup('David (Donatello)'));
+    expect(normalizeForDedup('Johann Strauss (Sohn)'))
+      .not.toBe(normalizeForDedup('Johann Strauss (Vater)'));
+  });
+
+  it('meldet klammerlose Gleichheit ueber eine eigene Funktion', () => {
+    // Fuer den Hinweis „vermutlich dieselbe Sache" bleibt die klammerlose Form
+    // erhalten — sie verwirft aber nichts mehr.
+    expect(normalizeIgnoringParentheses('Kanopus (Canopus)'))
+      .toBe(normalizeIgnoringParentheses('Kanopus'));
+    expect(normalizeIgnoringParentheses('David (Michelangelo)'))
+      .toBe(normalizeIgnoringParentheses('David (Donatello)'));
   });
 
   it('laesst merge_machina_historia bewusst eine eigene Fassung', () => {

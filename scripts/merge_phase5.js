@@ -6,7 +6,8 @@
  * Dedup (konservativ, je Kategorie; nie kategorieübergreifend, sonst falsche
  * Treffer wie Stern „Sonne" in „Sonnenmasse"):
  *   - id bereits vorhanden                       -> raus
- *   - normalisierter Name exakt / Teilstring     -> raus (gleiche Kategorie)
+ *   - normalisierter Name exakt                  -> raus (gleiche Kategorie)
+ *   - Name als Teilstring eines vorhandenen      -> nur Hinweis, kein Verwurf
  *   - MANUAL_DROP: per Hand erkannte Dubletten   -> raus
  *
  * Daten-Putz (die Recherche schrieb teils verbose/ASCII-Deutsch):
@@ -112,7 +113,7 @@ for (const domain of ['astra', 'homo']) {
   const namesByCat = {};
   for (const c of raw) (namesByCat[c.category] ||= []).push(norm(c.name));
 
-  const kept = [], dropped = [], blockedIds = [];
+  const kept = [], dropped = [], blockedIds = [], hinweise = [];
   for (const c0 of incoming) {
     // BLACKLIST zuerst: gesperrte Konzepte gar nicht erst normalisieren
     // (Regel und Begründung in ./lib/merge_blacklist.js).
@@ -129,14 +130,23 @@ for (const domain of ['astra', 'homo']) {
     if (ids.has(c.id)) reason = `id-Kollision (${c.id})`;
     else if (MANUAL_DROP.has(c.id)) reason = `manuelle Dublette`;
     else if (catNames.includes(nn)) reason = `Name exakt vorhanden`;
-    else if (nn.length >= 5 && catNames.some(n => n.length >= 5 && (n.includes(nn) || nn.includes(n)))) reason = `Name Teilstring (gleiche Kategorie)`;
     if (reason) { dropped.push({ name: c.name, reason }); continue; }
+    // Teilstring-Aehnlichkeit verwirft NICHT mehr, sondern meldet nur. Die
+    // Regel traf im heutigen Bestand 36 echte Paare in astra (Titan/Titania,
+    // Sirius/Sirius B), 35 in homo (Wirbel/Halswirbel), 55 in cultura und 182
+    // in natura — alles verschiedene Konzepte, die als "Dublette" protokolliert
+    // und damit nicht als Verlust erkennbar weggeworfen worden waeren
+    // (CodeQA 2026-09-03).
+    const aehnlich = nn.length >= 5
+      && catNames.find(n => n.length >= 5 && n !== nn && (n.includes(nn) || nn.includes(n)));
+    if (aehnlich) hinweise.push(`${c.name}: Name enthaelt/steckt in einem vorhandenen Namen`);
     ids.add(c.id); catNames.push(nn);
     kept.push(c);
   }
 
   console.log(`\n=== ${domain.toUpperCase()} === Bestand ${raw.length}, neu ${incoming.length} -> behalten ${kept.length}, verworfen ${dropped.length}`);
   dropped.forEach(d => console.log(`  - DROP ${d.name} [${d.reason}]`));
+  hinweise.forEach(h => console.log(`  ! PRUEFEN ${h}`));
 
   if (WRITE) {
     writeFileSync(rawPath, JSON.stringify(raw.concat(kept), null, 2), 'utf8');

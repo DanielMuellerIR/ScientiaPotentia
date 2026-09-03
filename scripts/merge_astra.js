@@ -44,7 +44,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { blacklistReason } from './lib/merge_blacklist.js';
-import { normalizeForDedup } from './lib/merge_text.js';
+import { normalizeForDedup, normalizeIgnoringParentheses } from './lib/merge_text.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const HARVEST = join(__dirname, 'data_sources', 'harvest');
@@ -411,7 +411,12 @@ const before = existing.length;
 // und je Kategorie die normalisierten Namen (Dedup NUR gleiche Kategorie).
 const byId = new Map(existing.map(c => [c.id, c]));
 const namesByCat = {};
-for (const c of existing) (namesByCat[c.category] ||= new Set()).add(norm(c.name));
+const loosePerCat = {};   // klammerlose Namen je Kategorie — nur fuer Hinweise
+const warnings = [];      // Hinweise, die keinen Verwurf ausloesen
+for (const c of existing) {
+  (namesByCat[c.category] ||= new Set()).add(norm(c.name));
+  (loosePerCat[c.category] ||= new Set()).add(normalizeIgnoringParentheses(c.name));
+}
 
 const fileStats = {};
 const dropped = [];
@@ -455,6 +460,13 @@ for (const file of FILES) {
       dropped.push({ name: c.name, category: c.category, reason: 'Name vorhanden (gleiche Kategorie)' });
       continue;
     }
+    // Klammerlose Gleichheit ist nur noch ein Hinweis: „Kanopus" neben
+    // „Kanopus (Canopus)" ist wahrscheinlich dieselbe Sache, „David
+    // (Michelangelo)" neben „David (Donatello)" aber nicht (CodeQA 2026-09-03).
+    if (loosePerCat[c.category]?.has(normalizeIgnoringParentheses(c.name))) {
+      warnings.push(`Name unterscheidet sich nur im Klammerzusatz: ${c.name}`);
+    }
+    (loosePerCat[c.category] ||= new Set()).add(normalizeIgnoringParentheses(c.name));
 
     byId.set(c.id, c);
     catNames.add(norm(c.name));
@@ -478,6 +490,10 @@ console.log('Nach Kategorie:', byCat);
 console.log('\nHinweis: „Sagittarius A*" (phenomenon) und „Schwarzes Loch" (object)');
 console.log('bleiben bewusst BEIDE erhalten — konkretes Objekt vs. Objektklasse,');
 console.log('verschiedene Konzepte, keine Dublette (Dedup nur je Kategorie).');
+if (warnings.length) {
+  console.log('\n--- Hinweise ---');
+  warnings.forEach(w => console.log('  ! ' + w));
+}
 if (dropped.length) {
   console.log('\n--- Verworfen (Dubletten gleicher Kategorie) ---');
   dropped.forEach(d => console.log(`  - ${d.category}/${d.name} [${d.reason}]`));
