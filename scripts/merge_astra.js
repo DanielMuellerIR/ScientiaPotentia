@@ -44,6 +44,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { blacklistReason } from './lib/merge_blacklist.js';
+import { normalizeForDedup } from './lib/merge_text.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const HARVEST = join(__dirname, 'data_sources', 'harvest');
@@ -334,9 +335,9 @@ function deFixDeep(v) {
 }
 
 // Normalisierung für den Namens-Dedup (Umlaute/Sonderzeichen entfernen).
-const norm = s => String(s ?? '').toLowerCase()
-  .replace(/ß/g, 'ss').replace(/ä/g, 'a').replace(/ö/g, 'o').replace(/ü/g, 'u')
-  .replace(/\(.*?\)/g, ' ').replace(/[^a-z0-9]+/g, '').trim();
+// Vergleichsschlüssel für Dedup und Sperrlisten-Abgleich: einmal in
+// ./lib/merge_text.js, dort auch die Begründung (CodeQA 2026-09-03).
+const norm = normalizeForDedup;
 
 // Unbekannte Keys sammeln (Frühwarnung, falls eine künftige Ernte-Welle
 // neue Schreibweisen einführt, die hier noch nicht gemappt sind).

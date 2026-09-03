@@ -56,3 +56,19 @@ function fixDeep(value, fix) {
   }
   return value;
 }
+
+/**
+ * Vergleichsschlüssel für die Dublettenerkennung der Merge-Skripte:
+ * Kleinschreibung, Umlaute und ß aufgelöst, Klammerinhalte weg, alles
+ * Nicht-Alphanumerische entfernt.
+ *
+ * Stand byte-identisch in merge_natura.js, merge_lingua.js, merge_astra.js,
+ * merge_cultura.js und merge_phase5.js (CodeQA 2026-09-03).
+ * merge_machina_historia.js führt bewusst eine eigene Fassung: Sie behält `+`
+ * und `#`, sonst fielen „C", „C++" und „C#" auf denselben Schlüssel.
+ */
+export function normalizeForDedup(value) {
+  return String(value ?? '').toLowerCase()
+    .replace(/ß/g, 'ss').replace(/ä/g, 'a').replace(/ö/g, 'o').replace(/ü/g, 'u')
+    .replace(/\(.*?\)/g, ' ').replace(/[^a-z0-9]+/g, '').trim();
+}

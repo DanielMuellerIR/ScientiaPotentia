@@ -49,7 +49,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { createRequire } from 'node:module';
 import { assertPreservesExistingConceptIds } from './lib/merge_safety.js';
-import { applyTextFix } from './lib/merge_text.js';
+import { applyTextFix, normalizeForDedup } from './lib/merge_text.js';
 import { blacklistReason, blacklistedConceptIds } from './lib/merge_blacklist.js';
 
 // Die Sperrliste liegt maschinenlesbar in harvest/IMAGE_BLACKLIST.json (Begründung
@@ -195,9 +195,9 @@ function deFixDeep(v) {
 }
 
 // Normalisierung für Dedup + Blacklist-Abgleich (Umlaute/Sonderzeichen weg).
-const norm = s => String(s ?? '').toLowerCase()
-  .replace(/ß/g, 'ss').replace(/ä/g, 'a').replace(/ö/g, 'o').replace(/ü/g, 'u')
-  .replace(/\(.*?\)/g, ' ').replace(/[^a-z0-9]+/g, '').trim();
+// Vergleichsschlüssel für Dedup und Sperrlisten-Abgleich: einmal in
+// ./lib/merge_text.js, dort auch die Begründung (CodeQA 2026-09-03).
+const norm = normalizeForDedup;
 
 // Alles ab der ersten Klammer abschneiden ("Italien (Florenz)" -> "Italien").
 const beforeParen = s => String(s || '').split(' (')[0].trim();

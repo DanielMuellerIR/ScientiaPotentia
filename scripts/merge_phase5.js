@@ -20,7 +20,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import { applyTextFix } from './lib/merge_text.js';
+import { applyTextFix, normalizeForDedup } from './lib/merge_text.js';
 import { blacklistReason } from './lib/merge_blacklist.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -78,9 +78,9 @@ function canonStarType(t) {
   return (m ? m[1] : String(t || '')).split(',')[0].trim();
 }
 
-const norm = s => String(s ?? '').toLowerCase()
-  .replace(/ß/g, 'ss').replace(/ä/g, 'a').replace(/ö/g, 'o').replace(/ü/g, 'u')
-  .replace(/\(.*?\)/g, ' ').replace(/[^a-z0-9]+/g, '').trim();
+// Vergleichsschlüssel für Dedup und Sperrlisten-Abgleich: einmal in
+// ./lib/merge_text.js, dort auch die Begründung (CodeQA 2026-09-03).
+const norm = normalizeForDedup;
 
 // Konzept auf die vom Generator erwarteten Felder reduzieren + Felder putzen.
 function clean(c) {

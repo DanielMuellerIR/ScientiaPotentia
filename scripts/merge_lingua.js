@@ -48,6 +48,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { assertPreservesExistingConceptIds } from './lib/merge_safety.js';
 import { blacklistReason } from './lib/merge_blacklist.js';
+import { normalizeForDedup } from './lib/merge_text.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const HARVEST = join(__dirname, 'data_sources', 'harvest');
@@ -291,9 +292,9 @@ function fixTextDeep(v) {
 }
 
 // Normalisierung für Dedup-Vergleiche (Umlaute/Sonderzeichen entfernen).
-const norm = s => String(s ?? '').toLowerCase()
-  .replace(/ß/g, 'ss').replace(/ä/g, 'a').replace(/ö/g, 'o').replace(/ü/g, 'u')
-  .replace(/\(.*?\)/g, ' ').replace(/[^a-z0-9]+/g, '').trim();
+// Vergleichsschlüssel für Dedup und Sperrlisten-Abgleich: einmal in
+// ./lib/merge_text.js, dort auch die Begründung (CodeQA 2026-09-03).
+const norm = normalizeForDedup;
 
 /** Wendet Key-Aliase + Textfixes auf ein Konzept an. */
 function normalizeConcept(c) {
