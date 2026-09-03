@@ -6,6 +6,10 @@
   bewusst stehen: Sie sind zugleich die Schlüssel des Lernfortschritts in IndexedDB, ein
   Umbenennen würde den Fortschritt zu diesen Konzepten stillschweigend zurücksetzen. Eine
   Bereinigung braucht eine Migration.
+- `apply_attribute_additions.cjs` verlangt zu jeder Attributergänzung eine `sourceUrl`,
+  speichert sie aber nicht: Der Anwendungspfad schreibt nur den Wert. Für die so ergänzten
+  Attribute steht die Quelle danach nirgends im Repo. Der Beleg gehört an `verifyNote` angehängt
+  oder in eine eigene Quellenzuordnung.
 - `isConcreteImageAttribution` liegt in `src/utils/imageCredits.js` (ESM) und wird vom
   Release-Audit genutzt, aber nicht vom Preflight in
   `scripts/data_sources/harvest/apply_images.cjs` (CommonJS). Dadurch nimmt `apply_images

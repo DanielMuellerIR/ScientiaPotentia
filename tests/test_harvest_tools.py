@@ -200,6 +200,24 @@ class HarvestToolTests(unittest.TestCase):
             self.assertEqual(json.loads(raw_path.read_text(encoding='utf-8')), [])
             self.assertIn('sourceName', result.stdout)
 
+    def test_dedup_builder_preserves_output_when_catalog_is_empty(self):
+        """CodeQA 2026-09-03: Ein leerer Rohkatalog lief mit Exit 0 durch und
+        ueberschrieb die vorhandene dedup_<domain>.json mit einer leeren Liste;
+        danach entdecken die Finder-Agenten den ganzen Bestand erneut."""
+        with tempfile.TemporaryDirectory() as temporary:
+            root, harvest = self.prepare_tool_tree(temporary, 'build_dedup.cjs')
+            raw_path = root / 'scripts' / 'data_sources' / 'machina_raw.json'
+            output_path = harvest / 'dedup_machina.json'
+            self.write_json(raw_path, [])
+            self.write_json(output_path, {'sentinel': True})
+
+            result = self.run_node(harvest / 'build_dedup.cjs', 'machina')
+
+            self.assertNotEqual(result.returncode, 0)
+            self.assertIn('leer', result.stderr + result.stdout)
+            self.assertEqual(
+                json.loads(output_path.read_text(encoding='utf-8')), {'sentinel': True})
+
     def test_dedup_builder_preserves_output_when_catalog_is_invalid(self):
         with tempfile.TemporaryDirectory() as temporary:
             root, harvest = self.prepare_tool_tree(temporary, 'build_dedup.cjs')

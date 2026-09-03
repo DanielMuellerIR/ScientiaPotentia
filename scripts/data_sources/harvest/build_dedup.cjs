@@ -23,6 +23,14 @@ function main() {
       path.join(ROOT, 'scripts', 'data_sources', `${domain}_raw.json`),
       `${domain}_raw.json`,
     );
+    // Ein leerer Rohkatalog ist kein Ergebnis, sondern ein Fehlschlag davor.
+    // Ohne diese Untergrenze ueberschrieb der Lauf die vorhandene
+    // dedup_<domain>.json mit einer leeren Liste und meldete Exit 0 — danach
+    // finden die Finder-Agenten den kompletten Bestand erneut "neu"
+    // (CodeQA 2026-09-03).
+    if (raw.length === 0) {
+      throw new Error(`${domain}_raw.json ist leer; dedup_${domain}.json bleibt unangetastet`);
+    }
     const byCategory = {};
     raw.forEach((concept, index) => {
       if (!concept || typeof concept.category !== 'string' || !concept.category.trim()

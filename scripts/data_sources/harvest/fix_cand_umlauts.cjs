@@ -102,7 +102,7 @@ function fixConcept(c, counter) {
 }
 
 const files = fs.readdirSync(HARVEST)
-  .filter(file => /^cand_(machina|historia)_.*\.json$/.test(file))
+  .filter(file => /^cand_[a-z]+_.*\.json$/.test(file))
   .sort((a, b) => a.localeCompare(b, 'de'));
 const candidates = [];
 try {

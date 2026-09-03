@@ -53,8 +53,13 @@ function validateAddition(entry) {
     if (!key.trim()) return 'leerer Attributname';
     if (value === null || value === undefined) return `${key}: kein Wert`;
     if (typeof value === 'string' && !value.trim()) return `${key}: leerer Text`;
-    if (typeof value !== 'string' && typeof value !== 'number') {
-      return `${key}: nur Text oder Zahl erlaubt`;
+    // `boolean` gehoert dazu: Der Bestand fuehrt 29 solcher Attribute
+    // (hasRings, zodiac, circumpolarCentralEurope ...). Ohne sie wurde eine
+    // gueltige Ergaenzung `hasRings: false` stumm uebersprungen
+    // (CodeQA 2026-09-03).
+    if (typeof value !== 'string' && typeof value !== 'number'
+      && typeof value !== 'boolean') {
+      return `${key}: nur Text, Zahl oder Ja/Nein erlaubt`;
     }
   }
   // Eine Ergänzung ohne nachvollziehbare Quelle ist wertlos: die Rohdaten
@@ -150,7 +155,11 @@ function main() {
   } else {
     console.log('\n[DRY-RUN] Nichts geschrieben. Mit --write anwenden.');
   }
-  return 0;
+  // Uebersprungene Ergaenzungen sind Eingabefehler (fehlende Quelle, unbekannte
+  // id), kein Normalfall wie bei den Kandidaten in append_concepts. Ein Lauf,
+  // bei dem alles an einem Tippfehler scheitert, meldete bisher Exit 0 und war
+  // von "nichts zu tun" nicht zu unterscheiden (CodeQA 2026-09-03).
+  return skipped.length ? 1 : 0;
 }
 
 if (require.main === module) process.exitCode = main();
