@@ -12,11 +12,17 @@
   --write` ein Bild mit dem generischen Urheber „Wikimedia Commons" an, und der Fehler platzt
   erst im `npm run build` — dann für die ganze Domain. Die Prüfung braucht zuerst ein Modul,
   das beide Welten laden können; ein Muster dafür gibt es bereits (`scripts/lib/audit_rules.cjs`
-  wird von `generator_text.js` re-exportiert).
+  wird von `generator_text.js` re-exportiert). Real eingetreten am 2026-09-03: Der Homo-Lauf
+  lieferte für `enzym-amylase-ptyalin` den Urheber „Own work." — konkret genug für den
+  Preflight, zu unkonkret für den Release-Audit. Der Eintrag wurde von Hand aussortiert.
 - 109 veröffentlichte Bildnachweise sind bei 200 Zeichen mitten im Wort abgeschnitten. Die
   Auflöser kürzen seit dem 2026-09-03 an der Wortgrenze und markieren den Schnitt, aber die
-  vorhandenen Rohdaten tragen den harten Schnitt bereits — sie werden erst bei einem erneuten
-  Auflöserlauf ganz. Der mehrzeilige Commons-Rechtetext in 60 Nachweisen ist behoben.
+  vorhandenen Rohdaten tragen den harten Schnitt bereits. Ein normaler Auflöserlauf heilt sie
+  nicht: Sowohl `resolve_images_batched.cjs` als auch `apply_images.cjs` fassen ausschließlich
+  Konzepte ohne `imageFile` an. Nachgezählt nach dem Homo-Lauf vom 2026-09-03 — davor 109 hart
+  abgeschnittene Nachweise, danach unverändert 109, dazu ein neuer, sauber an der Wortgrenze
+  gekürzter. Zum Heilen braucht es einen eigenen Lauf, der die betroffenen Konzepte gezielt neu
+  auflöst. Der mehrzeilige Commons-Rechtetext in 60 Nachweisen ist behoben.
 - `resolve_images_p18.cjs` löst nichts mehr auf. Ein Lauf gegen die echte Commons-API am
   2026-09-03 ergab 0 von 176 Astra-Konzepten, in einer Probe mit zwölf Planeten und Monden
   0 von 12. Ihm fehlt die Titelzuordnung `DEWIKI_MAP`, deshalb fragt er „Merkur" und „Venus"
@@ -73,8 +79,25 @@
   sich das nur über einen breiteren Bestand, nicht über andere Distraktoren. Die übrigen
   vierzehn dominanten Typen bilden die Wirklichkeit ab (die meisten Schriften laufen von links
   nach rechts, die IUCN stuft die Mehrheit der Arten als nicht gefährdet ein) und bleiben so.
-- Die Bildabdeckung von Homo hinkt der Konzeptzahl hinterher: 946 Konzepte, 306 Bilder. Die
-  acht neuen Kategorien der Welle vom 2026-09-02 haben noch keine aufgelösten Commons-Bilder.
+- Die Bildabdeckung von Homo hinkt der Konzeptzahl hinterher: 946 Konzepte, 361 Bilder. Der
+  gebündelte Auflöserlauf vom 2026-09-03 hat 55 Bilder ergänzt und damit die Zielkategorien
+  weitgehend ausgeschöpft: Von 274 bildlosen Konzepten dort fand er für 64 ein freies Bild, 210
+  haben auf de.wikipedia kein Artikelbild oder teilen sich ein mehrdeutiges Lemma. Die
+  verbleibenden 585 bildlosen Konzepte teilen sich in 366 außerhalb der Zielkategorien —
+  angeführt von `psych_effect` (128), `sense_organ_part` (38), `blood_vessel` (36) und
+  `ligament_tendon` (27) — und 219 innerhalb, für die der Auflöser kein Artikelbild fand.
+- Zwei Homo-Bilder liegen Daniel zur Entscheidung vor, statt veröffentlicht zu sein:
+  `organ-penis` (beschriftetes Realfoto der Genitalien, während das Gegenstück `organ-scheide`
+  eine Schemazeichnung nutzt) und `organ-plazenta` (Foto eines menschlichen Embryos mit
+  Plazenta). Beide sind fachlich korrekt und frei lizenziert; die Frage ist die Darstellungsform
+  in einem Quiz für allgemeines Publikum.
+- Die Motivtreue der Bild-Auflöser braucht bei jedem Lauf eine Sichtung von Hand. Im
+  Homo-Lauf vom 2026-09-03 waren 7 von 64 Zuordnungen fachlich falsch, obwohl Lizenz, Urheber
+  und MIME-Typ stimmten: ein Katzenfötus für „Fötus", ein saugendes Kalb für „Saugreflex",
+  Rinder-Markknochen für „Knochenmark" sowie vier Fotos, die das Konzept gar nicht zeigen
+  (Hand ohne Knochen, Füße ohne Knochen, lackierte Zehen für ein Gelenk). Der Bildrechte-Audit
+  kann das nicht prüfen. Ein maschineller Vorfilter müsste mindestens die Commons-Kategorien
+  gegen die Domain halten — Tiermotive gehören nicht in Mensch & Körper.
 - Fünf Lingua-Kategorien erzeugen bis heute keine einzige Frage, weil ihre Attributschlüssel je
   Konzept verschieden sind: Lehnwort (29), Sprachkuriosum (23), Sprachfakt (14), Grammatik (14)
   und Phonetik (14) — zusammen 94 Konzepte, nachgezählt am 2026-09-03. Sie brauchen einen
