@@ -31,7 +31,8 @@ const {
 } = require('./image_resolution_policy.cjs');
 
 const UA = "ScientiaQuizImageResolverP18v2/1.0 (educational quiz project; pageimages+P18 only)";
-const OUT_FILE = "/tmp/astra_images2.json";
+// Eigene Ausgabedatei je Resolver (siehe resolve_images_p18.cjs).
+const OUT_FILE = "/tmp/astra_images_p18_v2.json";
 const ASTRA_FILE = path.join(__dirname, "../astra_raw.json");
 
 // Zielkategorien

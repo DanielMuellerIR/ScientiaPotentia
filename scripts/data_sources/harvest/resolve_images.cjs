@@ -192,4 +192,14 @@ async function resolveConcept(term) {
     `${G.stoppedEarly ? " [Zeitbudget erreicht, gestoppt]" : ""} =====`);
   console.log(`STATISTIK: API-Calls=${STATS.apiCalls}  Cache-Hits=${STATS.cacheHits}` +
     `  Rate-Limit-Events=${STATS.rateLimitEvents}  Retries=${STATS.retries}`);
+
+  // Ein kompletter Netzausfall sah bisher aus wie "kein freies Bild gefunden":
+  // apiGet gibt nach sechs Versuchen null zurueck, jedes Konzept bekommt
+  // _imgProblem, und der Lauf endet mit Exit 0. Findet der Resolver bei
+  // mindestens zehn Anfragen NICHTS, ist das ein Fehlschlag, kein Ergebnis
+  // (CodeQA 2026-09-03).
+  if (G.total >= 10 && G.resolved === 0) {
+    console.error('\nKein einziges Bild aufgeloest — vermutlich API- oder Netzproblem.');
+    process.exitCode = 1;
+  }
 })();

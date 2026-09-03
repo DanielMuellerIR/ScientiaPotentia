@@ -14,7 +14,7 @@
 //   - imageFile = "https://commons.wikimedia.org/wiki/" + encodedTitle
 //   - imageLicense, imageAttribution aus extmetadata
 //
-// Output: /tmp/astra_images2.json   [{id, imageFile, imageLicense, imageAttribution}]
+// Output: /tmp/astra_images_p18.json   [{id, imageFile, imageLicense, imageAttribution}]
 //
 // Aufruf: node resolve_images_p18.cjs
 // Laufzeit: ~2-3 Min für 155 Konzepte (200ms Pause + Backoff).
@@ -36,7 +36,11 @@ const {
 } = require('./image_resolution_policy.cjs');
 
 const UA = "ScientiaQuizImageResolverP18/1.0 (educational quiz project; pageimages+P18 only)";
-const OUT_FILE = "/tmp/astra_images2.json";
+// Eigene Ausgabedatei: p18 und p18_v2 schrieben beide nach
+// /tmp/astra_images2.json, ein Lauf ueberschrieb das Ergebnis des anderen
+// ohne Hinweis, und apply_images konnte die Herkunft nicht unterscheiden
+// (CodeQA 2026-09-03).
+const OUT_FILE = "/tmp/astra_images_p18.json";
 const ASTRA_FILE = path.join(__dirname, "../astra_raw.json");
 
 // Zielkategorien (laut Aufgabenstellung)
@@ -314,4 +318,14 @@ async function resolveConcept(c) {
     console.log(`  ${cat.padEnd(14)} gesamt:${s.total}  gefunden:${s.found}  ohne-Bild:${s.skipped}`)
   );
   console.log(`\nOutput: ${OUT_FILE} (${results.length} Einträge)`);
+
+  // Ein kompletter Netzausfall sah bisher aus wie "kein freies Bild gefunden":
+  // Der Lauf endete mit Exit 0 und einem verkuerzten Mapping. Findet der
+  // Resolver bei mindestens zehn Anfragen NICHTS, ist das kein Ergebnis,
+  // sondern ein Fehlschlag (CodeQA 2026-09-03).
+  const angefragt = Object.values(statsByCat).reduce((n, s) => n + s.total, 0);
+  if (angefragt >= 10 && results.length === 0) {
+    console.error('\nKein einziges Bild aufgeloest — vermutlich API- oder Netzproblem.');
+    process.exitCode = 1;
+  }
 })();

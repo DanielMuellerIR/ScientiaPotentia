@@ -21,7 +21,15 @@ const BLACKLISTED_FILES = new Set(
 
 function fileNameFromUploadUrl(source) {
   try {
-    const fileName = new URL(source).pathname.split('/').pop();
+    const segments = new URL(source).pathname.split('/').filter(Boolean);
+    // Thumbnail-Adressen tragen den echten Dateititel im VORLETZTEN Segment;
+    // das letzte ist die skalierte Fassung („1200px-Sumerian_cuneiform.svg.png").
+    // Vorher lieferte die Funktion diesen Namen, der anschliessende File:-Lookup
+    // lief ins Leere und das Konzept blieb still ohne Bild (CodeQA 2026-09-03).
+    const isThumb = segments.includes('thumb');
+    const fileName = isThumb && segments.length >= 2
+      ? segments[segments.length - 2]
+      : segments[segments.length - 1];
     return fileName ? decodeURIComponent(fileName) : null;
   } catch {
     return null;

@@ -18,7 +18,7 @@ const {
   isAllowedCommonsLicenseMetadata,
   licenseNameFromCommonsMetadata,
 } = require('../../lib/image_license_policy.js');
-const { DEWIKI_MAP } = require('./resolve_images_p18_v2.cjs');
+const { DEWIKI_MAP, AMBIGUOUS_NAMES } = require('./resolve_images_p18_v2.cjs');
 const { truncateCredit } = require('./credit_text.cjs');
 const {
   fileNameFromUploadUrl,
@@ -151,9 +151,17 @@ function logAmbiguousSources(label, ambiguous) {
  */
 function pageTitleForConcept(concept, domain) {
   const mapped = domain === 'astra' ? (DEWIKI_MAP[concept.id] || null) : null;
+  // Der Namens-Rueckfall gilt nur fuer eindeutige Namen. Bei einem Homonym
+  // („Merkur", „Golf") liefert das gleichnamige Lemma das Hauptbild einer ganz
+  // anderen Sache — und kein Waechter merkt das, weil der Bildrechte-Audit nur
+  // Lizenz und Urheber prueft, nicht die Motivtreue. resolve_images_p18_v2
+  // exportiert die Liste dafuer ausdruecklich (CodeQA 2026-09-03).
   const name = typeof concept.name === 'string' && concept.name.trim()
+    && !AMBIGUOUS_NAMES.has(concept.name.trim())
     ? concept.name.trim() : null;
-  return deTitle(concept.sourceUrl) || mapped || name;
+  // Die gepflegte Astra-Zuordnung geht der Quelle vor — so haelt es auch
+  // resolve_images_p18_v2 (Weg 2 vor Weg 3).
+  return mapped || deTitle(concept.sourceUrl) || name;
 }
 
 function collectResolvedPageImages(requestedTitles, byTitle, query) {
