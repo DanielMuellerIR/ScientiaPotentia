@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import http from 'https';
+import { fileURLToPath } from 'node:url';
 
 const COUNTRIES_GEOJSON_URL = 'https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson';
 const SUBDIVISIONS_GEOJSON_URL = 'https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_50m_admin_1_states_provinces.geojson';
@@ -9,8 +10,15 @@ const RIVERS_EUROPE_URL = 'https://raw.githubusercontent.com/nvkelso/natural-ear
 const REST_COUNTRIES_URL = 'https://restcountries.com/v3.1/all?fields=cca2,capital,population,area,tld,idd,timezones,flag,currencies,translations';
 const WIKIDATA_SPARQL_URL = 'https://query.wikidata.org/sparql';
 
-const PUBLIC_DIR = path.resolve('public/data');
-const DATA_DIR = path.resolve('src/data');
+// Verzeichnisse relativ zur SKRIPTLAGE, nicht zum Arbeitsverzeichnis. Aus
+// einem Unterverzeichnis gestartet legte das Skript sonst still ein zweites
+// public/data und src/data an (mkdirSync weiter unten) und schrieb dorthin —
+// der Lauf meldete Erfolg, das echte Verzeichnis blieb unveraendert.
+// Alle Merge-Skripte machen es ueber __dirname richtig (CodeQA 2026-09-03).
+const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
+const REPO_ROOT = path.join(SCRIPT_DIR, '..');
+const PUBLIC_DIR = path.join(REPO_ROOT, 'public', 'data');
+const DATA_DIR = path.join(REPO_ROOT, 'src', 'data');
 const COUNTRIES_OUTPUT = path.join(PUBLIC_DIR, 'countries.json');
 const SUBDIVISIONS_OUTPUT = path.join(PUBLIC_DIR, 'subdivisions.json');
 const RIVERS_OUTPUT = path.join(PUBLIC_DIR, 'rivers.json');
@@ -1100,7 +1108,14 @@ async function run() {
         countryCities = JSON.parse(fs.readFileSync(WIKIDATA_CITIES_RAW_PATH));
         console.log(`Loaded cities for ${Object.keys(countryCities).length} countries from cache.`);
       } catch (err) {
-        console.warn('Failed to parse wikidata_cities_raw.json, will use static fallbacks.', err.message);
+        // Existiert die Datei, ist aber unlesbar, ist das ein Fehlschlag und
+        // kein Grund fuer die Notliste: Der Lauf wuerde die veroeffentlichten
+        // Staedtedaten auf eine handgepflegte Restmenge herunterstufen — ohne
+        // Fehlercode, also ohne Bremse in einem Skriptlauf. Der SPARQL-Pfad
+        // oben behandelt denselben Fall bereits so (CodeQA 2026-09-03).
+        throw new Error(
+          `wikidata_cities_raw.json ist vorhanden, aber nicht lesbar; `
+          + `geodb.json bleibt unveraendert: ${err.message}`);
       }
     } else {
       console.warn('wikidata_cities_raw.json not found, using static fallbacks.');
@@ -1308,7 +1323,9 @@ async function run() {
           citiesToProcess[iso] = [...rawCitiesData[iso]];
         });
       } catch (err) {
-        console.warn('Failed to parse wikidata_cities_raw.json', err.message);
+        throw new Error(
+          `wikidata_cities_raw.json ist vorhanden, aber nicht lesbar; `
+          + `geodb.json bleibt unveraendert: ${err.message}`);
       }
     }
     

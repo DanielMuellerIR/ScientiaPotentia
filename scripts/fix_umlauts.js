@@ -11,7 +11,14 @@
 // Aufruf: node scripts/fix_umlauts.js          (Dry-Run, zeigt nur Befund)
 //         node scripts/fix_umlauts.js --write  (schreibt direkt zurück)
 
-import { readFileSync, writeFileSync } from 'fs';
+import { readFileSync, writeFileSync, renameSync } from 'fs';
+import { dirname, join, basename } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+// Pfade relativ zur Skriptlage: Aus einem Unterverzeichnis gestartet brach das
+// Skript bisher mit ENOENT ab, weil die Dateiliste rein relativ war
+// (CodeQA 2026-09-03).
+const REPO_ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 
 const WRITE = process.argv.includes('--write');
 
@@ -101,7 +108,8 @@ function tokenRegex(token) {
 
 let grandTotal = 0;
 for (const file of FILES) {
-  let text = readFileSync(file, 'utf8');
+  const fullPath = join(REPO_ROOT, file);
+  let text = readFileSync(fullPath, 'utf8');
   let fileTotal = 0;
   for (const [wrong, right] of Object.entries(MAP)) {
     const re = tokenRegex(wrong);
@@ -112,7 +120,14 @@ for (const file of FILES) {
       fileTotal += n;
     }
   }
-  if (WRITE && fileTotal > 0) writeFileSync(file, text);
+  if (WRITE && fileTotal > 0) {
+    // Atomar schreiben wie alle Werkzeuge unter harvest/: erst in eine
+    // Nachbardatei, dann umbenennen. Ein Abbruch mitten im Schreiben liess
+    // sonst eine abgeschnittene Rohdatei ohne Rueckfallebene zurueck.
+    const temporary = join(dirname(fullPath), `.${basename(fullPath)}.tmp`);
+    writeFileSync(temporary, text, { flag: 'w' });
+    renameSync(temporary, fullPath);
+  }
   console.log(`${file}: ${fileTotal} Ersetzungen`);
   grandTotal += fileTotal;
 }
