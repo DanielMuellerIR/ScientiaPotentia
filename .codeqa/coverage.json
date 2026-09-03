@@ -4,9 +4,11 @@
   "campaign": {
     "id": "20260903T094956560120+0200",
     "token_budget": 2000000,
-    "status": "active",
+    "status": "complete",
     "started_at": "2026-09-03T09:49:56+02:00",
-    "tokens_spent": 870000
+    "tokens_spent": 1141000,
+    "finished_at": "2026-09-03T11:08:16+02:00",
+    "finish_reason": "all-current"
   },
   "campaign_history": [
     {
@@ -191,7 +193,9 @@
       "src/__tests__/releaseConsistency.test.js",
       "src/__tests__/verifyFacts.test.js",
       "src/__tests__/imageCreditsAudit.test.js",
-      "scripts/lib/merge_text.js"
+      "scripts/lib/merge_text.js",
+      "scripts/lib/merge_blacklist.js",
+      "src/__tests__/mergeText.test.js"
     ],
     "exclusions": []
   },
@@ -278,16 +282,15 @@
       "state": "completed",
       "last_run": {
         "campaign_id": "20260903T094956560120+0200",
-        "completed_at": "2026-09-03T10:43:41+02:00",
-        "observed_head": "7c9d94051579b1ffd56194c9179615f6c04197a7",
-        "content_sha256": "600b222198e2b2b54d2ea0f86c78c9ac41a3b532b3d59b51b74d8b14ad9ad6ee",
+        "completed_at": "2026-09-03T11:07:22+02:00",
+        "observed_head": "f3ae8cb02efa9dd12e27a8aa03ad9a198e74d229",
+        "content_sha256": "43609dfbea6fcd463f09b28ac615ba508ffb78bf88522d1b70e4332d13615712",
         "file_count": 14,
         "review": "delta-plus-boundaries",
-        "outcome": "improved",
-        "summary": "Nachbuchung nach dem Astra-Bereich: Der Delta seit dem Abschluss von heute Vormittag sind drei neue Freigaben in dominance_policy.cjs (astra-nebula-type, astra-mission-target, astra-asteroid-spectral), die erst durch die Kanonform sichtbar wurden. Jede traegt Begruendung und Obergrenze; der Audit laeuft ueber alle acht Bereiche mit Exit 0.",
+        "outcome": "reviewed-clean",
+        "summary": "Delta seit dem letzten Abschluss ist der Timeout von 30 Sekunden fuer den einen Testfall, der den Audit ueber die echten 6.536 Machina-Fragen faehrt (gemessen 3,5 bis 4 Sekunden, Vitest-Standard 5). Keine Regelaenderung.",
         "tests": [
-          "audit_questions alle acht Bereiche: exit 0",
-          "npm test: 270 passed"
+          "npm test: 279 passed, Fragen-Audit ueber alle acht Bereiche exit 0"
         ]
       }
     },
@@ -425,16 +428,15 @@
       "state": "completed",
       "last_run": {
         "campaign_id": "20260903T094956560120+0200",
-        "completed_at": "2026-09-03T10:38:44+02:00",
-        "observed_head": "eadff691fc17830b6c0267db638c273a99f30ec5",
-        "content_sha256": "2ecf663e0e03260122c18989567dc474fad79b400d87662ac082c47c89d3b2da",
+        "completed_at": "2026-09-03T11:07:22+02:00",
+        "observed_head": "f3ae8cb02efa9dd12e27a8aa03ad9a198e74d229",
+        "content_sha256": "a74e7db7a8129a38f00cb1d883d24ff379977350170be134ff6dfda97eb083af",
         "file_count": 5,
         "review": "delta-plus-boundaries",
         "outcome": "reviewed-clean",
-        "summary": "Delta ist der Re-Export von isUsableOptionValue aus audit_rules (funktioniert, in Node ESM gegen die CJS-Datei geprueft) und der pickBalanced-Umbau des Querschnitts-Funds never-distractor-options samt drei neuer Eigenschaftstests. Grenzen geprueft: verify_quiz bestaetigt 63.019 Pruefungen ohne Fehlschlag, magnitudeSpreadDistractors erhaelt an allen Aufrufstellen bereits eine Fragen-ID als Seed. Die fuenffach ausgeschriebene Magnitude-Kette ist als Querschnitts-Fund magnitude-spread-chain notiert statt hier mitgefixt.",
+        "summary": "Delta ist der Helfer numericDistractors aus dem Querschnitts-Fund magnitude-spread-chain. Bytegleiche Kataloge nach dem Umbau, also reines Zusammenfuehren.",
         "tests": [
-          "node scripts/verify_quiz.js: 63019 passed, 0 failed",
-          "npm test: 270 passed"
+          "Generatorlauf erzeugt bytegleiche Kataloge; npm test 279 passed"
         ]
       }
     },
@@ -475,17 +477,15 @@
       "state": "completed",
       "last_run": {
         "campaign_id": "20260903T094956560120+0200",
-        "completed_at": "2026-09-03T10:36:54+02:00",
-        "observed_head": "eadff691fc17830b6c0267db638c273a99f30ec5",
-        "content_sha256": "8fd9b2c7454dffdb1935ad9150c21ee9adabbb91dfbc843ce519db42ee49f744",
+        "completed_at": "2026-09-03T11:07:22+02:00",
+        "observed_head": "f3ae8cb02efa9dd12e27a8aa03ad9a198e74d229",
+        "content_sha256": "edcf26e2e58363656c9c24bcfe3a98923a75610b0b57c47221c93c6e2b8a203d",
         "file_count": 2,
         "review": "delta-plus-boundaries",
-        "outcome": "improved",
-        "summary": "region als Leak-Geschwister eingetragen (40 von 63 Muskelregion-Fragen waren aus dem Panel ablesbar); Protein/Molekuel und 19 Organsystem-Schreibweisen auf Kanonformen gezogen; Subjekt aus dem Antagonisten-Pool entfernt; homo-ligament-kind mit 80 Prozent Dominanz bei nur fuenf Fragen gestrichen; Kamtschatka und Kurilen im Asien-Muster der Erdteilableitung ergaenzt",
+        "outcome": "reviewed-clean",
+        "summary": "Delta ist die Umstellung von generate_natura auf numericDistractors (bytegleiche Ausgabe). Die inhaltlichen Funde des Bereichs sind im vorherigen Durchgang behoben.",
         "tests": [
-          "npm test: 270 passed",
-          "audit_questions alle acht Bereiche: exit 0",
-          "verify_facts homo/natura: 0 Fehler"
+          "Generatorlauf bytegleich; audit_questions natura/homo exit 0"
         ]
       }
     },
@@ -501,17 +501,15 @@
       "state": "completed",
       "last_run": {
         "campaign_id": "20260903T094956560120+0200",
-        "completed_at": "2026-09-03T10:42:16+02:00",
-        "observed_head": "d1893d5c1578181871560427254ec41ae20c0501",
-        "content_sha256": "0d9939997a6ff8ce17303036ac81ae5492a9115d1c026114fc54cbc289639f39",
+        "completed_at": "2026-09-03T11:07:22+02:00",
+        "observed_head": "f3ae8cb02efa9dd12e27a8aa03ad9a198e74d229",
+        "content_sha256": "31373ad1d03a2387cdaf9c95539b7469a2e44671f6bcf52d300631ff51e4e95a",
         "file_count": 2,
         "review": "delta-plus-boundaries",
-        "outcome": "improved",
-        "summary": "Kanonform fuer lingua-language-script-type: Abdschad/Abjad und die beiden Wortstellungen der Misch-Schrift waren getrennte Werte, in 26 Fragen gemeinsam zur Auswahl und in 6 als doppelte Loesung. Mischwert 'Abugida / Abjad' stellt keine Frage mehr. Cultura-Delta geprueft und unauffaellig.",
+        "outcome": "reviewed-clean",
+        "summary": "Delta ist die Umstellung von generate_cultura und generate_lingua auf numericDistractors (bytegleiche Ausgabe).",
         "tests": [
-          "audit_questions lingua/cultura und alle Bereiche: exit 0",
-          "npm test: 270 passed",
-          "verify_facts lingua/cultura: 0 Fehler"
+          "Generatorlauf bytegleich; audit_questions cultura/lingua exit 0"
         ]
       }
     },
@@ -553,7 +551,9 @@
         "scripts/prepare_data.js",
         "scripts/lib/merge_safety.js",
         "src/__tests__/mergeSafety.test.js",
-        "scripts/lib/merge_text.js"
+        "scripts/lib/merge_text.js",
+        "scripts/lib/merge_blacklist.js",
+        "src/__tests__/mergeText.test.js"
       ],
       "risk": "high",
       "priority": 13,
@@ -561,22 +561,18 @@
       "state": "completed",
       "last_run": {
         "campaign_id": "20260903T094956560120+0200",
-        "completed_at": "2026-09-03T10:57:24+02:00",
-        "observed_head": "18bbc7661d1a619f4c150faf136d15a9bc97ee15",
-        "content_sha256": "c5b9dbd70b7f0a3f51e21d7f4780e2feb7d200671742a76e3df3b4ce5029a491",
-        "file_count": 11,
+        "completed_at": "2026-09-03T11:08:15+02:00",
+        "observed_head": "f3ae8cb02efa9dd12e27a8aa03ad9a198e74d229",
+        "content_sha256": "14bec3c29861e9c488b0a0f0da436ccf4b32dc1e840631cb69c272012423dab8",
+        "file_count": 13,
         "review": "delta-plus-boundaries",
         "outcome": "improved",
-        "summary": "Deutsche Textkorrekturen liefen in drei Merges ueber das ganze Konzeptobjekt und haben 38 Konzept-IDs sowie einen Urheberlink zerschrieben; die Regel liegt jetzt einmal in scripts/lib/merge_text.js, die Wortlisten bleiben je Skript. merge_astra loeschte beim Upsert Bildfelder, wenn die Ernte keine liefert. Die zerschriebene URL ist repariert, die IDs bleiben wegen der IndexedDB-Fortschrittsschluessel mit Begruendung im BACKLOG.",
+        "summary": "Nachtrag: Die beiden in dieser Kampagne entstandenen Dateien merge_blacklist.js (gemeinsame Sperrlisten-Regel aller Merges) und mergeText.test.js gehoeren in den Bereich. Inhalt und Belege wie im vorherigen Abschluss.",
         "tests": [
-          "Trockenlaeufe aller Merges unveraendert",
-          "npm test: 273 passed",
-          "Bildnachweis-Audit und test_deploy ohne Befund"
+          "npm test: 279 passed",
+          "Trockenlaeufe aller Merges unveraendert"
         ]
-      },
-      "pending_paths": [
-        "scripts/lib/merge_text.js"
-      ]
+      }
     },
     {
       "id": "shell-layout-build",
@@ -634,16 +630,15 @@
       "state": "completed",
       "last_run": {
         "campaign_id": "20260903T094956560120+0200",
-        "completed_at": "2026-09-03T10:43:28+02:00",
-        "observed_head": "7c9d94051579b1ffd56194c9179615f6c04197a7",
-        "content_sha256": "7e299f9b8115a42b3f08a11a0671e9302f850400b8c88efa1d9f728b95d41e2a",
+        "completed_at": "2026-09-03T11:07:23+02:00",
+        "observed_head": "f3ae8cb02efa9dd12e27a8aa03ad9a198e74d229",
+        "content_sha256": "a92c170b13ac5c9a0acc63fd486aede79d4fa16fad15d91068108e5d88208edf",
         "file_count": 12,
         "review": "delta-plus-boundaries",
         "outcome": "improved",
-        "summary": "Label-Abdeckung ueber alle sieben Bereiche nachgerechnet: 40.677 Attributschluessel und 11.505 Kategorien, davon ein einziger ohne deutsche Bezeichnung (continent) — behoben und getestet. Delta im Uebrigen: Welle-6-Labels und der Panel-Leak bei region, der im Bereich homo-natura-generators geschlossen wurde.",
+        "summary": "Delta ist die Reparatur von sanitizeImageAttribution: Die Regel gegen ein leeres Segment traf jedes http:// im Credit und hinterliess 333 tote Quelllinks. Ursache behoben, Rohdaten repariert, Regressionstest ergaenzt.",
         "tests": [
-          "npm test: 270 passed",
-          "Label-Abdeckung nachgezaehlt: 0 rohe Schluessel, 0 rohe Kategorien"
+          "0 zerstoerte URLs im Bestand (vorher 333); Bildnachweis-Audit 10.464 Pruefungen ohne Befund"
         ]
       }
     },
@@ -771,23 +766,21 @@
       "risk": "medium",
       "priority": 20,
       "reason": "Schreibende Kandidaten-, Korrektur-, Deduplizierungs- und JSON-Reparaturwerkzeuge",
-      "state": "pending",
+      "state": "completed",
       "last_run": {
-        "campaign_id": "20260830T110041702224+0200",
-        "completed_at": "2026-08-30T11:10:50+02:00",
-        "observed_head": "20f33e230aaf4d8f4313ba2eb61ac8b15579e5a0",
-        "content_sha256": "dca9e98419f8f86c12df98243ee7d6634c93e948f39273de090435d1518c1fbc",
-        "file_count": 9,
+        "campaign_id": "20260903T094956560120+0200",
+        "completed_at": "2026-09-03T11:05:12+02:00",
+        "observed_head": "94df0e36648222faf761059896d3ef3e252282da",
+        "content_sha256": "b583be6662d9232e59706374a79f8eebc59235102f121bb19840a5e6cdd3eeb9",
+        "file_count": 10,
         "review": "delta-plus-boundaries",
-        "outcome": "reviewed-clean",
-        "summary": "Gemeinsame Harvest-Wächter bleiben durch die neu ergänzten Verdrahtungs- und Formatregressionen abgedeckt; die Teständerungen prüfen P18-Policy, reale Spektralformate und QID-Gruppierung ohne die Schreibwerkzeuggrenzen zu verändern.",
+        "outcome": "improved",
+        "summary": "build_dedup blockiert einen leeren Katalog statt die Dedup-Datei zu leeren; apply_attribute_additions meldet uebersprungene Ergaenzungen mit Exit 1 und akzeptiert Boolean-Werte; fix_cand_umlauts prueft alle Domains statt nur machina und historia (36 statt 0 gefundene Ersetzungen). Die fehlende Quellenspeicherung derselben Datei steht begruendet im BACKLOG.",
         "tests": [
-          "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest tests.test_harvest_tools: 27 Tests bestanden"
+          "tests/test_harvest_tools.py: 30 Tests OK, darunter der neue Leerkatalog-Fall",
+          "npm test: 273 passed"
         ]
-      },
-      "pending_paths": [
-        "scripts/data_sources/harvest/apply_attribute_additions.cjs"
-      ]
+      }
     },
     {
       "id": "image-harvest",
@@ -808,23 +801,22 @@
       "risk": "medium",
       "priority": 21,
       "reason": "Externe Bildauflösung, Lizenzmetadaten und atomare Rückschreibung in Rohdaten",
-      "state": "pending",
+      "state": "completed",
       "last_run": {
-        "campaign_id": "20260830T110041702224+0200",
-        "completed_at": "2026-08-30T11:07:02+02:00",
-        "observed_head": "d6903d09bb475b82cb2692112a806594c69de782",
-        "content_sha256": "b786def06e901170507fc2c679e7c2c91721d70ae2d1d553a4e99cc13efbf53e",
-        "file_count": 11,
+        "campaign_id": "20260903T094956560120+0200",
+        "completed_at": "2026-09-03T11:03:53+02:00",
+        "observed_head": "303a009447f7ef2cb11fa3205c8f4671c296cada",
+        "content_sha256": "65ea405e4a3d6a8ce978527928d117803a198f4c9611d35c4ef79c539f7c09d4",
+        "file_count": 12,
         "review": "delta-plus-boundaries",
         "outcome": "improved",
-        "summary": "Resolver, Lizenzpolicy, Sperrliste, P18-Ränge, URL-Dateinamen, Mapping-Preflight und gestufte Attribution geprüft. Zusätzlicher Fund behoben: Auch beide älteren P18-Resolver verwenden jetzt die gemeinsame eindeutige Rangregel und lehnen veraltete oder mehrdeutige Aussagen ab.",
+        "summary": "Alle fuenf Bild-Aufloeser pruefen jetzt Konzept und Datei ueber image_resolution_policy.cjs; die drei Regex-Parser auf BLACKLIST.md sind weg, resolve_author_portraits hatte gar keine Pruefung. Nicht gefixt und begruendet im BACKLOG: die fehlende Konkretheitspruefung im Preflight von apply_images (ESM/CJS-Grenze), 60 mehrzeilige und 112 abgeschnittene Urhebernachweise.",
         "tests": [
-          "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest tests.test_harvest_tools: 27 Tests bestanden; node --check für beide P18-Resolver; npm run audit:image-credits: 10466 bestanden"
+          "npm test: 273 passed",
+          "Bildnachweis-Audit: 10.464 Pruefungen ohne Befund",
+          "Sperrlisten-Abdeckung nachgezaehlt: 5 von 5 Aufloesern pruefen Datei und Konzept"
         ]
-      },
-      "pending_paths": [
-        "scripts/data_sources/harvest/purge_blacklisted.cjs"
-      ]
+      }
     },
     {
       "id": "astra-natura-harvest",
@@ -884,16 +876,16 @@
       "reason": "Historische Wikidata-/Wikiquote-Ernte für Kultur und Sprache",
       "state": "completed",
       "last_run": {
-        "campaign_id": "20260830T110041702224+0200",
-        "completed_at": "2026-08-30T11:10:12+02:00",
-        "observed_head": "20f33e230aaf4d8f4313ba2eb61ac8b15579e5a0",
-        "content_sha256": "5ed55594052243e05aaf90a043c22ced176d19cb3be53cd22a9ff91b4112f0e3",
+        "campaign_id": "20260903T094956560120+0200",
+        "completed_at": "2026-09-03T11:07:23+02:00",
+        "observed_head": "f3ae8cb02efa9dd12e27a8aa03ad9a198e74d229",
+        "content_sha256": "7ad515a085d596653a0aa19e13213bbb35766c04acd202a6902ec27d36093370",
         "file_count": 16,
         "review": "delta-plus-boundaries",
         "outcome": "improved",
-        "summary": "Kultur-/Sprachqueries, QID-Identität, Faktenauswahl, Sprecherquellen, Wikiquote-Bereinigung, Rechte- und Schreibgrenzen geprüft. Zusätzlicher Fund behoben: Auch Gruppenabfragen bündeln nun alle Sprecher-/Schrift-Bindings je QID und lehnen Mehrdeutigkeiten ab, statt die erste API-Zeile zu übernehmen.",
+        "summary": "Delta ist der Querschnitts-Fund wikiquote-norm-drift: normalizeQuoteText und quoteTokens liegen jetzt zentral in wikiquote_cleaning.cjs, die drei gedrifteten Kopien in wikiquote_verify, wikiquote_harvest und wikiquote_w4 sind Aliase darauf.",
         "tests": [
-          "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest tests.test_harvest_tools: 27 Tests bestanden; npx vitest run wikiquoteHarvest+culturaHarvestSources: 13 Tests bestanden; node --check für Lingua WD2-WD4"
+          "wikiquoteHarvest.test.js: 14 passed, darunter drei neue"
         ]
       }
     },
@@ -923,13 +915,13 @@
     }
   ],
   "architecture": {
-    "campaign_id": "20260830T110041702224+0200",
-    "recorded_at": "2026-08-30T11:01:02+02:00",
-    "observed_head": "8481f72be0b17889b4e680c6117808f5a9f9398c",
-    "summary": "Domain-Registry und Datenpipeline trennen Fachbereiche weiterhin tragfähig; src/App.jsx bündelt Laden, Persistenz, Spielzustand und Shell-Rendering, während historische Harvest-Wellen trotz neuer gemeinsamer Wächter ähnliche Netz- und Normalisierungslogik mehrfach tragen.",
-    "paradigm": "Komponentenbasiertes React mit unidirektionalem Datenfluss und Registry; getrennte Source-Generator-Audit-Pipeline",
+    "campaign_id": "20260903T094956560120+0200",
+    "recorded_at": "2026-09-03T11:07:49+02:00",
+    "observed_head": "f3ae8cb02efa9dd12e27a8aa03ad9a198e74d229",
+    "summary": "Die Domain-Registry und die Generator-Pipeline trennen die acht Wissensbereiche weiterhin tragfaehig; Fachlogik sitzt in Registry und Domain-Komponenten, nicht in der App-Shell. Zwei Spannungen bleiben: src/App.jsx (859 Zeilen) buendelt Laden, Persistenz, Spielzustand und Shell-Rendering, und die historisch gewachsenen Harvest-Wellen tragen dieselbe Netz-, Attributions- und Titelnormalisierungslogik weiterhin mehrfach — fuenf Bild-Aufloeser mit drei verschiedenen Attributionsformen und zwei HTTP-Schichten. Die Kampagne 2026-09-03 hat davon die Sperrlisten-, Dedup-, Textkorrektur-, Zitat- und Distraktorregeln in gemeinsame Module gezogen; die HTTP- und Attributionsschicht der Aufloeser steht noch aus.",
+    "paradigm": "Registry-getriebene Domain-Schichtung mit vorgelagerter Daten-Pipeline",
     "fit": "gespannt",
-    "recommendation": "Bestehendes Paradigma beibehalten. App-Orchestrierung und Harvest-Grenzen nur bereichsweise entkoppeln; ein Architekturwechsel bringt gegenüber gezielten Extraktionen derzeit keinen belegbaren Nutzen."
+    "recommendation": "Kein Paradigmenwechsel noetig und keiner empfohlen — das Ist-Modell traegt. Zwei begrenzte Aufraeumschritte lohnen als eigene Auftraege: (1) App.jsx entlang der schon vorhandenen Grenzen in Laden, Fortschritt und Shell teilen; (2) die fuenf Bild-Aufloeser auf eine gemeinsame commons_api-Schicht ziehen, wie es die Sperrliste seit heute vormacht. Beides ist Wartungsaufwand mit klarem Nutzen, aber keine Voraussetzung fuer weitere Inhaltsarbeit."
   },
   "themes": [
     {
@@ -1018,9 +1010,20 @@
         "scripts/merge_phase5.js"
       ],
       "priority": 3,
-      "state": "pending",
+      "state": "completed",
       "noted_at": "2026-09-03T10:08:35+02:00",
-      "campaign_id": "20260903T094956560120+0200"
+      "campaign_id": "20260903T094956560120+0200",
+      "started_at": "2026-09-03T11:05:26+02:00",
+      "completed": {
+        "campaign_id": "20260903T094956560120+0200",
+        "completed_at": "2026-09-03T11:06:56+02:00",
+        "observed_head": "f3ae8cb02efa9dd12e27a8aa03ad9a198e74d229",
+        "summary": "normalizeForDedup in scripts/lib/merge_text.js ersetzt die fuenf byte-identischen norm-Kopien; merge_machina_historia behaelt begruendet seine eigene Fassung. Trockenlaeufe aller Merges unveraendert, sechs neue Tests.",
+        "tests": [
+          "npm test: 279 passed",
+          "Trockenlaeufe aller Merges liefern dieselben Zahlen"
+        ]
+      }
     },
     {
       "id": "merge-image-blacklist",
@@ -1032,9 +1035,20 @@
         "scripts/merge_phase5.js"
       ],
       "priority": 3,
-      "state": "pending",
+      "state": "completed",
       "noted_at": "2026-09-03T10:08:36+02:00",
-      "campaign_id": "20260903T094956560120+0200"
+      "campaign_id": "20260903T094956560120+0200",
+      "started_at": "2026-09-03T10:57:35+02:00",
+      "completed": {
+        "campaign_id": "20260903T094956560120+0200",
+        "completed_at": "2026-09-03T11:00:58+02:00",
+        "observed_head": "04654a8125095154fa13bc73cef98c4523f01707",
+        "summary": "blacklistReason in scripts/lib/merge_blacklist.js pruefen jetzt alle fuenf Merge-Skripte; merge_cultura nutzt dieselbe Funktion statt einer eigenen Kopie. Nachgestellt in natura: gesperrte Bilddatei und abgewandelte ID werden beide verworfen, vorher lief beides durch.",
+        "tests": [
+          "Trockenlaeufe aller Merges unveraendert; injizierte Sperrfaelle werden verworfen",
+          "npm test: 273 passed"
+        ]
+      }
     },
     {
       "id": "wikiquote-norm-drift",
