@@ -20,6 +20,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+import { applyTextFix } from './lib/merge_text.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -92,7 +93,9 @@ function clean(c) {
   if (out.category === 'star') { if (a.constellation) a.constellation = beforeParen(a.constellation); if (a.type) a.type = canonStarType(a.type); }
   if (out.category === 'galaxy' && a.type) a.type = beforeParen(a.type);
   if (out.category === 'muscle' && a.location) a.location = firstPhrase(a.location);
-  return deFixDeep(out);
+  // Textfixes nur auf Anzeigefelder und Attributwerte — nie auf id, URLs
+  // oder Bildfelder (Regel und Begründung in ./lib/merge_text.js).
+  return applyTextFix(out, deFix);
 }
 
 for (const domain of ['astra', 'homo']) {

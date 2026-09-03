@@ -27,6 +27,7 @@ import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { assertPreservesExistingConceptIds } from './lib/merge_safety.js';
+import { applyTextFix } from './lib/merge_text.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -175,7 +176,9 @@ function normalizeConcept(c) {
     imageLicense: c.imageLicense || '',
     imageAttribution: c.imageAttribution || ''
   };
-  return deFixDeep(out);
+  // Textfixes nur auf Anzeigefelder und Attributwerte — nie auf id, URLs
+  // oder Bildfelder (Regel und Begründung in ./lib/merge_text.js).
+  return applyTextFix(out, deFix);
 }
 
 // --- Zusammenführen + Dedup --------------------------------------------------

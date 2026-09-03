@@ -49,6 +49,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { createRequire } from 'node:module';
 import { assertPreservesExistingConceptIds } from './lib/merge_safety.js';
+import { applyTextFix } from './lib/merge_text.js';
 
 // Die Sperrliste liegt maschinenlesbar in harvest/IMAGE_BLACKLIST.json (Begründung
 // je Eintrag in harvest/BLACKLIST.md). Sie wird hier eingelesen statt kopiert,
@@ -273,7 +274,9 @@ function normalizeConcept(c, warnings) {
   };
   // Problem-Marker des Bild-Agenten nur mitführen, wenn er existiert.
   if (c._imgProblem !== undefined) out._imgProblem = c._imgProblem;
-  return deFixDeep(out);
+  // Textfixes nur auf Anzeigefelder und Attributwerte — nie auf id, URLs
+  // oder Bildfelder (Regel und Begründung in ./lib/merge_text.js).
+  return applyTextFix(out, deFix);
 }
 
 // --- Zusammenführen + Dedup ----------------------------------------------------

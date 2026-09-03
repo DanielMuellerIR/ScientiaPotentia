@@ -1,5 +1,15 @@
 # Backlog
 
+- 38 Konzept-IDs tragen Umlaute oder ß (`cultura:lit-der-fänger-im-roggen`, `natura:weißer-hai`
+  und weitere). Sie entstanden, weil die deutschen Textkorrekturen der Merge-Skripte bis zum
+  2026-09-03 über das ganze Konzeptobjekt liefen. Die Ursache ist behoben, die IDs bleiben
+  bewusst stehen: Sie sind zugleich die Schlüssel des Lernfortschritts in IndexedDB, ein
+  Umbenennen würde den Fortschritt zu diesen Konzepten stillschweigend zurücksetzen. Eine
+  Bereinigung braucht eine Migration.
+- 60 veröffentlichte Bildnachweise enthalten statt eines Urhebers einen mehrzeiligen
+  Commons-Rechtehinweis („Permission details / ACKNOWLEDGMENT FOR PUBLICATIONS …"), und 112
+  Nachweise sind bei 200 Zeichen mitten im Wort abgeschnitten. Beides entsteht in den
+  Bild-Auflösern; der Bildnachweis-Audit prüft nur auf Konkretheit, nicht auf Wohlgeformtheit.
 - Sechs Fragetypen haben weiterhin eine Option, die nur als richtige Antwort vorkommt und nie
   als Distraktor (76 Fragen): `astra-nebula-type` „planetarischer Nebel", `machina-algo-complexity`
   „O(n²)", `historia-figure-field` „Naturwissenschaft (allg.)", `terra/river-country`

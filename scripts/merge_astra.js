@@ -426,9 +426,13 @@ for (const file of FILES) {
     // erneut läuft). Attribute/Fakten werden dabei NICHT überschrieben.
     const hit = byId.get(c.id);
     if (hit) {
-      hit.imageFile = c.imageFile;
-      hit.imageLicense = c.imageLicense;
-      hit.imageAttribution = c.imageAttribution;
+      // Nur setzen, was die Ernte wirklich liefert. Vorher schrieb der Upsert
+      // auch leere Werte zurueck und loeschte damit ein bereits aufgeloestes
+      // Bild samt Lizenz und Urheber — still, denn die ID bleibt ja erhalten
+      // und assertPreservesExistingConceptIds greift nicht (CodeQA 2026-09-03).
+      if (c.imageFile) hit.imageFile = c.imageFile;
+      if (c.imageLicense) hit.imageLicense = c.imageLicense;
+      if (c.imageAttribution) hit.imageAttribution = c.imageAttribution;
       if (c._imgProblem !== undefined) hit._imgProblem = c._imgProblem;
       refreshed++;
       continue;
