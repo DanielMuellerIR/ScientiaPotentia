@@ -2,6 +2,29 @@
 
 Dieses Changelog beginnt mit dem für eine öffentliche Veröffentlichung bereinigten Projektstand.
 
+## [2.0.3] — 2026-09-04
+
+- Die Weltkarte blieb im veröffentlichten Release ohne Länder, Provinzen und Flüsse. Seit
+  2.0.2 tragen die Katalogdateien ihren Inhaltshash im Namen, die drei MapLibre-Quellen in
+  `Map.jsx` forderten aber weiter die Klarnamen `data/countries.json`,
+  `data/subdivisions.json` und `data/rivers.json` an — drei Adressen, die es in `dist/`
+  nicht mehr gibt. Damit fielen Auswahl, Hervorhebung und Flussbeschriftung aus, während
+  der Build fehlerfrei durchlief. Ein Test verbietet jetzt jede fest verdrahtete Adresse
+  unter `data/` im Quelltext.
+- Die Merge-Läufe für Natura und Lingua wären beim ersten Namenspaar abgebrochen, das sich
+  nur im Klammerzusatz unterscheidet („Kanopus" neben „Kanopus (Canopus)"). Beide Skripte
+  schrieben diesen Hinweis in eine Liste `warnings`, die dort nie angelegt war. Die Liste
+  gibt es jetzt, ihr Inhalt steht im Bericht, und ein Test prüft für alle Merge-Skripte,
+  dass jeder Sammler auch deklariert ist.
+- Der Astra-Auflöser `resolve_images_p18_v2.cjs` leitete den Commons-Dateititel selbst aus
+  dem letzten Adresssegment ab. Bei einer Thumbnail-Adresse kam damit „1200px-Foo.jpg"
+  statt „Foo.jpg" heraus, die Dateiseite fehlte, und das Bild blieb ohne Meldung ungeerntet.
+  Er nutzt jetzt dieselbe Regel wie die übrigen Auflöser.
+- Der gebündelte Bild-Auflöser las den Urheber nur aus dem Commons-Feld `Artist`. Eine frei
+  lizenzierte Datei, die ihre Namensnennung allein in `Credit` führt, kam damit ohne
+  Urhebertext an und fiel still aus dem Ergebnis. Alle vier Bild-Auflöser lesen jetzt beide
+  Felder über eine gemeinsame Funktion.
+
 ## [2.0.2] — 2026-09-03
 
 - 832 Fragen in allen acht Wissensbereichen zeigten eine Antwortoption, die im ganzen Katalog

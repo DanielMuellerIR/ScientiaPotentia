@@ -6,6 +6,7 @@ import maplibregl from 'maplibre-gl';
 import Atlas from '../components/Atlas';
 import Map from '../components/Map';
 import { useGeoData } from '../utils/useGeoData';
+import { DATA_MAP_META_NAME, resetDataUrlCache } from '../utils/dataUrl';
 
 const stylePath = resolve(process.cwd(), 'public/map_styles/scientia_parchment.json');
 const parchmentStyle = JSON.parse(readFileSync(stylePath, 'utf8'));
@@ -122,6 +123,44 @@ describe('Terra-Kartenwerkzeuge', () => {
         }
       });
     });
+  });
+
+  it('holt die Geometriequellen unter dem gehashten Namen des Produktionsbaus', async () => {
+    // Der Produktionsbau benennt jede Datei in dist/data mit ihrem Inhaltshash um;
+    // "data/countries.json" existiert dort nicht mehr. Stand 2026-09-04 standen die
+    // drei MapLibre-Quellen noch auf dem Klarnamen — die Karte forderte im Release
+    // drei nicht vorhandene Adressen an und blieb ohne Laender, Regionen und Fluesse.
+    const meta = document.createElement('meta');
+    meta.setAttribute('name', DATA_MAP_META_NAME);
+    meta.setAttribute('content', JSON.stringify({
+      'countries.json': 'countries.609e0f8b.json',
+      'subdivisions.json': 'subdivisions.77ea4a54.json',
+      'rivers.json': 'rivers.fbc7c119.json'
+    }));
+    document.head.appendChild(meta);
+    resetDataUrlCache();
+
+    try {
+      render(<Map mode="atlas" onSelectEntity={vi.fn()} />);
+      const map = maplibregl.Map.mock.instances[0];
+
+      await waitFor(() => {
+        expect(map.addSource).toHaveBeenCalledWith('countries', expect.objectContaining({
+          data: 'data/countries.609e0f8b.json'
+        }));
+      });
+      expect(map.addSource).toHaveBeenCalledWith('subdivisions', expect.objectContaining({
+        data: 'data/subdivisions.77ea4a54.json'
+      }));
+      expect(map.addSource).toHaveBeenCalledWith('rivers', expect.objectContaining({
+        data: 'data/rivers.fbc7c119.json'
+      }));
+      // Auch der Hook fuer die Bounding-Boxen muss den gehashten Namen anfordern.
+      expect(global.fetch).toHaveBeenCalledWith('data/countries.609e0f8b.json');
+    } finally {
+      meta.remove();
+      resetDataUrlCache();
+    }
   });
 
   it('lädt den lokalen Stil und schaltet Navigation und Maßstab gemeinsam', async () => {

@@ -2,7 +2,7 @@
 // gehashte Name. Beides muss stimmen — der Entwicklungsserver liefert die
 // Dateien unter dem Klarnamen aus, der Produktionsbau nur unter dem gehashten.
 import { describe, expect, it, beforeEach, afterEach } from 'vitest';
-import { readFileSync } from 'node:fs';
+import { readdirSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { dataUrl, resetDataUrlCache, DATA_MAP_META_NAME } from '../utils/dataUrl';
 import { buildDataAssetMap, hashedName } from '../../scripts/lib/data_asset_hashes.mjs';
@@ -88,5 +88,38 @@ describe('Hashes der Katalogdateien', () => {
     for (const name of angefordert) {
       expect(Object.keys(map), `${name} fehlt in public/data`).toContain(name);
     }
+  });
+});
+
+describe('Keine fest verdrahteten Katalogpfade', () => {
+  const srcDir = resolve(import.meta.dirname, '..');
+
+  /** Alle .js/.jsx unter src/, ohne die Tests selbst. */
+  function sourceFiles(dir) {
+    const found = [];
+    for (const entry of readdirSync(dir, { withFileTypes: true })) {
+      if (entry.name === '__tests__') continue;
+      const full = resolve(dir, entry.name);
+      if (entry.isDirectory()) found.push(...sourceFiles(full));
+      else if (/\.jsx?$/.test(entry.name)) found.push(full);
+    }
+    return found;
+  }
+
+  it('baut keine Adresse unter data/ als Zeichenkette zusammen', () => {
+    // Ein Literal wie 'data/countries.json' zeigt im Produktionsbau ins Leere:
+    // dort heisst die Datei 'data/countries.<hash>.json'. Der Fehler faellt beim
+    // Bauen nicht auf, weil Vite den String nicht als Verweis erkennt — genau so
+    // blieben die drei MapLibre-Quellen in Map.jsx bis 2026-09-04 unbemerkt kaputt.
+    const treffer = [];
+    for (const file of sourceFiles(srcDir)) {
+      if (file.endsWith('utils/dataUrl.js')) continue;   // definiert das Praefix selbst
+      for (const zeile of readFileSync(file, 'utf8').split('\n')) {
+        if (/['"`]data\/[\w.-]+\.(?:json|geojson)/.test(zeile)) {
+          treffer.push(`${file}: ${zeile.trim()}`);
+        }
+      }
+    }
+    expect(treffer, 'stattdessen dataUrl(<Klarname>) verwenden').toEqual([]);
   });
 });

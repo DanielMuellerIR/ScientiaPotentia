@@ -188,6 +188,7 @@ const idsByCat = {};       // Kategorie -> Set(id)
 const namesByCat = {};
 const loosePerCat = {};   // klammerlose Namen je Kategorie — nur fuer Hinweise     // Kategorie -> Set(normalisierter Name)
 let dropped = [];
+const warnings = [];      // Hinweise, die keinen Verwurf ausloesen
 const blockedIds = [];   // wegen der Sperrliste verworfen — dürfen fehlen
 const fileStats = {};
 
@@ -240,6 +241,10 @@ console.log(`\nKonzepte gesamt: ${merged.length}  (verworfen ${dropped.length})`
 console.log('Nach Kategorie:', byCat);
 console.log(`Tier-Schutzstatus kanonisch: ${statusCanonCount}/${animals.length}` +
   ` (${animals.length - statusCanonCount} mehrdeutig -> ohne Status-Frage)`);
+if (warnings.length) {
+  console.log('\n--- Hinweise ---');
+  warnings.forEach(w => console.log('  ! ' + w));
+}
 if (dropped.length) {
   console.log('\n--- Verworfen (Dubletten) ---');
   dropped.forEach(d => console.log(`  - ${d.category}/${d.name} [${d.reason}]`));

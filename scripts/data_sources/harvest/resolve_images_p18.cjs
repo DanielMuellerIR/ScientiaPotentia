@@ -23,7 +23,7 @@ const https = require("https");
 const fs = require("fs");
 const path = require("path");
 const { writeJsonAtomic } = require('./json_io.cjs');
-const { truncateCredit } = require('./credit_text.cjs');
+const { commonsAttribution } = require('./credit_text.cjs');
 const {
   isAllowedCommonsLicenseMetadata,
   licenseNameFromCommonsMetadata,
@@ -60,10 +60,10 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
 // wirkten gar nicht. Dass "Guernica" trotzdem haengen blieb, lag an der
 // doppelten Pflege in beiden Dateien (CodeQA 2026-09-03).
 
+// Artist + Credit nach der gemeinsamen Regel in credit_text.cjs. Bleibt beides
+// leer, steht als letzter Ausweg die Plattform selbst im Nachweis.
 function attribution(meta) {
-  const artist = (meta?.Artist?.value || "").toString().replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
-  const credit = (meta?.Credit?.value || "").toString().replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
-  return truncateCredit([artist, credit].filter(Boolean).join(" / ")) || "Wikimedia Commons";
+  return commonsAttribution(meta) || "Wikimedia Commons";
 }
 
 // ---------------------------------------------------------------------------

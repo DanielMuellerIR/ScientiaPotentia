@@ -30,7 +30,7 @@ const https = require("https");
 const fs = require("fs");
 const path = require("path");
 const { writeJsonAtomic } = require('./json_io.cjs');
-const { truncateCredit } = require('./credit_text.cjs');
+const { commonsAttribution } = require('./credit_text.cjs');
 const {
   isBlacklistedFile, isBlacklistedConcept,
 } = require('./image_resolution_policy.cjs');
@@ -55,10 +55,10 @@ const ALLOWED_MIME = new Set(["image/jpeg", "image/png", "image/svg+xml", "image
 // doppelten Pflege in beiden Dateien (CodeQA 2026-09-03).
 
 // Urheber-Angabe aus extmetadata (Artist + Credit), HTML-Tags gestrippt, gekürzt.
+// Artist + Credit nach der gemeinsamen Regel in credit_text.cjs. Bleibt beides
+// leer, steht als letzter Ausweg die Plattform selbst im Nachweis.
 function attribution(meta) {
-  const artist = (meta?.Artist?.value || "").toString().replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
-  const credit = (meta?.Credit?.value || "").toString().replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
-  return truncateCredit([artist, credit].filter(Boolean).join(" / ")) || "Wikimedia Commons";
+  return commonsAttribution(meta) || "Wikimedia Commons";
 }
 
 // Laufzeit-Statistik (im Abschlussbericht ausgegeben).

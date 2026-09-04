@@ -19,7 +19,7 @@ const {
   licenseNameFromCommonsMetadata,
 } = require('../../lib/image_license_policy.js');
 const { DEWIKI_MAP, AMBIGUOUS_NAMES } = require('./resolve_images_p18_v2.cjs');
-const { truncateCredit } = require('./credit_text.cjs');
+const { commonsAttribution } = require('./credit_text.cjs');
 const {
   fileNameFromUploadUrl,
   isBlacklistedConcept,
@@ -298,10 +298,11 @@ async function main() {
       const lic = licenseNameFromCommonsMetadata(m);
       const ok = ALLOWED_MIME.has(String(ii.mime || ""))
         && isAllowedCommonsLicenseMetadata(m);
-      // truncateCredit vereinheitlicht auch den Whitespace — dieser Aufloeser
-      // war als einziger ohne, dadurch standen mehrzeilige Rechtetexte im
-      // Bildnachweis (CodeQA 2026-09-03).
-      licByFile.set(fTitle, { ok, lic, art: truncateCredit((m.Artist?.value || "").replace(/<[^>]+>/g, "")) });
+      // Urhebertext nach der gemeinsamen Regel in credit_text.cjs: Artist UND
+      // Credit. Dieser Aufloeser las bis 2026-09-04 nur Artist; eine freie Datei
+      // mit Nachweis allein in Credit kam ohne Text hier an und fiel weiter
+      // unten still aus dem Mapping, obwohl ihre Lizenz akzeptiert war.
+      licByFile.set(fTitle, { ok, lic, art: commonsAttribution(m) });
     }
     await sleep(120);
   }

@@ -3,6 +3,10 @@ import { SlidersHorizontal } from 'lucide-react';
 import maplibregl from 'maplibre-gl';
 import { Protocol } from 'pmtiles';
 import { useGeoData } from '../utils/useGeoData';
+// Die Geometriedateien tragen im Produktionsbau ihren Inhaltshash im Namen.
+// dataUrl() loest den Klarnamen dorthin auf (siehe src/utils/dataUrl.js); ein
+// fest verdrahteter Klarname zeigt im Release ins Leere.
+import { dataUrl } from '../utils/dataUrl';
 
 // Initialize PMTiles protocol globally
 const protocol = new Protocol();
@@ -142,7 +146,7 @@ export default function Map({
       // 1. Add Countries source and layers
       map.addSource('countries', {
         type: 'geojson',
-        data: 'data/countries.json',
+        data: dataUrl('countries.json'),
         promoteId: 'id'
       });
 
@@ -172,7 +176,7 @@ export default function Map({
       // 2. Add Subdivisions source and layers (DE, US, GB)
       map.addSource('subdivisions', {
         type: 'geojson',
-        data: 'data/subdivisions.json',
+        data: dataUrl('subdivisions.json'),
         promoteId: 'id'
       });
 
@@ -220,7 +224,7 @@ export default function Map({
       // 3. Add Rivers source and layer
       map.addSource('rivers', {
         type: 'geojson',
-        data: 'data/rivers.json',
+        data: dataUrl('rivers.json'),
         promoteId: 'id'
       });
 

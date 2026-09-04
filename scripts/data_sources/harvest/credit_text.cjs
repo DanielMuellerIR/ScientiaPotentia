@@ -37,4 +37,28 @@ function truncateCredit(value, limit = MAX_CREDIT_LENGTH) {
   return `${head.replace(/[\s/;,·-]+$/, '')} …`;
 }
 
-module.exports = { MAX_CREDIT_LENGTH, truncateCredit };
+/**
+ * Urhebernachweis aus den Commons-Metadaten einer Datei.
+ *
+ * Commons fuehrt die Namensnennung in zwei Feldern: `Artist` (Urheber) und
+ * `Credit` (Quelle/Fundstelle). Viele freie Dateien fuellen nur eines davon.
+ * Der gebuendelte Aufloeser las bis 2026-09-04 ausschliesslich `Artist` — ein
+ * Datensatz mit Nachweis nur in `Credit` kam ohne Urhebertext an und wurde
+ * danach still verworfen, obwohl seine Lizenz akzeptiert war.
+ *
+ * Rueckgabe ist der bereinigte, auf {@link MAX_CREDIT_LENGTH} gekuerzte Text.
+ * Fehlen beide Felder, kommt der leere String zurueck; ob daraus ein Verwurf
+ * oder ein Ersatztext wie „Wikimedia Commons" wird, entscheidet der Aufrufer.
+ *
+ * @param {object} metadata  extmetadata-Block aus der Commons-imageinfo-Antwort.
+ * @returns {string}
+ */
+function commonsAttribution(metadata) {
+  const feld = (name) => String(metadata?.[name]?.value ?? '')
+    .replace(/<[^>]+>/g, '')     // Commons liefert HTML (Links, <span>)
+    .replace(/\s+/g, ' ')
+    .trim();
+  return truncateCredit([feld('Artist'), feld('Credit')].filter(Boolean).join(' / '));
+}
+
+module.exports = { MAX_CREDIT_LENGTH, commonsAttribution, truncateCredit };

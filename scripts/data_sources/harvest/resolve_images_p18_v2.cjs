@@ -21,13 +21,13 @@ const https = require("https");
 const fs = require("fs");
 const path = require("path");
 const { writeJsonAtomic } = require('./json_io.cjs');
-const { truncateCredit } = require('./credit_text.cjs');
+const { commonsAttribution } = require('./credit_text.cjs');
 const {
   isAllowedCommonsLicenseMetadata,
   licenseNameFromCommonsMetadata,
 } = require('../../lib/image_license_policy.js');
 const {
-  selectP18File, isBlacklistedFile, isBlacklistedConcept,
+  fileNameFromUploadUrl, selectP18File, isBlacklistedFile, isBlacklistedConcept,
 } = require('./image_resolution_policy.cjs');
 
 const UA = "ScientiaQuizImageResolverP18v2/1.0 (educational quiz project; pageimages+P18 only)";
@@ -193,10 +193,10 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
 // wirkten gar nicht. Dass "Guernica" trotzdem haengen blieb, lag an der
 // doppelten Pflege in beiden Dateien (CodeQA 2026-09-03).
 
+// Artist + Credit nach der gemeinsamen Regel in credit_text.cjs. Bleibt beides
+// leer, steht als letzter Ausweg die Plattform selbst im Nachweis.
 function attribution(meta) {
-  const artist = (meta?.Artist?.value || "").toString().replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
-  const credit = (meta?.Credit?.value || "").toString().replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
-  return truncateCredit([artist, credit].filter(Boolean).join(" / ")) || "Wikimedia Commons";
+  return commonsAttribution(meta) || "Wikimedia Commons";
 }
 
 // ---------------------------------------------------------------------------
@@ -324,16 +324,14 @@ async function dewikiPageimage(title) {
     if (page && page.missing === undefined) {
       const source = page.original?.source;
       if (source) {
-        // Commons-Upload-URL: .../wikipedia/commons/<hash>/<hash>/<Dateiname>.
-        // Pageimages hängt Tracking-Parameter an; die gehören nicht zum Dateinamen.
-        let fileName = null;
-        try { fileName = decodeURIComponent(new URL(source).pathname.split("/").pop() || ""); }
-        catch { fileName = null; }
-        if (fileName) {
-          // .svg.png-Varianten zurück auf .svg normalisieren (de.wiki liefert manchmal .svg.png)
-          fileName = fileName.replace(/\.svg\.png$/, ".svg");
-          result = "File:" + fileName;
-        }
+        // Dateititel ausschliesslich ueber die gemeinsame Regel in
+        // image_resolution_policy.cjs. Sie kennt den Thumbnail-Fall: bei
+        // .../thumb/a/ab/Foo.jpg/1200px-Foo.jpg steht der echte Titel im
+        // VORLETZTEN Segment. Dieser Resolver leitete ihn bis 2026-09-04 selbst
+        // aus dem letzten Segment ab, fragte damit "File:1200px-Foo.jpg" ab und
+        // verwarf die fehlende Dateiseite still — das Konzept blieb ohne Bild.
+        const fileName = fileNameFromUploadUrl(source);
+        if (fileName) result = "File:" + fileName;
       }
     }
   }

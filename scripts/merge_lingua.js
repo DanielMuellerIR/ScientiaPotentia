@@ -360,6 +360,7 @@ const idsByCat = {};       // Kategorie -> Set(id)
 const namesByCat = {};
 const loosePerCat = {};   // klammerlose Namen je Kategorie — nur fuer Hinweise     // Kategorie -> Set(normalisierter Name)
 const dropped = [];
+const warnings = [];      // Hinweise, die keinen Verwurf ausloesen
 const blockedIds = [];   // wegen der Sperrliste verworfen — dürfen fehlen
 const fileStats = {};
 
@@ -412,6 +413,10 @@ console.log('=== MERGE LINGUA ===');
 for (const f of FILES) console.log(`  ${f.padEnd(22)} ${fileStats[f].kept}/${fileStats[f].in} behalten`);
 console.log(`\nKonzepte gesamt: ${merged.length}  (verworfen ${dropped.length})`);
 console.log('Nach Kategorie:', byCat);
+if (warnings.length) {
+  console.log('\n--- Hinweise ---');
+  warnings.forEach(w => console.log('  ! ' + w));
+}
 if (dropped.length) {
   console.log('\n--- Verworfen ---');
   dropped.forEach(d => console.log(`  - ${d.category}/${d.name} [${d.reason}]`));
