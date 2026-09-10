@@ -614,6 +614,32 @@ class DeployTests(unittest.TestCase):
         self.assertEqual(result.removed, 0)
         self.assertIn("/remote/data/alt.json", ftps.files)
 
+    def test_an_unusable_history_entry_does_not_push_a_valid_one_out(self):
+        """Ein leerer Eintrag darf keinen echten Vorgaenger zum Loeschen freigeben."""
+        self.write_build()
+        # Der mittlere Eintrag enthaelt nur unzulaessige Pfade und faellt beim
+        # Normalisieren weg. Wuerde er trotzdem einen Historienplatz belegen,
+        # rutschte "still_needed.json" heraus und wuerde geloescht.
+        still_needed = "data/still_needed.json"
+        history = [
+            ["data/keep0.json"],
+            ["/absolut/verboten", "../raus"],
+            [still_needed],
+        ]
+        ftps = FakeFTPS({f"/remote/{still_needed}": b"noch gebraucht"})
+        ftps.files[f"/remote/{deploy.REMOTE_MANIFEST_NAME}"] = json.dumps({
+            "version": 2, "files": {}, "history": history,
+        }).encode("utf-8")
+
+        result = deploy.deploy_dist(ftps, str(self.dist), "/remote")
+
+        self.assertEqual(result.removed, 0)
+        self.assertIn(f"/remote/{still_needed}", ftps.files)
+        self.assertEqual(
+            result.manifest["history"],
+            [[], ["data/keep0.json"], [still_needed]],
+        )
+
     def test_each_remote_directory_is_prepared_only_once(self):
         self.write_build()
         (self.dist / "assets" / "second.js").write_bytes(b"second")

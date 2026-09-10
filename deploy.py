@@ -371,10 +371,19 @@ def normalise_history(data):
     if not isinstance(entries, list):
         return []
     releases = []
-    for entry in entries[:RELEASE_HISTORY_LENGTH]:
+    for entry in entries:
+        if len(releases) == RELEASE_HISTORY_LENGTH:
+            break
         if not isinstance(entry, list):
             continue
-        releases.append(sorted({path for path in entry if is_safe_relative_path(path)}))
+        paths = sorted({path for path in entry if is_safe_relative_path(path)})
+        # Ein Eintrag ohne brauchbaren Pfad darf keinen Platz in der Historie
+        # belegen: Er wuerde einen echten Vorgaenger nach hinten schieben, bis
+        # dieser herausfaellt und geloescht wird — genau das, was hier
+        # ausgeschlossen sein soll.
+        if not paths:
+            continue
+        releases.append(paths)
     return releases
 
 
@@ -823,9 +832,13 @@ def main():
                 f", {result.skipped_unverified} skipped on manifest and size only "
                 "(server offers no checksum)"
             )
+        # Geloeschte Altstaende gehoeren in die Zusammenfassung: Ein Deploy
+        # entfernt hier Dateien vom Server, und wer nur die Schlusszeile liest,
+        # soll das sehen und nicht erst in den Einzelzeilen darueber suchen.
+        entfernt = f" Removed {result.removed} superseded file(s)." if result.removed else ""
         print(
             f"      DEPLOYMENT SUCCESSFUL! Uploaded {result.uploaded} files "
-            f"({beleg})."
+            f"({beleg}).{entfernt}"
         )
     print("=" * 60)
 
