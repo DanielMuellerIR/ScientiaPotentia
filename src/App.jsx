@@ -344,6 +344,15 @@ export default function App() {
     setNewEntities(unused);
   }, [concepts, srsProgress]);
 
+  // Konnten die gespeicherten Werte gelesen werden? Nach einem Lesefehler stehen
+  // streakCount und highScore auf ihrem Anfangswert 0. Wuerde von dort aus
+  // geschrieben, machte der erste Punktegewinn aus einer Bestmarke von 5000 eine
+  // von 10 und aus einer 27-Tage-Serie eine von 1. Solange der Vorzustand
+  // unbekannt ist, fuehrt die App nur die Anzeige der laufenden Sitzung und
+  // speichert nichts.
+  const streakReadable = React.useRef(true);
+  const highScoreReadable = React.useRef(true);
+
   const loadStreak = async () => {
     try {
       const streak = await getSetting('streakCount', 0);
@@ -371,7 +380,9 @@ export default function App() {
       } else {
         setStreakCount(streak);
       }
+      streakReadable.current = true;
     } catch (e) {
+      streakReadable.current = false;
       console.error('Error loading streak:', e);
     }
   };
@@ -380,7 +391,9 @@ export default function App() {
     try {
       const savedScore = await getSetting('highScore', 0);
       setHighScore(savedScore);
+      highScoreReadable.current = true;
     } catch (e) {
+      highScoreReadable.current = false;
       console.error('Error loading highscore:', e);
     }
   };
@@ -390,6 +403,7 @@ export default function App() {
     activeScoreRef.current = newScore;
     if (newScore <= highScore) return;
     setHighScore(previous => Math.max(previous, newScore));
+    if (!highScoreReadable.current) return;
     try {
       await saveSetting('highScore', newScore);
     } catch (e) {
@@ -448,6 +462,12 @@ export default function App() {
     setActiveTab('quiz');
   };
 
+  // Startansicht eines Bereichs. Wo es einen Explorer gibt, ist er die Startseite;
+  // die Kopfzeile blendet den Uebersicht-Knopf dort aus (siehe Navigation unten).
+  // Beide Rueckwege in die Uebersicht — Bereichswechsel und Rundenende — muessen
+  // dieselbe Regel benutzen, sonst landet man auf einem Tab ohne Knopf.
+  const startTabFor = (domain) => (domain?.Explorer ? 'explore' : 'dashboard');
+
   const handleQuizFinished = async () => {
     playClick();
     try {
@@ -461,7 +481,7 @@ export default function App() {
       if (lastReviewKey !== todayKey) {
         const newStreak = streakCount + 1;
         setStreakCount(newStreak);
-        await saveSetting('streakCount', newStreak);
+        if (streakReadable.current) await saveSetting('streakCount', newStreak);
       }
       // Migriert auch einen alten Date.toDateString()-Wert vom heutigen Tag.
       if (lastReviewDateStr !== todayKey) await saveSetting('lastReviewDate', todayKey);
@@ -472,7 +492,7 @@ export default function App() {
     } finally {
       await loadProgressData();
       setQuizArmed(false); // Runde beendet -> nächster Lern-Quiz-Aufruf zeigt wieder die Wahl
-      setActiveTab('dashboard');
+      setActiveTab(startTabFor(activeDomain));
     }
   };
 
@@ -482,6 +502,9 @@ export default function App() {
     // Direkter Klick auf den Lern-Quiz-Tab: Runde "entschärfen", damit zuerst der
     // Vorschalt-Screen mit Stufenwahl erscheint (nicht sofort Stufe 1).
     if (tab === 'quiz') setQuizArmed(false);
+    // Der Hinweis gehoert zum Schnelltest-Versuch, nicht zur naechsten Ansicht.
+    // Er verdeckt sonst die dauerhafte Warnung ueber nicht gespeicherte Antworten.
+    setQuizStartError('');
     setActiveTab(tab);
   };
 
@@ -492,9 +515,7 @@ export default function App() {
     playClick();
     if (activeTabRef.current === 'quiz') await flushQuizProgressWrites();
     setActiveDomainId(domainId);
-    // Domains mit Explorer (z.B. Astra) starten direkt im Erkundungsbereich,
-    // alle anderen in der Übersicht.
-    setActiveTab(getDomainById(domainId).Explorer ? 'explore' : 'dashboard');
+    setActiveTab(startTabFor(getDomainById(domainId)));
     setQuizArmed(false); // Bereichswechsel -> Quizrunde zurücksetzen
     setQuizEntityFilterId(null);
     setQuizStartError('');
