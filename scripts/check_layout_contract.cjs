@@ -285,6 +285,28 @@ check('Interner CSS-Parser erfasst Selektorfamilien und die letzte Farbkaskade',
     `Klasse ${c} darf nicht entfernt werden — sie traegt die Shell-Geometrie.`)
 );
 
+// 2b) Regel 3 des Layoutvertrags: Spalten mit variablem Inhalt behalten
+// min-height:0 (Flexbox darf schrumpfen) und die scrollende Spalte zusaetzlich
+// overflow-y:auto. Geprueft wurde bisher nur, DASS die Regeln existieren, nie
+// was darin steht — wer min-height:0 aus .app-pane-right streicht, schneidet
+// ein langes Quiz auf niedrigem Viewport ab, und diese Pruefung blieb gruen.
+[['.app-main', 'min-height:0'],
+ ['.app-pane-left', 'min-height:0'],
+ ['.app-pane-right', 'min-height:0'],
+ ['.app-pane-right', 'overflow-y:auto']].forEach(([selektor, deklaration]) => {
+  const bodies = getRuleBodies(css, selektor);
+  check(`${selektor} traegt ${deklaration} (Layoutvertrag Regel 3)`,
+    bodies.some((body) => body.replace(/\s+/g, '').includes(deklaration)),
+    `${deklaration} in ${selektor} ist der Flexbox-Overflow-Fix: ohne ihn wird zu hoher `
+    + 'Inhalt abgeschnitten statt scrollbar (LAYOUT.md, Regel 3).');
+});
+
+// 2c) Die Shell haengt an der dynamischen Viewporthoehe. 100vh statt 100dvh
+// laesst auf Mobilgeraeten die Fusszeile unter die Browserleiste rutschen.
+check('.app-shell nutzt 100dvh als Hoehe',
+  getRuleBodies(css, '.app-shell').some((body) => body.replace(/\s+/g, '').includes('height:100dvh')),
+  'Die Shell braucht height:100dvh — 100vh rechnet die eingeblendete Browserleiste nicht mit.');
+
 // 3) Der responsive Breakpoint und die Mobil-Stapelung muessen vorhanden sein.
 check('Breakpoint @media (max-width:768px) vorhanden',
   mobile768Blocks.length > 0,

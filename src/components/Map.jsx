@@ -1,16 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { SlidersHorizontal } from 'lucide-react';
 import maplibregl from 'maplibre-gl';
-import { Protocol } from 'pmtiles';
 import { useGeoData } from '../utils/useGeoData';
 // Die Geometriedateien tragen im Produktionsbau ihren Inhaltshash im Namen.
 // dataUrl() loest den Klarnamen dorthin auf (siehe src/utils/dataUrl.js); ein
 // fest verdrahteter Klarname zeigt im Release ins Leere.
 import { dataUrl } from '../utils/dataUrl';
-
-// Initialize PMTiles protocol globally
-const protocol = new Protocol();
-maplibregl.addProtocol('pmtiles', protocol.tile);
 
 // Der Stil liegt lokal im Build und bleibt deshalb auch bei einem anderen Vite-Base-Pfad
 // auffindbar. Kacheln, Glyphen und Sprite bleiben bewusst beim OpenFreeMap-Original;

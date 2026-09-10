@@ -24,6 +24,37 @@ describe('veröffentlichte Drittanbieterhinweise', () => {
   });
 });
 
+// Impressum und Datenschutz muessen im GERENDERTEN UI stehen, nicht nur in einer
+// sonst leeren index.html — bei einer Single-Page-App also im DOM. Geprueft wurde
+// das bisher nirgends: check_layout_contract.cjs liest fuer den Footer nur
+// src/index.css, und kein Test fasste das Markup an. Wer den footer-Block aus
+// App.jsx entfernt, haette gruenes npm test, gruenes check:layout und gruenen
+// Build gehabt — und eine ausgelieferte App ohne Pflichtangaben.
+describe('Pflichtangaben im gerenderten UI', () => {
+  const appQuelle = readFileSync(resolve(root, 'src/App.jsx'), 'utf8');
+
+  it('rendert die Fusszeile, auf die der Layoutvertrag sich bezieht', () => {
+    expect(appQuelle).toMatch(/<footer[^>]*className="app-footer"/);
+  });
+
+  it.each([
+    ['Impressum', 'https://dm0.de/impressum.html'],
+    ['Datenschutz', 'https://dm0.de/datenschutz.html'],
+    ['Bild- & Datenquellen', './credits.html'],
+  ])('verlinkt %s', (beschriftung, ziel) => {
+    expect(appQuelle).toContain(`href="${ziel}"`);
+    // Die Beschriftung steht im Markup teils mit Entity (&amp;).
+    const sichtbar = beschriftung.replace('&', '&amp;');
+    expect(appQuelle).toContain(sichtbar);
+  });
+
+  it('oeffnet die externen Rechtsseiten abgesichert gegen Tab-Nabbing', () => {
+    for (const treffer of appQuelle.matchAll(/<a\s[^>]*target="_blank"[^>]*>/g)) {
+      expect(treffer[0]).toContain('rel="noopener noreferrer"');
+    }
+  });
+});
+
 describe('Build-Verträge', () => {
   it('öffnet beim Start des Entwicklungsservers kein GUI-Fenster', () => {
     expect(viteConfig.server.open).toBe(false);
