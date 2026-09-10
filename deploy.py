@@ -669,8 +669,11 @@ def _deploy_dist_normalised(ftps, local_dist, remote_base, *, dry_run=False, for
         print(f"[DEPLOY] {action.capitalize()}: {file['local_file']} -> {target}")
         try:
             # Auch Assets gehen über temporäre Datei + Rename auf den Live-Pfad:
-            # die laufende Seite lädt stabile Pfade wie data/questions_*.json,
-            # ein abgebrochener Direktupload würde dort eine halbe Datei hinterlassen.
+            # Ein abgebrochener Direktupload würde unter dem Zielnamen eine halbe
+            # Datei hinterlassen. Das trifft weiter zu, obwohl die Katalogdateien
+            # seit 2.0.2 ihren Inhaltshash im Namen tragen — geschützte Dateien,
+            # ein Lauf mit --force und jede Wiederholung nach einem Abbruch
+            # schreiben sehr wohl auf einen bereits belegten Pfad.
             upload_file(ftps, file["local_file"], target, prepared_directories)
             release_files[relative_path] = metadata
             uploaded += 1
