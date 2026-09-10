@@ -6,6 +6,21 @@ import { readdirSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { dataUrl, resetDataUrlCache, DATA_MAP_META_NAME } from '../utils/dataUrl';
 import { buildDataAssetMap, hashedName } from '../../scripts/lib/data_asset_hashes.mjs';
+import viteConfig from '../../vite.config.js';
+
+const srcDir = resolve(import.meta.dirname, '..');
+
+/** Alle .js/.jsx unter src/, ohne die Tests selbst. */
+function sourceFiles(dir) {
+  const found = [];
+  for (const entry of readdirSync(dir, { withFileTypes: true })) {
+    if (entry.name === '__tests__') continue;
+    const full = resolve(dir, entry.name);
+    if (entry.isDirectory()) found.push(...sourceFiles(full));
+    else if (/\.jsx?$/.test(entry.name)) found.push(full);
+  }
+  return found;
+}
 
 function setMeta(content) {
   const meta = document.createElement('meta');
@@ -75,11 +90,12 @@ describe('Hashes der Katalogdateien', () => {
 
   it('deckt alle Katalogdateien ab, die die App anfordert', () => {
     const map = buildDataAssetMap(publicData);
-    const quelle = readFileSync(resolve(import.meta.dirname, '../domains/index.js'), 'utf8')
-      + readFileSync(resolve(import.meta.dirname, '../App.jsx'), 'utf8')
-      + readFileSync(resolve(import.meta.dirname, '../utils/useGeoData.js'), 'utf8');
-    // Literale Aufrufe (Kataloge, Statistik) …
-    const angefordert = [...quelle.matchAll(/dataUrl\('([^']+)'\)/g)].map(treffer => treffer[1]);
+    // Alle Quellen unter src/, nicht nur die drei bekannten Aufrufer: Map.jsx
+    // fordert seine drei Geometriedateien ebenfalls per dataUrl() an und war
+    // hier bis zum 2026-09-10 nicht erfasst.
+    const quelle = sourceFiles(srcDir).map(file => readFileSync(file, 'utf8')).join('\n');
+    // Literale Aufrufe (Kataloge, Statistik) — in einfachen wie doppelten Anfuehrungszeichen.
+    const angefordert = [...quelle.matchAll(/dataUrl\(\s*['"]([^'"]+)['"]\s*\)/g)].map(treffer => treffer[1]);
     // … und die Geometriedateien, die useGeoData über eine Variable auflöst.
     const geo = [...quelle.matchAll(/^\s+\w+: '([\w.]+\.(?:json|geojson))'/gm)].map(treffer => treffer[1]);
     angefordert.push(...geo);
@@ -91,21 +107,24 @@ describe('Hashes der Katalogdateien', () => {
   });
 });
 
+describe('Meta-Tag zwischen Build und Laufzeit', () => {
+  // Der Build schreibt das Tag, dataUrl() liest es. Stimmen die beiden Namen
+  // nicht ueberein, findet readMap() nichts, jede der 19 Katalogdateien wird
+  // unter ihrem Klarnamen angefordert — und den gibt es im Release nicht mehr.
+  // Alle acht Wissensbereiche liefen dann ins Leere, ohne dass ein Test oder der
+  // Build es meldet. Genau daran verlor 2.0.2 die Weltkarte.
+  it('nutzt in der Vite-Konfiguration denselben Namen wie dataUrl()', () => {
+    const plugin = viteConfig.plugins
+      .flat(Infinity)
+      .find(eintrag => eintrag && eintrag.name === 'scientia-hashed-data-assets');
+    expect(plugin, 'Plugin scientia-hashed-data-assets fehlt').toBeDefined();
+    const [tag] = plugin.transformIndexHtml();
+    expect(tag.tag).toBe('meta');
+    expect(tag.attrs.name).toBe(DATA_MAP_META_NAME);
+  });
+});
+
 describe('Keine fest verdrahteten Katalogpfade', () => {
-  const srcDir = resolve(import.meta.dirname, '..');
-
-  /** Alle .js/.jsx unter src/, ohne die Tests selbst. */
-  function sourceFiles(dir) {
-    const found = [];
-    for (const entry of readdirSync(dir, { withFileTypes: true })) {
-      if (entry.name === '__tests__') continue;
-      const full = resolve(dir, entry.name);
-      if (entry.isDirectory()) found.push(...sourceFiles(full));
-      else if (/\.jsx?$/.test(entry.name)) found.push(full);
-    }
-    return found;
-  }
-
   it('baut keine Adresse unter data/ als Zeichenkette zusammen', () => {
     // Ein Literal wie 'data/countries.json' zeigt im Produktionsbau ins Leere:
     // dort heisst die Datei 'data/countries.<hash>.json'. Der Fehler faellt beim
@@ -115,7 +134,11 @@ describe('Keine fest verdrahteten Katalogpfade', () => {
     for (const file of sourceFiles(srcDir)) {
       if (file.endsWith('utils/dataUrl.js')) continue;   // definiert das Praefix selbst
       for (const zeile of readFileSync(file, 'utf8').split('\n')) {
-        if (/['"`]data\/[\w.-]+\.(?:json|geojson)/.test(zeile)) {
+        // `${` gehoert in die Zeichenklasse: Ein Template-Literal wie
+        // `data/questions_${id}.json` ist bei acht symmetrischen
+        // Registry-Eintraegen die naheliegendste Umbauform und rutschte hier
+        // bis zum 2026-09-10 durch.
+        if (/['"`]data\/[\w.${}-]+\.(?:json|geojson)/.test(zeile)) {
           treffer.push(`${file}: ${zeile.trim()}`);
         }
       }

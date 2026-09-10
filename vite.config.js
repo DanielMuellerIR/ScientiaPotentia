@@ -3,6 +3,9 @@ import react from '@vitejs/plugin-react';
 import { renameSync } from 'node:fs';
 import { join } from 'node:path';
 import { buildDataAssetMap } from './scripts/lib/data_asset_hashes.mjs';
+// Der Name des Meta-Tags ist der Vertrag zwischen Build und Laufzeit. Er steht
+// deshalb nur an einer Stelle: dort, wo ihn die Laufzeit ausliest.
+import { DATA_MAP_META_NAME } from './src/utils/dataUrl.js';
 
 /**
  * Gibt den Katalogdateien unter `public/data/` ihren Inhaltshash in den Namen
@@ -33,7 +36,7 @@ function hashedDataAssets() {
     transformIndexHtml() {
       return [{
         tag: 'meta',
-        attrs: { name: 'scientia-data-map', content: JSON.stringify(assetMap) },
+        attrs: { name: DATA_MAP_META_NAME, content: JSON.stringify(assetMap) },
         injectTo: 'head'
       }];
     },
