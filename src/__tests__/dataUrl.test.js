@@ -2,25 +2,16 @@
 // gehashte Name. Beides muss stimmen — der Entwicklungsserver liefert die
 // Dateien unter dem Klarnamen aus, der Produktionsbau nur unter dem gehashten.
 import { describe, expect, it, beforeEach, afterEach } from 'vitest';
-import { readdirSync, readFileSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { dataUrl, resetDataUrlCache, DATA_MAP_META_NAME } from '../utils/dataUrl';
 import { buildDataAssetMap, hashedName } from '../../scripts/lib/data_asset_hashes.mjs';
+import {
+  GEO_FILE_COUNT, collectRequestedDataFiles, sourceFiles,
+} from '../../scripts/lib/required_data_files.mjs';
 import viteConfig from '../../vite.config.js';
 
 const srcDir = resolve(import.meta.dirname, '..');
-
-/** Alle .js/.jsx unter src/, ohne die Tests selbst. */
-function sourceFiles(dir) {
-  const found = [];
-  for (const entry of readdirSync(dir, { withFileTypes: true })) {
-    if (entry.name === '__tests__') continue;
-    const full = resolve(dir, entry.name);
-    if (entry.isDirectory()) found.push(...sourceFiles(full));
-    else if (/\.jsx?$/.test(entry.name)) found.push(full);
-  }
-  return found;
-}
 
 function setMeta(content) {
   const meta = document.createElement('meta');
@@ -88,20 +79,16 @@ describe('Hashes der Katalogdateien', () => {
     expect(buildDataAssetMap(resolve(publicData, 'gibt-es-nicht'))).toEqual({});
   });
 
+  // Die Erkennung selbst liegt in scripts/lib/required_data_files.mjs, damit
+  // Test und Build-Audit (scripts/audit_data_assets.mjs) dieselbe Wahrheit
+  // lesen. Vorher stand sie nur hier — und lief damit nur unter `npm test`.
   it('deckt alle Katalogdateien ab, die die App anfordert', () => {
     const map = buildDataAssetMap(publicData);
-    // Alle Quellen unter src/, nicht nur die drei bekannten Aufrufer: Map.jsx
-    // fordert seine drei Geometriedateien ebenfalls per dataUrl() an und war
-    // hier bis zum 2026-09-10 nicht erfasst.
-    const quelle = sourceFiles(srcDir).map(file => readFileSync(file, 'utf8')).join('\n');
-    // Literale Aufrufe (Kataloge, Statistik) — in einfachen wie doppelten Anfuehrungszeichen.
-    const angefordert = [...quelle.matchAll(/dataUrl\(\s*['"]([^'"]+)['"]\s*\)/g)].map(treffer => treffer[1]);
-    // … und die Geometriedateien, die useGeoData über eine Variable auflöst.
-    const geo = [...quelle.matchAll(/^\s+\w+: '([\w.]+\.(?:json|geojson))'/gm)].map(treffer => treffer[1]);
-    angefordert.push(...geo);
-    expect(geo.length).toBe(3);
-    expect(angefordert.length).toBeGreaterThan(18);
-    for (const name of angefordert) {
+    const { files, geoFiles } = collectRequestedDataFiles(srcDir);
+
+    expect(geoFiles.length).toBe(GEO_FILE_COUNT);
+    expect(files.length).toBeGreaterThan(18);
+    for (const name of files) {
       expect(Object.keys(map), `${name} fehlt in public/data`).toContain(name);
     }
   });

@@ -2,6 +2,32 @@
 
 Dieses Changelog beginnt mit dem für eine öffentliche Veröffentlichung bereinigten Projektstand.
 
+## [2.1.1] — 2026-09-10
+
+- `npm run build` merkt jetzt, wenn eine Katalogdatei fehlt. Bisher baute die Zuordnung der
+  Dateinamen nur aus dem, was in `public/data/` lag: Eine verschwundene Datei fiel einfach
+  heraus, der Build lief mit Ausstieg 0 durch, und im Release fehlte still ein Katalog. Genau
+  so verlor Fassung 2.0.2 die Weltkarte. Der neue Schritt `audit:data-assets` liest die
+  angeforderten Dateien aus dem Quelltext und bricht ab, wenn eine davon fehlt oder keinen
+  Inhaltshash bekommt.
+- Die Bildernte nimmt keinen Eintrag mehr an, den der Build später ablehnt. Ob Lizenz und
+  Urheberangabe für eine Veröffentlichung reichen, entscheidet jetzt für Ernte und Release
+  dieselbe Funktion; vorher kannte nur der Release-Audit die Regel, und ein generischer
+  Urheber wie „Own work." platzte erst im Build — dann für die ganze Domain.
+- Kein Bild-Auflöser hält sich mehr in einer Sperre der Wikimedia-API fest. Weist sie zwanzig
+  Anfragen in Folge ab, bricht der Lauf ab. Bisher wurde jede abgewiesene Anfrage still zu
+  „kein freies Bild": Ein Lauf schrieb am 2026-09-03 zehn Minuten lang leere Ergebnisse und
+  meldete am Ende Erfolg.
+- 14 Titel der Astra-Bildauflösung zeigten auf Begriffsklärungsseiten oder auf Lemmata, die es
+  nicht gibt — „Neptun" statt „Neptun (Planet)", „Sedna (Zwergplanet)" statt „(90377) Sedna".
+  Die Titel sind gegen de.wikipedia geprüft und korrigiert. Zusätzlich erkennt der Auflöser
+  eine Begriffsklärungsseite jetzt als solche und nennt sie samt Herkunft des Titels, statt sie
+  als „kein freies Bild" abzulegen. Ein Lauf über alle 176 bildlosen Astra-Konzepte findet
+  damit 37 Bilder statt bisher praktisch keiner; eingepflegt ist noch nichts, weil jede
+  Zuordnung eine Sichtung von Hand braucht.
+- `resolve_images_p18_v2.cjs` nimmt `--limit=N`. Ein voller Lauf dauert gut zwanzig Minuten;
+  wer nur prüfen will, ob die Auflösung greift, braucht das nicht abzuwarten.
+
 ## [2.1.0] — 2026-09-10
 
 - Konzeptbilder liegen jetzt auf dem eigenen Server. Bisher setzten Quiz und Galerien als

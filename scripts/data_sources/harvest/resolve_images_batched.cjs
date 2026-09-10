@@ -14,6 +14,7 @@ const https = require("https");
 const fs = require("fs");
 const path = require("path");
 const { assertSafeDomain, writeJsonAtomic } = require('./json_io.cjs');
+const { createApiGuard } = require("./api_guard.cjs");
 const {
   isAllowedCommonsLicenseMetadata,
   licenseNameFromCommonsMetadata,
@@ -92,8 +93,11 @@ function rawGet(url, redirects = 0) {
     }).on("error", rej);
   });
 }
+// Bricht ab, sobald die Gegenstelle dauerhaft abweist, statt den Lauf leere
+// Ergebnisse schreiben zu lassen.
+const apiGuard = createApiGuard({ label: "Die Wikidata-/Commons-API" });
 // 429-Backoff (sollte bei Bündelung praktisch nie greifen)
-async function get(url) {
+async function getRaw(url) {
   for (let i = 0; i < 6; i++) {
     const r = await rawGet(url);
     if (r.status !== 429) return r;
@@ -103,6 +107,22 @@ async function get(url) {
     await sleep(wait);
   }
   return rawGet(url);
+}
+
+/**
+ * Dieselbe Anfrage unter Aufsicht: Bleibt die Antwort nach allen Versuchen bei
+ * 429 oder einem Serverfehler, ist das eine Abweisung und kein Ergebnis. Ohne
+ * diese Zaehlung liefe der Auflöser weiter und schriebe zu jedem Konzept
+ * "kein freies Bild" (siehe api_guard.cjs). Ein Netzfehler wirft ohnehin.
+ */
+async function get(url) {
+  const antwort = await getRaw(url);
+  if (!antwort || antwort.status === 429 || antwort.status >= 500) {
+    apiGuard.rejected(`HTTP ${antwort ? antwort.status : "?"} bei ${url}`);
+  } else {
+    apiGuard.ok();
+  }
+  return antwort;
 }
 const chunk = (a, n) => { const o = []; for (let i = 0; i < a.length; i += n) o.push(a.slice(i, i + n)); return o; };
 const qidOf = u => (String(u).match(/Q\d+/) || [])[0];

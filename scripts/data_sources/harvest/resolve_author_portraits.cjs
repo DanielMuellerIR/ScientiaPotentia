@@ -14,6 +14,7 @@ const https = require("https");
 const fs = require("fs");
 const path = require("path");
 const { writeJsonAtomic } = require('./json_io.cjs');
+const { createApiGuard } = require("./api_guard.cjs");
 const { truncateCredit } = require('./credit_text.cjs');
 const {
   isAllowedCommonsLicenseMetadata,
@@ -49,13 +50,32 @@ function rawGet(url, redirects = 0) {
     }).on("error", rej);
   });
 }
-async function get(url) {
+// Bricht ab, sobald die Gegenstelle dauerhaft abweist, statt den Lauf leere
+// Ergebnisse schreiben zu lassen.
+const apiGuard = createApiGuard({ label: "Die Wikipedia-API" });
+async function getRaw(url) {
   for (let i = 0; i < 5; i++) {
     const r = await rawGet(url);
     if (r.status !== 429) return r;
     await sleep(Math.min(60, 5 * 2 ** i) * 1000);
   }
   return rawGet(url);
+}
+
+/**
+ * Dieselbe Anfrage unter Aufsicht: Bleibt die Antwort nach allen Versuchen bei
+ * 429 oder einem Serverfehler, ist das eine Abweisung und kein Ergebnis. Ohne
+ * diese Zaehlung liefe der Auflöser weiter und schriebe zu jedem Konzept
+ * "kein freies Bild" (siehe api_guard.cjs). Ein Netzfehler wirft ohnehin.
+ */
+async function get(url) {
+  const antwort = await getRaw(url);
+  if (!antwort || antwort.status === 429 || antwort.status >= 500) {
+    apiGuard.rejected(`HTTP ${antwort ? antwort.status : "?"} bei ${url}`);
+  } else {
+    apiGuard.ok();
+  }
+  return antwort;
 }
 const chunk = (a, n) => { const o = []; for (let i = 0; i < a.length; i += n) o.push(a.slice(i, i + n)); return o; };
 

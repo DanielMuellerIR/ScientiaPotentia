@@ -49,11 +49,18 @@ domainspezifische Visuals zur registrierten Komponente und sonst zu `ConceptVisu
   `src/utils/imageMirror.js` ist die einzige Stelle, die eine Bildadresse bildet — ein
   Rückfall auf commons.wikimedia.org ist ausgeschlossen, weil er die IP des Besuchers an
   einen Dritten gäbe. Fehlt eine Kopie, zeigt die App kein Bild.
-- `npm run audit:image-credits` und `npm run audit:image-mirror` müssen für veröffentlichte
-  Konzeptbilder ohne Befund enden. `npm run build` führt beide Audits und `audit_questions.cjs`
-  selbst aus und bricht bei einem Befund ab, damit weder ein gesperrtes Bild noch ein
-  lückenhafter Bildbestand noch ein fehlerhafter Fragenkatalog ohne manuelle Prüfung in ein
-  Release gelangt.
+- Ob Lizenz und Urheberangabe für eine Veröffentlichung reichen, entscheidet allein
+  `hasPublishableAttribution` in `src/utils/imageCredits.js`. Der Preflight der Bildernte und
+  der Release-Audit rufen dieselbe Funktion; eine zweite Fassung der Regel führt dazu, dass
+  die Ernte annimmt, was der Build später für die ganze Domain ablehnt.
+- Jeder Bild-Auflöser hängt `harvest/api_guard.cjs` in seine HTTP-Schicht. Weist die API
+  zwanzigmal in Folge ab, bricht der Lauf ab. Ohne das schreibt er stundenlang „kein freies
+  Bild" und meldet am Ende Erfolg.
+- `npm run audit:data-assets`, `npm run audit:image-credits` und `npm run audit:image-mirror`
+  müssen ohne Befund enden. `npm run build` führt alle drei Audits und `audit_questions.cjs`
+  selbst aus und bricht bei einem Befund ab, damit weder eine fehlende Katalogdatei noch ein
+  gesperrtes Bild noch ein lückenhafter Bildbestand noch ein fehlerhafter Fragenkatalog ohne
+  manuelle Prüfung in ein Release gelangt.
 
 ## Inhalts-Pipeline
 

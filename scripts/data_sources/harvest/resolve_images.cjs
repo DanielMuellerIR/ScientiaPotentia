@@ -34,6 +34,7 @@ const { commonsAttribution } = require('./credit_text.cjs');
 const {
   isBlacklistedFile, isBlacklistedConcept,
 } = require('./image_resolution_policy.cjs');
+const { createApiGuard } = require('./api_guard.cjs');
 const {
   isAllowedCommonsLicenseMetadata,
   licenseNameFromCommonsMetadata,
@@ -65,9 +66,13 @@ function attribution(meta) {
 const STATS = { apiCalls: 0, cacheHits: 0, rateLimitEvents: 0, retries: 0 };
 
 let lastCall = 0;
+// Bricht ab, sobald die Gegenstelle dauerhaft abweist, statt den Lauf leere
+// Ergebnisse schreiben zu lassen.
+const apiGuard = createApiGuard({ label: "Die Commons-API" });
+
 // HTTP-GET gegen die Commons-API: Throttle (eine Verbindung, sequenziell),
 // maxlag/Retry-After, Klartext-Overload-Guard, Backoff mit Jitter.
-function apiGet(params, tries = 0) {
+function apiGetRaw(params, tries = 0) {
   return new Promise(async (resolve) => {
     // mind. 350 ms Abstand zwischen Calls (höflich, eine Verbindung)
     const wait = 350 - (Date.now() - lastCall);
@@ -87,7 +92,7 @@ function apiGet(params, tries = 0) {
         // Überlast: Klartext statt JSON, oder 429/503 -> warten + neu versuchen, NIE als "fehlt"
         if (d.startsWith("You are making too many") || r.statusCode === 429 || r.statusCode === 503) {
           STATS.rateLimitEvents++;
-          if (tries < 6) { STATS.retries++; await sleep(backoff(ra, 1500)); return resolve(await apiGet(params, tries + 1)); }
+          if (tries < 6) { STATS.retries++; await sleep(backoff(ra, 1500)); return resolve(await apiGetRaw(params, tries + 1)); }
           return resolve(null);
         }
         let j;
@@ -95,22 +100,38 @@ function apiGet(params, tries = 0) {
         catch {
           // unerwarteter Nicht-JSON-Body -> als Überlast behandeln + Retry, nicht still "fehlt"
           STATS.rateLimitEvents++;
-          if (tries < 6) { STATS.retries++; await sleep(backoff(0, 1500)); return resolve(await apiGet(params, tries + 1)); }
+          if (tries < 6) { STATS.retries++; await sleep(backoff(0, 1500)); return resolve(await apiGetRaw(params, tries + 1)); }
           return resolve(null);
         }
         // maxlag-Fehler (HTTP 200, error.code === "maxlag") -> Retry-After abwarten
         if (j && j.error && j.error.code === "maxlag") {
           STATS.rateLimitEvents++;
-          if (tries < 6) { STATS.retries++; await sleep(backoff(ra, 5000)); return resolve(await apiGet(params, tries + 1)); }
+          if (tries < 6) { STATS.retries++; await sleep(backoff(ra, 5000)); return resolve(await apiGetRaw(params, tries + 1)); }
           return resolve(null);
         }
         resolve(j);
       });
     }).on("error", async () => {
-      if (tries < 6) { STATS.retries++; await sleep(backoff(0, 800)); return resolve(await apiGet(params, tries + 1)); }
+      if (tries < 6) { STATS.retries++; await sleep(backoff(0, 800)); return resolve(await apiGetRaw(params, tries + 1)); }
       resolve(null);
     });
   });
+}
+
+/**
+ * Dieselbe Anfrage, aber unter Aufsicht: Gibt die HTTP-Schicht nach allen
+ * Wiederholungen `null` zurueck, ist das eine Abweisung — kein Ergebnis. Ohne
+ * diese Zaehlung liefe der Auflöser stundenlang weiter und schriebe zu jedem
+ * Konzept "kein freies Bild" (siehe api_guard.cjs). Der Wurf steht bewusst hier
+ * und nicht im Promise-Rumpf von apiGetRaw: In einer normalen async-Funktion
+ * erreicht er den Fehlerausgang des Laufs, im Promise-Rumpf waere er eine
+ * unbehandelte Ablehnung.
+ */
+async function apiGet(params, tries = 0) {
+  const antwort = await apiGetRaw(params, tries);
+  if (antwort === null) apiGuard.rejected(JSON.stringify(params).slice(0, 120));
+  else apiGuard.ok();
+  return antwort;
 }
 
 // ---------------------------------------------------------------------------

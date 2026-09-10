@@ -21,6 +21,9 @@ const {
   isAllowedImageLicense,
 } = require('../../lib/image_license_policy.js');
 const {
+  hasPublishableAttribution,
+} = require('../../../src/utils/imageCredits.js');
+const {
   isBlacklistedConcept,
   isBlacklistedFile,
 } = require('./image_resolution_policy.cjs');
@@ -117,14 +120,18 @@ function validateMapping(mapping, byId = null) {
     if (!isAllowedImageLicense(entry.imageLicense)) {
       throw new Error(`Bild-Mapping: ${entry.id} besitzt keine erlaubte freie Lizenz`);
     }
-    // TODO(CodeQA 2026-09-03): Hier fehlt die Konkretheitspruefung des
-    // Release-Audits — "Wikimedia Commons" ist der Fundort, kein Urheber, und
-    // genau diesen Rueckfallwert setzen die Aufloeser. isConcreteImageAttribution
-    // liegt in src/utils/imageCredits.js (ESM), diese Datei ist CommonJS; die
-    // Pruefung braucht zuerst ein von beiden Welten ladbares Modul. Bis dahin
-    // blockiert der Bildnachweis-Audit im Build. Steht im BACKLOG.
     if (typeof entry.imageAttribution !== 'string' || !entry.imageAttribution.trim()) {
       throw new Error(`Bild-Mapping: ${entry.id} besitzt keine Urheberangabe`);
+    }
+    // Dieselbe Bedingung wie der Release-Audit, aus derselben Funktion: Ohne
+    // sie nahm der Preflight einen generischen Urheber wie "Wikimedia Commons"
+    // oder "Own work." an, und der Fehler platzte erst im `npm run build` —
+    // dann fuer die ganze Domain (real am 2026-09-03, Homo-Lauf).
+    if (!hasPublishableAttribution(entry.imageLicense, entry.imageAttribution)) {
+      throw new Error(
+        `Bild-Mapping: ${entry.id} nennt mit "${entry.imageAttribution.trim()}" `
+        + 'keinen konkreten Rechteinhaber',
+      );
     }
   });
 }

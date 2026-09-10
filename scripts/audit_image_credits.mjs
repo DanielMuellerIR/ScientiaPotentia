@@ -4,8 +4,8 @@ import { readFile } from 'node:fs/promises';
 import { createRequire } from 'node:module';
 import { join } from 'node:path';
 import {
+  hasPublishableAttribution,
   isAllowedImageLicense,
-  isConcreteImageAttribution,
   licenseUrlFor,
   sanitizeImageAttribution,
 } from '../src/utils/imageCredits.js';
@@ -47,10 +47,10 @@ function validate(domain, id, image, layer) {
     errors.push(`${prefix}: keine Commons-Dateiseite als Quelle`);
   }
   if (!attribution) errors.push(`${prefix}: Urheberangabe fehlt`);
-  const attributionRequired = !/^(?:Public domain|PD\b|CC0\b)/i.test(license);
-  const genericCommonsCredit = /^(?:Wikimedia Commons|Commons)$/i.test(attribution);
-  if (!isConcreteImageAttribution(attribution)
-      && (attributionRequired || genericCommonsCredit)) {
+  // Dieselbe Bedingung nutzt der Preflight der Bildernte in
+  // `data_sources/harvest/apply_images.cjs`; sie steht deshalb nur in
+  // `imageCredits.js` und nicht zweimal.
+  if (!hasPublishableAttribution(license, image.attribution ?? image.imageAttribution)) {
     errors.push(`${prefix}: freie Lizenz verlangt einen konkreten Rechteinhaber`);
   }
   if (EMAIL.test(String(image.attribution ?? image.imageAttribution ?? ''))) {

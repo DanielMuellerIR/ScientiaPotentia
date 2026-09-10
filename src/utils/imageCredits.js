@@ -74,6 +74,31 @@ export function buildImageMetadata(concept) {
 }
 
 /**
+ * Reichen Lizenz und Urheberangabe zusammen für eine Veröffentlichung?
+ *
+ * Die Regel steht bewusst nur hier: Der Release-Audit
+ * (`scripts/audit_image_credits.mjs`) und der Preflight der Bildernte
+ * (`scripts/data_sources/harvest/apply_images.cjs`) prüfen dieselbe Bedingung.
+ * Liefen sie auseinander, nähme der Preflight einen Eintrag an, den der Build
+ * später ablehnt — und zwar für die ganze Domain. Genau das passierte am
+ * 2026-09-03 mit dem Urheber „Own work." aus dem Homo-Lauf.
+ *
+ * Gemeinfreie Werke brauchen keine Namensnennung; „Wikimedia Commons" ist
+ * jedoch auch dort kein Urheber, sondern der Fundort — und genau diesen
+ * Rückfallwert setzen die Auflöser.
+ *
+ * @param {string} license        Lizenzbezeichnung, etwa „CC BY 4.0".
+ * @param {string} rawAttribution Urheberangabe, roh wie aus Commons.
+ */
+export function hasPublishableAttribution(license, rawAttribution) {
+  const attribution = sanitizeImageAttribution(rawAttribution);
+  const attributionRequired = !/^(?:Public domain|PD\b|CC0\b)/i.test(String(license || ''));
+  const genericCommonsCredit = /^(?:Wikimedia Commons|Commons)$/i.test(attribution);
+  if (!attributionRequired && !genericCommonsCredit) return true;
+  return isConcreteImageAttribution(attribution);
+}
+
+/**
  * Änderungshinweis für den Bildnachweis.
  *
  * CC BY und CC BY-SA verlangen die Angabe, ob das Werk verändert wurde. Seit

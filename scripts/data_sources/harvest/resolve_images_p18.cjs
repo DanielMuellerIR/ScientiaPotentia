@@ -34,6 +34,7 @@ const {
   isBlacklistedFile,
   isBlacklistedConcept,
 } = require('./image_resolution_policy.cjs');
+const { createApiGuard } = require('./api_guard.cjs');
 const { AMBIGUOUS_NAMES } = require('./resolve_images_p18_v2.cjs');
 
 const UA = "ScientiaQuizImageResolverP18/1.0 (educational quiz project; pageimages+P18 only)";
@@ -74,7 +75,11 @@ const STATS = { apiCalls: 0, rateLimitEvents: 0, retries: 0, cacheHits: 0 };
 let lastCall = 0;
 const MIN_PAUSE = 200; // ms zwischen Calls
 
-function apiGet(url, tries = 0) {
+// Bricht ab, sobald die Gegenstelle dauerhaft abweist, statt den Lauf leere
+// Ergebnisse schreiben zu lassen.
+const apiGuard = createApiGuard({ label: "Die Wikidata-/Commons-API" });
+
+function apiGetRaw(url, tries = 0) {
   return new Promise(async (resolve) => {
     const wait = MIN_PAUSE - (Date.now() - lastCall);
     if (wait > 0) await sleep(wait);
@@ -90,28 +95,44 @@ function apiGet(url, tries = 0) {
         const ra = parseInt(r.headers["retry-after"] || "0", 10);
         if (d.startsWith("You are making too many") || r.statusCode === 429 || r.statusCode === 503) {
           STATS.rateLimitEvents++;
-          if (tries < 6) { STATS.retries++; await sleep(backoff(ra, 1500)); return resolve(await apiGet(url, tries + 1)); }
+          if (tries < 6) { STATS.retries++; await sleep(backoff(ra, 1500)); return resolve(await apiGetRaw(url, tries + 1)); }
           return resolve(null);
         }
         let j;
         try { j = JSON.parse(d); }
         catch {
           STATS.rateLimitEvents++;
-          if (tries < 6) { STATS.retries++; await sleep(backoff(0, 1500)); return resolve(await apiGet(url, tries + 1)); }
+          if (tries < 6) { STATS.retries++; await sleep(backoff(0, 1500)); return resolve(await apiGetRaw(url, tries + 1)); }
           return resolve(null);
         }
         if (j && j.error && j.error.code === "maxlag") {
           STATS.rateLimitEvents++;
-          if (tries < 6) { STATS.retries++; await sleep(backoff(ra, 5000)); return resolve(await apiGet(url, tries + 1)); }
+          if (tries < 6) { STATS.retries++; await sleep(backoff(ra, 5000)); return resolve(await apiGetRaw(url, tries + 1)); }
           return resolve(null);
         }
         resolve(j);
       });
     }).on("error", async () => {
-      if (tries < 6) { STATS.retries++; await sleep(backoff(0, 800)); return resolve(await apiGet(url, tries + 1)); }
+      if (tries < 6) { STATS.retries++; await sleep(backoff(0, 800)); return resolve(await apiGetRaw(url, tries + 1)); }
       resolve(null);
     });
   });
+}
+
+/**
+ * Dieselbe Anfrage, aber unter Aufsicht: Gibt die HTTP-Schicht nach allen
+ * Wiederholungen `null` zurueck, ist das eine Abweisung — kein Ergebnis. Ohne
+ * diese Zaehlung liefe der Auflöser stundenlang weiter und schriebe zu jedem
+ * Konzept "kein freies Bild" (siehe api_guard.cjs). Der Wurf steht bewusst hier
+ * und nicht im Promise-Rumpf von apiGetRaw: In einer normalen async-Funktion
+ * erreicht er den Fehlerausgang des Laufs, im Promise-Rumpf waere er eine
+ * unbehandelte Ablehnung.
+ */
+async function apiGet(url, tries = 0) {
+  const antwort = await apiGetRaw(url, tries);
+  if (antwort === null) apiGuard.rejected(url);
+  else apiGuard.ok();
+  return antwort;
 }
 
 // ---------------------------------------------------------------------------

@@ -29,6 +29,7 @@ const {
 const {
   fileNameFromUploadUrl, selectP18File, isBlacklistedFile, isBlacklistedConcept,
 } = require('./image_resolution_policy.cjs');
+const { createApiGuard } = require('./api_guard.cjs');
 
 const UA = "ScientiaQuizImageResolverP18v2/1.0 (educational quiz project; pageimages+P18 only)";
 // Eigene Ausgabedatei je Resolver (siehe resolve_images_p18.cjs).
@@ -40,6 +41,16 @@ const TARGET_CATS = new Set(["galaxy", "nebula", "planet", "dwarf_planet", "moon
 
 // ---------------------------------------------------------------------------
 // Explizites de.wikipedia-Titel-Mapping.
+//
+// Die Titel sind am 2026-09-10 gegen de.wikipedia geprueft: Jeder Eintrag zeigt
+// auf ein bestehendes Lemma, nicht auf eine Begriffsklaerungsseite. Vierzehn
+// Titel waren falsch — neun Begriffsklaerungen ("Neptun", "Iapetus", "Quaoar",
+// "Haumea", "Kiviuq", "Ijiraq", "Paaliaq", "Siarnaq", "Erriapus") und fuenf
+// Lemmata, die es nicht gibt ("Sedna (Zwergplanet)", "Orcus (Zwergplanet)",
+// "Nereid (Mond)", "Sombrero-Galaxie", "Barnard's Galaxie"). Der Aufloeser
+// meldete fuer sie "kein freies Bild", obwohl das richtige Lemma eines hat.
+// Zwei Faelle zeigen, warum der schlichte Name nicht genuegt: "Sedna" ist die
+// Meeresgoettin der Inuit, der Zwergplanet steht unter "(90377) Sedna".
 // Schlüssel = Konzept-id aus astra_raw.json.
 // Wert = exakter de.wikipedia-Seitentitel (Leerzeichen, keine Unterstriche).
 // Notwendig für:
@@ -58,17 +69,17 @@ const DEWIKI_MAP = {
   "jupiter":               "Jupiter (Planet)",
   "saturn":                "Saturn (Planet)",
   "uranus":                "Uranus (Planet)",
-  "neptune":               "Neptun",
+  "neptune":               "Neptun (Planet)",
 
   // Zwergplaneten
   "pluto":                 "Pluto",
   "ceres":                 "Ceres (Zwergplanet)",
   "eris":                  "Eris (Zwergplanet)",
   "makemake":              "Makemake (Zwergplanet)",
-  "haumea":                "Haumea",
-  "sedna":                 "Sedna (Zwergplanet)",
-  "quaoar":                "Quaoar",
-  "orcus":                 "Orcus (Zwergplanet)",
+  "haumea":                "Haumea (Zwergplanet)",
+  "sedna":                 "(90377) Sedna",
+  "quaoar":                "(50000) Quaoar",
+  "orcus":                 "(90482) Orcus",
   "gonggong":              "Gonggong",
 
   // Monde — Erde + Mars
@@ -88,7 +99,7 @@ const DEWIKI_MAP = {
   "enceladus":             "Enceladus (Mond)",
   "rhea":                  "Rhea (Mond)",
   "mimas":                 "Mimas (Mond)",
-  "iapetus":               "Iapetus",
+  "iapetus":               "Iapetus (Mond)",
   "dione":                 "Dione (Mond)",
   "tethys":                "Tethys (Mond)",
   "hyperion":              "Hyperion (Mond)",
@@ -101,11 +112,11 @@ const DEWIKI_MAP = {
   "prometheus-saturn":     "Prometheus (Mond)",
   "pandora-saturn":        "Pandora (Mond)",
   "albiorix":              "Albiorix (Mond)",
-  "erriapus":              "Erriapus",
-  "ijiraq":                "Ijiraq",
-  "kiviuq":                "Kiviuq",
-  "paaliaq":               "Paaliaq",
-  "siarnaq":               "Siarnaq",
+  "erriapus":              "Erriapus (Mond)",
+  "ijiraq":                "Ijiraq (Mond)",
+  "kiviuq":                "Kiviuq (Mond)",
+  "paaliaq":               "Paaliaq (Mond)",
+  "siarnaq":               "Siarnaq (Mond)",
   "tarvos":                "Tarvos (Mond)",
   "ymir":                  "Ymir (Mond)",
 
@@ -126,7 +137,7 @@ const DEWIKI_MAP = {
 
   // Monde — Neptun
   "triton":                "Triton (Mond)",
-  "nereid":                "Nereid (Mond)",
+  "nereid":                "Nereid",
   "proteus":               "Proteus (Mond)",
   "despina":               "Despina (Mond)",
   "larissa":               "Larissa (Mond)",
@@ -158,7 +169,7 @@ const DEWIKI_MAP = {
   "large_magellanic_cloud":"Große Magellansche Wolke",
   "small_magellanic_cloud":"Kleine Magellansche Wolke",
   "whirlpool":             "Whirlpool-Galaxie",
-  "sombrero":              "Sombrero-Galaxie",
+  "sombrero":              "Sombrerogalaxie",
   "bode_m81":              "Messier 81",
   "zigarren_m82":          "Messier 82",
   "centaurus_a":           "Centaurus A",
@@ -166,7 +177,7 @@ const DEWIKI_MAP = {
   "feuerrad_m101":         "Messier 101",
   "sonnenblume_m63":       "Messier 63",
   "schwarzauge_m64":       "Messier 64",
-  "barnards-galaxie":      "Barnard's Galaxie",
+  "barnards-galaxie":      "Barnards Galaxie",
   "wagenradgalaxie":       "Wagenradgalaxie",
   "sculptor-galaxie":      "Sculptor-Galaxie",
 
@@ -202,11 +213,20 @@ function attribution(meta) {
 // ---------------------------------------------------------------------------
 // HTTP-GET mit Throttle + Backoff
 // ---------------------------------------------------------------------------
-const STATS = { apiCalls: 0, rateLimitEvents: 0, retries: 0, cacheHits: 0 };
+const STATS = {
+  apiCalls: 0, rateLimitEvents: 0, retries: 0, cacheHits: 0,
+  // Falsche Titel in DEWIKI_MAP: Begriffsklaerung statt Artikel, oder gar
+  // kein Lemma. Beides sah frueher aus wie "kein freies Bild".
+  disambiguations: 0, missingTitles: 0,
+};
 let lastCall = 0;
 const MIN_PAUSE = 250; // ms zwischen Calls (etwas erhöht für Sicherheit)
 
-function apiGet(url, tries = 0) {
+// Bricht ab, sobald die Gegenstelle dauerhaft abweist, statt den Lauf leere
+// Ergebnisse schreiben zu lassen.
+const apiGuard = createApiGuard({ label: "Die Wikidata-/Commons-API" });
+
+function apiGetRaw(url, tries = 0) {
   return new Promise(async (resolve) => {
     const wait = MIN_PAUSE - (Date.now() - lastCall);
     if (wait > 0) await sleep(wait);
@@ -224,28 +244,44 @@ function apiGet(url, tries = 0) {
           STATS.rateLimitEvents++;
           const wait = backoff(ra, 2000);
           console.error(`  [rate-limit, warte ${(wait/1000).toFixed(1)}s]`);
-          if (tries < 8) { STATS.retries++; await sleep(wait); return resolve(await apiGet(url, tries + 1)); }
+          if (tries < 8) { STATS.retries++; await sleep(wait); return resolve(await apiGetRaw(url, tries + 1)); }
           return resolve(null);
         }
         let j;
         try { j = JSON.parse(d); }
         catch {
           STATS.rateLimitEvents++;
-          if (tries < 8) { STATS.retries++; await sleep(backoff(0, 2000)); return resolve(await apiGet(url, tries + 1)); }
+          if (tries < 8) { STATS.retries++; await sleep(backoff(0, 2000)); return resolve(await apiGetRaw(url, tries + 1)); }
           return resolve(null);
         }
         if (j && j.error && j.error.code === "maxlag") {
           STATS.rateLimitEvents++;
-          if (tries < 8) { STATS.retries++; await sleep(backoff(ra, 5000)); return resolve(await apiGet(url, tries + 1)); }
+          if (tries < 8) { STATS.retries++; await sleep(backoff(ra, 5000)); return resolve(await apiGetRaw(url, tries + 1)); }
           return resolve(null);
         }
         resolve(j);
       });
     }).on("error", async () => {
-      if (tries < 8) { STATS.retries++; await sleep(backoff(0, 1000)); return resolve(await apiGet(url, tries + 1)); }
+      if (tries < 8) { STATS.retries++; await sleep(backoff(0, 1000)); return resolve(await apiGetRaw(url, tries + 1)); }
       resolve(null);
     });
   });
+}
+
+/**
+ * Dieselbe Anfrage, aber unter Aufsicht: Gibt die HTTP-Schicht nach allen
+ * Wiederholungen `null` zurueck, ist das eine Abweisung — kein Ergebnis. Ohne
+ * diese Zaehlung liefe der Auflöser stundenlang weiter und schriebe zu jedem
+ * Konzept "kein freies Bild" (siehe api_guard.cjs). Der Wurf steht bewusst hier
+ * und nicht im Promise-Rumpf von apiGetRaw: In einer normalen async-Funktion
+ * erreicht er den Fehlerausgang des Laufs, im Promise-Rumpf waere er eine
+ * unbehandelte Ablehnung.
+ */
+async function apiGet(url, tries = 0) {
+  const antwort = await apiGetRaw(url, tries);
+  if (antwort === null) apiGuard.rejected(url);
+  else apiGuard.ok();
+  return antwort;
 }
 
 // ---------------------------------------------------------------------------
@@ -310,17 +346,37 @@ async function wikidataP18(qid) {
 // ---------------------------------------------------------------------------
 const dewikiCache = new Map();
 
-async function dewikiPageimage(title) {
+/**
+ * @param {string} title    de.wikipedia-Lemma.
+ * @param {string} herkunft Woher der Titel stammt — steht in der Warnung, damit
+ *   klar ist, wo ein falscher Titel zu korrigieren waere: in DEWIKI_MAP, in der
+ *   Quellen-URL des Konzepts oder im geratenen Konzeptnamen.
+ */
+async function dewikiPageimage(title, herkunft = "unbekannte Herkunft") {
   if (dewikiCache.has(title)) { STATS.cacheHits++; return dewikiCache.get(title); }
 
   const encodedTitle = encodeURIComponent(title.replace(/ /g, "_"));
+  // `pageprops` mit `ppprop=disambiguation` kostet nichts extra und entscheidet
+  // den Fall unten.
   const url = `https://de.wikipedia.org/w/api.php?action=query&format=json` +
-    `&titles=${encodedTitle}&prop=pageimages&piprop=original&redirects=1&maxlag=5`;
+    `&titles=${encodedTitle}&prop=pageimages|pageprops&ppprop=disambiguation` +
+    `&piprop=original&redirects=1&maxlag=5`;
   const j = await apiGet(url);
   const pages = j?.query?.pages;
   let result = null;
   if (pages) {
     const page = Object.values(pages)[0];
+    // Eine Begriffsklaerungsseite ist kein Artikel: Ihr Bild — falls sie eines
+    // hat — gehoert zu irgendeinem der aufgezaehlten Bedeutungen, nicht zum
+    // gesuchten Objekt. Vierzehn Titel in DEWIKI_MAP zeigten am 2026-09-03 auf
+    // solche Seiten und meldeten still "kein freies Bild"; ohne diese Pruefung
+    // bleibt der naechste falsche Titel wieder unsichtbar.
+    if (page && page.pageprops && "disambiguation" in page.pageprops) {
+      console.error(`  [Begriffsklaerung statt Artikel: "${title}" (${herkunft})]`);
+      STATS.disambiguations = (STATS.disambiguations || 0) + 1;
+      dewikiCache.set(title, null);
+      return null;
+    }
     if (page && page.missing === undefined) {
       const source = page.original?.source;
       if (source) {
@@ -333,6 +389,9 @@ async function dewikiPageimage(title) {
         const fileName = fileNameFromUploadUrl(source);
         if (fileName) result = "File:" + fileName;
       }
+    } else if (page && page.missing !== undefined) {
+      console.error(`  [Lemma existiert nicht: "${title}" (${herkunft})]`);
+      STATS.missingTitles = (STATS.missingTitles || 0) + 1;
     }
   }
   dewikiCache.set(title, result);
@@ -370,7 +429,7 @@ async function resolveConcept(c) {
   const explicitTitle = DEWIKI_MAP[c.id];
   if (explicitTitle !== undefined) {
     if (explicitTitle === "") return null; // bewusst übersprungen
-    const fileTitle = await dewikiPageimage(explicitTitle);
+    const fileTitle = await dewikiPageimage(explicitTitle, "DEWIKI_MAP");
     if (fileTitle) {
       const info = await commonsInfoForTitle(fileTitle);
       if (info) return { via: "dewiki-map", info };
@@ -382,7 +441,7 @@ async function resolveConcept(c) {
   // --- Weg 3: de.wikipedia via sourceUrl ---
   const sourceTitle = dewikiTitleFromUrl(c.sourceUrl);
   if (sourceTitle) {
-    const fileTitle = await dewikiPageimage(sourceTitle);
+    const fileTitle = await dewikiPageimage(sourceTitle, "aus sourceUrl");
     if (fileTitle) {
       const info = await commonsInfoForTitle(fileTitle);
       if (info) return { via: "dewiki-sourceUrl", info };
@@ -392,7 +451,7 @@ async function resolveConcept(c) {
   // --- Weg 4: de.wikipedia via wikiLink ---
   const wikiTitle = dewikiTitleFromUrl(c.wikiLink);
   if (wikiTitle && wikiTitle !== sourceTitle) {
-    const fileTitle = await dewikiPageimage(wikiTitle);
+    const fileTitle = await dewikiPageimage(wikiTitle, "aus wikiLink");
     if (fileTitle) {
       const info = await commonsInfoForTitle(fileTitle);
       if (info) return { via: "dewiki-wikiLink", info };
@@ -401,7 +460,7 @@ async function resolveConcept(c) {
 
   // --- Weg 5: Konzeptname → de.wikipedia (nur bei eindeutigen Namen) ---
   if (!AMBIGUOUS_NAMES.has(c.name) && !sourceTitle && !wikiTitle) {
-    const fileTitle = await dewikiPageimage(c.name);
+    const fileTitle = await dewikiPageimage(c.name, "geratener Konzeptname");
     if (fileTitle) {
       const info = await commonsInfoForTitle(fileTitle);
       if (info) return { via: "dewiki-name", info };
@@ -419,9 +478,23 @@ async function main() {
   const data = JSON.parse(fs.readFileSync(ASTRA_FILE, "utf8"));
 
   // Gesperrte Konzepte gar nicht erst aufloesen — wie in resolve_images_batched.
-  const targets = data.filter(c => TARGET_CATS.has(c.category) && !c.imageFile
+  let targets = data.filter(c => TARGET_CATS.has(c.category) && !c.imageFile
     && !isBlacklistedConcept(c.id));
-  console.log(`Zielkonzepte (ohne imageFile): ${targets.length}`);
+
+  // `--limit=N` schneidet den Lauf ab. Ein voller Durchgang dauert mit dem
+  // hoeflichen Anfragetempo gut zwanzig Minuten; wer nur pruefen will, ob die
+  // Aufloesung ueberhaupt greift, braucht das nicht abzuwarten. Die Ausgabe
+  // nach /tmp bleibt gueltig, enthaelt dann eben nur die geprueften Konzepte.
+  const limitFlag = process.argv.slice(2).find(a => a.startsWith("--limit="));
+  const limit = limitFlag ? Number(limitFlag.split("=")[1]) : 0;
+  if (limitFlag && (!Number.isInteger(limit) || limit <= 0)) {
+    console.error(`--limit erwartet eine positive ganze Zahl, nicht "${limitFlag.split("=")[1]}"`);
+    process.exit(2);
+  }
+  const gesamt = targets.length;
+  if (limit) targets = targets.slice(0, limit);
+  console.log(`Zielkonzepte (ohne imageFile): ${targets.length}`
+    + (limit ? ` von ${gesamt} (--limit=${limit})` : ""));
 
   const statsByCat = {};
   const statsByVia = {};
@@ -469,6 +542,13 @@ async function main() {
   console.log("\n=== ERGEBNIS ===");
   console.log(`Aufgelöst: ${results.length} / ${targets.length} (${elapsed}s)`);
   console.log(`API-Calls: ${STATS.apiCalls}  Cache-Hits: ${STATS.cacheHits}  Rate-Limit: ${STATS.rateLimitEvents}  Retries: ${STATS.retries}`);
+  if (STATS.disambiguations || STATS.missingTitles) {
+    console.log(`Falsche Titel: ${STATS.disambiguations} Begriffsklaerung(en), `
+      + `${STATS.missingTitles} nicht vorhandene(s) Lemma(ta). Die Herkunft steht in `
+      + 'jeder einzelnen Zeile — nur "DEWIKI_MAP" ist hier zu korrigieren, ein geratener '
+      + 'Konzeptname braucht stattdessen einen Eintrag dort.');
+  }
+  if (apiGuard.total) console.log(`Abgewiesene Anfragen: ${apiGuard.total}`);
   console.log("\nNach Kategorie:");
   Object.entries(statsByCat).sort((a,b)=>a[0].localeCompare(b[0])).forEach(([cat, s]) =>
     console.log(`  ${cat.padEnd(14)} gesamt:${String(s.total).padStart(3)}  gefunden:${String(s.found).padStart(3)}  ohne-Bild:${String(s.skipped).padStart(3)}`)

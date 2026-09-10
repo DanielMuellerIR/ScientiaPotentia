@@ -21,30 +21,12 @@
   `organs.svg` und `body.svg` ab, `CATEGORY_ASSET_ALIAS` leitet die übrigen
   dorthin um. Die Datei wandert trotzdem in jedes Release. Ein Löschen gehört
   ausdrücklich beauftragt, weil ihre Herkunft in `CREDITS.md` dokumentiert ist.
-- `npm run build` prüft nicht, ob jede Katalogdatei, die die App anfordert, im
-  Release liegt. `generate_domain_stats.js` und die beiden Audits lesen nur
-  `concepts_*` und `questions_*`; `countries.json`, `subdivisions.json` und
-  `rivers.json` liest kein Buildschritt, und `buildDataAssetMap` überspringt eine
-  fehlende Datei stillschweigend. Verschwindet eine davon, läuft der Build mit
-  Exit 0 durch und die Karte fehlt im Release. Der einzige Wächter dafür ist
-  `src/__tests__/dataUrl.test.js`, und der läuft nur unter `npm test` — ein
-  CI-Verzeichnis gibt es nicht.
-
 - 38 Konzept-IDs tragen Umlaute oder ß (`cultura:lit-der-fänger-im-roggen`, `natura:weißer-hai`
   und weitere). Sie entstanden, weil die deutschen Textkorrekturen der Merge-Skripte bis zum
   2026-09-03 über das ganze Konzeptobjekt liefen. Die Ursache ist behoben, die IDs bleiben
   bewusst stehen: Sie sind zugleich die Schlüssel des Lernfortschritts in IndexedDB, ein
   Umbenennen würde den Fortschritt zu diesen Konzepten stillschweigend zurücksetzen. Eine
   Bereinigung braucht eine Migration.
-- `isConcreteImageAttribution` liegt in `src/utils/imageCredits.js` (ESM) und wird vom
-  Release-Audit genutzt, aber nicht vom Preflight in
-  `scripts/data_sources/harvest/apply_images.cjs` (CommonJS). Dadurch nimmt `apply_images
-  --write` ein Bild mit dem generischen Urheber „Wikimedia Commons" an, und der Fehler platzt
-  erst im `npm run build` — dann für die ganze Domain. Die Prüfung braucht zuerst ein Modul,
-  das beide Welten laden können; ein Muster dafür gibt es bereits (`scripts/lib/audit_rules.cjs`
-  wird von `generator_text.js` re-exportiert). Real eingetreten am 2026-09-03: Der Homo-Lauf
-  lieferte für `enzym-amylase-ptyalin` den Urheber „Own work." — konkret genug für den
-  Preflight, zu unkonkret für den Release-Audit. Der Eintrag wurde von Hand aussortiert.
 - 109 veröffentlichte Bildnachweise sind bei 200 Zeichen mitten im Wort abgeschnitten. Die
   Auflöser kürzen seit dem 2026-09-03 an der Wortgrenze und markieren den Schnitt, aber die
   vorhandenen Rohdaten tragen den harten Schnitt bereits. Ein normaler Auflöserlauf heilt sie
@@ -53,22 +35,25 @@
   abgeschnittene Nachweise, danach unverändert 109, dazu ein neuer, sauber an der Wortgrenze
   gekürzter. Zum Heilen braucht es einen eigenen Lauf, der die betroffenen Konzepte gezielt neu
   auflöst. Der mehrzeilige Commons-Rechtetext in 60 Nachweisen ist behoben.
+- Der korrigierte `resolve_images_p18_v2.cjs` löst 37 der 176 bildlosen Astra-Konzepte auf
+  (voller Lauf am 2026-09-10, 21 Minuten): alle 7 Planeten, 6 von 8 Zwergplaneten, 24 von 61
+  Monden. Eingepflegt ist davon nichts — jede Zuordnung braucht die Sichtung von Hand, die der
+  Bildrechte-Audit nicht leisten kann. Galaxien (0 von 15), Missionen (0 von 45) und Nebel
+  (0 von 40) gehen weiterhin leer aus, und derselbe Lauf sagt jetzt auch warum: Die neue
+  Prüfung meldete 49 Begriffsklärungsseiten und 64 nicht vorhandene Lemmata. Fast alle davon
+  stammen nicht aus `DEWIKI_MAP`, sondern aus dem geratenen Konzeptnamen — „DAVINCI",
+  „VERITAS", „Kohlensacknebel" gibt es auf de.wikipedia nicht, „WISE" ist eine
+  Begriffsklärung. Diese drei Kategorien brauchen entweder gepflegte Titel in `DEWIKI_MAP`
+  oder einen anderen Weg als den Namen.
 - `resolve_images_p18.cjs` löst nichts mehr auf. Ein Lauf gegen die echte Commons-API am
   2026-09-03 ergab 0 von 176 Astra-Konzepten, in einer Probe mit zwölf Planeten und Monden
   0 von 12. Ihm fehlt die Titelzuordnung `DEWIKI_MAP`, deshalb fragt er „Merkur" und „Venus"
   ab — beides Begriffsklärungsseiten ohne Artikelbild. `resolve_images_p18_v2.cjs` löste
   dieselben zwölf Konzepte zu zehn auf. Dazu kommt: Der Auflöser stellt je Konzept bis zu drei
-  einzelne Anfragen im 200-ms-Takt, läuft damit in das Limit für nicht angemeldete Clients und
-  hält sich darin fest; jede abgewiesene Anfrage wird still zu „kein freies Bild". Entweder die
-  Zuordnung nachziehen und bündeln, oder die Datei zugunsten von v2 aufgeben.
-- 14 der 99 gepflegten Titel in `DEWIKI_MAP` (`resolve_images_p18_v2.cjs`) treffen kein
-  Artikelbild, geprüft am 2026-09-03 gegen de.wikipedia: neun zeigen auf Begriffsklärungsseiten
-  (Neptun, Haumea, Iapetus, Quaoar, Kiviuq, Ijiraq, Paaliaq, Siarnaq, Erriapus), fünf auf gar
-  kein Lemma (Sedna (Zwergplanet), Orcus (Zwergplanet), Nereid (Mond), Sombrero-Galaxie,
-  Barnard's Galaxie). Der Auflöser meldet für sie „kein freies Bild", obwohl das richtige Lemma
-  ein freies Bild hat — „Neptun (Planet)" trägt ein CC0-Bild. Neben den korrigierten Titeln
-  fehlt eine Prüfung auf `pageprops.disambiguation`, sonst bleibt der nächste solche Eintrag
-  wieder unsichtbar.
+  einzelne Anfragen im 200-ms-Takt und läuft damit in das Limit für nicht angemeldete Clients.
+  Seit dem 2026-09-10 bricht er darin wenigstens ab, statt sich festzuhalten
+  (`harvest/api_guard.cjs`). Die fehlende Titelzuordnung bleibt: Entweder sie nachziehen und
+  bündeln, oder die Datei zugunsten von v2 aufgeben — Letzteres gehört ausdrücklich beauftragt.
 - `resolve_images_batched.cjs` wirft fremdsprachige Quellen weg. Läufe am 2026-09-03 ergaben
   0 von 55 Lingua- und 0 von 40 Machina-Konzepten. 47 der 55 Lingua-Konzepte haben eine
   en.wikipedia-Quelle; `pageTitleForConcept` kann damit nichts anfangen und rät stattdessen den
@@ -80,10 +65,6 @@
   2026-09-03 fand für 2 von 33 Autoren ein Bild, und das eine davon ist `Moers_Signatur.svg` —
   eine Unterschrift. Dass die übrigen 31 leer ausgehen, liegt an der Datenlage: die deutschen
   Artikel dieser Autoren enthalten kein Bild (gegengeprüft an „Dan Simmons").
-- Kein Bild-Auflöser bricht ab, solange die API ihn dauerhaft abweist. Der Wächter gegen den
-  stillen Nulllauf greift erst am Ende; `resolve_images_p18.cjs` lief so am 2026-09-03 zehn
-  Minuten lang durch 60 Konzepte ohne einen einzigen Treffer. Eine Abbruchbedingung nach einer
-  Reihe aufeinanderfolgender abgewiesener Anfragen fehlt.
 - Sechs Fragetypen haben weiterhin eine Option, die nur als richtige Antwort vorkommt und nie
   als Distraktor (76 Fragen): `astra-nebula-type` „planetarischer Nebel", `machina-algo-complexity`
   „O(n²)", `historia-figure-field` „Naturwissenschaft (allg.)", `terra/river-country`
