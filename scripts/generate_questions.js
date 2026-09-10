@@ -21,6 +21,14 @@ const QUESTIONS_OUTPUT = path.join(PUBLIC_DIR, 'questions_terra.json');
 const LEVEL_1_COUNTRIES = new Set(['DE', 'AT', 'CH', 'FR', 'IT', 'GB', 'US']);
 const LEVEL_3_PARENT_COUNTRIES = new Set(['DE', 'AT', 'CH', 'US', 'GB', 'FR', 'IT', 'ES', 'CA', 'AU']);
 
+// Stadt -> Fluss, handgepflegt. Die Schluessel sind Kennungen aus geodb.json:
+// Faellt eine Stadt aus dem Bestand oder aendert sich ihre Kennung, entsteht die
+// zugehoerige Flussfrage still nicht mehr. src/__tests__/generatorTables.test.js
+// prueft die Zuordnung deshalb gegen den Bestand.
+//
+// Bewusst nicht enthalten, weil die Stadt im Bestand fehlt (Pruefung 2026-09-10):
+// Dresden (Elbe) und Basel (Rhein). Sobald sie aufgenommen sind, gehoeren sie
+// hierher zurueck.
 const CITY_TO_RIVER = {
   'city_DE_berlin': 'Spree',
   'city_GB_london': 'Themse',
@@ -31,14 +39,12 @@ const CITY_TO_RIVER = {
   'city_DE_frankfurt_am_main': 'Main',
   'city_DE_muenchen': 'Isar',
   'city_DE_hamburg': 'Elbe',
-  'city_DE_dresden': 'Elbe',
   'city_AT_wien': 'Donau',
   'city_HU_budapest': 'Donau',
   'city_RS_belgrad': 'Donau',
   'city_SK_bratislava': 'Donau',
   'city_DE_koeln': 'Rhein',
   'city_DE_duesseldorf': 'Rhein',
-  'city_CH_basel': 'Rhein',
   'city_NL_rotterdam': 'Rhein',
   'city_PT_lissabon': 'Tajo',
   'city_PL_warschau': 'Weichsel',
