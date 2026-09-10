@@ -75,11 +75,22 @@ export default function Atlas({ selectedEntity, srsProgress, onStartQuickQuiz, g
   // Tastendruck die gesamte Entity-Datenbank (Terra: tausende Eintraege) neu scannen.
   const filteredSearch = useMemo(() => {
     if (searchQuery.trim() === '') return [];
-    return Object.values(geodb.entities).filter(entity => (
-      matchesNameTokenPrefix(entity.name, searchQuery) ||
-      matchesNameTokenPrefix(entity.englishName, searchQuery) ||
-      matchesNameTokenPrefix(entity.id, searchQuery)
-    )).slice(0, 5);
+    // Namenstreffer zuerst, ID-Treffer nur zum Auffuellen. Die IDs tragen ihre
+    // Gattung im Praefix ("city_DE_berlin"), deshalb passte eine Eingabe wie
+    // „city" auf 1376 Eintraege und verdraengte die drei, die das Wort wirklich
+    // im Namen fuehren, aus den fuenf angezeigten Vorschlaegen.
+    const nachName = [];
+    const nurNachId = [];
+    for (const entity of Object.values(geodb.entities)) {
+      if (matchesNameTokenPrefix(entity.name, searchQuery)
+        || matchesNameTokenPrefix(entity.englishName, searchQuery)) {
+        nachName.push(entity);
+        if (nachName.length === 5) break;
+      } else if (nurNachId.length < 5 && matchesNameTokenPrefix(entity.id, searchQuery)) {
+        nurNachId.push(entity);
+      }
+    }
+    return [...nachName, ...nurNachId].slice(0, 5);
   }, [searchQuery, geodb.entities]);
 
   // Unter-Einheiten (Bundeslaender/Provinzen) des aktuellen Landes — einmal

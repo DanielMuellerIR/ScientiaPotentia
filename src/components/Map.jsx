@@ -30,16 +30,38 @@ function matchOrConstant(expression) {
   return expression.length > 3 ? expression : expression[expression.length - 1];
 }
 
-// Helper to compute bounding box of a GeoJSON geometry
-function getBoundingBox(geometry) {
+/**
+ * Umschliessendes Rechteck einer GeoJSON-Geometrie.
+ *
+ * Zwei Rechnungen laufen parallel: eine mit den Laengen wie sie sind
+ * (-180 bis 180) und eine mit allen negativen Laengen um +360 verschoben. Wer
+ * die Datumsgrenze ueberspannt, ist in der ersten fast 360 Grad breit und in
+ * der zweiten schmal — dann gewinnt die zweite, und `fitBounds` zoomt auf die
+ * Region statt auf die halbe Welt. MapLibre kommt mit Laengen ueber 180 zurecht
+ * und zeichnet den Ausschnitt ueber die Grenze hinweg.
+ *
+ * Ohne das zoomte der Autonome Kreis der Tschuktschen (RU-CHU, das einzige der
+ * 252 Unterteilungs-Features mit 360 Grad Spanne) auf die ganze Weltkarte. Fuer
+ * Laender gab es dafuer handverdrahtete Sonderfaelle, fuer Unterteilungen und
+ * Fluesse nicht.
+ *
+ * Die Antarktis bleibt bewusst weltweit: Sie umfasst wirklich alle Laengen,
+ * beide Rechnungen ergeben 360 Grad, und die Weltansicht ist dort richtig.
+ */
+export function getBoundingBox(geometry) {
   let minLng = Infinity, maxLng = -Infinity;
   let minLat = Infinity, maxLat = -Infinity;
+  // Dieselbe Rechnung mit auf [0, 360) verschobenen Laengen.
+  let minShifted = Infinity, maxShifted = -Infinity;
 
   const processCoordinates = (coords) => {
     if (typeof coords[0] === 'number') {
       const [lng, lat] = coords;
       if (lng < minLng) minLng = lng;
       if (lng > maxLng) maxLng = lng;
+      const shifted = lng < 0 ? lng + 360 : lng;
+      if (shifted < minShifted) minShifted = shifted;
+      if (shifted > maxShifted) maxShifted = shifted;
       if (lat < minLat) minLat = lat;
       if (lat > maxLat) maxLat = lat;
     } else {
@@ -48,6 +70,9 @@ function getBoundingBox(geometry) {
   };
 
   processCoordinates(geometry.coordinates);
+  if (maxShifted - minShifted < maxLng - minLng) {
+    return [[minShifted, minLat], [maxShifted, maxLat]];
+  }
   return [[minLng, minLat], [maxLng, maxLat]];
 }
 
@@ -658,10 +683,13 @@ export default function Map({
           // Special override for USA contiguous coordinates to avoid Alaska/Hawaii mapping sprawl
           bbox = [[-125, 24], [-66, 50]];
         } else if (countryId === 'FJ') {
-          // Special override for Fiji to avoid antimeridian crossing zoom-out
+          // Fidschi: Ausschnitt auf die Hauptinseln. Die Datumsgrenze allein
+          // behandelt getBoundingBox() inzwischen selbst; dieser Wert beschneidet
+          // zusaetzlich die weit verstreuten Aussenriffe.
           bbox = [[177, -19.5], [180.5, -15.5]];
         } else if (countryId === 'RU') {
-          // Special override for Russia to avoid antimeridian crossing zoom-out
+          // Russland: Ausschnitt bis zur Datumsgrenze, ohne Tschukotka jenseits
+          // davon — sonst waere der Zoom fuer das Kernland zu weit draussen.
           bbox = [[20, 41], [180, 82]];
         } else {
           bbox = getBoundingBox(countryFeature.geometry);

@@ -4,7 +4,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import maplibregl from 'maplibre-gl';
 import Atlas from '../components/Atlas';
-import Map from '../components/Map';
+import Map, { getBoundingBox } from '../components/Map';
 import { useGeoData } from '../utils/useGeoData';
 import { DATA_MAP_META_NAME, resetDataUrlCache } from '../utils/dataUrl';
 
@@ -298,6 +298,71 @@ describe('Atlas-Suche', () => {
     fireEvent.keyDown(result, { key: 'Enter' });
     fireEvent.click(result);
     expect(onSelectEntity).toHaveBeenCalledWith('EG');
+  });
+});
+
+describe('Reihenfolge der Suchvorschlaege', () => {
+  it('zeigt Namenstreffer vor Eintraegen, die nur ueber ihre Kennung passen', () => {
+    // Die Kennungen tragen ihre Gattung im Praefix. Eine Eingabe wie „city"
+    // passte damit auf jede Stadt und verdraengte die wenigen Eintraege, die das
+    // Wort wirklich im Namen fuehren, aus den fuenf Vorschlaegen.
+    const entities = {};
+    for (let nummer = 0; nummer < 8; nummer += 1) {
+      entities[`city_XX_ort${nummer}`] = {
+        id: `city_XX_ort${nummer}`, type: 'city', name: `Ort ${nummer}`,
+      };
+    }
+    entities.city_MX_city_juarez = {
+      id: 'city_MX_city_juarez', type: 'city', name: 'City Juárez',
+    };
+
+    render(<Atlas geodb={{ entities }} onSelectEntity={vi.fn()} />);
+    fireEvent.change(screen.getByRole('textbox', { name: 'Atlas durchsuchen' }), {
+      target: { value: 'city' },
+    });
+
+    expect(screen.getByRole('button', { name: /City Juárez/ })).toBeInTheDocument();
+  });
+});
+
+describe('Umschliessendes Rechteck', () => {
+  // Das einzige Unterteilungs-Feature, das die Datumsgrenze ueberspannt, ist der
+  // Autonome Kreis der Tschuktschen. Fuer Laender gab es handverdrahtete
+  // Sonderfaelle (US, FJ, RU), fuer Unterteilungen und Fluesse keine — die Box
+  // war 360 Grad breit, und fitBounds zoomte auf die ganze Weltkarte statt auf
+  // die Region, auch mitten in einer Quizfrage.
+  const ueberDieGrenze = {
+    type: 'Polygon',
+    coordinates: [[[170, 62], [179, 62], [-175, 66], [-170, 70], [170, 62]]],
+  };
+
+  it('haelt eine Geometrie ueber der Datumsgrenze schmal', () => {
+    const [[minLng], [maxLng]] = getBoundingBox(ueberDieGrenze);
+    expect(maxLng - minLng).toBeLessThan(45);
+    // Laengen ueber 180 sind Absicht: MapLibre zeichnet den Ausschnitt damit
+    // ueber die Grenze hinweg, statt aussen herum.
+    expect(maxLng).toBeGreaterThan(180);
+  });
+
+  it('laesst eine gewoehnliche Geometrie unveraendert', () => {
+    const deutschlandAehnlich = {
+      type: 'Polygon',
+      coordinates: [[[6, 47], [15, 47], [15, 55], [6, 55], [6, 47]]],
+    };
+    expect(getBoundingBox(deutschlandAehnlich)).toEqual([[6, 47], [15, 55]]);
+  });
+
+  it('behandelt kein Unterteilungs-Feature mehr als weltumspannend', () => {
+    const subdivisions = JSON.parse(
+      readFileSync(resolve(process.cwd(), 'public/data/subdivisions.json'), 'utf8')
+    );
+    const zuBreit = (subdivisions.features || subdivisions)
+      .filter(feature => feature.geometry)
+      .filter((feature) => {
+        const [[minLng], [maxLng]] = getBoundingBox(feature.geometry);
+        return maxLng - minLng > 180;
+      });
+    expect(zuBreit).toEqual([]);
   });
 });
 
