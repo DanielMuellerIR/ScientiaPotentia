@@ -87,15 +87,16 @@ describe('Astra-Bestand gegen die Erntedateien', () => {
       );
       const verschlechtert = [];
       for (const konzept of Array.isArray(ernte) ? ernte : (ernte.concepts || [])) {
-        const treffer = byId.get(konzept.id);
-        if (!treffer) continue;
-        const vorher = { ...treffer };
-        refreshImageFields(treffer, konzept);
+        const vorher = byId.get(konzept.id);
+        if (!vorher) continue;
+        // Auf einer Kopie rechnen: refreshImageFields aendert sein erstes
+        // Argument, und byId teilen sich beide Durchlaeufe dieses it.each.
+        const probe = { ...vorher };
+        refreshImageFields(probe, konzept);
         for (const feld of ['imageFile', 'imageLicense', 'imageAttribution']) {
-          if (vorher[feld] && treffer[feld] !== vorher[feld]) {
+          if (vorher[feld] && probe[feld] !== vorher[feld]) {
             verschlechtert.push(`${konzept.id}.${feld}`);
           }
-          treffer[feld] = vorher[feld];   // Bestand im Test nicht verbiegen
         }
       }
       expect(verschlechtert).toEqual([]);

@@ -36,7 +36,16 @@ const CACHE_DIR = path.join(REPO_ROOT, '.cache', 'geodata');
 function cachePath(name) {
   const target = path.join(CACHE_DIR, name);
   const legacy = path.join(PUBLIC_DIR, name);
-  if (!fs.existsSync(target) && fs.existsSync(legacy)) fs.renameSync(legacy, target);
+  if (!fs.existsSync(target) && fs.existsSync(legacy)) {
+    try {
+      fs.renameSync(legacy, target);
+    } catch (err) {
+      // Liegen die beiden Orte auf verschiedenen Dateisystemen, wirft rename
+      // EXDEV. Ein misslungener Umzug kostet hoechstens einen erneuten Download
+      // — den ganzen Lauf daran scheitern zu lassen waere unverhaeltnismaessig.
+      console.warn(`Cache konnte nicht nach ${target} verschoben werden: ${err.message}`);
+    }
+  }
   return target;
 }
 const COUNTRIES_OUTPUT = path.join(PUBLIC_DIR, 'countries.json');

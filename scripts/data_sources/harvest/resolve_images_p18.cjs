@@ -257,7 +257,7 @@ async function resolveConcept(c) {
   // Bildrechte-Audit Lizenz und Urheber prueft, nicht das Motiv. Dieselbe
   // Sperrliste nutzen resolve_images_p18_v2.cjs:403 und
   // resolve_images_batched.cjs:170 an ihrem Namensrueckfall bereits.
-  if (!P18_ONLY_CATS.has(c.category) && !AMBIGUOUS_NAMES.has(c.name.trim())
+  if (!P18_ONLY_CATS.has(c.category) && !AMBIGUOUS_NAMES.has(String(c.name || '').trim())
     && !sourceTitle && !wikiTitle) {
     const fileTitle = await dewikiPageimage(c.name);
     if (fileTitle) {

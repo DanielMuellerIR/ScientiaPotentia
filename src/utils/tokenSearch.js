@@ -13,6 +13,12 @@ const UNZERLEGBARE_BUCHSTABEN = {
   'æ': 'ae', 'ø': 'oe', 'œ': 'oe', 'ı': 'i', 'ħ': 'h'
 };
 
+// Aus den Schluesseln gebaut statt danebengeschrieben: Eine zweite Liste
+// derselben Buchstaben wuerde beim Ergaenzen auseinanderlaufen — ein Zeichen nur
+// in der Tabelle bliebe wirkungslos, eines nur im Muster loeschte den Rest des
+// Namens (Review-Fund 2026-09-10).
+const UNZERLEGBARE_MUSTER = new RegExp(`[${Object.keys(UNZERLEGBARE_BUCHSTABEN).join('')}]`, 'g');
+
 /**
  * Durchsuchbare Namen vereinheitlichen: Groß-/Kleinschreibung, Umlaute und ß
  * sollen keine unterschiedlichen Trefferlisten erzeugen.
@@ -21,7 +27,7 @@ function normalizeSearchText(value) {
   return String(value || '')
     .toLocaleLowerCase('de')
     .replace(/ß/g, 'ss')
-    .replace(/[łđðþæøœıħ]/g, zeichen => UNZERLEGBARE_BUCHSTABEN[zeichen])
+    .replace(UNZERLEGBARE_MUSTER, zeichen => UNZERLEGBARE_BUCHSTABEN[zeichen])
     .normalize('NFD')
     .replace(/\p{M}/gu, '');
 }

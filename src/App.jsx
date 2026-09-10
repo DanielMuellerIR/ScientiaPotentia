@@ -137,6 +137,12 @@ export default function App() {
 
   const activeTabRef = React.useRef(activeTab);
   activeTabRef.current = activeTab;
+  // handleQuizFinished setzt den Zieltab erst nach mehreren await-Punkten. Ein
+  // Bereichswechsel in dieser Zeit wuerde sonst aus der alten Domain beantwortet
+  // — und ein Bereich ohne Explorer landete auf 'explore', also wieder auf einem
+  // Tab ohne Knopf (Review-Fund 2026-09-10).
+  const activeDomainIdRef = React.useRef(activeDomainId);
+  activeDomainIdRef.current = activeDomainId;
 
   // SRS & Progress State
   const [srsProgress, setSrsProgress] = useState({});
@@ -357,6 +363,9 @@ export default function App() {
     try {
       const streak = await getSetting('streakCount', 0);
       const lastReviewDateStr = await getSetting('lastReviewDate', null);
+      // Direkt hier, nicht am Blockende: Zwei fruehe Returns darunter wuerden es
+      // sonst ueberspringen und ein einmal gesetztes false stehen lassen.
+      streakReadable.current = true;
       
       if (!lastReviewDateStr) {
         setStreakCount(0);
@@ -380,7 +389,6 @@ export default function App() {
       } else {
         setStreakCount(streak);
       }
-      streakReadable.current = true;
     } catch (e) {
       streakReadable.current = false;
       console.error('Error loading streak:', e);
@@ -492,7 +500,7 @@ export default function App() {
     } finally {
       await loadProgressData();
       setQuizArmed(false); // Runde beendet -> nächster Lern-Quiz-Aufruf zeigt wieder die Wahl
-      setActiveTab(startTabFor(activeDomain));
+      setActiveTab(startTabFor(getDomainById(activeDomainIdRef.current)));
     }
   };
 

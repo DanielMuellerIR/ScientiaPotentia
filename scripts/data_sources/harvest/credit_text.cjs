@@ -65,8 +65,13 @@ function commonsAttribution(metadata) {
     .replace(/<br\s*\/?\s*>/gi, ' / ')
     .replace(/<[^>]+>/g, '')     // uebriges HTML (Links, <span>)
     .replace(/\s+/g, ' ')
-    .replace(/\s*\/\s*(?=\/|$)/g, '')   // kein leeres Segment durch ein <br> am Ende
-    .trim();
+    // Ein <br> am Textende hinterlaesst ein leeres Segment. Geteilt wird an
+    // genau dem Trenner, den die Zeile darueber selbst einsetzt — mit
+    // Leerzeichen. Eine Regex auf blosse Schraegstriche waere hier falsch: Sie
+    // trifft auch das "//" in einer Adresse und den Schraegstrich am Ende eines
+    // Quelllinks (Review-Fund 2026-09-10).
+    .split(' / ').map((teil) => teil.trim()).filter(Boolean)
+    .join(' / ');
   return truncateCredit([feld('Artist'), feld('Credit')].filter(Boolean).join(' / '));
 }
 
