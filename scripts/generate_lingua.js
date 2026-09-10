@@ -735,6 +735,37 @@ const templates = [
   }
 ];
 
+// Waechter fuer LANGUAGE_FACT_TARGETS: Jede Zuordnung muss genau ein Konzept
+// der genannten Kategorie treffen. Ohne diese Pruefung faellt eine Umbenennung
+// im Rohbestand nicht auf — der Generator wuerde weiter Fragen bauen, deren als
+// richtig markierte Antwort es gar nicht mehr gibt, waehrend das umbenannte
+// Original als Distraktor danebensteht. Dann waeren zwei Optionen richtig und
+// die Frage unbeantwortbar. Lieber laut abbrechen als still falsche Fragen
+// veroeffentlichen.
+const zuordnungsFehler = [];
+for (const [id, ziel] of Object.entries(LANGUAGE_FACT_TARGETS)) {
+  if (!raw.some(c => c.id === id)) {
+    zuordnungsFehler.push(`${id}: Konzept fehlt im Bestand`);
+    continue;
+  }
+  const pool = byCategory[ziel.pool];
+  if (!pool) {
+    zuordnungsFehler.push(`${id}: Kategorie "${ziel.pool}" gibt es nicht`);
+    continue;
+  }
+  const treffer = pool.filter(c => c.name === ziel.answer).length;
+  if (treffer !== 1) {
+    zuordnungsFehler.push(
+      `${id}: "${ziel.answer}" kommt in "${ziel.pool}" ${treffer}-mal vor, erwartet genau einmal`
+    );
+  }
+}
+if (zuordnungsFehler.length) {
+  console.error('Fehler: LANGUAGE_FACT_TARGETS passt nicht mehr zum Bestand:');
+  for (const zeile of zuordnungsFehler) console.error(`  - ${zeile}`);
+  process.exit(1);
+}
+
 // --- Fragen generieren ---------------------------------------------------
 const questions = [];
 // Skip-Zähler für den ehrlichen Abschlussbericht.
