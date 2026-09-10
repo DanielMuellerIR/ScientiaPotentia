@@ -8,6 +8,7 @@ import {
 import GalleryExplorer from '../components/GalleryExplorer';
 import MuseumExplorer from '../components/MuseumExplorer';
 import { DEFAULT_DEPOT_PAGE_SIZE } from '../components/ExhibitGalleryShared';
+import { clearImageMirror, mockImageMirror } from './helpers/imageMirror';
 
 const originalClientWidth = Object.getOwnPropertyDescriptor(
   HTMLElement.prototype,
@@ -62,7 +63,17 @@ const museumFixture = {
   terra: {},
 };
 
+/** Jedes Exponat der Vorlage braucht eine eigene Kopie im Bildmanifest. */
+function mirrorFixtureImages() {
+  mockImageMirror(
+    Object.values(museumFixture)
+      .flatMap((domain) => Object.values(domain))
+      .map((concept) => concept.image?.url),
+  );
+}
+
 beforeEach(() => {
+  mirrorFixtureImages();
   Object.defineProperty(HTMLElement.prototype, 'clientWidth', {
     configurable: true,
     get: () => 900,
@@ -105,6 +116,7 @@ beforeEach(() => {
 
 afterEach(() => {
   cleanup();
+  clearImageMirror();
   vi.unstubAllGlobals();
 });
 

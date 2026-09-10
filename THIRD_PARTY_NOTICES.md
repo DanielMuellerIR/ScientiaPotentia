@@ -10,7 +10,14 @@ Kartenstile, Kartendaten, Schriftarten und Bibliotheken behalten ihre jeweiligen
 `public/map_styles/scientia_parchment.json` ist eine lokal angepasste Fassung des von
 [OpenFreeMap](https://openfreemap.org/) ausgelieferten Positron-Stils. Änderungen durch Scientia:
 Pergamentfarben, deutsche Beschriftungen, Kontrast, Schriftwahl und Layerdetails. Die Anwendung
-lädt weiterhin Kacheln, Relief, Glyphen und Sprites von OpenFreeMap.
+lädt weiterhin Kacheln, Relief, Glyphen und Sprites von OpenFreeMap; dabei wird die IP-Adresse des
+Besuchers übertragen. Die Karte ist damit der einzige Teil von Scientia, der beim Benutzen einen
+fremden Server anspricht — die Konzeptbilder liegen seit dem 2026-09-10 als eigene Kopie hier.
+Gemessen am selben Tag: Der Weltkacheldatensatz umfasst rund 80 GB und lässt sich nicht spiegeln;
+Schriften (99 MB für drei Schnitte à 256 Zeichenbereiche), Relief (41 MB als WebP bis Zoom 5,
+263 MB bis Zoom 6) und Sprite (0,2 MB) wären spiegelbar, würden die Übertragung aber nicht
+beenden, solange die Kacheln von dort kommen. Deshalb bleibt die Karte bewusst vollständig bei
+OpenFreeMap.
 
 - OpenFreeMap-Projekt: MIT, Copyright © 2023 Zsolt Ero.
 - Positron-Stilcode: BSD 3-Clause, Copyright © 2024 MapTiler.com und OpenMapTiles contributors.
@@ -87,10 +94,15 @@ Strukturierte Fakten aus den Haupt-, Property-, Lexeme- und EntitySchema-Namensr
 
 ## Bilder und 3D-Texturen
 
-- Konzeptbilder stammen überwiegend von Wikimedia Commons. Jedes erzeugte Konzept speichert
+- Konzeptbilder stammen von Wikimedia Commons und werden als eigene Kopie ausgeliefert; die App
+  baut zum Anzeigen keine Verbindung zu Wikimedia auf. Jedes erzeugte Konzept speichert
   Dateiseite, Urheberangabe, Lizenzbezeichnung und Lizenzlink. Die App zeigt diese Angaben am Bild.
-- Dateien mit CC-Lizenz werden nur technisch für die Anzeige skaliert; andere inhaltliche
-  Änderungen müssen beim jeweiligen Asset vermerkt werden.
+- Sparsame Originaldateien werden unverändert kopiert, größere auf 960 Pixel Breite verkleinert;
+  dazu kommt ein Vorschaubild mit 320 Pixeln. Welche Fassung ein Bild hat, sagt sein
+  Änderungshinweis. Andere inhaltliche Änderungen müssen beim jeweiligen Asset vermerkt werden.
+- Die Lizenztexte für GFDL 1.2, GFDL 1.3 und die Free Art License liegen unter
+  `public/licenses/` bei; ihre Herkunft steht in `public/licenses/CREDITS.md`. Die
+  Creative-Commons-Lizenzen sind aus jedem Bildnachweis heraus verlinkt.
 - Astra-Texturen und die Saturnring-Aufnahme:
   `public/assets/astra/textures/CREDITS.md`.
 - Homo-Anatomiegrafiken: `public/assets/homo/CREDITS.md`.

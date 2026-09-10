@@ -2,6 +2,29 @@
 
 Dieses Changelog beginnt mit dem für eine öffentliche Veröffentlichung bereinigten Projektstand.
 
+## [2.1.0] — 2026-09-10
+
+- Konzeptbilder liegen jetzt auf dem eigenen Server. Bisher setzten Quiz und Galerien als
+  Bildadresse eine `Special:FilePath`-Adresse von commons.wikimedia.org: Bei jeder aufgedeckten
+  Antwort und in jeder Galeriekachel ging die IP-Adresse des Besuchers an die Wikimedia
+  Foundation. `npm run mirror:images` legt zu allen 4945 Bilddateien eine eigene Kopie an —
+  1241 sparsame Originale unverändert, 3704 größere auf 960 Pixel Breite verkleinert, dazu
+  3914 Vorschaubilder mit 320 Pixeln. Fehlt eine Kopie, zeigt die App kein Bild; ein Rückfall
+  auf Wikimedia ist ausgeschlossen und wird im Build geprüft.
+- Der Bildnachweis sagt jetzt die Wahrheit über die ausgelieferte Datei: Ein unverändert
+  übernommenes Original trägt „unverändert übernommen" statt „für die Anzeige technisch
+  skaliert". Bei CC BY und CC BY-SA ist die Angabe, ob verändert wurde, eine Pflichtangabe.
+- Drei Bilder trugen eine falsche Lizenzbezeichnung: „Halimede" stand als Public domain statt
+  CC0, die Antlia-Zwerggalaxie als CC BY 3.0 statt 4.0, ein Spannungsreglermodul als
+  CC BY-SA 3.0 statt CC BY 2.5. Aufgefallen beim Abgleich aller 4945 Dateien gegen den
+  aktuellen Stand auf Commons; dabei war keine Datei verschwunden und keine unfrei geworden.
+- Die Lizenztexte für GFDL 1.2, GFDL 1.3 und die Free Art License liegen der Veröffentlichung
+  bei. Beim Verlinken auf Commons war das nicht nötig, beim Ausliefern eigener Kopien schon.
+- Die Karte bleibt als einziger Teil der App bei einem fremden Server: Die Weltkacheln von
+  OpenFreeMap umfassen rund 80 GB und lassen sich nicht spiegeln. Schriften, Relief und Sprite
+  allein zu spiegeln, würde die Übertragung nicht beenden. Das ist jetzt in
+  `THIRD_PARTY_NOTICES.md`, `public/credits.html` und im Kartenstil begründet statt unbemerkt.
+
 ## [2.0.4] — 2026-09-10
 
 - Ein Deploy konnte Dateien eines noch gebrauchten Releases löschen. Ein Historieneintrag,

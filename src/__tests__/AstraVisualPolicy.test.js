@@ -13,8 +13,12 @@ import {
   spectralColorFromAttributes
 } from '../components/AstraVisual';
 import { TEXTURE_CREDIT } from '../components/astraBodies';
+import { clearImageMirror, mockImageMirror } from './helpers/imageMirror';
 
-afterEach(cleanup);
+afterEach(() => {
+  cleanup();
+  clearImageMirror();
+});
 
 const concept = (overrides = {}) => ({
   id: 'astra:test',
@@ -169,13 +173,16 @@ describe('Astra Deep Sky, Transit und Leakschutz', () => {
       category: 'mission',
       name: 'Testmission',
       image: {
-        url: 'https://upload.wikimedia.org/wikipedia/commons/a/a1/Test.jpg',
+        // Wie im Bestand: `url` ist die Commons-Dateiseite. Sie ist der
+        // Schlüssel ins Bildmanifest, aus dem die eigene Kopie kommt.
+        url: 'https://commons.wikimedia.org/wiki/File:Test.jpg',
         attribution: 'Testautor',
         license: 'CC BY 4.0',
         licenseUrl: 'https://creativecommons.org/licenses/by/4.0/',
         sourceUrl: 'https://commons.wikimedia.org/wiki/File:Test.jpg'
       }
     });
+    mockImageMirror([mission.image.url]);
     const { rerender } = render(React.createElement(AstraExhibitReveal, {
       concept: mission,
       revealed: false

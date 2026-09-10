@@ -1,11 +1,13 @@
-// Commons-URL-Helfer: wandelt eine Wikimedia-Commons-„wiki/File"-Seite in einen
-// direkten, serverseitig skalierten Bild-Link um. Geteilt von MuseumExplorer
-// (globale Galerie) und GalleryExplorer (per-Bereich-Übersicht).
+// Commons-Adressen lesen: Aus der Adresse einer Wikimedia-Commons-Dateiseite
+// den Dateinamen gewinnen und Commons als Quelle erkennen.
 //
-// Alle geernteten Bilder nutzen das Format:
-//   https://commons.wikimedia.org/wiki/File%3A<Dateiname>  bzw.  .../wiki/File:<Dateiname>
-// Daraus bauen wir eine FilePath-URL, die ein cachefähiges, auf `width` skaliertes
-// Bild liefert. Nicht-Commons-URLs (Met, NASA, direkte CDN-Links) gehen unverändert durch.
+// Bis zum 2026-09-10 baute diese Datei aus jeder Dateiseite eine direkte
+// `Special:FilePath`-Bildadresse, die die Komponenten als `src` setzten. Damit
+// holte jeder Besucher das Bild bei der Wikimedia Foundation, und seine
+// IP-Adresse ging dorthin mit. Seither liefert das Projekt eigene Kopien aus
+// (siehe `imageMirror.js` und `scripts/mirror_concept_images.mjs`); von der
+// Commons-Adresse bleibt nur der Dateiname als Schlüssel des Manifests und der
+// Quelllink im Bildnachweis.
 
 // Matcht beide Pfadvarianten: File:Name und File%3AName (%3A = URL-kodierter
 // Doppelpunkt). Der Host wird separat über URL.hostname geprüft, damit Adressen
@@ -22,26 +24,28 @@ export function isWikimediaCommonsUrl(rawUrl) {
 }
 
 /**
- * @param {string} rawUrl  - URL aus dem Konzeptdatensatz (concept.image.url)
- * @param {number} width   - gewünschte Breite in Pixeln (Commons skaliert serverseitig)
- * @returns {string}       - direkt verwendbare <img src>-URL
+ * Dateiname einer Commons-Dateiseite — zugleich der Schlüssel im Bildmanifest.
+ *
+ * Commons behandelt Unterstrich und Leerzeichen im Titel als dasselbe Zeichen;
+ * beide Schreibweisen kommen im Bestand vor. Der Schlüssel benutzt deshalb
+ * durchgehend das Leerzeichen, damit `File:Blue_Marble.jpg` und
+ * `File:Blue Marble.jpg` denselben Eintrag treffen.
+ *
+ * @param {string} rawUrl Adresse einer Commons-Dateiseite.
+ * @returns {string} Dateiname ohne Namensraum, oder '' bei fremder Adresse.
  */
-export function commonsToDirectUrl(rawUrl, width = 400) {
+export function fileNameFromCommonsUrl(rawUrl) {
   let parsed;
   try {
     parsed = new URL(rawUrl);
   } catch (_) {
-    return rawUrl;
+    return '';
   }
-  const match = isWikimediaCommonsUrl(rawUrl)
-    ? COMMONS_FILE_PATH_RX.exec(parsed.pathname)
-    : null;
-  if (!match) {
-    // Nicht-Commons-URLs unverändert zurückgeben.
-    return rawUrl;
-  }
-  // Dateiname ist oft doppelt URL-kodiert (File%3A -> File:, dann Dateiname nochmal).
-  // decodeURIComponent schlägt bei ungültigen %xx-Sequenzen fehl → try/catch.
+  if (!isWikimediaCommonsUrl(rawUrl)) return '';
+  const match = COMMONS_FILE_PATH_RX.exec(parsed.pathname);
+  if (!match) return '';
+  // Der Dateiname ist oft doppelt kodiert (File%3A -> File:, Name nochmal).
+  // decodeURIComponent scheitert an ungültigen %xx-Folgen → try/catch.
   let fileName = match[1];
   try {
     fileName = decodeURIComponent(match[1]);
@@ -54,9 +58,5 @@ export function commonsToDirectUrl(rawUrl, width = 400) {
       .replace(/%26/gi, '&')
       .replace(/%2B/gi, '+');
   }
-  const requestedWidth = Number(width);
-  const safeWidth = Number.isFinite(requestedWidth)
-    ? Math.min(4096, Math.max(1, Math.round(requestedWidth)))
-    : 400;
-  return `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(fileName)}?width=${safeWidth}`;
+  return fileName.replace(/_/g, ' ').trim();
 }

@@ -31,6 +31,18 @@ npm run dev
 
 Vite serves the application at `http://localhost:3000` by default.
 
+Concept images are not part of the repository: roughly 4,900 files from Wikimedia Commons would
+grow it by several hundred megabytes for good. A fresh clone fetches them once — the run takes
+about ninety minutes and writes some 590 MB to `public/images/concepts/`:
+
+```bash
+npm run mirror:images
+```
+
+Without that run the development server still starts but shows no concept images, and
+`npm run build` stops with a finding. To build deliberately without them, set
+`SCIENTIA_ALLOW_MISSING_IMAGES=1`; the result is explicitly not a release.
+
 Build and verify the project with:
 
 ```bash

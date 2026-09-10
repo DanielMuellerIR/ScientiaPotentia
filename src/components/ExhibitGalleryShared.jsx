@@ -2,7 +2,7 @@ import React, {
   useCallback, useEffect, useMemo, useRef, useState
 } from 'react';
 import { ChevronLeft, ChevronRight, Images } from 'lucide-react';
-import { commonsToDirectUrl } from '../utils/commonsImage';
+import { mirroredImageSrc, useImageMirror } from '../utils/imageMirror';
 
 export const DEFAULT_DEPOT_PAGE_SIZE = 60;
 
@@ -30,13 +30,18 @@ export function ExhibitImage({
   const [loaded, setLoaded] = useState(false);
   const [errored, setErrored] = useState(false);
   const imageUrl = imageUrlFor(item);
+  const mirror = useImageMirror();
+  const localSrc = mirroredImageSrc(mirror, imageUrl, size);
 
   useEffect(() => {
     setLoaded(false);
     setErrored(false);
   }, [imageUrl]);
 
-  if (errored || !imageUrl) {
+  // `mirror && !localSrc` heißt: Das Manifest ist da und kennt zu diesem Bild
+  // keine eigene Kopie. Solange es noch lädt (`mirror === null`), bleibt es
+  // beim Ladezustand statt beim Ersatzsymbol.
+  if (errored || !imageUrl || (mirror && !localSrc)) {
     return (
       <div className="hall-image-fallback" role="img" aria-label={`Bild für ${item?.name || 'Exponat'} nicht verfügbar`}>
         <Images size={fallbackSize} style={{ opacity: 0.3 }} />
@@ -46,32 +51,34 @@ export function ExhibitImage({
 
   return (
     <>
-      {!loaded && (
+      {(!loaded || !localSrc) && (
         <div className="hall-loading" aria-hidden="true">
           {loadingText && <span className="hall-loading-text">{loadingText}</span>}
         </div>
       )}
-      <img
-        className={className}
-        src={commonsToDirectUrl(imageUrl, size)}
-        alt={item.name}
-        // Bilder von Wikimedia Commons erst bei Bedarf laden: loading="lazy"
-        // verzögert die Drittanbieter-Anfrage, bis das Bild in Sichtweite kommt;
-        // decoding="async" hält das Dekodieren aus dem Haupt-Thread.
-        loading="lazy"
-        decoding="async"
-        onLoad={(event) => {
-          setLoaded(true);
-          // Echtes Seitenverhältnis des geladenen Bildes melden, damit der Rahmen
-          // sich der Bildform anpasst (statt alle Rahmen gleich hoch zu machen).
-          const { naturalWidth, naturalHeight } = event.currentTarget;
-          if (onRatio && naturalWidth > 0 && naturalHeight > 0) {
-            onRatio(naturalWidth / naturalHeight);
-          }
-        }}
-        onError={() => setErrored(true)}
-        style={{ ...style, opacity: loaded ? 1 : 0 }}
-      />
+      {localSrc ? (
+        <img
+          className={className}
+          src={localSrc}
+          alt={item.name}
+          // Erst bei Bedarf laden: loading="lazy" holt das Bild, sobald es in
+          // Sichtweite kommt; decoding="async" hält das Dekodieren aus dem
+          // Haupt-Thread. Bei fünftausend Exponaten trägt beides spürbar.
+          loading="lazy"
+          decoding="async"
+          onLoad={(event) => {
+            setLoaded(true);
+            // Echtes Seitenverhältnis des geladenen Bildes melden, damit der Rahmen
+            // sich der Bildform anpasst (statt alle Rahmen gleich hoch zu machen).
+            const { naturalWidth, naturalHeight } = event.currentTarget;
+            if (onRatio && naturalWidth > 0 && naturalHeight > 0) {
+              onRatio(naturalWidth / naturalHeight);
+            }
+          }}
+          onError={() => setErrored(true)}
+          style={{ ...style, opacity: loaded ? 1 : 0 }}
+        />
+      ) : null}
     </>
   );
 }

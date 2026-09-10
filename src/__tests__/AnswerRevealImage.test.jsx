@@ -1,8 +1,10 @@
 import React from 'react';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
-import { afterEach, describe, expect, it } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import AnswerRevealImage from '../components/AnswerRevealImage';
+import ImageCredit from '../components/ImageCredit';
 import { DeepSkyOcular } from '../components/AstraVisual';
+import { clearImageMirror, mockEmptyImageMirror, mockImageMirror } from './helpers/imageMirror';
 
 const image = {
   url: 'https://commons.wikimedia.org/wiki/File%3ADeep_Sky_Test.jpg',
@@ -12,7 +14,19 @@ const image = {
   changes: 'für die Anzeige technisch skaliert'
 };
 
-afterEach(cleanup);
+const externalImage = {
+  url: 'https://images.nasa.gov/details/test.jpg',
+  attribution: 'NASA',
+  license: 'Public domain'
+};
+
+// Ohne Eintrag im Bildmanifest zeigt die Komponente zu Recht kein Bild — die
+// eigene Kopie ist die einzige Bildquelle.
+beforeEach(() => mockImageMirror([image.url]));
+afterEach(() => {
+  cleanup();
+  clearImageMirror();
+});
 
 describe('AnswerRevealImage', () => {
   it('verbirgt Bild, Alternativtext und Credit bis nach der Antwort', () => {
@@ -22,7 +36,9 @@ describe('AnswerRevealImage', () => {
 
     const coveredImage = screen.getByAltText('Verhülltes Exponat');
     expect(coveredImage).not.toHaveClass('exhibit-img--revealed');
-    expect(coveredImage).toHaveAttribute('src', expect.stringContaining('Special:FilePath'));
+    // Eigene Kopie statt Commons-Adresse: kein Drittanbieter im `src`.
+    expect(coveredImage).toHaveAttribute('src', expect.stringMatching(/^images\/concepts\//));
+    expect(coveredImage.getAttribute('src')).not.toContain('wikimedia.org');
     expect(screen.queryByText(/Testobservatorium/)).not.toBeInTheDocument();
     expect(screen.queryByAltText('Geheimes Objekt')).not.toBeInTheDocument();
 
@@ -64,23 +80,41 @@ describe('AnswerRevealImage', () => {
     );
   });
 
+  // Der Nachweis wird hier ohne die Bildtafel geprüft: Eine Dateiseite außerhalb
+  // von Commons hat keinen Eintrag im Bildmanifest, und ohne eigene Kopie zeigt
+  // `AnswerRevealImage` bewusst gar kein Bild. Die Beschriftung des Quelllinks
+  // sitzt ohnehin in `ImageCredit`.
   it('bezeichnet eine externe Dateiseite nicht als Wikimedia Commons', () => {
+    render(<ImageCredit image={externalImage} />);
+
+    expect(screen.getByRole('link', { name: 'Bildquelle' }))
+      .toHaveAttribute('href', externalImage.url);
+    expect(screen.queryByRole('link', { name: 'Wikimedia Commons' }))
+      .not.toBeInTheDocument();
+  });
+
+  it('zeigt ohne eigene Kopie den Ersatz statt einer Adresse bei Wikimedia', () => {
+    mockEmptyImageMirror();
     render(
       <AnswerRevealImage
-        image={{
-          url: 'https://images.nasa.gov/details/test.jpg',
-          attribution: 'NASA',
-          license: 'Public domain'
-        }}
-        name="Weltraumbild"
+        image={image}
+        name="Ungespiegeltes Bild"
         revealed
+        fallback={<span>Neutrales Fallback</span>}
       />
     );
 
-    expect(screen.getByRole('link', { name: 'Bildquelle' }))
-      .toHaveAttribute('href', 'https://images.nasa.gov/details/test.jpg');
-    expect(screen.queryByRole('link', { name: 'Wikimedia Commons' }))
-      .not.toBeInTheDocument();
+    expect(screen.getByText('Neutrales Fallback')).toBeInTheDocument();
+    expect(screen.queryByRole('img')).not.toBeInTheDocument();
+  });
+
+  it('nennt im Nachweis das unveränderte Original als solches', () => {
+    const mirror = mockImageMirror([image.url]);
+    mirror.files['Deep Sky Test.jpg'][4] = 'o';
+    render(<AnswerRevealImage image={image} name="Originalbild" revealed />);
+
+    expect(screen.getByText(/Testobservatorium/))
+      .toHaveTextContent('CC BY 4.0 · unverändert übernommen');
   });
 });
 

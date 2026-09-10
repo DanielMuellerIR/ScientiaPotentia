@@ -11,7 +11,7 @@ import {
   normaliseImageCredit,
   sanitizeImageAttribution,
 } from '../utils/imageCredits';
-import { commonsToDirectUrl, isWikimediaCommonsUrl } from '../utils/commonsImage';
+import { fileNameFromCommonsUrl, isWikimediaCommonsUrl } from '../utils/commonsImage';
 
 const commonsMetadata = values => Object.fromEntries(
   Object.entries(values).map(([key, value]) => [key, { value }]),
@@ -142,13 +142,16 @@ describe('Bildnachweise', () => {
     }).attribution).toBe('Urheberangabe auf der Dateiseite');
   });
 
-  it('wandelt nur echte Commons-Dateiseiten in skalierte Bildadressen um', () => {
+  it('liest den Dateinamen nur aus echten Commons-Dateiseiten', () => {
     const commons = 'https://commons.wikimedia.org/wiki/File%3ATest%20image.jpg';
+    const underscored = 'https://commons.wikimedia.org/wiki/File:Test_image.jpg';
     const lookalike = 'https://notcommons.wikimedia.org/wiki/File:Test.jpg';
 
-    expect(commonsToDirectUrl(commons, 639.6))
-      .toBe('https://commons.wikimedia.org/wiki/Special:FilePath/Test%20image.jpg?width=640');
-    expect(commonsToDirectUrl(lookalike, 640)).toBe(lookalike);
-    expect(commonsToDirectUrl('keine URL', 640)).toBe('keine URL');
+    // Unterstrich und Leerzeichen sind auf Commons derselbe Titel und müssen
+    // deshalb denselben Manifestschlüssel ergeben.
+    expect(fileNameFromCommonsUrl(commons)).toBe('Test image.jpg');
+    expect(fileNameFromCommonsUrl(underscored)).toBe('Test image.jpg');
+    expect(fileNameFromCommonsUrl(lookalike)).toBe('');
+    expect(fileNameFromCommonsUrl('keine URL')).toBe('');
   });
 });

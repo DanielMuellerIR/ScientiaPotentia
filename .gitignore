@@ -53,3 +53,8 @@ __pycache__/
 # Semantische QA-Laeufe sind Arbeitsprotokolle eines Sprachmodells, kein
 # Projektinhalt: lokal erzeugen, auswerten und ausserhalb des Repos ablegen.
 docs/qa_reports/
+
+# Eigene Kopien der Konzeptbilder (rund 9000 Dateien, mehrere hundert MB).
+# Sie entstehen aus `npm run mirror:images`; versioniert sind nur das Skript
+# und das Manifest public/data/image_mirror.json.
+public/images/concepts/

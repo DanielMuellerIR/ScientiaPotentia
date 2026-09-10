@@ -1,19 +1,21 @@
 # Backlog
 
-- Alle 5289 bebilderten Konzepte laden ihr Bild zur Laufzeit von
-  `commons.wikimedia.org`. `src/utils/commonsImage.js` baut aus jeder
-  Commons-Dateiseite eine `Special:FilePath`-Adresse, die
-  `AnswerRevealImage.jsx` und `ExhibitGalleryShared.jsx` als Bildquelle setzen —
-  bei jeder aufgedeckten Quizantwort und in jeder Galerie geht die IP des
-  Besuchers an die Wikimedia Foundation. Die Projektregel verlangt Selbsthosting
-  für alles, was sich selbst hosten lässt; „technisch notwendig" greift bei
-  Bildern nicht. Dasselbe gilt für die Glyphen des Kartenstils: Der Vertrag in
-  `public/map_styles/scientia_parchment.json` holt `fonts/{fontstack}/{range}.pbf`
-  von `tiles.openfreemap.org`, und Schriftdaten fallen unter dieselbe Regel — die
-  Planet-Vektorkacheln realistisch nicht. Das Umstellen ist ein eigener Auftrag:
-  Es betrifft Speicherbedarf, Erntepipeline und Releasegröße. Gemessen am
-  2026-09-10 in der CodeQA-Kampagne; keine der beiden Entscheidungen ist bisher
-  irgendwo als bewusst dokumentiert.
+- Die Karte spricht als einziger Teil der App einen fremden Server an: Der Stil in
+  `public/map_styles/scientia_parchment.json` holt Vektorkacheln, Rasterrelief, Glyphs und
+  Sprite von `tiles.openfreemap.org`, und damit geht die IP jedes Kartennutzers dorthin.
+  Gemessen am 2026-09-10: Die Weltkacheln umfassen rund 80 GB und sind auf diesem Webspace
+  nicht spiegelbar. Schriften (99 MB für die drei Schnitte à 256 Zeichenbereiche), Relief
+  (41 MB als WebP bis Zoom 5, 263 MB bis Zoom 6) und Sprite (0,2 MB) wären spiegelbar, würden
+  die Übertragung aber nicht beenden, solange die Kacheln von dort kommen. Entscheidung vom
+  2026-09-10: Die Karte bleibt vollständig bei OpenFreeMap; die Begründung steht in
+  `THIRD_PARTY_NOTICES.md`, `public/credits.html` und im Stil selbst. Beenden ließe sich die
+  Übertragung nur mit eigenen Vektorkacheln — die App hält mit `countries.json`,
+  `subdivisions.json` und `rivers.json` bereits eigene Geodaten; ob sie für den Kartenhintergrund
+  ausreichen, ist ungeprüft und wäre ein eigener Auftrag.
+- Konzeptbilder mit einer Quelle außerhalb von Wikimedia Commons kann `mirror_concept_images.mjs`
+  nicht kopieren, und die App zeigt sie deshalb nicht. Zurzeit gibt es keine solche Quelle
+  (geprüft 2026-09-10, alle 4945 Dateien liegen auf Commons); `npm run audit:image-mirror`
+  meldet den Fall, falls doch eine hinzukommt.
 - `public/assets/homo/digestive.svg` (405 KiB) hat keinen Verweis im Quelltext:
   `HomoVisual.jsx` bildet seine Kategorien auf `skeleton.svg`, `muscles.png`,
   `organs.svg` und `body.svg` ab, `CATEGORY_ASSET_ALIAS` leitet die übrigen

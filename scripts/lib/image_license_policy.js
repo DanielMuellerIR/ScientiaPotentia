@@ -54,7 +54,15 @@ export function licenseNameFromCommonsMetadata(metadata) {
     return isAllowedImageLicense(label) ? label : (shortName || '?');
   }
 
-  const publicDomain = metadataValue(metadata, 'Copyrighted').toLowerCase() === 'false'
+  // Commons kennzeichnet gemeinfreie Werke auch mit dem Public Domain Mark
+  // (Kurzname „PDM-owner“, gesetzt vom Rechteinhaber). Der Kurzname enthält
+  // weder „public domain“ noch eine Lizenz-URL — erkennbar ist er nur an sich
+  // selbst und an der Nutzungsbedingung. Belegt am Porträt Carl Gustav Jung
+  // der ETH-Bibliothek, das der Gegencheck sonst als unfrei aussortierte.
+  const publicDomainMark = /^pdm(?:$|[\s-])/i.test(shortName)
+    || /public domain mark/i.test(metadataValue(metadata, 'UsageTerms'));
+  const publicDomain = publicDomainMark
+    || metadataValue(metadata, 'Copyrighted').toLowerCase() === 'false'
     || /public domain|creativecommons\.org\/publicdomain|^pd(?:\b|-)/i.test(blob);
   if (publicDomain) return 'Public domain';
 

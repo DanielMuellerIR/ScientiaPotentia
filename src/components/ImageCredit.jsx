@@ -1,9 +1,13 @@
 import React from 'react';
 import { normaliseImageCredit } from '../utils/imageCredits';
+import { mirrorEntry, useImageMirror } from '../utils/imageMirror';
 
 /** Sichtbarer, verlinkter Nachweis für freie Konzeptbilder. */
 export default function ImageCredit({ image, split = false }) {
-  const credit = normaliseImageCredit(image);
+  // Der Änderungshinweis richtet sich danach, was mit der ausgelieferten Datei
+  // wirklich geschehen ist: Original unverändert oder für die Anzeige verkleinert.
+  const mirror = useImageMirror();
+  const credit = normaliseImageCredit(image, mirrorEntry(mirror, image?.url)?.mode);
   if (!credit) return null;
 
   const source = (

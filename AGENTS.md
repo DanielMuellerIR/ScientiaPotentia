@@ -42,10 +42,18 @@ domainspezifische Visuals zur registrierten Komponente und sonst zu `ConceptVisu
 - Keine erfundenen Bildadressen. Wikimedia-Commons-Dateiseiten sind nicht mit direkten
   Bildadressen gleichzusetzen.
 - Gebündelte Assets dokumentieren ihre Herkunft im jeweiligen `CREDITS.md`.
-- `npm run audit:image-credits` muss für veröffentlichte Konzeptbilder ohne Befund enden.
-  `npm run build` führt diesen Audit und `audit_questions.cjs` selbst aus und bricht bei
-  einem Befund ab, damit weder ein gesperrtes Bild noch ein fehlerhafter Fragenkatalog ohne
-  manuelle Prüfung in ein Release gelangt.
+- Konzeptbilder werden selbst gehostet, nie von Wikimedia geladen. `npm run mirror:images`
+  legt zu jeder Commons-Dateiseite eine Kopie unter `public/images/concepts/` an und schreibt
+  das Manifest `public/data/image_mirror.json`. Die Bilddateien selbst sind nicht versioniert;
+  ein frischer Klon braucht einen Ernte-Lauf, bevor er ein Release bauen kann.
+  `src/utils/imageMirror.js` ist die einzige Stelle, die eine Bildadresse bildet — ein
+  Rückfall auf commons.wikimedia.org ist ausgeschlossen, weil er die IP des Besuchers an
+  einen Dritten gäbe. Fehlt eine Kopie, zeigt die App kein Bild.
+- `npm run audit:image-credits` und `npm run audit:image-mirror` müssen für veröffentlichte
+  Konzeptbilder ohne Befund enden. `npm run build` führt beide Audits und `audit_questions.cjs`
+  selbst aus und bricht bei einem Befund ab, damit weder ein gesperrtes Bild noch ein
+  lückenhafter Bildbestand noch ein fehlerhafter Fragenkatalog ohne manuelle Prüfung in ein
+  Release gelangt.
 
 ## Inhalts-Pipeline
 
@@ -95,6 +103,15 @@ Contentänderungen zusätzlich:
 npm run verify:facts -- <domain>
 npm run audit:questions -- <domain>
 ```
+
+Neue oder geänderte Bildzuordnungen zusätzlich:
+
+```bash
+npm run mirror:images
+```
+
+Der Lauf holt nur, was fehlt; ein vollständiger Erstlauf dauert rund anderthalb Stunden und
+legt etwa 590 MB an.
 
 Nach Änderungen an Registry, Visualisierung oder Inhalt die betroffenen Bereiche in einem echten
 Browser prüfen: Bereich wechseln, Quizfrage beantworten, Visualisierung und Bildnachweis prüfen

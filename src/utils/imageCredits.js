@@ -73,8 +73,29 @@ export function buildImageMetadata(concept) {
   };
 }
 
-/** Ergänzt ältere Concept-JSONs defensiv um ableitbare Credit-Felder. */
-export function normaliseImageCredit(image) {
+/**
+ * Änderungshinweis für den Bildnachweis.
+ *
+ * CC BY und CC BY-SA verlangen die Angabe, ob das Werk verändert wurde. Seit
+ * das Projekt eigene Kopien ausliefert, steht die Antwort fest: Ein unverändert
+ * übernommenes Original ist eben nicht skaliert, und „technisch skaliert" wäre
+ * dort schlicht falsch.
+ *
+ * @param {'original'|'resized'|undefined} mirrorMode Modus aus dem Bildmanifest.
+ */
+export function changeNoteFor(mirrorMode) {
+  return mirrorMode === 'original'
+    ? 'unverändert übernommen'
+    : 'für die Anzeige technisch skaliert';
+}
+
+/**
+ * Ergänzt ältere Concept-JSONs defensiv um ableitbare Credit-Felder.
+ *
+ * @param {object} image      Bildmetadaten aus dem Konzeptdatensatz.
+ * @param {string} [mirrorMode] Modus der lokalen Kopie; bestimmt den Änderungshinweis.
+ */
+export function normaliseImageCredit(image, mirrorMode) {
   if (!image?.url) return null;
   const sourceUrl = image.sourceUrl || image.url;
   const sanitizedAttribution = sanitizeImageAttribution(image.attribution);
@@ -87,6 +108,10 @@ export function normaliseImageCredit(image) {
     license: image.license || '',
     licenseUrl: image.licenseUrl || licenseUrlFor(image.license),
     attribution: attribution || 'Urheberangabe auf der Dateiseite',
-    changes: image.changes || 'für die Anzeige technisch skaliert',
+    // Der Modus der eigenen Kopie sticht den im Katalog gespeicherten Hinweis:
+    // Er beschreibt, was mit der ausgelieferten Datei wirklich geschehen ist.
+    changes: mirrorMode
+      ? changeNoteFor(mirrorMode)
+      : (image.changes || changeNoteFor()),
   };
 }

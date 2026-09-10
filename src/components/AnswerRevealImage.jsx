@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { commonsToDirectUrl } from '../utils/commonsImage';
 import ImageCredit from './ImageCredit';
 import { normaliseImageCredit } from '../utils/imageCredits';
+import { mirrorEntry, mirroredImageSrc, useImageMirror } from '../utils/imageMirror';
 
 /**
  * Gemeinsames, konservatives Bild-Reveal für Quizvisualisierungen.
@@ -21,12 +21,18 @@ export default function AnswerRevealImage({
 }) {
   const [imageFailed, setImageFailed] = useState(false);
   const imageUrl = image?.url || '';
+  const mirror = useImageMirror();
+  const localSrc = mirroredImageSrc(mirror, imageUrl, width);
 
   useEffect(() => {
     setImageFailed(false);
   }, [imageUrl, name]);
 
-  if (!imageUrl || imageFailed) return fallback;
+  // Solange das Manifest lädt, bleibt der Rahmen stehen — erst wenn feststeht,
+  // dass es keine eigene Kopie gibt, weicht er dem Ersatz. Ein Rückfall auf
+  // commons.wikimedia.org kommt nicht in Frage: Er wäre wieder eine Anfrage an
+  // einen Dritten mit der IP-Adresse des Besuchers.
+  if (!imageUrl || imageFailed || (mirror && !localSrc)) return fallback;
 
   const isOcular = variant === 'ocular';
   const frameClass = isOcular ? 'exhibit-frame exhibit-frame--ocular' : 'exhibit-frame';
@@ -41,24 +47,26 @@ export default function AnswerRevealImage({
     isOcular ? 'exhibit-drape--ocular' : '',
     revealed ? 'exhibit-drape--lifted' : ''
   ].filter(Boolean).join(' ');
-  const credit = normaliseImageCredit(image);
+  const credit = normaliseImageCredit(image, mirrorEntry(mirror, imageUrl)?.mode);
 
   return (
     <div className={isOcular ? 'answer-reveal answer-reveal--ocular' : 'answer-reveal'}>
       <div className={frameClass}>
         <div className={matClass}>
-          <img
-            className={imageClass}
-            src={commonsToDirectUrl(imageUrl, width)}
-            // Vor der Antwort darf auch assistive Technik den Namen nicht erhalten.
-            alt={revealed ? (name || 'Exponat') : 'Verhülltes Exponat'}
-            // Wikimedia-Commons-Bild bedarfsweise laden und asynchron dekodieren.
-            // Das Panel ist während einer Frage sichtbar, das Bild lädt daher
-            // weiterhin rechtzeitig unter der Abdeckung — die Aufdeckung bleibt sofort.
-            loading="lazy"
-            decoding="async"
-            onError={() => setImageFailed(true)}
-          />
+          {localSrc ? (
+            <img
+              className={imageClass}
+              src={localSrc}
+              // Vor der Antwort darf auch assistive Technik den Namen nicht erhalten.
+              alt={revealed ? (name || 'Exponat') : 'Verhülltes Exponat'}
+              // Bedarfsweise laden und asynchron dekodieren. Das Panel ist
+              // während einer Frage sichtbar, das Bild lädt daher rechtzeitig
+              // unter der Abdeckung — die Aufdeckung bleibt sofort.
+              loading="lazy"
+              decoding="async"
+              onError={() => setImageFailed(true)}
+            />
+          ) : null}
           {isOcular ? <span className="ocular-reticle" aria-hidden="true" /> : null}
         </div>
         <div className={drapeClass} aria-hidden={revealed}>

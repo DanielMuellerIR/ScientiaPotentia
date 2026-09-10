@@ -1,11 +1,11 @@
 {
   "name": "scientia_potentia",
   "private": true,
-  "version": "2.0.4",
+  "version": "2.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/sync_third_party_notices.mjs && node scripts/generate_domain_stats.js && node scripts/audit_image_credits.mjs && node scripts/audit_questions.cjs && vite build",
+    "build": "node scripts/sync_third_party_notices.mjs && node scripts/generate_domain_stats.js && node scripts/audit_image_credits.mjs && node scripts/audit_image_mirror.mjs && node scripts/audit_questions.cjs && vite build",
     "preview": "vite preview",
     "generate:stats": "node scripts/generate_domain_stats.js",
     "check:layout": "node scripts/check_layout_contract.cjs",
@@ -14,7 +14,9 @@
     "audit:image-credits": "node scripts/audit_image_credits.mjs",
     "audit:quote-rights": "node scripts/audit_quote_rights.mjs",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "mirror:images": "node scripts/mirror_concept_images.mjs all",
+    "audit:image-mirror": "node scripts/audit_image_mirror.mjs"
   },
   "dependencies": {
     "entities": "^8.0.0",
@@ -34,6 +36,7 @@
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^6.1.0",
     "jsdom": "^30.0.1",
+    "sharp": "^0.35.4",
     "vite": "^8.2.2",
     "vitest": "^4.1.11"
   }
