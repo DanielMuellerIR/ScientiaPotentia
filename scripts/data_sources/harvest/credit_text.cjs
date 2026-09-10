@@ -55,8 +55,17 @@ function truncateCredit(value, limit = MAX_CREDIT_LENGTH) {
  */
 function commonsAttribution(metadata) {
   const feld = (name) => String(metadata?.[name]?.value ?? '')
-    .replace(/<[^>]+>/g, '')     // Commons liefert HTML (Links, <span>)
+    // Zeilenumbrueche zuerst, und zwar mit Ersatzzeichen: Commons trennt
+    // mehrere Urheber in `Artist` haeufig mit <br />. Faellt das Tag ersatzlos
+    // weg, entsteht ein Name, den es nicht gibt — aus "Scott Anttila<br />
+    // Anttler" wurde "Scott AnttilaAnttler" (so im Bestand bei
+    // astra:leo-i-zwerggalaxie). Bei CC-BY ist das keine Namensnennung mehr.
+    // src/utils/imageCredits.js macht dieselbe Ersetzung fuer die Anzeige; hier
+    // greift sie an der Quelle, bevor der Text in die Rohdaten wandert.
+    .replace(/<br\s*\/?\s*>/gi, ' / ')
+    .replace(/<[^>]+>/g, '')     // uebriges HTML (Links, <span>)
     .replace(/\s+/g, ' ')
+    .replace(/\s*\/\s*(?=\/|$)/g, '')   // kein leeres Segment durch ein <br> am Ende
     .trim();
   return truncateCredit([feld('Artist'), feld('Credit')].filter(Boolean).join(' / '));
 }

@@ -448,6 +448,20 @@ async function main() {
     }
   }
 
+  // Ein kompletter Netzausfall sieht aus wie "kein freies Bild gefunden": jede
+  // Anfrage liefert null, jedes Konzept wird uebersprungen, und am Ende stuende
+  // ein leeres Mapping in der Ausgabedatei — ueber einem womoeglich brauchbaren
+  // aus einem frueheren Lauf, mit Exit 0. resolve_images.cjs und
+  // resolve_images_p18.cjs haben diesen Waechter seit dem 2026-09-03; hier
+  // fehlte er, ausgerechnet im Aufloeser, der p18 ersetzen soll.
+  if (targets.length >= 10 && results.length === 0) {
+    console.error(
+      `\nKein einziges Bild aufgeloest (${targets.length} Konzepte angefragt) — `
+      + `vermutlich API- oder Netzproblem. ${OUT_FILE} bleibt unveraendert.`);
+    process.exitCode = 1;
+    return;
+  }
+
   // Output schreiben
   writeJsonAtomic(OUT_FILE, results);
   const elapsed = ((Date.now() - t0) / 1000).toFixed(1);

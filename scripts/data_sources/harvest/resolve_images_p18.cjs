@@ -34,6 +34,7 @@ const {
   isBlacklistedFile,
   isBlacklistedConcept,
 } = require('./image_resolution_policy.cjs');
+const { AMBIGUOUS_NAMES } = require('./resolve_images_p18_v2.cjs');
 
 const UA = "ScientiaQuizImageResolverP18/1.0 (educational quiz project; pageimages+P18 only)";
 // Eigene Ausgabedatei: p18 und p18_v2 schrieben beide nach
@@ -249,8 +250,15 @@ async function resolveConcept(c) {
   }
 
   // --- Weg 4: Konzeptname direkt als de.wikipedia-Seitentitel ---
-  // Nur für Zielkategorien (TARGET_CATS), nicht für P18_ONLY_CATS
-  if (!P18_ONLY_CATS.has(c.category) && !sourceTitle && !wikiTitle) {
+  // Nur für Zielkategorien (TARGET_CATS), nicht für P18_ONLY_CATS — und nicht
+  // für Namen, die als Lemma etwas anderes meinen. de.wikipedia „Charon" fuehrt
+  // zum Faehrmann der Unterwelt, nicht zum Pluto-Mond: Das Konzept bekaeme das
+  // Hauptbild eines fremden Artikels, und kein Waechter merkt es, weil der
+  // Bildrechte-Audit Lizenz und Urheber prueft, nicht das Motiv. Dieselbe
+  // Sperrliste nutzen resolve_images_p18_v2.cjs:403 und
+  // resolve_images_batched.cjs:170 an ihrem Namensrueckfall bereits.
+  if (!P18_ONLY_CATS.has(c.category) && !AMBIGUOUS_NAMES.has(c.name.trim())
+    && !sourceTitle && !wikiTitle) {
     const fileTitle = await dewikiPageimage(c.name);
     if (fileTitle) {
       const info = await commonsInfoForTitle(fileTitle);

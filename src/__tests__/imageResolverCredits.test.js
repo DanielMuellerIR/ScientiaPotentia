@@ -64,12 +64,54 @@ describe('commonsAttribution', () => {
   });
 });
 
+describe('Mehrere Urheber in einem Feld', () => {
+  // Commons trennt mehrere Personen in `Artist` haeufig mit <br />. Fiel das Tag
+  // ersatzlos weg, entstand ein Name, den es nicht gibt — im Bestand steht bei
+  // astra:leo-i-zwerggalaxie "Scott AnttilaAnttler" statt "Scott Anttila /
+  // Anttler". Bei CC-BY ist ein verklebter Nichtname keine Namensnennung.
+  it.each([
+    ['Scott Anttila<br />Anttler', 'Scott Anttila / Anttler'],
+    ['A<br>B<br/>C', 'A / B / C'],
+    ['Nur einer<br />', 'Nur einer'],
+    ['<a href="/wiki/User:X">Jane Doe</a>', 'Jane Doe'],
+  ])('macht aus %j den Text %j', (roh, erwartet) => {
+    expect(commonsAttribution({ Artist: feld(roh) })).toBe(erwartet);
+  });
+
+  it('trennt Artist und Credit weiterhin mit demselben Zeichen', () => {
+    expect(commonsAttribution({ Artist: feld('Jane'), Credit: feld('ESO') }))
+      .toBe('Jane / ESO');
+  });
+});
+
 describe('Alle Bild-Aufloeser nutzen die gemeinsamen Regeln', () => {
   it.each(bildAufloeser)('%s liest den Urheber ueber commonsAttribution', (name) => {
     const quelle = readFileSync(resolve(harvestDir, name), 'utf8');
     if (!quelle.includes('extmetadata')) return;   // Aufloeser ohne Lizenzabfrage
     expect(quelle, `${name} greift direkt auf Artist zu`).not.toMatch(/Artist\?\.value/);
     expect(quelle).toContain('commonsAttribution(');
+  });
+
+  it.each(bildAufloeser)('%s bricht bei einem Nulllauf ab, statt leer zu schreiben', (name) => {
+    // Ein Netzausfall sieht aus wie "kein freies Bild gefunden": jede Anfrage
+    // liefert null, und ohne Waechter stuende danach ein leeres Mapping ueber
+    // einem brauchbaren aus einem frueheren Lauf — mit Exit 0.
+    const quelle = readFileSync(resolve(harvestDir, name), 'utf8');
+    // Die vier Aufloeser zaehlen unterschiedlich (results, out, G.resolved),
+    // gemeinsam ist die Bedingung "nichts gefunden" neben einem Exit-Code.
+    expect(quelle, `${name} hat keinen Waechter gegen den Nulllauf`)
+      .toMatch(/(?:\w+(?:\.\w+)*)\.?(?:length)? === 0[\s\S]{0,400}?process\.exitCode = 1/);
+  });
+
+  it.each(bildAufloeser)('%s schuetzt seinen Namensrueckfall gegen Homonyme', (name) => {
+    // Faellt ein Aufloeser auf den blossen Konzeptnamen als de.wikipedia-Lemma
+    // zurueck, braucht er die Sperrliste AMBIGUOUS_NAMES: „Charon" fuehrt sonst
+    // zum Faehrmann der Unterwelt statt zum Pluto-Mond. Der Bildrechte-Audit
+    // faengt das nicht — er prueft Lizenz und Urheber, nicht das Motiv.
+    const quelle = readFileSync(resolve(harvestDir, name), 'utf8');
+    if (!/dewikiPageimage\(\s*c(?:oncept)?\.name/.test(quelle)) return;
+    expect(quelle, `${name} faellt ungeschuetzt auf den Konzeptnamen zurueck`)
+      .toContain('AMBIGUOUS_NAMES');
   });
 
   it.each(bildAufloeser)('%s leitet keinen Dateititel selbst aus der URL ab', (name) => {

@@ -314,6 +314,18 @@ async function main() {
     if (!lic || !lic.ok || !lic.art || isBlacklistedConcept(id) || isBlacklistedFile(f)) continue;
     out.push({ id, imageFile: `https://commons.wikimedia.org/wiki/File%3A${encodeURIComponent(f)}`, imageLicense: lic.lic, imageAttribution: lic.art });
   }
+  // Ein kompletter Netzausfall sieht aus wie "kein freies Bild gefunden": jede
+  // gebuendelte Anfrage liefert nichts, und ohne Waechter stuende danach ein
+  // leeres Mapping in der Ausgabedatei — ueber einem womoeglich brauchbaren aus
+  // einem frueheren Lauf, mit Exit 0. resolve_images.cjs und
+  // resolve_images_p18.cjs haben diese Bremse seit dem 2026-09-03.
+  if (pool.length >= 10 && out.length === 0) {
+    console.error(
+      `\nKein einziges Bild aufgeloest (${pool.length} Konzepte angefragt) — `
+      + `vermutlich API- oder Netzproblem. ${outputFile} bleibt unveraendert.`);
+    process.exitCode = 1;
+    return;
+  }
   writeJsonAtomic(outputFile, out);
   console.log(`FERTIG: ${out.length}/${pool.length} Bilder → ${outputFile}`);
 }
