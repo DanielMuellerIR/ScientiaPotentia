@@ -4,9 +4,11 @@
   "campaign": {
     "id": "20260910T111320743505+0200",
     "token_budget": 3000000,
-    "status": "active",
+    "status": "complete",
     "started_at": "2026-09-10T11:13:20+02:00",
-    "tokens_spent": 488680
+    "tokens_spent": 503065,
+    "finished_at": "2026-09-10T12:14:45+02:00",
+    "finish_reason": "all-current"
   },
   "campaign_history": [
     {
@@ -627,15 +629,15 @@
       "state": "completed",
       "last_run": {
         "campaign_id": "20260910T111320743505+0200",
-        "completed_at": "2026-09-10T12:07:53+02:00",
-        "observed_head": "620454ef2e9bfabb2e37c67685b4b4ef0edc08cb",
-        "content_sha256": "9db1ce9ee4502d5bc820b1f03b45db145a54e92db9989ec42e9b002f10e75687",
+        "completed_at": "2026-09-10T12:14:44+02:00",
+        "observed_head": "fb2d23002cb3220940f1844e4a9b8639c4470045",
+        "content_sha256": "66d274963235e99261b7e7605f683f0b5d21ae808ad1ace8493a71936cc6ce9b",
         "file_count": 11,
         "review": "delta-plus-boundaries",
-        "outcome": "improved",
-        "summary": "Drei Luecken geschlossen: (1) Impressum und Datenschutz waren maschinell voellig ungeprueft — der Layoutvertrag liest fuer die Fusszeile nur CSS, kein Test fasste das Markup an; ein entfernter footer-Block waere durch alle Gates gekommen. (2) pmtiles war toter Code (kein pmtiles://-Verweis im Repo, eine Karteninstanz, alle vier Stilquellen ueber HTTPS) und lag samt fflate im eager geladenen vendor-Chunk: 66,4 -> 47,4 kB, gzip 33,4 -> 26,1 kB. (3) Der Layoutvertrag prueft jetzt seine eigene Regel 3 (min-height:0, overflow-y:auto) und die 100dvh-Shellhoehe, 44 -> 49 Pruefungen. Belegt und bewusst liegengelassen: public/assets/homo/digestive.svg (405 KiB) ohne Verweis im Quelltext (Loeschen braucht einen Auftrag); der Build prueft nicht, ob jede angeforderte Katalogdatei im Release liegt (nur npm test tut das).",
+        "outcome": "reviewed-clean",
+        "summary": "Nachbuchung derselben Sitzung: Das Delta ist die Versionsanhebung auf 2.0.4 in package.json und Lockfile, sonst nichts.",
         "tests": [
-          "npm test: 418 passed (40 Dateien); npm run build gruen; python3 -m unittest discover -s tests: 74 passed; npm run check:layout: 49/49; alle drei Aenderungen gegengeprobt (je rot ohne die bewachte Zusicherung)"
+          "npm test: 431 passed; npm run build gruen; check:layout 49/49; python3 -m unittest discover -s tests: 74 passed"
         ]
       }
     },
