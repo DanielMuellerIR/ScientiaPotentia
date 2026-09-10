@@ -45,6 +45,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { blacklistReason } from './lib/merge_blacklist.js';
 import { normalizeForDedup, normalizeIgnoringParentheses } from './lib/merge_text.js';
+import { refreshImageFields } from './lib/merge_images.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const HARVEST = join(__dirname, 'data_sources', 'harvest');
@@ -442,14 +443,10 @@ for (const file of FILES) {
     // erneut läuft). Attribute/Fakten werden dabei NICHT überschrieben.
     const hit = byId.get(c.id);
     if (hit) {
-      // Nur setzen, was die Ernte wirklich liefert. Vorher schrieb der Upsert
-      // auch leere Werte zurueck und loeschte damit ein bereits aufgeloestes
-      // Bild samt Lizenz und Urheber — still, denn die ID bleibt ja erhalten
-      // und assertPreservesExistingConceptIds greift nicht (CodeQA 2026-09-03).
-      if (c.imageFile) hit.imageFile = c.imageFile;
-      if (c.imageLicense) hit.imageLicense = c.imageLicense;
-      if (c.imageAttribution) hit.imageAttribution = c.imageAttribution;
-      if (c._imgProblem !== undefined) hit._imgProblem = c._imgProblem;
+      // Nur setzen, was die Ernte wirklich liefert, und den bereits bereinigten
+      // Nachweis einer unveraenderten Datei nicht durch den rohen ersetzen —
+      // beides in refreshImageFields, samt Begruendung und Messung.
+      refreshImageFields(hit, c);
       refreshed++;
       continue;
     }

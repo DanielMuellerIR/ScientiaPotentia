@@ -19,6 +19,26 @@ const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.join(SCRIPT_DIR, '..');
 const PUBLIC_DIR = path.join(REPO_ROOT, 'public', 'data');
 const DATA_DIR = path.join(REPO_ROOT, 'src', 'data');
+// Rohe Geodaten-Downloads liegen ausserhalb von public/: Vite kopiert public/
+// unveraendert nach dist/, das Hash-Plugin gibt jeder .json und .geojson dort
+// einen Inhaltshash und traegt sie in die Zuordnung der index.html ein — der
+// 2,3-MB-Zwischenspeicher der Unterteilungen wanderte so in jedes Release und
+// zu jedem Deploy, obwohl ihn zur Laufzeit nichts anfordert.
+const CACHE_DIR = path.join(REPO_ROOT, '.cache', 'geodata');
+
+/**
+ * Pfad eines Download-Zwischenspeichers, mit einmaligem Umzug vom alten Ort.
+ *
+ * Eine vorhandene Kopie unter public/data wandert beim ersten Lauf herueber,
+ * damit niemand die grossen Dateien erneut ziehen muss — und damit sie dort
+ * verschwindet, statt weiter mitgeliefert zu werden.
+ */
+function cachePath(name) {
+  const target = path.join(CACHE_DIR, name);
+  const legacy = path.join(PUBLIC_DIR, name);
+  if (!fs.existsSync(target) && fs.existsSync(legacy)) fs.renameSync(legacy, target);
+  return target;
+}
 const COUNTRIES_OUTPUT = path.join(PUBLIC_DIR, 'countries.json');
 const SUBDIVISIONS_OUTPUT = path.join(PUBLIC_DIR, 'subdivisions.json');
 const RIVERS_OUTPUT = path.join(PUBLIC_DIR, 'rivers.json');
@@ -825,6 +845,7 @@ function slugify(text) {
 // Ensure output directories exist
 if (!fs.existsSync(PUBLIC_DIR)) fs.mkdirSync(PUBLIC_DIR, { recursive: true });
 if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
+if (!fs.existsSync(CACHE_DIR)) fs.mkdirSync(CACHE_DIR, { recursive: true });
 
 // Helper to make HTTPS requests with User-Agent and a 20-second timeout
 function fetchJSON(url, headers = {}) {
@@ -928,7 +949,7 @@ async function run() {
     if (needsSubdivisionsRegen) {
       console.log('Regenerating subdivisions boundaries...');
       let subdivisionsGeoJSON;
-      const RAW_SUBDIVISIONS_CACHE = path.join(PUBLIC_DIR, 'ne_50m_admin_1_states_provinces.geojson');
+      const RAW_SUBDIVISIONS_CACHE = cachePath('ne_50m_admin_1_states_provinces.geojson');
       
       if (fs.existsSync(RAW_SUBDIVISIONS_CACHE)) {
         console.log('Using local cached raw subdivisions GeoJSON.');
@@ -982,8 +1003,8 @@ async function run() {
 
     if (riverFeatures.length === 0) {
       console.log('Generating river geometries from Natural Earth...');
-      const GLOBAL_RIVERS_CACHE = path.join(PUBLIC_DIR, 'ne_10m_rivers_global_raw.json');
-      const EUROPE_RIVERS_CACHE = path.join(PUBLIC_DIR, 'ne_10m_rivers_europe_raw.json');
+      const GLOBAL_RIVERS_CACHE = cachePath('ne_10m_rivers_global_raw.json');
+      const EUROPE_RIVERS_CACHE = cachePath('ne_10m_rivers_europe_raw.json');
       
       let globalRivers;
       if (fs.existsSync(GLOBAL_RIVERS_CACHE)) {
@@ -1117,8 +1138,22 @@ async function run() {
           `wikidata_cities_raw.json ist vorhanden, aber nicht lesbar; `
           + `geodb.json bleibt unveraendert: ${err.message}`);
       }
+    } else if (process.env.SCIENTIA_ALLOW_STATIC_CITIES === '1') {
+      console.warn(
+        'wikidata_cities_raw.json not found; SCIENTIA_ALLOW_STATIC_CITIES=1 ist gesetzt, '
+        + 'es wird mit der handgepflegten Notliste gebaut.');
     } else {
-      console.warn('wikidata_cities_raw.json not found, using static fallbacks.');
+      // Dieselbe Ueberlegung wie im catch darueber, nur fuer den haeufigeren Fall:
+      // Die Datei liegt heute in keinem Arbeitsverzeichnis des Repos (sie wird
+      // hier nur gelesen, nie geschrieben). Ohne sie baut der Lauf die Staedte
+      // aus der Notliste — 149 Staedte in 19 Laendern statt der 1375, die
+      // geodb.json heute fuehrt. Das ist kein Randfall, sondern das sichere
+      // Ergebnis jedes Laufs, und es passierte mit Exit 0.
+      throw new Error(
+        'wikidata_cities_raw.json fehlt; geodb.json bleibt unveraendert. '
+        + 'Die Datei gehoert nach src/data/ und entsteht im Staedte-Harvest. '
+        + 'Nur wenn die handgepflegte Notliste (149 Staedte) wirklich gewollt ist: '
+        + 'SCIENTIA_ALLOW_STATIC_CITIES=1 setzen.');
     }
 
     // Static fallback list of largest cities for major countries in case SPARQL failed or timed out

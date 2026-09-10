@@ -32,6 +32,9 @@ scratch/
 .commit-lock
 
 # Raw geodata download caches
+.cache/
+# Frueherer Ort; eine liegengebliebene Kopie bleibt untracked, bis der naechste
+# prepare_data-Lauf sie nach .cache/geodata verschiebt.
 public/data/ne_*
 
 # Diagnostic scripts

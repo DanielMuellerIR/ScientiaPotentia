@@ -61,12 +61,6 @@ function deFix(s) {
   }
   return out;
 }
-function deFixDeep(v) {
-  if (typeof v === 'string') return deFix(v);
-  if (Array.isArray(v)) return v.map(deFixDeep);
-  if (v && typeof v === 'object') { const o = {}; for (const k in v) o[k] = deFixDeep(v[k]); return o; }
-  return v;
-}
 
 // Alles ab dem ersten „ (" abschneiden — robust auch bei verschachtelten
 // Klammern wie „Spiralgalaxie (Starburst, SAB(s)c)" -> „Spiralgalaxie".
