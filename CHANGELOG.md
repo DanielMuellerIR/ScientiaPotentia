@@ -2,6 +2,46 @@
 
 Dieses Changelog beginnt mit dem für eine öffentliche Veröffentlichung bereinigten Projektstand.
 
+## [2.0.4] — 2026-09-10
+
+- Ein Deploy konnte Dateien eines noch gebrauchten Releases löschen. Ein Historieneintrag,
+  dessen Pfade alle unzulässig waren, belegte einen der drei Historienplätze und schob damit
+  einen echten Vorgänger heraus — dessen Dateien entfernte der nächste Lauf vom Server,
+  obwohl eine noch ausgelieferte `index.html` auf sie zeigen kann.
+- Nach einer Quizrunde landete man in sieben der neun Wissensbereiche auf einer Ansicht, die
+  das Menü gar nicht anbietet und die nach dem Verlassen nicht wieder erreichbar war.
+- Konnte die App Bestmarke oder Serie beim Start nicht lesen, überschrieb der erste
+  Punktegewinn den gespeicherten Wert mit dem der laufenden Sitzung: Aus 5000 Punkten wurden
+  10, aus einer 27-Tage-Serie eine 1. Solange der Vorzustand unbekannt ist, speichert die App
+  jetzt nichts.
+- Der Autonome Kreis der Tschuktschen zoomte auf die ganze Weltkarte statt auf die Region. Er
+  ist das einzige der 252 Unterteilungs-Features, das die Datumsgrenze überspannt; für Länder
+  gab es dafür Sonderfälle, für Unterteilungen und Flüsse keine.
+- Die Ortssuche fand 13 Einträge nicht: „Lodz" lieferte kein Łódź, „Diyarbakir" kein
+  Diyarbakır, „Da Nang" kein Đà Nẵng. Dass „Gronland" sein Grönland fand, ließ die
+  Normalisierung vollständig wirken — sie zerlegt aber nur Akzente, keine eigenständigen
+  Buchstaben wie ł, đ, ð, æ, ø und ı.
+- Die Suchvorschläge durchsuchen auch die Kennungen, und die tragen ihre Gattung im Präfix.
+  Die Eingabe „city" passte damit auf 1375 Einträge und verdrängte die drei, die das Wort im
+  Namen führen. Namenstreffer stehen jetzt vorn.
+- Ein Lauf von `prepare_data.js` hätte 1226 der 1375 Städte verloren, ohne Fehlercode: Fehlt
+  die Städtedatei, baute das Skript stillschweigend mit einer handgepflegten Notliste von 149
+  Städten weiter. Die Datei fehlt im Repo tatsächlich.
+- Die veröffentlichten Terra-Fragen stammten noch aus v1.92.0 und trugen in 72 Fällen
+  veraltete Antwortoptionen; Terra war der einzige der acht Kataloge, der sich nicht aus den
+  Quelldaten reproduzieren ließ. Die richtigen Antworten sind unverändert.
+- Ein Bildnachweis nannte mit „Scott AnttilaAnttler" einen Urheber, den es nicht gibt: Commons
+  trennt mehrere Personen mit `<br />`, und die Auflöser entfernten das Tag ersatzlos. Bei
+  CC-BY ist ein verklebter Name keine Namensnennung.
+- Zwei Bild-Auflöser hätten bei einem Netzausfall ein leeres Ergebnis über ein brauchbares
+  geschrieben und dabei Erfolg gemeldet. Ein dritter konnte einem Mond das Bild eines
+  gleichnamigen Artikels geben — 25 Astra-Konzepte wie Io, Europa und Charon waren betroffen.
+- Impressum und Datenschutz waren maschinell ungeprüft: Wer die Fußzeile entfernt hätte, wäre
+  durch alle Prüfungen gekommen. Der Layoutvertrag prüft jetzt außerdem seine eigene Regel zum
+  Scrollverhalten der Spalten.
+- Das Erstladen ist 19 kB kleiner (gzip 7 kB): `pmtiles` war toter Code. Jedes Release ist
+  zusätzlich 2,3 MB kleiner — die rohen Geodaten-Downloads lagen im Auslieferungsverzeichnis.
+
 ## [2.0.3] — 2026-09-04
 
 - Die Weltkarte blieb im veröffentlichten Release ohne Länder, Provinzen und Flüsse. Seit

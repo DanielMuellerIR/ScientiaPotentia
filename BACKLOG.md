@@ -1,5 +1,33 @@
 # Backlog
 
+- Alle 5289 bebilderten Konzepte laden ihr Bild zur Laufzeit von
+  `commons.wikimedia.org`. `src/utils/commonsImage.js` baut aus jeder
+  Commons-Dateiseite eine `Special:FilePath`-Adresse, die
+  `AnswerRevealImage.jsx` und `ExhibitGalleryShared.jsx` als Bildquelle setzen —
+  bei jeder aufgedeckten Quizantwort und in jeder Galerie geht die IP des
+  Besuchers an die Wikimedia Foundation. Die Projektregel verlangt Selbsthosting
+  für alles, was sich selbst hosten lässt; „technisch notwendig" greift bei
+  Bildern nicht. Dasselbe gilt für die Glyphen des Kartenstils: Der Vertrag in
+  `public/map_styles/scientia_parchment.json` holt `fonts/{fontstack}/{range}.pbf`
+  von `tiles.openfreemap.org`, und Schriftdaten fallen unter dieselbe Regel — die
+  Planet-Vektorkacheln realistisch nicht. Das Umstellen ist ein eigener Auftrag:
+  Es betrifft Speicherbedarf, Erntepipeline und Releasegröße. Gemessen am
+  2026-09-10 in der CodeQA-Kampagne; keine der beiden Entscheidungen ist bisher
+  irgendwo als bewusst dokumentiert.
+- `public/assets/homo/digestive.svg` (405 KiB) hat keinen Verweis im Quelltext:
+  `HomoVisual.jsx` bildet seine Kategorien auf `skeleton.svg`, `muscles.png`,
+  `organs.svg` und `body.svg` ab, `CATEGORY_ASSET_ALIAS` leitet die übrigen
+  dorthin um. Die Datei wandert trotzdem in jedes Release. Ein Löschen gehört
+  ausdrücklich beauftragt, weil ihre Herkunft in `CREDITS.md` dokumentiert ist.
+- `npm run build` prüft nicht, ob jede Katalogdatei, die die App anfordert, im
+  Release liegt. `generate_domain_stats.js` und die beiden Audits lesen nur
+  `concepts_*` und `questions_*`; `countries.json`, `subdivisions.json` und
+  `rivers.json` liest kein Buildschritt, und `buildDataAssetMap` überspringt eine
+  fehlende Datei stillschweigend. Verschwindet eine davon, läuft der Build mit
+  Exit 0 durch und die Karte fehlt im Release. Der einzige Wächter dafür ist
+  `src/__tests__/dataUrl.test.js`, und der läuft nur unter `npm test` — ein
+  CI-Verzeichnis gibt es nicht.
+
 - 38 Konzept-IDs tragen Umlaute oder ß (`cultura:lit-der-fänger-im-roggen`, `natura:weißer-hai`
   und weitere). Sie entstanden, weil die deutschen Textkorrekturen der Merge-Skripte bis zum
   2026-09-03 über das ganze Konzeptobjekt liefen. Die Ursache ist behoben, die IDs bleiben

@@ -2,13 +2,11 @@
   "schema_version": 2,
   "project": "ScientiaPotentia",
   "campaign": {
-    "id": "20260903T134120134844+0200",
-    "token_budget": 859000,
-    "status": "complete",
-    "started_at": "2026-09-03T13:41:20+02:00",
-    "tokens_spent": 424000,
-    "finished_at": "2026-09-03T14:08:22+02:00",
-    "finish_reason": "all-current"
+    "id": "20260910T111320743505+0200",
+    "token_budget": 3000000,
+    "status": "active",
+    "started_at": "2026-09-10T11:13:20+02:00",
+    "tokens_spent": 488680
   },
   "campaign_history": [
     {
@@ -35,6 +33,15 @@
       "started_at": "2026-09-03T09:49:56+02:00",
       "tokens_spent": 1141000,
       "finished_at": "2026-09-03T11:08:16+02:00",
+      "finish_reason": "all-current"
+    },
+    {
+      "id": "20260903T134120134844+0200",
+      "token_budget": 859000,
+      "status": "complete",
+      "started_at": "2026-09-03T13:41:20+02:00",
+      "tokens_spent": 424000,
+      "finished_at": "2026-09-03T14:08:22+02:00",
       "finish_reason": "all-current"
     }
   ],
@@ -206,9 +213,25 @@
       "scripts/lib/merge_blacklist.js",
       "src/__tests__/mergeText.test.js",
       "scripts/data_sources/harvest/credit_text.cjs",
-      "src/__tests__/imageResolutionPolicy.test.js"
+      "src/__tests__/imageResolutionPolicy.test.js",
+      "src/__tests__/linguaFactTargets.test.js",
+      "scripts/lib/data_asset_hashes.mjs",
+      "src/utils/dataUrl.js",
+      "src/__tests__/dataUrl.test.js",
+      "src/__tests__/imageResolverCredits.test.js",
+      "src/__tests__/mergeCollectors.test.js",
+      "public/assets/maplibre/maplibre-gl.css",
+      "src/__tests__/AppReturnPaths.test.jsx",
+      "src/__tests__/generatorTables.test.js",
+      "scripts/lib/merge_images.js",
+      "src/__tests__/mergeImages.test.js"
     ],
-    "exclusions": []
+    "exclusions": [
+      {
+        "path": "public/assets/maplibre/maplibre-gl.css",
+        "reason": "Fremdcode: unveraenderte MapLibre-GL-Stylesheet-Kopie, selbst gehostet statt vom CDN geladen"
+      }
+    ]
   },
   "areas": [
     {
@@ -223,20 +246,16 @@
       "reason": "FTPS-Zugangsdaten, Prüfsummen, atomare Veröffentlichung und Datenintegrität",
       "state": "completed",
       "last_run": {
-        "campaign_id": "20260829T204429059458+0200",
-        "completed_at": "2026-08-29T20:48:28+02:00",
-        "observed_head": "0890a1581dfd82b85318609a755edee2b6190d3b",
-        "content_sha256": "dbb1013cc821c83159f29eb2600ced701e58b3a1d97bc186d29f5322048915d3",
+        "campaign_id": "20260910T111320743505+0200",
+        "completed_at": "2026-09-10T12:12:47+02:00",
+        "observed_head": "1968ba9a9d77cf9efec0c330678c8b1bbf4d106c",
+        "content_sha256": "0bd5017a8e6cce932d26a2c509b9cd6f8e0c6a212a3d8c292e2acc6a79652aae",
         "file_count": 3,
-        "review": "full",
-        "outcome": "improved",
-        "summary": "Ein während desselben Deployments verschwindender Prüfsummenbefehl markiert den Server nun als unzuverlässig; alle restlichen Dateien werden hochgeladen statt nur anhand von Manifest und Größe übersprungen.",
+        "review": "delta-plus-boundaries",
+        "outcome": "reviewed-clean",
+        "summary": "Nachbuchung derselben Sitzung: Das Delta ist genau der in diesem Bereich bereits gepruefte und getestete Diff (eigener Commit vom 2026-09-10) sowie die dabei ergaenzten Testdateien.",
         "tests": [
-          "PYTHONDONTWRITEBYTECODE=1 /usr/bin/python3 -m unittest tests.test_deploy.DeployTests.test_disappearing_checksum_support_forces_remaining_uploads: passed (1)",
-          "PYTHONDONTWRITEBYTECODE=1 /usr/bin/python3 -m unittest tests/test_deploy.py: passed (21)",
-          "npm test: passed (150)",
-          "npm run build: passed",
-          "npm run check:layout: passed (44)"
+          "npm test: 431 passed; npm run build gruen; python3 -m unittest discover -s tests: 74 passed; check:layout 49/49"
         ]
       }
     },
@@ -312,23 +331,25 @@
         "src/domains/metadata.js",
         "src/components/DomainSwitcher.jsx",
         "src/__tests__/DomainSwitcher.test.jsx",
-        "src/__tests__/AppDomainData.test.jsx"
+        "src/__tests__/AppDomainData.test.jsx",
+        "src/utils/dataUrl.js",
+        "src/__tests__/dataUrl.test.js"
       ],
       "risk": "high",
       "priority": 4,
       "reason": "Zentrale Domain-Verträge, Lazy Loader, Caches und Bereichswechsel",
       "state": "completed",
       "last_run": {
-        "campaign_id": "20260830T110041702224+0200",
-        "completed_at": "2026-08-30T11:02:40+02:00",
-        "observed_head": "8481f72be0b17889b4e680c6117808f5a9f9398c",
-        "content_sha256": "9e8bfae1bcc3c0ae47149929c0c068c58d73397aa6e59f01a77d00c8afb77836",
-        "file_count": 5,
+        "campaign_id": "20260910T111320743505+0200",
+        "completed_at": "2026-09-10T11:33:15+02:00",
+        "observed_head": "11ebc02d094a98777a0ea6683894e1051326e090",
+        "content_sha256": "44afb3fb20444b21898713882b9a307f65d6978e3c6d012841da9896a7886f47",
+        "file_count": 7,
         "review": "delta-plus-boundaries",
-        "outcome": "reviewed-clean",
-        "summary": "Roving-Tabindex, Pfeiltasten, Escape/Blur sowie Registry-Wechselgrenzen geprüft; genau eine Menüoption bleibt im Tabablauf, Registry und Lazy Loading bleiben unverändert.",
+        "outcome": "improved",
+        "summary": "Registry und Hash-Aufloesung sind korrekt verdrahtet (alle acht Bereiche, Konzeptschluessel-Vertrag gegen 13357 echte Schluessel geprueft). Behoben wurde der Vertrag zwischen Build und Laufzeit: Der Meta-Tag-Name stand als Konstante in dataUrl.js UND als Literal in vite.config.js, ohne Verbindung — eine Umbenennung haette alle 19 Katalogdateien auf ihre im Release nicht existierenden Klarnamen zurueckfallen lassen. Import statt Literal plus Vertragstest. Dazu zwei Luecken der vorhandenen Waechter geschlossen: Abdeckungstest las nur drei statt aller src-Quellen (Map.jsx fehlte), Verbots-Regex kannte keine Template-Literale.",
         "tests": [
-          "npx vitest run src/__tests__/DomainSwitcher.test.jsx src/__tests__/AppDomainData.test.jsx: passed (9)"
+          "npm test: 341 passed (37 Dateien); npm run build: gruen, Meta-Tag steht in dist/index.html, 19 Kataloge gehasht; npm run check:layout: 44/44; drei Gegenproben je rot bei eingebautem Fehler"
         ]
       }
     },
@@ -370,23 +391,24 @@
         "src/App.jsx",
         "src/main.jsx",
         "src/setupTests.js",
-        "src/__tests__/AppOrchestration.test.jsx"
+        "src/__tests__/AppOrchestration.test.jsx",
+        "src/__tests__/AppReturnPaths.test.jsx"
       ],
       "risk": "high",
       "priority": 6,
       "reason": "Zentrale Lade-, Ansichts-, Spiel- und Shell-Zustände mit breiter Aufrufwirkung",
       "state": "completed",
       "last_run": {
-        "campaign_id": "20260830T110041702224+0200",
-        "completed_at": "2026-08-30T11:03:25+02:00",
-        "observed_head": "8481f72be0b17889b4e680c6117808f5a9f9398c",
-        "content_sha256": "6b3ac91b07fe4c1f1fa116ff5b403a74a2d1df9b0cf53e8ed9e1e6bf40cb20cb",
-        "file_count": 4,
+        "campaign_id": "20260910T111320743505+0200",
+        "completed_at": "2026-09-10T12:12:47+02:00",
+        "observed_head": "1968ba9a9d77cf9efec0c330678c8b1bbf4d106c",
+        "content_sha256": "4174cdf3dcff1787b53134d7f0b802cf3fd5cd5b3d7bc8acfe94c71bfdae8ad0",
+        "file_count": 5,
         "review": "delta-plus-boundaries",
         "outcome": "reviewed-clean",
-        "summary": "App-weite Schreib-Promise-Menge, Fehlerlebensdauer, Navigations-/Domainwechsel und Score-Reset gegen die Quiz-Grenze geprüft; neue Writes während eines Flushs werden durch die Schleife ebenfalls erfasst, und alle Startpfade setzen Filter und Rundenscore konsistent.",
+        "summary": "Nachbuchung derselben Sitzung: Das Delta ist genau der in diesem Bereich bereits gepruefte und getestete Diff (eigener Commit vom 2026-09-10) sowie die dabei ergaenzten Testdateien.",
         "tests": [
-          "npx vitest run src/__tests__/AppOrchestration.test.jsx src/__tests__/AppDomainData.test.jsx src/__tests__/QuizIntegration.test.jsx: passed"
+          "npm test: 431 passed; npm run build gruen; python3 -m unittest discover -s tests: 74 passed; check:layout 49/49"
         ]
       }
     },
@@ -406,21 +428,16 @@
       "reason": "Kartenantworten, Geodatenfilter, Entity-Auswahl und Kartenstil",
       "state": "completed",
       "last_run": {
-        "campaign_id": "20260829T204429059458+0200",
-        "completed_at": "2026-08-29T21:43:06+02:00",
-        "observed_head": "9972cee933c6ad06712160c923c119c227798818",
-        "content_sha256": "e628a3d8f9afd245b9fcd3cb85cb513c5fe80184d13415904d763d723a8e8f88",
+        "campaign_id": "20260910T111320743505+0200",
+        "completed_at": "2026-09-10T12:12:47+02:00",
+        "observed_head": "1968ba9a9d77cf9efec0c330678c8b1bbf4d106c",
+        "content_sha256": "8b8c86ca9b40195a966bf9f84c946305f5b84003d6d8bdffc90d5d9951078997",
         "file_count": 7,
         "review": "delta-plus-boundaries",
-        "outcome": "improved",
-        "summary": "Delta und Bereichsgrenzen erneut geprüft: Atlas zeigt keine aktuellen Staats- oder Regierungschefs mehr; die gebündelte geodb enthält weder die Felder noch politische Beschreibungssätze. Suche, Länderakte, Karte, Attributionen, Quiz und GeoJSON-Lader bleiben unverändert funktionsfähig.",
+        "outcome": "reviewed-clean",
+        "summary": "Nachbuchung derselben Sitzung: Das Delta ist genau der in diesem Bereich bereits gepruefte und getestete Diff (eigener Commit vom 2026-09-10) sowie die dabei ergaenzten Testdateien.",
         "tests": [
-          "MapParchment.test.jsx: 11 Tests grün, einschließlich Daten- und UI-Regression gegen Politikfelder",
-          "npm test: 180 Tests grün",
-          "npm run build: erfolgreich",
-          "npm run check:layout: 44/44",
-          "Terra-Fragengenerator byteidentisch; verify_quiz 63019 Prüfungen, 0 Fehler",
-          "Echter Browser: Deutschland-Akte ohne Politikfelder, Kartenattribution sichtbar, Terra-Frage beantwortet, Konsole leer"
+          "npm test: 431 passed; npm run build gruen; python3 -m unittest discover -s tests: 74 passed; check:layout 49/49"
         ]
       }
     },
@@ -431,23 +448,24 @@
         "scripts/lib/generator_text.js",
         "scripts/lib/quizrandom.js",
         "scripts/verify_quiz.js",
-        "src/__tests__/quizrandom.test.js"
+        "src/__tests__/quizrandom.test.js",
+        "src/__tests__/generatorTables.test.js"
       ],
       "risk": "high",
       "priority": 8,
       "reason": "Gemeinsame Frageerzeugung, Distraktoren, Antwort-Leak-Schutz und Determinismus",
       "state": "completed",
       "last_run": {
-        "campaign_id": "20260903T094956560120+0200",
-        "completed_at": "2026-09-03T11:07:22+02:00",
-        "observed_head": "f3ae8cb02efa9dd12e27a8aa03ad9a198e74d229",
-        "content_sha256": "a74e7db7a8129a38f00cb1d883d24ff379977350170be134ff6dfda97eb083af",
-        "file_count": 5,
+        "campaign_id": "20260910T111320743505+0200",
+        "completed_at": "2026-09-10T11:57:14+02:00",
+        "observed_head": "bce2ec4b737bc289825d488b2ec63049f41bd1f8",
+        "content_sha256": "119047efd77ee584c3313fd285226e111b79243861575fdb299f8eb0383c852c",
+        "file_count": 6,
         "review": "delta-plus-boundaries",
-        "outcome": "reviewed-clean",
-        "summary": "Delta ist der Helfer numericDistractors aus dem Querschnitts-Fund magnitude-spread-chain. Bytegleiche Kataloge nach dem Umbau, also reines Zusammenfuehren.",
+        "outcome": "improved",
+        "summary": "Fund beim Determinismus-Test: public/data/questions_terra.json stammte vom 2026-07-19, waehrend generate_questions.js (2026-08-29) und quizrandom.js (2026-09-03) seither verbessert wurden — 72 Fragen trugen veraltete Distraktoren, Terra war der einzige der acht Kataloge, der sich nicht aus dem Repo reproduzieren liess (die uebrigen sieben einzeln nachgerechnet: bit-identisch). Katalog neu erzeugt; richtige Antworten und Fragenzahl unveraendert, Optionen, die nur als Loesung vorkommen, von 531 auf 529 gesunken. Dazu CITY_TO_RIVER-Waechter aus dem Querschnitts-Fund bestandsbezogene-tabellen.",
         "tests": [
-          "Generatorlauf erzeugt bytegleiche Kataloge; npm test 279 passed"
+          "npm test: 405 passed (39 Dateien); npm run build gruen; audit:questions terra und verify:facts terra vor und nach dem Lauf gleich bestanden; Generator zweimal gelaufen -> bit-identisch"
         ]
       }
     },
@@ -504,23 +522,24 @@
       "id": "cultura-lingua-generators",
       "paths": [
         "scripts/generate_cultura.js",
-        "scripts/generate_lingua.js"
+        "scripts/generate_lingua.js",
+        "src/__tests__/linguaFactTargets.test.js"
       ],
       "risk": "high",
       "priority": 11,
       "reason": "Fachgeneratoren mit Text-, Werk-, Etymologie- und Zitatbezug",
       "state": "completed",
       "last_run": {
-        "campaign_id": "20260903T134120134844+0200",
-        "completed_at": "2026-09-03T14:08:02+02:00",
-        "observed_head": "dd2981b5c7115504fb9fbd2e3de87e7ea244f105",
-        "content_sha256": "19b1b9be938013c00d4c65789b895b7dd94afe50d9d669f7dcf33ba07b41ac34",
-        "file_count": 2,
+        "campaign_id": "20260910T111320743505+0200",
+        "completed_at": "2026-09-10T12:12:48+02:00",
+        "observed_head": "1968ba9a9d77cf9efec0c330678c8b1bbf4d106c",
+        "content_sha256": "ad1693220c92650eb9d0dcdf1b79a84b33d619521c059be071a8ed1c460dd0d4",
+        "file_count": 3,
         "review": "delta-plus-boundaries",
-        "outcome": "improved",
-        "summary": "Delta ist der skip in generate_cultura fuer Zitate ohne konkreten Werktitel. Cultura faellt von 7.759 auf 7.749 Fragen; content_ceiling.md und Manifest nachgezogen.",
+        "outcome": "reviewed-clean",
+        "summary": "Nachbuchung derselben Sitzung: Das Delta ist genau der in diesem Bereich bereits gepruefte und getestete Diff (eigener Commit vom 2026-09-10) sowie die dabei ergaenzten Testdateien.",
         "tests": [
-          "audit_questions cultura: exit 0; verify_facts cultura: 0 Fehler"
+          "npm test: 431 passed; npm run build gruen; python3 -m unittest discover -s tests: 74 passed; check:layout 49/49"
         ]
       }
     },
@@ -564,23 +583,26 @@
         "src/__tests__/mergeSafety.test.js",
         "scripts/lib/merge_text.js",
         "scripts/lib/merge_blacklist.js",
-        "src/__tests__/mergeText.test.js"
+        "src/__tests__/mergeText.test.js",
+        "src/__tests__/mergeCollectors.test.js",
+        "scripts/lib/merge_images.js",
+        "src/__tests__/mergeImages.test.js"
       ],
       "risk": "high",
       "priority": 13,
       "reason": "Schreibende Rohdaten-Merges und Datenvorbereitung dürfen nichts überschreiben oder falsch deduplizieren",
       "state": "completed",
       "last_run": {
-        "campaign_id": "20260903T134120134844+0200",
-        "completed_at": "2026-09-03T14:08:02+02:00",
-        "observed_head": "dd2981b5c7115504fb9fbd2e3de87e7ea244f105",
-        "content_sha256": "babd2ecdddb8e5ec5b1f8ff4217642539b772360bb76bd4a34c3978ff8ccf03b",
-        "file_count": 13,
+        "campaign_id": "20260910T111320743505+0200",
+        "completed_at": "2026-09-10T12:12:48+02:00",
+        "observed_head": "1968ba9a9d77cf9efec0c330678c8b1bbf4d106c",
+        "content_sha256": "7bb8364b9f4eefcb3e938b7b31e69166574b9fc603a9eee561d03f5ad6d29cd9",
+        "file_count": 16,
         "review": "delta-plus-boundaries",
-        "outcome": "improved",
-        "summary": "Delta sind zwei Querschnitts-Funde: merge-dedup-precision (Klammerzusatz bleibt im Dedup-Schluessel, Teilstring-Regel in phase5 meldet statt zu verwerfen) und silent-degradation (prepare_data wirft bei unlesbarer Staedte-Zwischendatei, beide Skripte loesen Pfade ueber die Skriptlage auf, fix_umlauts schreibt atomar).",
+        "outcome": "reviewed-clean",
+        "summary": "Nachbuchung derselben Sitzung: Das Delta ist genau der in diesem Bereich bereits gepruefte und getestete Diff (eigener Commit vom 2026-09-10) sowie die dabei ergaenzten Testdateien.",
         "tests": [
-          "Trockenlaeufe aller Merges unveraendert; injizierte Faelle belegt; npm test 295 passed"
+          "npm test: 431 passed; npm run build gruen; python3 -m unittest discover -s tests: 74 passed; check:layout 49/49"
         ]
       }
     },
@@ -596,25 +618,24 @@
         "src/index.css",
         "vite.config.js",
         "src/__tests__/legalNotices.test.js",
-        "src/__tests__/releaseConsistency.test.js"
+        "src/__tests__/releaseConsistency.test.js",
+        "scripts/lib/data_asset_hashes.mjs"
       ],
       "risk": "medium",
       "priority": 14,
       "reason": "Responsive Shell-Vertrag, Build-Einstieg, Statistik- und Rechtshinweis-Synchronisierung",
       "state": "completed",
       "last_run": {
-        "campaign_id": "20260903T094956560120+0200",
-        "completed_at": "2026-09-03T10:43:41+02:00",
-        "observed_head": "7c9d94051579b1ffd56194c9179615f6c04197a7",
-        "content_sha256": "a2d7e072dafa8e11834f3266a2aa226c705fc9993ef45160b9eaaa13f3efa272",
-        "file_count": 10,
+        "campaign_id": "20260910T111320743505+0200",
+        "completed_at": "2026-09-10T12:07:53+02:00",
+        "observed_head": "620454ef2e9bfabb2e37c67685b4b4ef0edc08cb",
+        "content_sha256": "9db1ce9ee4502d5bc820b1f03b45db145a54e92db9989ec42e9b002f10e75687",
+        "file_count": 11,
         "review": "delta-plus-boundaries",
         "outcome": "improved",
-        "summary": "Delta ist die Build-Kette in package.json (beide Audits als Release-Gate), computeDomainStats als reine Funktion und der neue releaseConsistency-Test. Alles in dieser Sitzung selbst gebaut und mit dem Szenario des Nacht-Reviews nachgestellt: eine zusaetzliche Astra-Frage ohne Manifest-Lauf laesst den Test jetzt rot werden, vorher blieb er gruen. Grenzen geprueft: deploy.py bricht bei Build-Fehler ab, damit sind die Audits ein echtes Deploy-Gate; index.css, check_layout_contract, vite.config und credits.html sind seit dem letzten Review unveraendert.",
+        "summary": "Drei Luecken geschlossen: (1) Impressum und Datenschutz waren maschinell voellig ungeprueft — der Layoutvertrag liest fuer die Fusszeile nur CSS, kein Test fasste das Markup an; ein entfernter footer-Block waere durch alle Gates gekommen. (2) pmtiles war toter Code (kein pmtiles://-Verweis im Repo, eine Karteninstanz, alle vier Stilquellen ueber HTTPS) und lag samt fflate im eager geladenen vendor-Chunk: 66,4 -> 47,4 kB, gzip 33,4 -> 26,1 kB. (3) Der Layoutvertrag prueft jetzt seine eigene Regel 3 (min-height:0, overflow-y:auto) und die 100dvh-Shellhoehe, 44 -> 49 Pruefungen. Belegt und bewusst liegengelassen: public/assets/homo/digestive.svg (405 KiB) ohne Verweis im Quelltext (Loeschen braucht einen Auftrag); der Build prueft nicht, ob jede angeforderte Katalogdatei im Release liegt (nur npm test tut das).",
         "tests": [
-          "releaseConsistency.test.js: 12 passed, Repro mit veraltetem Manifest rot",
-          "npm run build inkl. beider Audits: passed",
-          "npm run check:layout: 44/44"
+          "npm test: 418 passed (40 Dateien); npm run build gruen; python3 -m unittest discover -s tests: 74 passed; npm run check:layout: 49/49; alle drei Aenderungen gegengeprobt (je rot ohne die bewachte Zusicherung)"
         ]
       }
     },
@@ -807,24 +828,24 @@
         "scripts/data_sources/harvest/staged_attribution_writes.cjs",
         "scripts/data_sources/harvest/purge_blacklisted.cjs",
         "scripts/data_sources/harvest/credit_text.cjs",
-        "src/__tests__/imageResolutionPolicy.test.js"
+        "src/__tests__/imageResolutionPolicy.test.js",
+        "src/__tests__/imageResolverCredits.test.js"
       ],
       "risk": "medium",
       "priority": 21,
       "reason": "Externe Bildauflösung, Lizenzmetadaten und atomare Rückschreibung in Rohdaten",
       "state": "completed",
       "last_run": {
-        "campaign_id": "20260903T134120134844+0200",
-        "completed_at": "2026-09-03T14:08:21+02:00",
-        "observed_head": "dd2981b5c7115504fb9fbd2e3de87e7ea244f105",
-        "content_sha256": "14323a666d8cb9f8f6e664fe4ef117918f6089eca26d05e1af522552c84e8a55",
-        "file_count": 14,
+        "campaign_id": "20260910T111320743505+0200",
+        "completed_at": "2026-09-10T12:12:13+02:00",
+        "observed_head": "1968ba9a9d77cf9efec0c330678c8b1bbf4d106c",
+        "content_sha256": "498b3e8044baffe21c20641c006d2cdd07bde9318b97433794901a63fdfec288",
+        "file_count": 15,
         "review": "delta-plus-boundaries",
         "outcome": "improved",
-        "summary": "Nachtrag: credit_text.cjs (gemeinsame Kuerzung der Urhebernachweise an der Wortgrenze) und imageResolutionPolicy.test.js gehoeren in den Bereich. Inhalt und Belege wie im vorherigen Abschluss.",
+        "summary": "Drei belegte Fehler: (1) commonsAttribution entfernte <br /> ersatzlos und verschweisste damit mehrere Urheber zu einem Namen, den es nicht gibt ('Scott AnttilaAnttler' im Bestand) — bei CC-BY keine gueltige Namensnennung; Trenner jetzt an der Quelle, der eine Bestandswert korrigiert. (2) resolve_images_p18_v2.cjs und resolve_images_batched.cjs schrieben bei einem Netzausfall ein leeres Mapping ueber ein brauchbares, mit Exit 0 — die Bremse der beiden Geschwisterskripte fehlte ihnen. (3) resolve_images_p18.cjs faellt ohne AMBIGUOUS_NAMES auf den Konzeptnamen als Lemma zurueck; 25 Astra-Monde (Io, Europa, Charon, Ariel, Miranda ...) haetten das Bild eines fremden Artikels bekommen koennen. Nicht angefasst und belegt: commonsInfoForTitle steht in p18 und p18_v2 fast zeichengleich (rund 70 Zeilen), ALLOWED_MIME fuenfmal identisch, resolve_author_portraits.cjs hat eine eigene Attributionsregel ohne Begruendung in der Datei.",
         "tests": [
-          "npm test: 295 passed",
-          "Bildnachweis-Audit ohne Befund"
+          "npm test: 431 passed (40 Dateien); npm run build gruen; python3 -m unittest discover -s tests: 74 passed; check:layout 49/49; audit:image-credits 10578 Nachweise vollstaendig; verify:facts astra bestanden; alle drei Fixes einzeln gegengeprobt"
         ]
       }
     },
@@ -925,13 +946,13 @@
     }
   ],
   "architecture": {
-    "campaign_id": "20260903T094956560120+0200",
-    "recorded_at": "2026-09-03T11:07:49+02:00",
-    "observed_head": "f3ae8cb02efa9dd12e27a8aa03ad9a198e74d229",
-    "summary": "Die Domain-Registry und die Generator-Pipeline trennen die acht Wissensbereiche weiterhin tragfaehig; Fachlogik sitzt in Registry und Domain-Komponenten, nicht in der App-Shell. Zwei Spannungen bleiben: src/App.jsx (859 Zeilen) buendelt Laden, Persistenz, Spielzustand und Shell-Rendering, und die historisch gewachsenen Harvest-Wellen tragen dieselbe Netz-, Attributions- und Titelnormalisierungslogik weiterhin mehrfach — fuenf Bild-Aufloeser mit drei verschiedenen Attributionsformen und zwei HTTP-Schichten. Die Kampagne 2026-09-03 hat davon die Sperrlisten-, Dedup-, Textkorrektur-, Zitat- und Distraktorregeln in gemeinsame Module gezogen; die HTTP- und Attributionsschicht der Aufloeser steht noch aus.",
+    "campaign_id": "20260910T111320743505+0200",
+    "recorded_at": "2026-09-10T12:14:31+02:00",
+    "observed_head": "1968ba9a9d77cf9efec0c330678c8b1bbf4d106c",
+    "summary": "Das Ist-Modell traegt weiterhin: Die Registry in src/domains/index.js trennt die acht Wissensbereiche, die Fachlogik sitzt in Registry und Domain-Komponenten, die Generatoren erzeugen die Kataloge aus einer Quellwahrheit. Die Kampagne 2026-09-10 hat zwei neue Spannungen gemessen, die nicht das Paradigma betreffen, sondern seine Raender: (1) Die Kette Quellwahrheit -> Generator -> veroeffentlichter Katalog war bei Terra gerissen — der ausgelieferte Fragenkatalog liess sich nicht mehr aus dem Repo erzeugen, und nichts haette das gemeldet. (2) Das Frontend laedt alle 5289 Konzeptbilder von commons.wikimedia.org; die Auslieferungsschicht endet damit faktisch nicht an der eigenen Domain. src/App.jsx (877 Zeilen) buendelt weiterhin Laden, Persistenz, Spielzustand und Shell.",
     "paradigm": "Registry-getriebene Domain-Schichtung mit vorgelagerter Daten-Pipeline",
     "fit": "gespannt",
-    "recommendation": "Kein Paradigmenwechsel noetig und keiner empfohlen — das Ist-Modell traegt. Zwei begrenzte Aufraeumschritte lohnen als eigene Auftraege: (1) App.jsx entlang der schon vorhandenen Grenzen in Laden, Fortschritt und Shell teilen; (2) die fuenf Bild-Aufloeser auf eine gemeinsame commons_api-Schicht ziehen, wie es die Sperrliste seit heute vormacht. Beides ist Wartungsaufwand mit klarem Nutzen, aber keine Voraussetzung fuer weitere Inhaltsarbeit."
+    "recommendation": "Kein Paradigmenwechsel noetig und keiner empfohlen. Drei begrenzte Auftraege lohnen, in dieser Reihenfolge: (1) Konzeptbilder und Kartenglyphen selbst hosten — das ist die einzige offene Verletzung einer harten Projektregel und betrifft jeden Besucher (BACKLOG 2026-09-10). (2) Einen Waechter, der die veroeffentlichten Kataloge gegen einen Generatorlauf haelt; die Reparatur von Terra hat gezeigt, dass die Luecke unbemerkt Monate ueberlebt. (3) App.jsx entlang der vorhandenen Grenzen in Laden, Fortschritt und Shell teilen — Wartungsaufwand mit klarem Nutzen, aber ohne Dringlichkeit. Die fuenf Bild-Aufloeser sind nach dieser Kampagne bei den Waechtern gleichgezogen; ihre gemeinsame HTTP- und Attributionsschicht bleibt der naechste Konsolidierungsschritt (commonsInfoForTitle steht in p18 und p18_v2 fast zeichengleich, rund 70 Zeilen)."
   },
   "themes": [
     {
@@ -1250,6 +1271,65 @@
           "tests/test_harvest_tools.py: 33 OK, zwei neue Faelle",
           "npm test: 295 passed; Trockenlauf apply_corrections laeuft durch"
         ]
+      }
+    },
+    {
+      "id": "bestandsbezogene-tabellen",
+      "summary": "Handgepflegte Tabellen verweisen auf IDs und Namen des Datenbestands, ohne dass etwas prueft, ob die Verweise noch treffen. Belegt: CITY_TO_RIVER in scripts/generate_questions.js:24 fuehrt 24 Staedte, davon haben city_DE_dresden und city_CH_basel keine Entsprechung mehr in src/data/geodb.json — die zugehoerigen Flussfragen entstehen still nicht mehr. generate_lingua.js hat fuer denselben Fall seit dem 2026-09-10 einen Waechter; die uebrigen Tabellen (NEBULA_TYPE_CANON, ORGAN_SYSTEM_CANON, KEY_ALIASES, VALUE_CONVERT, CLASS_CANON) sind reine Wert-Kanonisierung und nicht betroffen.",
+      "evidence": [
+        "scripts/generate_questions.js",
+        "src/data/geodb.json"
+      ],
+      "priority": 3,
+      "state": "completed",
+      "noted_at": "2026-09-10T11:26:50+02:00",
+      "campaign_id": "20260910T111320743505+0200",
+      "started_at": "2026-09-10T11:51:46+02:00",
+      "completed": {
+        "campaign_id": "20260910T111320743505+0200",
+        "completed_at": "2026-09-10T11:55:27+02:00",
+        "observed_head": "56300b057e796ee0bc110b576b8dcc03a18186fd",
+        "summary": "Nur CITY_TO_RIVER in scripts/generate_questions.js ist wirklich bestandsbezogen; die uebrigen Generator-Tabellen sind Wert-Kanonisierung (geprueft: NEBULA_TYPE_CANON, VISIBILITY_CANON, ORGAN_SYSTEM_CANON, FAMILIARITY_OFFSET, SCRIPT_TYPE_CANON, CLASS_CANON, STATUS_LABELS, KEY_ALIASES, VALUE_CONVERT). Zwei der 24 Eintraege (city_DE_dresden, city_CH_basel) hatten keine Entsprechung in geodb.json — ihre Flussfragen entstanden still nicht. Eintraege entfernt und im Kommentar namentlich vermerkt, Test prueft Kennung und Flussnamen gegen den Bestand.",
+        "tests": [
+          "npm test: 405 passed (39 Dateien, neu generatorTables.test.js mit 45); node scripts/generate_questions.js: Ausgabe unveraendert gegenueber dem Lauf vor der Aenderung"
+        ]
+      }
+    },
+    {
+      "id": "doppelte-geodaten-ladung",
+      "summary": "Am laufenden Dev-Server gemessen: countries.json (264 KB), subdivisions.json (1,47 MB) und rivers.json (780 KB) werden je ZWEIMAL geholt und geparst, domain_stats.json ebenfalls zweimal. Ursache bei den Geometrien: Map.jsx gibt MapLibre in addSource die Adresse (Map.jsx:149,179,227) und MapLibre holt die Datei selbst, waehrend useGeoData dieselben drei Dateien parallel fuer die Bounding-Boxen laedt (Map.jsx:74). 2,5 MB liegen danach doppelt geparst im Speicher. Behebung: Quellen mit leerer FeatureCollection anlegen und das Ergebnis aus useGeoData per map.getSource(id).setData() nachreichen. Beruehrt Map.jsx und useGeoData.js (Bereich terra-map) sowie den zweiten Nutzer von useGeoData in Quiz.jsx:38 (DynamicSilhouette, heute nicht erreichbar, weil alle 427 silhouette-Fragen einen Pfad tragen).",
+      "evidence": [
+        "src/components/Map.jsx",
+        "src/utils/useGeoData.js",
+        "src/App.jsx"
+      ],
+      "priority": 2,
+      "state": "dismissed",
+      "noted_at": "2026-09-10T11:48:47+02:00",
+      "campaign_id": "20260910T111320743505+0200",
+      "dismissed": {
+        "campaign_id": "20260910T111320743505+0200",
+        "dismissed_at": "2026-09-10T11:51:27+02:00",
+        "reason": "Nachgemessen und widerlegt: Der beobachtete Doppelabruf stammt vom Dev-Server. main.jsx rendert unter React.StrictMode, der Effekte im Entwicklungsmodus zweimal ausfuehrt. Im Produktionsbau (npm run preview, Port 4173) wird jede der drei Geometriedateien und domain_stats.json genau einmal ueber das Netz geholt, auch nach dem Oeffnen des Atlas — MapLibres eigene Anfrage bedient der HTTP-Cache. Offen bleibt allein die Vermutung, dass dieselben 2,5 MB zweimal geparst im Speicher liegen; das ist nicht gemessen und rechtfertigt keinen Umbau."
+      }
+    },
+    {
+      "id": "fremde-hosts-im-frontend",
+      "summary": "Gemessen: Alle 5289 bebilderten Konzepte in den acht veroeffentlichten Katalogen tragen eine Adresse auf commons.wikimedia.org. src/utils/commonsImage.js:61 baut daraus Special:FilePath-Adressen, die AnswerRevealImage.jsx und ExhibitGalleryShared.jsx als Bildquelle setzen — bei jeder aufgedeckten Quizantwort und in jeder Galerie geht die IP des Besuchers an die Wikimedia Foundation. Dazu holt public/map_styles/scientia_parchment.json neben Kacheln und Sprites auch die Glyphen (Schriftdaten, fonts/{fontstack}/{range}.pbf) von tiles.openfreemap.org; Schriften fallen ausdruecklich unter die Selbsthosting-Regel, Planet-Vektorkacheln realistisch nicht. In BACKLOG.md, CHANGELOG.md und docs/ ist keine dieser Entscheidungen als bewusst dokumentiert. Das Selbsthosten von 5289 Bildern ist ein eigener Auftrag (Speicherbedarf, Erntepipeline, Releasegroesse), kein Bereichsfix — deshalb hier nur festgehalten.",
+      "evidence": [
+        "src/utils/commonsImage.js",
+        "src/components/AnswerRevealImage.jsx",
+        "src/components/ExhibitGalleryShared.jsx",
+        "public/map_styles/scientia_parchment.json"
+      ],
+      "priority": 1,
+      "state": "dismissed",
+      "noted_at": "2026-09-10T12:05:24+02:00",
+      "campaign_id": "20260910T111320743505+0200",
+      "dismissed": {
+        "campaign_id": "20260910T111320743505+0200",
+        "dismissed_at": "2026-09-10T12:14:14+02:00",
+        "reason": "Kein Bereichsfix, sondern ein eigener Auftrag: 5289 Bilder selbst zu hosten beruehrt Speicherbedarf, Erntepipeline und Releasegroesse, und bei den Kartenglyphen haengt es an einem fremden Stilvertrag. Vollstaendig mit Messung in BACKLOG.md festgehalten (Eintrag vom 2026-09-10), damit der Fund nicht mit der Kampagne verschwindet."
       }
     }
   ]
