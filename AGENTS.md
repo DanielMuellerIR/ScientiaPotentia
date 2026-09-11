@@ -94,6 +94,12 @@ Generatorlauf verloren gehen.
 Der responsive Shell-Vertrag lebt in `src/index.css`. Vor und nach Layoutarbeit
 `npm run check:layout` ausführen und `LAYOUT.md` lesen.
 
+Einstiegsskripte an der Wurzel (Daniels Regel vom 2026-09-11, gleich in allen
+eigenen Projekten): `./build.sh` ist `npm run build`; `./deploy.sh` ohne
+Argumente ist `deploy.py --dry-run` auf dem vorhandenen `dist/`, `./deploy.sh
+--live [ARGS]` reicht an `deploy.py` durch. Beides reine Wrapper, kein eigener
+Weg.
+
 Standardprüfung:
 
 ```bash

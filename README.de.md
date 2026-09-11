@@ -53,6 +53,12 @@ npm run check:layout
 python3 -m unittest tests/test_deploy.py
 ```
 
+Einstiegsskripte an der Wurzel: `./build.sh` ruft `npm run build` auf,
+`./deploy.sh` ohne Argumente zeigt den Deploy-Plan aus dem vorhandenen `dist/`
+(`deploy.py --dry-run`, ohne Bau, Upload oder Zugangsdaten), und
+`./deploy.sh --live [ARGS]` reicht an `deploy.py` durch, etwa
+`./deploy.sh --live --remote ZIEL`.
+
 Für eine FTPS-Veröffentlichung `.env.example` nach `.env` kopieren und dort die
 Platzhalter ersetzen. Git ignoriert `.env`; `deploy.py` akzeptiert über `--env`
 oder `SCIENTIA_DEPLOY_ENV` auch eine andere lokale Zugangsdaten-Datei. Eine Datei
