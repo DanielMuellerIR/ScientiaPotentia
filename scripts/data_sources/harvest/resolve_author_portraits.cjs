@@ -10,12 +10,12 @@
 // Ausgabe: /tmp/cultura_author_portraits.json  (Array {id, imageFile, imageLicense, imageAttribution})
 // Danach:  apply_images.cjs (mit angepasstem Mapping-Pfad) bzw. direkt mergen, check_images validieren.
 
-const https = require("https");
 const fs = require("fs");
 const path = require("path");
 const { writeJsonAtomic } = require('./json_io.cjs');
 const { createApiGuard } = require("./api_guard.cjs");
-const { truncateCredit } = require('./credit_text.cjs');
+const { commonsAttribution } = require('./credit_text.cjs');
+const { fetchWithRetry, sleep } = require('../../lib/commons_api.cjs');
 const {
   isAllowedCommonsLicenseMetadata,
   licenseNameFromCommonsMetadata,
@@ -26,40 +26,22 @@ const {
 
 const RAWFILE = path.join(__dirname, "../cultura_raw.json");
 const OUT = "/tmp/cultura_author_portraits.json";
-const UA = "ScientiaAuthorPortraitResolver/1.0 (educational quiz; pageimages+imageinfo only)";
 const ALLOWED_MIME = new Set([
   'image/jpeg', 'image/png', 'image/svg+xml', 'image/gif', 'image/webp',
 ]);
 
-const sleep = ms => new Promise(r => setTimeout(r, ms));
-// Weiterleitungen mit Zaehler: Ohne ihn haengt eine Redirect-Schleife den Lauf
-// endlos, weil rawGet sich unbegrenzt selbst aufruft (CodeQA 2026-09-03).
-const MAX_REDIRECTS = 5;
-function rawGet(url, redirects = 0) {
-  return new Promise((res, rej) => {
-    https.get(url, { headers: { "User-Agent": UA } }, r => {
-      if (r.statusCode >= 300 && r.statusCode < 400 && r.headers.location) {
-        r.resume();
-        if (redirects >= MAX_REDIRECTS) {
-          rej(new Error(`Mehr als ${MAX_REDIRECTS} Weiterleitungen fuer ${url}`));
-          return;
-        }
-        return rawGet(r.headers.location, redirects + 1).then(res, rej);
-      }
-      let d = ""; r.on("data", c => d += c); r.on("end", () => res({ status: r.statusCode, body: d, headers: r.headers }));
-    }).on("error", rej);
-  });
-}
 // Bricht ab, sobald die Gegenstelle dauerhaft abweist, statt den Lauf leere
 // Ergebnisse schreiben zu lassen.
 const apiGuard = createApiGuard({ label: "Die Wikipedia-API" });
-async function getRaw(url) {
-  for (let i = 0; i < 5; i++) {
-    const r = await rawGet(url);
-    if (r.status !== 429) return r;
-    await sleep(Math.min(60, 5 * 2 ** i) * 1000);
-  }
-  return rawGet(url);
+async function getRaw(url, options) {
+  // Der gemeinsame Client begrenzt Weiterleitungen und wiederholt 429, 5xx,
+  // Netzabbrüche sowie Zeitüberschreitungen mit Backoff.
+  const response = await fetchWithRetry(url, { attempts: 5, ...options });
+  return {
+    status: response.status,
+    body: await response.text(),
+    headers: Object.fromEntries(response.headers),
+  };
 }
 
 /**
@@ -78,6 +60,15 @@ async function get(url) {
   return antwort;
 }
 const chunk = (a, n) => { const o = []; for (let i = 0; i < a.length; i += n) o.push(a.slice(i, i + n)); return o; };
+
+function portraitLicenseEntry(imageInfo) {
+  const metadata = imageInfo?.extmetadata || {};
+  const license = licenseNameFromCommonsMetadata(metadata);
+  const attribution = commonsAttribution(metadata);
+  const ok = ALLOWED_MIME.has(imageInfo?.mime || '')
+    && isAllowedCommonsLicenseMetadata(metadata) && Boolean(attribution);
+  return { ok, lic: license, art: attribution };
+}
 
 async function getJson(url) {
   const response = await get(url);
@@ -138,13 +129,7 @@ async function main() {
     const pageByTitle = {}; Object.values(q.pages || {}).forEach(p => { if (p.title) pageByTitle[p.title] = p; });
     for (const fTitle of grp) {
       const ii = pageByTitle[norm[fTitle] || fTitle]?.imageinfo?.[0]; if (!ii) continue;
-      const m = ii.extmetadata || {};
-      const lic = licenseNameFromCommonsMetadata(m);
-      const art = truncateCredit((m.Artist?.value || m.Credit?.value || "")
-        .replace(/<[^>]+>/g, ""));
-      const ok = ALLOWED_MIME.has(ii.mime || '')
-        && isAllowedCommonsLicenseMetadata(m) && Boolean(art);
-      licByFile.set(fTitle, { ok, lic, art });
+      licByFile.set(fTitle, portraitLicenseEntry(ii));
     }
     await sleep(150);
   }
@@ -174,4 +159,4 @@ if (require.main === module) {
   });
 }
 
-module.exports = { fileNameFromUploadUrl };
+module.exports = { fileNameFromUploadUrl, getRaw, portraitLicenseEntry };

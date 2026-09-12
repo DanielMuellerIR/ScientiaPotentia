@@ -2,6 +2,17 @@
 
 Dieses Changelog beginnt mit dem für eine öffentliche Veröffentlichung bereinigten Projektstand.
 
+## [2.1.2] — 2026-09-12
+
+- Die lokale Bildkopie gilt nur noch nach einem vollständigen, aktuellen Commons-Rechteabgleich
+  als veröffentlichbar. Lizenzwechsel, verschwundene, unfreie und gesperrte Dateien entfernen
+  ihren alten Zustand aus dem Manifest; ein abgebrochener Lauf und der Release-Audit brechen ab.
+- Ein sehr schneller Quizstart überschreibt Bestmarke und Serie nicht mehr, während IndexedDB
+  deren bisherigen Wert noch liest.
+- Der Autorenporträt-Auflöser bewahrt `Artist` und `Credit` samt mehreren Urhebern vollständig
+  und wiederholt vorübergehende Server- und Netzwerkfehler über den gemeinsamen API-Client.
+- Die Harvest-Tests bilden den Importgraphen von `apply_images.cjs` wieder vollständig nach.
+
 ## [2.1.1] — 2026-09-10
 
 - `npm run build` merkt jetzt, wenn eine Katalogdatei fehlt. Bisher baute die Zuordnung der

@@ -3,6 +3,9 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
 import { chooseMode, mirrorPathFor, verifyMirror } from '../../scripts/mirror_concept_images.mjs';
+import {
+  buildRightsReport, invalidMirrorNames, metadataRefreshBatch, rightsProblems,
+} from '../../scripts/lib/image_mirror_rights.mjs';
 
 /** Metadaten, wie sie die Commons-API liefert. */
 function meta(overrides = {}) {
@@ -53,6 +56,44 @@ describe('Entscheidung Original oder verkleinert', () => {
       .toBe('resized');
     expect(chooseMode(meta({ mime: 'image/vnd.djvu', size: 10 * 1024, width: 400 })))
       .toBe('resized');
+  });
+});
+
+describe('Rechtezustand der lokalen Kopien', () => {
+  const feld = (value) => ({ value });
+  const freieMetadaten = {
+    extmetadata: { LicenseShortName: feld('CC BY 4.0') },
+  };
+
+  it('sperrt verschwundene, unfreie, umgelizenzierte und gesperrte Dateien', () => {
+    const images = new Map([
+      ['Fehlt.jpg', { url: 'https://commons.wikimedia.org/wiki/File:Fehlt.jpg', license: 'CC BY 4.0' }],
+      ['Unfrei.jpg', { url: 'https://commons.wikimedia.org/wiki/File:Unfrei.jpg', license: 'CC BY 4.0' }],
+      ['Anders.jpg', { url: 'https://commons.wikimedia.org/wiki/File:Anders.jpg', license: 'CC BY 3.0' }],
+      ["Pablo_Picasso's_Guernica.jpg", {
+        url: "https://commons.wikimedia.org/wiki/File:Pablo_Picasso's_Guernica.jpg",
+        license: 'CC BY 4.0',
+      }],
+    ]);
+    const report = buildRightsReport(images, {
+      'Fehlt.jpg': { missing: true },
+      'Unfrei.jpg': { extmetadata: { LicenseShortName: feld('All Rights Reserved') } },
+      'Anders.jpg': freieMetadaten,
+      "Pablo_Picasso's_Guernica.jpg": freieMetadaten,
+    });
+    expect([...invalidMirrorNames(report)].sort()).toEqual([...images.keys()].sort());
+    expect(rightsProblems(report)).toHaveLength(4);
+  });
+
+  it('wertet einen begrenzten oder abgebrochenen Lauf nicht als Freigabe', () => {
+    const report = buildRightsReport(new Map(), {}, { complete: false });
+    expect(rightsProblems(report)).toEqual(['Rechteabgleich ist nicht vollständig']);
+  });
+
+  it('fragt im normalen Lauf auch bereits gecachte Dateinamen erneut ab', () => {
+    const names = ['Alt-gecached.jpg', 'Neu.jpg'];
+    expect(metadataRefreshBatch(names)).toEqual(names);
+    expect(metadataRefreshBatch(names, 1)).toEqual(['Alt-gecached.jpg']);
   });
 });
 

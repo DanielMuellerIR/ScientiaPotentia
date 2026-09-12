@@ -11,18 +11,21 @@
 import { createRequire } from 'node:module';
 import { readdirSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 
 const require = createRequire(import.meta.url);
 const harvestDir = resolve(import.meta.dirname, '../../scripts/data_sources/harvest');
 const { commonsAttribution, MAX_CREDIT_LENGTH } =
   require('../../scripts/data_sources/harvest/credit_text.cjs');
 
-/** Alle Bild-Aufloeser; resolve_author_portraits.cjs hat bewusst eine eigene Regel. */
+/** Reguläre Bild-Auflöser plus der besondere Autorenporträt-Auflöser. */
 const bildAufloeser = readdirSync(harvestDir)
   .filter(name => /^resolve_images.*\.cjs$/.test(name));
+const attributionAufloeser = [...bildAufloeser, 'resolve_author_portraits.cjs'];
 
 const feld = (value) => ({ value });
+
+afterEach(() => vi.unstubAllGlobals());
 
 describe('commonsAttribution', () => {
   it('findet ueberhaupt Bild-Aufloeser', () => {
@@ -85,11 +88,41 @@ describe('Mehrere Urheber in einem Feld', () => {
 });
 
 describe('Alle Bild-Aufloeser nutzen die gemeinsamen Regeln', () => {
-  it.each(bildAufloeser)('%s liest den Urheber ueber commonsAttribution', (name) => {
+  it.each(attributionAufloeser)('%s liest den Urheber ueber commonsAttribution', (name) => {
     const quelle = readFileSync(resolve(harvestDir, name), 'utf8');
     if (!quelle.includes('extmetadata')) return;   // Aufloeser ohne Lizenzabfrage
     expect(quelle, `${name} greift direkt auf Artist zu`).not.toMatch(/Artist\?\.value/);
     expect(quelle).toContain('commonsAttribution(');
+  });
+
+  it('übernimmt beim Autorenporträt Artist, Credit und br-Trenner gemeinsam', () => {
+    const { portraitLicenseEntry } = require(
+      '../../scripts/data_sources/harvest/resolve_author_portraits.cjs'
+    );
+    const result = portraitLicenseEntry({
+      mime: 'image/jpeg',
+      extmetadata: {
+        LicenseShortName: feld('CC BY 4.0'),
+        Artist: feld('Scott Anttila<br />Anttler'),
+        Credit: feld('ESO'),
+      },
+    });
+    expect(result).toEqual({ ok: true, lic: 'CC BY 4.0', art: 'Scott Anttila / Anttler / ESO' });
+  });
+
+  it('wiederholt im Autorenporträt-Auflöser einen vorübergehenden Serverfehler', async () => {
+    const fetchMock = vi.fn()
+      .mockResolvedValueOnce(new Response('vorübergehend', { status: 503 }))
+      .mockResolvedValueOnce(new Response('ok', { status: 200 }));
+    vi.stubGlobal('fetch', fetchMock);
+    const { getRaw } = require(
+      '../../scripts/data_sources/harvest/resolve_author_portraits.cjs'
+    );
+
+    const result = await getRaw('https://example.invalid/test', { baseDelayMs: 0 });
+
+    expect(result).toMatchObject({ status: 200, body: 'ok' });
+    expect(fetchMock).toHaveBeenCalledTimes(2);
   });
 
   it.each(bildAufloeser)('%s bricht bei einem Nulllauf ab, statt leer zu schreiben', (name) => {

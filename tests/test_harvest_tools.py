@@ -1,6 +1,7 @@
 """Regressionstests für schreibende Werkzeuge im Harvest-Zwischenarchiv."""
 
 import json
+import os
 from pathlib import Path
 import shutil
 import subprocess
@@ -39,6 +40,7 @@ class HarvestToolTests(unittest.TestCase):
         for shared_name in (
             'concept_validation.cjs', 'image_resolution_policy.cjs',
             'IMAGE_BLACKLIST.json', 'resolve_images_p18_v2.cjs',
+            'api_guard.cjs',
             # credit_text.cjs kuerzt Urhebernachweise an der Wortgrenze und wird
             # von allen fuenf Bild-Aufloesern eingebunden (CodeQA 2026-09-03).
             'credit_text.cjs',
@@ -55,6 +57,16 @@ class HarvestToolTests(unittest.TestCase):
                 target = root / 'scripts' / 'lib' / shared_lib
                 target.parent.mkdir(parents=True, exist_ok=True)
                 shutil.copy2(source, target)
+        # apply_images.cjs lädt die Veröffentlichungsregel aus dem echten
+        # Browsermodul. Der Testbaum bildet dessen Importgraph einschließlich
+        # ESM-Modus und der Abhängigkeit `entities` nach.
+        for source_name in ('imageCredits.js', 'commonsImage.js'):
+            source = ROOT / 'src' / 'utils' / source_name
+            target = root / 'src' / 'utils' / source_name
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(source, target)
+        shutil.copy2(ROOT / 'package.json', root / 'package.json')
+        os.symlink(ROOT / 'node_modules', root / 'node_modules', target_is_directory=True)
         return root, harvest
 
     @staticmethod

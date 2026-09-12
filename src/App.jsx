@@ -356,8 +356,8 @@ export default function App() {
   // von 10 und aus einer 27-Tage-Serie eine von 1. Solange der Vorzustand
   // unbekannt ist, fuehrt die App nur die Anzeige der laufenden Sitzung und
   // speichert nichts.
-  const streakReadable = React.useRef(true);
-  const highScoreReadable = React.useRef(true);
+  const streakReadable = React.useRef(false);
+  const highScoreReadable = React.useRef(false);
 
   const loadStreak = async () => {
     try {

@@ -21,12 +21,14 @@ import { readFile, readdir } from 'node:fs/promises';
 import { join } from 'node:path';
 
 import { verifyMirror } from './lib/image_mirror_manifest.mjs';
+import { rightsProblems } from './lib/image_mirror_rights.mjs';
 
 const ALLOW_MISSING = process.env.SCIENTIA_ALLOW_MISSING_IMAGES === '1';
 
 /** Dateien, in denen eine direkte Commons-Bildadresse einen Rückfall bedeuten würde. */
 const SOURCE_DIRS = ['src'];
 const HOTLINK_RX = /Special:FilePath|upload\.wikimedia\.org/;
+const RIGHTS_PATH = join('.cache', 'image_mirror_rights_report.json');
 
 async function* sourceFiles(dir) {
   for (const entry of await readdir(dir, { withFileTypes: true })) {
@@ -58,6 +60,17 @@ if (result.fatal) {
       + `(z.B. ${result.withoutFile.slice(0, 3).join(', ')})`,
     );
   }
+}
+
+let rightsReport = null;
+try {
+  rightsReport = JSON.parse(await readFile(RIGHTS_PATH, 'utf8'));
+} catch {
+  // Ein fehlender oder beschädigter Bericht ist keine Freigabe. `mirror:images`
+  // erzeugt ihn vor den Kopien aus frisch gelesenen Commons-Metadaten.
+}
+for (const problem of rightsProblems(rightsReport)) {
+  problems.push(`Rechteabgleich: ${problem}`);
 }
 if (result.foreign?.length) {
   problems.push(

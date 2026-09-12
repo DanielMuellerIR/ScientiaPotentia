@@ -30,7 +30,9 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
  *
  * @returns {Promise<Response>} Antwort, auch bei 404 oder 403.
  */
-async function fetchWithRetry(url, { attempts = 4, timeoutMs = 60000, headers = {} } = {}) {
+async function fetchWithRetry(url, {
+  attempts = 4, timeoutMs = 60000, headers = {}, baseDelayMs = 1000,
+} = {}) {
   let lastError = null;
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
     const controller = new AbortController();
@@ -47,7 +49,7 @@ async function fetchWithRetry(url, { attempts = 4, timeoutMs = 60000, headers = 
         const retryAfter = Number(response.headers.get('retry-after'));
         const waitMs = Number.isFinite(retryAfter) && retryAfter > 0
           ? Math.min(60000, retryAfter * 1000)
-          : Math.min(30000, 1000 * 2 ** attempt);
+          : Math.min(30000, baseDelayMs * 2 ** attempt);
         lastError = new Error(`HTTP ${response.status}`);
         if (attempt < attempts) {
           await sleep(waitMs);
@@ -58,7 +60,7 @@ async function fetchWithRetry(url, { attempts = 4, timeoutMs = 60000, headers = 
     } catch (error) {
       clearTimeout(timer);
       lastError = error;
-      if (attempt < attempts) await sleep(Math.min(30000, 1000 * 2 ** attempt));
+      if (attempt < attempts) await sleep(Math.min(30000, baseDelayMs * 2 ** attempt));
     }
   }
   throw lastError || new Error('Anfrage fehlgeschlagen');
@@ -134,26 +136,10 @@ async function fetchImageMetadata(fileNames) {
   return result;
 }
 
-/** Entfernt HTML aus einem extmetadata-Wert und normalisiert Leerraum. */
-function plainText(value) {
-  if (typeof value !== 'string') return '';
-  return value
-    .replace(/<[^>]*>/g, ' ')
-    .replace(/&nbsp;/g, ' ')
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"')
-    .replace(/&#0?39;/g, "'")
-    .replace(/\s+/g, ' ')
-    .trim();
-}
-
 module.exports = {
   API_ENDPOINT,
   USER_AGENT,
   fetchWithRetry,
   fetchImageMetadata,
-  plainText,
   sleep
 };

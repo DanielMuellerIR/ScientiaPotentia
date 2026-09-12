@@ -42,9 +42,8 @@ import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
 
 import {
-  isAllowedCommonsLicenseMetadata,
-  licenseNameFromCommonsMetadata,
-} from './lib/image_license_policy.js';
+  buildRightsReport, invalidMirrorNames, metadataRefreshBatch, rightsProblems,
+} from './lib/image_mirror_rights.mjs';
 import {
   DATA_DIR, MANIFEST_PATH, MIRROR_DIR, PUBLIC_PREFIX,
   collectCatalogImages, mirrorPathFor, readJson, verifyMirror,
@@ -60,6 +59,7 @@ const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const CACHE_DIR = join(ROOT, '.cache');
 const META_PATH = join(CACHE_DIR, 'commons_image_meta.json');
 const STATE_PATH = join(CACHE_DIR, 'image_mirror_state.json');
+const RIGHTS_PATH = join(CACHE_DIR, 'image_mirror_rights_report.json');
 
 // ── Entscheidungsschwellen ───────────────────────────────────────────────────
 // Eine verkleinerte Fassung kostet rund 110 KB (960 px) plus 20 KB (320 px).
@@ -135,9 +135,17 @@ async function commandMeta(options) {
   const cached = await readJson(META_PATH, { entries: {} });
   const entries = cached.entries || {};
 
-  const todo = options.force ? names : names.filter((name) => !entries[name]);
-  const limited = options.limit ? todo.slice(0, options.limit) : todo;
+  // Rechte können sich nach dem ersten Spiegeln ändern. Darum ist ein normaler
+  // Metadatenlauf immer ein vollständiger aktueller Abgleich und kein Cache-Hit.
+  const limited = metadataRefreshBatch(names, options.limit);
   log(options, `Metadaten: ${names.length} Dateien im Katalog, ${limited.length} abzufragen.`);
+
+  // Bricht der Prozess oder die Gegenstelle während des Laufs ab, darf der alte
+  // grüne Bericht nicht weiter als Release-Freigabe herumliegen.
+  await writeJson(RIGHTS_PATH, {
+    checkedAt: new Date().toISOString(), complete: false,
+    missing: [], licenseMismatch: [], notFree: [], blacklisted: [],
+  });
 
   let consecutiveFailures = 0;
   for (let index = 0; index < limited.length; index += 50) {
@@ -166,34 +174,14 @@ async function commandMeta(options) {
   }
   await writeJson(META_PATH, { fetchedAt: new Date().toISOString().slice(0, 10), entries });
 
-  // Rechtelage gegen den aktuellen Commons-Stand halten.
-  const report = { missing: [], licenseMismatch: [], notFree: [], blacklisted: [] };
-  for (const [name, entry] of images) {
-    const meta = entries[name];
-    if (!meta || meta.missing) {
-      report.missing.push(name);
-      continue;
-    }
-    if (isBlacklistedFile(entry.url)) report.blacklisted.push(name);
-    if (!isAllowedCommonsLicenseMetadata(meta.extmetadata)) {
-      report.notFree.push({ name, commons: licenseNameFromCommonsMetadata(meta.extmetadata) });
-      continue;
-    }
-    const commonsLicense = licenseNameFromCommonsMetadata(meta.extmetadata);
-    if (entry.license && commonsLicense && commonsLicense !== '?'
-        && normaliseLicense(commonsLicense) !== normaliseLicense(entry.license)) {
-      report.licenseMismatch.push({ name, katalog: entry.license, commons: commonsLicense });
-    }
-  }
-  await writeJson(join(CACHE_DIR, 'image_mirror_rights_report.json'), report);
+  const report = buildRightsReport(images, entries, {
+    checkedAt: new Date().toISOString(),
+    complete: limited.length === names.length,
+  });
+  await writeJson(RIGHTS_PATH, report);
   log(options, `Rechteabgleich: ${report.missing.length} auf Commons verschwunden, `
     + `${report.notFree.length} nicht mehr frei, ${report.licenseMismatch.length} mit anderer Lizenzbezeichnung.`);
   return report;
-}
-
-/** Vergleichsform einer Lizenzbezeichnung: Groß-/Kleinschreibung und „1.0" bei CC0 egal. */
-function normaliseLicense(label) {
-  return String(label).trim().toLowerCase().replace(/^cc0 1\.0$/, 'cc0');
 }
 
 // ── Schritt 2: Dateien holen ─────────────────────────────────────────────────
@@ -305,14 +293,20 @@ async function commandFetch(options) {
   }
   const state = await readJson(STATE_PATH, { entries: {} });
   state.entries = state.entries || {};
+  const rights = await readJson(RIGHTS_PATH, null);
+  if (rights?.complete !== true) {
+    throw new Error('Kein vollständiger Rechteabgleich — zuerst `meta` ohne --limit ausführen.');
+  }
+  // Ein alter erfolgreicher Mirror-Eintrag darf nach Lizenzentzug, Verschwinden
+  // oder Sperrung nicht bis zum Manifest-Schritt überleben.
+  const invalid = invalidMirrorNames(rights);
+  for (const name of invalid) delete state.entries[name];
   await mkdir(MIRROR_DIR, { recursive: true });
 
   const todo = [];
   for (const name of images.keys()) {
     const info = meta[name];
-    if (!info || info.missing) continue;
-    if (isBlacklistedFile(images.get(name).url)) continue;
-    if (!isAllowedCommonsLicenseMetadata(info.extmetadata)) continue;
+    if (invalid.has(name)) continue;
     const known = state.entries[name];
     const complete = known && known.sourceSha1 === info.sha1
       && existsSync(join(MIRROR_DIR, mirrorPathFor(known.base.file)))
@@ -369,11 +363,20 @@ async function commandFetch(options) {
 async function commandManifest(options) {
   const { images } = await collectCatalogImages();
   const state = await readJson(STATE_PATH, { entries: {} });
+  const rights = await readJson(RIGHTS_PATH, null);
+  if (rights?.complete !== true) {
+    throw new Error('Kein vollständiger Rechteabgleich — zuerst `meta` ohne --limit ausführen.');
+  }
+  const invalid = invalidMirrorNames(rights);
   const files = {};
   let mirrored = 0;
   const missing = [];
 
   for (const name of [...images.keys()].sort()) {
+    if (invalid.has(name)) {
+      missing.push(name);
+      continue;
+    }
     const entry = state.entries?.[name];
     if (!entry) {
       missing.push(name);
@@ -450,10 +453,21 @@ async function main() {
 
   let result;
   if (command === 'all') {
-    await commandMeta(options);
-    await commandFetch(options);
-    await commandManifest(options);
+    const rights = await commandMeta(options);
+    const fetched = await commandFetch(options);
+    const manifested = await commandManifest(options);
     result = await commandVerify(options);
+    const problems = [
+      ...rightsProblems(rights),
+      ...(fetched.failed ? [`${fetched.failed} Bildkopien konnten nicht erzeugt werden`] : []),
+      ...(manifested.missing.length
+        ? [`${manifested.missing.length} Katalogbilder fehlen im Manifest`] : []),
+      ...(result.withoutFile.length
+        ? [`${result.withoutFile.length} Manifestdateien fehlen lokal`] : []),
+    ];
+    if (problems.length) {
+      throw new Error(`Bildspiegelung fehlgeschlagen: ${problems.join('; ')}`);
+    }
   } else if (commands[command]) {
     result = await commands[command](options);
   } else {

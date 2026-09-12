@@ -126,6 +126,27 @@ beforeEach(() => {
 afterEach(cleanup);
 
 describe('App-Orchestrierung', () => {
+  it('überschreibt während ausstehender Einstellungslesevorgänge keine Bestmarke oder Serie', async () => {
+    let resolveStreak;
+    let resolveHighScore;
+    getSetting.mockImplementation((key, fallback) => {
+      if (key === 'streakCount') return new Promise(resolve => { resolveStreak = resolve; });
+      if (key === 'highScore') return new Promise(resolve => { resolveHighScore = resolve; });
+      return Promise.resolve(fallback);
+    });
+    await openQuiz();
+
+    fireEvent.click(screen.getByRole('button', { name: '10 Punkte' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Runde abschließen' }));
+
+    await screen.findByText('Test-Hub');
+    expect(saveSetting).not.toHaveBeenCalledWith('highScore', expect.anything());
+    expect(saveSetting).not.toHaveBeenCalledWith('streakCount', expect.anything());
+
+    resolveStreak(27);
+    resolveHighScore(5000);
+  });
+
   it('führt den Rundenpunktestand synchron und persistiert nur die Bestmarke', async () => {
     await openQuiz();
 
