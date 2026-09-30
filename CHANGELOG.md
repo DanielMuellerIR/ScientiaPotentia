@@ -2,6 +2,12 @@
 
 Dieses Changelog beginnt mit dem für eine öffentliche Veröffentlichung bereinigten Projektstand.
 
+## [2.1.9] — 2026-09-30
+
+- Titania, Oberon, Ariel, Miranda und Proteus erhalten fachlich gesichtete
+  Voyager-Aufnahmen mit vollständigen freien Bildnachweisen und lokalen Kopien.
+  Farbkomposite, Mosaike und Mirandas Kolorierung sind ausgewiesen.
+
 ## [2.1.8] — 2026-09-30
 
 - Io, Ganymed, Kallisto, Titan und Amalthea erhalten fachlich gesichtete
