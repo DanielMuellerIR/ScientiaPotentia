@@ -2,6 +2,12 @@
 
 Dieses Changelog beginnt mit dem für eine öffentliche Veröffentlichung bereinigten Projektstand.
 
+## [2.1.5] — 2026-09-30
+
+- Jupiter, Saturn, Uranus, Neptun und der Mond erhalten fachlich gesichtete
+  Aufnahmen mit vollständigen freien Bildnachweisen und lokalen Kopien.
+  Uranus und Neptun zeigen farbkalibrierte Voyager-Aufnahmen.
+
 ## [2.1.4] — 2026-09-30
 
 - Leber und Edward Elgar zeigen jetzt das menschliche Organ beziehungsweise ein
