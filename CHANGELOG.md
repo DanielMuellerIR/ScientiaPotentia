@@ -2,6 +2,12 @@
 
 Dieses Changelog beginnt mit dem für eine öffentliche Veröffentlichung bereinigten Projektstand.
 
+## [2.1.7] — 2026-09-30
+
+- Iapetus, Dione, Tethys und Hyperion erhalten fachlich gesichtete
+  Cassini-Aufnahmen mit vollständigen freien Bildnachweisen und lokalen Kopien.
+  Iapetus zeigt ein Falschfarbenmosaik, Hyperion eine monochrome Aufnahme.
+
 ## [2.1.6] — 2026-09-30
 
 - Phobos, Deimos, Enceladus, Rhea und Mimas erhalten fachlich gesichtete
