@@ -33,7 +33,8 @@
   Phobos, Deimos, Enceladus, Rhea und Mimas sowie Iapetus, Dione, Tethys
   und Hyperion. Io, Ganymed, Kallisto, Titan und Amalthea sind ebenfalls
   übernommen. Titania, Oberon, Ariel, Miranda und Proteus folgen;
-  108 bleiben zu kuratieren. Lingua (47 Kandidaten) und Machina
+  Eris, Sedna, Pandora, Triton und der Affenkopfnebel sind ebenfalls übernommen;
+  103 bleiben zu kuratieren. Lingua (47 Kandidaten) und Machina
   (13 Kandidaten) sind noch nicht eingepflegt. Kategorien-Vorfilter verwerfen
   eindeutige Fehlmotive, ersetzen aber die Sichtung jedes übernommenen Bilds nicht.
 - Charon bleibt vorerst ohne Bild: Der Kandidat „Charon in True Color - High-Res“

@@ -2,6 +2,12 @@
 
 Dieses Changelog beginnt mit dem für eine öffentliche Veröffentlichung bereinigten Projektstand.
 
+## [2.1.10] — 2026-09-30
+
+- Eris, Sedna, Pandora, Triton und der Affenkopfnebel erhalten fachlich gesichtete
+  Aufnahmen mit vollständigen freien Bildnachweisen und lokalen Kopien.
+  Punktaufnahmen, Farbkomposite und der markierte Nebelausschnitt sind ausgewiesen.
+
 ## [2.1.9] — 2026-09-30
 
 - Titania, Oberon, Ariel, Miranda und Proteus erhalten fachlich gesichtete
