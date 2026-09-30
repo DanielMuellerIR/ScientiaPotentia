@@ -44,6 +44,23 @@ function isBlacklistedFile(value) {
   return BLACKLISTED_FILES.has(normalizeCommonsFileTitle(value));
 }
 
+/** Ein Vorfilter verwirft klare Fehlmotive; die fachliche Sichtung bleibt nötig. */
+function isSuitableImageMotif(file, metadata, concept, domain) {
+  const title = normalizeCommonsFileTitle(file).toLowerCase();
+  const categories = String(metadata?.Categories?.value || '').toLowerCase();
+  const subjects = `${title}|${categories}`.replace(/_/g, ' ');
+  if (/\b(signatures?|signatur|autographs?)\b/.test(subjects)) return false;
+  const portrait = ['composer', 'author', 'figure', 'genre_fiction'].includes(concept?.category);
+  if (portrait && /\b(montages?|collages?|mosaics?)\b/.test(subjects)) return false;
+  const humanAnatomy = domain === 'homo' && ['bone', 'muscle', 'organ', 'joint',
+    'nerve', 'brain_lobe', 'cell_type', 'sense', 'reflex'].includes(concept?.category);
+  if (humanAnatomy) {
+    if (/\b(birds?|aves|insects?|arthropods?|cats?|dogs?|horses?|cattle|bovine|porcine|pigs?|rats?|mice|rodents?|fish|fishes|reptiles?|amphibians?|non-human|veterinary)\b/.test(subjects)) return false;
+    if (/\b(personnel|military records|infantry|service records|karteikarte|personalakte)\b/.test(subjects)) return false;
+  }
+  return true;
+}
+
 /** Bevorzugt genau ein preferred P18; sonst genau ein normales Statement. */
 function selectP18File(statements) {
   const usable = (Array.isArray(statements) ? statements : [])
@@ -64,6 +81,7 @@ module.exports = {
   fileNameFromUploadUrl,
   isBlacklistedConcept,
   isBlacklistedFile,
+  isSuitableImageMotif,
   normalizeCommonsFileTitle,
   selectP18File,
 };

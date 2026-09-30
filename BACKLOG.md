@@ -27,16 +27,14 @@
   bewusst stehen: Sie sind zugleich die Schlüssel des Lernfortschritts in IndexedDB, ein
   Umbenennen würde den Fortschritt zu diesen Konzepten stillschweigend zurücksetzen. Eine
   Bereinigung braucht eine Migration.
-- Die Bildkandidaten aus dem Live-Lauf vom 2026-09-30 sind noch fachlich und visuell
-  zu kuratieren: Astra 135 von 176, Lingua 47 von 55, Machina 13 von 40.
-  Eingepflegt wurde keines dieser Bilder. Beide Astra-Auflöser liefern dieselben
-  135 Dateien samt Lizenz und vollständigem Nachweis. Kategorien-Vorfilter und
-  die Sichtung jedes übernommenen Motivs bleiben erforderlich.
-- Visuell bestätigter Motivfehler (2026-09-30): `homo:leber` zeigt eine historische
-  Personal-Karteikarte von Jacob P. Leber statt des Organs. Die Bilddatei muss in
-  der Motivkuratierung verworfen oder fachlich passend ersetzt werden.
-  `cultura:edward-elgar` zeigt eine Komponistenmontage; deren Eignung
-  für das einzelne Konzept ebenfalls prüfen.
+- Die Bildkandidaten aus dem Live-Lauf vom 2026-09-30 sind weiter einzeln fachlich
+  und visuell zu kuratieren. Von den 135 Astra-Kandidaten wurden Merkur, Venus und
+  Mars übernommen; 132 bleiben ungeprüft. Lingua (47 Kandidaten) und Machina
+  (13 Kandidaten) sind noch nicht eingepflegt. Kategorien-Vorfilter verwerfen
+  eindeutige Fehlmotive, ersetzen aber die Sichtung jedes übernommenen Bilds nicht.
+- Die bestätigten Motivfehler bei `homo:leber` (Personalakte) und
+  `cultura:edward-elgar` (Komponistenmontage) sind durch eine menschliche
+  Lebergrafik beziehungsweise ein einzelnes Elgar-Porträt ersetzt.
 - Für 19 Astra-Konzepte fehlt weiterhin eine eindeutig belegte Wikipedia-Zuordnung.
   Darunter stehen nicht erreichbare oder fachlich falsche externe Quelllinks und
   Grenzen zwischen Nebelkomponenten. Vor einer Bildübernahme die fachliche Quelle

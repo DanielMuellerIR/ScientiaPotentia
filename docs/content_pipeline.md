@@ -32,6 +32,10 @@ node scripts/data_sources/harvest/backfill_image_attribution.mjs --write
 
 Ein Bild muss das konkrete Konzept zeigen. Logos, Platzhalter und nur dekorativ passende Bilder
 werden nicht übernommen.
+Die Auflöser verwerfen anhand von Dateititel und Commons-Kategorien Signaturen,
+Porträtmontagen sowie eindeutig tierische Anatomie und Personalakten für menschliche
+Anatomiekonzepte. Dieser Vorfilter belegt keine Motivtreue: Jedes übernommene Bild
+muss weiterhin fachlich und visuell geprüft werden.
 
 ## 4. Additiv zusammenführen
 

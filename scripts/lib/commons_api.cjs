@@ -17,6 +17,32 @@ const USER_AGENT =
   '(https://github.com/DanielMuellerIR/ScientiaPotentia; nfetzen@gmail.com) Node.js';
 
 const API_ENDPOINT = 'https://commons.wikimedia.org/w/api.php';
+const { licenseNameFromCommonsMetadata, ownWorkLicenseFromWikitext, licenseUrlFor } = require('./image_license_policy.js');
+const layeredLicenseGuard = require('../data_sources/harvest/api_guard.cjs')
+  .createApiGuard({ label: 'Commons-Prüfung getrennter Bildrechte' });
+
+async function refineLayeredLicenseMetadata(title, metadata, getJson) {
+  const categories = String(metadata?.Categories?.value || '').split('|');
+  if (licenseNameFromCommonsMetadata(metadata) !== 'Public domain'
+      || !categories.includes('Self-published work') || !categories.includes('GFDL')) return metadata;
+  const params = new URLSearchParams({ action: 'parse', format: 'json', maxlag: '5',
+    page: title, prop: 'wikitext|revid' });
+  const payload = await getJson(`${API_ENDPOINT}?${params}`);
+  const wikitext = payload.parse?.wikitext?.['*'];
+  if (typeof wikitext !== 'string' || !wikitext.trim()) {
+    throw new Error(`Lizenzabschnitt nicht lesbar: ${title}`);
+  }
+  if (!/\n\s*;\s*Building\s*\n\s*\{\{PD[-|}]/i.test(wikitext || '')) return metadata;
+  const license = ownWorkLicenseFromWikitext(wikitext);
+  if (!license) throw new Error(`Getrennte Bild-/Motivrechte nicht eindeutig: ${title}`);
+  // Commons kann die Gemeinfreiheit eines alten Gebäudes als Fotolizenz melden.
+  // Nur der live gelesene, alleinstehende self-Block darf das präzisieren.
+  return { ...metadata, LicenseShortName: { value: license },
+    License: { value: license }, LicenseUrl: { value: licenseUrlFor(license) },
+    UsageTerms: { value: license }, AttributionRequired: { value: 'true' },
+    ScientiaLicenseEvidence: { value: `${title}?oldid=${payload.parse.revid}: self-Lizenz vor getrennten Motivrechten` },
+  };
+}
 
 /** Wartet die angegebene Zeit ab. */
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -153,7 +179,8 @@ async function fetchImageMetadata(fileNames) {
       size: info.size,
       mime: info.mime,
       sha1: info.sha1,
-      extmetadata: info.extmetadata || {}
+      extmetadata: await refineLayeredLicenseMetadata(canonicalTitle, info.extmetadata || {},
+        url => fetchWikiJson(url, { apiGuard: layeredLicenseGuard }))
     });
   }
   return result;
@@ -165,5 +192,6 @@ module.exports = {
   fetchWithRetry,
   fetchWikiJson,
   fetchImageMetadata,
+  refineLayeredLicenseMetadata,
   sleep
 };

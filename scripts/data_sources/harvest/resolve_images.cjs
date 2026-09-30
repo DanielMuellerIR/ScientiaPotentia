@@ -32,7 +32,7 @@ const path = require("path");
 const { writeJsonAtomic } = require('./json_io.cjs');
 const { commonsAttribution } = require('./credit_text.cjs');
 const {
-  isBlacklistedFile, isBlacklistedConcept,
+  isBlacklistedFile, isBlacklistedConcept, isSuitableImageMotif,
 } = require('./image_resolution_policy.cjs');
 const { createApiGuard } = require('./api_guard.cjs');
 const {
@@ -144,9 +144,10 @@ const CACHE = new Map();
 // EIN Call: Suche (generator=search, Namespace 6 = Dateien) + Lizenz/URL/MIME
 // (prop=imageinfo) gebündelt. Liefert das erste freie, MIME-taugliche,
 // nicht-geblacklistete Bild — oder null.
-async function resolveConcept(term) {
+async function resolveConcept(term, concept, domain) {
   if (!term) return null;
-  if (CACHE.has(term)) { STATS.cacheHits++; return CACHE.get(term); }
+  const cacheKey = `${domain}:${concept.category}:${term}`;
+  if (CACHE.has(cacheKey)) { STATS.cacheHits++; return CACHE.get(cacheKey); }
   const j = await apiGet({
     action: "query", format: "json",
     generator: "search", gsrsearch: term, gsrnamespace: 6, gsrlimit: 10,
@@ -161,6 +162,7 @@ async function resolveConcept(term) {
       const ii = p.imageinfo?.[0]; if (!ii) continue;
       if (!ALLOWED_MIME.has(ii.mime || "")) continue;            // nur echte, darstellbare Bilder
       if (isBlacklistedFile(p.title || "")) continue; // gesperrte Datei
+      if (!isSuitableImageMotif(p.title, ii.extmetadata, concept, domain)) continue;
       if (isAllowedCommonsLicenseMetadata(ii.extmetadata)) {
         result = {
           // Gespeichert wird die Commons-DATEISEITE (nicht die Roh-Bild-URL),
@@ -173,7 +175,7 @@ async function resolveConcept(term) {
       }
     }
   }
-  CACHE.set(term, result);
+  CACHE.set(cacheKey, result);
   return result;
 }
 
@@ -199,7 +201,7 @@ async function resolveConcept(term) {
       if (isBlacklistedConcept(o.id)) continue;
       if (overBudget()) { G.stoppedEarly = true; break; }
       G.total++;
-      const r = await resolveConcept(o.imageSearchTerm || o.name);
+      const r = await resolveConcept(o.imageSearchTerm || o.name, o, path.basename(f).split('_')[0]);
       if (r) { Object.assign(o, r); delete o._imgProblem; res++; G.resolved++; }
       else { o._imgProblem = PROBLEM_TAG; none++; G.none++; }
       writeJsonAtomic(f, arr); // Teilfortschritt nach jedem Konzept atomar sichern

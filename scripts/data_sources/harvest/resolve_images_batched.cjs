@@ -141,7 +141,7 @@ async function main() {
   console.log(`${options.domain}: ${pool.length} bildlose Konzepte in Zielkategorien${animalWindow}`);
 
   const commons = createCommonsLookup(getJson);
-  const fileForId = await resolveSourceImages(pool, options.domain, getJson, commons.acceptFiles);
+  const fileForId = await resolveSourceImages(pool, options.domain, getJson, commons.acceptFiles, commons.fitsConcept);
   console.log(`  Nach Quellenauflösung: ${fileForId.size} Konzepte mit Bilddatei`);
 
   const out = [...fileForId].map(([id, file]) => ({ id, ...commons.get(file) }));

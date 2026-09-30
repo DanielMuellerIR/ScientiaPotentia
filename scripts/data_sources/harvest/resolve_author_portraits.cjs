@@ -21,7 +21,7 @@ const {
   licenseNameFromCommonsMetadata,
 } = require('../../lib/image_license_policy.js');
 const {
-  fileNameFromUploadUrl, isBlacklistedFile, isBlacklistedConcept,
+  fileNameFromUploadUrl, isBlacklistedFile, isBlacklistedConcept, isSuitableImageMotif,
 } = require('./image_resolution_policy.cjs');
 
 const RAWFILE = path.join(__dirname, "../cultura_raw.json");
@@ -129,7 +129,10 @@ async function main() {
     const pageByTitle = {}; Object.values(q.pages || {}).forEach(p => { if (p.title) pageByTitle[p.title] = p; });
     for (const fTitle of grp) {
       const ii = pageByTitle[norm[fTitle] || fTitle]?.imageinfo?.[0]; if (!ii) continue;
-      licByFile.set(fTitle, portraitLicenseEntry(ii));
+      const entry = portraitLicenseEntry(ii);
+      entry.ok &&= isSuitableImageMotif(
+        fTitle, ii.extmetadata, { category: 'author' }, 'cultura');
+      licByFile.set(fTitle, entry);
     }
     await sleep(150);
   }

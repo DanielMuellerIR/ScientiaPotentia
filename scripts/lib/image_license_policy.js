@@ -15,6 +15,24 @@ function metadataValue(metadata, key) {
   return String(metadata?.[key]?.value ?? '').trim();
 }
 
+/** Nur eine eindeutige Eigenwerk-Freigabe vor getrennten Motiv-Rechteangaben. */
+export function ownWorkLicenseFromWikitext(wikitext) {
+  const text = String(wikitext || '');
+  const sections = text.split(/==\s*\{\{int:license-header\}\}\s*==/i);
+  if (sections.length !== 2) return null;
+  const block = sections[1].split(/\n\s*(?:={2,}|;|\[\[Category:)/i)[0];
+  const template = block.trim().match(/^\{\{self\s*\|([^{}]+)\}\}$/i);
+  if (!template) return null;
+  const labels = template[1].split('|').map(value => {
+    const name = value.trim();
+    if (/^gfdl$/i.test(name)) return 'GFDL';
+    const cc = name.match(/^cc-(by(?:-sa)?)-(1\.0|2\.0|2\.1|2\.5|3\.0|4\.0)$/i);
+    return cc ? `CC ${cc[1].toUpperCase()} ${cc[2]}` : null;
+  });
+  if (labels.some(label => !label || !isAllowedImageLicense(label))) return null;
+  return labels.find(label => label.startsWith('CC ')) || labels[0] || null;
+}
+
 export function isAllowedImageLicense(label) {
   const license = String(label || '').trim();
   if (RESTRICTED_METADATA.test(license)) return false;

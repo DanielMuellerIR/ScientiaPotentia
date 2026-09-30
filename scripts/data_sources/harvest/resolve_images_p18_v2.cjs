@@ -61,7 +61,7 @@ async function main() {
   const statsByVia = {};
   const results = [];
   const commons = createCommonsLookup(apiGet);
-  const sourceImages = await resolveSourceImages(targets, 'astra', apiGet, commons.acceptFiles);
+  const sourceImages = await resolveSourceImages(targets, 'astra', apiGet, commons.acceptFiles, commons.fitsConcept);
 
   for (let i = 0; i < targets.length; i++) {
     const c = targets[i];

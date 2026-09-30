@@ -2,6 +2,19 @@
 
 Dieses Changelog beginnt mit dem für eine öffentliche Veröffentlichung bereinigten Projektstand.
 
+## [2.1.4] — 2026-09-30
+
+- Leber und Edward Elgar zeigen jetzt das menschliche Organ beziehungsweise ein
+  einzelnes Porträt. Merkur, Venus und Mars erhalten fachlich gesichtete Bilder
+  mit vollständigen Nachweisen und lokalen Kopien.
+- Die Bildauflöser verwerfen Signaturen, Porträtmontagen sowie eindeutig tierische
+  Anatomie und Personalakten für menschliche Anatomiekonzepte. Der Vorfilter
+  ergänzt die weiterhin erforderliche fachliche Sichtung.
+- Meldet Commons bei einem Eigenwerk mit GFDL die Gemeinfreiheit eines separat
+  bezeichneten Gebäudes, prüft der gemeinsame Leser den aktuellen Lizenzabschnitt
+  des Fotos. Nur eine eindeutige Freigabe wird übernommen; unklare Angaben blockieren
+  den Rechteabgleich.
+
 ## [2.1.3] — 2026-09-30
 
 - Der gebündelte Bildauflöser und der Astra-Auflöser verwenden dieselbe Sprach-

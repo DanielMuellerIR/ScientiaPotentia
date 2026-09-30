@@ -15,6 +15,87 @@ HARVEST = ROOT / 'scripts' / 'data_sources' / 'harvest'
 
 
 class HarvestToolTests(unittest.TestCase):
+    def test_layered_building_rights_preserve_the_photograph_license(self):
+        code = r"""
+const {refineLayeredLicenseMetadata} = require('./scripts/lib/commons_api.cjs');
+const {ownWorkLicenseFromWikitext} = require('./scripts/lib/image_license_policy.js');
+const metadata={LicenseShortName:{value:'Public domain'},Categories:{value:'Self-published work|GFDL'}};
+const header='== {{int:license-header}} ==\n';
+const photo=header+'{{self|cc-by-sa-3.0|GFDL}}\n\n;Building\n{{PD-100}}\n{{PD-1923}}';
+(async()=>{
+ const refined=await refineLayeredLicenseMetadata('File:Temple.jpg',metadata,async()=>({parse:{revid:42,wikitext:{'*':photo}}}));
+ const unchanged=await refineLayeredLicenseMetadata('File:Own.jpg',metadata,async()=>({parse:{wikitext:{'*':header+'{{self|GFDL|cc-zero}}'}}}));
+ let ambiguous=false;
+ let unavailable=false;
+ try {await refineLayeredLicenseMetadata('File:Unavailable.jpg',metadata,async()=>({}));} catch {unavailable=true;}
+ try {await refineLayeredLicenseMetadata('File:Unclear.jpg',metadata,async()=>({parse:{wikitext:{'*':photo.replace('{{self|cc-by-sa-3.0|GFDL}}','{{self|unknown}}')}}}));} catch {ambiguous=true;}
+ console.log(JSON.stringify({license:refined.LicenseShortName.value,url:refined.LicenseUrl.value,proof:refined.ScientiaLicenseEvidence.value,unchanged:unchanged===metadata,ambiguous,unavailable,unsafe:[
+ ownWorkLicenseFromWikitext(header+'{{self|cc-by-nc-3.0}}'),
+ ownWorkLicenseFromWikitext(header+'{{self|cc-by-sa-3.0}}\n{{self|GFDL}}'),
+ ownWorkLicenseFromWikitext(header+'{{self|{{License}}}}'),
+ ownWorkLicenseFromWikitext(header+'{{self|cc-by-sa-3.0}}'+header),
+ ]}));
+})().catch(e=>{console.error(e);process.exitCode=1});
+"""
+        result = subprocess.run(['node', '-e', code], cwd=ROOT,
+                                capture_output=True, text=True, timeout=5)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        value = json.loads(result.stdout)
+        self.assertEqual(value['license'], 'CC BY-SA 3.0')
+        self.assertEqual(value['url'], 'https://creativecommons.org/licenses/by-sa/3.0/')
+        self.assertIn('oldid=42', value['proof'])
+        self.assertTrue(value['unchanged'])
+        self.assertTrue(value['ambiguous'])
+        self.assertTrue(value['unavailable'])
+        self.assertEqual(value['unsafe'], [None] * 4)
+
+    def test_motif_filter_respects_concept_category(self):
+        code = r"""
+const {isSuitableImageMotif: fits} = require('./scripts/data_sources/harvest/image_resolution_policy.cjs');
+const cases = [
+ ['Moers_Signatur.svg', {}, {category:'author'}, 'cultura', false],
+ ['Scan.svg', {Categories:{value:'Signatures of writers'}}, {category:'author'}, 'cultura', false],
+ ['Classical_music_composers_montage.JPG', {}, {category:'composer'}, 'cultura', false],
+ ['Portrait.jpg', {Categories:{value:'Collages of composers'}}, {category:'composer'}, 'cultura', false],
+ ['Liver.svg', {Categories:{value:'Anatomy of pigs'}}, {category:'organ'}, 'homo', false],
+ ['Liver.svg', {Categories:{value:'Human livers'}}, {category:'organ'}, 'homo', true],
+ ['Leber, Jacob P - 195th Infantry.jpg', {}, {category:'organ'}, 'homo', false],
+ ['Bird.jpg', {Categories:{value:'Birds'}}, {category:'animal'}, 'natura', true],
+ ['Bird.jpg', {Categories:{value:'Birds'}}, {category:'species'}, 'homo', true],
+ ['Edward Elgar.jpg', {Categories:{value:'Photographs of Edward Elgar'}}, {category:'composer'}, 'cultura', true],
+];
+console.log(JSON.stringify(cases.map(([file,meta,concept,domain,expected]) => fits(file,meta,concept,domain) === expected)));
+"""
+        result = subprocess.run(['node', '-e', code], cwd=ROOT,
+                                capture_output=True, text=True, timeout=5)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(json.loads(result.stdout), [True] * 10)
+
+    def test_source_resolver_uses_suitable_article_image_after_rejected_p18(self):
+        code = r"""
+const {createCommonsLookup} = require('./scripts/data_sources/harvest/commons_image_candidates.cjs');
+const {resolveSourceImages} = require('./scripts/data_sources/harvest/wikipedia_image_sources.cjs');
+const concept = {id:'elgar',name:'Edward Elgar',category:'composer',sourceUrl:'https://www.wikidata.org/wiki/Q179631'};
+const get = async url => {
+ const u=new URL(url);
+ if(u.hostname==='commons.wikimedia.org') {
+  const pages=Object.fromEntries(u.searchParams.get('titles').split('|').map((title,i)=>[i,{title,imageinfo:[{mime:'image/jpeg',extmetadata:{LicenseShortName:{value:'Public domain'},Artist:{value:'Photographer'},Categories:{value:title.includes('First')?'Collages of composers':'Photographs of Edward Elgar'}}}]}]));
+  return {query:{pages}};
+ }
+ if(u.hostname==='www.wikidata.org') return {entities:{Q179631:{claims:{P18:[{rank:'normal',mainsnak:{datavalue:{value:'First.jpg'}}}]}}}};
+ return {query:{pages:{1:{title:'Edward Elgar',pageprops:{wikibase_item:'Q179631'},original:{source:'https://upload.wikimedia.org/wikipedia/commons/a/ab/Portrait.jpg'}}}}};
+};
+(async()=>{
+ const commons=createCommonsLookup(get);
+ const mapping=await resolveSourceImages([concept],'cultura',get,commons.acceptFiles,commons.fitsConcept);
+ console.log(JSON.stringify([...mapping]));
+})().catch(e=>{console.error(e);process.exitCode=1});
+"""
+        result = subprocess.run(['node', '-e', code], cwd=ROOT,
+                                capture_output=True, text=True, timeout=5)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(json.loads(result.stdout), [['elgar', 'Portrait.jpg']])
+
     def test_lingua_language_qids_are_unique_after_alias_consolidation(self):
         concepts = json.loads(
             (ROOT / 'scripts/data_sources/lingua_raw.json').read_text(encoding='utf-8'))

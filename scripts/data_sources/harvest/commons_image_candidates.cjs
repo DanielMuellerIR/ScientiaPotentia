@@ -1,11 +1,13 @@
 const { commonsAttribution } = require('./credit_text.cjs');
-const { isBlacklistedFile } = require('./image_resolution_policy.cjs');
+const { isBlacklistedFile, isSuitableImageMotif } = require('./image_resolution_policy.cjs');
 const { isAllowedCommonsLicenseMetadata, licenseNameFromCommonsMetadata } = require('../../lib/image_license_policy.js');
+const { refineLayeredLicenseMetadata } = require('../../lib/commons_api.cjs');
 const ALLOWED_MIME = new Set(['image/jpeg', 'image/png', 'image/svg+xml', 'image/gif', 'image/webp']);
 
 /** Bündelt und cached die Rechteprüfung, bevor ein Quellenweg den nächsten verdrängt. */
 function createCommonsLookup(getJson) {
   const cache = new Map();
+  const metadataByFile = new Map();
   async function acceptFiles(files) {
     const { hasPublishableAttribution, sanitizeImageAttribution } = await import('../../../src/utils/imageCredits.js');
     const missing = [...new Set(files)].filter(file => !cache.has(file));
@@ -20,7 +22,8 @@ function createCommonsLookup(getJson) {
         const title = aliases.get('File:' + file) || 'File:' + file;
         const page = pages.get(title);
         const info = page?.imageinfo?.[0];
-        const metadata = info?.extmetadata || {};
+        const metadata = await refineLayeredLicenseMetadata(title, info?.extmetadata || {}, getJson);
+        metadataByFile.set(file, metadata);
         const license = licenseNameFromCommonsMetadata(metadata);
         const attribution = sanitizeImageAttribution(commonsAttribution(metadata));
         const allowed = page && !('missing' in page) && ALLOWED_MIME.has(info?.mime)
@@ -34,6 +37,8 @@ function createCommonsLookup(getJson) {
     }
     return new Set(files.filter(file => cache.get(file)));
   }
-  return { acceptFiles, get: file => cache.get(file) };
+  return { acceptFiles, get: file => cache.get(file),
+    fitsConcept: (file, concept, domain) => isSuitableImageMotif(file, metadataByFile.get(file), concept, domain),
+  };
 }
 module.exports = { createCommonsLookup };

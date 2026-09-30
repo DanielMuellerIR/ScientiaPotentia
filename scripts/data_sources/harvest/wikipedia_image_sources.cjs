@@ -63,7 +63,7 @@ function apiUrl(host, parameters) {
 }
 
 /** Quellenidentität vor Bildwahl: Sprachartikel → Wikidata-P18 → Artikelbild → de-langlink. */
-async function resolveSourceImages(concepts, domain, getJson, acceptFiles = async files => new Set(files)) {
+async function resolveSourceImages(concepts, domain, getJson, acceptFiles = async files => new Set(files), fitsConcept = () => true) {
   const rows = concepts.map(concept => ({ concept, qid: wikidataId(concept.sourceUrl), source: sourceForConcept(concept, domain) }));
   const languageGroups = new Map();
   for (const row of rows) {
@@ -100,7 +100,7 @@ async function resolveSourceImages(concepts, domain, getJson, acceptFiles = asyn
   });
   const accepted = await acceptFiles([...new Set(primary.flatMap(item => item.files))]);
   for (const { row, entity, files } of primary) {
-    const file = files.find(file => accepted.has(file));
+    const file = files.find(file => accepted.has(file) && fitsConcept(file, row.concept, domain));
     const identity = row.qid || (row.page ? `${row.source.language}:${row.page.title}` : null);
     if (file) candidates.push({ id: row.concept.id, identity, file });
     else {
@@ -118,11 +118,11 @@ async function resolveSourceImages(concepts, domain, getJson, acceptFiles = asyn
       // bekannter Quellen-QID muss der Rückfall dasselbe Objekt belegen.
       if (row.qid && page?.pageprops?.wikibase_item !== row.qid) continue;
       const file = pageImageFile(page);
-      if (file && !isBlacklistedFile(file)) linked.push({ id: row.concept.id, identity: row.qid || `de:${page.title}`, file });
+      if (file && !isBlacklistedFile(file)) linked.push({ id: row.concept.id, concept: row.concept, identity: row.qid || `de:${page.title}`, file });
     }
   }
   const acceptedLinked = await acceptFiles([...new Set(linked.map(row => row.file))]);
-  candidates.push(...linked.filter(row => acceptedLinked.has(row.file)));
+  candidates.push(...linked.filter(row => acceptedLinked.has(row.file) && fitsConcept(row.file, row.concept, domain)));
   // Auch sprachübergreifende Redirects und QID-Aliase können dasselbe Objekt
   // mehrfach bezeichnen. Eine Zuordnung zu mehreren Konzepten braucht Sichtung.
   const identities = new Map();
