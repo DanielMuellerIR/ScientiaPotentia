@@ -31,7 +31,8 @@
   und visuell zu kuratieren. Von den 135 Astra-Kandidaten wurden Merkur, Venus und
   Mars sowie Jupiter, Saturn, Uranus, Neptun und der Mond übernommen. Hinzu kommen
   Phobos, Deimos, Enceladus, Rhea und Mimas sowie Iapetus, Dione, Tethys
-  und Hyperion; 118 bleiben zu kuratieren. Lingua (47 Kandidaten) und Machina
+  und Hyperion. Io, Ganymed, Kallisto, Titan und Amalthea sind ebenfalls
+  übernommen; 113 bleiben zu kuratieren. Lingua (47 Kandidaten) und Machina
   (13 Kandidaten) sind noch nicht eingepflegt. Kategorien-Vorfilter verwerfen
   eindeutige Fehlmotive, ersetzen aber die Sichtung jedes übernommenen Bilds nicht.
 - Charon bleibt vorerst ohne Bild: Der Kandidat „Charon in True Color - High-Res“

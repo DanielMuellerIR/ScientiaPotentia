@@ -2,6 +2,12 @@
 
 Dieses Changelog beginnt mit dem für eine öffentliche Veröffentlichung bereinigten Projektstand.
 
+## [2.1.8] — 2026-09-30
+
+- Io, Ganymed, Kallisto, Titan und Amalthea erhalten fachlich gesichtete
+  Aufnahmen mit vollständigen freien Bildnachweisen und lokalen Kopien.
+  Die Bearbeitung der Farbaufnahmen und Amaltheas Stereopaar sind ausgewiesen.
+
 ## [2.1.7] — 2026-09-30
 
 - Iapetus, Dione, Tethys und Hyperion erhalten fachlich gesichtete
