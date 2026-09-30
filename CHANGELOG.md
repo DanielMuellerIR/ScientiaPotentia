@@ -2,6 +2,12 @@
 
 Dieses Changelog beginnt mit dem für eine öffentliche Veröffentlichung bereinigten Projektstand.
 
+## [2.1.11] — 2026-09-30
+
+- Sichelnebel, Irisnebel, Flammender-Stern-Nebel, Schädelnebel und Herznebel
+  erhalten fachlich gesichtete Aufnahmen mit vollständigen freien Bildnachweisen
+  und lokalen Kopien. Zweifarbenaufnahme und Farbkomposite sind ausgewiesen.
+
 ## [2.1.10] — 2026-09-30
 
 - Eris, Sedna, Pandora, Triton und der Affenkopfnebel erhalten fachlich gesichtete
