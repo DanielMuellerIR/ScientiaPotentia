@@ -1,17 +1,7 @@
 /**
- * Kürzung von Urhebernachweisen aus Commons-Metadaten.
- *
- * Hintergrund (CodeQA 2026-09-03): Alle fünf Bild-Auflöser schnitten die
- * Urheberangabe mit `slice(0, 200)` hart ab — mitten im Wort und mitten in
- * einer URL. Gemessen waren 56 Rohdatensätze exakt 200 Zeichen lang und 112
- * veröffentlichte Nachweise ≥ 195 Zeichen, mit Endstücken wie
- * „… Canadian Space Agency (https://www.asc-c". Bei CC-BY und CC-BY-SA ist ein
- * Namensfragment keine korrekte Namensnennung.
- *
- * Diese Fassung kürzt an der letzten Wortgrenze und markiert den Schnitt mit
- * einem Auslassungszeichen, damit sichtbar bleibt, dass der Nachweis
- * unvollständig ist. Die vollständige Angabe steht weiterhin auf der
- * verlinkten Commons-Dateiseite.
+ * Commons-Nachweise bleiben in den Quelldaten vollständig. Eine feste Grenze
+ * darf weder einen Urhebernamen noch weitere Urheber aus Artist/Credit verlieren.
+ * truncateCredit ist nur für eine ausdrücklich gekürzte Darstellung geeignet.
  */
 
 /** Höchstlänge eines Urhebernachweises. Darüber wird an der Wortgrenze gekürzt. */
@@ -46,7 +36,8 @@ function truncateCredit(value, limit = MAX_CREDIT_LENGTH) {
  * Datensatz mit Nachweis nur in `Credit` kam ohne Urhebertext an und wurde
  * danach still verworfen, obwohl seine Lizenz akzeptiert war.
  *
- * Rueckgabe ist der bereinigte, auf {@link MAX_CREDIT_LENGTH} gekuerzte Text.
+ * Rückgabe ist der vollständige bereinigte Text. Mehrere Urheber dürfen
+ * nicht wegen einer Darstellungsgrenze verloren gehen.
  * Fehlen beide Felder, kommt der leere String zurueck; ob daraus ein Verwurf
  * oder ein Ersatztext wie „Wikimedia Commons" wird, entscheidet der Aufrufer.
  *
@@ -72,7 +63,7 @@ function commonsAttribution(metadata) {
     // Quelllinks (Review-Fund 2026-09-10).
     .split(' / ').map((teil) => teil.trim()).filter(Boolean)
     .join(' / ');
-  return truncateCredit([feld('Artist'), feld('Credit')].filter(Boolean).join(' / '));
+  return [feld('Artist'), feld('Credit')].filter(Boolean).join(' / ');
 }
 
 module.exports = { MAX_CREDIT_LENGTH, commonsAttribution, truncateCredit };

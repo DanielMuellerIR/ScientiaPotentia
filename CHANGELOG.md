@@ -2,6 +2,15 @@
 
 Dieses Changelog beginnt mit dem für eine öffentliche Veröffentlichung bereinigten Projektstand.
 
+## [Unreleased]
+
+- Der gebündelte Bildauflöser und der Astra-Auflöser verwenden dieselbe Sprach-
+  und Wikidata-Verknüpfung. Fremdsprachige Wikipedia-Quellen bleiben erhalten;
+  Begriffsklärungen und mehrdeutige Zuordnungen liefern keine Bildkandidaten.
+- Neu ermittelte Commons-Nachweise erhalten sämtliche Urheber ohne feste
+  200-Zeichen-Grenze. Ein gezieltes Werkzeug kann bestehende harte Schnitte an
+  derselben Bilddatei reparieren; es schreibt erst nach vollständiger Rechteprüfung.
+
 ## [2.1.2] — 2026-09-12
 
 - Die lokale Bildkopie gilt nur noch nach einem vollständigen, aktuellen Commons-Rechteabgleich

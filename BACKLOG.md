@@ -27,14 +27,12 @@
   bewusst stehen: Sie sind zugleich die Schlüssel des Lernfortschritts in IndexedDB, ein
   Umbenennen würde den Fortschritt zu diesen Konzepten stillschweigend zurücksetzen. Eine
   Bereinigung braucht eine Migration.
-- 109 veröffentlichte Bildnachweise sind bei 200 Zeichen mitten im Wort abgeschnitten. Die
-  Auflöser kürzen seit dem 2026-09-03 an der Wortgrenze und markieren den Schnitt, aber die
-  vorhandenen Rohdaten tragen den harten Schnitt bereits. Ein normaler Auflöserlauf heilt sie
-  nicht: Sowohl `resolve_images_batched.cjs` als auch `apply_images.cjs` fassen ausschließlich
-  Konzepte ohne `imageFile` an. Nachgezählt nach dem Homo-Lauf vom 2026-09-03 — davor 109 hart
-  abgeschnittene Nachweise, danach unverändert 109, dazu ein neuer, sauber an der Wortgrenze
-  gekürzter. Zum Heilen braucht es einen eigenen Lauf, der die betroffenen Konzepte gezielt neu
-  auflöst. Der mehrzeilige Commons-Rechtetext in 60 Nachweisen ist behoben.
+- 65 Rohdatensätze tragen einen unmarkierten 200-Zeichen-Schnitt im Bildnachweis
+  (gezählt am 2026-09-30; 63 veröffentlichte Angaben bleiben nach Bereinigung exakt
+  200 Zeichen lang). `repair_truncated_attribution.mjs` fragt gezielt die bereits
+  zugeordneten Commons-Dateien neu ab und erhält vollständige Urheberangaben;
+  ohne `--write` meldet es nur den Plan. Der Live-Lauf und die Browserabnahme stehen
+  noch aus. Ein Lizenzwechsel oder unbrauchbarer Nachweis verhindert alle Writes.
 - Der korrigierte `resolve_images_p18_v2.cjs` löst 37 der 176 bildlosen Astra-Konzepte auf
   (voller Lauf am 2026-09-10, 21 Minuten): alle 7 Planeten, 6 von 8 Zwergplaneten, 24 von 61
   Monden. Eingepflegt ist davon nichts — jede Zuordnung braucht die Sichtung von Hand, die der
@@ -54,13 +52,13 @@
   Seit dem 2026-09-10 bricht er darin wenigstens ab, statt sich festzuhalten
   (`harvest/api_guard.cjs`). Die fehlende Titelzuordnung bleibt: Entweder sie nachziehen und
   bündeln, oder die Datei zugunsten von v2 aufgeben — Letzteres gehört ausdrücklich beauftragt.
-- `resolve_images_batched.cjs` wirft fremdsprachige Quellen weg. Läufe am 2026-09-03 ergaben
-  0 von 55 Lingua- und 0 von 40 Machina-Konzepten. 47 der 55 Lingua-Konzepte haben eine
-  en.wikipedia-Quelle; `pageTitleForConcept` kann damit nichts anfangen und rät stattdessen den
-  deutschen Konzeptnamen als Lemma — von 55 so angefragten Titeln existieren 49 auf
-  de.wikipedia nicht („Khoisan-Sprachen (Sammelgruppe)", „Maya-Sprachfamilie"). Über
-  `langlinks` en→de oder `pageprops.wikibase_item` mit anschließendem P18 wäre die Quelle
-  verwertbar.
+- Der gebündelte Auflöser und `resolve_images_p18_v2.cjs` verwenden dieselbe
+  Quellenauflösung: fremdsprachige Wikipedia-Artikel liefern über `wikibase_item`
+  ein Wikidata-P18 oder über `langlinks` ein belegtes deutsches Lemma. Fehlende
+  Artikel, Begriffsklärungen und mehrdeutige Quellenzuordnungen bleiben ohne Bild.
+  Astra verwendet Quellenartikel und gepflegte Titel statt geratener Konzeptnamen.
+  Sprachfixtures bestehen; ein aktueller Live-Vergleich und die zusätzliche
+  Astra-Titelzuordnung für bisher nur extern belegte Missionen stehen noch aus.
 - `resolve_author_portraits.cjs` prüft nicht, ob das Artikelbild ein Porträt zeigt. Der Lauf am
   2026-09-03 fand für 2 von 33 Autoren ein Bild, und das eine davon ist `Moers_Signatur.svg` —
   eine Unterschrift. Dass die übrigen 31 leer ausgehen, liegt an der Datenlage: die deutschen

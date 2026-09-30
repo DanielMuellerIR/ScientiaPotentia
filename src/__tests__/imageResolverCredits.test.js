@@ -15,7 +15,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 
 const require = createRequire(import.meta.url);
 const harvestDir = resolve(import.meta.dirname, '../../scripts/data_sources/harvest');
-const { commonsAttribution, MAX_CREDIT_LENGTH } =
+const { commonsAttribution } =
   require('../../scripts/data_sources/harvest/credit_text.cjs');
 
 /** Reguläre Bild-Auflöser plus der besondere Autorenporträt-Auflöser. */
@@ -60,10 +60,9 @@ describe('commonsAttribution', () => {
     })).toBe('NASA / JPL');
   });
 
-  it('kuerzt einen ueberlangen Nachweis an der Wortgrenze', () => {
+  it('bewahrt auch lange Nachweise samt allen Urhebern vollständig', () => {
     const lang = commonsAttribution({ Artist: feld('Wort '.repeat(80)) });
-    expect(lang.length).toBeLessThanOrEqual(MAX_CREDIT_LENGTH);
-    expect(lang.endsWith(' …')).toBe(true);
+    expect(lang).toBe('Wort '.repeat(80).trim());
   });
 });
 

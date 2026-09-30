@@ -40,7 +40,7 @@ class HarvestToolTests(unittest.TestCase):
         for shared_name in (
             'concept_validation.cjs', 'image_resolution_policy.cjs',
             'IMAGE_BLACKLIST.json', 'resolve_images_p18_v2.cjs',
-            'api_guard.cjs',
+            'api_guard.cjs', 'commons_image_candidates.cjs', 'astra_image_titles.cjs', 'wikipedia_image_sources.cjs',
             # credit_text.cjs kuerzt Urhebernachweise an der Wortgrenze und wird
             # von allen fuenf Bild-Aufloesern eingebunden (CodeQA 2026-09-03).
             'credit_text.cjs',
@@ -51,7 +51,7 @@ class HarvestToolTests(unittest.TestCase):
         # concept_validation.cjs prueft seit 2026-09-03 auch auf Sammelwerte und
         # nutzt dafuer dieselbe Regel wie das Fragen-Audit — audit_rules.cjs
         # gehoert darum in den Testbaum.
-        for shared_lib in ('image_license_policy.js', 'audit_rules.cjs'):
+        for shared_lib in ('image_license_policy.js', 'audit_rules.cjs', 'commons_api.cjs'):
             source = ROOT / 'scripts' / 'lib' / shared_lib
             if source.exists():
                 target = root / 'scripts' / 'lib' / shared_lib
@@ -541,14 +541,14 @@ console.log(JSON.stringify({{
         # Ohne Namensrückfall stellte der Resolver für über 600 bildlose
         # Konzepte ohne deutschen Quelllink gar keine Anfrage (Fund 2026-09-02).
         self.assertEqual(value['ohneQuelle'], 'Rotfuchs')
-        self.assertEqual(value['englischeQuelle'], 'Die weinende Frau')
+        self.assertEqual(value['englischeQuelle'], 'The Weeping Woman')
         self.assertEqual(value['deutscheQuelleGewinnt'], 'Rotfuchs')
         self.assertIsNone(value['ohneName'])
 
     def test_all_p18_resolvers_use_shared_rank_policy(self):
-        for script_name in ('resolve_images_p18.cjs', 'resolve_images_p18_v2.cjs'):
+        for script_name in ('resolve_images_p18.cjs', 'wikipedia_image_sources.cjs'):
             source = (HARVEST / script_name).read_text(encoding='utf-8')
-            self.assertIn('selectP18File(p18)', source, script_name)
+            self.assertIn('selectP18File(', source, script_name)
             self.assertNotIn('p18.find(', source, script_name)
 
     def test_apply_images_rejects_entire_invalid_mapping_before_write(self):
