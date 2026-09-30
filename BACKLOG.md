@@ -29,8 +29,9 @@
   Bereinigung braucht eine Migration.
 - Die Bildkandidaten aus dem Live-Lauf vom 2026-09-30 sind weiter einzeln fachlich
   und visuell zu kuratieren. Von den 135 Astra-Kandidaten wurden Merkur, Venus und
-  Mars sowie Jupiter, Saturn, Uranus, Neptun und der Mond übernommen;
-  127 bleiben zu kuratieren. Lingua (47 Kandidaten) und Machina
+  Mars sowie Jupiter, Saturn, Uranus, Neptun und der Mond übernommen. Hinzu kommen
+  Phobos, Deimos, Enceladus, Rhea und Mimas;
+  122 bleiben zu kuratieren. Lingua (47 Kandidaten) und Machina
   (13 Kandidaten) sind noch nicht eingepflegt. Kategorien-Vorfilter verwerfen
   eindeutige Fehlmotive, ersetzen aber die Sichtung jedes übernommenen Bilds nicht.
 - Die bestätigten Motivfehler bei `homo:leber` (Personalakte) und

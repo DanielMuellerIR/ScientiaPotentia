@@ -2,6 +2,11 @@
 
 Dieses Changelog beginnt mit dem für eine öffentliche Veröffentlichung bereinigten Projektstand.
 
+## [2.1.6] — 2026-09-30
+
+- Phobos, Deimos, Enceladus, Rhea und Mimas erhalten fachlich gesichtete
+  Aufnahmen mit vollständigen freien Bildnachweisen und lokalen Kopien.
+
 ## [2.1.5] — 2026-09-30
 
 - Jupiter, Saturn, Uranus, Neptun und der Mond erhalten fachlich gesichtete
