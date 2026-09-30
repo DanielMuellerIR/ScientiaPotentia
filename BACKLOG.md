@@ -27,38 +27,20 @@
   bewusst stehen: Sie sind zugleich die Schlüssel des Lernfortschritts in IndexedDB, ein
   Umbenennen würde den Fortschritt zu diesen Konzepten stillschweigend zurücksetzen. Eine
   Bereinigung braucht eine Migration.
-- 65 Rohdatensätze tragen einen unmarkierten 200-Zeichen-Schnitt im Bildnachweis
-  (gezählt am 2026-09-30; 63 veröffentlichte Angaben bleiben nach Bereinigung exakt
-  200 Zeichen lang). `repair_truncated_attribution.mjs` fragt gezielt die bereits
-  zugeordneten Commons-Dateien neu ab und erhält vollständige Urheberangaben;
-  ohne `--write` meldet es nur den Plan. Der Live-Lauf und die Browserabnahme stehen
-  noch aus. Ein Lizenzwechsel oder unbrauchbarer Nachweis verhindert alle Writes.
-- Der korrigierte `resolve_images_p18_v2.cjs` löst 37 der 176 bildlosen Astra-Konzepte auf
-  (voller Lauf am 2026-09-10, 21 Minuten): alle 7 Planeten, 6 von 8 Zwergplaneten, 24 von 61
-  Monden. Eingepflegt ist davon nichts — jede Zuordnung braucht die Sichtung von Hand, die der
-  Bildrechte-Audit nicht leisten kann. Galaxien (0 von 15), Missionen (0 von 45) und Nebel
-  (0 von 40) gehen weiterhin leer aus, und derselbe Lauf sagt jetzt auch warum: Die neue
-  Prüfung meldete 49 Begriffsklärungsseiten und 64 nicht vorhandene Lemmata. Fast alle davon
-  stammen nicht aus `DEWIKI_MAP`, sondern aus dem geratenen Konzeptnamen — „DAVINCI",
-  „VERITAS", „Kohlensacknebel" gibt es auf de.wikipedia nicht, „WISE" ist eine
-  Begriffsklärung. Diese drei Kategorien brauchen entweder gepflegte Titel in `DEWIKI_MAP`
-  oder einen anderen Weg als den Namen.
-- `resolve_images_p18.cjs` löst nichts mehr auf. Ein Lauf gegen die echte Commons-API am
-  2026-09-03 ergab 0 von 176 Astra-Konzepten, in einer Probe mit zwölf Planeten und Monden
-  0 von 12. Ihm fehlt die Titelzuordnung `DEWIKI_MAP`, deshalb fragt er „Merkur" und „Venus"
-  ab — beides Begriffsklärungsseiten ohne Artikelbild. `resolve_images_p18_v2.cjs` löste
-  dieselben zwölf Konzepte zu zehn auf. Dazu kommt: Der Auflöser stellt je Konzept bis zu drei
-  einzelne Anfragen im 200-ms-Takt und läuft damit in das Limit für nicht angemeldete Clients.
-  Seit dem 2026-09-10 bricht er darin wenigstens ab, statt sich festzuhalten
-  (`harvest/api_guard.cjs`). Die fehlende Titelzuordnung bleibt: Entweder sie nachziehen und
-  bündeln, oder die Datei zugunsten von v2 aufgeben — Letzteres gehört ausdrücklich beauftragt.
-- Der gebündelte Auflöser und `resolve_images_p18_v2.cjs` verwenden dieselbe
-  Quellenauflösung: fremdsprachige Wikipedia-Artikel liefern über `wikibase_item`
-  ein Wikidata-P18 oder über `langlinks` ein belegtes deutsches Lemma. Fehlende
-  Artikel, Begriffsklärungen und mehrdeutige Quellenzuordnungen bleiben ohne Bild.
-  Astra verwendet Quellenartikel und gepflegte Titel statt geratener Konzeptnamen.
-  Sprachfixtures bestehen; ein aktueller Live-Vergleich und die zusätzliche
-  Astra-Titelzuordnung für bisher nur extern belegte Missionen stehen noch aus.
+- Die Bildkandidaten aus dem Live-Lauf vom 2026-09-30 sind noch fachlich und visuell
+  zu kuratieren: Astra 135 von 176, Lingua 47 von 55, Machina 13 von 40.
+  Eingepflegt wurde keines dieser Bilder. Beide Astra-Auflöser liefern dieselben
+  135 Dateien samt Lizenz und vollständigem Nachweis. Kategorien-Vorfilter und
+  die Sichtung jedes übernommenen Motivs bleiben erforderlich.
+- Visuell bestätigter Motivfehler (2026-09-30): `homo:leber` zeigt eine historische
+  Personal-Karteikarte von Jacob P. Leber statt des Organs. Die Bilddatei muss in
+  der Motivkuratierung verworfen oder fachlich passend ersetzt werden.
+  `cultura:edward-elgar` zeigt eine Komponistenmontage; deren Eignung
+  für das einzelne Konzept ebenfalls prüfen.
+- Für 19 Astra-Konzepte fehlt weiterhin eine eindeutig belegte Wikipedia-Zuordnung.
+  Darunter stehen nicht erreichbare oder fachlich falsche externe Quelllinks und
+  Grenzen zwischen Nebelkomponenten. Vor einer Bildübernahme die fachliche Quelle
+  und das konkrete Motiv prüfen; ein geratener Konzeptname ersetzt diesen Beleg nicht.
 - `resolve_author_portraits.cjs` prüft nicht, ob das Artikelbild ein Porträt zeigt. Der Lauf am
   2026-09-03 fand für 2 von 33 Autoren ein Bild, und das eine davon ist `Moers_Signatur.svg` —
   eine Unterschrift. Dass die übrigen 31 leer ausgehen, liegt an der Datenlage: die deutschen

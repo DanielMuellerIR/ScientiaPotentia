@@ -1,6 +1,6 @@
 // Gemeinsame Urheber- und Dateinamensregel der Bild-Aufloeser.
 //
-// Die vier Aufloeser unter scripts/data_sources/harvest/resolve_images*.cjs
+// Die drei Aufloeser unter scripts/data_sources/harvest/resolve_images*.cjs
 // fragen dieselbe Commons-Schnittstelle ab und muessen dieselben Antworten
 // gleich auswerten. Zwei Abweichungen fielen am 2026-09-04 auf, beide ohne
 // Fehlermeldung: resolve_images_batched.cjs las nur das Feld `Artist` (eine
@@ -29,7 +29,7 @@ afterEach(() => vi.unstubAllGlobals());
 
 describe('commonsAttribution', () => {
   it('findet ueberhaupt Bild-Aufloeser', () => {
-    expect(bildAufloeser.length).toBeGreaterThanOrEqual(4);
+    expect(bildAufloeser.length).toBeGreaterThanOrEqual(3);
   });
 
   it('nimmt den Nachweis auch dann, wenn er nur in Credit steht', () => {
@@ -129,7 +129,7 @@ describe('Alle Bild-Aufloeser nutzen die gemeinsamen Regeln', () => {
     // liefert null, und ohne Waechter stuende danach ein leeres Mapping ueber
     // einem brauchbaren aus einem frueheren Lauf — mit Exit 0.
     const quelle = readFileSync(resolve(harvestDir, name), 'utf8');
-    // Die vier Aufloeser zaehlen unterschiedlich (results, out, G.resolved),
+    // Die drei Aufloeser zaehlen unterschiedlich (results, out, G.resolved),
     // gemeinsam ist die Bedingung "nichts gefunden" neben einem Exit-Code.
     expect(quelle, `${name} hat keinen Waechter gegen den Nulllauf`)
       .toMatch(/(?:\w+(?:\.\w+)*)\.?(?:length)? === 0[\s\S]{0,400}?process\.exitCode = 1/);

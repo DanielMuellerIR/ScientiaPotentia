@@ -66,6 +66,29 @@ async function fetchWithRetry(url, {
   throw lastError || new Error('Anfrage fehlgeschlagen');
 }
 
+/** MediaWiki meldet Replikationsverzug auch als HTTP 200 mit error=maxlag. */
+async function fetchWikiJson(url, { apiGuard, maxlagAttempts = 5, maxlagDelayMs = 5000, requestOptions = {} } = {}) {
+  for (let attempt = 1; attempt <= maxlagAttempts; attempt++) {
+    const response = await fetchWithRetry(url, requestOptions);
+    if (!response.ok) {
+      apiGuard?.rejected(`HTTP ${response.status}`);
+      throw new Error(`API antwortet mit HTTP ${response.status}`);
+    }
+    const payload = await response.json();
+    if (!payload.error) {
+      apiGuard?.ok();
+      return payload;
+    }
+    apiGuard?.rejected(payload.error.code || 'API-Fehler');
+    if (payload.error.code !== 'maxlag' || attempt === maxlagAttempts) {
+      throw new Error(`API-Fehler ${payload.error.code}: ${payload.error.info || 'ohne Beschreibung'}`);
+    }
+    const retryAfter = Number(response.headers.get('retry-after'));
+    await sleep(Number.isFinite(retryAfter) && retryAfter > 0
+      ? Math.min(60000, retryAfter * 1000) : maxlagDelayMs);
+  }
+}
+
 /**
  * Fragt Metadaten mehrerer Commons-Dateien in einem Zug ab.
  *
@@ -140,6 +163,7 @@ module.exports = {
   API_ENDPOINT,
   USER_AGENT,
   fetchWithRetry,
+  fetchWikiJson,
   fetchImageMetadata,
   sleep
 };

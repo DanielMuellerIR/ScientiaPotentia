@@ -15,7 +15,7 @@ const path = require("path");
 const { assertSafeDomain, writeJsonAtomic } = require('./json_io.cjs');
 const { createApiGuard } = require("./api_guard.cjs");
 const { sourceForConcept, canonicalPage, resolveSourceImages } = require('./wikipedia_image_sources.cjs');
-const { fetchWithRetry } = require('../../lib/commons_api.cjs');
+const { fetchWikiJson } = require('../../lib/commons_api.cjs');
 const { createCommonsLookup } = require('./commons_image_candidates.cjs');
 const {
   fileNameFromUploadUrl,
@@ -67,51 +67,12 @@ function parseArguments(arguments_) {
 }
 
 const sleep = ms => new Promise(r => setTimeout(r, ms));
-async function rawGet(url) {
-  const response = await fetchWithRetry(url);
-  return { status: response.status, body: await response.text(), headers: Object.fromEntries(response.headers) };
-}
-// Bricht ab, sobald die Gegenstelle dauerhaft abweist, statt den Lauf leere
-// Ergebnisse schreiben zu lassen.
-const apiGuard = createApiGuard({ label: "Die Wikidata-/Commons-API" });
-/**
- * Dieselbe Anfrage unter Aufsicht: Bleibt die Antwort nach allen Versuchen bei
- * 429 oder einem Serverfehler, ist das eine Abweisung und kein Ergebnis. Ohne
- * diese Zaehlung liefe der Auflöser weiter und schriebe zu jedem Konzept
- * "kein freies Bild" (siehe api_guard.cjs). Ein Netzfehler wirft ohnehin.
- */
-async function get(url) {
-  const antwort = await rawGet(url);
-  if (!antwort || antwort.status === 429 || antwort.status >= 500) {
-    apiGuard.rejected(`HTTP ${antwort ? antwort.status : "?"} bei ${url}`);
-  } else {
-    apiGuard.ok();
-  }
-  return antwort;
-}
-const chunk = (a, n) => { const o = []; for (let i = 0; i < a.length; i += n) o.push(a.slice(i, i + n)); return o; };
-// Die Pageimages-API ergänzt derzeit utm-Parameter an Commons-Upload-URLs. Nur der
-// Pfadname ist ein Commons-Dateititel; Query und Fragment dürfen nicht mit in die
-// anschließende imageinfo-Abfrage gelangen.
+const apiGuard = createApiGuard({ label: 'Die Wikidata-/Commons-API' });
 let lastCall = 0;
 async function getJson(url) {
   await sleep(Math.max(0, 250 - (Date.now() - lastCall)));
   lastCall = Date.now();
-  const response = await get(url);
-  if (response.status < 200 || response.status >= 300) {
-    throw new Error(`API antwortet mit HTTP ${response.status}`);
-  }
-  let payload;
-  try {
-    payload = JSON.parse(response.body);
-  } catch {
-    throw new Error('API-Antwort ist kein gültiges JSON');
-  }
-  if (payload?.error) {
-    apiGuard.rejected(payload.error.code || 'API-Fehler');
-    throw new Error(`API-Fehler ${payload.error.code || 'unbekannt'}: ${payload.error.info || 'ohne Beschreibung'}`);
-  }
-  return payload;
+  return fetchWikiJson(url, { apiGuard });
 }
 
 function addGroupedConcept(groups, key, concept) {
@@ -184,11 +145,7 @@ async function main() {
   console.log(`  Nach Quellenauflösung: ${fileForId.size} Konzepte mit Bilddatei`);
 
   const out = [...fileForId].map(([id, file]) => ({ id, ...commons.get(file) }));
-  // Ein kompletter Netzausfall sieht aus wie "kein freies Bild gefunden": jede
-  // gebuendelte Anfrage liefert nichts, und ohne Waechter stuende danach ein
-  // leeres Mapping in der Ausgabedatei — ueber einem womoeglich brauchbaren aus
-  // einem frueheren Lauf, mit Exit 0. resolve_images.cjs und
-  // resolve_images_p18.cjs haben diese Bremse seit dem 2026-09-03.
+  // Ein Nulllauf darf eine brauchbare Kandidatendatei nicht überschreiben.
   if (pool.length >= 10 && out.length === 0) {
     console.error(
       `\nKein einziges Bild aufgeloest (${pool.length} Konzepte angefragt) — `

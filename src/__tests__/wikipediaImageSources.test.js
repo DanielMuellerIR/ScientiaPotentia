@@ -31,6 +31,14 @@ describe('Belegte Wikipedia-Quellen', () => {
     expect(sourceForConcept({ id: 'io', name: 'Io' }, 'astra')).toEqual({ language: 'de', title: 'Io (Mond)' });
     expect(sourceForConcept({ id: 'unknown', name: 'WISE' }, 'astra')).toBeNull();
   });
+  it('verwendet geprüfte Astra-Artikel auch bei irreführenden historischen IDs', () => {
+    expect(sourceForConcept({ id: 'mission-juno-dawn-vesta-h2', name: 'Mariner 9' }, 'astra'))
+      .toEqual({ language: 'en', title: 'Mariner 9' });
+    expect(sourceForConcept({ id: 'moon-rosalind-uranus-h2', name: 'Stephano' }, 'astra'))
+      .toEqual({ language: 'de', title: 'Stephano (Mond)' });
+    expect(sourceForConcept({ id: 'mission-pioneer-venus-h2', name: 'Pioneer Venus Orbiter' }, 'astra'))
+      .toEqual({ language: 'en', title: 'Pioneer Venus Orbiter' });
+  });
   it('verknüpft englische Quellen über wikibase_item mit bevorzugtem P18', async () => {
     const f = fixture([
       { query: { normalized: [{ from: 'Old title', to: 'Old Title' }], redirects: [{ from: 'Old Title', to: 'Article' }], pages: { 1: { title: 'Article', pageprops: { wikibase_item: 'Q42' }, original: { source: upload('Article.jpg') } } } } },
@@ -50,6 +58,17 @@ describe('Belegte Wikipedia-Quellen', () => {
       .toEqual([['x', 'Linked.jpg']]);
     expect(f.calls[1].searchParams.get('titles')).toBe('Belegtes Lemma');
   });
+  it.each([['Q9', []], [undefined, []], ['Q42', [['x', 'Linked.jpg']]]])(
+    'prüft die Objektidentität des Sprachlink-Rückfalls (%s)', async (linkedQid, expected) => {
+      const f = fixture([
+        { query: { pages: { 1: { title: 'Mariner 9', pageprops: { wikibase_item: 'Q42' }, langlinks: [{ lang: 'de', '*': 'Mariner' }] } } } },
+        { entities: { Q42: { claims: {} } } },
+        { query: { pages: { 2: { title: 'Mariner', pageprops: { wikibase_item: linkedQid }, original: { source: upload('Linked.jpg') } } } } },
+      ]);
+      expect([...await resolveSourceImages([{ id: 'x', sourceUrl: 'https://en.wikipedia.org/wiki/Mariner_9' }], 'astra', f.get)])
+        .toEqual(expected);
+      expect(f.calls[2].searchParams.get('ppprop')).toContain('wikibase_item');
+    });
   it('verwendet lokale Wikipedia-Uploads nicht als Commons-Dateititel', async () => {
     const f = fixture([{ query: { pages: { 1: { title: 'Article', original: { source: 'https://upload.wikimedia.org/wikipedia/en/a/ab/Local.jpg' } } } } }]);
     expect([...await resolveSourceImages([{ id: 'x', sourceUrl: 'https://en.wikipedia.org/wiki/Article' }], 'astra', f.get)]).toEqual([]);

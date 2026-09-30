@@ -1,4 +1,4 @@
-const { DEWIKI_MAP, AMBIGUOUS_NAMES } = require('./astra_image_titles.cjs');
+const { DEWIKI_MAP, AMBIGUOUS_NAMES, ASTRA_WIKI_SOURCES } = require('./astra_image_titles.cjs');
 const { fileNameFromUploadUrl, selectP18File, isBlacklistedFile } = require('./image_resolution_policy.cjs');
 
 function wikipediaSource(value) {
@@ -20,6 +20,7 @@ function wikidataId(value) {
 }
 
 function sourceForConcept(concept, domain) {
+  if (domain === 'astra' && ASTRA_WIKI_SOURCES[concept.id]) return ASTRA_WIKI_SOURCES[concept.id];
   const mapped = domain === 'astra' ? DEWIKI_MAP[concept.id] : undefined;
   if (mapped !== undefined) return mapped ? { language: 'de', title: mapped } : null;
   const source = wikipediaSource(concept.sourceUrl) || wikipediaSource(concept.wikiLink);
@@ -110,9 +111,12 @@ async function resolveSourceImages(concepts, domain, getJson, acceptFiles = asyn
   const linked = [];
   for (const titles of chunks([...new Set(fallback.map(item => item.title))])) {
     const payload = await getJson(apiUrl('de.wikipedia.org', { action: 'query', prop: 'pageimages|pageprops',
-      ppprop: 'disambiguation', piprop: 'original', redirects: '1', titles: titles.join('|') }));
+      ppprop: 'wikibase_item|disambiguation', piprop: 'original', redirects: '1', titles: titles.join('|') }));
     for (const { row, title } of fallback.filter(item => titles.includes(item.title))) {
       const page = canonicalPage(payload.query || {}, title);
+      // Sprachlinks können auf einen weiter gefassten Artikel führen. Bei
+      // bekannter Quellen-QID muss der Rückfall dasselbe Objekt belegen.
+      if (row.qid && page?.pageprops?.wikibase_item !== row.qid) continue;
       const file = pageImageFile(page);
       if (file && !isBlacklistedFile(file)) linked.push({ id: row.concept.id, identity: row.qid || `de:${page.title}`, file });
     }

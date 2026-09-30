@@ -546,7 +546,7 @@ console.log(JSON.stringify({{
         self.assertIsNone(value['ohneName'])
 
     def test_all_p18_resolvers_use_shared_rank_policy(self):
-        for script_name in ('resolve_images_p18.cjs', 'wikipedia_image_sources.cjs'):
+        for script_name in ('wikipedia_image_sources.cjs',):
             source = (HARVEST / script_name).read_text(encoding='utf-8')
             self.assertIn('selectP18File(', source, script_name)
             self.assertNotIn('p18.find(', source, script_name)

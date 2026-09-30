@@ -54,7 +54,6 @@ describe('Abbruch bei dauerhafter Abweisung', () => {
 describe('Auflöser hängen den Wächter ein', () => {
   const dateien = [
     'resolve_images.cjs',
-    'resolve_images_p18.cjs',
     'resolve_images_p18_v2.cjs',
     'resolve_images_batched.cjs',
     'resolve_author_portraits.cjs',
@@ -64,7 +63,11 @@ describe('Auflöser hängen den Wächter ein', () => {
     const { readFile } = await import('node:fs/promises');
     const quelle = await readFile(`scripts/data_sources/harvest/${datei}`, 'utf8');
     expect(quelle).toContain('createApiGuard');
-    expect(quelle).toMatch(/apiGuard\.rejected\(/);
-    expect(quelle).toMatch(/apiGuard\.ok\(\)/);
+    if (quelle.includes('fetchWikiJson')) {
+      expect(quelle).toMatch(/fetchWikiJson\(url, \{ apiGuard \}\)/);
+    } else {
+      expect(quelle).toMatch(/apiGuard\.rejected\(/);
+      expect(quelle).toMatch(/apiGuard\.ok\(\)/);
+    }
   });
 });

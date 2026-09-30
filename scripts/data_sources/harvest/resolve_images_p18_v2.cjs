@@ -5,10 +5,10 @@ const path = require("path");
 const { writeJsonAtomic } = require('./json_io.cjs');
 const { isBlacklistedConcept } = require('./image_resolution_policy.cjs');
 const { createCommonsLookup } = require('./commons_image_candidates.cjs');
-const { fetchWithRetry, sleep } = require('../../lib/commons_api.cjs');
+const { fetchWikiJson, sleep } = require('../../lib/commons_api.cjs');
 const { createApiGuard } = require('./api_guard.cjs');
 
-// Eigene Ausgabedatei je Resolver (siehe resolve_images_p18.cjs).
+// Eigene Ausgabedatei je Resolver schützt Kandidaten anderer Läufe.
 const OUT_FILE = "/tmp/astra_images_p18_v2.json";
 const ASTRA_FILE = path.join(__dirname, "../astra_raw.json");
 
@@ -30,18 +30,7 @@ async function apiGet(url) {
   await sleep(Math.max(0, 250 - (Date.now() - lastCall)));
   lastCall = Date.now();
   STATS.apiCalls++;
-  const response = await fetchWithRetry(url);
-  if (!response.ok) {
-    apiGuard.rejected(`HTTP ${response.status}`);
-    throw new Error(`API antwortet mit HTTP ${response.status}`);
-  }
-  const payload = await response.json();
-  if (payload.error) {
-    apiGuard.rejected(payload.error.code);
-    throw new Error(`API-Fehler ${payload.error.code}`);
-  }
-  apiGuard.ok();
-  return payload;
+  return fetchWikiJson(url, { apiGuard });
 }
 
 // ---------------------------------------------------------------------------
@@ -96,12 +85,7 @@ async function main() {
     }
   }
 
-  // Ein kompletter Netzausfall sieht aus wie "kein freies Bild gefunden": jede
-  // Anfrage liefert null, jedes Konzept wird uebersprungen, und am Ende stuende
-  // ein leeres Mapping in der Ausgabedatei — ueber einem womoeglich brauchbaren
-  // aus einem frueheren Lauf, mit Exit 0. resolve_images.cjs und
-  // resolve_images_p18.cjs haben diesen Waechter seit dem 2026-09-03; hier
-  // fehlte er, ausgerechnet im Aufloeser, der p18 ersetzen soll.
+  // Ein Nulllauf darf eine brauchbare Kandidatendatei nicht überschreiben.
   if (targets.length >= 10 && results.length === 0) {
     console.error(
       `\nKein einziges Bild aufgeloest (${targets.length} Konzepte angefragt) — `

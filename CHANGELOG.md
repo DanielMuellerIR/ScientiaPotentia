@@ -2,7 +2,7 @@
 
 Dieses Changelog beginnt mit dem für eine öffentliche Veröffentlichung bereinigten Projektstand.
 
-## [Unreleased]
+## [2.1.3] — 2026-09-30
 
 - Der gebündelte Bildauflöser und der Astra-Auflöser verwenden dieselbe Sprach-
   und Wikidata-Verknüpfung. Fremdsprachige Wikipedia-Quellen bleiben erhalten;
@@ -10,6 +10,10 @@ Dieses Changelog beginnt mit dem für eine öffentliche Veröffentlichung berein
 - Neu ermittelte Commons-Nachweise erhalten sämtliche Urheber ohne feste
   200-Zeichen-Grenze. Ein gezieltes Werkzeug kann bestehende harte Schnitte an
   derselben Bilddatei reparieren; es schreibt erst nach vollständiger Rechteprüfung.
+  65 bestehende Nachweise wurden damit repariert, die Bildzuordnungen bleiben erhalten.
+- 87 zusätzliche Astra-Artikel sind fachlich zugeordnet. Der alte einzelne P18-Auflöser
+  entfällt nach erfolgreichem Vergleich; API-Verzug wird begrenzt wiederholt und
+  bei anhaltendem Fehler gemeldet, statt als fehlendes Bild zu gelten.
 
 ## [2.1.2] — 2026-09-12
 

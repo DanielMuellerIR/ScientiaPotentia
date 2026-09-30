@@ -57,11 +57,7 @@ async function main() {
     const group = titles.slice(i, i + 50);
     const params = new URLSearchParams({ action: 'query', format: 'json', prop: 'imageinfo',
       iiprop: 'extmetadata|mime', iiextmetadatalanguage: 'de', titles: group.join('|'), maxlag: '5' });
-    const response = await api.fetchWithRetry(`${api.API_ENDPOINT}?${params}`);
-    if (!response.ok) { guard.rejected(`HTTP ${response.status}`); throw new Error(`Commons HTTP ${response.status}`); }
-    const payload = await response.json();
-    if (payload.error) { guard.rejected(payload.error.code); throw new Error(`Commons API ${payload.error.code}`); }
-    guard.ok();
+    const payload = await api.fetchWikiJson(`${api.API_ENDPOINT}?${params}`, { apiGuard: guard });
     const aliases = new Map((payload.query?.normalized || []).map(row => [row.from, row.to]));
     const byTitle = new Map(Object.values(payload.query?.pages || {}).map(page => [page.title, page]));
     for (const title of group) pages.set(title, byTitle.get(aliases.get(title) || title));
