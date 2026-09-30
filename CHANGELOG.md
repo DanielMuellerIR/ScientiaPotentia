@@ -2,6 +2,12 @@
 
 Dieses Changelog beginnt mit dem für eine öffentliche Veröffentlichung bereinigten Projektstand.
 
+## [2.1.12] — 2026-09-30
+
+- M81, M82, M104, M101 und ESO 137-001 erhalten fachlich gesichtete
+  Galaxienaufnahmen mit vollständigen freien Bildnachweisen und lokalen Kopien.
+  Farbkomposite, Mosaike und beteiligte Bildbearbeiter sind ausgewiesen.
+
 ## [2.1.11] — 2026-09-30
 
 - Sichelnebel, Irisnebel, Flammender-Stern-Nebel, Schädelnebel und Herznebel
