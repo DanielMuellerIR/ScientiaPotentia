@@ -42,7 +42,7 @@ import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
 
 import {
-  buildRightsReport, invalidMirrorNames, metadataRefreshBatch, rightsProblems,
+  buildRightsReport, invalidMirrorNames, metadataRefreshBatch, rightsProblems, rightsBindingProblems,
 } from './lib/image_mirror_rights.mjs';
 import {
   DATA_DIR, MANIFEST_PATH, MIRROR_DIR, PUBLIC_PREFIX,
@@ -161,7 +161,8 @@ async function commandMeta(options) {
         consecutiveFailures = 0;
       }
       for (const name of batch) {
-        entries[name] = result.get(name) || { missing: true };
+        if (!result.has(name)) throw new Error(`Commons-Antwort enthält keinen bestätigten Dateistatus für ${name}`);
+        entries[name] = result.get(name);
       }
     } catch (error) {
       throw new Error(`Metadaten-Bündel ab ${index} fehlgeschlagen: ${error.message}`);
@@ -294,8 +295,9 @@ async function commandFetch(options) {
   const state = await readJson(STATE_PATH, { entries: {} });
   state.entries = state.entries || {};
   const rights = await readJson(RIGHTS_PATH, null);
-  if (rights?.complete !== true) {
-    throw new Error('Kein vollständiger Rechteabgleich — zuerst `meta` ohne --limit ausführen.');
+  const bindingProblems = rightsBindingProblems(rights, images);
+  if (bindingProblems.length) {
+    throw new Error(`${bindingProblems.join('; ')} — zuerst meta ohne --limit ausführen.`);
   }
   // Ein alter erfolgreicher Mirror-Eintrag darf nach Lizenzentzug, Verschwinden
   // oder Sperrung nicht bis zum Manifest-Schritt überleben.
@@ -364,8 +366,9 @@ async function commandManifest(options) {
   const { images } = await collectCatalogImages();
   const state = await readJson(STATE_PATH, { entries: {} });
   const rights = await readJson(RIGHTS_PATH, null);
-  if (rights?.complete !== true) {
-    throw new Error('Kein vollständiger Rechteabgleich — zuerst `meta` ohne --limit ausführen.');
+  const bindingProblems = rightsBindingProblems(rights, images);
+  if (bindingProblems.length) {
+    throw new Error(`${bindingProblems.join('; ')} — zuerst meta ohne --limit ausführen.`);
   }
   const invalid = invalidMirrorNames(rights);
   const files = {};

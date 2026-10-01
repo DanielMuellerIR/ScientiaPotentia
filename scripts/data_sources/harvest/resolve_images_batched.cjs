@@ -14,7 +14,7 @@ const fs = require("fs");
 const path = require("path");
 const { assertSafeDomain, writeJsonAtomic } = require('./json_io.cjs');
 const { createApiGuard } = require("./api_guard.cjs");
-const { sourceForConcept, canonicalPage, resolveSourceImages } = require('./wikipedia_image_sources.cjs');
+const { sourceForConcept, resolveSourceImages } = require('./wikipedia_image_sources.cjs');
 const { fetchWikiJson } = require('../../lib/commons_api.cjs');
 const { createCommonsLookup } = require('./commons_image_candidates.cjs');
 const {
@@ -75,50 +75,8 @@ async function getJson(url) {
   return fetchWikiJson(url, { apiGuard });
 }
 
-function addGroupedConcept(groups, key, concept) {
-  const concepts = groups.get(key) || [];
-  concepts.push(concept);
-  groups.set(key, concepts);
-}
-
-function uniqueSourceMap(groups) {
-  const unique = new Map();
-  const ambiguous = [];
-  for (const [key, concepts] of groups) {
-    if (concepts.length === 1) unique.set(key, concepts[0]);
-    else ambiguous.push({ key, ids: concepts.map(concept => concept.id) });
-  }
-  return { unique, ambiguous };
-}
-
 function pageTitleForConcept(concept, domain) {
   return sourceForConcept(concept, domain)?.title || null;
-}
-
-function collectResolvedPageImages(requestedTitles, byTitle, query) {
-  const normalized = new Map((query.normalized || []).map(row => [row.from, row.to]));
-  const redirects = new Map((query.redirects || []).map(row => [row.from, row.to]));
-  return requestedTitles.map((requestedTitle) => {
-    const normalizedTitle = normalized.get(requestedTitle) || requestedTitle;
-    const finalTitle = redirects.get(normalizedTitle) || normalizedTitle;
-    const fileName = fileNameFromUploadUrl(canonicalPage(query, requestedTitle)?.original?.source);
-    return { concept: byTitle.get(requestedTitle), finalTitle, fileName };
-  }).filter(row => row.concept && row.fileName);
-}
-
-function uniqueFinalPageImages(rows) {
-  const groups = new Map();
-  for (const row of rows) addGroupedConcept(groups, row.finalTitle, row);
-  const assignments = new Map();
-  const ambiguous = [];
-  for (const [title, candidates] of groups) {
-    if (candidates.length === 1) {
-      assignments.set(candidates[0].concept.id, candidates[0].fileName);
-    } else {
-      ambiguous.push({ key: title, ids: candidates.map(row => row.concept.id) });
-    }
-  }
-  return { assignments, ambiguous };
 }
 
 async function main() {
@@ -165,13 +123,9 @@ if (require.main === module) {
 }
 
 module.exports = {
-  addGroupedConcept,
-  collectResolvedPageImages,
   fileNameFromUploadUrl,
   isFree: require('../../lib/image_license_policy.js').isAllowedCommonsLicenseMetadata,
   parseArguments,
   pageTitleForConcept,
   selectP18File,
-  uniqueFinalPageImages,
-  uniqueSourceMap,
 };

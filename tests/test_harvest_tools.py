@@ -580,16 +580,7 @@ const get = async url => {
         script = HARVEST / 'resolve_images_batched.cjs'
         code = f"""
 const resolver = require({json.dumps(str(script))});
-const byTitle = new Map([
-  ['Alias A', {{ id: 'a' }}], ['Alias B', {{ id: 'b' }}],
-]);
-const rows = resolver.collectResolvedPageImages(['Alias A', 'Alias B'], byTitle, {{
-  redirects: [{{ from: 'Alias A', to: 'Ziel' }}, {{ from: 'Alias B', to: 'Ziel' }}],
-  pages: {{ 1: {{ title: 'Ziel', original: {{ source: 'https://upload.wikimedia.org/a/Bild.jpg?x=1#y' }} }} }},
-}});
 console.log(JSON.stringify({{
-  unique: [...resolver.uniqueFinalPageImages(rows).assignments],
-  ambiguous: resolver.uniqueFinalPageImages(rows).ambiguous,
   preferred: resolver.selectP18File([
     {{ rank: 'deprecated', mainsnak: {{ datavalue: {{ value: 'Alt.jpg' }} }} }},
     {{ rank: 'normal', mainsnak: {{ datavalue: {{ value: 'Normal.jpg' }} }} }},
@@ -614,8 +605,6 @@ console.log(JSON.stringify({{
             ['node', '-e', code], capture_output=True, text=True, check=False, timeout=5)
         self.assertEqual(result.returncode, 0, result.stderr)
         value = json.loads(result.stdout)
-        self.assertEqual(value['unique'], [])
-        self.assertEqual(value['ambiguous'][0]['ids'], ['a', 'b'])
         self.assertEqual(value['preferred'], 'Preferred.jpg')
         self.assertIsNone(value['multipleNormal'])
         self.assertEqual(value['io'], 'Io (Mond)')
@@ -697,31 +686,41 @@ console.log(JSON.stringify({{
             self.assertNotEqual(result.returncode, 0)
             self.assertIn('Unbekannte Domain', result.stderr)
 
-    def test_batched_image_resolver_marks_duplicate_sources_as_ambiguous(self):
-        script = HARVEST / 'resolve_images_batched.cjs'
-        code = f"""
-const resolver = require({json.dumps(str(script))});
-const groups = new Map();
-resolver.addGroupedConcept(groups, 'Gelenk', {{ id: 'a' }});
-resolver.addGroupedConcept(groups, 'Gelenk', {{ id: 'b' }});
-resolver.addGroupedConcept(groups, 'Knochen', {{ id: 'c' }});
-const result = resolver.uniqueSourceMap(groups);
-console.log(JSON.stringify({{
-  unique: [...result.unique.keys()],
-  ambiguous: result.ambiguous,
-}}));
+    def test_commons_metadata_retries_http_200_maxlag_without_marking_missing(self):
+        code = """
+const {fetchImageMetadata} = require('./scripts/lib/commons_api.cjs');
+const timer = global.setTimeout;
+global.setTimeout = (fn) => timer(fn, 0);
+let calls = 0;
+global.fetch = async () => ({ok:true,headers:{get:()=>null},json:async () => {
+ calls++;
+ return calls === 1 ? {error:{code:'maxlag',info:'retry'}} : {query:{pages:[
+  {title:'File:Good.jpg',imageinfo:[{url:'https://upload.wikimedia.org/wikipedia/commons/a/Good.jpg',
+   extmetadata:{LicenseShortName:{value:'CC BY 4.0'}}}]}]}};
+}});
+fetchImageMetadata(['Good.jpg']).then(result => console.log(JSON.stringify({calls,entry:result.get('Good.jpg')})));
 """
-
-        result = subprocess.run(
-            ['node', '-e', code], capture_output=True, text=True,
-            check=False, timeout=5,
-        )
-
+        result = subprocess.run(['node', '-e', code], cwd=ROOT, capture_output=True, text=True, timeout=5)
         self.assertEqual(result.returncode, 0, result.stderr)
-        indexed = json.loads(result.stdout)
-        self.assertEqual(indexed['unique'], ['Knochen'])
-        self.assertEqual(
-            indexed['ambiguous'], [{'key': 'Gelenk', 'ids': ['a', 'b']}])
+        value = json.loads(result.stdout)
+        self.assertEqual(value['calls'], 2)
+        self.assertFalse(value['entry'].get('missing', False))
+
+    def test_productive_image_resolver_rejects_redirect_alias_collisions(self):
+        script = HARVEST / 'wikipedia_image_sources.cjs'
+        code = f"""
+const {{resolveSourceImages}} = require({json.dumps(str(script))});
+const concepts = [{{id:'a',name:'Alias A'}},{{id:'b',name:'Alias B'}},{{id:'c',name:'Knochen'}}];
+const getJson = async () => ({{query: {{
+ redirects:[{{from:'Alias A',to:'Ziel'}},{{from:'Alias B',to:'Ziel'}}],
+ pages: [{{title:'Ziel',original:{{source:'https://upload.wikimedia.org/wikipedia/commons/a/Bild.jpg'}}}},
+         {{title:'Knochen',original:{{source:'https://upload.wikimedia.org/wikipedia/commons/a/Knochen.jpg'}}}}]
+}}}});
+resolveSourceImages(concepts,'homo',getJson).then(result => console.log(JSON.stringify([...result])));
+"""
+        result = subprocess.run(['node', '-e', code], capture_output=True, text=True, timeout=5)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(json.loads(result.stdout), [['c', 'Knochen.jpg']])
 
     def test_natura_harvest_keeps_german_single_word_animal_names(self):
         scripts = [

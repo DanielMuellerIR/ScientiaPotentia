@@ -1,4 +1,5 @@
 import { createRequire } from 'node:module';
+import { createHash } from 'node:crypto';
 
 import {
   isAllowedCommonsLicenseMetadata,
@@ -13,6 +14,27 @@ function normaliseLicense(label) {
   return String(label).trim().toLowerCase().replace(/^cc0 1\.0$/, 'cc0');
 }
 
+/** Rechtefreigaben gelten sieben Tage und nur für genau diesen Katalog. */
+export const RIGHTS_MAX_AGE_MS = 7 * 24 * 60 * 60 * 1000;
+export function catalogFingerprint(images) {
+  const rows = [...images].map(([name, entry]) => [name, entry.url, entry.license || '',
+    [...(entry.assignments || [])].sort((a, b) => JSON.stringify(a).localeCompare(JSON.stringify(b)))])
+    .sort(([a], [b]) => a.localeCompare(b));
+  return createHash('sha256').update(JSON.stringify(rows)).digest('hex');
+}
+export function rightsBindingProblems(report, images, now = Date.now()) {
+  const problems = [];
+  if (report?.catalogFingerprint !== catalogFingerprint(images)) {
+    problems.push('Rechtebericht passt nicht zum aktuellen Bildkatalog');
+  }
+  const checked = Date.parse(report?.checkedAt);
+  if (!Number.isFinite(checked) || checked > now || now - checked > RIGHTS_MAX_AGE_MS) {
+    problems.push('Rechtebericht ist nicht aktuell (höchstens sieben Tage)');
+  }
+  if (report?.complete !== true) problems.push('Rechteabgleich ist nicht vollständig');
+  return problems;
+}
+
 /**
  * Baut den Rechtebericht aus Katalog und frisch gelesenen Commons-Metadaten.
  * Die Funktion bleibt ohne Dateizugriff, damit jeder Fehlerfall klein testbar ist.
@@ -20,6 +42,7 @@ function normaliseLicense(label) {
 export function buildRightsReport(images, entries, { checkedAt, complete = true } = {}) {
   const report = {
     checkedAt: checkedAt || new Date().toISOString(),
+    catalogFingerprint: catalogFingerprint(images),
     complete,
     missing: [],
     licenseMismatch: [],
@@ -38,9 +61,12 @@ export function buildRightsReport(images, entries, { checkedAt, complete = true 
       continue;
     }
     const commonsLicense = licenseNameFromCommonsMetadata(meta.extmetadata);
-    if (entry.license && commonsLicense && commonsLicense !== '?'
-        && normaliseLicense(commonsLicense) !== normaliseLicense(entry.license)) {
-      report.licenseMismatch.push({ name, katalog: entry.license, commons: commonsLicense });
+    const licenses = new Set([entry.license, ...(entry.assignments || []).map(row => row[3])]);
+    for (const license of licenses) {
+      if (license && commonsLicense && commonsLicense !== '?'
+          && normaliseLicense(commonsLicense) !== normaliseLicense(license)) {
+        report.licenseMismatch.push({ name, katalog: license, commons: commonsLicense });
+      }
     }
   }
   return report;
@@ -57,12 +83,12 @@ export function invalidMirrorNames(report) {
 }
 
 /** Formuliert die Rechteprobleme für CLI und Release-Audit. */
-export function rightsProblems(report) {
+export function rightsProblems(report, images) {
   if (!report || typeof report !== 'object') {
     return ['Rechtebericht fehlt'];
   }
-  const problems = [];
-  if (report.complete !== true) problems.push('Rechteabgleich ist nicht vollständig');
+  const problems = images ? rightsBindingProblems(report, images) : [];
+  if (!images && report.complete !== true) problems.push('Rechteabgleich ist nicht vollständig');
   if (report.missing?.length) problems.push(`${report.missing.length} Commons-Dateien fehlen`);
   if (report.notFree?.length) problems.push(`${report.notFree.length} Dateien sind nicht frei`);
   if (report.licenseMismatch?.length) {

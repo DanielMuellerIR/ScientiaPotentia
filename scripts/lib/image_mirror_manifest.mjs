@@ -72,9 +72,10 @@ export async function collectCatalogImages(dataDir = DATA_DIR) {
       }
       let entry = images.get(name);
       if (!entry) {
-        entry = { url, license: concept.image.license || '', domains: new Set(), concepts: [] };
+        entry = { url, license: concept.image.license || '', domains: new Set(), concepts: [], assignments: [] };
         images.set(name, entry);
       }
+      entry.assignments.push([domain, concept.id || '?', url, concept.image.license || '']);
       entry.domains.add(domain);
       entry.concepts.push(concept.id || '?');
     }

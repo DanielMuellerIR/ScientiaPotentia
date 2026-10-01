@@ -20,7 +20,7 @@
 import { readFile, readdir } from 'node:fs/promises';
 import { join } from 'node:path';
 
-import { verifyMirror } from './lib/image_mirror_manifest.mjs';
+import { collectCatalogImages, verifyMirror } from './lib/image_mirror_manifest.mjs';
 import { rightsProblems } from './lib/image_mirror_rights.mjs';
 
 const ALLOW_MISSING = process.env.SCIENTIA_ALLOW_MISSING_IMAGES === '1';
@@ -69,7 +69,8 @@ try {
   // Ein fehlender oder beschädigter Bericht ist keine Freigabe. `mirror:images`
   // erzeugt ihn vor den Kopien aus frisch gelesenen Commons-Metadaten.
 }
-for (const problem of rightsProblems(rightsReport)) {
+const { images } = await collectCatalogImages();
+for (const problem of rightsProblems(rightsReport, images)) {
   problems.push(`Rechteabgleich: ${problem}`);
 }
 if (result.foreign?.length) {

@@ -4,7 +4,7 @@ import { join } from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
 import { chooseMode, mirrorPathFor, verifyMirror } from '../../scripts/mirror_concept_images.mjs';
 import {
-  buildRightsReport, invalidMirrorNames, metadataRefreshBatch, rightsProblems,
+  buildRightsReport, invalidMirrorNames, metadataRefreshBatch, rightsProblems, rightsBindingProblems,
 } from '../../scripts/lib/image_mirror_rights.mjs';
 
 /** Metadaten, wie sie die Commons-API liefert. */
@@ -88,6 +88,19 @@ describe('Rechtezustand der lokalen Kopien', () => {
   it('wertet einen begrenzten oder abgebrochenen Lauf nicht als Freigabe', () => {
     const report = buildRightsReport(new Map(), {}, { complete: false });
     expect(rightsProblems(report)).toEqual(['Rechteabgleich ist nicht vollständig']);
+  });
+
+  it('bindet die Freigabe an Zuordnungen, Lizenzen und sieben Tage Aktualität', () => {
+    const images = new Map([['Test.jpg', { url: 'https://commons.wikimedia.org/wiki/File:Test.jpg', license: 'CC BY 4.0' }]]);
+    const checkedAt = '2026-10-01T00:00:00Z';
+    const report = buildRightsReport(images, { 'Test.jpg': freieMetadaten }, { checkedAt });
+    expect(rightsBindingProblems(report, images, Date.parse(checkedAt))).toEqual([]);
+    images.get('Test.jpg').license = 'Public domain';
+    expect(rightsBindingProblems(report, images, Date.parse(checkedAt)).join(' ')).toContain('Bildkatalog');
+    images.get('Test.jpg').license = 'CC BY 4.0';
+    expect(rightsBindingProblems(report, images, Date.parse('2026-10-09T00:00:00Z')).join(' ')).toContain('sieben Tage');
+    images.get('Test.jpg').assignments = [['domain', 'id', images.get('Test.jpg').url, 'CC BY 4.0']];
+    expect(rightsBindingProblems(report, images, Date.parse(checkedAt)).join(' ')).toContain('Bildkatalog');
   });
 
   it('fragt im normalen Lauf auch bereits gecachte Dateinamen erneut ab', () => {

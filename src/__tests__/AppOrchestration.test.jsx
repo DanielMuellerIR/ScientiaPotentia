@@ -126,25 +126,38 @@ beforeEach(() => {
 afterEach(cleanup);
 
 describe('App-Orchestrierung', () => {
-  it('überschreibt während ausstehender Einstellungslesevorgänge keine Bestmarke oder Serie', async () => {
+  it('holt frühe Bestmarken und Serienabschlüsse nach dem Lesen nach', async () => {
     let resolveStreak;
     let resolveHighScore;
+    let initialStreak = true;
+    const yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1);
     getSetting.mockImplementation((key, fallback) => {
-      if (key === 'streakCount') return new Promise(resolve => { resolveStreak = resolve; });
+      if (key === 'streakCount') {
+        if (initialStreak) {
+          initialStreak = false;
+          return new Promise(resolve => { resolveStreak = resolve; });
+        }
+        return Promise.resolve(27);
+      }
       if (key === 'highScore') return new Promise(resolve => { resolveHighScore = resolve; });
+      if (key === 'lastReviewDate') return Promise.resolve(yesterday.toDateString());
       return Promise.resolve(fallback);
     });
     await openQuiz();
-
     fireEvent.click(screen.getByRole('button', { name: '10 Punkte' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Erneut' }));
     fireEvent.click(screen.getByRole('button', { name: 'Runde abschließen' }));
-
-    await screen.findByText('Test-Hub');
-    expect(saveSetting).not.toHaveBeenCalledWith('highScore', expect.anything());
+    expect(saveSetting).not.toHaveBeenCalledWith('lastReviewDate', expect.anything());
     expect(saveSetting).not.toHaveBeenCalledWith('streakCount', expect.anything());
-
+    expect(saveSetting).not.toHaveBeenCalledWith('highScore', expect.anything());
     resolveStreak(27);
-    resolveHighScore(5000);
+    resolveHighScore(5);
+    await screen.findByText('Test-Hub');
+    await waitFor(() => expect(saveSetting).toHaveBeenCalledWith('highScore', 10));
+    expect(screen.getByLabelText('Bestmarke: 10')).toBeInTheDocument();
+    expect(saveSetting).toHaveBeenCalledWith('streakCount', 28);
+    expect(saveSetting).toHaveBeenCalledWith('lastReviewDate', expect.any(String));
   });
 
   it('führt den Rundenpunktestand synchron und persistiert nur die Bestmarke', async () => {

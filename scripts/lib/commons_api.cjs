@@ -141,12 +141,11 @@ async function fetchImageMetadata(fileNames) {
       'DateTime', 'ObjectName', 'Categories'
     ].join('|'),
     iiextmetadatalanguage: 'de',
+    maxlag: '5',
     titles: fileNames.map((name) => `File:${name}`).join('|')
   });
 
-  const response = await fetchWithRetry(`${API_ENDPOINT}?${params}`);
-  if (!response.ok) throw new Error(`Commons-API antwortete mit HTTP ${response.status}`);
-  const payload = await response.json();
+  const payload = await fetchWikiJson(`${API_ENDPOINT}?${params}`, { apiGuard: layeredLicenseGuard });
   const pages = payload?.query?.pages || [];
 
   // `normalized` bildet den angefragten auf den kanonischen Titel ab (etwa

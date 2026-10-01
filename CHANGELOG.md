@@ -2,6 +2,12 @@
 
 Dieses Changelog beginnt mit dem für eine öffentliche Veröffentlichung bereinigten Projektstand.
 
+## [2.1.13] — 2026-10-01
+
+- Frühe Quizabschlüsse warten auf die gespeicherte Serie; während der Initialisierung erreichte Bestmarken werden nachträglich gesichert.
+- Bildrechteberichte gelten nur für die geprüften Zuordnungen und Lizenzen und höchstens sieben Tage. Commons-API-Fehler werden vor einer Bildinvalidierung behandelt.
+- Veraltete Helfer für die Bildauflösung entfernt; Kollisionsprüfungen testen den produktiven Resolver.
+
 ## [2.1.12] — 2026-09-30
 
 - M81, M82, M104, M101 und ESO 137-001 erhalten fachlich gesichtete

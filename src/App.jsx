@@ -189,7 +189,7 @@ export default function App() {
   // Load progress, settings, and highscore on startup
   useEffect(() => {
     loadProgressData();
-    loadStreak();
+    streakLoad.current = loadStreak();
     loadHighScore();
   }, []);
 
@@ -354,10 +354,12 @@ export default function App() {
   // streakCount und highScore auf ihrem Anfangswert 0. Wuerde von dort aus
   // geschrieben, machte der erste Punktegewinn aus einer Bestmarke von 5000 eine
   // von 10 und aus einer 27-Tage-Serie eine von 1. Solange der Vorzustand
-  // unbekannt ist, fuehrt die App nur die Anzeige der laufenden Sitzung und
-  // speichert nichts.
+  // unbekannt ist, bleibt die laufende Bestmarke vorgemerkt; der Rundenabschluss
+  // wartet auf die Ausgangsserie und schreibt Datum und Serie erst danach.
   const streakReadable = React.useRef(false);
   const highScoreReadable = React.useRef(false);
+  const streakLoad = React.useRef(Promise.resolve());
+  const earnedHighScore = React.useRef(0);
 
   const loadStreak = async () => {
     try {
@@ -398,8 +400,10 @@ export default function App() {
   const loadHighScore = async () => {
     try {
       const savedScore = await getSetting('highScore', 0);
-      setHighScore(savedScore);
+      const merged = Math.max(savedScore, earnedHighScore.current);
+      setHighScore(merged);
       highScoreReadable.current = true;
+      if (merged > savedScore) await saveSetting('highScore', merged);
     } catch (e) {
       highScoreReadable.current = false;
       console.error('Error loading highscore:', e);
@@ -409,6 +413,7 @@ export default function App() {
   const handleAddScorePoints = async (pointsEarned) => {
     const newScore = activeScoreRef.current + pointsEarned;
     activeScoreRef.current = newScore;
+    earnedHighScore.current = Math.max(earnedHighScore.current, newScore);
     if (newScore <= highScore) return;
     setHighScore(previous => Math.max(previous, newScore));
     if (!highScoreReadable.current) return;
@@ -480,6 +485,9 @@ export default function App() {
     playClick();
     try {
       await flushQuizProgressWrites();
+      await streakLoad.current;
+      if (!streakReadable.current) throw new Error('Gespeicherte Serie konnte nicht gelesen werden');
+      const savedStreak = await getSetting('streakCount', 0);
       const today = new Date();
       const todayKey = localDateKey(today);
       const lastReviewDateStr = await getSetting('lastReviewDate', null);
@@ -487,7 +495,8 @@ export default function App() {
       const lastReviewKey = lastReview ? localDateKey(lastReview) : null;
 
       if (lastReviewKey !== todayKey) {
-        const newStreak = streakCount + 1;
+        const yesterday = lastReview && localDayNumber(today) - localDayNumber(lastReview) === 1;
+        const newStreak = (yesterday ? savedStreak : 0) + 1;
         setStreakCount(newStreak);
         if (streakReadable.current) await saveSetting('streakCount', newStreak);
       }
