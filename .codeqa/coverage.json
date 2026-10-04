@@ -1338,18 +1338,325 @@
   "time_reviews": [
     {
       "id": "2026-10-04-intensive-review",
-      "status": "in_progress",
+      "status": "complete",
       "started_at": "2026-10-04T16:24:00+02:00",
       "deadline": "2026-10-04T22:24:00+02:00",
       "time_budget_seconds": 21600,
       "base_commit": "cf2cef3",
-      "areas": [],
+      "areas": [
+        {
+          "id": "game-progress",
+          "status": "complete",
+          "review": "full",
+          "outcome": "improved",
+          "paths": [
+            "src/App.jsx",
+            "src/components/Quiz.jsx",
+            "src/components/QuizLauncher.jsx",
+            "src/components/Dashboard.jsx",
+            "src/utils/srs.js",
+            "src/utils/db.js",
+            "src/utils/shuffle.js",
+            "src/utils/audio.js",
+            "src/domains/index.js",
+            "src/domains/metadata.js",
+            "src/__tests__/QuizSession.test.jsx",
+            "src/__tests__/AppOrchestration.test.jsx"
+          ],
+          "file_count": 12,
+          "content_sha256": "04132492b1c4c76ae562b78434cc539b9c30c8b594ca4f7435d10c83a8e0107c",
+          "observed_head": "e6cf4285105b0f18d4ff726ccee35009e45a3356",
+          "summary": "Runden, Serialisierung, Navigation, Wiederholung und erreichbare Fortschrittsziele korrigiert.",
+          "diff_reviewed": true
+        },
+        {
+          "id": "generic-visuals-galleries",
+          "status": "complete",
+          "review": "full",
+          "outcome": "improved",
+          "paths": [
+            "src/components/VisualPanel.jsx",
+            "src/components/AnswerRevealImage.jsx",
+            "src/components/ConceptVisual.jsx",
+            "src/components/DomainVisual.jsx",
+            "src/components/DomainSwitcher.jsx",
+            "src/components/ExhibitGalleryShared.jsx",
+            "src/components/ExhibitLightbox.jsx",
+            "src/components/GalleryExplorer.jsx",
+            "src/components/ScientiaHub.jsx",
+            "src/components/ImageCredit.jsx",
+            "src/utils/imageCredits.js",
+            "src/utils/imageMirror.js",
+            "src/utils/commonsImage.js",
+            "src/utils/useGeoData.js",
+            "src/utils/silhouette.js",
+            "src/utils/tokenSearch.js",
+            "src/utils/dataUrl.js",
+            "src/utils/conceptKeys.js"
+          ],
+          "file_count": 18,
+          "content_sha256": "3961df58bd0af35a6d17349dfb41402d62830e328b0d94f6cda3213dade27ba0",
+          "observed_head": "e6cf4285105b0f18d4ff726ccee35009e45a3356",
+          "summary": "Generische Darstellung und Bildgrenzen gelesen; stabiler Galeriefokus und Lernfortschritt korrigiert.",
+          "diff_reviewed": true
+        },
+        {
+          "id": "special-visuals-layout",
+          "status": "complete",
+          "review": "targeted-plus-complete-diff",
+          "outcome": "improved",
+          "paths": [
+            "src/components/AstraVisual.jsx",
+            "src/components/HomoVisual.jsx",
+            "src/components/SolarSystemExplorer.jsx",
+            "src/components/Map.jsx",
+            "src/components/Atlas.jsx",
+            "src/components/astraBodies.js",
+            "src/components/conceptLabels.js",
+            "src/index.css",
+            "LAYOUT.md"
+          ],
+          "file_count": 9,
+          "content_sha256": "761c396191909521ea52897653738b66a96a1c8415b8c345a74f97a6bd9ba596",
+          "observed_head": "e6cf4285105b0f18d4ff726ccee35009e45a3356",
+          "summary": "Lifecycle, Antwortschutz, Navigation und mobile Layoutpfade geprüft; Erklärung/Credits, Tastatur, Karte und Ersatzvisual korrigiert. Große Komponenten nicht durchgehend zeilenweise gelesen.",
+          "diff_reviewed": true
+        },
+        {
+          "id": "generators-content",
+          "status": "complete",
+          "review": "template-and-boundary-review",
+          "outcome": "improved",
+          "paths": [
+            "scripts/generate_questions.js",
+            "scripts/generate_astra.js",
+            "scripts/generate_homo.js",
+            "scripts/generate_natura.js",
+            "scripts/generate_cultura.js",
+            "scripts/generate_lingua.js",
+            "scripts/generate_machina.js",
+            "scripts/generate_historia.js",
+            "scripts/lib/body_fact_values.js",
+            "scripts/lib/answer_overlap.js",
+            "scripts/lib/audit_rules.cjs",
+            "scripts/lib/generator_text.js",
+            "scripts/lib/quizrandom.js",
+            "scripts/lib/english_leak.js",
+            "scripts/audit_questions.cjs",
+            "scripts/verify_facts.js",
+            "scripts/verify_quiz.js",
+            "scripts/audit_quote_rights.mjs",
+            "scripts/qa_review/build_batches.mjs",
+            "scripts/qa_review/run_qa.py",
+            "src/__tests__/contentGeneratorSafety.test.js"
+          ],
+          "file_count": 21,
+          "content_sha256": "d4481aaa9f2bfee3c80c4e64caf96d9b921506a2b5d31532284efe88c6a85489",
+          "observed_head": "e6cf4285105b0f18d4ff726ccee35009e45a3356",
+          "summary": "Alle Templates hinsichtlich Pools, Skip-Regeln, Umkehrfragen und numerischer Optionen geprüft; keine lückenlose Volllektüre aller langen Generatoren. Gemeinsame Helfer und integrierter Diff vollständig gelesen.",
+          "diff_reviewed": true
+        },
+        {
+          "id": "image-rights-copy-merge",
+          "status": "complete",
+          "review": "full",
+          "outcome": "improved",
+          "paths": [
+            "scripts/mirror_concept_images.mjs",
+            "scripts/lib/commons_api.cjs",
+            "scripts/lib/image_mirror_manifest.mjs",
+            "scripts/lib/image_mirror_rights.mjs",
+            "scripts/lib/merge_images.js",
+            "scripts/lib/merge_blacklist.js",
+            "scripts/lib/merge_text.js",
+            "scripts/lib/merge_safety.js",
+            "scripts/lib/quoteRights.mjs",
+            "scripts/audit_image_credits.mjs",
+            "scripts/audit_image_mirror.mjs",
+            "scripts/data_sources/harvest/image_resolution_policy.cjs",
+            "src/utils/imageMirrorEntry.js",
+            "scripts/data_sources/harvest/IMAGE_BLACKLIST.json"
+          ],
+          "file_count": 14,
+          "content_sha256": "d4942415fd74d2f4642843d7aaee1bf204a78fcb5486e9f032cc9ff756e95148",
+          "observed_head": "e6cf4285105b0f18d4ff726ccee35009e45a3356",
+          "summary": "HTTP-Body-Zeitgrenzen, atomare Kopien, gemeinsame Manifestprüfung und zuordnungsbezogene Motivsperren; aktuelle Live-Rechteprüfung aller benötigten Commons-Dateien.",
+          "diff_reviewed": true
+        },
+        {
+          "id": "harvest-boundaries",
+          "status": "complete",
+          "review": "mixed-full-and-targeted",
+          "outcome": "improved",
+          "paths": [
+            "scripts/data_sources/harvest/concept_validation.cjs",
+            "scripts/data_sources/harvest/append_concepts.cjs",
+            "scripts/data_sources/harvest/apply_corrections.cjs",
+            "scripts/data_sources/harvest/apply_attribute_additions.cjs",
+            "scripts/data_sources/harvest/api_guard.cjs",
+            "scripts/data_sources/harvest/staged_attribution_writes.cjs",
+            "scripts/data_sources/harvest/json_io.cjs",
+            "scripts/data_sources/harvest/apply_images.cjs",
+            "scripts/data_sources/harvest/resolve_author_portraits.cjs"
+          ],
+          "file_count": 9,
+          "content_sha256": "5047e572a5ec958a7c8a1e9cccf8e3fcbdd165ffa924eb6a3917f2d31cf6f51e",
+          "observed_head": "e6cf4285105b0f18d4ff726ccee35009e45a3356",
+          "summary": "Gemeinsame Validierungs-/Schreibgrenzen vollständig, geänderte Apply-/Porträtpfade gezielt geprüft. Historische Wikidata-/NASA-/Wikiquote-Ernter nur ausgewählte Fehlerpfade; keine Vollabdeckung.",
+          "diff_reviewed": true
+        },
+        {
+          "id": "geodata-prepare",
+          "status": "complete",
+          "review": "targeted-plus-complete-diff",
+          "outcome": "improved",
+          "paths": [
+            "scripts/prepare_data.js",
+            "src/__tests__/prepareDataSafety.test.js"
+          ],
+          "file_count": 2,
+          "content_sha256": "98eb2b72045b5295d5436adb3a4a64b8bf1dfb06c1af280c4f636472e373296d",
+          "observed_head": "e6cf4285105b0f18d4ff726ccee35009e45a3356",
+          "summary": "Stadtcache, Pflichtquellen, REST-Länderabdeckung und Ausgabepfade über virtuelle Läufe der echten Pipeline geprüft; vollständiger Diff nachgelesen. Einzelfiles atomar, keine gemeinsame Mehrdateitransaktion. Live-v3-Quelle nachweislich abgeschaltet.",
+          "diff_reviewed": true
+        },
+        {
+          "id": "build-deploy",
+          "status": "complete",
+          "review": "full",
+          "outcome": "improved",
+          "paths": [
+            "deploy.py",
+            "tests/test_deploy.py",
+            "build.sh",
+            "deploy.sh",
+            "vite.config.js",
+            "index.html",
+            "public/credits.html",
+            "THIRD_PARTY_NOTICES.md",
+            "scripts/audit_data_assets.mjs",
+            "scripts/lib/required_data_files.mjs",
+            "scripts/lib/data_asset_hashes.mjs",
+            "scripts/generate_domain_stats.js",
+            "scripts/check_images.cjs",
+            "scripts/sync_third_party_notices.mjs",
+            "scripts/fix_umlauts.js",
+            "package.json",
+            "package-lock.json"
+          ],
+          "file_count": 17,
+          "content_sha256": "3aca24e3cd878f61de11c8f6cdab908135d9daf61dacda7c4717814a53d72525",
+          "observed_head": "e6cf4285105b0f18d4ff726ccee35009e45a3356",
+          "summary": "Deploymenthistorie/-Löschvormerkung, Hashbuild, Worker, Abhängigkeiten und Lizenzkopie geprüft. Fix-Umlaut-Helfer und Sync-Copy ergänzend geprüft; kein Live-FTPS-Deploy.",
+          "diff_reviewed": true
+        },
+        {
+          "id": "catalogs-facts-images",
+          "status": "complete",
+          "review": "inventory-and-targeted-semantic-review",
+          "outcome": "improved",
+          "paths": [
+            "scripts/data_sources/astra_raw.json",
+            "scripts/data_sources/homo_raw.json",
+            "scripts/data_sources/natura_raw.json",
+            "scripts/data_sources/lingua_raw.json",
+            "scripts/data_sources/cultura_raw.json",
+            "scripts/data_sources/machina_raw.json",
+            "scripts/data_sources/historia_raw.json",
+            "public/data/questions_terra.json",
+            "public/data/questions_astra.json",
+            "public/data/questions_homo.json",
+            "public/data/questions_natura.json",
+            "public/data/questions_lingua.json",
+            "public/data/questions_cultura.json",
+            "public/data/questions_machina.json",
+            "public/data/questions_historia.json"
+          ],
+          "file_count": 15,
+          "content_sha256": "6794ca353e91bf40bb5d733d5983512c376c76c2a45a7f3d8e8d5688ad528722",
+          "observed_head": "e6cf4285105b0f18d4ff726ccee35009e45a3356",
+          "summary": "Gesamter Fragenbestand maschinell auditiert; representative Templates und bestätigte Fach-/Motivfehler gezielt gegen Quellen geprüft. Alle 91 Körperwertformen inventarisiert, 87 numerische Fragen kontrolliert. Keine vollständige externe Neuverifikation aller Einzelfakten oder visuelle Vollsichtung aller Bilder.",
+          "diff_reviewed": true
+        }
+      ],
       "architecture": {
-        "paradigm": "Komponentenbasierte React-UI mit Domain-Registry, lokaler Persistenz und deterministischer Datenpipeline",
-        "fit": "gespannt",
-        "summary": "Registry und Domain-Visuals tragen alle acht Bereiche. Antwortzustand und Persistenz sind noch asynchron gekoppelt; mehrere Generatoren interpretieren unstrukturierte Werte. Kein Paradigmenwechsel erforderlich.",
-        "recommendation": "Laufende Runden vom nachgeladenen Fortschritt entkoppeln, gemeinsame validierte Wert-/Bildgrenzen stärken, fachliche Motivsichtung beibehalten."
-      }
+        "paradigm": "Komponentenbasierte React-UI mit Domain-Registry, lokaler Persistenz und generierten Daten",
+        "fit": "passend",
+        "summary": "Kein Paradigmenwechsel erforderlich. Asynchrone Runden-/Schreibgrenzen und gemeinsame Wert-, Bild- und Antwortschutzregeln wurden gestärkt. Fachliche Kuration bleibt notwendig.",
+        "recommendation": "Weiterentwicklung auf nachvollziehbare Lernwinkel, geprüfte Quellenattribute und Motivsichtung konzentrieren."
+      },
+      "finished_at": "2026-10-04T17:56:39+02:00",
+      "timing_note": "Startzeit näherungsweise; sechs Stunden waren ein Höchstlimit, kein Mindestlauf.",
+      "observed_head": "e6cf4285105b0f18d4ff726ccee35009e45a3356",
+      "report": "docs/review-2026-10-04.md",
+      "cross_cutting": [
+        {
+          "id": "body-values",
+          "status": "complete",
+          "summary": "Gemeinsamer validierter Zahlenparser und Formatter für Körperwerte."
+        },
+        {
+          "id": "mapping-rejections",
+          "status": "complete",
+          "summary": "Eine zentrale Regel für verworfene Konzept-Bild-Paare in Auflöser, Apply, Merge und Audit."
+        },
+        {
+          "id": "mirror-entry",
+          "status": "complete",
+          "summary": "Gemeinsame Manifeststrukturprüfung für Browser und Release."
+        },
+        {
+          "id": "answer-siblings",
+          "status": "complete",
+          "summary": "Sternlisten-Schutz gilt zentral auch in der WebGL-Ersatzansicht."
+        }
+      ],
+      "tests": [
+        "npm ci erfolgreich; npm audit 0 bekannte Schwachstellen (2026-10-04)",
+        "npm test: 619 Tests / 50 Dateien erfolgreich",
+        "python3 -m unittest discover -s tests: 81 Tests erfolgreich",
+        "npm run build erfolgreich, Daten-/Rechte-/Mirror-/Fragenaudits bestanden; MapLibre-Größenwarnung dokumentiert",
+        "npm run check:layout 49/49",
+        "verify:facts alle sieben JSON-Domains 0 Fehler; 157 heuristische Warnungen",
+        "audit:quote-rights 533 Zitate bestanden",
+        "mirror:images 4964/4964 Dateien geprüft, 1 beschädigte Kopie regeneriert",
+        "Produktionsbrowser: acht Zehner-Runden + Fehlerwiederholung, fünf Layoutgrößen, echte Karte, Tastatur, verzögerter Map-Chunk und WebGL-Ausfall; keine Seitenabstürze"
+      ],
+      "remaining": [
+        {
+          "id": "terra-upstream",
+          "priority": 1,
+          "summary": "REST-Countries v3 abgeschaltet; neue Ernte benötigt Quellen-/Lizenzentscheidung und gegebenenfalls Konto."
+        },
+        {
+          "id": "semantic-curation",
+          "priority": 2,
+          "summary": "1294 heuristische Format-Hinweise, zwei Längen-Bias-Templates und 21 begründete Dominanzfreigaben einzeln kuratieren."
+        },
+        {
+          "id": "architecture-years",
+          "priority": 2,
+          "summary": "68 ausgelassene Bauwerksfragen benötigen geprüftes yearKind."
+        },
+        {
+          "id": "astra-identities",
+          "priority": 2,
+          "summary": "M81/M101 besitzen jeweils zwei IDs; Konsolidierung benötigt Fortschrittsmigration oder Aliase."
+        },
+        {
+          "id": "image-frontier",
+          "priority": 2,
+          "summary": "93 Astra-/47 Lingua-/13 Machina-Kandidaten, Charon/Ceres-Rechte und 19 Astra-Quellenprobleme bleiben offen."
+        }
+      ],
+      "limits": [
+        "Keine vollständige fachliche Einzelprüfung aller Fragen/Konzepte.",
+        "Keine visuelle Vollsichtung aller Konzeptbilder.",
+        "Historische Kandidaten und Ernter nicht vollständig gelesen.",
+        "Kein reales iPhone/Safari und kein Live-FTPS-Deploy.",
+        "Kein erfolgreicher Live-Gesamtlauf der Geodatenpipeline; v3-Quelle abgeschaltet.",
+        "Frühere tokenbudgetierte Kampagnen bleiben als historische Nachweise erhalten; dieses zeitbudgetierte Review wird getrennt dokumentiert."
+      ]
     }
   ]
 }
