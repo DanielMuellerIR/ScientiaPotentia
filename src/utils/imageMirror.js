@@ -11,6 +11,7 @@
 // Anfrage an einen Dritten mit der IP des Besuchers. Dass keine Kopie fehlt,
 // sichert `npm run audit:image-mirror` vor jedem Release ab.
 
+import { isMirrorEntry } from './imageMirrorEntry.js';
 import { useEffect, useState } from 'react';
 import { dataUrl } from './dataUrl';
 import { fileNameFromCommonsUrl } from './commonsImage';
@@ -118,8 +119,8 @@ export function mirrorEntry(mirror, rawUrl) {
   if (!mirror) return null;
   const name = fileNameFromCommonsUrl(rawUrl);
   if (!name) return null;
-  const raw = mirror.files[name];
-  if (!Array.isArray(raw) || typeof raw[0] !== 'string' || !raw[0]) return null;
+  const raw = mirror.files?.[name];
+  if (!isMirrorEntry(raw)) return null;
   return {
     file: raw[0],
     width: Number(raw[1]) || 0,

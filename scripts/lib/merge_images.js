@@ -1,3 +1,9 @@
+import { createRequire } from 'node:module';
+import { hasPublishableAttribution, isAllowedImageLicense } from '../../src/utils/imageCredits.js';
+
+const require = createRequire(import.meta.url);
+const { isRejectedImageMapping } = require('../data_sources/harvest/image_resolution_policy.cjs');
+
 /**
  * Bildfelder eines bestehenden Konzepts aus einer Erntedatei auffrischen.
  *
@@ -22,6 +28,7 @@
  * @returns {string[]} Namen der tatsaechlich geaenderten Felder, fuer den Bericht.
  */
 export function refreshImageFields(bestand, ernte) {
+  if (ernte.imageFile && isRejectedImageMapping(bestand.id || ernte.id, ernte.imageFile)) return [];
   const geaendert = [];
   const setze = (feld, wert) => {
     if (bestand[feld] === wert) return;
@@ -30,9 +37,14 @@ export function refreshImageFields(bestand, ernte) {
   };
 
   if (ernte.imageFile && ernte.imageFile !== bestand.imageFile) {
+    if (!ernte.imageLicense || !isAllowedImageLicense(ernte.imageLicense)
+      || !hasPublishableAttribution(ernte.imageLicense, ernte.imageAttribution)) return [];
     setze('imageFile', ernte.imageFile);
     if (ernte.imageLicense) setze('imageLicense', ernte.imageLicense);
-    if (ernte.imageAttribution) setze('imageAttribution', ernte.imageAttribution);
+    setze('imageAttribution', ernte.imageAttribution || '');
+    for (const field of ['imageLicenseUrl', 'imageChanges']) {
+      if (ernte[field] !== undefined || bestand[field] !== undefined) setze(field, ernte[field] || '');
+    }
   } else {
     if (!bestand.imageLicense && ernte.imageLicense) setze('imageLicense', ernte.imageLicense);
     if (!bestand.imageAttribution && ernte.imageAttribution) {

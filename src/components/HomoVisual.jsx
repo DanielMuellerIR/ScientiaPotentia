@@ -275,19 +275,18 @@ export default function HomoVisual({
 
   return (
     <div
-      className="terra-panel"
+      className="terra-panel quiz-scene" tabIndex={0} aria-label="Illustration und Erklärung"
       style={{
-        height: '100%', position: 'relative', overflow: 'hidden',
+        height: '100%', position: 'relative',
         border: '1px solid var(--border-light)',
         // Helles, anatomisch lesbares Panel (Grafiken sind farbig auf hell/transparent).
         background: `radial-gradient(circle at 50% 35%, #fbf7f1, #e7ddd4 70%, #d8cdc4)`
       }}
     >
-      {/* Anatomiegrafik im aspektgenauen Rahmen (damit Marker passgenau sitzen).
-          Unten bewusst mehr Abstand (96px), damit hohe Figuren (Skelett) mit den
-          Füßen nicht unter die eingeblendete Info-/Chip-Leiste geraten. */}
-      <div style={{
-        position: 'absolute', inset: '60px 24px 96px', display: 'flex',
+      {/* Ein eigener Rahmen hält Marker und Anatomie passgenau; Erklärungen
+          erhalten darunter ihren Platz und bleiben in niedrigen Panels scrollbar. */}
+      <div className="quiz-scene-stage quiz-scene-stage--homo" style={{
+        display: 'flex',
         alignItems: 'center', justifyContent: 'center'
       }}>
         {/* Wrapper schrumpft exakt auf das Bild: das Bild gibt per height:100% +
@@ -336,8 +335,8 @@ export default function HomoVisual({
       {activeConcept && (
         <>
           {/* Kopf: Kategorie + Name */}
-          <div style={{
-            position: 'absolute', top: 0, left: 0, right: 0, padding: '20px 24px',
+          <div className="quiz-scene-header" style={{
+            padding: '14px 20px',
             textAlign: 'center', pointerEvents: 'none',
             background: 'linear-gradient(to bottom, rgba(255,255,255,0.85), transparent)'
           }}>
@@ -357,9 +356,8 @@ export default function HomoVisual({
           </div>
 
           {/* Fuß: Kennwerte + Fun-Fact */}
-          <div style={{
-            position: 'absolute', bottom: 0, left: 0, right: 0, padding: '14px 22px 26px',
-            pointerEvents: 'none',
+          <div className="quiz-scene-details" style={{
+            padding: '14px 20px',
             background: 'linear-gradient(to top, rgba(255,255,255,0.9), transparent)'
           }}>
             {attrEntries.length > 0 && (
@@ -389,8 +387,8 @@ export default function HomoVisual({
       )}
 
       {/* Lizenzzeile klein unten rechts */}
-      <div style={{
-        position: 'absolute', bottom: 0, right: 0, padding: '3px 9px',
+      <div className="quiz-scene-credit" style={{
+        padding: '6px 9px',
         fontSize: '10px', color: 'var(--text-muted)', pointerEvents: 'auto'
       }}>
         Bild: {asset.author} ·{' '}

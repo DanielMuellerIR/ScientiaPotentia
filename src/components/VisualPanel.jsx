@@ -1,7 +1,8 @@
-import React, { Suspense } from 'react';
-import Map from './Map';
+import React, { lazy, Suspense } from 'react';
 import DomainVisual from './DomainVisual';
 import ConceptVisual from './ConceptVisual';
+
+const Map = lazy(() => import('./Map'));
 
 /**
  * Linkes Visualisierungs-Panel. Waehlt die Darstellung passend zur aktiven
@@ -24,6 +25,7 @@ export default function VisualPanel({
   domain,
   concepts = {},
   srsProgress = {},
+  questionPool,
   activeConceptKey = null,
   testedAttribute = null,
   answerIsName = false,
@@ -44,7 +46,9 @@ export default function VisualPanel({
           background: '#EAE6DC'
         }}
       >
-        <Map {...mapProps} />
+        <Suspense fallback={<div role="status" style={{ padding: '24px' }}>Karte wird geladen …</div>}>
+          <Map {...mapProps} />
+        </Suspense>
       </div>
     );
   }
@@ -57,7 +61,7 @@ export default function VisualPanel({
     return (
       // codereview-ok: Suspense-Fallback zeigt bewusst DomainVisual (Direct-Visual-Show) (2026-07-08)
       <Suspense
-        fallback={<DomainVisual domain={domain} concepts={concepts} srsProgress={srsProgress} />}
+        fallback={<DomainVisual domain={domain} concepts={concepts} srsProgress={srsProgress} questionPool={questionPool} />}
       >
         <SpecialVisual
           domain={domain}
@@ -89,5 +93,5 @@ export default function VisualPanel({
   }
 
   // --- Themen-Uebersicht (Dashboard/Atlas, keine aktive Frage) ---------
-  return <DomainVisual domain={domain} concepts={concepts} srsProgress={srsProgress} />;
+  return <DomainVisual domain={domain} concepts={concepts} srsProgress={srsProgress} questionPool={questionPool} />;
 }

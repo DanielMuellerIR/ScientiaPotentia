@@ -413,6 +413,9 @@ def normalise_manifest(data):
         "version": MANIFEST_VERSION,
         "files": valid_files,
         "history": normalise_history(data),
+        "pending_deletions": sorted({path for path in data.get("pending_deletions", [])
+                                     if is_safe_relative_path(path)})
+        if isinstance(data.get("pending_deletions"), list) else [],
     }
 
 
@@ -577,6 +580,7 @@ def remove_obsolete_files(ftps, remote_base, obsolete_paths):
     vollständig und live.
     """
     removed = 0
+    pending = []
     for relative_path in obsolete_paths:
         target = remote_path(remote_base, relative_path)
         try:
@@ -584,8 +588,9 @@ def remove_obsolete_files(ftps, remote_base, obsolete_paths):
             removed += 1
             print(f"[DEPLOY] Removed superseded release file: {relative_path}")
         except Exception as error:
+            pending.append(relative_path)
             print(f"[WARN] Superseded release file could not be removed: {relative_path} ({error})")
-    return removed
+    return removed, pending
 
 
 def deploy_dist(ftps, local_dist, remote_base, *, dry_run=False, force=False):
@@ -685,17 +690,27 @@ def _deploy_dist_normalised(ftps, local_dist, remote_base, *, dry_run=False, for
                 not_attempted = len(files) - index - 1
                 break
 
-    # Die Historie rückt eine Stelle weiter: Der Stand, der gerade abgelöst wird,
-    # ist ab jetzt der jüngste Vorgänger. Was hinten herausfällt, wird nicht mehr
-    # gebraucht — dessen Dateien kann kein Browser mehr anfordern, weil keine
-    # ausgelieferte index.html mehr auf sie zeigt.
-    obsolete_paths, kept_history = obsolete_release_files(
-        release_files, sorted(remote_files), remote_manifest.get("history", [])
-    )
+    # Nur ein veränderter Inhalt löst einen früheren Release ab. Reparierte
+    # Übertragungen desselben Inhalts verbrauchen keinen Historienplatz.
+    if release_files != remote_files:
+        obsolete_paths, kept_history = obsolete_release_files(
+            release_files, sorted(remote_files), remote_manifest.get("history", [])
+        )
+    else:
+        obsolete_paths, kept_history = [], remote_manifest.get("history", [])
+    still_needed = set(release_files)
+    for release in kept_history:
+        still_needed.update(release)
+    obsolete_paths = sorted({path for path in obsolete_paths + remote_manifest.get("pending_deletions", [])
+                             if path not in still_needed and path != ENTRYPOINT
+                             and posixpath.basename(path) not in PROTECTED_FILES
+                             and posixpath.basename(path) != REMOTE_MANIFEST_NAME})
+    # Erst dauerhaft vormerken, dann löschen: Ein Abbruch verliert keine Arbeit.
     release_manifest = {
         "version": MANIFEST_VERSION,
         "files": release_files,
         "history": kept_history,
+        "pending_deletions": obsolete_paths,
     }
     if failed:
         return DeployResult(uploaded, skipped, failed, release_manifest, not_attempted,
@@ -723,7 +738,17 @@ def _deploy_dist_normalised(ftps, local_dist, remote_base, *, dry_run=False, for
         return DeployResult(uploaded, skipped, failed, release_manifest,
                             skipped_unverified=skipped_unverified)
 
-    removed = remove_obsolete_files(ftps, remote_base, obsolete_paths)
+    removed, pending = remove_obsolete_files(ftps, remote_base, obsolete_paths)
+    if pending != obsolete_paths:
+        cleaned_manifest = {**release_manifest, "pending_deletions": pending}
+        try:
+            upload_bytes_atomic(ftps, manifest_bytes(cleaned_manifest), remote_manifest_file,
+                                prepared_directories)
+            release_manifest = cleaned_manifest
+        except Exception as error:
+            # Die veröffentlichte Vormerkung bleibt gültig; der nächste Lauf
+            # darf das Aufräumen erneut versuchen.
+            print(f"[WARN] Could not clear completed deletions from manifest: {error}")
     return DeployResult(uploaded, skipped, failed, release_manifest,
                         skipped_unverified=skipped_unverified, removed=removed)
 

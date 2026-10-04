@@ -7,12 +7,14 @@
  * Ernten gebraucht wird.
  */
 
+import { createHash } from 'node:crypto';
 import { existsSync } from 'node:fs';
 import { readFile, readdir } from 'node:fs/promises';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 // Mit Dateiendung importieren: Vite ergänzt ein fehlendes `.js` still, Node nicht.
+import { isMirrorEntry, isMirrorFileName } from '../../src/utils/imageMirrorEntry.js';
 import { fileNameFromCommonsUrl } from '../../src/utils/commonsImage.js';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..');
@@ -34,6 +36,19 @@ export const PUBLIC_PREFIX = 'images/concepts';
  */
 export function mirrorPathFor(fileName) {
   return `${fileName.slice(0, 2)}/${fileName}`;
+}
+
+/** Prüft gespeicherte Kopien statt einen abgebrochenen Schreibvorgang zu übernehmen. */
+export async function mirrorFileIsValid(path, fileName, expectedBytes) {
+  if (!isMirrorFileName(fileName)) return false;
+  try {
+    const buffer = await readFile(path);
+    if (expectedBytes !== undefined && buffer.length !== expectedBytes) return false;
+    const hash = /^([a-f0-9]{16})\./.exec(fileName)?.[1];
+    return hash ? createHash('sha256').update(buffer).digest('hex').startsWith(hash) : buffer.length > 0;
+  } catch {
+    return false;
+  }
 }
 
 /** Liest eine JSON-Datei; unlesbar oder fehlend ergibt den Ersatzwert. */
@@ -104,21 +119,21 @@ export async function verifyMirror({
     foreign,
   };
   const manifest = await readJson(manifestPath, null);
-  if (!manifest || !manifest.files) {
+  if (!manifest || !manifest.files || typeof manifest.files !== 'object' || Array.isArray(manifest.files)) {
     return { ...problems, fatal: 'Manifest fehlt oder ist unlesbar.', total: images.size };
   }
 
   const referenced = new Set();
   for (const name of images.keys()) {
     const entry = manifest.files[name];
-    if (!entry) {
+    if (!isMirrorEntry(entry)) {
       problems.withoutEntry.push(name);
       continue;
     }
     const [baseFile, , , thumbFile] = entry;
     for (const file of [baseFile, thumbFile].filter(Boolean)) {
       referenced.add(file);
-      if (!existsSync(join(mirrorDir, mirrorPathFor(file)))) {
+      if (!await mirrorFileIsValid(join(mirrorDir, mirrorPathFor(file)), file)) {
         problems.withoutFile.push(`${name} -> ${file}`);
       }
     }

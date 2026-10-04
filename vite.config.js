@@ -40,7 +40,7 @@ function hashedDataAssets() {
         injectTo: 'head'
       }];
     },
-    closeBundle() {
+    writeBundle() {
       // Nach dem Schreiben von dist/: Die kopierten Katalogdateien tragen noch
       // ihren Klarnamen und bekommen ihn hier gegen den gehashten getauscht.
       const distData = join(import.meta.dirname, 'dist', 'data');
@@ -61,15 +61,12 @@ export default defineConfig({
   plugins: [react(), hashedDataAssets()],
   base: './',
   build: {
-    // maplibre-gl (~800 kB) und three.js (~490 kB, lazy) sind je EINE grosse Bibliothek
-    // und nicht sinnvoll weiter teilbar. Nach der Vendor-Trennung sind sie in eigenen,
-    // langzeit-cachebaren Chunks isoliert -> Schwelle bewusst darueber, statt App- und
-    // Vendor-Code kuenstlich zu vermischen.
+    // MapLibre und three.js bleiben in getrennten, erst bei Bedarf geladenen
+    // Chunks. Die Größenwarnung bleibt sichtbar, wenn ein Update sie vergrößert.
     chunkSizeWarningLimit: 850,
     rollupOptions: {
       output: {
-        // Grosse, eager geladene Vendor-Bibliotheken aus dem Haupt-Bundle (index)
-        // in eigene, langzeit-cachebare Chunks trennen (behebt die >500-kB-Warnung).
+        // Bibliotheken vom App-Bundle trennen und langfristig cachebar halten.
         // WICHTIG: three.js NICHT anfassen — es wird ausschliesslich von der lazy
         // geladenen AstraVisual importiert und liegt bereits in einem eigenen
         // On-Demand-Chunk. Ein manualChunks-Eintrag wuerde es faelschlich eager machen.

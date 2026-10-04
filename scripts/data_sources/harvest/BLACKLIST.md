@@ -29,3 +29,11 @@
 
 ## Gesperrte Bildquellen / Bilddateien (Lizenzgrund)
 - Alle Fotos/Scans von Werken mit Urheber-Tod nach 1955 (siehe generelle Regel oben).
+
+## Fachlich falsche Bildzuordnungen
+
+`IMAGE_BLACKLIST.json` enthält unter `rejectedMappings` geprüfte Kombinationen
+aus Konzept-ID und Commons-Dateititel samt Begründung. Die Sperre gilt nur für
+diese Kombination, nicht für das Konzept oder die Datei insgesamt. So darf ein
+Webb-Teleskopspiegel weiterhin Webb illustrieren, aber nicht Hubble. Resolver,
+Bildanwendung, Merge und Bildnachweis-Audit prüfen dieselbe Liste.

@@ -101,7 +101,7 @@ function isUsableOptionValue(value) {
  * Sammelbezeichnungen ebenfalls zulässig — schwach, aber nicht falsch.
  */
 const COLLECTIVE_ANSWERS = new Set([
-  'sonstige', 'sonstiges', 'andere', 'anderes', 'andere schriften',
+  'weitere', 'weitere werke', 'sonstige', 'sonstiges', 'andere', 'anderes', 'andere schriften',
   'diverse', 'diverses', 'verschiedene', 'verschiedenes', 'mehrere',
   'k.a.', 'n/a', 'keine angabe',
 ]);

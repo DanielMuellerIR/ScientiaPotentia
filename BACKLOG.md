@@ -1,5 +1,22 @@
 # Backlog
 
+- Gesamtanalyse vom 2026-10-04: [Reviewbericht](docs/review-2026-10-04.md) mit korrigierten Fehlern, ausgeführten Prüfungen und Abdeckungsgrenzen.
+- Die bisherige REST-Countries-v3-Quelle für `prepare_data.js` ist abgeschaltet:
+  Der Abruf am 2026-10-04 liefert HTTP 200, aber `success:false`, `data:null`
+  und eine Abschaltungsmitteilung. Der Anbieter verlangt für v5 ein API-Konto
+  und ein anderes Antwortschema ([Migrationshinweis](https://restcountries.com/docs/countries/legacy-api-deprecation)).
+  Vor einer neuen Terra-Ernte eine tragfähige Quellen-/Lizenzentscheidung treffen;
+  der bestehende Spielkatalog bleibt nutzbar und wird bei Quellenfehlern nicht ersetzt.
+- 68 Cultura-Bauwerksfragen sind ohne geprüftes `attributes.yearKind` ausgesetzt.
+  Pro Quelle zwischen Baubeginn, Fertigstellung und Umbau unterscheiden, bevor
+  diese Fragen wieder erzeugt werden. Die vorhandenen Rohjahre bleiben erhalten.
+- M81 und M101 tragen jeweils zwei Konzept-IDs (`bode_m81`/`galaxy-messier-81-h3`
+  und `feuerrad_m101`/`galaxy-messier-101-h3`). Die Entfernungswerte sind seit
+  2026-10-04 anhand der verlinkten NASA-Quelle angeglichen. Eine Zusammenführung
+  braucht eine Fortschrittsmigration oder belegte Aliase; keine IDs still löschen.
+- Der Fragen-Audit meldet am 2026-10-04 noch 1.294 heuristische Format-Hinweise
+  und zwei Längen-Bias-Templates. Einzeln fachlich prüfen; die Zahl ist keine
+  Zahl bestätigter Fehler. Erklärung und Lernwinkel vor zusätzlicher Menge priorisieren.
 - Die Karte spricht als einziger Teil der App einen fremden Server an: Der Stil in
   `public/map_styles/scientia_parchment.json` holt Vektorkacheln, Rasterrelief, Glyphs und
   Sprite von `tiles.openfreemap.org`, und damit geht die IP jedes Kartennutzers dorthin.
@@ -14,7 +31,7 @@
   ausreichen, ist ungeprüft und wäre ein eigener Auftrag.
 - Konzeptbilder mit einer Quelle außerhalb von Wikimedia Commons kann `mirror_concept_images.mjs`
   nicht kopieren, und die App zeigt sie deshalb nicht. Zurzeit gibt es keine solche Quelle
-  (geprüft 2026-09-10, alle 4945 Dateien liegen auf Commons); `npm run audit:image-mirror`
+  (geprüft 2026-10-04, alle 4964 benötigten Dateien liegen auf Commons); `npm run audit:image-mirror`
   meldet den Fall, falls doch eine hinzukommt.
 - `public/assets/homo/digestive.svg` (405 KiB) hat keinen Verweis im Quelltext:
   `HomoVisual.jsx` bildet seine Kategorien auf `skeleton.svg`, `muscles.png`,

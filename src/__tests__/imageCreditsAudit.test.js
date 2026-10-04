@@ -46,6 +46,24 @@ afterEach(() => {
 });
 
 describe('audit_image_credits', () => {
+  it.each(['raw', 'generated'])('blockiert ein fachlich falsches Motiv im %s-Katalog', layer => {
+    const source = 'https://commons.wikimedia.org/wiki/File%3AJames_Webb_Space_Telescope_Mirror37.jpg';
+    if (layer === 'raw') {
+      writeFileSync(join(workdir, 'scripts', 'data_sources', 'astra_raw.json'), JSON.stringify([{
+        id: 'mission-hubble', imageFile: source, imageLicense: 'Public domain', imageAttribution: 'NASA',
+      }]));
+    } else {
+      writeFileSync(join(workdir, 'public', 'data', 'concepts_astra.json'), JSON.stringify({
+        'astra:mission-hubble': { id: 'astra:mission-hubble', image: {
+          url: source, license: 'Public domain', attribution: 'NASA',
+        } },
+      }));
+    }
+    const result = runAudit();
+    expect(result.status).toBe(1);
+    expect(result.stderr).toContain('fachlich falsches Bildmotiv');
+  });
+
   it('blockiert einen Bestand ohne eine einzige Pruefung', () => {
     // Ein abgebrochener Generatorlauf lieferte frueher "✓ 0 Bildnachweise ..."
     // und Exit 0 — der Build haette einen bildlosen Stand ausgeliefert.

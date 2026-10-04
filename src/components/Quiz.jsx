@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { calculateSRS, mapBinaryToQuality } from '../utils/srs';
 import { saveProgressAndLog, getProgress } from '../utils/db';
 import { shuffle } from '../utils/shuffle';
@@ -75,6 +75,7 @@ export default function Quiz({
   onQuizRestart,
   onTrackProgressWrite,
   onFlushProgressWrites,
+  isPaused = false,
 }) {
   const [questions, setQuestions] = useState([]);
   const [currentIdx, setCurrentIdx] = useState(0);
@@ -85,7 +86,10 @@ export default function Quiz({
   const [points, setPoints] = useState(0); // Score points
   const [sessionFinished, setSessionFinished] = useState(false);
   // Überlebens-Modus: verbleibende Leben (null = feste Runde, kein Survival).
-  const isSurvival = roundConfig?.kind === 'survival';
+  const [isPractice, setIsPractice] = useState(false);
+  const [firstTryCount, setFirstTryCount] = useState(0);
+  const [mistakeQuestions, setMistakeQuestions] = useState([]);
+  const isSurvival = !isPractice && roundConfig?.kind === 'survival';
   const totalLives = roundConfig?.lives || 3;
   const [lives, setLives] = useState(isSurvival ? totalLives : null);
   // Mehrspieler: ab 2 Namen wird reihum gefragt; je Spieler ein Trefferzähler.
@@ -96,12 +100,17 @@ export default function Quiz({
   const [statusMessage, setStatusMessage] = useState('');
   const [wrongClickIds, setWrongClickIds] = useState([]);
   const [progressSaveFailed, setProgressSaveFailed] = useState(false);
+  const progressWriteTail = useRef(Promise.resolve());
+  const sessionActionPending = useRef(false);
+  const [isSessionChanging, setIsSessionChanging] = useState(false);
+  const inputPaused = isPaused || isSessionChanging;
   const quizQuestions = Array.isArray(questionPool) ? questionPool : [];
 
-  // Generate quiz questions on mount or pool change
+  // Fälligkeit ist eine Priorität beim Start, kein Neustart-Signal. Ein später
+  // geladener Fortschritt darf eine bereits gespielte Runde nicht zurücksetzen.
   useEffect(() => {
     generateQuizSession();
-  }, [dueEntities, newEntities, quizMode, questionPool, entityFilterId]);
+  }, [quizMode, questionPool, entityFilterId, roundConfig, players]);
 
   // Meldet die aktive Frage ans linke Visual-Panel. Dieser Effekt ist bewusst
   // vom Karten-Setup getrennt: Der Antwortzustand aendert sich nach einem Klick,
@@ -181,7 +190,7 @@ export default function Quiz({
   useEffect(() => {
     if (questions.length > 0 && currentIdx < questions.length && !sessionFinished) {
       const q = questions[currentIdx];
-      if (q.type === 'click-map' && clickedMapId && !isAnswered) {
+      if (q.type === 'click-map' && clickedMapId && !isAnswered && !inputPaused) {
         // Map clicked subdivision to its parent country if the question expects a country
         let actualClickedId = clickedMapId;
         const clickedEntity = geodb.entities[clickedMapId];
@@ -200,6 +209,7 @@ export default function Quiz({
           playCorrectChime();
           setIsAnswered(true);
           setScore(prev => prev + 1);
+          if (newAttempts === 1) setFirstTryCount(prev => prev + 1);
           if (isMultiplayer) setPlayerScores(prev => { const n = [...prev]; n[currentPlayerIdx] = (n[currentPlayerIdx] || 0) + 1; return n; });
 
           // Calculate points
@@ -219,6 +229,7 @@ export default function Quiz({
           if (!isMultiplayer) persistUserAnswer(q.entityId, q.entityType, true, newAttempts);
         } else {
           // Wrong Click!
+          if (newAttempts === 1) setMistakeQuestions(prev => [...prev, q]);
           playErrorBuzzer();
           const updatedWrongs = [...wrongClickIds, actualClickedId];
           setWrongClickIds(updatedWrongs);
@@ -268,24 +279,18 @@ export default function Quiz({
     // bzw. Versuchszaehler) und muessen darum in den Deps stehen — sonst arbeitet
     // ein erneuter Klick mit der veralteten Closure des vorigen Renders (Stale-Closure):
     // der zuletzt rot markierte Falschklick verschwaende sonst von der Karte.
-  }, [clickedMapId, isAnswered, sessionFinished, questions, currentIdx, wrongClickIds, attempts]);
+  }, [clickedMapId, isAnswered, sessionFinished, questions, currentIdx, wrongClickIds, attempts, inputPaused]);
 
-  // Verwaisten Kartenklick aufraeumen: Terra mischt Karten-Klick-Fragen mit anderen
-  // Fragetypen (Flagge, Silhouette, Hauptstadt). Klickt der Nutzer waehrend einer
-  // Nicht-click-map-Frage trotzdem auf die Karte, bleibt clickedMapId im App-State
-  // haengen (der Listener oben setzt ihn nur im click-map-Zweig zurueck). Bei der
-  // naechsten click-map-Frage wuerde dieser alte Wert sonst als Phantom-Antwort
-  // gewertet und faelschlich als Fehlversuch gegen den Nutzer gezaehlt. Darum hier
-  // sofort zuruecksetzen, sobald ein Klick vorliegt, die aktuelle Frage aber keine
-  // Karten-Klick-Frage ist.
+  // Kartenklicks gelten nur für eine offene Kartenfrage. Auch ein Klick nach
+  // der Antwort darf nicht als Antwort auf die nächste Frage erhalten bleiben.
   useEffect(() => {
     if (questions.length > 0 && currentIdx < questions.length) {
       const q = questions[currentIdx];
-      if (clickedMapId && q.type !== 'click-map' && resetClickedMapId) {
+      if (clickedMapId && (q.type !== 'click-map' || isAnswered || sessionFinished || inputPaused) && resetClickedMapId) {
         resetClickedMapId();
       }
     }
-  }, [clickedMapId, questions, currentIdx, resetClickedMapId]);
+  }, [clickedMapId, questions, currentIdx, isAnswered, sessionFinished, inputPaused, resetClickedMapId]);
 
   // Flaches Scoring ohne Schwierigkeitsstufen: 10 Punkte beim ersten Versuch,
   // weniger bei weiteren Versuchen (10 / Versuchszahl). Kein Stufen-Multiplikator mehr.
@@ -296,7 +301,7 @@ export default function Quiz({
   // Setzt eine fertig zusammengestellte Fragenliste als aktive Session und
   // initialisiert alle Runden-Zustände neu. Vorher war dieser Block dreimal
   // wortgleich in generateQuizSession dupliziert (Code-Review R1).
-  const applySession = (sessionQuestions) => {
+  const applySession = (sessionQuestions, { practice = false } = {}) => {
     setQuestions(sessionQuestions);
     setCurrentIdx(0);
     setAttempts(0);
@@ -304,7 +309,10 @@ export default function Quiz({
     setIsAnswered(false);
     setScore(0);
     setPoints(0);
-    setLives(isSurvival ? totalLives : null);
+    setIsPractice(practice);
+    setFirstTryCount(0);
+    setMistakeQuestions([]);
+    setLives(!practice && roundConfig?.kind === 'survival' ? totalLives : null);
     setPlayerScores(isMultiplayer ? new Array(nPlayers).fill(0) : []);
     setCurrentPlayerIdx(0);
     setSessionFinished(false);
@@ -342,6 +350,14 @@ export default function Quiz({
       });
     };
 
+    const fixedLen = isMultiplayer
+      ? Math.ceil((roundConfig?.length || 10) / nPlayers) * nPlayers
+      : (roundConfig?.length || 10);
+    const roundTarget = roundConfig?.kind === 'survival' ? 150 : fixedLen;
+    const fairCount = available => {
+      const count = Math.min(roundTarget, available);
+      return isMultiplayer ? Math.floor(count / nPlayers) * nPlayers : count;
+    };
     const usedEntityIds = new Set();
     const usedCorrectAnswers = new Set();
 
@@ -365,7 +381,10 @@ export default function Quiz({
       const countriesSorted = getSortedPoolForType('country');
       const riversSorted = getSortedPoolForType('river');
 
-      const slots = ['city', 'country', 'river', 'city', 'country', 'river'];
+      const pools = { city: citiesSorted, country: countriesSorted, river: riversSorted };
+      const types = Object.keys(pools).filter(type => pools[type].length > 0);
+      const available = new Set(types.flatMap(type => pools[type].map(q => q.id))).size;
+      const slots = Array.from({ length: fairCount(available) }, (_, i) => types[i % types.length]);
       const chosen = [];
 
       slots.forEach((type) => {
@@ -376,6 +395,7 @@ export default function Quiz({
 
         let selected = null;
         for (const q of pool) {
+          if (chosen.some(x => x.id === q.id)) continue;
           if (usedEntityIds.has(q.entityId)) continue;
           if (usedCorrectAnswers.has(q.correctAnswer)) continue;
           selected = q;
@@ -390,12 +410,11 @@ export default function Quiz({
             break;
           }
         }
-
-        // Fallback 2: Take first available
-        if (!selected && pool.length > 0) {
-          selected = pool[0];
+        // Ist eine Kategorie erschöpft, mit den übrigen auffüllen. So bleiben
+        // kleine oder nach Konzept gefilterte Runden spielbar.
+        if (!selected) {
+          selected = types.flatMap(other => pools[other]).find(q => !chosen.some(x => x.id === q.id));
         }
-
         if (selected) {
           chosen.push(selected);
           usedEntityIds.add(selected.entityId);
@@ -406,7 +425,7 @@ export default function Quiz({
       // Format options for each question
       const sessionQuestions = chosen.map(withShuffledOptions);
 
-      // Note: do not shuffle sessionQuestions to preserve strict [Stadt, Land, Fluss, Stadt, Land, Fluss] order!
+      // Reihenfolge Stadt, Land, Fluss beibehalten; keine Frage doppelt spielen.
       applySession(sessionQuestions);
       return;
     }
@@ -429,12 +448,7 @@ export default function Quiz({
     // dessen Ende über die Leben gesteuert wird (nicht über die Fragenzahl).
     // Im Mehrspieler-Modus die Rundenlänge auf ein Vielfaches der Spielerzahl
     // aufrunden, damit jeder gleich viele Fragen bekommt (faire Reihum-Verteilung).
-    const fixedLen = isMultiplayer
-      ? Math.ceil((roundConfig?.length || 10) / nPlayers) * nPlayers
-      : (roundConfig?.length || 10);
-    const targetCount = isSurvival
-      ? Math.min(sortedQuestions.length, 150)
-      : Math.min(fixedLen, sortedQuestions.length);
+    const targetCount = fairCount(sortedQuestions.length);
 
     const chosenQuestions = [];
     const usedParentCountryIds = new Set();
@@ -463,8 +477,7 @@ export default function Quiz({
       }
     }
 
-    // Fallback: If we couldn't find 5 questions due to parent country constraints, 
-    // run another pass ignoring the parent country constraints (Rule 3)
+    // Bei kleinen Pools zuerst die Einschränkung des Herkunftslands lockern.
     if (chosenQuestions.length < targetCount) {
       for (const q of sortedQuestions) {
         if (chosenQuestions.length >= targetCount) break;
@@ -477,7 +490,7 @@ export default function Quiz({
       }
     }
 
-    // Final fallback: just take the first 5 available if we still don't have enough
+    // Anschließend verschiedene Fragen desselben Konzepts zulassen.
     if (chosenQuestions.length < targetCount) {
       for (const q of sortedQuestions) {
         if (chosenQuestions.length >= targetCount) break;
@@ -496,7 +509,7 @@ export default function Quiz({
   };
 
   const handleSelectOption = (option) => {
-    if (isAnswered) return;
+    if (isAnswered || inputPaused) return;
     playClick();
     
     const q = questions[currentIdx];
@@ -520,6 +533,7 @@ export default function Quiz({
       playCorrectChime();
       setIsAnswered(true);
       setScore(prev => prev + 1);
+      if (newAttempts === 1) setFirstTryCount(prev => prev + 1);
       // Mehrspieler: Treffer dem aktuellen Spieler gutschreiben.
       if (isMultiplayer) setPlayerScores(prev => { const n = [...prev]; n[currentPlayerIdx] = (n[currentPlayerIdx] || 0) + 1; return n; });
 
@@ -540,6 +554,7 @@ export default function Quiz({
       if (!isMultiplayer) persistUserAnswer(q.entityId, q.entityType, true, newAttempts);
     } else {
       playErrorBuzzer();
+      setMistakeQuestions(prev => [...prev, q]);
       setIsAnswered(true);
       if (isSurvival) setLives(prev => prev - 1); // Überlebens-Modus: ein Leben weg
 
@@ -577,7 +592,10 @@ export default function Quiz({
   // wechseln können. Der asynchrone Schreibvorgang darf deshalb im Hintergrund
   // laufen, aber ein Transaktionsfehler muss beobachtet und sichtbar werden.
   const persistUserAnswer = (entityId, entityType, isCorrect, attemptCount) => {
-    const write = saveUserAnswer(entityId, entityType, isCorrect, attemptCount);
+    // Bei wiederholten Konzepten muss jede Berechnung den vorherigen Commit
+    // lesen. Zwei gleichzeitige Read-modify-write-Vorgänge verlören eine Antwort.
+    const write = progressWriteTail.current.then(() => saveUserAnswer(entityId, entityType, isCorrect, attemptCount));
+    progressWriteTail.current = write.catch(() => {});
     if (onTrackProgressWrite) onTrackProgressWrite(write);
     else void write.catch(error => {
       console.error('Lernfortschritt konnte nicht gespeichert werden:', error);
@@ -592,18 +610,35 @@ export default function Quiz({
     </div>
   ) : null;
 
-  const handleRestart = async () => {
-    if (onFlushProgressWrites) await onFlushProgressWrites();
+  const changeSession = async action => {
+    if (inputPaused || sessionActionPending.current) return;
+    sessionActionPending.current = true;
+    setIsSessionChanging(true);
+    try {
+      if (onFlushProgressWrites) await onFlushProgressWrites();
+      else await progressWriteTail.current;
+      await action();
+    } finally {
+      sessionActionPending.current = false;
+      setIsSessionChanging(false);
+    }
+  };
+
+  const handleRestart = () => changeSession(() => {
     if (onQuizRestart) onQuizRestart();
     generateQuizSession();
-  };
+  });
 
-  const handleFinish = async () => {
-    if (onFlushProgressWrites) await onFlushProgressWrites();
-    if (onQuizFinished) await onQuizFinished();
-  };
+  const handlePractice = () => changeSession(() => {
+    if (onQuizRestart) onQuizRestart();
+    applySession(mistakeQuestions.map(q => ({ ...q, options: shuffle(q.options || []) })), { practice: true });
+  });
+
+  const handleFinish = () => changeSession(() => onQuizFinished?.());
 
   const handleNextQuestion = () => {
+    if (inputPaused) return;
+    if (resetClickedMapId) resetClickedMapId();
     // Survival endet, sobald die Leben aufgebraucht sind; sonst weiter, solange der
     // (große) Fragenvorrat reicht. Feste Runde endet nach der letzten Frage.
     const survivalOver = isSurvival && lives <= 0;
@@ -642,8 +677,9 @@ export default function Quiz({
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        justifyContent: 'center',
-        height: '100%',
+        justifyContent: 'flex-start',
+        minHeight: '100%',
+        overflowY: 'auto',
         gap: '20px'
       }}>
         <div style={{
@@ -680,7 +716,7 @@ export default function Quiz({
           ) : (
             <>
               <h2 style={{ fontFamily: 'var(--font-title)', color: 'var(--color-primary)', marginBottom: '8px' }}>
-                {isSurvival ? 'Aus!' : 'Runde beendet!'}
+                {isPractice ? 'Wiederholung beendet!' : isSurvival && lives <= 0 ? 'Aus!' : 'Runde beendet!'}
               </h2>
               <p style={{ color: 'var(--text-muted)', fontSize: '13px', lineHeight: '1.4' }}>
                 {isSurvival ? (
@@ -688,6 +724,7 @@ export default function Quiz({
                 ) : (
                   <>Ergebnis: <strong>{score}</strong> von <strong>{questions.length}</strong> richtig.<br/></>
                 )}
+                Direkt gewusst: <strong>{firstTryCount}</strong> von <strong>{currentIdx + 1}</strong>.<br />
                 Punkte verdient: <strong style={{ color: 'var(--color-secondary)' }}>+{points} Punkte</strong>.
               </p>
             </>
@@ -696,11 +733,17 @@ export default function Quiz({
 
         {progressSaveAlert}
 
+        {!isMultiplayer && mistakeQuestions.length > 0 && (
+          <button className="btn-terra-primary" onClick={handlePractice} disabled={inputPaused}>
+            <RotateCcw size={15} /> Fehler üben ({mistakeQuestions.length})
+          </button>
+        )}
         <div style={{ display: 'flex', gap: '12px', width: '100%', maxWidth: '280px' }}>
           <button 
             className="btn-terra"
             style={{ flex: 1, justifyContent: 'center' }}
             onClick={handleRestart}
+            disabled={inputPaused}
           >
             <RotateCcw size={15} />
             Erneut
@@ -709,6 +752,7 @@ export default function Quiz({
             className="btn-terra-primary"
             style={{ flex: 1, justifyContent: 'center' }}
             onClick={handleFinish}
+            disabled={inputPaused}
           >
             Fortfahren
           </button>
@@ -729,7 +773,7 @@ export default function Quiz({
   return (
     <div className="terra-panel slide-in" style={{
       padding: '20px',
-      height: '100%',
+      minHeight: '100%',
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'space-between'
@@ -738,7 +782,7 @@ export default function Quiz({
       <div>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px', gap: '8px' }}>
           <span style={{ fontSize: '13px', fontWeight: 600, color: 'var(--text-muted)' }}>
-            {isSurvival ? `FRAGE ${currentIdx + 1}` : `FRAGE ${currentIdx + 1} VON ${questions.length}`}
+            {isPractice ? 'WIEDERHOLUNG · ' : ''}{isSurvival ? `FRAGE ${currentIdx + 1}` : `FRAGE ${currentIdx + 1} VON ${questions.length}`}
           </span>
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
             {isSurvival && (
@@ -862,7 +906,7 @@ export default function Quiz({
                   key={index}
                   className="btn-terra"
                   onClick={() => handleSelectOption(option)}
-                  disabled={isAnswered}
+                  disabled={isAnswered || inputPaused}
                   style={{
                     width: '100%',
                     justifyContent: 'flex-start',
@@ -950,6 +994,7 @@ export default function Quiz({
               className="btn-terra-primary"
               style={{ width: '100%', justifyContent: 'center' }}
               onClick={handleNextQuestion}
+              disabled={inputPaused}
             >
               Weiter
               <ArrowRight size={14} />

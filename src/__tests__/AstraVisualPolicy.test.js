@@ -1,4 +1,5 @@
 import React from 'react';
+import ConceptVisual from '../components/ConceptVisual';
 import { cleanup, render, screen } from '@testing-library/react';
 import { afterEach, describe, expect, it } from 'vitest';
 import {
@@ -27,6 +28,19 @@ const concept = (overrides = {}) => ({
   attributes: {},
   source: { name: 'Fachkatalog' },
   ...overrides
+});
+
+describe('Astra-Ersatzansicht ohne WebGL', () => {
+  it('verbirgt Sternlisten bei der Frage nach dem hellsten Stern bis zur Antwort', () => {
+    const orion = concept({ name: 'Orion', category: 'constellation', attributes: {
+      brightestStar: 'Rigel', notableStars: 'Rigel, Beteigeuze', mainStars: 'Rigel und Saiph',
+    } });
+    const props = { domain: { accent: '#5B4B8A' }, concept: orion, testedAttribute: 'brightestStar' };
+    const { rerender } = render(React.createElement(ConceptVisual, props));
+    expect(screen.queryByText(/Rigel/)).not.toBeInTheDocument();
+    rerender(React.createElement(ConceptVisual, { ...props, isQuestionAnswered: true }));
+    expect(screen.getByText('Rigel, Beteigeuze')).toBeInTheDocument();
+  });
 });
 
 describe('Astra-Sternevidenz', () => {

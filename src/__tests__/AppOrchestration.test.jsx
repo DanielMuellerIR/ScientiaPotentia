@@ -4,8 +4,10 @@ import {
 } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import App from '../App';
-import { getSetting, saveSetting } from '../utils/db';
+import { getSetting, saveSetting, getAllProgress } from '../utils/db';
 import { loadDomainConcepts } from '../domains';
+
+const mapReadiness = vi.hoisted(() => ({ delayed: false }));
 
 vi.mock('../domains', () => {
   const domain = {
@@ -51,9 +53,15 @@ vi.mock('../components/ScientiaHub', () => ({
   default: () => <div>Test-Hub</div>,
 }));
 vi.mock('../components/VisualPanel', () => ({
-  default: ({ mapProps }) => (
-    <button type="button" onClick={() => mapProps.onSelectEntity('target')}>Ziel wählen</button>
-  ),
+  default: ({ mapProps }) => {
+    React.useEffect(() => {
+      if (!mapReadiness.delayed) mapProps.onAvailabilityChange(true);
+    }, [mapProps.onAvailabilityChange]);
+    return <>
+      <button type="button" onClick={() => mapProps.onSelectEntity('target')}>Ziel wählen</button>
+      <button type="button" onClick={() => mapProps.onAvailabilityChange(false)}>Ohne WebGL fortsetzen</button>
+    </>;
+  },
 }));
 vi.mock('../components/Atlas', () => ({
   default: ({ onStartQuickQuiz }) => (
@@ -76,12 +84,12 @@ vi.mock('../components/QuizLauncher', () => ({
 }));
 vi.mock('../components/Quiz', () => ({
   default: ({ dueEntities, entityFilterId, onAddScore, onQuizFinished, onQuizRestart,
-    onTrackProgressWrite, roundConfig }) => (
+    onTrackProgressWrite, roundConfig, isPaused }) => (
     <div>
       <div data-testid="round-config">{JSON.stringify(roundConfig)}</div>
       <div data-testid="due-ids">{dueEntities.map(entity => entity.id).join(',')}</div>
       <div data-testid="entity-filter">{entityFilterId || ''}</div>
-      <button type="button" onClick={() => onAddScore(10)}>10 Punkte</button>
+      <button type="button" disabled={isPaused} onClick={() => onAddScore(10)}>10 Punkte</button>
       <button type="button" onClick={onQuizRestart}>Erneut</button>
       <button type="button" onClick={() => {
         onTrackProgressWrite(Promise.reject(new Error('Antwort-Commit fehlgeschlagen')));
@@ -116,8 +124,10 @@ async function openQuiz() {
 }
 
 beforeEach(() => {
+  mapReadiness.delayed = false;
   vi.clearAllMocks();
   configureSettings();
+  getAllProgress.mockResolvedValue([]);
   loadDomainConcepts.mockImplementation(domain => Promise.resolve({
     [`${domain.id}:concept`]: { id: `${domain.id}:concept`, type: 'test' },
   }));
@@ -126,6 +136,32 @@ beforeEach(() => {
 afterEach(cleanup);
 
 describe('App-Orchestrierung', () => {
+  it('gibt das Quiz erst nach geklärter Kartenfähigkeit frei', async () => {
+    mapReadiness.delayed = true;
+    render(<App />);
+    fireEvent.click(screen.getByRole('button', { name: 'Quiz' }));
+    await screen.findByText('Kartenfähigkeit wird geprüft …');
+    expect(screen.queryByRole('button', { name: 'Quiz starten' })).not.toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: 'Ohne WebGL fortsetzen' }));
+    fireEvent.click(await screen.findByRole('button', { name: 'Quiz starten' }));
+    expect(await screen.findByRole('button', { name: '10 Punkte' })).toBeEnabled();
+  });
+  it('sperrt das Quiz vor dem Fortschritts-Reload beim Verlassen', async () => {
+    await openQuiz();
+    let releaseRead;
+    getAllProgress.mockImplementationOnce(() => new Promise(resolve => { releaseRead = resolve; }));
+    fireEvent.click(screen.getByRole('button', { name: 'Übersicht' }));
+    await waitFor(() => expect(releaseRead).toBeDefined());
+    const answer = screen.getByRole('button', { name: '10 Punkte' });
+    expect(answer).toBeDisabled();
+    fireEvent.click(answer);
+    expect(saveSetting).not.toHaveBeenCalledWith('highScore', 10);
+    releaseRead([{ entityId: 'target', repetitions: 1, nextDueDate: 0 }]);
+    await screen.findByText('Test-Hub');
+    fireEvent.click(screen.getByRole('button', { name: 'Quiz' }));
+    fireEvent.click(await screen.findByRole('button', { name: 'Quiz starten' }));
+    expect(await screen.findByTestId('due-ids')).toHaveTextContent('target');
+  });
   it('holt frühe Bestmarken und Serienabschlüsse nach dem Lesen nach', async () => {
     let resolveStreak;
     let resolveHighScore;

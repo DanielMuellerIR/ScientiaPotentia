@@ -56,7 +56,7 @@ if (result.fatal) {
   }
   if (result.withoutFile.length) {
     problems.push(
-      `${result.withoutFile.length} Manifest-Einträge zeigen auf eine fehlende Datei `
+      `${result.withoutFile.length} Manifest-Einträge zeigen auf eine fehlende oder beschädigte Datei `
       + `(z.B. ${result.withoutFile.slice(0, 3).join(', ')})`,
     );
   }

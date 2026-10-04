@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { SlidersHorizontal } from 'lucide-react';
-import maplibregl from 'maplibre-gl';
+import * as maplibregl from 'maplibre-gl';
+import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url';
 import { useGeoData } from '../utils/useGeoData';
 // Die Geometriedateien tragen im Produktionsbau ihren Inhaltshash im Namen.
 // dataUrl() loest den Klarnamen dorthin auf (siehe src/utils/dataUrl.js); ein
@@ -11,6 +12,9 @@ import { dataUrl } from '../utils/dataUrl';
 // auffindbar. Kacheln, Glyphen und Sprite bleiben bewusst beim OpenFreeMap-Original;
 // die Abhängigkeiten sind zusätzlich in der JSON-Metadaten beschrieben.
 const PARCHMENT_STYLE_URL = `${import.meta.env.BASE_URL}map_styles/scientia_parchment.json`;
+// Der Worker muss mitgebaut werden; ein relativer Bibliothekspfad funktioniert
+// im Entwicklungsserver, fehlt aber neben dem Produktionsbundle.
+maplibregl.setWorkerUrl(workerUrl);
 
 /**
  * MapLibre-'match'-Ausdruecke brauchen mindestens ein (Label, Output)-Paar
@@ -71,6 +75,13 @@ export function getBoundingBox(geometry) {
   return [[minLng, minLat], [maxLng, maxLat]];
 }
 
+/** Reserviert auch in niedrigen Mobilpanels genug Fläche für den Kartenausschnitt. */
+export function boundedMapPadding(container, preferred) {
+  const width = container?.clientWidth || 0;
+  const height = container?.clientHeight || 0;
+  return Math.max(0, Math.min(preferred, Math.floor(Math.min(width, height) * 0.22)));
+}
+
 export default function Map({
   selectedId,
   onSelectEntity,
@@ -80,11 +91,13 @@ export default function Map({
   progressHeatmap = {},
   mode = 'atlas', // 'atlas' | 'quiz' | 'dashboard'
   showSubdivisions = false,
-  zoomToEntityId = null
+  zoomToEntityId = null,
+  onAvailabilityChange,
 }) {
   const mapContainerRef = useRef(null);
   const mapRef = useRef(null);
   const [mapLoaded, setMapLoaded] = useState(false);
+  const [initializationFailed, setInitializationFailed] = useState(false);
   const [viewZoom, setViewZoom] = useState(1.5);
   // Beide echten MapLibre-Werkzeuge teilen einen gut erreichbaren Schalter.
   // Die Attribution bleibt davon unberührt und damit immer sichtbar.
@@ -128,16 +141,25 @@ export default function Map({
     if (mapRef.current) return;
 
     console.log('Initializing MapLibre GL JS...');
-    const map = new maplibregl.Map({
-      container: mapContainerRef.current,
-      style: PARCHMENT_STYLE_URL,
-      center: [10, 30],
-      zoom: 1.5,
-      maxZoom: 9,
-      minZoom: 1,
-      // Nicht abschalten: Der Style übernimmt die Anbieterattribution aus seinen Quellen.
-      attributionControl: true
-    });
+    let map;
+    try {
+      map = new maplibregl.Map({
+        container: mapContainerRef.current,
+        style: PARCHMENT_STYLE_URL,
+        center: [10, 30],
+        zoom: 1.5,
+        maxZoom: 9,
+        minZoom: 1,
+        // Nicht abschalten: Der Style übernimmt die Anbieterattribution aus seinen Quellen.
+        attributionControl: true
+      });
+    } catch (error) {
+      console.warn('Karte konnte nicht gestartet werden:', error);
+      setInitializationFailed(true);
+      onAvailabilityChange?.(false);
+      return;
+    }
+    onAvailabilityChange?.(true);
 
     mapRef.current = map;
     // Subdivisionen werden im Atlas ab Zoomstufe 3 eingeblendet. Der React-State
@@ -628,7 +650,7 @@ export default function Map({
           }
 
           map.fitBounds(bbox, {
-            padding: mode === 'quiz' ? 150 : 80,
+            padding: boundedMapPadding(mapContainerRef.current, mode === 'quiz' ? 150 : 80),
             maxZoom: dynamicMaxZoom,
             duration: 1200,
             essential: true
@@ -659,7 +681,7 @@ export default function Map({
           }
 
           map.fitBounds(bbox, {
-            padding: mode === 'quiz' ? 180 : 100,
+            padding: boundedMapPadding(mapContainerRef.current, mode === 'quiz' ? 180 : 100),
             maxZoom: dynamicMaxZoom,
             duration: 1200,
             essential: true
@@ -719,7 +741,7 @@ export default function Map({
           }
 
           map.fitBounds(bbox, {
-            padding: isQuiz ? 150 : 80,
+            padding: boundedMapPadding(mapContainerRef.current, isQuiz ? 150 : 80),
             maxZoom: dynamicMaxZoom,
             duration: 1200,
             essential: true
@@ -728,6 +750,13 @@ export default function Map({
       }
     }
   }, [selectedId, zoomToEntityId, countriesGeoJSON, subdivisionsGeoJSON, riversGeoJSON, mapLoaded, mode]);
+
+  if (initializationFailed) {
+    return <div role="status" style={{ padding: '24px', height: '100%', display: 'grid', placeContent: 'center', textAlign: 'center' }}>
+      <h2>Karte nicht verfügbar</h2>
+      <p>Der Weltatlas benötigt WebGL 2. Das Quiz bleibt ohne Kartenklicks spielbar.</p>
+    </div>;
+  }
 
   return (
     <div className={`terra-map ${areMapControlsVisible ? '' : 'terra-map-controls-hidden'}`}>

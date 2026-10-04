@@ -1,8 +1,10 @@
-import { mkdtemp, mkdir, rm, writeFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
+import { mirrorFileIsValid } from '../../scripts/lib/image_mirror_manifest.mjs';
+import { mkdtemp, mkdir, readFile, readdir, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
-import { chooseMode, mirrorPathFor, verifyMirror } from '../../scripts/mirror_concept_images.mjs';
+import { chooseMode, mirrorPathFor, verifyMirror, writeIfAbsent, parseMirrorArguments } from '../../scripts/mirror_concept_images.mjs';
 import {
   buildRightsReport, invalidMirrorNames, metadataRefreshBatch, rightsProblems, rightsBindingProblems,
 } from '../../scripts/lib/image_mirror_rights.mjs';
@@ -134,6 +136,16 @@ describe('Abgleich von Katalog, Manifest und Dateien', () => {
 
   const commonsImage = { url: 'https://commons.wikimedia.org/wiki/File%3ATest.jpg' };
 
+  it.each([[], [0, 960, 720, 0, 'r'], ['../outside.webp', 960, 720, 0, 'r']].map(entry => ({ entry })))('weist unbrauchbare Einträge zurück: %j', async ({ entry }) => {
+    const paths = await fixture({ manifestFiles: { 'Test.jpg': entry }, conceptImage: commonsImage });
+    expect((await verifyMirror(paths)).withoutEntry).toEqual(['Test.jpg']);
+  });
+
+  it('erkennt beschädigte Hashdateien', async () => {
+    const paths = await fixture({ manifestFiles: { 'Test.jpg': ['ab00112233445566.webp', 960, 720, 0, 'r'] }, presentFiles: ['ab00112233445566.webp'], conceptImage: commonsImage });
+    expect((await verifyMirror(paths)).withoutFile).toHaveLength(1);
+  });
+
   it('meldet ein Konzeptbild ohne Manifest-Eintrag', async () => {
     const paths = await fixture({ manifestFiles: {}, conceptImage: commonsImage });
     const result = await verifyMirror(paths);
@@ -152,8 +164,8 @@ describe('Abgleich von Katalog, Manifest und Dateien', () => {
 
   it('meldet Dateien, die kein Eintrag mehr nennt', async () => {
     const paths = await fixture({
-      manifestFiles: { 'Test.jpg': ['ab00112233445566.webp', 960, 720, 0, 'r'] },
-      presentFiles: ['ab00112233445566.webp', 'cc99887766554433.webp'],
+      manifestFiles: { 'Test.jpg': ['valid.webp', 960, 720, 0, 'r'] },
+      presentFiles: ['valid.webp', 'cc99887766554433.webp'],
       conceptImage: commonsImage,
     });
     const result = await verifyMirror(paths);
@@ -179,4 +191,36 @@ describe('Abgleich von Katalog, Manifest und Dateien', () => {
     const result = await verifyMirror({ ...paths, manifestPath: join(paths.dataDir, 'weg.json') });
     expect(result.fatal).toMatch(/Manifest fehlt/);
   });
+});
+
+it('ersetzt eine unvollständige Kopie atomar durch den vollständigen Inhalt', async () => {
+  const root = await scratch();
+  const path = join(root, 'copy.webp');
+  await writeFile(path, 'partial');
+  await writeIfAbsent(path, Buffer.from('complete'));
+  expect(await readFile(path, 'utf8')).toBe('complete');
+  expect(await readdir(root)).toEqual(['copy.webp']);
+});
+it.each([['fetch', '--limit', '2'], ['fetch', '--limit=2'], ['--limit', '2', 'fetch']])('liest beide Limit-Schreibweisen: %j', (...argv) => {
+  expect(parseMirrorArguments(argv)).toMatchObject({ command: 'fetch', options: { limit: 2 } });
+});
+it.each(['-1', '1.5', 'oops', '', '9007199254740992'])('weist ein ungültiges Limit zurück: %j', value => {
+  expect(() => parseMirrorArguments(['fetch', `--limit=${value}`])).toThrow(/limit/i);
+});
+
+it('prüft beim Wiederaufnehmen Inhaltshash und gespeicherte Bytezahl', async () => {
+  const root = await scratch();
+  const content = Buffer.from('vollständiges Bild');
+  const file = `${createHash('sha256').update(content).digest('hex').slice(0, 16)}.webp`;
+  const path = join(root, file);
+  await writeFile(path, content);
+  expect(await mirrorFileIsValid(path, file, content.length)).toBe(true);
+  expect(await mirrorFileIsValid(path, file, content.length + 1)).toBe(false);
+  await writeFile(path, Buffer.alloc(content.length, 0));
+  expect(await mirrorFileIsValid(path, file, content.length)).toBe(false);
+});
+
+it('behandelt die bestehende Nullgrenze weiterhin als unbegrenzt', () => {
+  expect(parseMirrorArguments(['fetch', '--limit', '0']).options.limit).toBe(0);
+  expect(() => parseMirrorArguments(['fetch', '--limit'])).toThrow(/limit/i);
 });

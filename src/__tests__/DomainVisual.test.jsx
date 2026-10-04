@@ -8,6 +8,13 @@ import DomainVisual from '../components/DomainVisual';
 afterEach(cleanup);
 
 describe('DomainVisual', () => {
+  it('zählt in der Lernübersicht nur tatsächlich abfragbare Konzepte', () => {
+    render(<DomainVisual domain={{ latinName: 'Test', Icon: Layers }}
+      concepts={{ a: { category: 'animal' }, b: { category: 'animal' } }}
+      questionPool={[{ entityId: 'a' }]} srsProgress={{ a: { repetitions: 1 } }} />);
+    expect(screen.getByText('1 / 1')).toBeInTheDocument();
+    expect(screen.getByTestId('domain-progress-ring')).toHaveAttribute('aria-label', '100 % entdeckt');
+  });
   it('fasst den Fortschritt in einem Ring zusammen und lokalisiert die Themen', () => {
     render(
       <DomainVisual

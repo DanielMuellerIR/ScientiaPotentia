@@ -4,7 +4,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import maplibregl from 'maplibre-gl';
 import Atlas from '../components/Atlas';
-import Map, { getBoundingBox } from '../components/Map';
+import Map, { getBoundingBox, boundedMapPadding } from '../components/Map';
 import { useGeoData } from '../utils/useGeoData';
 import { DATA_MAP_META_NAME, resetDataUrlCache } from '../utils/dataUrl';
 
@@ -91,6 +91,20 @@ describe('lokaler Terra-Pergamentstil', () => {
 });
 
 describe('Terra-Kartenwerkzeuge', () => {
+  it('hält die Oberfläche ohne WebGL nutzbar und meldet fehlende Kartenfähigkeit', () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const availability = vi.fn();
+    maplibregl.Map.mockImplementationOnce(function () { throw new Error('WebGL 2 unavailable'); });
+    render(<Map onAvailabilityChange={availability} />);
+    expect(screen.getByRole('status')).toHaveTextContent('Karte nicht verfügbar');
+    expect(availability).toHaveBeenCalledWith(false);
+    warn.mockRestore();
+  });
+  it('lässt im niedrigen Mobilpanel trotz hoher Wunschpolsterung eine sichtbare Karte', () => {
+    const padding = boundedMapPadding({ clientWidth: 350, clientHeight: 180 }, 180);
+    expect(180 - 2 * padding).toBeGreaterThan(100);
+    expect(boundedMapPadding({ clientWidth: 1000, clientHeight: 900 }, 80)).toBe(80);
+  });
   it('ergänzt oberhalb der Flusslinie eine lesbare Beschriftung aus dem geprüften Namen', async () => {
     render(<Map mode="atlas" onSelectEntity={vi.fn()} />);
 
@@ -242,6 +256,16 @@ describe('Terra-Kartenwerkzeuge', () => {
 });
 
 describe('Atlas-Suche', () => {
+  it('setzt einen Länder-Untertab beim Wechsel zu einer Stadt zurück', () => {
+    const selected = geodb.entities.DE;
+    const next = Object.values(geodb.entities).find(entity => entity.type === 'city');
+    const props = { geodb, onSelectEntity: vi.fn() };
+    const { rerender } = render(<Atlas {...props} selectedEntity={selected} />);
+    fireEvent.click(screen.getByRole('button', { name: 'Städte', exact: true }));
+    expect(screen.getByRole('button', { name: 'Städte', exact: true })).toHaveAttribute('aria-pressed', 'true');
+    rerender(<Atlas {...props} selectedEntity={next} />);
+    expect(screen.getByRole('button', { name: 'Übersicht', exact: true })).toHaveAttribute('aria-pressed', 'true');
+  });
   it('hält Gegenwarts- und Tagespolitik aus Datenbestand und Detailansicht heraus', () => {
     Object.values(geodb.entities).forEach((entity) => {
       expect(entity.metadata).not.toHaveProperty('headOfState');

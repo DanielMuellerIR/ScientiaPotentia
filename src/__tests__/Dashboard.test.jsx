@@ -6,10 +6,10 @@ import Dashboard from '../components/Dashboard';
 afterEach(cleanup);
 
 describe('Dashboard', () => {
-  it('zählt bei Terra nur Entitäten mit einer erreichbaren Frage', () => {
+  it.each(['terra', 'astra', 'homo', 'natura', 'cultura', 'lingua', 'machina', 'historia', 'scientia'])('zählt in %s nur erreichbare Konzepte', id => {
     render(
       <Dashboard
-        domain={{ id: 'terra', latinName: 'Terra', label: 'Geografie' }}
+        domain={{ id, latinName: 'Test', label: 'Testbereich' }}
         geodb={{
           entities: {
             reachable: { id: 'reachable', type: 'city', name: 'Erreichbar' },
@@ -25,7 +25,7 @@ describe('Dashboard', () => {
       />
     );
 
-    expect(screen.getByText('1 Orte')).toBeInTheDocument();
+    expect(screen.getByText(id === 'terra' ? '1 Orte' : '1 Konzepte')).toBeInTheDocument();
     expect(screen.getByText('1 / 1 entdeckt')).toBeInTheDocument();
     expect(screen.getByTitle('Angespielt: 100%')).toBeInTheDocument();
     expect(screen.getByTitle('Gemeistert: 0%')).toBeInTheDocument();
@@ -72,6 +72,7 @@ describe('Dashboard', () => {
             learning: { id: 'learning', type: 'star' },
           },
         }}
+        questionPool={['mastered', 'familiar', 'learning'].map(entityId => ({ entityId }))}
         srsProgress={{
           mastered: { repetitions: 3, interval: 30 },
           familiar: { repetitions: 2, interval: 7 },

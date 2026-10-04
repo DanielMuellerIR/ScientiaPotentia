@@ -26,6 +26,7 @@ const {
 const {
   isBlacklistedConcept,
   isBlacklistedFile,
+  isRejectedImageMapping,
 } = require('./image_resolution_policy.cjs');
 
 const ROOT = path.join(__dirname, '..', '..', '..');
@@ -114,6 +115,9 @@ function validateMapping(mapping, byId = null) {
     if (isBlacklistedFile(entry.imageFile)) {
       throw new Error(`Bild-Mapping: gesperrte Commons-Datei für ${entry.id}`);
     }
+    if (isRejectedImageMapping(entry.id, entry.imageFile)) {
+      throw new Error(`Bild-Mapping: fachlich falsches Motiv für ${entry.id}`);
+    }
     if (typeof entry.imageLicense !== 'string' || !entry.imageLicense.trim()) {
       throw new Error(`Bild-Mapping: ${entry.id} besitzt keine Lizenzangabe`);
     }
@@ -149,6 +153,9 @@ function validatePruneResult(check) {
 }
 
 function applyMapping(byId, mapping) {
+  // Direkte Aufrufer bekommen denselben Schutz wie der CLI-Preflight. Vor der
+  // ersten Änderung wird das ganze Mapping geprüft, damit nichts halb ankommt.
+  validateMapping(mapping, byId);
   let applied = 0;
   let alreadyImaged = 0;
   for (const entry of mapping) {

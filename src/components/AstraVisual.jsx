@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
+import ConceptVisual from './ConceptVisual';
 import * as THREE from 'three';
 // Erscheinungs-/Beschriftungsdaten zentral (geteilt mit SolarSystemExplorer).
 import {
@@ -60,15 +61,8 @@ const EXHIBIT_REVEAL_CATEGORIES = new Set([
   'phenomenon'
 ]);
 const CONTEXT_ATTRS = ['orderFromSun', 'distanceFromSunAU', 'distanceLy', 'parentPlanet', 'location'];
-const ASTRA_LEAKY_SIBLINGS = Object.freeze({
-  // Sternlisten nennen den hellsten Stern oft direkt. Dieser Astra-Sonderfall
-  // ergänzt den gemeinsamen Guard, ohne dessen zentrale Regeln zu duplizieren.
-  brightestStar: ['notableStars', 'mainStars']
-});
-
 export function isAstraAttrLeakedBeforeAnswer(key, testedAttribute) {
-  if (isAttrLeakedBeforeAnswer(key, testedAttribute)) return true;
-  return Boolean(ASTRA_LEAKY_SIBLINGS[testedAttribute]?.includes(key));
+  return isAttrLeakedBeforeAnswer(key, testedAttribute);
 }
 
 /** Spektralfarbe ausschließlich aus einem expliziten O/B/A/F/G/K/M-Wert. */
@@ -190,7 +184,7 @@ function NeutralAstraExhibit() {
 export function AstraExhibitReveal({ concept, revealed }) {
   if (!EXHIBIT_REVEAL_CATEGORIES.has(concept?.category || concept?.type)) return null;
   return (
-    <div style={{ position: 'absolute', inset: '88px 0 76px', zIndex: 2, display: 'grid', placeItems: 'center' }}>
+    <div style={{ position: 'absolute', inset: '12px 0', zIndex: 2, display: 'grid', placeItems: 'center' }}>
       <AnswerRevealImage
         image={concept?.image}
         name={concept?.name}
@@ -459,6 +453,7 @@ export default function AstraVisual({
   // three-Objekte über Renders hinweg halten, ohne Re-Render auszulösen.
   const ctx = useRef({});
   const [ready, setReady] = useState(false);
+  const [rendererUnavailable, setRendererUnavailable] = useState(false);
   const detailsUnlocked = Boolean(isQuestionAnswered);
   const hideIdentity = (answerIsName || hideConceptIdentity) && !detailsUnlocked;
   const disclosure = getAstraDisclosurePolicy({
@@ -478,7 +473,13 @@ export default function AstraVisual({
     const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 2000);
     camera.position.set(0, 0, 3.2);
 
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    let renderer;
+    try {
+      renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    } catch {
+      setRendererUnavailable(true);
+      return;
+    }
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     mount.appendChild(renderer.domElement);
@@ -508,15 +509,15 @@ export default function AstraVisual({
     const body = new THREE.Mesh(bodyGeo, new THREE.MeshStandardMaterial({ color: 0x888888 }));
     scene.add(body);
 
-    // Ringgeometrie ist für alle Ringplaneten gleich. Nur Saturn darf die
-    // gesicherte NASA-Aufnahme verwenden; die übrigen bleiben schematisch.
-    const ringGeo = new THREE.RingGeometry(1.24, 2.05, 160);
+    // Jupiter, Uranus und Neptun haben schwache Ringsysteme (NASA). Eine breite,
+    // helle Scheibe suggerierte Saturnringe; hier nur ein dezenter schematischer Ring.
+    const ringGeo = new THREE.RingGeometry(1.35, 1.41, 160);
     const rings = new THREE.Mesh(
       ringGeo,
       new THREE.MeshBasicMaterial({
         color: 0xc8c2ae,
         transparent: true,
-        opacity: 0.48,
+        opacity: 0.18,
         side: THREE.DoubleSide,
         depthWrite: false
       })
@@ -826,15 +827,21 @@ export default function AstraVisual({
   const showSaturnRingCredit = disclosure.showRings && activeId === 'saturn';
   const showConceptSource = !hasSurfaceTexture && disclosure.showSource;
 
+  if (rendererUnavailable) {
+    return <ConceptVisual domain={domain} concept={activeConcept} testedAttribute={testedAttribute}
+      answerIsName={answerIsName} hideConceptIdentity={hideConceptIdentity} isQuestionAnswered={isQuestionAnswered} />;
+  }
+
   return (
     <div
-      className="terra-panel"
+      className="terra-panel quiz-scene quiz-scene--astra" tabIndex={0} aria-label="Illustration und Erklärung"
       style={{
-        height: '100%', position: 'relative', overflow: 'hidden',
+        height: '100%', position: 'relative',
         border: '1px solid var(--border-light)', background: '#05060f'
       }}
     >
-      {/* 3D-Canvas-Mount füllt das Panel */}
+      <div className="quiz-scene-stage">
+      {/* Der Canvas und die Bildtafel teilen einen eigenen Illustrationsrahmen. */}
       <div ref={mountRef} style={{ position: 'absolute', inset: 0 }} />
 
       {activeConcept && disclosure.isDeepSky ? (
@@ -847,6 +854,12 @@ export default function AstraVisual({
 
       {activeConcept && disclosure.showTransitDiagram ? <ExoplanetTransitDiagram /> : null}
 
+      {disclosure.showRings && activeId !== 'saturn' && (
+        <span style={{ position: 'absolute', top: '8px', right: '12px', color: '#aaa', fontSize: '10px' }}>
+          Ringe schematisch
+        </span>
+      )}
+
       {/* Kontext-Schema (Phase 2d): verortet das Konzept zusätzlich zum 3D-Körper.
           Unten links, über dem Canvas, oberhalb der Fuß-Leiste. Gibt für
           Konstanten/Sonne null zurück und ist dann unsichtbar.
@@ -854,18 +867,20 @@ export default function AstraVisual({
           oder Lage ganz weglassen, da das Schema die Antwort verraten würde. */}
       {activeConcept && disclosure.showContextMap && (
         <div style={{
-          position: 'absolute', left: '16px', bottom: '92px',
+          position: 'absolute', left: '16px', bottom: '12px',
           width: '140px', height: '140px', pointerEvents: 'none', zIndex: 2
         }}>
           <AstraContextMap concept={activeConcept} accent={accent} />
         </div>
       )}
 
+      </div>
+
       {activeConcept && (
         <>
           {/* Kopf: Kategorie + Name */}
-          <div style={{
-            position: 'absolute', top: 0, left: 0, right: 0, padding: '24px 28px',
+          <div className="quiz-scene-header" style={{
+            padding: '14px 20px',
             textAlign: 'center', color: '#EAE6DC', pointerEvents: 'none', zIndex: 4,
             background: 'linear-gradient(to bottom, rgba(0,0,0,0.45), transparent)'
           }}>
@@ -886,9 +901,9 @@ export default function AstraVisual({
           </div>
 
           {/* Fuß: Konstante prominent, sonst Kennwerte + Fun-Fact */}
-          <div style={{
-            position: 'absolute', bottom: 0, left: 0, right: 0, padding: '20px 24px 30px',
-            color: '#EAE6DC', pointerEvents: 'none', zIndex: 4,
+          <div className="quiz-scene-details" style={{
+            padding: '14px 20px',
+            color: '#EAE6DC', zIndex: 4,
             background: 'linear-gradient(to top, rgba(0,0,0,0.6), transparent)'
           }}>
             {cat === 'constant' ? (
@@ -935,8 +950,8 @@ export default function AstraVisual({
 
       {/* Das CC-BY-Sternenfeld liegt bei jedem Zustand hinter dem Canvas. Sein
           Nachweis bleibt deshalb auch ohne aktive Frage und ohne Körpertextur sichtbar. */}
-      <div data-testid="astra-asset-credit" style={{
-        position: 'absolute', bottom: 0, right: 0, padding: '4px 10px',
+      <div className="quiz-scene-credit" data-testid="astra-asset-credit" style={{
+        padding: '6px 10px',
         fontSize: '10px', opacity: 0.7, color: '#EAE6DC', pointerEvents: 'auto', zIndex: 5
       }}>
         Sternenfeld: <a href={TEXTURE_CREDIT.sourceUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit' }}>{TEXTURE_CREDIT.author}</a>

@@ -8,11 +8,13 @@ import { CATEGORY_LABELS } from './conceptLabels';
  * Scrollbereich nutzt. So passen auch die vielen Kategorien des gemischten
  * Scientia-Quiz in das linke Panel, ohne oben oder unten abgeschnitten zu werden.
  */
-export default function DomainVisual({ domain, concepts = {}, srsProgress = {} }) {
+export default function DomainVisual({ domain, concepts = {}, srsProgress = {}, questionPool }) {
   const Icon = domain.Icon;
   const accent = domain.accent || '#1B305B';
 
+  const playableIds = questionPool && new Set(questionPool.map(question => question.entityId));
   const categories = Object.entries(concepts).reduce((groups, [key, concept]) => {
+    if (playableIds && !playableIds.has(key)) return groups;
     const category = concept.category || concept.type || 'sonstige';
     groups[category] ||= { total: 0, studied: 0 };
     groups[category].total += 1;

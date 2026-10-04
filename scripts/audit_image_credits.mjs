@@ -15,7 +15,7 @@ import {
 // erzeugten Katalog stehen. Bisher hielt die Liste nur die Bildauflösung fern —
 // ein bereits eingepflegtes Konzept wie „Guernica" wurde trotzdem ausgeliefert.
 const require = createRequire(import.meta.url);
-const { isBlacklistedConcept, isBlacklistedFile } = require(
+const { isBlacklistedConcept, isBlacklistedFile, isRejectedImageMapping } = require(
   './data_sources/harvest/image_resolution_policy.cjs');
 
 const DOMAINS = ['astra', 'cultura', 'historia', 'homo', 'lingua', 'machina', 'natura'];
@@ -32,6 +32,9 @@ function checkBlacklist(domain, id, imageUrl, layer) {
   }
   if (imageUrl && isBlacklistedFile(imageUrl)) {
     errors.push(`${prefix}: gesperrte Bilddatei (harvest/BLACKLIST.md) im Bestand`);
+  }
+  if (imageUrl && isRejectedImageMapping(String(id).includes(':') ? id : `${domain}:${id}`, imageUrl)) {
+    errors.push(`${prefix}: fachlich falsches Bildmotiv (harvest/IMAGE_BLACKLIST.json) im Bestand`);
   }
 }
 

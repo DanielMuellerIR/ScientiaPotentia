@@ -1,6 +1,6 @@
 # Fachliche Content-Ceilings
 
-**Stand: 2026-09-30.** Dieses Dokument ersetzt eine reine Fragenquote als
+**Stand: 2026-10-04.** Dieses Dokument ersetzt eine reine Fragenquote als
 Ausbauziel. Zahlen beschreiben den Umfang, nicht die Qualität oder den Bedarf
 für weitere Konzepte.
 
@@ -37,12 +37,12 @@ die Konzeptkarte oder ein fachliches Schema.
 | Domain | Fragen | Konzepte | Bilder | Fachliche Einordnung |
 |---|---:|---:|---:|---|
 | Terra | 5.116 | 1.852 Kartenobjekte | Karte | Geschlossener, quellgebundener Geodatensatz. Neue Fragen nur bei einem zusätzlichen fairen Kartentyp oder einer überprüften Datensatzänderung; keine künstliche Vermehrung pro Ort. |
-| Astra | 5.626 | 1.560 | 531 | Breites, aber quellenabhängiges Reservoir. Kometen und Sternhaufen sind seit 2026-09-02 erschlossen. Neue Körper, Missionen oder Eigenschaften brauchen stabile Fachquellen. Keine Sternbildlinien ohne freigegebene Konvention oder IAU-Grenzdaten. |
-| Homo | 3.237 | 946 | 363 | Das frühere Ceiling von 1.500 bis 1.700 Fragen war zu eng gezogen: Es beschrieb die damals angelegten Kategorien, nicht die Domain. Acht neue Kategorien innerhalb der Körpergrenze (Blutgefäße, Bandapparat, Hirnstrukturen, Botenstoffe, Sinnesorgan-Bestandteile, Zähne, Gewebe, Immunsystem) haben die Zahl fast verdoppelt. Krankheiten und Medizingeschichte bleiben weiterhin draußen. |
-| Natura | 13.849 | 2.402 | 1.878 | Kein numerisches Ceiling: Arten, Lebensräume und Geologie bieten weiter Material. Es gelten aber Notabilität, belastbare Merkmale und eine passende Visualisierung vor weiterer Menge. |
-| Lingua | 4.897 | 1.202 | 197 | Neue Einträge nur bei klaren Sprach-, Schrift- oder Etymologie-Lernzielen; bloße Flexions- und Dialektlisten bleiben aus. Lehnwort, Sprachkuriosum, Grammatik und Sprachfakt werden seit dem 2026-09-03 in der Umkehrrichtung gefragt (Attributwert als Hinweis, Konzeptname als Antwort) und tragen zusammen 47 Fragen. Phonetik bleibt draußen: Dort nennt der Typ in 7 von 10 Fällen die Lösung. |
-| Cultura | 7.749 | 1.986 | 1.046 | Breites Reservoir mit harter Urheberrechts- und Gegenwartsgrenze. Neue Werke müssen fachlich notabel sein; geschützte 2D-Werke, lange Zitate und lebende Rekordpersonen bleiben ausgeschlossen. |
-| Machina | 6.536 | 2.165 | 291 | Breites Reservoir, aber viele abstrakte Konzepte haben bewusst kein Foto. Neue Fragen müssen Funktionsprinzipien lehren; Markenlogos oder aktuelle Produktlisten sind kein Ersatz für eine Visualisierung. |
+| Astra | 5.624 | 1.560 | 525 | Breites, aber quellenabhängiges Reservoir. Kometen und Sternhaufen sind seit 2026-09-02 erschlossen. Neue Körper, Missionen oder Eigenschaften brauchen stabile Fachquellen. Keine Sternbildlinien ohne freigegebene Konvention oder IAU-Grenzdaten. |
+| Homo | 3.236 | 946 | 363 | Das frühere Ceiling von 1.500 bis 1.700 Fragen war zu eng gezogen: Es beschrieb die damals angelegten Kategorien, nicht die Domain. Acht neue Kategorien innerhalb der Körpergrenze (Blutgefäße, Bandapparat, Hirnstrukturen, Botenstoffe, Sinnesorgan-Bestandteile, Zähne, Gewebe, Immunsystem) haben die Zahl fast verdoppelt. Krankheiten und Medizingeschichte bleiben weiterhin draußen. |
+| Natura | 13.848 | 2.402 | 1.877 | Kein numerisches Ceiling: Arten, Lebensräume und Geologie bieten weiter Material. Es gelten aber Notabilität, belastbare Merkmale und eine passende Visualisierung vor weiterer Menge. |
+| Lingua | 4.897 | 1.202 | 193 | Neue Einträge nur bei klaren Sprach-, Schrift- oder Etymologie-Lernzielen; bloße Flexions- und Dialektlisten bleiben aus. Lehnwort, Sprachkuriosum, Grammatik und Sprachfakt werden seit dem 2026-09-03 in der Umkehrrichtung gefragt (Attributwert als Hinweis, Konzeptname als Antwort) und tragen zusammen 47 Fragen. Phonetik bleibt draußen: Dort nennt der Typ in 7 von 10 Fällen die Lösung. |
+| Cultura | 7.622 | 1.986 | 1.042 | Breites Reservoir mit harter Urheberrechts- und Gegenwartsgrenze. Neue Werke müssen fachlich notabel sein; geschützte 2D-Werke, lange Zitate und lebende Rekordpersonen bleiben ausgeschlossen. |
+| Machina | 6.535 | 2.165 | 289 | Breites Reservoir, aber viele abstrakte Konzepte haben bewusst kein Foto. Neue Fragen müssen Funktionsprinzipien lehren; Markenlogos oder aktuelle Produktlisten sind kein Ersatz für eine Visualisierung. |
 | Historia | 6.330 | 1.244 | 1.025 | Breites Reservoir für datierbare, neutral darstellbare Inhalte. Tagespolitik, wertende Systemdebatten und schlecht belegte Rekordlisten bleiben außerhalb der Domain. |
 
 ## Folgen für die Pflege
@@ -60,10 +60,10 @@ die Konzeptkarte oder ein fachliches Schema.
   Gesamtzähler der Domain.
 - Bildabdeckung ist eine eigene Qualitätsarbeit. Sie darf weder ein Konzept
   ohne passendes Bild erzwingen noch ein schwaches Bild als Fortschritt zählen.
-- Die strukturelle Faktenprüfung vom 2026-08-23 meldet in allen sieben
-  JSON-Domains null Fehler. Ihre bestehenden Warnungen ersetzen keine
-  semantische QA; diese bleibt als eigener Backlog-Punkt mit vorheriger
-  Freigabe des MiniMax-Kontingents bestehen.
+- Die strukturelle Faktenprüfung vom 2026-10-04 meldet in allen sieben
+  JSON-Domains null Fehler. Ihre heuristischen Warnungen ersetzen keine
+  semantische QA; bestätigte Inhaltskorrekturen und die Grenzen des Reviews
+  stehen in `review-2026-10-04.md`.
 
 ## Quellen im Projekt
 

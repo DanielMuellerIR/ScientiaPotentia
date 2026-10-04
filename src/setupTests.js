@@ -45,6 +45,10 @@ vi.mock('maplibre-gl', () => {
   });
 
   return {
+    Map: MapMock,
+    NavigationControl: NavigationControlMock,
+    ScaleControl: ScaleControlMock,
+    setWorkerUrl: vi.fn(),
     default: {
       Map: MapMock,
       NavigationControl: NavigationControlMock,

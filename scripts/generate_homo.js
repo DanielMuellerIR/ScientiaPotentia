@@ -15,6 +15,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { pickBalanced, deParse, shouldMagnitudeSpread, magnitudeSpreadDistractors } from './lib/quizrandom.js';
 import { deNum, distinctOptionValues, isUsableOptionValue, norm, optionKey } from './lib/generator_text.js';
+import { bodyFactOptions, parseBodyFactValue } from './lib/body_fact_values.js';
 import { buildImageMetadata } from '../src/utils/imageCredits.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -101,58 +102,11 @@ function reverseDistractorNames(subjectConcept, tpl, conceptsInCat) {
     .map(candidate => candidate.name);
 }
 
-// Rundet auf „schoene" Zahlen, damit Distraktoren nicht krumm wirken.
-function niceRound(x) {
-  if (x >= 1000) { const p = Math.pow(10, Math.floor(Math.log10(x)) - 1); return Math.round(x / p) * p; }
-  if (x >= 100) return Math.round(x / 10) * 10;
-  return Math.max(1, Math.round(x));
-}
-
-/**
- * Distraktoren für physiologische Eckwerte (body_fact). Anders als beim
- * frueheren Pool-Verfahren werden NICHT Werte anderer Fakten gemischt — sonst
- * stuenden bei „Blutvolumen" Unsinns-Optionen wie „32 Zähne" oder „206 Knochen".
- * Stattdessen erzeugen wir plausible Alternativwerte DERSELBEN Einheit rund um
- * den korrekten Wert. Bereiche (z.B. „60-100") werden als verschobene Bereiche
- * gleicher Spanne gebildet.
- */
-// Einheit ohne erklärende Klammer (z.B. „Chromosomen (23 Paare)" -> „Chromosomen"),
-// damit Distraktoren nicht widersprüchlich werden („100 Chromosomen (23 Paare)").
 function bodyFactUnit(c) {
   return (c.attributes.unit || '').replace(/\s*\([^)]*\)/g, '').trim();
 }
-
 function bodyFactDistractors(c) {
-  const u = bodyFactUnit(c);
-  const unit = u ? ` ${u}` : '';
-  const raw = String(c.attributes.value).trim();
-  const caPrefix = /^ca\.\s*/i.test(raw) ? 'ca. ' : '';
-
-  const range = raw.match(/(\d+)\s*[-–]\s*(\d+)/);
-  if (range) {
-    const a = +range[1], b = +range[2], step = (b - a) + 5;
-    return [
-      `${caPrefix}${Math.max(0, a - step)}-${Math.max(b - a, b - step)}${unit}`,
-      `${caPrefix}${a + step}-${b + step}${unit}`,
-      `${caPrefix}${a + 2 * step}-${b + 2 * step}${unit}`
-    ];
-  }
-
-  // Erste Zahl MIT Ziffernanfang (sonst träfe /[\d.]+/ den Punkt in „ca." -> NaN).
-  const m = raw.match(/\d+(?:[.,]\d+)?/);
-  const n = m ? parseFloat(m[0].replace(',', '.')) : NaN;
-  if (!isFinite(n) || n <= 0) return [];
-
-  // Proportionale Streuung um den korrekten Wert -> immer gleiche Dimension,
-  // nie eine Nonsens-Option aus einer anderen Einheit.
-  const factors = [0.5, 0.7, 0.85, 1.2, 1.4, 1.7, 2];
-  const correctRounded = niceRound(n);
-  const cands = [];
-  for (const f of factors) {
-    const v = niceRound(n * f);
-    if (v !== correctRounded && !cands.includes(v)) cands.push(v);
-  }
-  return cands.slice(0, 3).map(v => `${caPrefix}${deNum(v)}${unit}`);
+  return bodyFactOptions(c.attributes.value, bodyFactUnit(c), c.id)?.distractors || [];
 }
 // Deutsche Körperteil-Wortstämme -> implizierte Region. Damit fällt auch
 // „Oberschenkelknochen" -> „Bein" auf, obwohl das Wort „Bein" nicht im Namen steht.
@@ -389,17 +343,9 @@ const templates = [
   {
     category: 'body_fact', attr: '__valueUnit__', type: 'homo-bodyfact-value', difficulty: 2,
     prompt: c => `Welche Angabe gehört zu: „${c.name}"?`,
-    format: (_v, c) => {
-      const u = bodyFactUnit(c);
-      const raw = String(c.attributes.value).trim();
-      // Reine Ganzzahl (ggf. mit „ca.") tausenderformatiert wie die Distraktoren
-      // anzeigen, sonst verriete das andere Format die richtige Antwort.
-      const m = raw.match(/^(ca\.\s*)?(\d+)$/i);
-      const val = m ? `${m[1] ? 'ca. ' : ''}${deNum(+m[2])}` : raw;
-      return `${val}${u ? ' ' + u : ''}`;
-    },
+    format: (_v, c) => bodyFactOptions(c.attributes.value, bodyFactUnit(c), c.id)?.correct,
     valueUnit: true,
-    skip: c => !/\d/.test(String(c.attributes.value)) // name-wertige Fakten (z.B. "Haut") überspringen
+    skip: c => !parseBodyFactValue(c.attributes.value)
   },
   // ---- Hominine Arten -------------------------------------------------
   {

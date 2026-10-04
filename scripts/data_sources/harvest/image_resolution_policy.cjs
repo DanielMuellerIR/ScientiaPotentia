@@ -19,6 +19,20 @@ function normalizeCommonsFileTitle(value) {
 const BLACKLISTED_FILES = new Set(
   POLICY.commonsFileTitles.map(normalizeCommonsFileTitle));
 
+// Ein falsches Motiv sperrt nur diese Zuordnung: Ein Webb-Spiegel bleibt für
+// das Webb-Teleskop passend, auch wenn er Hubble nicht darstellen darf.
+const normalizeConceptId = value => String(value || '').trim();
+const REJECTED_MAPPINGS = new Set((POLICY.rejectedMappings || []).map(entry =>
+  `${normalizeConceptId(entry.conceptId)}\0${normalizeCommonsFileTitle(entry.commonsFileTitle)}`));
+const REJECTED_RAW_MAPPINGS = new Set((POLICY.rejectedMappings || []).map(entry =>
+  `${normalizeConceptId(entry.conceptId).replace(/^[a-z]+:/, '')}\0${normalizeCommonsFileTitle(entry.commonsFileTitle)}`));
+
+function isRejectedImageMapping(conceptId, file) {
+  const id = normalizeConceptId(conceptId);
+  const mappings = id.includes(':') ? REJECTED_MAPPINGS : REJECTED_RAW_MAPPINGS;
+  return mappings.has(`${id}\0${normalizeCommonsFileTitle(file)}`);
+}
+
 function fileNameFromUploadUrl(source) {
   try {
     const segments = new URL(source).pathname.split('/').filter(Boolean);
@@ -46,6 +60,8 @@ function isBlacklistedFile(value) {
 
 /** Ein Vorfilter verwirft klare Fehlmotive; die fachliche Sichtung bleibt nötig. */
 function isSuitableImageMotif(file, metadata, concept, domain) {
+  const id = concept?.id;
+  if (isRejectedImageMapping(id && domain && !id.includes(':') ? `${domain}:${id}` : id, file)) return false;
   const title = normalizeCommonsFileTitle(file).toLowerCase();
   const categories = String(metadata?.Categories?.value || '').toLowerCase();
   const subjects = `${title}|${categories}`.replace(/_/g, ' ');
@@ -81,6 +97,7 @@ module.exports = {
   fileNameFromUploadUrl,
   isBlacklistedConcept,
   isBlacklistedFile,
+  isRejectedImageMapping,
   isSuitableImageMotif,
   normalizeCommonsFileTitle,
   selectP18File,

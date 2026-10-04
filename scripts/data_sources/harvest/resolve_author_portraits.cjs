@@ -36,10 +36,12 @@ const apiGuard = createApiGuard({ label: "Die Wikipedia-API" });
 async function getRaw(url, options) {
   // Der gemeinsame Client begrenzt Weiterleitungen und wiederholt 429, 5xx,
   // Netzabbrüche sowie Zeitüberschreitungen mit Backoff.
-  const response = await fetchWithRetry(url, { attempts: 5, ...options });
+  const { response, body } = await fetchWithRetry(url, {
+    attempts: 5, ...options, consume: response => response.text(),
+  });
   return {
     status: response.status,
-    body: await response.text(),
+    body,
     headers: Object.fromEntries(response.headers),
   };
 }

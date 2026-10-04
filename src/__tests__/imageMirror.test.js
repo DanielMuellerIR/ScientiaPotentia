@@ -51,6 +51,15 @@ describe('Bildmanifest', () => {
     expect(mirrorEntry({ dir: 'x', files: { 'Blue Marble.jpg': 'kein Feld' } }, COMMONS)).toBeNull();
   });
 
+  it.each([
+    ['../outside.webp', 960, 720, 0, 'r'],
+    ['valid.webp', 0, 720, 0, 'r'],
+    ['valid.webp', 960, 720, '../thumb.webp', 'r'],
+    ['valid.webp', 960, 720, 0, 'unknown'],
+  ].map(entry => ({ entry })))('verwirft Pfade und ungültige Bildangaben: %j', ({ entry }) => {
+    expect(mirrorEntry({ files: { 'Blue Marble.jpg': entry } }, COMMONS)).toBeNull();
+  });
+
   it('meldet den Modus der Kopie', () => {
     expect(mirrorEntry(mirror, COMMONS).mode).toBe('resized');
     expect(mirrorEntry(mirror, 'https://commons.wikimedia.org/wiki/File:Ohne_Vorschau.png').mode)

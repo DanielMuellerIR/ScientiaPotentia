@@ -24,7 +24,7 @@ import { dirname, join } from 'node:path';
 
 const require = createRequire(import.meta.url);
 const HARVEST = join(dirname(fileURLToPath(import.meta.url)), '..', 'data_sources', 'harvest');
-const { isBlacklistedConcept, isBlacklistedFile } = require(
+const { isBlacklistedConcept, isBlacklistedFile, isRejectedImageMapping } = require(
   join(HARVEST, 'image_resolution_policy.cjs'));
 
 /** Normalisierung des Teilstring-Vergleichs: Kleinschreibung, nur a–z und 0–9. */
@@ -51,6 +51,9 @@ export function blacklistReason(concept) {
   // wirft dasselbe Konzept später ohnehin weg, also hier schon verwerfen.
   if (concept?.imageFile && isBlacklistedFile(concept.imageFile)) {
     return `BLACKLIST-Bilddatei ${concept.imageFile} (siehe harvest/BLACKLIST.md)`;
+  }
+  if (concept?.imageFile && isRejectedImageMapping(id, concept.imageFile)) {
+    return `Fachlich falsches Bildmotiv für ${id} (siehe harvest/IMAGE_BLACKLIST.json)`;
   }
   return null;
 }

@@ -176,6 +176,9 @@ export function useVirtualWall(itemCount, resetKey) {
   const onKeyDown = useCallback((event) => {
     if (event.key !== 'ArrowRight' && event.key !== 'ArrowLeft') return;
     event.preventDefault();
+    // Der stabile Wandcontainer behält den Fokus, wenn virtualisierte Exponate
+    // beim horizontalen Scrollen aus dem DOM verschwinden.
+    wallRef.current?.focus({ preventScroll: true });
     const direction = event.key === 'ArrowRight' ? 1 : -1;
     const reducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
     wallRef.current?.scrollBy?.({

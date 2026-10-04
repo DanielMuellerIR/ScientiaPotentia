@@ -155,7 +155,9 @@ describe('MuseumExplorer bei realer Bildmenge', () => {
     expect(initialExhibits[0]).toHaveAttribute('data-exhibit-index', '0');
 
     const wall = screen.getByTestId('virtual-wall');
-    fireEvent.keyDown(wall, { key: 'ArrowRight' });
+    initialExhibits[0].focus();
+    fireEvent.keyDown(initialExhibits[0], { key: 'ArrowRight' });
+    expect(wall).toHaveFocus();
     expect(scrollBySpy).toHaveBeenLastCalledWith({ left: 300, behavior: 'smooth' });
     wall.scrollLeft = 9000;
     fireEvent.scroll(wall);

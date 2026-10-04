@@ -18,7 +18,7 @@ const path = require('node:path');
 const { readJsonArray, writeJsonAtomic } = require('./json_io.cjs');
 const { isHttpUrl, validateCatalog } = require('./concept_validation.cjs');
 const { isAllowedImageLicense } = require('../../lib/image_license_policy.js');
-const { isBlacklistedFile } = require('./image_resolution_policy.cjs');
+const { isBlacklistedFile, isRejectedImageMapping } = require('./image_resolution_policy.cjs');
 
 const HARVEST = __dirname;
 const ROOT = path.join(HARVEST, '..', '..', '..');
@@ -27,7 +27,7 @@ const CONCEPT_FIELDS = new Set([
   'imageSearchTerm', 'imageFile', 'imageLicense', 'imageAttribution',
 ]);
 
-function validateSetValue(key, value) {
+function validateSetValue(key, value, conceptId) {
   if (value === null || value === undefined) return `${key} darf nicht null sein`;
   if (typeof value === 'string' && !value.trim()) return `${key} darf nicht leer sein`;
   if (key === 'concept.sourceUrl' && !isHttpUrl(value)) {
@@ -51,6 +51,9 @@ function validateSetValue(key, value) {
   }
   if (key === 'concept.imageFile' && isBlacklistedFile(value)) {
     return `concept.imageFile: gesperrte Bilddatei (siehe harvest/BLACKLIST.md)`;
+  }
+  if (key === 'concept.imageFile' && isRejectedImageMapping(conceptId, value)) {
+    return 'concept.imageFile: fachlich falsches Bildmotiv (siehe harvest/IMAGE_BLACKLIST.json)';
   }
   return null;
 }
@@ -111,7 +114,7 @@ function validateCorrection(correction) {
     for (const [key, value] of Object.entries(correction.set)) {
       const keyError = validateSetKey(key);
       if (keyError) return keyError;
-      const valueError = validateSetValue(key, value);
+      const valueError = validateSetValue(key, value, correction.id);
       if (valueError) return valueError;
     }
   }

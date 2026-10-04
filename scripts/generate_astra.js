@@ -26,6 +26,7 @@ import {
   optionKey,
   revealsAnswerStrict as revealsAnswer,
 } from './lib/generator_text.js';
+import { calendarDateConflict, agencyConflict } from './lib/answer_overlap.js';
 import { buildImageMetadata } from '../src/utils/imageCredits.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -1140,7 +1141,7 @@ for (const tpl of templates) {
       const others = conceptsInCat.filter(o => o !== c && !(tpl.skip && tpl.skip(o)));
       const shared = others.some(o => {
         const v = o.attributes[tpl.attr];
-        return v !== undefined && v !== null && String(v) === myVal;
+        return v !== undefined && v !== null && (String(v) === myVal || (tpl.type === 'astra-shower-peak-rev' && calendarDateConflict(v, myVal)));
       });
       if (shared) continue;
       // Distraktor-Pool: nur Namen von Konzepten, die das Attribut MIT
@@ -1234,6 +1235,8 @@ for (const tpl of templates) {
         distractors = mag;
       } else {
         let pool = valuePool.slice();
+        if (tpl.type === 'astra-shower-peak') pool = pool.filter(value => !calendarDateConflict(correct, value));
+        if (tpl.type === 'astra-mission-operator') pool = pool.filter(value => !agencyConflict(correct, value));
         if (tpl.extraDistractors) pool = pool.concat(tpl.extraDistractors);
         distractors = pickDistractors(correct, pool, tpl.numeric, c.id);
       }

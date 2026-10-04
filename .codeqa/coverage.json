@@ -1334,5 +1334,22 @@
         "reason": "Kein Bereichsfix, sondern ein eigener Auftrag: 5289 Bilder selbst zu hosten beruehrt Speicherbedarf, Erntepipeline und Releasegroesse, und bei den Kartenglyphen haengt es an einem fremden Stilvertrag. Vollstaendig mit Messung in BACKLOG.md festgehalten (Eintrag vom 2026-09-10), damit der Fund nicht mit der Kampagne verschwindet."
       }
     }
+  ],
+  "time_reviews": [
+    {
+      "id": "2026-10-04-intensive-review",
+      "status": "in_progress",
+      "started_at": "2026-10-04T16:24:00+02:00",
+      "deadline": "2026-10-04T22:24:00+02:00",
+      "time_budget_seconds": 21600,
+      "base_commit": "cf2cef3",
+      "areas": [],
+      "architecture": {
+        "paradigm": "Komponentenbasierte React-UI mit Domain-Registry, lokaler Persistenz und deterministischer Datenpipeline",
+        "fit": "gespannt",
+        "summary": "Registry und Domain-Visuals tragen alle acht Bereiche. Antwortzustand und Persistenz sind noch asynchron gekoppelt; mehrere Generatoren interpretieren unstrukturierte Werte. Kein Paradigmenwechsel erforderlich.",
+        "recommendation": "Laufende Runden vom nachgeladenen Fortschritt entkoppeln, gemeinsame validierte Wert-/Bildgrenzen stärken, fachliche Motivsichtung beibehalten."
+      }
+    }
   ]
 }

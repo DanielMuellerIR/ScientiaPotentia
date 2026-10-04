@@ -54,22 +54,33 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
  * Netzabbruch, 429 (zu viele Anfragen) und 5xx. Ein 404 ist ein Ergebnis, kein
  * Fehler — die Datei gibt es nicht mehr, und das soll der Aufrufer erfahren.
  *
- * @returns {Promise<Response>} Antwort, auch bei 404 oder 403.
+ * Body-Leser müssen `consume` übergeben, damit Lesen und Dekodieren innerhalb
+ * derselben Zeitgrenze und Wiederholung bleiben. Ohne `consume` wird nur die
+ * Antwort bis zu den Headern begrenzt (für Aufrufer ohne Body-Auswertung).
+ *
+ * @returns {Promise<Response|{response:Response, body:unknown}>} Antwort bzw. gelesener Body.
  */
 async function fetchWithRetry(url, {
-  attempts = 4, timeoutMs = 60000, headers = {}, baseDelayMs = 1000,
+  attempts = 4, timeoutMs = 60000, headers = {}, baseDelayMs = 1000, consume,
 } = {}) {
   let lastError = null;
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
     const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    let timer;
+    // Der Abbruch muss auch bei einem Body greifen, dessen Promise nicht auf
+    // Abort reagiert (etwa bei einem festhängenden Stream).
+    const timeout = new Promise((_, reject) => {
+      timer = setTimeout(() => {
+        controller.abort();
+        reject(new Error(`Zeitüberschreitung nach ${timeoutMs} ms`));
+      }, timeoutMs);
+    });
     try {
-      const response = await fetch(url, {
+      const response = await Promise.race([fetch(url, {
         headers: { 'user-agent': USER_AGENT, ...headers },
         signal: controller.signal,
         redirect: 'follow'
-      });
-      clearTimeout(timer);
+      }), timeout]);
       if (response.status === 429 || response.status >= 500) {
         // Wikimedia nennt bei 429 oft eine Wartezeit; sonst exponentiell zurückziehen.
         const retryAfter = Number(response.headers.get('retry-after'));
@@ -78,11 +89,19 @@ async function fetchWithRetry(url, {
           : Math.min(30000, baseDelayMs * 2 ** attempt);
         lastError = new Error(`HTTP ${response.status}`);
         if (attempt < attempts) {
+          clearTimeout(timer);
+          // Nicht auf das Ende eines defekten Streams warten: Auch das
+          // Abbrechen darf die Wiederholung nicht unbegrenzt aufhalten.
+          controller.abort();
+          response.body?.cancel().catch(() => {});
           await sleep(waitMs);
           continue;
         }
       }
-      return response;
+      const body = consume
+        ? await Promise.race([consume(response), timeout]) : undefined;
+      clearTimeout(timer);
+      return consume ? { response, body } : response;
     } catch (error) {
       clearTimeout(timer);
       lastError = error;
@@ -95,12 +114,13 @@ async function fetchWithRetry(url, {
 /** MediaWiki meldet Replikationsverzug auch als HTTP 200 mit error=maxlag. */
 async function fetchWikiJson(url, { apiGuard, maxlagAttempts = 5, maxlagDelayMs = 5000, requestOptions = {} } = {}) {
   for (let attempt = 1; attempt <= maxlagAttempts; attempt++) {
-    const response = await fetchWithRetry(url, requestOptions);
+    const { response, body: payload } = await fetchWithRetry(url, {
+      ...requestOptions, consume: response => response.ok ? response.json() : undefined,
+    });
     if (!response.ok) {
       apiGuard?.rejected(`HTTP ${response.status}`);
       throw new Error(`API antwortet mit HTTP ${response.status}`);
     }
-    const payload = await response.json();
     if (!payload.error) {
       apiGuard?.ok();
       return payload;

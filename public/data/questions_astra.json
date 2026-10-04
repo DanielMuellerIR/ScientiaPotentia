@@ -18873,12 +18873,12 @@
     "type": "astra-galaxy-distance",
     "difficulty": 4,
     "prompt": "Wie weit ist Feuerrad-Galaxie (M101) ungefähr von der Erde entfernt?",
-    "correctAnswer": "21.000.000 Lichtjahre",
+    "correctAnswer": "25.000.000 Lichtjahre",
     "options": [
-      "21.000.000 Lichtjahre",
-      "2.120.014 Lichtjahre",
-      "210.000.000 Lichtjahre",
-      "12.000.000 Lichtjahre"
+      "25.000.000 Lichtjahre",
+      "2.500.000 Lichtjahre",
+      "272.340.260 Lichtjahre",
+      "14.000.000 Lichtjahre"
     ],
     "testedAttribute": "distanceLy",
     "answerIsName": false,
@@ -20944,9 +20944,9 @@
     "type": "astra-galaxy-distance",
     "difficulty": 4,
     "prompt": "Wie weit ist Messier 81 (Bode-Galaxie) ungefähr von der Erde entfernt?",
-    "correctAnswer": "12.000.000 Lichtjahre",
+    "correctAnswer": "11.600.000 Lichtjahre",
     "options": [
-      "12.000.000 Lichtjahre",
+      "11.600.000 Lichtjahre",
       "1.369.855 Lichtjahre",
       "114.000.000 Lichtjahre",
       "27.000.000 Lichtjahre"
@@ -21134,12 +21134,12 @@
     "type": "astra-galaxy-distance",
     "difficulty": 4,
     "prompt": "Wie weit ist Messier 101 (Feuerrad-Galaxie) ungefähr von der Erde entfernt?",
-    "correctAnswer": "21.000.000 Lichtjahre",
+    "correctAnswer": "25.000.000 Lichtjahre",
     "options": [
-      "21.000.000 Lichtjahre",
-      "2.120.014 Lichtjahre",
-      "210.000.000 Lichtjahre",
-      "12.000.000 Lichtjahre"
+      "25.000.000 Lichtjahre",
+      "2.500.000 Lichtjahre",
+      "272.340.260 Lichtjahre",
+      "14.000.000 Lichtjahre"
     ],
     "testedAttribute": "distanceLy",
     "answerIsName": false,
@@ -37563,25 +37563,6 @@
     "mapTargetId": null
   },
   {
-    "id": "q_astra_bode_m81_astra-galaxy-distance-rev",
-    "entityId": "astra:bode_m81",
-    "entityType": "galaxy",
-    "type": "astra-galaxy-distance-rev",
-    "difficulty": 4,
-    "prompt": "Welche Galaxie ist etwa 11.600.000 Lichtjahre von der Erde entfernt?",
-    "correctAnswer": "Bode-Galaxie (M81)",
-    "options": [
-      "Bode-Galaxie (M81)",
-      "Leo-I-Zwerggalaxie",
-      "Leo-T-Zwerggalaxie",
-      "Helix-Galaxie (NGC 2685)"
-    ],
-    "testedAttribute": null,
-    "answerIsName": true,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
     "id": "q_astra_bildhauer_ngc253_astra-galaxy-distance-rev",
     "entityId": "astra:bildhauer_ngc253",
     "entityType": "galaxy",
@@ -38791,6 +38772,25 @@
       "NGC 5194",
       "Fornax-Zwerggalaxie",
       "NGC 2442"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_galaxy-ngc-5457-h3_astra-galaxy-distance-rev",
+    "entityId": "astra:galaxy-ngc-5457-h3",
+    "entityType": "galaxy",
+    "type": "astra-galaxy-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welche Galaxie ist etwa 21.000.000 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "NGC 5457",
+    "options": [
+      "NGC 5457",
+      "NGC 1300",
+      "NGC 4273",
+      "NGC 1614"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -43387,8 +43387,8 @@
     "options": [
       "NASA/JPL",
       "Roskosmos",
-      "ESA / NASA",
-      "NASA"
+      "Sowjetunion",
+      "JAXA"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -43405,9 +43405,9 @@
     "correctAnswer": "NASA / ESA / ASI",
     "options": [
       "NASA / ESA / ASI",
-      "ESA / Roskosmos",
       "Vereinigte Staaten",
-      "Ames Research Center"
+      "SpaceIL / IAI",
+      "RKK Energija"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -43424,9 +43424,9 @@
     "correctAnswer": "NASA / ESA / CSA",
     "options": [
       "NASA / ESA / CSA",
-      "NASA / ESA / ASI",
-      "NASA / JHU APL",
-      "Sowjetunion (IKI)"
+      "Sowjetunion (IKI)",
+      "SpaceIL / IAI",
+      "Vereinigte Staaten"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -43463,7 +43463,7 @@
     "options": [
       "China National Space Administration",
       "Ames Research Center",
-      "SpaceIL / IAI",
+      "NASA / JHU APL",
       "Vereinigte Staaten"
     ],
     "testedAttribute": "operator",
@@ -43481,9 +43481,9 @@
     "correctAnswer": "Jet Propulsion Laboratory",
     "options": [
       "Jet Propulsion Laboratory",
-      "Vereinigte Staaten",
+      "Europäische Weltraumorganisation",
       "Sowjetische Raumfahrt",
-      "Europäische Weltraumorganisation"
+      "Sowjetunion (IKI)"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -43576,7 +43576,7 @@
     "correctAnswer": "Jet Propulsion Laboratory",
     "options": [
       "Jet Propulsion Laboratory",
-      "Ames Research Center",
+      "Sowjetische Raumfahrt",
       "Europäische Weltraumorganisation",
       "Vereinigte Staaten"
     ],
@@ -43596,8 +43596,8 @@
     "options": [
       "Europäische Weltraumorganisation",
       "China National Space Administration",
-      "NASA/JPL",
-      "Ames Research Center"
+      "CNSA",
+      "Sowjetische Raumfahrt"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -43616,7 +43616,7 @@
       "Jet Propulsion Laboratory",
       "Ames Research Center",
       "Europäische Weltraumorganisation",
-      "NASA / ESA / CSA"
+      "Vereinigte Staaten"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -43710,7 +43710,7 @@
     "options": [
       "NASA",
       "ISRO",
-      "ESA / NASA",
+      "Roskosmos",
       "ESA / Roskosmos"
     ],
     "testedAttribute": "operator",
@@ -43728,9 +43728,9 @@
     "correctAnswer": "NASA",
     "options": [
       "NASA",
-      "CNSA",
+      "ISRO",
       "JAXA",
-      "ISRO"
+      "CNSA"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -43748,7 +43748,7 @@
     "options": [
       "NASA",
       "ISRO",
-      "SpaceIL / IAI",
+      "RKK Energija",
       "JAXA"
     ],
     "testedAttribute": "operator",
@@ -43766,9 +43766,9 @@
     "correctAnswer": "NASA",
     "options": [
       "NASA",
-      "Roskosmos",
-      "Vereinigte Staaten",
-      "CNSA"
+      "ESA",
+      "Ames Research Center",
+      "Sowjetische Raumfahrt"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -43785,9 +43785,9 @@
     "correctAnswer": "ESA",
     "options": [
       "ESA",
-      "NASA",
-      "CNSA",
-      "Sowjetunion (IKI)"
+      "ISRO",
+      "JAXA",
+      "Vereinigte Staaten"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -43805,8 +43805,8 @@
     "options": [
       "ESA",
       "NASA",
-      "JAXA",
-      "CNSA"
+      "ISRO",
+      "JAXA"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -43825,7 +43825,7 @@
       "NASA",
       "JAXA",
       "ISRO",
-      "NASA / JHU APL"
+      "ESA / Roskosmos"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -43843,8 +43843,8 @@
     "options": [
       "NASA",
       "China National Space Administration",
-      "CNSA",
-      "ISRO"
+      "ISRO",
+      "CNSA"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -43861,9 +43861,9 @@
     "correctAnswer": "NASA",
     "options": [
       "NASA",
-      "CNSA",
+      "JAXA",
       "ISRO",
-      "JAXA"
+      "CNSA"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -43880,9 +43880,9 @@
     "correctAnswer": "NASA",
     "options": [
       "NASA",
-      "ISRO",
       "CNSA",
-      "JAXA"
+      "JAXA",
+      "ISRO"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -43919,8 +43919,8 @@
     "options": [
       "NASA",
       "Ames Research Center",
-      "ISRO",
-      "NASA/JPL"
+      "China National Space Administration",
+      "ESA"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -43937,8 +43937,8 @@
     "correctAnswer": "ESA",
     "options": [
       "ESA",
-      "JAXA",
       "ISRO",
+      "NASA",
       "NASA/JPL"
     ],
     "testedAttribute": "operator",
@@ -44032,9 +44032,9 @@
     "correctAnswer": "NASA",
     "options": [
       "NASA",
-      "Roskosmos",
-      "JAXA",
-      "ISRO"
+      "ESA",
+      "CNSA",
+      "JAXA"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -44051,9 +44051,9 @@
     "correctAnswer": "NASA",
     "options": [
       "NASA",
-      "ISRO",
+      "JAXA",
       "ESA",
-      "JAXA"
+      "ISRO"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -44070,9 +44070,9 @@
     "correctAnswer": "NASA",
     "options": [
       "NASA",
-      "Jet Propulsion Laboratory",
-      "CNSA",
-      "ESA"
+      "Europäische Weltraumorganisation",
+      "ISRO",
+      "JAXA"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -44089,9 +44089,9 @@
     "correctAnswer": "NASA",
     "options": [
       "NASA",
-      "ISRO",
+      "JAXA",
       "CNSA",
-      "NASA/JPL"
+      "ESA"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -44108,9 +44108,9 @@
     "correctAnswer": "NASA",
     "options": [
       "NASA",
-      "JAXA",
-      "ESA / NASA",
-      "CNSA"
+      "CNSA",
+      "Sowjetunion",
+      "JAXA"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -44128,8 +44128,8 @@
     "options": [
       "ESA",
       "JAXA",
-      "Roskosmos",
-      "ISRO"
+      "NASA/JPL",
+      "CNSA"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -44146,9 +44146,9 @@
     "correctAnswer": "ESA",
     "options": [
       "ESA",
-      "Sowjetunion",
-      "JAXA",
-      "ISRO"
+      "Roskosmos",
+      "CNSA",
+      "JAXA"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -44165,8 +44165,8 @@
     "correctAnswer": "ESA",
     "options": [
       "ESA",
+      "CNSA",
       "ISRO",
-      "NASA",
       "JAXA"
     ],
     "testedAttribute": "operator",
@@ -44184,9 +44184,9 @@
     "correctAnswer": "CNSA",
     "options": [
       "CNSA",
-      "NASA",
-      "NASA / ESA / CSA",
-      "ISRO"
+      "ISRO",
+      "NASA / ESA / ASI",
+      "NASA"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -44205,7 +44205,7 @@
       "CNSA",
       "NASA / JHU APL",
       "ESA",
-      "ISRO"
+      "NASA"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -44222,9 +44222,9 @@
     "correctAnswer": "CNSA",
     "options": [
       "CNSA",
-      "NASA",
       "JAXA",
-      "ISRO"
+      "ISRO",
+      "NASA"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -44241,7 +44241,7 @@
     "correctAnswer": "Roskosmos",
     "options": [
       "Roskosmos",
-      "JAXA",
+      "CNSA",
       "SpaceIL / IAI",
       "ESA / NASA"
     ],
@@ -44260,7 +44260,7 @@
     "correctAnswer": "Roskosmos",
     "options": [
       "Roskosmos",
-      "NASA / ESA / CSA",
+      "NASA / ESA / ASI",
       "ESA / NASA",
       "NASA/JPL"
     ],
@@ -44279,7 +44279,7 @@
     "correctAnswer": "Roskosmos",
     "options": [
       "Roskosmos",
-      "CNSA",
+      "NASA / JHU APL",
       "ESA / NASA",
       "NASA/JPL"
     ],
@@ -44298,8 +44298,8 @@
     "correctAnswer": "NASA",
     "options": [
       "NASA",
-      "CNSA",
       "ISRO",
+      "CNSA",
       "JAXA"
     ],
     "testedAttribute": "operator",
@@ -44317,9 +44317,9 @@
     "correctAnswer": "NASA",
     "options": [
       "NASA",
-      "CNSA",
-      "ESA",
-      "ISRO"
+      "JAXA",
+      "ISRO",
+      "ESA"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -44338,7 +44338,7 @@
       "NASA",
       "CNSA",
       "ISRO",
-      "NASA / JHU APL"
+      "SpaceIL / IAI"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -44375,7 +44375,7 @@
     "options": [
       "ESA",
       "JAXA",
-      "CNSA",
+      "NASA",
       "ISRO"
     ],
     "testedAttribute": "operator",
@@ -44394,8 +44394,8 @@
     "options": [
       "NASA",
       "Roskosmos",
-      "JAXA",
-      "Sowjetunion (IKI)"
+      "ISRO",
+      "Vereinigte Staaten"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -44414,7 +44414,7 @@
       "NASA",
       "ISRO",
       "CNSA",
-      "ESA"
+      "JAXA"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -44432,8 +44432,8 @@
     "options": [
       "NASA/JPL",
       "Roskosmos",
-      "NASA",
-      "ESA / NASA"
+      "ISRO",
+      "Sowjetunion"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -44451,8 +44451,8 @@
     "options": [
       "NASA/JPL",
       "Roskosmos",
-      "NASA / ESA / ASI",
-      "ISRO"
+      "ESA / Roskosmos",
+      "JAXA"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -44469,9 +44469,9 @@
     "correctAnswer": "NASA/JPL",
     "options": [
       "NASA/JPL",
-      "ESA / NASA",
+      "Sowjetunion",
       "Roskosmos",
-      "ISRO"
+      "JAXA"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -44488,7 +44488,7 @@
     "correctAnswer": "NASA/JPL",
     "options": [
       "NASA/JPL",
-      "ISRO",
+      "JAXA",
       "Roskosmos",
       "Ames Research Center"
     ],
@@ -44508,8 +44508,8 @@
     "options": [
       "NASA/JPL",
       "Roskosmos",
-      "NASA",
-      "ESA / NASA"
+      "ISRO",
+      "Sowjetunion"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -44527,8 +44527,8 @@
     "options": [
       "NASA",
       "CNSA",
-      "JAXA",
-      "ISRO"
+      "ISRO",
+      "JAXA"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -44546,8 +44546,8 @@
     "options": [
       "NASA/JPL",
       "Roskosmos",
-      "ESA / NASA",
-      "JAXA"
+      "Sowjetunion",
+      "ISRO"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -44564,9 +44564,9 @@
     "correctAnswer": "NASA/JPL",
     "options": [
       "NASA/JPL",
-      "ESA / NASA",
-      "NASA",
-      "Sowjetunion"
+      "Sowjetunion",
+      "ISRO",
+      "Roskosmos"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -44583,9 +44583,9 @@
     "correctAnswer": "ESA",
     "options": [
       "ESA",
-      "SpaceIL / IAI",
-      "ESA / NASA",
-      "ISRO"
+      "RKK Energija",
+      "NASA/JPL",
+      "NASA"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -44602,9 +44602,9 @@
     "correctAnswer": "ESA / Roskosmos",
     "options": [
       "ESA / Roskosmos",
-      "NASA / ESA / ASI",
-      "NASA / ESA / CSA",
-      "Sowjetunion"
+      "NASA / JHU APL",
+      "SpaceIL / IAI",
+      "Sowjetunion (IKI)"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -44621,9 +44621,9 @@
     "correctAnswer": "NASA / JHU APL",
     "options": [
       "NASA / JHU APL",
-      "ESA / NASA",
+      "Roskosmos",
       "ESA / Roskosmos",
-      "Sowjetunion"
+      "Sowjetunion (IKI)"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -44640,9 +44640,9 @@
     "correctAnswer": "ESA",
     "options": [
       "ESA",
-      "NASA",
-      "CNSA",
-      "JAXA"
+      "JAXA",
+      "ISRO",
+      "NASA"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -44659,8 +44659,8 @@
     "correctAnswer": "ESA / NASA",
     "options": [
       "ESA / NASA",
+      "CNSA",
       "Roskosmos",
-      "Sowjetunion",
       "RKK Energija"
     ],
     "testedAttribute": "operator",
@@ -44678,9 +44678,9 @@
     "correctAnswer": "NASA/JPL",
     "options": [
       "NASA/JPL",
-      "NASA",
+      "JAXA",
       "Roskosmos",
-      "CNSA"
+      "ESA"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -44717,7 +44717,7 @@
     "options": [
       "CNSA",
       "ISRO",
-      "Sowjetische Raumfahrt",
+      "Ames Research Center",
       "JAXA"
     ],
     "testedAttribute": "operator",
@@ -44754,9 +44754,9 @@
     "correctAnswer": "NASA/JPL",
     "options": [
       "NASA/JPL",
-      "ESA / NASA",
-      "NASA / ESA / CSA",
-      "CNSA"
+      "Sowjetunion",
+      "Sowjetunion (IKI)",
+      "ISRO"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -44831,7 +44831,7 @@
     "options": [
       "NASA/JPL",
       "RKK Energija",
-      "NASA",
+      "ISRO",
       "Roskosmos"
     ],
     "testedAttribute": "operator",
@@ -44849,8 +44849,8 @@
     "correctAnswer": "NASA",
     "options": [
       "NASA",
-      "Roskosmos",
-      "ISRO",
+      "ESA",
+      "Sowjetunion (IKI)",
       "Sowjetunion"
     ],
     "testedAttribute": "operator",
@@ -44925,9 +44925,9 @@
     "correctAnswer": "NASA",
     "options": [
       "NASA",
+      "CNSA",
       "ISRO",
-      "JAXA",
-      "CNSA"
+      "JAXA"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -44944,9 +44944,9 @@
     "correctAnswer": "NASA",
     "options": [
       "NASA",
-      "CNSA",
-      "Europäische Weltraumorganisation",
-      "JAXA"
+      "JAXA",
+      "China National Space Administration",
+      "CNSA"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -45001,9 +45001,9 @@
     "correctAnswer": "NASA",
     "options": [
       "NASA",
-      "ISRO",
       "JAXA",
-      "Sowjetunion (IKI)"
+      "ISRO",
+      "Vereinigte Staaten"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -45020,9 +45020,9 @@
     "correctAnswer": "NASA",
     "options": [
       "NASA",
+      "ESA",
       "Roskosmos",
-      "NASA/JPL",
-      "JAXA"
+      "CNSA"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -45039,9 +45039,9 @@
     "correctAnswer": "ESA",
     "options": [
       "ESA",
-      "CNSA",
+      "ISRO",
       "NASA",
-      "ISRO"
+      "CNSA"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -45058,7 +45058,7 @@
     "correctAnswer": "NASA",
     "options": [
       "NASA",
-      "Sowjetunion (IKI)",
+      "Vereinigte Staaten",
       "JAXA",
       "CNSA"
     ],
@@ -45077,7 +45077,7 @@
     "correctAnswer": "NASA",
     "options": [
       "NASA",
-      "ISRO",
+      "JAXA",
       "CNSA",
       "Roskosmos"
     ],
@@ -45096,9 +45096,9 @@
     "correctAnswer": "ESA",
     "options": [
       "ESA",
+      "NASA",
       "CNSA",
-      "ISRO",
-      "Roskosmos"
+      "NASA/JPL"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -45115,9 +45115,9 @@
     "correctAnswer": "ESA",
     "options": [
       "ESA",
-      "CNSA",
-      "JAXA",
-      "Sowjetunion"
+      "ISRO",
+      "NASA",
+      "Roskosmos"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -45134,9 +45134,9 @@
     "correctAnswer": "ESA",
     "options": [
       "ESA",
-      "CNSA",
+      "ISRO",
       "JAXA",
-      "ISRO"
+      "NASA"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -45153,9 +45153,9 @@
     "correctAnswer": "NASA",
     "options": [
       "NASA",
-      "JAXA",
+      "ISRO",
       "CNSA",
-      "NASA / ESA / CSA"
+      "Sowjetunion (IKI)"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -45191,8 +45191,8 @@
     "correctAnswer": "NASA",
     "options": [
       "NASA",
+      "ISRO",
       "CNSA",
-      "JAXA",
       "Sowjetische Raumfahrt"
     ],
     "testedAttribute": "operator",
@@ -45210,8 +45210,8 @@
     "correctAnswer": "NASA",
     "options": [
       "NASA",
+      "JAXA",
       "CNSA",
-      "ISRO",
       "SpaceIL / IAI"
     ],
     "testedAttribute": "operator",
@@ -45229,9 +45229,9 @@
     "correctAnswer": "NASA",
     "options": [
       "NASA",
-      "JAXA",
       "ISRO",
-      "CNSA"
+      "CNSA",
+      "JAXA"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -45249,7 +45249,7 @@
     "options": [
       "ESA",
       "NASA",
-      "ISRO",
+      "CNSA",
       "JAXA"
     ],
     "testedAttribute": "operator",
@@ -45267,9 +45267,9 @@
     "correctAnswer": "ESA",
     "options": [
       "ESA",
-      "NASA",
-      "Sowjetunion",
-      "NASA / JHU APL"
+      "JAXA",
+      "Roskosmos",
+      "SpaceIL / IAI"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -45286,9 +45286,9 @@
     "correctAnswer": "ESA",
     "options": [
       "ESA",
-      "NASA/JPL",
-      "ISRO",
-      "CNSA"
+      "NASA",
+      "CNSA",
+      "ISRO"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -45307,7 +45307,7 @@
       "NASA",
       "CNSA",
       "ESA / Roskosmos",
-      "SpaceIL / IAI"
+      "RKK Energija"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -45343,8 +45343,8 @@
     "correctAnswer": "NASA",
     "options": [
       "NASA",
-      "ISRO",
       "JAXA",
+      "ISRO",
       "CNSA"
     ],
     "testedAttribute": "operator",
@@ -45364,7 +45364,7 @@
       "CNSA",
       "JAXA",
       "NASA",
-      "ESA / NASA"
+      "Roskosmos"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -45381,9 +45381,9 @@
     "correctAnswer": "NASA",
     "options": [
       "NASA",
-      "CNSA",
       "ISRO",
-      "JAXA"
+      "JAXA",
+      "CNSA"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -45400,8 +45400,8 @@
     "correctAnswer": "NASA",
     "options": [
       "NASA",
+      "CNSA",
       "ISRO",
-      "JAXA",
       "Sowjetunion"
     ],
     "testedAttribute": "operator",
@@ -45419,9 +45419,9 @@
     "correctAnswer": "ESA",
     "options": [
       "ESA",
-      "ESA / Roskosmos",
+      "SpaceIL / IAI",
       "CNSA",
-      "NASA/JPL"
+      "NASA"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -45457,9 +45457,9 @@
     "correctAnswer": "CNSA",
     "options": [
       "CNSA",
+      "JAXA",
       "ISRO",
-      "NASA",
-      "Europäische Weltraumorganisation"
+      "Jet Propulsion Laboratory"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -45476,8 +45476,8 @@
     "correctAnswer": "NASA",
     "options": [
       "NASA",
-      "ISRO",
       "JAXA",
+      "ISRO",
       "CNSA"
     ],
     "testedAttribute": "operator",
@@ -45514,9 +45514,9 @@
     "correctAnswer": "NASA",
     "options": [
       "NASA",
-      "ISRO",
-      "Europäische Weltraumorganisation",
-      "JAXA"
+      "JAXA",
+      "China National Space Administration",
+      "ISRO"
     ],
     "testedAttribute": "operator",
     "answerIsName": false,
@@ -45533,8 +45533,8 @@
     "correctAnswer": "NASA",
     "options": [
       "NASA",
-      "NASA / JHU APL",
-      "CNSA",
+      "SpaceIL / IAI",
+      "JAXA",
       "Sowjetunion"
     ],
     "testedAttribute": "operator",
@@ -45552,8 +45552,8 @@
     "correctAnswer": "ESA",
     "options": [
       "ESA",
-      "JAXA",
-      "Sowjetunion (IKI)",
+      "ISRO",
+      "Vereinigte Staaten",
       "CNSA"
     ],
     "testedAttribute": "operator",
@@ -68314,9 +68314,9 @@
     "correctAnswer": "22./23. April",
     "options": [
       "22./23. April",
-      "23. April",
+      "6./7. Mai",
       "Ende November",
-      "21. Oktober"
+      "14. Dezember"
     ],
     "testedAttribute": "peakDate",
     "answerIsName": false,
@@ -68467,7 +68467,7 @@
     "options": [
       "23. April",
       "4. Januar",
-      "22./23. Dezember",
+      "17./18. November",
       "5./6. November"
     ],
     "testedAttribute": "peakDate",
@@ -68545,25 +68545,6 @@
       "Eta-Aquariiden",
       "Andromediden",
       "Juni-Bootiden"
-    ],
-    "testedAttribute": null,
-    "answerIsName": true,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_meteorstrom-lyriden_astra-shower-peak-rev",
-    "entityId": "astra:meteorstrom-lyriden",
-    "entityType": "meteor_shower",
-    "type": "astra-shower-peak-rev",
-    "difficulty": 3,
-    "prompt": "Welcher Meteorstrom erreicht sein Maximum am 22./23. April?",
-    "correctAnswer": "Lyriden",
-    "options": [
-      "Lyriden",
-      "Juni-Bootiden",
-      "Ursiden",
-      "Geminiden"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -68697,25 +68678,6 @@
       "Quadrantiden",
       "Juni-Bootiden",
       "Draconiden"
-    ],
-    "testedAttribute": null,
-    "answerIsName": true,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_meteor-shower-pi-puppiden-h4_astra-shower-peak-rev",
-    "entityId": "astra:meteor-shower-pi-puppiden-h4",
-    "entityType": "meteor_shower",
-    "type": "astra-shower-peak-rev",
-    "difficulty": 3,
-    "prompt": "Welcher Meteorstrom erreicht sein Maximum am 23. April?",
-    "correctAnswer": "Pi-Puppiden",
-    "options": [
-      "Pi-Puppiden",
-      "Andromediden",
-      "Delta-Aquariiden",
-      "Ursiden"
     ],
     "testedAttribute": null,
     "answerIsName": true,

@@ -785,7 +785,13 @@ function BodyDisc({ b, sx, sy, r, selected, accent, onClick }) {
   const look = BODY_LOOK[b.id];
   const clip = `clip-${b.id}`;
   return (
-    <g style={{ cursor: 'pointer' }} onClick={e => { e.stopPropagation(); onClick(); }}>
+    <g role="button" tabIndex={0} aria-label={b.name} aria-pressed={selected}
+      className="solar-body-control" style={{ cursor: 'pointer' }}
+      onClick={e => { e.stopPropagation(); onClick(); }}
+      onKeyDown={e => {
+        if (e.key !== 'Enter' && e.key !== ' ') return;
+        e.preventDefault(); e.stopPropagation(); onClick();
+      }}>
       {/* unsichtbarer, großzügiger Klickbereich für kleine Körper */}
       <circle data-testid={`solar-hit-${b.id}`} data-solar-hit="true"
         cx={sx} cy={sy} r={Math.max(r, MIN_HIT_RADIUS)} fill="transparent" />

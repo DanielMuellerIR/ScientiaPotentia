@@ -14,6 +14,8 @@ import {
 describe('isAttrLeakedBeforeAnswer — Geschwister-Ausblendung', () => {
   // Jedes Paar: [gefragtes Attribut, Geschwister, das die Antwort verraten wuerde].
   const leakingPairs = [
+    ['brightestStar', 'notableStars'],
+    ['brightestStar', 'mainStars'],
     ['birthYear', 'lifespan'],        // Lebenszeit "1653–1706" nennt Geburtsjahr
     ['deathYear', 'lifespan'],        // dieselbe Lebenszeit nennt auch das Todesjahr
     ['startYear', 'period'],          // Perioden-String "1905–1913" nennt Startjahr

@@ -1,4 +1,5 @@
 import fs from 'fs';
+import { randomUUID } from 'node:crypto';
 import path from 'path';
 import http from 'https';
 import { fileURLToPath } from 'node:url';
@@ -25,6 +26,8 @@ const DATA_DIR = path.join(REPO_ROOT, 'src', 'data');
 // 2,3-MB-Zwischenspeicher der Unterteilungen wanderte so in jedes Release und
 // zu jedem Deploy, obwohl ihn zur Laufzeit nichts anfordert.
 const CACHE_DIR = path.join(REPO_ROOT, '.cache', 'geodata');
+const pendingJsonWrites = new Map();
+const pendingCacheMoves = [];
 
 /**
  * Pfad eines Download-Zwischenspeichers, mit einmaligem Umzug vom alten Ort.
@@ -37,21 +40,57 @@ function cachePath(name) {
   const target = path.join(CACHE_DIR, name);
   const legacy = path.join(PUBLIC_DIR, name);
   if (!fs.existsSync(target) && fs.existsSync(legacy)) {
-    try {
-      fs.renameSync(legacy, target);
-    } catch (err) {
-      // Liegen die beiden Orte auf verschiedenen Dateisystemen, wirft rename
-      // EXDEV. Ein misslungener Umzug kostet hoechstens einen erneuten Download
-      // — den ganzen Lauf daran scheitern zu lassen waere unverhaeltnismaessig.
-      console.warn(`Cache konnte nicht nach ${target} verschoben werden: ${err.message}`);
-    }
+    // Erst nach erfolgreichen Quellenprüfungen umziehen. Bis dahin wird die
+    // vorhandene Datei nur gelesen und bleibt an ihrem bisherigen Ort.
+    pendingCacheMoves.push({ legacy, target });
+    return legacy;
   }
   return target;
+}
+
+/** Alle JSON-Ausgaben warten, bis die komplette Datenbasis brauchbar ist. */
+function queueJson(file, text) {
+  pendingJsonWrites.set(file, text);
+}
+
+function publishJson() {
+  for (const [file, text] of pendingJsonWrites) {
+    if (!fs.existsSync(path.dirname(file))) fs.mkdirSync(path.dirname(file), { recursive: true });
+    const temporary = `${file}.${randomUUID()}.tmp`;
+    // Eine Schreibstörung darf nur die neue Teilkopie beschädigen, niemals
+    // den bisher nutzbaren Katalog. Erst vollständige Dateien ersetzen ihn.
+    try {
+      fs.writeFileSync(temporary, text, { flag: 'wx' });
+      fs.renameSync(temporary, file);
+    } finally {
+      fs.rmSync(temporary, { force: true });
+    }
+  }
+  for (const { legacy, target } of pendingCacheMoves) {
+    try {
+      if (!fs.existsSync(path.dirname(target))) fs.mkdirSync(path.dirname(target), { recursive: true });
+      fs.renameSync(legacy, target);
+    } catch (error) {
+      // Ein fehlgeschlagener Cacheumzug ist kein Datenverlust: Die Quelle
+      // bleibt am alten Ort und kann beim nächsten Lauf erneut benutzt werden.
+      console.warn(`Cache konnte nicht nach ${target} verschoben werden: ${error.message}`);
+    }
+  }
+}
+
+/** Leere oder falsche Geodaten dürfen keinen bisherigen Bestand ersetzen. */
+function geoFeatures(data, label) {
+  if (!Array.isArray(data?.features) || !data.features.length
+    || data.features.some(feature => !feature || typeof feature !== 'object' || Array.isArray(feature))) {
+    throw new Error(`${label} enthält keine brauchbaren Geodaten.`);
+  }
+  return data.features;
 }
 const COUNTRIES_OUTPUT = path.join(PUBLIC_DIR, 'countries.json');
 const SUBDIVISIONS_OUTPUT = path.join(PUBLIC_DIR, 'subdivisions.json');
 const RIVERS_OUTPUT = path.join(PUBLIC_DIR, 'rivers.json');
 const GEODB_OUTPUT = path.join(DATA_DIR, 'geodb.json');
+const WIKIDATA_CITIES_RAW_PATH = path.join(DATA_DIR, 'wikidata_cities_raw.json');
 
 const ISO3_TO_ISO2 = {
   DEU: 'DE', USA: 'US', GBR: 'GB', FRA: 'FR', ITA: 'IT',
@@ -851,11 +890,6 @@ function slugify(text) {
     .replace(/[\s-]+/g, '_');
 }
 
-// Ensure output directories exist
-if (!fs.existsSync(PUBLIC_DIR)) fs.mkdirSync(PUBLIC_DIR, { recursive: true });
-if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
-if (!fs.existsSync(CACHE_DIR)) fs.mkdirSync(CACHE_DIR, { recursive: true });
-
 // Helper to make HTTPS requests with User-Agent and a 20-second timeout
 function fetchJSON(url, headers = {}) {
   return new Promise((resolve, reject) => {
@@ -898,21 +932,61 @@ async function fetchWikidata(query) {
   return fetchJSON(url, { 'Accept': 'application/sparql-results+json' });
 }
 
+/** Prüft den Cacheinhalt, bevor der Lauf irgendeine Ausgabedatei verändert. */
+function readCitiesCache(allowStaticCities) {
+  if (!fs.existsSync(WIKIDATA_CITIES_RAW_PATH)) {
+    if (allowStaticCities) {
+      console.warn('wikidata_cities_raw.json fehlt; SCIENTIA_ALLOW_STATIC_CITIES=1 erlaubt die statische Notliste.');
+      return null;
+    }
+    throw new Error('wikidata_cities_raw.json fehlt; geodb.json bleibt unverändert. '
+      + 'Nur für die ausdrücklich gewünschte statische Notliste SCIENTIA_ALLOW_STATIC_CITIES=1 setzen.');
+  }
+  try {
+    const cache = JSON.parse(fs.readFileSync(WIKIDATA_CITIES_RAW_PATH, 'utf8'));
+    if (!cache || typeof cache !== 'object' || Array.isArray(cache)) {
+      throw new Error('Erwartet wird eine Zuordnung von Ländercodes zu Stadtlisten.');
+    }
+    let cityCount = 0;
+    for (const [iso, cities] of Object.entries(cache)) {
+      if (!/^[A-Z]{2}$/.test(iso) || !Array.isArray(cities)) {
+        throw new Error(`Ungültige Stadtliste für ${iso}.`);
+      }
+      for (const city of cities) {
+        if (!city || typeof city !== 'object' || Array.isArray(city)
+          || typeof city.name !== 'string' || !city.name.trim()
+          || (city.population != null && (!Number.isFinite(city.population) || city.population < 0))
+          || (city.coordinates != null && (!Array.isArray(city.coordinates)
+            || city.coordinates.length !== 2 || !city.coordinates.every(Number.isFinite)))) {
+          throw new Error(`Ungültiger Stadteintrag für ${iso}.`);
+        }
+        cityCount++;
+      }
+    }
+    if (!cityCount) throw new Error('Der vorhandene Stadtcache enthält keine Städte.');
+    return cache;
+  } catch (error) {
+    throw new Error(`wikidata_cities_raw.json ist vorhanden, aber nicht brauchbar; geodb.json bleibt unverändert: ${error.message}`);
+  }
+}
+
 async function run() {
   console.log('--- STARTING DATA PIPELINE v1.0.0 ---');
 
   try {
+    const allowStaticCities = process.env.SCIENTIA_ALLOW_STATIC_CITIES === '1';
+    const cachedCities = readCitiesCache(allowStaticCities);
     // 1. Download/Load Country boundaries
     console.log('1/5. Loading country boundaries...');
     let simplifiedCountries = [];
     if (fs.existsSync(COUNTRIES_OUTPUT)) {
       console.log('Using local cached country boundaries.');
       const data = JSON.parse(fs.readFileSync(COUNTRIES_OUTPUT));
-      simplifiedCountries = data.features;
+      simplifiedCountries = geoFeatures(data, 'Ländergrenzen');
     } else {
       console.log('Downloading country boundaries...');
       const countriesGeoJSON = await fetchJSON(COUNTRIES_GEOJSON_URL);
-      simplifiedCountries = countriesGeoJSON.features.map(f => {
+      simplifiedCountries = geoFeatures(countriesGeoJSON, 'Ländergrenzen').map(f => {
         const props = f.properties || {};
         const isoA2 = (props.ISO_A2_EH || props.ISO_A2 || props.postal || props.iso_a2 || '').trim();
         const isoA3 = (props.ISO_A3_EH || props.ISO_A3 || props.iso_a3 || '').trim();
@@ -932,8 +1006,8 @@ async function run() {
           geometry: f.geometry
         };
       });
-      fs.writeFileSync(COUNTRIES_OUTPUT, JSON.stringify({ type: 'FeatureCollection', features: simplifiedCountries }));
-      console.log(`Saved country boundaries to: ${COUNTRIES_OUTPUT}`);
+      queueJson(COUNTRIES_OUTPUT, JSON.stringify({ type: 'FeatureCollection', features: simplifiedCountries }));
+      console.log(`Prepared country boundaries to: ${COUNTRIES_OUTPUT}`);
     }
 
     // 2. Download/Load Subnational states (DE, US, GB, FR, IT, ES, CA, AU, BR, JP, CN, IN, RU, AT, CH)
@@ -943,7 +1017,7 @@ async function run() {
     if (fs.existsSync(SUBDIVISIONS_OUTPUT)) {
       try {
         const data = JSON.parse(fs.readFileSync(SUBDIVISIONS_OUTPUT));
-        filteredSubdivisions = data.features;
+        filteredSubdivisions = geoFeatures(data, 'Unterteilungsgrenzen');
         // Verify that it contains states for a new country, e.g. FR or CH
         const countriesInCache = new Set(filteredSubdivisions.map(s => s.properties.country_id));
         if (countriesInCache.has('FR') && countriesInCache.has('CH')) {
@@ -966,11 +1040,11 @@ async function run() {
       } else {
         console.log('Downloading subnational boundaries...');
         subdivisionsGeoJSON = await fetchJSON(SUBDIVISIONS_GEOJSON_URL);
-        fs.writeFileSync(RAW_SUBDIVISIONS_CACHE, JSON.stringify(subdivisionsGeoJSON));
-        console.log(`Saved raw subdivisions to: ${RAW_SUBDIVISIONS_CACHE}`);
+        queueJson(RAW_SUBDIVISIONS_CACHE, JSON.stringify(subdivisionsGeoJSON));
+        console.log(`Prepared raw subdivisions to: ${RAW_SUBDIVISIONS_CACHE}`);
       }
 
-      filteredSubdivisions = subdivisionsGeoJSON.features
+      filteredSubdivisions = geoFeatures(subdivisionsGeoJSON, 'Unterteilungsgrenzen')
         .filter(f => {
           const props = f.properties || {};
           const countryId = getCountryIso2(props);
@@ -993,8 +1067,9 @@ async function run() {
             geometry: f.geometry
           };
         });
-      fs.writeFileSync(SUBDIVISIONS_OUTPUT, JSON.stringify({ type: 'FeatureCollection', features: filteredSubdivisions }));
-      console.log(`Saved subdivisions boundaries to: ${SUBDIVISIONS_OUTPUT} (${filteredSubdivisions.length} states)`);
+      if (!filteredSubdivisions.length) throw new Error('Keine Unterteilungen der benötigten Länder gefunden.');
+      queueJson(SUBDIVISIONS_OUTPUT, JSON.stringify({ type: 'FeatureCollection', features: filteredSubdivisions }));
+      console.log(`Prepared subdivisions boundaries to: ${SUBDIVISIONS_OUTPUT} (${filteredSubdivisions.length} states)`);
     }
 
     // 2b/5. Loading river line geometries (10m scale)
@@ -1004,7 +1079,7 @@ async function run() {
       console.log('Using local cached river geometries.');
       try {
         const data = JSON.parse(fs.readFileSync(RIVERS_OUTPUT));
-        riverFeatures = data.features;
+        riverFeatures = geoFeatures(data, 'Flusslinien');
       } catch (err) {
         console.warn('Failed to parse cached rivers.json, will regenerate.', err.message);
       }
@@ -1022,7 +1097,7 @@ async function run() {
       } else {
         console.log('Downloading global 10m rivers...');
         globalRivers = await fetchJSON(RIVERS_GLOBAL_URL);
-        fs.writeFileSync(GLOBAL_RIVERS_CACHE, JSON.stringify(globalRivers));
+        queueJson(GLOBAL_RIVERS_CACHE, JSON.stringify(globalRivers));
       }
       
       let europeRivers;
@@ -1032,10 +1107,10 @@ async function run() {
       } else {
         console.log('Downloading Europe 10m rivers...');
         europeRivers = await fetchJSON(RIVERS_EUROPE_URL);
-        fs.writeFileSync(EUROPE_RIVERS_CACHE, JSON.stringify(europeRivers));
+        queueJson(EUROPE_RIVERS_CACHE, JSON.stringify(europeRivers));
       }
       
-      const allRawFeatures = [...globalRivers.features, ...europeRivers.features];
+      const allRawFeatures = [...geoFeatures(globalRivers, 'Globale Flusslinien'), ...geoFeatures(europeRivers, 'Europäische Flusslinien')];
       
       RIVERS_DATA.forEach(river => {
         const keys = NAME_MAP[river.name.toLowerCase()] || [river.name.toLowerCase()];
@@ -1061,13 +1136,27 @@ async function run() {
         });
       });
       
-      fs.writeFileSync(RIVERS_OUTPUT, JSON.stringify({ type: 'FeatureCollection', features: riverFeatures }));
-      console.log(`Saved compiled river geometries to: ${RIVERS_OUTPUT} (${riverFeatures.length} segments)`);
+      if (!riverFeatures.length) throw new Error('Keine benötigten Flusslinien in den Quelldaten gefunden.');
+      queueJson(RIVERS_OUTPUT, JSON.stringify({ type: 'FeatureCollection', features: riverFeatures }));
+      console.log(`Prepared compiled river geometries to: ${RIVERS_OUTPUT} (${riverFeatures.length} segments)`);
     }
 
     // 3. Get rich metadata from REST Countries API
     console.log('3/5. Querying REST Countries API...');
     const restCountries = await fetchJSON(REST_COUNTRIES_URL);
+    if (!Array.isArray(restCountries) || !restCountries.length
+      || restCountries.some(country => !/^[A-Z]{2}$/.test(country?.cca2 || '')
+        || !Number.isFinite(country.population) || country.population < 0
+        || !Number.isFinite(country.area) || country.area < 0
+        || !String(country.translations?.deu?.common || country.name?.common || '').trim())) {
+      throw new Error('REST Countries liefert keinen vollständigen Länderbestand; Ausgaben bleiben unverändert.');
+    }
+    const restCodes = new Set(restCountries.map(country => country.cca2));
+    const missingCountries = simplifiedCountries.map(country => country.properties?.iso_a2)
+      .filter(code => code && !restCodes.has(code));
+    if (missingCountries.length) {
+      throw new Error(`REST Countries fehlen benötigte Länder (${missingCountries.join(', ')}); Ausgaben bleiben unverändert.`);
+    }
     const countryMetadata = {};
     restCountries.forEach(c => {
       const iso2 = c.cca2;
@@ -1112,14 +1201,23 @@ async function run() {
     const wikidataResults = {};
     try {
       const data = await fetchWikidata(wikidataCountryQuery);
-      const bindings = data.results?.bindings || [];
+      const bindings = data.results?.bindings;
+      if (!Array.isArray(bindings) || !bindings.length
+        || bindings.some(binding => !/^[A-Z]{2}$/.test(binding?.iso2?.value || '')
+          || (binding.highestPointLabel !== undefined && (typeof binding.highestPointLabel?.value !== 'string' || !binding.highestPointLabel.value.trim()))
+          || (binding.highestPointElevation !== undefined && (!String(binding.highestPointElevation?.value ?? '').trim() || !Number.isFinite(Number(binding.highestPointElevation?.value)))))
+        || !bindings.some(binding => binding.highestPointLabel?.value)) {
+        // Einzelne Länder ohne höchsten Punkt oder ohne Höhe sind zulässig.
+        // Ein globaler Lauf ohne jeden Bergnachweis ist dagegen keine Datenbasis.
+        throw new Error('Keine brauchbaren Länder-/Bergangaben in der Wikidata-Antwort.');
+      }
       bindings.forEach(b => {
         const iso = b.iso2?.value;
         if (!iso) return;
         
         wikidataResults[iso] = {
           highestPoint: b.highestPointLabel?.value || null,
-          highestPointElevation: b.highestPointElevation?.value ? Math.round(parseFloat(b.highestPointElevation.value)) : null
+          highestPointElevation: b.highestPointElevation !== undefined ? Math.round(Number(b.highestPointElevation.value)) : null
         };
       });
       console.log(`Wikidata fetch complete! Found details for ${Object.keys(wikidataResults).length} countries.`);
@@ -1129,41 +1227,9 @@ async function run() {
       throw new Error(`Wikidata SPARQL fehlgeschlagen; geodb.json bleibt unverändert: ${wikiErr.message}`);
     }
 
-    // 5. Load pre-fetched cities from wikidata_cities_raw.json or fallback
+    // 5. Der Stadtcache wurde schon vor den Downloads vollständig geprüft.
     console.log('5/5. Loading cities from wikidata_cities_raw.json...');
-    const WIKIDATA_CITIES_RAW_PATH = path.join(DATA_DIR, 'wikidata_cities_raw.json');
-    let countryCities = {};
-    if (fs.existsSync(WIKIDATA_CITIES_RAW_PATH)) {
-      try {
-        countryCities = JSON.parse(fs.readFileSync(WIKIDATA_CITIES_RAW_PATH));
-        console.log(`Loaded cities for ${Object.keys(countryCities).length} countries from cache.`);
-      } catch (err) {
-        // Existiert die Datei, ist aber unlesbar, ist das ein Fehlschlag und
-        // kein Grund fuer die Notliste: Der Lauf wuerde die veroeffentlichten
-        // Staedtedaten auf eine handgepflegte Restmenge herunterstufen — ohne
-        // Fehlercode, also ohne Bremse in einem Skriptlauf. Der SPARQL-Pfad
-        // oben behandelt denselben Fall bereits so (CodeQA 2026-09-03).
-        throw new Error(
-          `wikidata_cities_raw.json ist vorhanden, aber nicht lesbar; `
-          + `geodb.json bleibt unveraendert: ${err.message}`);
-      }
-    } else if (process.env.SCIENTIA_ALLOW_STATIC_CITIES === '1') {
-      console.warn(
-        'wikidata_cities_raw.json not found; SCIENTIA_ALLOW_STATIC_CITIES=1 ist gesetzt, '
-        + 'es wird mit der handgepflegten Notliste gebaut.');
-    } else {
-      // Dieselbe Ueberlegung wie im catch darueber, nur fuer den haeufigeren Fall:
-      // Die Datei liegt heute in keinem Arbeitsverzeichnis des Repos (sie wird
-      // hier nur gelesen, nie geschrieben). Ohne sie baut der Lauf die Staedte
-      // aus der Notliste — 149 Staedte in 19 Laendern statt der 1375, die
-      // geodb.json heute fuehrt. Das ist kein Randfall, sondern das sichere
-      // Ergebnis jedes Laufs, und es passierte mit Exit 0.
-      throw new Error(
-        'wikidata_cities_raw.json fehlt; geodb.json bleibt unveraendert. '
-        + 'Die Datei gehoert nach src/data/ und entsteht im Staedte-Harvest. '
-        + 'Nur wenn die handgepflegte Notliste (149 Staedte) wirklich gewollt ist: '
-        + 'SCIENTIA_ALLOW_STATIC_CITIES=1 setzen.');
-    }
+    const countryCities = {};
 
     // Static fallback list of largest cities for major countries in case SPARQL failed or timed out
     const staticCitiesFallback = {
@@ -1359,27 +1425,20 @@ async function run() {
     // Merge all cities into citiesToProcess
     const citiesToProcess = {};
     
-    // Start with raw cities from wikidata_cities_raw.json
-    if (fs.existsSync(WIKIDATA_CITIES_RAW_PATH)) {
-      try {
-        const rawCitiesData = JSON.parse(fs.readFileSync(WIKIDATA_CITIES_RAW_PATH, 'utf8'));
-        Object.keys(rawCitiesData).forEach(iso => {
-          citiesToProcess[iso] = [...rawCitiesData[iso]];
-        });
-      } catch (err) {
-        throw new Error(
-          `wikidata_cities_raw.json ist vorhanden, aber nicht lesbar; `
-          + `geodb.json bleibt unveraendert: ${err.message}`);
-      }
+    for (const [iso, cities] of Object.entries(cachedCities || {})) {
+      citiesToProcess[iso] = [...cities];
     }
-    
-    // Add static fallback cities if missing or sparse
-    Object.keys(staticCitiesFallback).forEach(iso => {
-      if (!citiesToProcess[iso] || citiesToProcess[iso].length < 5) {
-        citiesToProcess[iso] = staticCitiesFallback[iso];
-      }
-    });
-    
+
+    // Die Notliste darf auch kleine gültige Listen nur mit ausdrücklicher
+    // Freigabe ersetzen. Ohne Freigabe bleiben die geernteten Städte erhalten.
+    if (allowStaticCities) {
+      Object.keys(staticCitiesFallback).forEach(iso => {
+        if (!citiesToProcess[iso] || citiesToProcess[iso].length < 5) {
+          citiesToProcess[iso] = staticCitiesFallback[iso];
+        }
+      });
+    }
+
     // Ensure capitals are added for all countries
     simplifiedCountries.forEach(c => {
       const iso = c.properties.iso_a2;
@@ -1555,7 +1614,8 @@ async function run() {
       };
     });
 
-    fs.writeFileSync(GEODB_OUTPUT, JSON.stringify({ entities }, null, 2));
+    queueJson(GEODB_OUTPUT, JSON.stringify({ entities }, null, 2));
+    publishJson();
     console.log(`Saved expanded encyclopedic geodb.json to: ${GEODB_OUTPUT}`);
     console.log('--- DATA PIPELINE COMPLETE ---');
 

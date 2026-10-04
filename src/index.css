@@ -457,3 +457,18 @@
   .scientia-hub-cta:hover,.scientia-hub-card:hover{transform:none}
   .scientia-hub-card:hover .scientia-hub-card-arrow{transform:none}
 }
+
+.solar-body-control:focus-visible { outline: none; }
+.solar-body-control:focus-visible [data-solar-hit] { stroke: #fff; stroke-width: 3px; }
+
+/* Illustrationen und Erklärungen teilen den Platz, ohne Text zu überlagern.
+   In niedrigen Quizpanels lässt sich der komplette Inhalt mit Tastatur scrollen. */
+.quiz-scene { display: flex; flex-direction: column; overflow-y: auto; }
+.quiz-scene-header { order: 1; flex: none; }
+.quiz-scene-stage { order: 2; position: relative; flex: 1 0 220px; min-height: 220px; }
+.quiz-scene-stage--homo { height: 260px; min-height: 260px; padding: 0 24px; }
+.quiz-scene-details { order: 3; flex: none; }
+.quiz-scene-credit { order: 4; flex: none; text-align: right; }
+.quiz-scene-stage .answer-reveal--ocular { top: 50%; left: 50%; right: auto; bottom: auto; width: min(66%, 240px); }
+.quiz-scene-stage .astra-transit { top: auto; bottom: 8px; }
+.quiz-scene:focus-visible { outline: 2px solid var(--color-secondary); outline-offset: -3px; }

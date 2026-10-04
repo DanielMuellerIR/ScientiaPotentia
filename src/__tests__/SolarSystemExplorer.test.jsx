@@ -50,6 +50,14 @@ afterAll(() => {
 });
 
 describe('Sonnensystem-Explorer: lesbare Außenansicht', () => {
+  it.each(['Enter', ' '])('wählt Himmelskörper mit der Taste %s', async key => {
+    reducedMotion = true;
+    render(<SolarSystemExplorer domain={{ accent: '#5B4B8A' }} concepts={concepts} />);
+    const earth = screen.getAllByRole('button', { name: 'Erde', exact: true })[0];
+    expect(earth).toHaveAttribute('tabindex', '0');
+    fireEvent.keyDown(earth, { key });
+    await waitFor(() => expect(earth).toHaveAttribute('aria-pressed', 'true'));
+  });
   it('ordnet kollidierende Labels deterministisch nach Priorität und weicht mit Leader-Line aus', () => {
     const labels = [
       { id: 'mars', text: 'Mars', sx: 100, sy: 100, r: 4, x: 104, y: 103, anchor: 'start', fontSize: 12, priority: 10 },

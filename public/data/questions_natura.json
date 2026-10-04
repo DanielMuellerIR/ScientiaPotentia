@@ -252786,7 +252786,6 @@
     "options": [
       "Schichtvulkan",
       "Schildvulkan",
-      "Supervulkan",
       "Caldera"
     ],
     "testedAttribute": "vulkantyp",
@@ -252804,7 +252803,6 @@
     "correctAnswer": "Schildvulkan",
     "options": [
       "Schildvulkan",
-      "Supervulkan",
       "Schichtvulkan",
       "Caldera"
     ],
@@ -252824,7 +252822,6 @@
     "options": [
       "Schichtvulkan",
       "Schildvulkan",
-      "Supervulkan",
       "Caldera"
     ],
     "testedAttribute": "vulkantyp",
@@ -252842,7 +252839,6 @@
     "correctAnswer": "Caldera",
     "options": [
       "Caldera",
-      "Supervulkan",
       "Schildvulkan",
       "Schichtvulkan"
     ],
@@ -252862,26 +252858,6 @@
     "options": [
       "Schichtvulkan",
       "Schildvulkan",
-      "Caldera",
-      "Supervulkan"
-    ],
-    "testedAttribute": "vulkantyp",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_natura_yellowstone-caldera_natura-geology-volcanotype",
-    "entityId": "natura:yellowstone-caldera",
-    "entityType": "geology",
-    "type": "natura-geology-volcanotype",
-    "difficulty": 4,
-    "prompt": "Zu welchem Vulkantyp zählt Yellowstone-Caldera?",
-    "correctAnswer": "Supervulkan",
-    "options": [
-      "Supervulkan",
-      "Schildvulkan",
-      "Schichtvulkan",
       "Caldera"
     ],
     "testedAttribute": "vulkantyp",
@@ -252900,7 +252876,6 @@
     "options": [
       "Schichtvulkan",
       "Schildvulkan",
-      "Supervulkan",
       "Caldera"
     ],
     "testedAttribute": "vulkantyp",
@@ -252918,7 +252893,6 @@
     "correctAnswer": "Caldera",
     "options": [
       "Caldera",
-      "Supervulkan",
       "Schildvulkan",
       "Schichtvulkan"
     ],
@@ -252938,7 +252912,6 @@
     "options": [
       "Schildvulkan",
       "Schichtvulkan",
-      "Supervulkan",
       "Caldera"
     ],
     "testedAttribute": "vulkantyp",
@@ -252956,7 +252929,6 @@
     "correctAnswer": "Caldera",
     "options": [
       "Caldera",
-      "Supervulkan",
       "Schildvulkan",
       "Schichtvulkan"
     ],
@@ -252976,8 +252948,7 @@
     "options": [
       "Schichtvulkan",
       "Schildvulkan",
-      "Caldera",
-      "Supervulkan"
+      "Caldera"
     ],
     "testedAttribute": "vulkantyp",
     "answerIsName": false,
@@ -252995,7 +252966,6 @@
     "options": [
       "Schichtvulkan",
       "Schildvulkan",
-      "Supervulkan",
       "Caldera"
     ],
     "testedAttribute": "vulkantyp",
@@ -253014,8 +252984,7 @@
     "options": [
       "Schildvulkan",
       "Schichtvulkan",
-      "Caldera",
-      "Supervulkan"
+      "Caldera"
     ],
     "testedAttribute": "vulkantyp",
     "answerIsName": false,
@@ -253032,7 +253001,6 @@
     "correctAnswer": "Schichtvulkan",
     "options": [
       "Schichtvulkan",
-      "Supervulkan",
       "Schildvulkan",
       "Caldera"
     ],
@@ -253052,8 +253020,7 @@
     "options": [
       "Schichtvulkan",
       "Caldera",
-      "Schildvulkan",
-      "Supervulkan"
+      "Schildvulkan"
     ],
     "testedAttribute": "vulkantyp",
     "answerIsName": false,
@@ -262609,7 +262576,7 @@
     "options": [
       "Tuber",
       "Schönköpfe",
-      "Seitlinge",
+      "Fomitopsis",
       "Boviste"
     ],
     "testedAttribute": "gattung",
@@ -262646,9 +262613,9 @@
     "correctAnswer": "Leistlinge",
     "options": [
       "Leistlinge",
+      "Fomitopsis",
       "Schönköpfe",
-      "Wulstlinge",
-      "Egerlinge"
+      "Wulstlinge"
     ],
     "testedAttribute": "gattung",
     "answerIsName": false,
@@ -262685,7 +262652,7 @@
     "options": [
       "Wulstlinge",
       "Schönköpfe",
-      "Leistlinge",
+      "Fomitopsis",
       "Boviste"
     ],
     "testedAttribute": "gattung",
@@ -262724,7 +262691,7 @@
       "Rhizopus",
       "Morcheln",
       "Sägeblättlinge",
-      "Egerlinge"
+      "Seitlinge"
     ],
     "testedAttribute": "gattung",
     "answerIsName": false,
@@ -262738,12 +262705,12 @@
     "type": "natura-fungus-gattung",
     "difficulty": 4,
     "prompt": "Zu welcher Gattung gehört Birkenporling?",
-    "correctAnswer": "Porlinge",
+    "correctAnswer": "Fomitopsis",
     "options": [
-      "Porlinge",
-      "Morcheln",
-      "Rhizopus",
-      "Seitlinge"
+      "Fomitopsis",
+      "Leistlinge",
+      "Schönköpfe",
+      "Wulstlinge"
     ],
     "testedAttribute": "gattung",
     "answerIsName": false,
@@ -262760,7 +262727,7 @@
     "correctAnswer": "Schüpplinge",
     "options": [
       "Schüpplinge",
-      "Wulstlinge",
+      "Leistlinge",
       "Laricifomes",
       "Schönköpfe"
     ],
@@ -262779,7 +262746,7 @@
     "correctAnswer": "Schönköpfe",
     "options": [
       "Schönköpfe",
-      "Leistlinge",
+      "Fomitopsis",
       "Wulstlinge",
       "Boviste"
     ],
@@ -262837,7 +262804,7 @@
     "options": [
       "Seitlinge",
       "Tuber",
-      "Porlinge",
+      "Fomitopsis",
       "Röhrlinge"
     ],
     "testedAttribute": "gattung",
@@ -263003,7 +262970,7 @@
     "entityType": "fungus",
     "type": "natura-fungus-gattung-rev",
     "difficulty": 4,
-    "prompt": "Welcher dieser Pilze gehört zur Gattung Porlinge?",
+    "prompt": "Welcher dieser Pilze gehört zur Gattung Fomitopsis?",
     "correctAnswer": "Birkenporling",
     "options": [
       "Birkenporling",

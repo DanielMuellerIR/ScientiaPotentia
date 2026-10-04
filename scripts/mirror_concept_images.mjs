@@ -32,9 +32,9 @@
  *           --quiet, --json (Bericht als JSON auf stdout)
  */
 
-import { createHash } from 'node:crypto';
+import { createHash, randomUUID } from 'node:crypto';
 import { existsSync } from 'node:fs';
-import { mkdir, readdir, rename, rm, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, readdir, rename, rm, writeFile } from 'node:fs/promises';
 import { createRequire } from 'node:module';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -46,7 +46,7 @@ import {
 } from './lib/image_mirror_rights.mjs';
 import {
   DATA_DIR, MANIFEST_PATH, MIRROR_DIR, PUBLIC_PREFIX,
-  collectCatalogImages, mirrorPathFor, readJson, verifyMirror,
+  collectCatalogImages, mirrorPathFor, mirrorFileIsValid, readJson, verifyMirror,
 } from './lib/image_mirror_manifest.mjs';
 
 export { collectCatalogImages, mirrorPathFor, verifyMirror };
@@ -205,13 +205,13 @@ function scaledUrl(fileName, width) {
 }
 
 async function download(url) {
-  const response = await fetchWithRetry(url);
+  const { response, body } = await fetchWithRetry(url, { consume: response => response.ok ? response.arrayBuffer() : undefined });
   if (!response.ok) {
     const error = new Error(`HTTP ${response.status}`);
     error.status = response.status;
     throw error;
   }
-  return Buffer.from(await response.arrayBuffer());
+  return Buffer.from(body);
 }
 
 /** Erzeugt Basisbild und Vorschaubild einer Datei und legt sie ab. */
@@ -280,10 +280,24 @@ async function describe(buffer, meta) {
   return { width: Number(meta?.width) || 0, height: Number(meta?.height) || 0 };
 }
 
-async function writeIfAbsent(path, buffer) {
-  if (existsSync(path)) return;
+export async function writeIfAbsent(path, buffer) {
+  if (existsSync(path)) {
+    try {
+      if ((await readFile(path)).equals(buffer)) return;
+    } catch {
+      // Eine defekte vorhandene Datei ist kein erfolgreicher Wiederaufnahmepunkt.
+    }
+  }
   await mkdir(dirname(path), { recursive: true });
-  await writeFile(path, buffer);
+  // Erst vollständige Bytes ablegen, dann veröffentlichen. Der finale Hashname
+  // darf bei einem Prozessabbruch niemals eine Teilkopie bezeichnen.
+  const temporaryPath = `${path}.${process.pid}.${randomUUID()}.tmp`;
+  try {
+    await writeFile(temporaryPath, buffer, { flag: 'wx' });
+    await rename(temporaryPath, path);
+  } finally {
+    await rm(temporaryPath, { force: true });
+  }
 }
 
 async function commandFetch(options) {
@@ -310,9 +324,9 @@ async function commandFetch(options) {
     const info = meta[name];
     if (invalid.has(name)) continue;
     const known = state.entries[name];
-    const complete = known && known.sourceSha1 === info.sha1
-      && existsSync(join(MIRROR_DIR, mirrorPathFor(known.base.file)))
-      && (!known.thumb || existsSync(join(MIRROR_DIR, mirrorPathFor(known.thumb.file))));
+    const complete = known?.base && known.sourceSha1 === info?.sha1
+      && await mirrorFileIsValid(join(MIRROR_DIR, mirrorPathFor(String(known.base.file))), known.base.file, known.base.bytes)
+      && (!known.thumb || await mirrorFileIsValid(join(MIRROR_DIR, mirrorPathFor(String(known.thumb.file))), known.thumb.file, known.thumb.bytes));
     if (complete && !options.force) continue;
     todo.push(name);
   }
@@ -436,15 +450,33 @@ function log(options, message) {
   if (!options.quiet) process.stderr.write(`${message}\n`);
 }
 
-async function main() {
-  const argv = process.argv.slice(2);
-  const command = argv.find((value) => !value.startsWith('-')) || 'all';
-  const options = {
-    force: argv.includes('--force'),
-    quiet: argv.includes('--quiet') || argv.includes('--json'),
-    json: argv.includes('--json'),
-    limit: Number(argv.find((v) => v.startsWith('--limit='))?.split('=')[1]) || 0,
+/** Liest Optionen ohne den Wert von --limit als Befehl zu behandeln. */
+export function parseMirrorArguments(argv) {
+  const positional = [];
+  let limit = 0;
+  for (let index = 0; index < argv.length; index++) {
+    const value = argv[index];
+    if (value === '--limit' || value.startsWith('--limit=')) {
+      const raw = value === '--limit' ? argv[++index] : value.slice('--limit='.length);
+      if (!/^\d+$/.test(raw || '') || !Number.isSafeInteger(Number(raw))) {
+        throw new Error('--limit braucht eine nichtnegative ganze Zahl (0 bedeutet unbegrenzt).');
+      }
+      limit = Number(raw);
+    } else if (!value.startsWith('-')) positional.push(value);
+  }
+  return {
+    command: positional[0] || 'all',
+    options: {
+      force: argv.includes('--force'),
+      quiet: argv.includes('--quiet') || argv.includes('--json'),
+      json: argv.includes('--json'),
+      limit,
+    },
   };
+}
+
+async function main() {
+  const { command, options } = parseMirrorArguments(process.argv.slice(2));
 
   const commands = {
     meta: commandMeta,

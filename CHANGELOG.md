@@ -2,6 +2,18 @@
 
 Dieses Changelog beginnt mit dem für eine öffentliche Veröffentlichung bereinigten Projektstand.
 
+## [2.2.0] — 2026-10-04
+
+- Falsche Antworten nach einer Runde gezielt wiederholen; Treffer im ersten Versuch werden getrennt angezeigt.
+- Laufende Runden bleiben bei nachgeladenem Lernfortschritt stabil. Antworten werden vollständig serialisiert gespeichert; Navigation und Ergebnisaktionen warten auf offene Vorgänge.
+- Stadt–Land–Fluss berücksichtigt die gewählte Rundenlänge, kleine Mehrspieler-Runden geben jedem gleich viele Fragen. Fortschrittsanzeigen zählen nur abfragbare Konzepte.
+- Numerische Körperfragen verwenden gleiche Präzision, ganze Anzahlen, getrennte Wertebereiche und zulässige Prozentwerte. Mehrdeutige Epochen-, Datums-, Betreiber- und Zitat-Werkoptionen entfallen; unbestimmte Bauwerksjahre werden nicht als Fertigstellung befragt. Einzelne Fachwerte sind gegen Primärquellen korrigiert.
+- 20 falsche Bildzuordnungen korrigiert: drei ersetzt, 17 entfernt und gegen erneute Übernahme gesperrt. Bildwechsel übernehmen keine fremden alten Nachweise.
+- Anatomie- und Astronomieansichten lassen lange Texte und Credits scrollen. Galerie und Sonnensystem sind besser per Tastatur bedienbar; planetare Ringe sind fachlich zurückhaltender dargestellt.
+- MapLibre aktualisiert, einschließlich Worker und Styles. Kartenbibliothek erst bei Bedarf laden; ohne WebGL bleiben passende Quizfragen und die Astra-Konzeptansicht nutzbar. Kartenfähigkeit wird vor dem Quizstart geprüft.
+- Geodaten- und Bildpipeline schützen vorhandene Daten bei Quellen- und Schreibfehlern. Deployment erhält seine Historie bei unverändertem Inhalt und merkt fehlgeschlagene Löschungen vor.
+- Projektanalyse, Prüfbelege und priorisierte Restarbeit in `docs/review-2026-10-04.md` dokumentiert. Die abgeschaltete REST-Countries-v3-Quelle blockiert neue Terra-Ernten; der vorhandene Spielbestand bleibt erhalten.
+
 ## [2.1.13] — 2026-10-01
 
 - Frühe Quizabschlüsse warten auf die gespeicherte Serie; während der Initialisierung erreichte Bestmarken werden nachträglich gesichert.

@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { Globe, Compass, Award, Calendar, ChevronRight } from 'lucide-react';
 import { matchesNameTokenPrefix } from '../utils/tokenSearch';
 
@@ -35,6 +35,8 @@ function SubTab({ id, label, activeSubTab, onSelect }) {
 export default function Atlas({ selectedEntity, srsProgress, onStartQuickQuiz, geodb, onSelectEntity }) {
   const [activeSubTab, setActiveSubTab] = useState('overview'); // 'overview' | 'geography' | 'cities' | 'subdivisions'
   const [searchQuery, setSearchQuery] = useState('');
+
+  useEffect(() => { setActiveSubTab('overview'); }, [selectedEntity?.id]);
 
   // Format type name in German
   const getGermanType = (t) => {

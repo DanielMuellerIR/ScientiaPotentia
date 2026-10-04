@@ -37,15 +37,13 @@ export default function Dashboard({
   onStartDailyReview
 }) {
   const isTerra = domain.id === 'terra';
-  // Terra behält Kartenobjekte ohne faire Frage (derzeit zwei Städte) für Atlas
-  // und Karte. Für den Lernfortschritt zählen aber nur Entitäten, die in der
-  // aktuellen Fragenmenge tatsächlich vorkommen.
+  // Explorer dürfen Konzepte ohne faire Frage zeigen. Der Lernfortschritt
+  // zählt in jedem Bereich nur Konzepte, die tatsächlich abfragbar sind.
   const countedEntities = useMemo(() => {
     const entities = Object.values(geodb.entities);
-    if (!isTerra) return entities;
     const askedEntityIds = new Set(questionPool.map((question) => question.entityId));
     return entities.filter((entity) => askedEntityIds.has(entity.id));
-  }, [geodb.entities, isTerra, questionPool]);
+  }, [geodb.entities, questionPool]);
   const countedEntityIds = useMemo(
     () => new Set(countedEntities.map((entity) => entity.id)),
     [countedEntities]

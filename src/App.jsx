@@ -51,6 +51,18 @@ export default function App() {
   // und beim Klick auf den Lern-Quiz-Tab bewusst zurückgesetzt, damit man dort
   // immer zuerst die Schwierigkeit wählt statt sofort in Stufe 1 zu landen.
   const [quizArmed, setQuizArmed] = useState(false);
+  const [quizPaused, setQuizPaused] = useState(false);
+  const navigationPending = React.useRef(false);
+  const beginNavigation = () => {
+    if (navigationPending.current) return false;
+    navigationPending.current = true;
+    setQuizPaused(true);
+    return true;
+  };
+  const endNavigation = () => {
+    navigationPending.current = false;
+    setQuizPaused(false);
+  };
   const [quizMode, setQuizMode] = useState('all'); // 'all' | 'countries' | 'cities' | 'rivers' | 'stadt-land-fluss'
   // Rundenlänge bzw. Spielart: feste Fragenzahl oder Überlebens-Modus (Leben).
   const [quizRoundConfig, setQuizRoundConfig] = useState({ kind: 'fixed', length: 10 });
@@ -94,6 +106,7 @@ export default function App() {
   // Winzige, beim Build generierte Datei (public/data/domain_stats.json) — einmal
   // beim Start geladen, damit die Landing-Page nicht die großen Fragenkataloge zieht.
   const [domainStats, setDomainStats] = useState(null);
+  const [mapAvailable, setMapAvailable] = useState(null);
 
   // Domain-ID, Status und beide Kataloge bilden einen gemeinsamen Zustand. Dadurch
   // kann kein Fehlerpfad Konzepte leeren und gleichzeitig eine veraltete Domain-ID
@@ -117,7 +130,11 @@ export default function App() {
   const domainDataReady = domainData.domainId === activeDomainId && domainData.status === 'ready';
   const domainLoadFailed = domainData.domainId === activeDomainId && domainData.status === 'failed';
   const concepts = domainDataReady ? domainData.concepts : EMPTY_CONCEPTS;
-  const questionPool = domainDataReady ? domainData.questions : EMPTY_QUESTIONS;
+  const domainQuestions = domainDataReady ? domainData.questions : EMPTY_QUESTIONS;
+  const questionPool = useMemo(() => activeDomain.hasMap && !mapAvailable
+    ? domainQuestions.filter(question => question.type !== 'click-map')
+    : domainQuestions, [domainQuestions, activeDomain.hasMap, mapAvailable]);
+  const mapCapabilityPending = activeDomain.hasMap && mapAvailable === null;
 
   // db-artiges Objekt für Komponenten, die geodb.entities erwarten (Quiz,
   // Dashboard, Atlas) — domain-agnostisch über den verlässlich zugeordneten Speicher.
@@ -425,6 +442,7 @@ export default function App() {
   };
 
   const handleSelectEntityFromMap = (entityId) => {
+    if (navigationPending.current) return;
     if (activeTabRef.current === 'quiz') {
       // In Quiz mode, clicking on the map is used as the answer
       playClick();
@@ -441,6 +459,7 @@ export default function App() {
   };
 
   const handleStartQuickQuiz = (entityId) => {
+    if (navigationPending.current || mapCapabilityPending) return;
     playClick();
     const targetEntity = concepts[entityId];
     if (targetEntity) {
@@ -464,6 +483,7 @@ export default function App() {
   // Startet eine Quizrunde. Ohne Schwierigkeitsstufen nur noch der Spielmodus
   // (bei Terra Stadt/Land/Fluss, sonst 'all'); die Fragen mischt der Quiz selbst.
   const handleStartDailyReview = (mode = 'all', roundConfig, players) => {
+    if (navigationPending.current || mapCapabilityPending) return;
     playClick();
     setQuizMode(mode);
     if (roundConfig) setQuizRoundConfig(roundConfig); // feste Länge oder Survival
@@ -482,6 +502,7 @@ export default function App() {
   const startTabFor = (domain) => (domain?.Explorer ? 'explore' : 'dashboard');
 
   const handleQuizFinished = async () => {
+    if (!beginNavigation()) return;
     playClick();
     try {
       await flushQuizProgressWrites();
@@ -510,47 +531,66 @@ export default function App() {
       await loadProgressData();
       setQuizArmed(false); // Runde beendet -> nächster Lern-Quiz-Aufruf zeigt wieder die Wahl
       setActiveTab(startTabFor(getDomainById(activeDomainIdRef.current)));
+      endNavigation();
     }
   };
 
   const handleTabChange = async (tab) => {
+    if (!beginNavigation()) return;
     playClick();
-    if (activeTabRef.current === 'quiz') await flushQuizProgressWrites();
-    // Direkter Klick auf den Lern-Quiz-Tab: Runde "entschärfen", damit zuerst der
-    // Vorschalt-Screen mit Stufenwahl erscheint (nicht sofort Stufe 1).
-    if (tab === 'quiz') setQuizArmed(false);
-    // Der Hinweis gehoert zum Schnelltest-Versuch, nicht zur naechsten Ansicht.
-    // Er verdeckt sonst die dauerhafte Warnung ueber nicht gespeicherte Antworten.
-    setQuizStartError('');
-    setActiveTab(tab);
+    try {
+      if (activeTabRef.current === 'quiz') {
+        await flushQuizProgressWrites();
+        await loadProgressData();
+      }
+      // Direkter Klick auf den Lern-Quiz-Tab: Runde "entschärfen", damit zuerst der
+      // Vorschalt-Screen mit Stufenwahl erscheint (nicht sofort Stufe 1).
+      if (tab === 'quiz') setQuizArmed(false);
+      // Der Hinweis gehoert zum Schnelltest-Versuch, nicht zur naechsten Ansicht.
+      // Er verdeckt sonst die dauerhafte Warnung ueber nicht gespeicherte Antworten.
+      setQuizStartError('');
+      if (activeDomain.hasMap && activeTabRef.current === 'museum' && tab !== 'museum') setMapAvailable(null);
+      setActiveTab(tab);
+    } finally {
+      endNavigation();
+    }
   };
 
   // Wechsel des Wissensbereichs: aktive Domain setzen und Ansicht zurücksetzen.
   // Konzepte/Fragen werden vom Lade-Effekt (Abhängigkeit activeDomainId) geholt.
   const handleDomainChange = async (domainId) => {
     if (domainId === activeDomainId) return;
+    if (!beginNavigation()) return;
     playClick();
-    if (activeTabRef.current === 'quiz') await flushQuizProgressWrites();
-    setActiveDomainId(domainId);
-    setActiveTab(startTabFor(getDomainById(domainId)));
-    setQuizArmed(false); // Bereichswechsel -> Quizrunde zurücksetzen
-    setQuizEntityFilterId(null);
-    setQuizStartError('');
-    setSelectedEntityId(null);
-    setClickedMapId(null);
-    setActiveConceptKey(null);
-    setActiveTestedAttribute(null);
-    setActiveAnswerIsName(false);
-    setActiveHideConceptIdentity(false);
-    setActiveQuestionAnswered(false);
-    setMapState({
-      mode: 'dashboard',
-      highlightedIds: [],
-      correctIds: [],
-      wrongIds: [],
-      showSubdivisions: false,
-      zoomToEntityId: null
-    });
+    try {
+      if (activeTabRef.current === 'quiz') {
+        await flushQuizProgressWrites();
+        await loadProgressData();
+      }
+      setActiveDomainId(domainId);
+      if (getDomainById(domainId)?.hasMap) setMapAvailable(null);
+      setActiveTab(startTabFor(getDomainById(domainId)));
+      setQuizArmed(false); // Bereichswechsel -> Quizrunde zurücksetzen
+      setQuizEntityFilterId(null);
+      setQuizStartError('');
+      setSelectedEntityId(null);
+      setClickedMapId(null);
+      setActiveConceptKey(null);
+      setActiveTestedAttribute(null);
+      setActiveAnswerIsName(false);
+      setActiveHideConceptIdentity(false);
+      setActiveQuestionAnswered(false);
+      setMapState({
+        mode: 'dashboard',
+        highlightedIds: [],
+        correctIds: [],
+        wrongIds: [],
+        showSubdivisions: false,
+        zoomToEntityId: null
+      });
+    } finally {
+      endNavigation();
+    }
   };
 
   // Hinweis für Panels, die ohne die Kataloge der aktiven Domain nichts Richtiges
@@ -782,6 +822,7 @@ export default function App() {
             <VisualPanel
               domain={activeDomain}
               concepts={concepts}
+              questionPool={questionPool}
               srsProgress={srsProgress}
               activeConceptKey={activeConceptKey}
               testedAttribute={activeTestedAttribute}
@@ -789,6 +830,7 @@ export default function App() {
               hideConceptIdentity={activeHideConceptIdentity}
               isQuestionAnswered={activeQuestionAnswered}
               mapProps={{
+                onAvailabilityChange: setMapAvailable,
                 selectedId: selectedEntityId,
                 onSelectEntity: handleSelectEntityFromMap,
                 highlightedIds: mapState.highlightedIds,
@@ -834,8 +876,13 @@ export default function App() {
           {/* Quiz erst freigeben, wenn Konzepte UND Fragen zur aktiven Domain gehören.
               Sonst könnte eine in der Ladelücke beantwortete Frage aus dem alten
               Bereich unter der neuen Domain gespeichert werden. */}
-          {activeTab === 'quiz' && (!domainDataReady ? renderDomainDataNotice() : quizArmed ? (
+          {activeTab === 'quiz' && (!domainDataReady ? renderDomainDataNotice() : mapCapabilityPending ? (
+            <div className="terra-panel" role="status" style={{ padding: '24px' }}>
+              Kartenfähigkeit wird geprüft …
+            </div>
+          ) : quizArmed ? (
             <Quiz
+              isPaused={quizPaused}
               geodb={domainDb}
               questionPool={questionPool}
               dueEntities={dueEntities}

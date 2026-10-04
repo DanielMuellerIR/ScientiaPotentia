@@ -15,6 +15,7 @@ Scientia is a responsive, ad-free knowledge quiz with eight subject areas, tailo
 - Over 53,000 generated questions based on more than 13,000 sourced concepts.
 - An interactive MapLibre atlas for geography, dedicated astronomy and anatomy views, and a
   concept visual for every remaining question.
+- Fixed rounds, survival and shared turn-based play; practise missed questions after a solo round.
 - SM-2-inspired review scheduling stored locally in IndexedDB. No account is required.
 - Static data and bundled application assets for fast, privacy-friendly operation.
 
@@ -30,6 +31,9 @@ npm run dev
 ```
 
 Vite serves the application at `http://localhost:3000` by default.
+
+The world atlas requires WebGL 2. Without WebGL, Terra questions that do not need
+map clicks and the generic Astra concept view remain playable.
 
 Concept images are not part of the repository: roughly 4,900 files from Wikimedia Commons would
 grow it by several hundred megabytes for good. A fresh clone fetches them once — the run takes

@@ -74,7 +74,10 @@ vi.mock('../components/DomainSwitcher', () => ({
 }));
 vi.mock('../components/ScientiaHub', () => ({ default: () => <div>Test-Hub</div> }));
 vi.mock('../components/Dashboard', () => ({ default: () => <div>Dashboard-Ansicht</div> }));
-vi.mock('../components/VisualPanel', () => ({ default: () => <div>Visual</div> }));
+vi.mock('../components/VisualPanel', () => ({ default: ({ mapProps }) => {
+  React.useEffect(() => { mapProps.onAvailabilityChange(true); }, [mapProps.onAvailabilityChange]);
+  return <div>Visual</div>;
+} }));
 vi.mock('../components/Atlas', () => ({
   default: ({ onStartQuickQuiz }) => (
     <button type="button" onClick={() => onStartQuickQuiz('ohne_frage')}>Luxemburg testen</button>

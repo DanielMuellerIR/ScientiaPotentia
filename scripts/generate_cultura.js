@@ -45,7 +45,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { seededShuffle, pickBalanced, pickNumeric, numericDistractors } from './lib/quizrandom.js';
 import { norm, deNum, optionKey, distinctOptionValues, revealsAnswerStrict as revealsAnswer } from './lib/generator_text.js';
-import { isSpecificAnswer } from './lib/audit_rules.cjs';
+import { isSpecificQuoteWork, artworkEraConflict } from './lib/answer_overlap.js';
 import { buildImageMetadata } from '../src/utils/imageCredits.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -319,11 +319,14 @@ const templates = [
     prompt: c => `Wo steht das Bauwerk „${c.name}"?`,
     skip: c => /\//.test(String(c.attributes.location || ''))
   },
-  // Fertigstellungsjahr: 14 von 25 Bauwerken haben ein sauberes einzelnes Jahr
-  // (Bereichs-Angaben "1887–1889" und antike Jahre fallen durch cleanYear heraus).
+  // Baujahre nur mit dokumentierter Bedeutung abfragen: Ein einzelnes Jahr
+  // kann sowohl Baubeginn als auch Fertigstellung bedeuten.
   {
     category: 'architecture', attr: 'year', kind: 'num', type: 'cultura-architecture-year', difficulty: 4,
-    prompt: c => `In welchem Jahr wurde „${c.name}" fertiggestellt?`,
+    skip: c => !['start', 'completion'].includes(c.attributes.yearKind),
+    prompt: c => c.attributes.yearKind === 'start'
+      ? `In welchem Jahr begann der Bau von „${c.name}"?`
+      : `In welchem Jahr wurde „${c.name}" fertiggestellt?`,
     clean: cleanYear, format: yearFmt
   },
   // Höhe des Bauwerks: 14 von 25 Bauwerken haben einen heightM-Wert; alle sind
@@ -570,7 +573,7 @@ const templates = [
     // Sammelbezeichnungen wie „Sonstige" oder „Anderes" sind Restekategorien
     // des Datenmodells, kein Werktitel. Als Lösung machen sie die Frage
     // unbeantwortbar; zehn veröffentlichte Fragen waren so (CodeQA 2026-09-03).
-    skip: c => !c.attributes.work || !isSpecificAnswer(c.attributes.work),
+    skip: c => !isSpecificQuoteWork(c),
     prompt: c => `Aus welchem Werk stammt das Zitat: „${c.name}“?`
   },
   {
@@ -578,7 +581,7 @@ const templates = [
     // pickNames stellt über attr=work sicher, dass Distraktor-Zitate aus ANDEREN
     // Werken stammen (sonst mehrere richtige Optionen).
     category: 'quote', attr: 'work', kind: 'name', type: 'cultura-quote-text', difficulty: 4,
-    skip: c => !c.attributes.work,
+    skip: c => !isSpecificQuoteWork(c),
     prompt: c => `Welches Zitat stammt aus „${c.attributes.work}“${c.attributes.author ? ` von ${beforeParen(String(c.attributes.author))}` : ''}?`
   },
   {
@@ -649,6 +652,8 @@ for (const tpl of templates) {
   let numPool = [];    // rohe Zahlen (kind='num')
   let namePool = [];   // { name, value } für Reverse-Fragen (kind='name')
   for (const c of conceptsInCat) {
+    if (['cultura-quote-work', 'cultura-quote-text', 'cultura-architecture-year'].includes(tpl.type)
+      && tpl.skip && tpl.skip(c)) continue;
     const v = c.attributes[tpl.attr];
     if (v === undefined || v === null || v === '') continue;
     if (tpl.kind === 'name') {
@@ -699,7 +704,9 @@ for (const tpl of templates) {
       }
       if (tpl.poolFilter && !tpl.poolFilter(rawValue)) { countSkip(tpl, 'poolFilter'); continue; }
       correct = String(rawValue);
-      distractors = pickCategorical(correct, catPool, 3, c.id);
+      const pool = tpl.type === 'cultura-artwork-era'
+        ? catPool.filter(value => !artworkEraConflict(correct, value)) : catPool;
+      distractors = pickCategorical(correct, pool, 3, c.id);
     }
 
     // Selbstverräter: Guard prüft den FINALEN Fragetext (nach beforeParen-

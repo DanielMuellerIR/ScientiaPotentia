@@ -494,6 +494,62 @@ class DeployTests(unittest.TestCase):
 
     # ---- Release-Historie und Aufräumen abgelöster Dateien -----------------
 
+    def test_noop_preserves_history_and_does_not_delete_oldest_release(self):
+        self.write_build()
+        history = [[f"data/old{i}.json"] for i in range(deploy.RELEASE_HISTORY_LENGTH)]
+        files = {"assets/app.js": b"new asset", "index.html": b"new index"}
+        ftps = FakeFTPS({f"/remote/{path}": content for path, content in files.items()})
+        ftps.files[f"/remote/{deploy.REMOTE_MANIFEST_NAME}"] = deploy.manifest_bytes({
+            "version": 2, "files": {path: metadata(content) for path, content in files.items()},
+            "history": history,
+        })
+        result = deploy.deploy_dist(ftps, str(self.dist), "/remote")
+        self.assertEqual(result.uploaded, 0)
+        self.assertEqual(result.manifest["history"], history)
+        self.assertEqual(result.removed, 0)
+
+    def test_failed_deletion_is_retried_on_next_noop(self):
+        self.write_build()
+        stale = "data/old.json"
+        class FailingDelete(FakeFTPS):
+            refuse = True
+            def delete(self, path):
+                if path == f"/remote/{stale}" and self.refuse:
+                    raise OSError("temporary failure")
+                return super().delete(path)
+        ftps = FailingDelete({f"/remote/{stale}": b"old"})
+        ftps.files[f"/remote/{deploy.REMOTE_MANIFEST_NAME}"] = deploy.manifest_bytes({
+            "version": 2, "files": {},
+            "history": [[f"data/keep{i}.json"] for i in range(deploy.RELEASE_HISTORY_LENGTH - 1)] + [[stale]],
+        })
+        first = deploy.deploy_dist(ftps, str(self.dist), "/remote")
+        self.assertIn(stale, first.manifest.get("pending_deletions", []))
+        ftps.refuse = False
+        second = deploy.deploy_dist(ftps, str(self.dist), "/remote")
+        self.assertEqual(second.removed, 1)
+        self.assertNotIn(f"/remote/{stale}", ftps.files)
+        published = json.loads(ftps.files[f"/remote/{deploy.REMOTE_MANIFEST_NAME}"])
+        self.assertEqual(published["pending_deletions"], [])
+
+    def test_pending_deletions_protect_current_historical_and_server_files(self):
+        self.write_build()
+        history_file = "data/still-used.json"
+        foreign_file = "notes.txt"
+        files = {"assets/app.js": b"new asset", "index.html": b"new index"}
+        ftps = FakeFTPS({f"/remote/{path}": content for path, content in files.items()})
+        ftps.files[f"/remote/{foreign_file}"] = b"foreign"
+        ftps.files[f"/remote/{deploy.REMOTE_MANIFEST_NAME}"] = deploy.manifest_bytes({
+            "version": 2, "files": {path: metadata(content) for path, content in files.items()},
+            "history": [[history_file]],
+            "pending_deletions": ["../outside", "/absolute", "index.html", "assets/app.js",
+                                  history_file, ".htaccess", deploy.REMOTE_MANIFEST_NAME],
+        })
+        result = deploy.deploy_dist(ftps, str(self.dist), "/remote")
+        self.assertEqual(result.removed, 0)
+        self.assertEqual(result.manifest["pending_deletions"], [])
+        self.assertEqual(ftps.files[f"/remote/{foreign_file}"], b"foreign")
+        self.assertFalse(any(event[0] == "delete" for event in ftps.history))
+
     def test_manifest_carries_the_previous_release_in_its_history(self):
         """Der abgelöste Stand muss im neuen Manifest als jüngster Vorgänger stehen."""
         self.write_build()
