@@ -444,7 +444,8 @@ export default function App() {
   const handleSelectEntityFromMap = (entityId) => {
     if (navigationPending.current) return;
     if (activeTabRef.current === 'quiz') {
-      // In Quiz mode, clicking on the map is used as the answer
+      // Erst eine gestartete Runde darf Kartenklicks als Antworten übernehmen.
+      if (!quizArmed) return;
       playClick();
       setClickedMapId(entityId);
       return;
@@ -475,6 +476,7 @@ export default function App() {
       setQuizRoundConfig({ kind: 'fixed', length: 1 });
       setQuizPlayers([]);   // Schnellquiz ist immer Einzelspieler
       activeScoreRef.current = 0;
+      setClickedMapId(null);
       setQuizArmed(true);   // Schnellquiz startet ohne Vorschalt-Screen direkt
       setActiveTab('quiz');
     }
@@ -491,6 +493,7 @@ export default function App() {
     setQuizEntityFilterId(null);
     setQuizStartError('');
     activeScoreRef.current = 0;
+    setClickedMapId(null);
     setQuizArmed(true); // Runde scharf stellen -> Quiz statt Vorschalt-Screen
     setActiveTab('quiz');
   };
@@ -529,6 +532,7 @@ export default function App() {
       console.error('Error finishing quiz:', e);
     } finally {
       await loadProgressData();
+      setClickedMapId(null);
       setQuizArmed(false); // Runde beendet -> nächster Lern-Quiz-Aufruf zeigt wieder die Wahl
       setActiveTab(startTabFor(getDomainById(activeDomainIdRef.current)));
       endNavigation();
@@ -545,6 +549,7 @@ export default function App() {
       }
       // Direkter Klick auf den Lern-Quiz-Tab: Runde "entschärfen", damit zuerst der
       // Vorschalt-Screen mit Stufenwahl erscheint (nicht sofort Stufe 1).
+      setClickedMapId(null);
       if (tab === 'quiz') setQuizArmed(false);
       // Der Hinweis gehoert zum Schnelltest-Versuch, nicht zur naechsten Ansicht.
       // Er verdeckt sonst die dauerhafte Warnung ueber nicht gespeicherte Antworten.

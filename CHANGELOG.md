@@ -2,6 +2,11 @@
 
 Dieses Changelog beginnt mit dem für eine öffentliche Veröffentlichung bereinigten Projektstand.
 
+## [2.2.1] — 2026-10-05
+
+- Kartenklicks vor dem Quizstart zählen nicht mehr als Antwort; neue Runden starten ohne alte Klicks.
+- Deployment verwirft nicht kanonische Manifestpfade und schützt dadurch aktuelle Assets vor Pfadaliasen. Bereits gelöschte Altdateien werden nach nachgewiesener Abwesenheit aus der Löschvormerkung entfernt.
+
 ## [2.2.0] — 2026-10-04
 
 - Falsche Antworten nach einer Runde gezielt wiederholen; Treffer im ersten Versuch werden getrennt angezeigt.

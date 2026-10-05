@@ -97,7 +97,9 @@ class FakeFTPS:
 
     def delete(self, path):
         self.history.append(("delete", path))
-        self.files.pop(path, None)
+        if path not in self.files:
+            raise ftplib.error_perm("550 missing")
+        self.files.pop(path)
 
 
 def stored_paths(ftps):
@@ -541,7 +543,8 @@ class DeployTests(unittest.TestCase):
         ftps.files[f"/remote/{deploy.REMOTE_MANIFEST_NAME}"] = deploy.manifest_bytes({
             "version": 2, "files": {path: metadata(content) for path, content in files.items()},
             "history": [[history_file]],
-            "pending_deletions": ["../outside", "/absolute", "index.html", "assets/app.js",
+            "pending_deletions": ["../outside", "/absolute", "assets/./app.js", "assets//app.js",
+                                  "./assets/app.js", "assets/app.js/", "index.html", "assets/app.js",
                                   history_file, ".htaccess", deploy.REMOTE_MANIFEST_NAME],
         })
         result = deploy.deploy_dist(ftps, str(self.dist), "/remote")
@@ -549,6 +552,48 @@ class DeployTests(unittest.TestCase):
         self.assertEqual(result.manifest["pending_deletions"], [])
         self.assertEqual(ftps.files[f"/remote/{foreign_file}"], b"foreign")
         self.assertFalse(any(event[0] == "delete" for event in ftps.history))
+
+    def test_noncanonical_paths_are_rejected_in_every_manifest_section(self):
+        aliases = ["assets/./app.js", "assets//app.js", "./assets/app.js", "assets/app.js/"]
+        manifest = deploy.normalise_manifest({
+            "version": 2, "files": {path: metadata(b"asset") for path in aliases},
+            "history": [aliases], "pending_deletions": aliases,
+        })
+        self.assertEqual(manifest["files"], {})
+        self.assertEqual(manifest["history"], [])
+        self.assertEqual(manifest["pending_deletions"], [])
+
+    def test_deleted_file_is_cleared_after_cleanup_manifest_rename_failure(self):
+        self.write_build()
+        stale = "assets/old.js"
+        manifest_path = f"/remote/{deploy.REMOTE_MANIFEST_NAME}"
+        class CleanupFailure(FakeFTPS):
+            manifest_renames = 0
+            def rename(self, source, target):
+                if target == manifest_path:
+                    self.manifest_renames += 1
+                    if self.manifest_renames == 2:
+                        raise OSError("cleanup publication interrupted")
+                return super().rename(source, target)
+        ftps = CleanupFailure({f"/remote/{stale}": b"old"}, directories={"/", "/remote", "/remote/assets"})
+        ftps.files[manifest_path] = deploy.manifest_bytes({
+            "version": 2, "files": {}, "history": [], "pending_deletions": [stale],
+        })
+        first = deploy.deploy_dist(ftps, str(self.dist), "/remote")
+        self.assertEqual(first.removed, 1)
+        self.assertIn(stale, json.loads(ftps.files[manifest_path])["pending_deletions"])
+        second = deploy.deploy_dist(ftps, str(self.dist), "/remote")
+        self.assertEqual(second.failed, 0)
+        self.assertEqual(json.loads(ftps.files[manifest_path])["pending_deletions"], [])
+
+    def test_550_without_proven_absence_remains_pending(self):
+        class PermissionDenied(FakeFTPS):
+            def delete(self, path):
+                raise ftplib.error_perm("550 permission denied")
+        for files, directories in [({"/remote/old.js": b"old"}, {"/remote"}), ({}, set())]:
+            with self.subTest(files=files):
+                ftps = PermissionDenied(files, directories=directories)
+                self.assertEqual(deploy.remove_obsolete_files(ftps, "/remote", ["old.js"]), (0, ["old.js"]))
 
     def test_manifest_carries_the_previous_release_in_its_history(self):
         """Der abgelöste Stand muss im neuen Manifest als jüngster Vorgänger stehen."""

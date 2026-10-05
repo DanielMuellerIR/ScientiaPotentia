@@ -351,12 +351,12 @@ def empty_manifest():
 
 
 def is_safe_relative_path(value):
-    """Nur relative, aufsteigsfreie Pfade dürfen in ein Manifest."""
+    """Nur kanonische relative Pfade dürfen in ein Manifest."""
     return (
         isinstance(value, str)
         and value != ""
         and not value.startswith("/")
-        and ".." not in value.split("/")
+        and all(segment not in ("", ".", "..") for segment in value.split("/"))
     )
 
 
@@ -573,7 +573,7 @@ def obsolete_release_files(release_files, previous_release, old_history):
 
 
 def remove_obsolete_files(ftps, remote_base, obsolete_paths):
-    """Löscht abgelöste Releasedateien; jeder Fehlschlag bleibt eine Warnung.
+    """Löscht Altdateien; ungeklärte Fehlschläge bleiben zur Wiederholung vorgemerkt.
 
     Ein nicht gelöschtes Altstück kostet nur Speicher. Den Deploy deshalb
     scheitern zu lassen wäre falsch — der Release ist zu diesem Zeitpunkt bereits
@@ -588,6 +588,18 @@ def remove_obsolete_files(ftps, remote_base, obsolete_paths):
             removed += 1
             print(f"[DEPLOY] Removed superseded release file: {relative_path}")
         except Exception as error:
+            # 550 kann auch fehlende Rechte bedeuten. Erst eine erfolgreiche
+            # Verzeichnisliste beweist, dass eine frühere Löschung erledigt ist.
+            try:
+                directory = posixpath.dirname(target)
+                names = ftps.nlst(directory)
+                absent = all(posixpath.basename(name.rstrip("/")) != posixpath.basename(target)
+                             for name in names)
+            except Exception:
+                absent = False
+            if absent:
+                print(f"[DEPLOY] Superseded release file already absent: {relative_path}")
+                continue
             pending.append(relative_path)
             print(f"[WARN] Superseded release file could not be removed: {relative_path} ({error})")
     return removed, pending
