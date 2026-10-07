@@ -401,7 +401,7 @@ SELECT DISTINCT ?item ?label ?constLabel ?magnitude ?spectralClass ?sitelinks WH
     console.log(`  Treffer: ${bindings.length}`);
   } catch (err) {
     console.error(`  SPARQL-Fehler: ${err.message}`);
-    return;
+    throw err;
   }
 
   // P31-Typen per separatem Batch
@@ -602,7 +602,7 @@ LIMIT 200
     console.log(`  Treffer: ${bindings.length}`);
   } catch (err) {
     console.error(`  SPARQL-Fehler: ${err.message}`);
-    return;
+    throw err;
   }
 
   // Gruppiere nach QID
@@ -764,6 +764,7 @@ LIMIT 100`,
       allBindings.push(...b);
     } catch (err) {
       console.warn(`  Sub-Query-Fehler: ${err.message}`);
+      throw err;
     }
     if (idx < queries.length - 1) await sleep(MIN_DELAY_MS);
   }
@@ -936,6 +937,7 @@ LIMIT 150
     console.log(`  Allg. Query: ${bindings.length} Treffer`);
   } catch (err) {
     console.error(`  SPARQL-Fehler: ${err.message}`);
+    throw err;
   }
 
   await sleep(MIN_DELAY_MS);
@@ -964,6 +966,7 @@ SELECT DISTINCT ?item ?qid ?label ?typeLabel ?constLabel ?sitelinks WHERE {
     console.log(`  Kuratierte QIDs: ${curatedBindings.length} Treffer`);
   } catch (err) {
     console.warn(`  Kuratierte-Query-Fehler: ${err.message}`);
+    throw err;
   }
 
   const allBindings = [...bindings, ...curatedBindings];

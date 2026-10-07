@@ -19,7 +19,7 @@
 // die Erwartungen des Museums-Tests verschieben.
 
 import React from 'react';
-import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import App from '../App';
 import { getSetting, saveSetting } from '../utils/db';
@@ -154,7 +154,9 @@ describe('Hinweis des Schnelltests', () => {
   it('verschwindet beim Wechsel in eine andere Ansicht', async () => {
     render(<App />);
     fireEvent.click(screen.getByRole('button', { name: 'Weltatlas' }));
-    fireEvent.click(await screen.findByRole('button', { name: 'Luxemburg testen' }));
+    const quickQuiz = await screen.findByRole('button', { name: 'Luxemburg testen' });
+    await act(async () => {});
+    fireEvent.click(quickQuiz);
     expect(screen.getByRole('alert')).toHaveTextContent(
       'Für Luxemburg ist noch keine Quizfrage verfügbar.');
 

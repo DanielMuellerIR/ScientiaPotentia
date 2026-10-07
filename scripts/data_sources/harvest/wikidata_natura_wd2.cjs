@@ -355,8 +355,8 @@ LIMIT ${group.limit}
   try {
     bindings = await sparql(query);
   } catch (err) {
-    console.warn(`  WARNUNG: Query fehlgeschlagen (${err.message}), überspringe.`);
-    return;
+    console.error(`  Query fehlgeschlagen: ${err.message}`);
+    throw err;
   }
 
   console.log(`  Rohergebnis: ${bindings.length} Treffer`);

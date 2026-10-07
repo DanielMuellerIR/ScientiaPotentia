@@ -272,10 +272,12 @@ def validate_view(view):
         if not isinstance(view.get(field), str) or not view[field].strip():
             return f'{field} fehlt oder ist kein Text'
     options = view.get('options')
-    if not isinstance(options, list) or len(options) != 4:
-        return 'options muss genau 4 Einträge enthalten'
-    if not all(isinstance(option, str) for option in options):
-        return 'options enthält einen Nicht-Textwert'
+    if not isinstance(options, list) or not 2 <= len(options) <= len(LETTERS):
+        return f'options muss 2 bis {len(LETTERS)} Einträge enthalten'
+    if not all(isinstance(option, str) and option.strip() for option in options):
+        return 'options enthält einen leeren oder Nicht-Textwert'
+    if len(set(options)) != len(options):
+        return 'options enthält doppelte Antworten'
     if view.get('keyedAnswer') not in options:
         return 'keyedAnswer fehlt in options'
     return None

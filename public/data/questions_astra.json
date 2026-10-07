@@ -20938,25 +20938,6 @@
     "mapTargetId": null
   },
   {
-    "id": "q_astra_galaxy-messier-81-h3_astra-galaxy-distance",
-    "entityId": "astra:galaxy-messier-81-h3",
-    "entityType": "galaxy",
-    "type": "astra-galaxy-distance",
-    "difficulty": 4,
-    "prompt": "Wie weit ist Messier 81 (Bode-Galaxie) ungefähr von der Erde entfernt?",
-    "correctAnswer": "11.600.000 Lichtjahre",
-    "options": [
-      "11.600.000 Lichtjahre",
-      "1.369.855 Lichtjahre",
-      "114.000.000 Lichtjahre",
-      "27.000.000 Lichtjahre"
-    ],
-    "testedAttribute": "distanceLy",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
     "id": "q_astra_galaxy-messier-82-h3_astra-galaxy-distance",
     "entityId": "astra:galaxy-messier-82-h3",
     "entityType": "galaxy",
@@ -21121,25 +21102,6 @@
       "1.630.000 Lichtjahre",
       "160.000.000 Lichtjahre",
       "32.452.522 Lichtjahre"
-    ],
-    "testedAttribute": "distanceLy",
-    "answerIsName": false,
-    "silhouetteSvgPath": null,
-    "mapTargetId": null
-  },
-  {
-    "id": "q_astra_galaxy-messier-101-h3_astra-galaxy-distance",
-    "entityId": "astra:galaxy-messier-101-h3",
-    "entityType": "galaxy",
-    "type": "astra-galaxy-distance",
-    "difficulty": 4,
-    "prompt": "Wie weit ist Messier 101 (Feuerrad-Galaxie) ungefähr von der Erde entfernt?",
-    "correctAnswer": "25.000.000 Lichtjahre",
-    "options": [
-      "25.000.000 Lichtjahre",
-      "2.500.000 Lichtjahre",
-      "272.340.260 Lichtjahre",
-      "14.000.000 Lichtjahre"
     ],
     "testedAttribute": "distanceLy",
     "answerIsName": false,
@@ -37460,7 +37422,7 @@
       "OJ 287",
       "NGC 55",
       "IC 342",
-      "Arp 273"
+      "NGC 772"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -37477,9 +37439,9 @@
     "correctAnswer": "Messier 110",
     "options": [
       "Messier 110",
-      "AM 0644-741",
+      "Messier 106",
       "Messier 109",
-      "IC 10"
+      "Antennen-Galaxien"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -37496,9 +37458,9 @@
     "correctAnswer": "Messier 32",
     "options": [
       "Messier 32",
-      "Messier 105",
-      "NGC 5907",
-      "NGC 4945"
+      "Willman 1",
+      "Messier 87",
+      "NGC 3938"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -37515,9 +37477,9 @@
     "correctAnswer": "Messier 108",
     "options": [
       "Messier 108",
-      "ESO 137-001",
-      "Messier 110",
-      "Messier 32"
+      "Messier 106",
+      "Dwingeloo 1",
+      "Messier 77"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -37534,9 +37496,9 @@
     "correctAnswer": "Kaulquappengalaxie (UGC 10214)",
     "options": [
       "Kaulquappengalaxie (UGC 10214)",
-      "Canes-Venatici-II-Zwerggalaxie",
-      "Messier 83",
-      "Sextans-Zwerggalaxie"
+      "Messier 104 (Sombrero-Galaxie)",
+      "PGC 43462",
+      "Pisces-Zwerggalaxie"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -37553,9 +37515,28 @@
     "correctAnswer": "Große Magellansche Wolke",
     "options": [
       "Große Magellansche Wolke",
-      "Heron-Galaxie (NGC 5394)",
-      "Messier 51 (Strudelgalaxie)",
-      "Sagittarius-Zwerggalaxie"
+      "Sagittarius-Zwerggalaxie",
+      "Coma-Berenices-Zwerggalaxie",
+      "Canis-Major-Zwerggalaxie"
+    ],
+    "testedAttribute": null,
+    "answerIsName": true,
+    "silhouetteSvgPath": null,
+    "mapTargetId": null
+  },
+  {
+    "id": "q_astra_bode_m81_astra-galaxy-distance-rev",
+    "entityId": "astra:bode_m81",
+    "entityType": "galaxy",
+    "type": "astra-galaxy-distance-rev",
+    "difficulty": 4,
+    "prompt": "Welche Galaxie ist etwa 11.600.000 Lichtjahre von der Erde entfernt?",
+    "correctAnswer": "Bode-Galaxie (M81)",
+    "options": [
+      "Bode-Galaxie (M81)",
+      "Leo-I-Zwerggalaxie",
+      "Leo-T-Zwerggalaxie",
+      "Helix-Galaxie (NGC 2685)"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -37572,9 +37553,9 @@
     "correctAnswer": "Bildhauer-Galaxie (NGC 253)",
     "options": [
       "Bildhauer-Galaxie (NGC 253)",
-      "NGC 4945",
+      "NGC 7252",
       "Hamburger-Galaxie (NGC 3628)",
-      "Messier 81 (Bode-Galaxie)"
+      "Canes-Venatici-I-Zwerggalaxie"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -37591,9 +37572,9 @@
     "correctAnswer": "Sonnenblumengalaxie (M63)",
     "options": [
       "Sonnenblumengalaxie (M63)",
-      "Messier 81 (Bode-Galaxie)",
-      "Mäuse-Galaxien (NGC 4676)",
-      "Canes-Venatici-II-Zwerggalaxie"
+      "Schwarzauge-Galaxie (M64)",
+      "Kleine Magellansche Wolke",
+      "NGC 1313 (Topsy-Turvy-Galaxie)"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -37610,9 +37591,9 @@
     "correctAnswer": "Messier 106",
     "options": [
       "Messier 106",
-      "Messier 100",
+      "Dwingeloo 1",
       "Messier 91",
-      "AM 0644-741"
+      "Messier 108"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -37629,9 +37610,9 @@
     "correctAnswer": "Messier 63",
     "options": [
       "Messier 63",
-      "Messier 88",
-      "NGC 4569",
-      "Messier 99"
+      "Messier 98",
+      "NGC 4319",
+      "Messier 85"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -37648,9 +37629,9 @@
     "correctAnswer": "Messier 94",
     "options": [
       "Messier 94",
-      "Messier 90",
-      "Kleine Magellansche Wolke",
-      "Messier 77"
+      "Messier 89",
+      "Sonnenblumengalaxie (M63)",
+      "Messier 61"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -37667,9 +37648,9 @@
     "correctAnswer": "Messier 98",
     "options": [
       "Messier 98",
-      "Messier 99",
-      "Messier 77",
-      "Phantomgalaxie (M74)"
+      "Messier 86",
+      "Messier 95",
+      "Messier 87 (Virgo A)"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -37686,9 +37667,9 @@
     "correctAnswer": "Messier 95",
     "options": [
       "Messier 95",
-      "Messier 86",
-      "Messier 65",
-      "Spindelgalaxie (NGC 3115)"
+      "Messier 96",
+      "Messier 87",
+      "Sonnenblumengalaxie (M63)"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -37706,7 +37687,7 @@
     "options": [
       "Messier 65",
       "Messier 87",
-      "Messier 94",
+      "Messier 88",
       "Messier 91"
     ],
     "testedAttribute": null,
@@ -37725,8 +37706,8 @@
     "options": [
       "Messier 91",
       "Messier 61",
-      "Wolf-Lundmark-Melotte-Galaxie",
-      "Messier 59"
+      "Canes-Venatici-I-Zwerggalaxie",
+      "Messier 83"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -37743,9 +37724,9 @@
     "correctAnswer": "Sculptor-Galaxie",
     "options": [
       "Sculptor-Galaxie",
-      "Tucana-Zwerggalaxie",
-      "NGC 4414",
-      "Sombrero-Galaxie"
+      "Markarian 231",
+      "NGC 4273",
+      "Andromedagalaxie"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -37762,9 +37743,9 @@
     "correctAnswer": "Messier 96",
     "options": [
       "Messier 96",
-      "Messier 64",
-      "Messier 66",
-      "Messier 95"
+      "Messier 90",
+      "Messier 98",
+      "Messier 59"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -37781,9 +37762,9 @@
     "correctAnswer": "Messier 61",
     "options": [
       "Messier 61",
-      "NGC 7793",
+      "NGC 4343",
       "NGC 300",
-      "Messier 84"
+      "Messier 86"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -37800,9 +37781,9 @@
     "correctAnswer": "Messier 88",
     "options": [
       "Messier 88",
-      "NGC 300",
-      "Messier 86",
-      "Messier 84"
+      "NGC 740",
+      "Messier 87",
+      "Messier 99"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -37819,8 +37800,8 @@
     "correctAnswer": "Messier 109",
     "options": [
       "Messier 109",
+      "Messier 106",
       "Dwingeloo 1",
-      "Messier 100",
       "Messier 108"
     ],
     "testedAttribute": null,
@@ -37839,7 +37820,7 @@
     "options": [
       "Barnards Galaxie",
       "Sculptor-Galaxie",
-      "Saurons Auge (NGC 4151)",
+      "Nadelgalaxie (NGC 4565)",
       "Circinusgalaxie"
     ],
     "testedAttribute": null,
@@ -37857,9 +37838,9 @@
     "correctAnswer": "Wagenradgalaxie",
     "options": [
       "Wagenradgalaxie",
-      "Andromedagalaxie",
+      "Sculptor-Galaxie",
       "Dreiecksgalaxie",
-      "Draco-Zwerggalaxie"
+      "Bode-Galaxie (M81)"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -37876,9 +37857,9 @@
     "correctAnswer": "NGC 4314",
     "options": [
       "NGC 4314",
-      "NGC 3621",
-      "NGC 4826",
-      "Messier 94"
+      "NGC 1232",
+      "NGC 2967",
+      "Messier 91"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -37895,9 +37876,9 @@
     "correctAnswer": "NGC 740",
     "options": [
       "NGC 740",
-      "Kleine Magellansche Wolke",
-      "NGC 253",
-      "NGC 598"
+      "Große Magellansche Wolke",
+      "Mrk 590",
+      "IC 1101"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -37915,8 +37896,8 @@
     "options": [
       "Hoags Objekt",
       "Markarian 231",
-      "Dwingeloo 1",
-      "Messier 102"
+      "Messier 108",
+      "Messier 100"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -37933,9 +37914,9 @@
     "correctAnswer": "NGC 2967",
     "options": [
       "NGC 2967",
-      "Phantomgalaxie (M74)",
-      "NGC 3982",
-      "NGC 4414"
+      "Fornax-Zwerggalaxie",
+      "NGC 4826",
+      "NGC 2403"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -37952,9 +37933,9 @@
     "correctAnswer": "Mrk 590",
     "options": [
       "Mrk 590",
-      "NGC 2841",
+      "NGC 3627",
       "NGC 224",
-      "NGC 253"
+      "Segue 1"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -37971,9 +37952,9 @@
     "correctAnswer": "NGC 4343",
     "options": [
       "NGC 4343",
-      "Kaulquappengalaxie (UGC 10214)",
-      "NGC 7252",
-      "NGC 6503"
+      "NGC 1313 (Topsy-Turvy-Galaxie)",
+      "NGC 4258",
+      "NGC 4486"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -37991,8 +37972,8 @@
     "options": [
       "NGC 4273",
       "NGC 253",
-      "IC 4296",
-      "NGC 3982"
+      "Sextans A",
+      "NGC 4382"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -38011,7 +37992,7 @@
       "Circinusgalaxie",
       "Wagenradgalaxie",
       "Dreiecksgalaxie",
-      "Messier 95"
+      "Messier 84"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -38028,9 +38009,9 @@
     "correctAnswer": "Arp 220",
     "options": [
       "Arp 220",
-      "Sonnenblumengalaxie (M63)",
-      "NGC 598",
-      "NGC 247"
+      "Schwarzauge-Galaxie (M64)",
+      "IC 4296",
+      "Malin 1"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -38048,8 +38029,8 @@
     "options": [
       "Canis-Major-Zwerggalaxie",
       "Heron-Galaxie (NGC 5394)",
-      "Saurons Auge (NGC 4151)",
-      "Sagittarius-Zwerggalaxie"
+      "Mäuse-Galaxien (NGC 4676)",
+      "Große Magellansche Wolke"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -38066,9 +38047,9 @@
     "correctAnswer": "NGC-6320",
     "options": [
       "NGC-6320",
-      "NGC 6240",
-      "NGC 7793",
-      "Arp 220"
+      "NGC 3031",
+      "NGC 3621",
+      "NGC 247"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -38085,9 +38066,9 @@
     "correctAnswer": "NGC 3911",
     "options": [
       "NGC 3911",
-      "NGC 3627",
-      "NGC 2787",
-      "NGC 3521"
+      "NGC 4395",
+      "NGC 4472",
+      "NGC 4038"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -38104,9 +38085,9 @@
     "correctAnswer": "NGC 3920",
     "options": [
       "NGC 3920",
-      "NGC 7252",
-      "NGC 1559",
-      "NGC 1232"
+      "NGC 4321",
+      "NGC 4452",
+      "NGC 5054"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -38123,9 +38104,9 @@
     "correctAnswer": "NGC 5541",
     "options": [
       "NGC 5541",
-      "NGC 3920",
-      "NGC 6240",
-      "NGC 5236"
+      "NGC 5128",
+      "NGC 4486",
+      "NGC 3627"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -38142,9 +38123,9 @@
     "correctAnswer": "Fornax-Zwerggalaxie",
     "options": [
       "Fornax-Zwerggalaxie",
-      "Carina-Zwerggalaxie",
-      "Pisces-Zwerggalaxie",
-      "Leo-T-Zwerggalaxie"
+      "Leo-II-Zwerggalaxie",
+      "Tucana-Zwerggalaxie",
+      "Sextans-Zwerggalaxie"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -38162,7 +38143,7 @@
     "options": [
       "Leo-I-Zwerggalaxie",
       "Bode-Galaxie (M81)",
-      "NGC 4486",
+      "NGC 1232",
       "Draco-Zwerggalaxie"
     ],
     "testedAttribute": null,
@@ -38180,9 +38161,9 @@
     "correctAnswer": "Dwingeloo 1",
     "options": [
       "Dwingeloo 1",
-      "Messier 102",
-      "NGC 3920",
-      "AM 0644-741"
+      "Messier 108",
+      "NGC 4472",
+      "Messier 109"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -38218,9 +38199,9 @@
     "correctAnswer": "Carina-Zwerggalaxie",
     "options": [
       "Carina-Zwerggalaxie",
-      "Antlia-Zwerggalaxie",
-      "Sextans A",
-      "Pisces-Zwerggalaxie"
+      "Tucana-Zwerggalaxie",
+      "PGC 43462",
+      "Fornax-Zwerggalaxie"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -38237,9 +38218,9 @@
     "correctAnswer": "Maffei 2",
     "options": [
       "Maffei 2",
-      "NGC 5866",
-      "NGC 5128",
-      "NGC 2442"
+      "NGC 5054",
+      "NGC-6320",
+      "NGC 4258"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -38256,9 +38237,9 @@
     "correctAnswer": "Antlia-Zwerggalaxie",
     "options": [
       "Antlia-Zwerggalaxie",
-      "Leo-II-Zwerggalaxie",
+      "Pisces-Zwerggalaxie",
       "Tucana-Zwerggalaxie",
-      "NGC 4382"
+      "NGC 4486"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -38275,9 +38256,9 @@
     "correctAnswer": "PGC 43462",
     "options": [
       "PGC 43462",
-      "NGC 3911",
-      "Messier 65",
-      "Sextans B"
+      "NGC 5457",
+      "NGC 1672",
+      "Sextans A"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -38295,8 +38276,8 @@
     "options": [
       "Canes-Venatici-I-Zwerggalaxie",
       "Wolf-Lundmark-Melotte-Galaxie",
-      "Canes-Venatici-II-Zwerggalaxie",
-      "Schwarzauge-Galaxie (M64)"
+      "Messier 104 (Sombrero-Galaxie)",
+      "Spindelgalaxie (NGC 3115)"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -38313,7 +38294,7 @@
     "correctAnswer": "Leo-T-Zwerggalaxie",
     "options": [
       "Leo-T-Zwerggalaxie",
-      "Sculptor-Zwerggalaxie",
+      "Zigarrengalaxie (M82)",
       "Draco-Zwerggalaxie",
       "Leo-I-Zwerggalaxie"
     ],
@@ -38332,9 +38313,9 @@
     "correctAnswer": "Markarian 231",
     "options": [
       "Markarian 231",
-      "Wagenradgalaxie",
-      "Messier 102",
-      "Messier 58"
+      "Dreiecksgalaxie",
+      "Messier 109",
+      "Andromedagalaxie"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -38352,8 +38333,8 @@
     "options": [
       "Malin 1",
       "Bode-Galaxie (M81)",
-      "NGC 5541",
-      "NGC 300"
+      "NGC 4038",
+      "Arp 273"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -38370,9 +38351,9 @@
     "correctAnswer": "Hercules-Zwerggalaxie",
     "options": [
       "Hercules-Zwerggalaxie",
-      "Sculptor-Zwerggalaxie",
-      "Bildhauer-Galaxie (NGC 253)",
-      "Centaurus A (NGC 5128)"
+      "Walgalaxie (NGC 4631)",
+      "NGC 7331 (Deer-Lick-Gruppe)",
+      "Sextans-Zwerggalaxie"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -38389,9 +38370,9 @@
     "correctAnswer": "Antlia 2",
     "options": [
       "Antlia 2",
-      "Carina-Zwerggalaxie",
-      "Sculptor-Galaxie",
-      "NGC 247"
+      "NGC 4382",
+      "Dreiecksgalaxie",
+      "Sextans A"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -38408,9 +38389,9 @@
     "correctAnswer": "Canes-Venatici-II-Zwerggalaxie",
     "options": [
       "Canes-Venatici-II-Zwerggalaxie",
-      "NGC 3370",
-      "NGC 1365 (Große Balkenspirale)",
-      "Messier 104 (Sombrero-Galaxie)"
+      "NGC 1532",
+      "Kaulquappengalaxie (UGC 10214)",
+      "NGC 1365 (Große Balkenspirale)"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -38427,8 +38408,8 @@
     "correctAnswer": "Messier 87",
     "options": [
       "Messier 87",
-      "Canis-Major-Zwerggalaxie",
-      "Messier 91",
+      "Heron-Galaxie (NGC 5394)",
+      "Messier 59",
       "Messier 98"
     ],
     "testedAttribute": null,
@@ -38448,7 +38429,7 @@
       "OJ 287",
       "NGC 55",
       "IC 342",
-      "NGC 247"
+      "NGC 300"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -38465,9 +38446,9 @@
     "correctAnswer": "NGC 1300",
     "options": [
       "NGC 1300",
+      "NGC 6240",
       "NGC 3031",
-      "NGC 1559",
-      "Sagittarius-Zwerggalaxie"
+      "Große Magellansche Wolke"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -38484,8 +38465,8 @@
     "correctAnswer": "Messier 86",
     "options": [
       "Messier 86",
-      "Messier 58",
-      "Messier 95",
+      "Messier 96",
+      "Messier 98",
       "Messier 61"
     ],
     "testedAttribute": null,
@@ -38503,9 +38484,9 @@
     "correctAnswer": "Messier 99",
     "options": [
       "Messier 99",
-      "Messier 65",
       "Messier 58",
-      "Pisces-Zwerggalaxie"
+      "Messier 89",
+      "Draco-Zwerggalaxie"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -38522,9 +38503,9 @@
     "correctAnswer": "Kaulquappengalaxie (UGC 10214)",
     "options": [
       "Kaulquappengalaxie (UGC 10214)",
-      "Messier 101 (Feuerrad-Galaxie)",
-      "Messier 96",
-      "Hercules-Zwerggalaxie"
+      "NGC 1313 (Topsy-Turvy-Galaxie)",
+      "Messier 83",
+      "Zigarrengalaxie (M82)"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -38541,9 +38522,9 @@
     "correctAnswer": "NGC 2403",
     "options": [
       "NGC 2403",
-      "NGC 4569",
-      "NGC 3627",
-      "NGC 1316"
+      "NGC 5866",
+      "NGC 4374",
+      "NGC 4395"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -38560,9 +38541,9 @@
     "correctAnswer": "NGC 1365 (Große Balkenspirale)",
     "options": [
       "NGC 1365 (Große Balkenspirale)",
-      "NGC 4452",
-      "Messier 101 (Feuerrad-Galaxie)",
-      "Messier 104 (Sombrero-Galaxie)"
+      "NGC 3621",
+      "NGC 1313 (Topsy-Turvy-Galaxie)",
+      "Canes-Venatici-II-Zwerggalaxie"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -38579,9 +38560,9 @@
     "correctAnswer": "Leo-II-Zwerggalaxie",
     "options": [
       "Leo-II-Zwerggalaxie",
-      "Carina-Zwerggalaxie",
-      "Andromedagalaxie",
-      "Fornax-Zwerggalaxie"
+      "Pisces-Zwerggalaxie",
+      "Barnards Galaxie",
+      "Carina-Zwerggalaxie"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -38598,9 +38579,9 @@
     "correctAnswer": "Draco-Zwerggalaxie",
     "options": [
       "Draco-Zwerggalaxie",
-      "Dreiecksgalaxie",
-      "Antlia-Zwerggalaxie",
-      "Bode-Galaxie (M81)"
+      "Messier 87 (Virgo A)",
+      "Tucana-Zwerggalaxie",
+      "Leo-I-Zwerggalaxie"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -38618,8 +38599,8 @@
     "options": [
       "Tucana-Zwerggalaxie",
       "Fornax-Zwerggalaxie",
-      "Antlia-Zwerggalaxie",
-      "Wagenradgalaxie"
+      "Leo-II-Zwerggalaxie",
+      "Ursa-Minor-Zwerggalaxie"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -38638,7 +38619,7 @@
       "Wolf-Lundmark-Melotte-Galaxie",
       "Canes-Venatici-I-Zwerggalaxie",
       "Feuerwerksgalaxie (NGC 6946)",
-      "Messier 101 (Feuerrad-Galaxie)"
+      "NGC 1313 (Topsy-Turvy-Galaxie)"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -38655,9 +38636,9 @@
     "correctAnswer": "IC 1101",
     "options": [
       "IC 1101",
-      "NGC 740",
       "Arp 273",
-      "NGC 3031"
+      "NGC 598",
+      "NGC 2442"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -38674,9 +38655,9 @@
     "correctAnswer": "NGC 6240",
     "options": [
       "NGC 6240",
-      "NGC 3034",
+      "NGC 5457",
       "Feuerrad-Galaxie (M101)",
-      "NGC 4736"
+      "NGC 6503"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -38693,9 +38674,9 @@
     "correctAnswer": "NGC 3370",
     "options": [
       "NGC 3370",
-      "NGC 4569",
-      "NGC 7793",
-      "NGC 3982"
+      "NGC 4038",
+      "NGC 7252",
+      "NGC 4945"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -38712,9 +38693,9 @@
     "correctAnswer": "NGC 2207",
     "options": [
       "NGC 2207",
-      "IC 10",
-      "Antlia 2",
-      "Dwingeloo 1"
+      "Messier 102",
+      "NGC 4395",
+      "Messier 108"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -38731,9 +38712,9 @@
     "correctAnswer": "NGC 300",
     "options": [
       "NGC 300",
-      "Arp 220",
-      "NGC 4569",
-      "Leo-I-Zwerggalaxie"
+      "NGC 224",
+      "NGC 3627",
+      "Whirlpool-Galaxie"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -38750,9 +38731,9 @@
     "correctAnswer": "NGC 55",
     "options": [
       "NGC 55",
-      "IC 342",
-      "Segue 1",
-      "OJ 287"
+      "OJ 287",
+      "NGC 300",
+      "IC 342"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -38769,9 +38750,9 @@
     "correctAnswer": "NGC 3627",
     "options": [
       "NGC 3627",
-      "NGC 5194",
-      "Fornax-Zwerggalaxie",
-      "NGC 2442"
+      "NGC 1300",
+      "Pisces-Zwerggalaxie",
+      "NGC 4395"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -38788,9 +38769,9 @@
     "correctAnswer": "NGC 5457",
     "options": [
       "NGC 5457",
-      "NGC 1300",
-      "NGC 4273",
-      "NGC 1614"
+      "NGC 2336",
+      "NGC 2207",
+      "NGC 1316"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -38807,9 +38788,9 @@
     "correctAnswer": "NGC 1068",
     "options": [
       "NGC 1068",
-      "Messier 96",
-      "NGC 4374",
-      "NGC 7714"
+      "Messier 91",
+      "NGC 4273",
+      "NGC 4569"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -38826,9 +38807,9 @@
     "correctAnswer": "NGC 6822",
     "options": [
       "NGC 6822",
-      "NGC 5457",
       "NGC 2336",
-      "NGC 6503"
+      "NGC 1569",
+      "NGC 5541"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -38846,7 +38827,7 @@
     "options": [
       "IC 10",
       "NGC 55",
-      "NGC 3521",
+      "NGC 1068",
       "OJ 287"
     ],
     "testedAttribute": null,
@@ -38864,9 +38845,9 @@
     "correctAnswer": "NGC 7793",
     "options": [
       "NGC 7793",
-      "NGC 4258",
-      "NGC 3920",
-      "NGC 4395"
+      "NGC 2967",
+      "NGC 3031",
+      "NGC 3627"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -38883,9 +38864,9 @@
     "correctAnswer": "NGC 7252",
     "options": [
       "NGC 7252",
-      "Segue 1",
-      "NGC 3344",
-      "NGC 4319"
+      "NGC 224",
+      "NGC 6503",
+      "NGC 5866"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -38902,9 +38883,9 @@
     "correctAnswer": "Sextans A",
     "options": [
       "Sextans A",
-      "NGC 4321",
-      "NGC 1532",
-      "Willman 1"
+      "NGC 5866",
+      "Messier 66",
+      "Sextans B"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -38921,8 +38902,8 @@
     "correctAnswer": "Sextans B",
     "options": [
       "Sextans B",
-      "Messier 84",
-      "Messier 91",
+      "Antlia 2",
+      "NGC 4258",
       "PGC 43462"
     ],
     "testedAttribute": null,
@@ -38940,9 +38921,9 @@
     "correctAnswer": "NGC 3621",
     "options": [
       "NGC 3621",
-      "Messier 64",
-      "NGC 3920",
-      "NGC 4395"
+      "OJ 287",
+      "NGC 4395",
+      "NGC 3911"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -38959,9 +38940,9 @@
     "correctAnswer": "NGC 3521",
     "options": [
       "NGC 3521",
-      "NGC 3627",
-      "NGC 5866",
-      "NGC 4452"
+      "NGC 7252",
+      "NGC 2787",
+      "NGC 4486"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -38978,9 +38959,9 @@
     "correctAnswer": "Kondor-Galaxie (NGC 6872)",
     "options": [
       "Kondor-Galaxie (NGC 6872)",
-      "PGC 43462",
-      "Kleine Magellansche Wolke",
-      "NGC 6822"
+      "Willman 1",
+      "Sonnenblumengalaxie (M63)",
+      "NGC 2787"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -38997,9 +38978,9 @@
     "correctAnswer": "NGC 1614",
     "options": [
       "NGC 1614",
-      "NGC 3034",
-      "NGC 4406",
-      "NGC 4736"
+      "NGC 7714",
+      "NGC 1232",
+      "NGC 4321"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -39016,9 +38997,9 @@
     "correctAnswer": "NGC 2787",
     "options": [
       "NGC 2787",
-      "NGC 4826",
-      "NGC 4374",
-      "NGC 4395"
+      "NGC 1672",
+      "NGC 4736",
+      "NGC 4826"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -39054,9 +39035,9 @@
     "correctAnswer": "NGC 5054",
     "options": [
       "NGC 5054",
-      "NGC 4826",
-      "NGC 1614",
-      "NGC 7793"
+      "NGC 1316",
+      "NGC 6503",
+      "NGC 2207"
     ],
     "testedAttribute": null,
     "answerIsName": true,
@@ -39073,9 +39054,9 @@
     "correctAnswer": "NGC 772",
     "options": [
       "NGC 772",
-      "NGC 5866",
-      "Arp 220",
-      "NGC 253"
+      "NGC 4945",
+      "NGC 300",
+      "Mrk 590"
     ],
     "testedAttribute": null,
     "answerIsName": true,

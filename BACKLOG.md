@@ -1,19 +1,18 @@
 # Backlog
 
+- Ergänzendes Quellcode-Review vom 2026-10-07: [Befunde und Prüfgrenzen](docs/review-2026-10-07.md).
 - Gesamtanalyse vom 2026-10-04: [Reviewbericht](docs/review-2026-10-04.md) mit korrigierten Fehlern, ausgeführten Prüfungen und Abdeckungsgrenzen.
 - Die bisherige REST-Countries-v3-Quelle für `prepare_data.js` ist abgeschaltet:
   Der Abruf am 2026-10-04 liefert HTTP 200, aber `success:false`, `data:null`
   und eine Abschaltungsmitteilung. Der Anbieter verlangt für v5 ein API-Konto
   und ein anderes Antwortschema ([Migrationshinweis](https://restcountries.com/docs/countries/legacy-api-deprecation)).
-  Vor einer neuen Terra-Ernte eine tragfähige Quellen-/Lizenzentscheidung treffen;
+  Die [offene Importprobe](docs/terra_sources.md) deckt alle 175 benötigten Länder ab,
+  liefert aber weder Bevölkerung noch Zeitzonen. Ein produktiver Import braucht einen
+  versionierten Vertrag mit getrennten Quellen und vollständigen Pflichtfeldern;
   der bestehende Spielkatalog bleibt nutzbar und wird bei Quellenfehlern nicht ersetzt.
 - 68 Cultura-Bauwerksfragen sind ohne geprüftes `attributes.yearKind` ausgesetzt.
   Pro Quelle zwischen Baubeginn, Fertigstellung und Umbau unterscheiden, bevor
   diese Fragen wieder erzeugt werden. Die vorhandenen Rohjahre bleiben erhalten.
-- M81 und M101 tragen jeweils zwei Konzept-IDs (`bode_m81`/`galaxy-messier-81-h3`
-  und `feuerrad_m101`/`galaxy-messier-101-h3`). Die Entfernungswerte sind seit
-  2026-10-04 anhand der verlinkten NASA-Quelle angeglichen. Eine Zusammenführung
-  braucht eine Fortschrittsmigration oder belegte Aliase; keine IDs still löschen.
 - Der Fragen-Audit meldet am 2026-10-04 noch 1.294 heuristische Format-Hinweise
   und zwei Längen-Bias-Templates. Einzeln fachlich prüfen; die Zahl ist keine
   Zahl bestätigter Fehler. Erklärung und Lernwinkel vor zusätzlicher Menge priorisieren.
@@ -33,11 +32,6 @@
   nicht kopieren, und die App zeigt sie deshalb nicht. Zurzeit gibt es keine solche Quelle
   (geprüft 2026-10-04, alle 4964 benötigten Dateien liegen auf Commons); `npm run audit:image-mirror`
   meldet den Fall, falls doch eine hinzukommt.
-- `public/assets/homo/digestive.svg` (405 KiB) hat keinen Verweis im Quelltext:
-  `HomoVisual.jsx` bildet seine Kategorien auf `skeleton.svg`, `muscles.png`,
-  `organs.svg` und `body.svg` ab, `CATEGORY_ASSET_ALIAS` leitet die übrigen
-  dorthin um. Die Datei wandert trotzdem in jedes Release. Ein Löschen gehört
-  ausdrücklich beauftragt, weil ihre Herkunft in `CREDITS.md` dokumentiert ist.
 - 38 Konzept-IDs tragen Umlaute oder ß (`cultura:lit-der-fänger-im-roggen`, `natura:weißer-hai`
   und weitere). Sie entstanden, weil die deutschen Textkorrekturen der Merge-Skripte bis zum
   2026-09-03 über das ganze Konzeptobjekt liefen. Die Ursache ist behoben, die IDs bleiben
@@ -67,10 +61,6 @@
   Darunter stehen nicht erreichbare oder fachlich falsche externe Quelllinks und
   Grenzen zwischen Nebelkomponenten. Vor einer Bildübernahme die fachliche Quelle
   und das konkrete Motiv prüfen; ein geratener Konzeptname ersetzt diesen Beleg nicht.
-- `resolve_author_portraits.cjs` prüft nicht, ob das Artikelbild ein Porträt zeigt. Der Lauf am
-  2026-09-03 fand für 2 von 33 Autoren ein Bild, und das eine davon ist `Moers_Signatur.svg` —
-  eine Unterschrift. Dass die übrigen 31 leer ausgehen, liegt an der Datenlage: die deutschen
-  Artikel dieser Autoren enthalten kein Bild (gegengeprüft an „Dan Simmons").
 - Sechs Fragetypen haben weiterhin eine Option, die nur als richtige Antwort vorkommt und nie
   als Distraktor (76 Fragen): `astra-nebula-type` „planetarischer Nebel", `machina-algo-complexity`
   „O(n²)", `historia-figure-field` „Naturwissenschaft (allg.)", `terra/river-country`

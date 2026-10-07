@@ -83,6 +83,28 @@ describe('IndexedDB-Schreibverträge', () => {
     await expect(writing).rejects.toBe(abortError);
   });
 
+  it('schreibt Streak und Datum in derselben Transaktion und meldet Abbruch', async () => {
+    const harness = createIndexedDbHarness();
+    const db = await loadOpenedDb(harness);
+    const writing = db.saveSettings({ streakCount: 6, lastReviewDate: '2026-10-07' });
+    await Promise.resolve();
+    expect(harness.database.transaction).toHaveBeenCalledOnce();
+    expect(harness.store.put.mock.calls).toEqual([
+      [{ key: 'streakCount', value: 6 }], [{ key: 'lastReviewDate', value: '2026-10-07' }],
+    ]);
+    const error = new Error('Quota exceeded');
+    harness.transaction.onabort({ target: { error } });
+    await expect(writing).rejects.toBe(error);
+  });
+
+  it('übernimmt Astra-Aliase mit der richtigen Domain', async () => {
+    const db = await import('../utils/db');
+    const canonical = db.canonicalProgressEntityId('astra:galaxy-messier-81-h3');
+    expect(canonical).toBe('astra:bode_m81');
+    expect(db.mergeAliasedProgress(null, { repetitions: 3 }, canonical))
+      .toMatchObject({ entityId: canonical, domain: 'astra', repetitions: 3 });
+  });
+
   it('schließt die gecachte Verbindung, bevor die Datenbank gelöscht wird', async () => {
     const harness = createIndexedDbHarness();
     const db = await loadOpenedDb(harness);

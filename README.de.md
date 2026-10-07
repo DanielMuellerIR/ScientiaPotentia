@@ -32,6 +32,8 @@ npm run dev
 
 Vite stellt die Anwendung standardmäßig unter `http://localhost:3000` bereit.
 
+Querbeet mischt Fragen aus allen acht Bereichen und verwendet jeweils deren passende Visualisierung. Die Karte wird dabei vor Rundenstart vorbereitet und lädt Kartendaten von OpenFreeMap (siehe [Bild- und Datenquellen](public/credits.html)).
+
 Der Weltatlas benötigt WebGL 2. Ohne WebGL bleiben Terra-Fragen ohne Kartenklick
 und die generische Astra-Konzeptansicht spielbar.
 

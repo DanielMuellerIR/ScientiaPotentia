@@ -335,6 +335,15 @@ function run() {
   }
 
   const { entities } = JSON.parse(fs.readFileSync(GEODB_PATH, 'utf8'));
+  const cityCountries = new Map();
+  const countryCities = new Map();
+  for (const city of Object.values(entities).filter(entity => entity.type === 'city')) {
+    const country = city.metadata?.countryId;
+    if (!cityCountries.has(city.name)) cityCountries.set(city.name, new Set());
+    cityCountries.get(city.name).add(country);
+    if (!countryCities.has(country)) countryCities.set(country, new Set());
+    countryCities.get(country).add(city.name);
+  }
   const currencyData = JSON.parse(fs.readFileSync(CURRENCY_DATA_PATH, 'utf8'));
   if (
     currencyData.metadata?.candidateOnly !== false ||
@@ -644,7 +653,7 @@ function run() {
       const correctAnswer = getCountryName(countryId);
       
       const otherCountries = Object.values(entities)
-        .filter(e => e.type === 'country' && e.id !== countryId)
+        .filter(e => e.type === 'country' && e.id !== countryId && !cityCountries.get(entity.name)?.has(e.id))
         .map(e => e.name);
       
       const dists = seededShuffle(
@@ -670,7 +679,8 @@ function run() {
       if (countryId) {
         const cCorrectAnswer = entity.name;
         const otherCities = Object.values(entities)
-          .filter(e => e.type === 'city' && e.metadata?.countryId !== countryId)
+          .filter(e => e.type === 'city' && e.metadata?.countryId !== countryId
+            && !countryCities.get(countryId)?.has(e.name))
           .map(e => e.name);
 
         const cDists = seededShuffle(

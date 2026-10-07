@@ -329,8 +329,7 @@ LIMIT 150
     console.log(`  Sub-Query B (Ellip/Linse/Irr/Zwerg/Ring): ${bindingsB.length} Treffer`);
   } catch (err) {
     console.error(`  SPARQL-Fehler: ${err.message}`);
-    if (bindingsA.length === 0) return;
-    console.log('  Fahre mit Sub-Query-A-Ergebnissen fort…');
+    throw err;
   }
 
   const allBindings = [...bindingsA, ...bindingsB];
@@ -500,6 +499,7 @@ LIMIT 120
     console.log(`  Allg. Query: ${bindings.length} Treffer`);
   } catch (err) {
     console.error(`  SPARQL-Fehler: ${err.message}`);
+    throw err;
   }
 
   // B) Kuratierte QIDs direkt abfragen (bekannte Nebel mit ggf. niedrigeren SL)
@@ -528,6 +528,7 @@ SELECT DISTINCT ?item ?qid ?label ?typeLabel ?constLabel ?sitelinks WHERE {
     console.log(`  Kuratierte QIDs: ${curatedBindings.length} Treffer`);
   } catch (err) {
     console.warn(`  Kuratierte-Query-Fehler: ${err.message}`);
+    throw err;
   }
 
   const allBindings = [...bindings, ...curatedBindings];
@@ -678,4 +679,4 @@ async function main() {
   console.log(`\nGeschrieben: ${OUT_PATH}`);
 }
 
-main();
+if (require.main === module) main();

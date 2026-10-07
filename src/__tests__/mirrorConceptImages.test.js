@@ -4,7 +4,7 @@ import { mkdtemp, mkdir, readFile, readdir, rm, writeFile } from 'node:fs/promis
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
-import { chooseMode, mirrorPathFor, verifyMirror, writeIfAbsent, parseMirrorArguments } from '../../scripts/mirror_concept_images.mjs';
+import { chooseMode, commandVerify, mirrorPathFor, verifyMirror, writeIfAbsent, parseMirrorArguments } from '../../scripts/mirror_concept_images.mjs';
 import {
   buildRightsReport, invalidMirrorNames, metadataRefreshBatch, rightsProblems, rightsBindingProblems,
 } from '../../scripts/lib/image_mirror_rights.mjs';
@@ -135,6 +135,13 @@ describe('Abgleich von Katalog, Manifest und Dateien', () => {
   }
 
   const commonsImage = { url: 'https://commons.wikimedia.org/wiki/File%3ATest.jpg' };
+
+  it('lässt den eigenständigen Verify-Befehl bei fehlenden Bildern scheitern', async () => {
+    const paths = await fixture({ manifestFiles: {}, conceptImage: commonsImage });
+    await expect(commandVerify({ verbose: false }, paths)).rejects.toThrow();
+    await rm(paths.manifestPath);
+    await expect(commandVerify({ verbose: false }, paths)).rejects.toThrow();
+  });
 
   it.each([[], [0, 960, 720, 0, 'r'], ['../outside.webp', 960, 720, 0, 'r']].map(entry => ({ entry })))('weist unbrauchbare Einträge zurück: %j', async ({ entry }) => {
     const paths = await fixture({ manifestFiles: { 'Test.jpg': entry }, conceptImage: commonsImage });

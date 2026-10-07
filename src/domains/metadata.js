@@ -8,7 +8,7 @@
  */
 export const DOMAIN_CONFIGS = [
   { id: 'scientia', hasMap: false, hasOwnContent: false, includeInScientia: false, usesGeodb: false },
-  { id: 'terra', hasMap: true, hasOwnContent: true, includeInScientia: false, usesGeodb: true },
+  { id: 'terra', hasMap: true, hasOwnContent: true, includeInScientia: true, usesGeodb: true },
   { id: 'astra', hasMap: false, hasOwnContent: true, includeInScientia: true, usesGeodb: false },
   { id: 'homo', hasMap: false, hasOwnContent: true, includeInScientia: true, usesGeodb: false },
   { id: 'natura', hasMap: false, hasOwnContent: true, includeInScientia: true, usesGeodb: false },

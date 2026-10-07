@@ -24,6 +24,7 @@ Leitspruch.
 - Terra-Konzeptschlüssel bleiben unpräfixt. Alle anderen Domains verwenden `<domain>:<id>`.
 - IndexedDB speichert Fortschritt pro Domain. Schlüssel oder Datenbankstruktur nur mit
   Rückwärtskompatibilität ändern.
+- `hasMap` kennzeichnet die reine Kartenansicht; `hasMapQuestions` wird in der Registry aus dem Fragenpool abgeleitet und steuert die Kartenprüfung vor Rundenstart. Im Mix bestimmt die Herkunft der aktuellen Frage das Visual.
 - Das Lernsystem verfolgt Konzepte, nicht einzelne Fragen.
 - Fachlogik gehört in Registry oder Domain-Komponenten, nicht als Sonderfall in die App-Shell.
 - Module, die sowohl im Browser als auch in Node-Generatoren laufen (z. B.

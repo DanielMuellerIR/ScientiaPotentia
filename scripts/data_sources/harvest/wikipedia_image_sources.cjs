@@ -79,6 +79,9 @@ async function resolveSourceImages(concepts, domain, getJson, acceptFiles = asyn
       }));
       for (const row of group.filter(row => titles.includes(row.source.title))) {
         row.page = canonicalPage(payload.query || {}, row.source.title);
+        // Ein aus dem Namen geratener Artikel darf eine belegte Quellen-QID
+        // nicht durch ein gleichnamiges anderes Objekt ersetzen.
+        if (row.qid && row.page?.pageprops?.wikibase_item !== row.qid) row.page = null;
         // Fehlende und mehrdeutige Quellen dürfen weder P18 noch langlinks liefern.
         if (!row.page) continue;
         row.qid ||= /^Q[1-9]\d*$/.test(row.page.pageprops?.wikibase_item || '') ? row.page.pageprops.wikibase_item : null;

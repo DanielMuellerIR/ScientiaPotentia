@@ -1,3 +1,4 @@
+import { writeJsonAtomic } from './data_sources/harvest/json_io.cjs';
 /**
  * Gate + Merge für die neuen Domains Machina + Historia.
  *
@@ -17,7 +18,7 @@
  *   node scripts/merge_machina_historia.js          # Dry-Run, nur Bericht
  *   node scripts/merge_machina_historia.js --write  # schreibt nur bei 0 harten Fehlern
  */
-import { existsSync, readFileSync, writeFileSync, readdirSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { assertPreservesExistingConceptIds } from './lib/merge_safety.js';
@@ -170,7 +171,7 @@ if (!WRITE) {
     assertPreservesExistingConceptIds(OUT[domain], concepts);
   }
   for (const [domain, concepts] of Object.entries(result)) {
-    writeFileSync(OUT[domain], JSON.stringify(concepts, null, 2), 'utf8');
+    writeJsonAtomic(OUT[domain], concepts);
     console.log(`\nGeschrieben: ${OUT[domain]} (${concepts.length} Konzepte)`);
   }
 }

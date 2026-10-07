@@ -10,7 +10,6 @@ erforderlich; die App nennt Urheber und Quelle dennoch im Visualisierungspanel.
 | `muscles.png` | Muskulatur (Ganzkörper, Bouglé-Figur) | historische Bouglé-Figur; Retusche laut Dateiseite | [`Bougle whole2 retouched.png`](https://commons.wikimedia.org/wiki/File:Bougle_whole2_retouched.png) | unverändert gebündelt |
 | `organs.svg` | Innere Organe | Mikael Häggström | [`Man shadow anatomy.svg`](https://commons.wikimedia.org/wiki/File:Man_shadow_anatomy.svg) | englische Beschriftungen und Verbindungslinien entfernt |
 | `body.svg` | Körperschema mit Organen | Mikael Häggström | [`Adult male diagram template.svg`](https://commons.wikimedia.org/wiki/File:Adult_male_diagram_template.svg) | Platzhalter und Verbindungslinien entfernt |
-| `digestive.svg` | Verdauungssystem | Mariana Ruiz Villarreal, Jmarchn | [`Digestive system diagram en.svg`](https://commons.wikimedia.org/wiki/File:Digestive_system_diagram_en.svg) | unverändert gebündelt |
 
 Lizenz für alle fünf Dateien: [Public Domain](https://commons.wikimedia.org/wiki/Commons:Public_domain).
 

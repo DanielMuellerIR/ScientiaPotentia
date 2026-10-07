@@ -1,3 +1,4 @@
+import { writeJsonAtomic } from './data_sources/harvest/json_io.cjs';
 /**
  * Merge-Helfer für die Natura-Domain (Natur & Umwelt).
  *
@@ -23,7 +24,7 @@
  * Aufruf: node scripts/merge_natura.js          (Dry-Run, zeigt nur Befund)
  *         node scripts/merge_natura.js --write   (schreibt natura_raw.json)
  */
-import { existsSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { assertPreservesExistingConceptIds } from './lib/merge_safety.js';
@@ -246,7 +247,7 @@ if (dropped.length) {
 
 if (WRITE) {
   assertPreservesExistingConceptIds(OUT_PATH, merged, blockedIds);
-  writeFileSync(OUT_PATH, JSON.stringify(merged, null, 2), 'utf8');
+  writeJsonAtomic(OUT_PATH, merged);
   console.log(`\nGeschrieben: ${OUT_PATH} (${merged.length} Konzepte)`);
 } else {
   console.log('\nDry-Run. Mit --write schreiben.');

@@ -159,9 +159,16 @@ export default function Map({
       onAvailabilityChange?.(false);
       return;
     }
-    onAvailabilityChange?.(true);
 
     mapRef.current = map;
+    let ready = false;
+    const initializationTimeout = setTimeout(() => {
+      if (!ready) {
+        ready = true;
+        setInitializationFailed(true);
+        onAvailabilityChange?.(false);
+      }
+    }, 20000);
     // Subdivisionen werden im Atlas ab Zoomstufe 3 eingeblendet. Der React-State
     // sorgt dafür, dass ein reines Mausrad-/Pinch-Zoomen die Paint-Regeln neu setzt.
     map.on('zoomend', () => setViewZoom(map.getZoom()));
@@ -315,7 +322,11 @@ export default function Map({
         }
       });
 
+      if (ready) return;
+      ready = true;
+      clearTimeout(initializationTimeout);
       setMapLoaded(true);
+      onAvailabilityChange?.(true);
 
       // Mouse Move Hover effect on countries
       let hoveredFeatureId = null;
@@ -383,6 +394,7 @@ export default function Map({
     });
 
     return () => {
+      clearTimeout(initializationTimeout);
       if (mapRef.current) {
         mapRef.current.remove();
         mapRef.current = null;
@@ -426,21 +438,21 @@ export default function Map({
       // Quiz dynamic colors expression
       const buildColorExpression = () => {
         const colorExpression = ['match', ['get', 'id']];
-        correctIds.forEach(id => {
-          if (id && typeof id === 'string') {
-            colorExpression.push(id, '#2C5E43'); // Success Forest Green
+        const coloredIds = new Set();
+        // MapLibre verlangt eindeutige Labels. Die Lösung hat Vorrang vor
+        // Fehlklicks und Hinweisen, auch bei mehrfach angeklickten Flächen.
+        for (const [ids, color] of [
+          [correctIds, '#2C5E43'],
+          [wrongIds, '#842029'],
+          [highlightedIds, '#B58900'],
+        ]) {
+          for (const id of ids) {
+            if (id && typeof id === 'string' && !coloredIds.has(id)) {
+              coloredIds.add(id);
+              colorExpression.push(id, color);
+            }
           }
-        });
-        wrongIds.forEach(id => {
-          if (id && typeof id === 'string') {
-            colorExpression.push(id, '#842029'); // Error Crimson
-          }
-        });
-        highlightedIds.forEach(id => {
-          if (id && typeof id === 'string') {
-            colorExpression.push(id, '#B58900'); // Outline / Hint Gold
-          }
-        });
+        }
         colorExpression.push('#E3DFD5'); // Standard-Pergament
         return matchOrConstant(colorExpression);
       };

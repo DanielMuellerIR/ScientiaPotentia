@@ -8,7 +8,7 @@ import ScientiaHub from './components/ScientiaHub';
 import VisualPanel from './components/VisualPanel';
 import { DOMAINS, getDomainById, loadDomainConcepts, loadDomainData } from './domains';
 import pkg from '../package.json';
-import { getAllProgress, getSetting, saveSetting } from './utils/db';
+import { getAllProgress, getSetting, saveSetting, saveSettings } from './utils/db';
 import { playClick, isAudioMuted, setAudioMuted } from './utils/audio';
 import { dataUrl } from './utils/dataUrl';
 import { BarChart3, HelpCircle, Compass, Flame, Trophy, Volume2, VolumeX, Images } from 'lucide-react';
@@ -51,6 +51,7 @@ export default function App() {
   // und beim Klick auf den Lern-Quiz-Tab bewusst zurückgesetzt, damit man dort
   // immer zuerst die Schwierigkeit wählt statt sofort in Stufe 1 zu landen.
   const [quizArmed, setQuizArmed] = useState(false);
+  const [roundQuestionPool, setRoundQuestionPool] = useState(EMPTY_QUESTIONS);
   const [quizPaused, setQuizPaused] = useState(false);
   const navigationPending = React.useRef(false);
   const beginNavigation = () => {
@@ -131,10 +132,11 @@ export default function App() {
   const domainLoadFailed = domainData.domainId === activeDomainId && domainData.status === 'failed';
   const concepts = domainDataReady ? domainData.concepts : EMPTY_CONCEPTS;
   const domainQuestions = domainDataReady ? domainData.questions : EMPTY_QUESTIONS;
-  const questionPool = useMemo(() => activeDomain.hasMap && !mapAvailable
+  const hasMapPool = activeDomain.hasMapQuestions ?? activeDomain.hasMap;
+  const questionPool = useMemo(() => hasMapPool && mapAvailable === false
     ? domainQuestions.filter(question => question.type !== 'click-map')
-    : domainQuestions, [domainQuestions, activeDomain.hasMap, mapAvailable]);
-  const mapCapabilityPending = activeDomain.hasMap && mapAvailable === null;
+    : domainQuestions, [domainQuestions, hasMapPool, mapAvailable]);
+  const mapCapabilityPending = hasMapPool && mapAvailable === null;
 
   // db-artiges Objekt für Komponenten, die geodb.entities erwarten (Quiz,
   // Dashboard, Atlas) — domain-agnostisch über den verlässlich zugeordneten Speicher.
@@ -477,6 +479,7 @@ export default function App() {
       setQuizPlayers([]);   // Schnellquiz ist immer Einzelspieler
       activeScoreRef.current = 0;
       setClickedMapId(null);
+      setRoundQuestionPool(questionPool);
       setQuizArmed(true);   // Schnellquiz startet ohne Vorschalt-Screen direkt
       setActiveTab('quiz');
     }
@@ -494,6 +497,7 @@ export default function App() {
     setQuizStartError('');
     activeScoreRef.current = 0;
     setClickedMapId(null);
+    setRoundQuestionPool(questionPool);
     setQuizArmed(true); // Runde scharf stellen -> Quiz statt Vorschalt-Screen
     setActiveTab('quiz');
   };
@@ -521,11 +525,12 @@ export default function App() {
       if (lastReviewKey !== todayKey) {
         const yesterday = lastReview && localDayNumber(today) - localDayNumber(lastReview) === 1;
         const newStreak = (yesterday ? savedStreak : 0) + 1;
+        await saveSettings({ streakCount: newStreak, lastReviewDate: todayKey });
         setStreakCount(newStreak);
-        if (streakReadable.current) await saveSetting('streakCount', newStreak);
+      } else if (lastReviewDateStr !== todayKey) {
+        // Migriert auch einen alten Date.toDateString()-Wert vom heutigen Tag.
+        await saveSetting('lastReviewDate', todayKey);
       }
-      // Migriert auch einen alten Date.toDateString()-Wert vom heutigen Tag.
-      if (lastReviewDateStr !== todayKey) await saveSetting('lastReviewDate', todayKey);
     } catch (e) {
       // Ein Streak-Schreibfehler darf den Abschluss nicht auf der Ergebnisansicht
       // festhalten. Die Antwort-Transaktionen selbst behandelt Quiz separat.
@@ -554,7 +559,7 @@ export default function App() {
       // Der Hinweis gehoert zum Schnelltest-Versuch, nicht zur naechsten Ansicht.
       // Er verdeckt sonst die dauerhafte Warnung ueber nicht gespeicherte Antworten.
       setQuizStartError('');
-      if (activeDomain.hasMap && activeTabRef.current === 'museum' && tab !== 'museum') setMapAvailable(null);
+      if (hasMapPool && activeTabRef.current === 'museum' && tab !== 'museum') setMapAvailable(null);
       setActiveTab(tab);
     } finally {
       endNavigation();
@@ -573,7 +578,8 @@ export default function App() {
         await loadProgressData();
       }
       setActiveDomainId(domainId);
-      if (getDomainById(domainId)?.hasMap) setMapAvailable(null);
+      const nextDomain = getDomainById(domainId);
+      if (nextDomain.hasMapQuestions ?? nextDomain.hasMap) setMapAvailable(null);
       setActiveTab(startTabFor(getDomainById(domainId)));
       setQuizArmed(false); // Bereichswechsel -> Quizrunde zurücksetzen
       setQuizEntityFilterId(null);
@@ -826,6 +832,8 @@ export default function App() {
           {domainDataReady ? (
             <VisualPanel
               domain={activeDomain}
+              mapAvailable={mapAvailable}
+              mapCapabilityPending={mapCapabilityPending}
               concepts={concepts}
               questionPool={questionPool}
               srsProgress={srsProgress}
@@ -889,7 +897,7 @@ export default function App() {
             <Quiz
               isPaused={quizPaused}
               geodb={domainDb}
-              questionPool={questionPool}
+              questionPool={roundQuestionPool}
               dueEntities={dueEntities}
               newEntities={newEntities}
               quizMode={quizMode}

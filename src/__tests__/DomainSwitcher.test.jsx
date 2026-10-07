@@ -86,7 +86,7 @@ describe('DomainSwitcher', () => {
     );
 
     fireEvent.click(screen.getByRole('button', {
-      name: 'Wissensbereich wechseln, aktuell Scientia: Alle Bereiche außer Geografie',
+      name: 'Wissensbereich wechseln, aktuell Scientia: Alle Wissensbereiche',
     }));
 
     expect(screen.getByRole('menuitemradio', { name: /Scientia/ }))

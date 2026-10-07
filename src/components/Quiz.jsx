@@ -854,7 +854,7 @@ export default function Quiz({
           }}>
             <MapPin size={32} style={{ color: 'var(--color-primary)' }} />
             <div style={{ fontSize: '15px', color: 'var(--text-main)', fontWeight: 600 }}>
-              Klicke direkt auf die Länderfläche in der Karte!
+              {q.entityType === 'state' ? 'Klicke direkt auf die Region in der Karte!' : 'Klicke direkt auf die Länderfläche in der Karte!'}
             </div>
             {attempts > 0 && (
               <div style={{ fontSize: '13px', color: 'var(--color-error)' }}>

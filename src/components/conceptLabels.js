@@ -870,6 +870,10 @@ export const CORRELATED_ATTRS = { order: 'class', class: 'order' };
 // gefiltert — die Rohdaten bleiben unveraendert, dieselben Attribute sind fuer
 // ANDERE Fragen desselben Konzepts weiterhin legitim.
 export const LEAKY_SIBLINGS = {
+  // Diese Felder enthalten die gesuchte Teilangabe bereits im Klartext.
+  scriptType: ['script', 'languagesUsing'],
+  launchYear: ['launchDate'],
+  gattung: ['scientificName'],
   // Sternlisten nennen den hellsten Stern auch in der generischen Ersatzansicht.
   brightestStar: ['notableStars', 'mainStars'],
   // Personen-Lebensdaten: 'lifespan' nennt Geburts- UND Todesjahr im Klartext.

@@ -3,6 +3,7 @@ import { resolve } from 'node:path';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import maplibregl from 'maplibre-gl';
+import { expression } from '@maplibre/maplibre-gl-style-spec';
 import Atlas from '../components/Atlas';
 import Map, { getBoundingBox, boundedMapPadding } from '../components/Map';
 import { useGeoData } from '../utils/useGeoData';
@@ -231,6 +232,22 @@ describe('Terra-Kartenwerkzeuge', () => {
       expect(lastPaintValue(map, 'subdivisions-borders', 'line-opacity')).toBe(0);
       expect(lastPaintValue(map, 'subdivisions-fill', 'fill-opacity')).toBe(0);
     });
+  });
+
+  it('behält gültige Flächenfarben nach wiederholten Fehlklicks und überlappenden Hinweisen', async () => {
+    render(<Map mode="quiz" correctIds={['FR', 'FR']} wrongIds={['DE', 'DE', 'FR']}
+      highlightedIds={['DE', 'FR', 'IT', 'IT']} onSelectEntity={vi.fn()} />);
+    const map = maplibregl.Map.mock.instances[0];
+    await waitFor(() => {
+      expect(lastPaintValue(map, 'countries-fill', 'fill-color')).toEqual([
+        'match', ['get', 'id'], 'FR', '#2C5E43', 'DE', '#842029', 'IT', '#B58900', '#E3DFD5',
+      ]);
+    });
+    const compiled = expression.createExpression(
+      lastPaintValue(map, 'countries-fill', 'fill-color'), 'layers[0].paint.fill-color');
+    expect(compiled.result).toBe('success');
+    expect(compiled.value.evaluate({}, { properties: { id: 'FR' } })).toBe('#2C5E43');
+    expect(compiled.value.evaluate({}, { properties: { id: 'DE' } })).toBe('#842029');
   });
 
   it('färbt einen richtig beantworteten Fluss passend zur Legende grün', async () => {

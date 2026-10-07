@@ -252,8 +252,7 @@ LIMIT 60
     console.log(`  Sub-Query B (Zwerg/Ring): ${bindingsB.length} Treffer`);
   } catch (err) {
     console.error(`  SPARQL-Fehler: ${err.message}`);
-    if (bindingsA.length === 0) return;
-    console.log('  Fahre mit Sub-Query-A-Ergebnissen fort…');
+    throw err;
   }
 
   const allBindings = [...bindingsA, ...bindingsB];
@@ -514,7 +513,7 @@ LIMIT 80
     console.log(`  Rohergebnis: ${bindings.length} Treffer`);
   } catch (err) {
     console.error(`  SPARQL-Fehler: ${err.message}`);
-    return;
+    throw err;
   }
 
   // Messier-Nummern über P528 separat holen (Batch-Query)
@@ -703,4 +702,4 @@ async function main() {
   console.log(`\nGeschrieben: ${OUT_PATH}`);
 }
 
-main();
+if (require.main === module) main();

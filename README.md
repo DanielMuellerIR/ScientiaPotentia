@@ -32,6 +32,8 @@ npm run dev
 
 Vite serves the application at `http://localhost:3000` by default.
 
+Mixed rounds include all eight domains and use each question’s domain visualization. Preparing the map loads map data from OpenFreeMap (see [credits](public/credits.html)).
+
 The world atlas requires WebGL 2. Without WebGL, Terra questions that do not need
 map clicks and the generic Astra concept view remain playable.
 

@@ -52,7 +52,7 @@ function respond(url, body) {
 
 /** Beide Kataloge eines Bereichs beantworten (leer reicht fuer den Ladezustand). */
 function respondDomain(id, concepts = {}, questions = []) {
-  respond(`data/concepts_${id}.json`, concepts);
+  if (id !== 'terra') respond(`data/concepts_${id}.json`, concepts);
   respond(`data/questions_${id}.json`, questions);
 }
 
@@ -100,14 +100,13 @@ describe('App — Laden der Bereichsdaten', () => {
     // Solange die Kataloge fehlen, gibt es keinen Startknopf fuer eine Runde.
     expect(screen.queryByRole('button', { name: 'Quiz starten' })).toBeNull();
 
-    // Genau die sieben Sachbereiche des Mischpools, Konzepte und Fragen — Terra
-    // gehoert nicht dazu und darf auch nicht mitgeladen werden.
+    // Alle acht Bereiche; Terra-Konzepte kommen aus dem gebündelten geodb-Modul.
     SCIENTIA_MIX_IDS.forEach(id => {
-      expect(requestedUrls).toContain(`data/concepts_${id}.json`);
+      if (id !== 'terra') expect(requestedUrls).toContain(`data/concepts_${id}.json`);
       expect(requestedUrls).toContain(`data/questions_${id}.json`);
     });
-    expect(requestedUrls).not.toContain('data/questions_terra.json');
-    expect(requestedUrls).toHaveLength(1 + SCIENTIA_MIX_IDS.length * 2);
+    expect(requestedUrls).toContain('data/questions_terra.json');
+    expect(requestedUrls).toHaveLength(SCIENTIA_MIX_IDS.length * 2);
 
     SCIENTIA_MIX_IDS.forEach(id => respondDomain(id));
     await screen.findByRole('button', { name: 'Quiz starten' });
@@ -132,7 +131,7 @@ describe('App — Laden der Bereichsdaten', () => {
     await screen.findByRole('button', { name: 'Quiz starten' });
 
     SCIENTIA_MIX_IDS.forEach(id => {
-      expect(requestedUrls.filter(url => url === `data/concepts_${id}.json`)).toHaveLength(1);
+      expect(requestedUrls.filter(url => url === `data/concepts_${id}.json`)).toHaveLength(id === 'terra' ? 0 : 1);
       expect(requestedUrls.filter(url => url === `data/questions_${id}.json`)).toHaveLength(1);
     });
   });

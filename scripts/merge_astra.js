@@ -1,3 +1,4 @@
+import { writeJsonAtomic } from './data_sources/harvest/json_io.cjs';
 /**
  * Merge-Helfer für die Astra-Domain (Astronomie) — Welle 1.
  *
@@ -40,7 +41,7 @@
  * Aufruf: node scripts/merge_astra.js          (Dry-Run, zeigt nur Befund)
  *         node scripts/merge_astra.js --write  (schreibt astra_raw.json)
  */
-import { readFileSync, writeFileSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { blacklistReason } from './lib/merge_blacklist.js';
@@ -503,7 +504,7 @@ if (unknownKeys.size) {
 }
 
 if (WRITE) {
-  writeFileSync(OUT_PATH, JSON.stringify(existing, null, 2), 'utf8');
+  writeJsonAtomic(OUT_PATH, existing);
   console.log(`\nGeschrieben: ${OUT_PATH} (${existing.length} Konzepte)`);
 } else {
   console.log('\nDry-Run. Mit --write schreiben.');

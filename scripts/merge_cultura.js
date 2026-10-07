@@ -1,3 +1,4 @@
+import { writeJsonAtomic } from './data_sources/harvest/json_io.cjs';
 /**
  * Merge-Helfer für die Cultura-Domain (Kunst & Kultur).
  *
@@ -44,7 +45,7 @@
  * Aufruf: node scripts/merge_cultura.js          (Dry-Run, zeigt nur Befund)
  *         node scripts/merge_cultura.js --write   (schreibt cultura_raw.json)
  */
-import { existsSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { createRequire } from 'node:module';
@@ -345,7 +346,7 @@ if (WRITE) {
   // vorgesehenen Bereinigungsweg auf. Alle anderen bestehenden IDs bleiben
   // geschützt.
   assertPreservesExistingConceptIds(OUT_PATH, merged, [...BLACKLISTED, ...blockedIds]);
-  writeFileSync(OUT_PATH, JSON.stringify(merged, null, 2), 'utf8');
+  writeJsonAtomic(OUT_PATH, merged);
   console.log(`\nGeschrieben: ${OUT_PATH} (${merged.length} Konzepte)`);
 } else {
   console.log('\nDry-Run. Mit --write schreiben.');

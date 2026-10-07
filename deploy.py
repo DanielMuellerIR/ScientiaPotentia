@@ -272,7 +272,7 @@ def cleanup_stale_uploads(ftps, remote_directories):
             continue
         for entry in entries:
             remote_file = entry if entry.startswith("/") else posixpath.join(directory, entry)
-            if UPLOAD_MARKER not in posixpath.basename(remote_file):
+            if not re.fullmatch(r".+\.uploading-[0-9a-f]{32}", posixpath.basename(remote_file)):
                 continue
             try:
                 ftps.delete(remote_file)
@@ -825,7 +825,7 @@ def main():
         credentials = load_env_credentials(args.env)
         host = resolve_ftp_host(credentials["FTP_HOST"])
         port = int(credentials.get("FTP_PORT", "21"))
-        print(f"[DEPLOY] Connecting to FTPS host: {host}:{port} as user: {credentials['FTP_USER']}...")
+        print("[DEPLOY] Connecting to configured FTPS server...")
         ftps = None
         try:
             ftps = ftplib.FTP_TLS(context=ssl.create_default_context())

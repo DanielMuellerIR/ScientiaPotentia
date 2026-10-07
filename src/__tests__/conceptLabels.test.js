@@ -14,6 +14,10 @@ import {
 describe('isAttrLeakedBeforeAnswer — Geschwister-Ausblendung', () => {
   // Jedes Paar: [gefragtes Attribut, Geschwister, das die Antwort verraten wuerde].
   const leakingPairs = [
+    ['scriptType', 'script'],
+    ['scriptType', 'languagesUsing'],
+    ['launchYear', 'launchDate'],
+    ['gattung', 'scientificName'],
     ['brightestStar', 'notableStars'],
     ['brightestStar', 'mainStars'],
     ['birthYear', 'lifespan'],        // Lebenszeit "1653–1706" nennt Geburtsjahr

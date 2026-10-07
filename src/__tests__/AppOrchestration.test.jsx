@@ -4,7 +4,7 @@ import {
 } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import App from '../App';
-import { getSetting, saveSetting, getAllProgress } from '../utils/db';
+import { getSetting, saveSetting, saveSettings, getAllProgress } from '../utils/db';
 import { loadDomainConcepts } from '../domains';
 
 const mapReadiness = vi.hoisted(() => ({ delayed: false }));
@@ -186,14 +186,14 @@ describe('App-Orchestrierung', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Runde abschließen' }));
     expect(saveSetting).not.toHaveBeenCalledWith('lastReviewDate', expect.anything());
     expect(saveSetting).not.toHaveBeenCalledWith('streakCount', expect.anything());
+    expect(saveSettings).not.toHaveBeenCalled();
     expect(saveSetting).not.toHaveBeenCalledWith('highScore', expect.anything());
     resolveStreak(27);
     resolveHighScore(5);
     await screen.findByText('Test-Hub');
     await waitFor(() => expect(saveSetting).toHaveBeenCalledWith('highScore', 10));
     expect(screen.getByLabelText('Bestmarke: 10')).toBeInTheDocument();
-    expect(saveSetting).toHaveBeenCalledWith('streakCount', 28);
-    expect(saveSetting).toHaveBeenCalledWith('lastReviewDate', expect.any(String));
+    expect(saveSettings).toHaveBeenCalledWith({ streakCount: 28, lastReviewDate: expect.any(String) });
   });
 
   it('führt den Rundenpunktestand synchron und persistiert nur die Bestmarke', async () => {
@@ -278,8 +278,8 @@ describe('App-Orchestrierung', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Runde abschließen' }));
 
     await screen.findByText('Test-Hub');
-    const dateWrite = saveSetting.mock.calls.find(([key]) => key === 'lastReviewDate');
-    expect(dateWrite?.[1]).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+    const dateWrite = saveSettings.mock.calls.at(-1)?.[0].lastReviewDate;
+    expect(dateWrite).toMatch(/^\d{4}-\d{2}-\d{2}$/);
   });
 
   it('liest das bisherige Date.toDateString-Format für den Streak weiter', async () => {

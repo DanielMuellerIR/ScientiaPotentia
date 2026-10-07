@@ -418,8 +418,15 @@ async function commandManifest(options) {
 
 // ── Schritt 4: Abgleich ──────────────────────────────────────────────────────
 
-async function commandVerify(options) {
-  const result = await verifyMirror();
+export async function commandVerify(options, paths) {
+  const result = await verifyMirror(paths);
+  const problems = [
+    ...(result.fatal ? [result.fatal] : []),
+    ...(result.foreign.length ? [`${result.foreign.length} Bildquellen nicht spiegelbar`] : []),
+    ...(result.withoutEntry.length ? [`${result.withoutEntry.length} Bilder ohne Manifest-Eintrag`] : []),
+    ...(result.withoutFile.length ? [`${result.withoutFile.length} Bilddateien fehlen oder sind beschädigt`] : []),
+  ];
+  if (problems.length) throw new Error(`Bildabgleich fehlgeschlagen: ${problems.join('; ')}`);
   log(options, `Abgleich: ${result.mirrored}/${result.total} Bilder haben eine Kopie.`);
   if (result.withoutEntry.length) {
     log(options, `  ${result.withoutEntry.length} ohne Manifest-Eintrag`);

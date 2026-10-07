@@ -34,25 +34,16 @@ const GalleryExplorer = lazy(() => import('../components/GalleryExplorer'));
  *   - Terra: unpraefixt (z.B. "FJ", "Q64") -> keine IndexedDB-Migration noetig
  *   - alle anderen: "<id>:<conceptId>" (z.B. "astra:mars")
  */
-// Welche Sach-Domains der domänenübergreifende "Scientia"-Mischpool zusammenfasst.
-// Terra ist bewusst NICHT dabei: seine Karten-Klick-Fragen brauchen die Weltkarte,
-// und seine geodb-Konzepte passen (noch) nicht ins generische ConceptVisual.
-// Exportiert, damit Oberfläche und Tests prüfen können, was der Mischpool
-// wirklich enthält — eine CTA darf nicht mehr versprechen als diese Liste hergibt.
 const DOMAIN_DETAILS = {
   scientia: {
-    // Domänenübergreifender Mischbereich: zieht Fragen + Konzepte ALLER Sach-Domains
-    // zusammen (kein eigenes Visual/Explorer -> generisches ConceptVisual je Frage,
-    // das Konzept bringt jede Frage aus ihrer Herkunfts-Domain selbst mit).
+    // Der Mischbereich verwendet für jede Frage das Visual ihrer Herkunfts-Domain.
     latinName: 'Scientia',
-    // Bewusst "außer Geografie": Terra fehlt im Mischpool (siehe SCIENTIA_MIX_IDS),
-    // und ein Versprechen "alle Bereiche" wäre damit schlicht falsch.
-    label: 'Alle Bereiche außer Geografie',
+    label: 'Alle Wissensbereiche',
     shortLabel: 'Querbeet',
-    description: 'Fragen quer durch alle Wissensbereiche außer Geografie — Astronomie, Mensch, Natur, Sprachen, Kultur, Technik und Geschichte gemischt.',
+    description: 'Fragen quer durch alle acht Wissensbereiche — Geografie, Astronomie, Mensch, Natur, Sprachen, Kultur, Technik und Geschichte gemischt.',
     Icon: Layers,
     accent: '#B0863C',
-    // Die Kataloge dieses Bereichs sind die aller sieben Sach-Domains zusammen
+    // Die Kataloge dieses Bereichs sind die aller acht Sach-Domains zusammen
     // (rund 32 MiB JSON). Sein Startbildschirm (ScientiaHub) braucht davon nichts:
     // er zeigt nur das winzige Statistik-Manifest. Dieses Flag sagt der Shell,
     // dass die Daten erst beim Quizstart geholt werden — die Landing-Page bleibt
@@ -194,7 +185,9 @@ const DOMAIN_DETAILS = {
 export const DOMAINS = DOMAIN_CONFIGS.map(config => {
   const details = DOMAIN_DETAILS[config.id];
   if (!details) throw new Error(`Domain-Details fehlen für: ${config.id}`);
-  return { ...config, ...details };
+  const hasMapQuestions = config.hasMap || (config.id === 'scientia'
+    && DOMAIN_CONFIGS.some(domain => domain.includeInScientia && domain.hasMap));
+  return { ...config, ...details, hasMapQuestions };
 });
 
 /** Gemeinsamer fetch-Handler: wirft bei HTTP-Fehlern statt still leer zu laden. */

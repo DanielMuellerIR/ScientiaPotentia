@@ -3,7 +3,12 @@
  * Generates chimes and clicks dynamically without any external audio files.
  */
 
-let isMuted = localStorage.getItem('terra_audio_muted') === 'true';
+let isMuted = false;
+try {
+  isMuted = localStorage.getItem('terra_audio_muted') === 'true';
+} catch {
+  // Gesperrter Browserspeicher darf den Start des Quiz nicht verhindern.
+}
 
 export function isAudioMuted() {
   return isMuted;
@@ -11,7 +16,11 @@ export function isAudioMuted() {
 
 export function setAudioMuted(muted) {
   isMuted = muted;
-  localStorage.setItem('terra_audio_muted', muted ? 'true' : 'false');
+  try {
+    localStorage.setItem('terra_audio_muted', muted ? 'true' : 'false');
+  } catch {
+    // Die Toneinstellung bleibt ohne dauerhaften Speicher für diese Sitzung gültig.
+  }
 }
 
 let audioCtx = null;

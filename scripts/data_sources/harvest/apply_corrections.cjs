@@ -18,6 +18,7 @@ const path = require('node:path');
 const { readJsonArray, writeJsonAtomic } = require('./json_io.cjs');
 const { isHttpUrl, validateCatalog } = require('./concept_validation.cjs');
 const { isAllowedImageLicense } = require('../../lib/image_license_policy.js');
+const { hasPublishableAttribution } = require('../../../src/utils/imageCredits.js');
 const { isBlacklistedFile, isRejectedImageMapping } = require('./image_resolution_policy.cjs');
 
 const HARVEST = __dirname;
@@ -51,6 +52,9 @@ function validateSetValue(key, value, conceptId) {
   }
   if (key === 'concept.imageFile' && isBlacklistedFile(value)) {
     return `concept.imageFile: gesperrte Bilddatei (siehe harvest/BLACKLIST.md)`;
+  }
+  if (key === 'concept.imageFile' && !isHttpUrl(value)) {
+    return 'concept.imageFile muss eine HTTP(S)-URL sein';
   }
   if (key === 'concept.imageFile' && isRejectedImageMapping(conceptId, value)) {
     return 'concept.imageFile: fachlich falsches Bildmotiv (siehe harvest/IMAGE_BLACKLIST.json)';
@@ -116,6 +120,13 @@ function validateCorrection(correction) {
       if (keyError) return keyError;
       const valueError = validateSetValue(key, value, correction.id);
       if (valueError) return valueError;
+    }
+    if (Object.hasOwn(correction.set, 'concept.imageFile')) {
+      const license = correction.set['concept.imageLicense'];
+      const attribution = correction.set['concept.imageAttribution'];
+      if (!license || !hasPublishableAttribution(license, attribution)) {
+        return 'Bildwechsel benötigt eigene vollständige Lizenz und Urheberangabe';
+      }
     }
   }
   return null;
@@ -207,6 +218,12 @@ function main() {
       applied++;
       log.push(`RMATTR ${correction.id} [${correction.removeAttr.join(',')}]: ${correction.reason || ''}`);
     } else {
+      if (correction.set['concept.imageFile']
+          && correction.set['concept.imageFile'] !== concept.imageFile) {
+        // Zusatznachweise des bisherigen Bildes gehören nicht zum neuen Motiv.
+        delete concept.imageLicenseUrl;
+        delete concept.imageChanges;
+      }
       for (const [key, value] of Object.entries(correction.set)) {
         setCorrectionValue(concept, key, value);
       }

@@ -2,6 +2,17 @@
 
 Dieses Changelog beginnt mit dem für eine öffentliche Veröffentlichung bereinigten Projektstand.
 
+## [2.3.0] — 2026-10-07
+
+- Querbeet umfasst alle acht Bereiche einschließlich Terra. Fragen zeigen die Karte oder die spezialisierte Darstellung ihres Herkunftsbereichs. Kartenfähigkeit wird vor Rundenstart geprüft; ohne WebGL bleiben geeignete Fragen verfügbar und die Lösung verborgen.
+- M81 und M101 zählen jeweils als ein Lernkonzept. Vorhandene Alias-Kennungen und Lernstände werden mit dem bestehenden Migrationsverfahren übernommen.
+- Gleichnamige Städte erzeugen keine mehrfach richtigen Länder- oder Stadtoptionen mehr. Verwandte Attribute verraten Schriftart, Startjahr und biologische Gattung nicht vor der Antwort.
+- Gesperrter Browserspeicher verhindert den App-Start nicht mehr. Tagesdatum und Lernserie werden gemeinsam gespeichert; wiederholte Kartenklicks erzeugen keine ungültigen Farbregeln.
+- Bildauflösung respektiert Quellenidentität, konzeptspezifische Motivsperren und API-Fehler. Bildwechsel brauchen eigene Lizenz- und Urheberangaben. Fehlende Bildkopien lassen auch den eigenständigen Verify-Befehl scheitern.
+- Importwerkzeuge brechen bei fehlgeschlagenen Pflichtabfragen ab und ersetzen Rohdateien atomar. Die Fragenprüfung verarbeitet auch zwei oder drei Antwortoptionen.
+- Bildnachweise in der Galerie bleiben bei niedrigen Fenstern erreichbar. Ungenutzte Verdauungsgrafik entfernt; Sharp und Source Map JS aktualisiert. Deployment bereinigt nur eindeutig benannte temporäre Uploads und protokolliert keine Zugangsnamen.
+- Offene Terra-Datenquellen mit einer unabhängigen Importprobe verglichen; der vorhandene Länderbestand bleibt erhalten. Reviewbericht und Grenzen unter `docs/review-2026-10-07.md`.
+
 ## [2.2.1] — 2026-10-05
 
 - Kartenklicks vor dem Quizstart zählen nicht mehr als Antwort; neue Runden starten ohne alte Klicks.

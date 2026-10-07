@@ -482,7 +482,7 @@ class DeployTests(unittest.TestCase):
 
     def test_stale_temporary_uploads_are_removed_before_the_release(self):
         self.write_build()
-        stale = "/remote/assets/app.js.uploading-abandoned"
+        stale = "/remote/assets/app.js.uploading-" + "a" * 32
         ftps = FakeFTPS(
             {stale: b"partial"},
             directories={"/", "/remote", "/remote/assets"},
@@ -493,6 +493,15 @@ class DeployTests(unittest.TestCase):
         self.assertEqual(result.failed, 0)
         self.assertIn(("delete", stale), ftps.history)
         self.assertNotIn(stale, ftps.files)
+
+    def test_cleanup_preserves_files_that_only_contain_the_upload_marker(self):
+        files = {
+            "/remote/assets/notes.uploading-guide.txt": b"user file",
+            "/remote/assets/app.js.uploading-abandoned": b"unknown origin",
+        }
+        ftps = FakeFTPS(files.copy(), directories={"/", "/remote", "/remote/assets"})
+        deploy.cleanup_stale_uploads(ftps, ["/remote/assets"])
+        self.assertEqual(ftps.files, files)
 
     # ---- Release-Historie und Aufräumen abgelöster Dateien -----------------
 

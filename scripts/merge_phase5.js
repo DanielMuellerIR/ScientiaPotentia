@@ -1,3 +1,4 @@
+import { writeJsonAtomic } from './data_sources/harvest/json_io.cjs';
 /**
  * Einmaliger Merge-Helfer (Phase 5): hängt die recherchierten + verifizierten
  * neuen Konzepte aus /tmp/phase5_<domain>.json an die Faktenbasis
@@ -18,7 +19,7 @@
  * Aufruf: node scripts/merge_phase5.js          (Dry-Run, zeigt nur Befund)
  *         node scripts/merge_phase5.js --write  (schreibt die raw-Dateien)
  */
-import { readFileSync, writeFileSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { applyTextFix, normalizeForDedup } from './lib/merge_text.js';
@@ -143,7 +144,7 @@ for (const domain of ['astra', 'homo']) {
   hinweise.forEach(h => console.log(`  ! PRUEFEN ${h}`));
 
   if (WRITE) {
-    writeFileSync(rawPath, JSON.stringify(raw.concat(kept), null, 2), 'utf8');
+    writeJsonAtomic(rawPath, raw.concat(kept));
     console.log(`  geschrieben: ${rawPath} (${raw.length + kept.length} Konzepte)`);
   }
 }

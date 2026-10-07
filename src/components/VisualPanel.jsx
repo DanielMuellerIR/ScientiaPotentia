@@ -1,6 +1,8 @@
 import React, { lazy, Suspense } from 'react';
 import DomainVisual from './DomainVisual';
 import ConceptVisual from './ConceptVisual';
+import { getDomainById } from '../domains';
+import { getDomainIdFromConceptKey } from '../utils/conceptKeys';
 
 const Map = lazy(() => import('./Map'));
 
@@ -21,7 +23,7 @@ const Map = lazy(() => import('./Map'));
  * domain.Visual wird lazy geladen (React.lazy in der Registry), damit schwere
  * Abhaengigkeiten (three.js fuer Astra) nur fuer die jeweilige Domain laden.
  */
-export default function VisualPanel({
+function ContentVisual({
   domain,
   concepts = {},
   srsProgress = {},
@@ -30,29 +32,8 @@ export default function VisualPanel({
   testedAttribute = null,
   answerIsName = false,
   hideConceptIdentity = false,
-  isQuestionAnswered = false,
-  mapProps = {}
+  isQuestionAnswered = false
 }) {
-  // --- Terra: bestehende Weltkarte -------------------------------------
-  if (domain.hasMap) {
-    return (
-      <div
-        className="terra-panel"
-        style={{
-          height: '100%',
-          overflow: 'hidden',
-          position: 'relative',
-          border: '1px solid var(--border-light)',
-          background: '#EAE6DC'
-        }}
-      >
-        <Suspense fallback={<div role="status" style={{ padding: '24px' }}>Karte wird geladen …</div>}>
-          <Map {...mapProps} />
-        </Suspense>
-      </div>
-    );
-  }
-
   const activeConcept = activeConceptKey ? concepts[activeConceptKey] : null;
   const SpecialVisual = domain.Visual;
 
@@ -94,4 +75,36 @@ export default function VisualPanel({
 
   // --- Themen-Uebersicht (Dashboard/Atlas, keine aktive Frage) ---------
   return <DomainVisual domain={domain} concepts={concepts} srsProgress={srsProgress} questionPool={questionPool} />;
+}
+
+
+export default function VisualPanel(props) {
+  const { domain, activeConceptKey, concepts = {}, mapProps = {}, mapAvailable, mapCapabilityPending } = props;
+  const visualDomain = domain.id === 'scientia' && activeConceptKey
+    ? getDomainById(getDomainIdFromConceptKey(activeConceptKey)) : domain;
+  const hasMapPool = domain.hasMapQuestions ?? domain.hasMap;
+  if (!hasMapPool) return <ContentVisual {...props} domain={visualDomain} />;
+
+  const showMap = visualDomain.hasMap || mapCapabilityPending;
+  const activeConcept = concepts[activeConceptKey];
+  // Im Mix bleibt die geprüfte Karte montiert. Ein späterer Terra-Wechsel
+  // braucht dadurch keinen zweiten Initialisierungslauf mitten in der Runde.
+  return (
+    <div style={{ height: '100%', position: 'relative' }}>
+      <div className="terra-panel" aria-hidden={!showMap}
+        style={{ position: 'absolute', inset: 0, visibility: showMap ? 'visible' : 'hidden',
+          overflow: 'hidden', border: '1px solid var(--border-light)', background: '#EAE6DC' }}>
+        <Suspense fallback={<div role="status" style={{ padding: '24px' }}>Karte wird geladen …</div>}>
+          <Map {...mapProps} />
+        </Suspense>
+        {showMap && mapAvailable === false && activeConcept && (
+          <div style={{ position: 'absolute', inset: 0, overflow: 'auto' }}>
+            <ConceptVisual domain={visualDomain} concept={activeConcept}
+              answerIsName hideConceptIdentity isQuestionAnswered={props.isQuestionAnswered} />
+          </div>
+        )}
+      </div>
+      {!showMap && <ContentVisual {...props} domain={visualDomain} />}
+    </div>
+  );
 }

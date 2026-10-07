@@ -475,7 +475,13 @@ export default function AstraVisual({
 
     let renderer;
     try {
-      renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+      const canvas = document.createElement('canvas');
+      const context = canvas.getContext('webgl2', { antialias: true, alpha: true });
+      if (!context) {
+        setRendererUnavailable(true);
+        return;
+      }
+      renderer = new THREE.WebGLRenderer({ canvas, context, antialias: true, alpha: true });
     } catch {
       setRendererUnavailable(true);
       return;

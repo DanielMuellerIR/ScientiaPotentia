@@ -266,8 +266,8 @@
 /* Gemeinsame Lightbox-Basis: Navigation und Provenienz bleiben in beiden
    Explorern identisch, Museumdetails sitzen darunter in einem eigenen Slot. */
 .hall-lightbox-backdrop{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(10,10,15,.84);backdrop-filter:blur(4px)}
-.hall-lightbox-dialog{display:flex;flex-direction:column;position:relative;width:100%;max-width:820px;max-height:90vh;overflow:hidden;border:1px solid var(--border-light);border-radius:var(--radius-lg);background:var(--bg-card);box-shadow:0 20px 60px rgba(0,0,0,.5)}
-.hall-lightbox-dialog-header{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--border-light);flex-shrink:0}
+.hall-lightbox-dialog{display:flex;flex-direction:column;position:relative;width:100%;max-width:820px;max-height:90vh;overflow:hidden;overflow-y:auto;border:1px solid var(--border-light);border-radius:var(--radius-lg);background:var(--bg-card);box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.hall-lightbox-dialog-header{position:sticky;top:0;z-index:3;background:var(--bg-card);display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--border-light);flex-shrink:0}
 .hall-lightbox-dialog-heading{flex:1;min-width:0}
 .hall-lightbox-close{padding:5px 9px;font-size:13px;flex-shrink:0}
 .hall-lightbox-header{display:flex;align-items:center;gap:10px}

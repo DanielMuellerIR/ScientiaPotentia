@@ -8,8 +8,10 @@
 import { getDomainIdFromConceptKey as getDomainFromEntityId } from './conceptKeys';
 
 const DB_NAME = 'GeoAtlasDB';
-const DB_VERSION = 3;
+const DB_VERSION = 4;
 const PROGRESS_ENTITY_ALIASES = Object.freeze({
+  'astra:galaxy-messier-81-h3': 'astra:bode_m81',
+  'astra:galaxy-messier-101-h3': 'astra:feuerrad_m101',
   'lingua:fula': 'lingua:fulfulde',
   'lingua:weissrussisch': 'lingua:belarussisch',
   'lingua:malagasy': 'lingua:madagassisch',
@@ -21,7 +23,7 @@ export function canonicalProgressEntityId(entityId) {
 }
 
 export function mergeAliasedProgress(existing, aliasRecord, canonicalId) {
-  if (!existing) return { ...aliasRecord, entityId: canonicalId, domain: 'lingua' };
+  if (!existing) return { ...aliasRecord, entityId: canonicalId, domain: getDomainFromEntityId(canonicalId) };
   const existingRank = [Number(existing.repetitions) || 0, Number(existing.lastUpdated) || 0];
   const aliasRank = [Number(aliasRecord.repetitions) || 0, Number(aliasRecord.lastUpdated) || 0];
   const aliasWins = aliasRank[0] > existingRank[0]
@@ -30,7 +32,7 @@ export function mergeAliasedProgress(existing, aliasRecord, canonicalId) {
   return {
     ...winner,
     entityId: canonicalId,
-    domain: 'lingua',
+    domain: getDomainFromEntityId(canonicalId),
     lastUpdated: Math.max(Number(existing.lastUpdated) || 0, Number(aliasRecord.lastUpdated) || 0),
   };
 }
@@ -112,7 +114,7 @@ export function initDB() {
         db.createObjectStore('settings', { keyPath: 'key' });
       }
 
-      if (event.oldVersion < 3 && db.objectStoreNames.contains('progress')) {
+      if (event.oldVersion < 4 && db.objectStoreNames.contains('progress')) {
         const transaction = event.target.transaction;
         const progressStore = transaction.objectStore('progress');
         const progressCursor = progressStore.openCursor();
@@ -142,7 +144,7 @@ export function initDB() {
             if (!cursor) return;
             const canonicalId = canonicalProgressEntityId(cursor.value.entityId);
             if (canonicalId !== cursor.value.entityId) {
-              cursor.update({ ...cursor.value, entityId: canonicalId, domain: 'lingua' });
+              cursor.update({ ...cursor.value, entityId: canonicalId, domain: getDomainFromEntityId(canonicalId) });
             }
             cursor.continue();
           };
@@ -343,10 +345,15 @@ export async function getHistoryLogs() {
  * @returns {Promise<void>}
  */
 export async function saveSetting(key, value) {
+  return saveSettings({ [key]: value });
+}
+
+/** Zusammengehörige Einstellungen werden gemeinsam übernommen oder verworfen. */
+export async function saveSettings(values) {
   const db = await initDB();
   return runWriteTransaction(db, ['settings'], transaction => {
     const store = transaction.objectStore('settings');
-    store.put({ key, value });
+    for (const [key, value] of Object.entries(values)) store.put({ key, value });
   });
 }
 

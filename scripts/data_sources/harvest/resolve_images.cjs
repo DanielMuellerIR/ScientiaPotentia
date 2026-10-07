@@ -13,7 +13,7 @@
 //   - JSON.parse-Guard: bei Überlast liefert die API KLARTEXT ("You are making too many
 //     requests…") statt JSON -> abfangen + Retry mit Backoff, NIEMALS still als "kein Bild"
 //     werten (genau dieser Bug nullte am 2026-06-05 ~350 Bildfelder).
-//   - Dedup-Cache: identischer Suchbegriff -> ein API-Call für viele Konzepte.
+//   - Cache je Konzept: Motivsperren bleiben auch bei gleichen Suchbegriffen wirksam.
 //   - Gemeinsamer Lizenzfilter mit Release-Audit und übrigen Resolvern.
 //     Tabu: NC, ND, "All rights reserved" sowie unklare/fehlende Lizenz.
 //   - MIME-Whitelist: nur browser-darstellbare Bildformate (jpeg/png/svg/gif/webp).
@@ -90,7 +90,7 @@ function apiGetRaw(params, tries = 0) {
         // Retry-After respektieren (Server gibt ihn bei maxlag/429/503 vor)
         const ra = parseInt(r.headers["retry-after"] || "0", 10);
         // Überlast: Klartext statt JSON, oder 429/503 -> warten + neu versuchen, NIE als "fehlt"
-        if (d.startsWith("You are making too many") || r.statusCode === 429 || r.statusCode === 503) {
+        if (d.startsWith("You are making too many") || r.statusCode < 200 || r.statusCode >= 300) {
           STATS.rateLimitEvents++;
           if (tries < 6) { STATS.retries++; await sleep(backoff(ra, 1500)); return resolve(await apiGetRaw(params, tries + 1)); }
           return resolve(null);
@@ -103,8 +103,8 @@ function apiGetRaw(params, tries = 0) {
           if (tries < 6) { STATS.retries++; await sleep(backoff(0, 1500)); return resolve(await apiGetRaw(params, tries + 1)); }
           return resolve(null);
         }
-        // maxlag-Fehler (HTTP 200, error.code === "maxlag") -> Retry-After abwarten
-        if (j && j.error && j.error.code === "maxlag") {
+        // API-Fehler kommen auch mit HTTP 200 und dürfen keinen Trefferloslauf vortäuschen.
+        if (j && j.error) {
           STATS.rateLimitEvents++;
           if (tries < 6) { STATS.retries++; await sleep(backoff(ra, 5000)); return resolve(await apiGetRaw(params, tries + 1)); }
           return resolve(null);
@@ -135,9 +135,8 @@ async function apiGet(params, tries = 0) {
 }
 
 // ---------------------------------------------------------------------------
-// Dedup-Cache: identischer Suchbegriff -> nur EIN API-Call, Ergebnis (auch ein
-// Fehlschlag = null) wird wiederverwendet. Spart Calls, wenn mehrere Konzepte
-// denselben imageSearchTerm tragen.
+// Wiederholte Auflösung desselben Konzepts kann das geprüfte Ergebnis nutzen.
+// Verschiedene Konzepte haben eigene Motivsperren, auch bei gleichem Suchbegriff.
 // ---------------------------------------------------------------------------
 const CACHE = new Map();
 
@@ -146,7 +145,7 @@ const CACHE = new Map();
 // nicht-geblacklistete Bild — oder null.
 async function resolveConcept(term, concept, domain) {
   if (!term) return null;
-  const cacheKey = `${domain}:${concept.category}:${term}`;
+  const cacheKey = JSON.stringify([domain, concept.id, concept.category, term]);
   if (CACHE.has(cacheKey)) { STATS.cacheHits++; return CACHE.get(cacheKey); }
   const j = await apiGet({
     action: "query", format: "json",
