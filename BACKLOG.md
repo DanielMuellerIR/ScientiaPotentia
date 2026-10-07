@@ -93,6 +93,9 @@
   verbleibenden 585 bildlosen Konzepte teilen sich in 366 außerhalb der Zielkategorien —
   angeführt von `psych_effect` (128), `sense_organ_part` (38), `blood_vessel` (36) und
   `ligament_tendon` (27) — und 219 innerhalb, für die der Auflöser kein Artikelbild fand.
+- Homo zeigt bei Psychobegriffen wie „Projektionsbias“ bislang ein allgemeines Körperschema.
+  Es kennzeichnet den Bereich, erklärt aber den konkreten Effekt nicht. Für eine kleine
+  fachlich geprüfte Charge passende Erklärungsgrafiken oder eigene Schemata entwickeln.
 - Die Motivtreue der Bild-Auflöser braucht bei jedem Lauf eine Sichtung von Hand. Im
   Homo-Lauf vom 2026-09-03 waren 7 von 64 Zuordnungen fachlich falsch, obwohl Lizenz, Urheber
   und MIME-Typ stimmten: ein Katzenfötus für „Fötus", ein saugendes Kalb für „Saugreflex",
@@ -122,5 +125,3 @@
   bleibt deshalb dauerhaft liegen. Ein einmaliger Abgleich gegen ein Verzeichnis-Listing
   könnte das bereinigen — er müsste sehr vorsichtig gebaut werden, weil er anders als die
   jetzige Regel auch Dateien sieht, die das Skript nie selbst hochgeladen hat.
-- Terra erst dann in den Bereichsmix aufnehmen, wenn Kartenfragen und generische Konzeptkarten
-  denselben visuellen Vertrag erfüllen.
