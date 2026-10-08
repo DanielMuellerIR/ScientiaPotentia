@@ -2,6 +2,13 @@
 
 Dieses Changelog beginnt mit dem für eine öffentliche Veröffentlichung bereinigten Projektstand.
 
+## [2.3.1] — 2026-10-08
+
+- Neu geöffnete Karten prüfen ihre Fähigkeit erneut. Der Quizstart wartet auf Länder-, Regionen- und Flussgeometrien; fehlgeschlagene Quellen lassen keine unbedienbaren Kartenfragen zu.
+- NGC 3031 und NGC 5457 sind mit M81 und M101 zusammengeführt. Vorhandene Lernstände bleiben unter den kanonischen Konzepten erhalten.
+- Fehlgeschlagene Pflichtabfragen für Typen und Entfernungen brechen die Astronomie-Ernte ab. Bildabgleich meldet fehlende Kopien vor dem Abbruch.
+- Die Fragenprüfung akzeptiert zwei bis sechs Antwortoptionen und verwirft Antworten außerhalb der tatsächlich angebotenen Buchstaben.
+
 ## [2.3.0] — 2026-10-07
 
 - Querbeet umfasst alle acht Bereiche einschließlich Terra. Fragen zeigen die Karte oder die spezialisierte Darstellung ihres Herkunftsbereichs. Kartenfähigkeit wird vor Rundenstart geprüft; ohne WebGL bleiben geeignete Fragen verfügbar und die Lösung verborgen.

@@ -559,7 +559,11 @@ export default function App() {
       // Der Hinweis gehoert zum Schnelltest-Versuch, nicht zur naechsten Ansicht.
       // Er verdeckt sonst die dauerhafte Warnung ueber nicht gespeicherte Antworten.
       setQuizStartError('');
-      if (hasMapPool && activeTabRef.current === 'museum' && tab !== 'museum') setMapAvailable(null);
+      const previousTab = activeTabRef.current;
+      const visualWasUnmounted = previousTab === 'museum'
+        || (activeDomain.id === 'scientia' && previousTab === 'dashboard')
+        || (previousTab === 'explore' && activeDomain.Explorer);
+      if (hasMapPool && visualWasUnmounted) setMapAvailable(null);
       setActiveTab(tab);
     } finally {
       endNavigation();

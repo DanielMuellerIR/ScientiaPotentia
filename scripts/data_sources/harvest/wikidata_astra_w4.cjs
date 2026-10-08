@@ -212,6 +212,7 @@ SELECT DISTINCT ?item ?distAmount ?distUnit WHERE {
       if (i + batchSize < qids.length) await sleep(MIN_DELAY_MS);
     } catch (err) {
       console.warn(`  Distanz-Batch-Fehler (${label}): ${err.message}`);
+      throw err;
     }
   }
   return distMap;
@@ -425,6 +426,7 @@ SELECT DISTINCT ?item ?typeLabel WHERE {
     }
   } catch (err) {
     console.warn(`  Typ-Batch-Fehler: ${err.message}`);
+      throw err;
   }
 
   // Nach QID gruppieren
@@ -814,6 +816,7 @@ SELECT DISTINCT ?item ?typeLabel WHERE {
       if (i + batchSize < topQids.length) await sleep(MIN_DELAY_MS);
     } catch (err) {
       console.warn(`  Typ-Batch-Fehler: ${err.message}`);
+      throw err;
     }
   }
 

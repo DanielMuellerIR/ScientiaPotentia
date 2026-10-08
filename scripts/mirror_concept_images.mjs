@@ -426,7 +426,6 @@ export async function commandVerify(options, paths) {
     ...(result.withoutEntry.length ? [`${result.withoutEntry.length} Bilder ohne Manifest-Eintrag`] : []),
     ...(result.withoutFile.length ? [`${result.withoutFile.length} Bilddateien fehlen oder sind beschädigt`] : []),
   ];
-  if (problems.length) throw new Error(`Bildabgleich fehlgeschlagen: ${problems.join('; ')}`);
   log(options, `Abgleich: ${result.mirrored}/${result.total} Bilder haben eine Kopie.`);
   if (result.withoutEntry.length) {
     log(options, `  ${result.withoutEntry.length} ohne Manifest-Eintrag`);
@@ -437,6 +436,7 @@ export async function commandVerify(options, paths) {
   if (result.orphanFiles.length) {
     log(options, `  ${result.orphanFiles.length} Dateien ohne Eintrag (Altbestand)`);
   }
+  if (problems.length) throw new Error(`Bildabgleich fehlgeschlagen: ${problems.join('; ')}`);
   return result;
 }
 
@@ -504,8 +504,6 @@ async function main() {
       ...(fetched.failed ? [`${fetched.failed} Bildkopien konnten nicht erzeugt werden`] : []),
       ...(manifested.missing.length
         ? [`${manifested.missing.length} Katalogbilder fehlen im Manifest`] : []),
-      ...(result.withoutFile.length
-        ? [`${result.withoutFile.length} Manifestdateien fehlen lokal`] : []),
     ];
     if (problems.length) {
       throw new Error(`Bildspiegelung fehlgeschlagen: ${problems.join('; ')}`);

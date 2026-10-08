@@ -99,6 +99,8 @@ describe('IndexedDB-Schreibverträge', () => {
 
   it('übernimmt Astra-Aliase mit der richtigen Domain', async () => {
     const db = await import('../utils/db');
+    expect(db.canonicalProgressEntityId('astra:galaxy-ngc-3031-h3')).toBe('astra:bode_m81');
+    expect(db.canonicalProgressEntityId('astra:galaxy-ngc-5457-h3')).toBe('astra:feuerrad_m101');
     const canonical = db.canonicalProgressEntityId('astra:galaxy-messier-81-h3');
     expect(canonical).toBe('astra:bode_m81');
     expect(db.mergeAliasedProgress(null, { repetitions: 3 }, canonical))

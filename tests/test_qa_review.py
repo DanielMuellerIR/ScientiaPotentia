@@ -13,6 +13,20 @@ RUN_QA = ROOT / 'scripts' / 'qa_review' / 'run_qa.py'
 
 
 class QaReviewRunnerTests(unittest.TestCase):
+    def test_answer_letters_follow_each_question_option_count(self):
+        import importlib.util
+        spec = importlib.util.spec_from_file_location('review_runner', RUN_QA)
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        for count in (2, 3, 6):
+            view = self.make_view()
+            view['options'] = module.LETTERS[:count]
+            for index, letter in enumerate(module.LETTERS):
+                evaluation = self.make_evaluation()
+                evaluation['eigeneAntwort'] = letter
+                self.assertEqual(bool(module.validate_evaluation(evaluation, view)), index >= count)
+        self.assertIn('A|B|C|D|E|F', module.RUBRIK)
+
     @staticmethod
     def write_manifest(batches):
         hashes = {

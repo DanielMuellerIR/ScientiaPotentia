@@ -162,13 +162,30 @@ export default function Map({
 
     mapRef.current = map;
     let ready = false;
+    let layersReady = false;
+    const quizSources = ['countries', 'subdivisions', 'rivers'];
+    const failInitialization = () => {
+      if (ready) return;
+      ready = true;
+      clearTimeout(initializationTimeout);
+      setInitializationFailed(true);
+      onAvailabilityChange?.(false);
+    };
+    const checkSources = () => {
+      if (ready || !layersReady) return;
+      if (!quizSources.every(id => map.getSource(id) && map.isSourceLoaded(id))) return;
+      ready = true;
+      clearTimeout(initializationTimeout);
+      setMapLoaded(true);
+      onAvailabilityChange?.(true);
+    };
     const initializationTimeout = setTimeout(() => {
-      if (!ready) {
-        ready = true;
-        setInitializationFailed(true);
-        onAvailabilityChange?.(false);
-      }
+      failInitialization();
     }, 20000);
+    map.on('sourcedata', checkSources);
+    map.on('error', event => {
+      if (quizSources.includes(event.sourceId)) failInitialization();
+    });
     // Subdivisionen werden im Atlas ab Zoomstufe 3 eingeblendet. Der React-State
     // sorgt dafür, dass ein reines Mausrad-/Pinch-Zoomen die Paint-Regeln neu setzt.
     map.on('zoomend', () => setViewZoom(map.getZoom()));
@@ -322,11 +339,8 @@ export default function Map({
         }
       });
 
-      if (ready) return;
-      ready = true;
-      clearTimeout(initializationTimeout);
-      setMapLoaded(true);
-      onAvailabilityChange?.(true);
+      layersReady = true;
+      checkSources();
 
       // Mouse Move Hover effect on countries
       let hoveredFeatureId = null;

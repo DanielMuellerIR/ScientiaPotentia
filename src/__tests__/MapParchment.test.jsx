@@ -101,6 +101,39 @@ describe('Terra-Kartenwerkzeuge', () => {
     expect(availability).toHaveBeenCalledWith(false);
     warn.mockRestore();
   });
+  it('meldet Kartenfähigkeit erst nach allen Quizquellen und behandelt Quellfehler', async () => {
+    const availability = vi.fn();
+    render(<Map onAvailabilityChange={availability} />);
+    const map = maplibregl.Map.mock.instances[0];
+    map.isSourceLoaded.mockReturnValue(false);
+    await waitFor(() => expect(map.addSource).toHaveBeenCalledTimes(3));
+    expect(availability).not.toHaveBeenCalled();
+    const sourceEvent = map.on.mock.calls.find(([event]) => event === 'sourcedata')[1];
+    map.isSourceLoaded.mockImplementation(id => id !== 'subdivisions');
+    act(() => sourceEvent({ sourceId: 'countries' }));
+    expect(availability).not.toHaveBeenCalled();
+    const errorEvent = map.on.mock.calls.find(([event]) => event === 'error')[1];
+    act(() => errorEvent({ sourceId: 'subdivisions', error: new Error('HTTP 404') }));
+    expect(availability.mock.calls).toEqual([[false]]);
+    map.isSourceLoaded.mockReturnValue(true);
+    act(() => sourceEvent({ sourceId: 'subdivisions' }));
+    expect(availability.mock.calls).toEqual([[false]]);
+    expect(screen.getByRole('status')).toHaveTextContent('Karte nicht verfügbar');
+  });
+
+  it('wartet auch bei geladenem Stil bis zur letzten Quizquelle', async () => {
+    const availability = vi.fn();
+    render(<Map onAvailabilityChange={availability} />);
+    const map = maplibregl.Map.mock.instances[0];
+    map.isSourceLoaded.mockReturnValue(false);
+    await waitFor(() => expect(map.addSource).toHaveBeenCalledTimes(3));
+    const sourceEvent = map.on.mock.calls.find(([event]) => event === 'sourcedata')[1];
+    expect(availability).not.toHaveBeenCalled();
+    map.isSourceLoaded.mockReturnValue(true);
+    act(() => sourceEvent({ sourceId: 'rivers' }));
+    expect(availability.mock.calls).toEqual([[true]]);
+  });
+
   it('lässt im niedrigen Mobilpanel trotz hoher Wunschpolsterung eine sichtbare Karte', () => {
     const padding = boundedMapPadding({ clientWidth: 350, clientHeight: 180 }, 180);
     expect(180 - 2 * padding).toBeGreaterThan(100);

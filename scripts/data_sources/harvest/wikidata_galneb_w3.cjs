@@ -197,6 +197,7 @@ SELECT DISTINCT ?item ?typeLabel WHERE {
       if (i + batchSize < qids.length) await sleep(MIN_DELAY_MS);
     } catch (err) {
       console.warn(`  Typ-Batch-Fehler: ${err.message}`);
+      throw err;
     }
   }
   return typeMap;
@@ -244,6 +245,7 @@ SELECT DISTINCT ?item ?distAmount ?distUnit WHERE {
       if (i + batchSize < qids.length) await sleep(MIN_DELAY_MS);
     } catch (err) {
       console.warn(`  Distanz-Batch-Fehler (${label}): ${err.message}`);
+      throw err;
     }
   }
   return distMap;

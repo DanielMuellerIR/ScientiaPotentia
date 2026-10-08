@@ -38,7 +38,7 @@ DEFAULT_LLM_RUNNER = os.environ.get('SCIENTIA_LLM_RUNNER', '')
 LETTERS = ['A', 'B', 'C', 'D', 'E', 'F']
 
 EVALUATION_ENUMS = {
-    'eigeneAntwort': {'A', 'B', 'C', 'D'},
+    'eigeneAntwort': set(LETTERS),
     'basis': {'wissen', 'hinweis', 'raten'},
     'confidence': {'hoch', 'mittel', 'niedrig'},
     'selbstverraeter': {'keiner', 'schwach', 'stark'},
@@ -54,7 +54,7 @@ EVALUATION_TEXT_FIELDS = (
 # --- Bewertungs-Rubrik (System-/Aufgabenteil des Prompts) -------------------
 # Bewusst knapp, streng, deutsch. Enums klein halten → stabiles JSON.
 RUBRIK = """Du bist ein strenger Qualitätsprüfer für ein deutsches Wissens-Quiz (Multiple Choice).
-Jede Frage zeigt dem Spieler: die FRAGE, die OPTIONEN (A–D) und ein LINKES PANEL
+Jede Frage zeigt dem Spieler: die FRAGE, die OPTIONEN (je Frage 2 bis __COUNT__, __RANGE__) und ein LINKES PANEL
 (genau der Text, den er VOR dem Antworten sieht). Die richtig hinterlegte Antwort
 (KEYED) sieht der Spieler NICHT — sie dient dir nur zum Abgleich.
 
@@ -74,7 +74,7 @@ Gib AUSSCHLIESSLICH ein JSON-Array zurück, ein Objekt pro Frage, ohne Text davo
 ohne Markdown-Codefence. Schema pro Objekt:
 {
  "id": "<exakt die id der Frage>",
- "eigeneAntwort": "A|B|C|D",
+ "eigeneAntwort": "__LETTERS__",
  "basis": "wissen|hinweis|raten",
  "confidence": "hoch|mittel|niedrig",
  "keyDoubt": true|false,
@@ -110,7 +110,7 @@ Leitlinien:
 - Sei konkret in den Gründen (nenne die Option/den Begriff), kein Allgemeinplatz.
 
 FRAGEN:
-"""
+""".replace("__COUNT__", str(len(LETTERS))).replace("__RANGE__", f"{LETTERS[0]}–{LETTERS[-1]}").replace("__LETTERS__", "|".join(LETTERS))
 
 
 def deterministic_shuffle(options, seed_str):
@@ -238,7 +238,7 @@ def extract_json_array(text):
     return out
 
 
-def validate_evaluation(evaluation):
+def validate_evaluation(evaluation, view=None):
     """Prüft das dokumentierte Modell-Ausgabeschema vollständig.
 
     Eine vorhandene ID allein darf nicht als Bewertung zählen: Andernfalls kann
@@ -253,6 +253,8 @@ def validate_evaluation(evaluation):
     for field, allowed in EVALUATION_ENUMS.items():
         if evaluation.get(field) not in allowed:
             problems.append(f'{field} fehlt oder ist ungültig')
+    if view is not None and evaluation.get('eigeneAntwort') not in LETTERS[:len(view['options'])]:
+        problems.append('eigeneAntwort liegt außerhalb der Optionen dieser Frage')
     if type(evaluation.get('keyDoubt')) is not bool:  # bool, nicht 0/1 akzeptieren
         problems.append('keyDoubt fehlt oder ist kein Boolean')
     for field in EVALUATION_TEXT_FIELDS:
@@ -427,7 +429,7 @@ def main():
                     evaluation = dict(evaluation)
                     if evaluation.get('id') in ref2id:
                         evaluation['id'] = ref2id[evaluation['id']]
-                evaluation_errors = validate_evaluation(evaluation)
+                evaluation_errors = validate_evaluation(evaluation, all_views.get(evaluation.get('id')) if isinstance(evaluation, dict) else None)
                 if evaluation_errors:
                     schema_errors.append(
                         f'Objekt {index}: {", ".join(evaluation_errors)}')

@@ -26,6 +26,8 @@ vi.mock('maplibre-gl', () => {
       ]
     }));
     this.addSource = vi.fn();
+    this.getSource = vi.fn(id => this.addSource.mock.calls.some(([source]) => source === id) ? {} : undefined);
+    this.isSourceLoaded = vi.fn(() => true);
     this.addLayer = vi.fn();
     this.setPaintProperty = vi.fn();
     this.setLayoutProperty = vi.fn();

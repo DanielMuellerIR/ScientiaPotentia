@@ -48,12 +48,13 @@ vi.mock('../components/DomainSwitcher', () => ({
   default: () => <div>Bereichsschalter</div>,
 }));
 vi.mock('../components/ScientiaHub', () => ({
-  default: () => <div>Test-Hub</div>,
+  default: ({ onStartMixedQuiz }) => <button onClick={onStartMixedQuiz}>Querbeet starten</button>,
 }));
+const mapProbe = vi.hoisted(() => ({ ready: true }));
 vi.mock('../components/VisualPanel', () => ({
   default: ({ mapProps }) => {
     React.useEffect(() => {
-      mapProps.onAvailabilityChange(true);
+      if (mapProbe.ready) mapProps.onAvailabilityChange(true);
     }, [mapProps.onAvailabilityChange]);
     return <>
       <button type="button" onClick={() => mapProps.onSelectEntity('target')}>Ziel wählen</button>
@@ -82,6 +83,7 @@ vi.mock('../components/MuseumExplorer', () => ({
 
 beforeEach(() => {
   vi.clearAllMocks();
+  mapProbe.ready = true;
   getSetting.mockImplementation((key, fallback) => Promise.resolve(fallback));
   getAllProgress.mockResolvedValue([]);
 });
@@ -108,4 +110,18 @@ it('wertet Kartenklicks erst nach dem Start der echten Quizrunde aus', async () 
   fireEvent.click(screen.getByRole('button', { name: 'Quiz starten' }));
   await screen.findByText('Testfrage');
   expect(saveProgressAndLog).toHaveBeenCalledTimes(1);
+});
+
+it('prüft eine nach dem Scientia-Hub neu montierte Karte erneut', async () => {
+  render(<App />);
+  fireEvent.click(screen.getByRole('button', { name: 'Quiz' }));
+  await screen.findByRole('button', { name: 'Quiz starten' });
+  fireEvent.click(screen.getByRole('button', { name: 'Übersicht' }));
+  await screen.findByRole('button', { name: 'Querbeet starten' });
+  mapProbe.ready = false;
+  fireEvent.click(screen.getByRole('button', { name: 'Querbeet starten' }));
+  expect(await screen.findByText('Kartenfähigkeit wird geprüft …')).toBeInTheDocument();
+  expect(screen.queryByRole('button', { name: 'Quiz starten' })).not.toBeInTheDocument();
+  fireEvent.click(screen.getByRole('button', { name: 'Ohne WebGL fortsetzen' }));
+  expect(screen.queryByText('Testfrage')).not.toBeInTheDocument();
 });

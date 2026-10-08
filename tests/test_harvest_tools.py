@@ -15,6 +15,40 @@ HARVEST = ROOT / 'scripts' / 'data_sources' / 'harvest'
 
 
 class HarvestToolTests(unittest.TestCase):
+    def test_required_astronomy_batches_abort_before_writing(self):
+        code = r"""
+const fs = require('fs'), vm = require('vm'), path = require('path');
+const {createRequire} = require('module');
+(async () => {
+ for (const file of ['wikidata_galneb.cjs', 'wikidata_galneb_w3.cjs', 'wikidata_astra_w4.cjs']) {
+  const name = path.resolve('scripts/data_sources/harvest', file);
+  let writes = 0;
+  const baseRequire = createRequire(name);
+  const requireProbe = id => id === './json_io.cjs'
+   ? {writeJsonAtomic: () => {writes++}} : baseRequire(id);
+  const sandbox = {require: requireProbe, module: {exports: {}}, __dirname: path.dirname(name),
+   console: {log(){}, warn(){}, error(){}}, setTimeout: callback => callback(),
+   process: {exit: () => {throw Error('exit')}}};
+  const source = fs.readFileSync(name, 'utf8');
+  const functions = file === 'wikidata_astra_w4.cjs'
+   ? ['fetchDistancesForQids', 'queryStars', 'queryGalaxies']
+   : ['fetchTypesForQids', 'fetchDistancesForQids'];
+  vm.runInNewContext(source + '\nmodule.exports.probe = { ' + functions.join(',') + ' };' +
+   '\nsleep=async()=>{}; sparql=async(query)=>{if(query.includes("?typeLabel") || query.includes("?distAmount")) throw Error("synthetic batch failure"); return [{qid:{value:"Q999999999"},item:{value:"http://www.wikidata.org/entity/Q999999999"},label:{value:"Fixture"},sitelinks:{value:"100"}}]};', sandbox);
+  for (const fn of functions) {
+   let failed = false;
+   try { await sandbox.module.exports.probe[fn](['Q999999999'], 'fixture'); }
+   catch (error) { if (!String(error).includes('synthetic batch failure')) throw error; failed = true; }
+   if (!failed || writes) throw Error(file + ':' + fn + ' did not abort without writing');
+  }
+ }
+ console.log('required batches: OK');
+})().catch(error => {console.error(error); process.exitCode=1});
+"""
+        result = subprocess.run(['node', '-e', code], cwd=ROOT, capture_output=True, text=True, timeout=10)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertIn('required batches: OK', result.stdout)
+
     def test_layered_building_rights_preserve_the_photograph_license(self):
         code = r"""
 const {refineLayeredLicenseMetadata} = require('./scripts/lib/commons_api.cjs');

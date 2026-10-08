@@ -10,6 +10,8 @@ import { getDomainIdFromConceptKey as getDomainFromEntityId } from './conceptKey
 const DB_NAME = 'GeoAtlasDB';
 const DB_VERSION = 4;
 const PROGRESS_ENTITY_ALIASES = Object.freeze({
+  'astra:galaxy-ngc-3031-h3': 'astra:bode_m81',
+  'astra:galaxy-ngc-5457-h3': 'astra:feuerrad_m101',
   'astra:galaxy-messier-81-h3': 'astra:bode_m81',
   'astra:galaxy-messier-101-h3': 'astra:feuerrad_m101',
   'lingua:fula': 'lingua:fulfulde',
