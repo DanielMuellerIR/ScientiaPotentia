@@ -2,6 +2,12 @@
 
 Dieses Changelog beginnt mit dem für eine öffentliche Veröffentlichung bereinigten Projektstand.
 
+## [2.3.2] — 2026-10-13
+
+- Lernstände und Antwortverlauf der zusammengeführten NGC-Galaxien werden jetzt auch aus bereits bestehenden Datenbanken der Version 4 übernommen.
+- Ohne nutzbare Karte werden neben Kartenklickfragen auch Regionsfragen ausgeschlossen, deren Hinweis die markierte Kartenfläche ist. Das gilt für Terra und Querbeet.
+- Die drei Astronomie-Ernten verwenden denselben Distanzlader mit gemeinsamer Einheitenumrechnung und Fehlerweitergabe. Zwei wirkungslose Deklarationen sind entfernt; die wirksamen Quellenfilter bleiben unverändert.
+
 ## [2.3.1] — 2026-10-08
 
 - Neu geöffnete Karten prüfen ihre Fähigkeit erneut. Der Quizstart wartet auf Länder-, Regionen- und Flussgeometrien; fehlgeschlagene Quellen lassen keine unbedienbaren Kartenfragen zu.

@@ -20,6 +20,7 @@ const https = require('https');
 const fs    = require('fs');
 const path  = require('path');
 const { writeJsonAtomic } = require('./json_io.cjs');
+const { fetchDistancesForQids: fetchDistances } = require('./wikidata_distances.cjs');
 
 // ---------------------------------------------------------------------------
 // Konfiguration
@@ -37,12 +38,6 @@ const NEBULA_MIN_SITELINKS  = 8;
 // Ziel-Mengen (soft — wird bei erreicht sofort abgebrochen)
 const GALAXY_TARGET = 30;
 const NEBULA_TARGET = 25;
-
-// Wikidata-Einheiten-QIDs
-const UNIT_LY  = 'Q531';       // Lichtjahr
-const UNIT_PC  = 'Q12129';     // Parsec
-const UNIT_KPC = 'Q11929860';  // Kiloparsec
-const UNIT_MPC = 'Q3773454';   // Megaparsec
 
 const OUT_PATH = '/tmp/astra_galneb_w3.json';
 const RAW_PATH = path.join(__dirname, '..', 'astra_raw.json');
@@ -66,17 +61,6 @@ function toSlug(name) {
     .replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
-}
-
-function toDistanceLy(amount, unitUrl) {
-  const v = parseFloat(amount);
-  if (!isFinite(v) || v <= 0) return null;
-  const unitQid = String(unitUrl).split('/').pop();
-  if (unitQid === UNIT_LY)  return Math.round(v);
-  if (unitQid === UNIT_PC)  return Math.round(v * 3.26156);
-  if (unitQid === UNIT_KPC) return Math.round(v * 3261.56);
-  if (unitQid === UNIT_MPC) return Math.round(v * 3261560);
-  return null;
 }
 
 function httpsGet(url, headers, retries = 0) {
@@ -203,52 +187,8 @@ SELECT DISTINCT ?item ?typeLabel WHERE {
   return typeMap;
 }
 
-async function fetchDistancesForQids(qids, label) {
-  const distMap = new Map();
-  if (qids.length === 0) return distMap;
-  const batchSize = 30;
-  for (let i = 0; i < qids.length; i += batchSize) {
-    const batch = qids.slice(i, i + batchSize);
-    const valClause = batch.map(q => `wd:${q}`).join(' ');
-    const query = `
-SELECT DISTINCT ?item ?distAmount ?distUnit WHERE {
-  VALUES ?item { ${valClause} }
-  OPTIONAL {
-    ?item p:P2583 ?distStmt .
-    ?distStmt psv:P2583 ?distVal .
-    ?distVal wikibase:quantityAmount ?distAmount .
-    ?distVal wikibase:quantityUnit ?distUnit .
-    ?distStmt wikibase:rank ?distRank .
-    FILTER(?distRank != wikibase:DeprecatedRank)
-  }
-}
-`;
-    try {
-      const bindings = await sparql(query);
-      for (const b of bindings) {
-        const itemUrl = val(b, 'item');
-        if (!itemUrl) continue;
-        const qid     = String(itemUrl).split('/').pop();
-        const amount  = val(b, 'distAmount');
-        const unitUrl = val(b, 'distUnit');
-        if (!amount || !unitUrl) continue;
-        const ly = toDistanceLy(amount, unitUrl);
-        if (!ly || ly <= 0) continue;
-        const existing = distMap.get(qid);
-        if (!existing) {
-          distMap.set(qid, ly);
-        } else {
-          const unitQid = String(unitUrl).split('/').pop();
-          if (unitQid === UNIT_LY) distMap.set(qid, ly);
-        }
-      }
-      if (i + batchSize < qids.length) await sleep(MIN_DELAY_MS);
-    } catch (err) {
-      console.warn(`  Distanz-Batch-Fehler (${label}): ${err.message}`);
-      throw err;
-    }
-  }
-  return distMap;
+function fetchDistancesForQids(qids, label) {
+  return fetchDistances(qids, label, { sparql, sleep, delayMs: MIN_DELAY_MS });
 }
 
 async function fetchMessierNumbers(qids) {

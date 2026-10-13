@@ -21,6 +21,7 @@ const https = require('https');
 const fs    = require('fs');
 const path  = require('path');
 const { writeJsonAtomic } = require('./json_io.cjs');
+const { fetchDistancesForQids: fetchDistances } = require('./wikidata_distances.cjs');
 
 // ---------------------------------------------------------------------------
 // Konfiguration
@@ -43,13 +44,6 @@ const NEBULA_TARGET = 18;
 const OUT_PATH = '/tmp/astra_galneb.json';
 const RAW_PATH = path.join(__dirname, '..', 'astra_raw.json');
 
-// Wikidata-Einheiten-QIDs für Distanzumrechnung
-// (ermittelt durch Analyse realer Wikidata-Einträge 2026-06-17)
-const UNIT_LY  = 'Q531';       // Lichtjahr
-const UNIT_PC  = 'Q12129';     // Parsec
-const UNIT_KPC = 'Q11929860';  // Kiloparsec
-const UNIT_MPC = 'Q3773454';   // Megaparsec
-
 // ---------------------------------------------------------------------------
 // Hilfsfunktionen
 // ---------------------------------------------------------------------------
@@ -71,21 +65,6 @@ function toSlug(name) {
     .replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
-}
-
-/**
- * Distanzwert (amount) + Wikidata-Einheits-URL → Lichtjahre (gerundete ganze Zahl).
- * Wikidata-Einheiten für Nebel/Galaxien: Lj, pc, kpc, Mpc.
- */
-function toDistanceLy(amount, unitUrl) {
-  const v = parseFloat(amount);
-  if (!isFinite(v) || v <= 0) return null;
-  const unitQid = String(unitUrl).split('/').pop();
-  if (unitQid === UNIT_LY)  return Math.round(v);
-  if (unitQid === UNIT_PC)  return Math.round(v * 3.26156);
-  if (unitQid === UNIT_KPC) return Math.round(v * 3261.56);
-  if (unitQid === UNIT_MPC) return Math.round(v * 3261560);
-  return null; // Unbekannte Einheit (m, km, AU etc.) ignorieren
 }
 
 /** HTTPS GET → Promise<string> mit exponenziellem Backoff bei 429/503. */
@@ -184,15 +163,6 @@ const GALAXY_TYPE_MAP = [
   ['Spiralgalaxie',           'Spiralgalaxie'],
   ['Galaxie',                 'Galaxie'],
 ];
-
-/** Gibt den normalisierten Typ oder null zurück. */
-function mapGalaxyType(label) {
-  if (!label) return null;
-  for (const [key, mapped] of GALAXY_TYPE_MAP) {
-    if (label.includes(key)) return mapped;
-  }
-  return null;
-}
 
 // ---------------------------------------------------------------------------
 // QUERY 1 — Galaxien (2 Sub-Queries, je eine Klassen-Gruppe)
@@ -397,58 +367,8 @@ SELECT DISTINCT ?item ?typeLabel WHERE {
 // Rückgabe: Map<qid, distanceLy>.
 // ---------------------------------------------------------------------------
 
-async function fetchDistancesForQids(qids, label) {
-  const distMap = new Map();
-  if (qids.length === 0) return distMap;
-
-  // In Batches zu 30 QIDs aufteilen
-  const batchSize = 30;
-  for (let i = 0; i < qids.length; i += batchSize) {
-    const batch = qids.slice(i, i + batchSize);
-    const valClause = batch.map(q => `wd:${q}`).join(' ');
-    const query = `
-SELECT DISTINCT ?item ?distAmount ?distUnit WHERE {
-  VALUES ?item { ${valClause} }
-  OPTIONAL {
-    ?item p:P2583 ?distStmt .
-    ?distStmt psv:P2583 ?distVal .
-    ?distVal wikibase:quantityAmount ?distAmount .
-    ?distVal wikibase:quantityUnit ?distUnit .
-    ?distStmt wikibase:rank ?distRank .
-    FILTER(?distRank != wikibase:DeprecatedRank)
-  }
-}
-`;
-    try {
-      const bindings = await sparql(query);
-      for (const b of bindings) {
-        const itemUrl = val(b, 'item');
-        if (!itemUrl) continue;
-        const qid = String(itemUrl).split('/').pop();
-        const amount  = val(b, 'distAmount');
-        const unitUrl = val(b, 'distUnit');
-        if (!amount || !unitUrl) continue;
-        const ly = toDistanceLy(amount, unitUrl);
-        if (!ly || ly <= 0) continue;
-        // Bei mehreren Distanzen: größeren (besser belegten) Wert bevorzugen,
-        // AUSSER wenn einer von ihnen plausibel für den Objekttyp ist.
-        // Für Nebel: ly < 50000 erwartet; für Galaxien: ly > 100000 erwartet.
-        const existing = distMap.get(qid);
-        if (!existing) {
-          distMap.set(qid, ly);
-        } else {
-          // Wenn beide plausibel: den Lj-Wert bevorzugen (direkt angegeben)
-          const unitQid = String(unitUrl).split('/').pop();
-          if (unitQid === UNIT_LY) distMap.set(qid, ly);
-        }
-      }
-      if (i + batchSize < qids.length) await sleep(MIN_DELAY_MS);
-    } catch (err) {
-      console.warn(`  Distanz-Batch-Fehler (${label}): ${err.message}`);
-      throw err;
-    }
-  }
-  return distMap;
+function fetchDistancesForQids(qids, label) {
+  return fetchDistances(qids, label, { sparql, sleep, delayMs: MIN_DELAY_MS });
 }
 
 // ---------------------------------------------------------------------------
@@ -467,9 +387,6 @@ SELECT DISTINCT ?item ?distAmount ?distUnit WHERE {
 // (z.B. Messier 87 = H-II-Gebiet IN einer Galaxie), werden ausgefiltert,
 // indem wir prüfen, ob das Objekt AUCH eine Galaxien-Klasse hat.
 // ---------------------------------------------------------------------------
-
-// Galaxien-QIDs für Anti-Join-Filter
-const GALAXY_CLASS_QIDS = ['Q318', 'Q2488', 'Q2490', 'Q190438', 'Q752374'];
 
 async function queryNebulae() {
   console.log('\n=== Query 2: Nebel ===');

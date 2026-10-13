@@ -7,6 +7,7 @@ import DomainSwitcher from './components/DomainSwitcher';
 import ScientiaHub from './components/ScientiaHub';
 import VisualPanel from './components/VisualPanel';
 import { DOMAINS, getDomainById, loadDomainConcepts, loadDomainData } from './domains';
+import { questionRequiresMap } from './domains/questionVisuals';
 import pkg from '../package.json';
 import { getAllProgress, getSetting, saveSetting, saveSettings } from './utils/db';
 import { playClick, isAudioMuted, setAudioMuted } from './utils/audio';
@@ -134,7 +135,7 @@ export default function App() {
   const domainQuestions = domainDataReady ? domainData.questions : EMPTY_QUESTIONS;
   const hasMapPool = activeDomain.hasMapQuestions ?? activeDomain.hasMap;
   const questionPool = useMemo(() => hasMapPool && mapAvailable === false
-    ? domainQuestions.filter(question => question.type !== 'click-map')
+    ? domainQuestions.filter(question => !questionRequiresMap(question))
     : domainQuestions, [domainQuestions, hasMapPool, mapAvailable]);
   const mapCapabilityPending = hasMapPool && mapAvailable === null;
 

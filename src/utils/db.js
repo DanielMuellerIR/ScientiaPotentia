@@ -8,7 +8,7 @@
 import { getDomainIdFromConceptKey as getDomainFromEntityId } from './conceptKeys';
 
 const DB_NAME = 'GeoAtlasDB';
-const DB_VERSION = 4;
+const DB_VERSION = 5;
 const PROGRESS_ENTITY_ALIASES = Object.freeze({
   'astra:galaxy-ngc-3031-h3': 'astra:bode_m81',
   'astra:galaxy-ngc-5457-h3': 'astra:feuerrad_m101',
@@ -116,7 +116,8 @@ export function initDB() {
         db.createObjectStore('settings', { keyPath: 'key' });
       }
 
-      if (event.oldVersion < 4 && db.objectStoreNames.contains('progress')) {
+      // Version 5 übernimmt auch die NGC-Aliase aus bereits migrierten V4-Datenbanken.
+      if (event.oldVersion < 5 && db.objectStoreNames.contains('progress')) {
         const transaction = event.target.transaction;
         const progressStore = transaction.objectStore('progress');
         const progressCursor = progressStore.openCursor();
