@@ -62,7 +62,6 @@ export function initDB() {
     const request = indexedDB.open(DB_NAME, DB_VERSION);
 
     request.onerror = (event) => {
-      dbPromise = null; // erlaubt erneuten Verbindungsversuch nach Fehler
       console.error('Database failed to open:', event.target.error);
       reject(event.target.error);
     };
@@ -154,6 +153,11 @@ export function initDB() {
         }
       }
     };
+  }).catch(error => {
+    // Auch ein synchroner Fehler von indexedDB.open darf nicht dauerhaft im
+    // Verbindungscache bleiben. Erst hier ist dbPromise bereits zugewiesen.
+    dbPromise = null;
+    throw error;
   });
 
   // WICHTIG: das gerade erzeugte Promise zurueckgeben. Ohne dieses return lieferte

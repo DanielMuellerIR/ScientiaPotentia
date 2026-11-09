@@ -2,6 +2,10 @@
 
 Dieses Changelog beginnt mit dem für eine öffentliche Veröffentlichung bereinigten Projektstand.
 
+## [2.3.3] — 2026-11-09
+
+- Nach einem synchronen Fehler beim Öffnen von IndexedDB kann die App den Speicher erneut öffnen, statt bis zum Neuladen alle weiteren Speicherzugriffe abzulehnen.
+
 ## [2.3.2] — 2026-10-13
 
 - Lernstände und Antwortverlauf der zusammengeführten NGC-Galaxien werden jetzt auch aus bereits bestehenden Datenbanken der Version 4 übernommen.
