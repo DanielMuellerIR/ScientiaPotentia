@@ -19,8 +19,6 @@ vi.mock('../utils/db', () => ({
   initDB: vi.fn(),
   getProgress: vi.fn(() => Promise.resolve(null)),
   getAllProgress: vi.fn(() => Promise.resolve([])),
-  saveProgress: vi.fn(() => Promise.resolve()),
-  addHistoryLog: vi.fn(() => Promise.resolve()),
   saveProgressAndLog: vi.fn(() => Promise.resolve()),
   getHistoryLogs: vi.fn(() => Promise.resolve([])),
   saveSetting: vi.fn(() => Promise.resolve()),

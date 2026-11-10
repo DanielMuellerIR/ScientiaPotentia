@@ -2,6 +2,11 @@
 
 Dieses Changelog beginnt mit dem für eine öffentliche Veröffentlichung bereinigten Projektstand.
 
+## [2.3.4] — 2026-11-10
+
+- Beim Zusammenführen alter Konzept-Aliase bleibt der neuere Lernstand einschließlich Fehlantworten und kurzer Wiederholungsfrist erhalten.
+- Quizantworten werden ausschließlich über den gemeinsamen atomaren Schreibweg gespeichert; ungenutzte getrennte Schreibfunktionen entfallen.
+
 ## [2.3.3] — 2026-11-09
 
 - Nach einem synchronen Fehler beim Öffnen von IndexedDB kann die App den Speicher erneut öffnen, statt bis zum Neuladen alle weiteren Speicherzugriffe abzulehnen.

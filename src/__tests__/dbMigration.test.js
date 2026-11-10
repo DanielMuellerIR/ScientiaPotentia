@@ -26,7 +26,7 @@ it.each([3, 4])('übernimmt NGC-Lernstände und Historie aus Datenbankversion %s
     const progress = db.createObjectStore('progress', { keyPath: 'entityId' });
     progress.createIndex('domain', 'domain');
     progress.put({ entityId: alias81, repetitions: 4, interval: 12, lastUpdated: 100 });
-    progress.put({ entityId: canonical81, repetitions: 2, interval: 3, lastUpdated: 200 });
+    progress.put({ entityId: canonical81, repetitions: 0, interval: 1, nextDueDate: 300, lastUpdated: 200 });
     progress.put({ entityId: alias101, repetitions: 3, interval: 8, lastUpdated: 150 });
     progress.put({ entityId: 'FR', domain: 'terra', repetitions: 1 });
     const history = db.createObjectStore('history', { keyPath: 'id', autoIncrement: true });
@@ -42,7 +42,7 @@ it.each([3, 4])('übernimmt NGC-Lernstände und Historie aus Datenbankversion %s
   const connection = await db.initDB();
   try {
     expect(await db.getProgress(canonical81)).toMatchObject({
-      entityId: canonical81, domain: 'astra', repetitions: 4, interval: 12, lastUpdated: 200,
+      entityId: canonical81, domain: 'astra', repetitions: 0, interval: 1, nextDueDate: 300, lastUpdated: 200,
     });
     expect(await db.getProgress(alias81)).toEqual(await db.getProgress(canonical81));
     expect(await db.getProgress(canonical101)).toMatchObject({ repetitions: 3, interval: 8 });

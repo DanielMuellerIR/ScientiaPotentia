@@ -26,20 +26,17 @@ export function canonicalProgressEntityId(entityId) {
 
 export function mergeAliasedProgress(existing, aliasRecord, canonicalId) {
   if (!existing) return { ...aliasRecord, entityId: canonicalId, domain: getDomainFromEntityId(canonicalId) };
-  const existingRank = [Number(existing.repetitions) || 0, Number(existing.lastUpdated) || 0];
-  const aliasRank = [Number(aliasRecord.repetitions) || 0, Number(aliasRecord.lastUpdated) || 0];
-  const aliasWins = aliasRank[0] > existingRank[0]
-    || (aliasRank[0] === existingRank[0] && aliasRank[1] > existingRank[1]);
+  // repetitions zählt die aktuelle Erfolgsserie, nicht das Alter des Lernstands.
+  const aliasWins = (Number(aliasRecord.lastUpdated) || 0) > (Number(existing.lastUpdated) || 0);
   const winner = aliasWins ? aliasRecord : existing;
   return {
     ...winner,
     entityId: canonicalId,
     domain: getDomainFromEntityId(canonicalId),
-    lastUpdated: Math.max(Number(existing.lastUpdated) || 0, Number(aliasRecord.lastUpdated) || 0),
   };
 }
 
-// Gecachte Verbindung: Bisher oeffnete jede getProgress/saveProgress/… einen
+// Gecachte Verbindung: Bisher oeffnete jede getProgress/saveProgressAndLog/… einen
 // EIGENEN IndexedDB-Handle (pro Quiz-Antwort gleich mehrere) und schloss keinen
 // — die offenen Verbindungen sammelten sich an. Wir oeffnen die DB jetzt genau
 // einmal und teilen das Promise. Bei Fehler/unerwartetem Schliessen wird der
@@ -239,54 +236,6 @@ export async function getAllProgress() {
 
     request.onsuccess = () => resolve(request.result || []);
     request.onerror = () => reject(request.error);
-  });
-}
-
-/**
- * Updates the SRS progress for an entity.
- * @param {string} entityId 
- * @param {Object} srsData - { repetitions, interval, easiness, nextDueDate }
- * @param {string} type - type of entity (e.g. 'country', 'city', 'river', 'mountain', 'landmark')
- * @param {string} domain - knowledge domain, derived from entityId if omitted
- * @returns {Promise<void>}
- */
-export async function saveProgress(entityId, srsData, type, domain = getDomainFromEntityId(entityId)) {
-  const db = await initDB();
-  const canonicalId = canonicalProgressEntityId(entityId);
-  return runWriteTransaction(db, ['progress'], transaction => {
-    const store = transaction.objectStore('progress');
-    
-    const record = {
-      entityId: canonicalId,
-      domain: getDomainFromEntityId(canonicalId) || domain,
-      type,
-      ...srsData,
-      lastUpdated: Date.now()
-    };
-
-    store.put(record);
-  });
-}
-
-/**
- * Adds a log entry to the history store.
- * @param {Object} logEntry - { entityId, type, correct, attempts, responseTime }
- * @returns {Promise<void>}
- */
-export async function addHistoryLog(logEntry) {
-  const db = await initDB();
-  const canonicalId = canonicalProgressEntityId(logEntry.entityId);
-  return runWriteTransaction(db, ['history'], transaction => {
-    const store = transaction.objectStore('history');
-    
-    const record = {
-      ...logEntry,
-      entityId: canonicalId,
-      domain: logEntry.domain || getDomainFromEntityId(canonicalId),
-      timestamp: Date.now()
-    };
-
-    store.add(record);
   });
 }
 

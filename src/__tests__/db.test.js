@@ -63,7 +63,7 @@ describe('IndexedDB-Schreibverträge', () => {
       { entityId: 'lingua:fula', repetitions: 4, lastUpdated: 10, interval: 9 },
       'lingua:fulfulde',
     )).toEqual(expect.objectContaining({
-      entityId: 'lingua:fulfulde', repetitions: 4, interval: 9, lastUpdated: 20,
+      entityId: 'lingua:fulfulde', repetitions: 2, interval: 3, lastUpdated: 20,
     }));
   });
 
